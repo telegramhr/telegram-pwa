@@ -1,0 +1,211 @@
+/* 
+* Telegram Media Grupa CSS Framework
+* by TG Studio
+*/
+
+/* CSS Reset */
+
+html { 
+    margin: 0;
+    padding: 0;
+    border: 0;
+    overflow-x: hidden;
+}
+body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, nav, section {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline; 
+    list-style: none;
+}
+
+/* Basics */
+
+body {
+    -webkit-font-smoothing: antialiased;
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+:focus { 
+    outline: none; 
+}
+
+/* Typography */
+
+b, strong, .bold { 
+    font-weight: 700; 
+}
+.superbold { 
+    font-weight: 900; 
+}
+i, em, .italic { 
+    font-style: italic; 
+}
+.center-text {
+    text-align: center;
+}
+.left-text {
+    text-align: left;
+}
+.right-text {
+    text-align: right;
+}
+.float-right {
+    float: right;
+}
+.white-text {
+    color: white;
+}
+.clickable {
+    cursor: pointer;
+}
+.animate, svg {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+}
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Media */
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Layout */ 
+
+.flex {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+.stretch {
+    align-items: stretch;
+}
+.no-wrap {
+    flex-wrap: nowrap;
+}
+.half {
+    width: 49.99%;
+}
+.fourth {
+    width: 24.99%;
+}
+.fifth {
+    width: 19.99%;
+}
+.third {
+    width: 33.33%;
+}
+.two-thirds {
+    width: 66.66%;
+}
+.full {
+    width: 100%;
+}
+.five-sixths {
+    width: 83.33%;
+}
+.sixth {
+    width: 16.66%;
+}
+.three-fourths {
+    width: 74.99%;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+/* Functions */
+
+.animate {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+}
+.hide {
+    display: none !important;
+}
+.mobile-only {
+    display: none;
+}
+.faded-50, .faded {
+    opacity: 0.5
+}
+.faded-70 {
+    opacity: 0.7;
+}
+.yt-embed {
+    width: 100%;
+    max-width: 1024px;
+    height: 576px;
+}
+.relative {
+    position: relative;
+}
+.center-text {
+    text-align: center;
+}
+.align-end {
+    align-self: flex-end;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 1023px) {
+    .mobile-only {
+        display: inherit;
+    }
+    .desktop-only {
+        display: none;
+    }
+    .flex-responsive {
+        width: 100%;
+    }
+    .yt-embed {
+        height: 56.25vw;
+    }
+}
