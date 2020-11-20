@@ -1,7 +1,7 @@
 <template>
   <div class="main-container flex homepage">
     <div class="full flex tg-red">
-      <t-g-header></t-g-header>
+      <header></header>
       <div class="full header-filler"></div>
     </div>
     <div
@@ -42,10 +42,10 @@
         <div
           class="third flex-responsive column-horizontal-pad flex column-top-pad"
         >
-          <standard></standard>
-          <standard></standard>
-          <standard></standard>
-          <standard></standard>
+          <standard :post="posts[4]"></standard>
+          <standard :post="posts[5]"></standard>
+          <standard :post="posts[6]"></standard>
+          <standard :post="posts[7]"></standard>
         </div>
       </section>
       <div class="full flex mobile-only">
@@ -56,8 +56,8 @@
       >
         <latest :portal="1"></latest>
         <h2 class="full flex section-title">Komentari</h2>
-        <komentar></komentar>
-        <komentar></komentar>
+        <!--<komentar></komentar>
+        <komentar></komentar>-->
         <div class="full flex desktop-only">
           <h2 class="full flex section-title">Newsletter</h2>
           <newsletter></newsletter>
@@ -84,7 +84,7 @@
       >
         <h2 class="full flex section-title">Upravo se čita</h2>
         <div class="full flex">
-          <mini></mini>
+          <!--<mini></mini>-->
           <!-- 4 -->
         </div>
         <h2 class="full flex section-title">Dojave</h2>
@@ -94,10 +94,13 @@
         <section
           class="two-thirds flex-responsive flex mobile-side-pad column-horizontal-pad column-right-border"
         >
-          <featured :post="posts[0]"></featured>
+          <featured :post="posts[8]"></featured>
           <div class="full flex split-articles">
-            <standard></standard>
-            <!-- 3x -->
+            <standard
+              v-for="i in [9, 10, 11]"
+              :key="i"
+              :post="posts[i]"
+            ></standard>
           </div>
         </section>
         <section class="full mobile-only">
@@ -106,8 +109,11 @@
         <section
           class="third flex-responsive flex mobile-side-pad column-horizontal-pad"
         >
-          <standard></standard>
-          <!-- 3x -->
+          <standard
+            v-for="i in [12, 13, 14]"
+            :key="i"
+            :post="posts[i]"
+          ></standard>
         </section>
       </div>
       <div
@@ -126,9 +132,9 @@
       </div>
     </div>
 
-    <!--<sport></sport>
-    <super1></super1>
-    <div class="full flex">
+    <sport></sport>
+    <super></super>
+    <!--<div class="full flex">
       <div class="container desktop-only flex relative column-full-pad"></div>
     </div>
     <div class="container flex relative block-5 standard-block">
@@ -148,7 +154,10 @@
 </template>
 
 <script>
+import Sport from '~/components/Elements/Sport'
+import Super from '~/components/Elements/Super1'
 export default {
+  components: { Super, Sport },
   data() {
     return {
       mobile: false,
@@ -168,6 +177,11 @@ export default {
         this.posts = res.data
       })
     },
+  },
+  head() {
+    return {
+      title: 'Telegram.hr',
+    }
   },
 }
 </script>

@@ -1,14 +1,14 @@
 <template>
   <div>
-    <nuxt-link to="politika-kriminal">Politika & Kriminal</nuxt-link>
-    <nuxt-link to="komentari">Komentari</nuxt-link>
-    <nuxt-link to="biznis-tech">Biznis & Tech</nuxt-link>
-    <nuxt-link to="velike-price">Velike priče</nuxt-link>
-    <nuxt-link to="zivot">Život</nuxt-link>
-    <nuxt-link to="ekologija">Ekologija</nuxt-link>
-    <nuxt-link to="kultura">Kultura</nuxt-link>
-    <nuxt-link to="zivot">Život</nuxt-link>
-    <nuxt-link to="fotogalerije">Fotogalerije</nuxt-link>
+    <app-link to="politika-kriminal">Politika & Kriminal</app-link>
+    <app-link to="komentari">Komentari</app-link>
+    <app-link to="biznis-tech">Biznis & Tech</app-link>
+    <app-link to="velike-price">Velike priče</app-link>
+    <app-link to="zivot">Život</app-link>
+    <app-link to="ekologija">Ekologija</app-link>
+    <app-link to="kultura">Kultura</app-link>
+    <app-link to="zivot">Život</app-link>
+    <app-link to="fotogalerije">Fotogalerije</app-link>
   </div>
 </template>
 

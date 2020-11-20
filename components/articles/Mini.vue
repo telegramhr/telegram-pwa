@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link
+  <app-link
     class="full flex article-mini article relative"
     :to="post.permalink"
   >
@@ -12,7 +12,7 @@
         <span class="meta-date">{{ post.time | parseTime }}</span>
       </h5>
     </div>
-  </nuxt-link>
+  </app-link>
 </template>
 
 <script>

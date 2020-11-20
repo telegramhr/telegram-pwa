@@ -1,6 +1,6 @@
 <template>
   <section class="full desktop-only">
-    <nuxt-link
+    <app-link
       :to="post.permalink"
       class="immersive-break flex"
       :style="{ backgroundColor: `rgb(${post.color})` }"
@@ -46,7 +46,7 @@
       <div class="main-image">
         <img :src="post.image.url" :alt="post.image.alt" />
       </div>
-    </nuxt-link>
+    </app-link>
   </section>
 </template>
 

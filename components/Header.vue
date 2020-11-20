@@ -39,11 +39,11 @@
     <div class="full subheader sticky-subheader mobile-side-pad center">
       <div class="container flex desktop-subheader column-horizontal-pad">
         <div class="three-fourths flex">
-          <nuxt-link to="/" class="logo"
+          <app-link to="/" class="logo"
             ><img
               src="@/assets/img/telegram_logo_white.svg"
               alt="Telegram logo"
-          /></nuxt-link>
+          /></app-link>
           <a @click.prevent="sideMenuShow = !sideMenuShow"
             ><i class="far fa-bars"></i
           ></a>
@@ -85,17 +85,17 @@
             ></a>
           </div>
           <div class="half center relative">
-            <nuxt-link to="/" class="logo"
+            <app-link to="/" class="logo"
               ><img
                 src="@/assets/img/telegram_logo_white.svg"
                 alt="Telegram logo"
-            /></nuxt-link>
+            /></app-link>
           </div>
           <div class="flex fourth relative">
             <a href="#" @click.prevent="searchMenuShow = !searchMenuShow"
               ><i class="far fa-search"></i
             ></a>
-            <nuxt-link to="/login" class="signup-btn">Prijavi se</nuxt-link>
+            <app-link to="/login" class="signup-btn">Prijavi se</app-link>
           </div>
         </div>
         <!-- Mobile Subheader -->
@@ -118,7 +118,7 @@
             <a href="#" @click.prevent="searchMenuShow = !searchMenuShow"
               ><i class="far fa-search"></i
             ></a>
-            <nuxt-link to="/login" class="signup-btn">Prijavi se</nuxt-link>
+            <app-link to="/login" class="signup-btn">Prijavi se</app-link>
           </div>
         </div>
         <div class="flex relative weather mobile-only">

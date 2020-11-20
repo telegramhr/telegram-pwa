@@ -1,10 +1,10 @@
 <template>
   <div class="full flex article-featured article">
-    <nuxt-link class="full flex" :to="post.permalink">
+    <app-link class="full flex" :to="post.permalink">
       <img :src="post.image.url" :alt="post.image.alt" loading="lazy" />
-    </nuxt-link>
+    </app-link>
     <div class="full flex article-pad">
-      <nuxt-link class="full flex" to="permalink">
+      <app-link class="full flex" :to="post.permalink">
         <div class="full flex">
           <h3 :class="{ overtitle: true, dynamicOvertitle: post.overtitle }">
             <span v-if="post.overtitle" class="dynamic-overtitle-element">{{
@@ -27,16 +27,16 @@
           >
           <span class="meta-date">{{ post.time | parseTime }}</span>
         </h5>
-      </nuxt-link>
+      </app-link>
       <template v-if="related.length">
         <div class="full flex related-articles relative">
           <h5 class="full">Još o temi</h5>
-          <nuxt-link
+          <app-link
             v-for="article in related"
             :key="'related' + article.id"
             class="full flex"
             :to="article.permalink"
-            >{{ article.title }}</nuxt-link
+            >{{ article.title }}</app-link
           >
         </div>
       </template>
@@ -45,8 +45,10 @@
 </template>
 
 <script>
+import AppLink from '@/components/AppLink'
 export default {
   name: 'Featured',
+  components: { AppLink },
   props: {
     post: {
       required: true,

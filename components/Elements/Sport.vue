@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="posts.length">
     <div class="sport-block full flex">
       <div class="block-title full mobile-side-pad">
         <div class="container flex relative">
@@ -14,15 +14,17 @@
         <div
           class="two-thirds flex-responsive flex column-horizontal-pad column-right-border"
         >
-          <featured :post="{}"></featured>
+          <featured :post="posts[0]"></featured>
           <div class="full flex split-articles">
-            <standard></standard>
-            <!-- 3x -->
+            <standard
+              v-for="i in [1, 2, 3]"
+              :key="i"
+              :post="posts[i]"
+            ></standard>
           </div>
         </div>
         <div class="third flex-responsive column-horizontal-pad flex">
-          <standard></standard>
-          <!-- 3x -->
+          <standard v-for="i in [4, 5, 6]" :key="i" :post="posts[i]"></standard>
         </div>
       </section>
       <section
@@ -30,18 +32,20 @@
       >
         <h2 class="full flex desktop-only section-title">Upravo se čita</h2>
         <div class="full flex desktop-only">
-          <mini></mini>
-          <!-- 3x -->
+          <mini v-for="post in reading" :key="post.id" :post="post"></mini>
         </div>
         <h2 class="full flex section-title">Komentari</h2>
         <div class="full mobile-side-pad komentari">
-          <komentar></komentar>
-          <!-- 2x -->
+          <komentar
+            v-for="post in comments"
+            :key="post.id"
+            :post="post"
+          ></komentar>
         </div>
       </section>
       <div
         class="full center subtle-btn-parent mobile-only relative clickable"
-        onclick="requestArticles(this);"
+        @click="loadMore"
       >
         <div class="subtle-btn animate">Vidi više</div>
         <div class="subtle-btn-line"></div>
@@ -60,5 +64,25 @@
 <script>
 export default {
   name: 'Sport',
+  data() {
+    return {
+      posts: [],
+      comments: [],
+      reading: [],
+    }
+  },
+  mounted() {
+    this.getPosts()
+  },
+  methods: {
+    loadMore() {},
+    getPosts() {
+      this.$axios.get('portal/2').then((res) => {
+        this.posts = res.data.posts
+        this.comments = res.data.comments
+        this.reading = res.data.reading
+      })
+    },
+  },
 }
 </script>

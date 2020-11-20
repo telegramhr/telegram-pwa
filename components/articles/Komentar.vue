@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="post.permalink" class="full flex komentar relative">
+  <app-link :to="post.permalink" class="full flex komentar relative">
     <div v-if="post.authors.length" class="komentar-author relative flex">
       <img
         :src="post.authors[0].image"
@@ -31,7 +31,7 @@
         </h5>
       </div>
     </div>
-  </nuxt-link>
+  </app-link>
 </template>
 
 <script>

@@ -12,10 +12,13 @@
         <section
           class="two-thirds flex-responsive flex mobile-side-pad column-horizontal-pad column-right-border"
         >
-          <featured :post="{}"></featured>
+          <featured :post="posts[0]"></featured>
           <div class="full flex split-articles">
-            <standard></standard>
-            <!-- 3x -->
+            <standard
+              v-for="i in [1, 2, 3]"
+              :key="i"
+              :post="posts[i]"
+            ></standard>
           </div>
         </section>
         <div class="mobile-only full flex">
@@ -24,8 +27,7 @@
         <section
           class="third flex-responsive flex column-horizontal-pad flex mobile-side-pad"
         >
-          <standard></standard>
-          <!-- 3x -->
+          <standard v-for="i in [4, 5, 6]" :key="i" :post="posts[i]"></standard>
         </section>
       </section>
       <section
@@ -33,7 +35,7 @@
       >
         <h2 class="full flex section-title">Upravo se čita</h2>
         <div class="full flex">
-          <mini></mini>
+          <mini v-for="post in reading" :key="post.id" :post="post"></mini>
           <!-- 5x -->
           <h2 class="full flex section-title">Podcast</h2>
           <!--<?php
@@ -43,7 +45,7 @@
       </section>
       <div
         class="full center subtle-btn-parent mobile-only relative clickable"
-        onclick="requestArticles(this);"
+        @click="loadMore"
       >
         <div class="subtle-btn animate">Vidi više</div>
         <div class="subtle-btn-line"></div>
@@ -62,5 +64,23 @@
 <script>
 export default {
   name: 'Super1',
+  data() {
+    return {
+      posts: [],
+      reading: [],
+    }
+  },
+  mounted() {
+    this.getPosts()
+  },
+  methods: {
+    loadMore() {},
+    getPosts() {
+      this.$axios.get('portal/3').then((res) => {
+        this.posts = res.data.posts
+        this.reading = res.data.reading
+      })
+    },
+  },
 }
 </script>
