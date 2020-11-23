@@ -1,5 +1,8 @@
 <template>
-  <div :class="['main-container', 'flex', 'single-article', post.type]">
+  <div
+    v-if="post.id"
+    :class="['main-container', 'flex', 'single-article', post.type]"
+  >
     <theader></theader>
 
     <div class="full related-header-widget">

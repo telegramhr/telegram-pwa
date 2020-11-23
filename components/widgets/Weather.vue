@@ -6,13 +6,15 @@
     <div class="half">
       <object
         type="image/svg+xml"
-        data="@/assets/img/weather/kisa_1.svg"
+        :data="`https://meteo.hr/assets/images/icons/${weather.zagreb[0].type}.svg`"
       ></object>
     </div>
     <div class="half flex center">
       <div class="full">
         <p class="full faded smaller-text">Danas</p>
-        <p class="full"><span class="big-number">15&#176;c</span></p>
+        <p class="full">
+          <span class="big-number">{{ weather.zagreb[0].temp }}&#176;c</span>
+        </p>
       </div>
     </div>
     <div class="fourth"></div>
@@ -20,12 +22,15 @@
       <object
         class="faded"
         type="image/svg+xml"
-        data="@/assets/img/weather/vlaga_black.svg"
+        data="/weather/vlaga_black.svg"
       ></object>
     </div>
     <div class="half flex center">
       <div class="full">
-        <p class="full"><span class="big-number">90</span>%</p>
+        <p class="full">
+          <span class="big-number">{{ weather.zagreb[0].humidity }}</span
+          >%
+        </p>
       </div>
     </div>
     <div class="fourth"></div>
@@ -33,49 +38,58 @@
       <object
         class="faded"
         type="image/svg+xml"
-        data="@/assets/img/weather/vjetar_black.svg"
+        data="/weather/vjetar_black.svg"
       ></object>
     </div>
     <div class="half flex center">
       <div class="full">
-        <p class="full"><span class="big-number">1</span>m/s</p>
+        <p class="full">
+          <span class="big-number">{{ weather.zagreb[0].wind }}</span
+          >m/s
+        </p>
       </div>
     </div>
     <div class="full column-top-pad"></div>
     <div class="half">
       <object
         type="image/svg+xml"
-        data="/assets/img/weather/kisa_1.svg"
+        :data="`https://meteo.hr/assets/images/icons/${weather.zagreb[1].type}.svg`"
       ></object>
     </div>
     <div class="half flex center">
       <div class="full">
-        <p class="full faded smaller-text">Pet</p>
-        <p class="full"><span class="big-number">15&#176;c</span></p>
+        <p class="full faded smaller-text">{{ weather.zagreb[1].day }}</p>
+        <p class="full">
+          <span class="big-number">{{ weather.zagreb[1].temp }}&#176;c</span>
+        </p>
       </div>
     </div>
     <div class="half">
       <object
         type="image/svg+xml"
-        data="@/assets/img/weather/kisa_1.svg"
+        :data="`https://meteo.hr/assets/images/icons/${weather.zagreb[2].type}.svg`"
       ></object>
     </div>
     <div class="half flex center">
       <div class="full">
-        <p class="full faded smaller-text">Sub</p>
-        <p class="full"><span class="big-number">14&#176;c</span></p>
+        <p class="full faded smaller-text">{{ weather.zagreb[2].day }}</p>
+        <p class="full">
+          <span class="big-number">{{ weather.zagreb[2].temp }}&#176;c</span>
+        </p>
       </div>
     </div>
     <div class="half">
       <object
         type="image/svg+xml"
-        data="@/assets/img/weather/kisa_1.svg"
+        :data="`https://meteo.hr/assets/images/icons/${weather.zagreb[3].type}.svg`"
       ></object>
     </div>
     <div class="half flex center">
       <div class="full">
-        <p class="full faded smaller-text">Ned</p>
-        <p class="full"><span class="big-number">14&#176;c</span></p>
+        <p class="full faded smaller-text">{{ weather.zagreb[3].day }}</p>
+        <p class="full">
+          <span class="big-number">{{ weather.zagreb[3].temp }}&#176;c</span>
+        </p>
       </div>
     </div>
     <div class="full column-top-pad"></div>
@@ -85,7 +99,13 @@
 <script>
 export default {
   name: 'Weather',
+  computed: {
+    weather() {
+      return this.$store.state.weather
+    },
+  },
+  mounted() {
+    this.$store.dispatch('weather/pullWeather')
+  },
 }
 </script>
-
-<style scoped></style>
