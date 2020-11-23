@@ -124,9 +124,9 @@
         <div class="flex relative weather mobile-only">
           <object
             type="image/svg+xml"
-            data="@/assets/img/weather/kisa_1.svg"
+            :data="`https://meteo.hr/assets/images/icons/${$store.state.weather.zagreb[0].type}.svg`"
           ></object
-          ><span>17&#176;c</span>
+          ><span>{{ $store.state.weather.zagreb[0].temp }}&#176;c</span>
         </div>
       </div>
       <div class="full desktop-only">
