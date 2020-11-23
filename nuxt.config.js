@@ -6,6 +6,7 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
+      { name: 'twitter:dnt', content: 'on' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -14,6 +15,20 @@ export default {
         rel: 'stylesheet',
         href:
           'https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap',
+      },
+    ],
+    script: [
+      {
+        src:
+          'https://connect.facebook.net/hr_HR/sdk.js#xfbml=1&version=v9.0&appId=1383786971938581',
+        async: true,
+        defer: true,
+        crossorigin: 'anonymous',
+        nonce: 'LFZOW4mi',
+      },
+      {
+        src: 'https://kit.fontawesome.com/4878256e09.js',
+        crossorigin: 'anonymous',
       },
     ],
   },
