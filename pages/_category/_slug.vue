@@ -1,6 +1,6 @@
 <template>
   <div :class="['main-container', 'flex', 'single-article', post.type]">
-    <header></header>
+    <theader></theader>
 
     <div class="full related-header-widget">
       <div class="container flex desktop-only column-vertical-pad">
@@ -16,7 +16,9 @@
       v-if="post.type === 'premium'"
       class="full premium-article-head relative"
     >
-      <div class="meta-foto">FOTO: {{ post.image.author }}</div>
+      <div v-if="post.image.author" class="meta-foto">
+        FOTO: {{ post.image.author }}
+      </div>
       <div class="mobile-only full center mobile-pa-nav relative flex">
         <a onclick="activateSidemenu()"><i class="far fa-bars"></i></a>
         <nuxt-link href="/" class="logo">
@@ -66,7 +68,9 @@
               :src="post.image.url"
               :alt="post.image.alt"
             />
-            <div class="meta-foto">FOTO: {{ post.image.author }}</div>
+            <div v-if="post.image.author" class="meta-foto">
+              FOTO: {{ post.image.author }}
+            </div>
           </div>
           <p v-if="post.perex" class="perex">
             {{ post.perex }}
@@ -125,7 +129,7 @@
       </article>
     </div>
 
-    <footer></footer>
+    <tfooter></tfooter>
   </div>
 </template>
 
@@ -167,12 +171,20 @@ export default {
     getPost() {
       this.$axios.get('single/' + this.$route.params.slug).then((res) => {
         this.post = res.data
+        /* global instgrm */
+        instgrm.Embeds.process()
       })
     },
   },
   head() {
     return {
       title: this.post.title,
+      script: [
+        {
+          src:
+            'https://www.instagram.com/static/bundles/metro/EmbedSDK.js/33cd2c5d5d59.js',
+        },
+      ],
     }
   },
 }

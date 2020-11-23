@@ -1,7 +1,7 @@
 <template>
   <div class="main-container flex homepage">
     <div class="full flex tg-red">
-      <header></header>
+      <theader></theader>
       <div class="full header-filler"></div>
     </div>
     <div
@@ -149,7 +149,7 @@
       </section>
     </div>-->
 
-    <footer></footer>
+    <tfooter></tfooter>
   </div>
 </template>
 
