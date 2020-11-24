@@ -100,8 +100,15 @@
         </div>
         <!-- Mobile Subheader -->
         <div class="flex mobile-only">{{ date }}</div>
-        <div class="flex mobile-only">
-          <img src="@/assets/img/tg_stonks_up.png" aria-hidden="true" />DOW
+        <div v-if="$store.state.stocks.stocks.length" class="flex mobile-only">
+          <img
+            :src="
+              '/stocks/tg_stonks_' +
+              ($store.state.stocks.stocks['^DJI'].up ? 'up' : 'down') +
+              '.png'
+            "
+            aria-hidden="true"
+          />{{ $store.state.stocks.stocks['^DJI'].name }}
         </div>
         <div
           class="container desktop-only flex desktop-subheader column-horizontal-pad homepage-exclusive"

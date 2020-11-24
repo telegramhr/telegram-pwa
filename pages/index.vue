@@ -83,11 +83,7 @@
       <section
         class="fourth flex desktop-only column-horizontal-pad column-right-border"
       >
-        <h2 class="full flex section-title">Upravo se čita</h2>
-        <div class="full flex">
-          <!--<mini></mini>-->
-          <!-- 4 -->
-        </div>
+        <trending :id="1"></trending>
         <h2 class="full flex section-title">Dojave</h2>
         <!-- widget dojave -->
       </section>
@@ -155,10 +151,11 @@
 </template>
 
 <script>
+import Trending from '@/components/Elements/Trending'
 import Sport from '~/components/Elements/Sport'
 import Super from '~/components/Elements/Super1'
 export default {
-  components: { Super, Sport },
+  components: { Trending, Super, Sport },
   data() {
     return {
       mobile: false,
