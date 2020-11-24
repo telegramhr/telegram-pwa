@@ -6,7 +6,7 @@
     <div class="half">
       <object
         type="image/svg+xml"
-        :data="`https://meteo.hr/assets/images/icons/${weather.zagreb[0].type}.svg`"
+        :data="`/weather/${weather.zagreb[0].type}.svg`"
       ></object>
     </div>
     <div class="half flex center">
@@ -53,7 +53,7 @@
     <div class="half">
       <object
         type="image/svg+xml"
-        :data="`https://meteo.hr/assets/images/icons/${weather.zagreb[1].type}.svg`"
+        :data="`/weather/${weather.zagreb[1].type}.svg`"
       ></object>
     </div>
     <div class="half flex center">
@@ -67,7 +67,7 @@
     <div class="half">
       <object
         type="image/svg+xml"
-        :data="`https://meteo.hr/assets/images/icons/${weather.zagreb[2].type}.svg`"
+        :data="`/weather/${weather.zagreb[2].type}.svg`"
       ></object>
     </div>
     <div class="half flex center">
@@ -81,7 +81,7 @@
     <div class="half">
       <object
         type="image/svg+xml"
-        :data="`https://meteo.hr/assets/images/icons/${weather.zagreb[3].type}.svg`"
+        :data="`/weather/${weather.zagreb[3].type}.svg`"
       ></object>
     </div>
     <div class="half flex center">

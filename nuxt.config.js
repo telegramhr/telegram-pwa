@@ -37,7 +37,10 @@ export default {
   css: ['@/assets/tmg_framework.css', '@/assets/style.css'],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: ['@/plugins/filters.js'],
+  plugins: [
+    { src: '@/plugins/filters.js' },
+    { src: '@/plugins/persisted.client.js' },
+  ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,

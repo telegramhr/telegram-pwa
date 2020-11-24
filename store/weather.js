@@ -29,18 +29,22 @@ export const state = () => ({
       type: 0,
     },
   ],
+  updated: 0,
 })
 
 export const mutations = {
   setWeather(state, data) {
     state.zagreb = data.zagreb
+    state.updated = new Date().getTime()
   },
 }
 
 export const actions = {
-  pullWeather({ commit }) {
-    this.$axios.get('weather').then((res) => {
-      commit('setWeather', res.data)
-    })
+  pullWeather({ commit, state }) {
+    if (state.updated + 10 * 60 * 1000 < new Date().getTime()) {
+      this.$axios.get('weather').then((res) => {
+        commit('setWeather', res.data)
+      })
+    }
   },
 }

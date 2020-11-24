@@ -3,7 +3,13 @@
     <div class="full column-horizontal-pad flex">
       <h2 class="full flex section-title">Partneri</h2>
     </div>
-    <standard v-for="post in posts" :key="post.id" :post="post"></standard>
+    <div
+      v-for="post in posts"
+      :key="post.id"
+      class="fourth flex-responsive column-full-pad"
+    >
+      <standard :post="post"></standard>
+    </div>
   </div>
 </template>
 
