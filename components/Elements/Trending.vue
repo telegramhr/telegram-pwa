@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     getPosts() {
-      this.$axios.get('trending/' + id).then((res) => {
+      this.$axios.get('trending/' + this.id).then((res) => {
         this.posts = res.data
       })
     },

@@ -1,11 +1,16 @@
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'tg',
+    title: 'Telegram.hr',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'Portal za društvena i kulturna pitanja. I svijet koji dolazi.',
+      },
       { name: 'twitter:dnt', content: 'on' },
     ],
     link: [
@@ -60,6 +65,17 @@ export default {
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
   ],
+
+  pwa: {
+    onesignal: false,
+    workbox: false,
+    meta: {
+      lang: 'hr',
+      title: 'Telegram.hr',
+      description:
+        'Portal za društvena i kulturna pitanja. I svijet koji dolazi.',
+    },
+  },
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {

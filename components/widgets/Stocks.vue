@@ -20,13 +20,16 @@
 <script>
 export default {
   name: 'Stocks',
+  async fetch() {
+    await this.$store.dispatch('stocks/pullStocks')
+  },
   computed: {
     stocks() {
       return this.$store.state.stocks.stocks
     },
   },
   mounted() {
-    this.$store.dispatch('stocks/pullStocks')
+    // this.$store.dispatch('stocks/pullStocks')
   },
 }
 </script>

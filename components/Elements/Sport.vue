@@ -64,6 +64,13 @@
 <script>
 export default {
   name: 'Sport',
+  async fetch() {
+    await this.$axios.get('portal/2').then((res) => {
+      this.posts = res.data.posts
+      this.comments = res.data.comments
+      this.reading = res.data.reading
+    })
+  },
   data() {
     return {
       posts: [],
@@ -72,7 +79,7 @@ export default {
     }
   },
   mounted() {
-    this.getPosts()
+    // this.getPosts()
   },
   methods: {
     loadMore() {},

@@ -64,6 +64,12 @@
 <script>
 export default {
   name: 'Super1',
+  async fetch() {
+    await this.$axios.get('portal/3').then((res) => {
+      this.posts = res.data.posts
+      this.reading = res.data.reading
+    })
+  },
   data() {
     return {
       posts: [],
@@ -71,7 +77,7 @@ export default {
     }
   },
   mounted() {
-    this.getPosts()
+    // this.getPosts()
   },
   methods: {
     loadMore() {},

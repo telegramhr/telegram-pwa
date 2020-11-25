@@ -18,7 +18,7 @@
       </div>
     </div>
 
-    <div class="container flex relative block-1 stretch">
+    <div v-if="posts.length" class="container flex relative block-1 stretch">
       <section
         class="three-fourths mobile-side-pad flex-responsive flex relative the-big-gs stretch elevate-over-section"
       >
@@ -79,7 +79,10 @@
       </div>
     </div>
 
-    <div class="container flex relative block-2 standard-block stretch">
+    <div
+      v-if="posts.length"
+      class="container flex relative block-2 standard-block stretch"
+    >
       <section
         class="fourth flex desktop-only column-horizontal-pad column-right-border"
       >
@@ -156,6 +159,9 @@ import Sport from '~/components/Elements/Sport'
 import Super from '~/components/Elements/Super1'
 export default {
   components: { Trending, Super, Sport },
+  async fetch() {
+    this.posts = await this.$axios.get('featured').then((res) => res.data)
+  },
   data() {
     return {
       mobile: false,
@@ -164,7 +170,7 @@ export default {
   },
   mounted() {
     window.addEventListener('resize', this.resize)
-    this.getPosts()
+    // this.getPosts()
   },
   methods: {
     resize() {
