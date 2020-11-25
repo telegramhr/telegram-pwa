@@ -99,13 +99,13 @@
 <script>
 export default {
   name: 'Weather',
+  async fetch() {
+    await this.$store.dispatch('weather/pullWeather')
+  },
   computed: {
     weather() {
       return this.$store.state.weather
     },
-  },
-  mounted() {
-    this.$store.dispatch('weather/pullWeather')
   },
 }
 </script>

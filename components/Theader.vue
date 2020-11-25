@@ -67,7 +67,7 @@
       class="sticky-search-menu search-menu animate full center"
     >
       <form class="relative" action="" method="get">
-        <input type="text" name="q" placeholder="Pretražite Telegram..." />
+        <input type="text" name="s" placeholder="Pretražite Telegram..." />
         <button type="submit" class="animate">
           <i class="far fa-search"></i>
         </button>
@@ -136,19 +136,19 @@
           ><span>{{ $store.state.weather.zagreb[0].temp }}&#176;c</span>
         </div>
       </div>
-      <div class="full desktop-only">
+      <div v-if="breaking" class="full desktop-only">
         <breaking></breaking>
       </div>
-      <nav class="full flex homepage-exclusive animate">
+      <!--<nav class="full flex homepage-exclusive animate">
         <div class="container relative">
           <a class="mobile-only" @click.prevent="sideMenuShow = !sideMenuShow"
             ><i class="far fa-bars"></i
           ></a>
-          <a href="index.php" class="logo"
+          <app-link to="/" class="logo"
             ><img
               src="@/assets/img/telegram_logo_white.svg"
               alt="Telegram logo"
-          /></a>
+          /></app-link>
           <div class="desktop-only full center-text tagline">
             Portal za društvena i kulturna pitanja. I svijet koji dolazi.
           </div>
@@ -158,7 +158,7 @@
             ><i class="far fa-search"></i
           ></a>
         </div>
-      </nav>
+      </nav>-->
       <div v-show="searchMenuShow" class="search-menu animate full center">
         <form class="relative" action="" method="get">
           <input type="text" name="q" placeholder="Pretražite Telegram..." />
@@ -167,7 +167,7 @@
           </button>
         </form>
       </div>
-      <div
+      <!--<div
         class="block-title full desktop-only weekday-title homepage-exclusive"
       >
         <div class="container flex relative">
@@ -178,7 +178,7 @@
             <h5>Želiš raditi za Telegram? Javi nam se ovdje.</h5>
           </div>
         </div>
-      </div>
+      </div>-->
     </header>
     <div class="full mobile-only">
       <breaking></breaking>
@@ -200,6 +200,7 @@ export default {
       searchMenuShow: false,
       sideMenuShow: false,
       headline: '',
+      breaking: false,
     }
   },
   computed: {

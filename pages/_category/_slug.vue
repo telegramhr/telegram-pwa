@@ -139,6 +139,9 @@
 <script>
 export default {
   name: 'Slug',
+  async fetch() {
+    await this.getPost()
+  },
   data() {
     return {
       post: {
@@ -168,7 +171,7 @@ export default {
     }
   },
   mounted() {
-    this.getPost()
+    // this.getPost()
   },
   methods: {
     getPost() {
