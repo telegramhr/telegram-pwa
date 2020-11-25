@@ -139,8 +139,8 @@
 <script>
 export default {
   name: 'Slug',
-  fetch() {
-    this.getPost()
+  async fetch() {
+    await this.getPost()
   },
   data() {
     return {
@@ -174,10 +174,8 @@ export default {
     // this.getPost()
   },
   methods: {
-    getPost() {
-      this.$axios.get('single/' + this.$route.params.slug).then((res) => {
-        this.post = res.data
-      })
+    async getPost() {
+      this.post = await this.$axios.$get('single/' + this.$route.params.slug)
     },
   },
   head() {
