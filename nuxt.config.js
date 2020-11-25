@@ -74,6 +74,10 @@ export default {
       title: 'Telegram.hr',
       description:
         'Portal za društvena i kulturna pitanja. I svijet koji dolazi.',
+      ogSiteName: 'Telegram.hr',
+      mobileApp: false,
+      name: 'Telegram.hr',
+      author: 'Telegram.hr',
     },
   },
 
