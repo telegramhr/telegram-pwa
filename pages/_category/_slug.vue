@@ -139,8 +139,8 @@
 <script>
 export default {
   name: 'Slug',
-  async fetch() {
-    await this.getPost()
+  fetch() {
+    this.getPost()
   },
   data() {
     return {
@@ -177,8 +177,6 @@ export default {
     getPost() {
       this.$axios.get('single/' + this.$route.params.slug).then((res) => {
         this.post = res.data
-        /* global instgrm */
-        instgrm.Embeds.process()
       })
     },
   },
