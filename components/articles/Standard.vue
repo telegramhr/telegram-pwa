@@ -3,12 +3,15 @@
     class="full flex article-standard article relative"
     :to="post.permalink"
   >
-    <img :src="post.image.url" :alt="post.image.alt" loading="lazy" />
+    <picture>
+      <source type="image/webp" :srcset="post.image.webp" />
+      <img :src="post.image.url" :alt="post.image.alt" loading="lazy" />
+    </picture>
     <div class="full flex article-pad">
       <div class="full flex desktop-only">
-        <h3 class="overtitle">{{ post.overtitle }}</h3>
+        <h3 class="overtitle" v-html="post.overtitle"></h3>
       </div>
-      <h2 class="full">{{ post.title }}</h2>
+      <h2 class="full">{{ post.portal_title }}</h2>
       <h4 class="full">{{ post.subtitle }}</h4>
       <h5 class="full flex article-meta">
         <span v-if="post.authors.length" class="meta-author"

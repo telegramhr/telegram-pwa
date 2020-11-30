@@ -12,7 +12,10 @@
     <div class="komentar-box relative">
       <div class="komentar-quotation">“</div>
       <div class="komentar-image">
-        <img :src="post.image.url" :alt="post.image.alt" loading="lazy" />
+        <picture>
+          <source type="image/webp" :srcset="post.image.webp" />
+          <img :src="post.image.url" :alt="post.image.alt" loading="lazy" />
+        </picture>
       </div>
       <div class="komentar-content full">
         <div
@@ -22,7 +25,7 @@
           <i class="full">Piše</i>
           <span class="full">{{ post.authors[0].name }}</span>
         </div>
-        <h2 class="full animate">{{ post.title }}</h2>
+        <h2 class="full animate">{{ post.portal_title }}</h2>
         <h5 class="full flex article-meta">
           <span class="meta-preporuke"
             >{{ post.recommendations }} preporuka</span

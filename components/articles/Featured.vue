@@ -1,21 +1,26 @@
 <template>
   <div class="full flex article-featured article">
     <app-link class="full flex" :to="post.permalink">
-      <img :src="post.image.url" :alt="post.image.alt" loading="lazy" />
+      <picture>
+        <source type="image/wep" :srcset="post.image.webp" />
+        <img :src="post.image.url" :alt="post.image.alt" loading="lazy" />
+      </picture>
     </app-link>
     <div class="full flex article-pad">
       <app-link class="full flex" :to="post.permalink">
         <div class="full flex">
           <h3 :class="{ overtitle: true, dynamicOvertitle: post.overtitle }">
-            <span v-if="post.overtitle" class="dynamic-overtitle-element">{{
-              post.overtitle
-            }}</span>
+            <span
+              v-if="post.overtitle"
+              class="dynamic-overtitle-element"
+              v-html="post.overtitle"
+            ></span>
             <template v-else>
               {{ post.category }}
             </template>
           </h3>
         </div>
-        <h2 class="full animate">{{ post.title }}</h2>
+        <h2 class="full animate">{{ post.portal_title }}</h2>
         <h4 class="full">{{ post.subtitle }}</h4>
         <h5 class="full flex article-meta">
           <span class="meta-author"

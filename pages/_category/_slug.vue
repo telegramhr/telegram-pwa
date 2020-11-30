@@ -40,7 +40,7 @@
         <div class="full flex">
           <h3 class="overtitle">{{ post.overtitle }}</h3>
         </div>
-        <h1 class="full">{{ post.title }}</h1>
+        <h1 class="full">{{ post.portal_title }}</h1>
         <h2 class="full">{{ post.subtitle }}</h2>
       </div>
     </div>
@@ -185,16 +185,20 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: this.post.subtitle,
+          content: this.post.social.description,
         },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: this.post.subtitle,
+          content: this.post.social.description,
         },
         { hid: 'og:type', name: 'og:type', content: 'article' },
-        { hid: 'og:title', name: 'og:title', content: this.post.title },
-        { hid: 'og:image', name: 'og:image', content: this.post.image.url },
+        { hid: 'og:title', name: 'og:title', content: this.post.social.title },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          content: this.post.social.image.url,
+        },
       ],
       script: [
         {

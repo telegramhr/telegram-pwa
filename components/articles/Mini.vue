@@ -4,7 +4,7 @@
     :to="post.permalink"
   >
     <div class="full flex article-pad">
-      <h2 class="full animate">{{ post.title }}</h2>
+      <h2 class="full animate">{{ post.portal_title }}</h2>
       <h5 class="full flex article-meta">
         <span v-if="post.authors.length" class="meta-author"
           ><i>Piše</i> {{ post.authors[0].name }}</span
