@@ -1,5 +1,5 @@
 <template>
-  <div v-if="posts.length">
+  <div v-if="posts.length" class="full flex">
     <div class="sport-block full flex">
       <div class="block-title full mobile-side-pad">
         <div class="container flex relative">
