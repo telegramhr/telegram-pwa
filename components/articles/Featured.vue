@@ -1,10 +1,7 @@
 <template>
   <div class="full flex article-featured article">
     <app-link class="full flex" :to="post.permalink">
-      <picture>
-        <source type="image/wep" :srcset="post.image.webp" />
-        <img :src="post.image.url" :alt="post.image.alt" loading="lazy" />
-      </picture>
+      <img :src="post.image.url" :alt="post.image.alt" loading="lazy" />
     </app-link>
     <div class="full flex article-pad">
       <app-link class="full flex" :to="post.permalink">

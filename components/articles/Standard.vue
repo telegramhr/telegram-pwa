@@ -3,10 +3,7 @@
     class="full flex article-standard article relative"
     :to="post.permalink"
   >
-    <picture>
-      <source type="image/webp" :srcset="post.image.webp" />
-      <img :src="post.image.url" :alt="post.image.alt" loading="lazy" />
-    </picture>
+    <img :src="post.image.url" :alt="post.image.alt" loading="lazy" />
     <div class="full flex article-pad">
       <div class="full flex desktop-only">
         <h3 class="overtitle" v-html="post.category"></h3>
