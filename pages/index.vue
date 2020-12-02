@@ -30,8 +30,10 @@
         <div
           class="sixth desktop-only flex column-horizontal-pad column-bottom-border"
         >
-          <weather></weather>
-          <stocks></stocks>
+          <client-only>
+            <weather></weather>
+            <stocks></stocks>
+          </client-only>
         </div>
         <div
           class="two-thirds column-horizontal-pad flex-responsive flex column-right-border column-top-pad"

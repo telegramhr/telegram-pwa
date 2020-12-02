@@ -1,5 +1,8 @@
 <template>
-  <div class="full flex article stonk-widget stretch column-top-border">
+  <div
+    v-if="stocks.length"
+    class="full flex article stonk-widget stretch column-top-border"
+  >
     <div class="full flex">
       <h3 class="overtitle">Tržište</h3>
     </div>
@@ -20,16 +23,13 @@
 <script>
 export default {
   name: 'Stocks',
-  async fetch() {
-    await this.$store.dispatch('stocks/pullStocks')
-  },
   computed: {
     stocks() {
       return this.$store.state.stocks.stocks
     },
   },
   mounted() {
-    // this.$store.dispatch('stocks/pullStocks')
+    this.$store.dispatch('stocks/pullStocks')
   },
 }
 </script>

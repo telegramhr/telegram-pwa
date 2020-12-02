@@ -166,6 +166,11 @@ export default {
         comments: 0,
         time: 0,
         tags: [],
+        social: {
+          title: '',
+          description: '',
+          image: '',
+        },
       },
       related_posts: [],
     }

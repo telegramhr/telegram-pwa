@@ -84,7 +84,7 @@ export default {
       this.$axios
         .get('category/' + this.$route.params.category + '/page/' + this.page)
         .then((res) => {
-          this.posts = [...this.posts, res.data]
+          // this.posts = [...this.posts, res.data]
           this.page++
         })
     },

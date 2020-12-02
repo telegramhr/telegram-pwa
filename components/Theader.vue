@@ -100,16 +100,21 @@
         </div>
         <!-- Mobile Subheader -->
         <div class="flex mobile-only">{{ date }}</div>
-        <div v-if="$store.state.stocks.stocks.length" class="flex mobile-only">
-          <img
-            :src="
-              '/stocks/tg_stonks_' +
-              ($store.state.stocks.stocks['^DJI'].up ? 'up' : 'down') +
-              '.png'
-            "
-            aria-hidden="true"
-          />{{ $store.state.stocks.stocks['^DJI'].name }}
-        </div>
+        <client-only>
+          <div
+            v-if="$store.state.stocks.stocks.length"
+            class="flex mobile-only"
+          >
+            <img
+              :src="
+                '/stocks/tg_stonks_' +
+                ($store.state.stocks.stocks['^DJI'].up ? 'up' : 'down') +
+                '.png'
+              "
+              aria-hidden="true"
+            />{{ $store.state.stocks.stocks['^DJI'].name }}
+          </div>
+        </client-only>
         <div
           class="container desktop-only flex desktop-subheader column-horizontal-pad homepage-exclusive"
         >
@@ -128,13 +133,18 @@
             <app-link to="/login" class="signup-btn">Prijavi se</app-link>
           </div>
         </div>
-        <div class="flex relative weather mobile-only">
-          <object
-            type="image/svg+xml"
-            :data="`/weather/${$store.state.weather.zagreb[0].type}.svg`"
-          ></object
-          ><span>{{ $store.state.weather.zagreb[0].temp }}&#176;c</span>
-        </div>
+        <client-only>
+          <div
+            v-if="$store.state.weather.zagreb[0].type"
+            class="flex relative weather mobile-only"
+          >
+            <object
+              type="image/svg+xml"
+              :data="`/weather/${$store.state.weather.zagreb[0].type}.svg`"
+            ></object
+            ><span>{{ $store.state.weather.zagreb[0].temp }}&#176;c</span>
+          </div>
+        </client-only>
       </div>
       <div v-if="breaking" class="full desktop-only">
         <breaking></breaking>
