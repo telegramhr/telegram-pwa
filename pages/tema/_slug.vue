@@ -63,14 +63,12 @@
 
 <script>
 export default {
-  name: 'CategoryIndex',
+  name: 'TemaIndex',
   async fetch() {
-    await this.$axios
-      .get('category/' + this.$route.params.category)
-      .then((res) => {
-        this.posts = res.data.posts
-        this.category = res.data.category
-      })
+    await this.$axios.get('tag/' + this.$route.params.slug).then((res) => {
+      this.posts = res.data.posts
+      this.category = res.data.category
+    })
   },
   data() {
     return {
@@ -82,7 +80,7 @@ export default {
   methods: {
     loadMore() {
       this.$axios
-        .get('category/' + this.$route.params.category + '/page/' + this.page)
+        .get('category/' + this.$route.params.slug + '/page/' + this.page)
         .then((res) => {
           this.posts = [...this.posts, res.data]
           this.page++
