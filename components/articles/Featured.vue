@@ -10,14 +10,10 @@
       <app-link class="full flex" :to="post.permalink">
         <div class="full flex">
           <h3 :class="{ overtitle: true, dynamicOvertitle: post.overtitle }">
-            <span
-              v-if="post.overtitle"
-              class="dynamic-overtitle-element"
-              v-html="post.overtitle"
-            ></span>
-            <template v-else>
-              {{ post.category }}
-            </template>
+            <span v-if="post.overtitle" class="dynamic-overtitle-element">{{
+              post.overtitle
+            }}</span>
+            <span v-html="post.category"></span>
           </h3>
         </div>
         <h2 class="full animate">{{ post.portal_title }}</h2>

@@ -6,7 +6,7 @@
     <div class="block-title news-block-title full mobile-side-pad">
       <div class="full block-title-pattern relative"></div>
       <div class="container flex relative">
-        <h1 class="full column-left-pad">Politika & Kriminal</h1>
+        <h1 class="full column-left-pad">{{ category }}</h1>
       </div>
     </div>
     <div
@@ -44,7 +44,7 @@
       </section>
       <div
         class="full center subtle-btn-parent relative clickable"
-        onclick="requestArticles(this);"
+        @click="loadMore"
       >
         <div class="subtle-btn animate">Vidi više</div>
         <div class="subtle-btn-line"></div>
@@ -76,7 +76,18 @@ export default {
     return {
       posts: [],
       category: '',
+      page: 2,
     }
+  },
+  methods: {
+    loadMore() {
+      this.$axios
+        .get('category/' + this.$route.params.category + '/page/' + this.page)
+        .then((res) => {
+          this.posts = [...this.posts, res.data]
+          this.page++
+        })
+    },
   },
 }
 </script>

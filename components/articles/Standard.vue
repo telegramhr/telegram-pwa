@@ -9,7 +9,7 @@
     </picture>
     <div class="full flex article-pad">
       <div class="full flex desktop-only">
-        <h3 class="overtitle" v-html="post.overtitle"></h3>
+        <h3 class="overtitle" v-html="post.category"></h3>
       </div>
       <h2 class="full">{{ post.portal_title }}</h2>
       <h4 class="full">{{ post.subtitle }}</h4>
