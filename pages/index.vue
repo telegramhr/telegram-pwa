@@ -70,7 +70,7 @@
       </section>
     </div>
 
-    <big-featured :post="posts[0]"></big-featured>
+    <big-featured></big-featured>
 
     <partners></partners>
 
@@ -143,7 +143,7 @@
       <category slug="zivot"></category>
       <category slug="biznis-tech"></category>
       <category slug="kultura"></category>
-      <category slug="sport"></category>
+      <category slug="velike-price"></category>
       <most-read v-if="mobile"></most-read>
     </div>
 

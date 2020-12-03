@@ -1,9 +1,9 @@
 <template>
-  <section class="full desktop-only">
+  <section v-if="post.id" class="full desktop-only">
     <app-link
       :to="post.permalink"
       class="immersive-break flex"
-      :style="{ backgroundColor: `rgb(${post.color})` }"
+      :style="{ backgroundColor: `rgb(${post.image.color})` }"
     >
       <div class="container flex column-horizontal-pad center">
         <div class="full flex">
@@ -30,13 +30,13 @@
       <div
         class="immersive-fade desktop-only"
         :style="{
-          background: `linear-gradient(to right, rgba(${post.color}, 0) 0%, rgba(${post.color}, 1) 50%, rgba(${post.color}, 0) 100%)`,
+          background: `linear-gradient(to right, rgba(${post.image.color}, 0) 0%, rgba(${post.image.color}, 1) 50%, rgba(${post.image.color}, 0) 100%)`,
         }"
       ></div>
       <div
         class="immersive-fade mobile-only"
         :style="{
-          background: `linear-gradient(to right, rgba(${post.color}, 0) 0%, rgba(${post.color}, 1) 50%, rgba(${post.color}, 0) 100%)`,
+          background: `linear-gradient(to right, rgba(${post.image.color}, 0) 0%, rgba(${post.image.color}, 1) 50%, rgba(${post.image.color}, 0) 100%)`,
         }"
       ></div>
       <div class="dark-fade"></div>
@@ -53,22 +53,43 @@
 <script>
 export default {
   name: 'BigFeatured',
-  props: {
-    post: {
-      type: Object,
-      required: true,
-      default() {
-        return {
-          authors: [],
-          image: {
+  data() {
+    return {
+      post: {
+        id: 0,
+        type: '',
+        image: {
+          url: '',
+          alt: '',
+          author: '',
+        },
+        authors: [
+          {
             url: '',
-            alt: '',
-            author: '',
+            name: '',
+            image: '',
           },
-          permalink: '',
-        }
+        ],
+        overtitle: '',
+        title: '',
+        subtitle: '',
+        content: '',
+        recommendations: 0,
+        comments: 0,
+        time: 0,
+        tags: [],
+        social: {
+          title: '',
+          description: '',
+          image: '',
+        },
       },
-    },
+    }
+  },
+  mounted() {
+    this.$axios.get('big-break').then((res) => {
+      this.post = res.data
+    })
   },
 }
 </script>
