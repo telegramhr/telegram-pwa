@@ -136,20 +136,16 @@
 
     <sport></sport>
     <super></super>
-    <!--<div class="full flex">
+    <div class="full flex">
       <div class="container desktop-only flex relative column-full-pad"></div>
     </div>
     <div class="container flex relative block-5 standard-block">
-      <category title="Život"></category>
-      <category title="Biznis & Tech"></category>
-      <category title="Kultura"></category>
-      <category title="Zdravlje"></category>
-      <section v-if="mobile" class="full mobile-only flex mobile-side-pad">
-        <h2 class="full flex section-title">Najčitanije</h2>
-        <article-top time=5></article-top>
-
-      </section>
-    </div>-->
+      <category slug="zivot"></category>
+      <category slug="biznis-tech"></category>
+      <category slug="kultura"></category>
+      <category slug="sport"></category>
+      <most-read v-if="mobile"></most-read>
+    </div>
 
     <tfooter></tfooter>
   </div>
@@ -166,7 +162,7 @@ export default {
   },
   data() {
     return {
-      mobile: false,
+      mobile: true,
       posts: [],
     }
   },

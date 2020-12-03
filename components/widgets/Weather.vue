@@ -79,13 +79,13 @@
           </p>
         </div>
       </div>
-      <div class="half">
+      <div v-if="weather.zagreb.length > 3" class="half">
         <object
           type="image/svg+xml"
           :data="`/weather/${weather.zagreb[3].type}.svg`"
         ></object>
       </div>
-      <div class="half flex center">
+      <div v-if="weather.zagreb.length > 3" class="half flex center">
         <div class="full">
           <p class="full faded smaller-text">{{ weather.zagreb[3].day }}</p>
           <p class="full">

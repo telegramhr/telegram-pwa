@@ -6,10 +6,7 @@
     <div class="komentar-box relative">
       <div class="komentar-quotation"><i class="fas fa-fire"></i></div>
       <div class="komentar-image">
-        <picture>
-          <source :srcset="post.image.webp" type="image/webp" />
-          <img :src="post.image.url" alt="post.image.alt" loading="lazy" />
-        </picture>
+        <img :src="post.image.url" alt="post.image.alt" loading="lazy" />
       </div>
       <div class="komentar-content full">
         <h2 class="full">{{ post.portal_title }}</h2>
@@ -18,7 +15,7 @@
             ><i>Piše</i> {{ post.authors[0].name }}</span
           >
           <span class="meta-preporuke"
-            >{{ post.recommendation }} preporuka</span
+            >{{ post.recommendations }} preporuka</span
           >
           <span class="meta-date">{{ post.time | parseTime }}</span>
         </h5>
