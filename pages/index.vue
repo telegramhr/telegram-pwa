@@ -104,7 +104,7 @@
           </div>
         </section>
         <section class="full mobile-only">
-          <!--<?php include("article_break.php"); ?> -->
+          <break></break>
         </section>
         <section
           class="third flex-responsive flex mobile-side-pad column-horizontal-pad"
