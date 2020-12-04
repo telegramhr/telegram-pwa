@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="post.id"
-    :class="['main-container', 'flex', 'single-article', post.type]"
+    :class="['main-container', 'flex', 'single-article', typeClass]"
   >
     <theader></theader>
 
@@ -174,6 +174,18 @@ export default {
       },
       related_posts: [],
     }
+  },
+  computed: {
+    typeClass() {
+      switch (this.post.type) {
+        case 'premium':
+          return 'single-article-premium single-article-premium-alt'
+        case 'commentary':
+          return 'single-article-commentary'
+        default:
+          return ''
+      }
+    },
   },
   mounted() {
     // this.getPost()

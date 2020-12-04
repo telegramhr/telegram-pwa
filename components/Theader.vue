@@ -48,7 +48,13 @@
             ><i class="far fa-bars"></i
           ></a>
           <div class="menu flex">
-            <main-menu></main-menu>
+            <app-link to="/politika-kriminal">Politika & Kriminal</app-link>
+            <app-link to="/komentari">Komentari</app-link>
+            <app-link to="/biznis-tech">Biznis & Tech</app-link>
+            <app-link to="/velike-price">Velike priče</app-link>
+            <app-link to="/zivot">Život</app-link>
+            <app-link to="/kultura">Kultura</app-link>
+            <app-link to="/fotogalerije">Fotogalerije</app-link>
           </div>
           <div v-show="headline" class="header-headline single-exclusive">
             {{ headline }}
@@ -73,7 +79,15 @@
         </button>
       </form>
     </div>
-    <header class="full flex animate">
+    <header
+      :class="{
+        full: true,
+        flex: true,
+        animate: true,
+        'dynamic-header': dynamicHeader,
+        'hide-dynamic-header': hideDynamicHeader,
+      }"
+    >
       <div class="full subheader mobile-side-pad center">
         <!-- Desktop Subheader -->
         <div
@@ -123,7 +137,13 @@
               ><i class="far fa-bars"></i
             ></a>
             <div class="menu flex">
-              <main-menu></main-menu>
+              <app-link to="/politika-kriminal">Politika & Kriminal</app-link>
+              <app-link to="/komentari">Komentari</app-link>
+              <app-link to="/biznis-tech">Biznis & Tech</app-link>
+              <app-link to="/velike-price">Velike priče</app-link>
+              <app-link to="/zivot">Život</app-link>
+              <app-link to="/kultura">Kultura</app-link>
+              <app-link to="/fotogalerije">Fotogalerije</app-link>
             </div>
           </div>
           <div class="flex fourth relative">
@@ -149,7 +169,7 @@
       <div v-if="breaking" class="full desktop-only">
         <breaking></breaking>
       </div>
-      <!--<nav class="full flex homepage-exclusive animate">
+      <nav class="full flex homepage-exclusive animate">
         <div class="container relative">
           <a class="mobile-only" @click.prevent="sideMenuShow = !sideMenuShow"
             ><i class="far fa-bars"></i
@@ -168,7 +188,7 @@
             ><i class="far fa-search"></i
           ></a>
         </div>
-      </nav>-->
+      </nav>
       <div v-show="searchMenuShow" class="search-menu animate full center">
         <form class="relative" action="" method="get">
           <input type="text" name="q" placeholder="Pretražite Telegram..." />
@@ -211,6 +231,9 @@ export default {
       sideMenuShow: false,
       headline: '',
       breaking: false,
+      previousScroll: 0,
+      dynamicHeader: false,
+      hideDynamicHeader: false,
     }
   },
   computed: {
@@ -221,6 +244,43 @@ export default {
         month: 'long',
         day: 'numeric',
       }).format(new Date())
+    },
+  },
+  created() {
+    this.handleDebouncedScroll = this.debounce(this.handleScroll, 100)
+    // eslint-disable-next-line
+    window.addEventListener('scroll', this.handleDebouncedScroll)
+  },
+  beforeDestroy() {
+    // I switched the example from `destroyed` to `beforeDestroy`
+    // to exercise your mind a bit. This lifecycle method works too.
+    window.removeEventListener('scroll', this.handleDebouncedScroll)
+  },
+  methods: {
+    handleScroll() {
+      if (window.scrollY) {
+        this.dynamicHeader = true
+        this.hideDynamicHeader = window.scrollY > this.previousScroll
+      } else {
+        this.dynamicHeader = false
+        this.hideDynamicHeader = false
+      }
+      this.previousScroll = window.scrollY
+    },
+    debounce(func, wait, immediate) {
+      let timeout
+      return function () {
+        const context = this
+        const args = arguments
+        const later = function () {
+          timeout = null
+          if (!immediate) func.apply(context, args)
+        }
+        const callNow = immediate && !timeout
+        clearTimeout(timeout)
+        timeout = setTimeout(later, wait)
+        if (callNow) func.apply(context, args)
+      }
     },
   },
 }
