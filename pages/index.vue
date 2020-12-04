@@ -60,14 +60,10 @@
         class="fourth flex-responsive flex komentari mobile-side-pad column-horizontal-pad column-right-border"
       >
         <latest :portal="1"></latest>
-        <h2 class="full flex section-title">Komentari</h2>
-        <!--<komentar></komentar>
-        <komentar></komentar>-->
+        <commentary></commentary>
         <div class="full flex desktop-only">
           <h2 class="full flex section-title">Newsletter</h2>
           <newsletter></newsletter>
-          <h2 class="full flex section-title">Podcast</h2>
-          <podcast></podcast>
         </div>
       </section>
     </div>
