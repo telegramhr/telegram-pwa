@@ -54,6 +54,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
+    '@nuxtjs/google-analytics',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -79,6 +80,10 @@ export default {
       name: 'Telegram.hr',
       author: 'Telegram.hr',
     },
+  },
+
+  googleAnalytics: {
+    id: 'UA-60611577-1',
   },
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
