@@ -6,6 +6,7 @@
     <img :src="post.image.url" :alt="post.image.alt" loading="lazy" />
     <div class="full flex article-pad">
       <div class="full flex desktop-only">
+        <!-- eslint-disable-next-line -->
         <h3 class="overtitle" v-html="post.category"></h3>
       </div>
       <h2 class="full">{{ post.portal_title }}</h2>

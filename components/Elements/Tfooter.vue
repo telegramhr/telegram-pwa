@@ -17,18 +17,34 @@
         </div>
       </div>
       <div class="full flex social-links center">
-        <a href="#" class="center animate"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="center animate"><i class="fab fa-twitter"></i></a>
-        <a href="#" class="center animate"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="center animate"><i class="fas fa-rss"></i></a>
+        <app-link
+          to="https://www.facebook.com/www.telegram.hr/"
+          class="center animate"
+          ><i class="fab fa-facebook-f"></i
+        ></app-link>
+        <app-link to="https://twitter.com/telegramhr/" class="center animate"
+          ><i class="fab fa-twitter"></i
+        ></app-link>
+        <app-link
+          to="https://www.instagram.com/telegram.hr/"
+          class="center animate"
+          ><i class="fab fa-instagram"></i
+        ></app-link>
+        <app-link to="https://www.telegram.hr/feed" class="center animate"
+          ><i class="fas fa-rss"></i
+        ></app-link>
       </div>
       <div class="full flex services center">
-        <a href="#" class="animate">Impressum</a>
-        <a href="#" class="animate">Oglašavanje</a>
-        <a href="#" class="animate">Kontakt</a>
-        <a href="#" class="animate">Karijere</a>
-        <a href="#" class="animate">Uvjeti korištenja</a>
-        <a href="#" class="animate">Pravila o privatnosti</a>
+        <app-link to="/impressum" class="animate">Impressum</app-link>
+        <app-link to="/marketing" class="animate">Oglašavanje</app-link>
+        <app-link to="/kontakt" class="animate">Kontakt</app-link>
+        <app-link to="/karijere" class="animate">Karijere</app-link>
+        <app-link to="/uvjeti-koristenja" class="animate"
+          >Uvjeti korištenja</app-link
+        >
+        <app-link to="/pravila-privatnosti" class="animate"
+          >Pravila o privatnosti</app-link
+        >
       </div>
       <div class="copyright full center-text">
         Sva prava pridržana &copy; 2020 Telegram Media Grupa d.o.o.

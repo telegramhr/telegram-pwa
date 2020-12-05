@@ -3,6 +3,7 @@
     v-if="posts.length"
     class="fourth flex-responsive column-horizontal-pad flex mobile-side-pad"
   >
+    <!-- eslint-disable-next-line -->
     <h2 class="full flex section-title" v-html="category"></h2>
     <featured :post="posts[0]"></featured>
     <standard

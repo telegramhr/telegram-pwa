@@ -38,7 +38,7 @@
       />
       <div class="full flex article-head">
         <div class="full flex">
-          <h3 class="overtitle">{{ post.overtitle }}</h3>
+          <h3 class="overtitle">{{ post.category }}</h3>
         </div>
         <h1 class="full">{{ post.portal_title }}</h1>
         <h2 class="full">{{ post.subtitle }}</h2>
@@ -92,13 +92,28 @@
               >{{ post.recommendations }} preporuka</span
             >
             <div class="sidebar-social flex">
-              <a href="#"><i class="fab fa-facebook-f animate"></i></a>
-              <a href="#"><i class="fab fa-twitter animate"></i></a>
-              <a href="#"><i class="fab fa-instagram animate"></i></a>
+              <a href="#" @click.prevent="fbShare"
+                ><i class="fab fa-facebook-f animate"></i
+              ></a>
+              <a
+                :href="
+                  'https://twitter.com/intent/tweet?counturl=' +
+                  encodeURI(post.social.path) +
+                  '&text=' +
+                  encodeURI(post.portal_title) +
+                  '&url=' +
+                  encodeURI(post.social.path) +
+                  '&via=TelegramHR'
+                "
+                target="_blank"
+                ><i class="fab fa-twitter animate"></i
+              ></a>
+              <!--<a href="#"><i class="fab fa-instagram animate"></i></a>-->
             </div>
           </h5>
         </div>
         <div class="full relative single-article-body">
+          <!-- eslint-disable-next-line -->
           <div v-html="post.content"></div>
           <!-- Article footer -->
           <div class="full relative single-article-footer flex column-top-pad">
@@ -112,15 +127,26 @@
             </div>
             <div class="half flex-responsive">
               <div class="flex float-right social-circle-buttons">
-                <a href="#" class="animate center"
+                <a href="#" class="animate center" @click.prevent="fbShare"
                   ><i class="fab fa-facebook-f"></i
                 ></a>
-                <a href="#" class="animate center"
+                <a
+                  :href="
+                    'https://twitter.com/intent/tweet?counturl=' +
+                    encodeURI(post.permalink) +
+                    '&text=' +
+                    encodeURI(post.portal_title) +
+                    '&url=' +
+                    encodeURI(post.permalink) +
+                    '&via=TelegramHR'
+                  "
+                  target="_blank"
+                  class="animate center"
                   ><i class="fab fa-twitter"></i
                 ></a>
-                <a href="#" class="animate center"
+                <!-- <a href="#" class="animate center"
                   ><i class="fab fa-instagram"></i
-                ></a>
+                ></a>-->
                 <div class="classic-btn clickable animate">
                   {{ post.comments }}
                   komentara
@@ -131,7 +157,11 @@
         </div>
       </article>
     </div>
-
+    <keep-reading
+      v-if="post.category_slug"
+      :category="post.category_slug"
+      :p="post.id"
+    ></keep-reading>
     <tfooter></tfooter>
   </div>
 </template>
@@ -187,12 +217,24 @@ export default {
       }
     },
   },
-  mounted() {
-    // this.getPost()
-  },
   methods: {
-    async getPost() {
-      this.post = await this.$axios.$get('single/' + this.$route.params.slug)
+    getPost() {
+      this.$axios.get('single/' + this.$route.params.slug).then((res) => {
+        this.post = res.data
+        this.$axios.get('related/' + res.data.id).then((res) => {
+          this.related_posts = res.data
+            .filter((item) => {
+              return item.id !== this.post.id
+            })
+            .splice(0, 3)
+        })
+      })
+    },
+    fbShare() {
+      /* global FB */
+      FB.ui({ method: 'share', href: this.post.social.path }, function (
+        response
+      ) {})
     },
   },
   head() {
@@ -215,6 +257,11 @@ export default {
           hid: 'og:image',
           name: 'og:image',
           content: this.post.social.image.url,
+        },
+        {
+          hid: 'og:url',
+          name: 'og:url',
+          content: this.post.social.path,
         },
       ],
       script: [

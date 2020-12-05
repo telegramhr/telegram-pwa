@@ -10,6 +10,7 @@
             <span v-if="post.overtitle" class="dynamic-overtitle-element">{{
               post.overtitle
             }}</span>
+            <!-- eslint-disable-next-line -->
             <span v-html="post.category"></span>
           </h3>
         </div>
