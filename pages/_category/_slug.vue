@@ -49,7 +49,8 @@
       <article class="container column-full-pad flex relative mobile-side-pad">
         <div class="full column article-head column-top-pad flex">
           <div class="full flex">
-            <h3 class="overtitle">{{ post.overtitle }}</h3>
+            <!-- eslint-disable-next-line -->
+            <h3 class="overtitle" v-html="post.category"></h3>
           </div>
           <h1 class="full">{{ post.title }}</h1>
           <h2 class="full">

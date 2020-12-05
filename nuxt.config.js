@@ -35,6 +35,15 @@ export default {
         src: 'https://kit.fontawesome.com/4878256e09.js',
         crossorigin: 'anonymous',
       },
+      {
+        src: 'https://hr.hit.gemius.pl/xgemius.js',
+        async: true,
+        defer: true,
+      },
+      {
+        src: 'https://script.dotmetrics.net/door.js?id=1182',
+        async: true,
+      },
     ],
   },
 
@@ -45,6 +54,7 @@ export default {
   plugins: [
     { src: '@/plugins/filters.js' },
     { src: '@/plugins/persisted.client.js' },
+    { src: '@/plugins/analytics.client.js' },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
