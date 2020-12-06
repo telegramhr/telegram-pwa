@@ -46,9 +46,9 @@
         class="full center subtle-btn-parent relative clickable"
         @click="loadMore"
       >
-        <div class="subtle-btn animate">Vidi više</div>
-        <div class="subtle-btn-line"></div>
-        <div class="full center cool-loader hide">
+        <div v-show="!loading" class="subtle-btn animate">Vidi više</div>
+        <div v-show="!loading" class="subtle-btn-line"></div>
+        <div v-show="loading" class="full center cool-loader">
           <div class="loader-square">
             <div></div>
             <div></div>
@@ -77,15 +77,18 @@ export default {
       posts: [],
       category: '',
       page: 2,
+      loading: false,
     }
   },
   methods: {
     loadMore() {
+      this.loading = true
       this.$axios
         .get('category/' + this.$route.params.category + '/page/' + this.page)
         .then((res) => {
           this.posts = [...this.posts, res.data]
           this.page++
+          this.loading = false
         })
     },
   },
