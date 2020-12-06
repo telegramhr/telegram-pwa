@@ -21,9 +21,9 @@
             ></standard>
           </div>
         </section>
-        <div class="mobile-only full flex">
-          <!--<?php include("widget_podcast_s1.php"); ?>-->
-        </div>
+        <!--<div class="mobile-only full flex">
+         <?php include("widget_podcast_s1.php"); ?>
+        </div>-->
         <section
           class="third flex-responsive flex column-horizontal-pad flex mobile-side-pad"
         >
@@ -37,13 +37,13 @@
         <div class="full flex">
           <mini v-for="post in reading" :key="post.id" :post="post"></mini>
           <!-- 5x -->
-          <h2 class="full flex section-title">Podcast</h2>
-          <!--<?php
+          <!--<h2 class="full flex section-title">Podcast</h2>
+          <?php
                     include("widget_podcast_s1.php");
                     ?>-->
         </div>
       </section>
-      <div
+      <!--<div
         class="full center subtle-btn-parent mobile-only relative clickable"
         @click="loadMore"
       >
@@ -56,7 +56,7 @@
             <div></div>
           </div>
         </div>
-      </div>
+      </div>-->
     </div>
   </div>
 </template>

@@ -1,8 +1,5 @@
 <template>
-  <div
-    v-if="stocks.length"
-    class="full flex article stonk-widget stretch column-top-border"
-  >
+  <div class="full flex article stonk-widget stretch column-top-border">
     <div class="full flex">
       <h3 class="overtitle">Tržište</h3>
     </div>

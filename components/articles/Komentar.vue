@@ -2,6 +2,7 @@
   <app-link :to="post.permalink" class="full flex komentar relative">
     <div v-if="post.authors.length" class="komentar-author relative flex">
       <img
+        v-if="post.authors[0].image"
         :src="post.authors[0].image"
         :alt="post.authors[0].name"
         loading="lazy"

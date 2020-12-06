@@ -43,7 +43,7 @@
           ></komentar>
         </div>
       </section>
-      <div
+      <!--<div
         class="full center subtle-btn-parent mobile-only relative clickable"
         @click="loadMore"
       >
@@ -56,7 +56,7 @@
             <div></div>
           </div>
         </div>
-      </div>
+      </div>-->
     </div>
   </div>
 </template>

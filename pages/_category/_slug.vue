@@ -3,7 +3,7 @@
     v-if="post.id"
     :class="['main-container', 'flex', 'single-article', typeClass]"
   >
-    <theader></theader>
+    <theader :headline="post.portal_title"></theader>
 
     <div class="full related-header-widget">
       <div class="container flex desktop-only column-vertical-pad">
@@ -62,8 +62,12 @@
               :key="author.name"
               :to="author.url"
               class="meta-author flex"
-              ><img :src="author.image" :alt="author.name" /> <span>Piše</span
-              ><span>{{ author.name }}</span></nuxt-link
+              ><img
+                v-if="author.image"
+                :src="author.image"
+                :alt="author.name"
+              />
+              <span>Piše</span><span>{{ author.name }}</span></nuxt-link
             >
           </h5>
           <div class="full flex article-head-image-parent relative">

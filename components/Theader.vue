@@ -14,7 +14,13 @@
       <div class="menu flex">
         <div class="half">
           <h3>Rubrika</h3>
-          <main-menu></main-menu>
+          <app-link to="/politika-kriminal">Politika & Kriminal</app-link>
+          <app-link to="/komentari">Komentari</app-link>
+          <app-link to="/biznis-tech">Biznis & Tech</app-link>
+          <app-link to="/velike-price">Velike priče</app-link>
+          <app-link to="/zivot">Život</app-link>
+          <app-link to="/kultura">Kultura</app-link>
+          <app-link to="/fotogalerije">Fotogalerije</app-link>
         </div>
         <div class="half">
           <h3>Kanali</h3>
@@ -23,16 +29,18 @@
         </div>
         <div class="half">
           <h3>Social</h3>
-          <a href="#">Facebook</a>
-          <a href="#">Twitter</a>
-          <a href="#">Instagram</a>
-          <a href="#">Youtube</a>
+          <a href="https://www.facebook.com/www.telegram.hr/">Facebook</a>
+          <a href="https://twitter.com/telegramhr/">Twitter</a>
+          <a href="https://www.instagram.com/telegram.hr/">Instagram</a>
+          <a href="https://www.youtube.com/channel/UCV_gCZEP2ikrjZVTRulR7sw"
+            >Youtube</a
+          >
         </div>
         <div class="half">
           <h3>Info</h3>
-          <a href="#">Impressum</a>
-          <a href="#">Oglašavanje</a>
-          <a href="#">Uvjeti korištenja</a>
+          <app-link to="/impressum">Impressum</app-link>
+          <app-link to="/marketing">Oglašavanje</app-link>
+          <app-link to="/uvjeti-koristenja">Uvjeti korištenja</app-link>
         </div>
       </div>
     </div>
@@ -217,19 +225,17 @@
 </template>
 
 <script>
-import MainMenu from '@/components/MainMenu'
-import Breaking from '@/components/Breaking'
 export default {
   name: 'Header',
-  components: {
-    Breaking,
-    MainMenu,
+  props: {
+    headline: {
+      type: String,
+    },
   },
   data() {
     return {
       searchMenuShow: false,
       sideMenuShow: false,
-      headline: '',
       breaking: false,
       previousScroll: 0,
       dynamicHeader: false,

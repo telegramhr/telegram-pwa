@@ -88,7 +88,7 @@
       >
         <trending :id="1"></trending>
         <h2 class="full flex section-title">Dojave</h2>
-        <!-- widget dojave -->
+        <dojave />
       </section>
       <div class="three-fourths flex-responsive flex elevate-over-section">
         <section

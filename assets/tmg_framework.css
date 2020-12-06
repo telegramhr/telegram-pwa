@@ -1,11 +1,11 @@
-/* 
+/*
 * Telegram Media Grupa CSS Framework
 * by TG Studio
 */
 
 /* CSS Reset */
 
-html { 
+html {
     margin: 0;
     padding: 0;
     border: 0;
@@ -19,7 +19,7 @@ body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, 
     font-style: inherit;
     font-size: 100%;
     font-family: inherit;
-    vertical-align: baseline; 
+    vertical-align: baseline;
     list-style: none;
 }
 
@@ -45,20 +45,20 @@ a {
     -o-transition: all 0.3s;
     transition: all 0.3s;
 }
-:focus { 
-    outline: none; 
+:focus {
+    outline: none;
 }
 
 /* Typography */
 
-b, strong, .bold { 
-    font-weight: 700; 
+b, strong, .bold {
+    font-weight: 700;
 }
-.superbold { 
-    font-weight: 900; 
+.superbold {
+    font-weight: 900;
 }
-i, em, .italic { 
-    font-style: italic; 
+i, em, .italic {
+    font-style: italic;
 }
 .center-text {
     text-align: center;
@@ -104,7 +104,7 @@ img {
     height: auto;
 }
 
-/* Layout */ 
+/* Layout */
 
 .flex {
     display: flex;

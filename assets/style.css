@@ -65,7 +65,7 @@ header .logo {
     width: 165px;
     display: block;
     opacity: 1;
-    margin: 0 auto; 
+    margin: 0 auto;
 }
 .subheader {
     height: 26px;
@@ -92,7 +92,7 @@ header .logo {
 }
 .subheader .weather {
     padding-left: 24px;
-} 
+}
 .desktop-subheader .menu a {
     text-transform: uppercase;
     margin-right: 12px;
@@ -349,7 +349,7 @@ h5.article-meta i {
 .izborne-jedinice .half:nth-child(2n) {
     padding-right: 0px;
     padding-left: 16px;
-}   
+}
 
 
 /* Section subtitle */
@@ -1292,7 +1292,7 @@ figure img {
 }
 .side-menu .half {
     width: 100%;
-    padding: 8vw 0px; 
+    padding: 8vw 0px;
 }
 .side-menu h3 {
     font-family: neuzeit-grotesk-extra-conden, sans-serif;
@@ -1426,7 +1426,7 @@ figure img {
     margin-bottom: 16px;
     margin-top: 16px;
     overflow: hidden;
-    border-bottom: 1px solid #c1b9b1;   
+    border-bottom: 1px solid #c1b9b1;
     border-top: 1px solid #c1b9b1;
     padding: 32px 0px;
     padding-right: 64px;
@@ -1481,7 +1481,7 @@ figure img {
     outline: none;
 }
 .search-menu form input {
-    width: 100%;    
+    width: 100%;
     height: 32px;
     background: none;
     outline: none;
