@@ -1,5 +1,8 @@
 <template>
   <div class="full">
+    <div class="full center header-billboard">
+      <adunit id="telegram_desktop_billboard_v1"></adunit>
+    </div>
     <div
       :class="{
         'side-menu': true,

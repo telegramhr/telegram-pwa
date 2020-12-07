@@ -47,11 +47,17 @@
     </div>
     <div class="full relative">
       <div class="container wallpaper-banners">
-          <div class="wallpaper-left"><ad-unit id="telegram_desktop_wallpaper_left"></ad-unit></div>
-          <div class="wallpaper-right"><ad-unit id="telegram_desktop_wallpaper_right"></ad-unit></div>
+        <div class="wallpaper-left">
+          <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
+        </div>
+        <div class="wallpaper-right">
+          <ad-unit id="telegram_dekstop_wallpaper_right"></ad-unit>
+        </div>
       </div>
       <div class="full flex">
-        <article class="container column-full-pad flex relative mobile-side-pad">
+        <article
+          class="container column-full-pad flex relative mobile-side-pad"
+        >
           <div class="full column article-head column-top-pad flex">
             <div class="full flex">
               <!-- eslint-disable-next-line -->
@@ -126,7 +132,9 @@
             <!-- eslint-disable-next-line -->
             <div v-html="post.content"></div>
             <!-- Article footer -->
-            <div class="full relative single-article-footer flex column-top-pad">
+            <div
+              class="full relative single-article-footer flex column-top-pad"
+            >
               <div class="half flex-responsive article-tags">
                 <nuxt-link
                   v-for="tag in post.tags"
