@@ -2608,7 +2608,7 @@ header {
     .single-article-commentary .article-head h1 {
         font-size: 54px;
     }
-    .single-article-commentary h2 {
+    .single-article-commentary .article-head h2 {
         font-size: 24px;
     }
     .single-article .article-head .meta-date, .single-article .article-head .meta-preporuke {
