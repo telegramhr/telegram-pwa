@@ -44,7 +44,7 @@
         <app-link to="/stranica/uvjeti-koristenja" class="animate"
           >Uvjeti korištenja</app-link
         >
-        <app-link to="/pravila-privatnosti" class="animate"
+        <app-link to="/stranica/pravila-privatnosti" class="animate"
           >Pravila o privatnosti</app-link
         >
       </div>

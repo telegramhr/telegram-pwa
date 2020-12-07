@@ -17,12 +17,27 @@
             <div class="third animate">
               <i class="far fa-angle-left"></i> Prethodna
             </div>
-            <div class="gallery-count third animate">Slika 1/1</div>
+            <div class="gallery-count third animate">
+              Slika {{ current }}/{{ gallery.length }}
+            </div>
             <div class="third animate">
               Sljedeća <i class="far fa-angle-right"></i>
             </div>
           </div>
-          <figure class="full relative">
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <figure
+                v-for="image in post.content"
+                :key="image.id"
+                class="full relative"
+              >
+                <img :src="image.url" />
+                <figcaption class="wp-caption-text img-portrait">
+                  {{ image.caption }}
+                  <span class="photographer">{{ image.author }}</span>
+                </figcaption>
+              </figure>
+            </div>
             <div class="gallery-left center gallery-arrow desktop-only animate">
               <i class="far fa-angle-left animate"></i>
             </div>
@@ -31,15 +46,7 @@
             >
               <i class="far fa-angle-right animate"></i>
             </div>
-            <img
-              src="https://www.telegram.hr/wp-content/uploads/2020/09/zagreb-pride-08.jpg"
-              alt="Pride"
-            />
-            <figcaption class="wp-caption-text img-portrait">
-              Lorem ipsum dolor sit amet
-              <span class="photographer">Vjekoslav Skledar</span>
-            </figcaption>
-          </figure>
+          </div>
         </div>
       </div>
     </div>
@@ -48,10 +55,12 @@
 </template>
 
 <script>
+import Swiper from 'swiper/js/swiper.esm.bundle'
 export default {
   name: 'Slug',
   data() {
     return {
+      current: 0,
       post: {
         type: '',
         image: {
@@ -79,8 +88,22 @@ export default {
           description: '',
           image: '',
         },
+        gallery: [],
+      },
+      virtualData: {
+        slides: [],
       },
     }
+  },
+  mounted() {
+    this.$axios.get('single/' + this.$route.params.slug).then((res) => {
+      this.post = res.data
+      // eslint-disable-next-line
+      const s = new Swiper('.swiper-container', {
+        speed: 400,
+        spaceBetween: 100,
+      })
+    })
   },
 }
 </script>
