@@ -44,6 +44,19 @@
           7x mini -->
         </div>
       </section>
+      <div v-if="morePosts.length" class="full flex">
+        <div
+          class="container flex relative native-block stretch mobile-side-pad"
+        >
+          <div class="fourth flex-responsive column-full-pad">
+            <standard
+              v-for="post in morePosts"
+              :key="post.id"
+              :post="post"
+            ></standard>
+          </div>
+        </div>
+      </div>
       <div
         class="full center subtle-btn-parent relative clickable"
         @click="loadMore"
@@ -64,8 +77,10 @@
 </template>
 
 <script>
+import Standard from 'components/articles/Standard'
 export default {
   name: 'CategoryIndex',
+  components: { Standard },
   async fetch() {
     await this.$axios
       .get('category/' + this.$route.params.category)
@@ -77,6 +92,7 @@ export default {
   data() {
     return {
       posts: [],
+      morePosts: [],
       category: '',
       page: 2,
       loading: false,
@@ -88,7 +104,7 @@ export default {
       this.$axios
         .get('category/' + this.$route.params.category + '/page/' + this.page)
         .then((res) => {
-          this.posts = [...this.posts, res.data]
+          this.posts = [...this.morePosts, ...res.data.posts]
           this.page++
           this.loading = false
         })

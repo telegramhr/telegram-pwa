@@ -72,7 +72,7 @@
                 v-for="author in post.authors"
                 :key="author.name"
                 :to="author.url"
-                class="meta-author flex"
+                class="meta-author flex desktop-only"
                 ><img
                   v-if="author.image"
                   :src="author.image"
