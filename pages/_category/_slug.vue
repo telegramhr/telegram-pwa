@@ -264,25 +264,17 @@ export default {
     getPost() {
       this.$axios.get('single/' + this.$route.params.slug).then((res) => {
         this.post = res.data
-        this.$axios
-          .get('related/' + res.data.id)
-          .then((res) => {
-            if (!process.server) {
-              /* global googletag */
-              googletag.refresh()
-            }
-            this.related_posts = res.data
-              .filter((item) => {
-                return item.id !== this.post.id
-              })
-              .splice(0, 3)
-          })
-          .catch(() => {
-            if (process.server) {
-              this.$nuxt.context.res.statusCode = 404
-            }
-            // this.$router.push('/404')
-          })
+        this.$axios.get('related/' + res.data.id).then((res) => {
+          this.related_posts = res.data
+            .filter((item) => {
+              return item.id !== this.post.id
+            })
+            .splice(0, 3)
+          if (!process.server) {
+            /* global googletag */
+            googletag.refresh()
+          }
+        })
       })
     },
     fbShare() {
