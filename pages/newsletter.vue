@@ -39,7 +39,7 @@
             <div class="full center desktop-only">
               <i class="fas fa-envelope-open-text"></i>
             </div>
-            <div class="widget-box full flex">
+            <div v-show="!thanks" class="widget-box full flex">
               <input
                 v-model="email"
                 type="email"
@@ -55,8 +55,12 @@
                   type="submit"
                   value="Prijavite se"
                   class="btn clickable animate"
+                  @click="submit"
                 />
               </div>
+            </div>
+            <div v-show="thanks">
+              <p>Hvala na prijavi</p>
             </div>
             <div class="full center mobile-only">
               <i class="fas fa-envelope-open-text"></i>
@@ -107,6 +111,8 @@ export default {
       loading: false,
       posts: [],
       page: 1,
+      email: '',
+      thanks: false,
     }
   },
   mounted() {
@@ -117,6 +123,20 @@ export default {
       this.$axios.get('featured').then((res) => {
         this.posts = res.data
       })
+    },
+    submit() {
+      this.$axios
+        .get(
+          'https://script.google.com/macros/s/AKfycbyK6ZXuZMi_qpR5a2byaTLOL0vh5055Y3DRm-wBauxBOfMxYAU/exec',
+          {
+            params: {
+              email: this.email,
+            },
+          }
+        )
+        .then(() => {
+          this.thanks = true
+        })
     },
   },
 }
