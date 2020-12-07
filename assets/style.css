@@ -100,6 +100,9 @@ header .logo {
 .desktop-subheader i {
     margin-right: 16px;
 }
+.desktop-subheader i.fa-search {
+    margin-right: 0px;
+}
 
 /* Homepage articles */
 
@@ -726,6 +729,7 @@ h2.section-title {
     position: relative;
     top: -2.5px;
     font-feature-settings: "liga" 0, "clig" 0;
+    display: none;
 }
 .signup-btn:hover {
     color: #212121;
