@@ -45,129 +45,134 @@
         <h2 class="full">{{ post.subtitle }}</h2>
       </div>
     </div>
-
-    <div class="full flex">
-      <article class="container column-full-pad flex relative mobile-side-pad">
-        <div class="full column article-head column-top-pad flex">
-          <div class="full flex">
-            <!-- eslint-disable-next-line -->
-            <h3 class="overtitle" v-html="post.category"></h3>
-          </div>
-          <h1 class="full">{{ post.title }}</h1>
-          <h2 class="full">
-            {{ post.subtitle }}
-          </h2>
-          <h5 class="full flex relative article-meta mobile-only">
-            <nuxt-link
-              v-for="author in post.authors"
-              :key="author.name"
-              :to="author.url"
-              class="meta-author flex"
-              ><img
-                v-if="author.image"
-                :src="author.image"
-                :alt="author.name"
-              />
-              <span>Piše</span><span>{{ author.name }}</span></nuxt-link
-            >
-          </h5>
-          <div class="full flex article-head-image-parent relative">
-            <img
-              class="article-head-image"
-              :src="post.image.url"
-              :alt="post.image.alt"
-            />
-            <div v-if="post.image.author" class="meta-foto">
-              FOTO: {{ post.image.author }}
+    <div class="full relative">
+      <div class="container wallpaper-banners">
+          <div class="wallpaper-left"><ad-unit id="telegram_desktop_wallpaper_left"></ad-unit></div>
+          <div class="wallpaper-right"><ad-unit id="telegram_desktop_wallpaper_right"></ad-unit></div>
+      </div>
+      <div class="full flex">
+        <article class="container column-full-pad flex relative mobile-side-pad">
+          <div class="full column article-head column-top-pad flex">
+            <div class="full flex">
+              <!-- eslint-disable-next-line -->
+              <h3 class="overtitle" v-html="post.category"></h3>
             </div>
-          </div>
-          <p v-if="post.perex" class="perex">
-            {{ post.perex }}
-          </p>
-          <h5 class="full flex relative article-meta">
-            <nuxt-link
-              v-for="author in post.authors"
-              :key="author.name"
-              :to="author.url"
-              class="meta-author flex"
-              ><img :src="author.image" :alt="author.name" /><span>Piše</span
-              ><span>{{ author.name }}</span></nuxt-link
-            >
-            <span class="meta-date">{{ post.time | parseTime }}</span>
-            <span class="meta-preporuke"
-              >{{ post.recommendations }} preporuka</span
-            >
-            <div class="sidebar-social flex">
-              <a href="#" @click.prevent="fbShare"
-                ><i class="fab fa-facebook-f animate"></i
-              ></a>
-              <a
-                :href="
-                  'https://twitter.com/intent/tweet?counturl=' +
-                  encodeURI(post.social.path) +
-                  '&text=' +
-                  encodeURI(post.portal_title) +
-                  '&url=' +
-                  encodeURI(post.social.path) +
-                  '&via=TelegramHR'
-                "
-                target="_blank"
-                ><i class="fab fa-twitter animate"></i
-              ></a>
-              <!--<a href="#"><i class="fab fa-instagram animate"></i></a>-->
-            </div>
-          </h5>
-        </div>
-        <div class="full relative single-article-body">
-          <!-- eslint-disable-next-line -->
-          <div v-html="post.content"></div>
-          <!-- Article footer -->
-          <div class="full relative single-article-footer flex column-top-pad">
-            <div class="half flex-responsive article-tags">
+            <h1 class="full">{{ post.title }}</h1>
+            <h2 class="full">
+              {{ post.subtitle }}
+            </h2>
+            <h5 class="full flex relative article-meta mobile-only">
               <nuxt-link
-                v-for="tag in post.tags"
-                :key="tag.slug"
-                :to="'/tema/' + tag.slug"
-                >{{ tag.name }},
-              </nuxt-link>
+                v-for="author in post.authors"
+                :key="author.name"
+                :to="author.url"
+                class="meta-author flex"
+                ><img
+                  v-if="author.image"
+                  :src="author.image"
+                  :alt="author.name"
+                />
+                <span>Piše</span><span>{{ author.name }}</span></nuxt-link
+              >
+            </h5>
+            <div class="full flex article-head-image-parent relative">
+              <img
+                class="article-head-image"
+                :src="post.image.url"
+                :alt="post.image.alt"
+              />
+              <div v-if="post.image.author" class="meta-foto">
+                FOTO: {{ post.image.author }}
+              </div>
             </div>
-            <div class="half flex-responsive">
-              <div class="flex float-right social-circle-buttons">
-                <a href="#" class="animate center" @click.prevent="fbShare"
-                  ><i class="fab fa-facebook-f"></i
+            <p v-if="post.perex" class="perex">
+              {{ post.perex }}
+            </p>
+            <h5 class="full flex relative article-meta">
+              <nuxt-link
+                v-for="author in post.authors"
+                :key="author.name"
+                :to="author.url"
+                class="meta-author flex"
+                ><img :src="author.image" :alt="author.name" /><span>Piše</span
+                ><span>{{ author.name }}</span></nuxt-link
+              >
+              <span class="meta-date">{{ post.time | parseTime }}</span>
+              <span class="meta-preporuke"
+                >{{ post.recommendations }} preporuka</span
+              >
+              <div class="sidebar-social flex">
+                <a href="#" @click.prevent="fbShare"
+                  ><i class="fab fa-facebook-f animate"></i
                 ></a>
                 <a
                   :href="
                     'https://twitter.com/intent/tweet?counturl=' +
-                    encodeURI(post.permalink) +
+                    encodeURI(post.social.path) +
                     '&text=' +
                     encodeURI(post.portal_title) +
                     '&url=' +
-                    encodeURI(post.permalink) +
+                    encodeURI(post.social.path) +
                     '&via=TelegramHR'
                   "
                   target="_blank"
-                  class="animate center"
-                  ><i class="fab fa-twitter"></i
+                  ><i class="fab fa-twitter animate"></i
                 ></a>
-                <!-- <a href="#" class="animate center"
-                  ><i class="fab fa-instagram"></i
-                ></a>-->
-                <div class="classic-btn clickable animate">
-                  {{ post.comments }}
-                  komentara
+                <!--<a href="#"><i class="fab fa-instagram animate"></i></a>-->
+              </div>
+            </h5>
+          </div>
+          <div class="full relative single-article-body">
+            <!-- eslint-disable-next-line -->
+            <div v-html="post.content"></div>
+            <!-- Article footer -->
+            <div class="full relative single-article-footer flex column-top-pad">
+              <div class="half flex-responsive article-tags">
+                <nuxt-link
+                  v-for="tag in post.tags"
+                  :key="tag.slug"
+                  :to="'/tema/' + tag.slug"
+                  >{{ tag.name }},
+                </nuxt-link>
+              </div>
+              <div class="half flex-responsive">
+                <div class="flex float-right social-circle-buttons">
+                  <a href="#" class="animate center" @click.prevent="fbShare"
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                  <a
+                    :href="
+                      'https://twitter.com/intent/tweet?counturl=' +
+                      encodeURI(post.permalink) +
+                      '&text=' +
+                      encodeURI(post.portal_title) +
+                      '&url=' +
+                      encodeURI(post.permalink) +
+                      '&via=TelegramHR'
+                    "
+                    target="_blank"
+                    class="animate center"
+                    ><i class="fab fa-twitter"></i
+                  ></a>
+                  <!-- <a href="#" class="animate center"
+                    ><i class="fab fa-instagram"></i
+                  ></a>-->
+                  <div class="classic-btn clickable animate">
+                    {{ post.comments }}
+                    komentara
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </article>
+        </article>
+      </div>
+      <keep-reading
+        v-if="post.category_slug"
+        :category="post.category_slug"
+        :p="post.id"
+      ></keep-reading>
     </div>
-    <keep-reading
-      v-if="post.category_slug"
-      :category="post.category_slug"
-      :p="post.id"
-    ></keep-reading>
     <tfooter></tfooter>
   </div>
 </template>

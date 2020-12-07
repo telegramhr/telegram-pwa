@@ -1878,6 +1878,24 @@ header {
     z-index: 200;
     position: relative;
 }
+.wallpaper-banners {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 200;
+}
+.wallpaper-left, .wallpaper-right {
+    position: absolute;
+    left: -300px;
+    top: 32px;
+    width: 300px;
+    height: 900px;
+    overflow: hidden;
+}
+.wallpaper-right {
+    left: auto;
+    right: -300px;
+}
 
 @keyframes square_anim {
     0% {
