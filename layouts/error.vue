@@ -11,7 +11,7 @@
     >
       <div class="full block-title-pattern relative"></div>
       <div class="container flex relative">
-        <app-link to="/" class="logo column-left-pad"
+        <app-link href="/" class="logo column-left-pad"
           ><img src="@/assets/img/telegram_logo_white.svg" alt="Telegram logo"
         /></app-link>
         <h2 class="full column-horizontal-pad desktop-only site-subtitle">
@@ -26,7 +26,12 @@
         <h2 class="full subtitle-404 center-text">
           Nažalost ova stranica nije pronađena.
         </h2>
-        <p class="full text-404 center-text"></p>
+        <p class="full text-404 center-text">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum
+          suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan
+          lacus vel facilisis.
+        </p>
       </div>
     </div>
     <div class="full flex">

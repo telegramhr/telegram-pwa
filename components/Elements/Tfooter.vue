@@ -35,11 +35,13 @@
         ></app-link>
       </div>
       <div class="full flex services center">
-        <app-link to="/impressum" class="animate">Impressum</app-link>
-        <app-link to="/marketing" class="animate">Oglašavanje</app-link>
-        <app-link to="/kontakt" class="animate">Kontakt</app-link>
-        <app-link to="/karijere" class="animate">Karijere</app-link>
-        <app-link to="/uvjeti-koristenja" class="animate"
+        <app-link to="/stranica/impressum" class="animate">Impressum</app-link>
+        <app-link to="/stranica/marketing" class="animate"
+          >Oglašavanje</app-link
+        >
+        <app-link to="/stranica/kontakt" class="animate">Kontakt</app-link>
+        <app-link to="/stranica/karijere" class="animate">Karijere</app-link>
+        <app-link to="/stranica/uvjeti-koristenja" class="animate"
           >Uvjeti korištenja</app-link
         >
         <app-link to="/pravila-privatnosti" class="animate"

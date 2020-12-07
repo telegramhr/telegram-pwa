@@ -179,9 +179,9 @@
         <div
           class="container flex relative native-block stretch mobile-side-pad"
         >
-          <div class="full column-horizontal-pad flex">
+          <!--<div class="full column-horizontal-pad flex">
             <h2 class="full flex section-title">Više s weba</h2>
-          </div>
+          </div>-->
           <div id="midasWidget__657"></div>
           <script
             id="midas-phrygia"
@@ -257,13 +257,21 @@ export default {
     getPost() {
       this.$axios.get('single/' + this.$route.params.slug).then((res) => {
         this.post = res.data
-        this.$axios.get('related/' + res.data.id).then((res) => {
-          this.related_posts = res.data
-            .filter((item) => {
-              return item.id !== this.post.id
-            })
-            .splice(0, 3)
-        })
+        this.$axios
+          .get('related/' + res.data.id)
+          .then((res) => {
+            this.related_posts = res.data
+              .filter((item) => {
+                return item.id !== this.post.id
+              })
+              .splice(0, 3)
+          })
+          .catch(() => {
+            if (process.server) {
+              this.$nuxt.context.res.statusCode = 404
+            }
+            this.$router.push('/404')
+          })
       })
     },
     fbShare() {
