@@ -1898,6 +1898,18 @@ header {
     right: -300px;
 }
 
+.stickyunit {
+  position: fixed;
+  bottom: 0;
+  z-index: 9999;
+  width: 100%;
+  text-align: center;
+}
+
+.stickyunit iframe, .stickyunit img {
+  margin: 0 auto;
+}
+
 @keyframes square_anim {
     0% {
       top: 8px;
