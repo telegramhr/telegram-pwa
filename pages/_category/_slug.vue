@@ -260,6 +260,10 @@ export default {
         this.$axios
           .get('related/' + res.data.id)
           .then((res) => {
+            if (!process.server) {
+              /* global googletag */
+              googletag.refresh()
+            }
             this.related_posts = res.data
               .filter((item) => {
                 return item.id !== this.post.id
