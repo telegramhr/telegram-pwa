@@ -782,13 +782,13 @@ h2.section-title {
     border-bottom-color: #376cae;
 }
 .super1-block .block-title, .super1-block .dynamic-overtitle-element, .super1-block .widget, .super1-block .widget::before, .super1-block .komentar .komentar-image, .super1-block .subtle-btn-parent:hover .subtle-btn, .super1-block .loader-square div {
-    background-color: #ab2863;
+    background-color: #CC3366;
 }
 .super1-block .meta-preporuke, .super1-block h3.overtitle, .super1-block .article-mini .meta-date, .super1-block .related-articles h5 {
-    color: #ab2863;
+    color: #CC3366;
 }
 .super1-block h2.section-title {
-    border-bottom-color: #ab2863;
+    border-bottom-color: #CC3366;
 }
 .weekday-title h2 {
     font-family: neuzeit-grotesk, sans-serif;
@@ -860,6 +860,7 @@ footer .social-links a {
 }
 footer .services a {
     padding: 4px 8px;
+    opacity: .5;
 }
 footer .copyright {
     opacity: .5;
@@ -2418,7 +2419,7 @@ header {
         box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
     }
     .super1-block .widget .btn {
-        background-color: #ab2863;
+        background-color: #CC3366;
     }
     .sport-block .widget .btn {
         background-color: #376cae;
