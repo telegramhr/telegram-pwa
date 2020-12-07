@@ -70,6 +70,8 @@
 
     <big-featured></big-featured>
 
+    <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
+
     <partners></partners>
 
     <div class="block-title news-block-title full mobile-side-pad">

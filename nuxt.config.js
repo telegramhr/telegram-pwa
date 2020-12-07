@@ -43,6 +43,20 @@ export default {
         src: 'https://script.dotmetrics.net/door.js?id=1182',
         async: true,
       },
+      {
+        src: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js',
+      },
+      {
+        src:
+          'https://cdnjs.cloudflare.com/ajax/libs/postscribe/2.0.8/postscribe.min.js',
+      },
+      {
+        src:
+          'https://www.telegram.hr/wp-content/plugins/telegram-ad-plugin/src/AdPlugin/assets/dfp/expand2.js',
+      },
+      {
+        src: 'https://www.telegram.hr/wp-content/ads_code',
+      },
     ],
   },
 
@@ -54,6 +68,7 @@ export default {
     { src: '@/plugins/filters.js' },
     { src: '@/plugins/persisted.client.js' },
     { src: '@/plugins/analytics.client.js' },
+    { src: '@/plugins/choices.client.js' },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)

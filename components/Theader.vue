@@ -72,7 +72,7 @@
           <a @click.prevent="searchMenuShow = !searchMenuShow"
             ><i class="far fa-search"></i
           ></a>
-          <a href="#" class="signup-btn">Prijavi se</a>
+          <app-link to="/newsletter" class="signup-btn">Prijavi se</app-link>
         </div>
       </div>
     </div>
@@ -117,7 +117,7 @@
             <a href="#" @click.prevent="searchMenuShow = !searchMenuShow"
               ><i class="far fa-search"></i
             ></a>
-            <app-link to="/login" class="signup-btn">Prijavi se</app-link>
+            <app-link to="/newsletter" class="signup-btn">Prijavi se</app-link>
           </div>
         </div>
         <!-- Mobile Subheader -->
@@ -158,7 +158,7 @@
             <a href="#" @click.prevent="searchMenuShow = !searchMenuShow"
               ><i class="far fa-search"></i
             ></a>
-            <app-link to="/login" class="signup-btn">Prijavi se</app-link>
+            <app-link to="/newsletter" class="signup-btn">Prijavi se</app-link>
           </div>
         </div>
         <client-only>
@@ -230,6 +230,8 @@ export default {
   props: {
     headline: {
       type: String,
+      required: false,
+      default: '',
     },
   },
   data() {
