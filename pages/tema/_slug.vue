@@ -1,7 +1,9 @@
 <template>
   <div class="main-container flex category-page">
     <div class="full flex relative single-article">
-      <theader></theader>
+      <client-only>
+        <theader></theader>
+      </client-only>
     </div>
     <div class="block-title news-block-title full mobile-side-pad">
       <div class="full block-title-pattern relative"></div>

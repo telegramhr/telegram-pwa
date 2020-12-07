@@ -1,6 +1,8 @@
 <template>
   <div class="main-container flex single-article gallery">
-    <theader></theader>
+    <client-only>
+      <theader></theader>
+    </client-only>
     <div class="full gallery-body">
       <div class="container flex relative mobile-side-pad">
         <div class="full flex article-head">

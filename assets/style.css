@@ -2350,6 +2350,8 @@ header {
     }
     header {
         margin-bottom: 0px;
+        position: relative;
+        z-index: 100;
     }
     .elevate-over-section {
         background-color: #fcf1e7;

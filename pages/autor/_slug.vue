@@ -1,7 +1,9 @@
 <template>
   <div class="main-container flex category-page">
     <div class="full flex relative single-article">
-      <theader></theader>
+      <client-only>
+        <theader></theader>
+      </client-only>
     </div>
     <div class="container relative mobile-side-pad column-full-pad">
       <div class="full center flex column-bottom-border">

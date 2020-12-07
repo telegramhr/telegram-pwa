@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="full">
     <div
       :class="{
         'side-menu': true,

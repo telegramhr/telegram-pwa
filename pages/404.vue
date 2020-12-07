@@ -1,7 +1,9 @@
 <template>
   <div class="main-container flex">
     <div class="full flex tg-red">
-      <theader></theader>
+      <client-only>
+        <theader></theader>
+      </client-only>
       <div class="full header-filler filler-404"></div>
     </div>
     <div
