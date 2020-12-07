@@ -22,5 +22,8 @@ export default ({ app }) => {
     gemiusPending('pp_gemius_hit')
     gemiusPending('pp_gemius_event')
     dotMetrics()
+    /* global googletag */
+    googletag.destroySlots()
+    googletag.refresh()
   })
 }

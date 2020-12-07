@@ -41,6 +41,7 @@
             </div>
             <div class="widget-box full flex">
               <input
+                v-model="email"
                 type="email"
                 placeholder="Upišite svoj email..."
                 class="full"
@@ -135,7 +136,7 @@ export default {
   width: 100%;
   height: 30vw;
   z-index: 1;
-  overflow:hidden;
+  overflow: hidden;
 }
 .background-wall img {
   width: 20%;

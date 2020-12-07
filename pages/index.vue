@@ -20,9 +20,13 @@
       </div>
     </div>
     <div class="full relative">
-      <div class="container wallpaper-banners">
-          <div class="wallpaper-left"><ad-unit id="telegram_desktop_wallpaper_left"></ad-unit></div>
-          <div class="wallpaper-right"><ad-unit id="telegram_desktop_wallpaper_right"></ad-unit></div>
+      <div v-if="!mobile" class="container wallpaper-banners">
+        <div class="wallpaper-left">
+          <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
+        </div>
+        <div class="wallpaper-right">
+          <ad-unit id="telegram_dekstop_wallpaper_right"></ad-unit>
+        </div>
       </div>
       <div v-if="posts.length" class="container flex relative block-1 stretch">
         <section
@@ -73,9 +77,9 @@
       </div>
 
       <big-featured></big-featured>
-
-      <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
-
+      <div class="full center">
+        <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
+      </div>
       <partners></partners>
 
       <div class="block-title news-block-title full mobile-side-pad">
@@ -137,7 +141,6 @@
           </div>
         </div>
       </div>
-
       <sport></sport>
       <super></super>
       <div class="full flex">
