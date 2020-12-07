@@ -1159,9 +1159,13 @@ figure img {
     display: flex;
     width: 710px;
 }
+.single-article-premium article .article-head > h2 {
+    margin-bottom: 24px;
+}
 .single-article-premium article .article-head > .perex {
     display: flex;
     padding-bottom: 64px;
+    margin-top: 0px;
 }
 
 /* Immersive break */
