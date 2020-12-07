@@ -50,6 +50,7 @@
         Sva prava pridržana &copy; 2020 Telegram Media Grupa d.o.o.
       </div>
     </div>
+    <ad-unit id="telegram_sticky"></ad-unit>
   </footer>
 </template>
 

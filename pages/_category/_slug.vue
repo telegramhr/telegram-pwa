@@ -175,6 +175,23 @@
           </div>
         </article>
       </div>
+      <div class="full flex">
+        <div
+          class="container flex relative native-block stretch mobile-side-pad"
+        >
+          <div class="full column-horizontal-pad flex">
+            <h2 class="full flex section-title">Više s weba</h2>
+          </div>
+          <div id="midasWidget__657"></div>
+          <script
+            id="midas-phrygia"
+            async
+            src="https://www.midas-network.com/ScriptsControllerRule/midas-phrygia-1.min.js"
+            type="text/javascript"
+            data-widget="2?portalWidgetId=657&portalRuleId=49"
+          ></script>
+        </div>
+      </div>
       <keep-reading
         v-if="post.category_slug"
         :category="post.category_slug"

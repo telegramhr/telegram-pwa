@@ -1,7 +1,7 @@
 <template>
   <div class="full">
     <div class="full center header-billboard">
-      <adunit id="telegram_desktop_billboard_v1"></adunit>
+      <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
     </div>
     <div
       :class="{
@@ -133,11 +133,11 @@
             <img
               :src="
                 '/stocks/tg_stonks_' +
-                ($store.state.stocks.stocks['^DJI'].up ? 'up' : 'down') +
+                ($store.state.stocks.stocks[stock_key].up ? 'up' : 'down') +
                 '.png'
               "
               aria-hidden="true"
-            />{{ $store.state.stocks.stocks['^DJI'].name }}
+            />{{ $store.state.stocks.stocks[stock_key].name }}
           </div>
         </client-only>
         <div
@@ -255,6 +255,13 @@ export default {
         month: 'long',
         day: 'numeric',
       }).format(new Date())
+    },
+    stock_key() {
+      if (this.$store.state.stocks.stocks.length) {
+        const keys = Object.keys(this.$store.state.stocks.stocks)
+        return keys[Math.floor(Math.random() * keys.length)]
+      }
+      return 0
     },
   },
   created() {
