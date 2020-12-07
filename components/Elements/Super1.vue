@@ -21,9 +21,6 @@
             ></standard>
           </div>
         </section>
-        <!--<div class="mobile-only full flex">
-         <?php include("widget_podcast_s1.php"); ?>
-        </div>-->
         <section
           class="third flex-responsive flex column-horizontal-pad flex mobile-side-pad"
         >
@@ -36,27 +33,32 @@
         <h2 class="full flex section-title">Upravo se čita</h2>
         <div class="full flex">
           <mini v-for="post in reading" :key="post.id" :post="post"></mini>
-          <!-- 5x -->
-          <!--<h2 class="full flex section-title">Podcast</h2>
-          <?php
-                    include("widget_podcast_s1.php");
-                    ?>-->
         </div>
       </section>
-      <!--<div
+      <section
+        v-if="morePosts.length"
+        class="third flex-responsive flex mobile-only column-horizontal-pad flex mobile-side-pad"
+      >
+        <standard
+          v-for="post in morePosts"
+          :key="post.id"
+          :post="post"
+        ></standard>
+      </section>
+      <div
         class="full center subtle-btn-parent mobile-only relative clickable"
         @click="loadMore"
       >
-        <div class="subtle-btn animate">Vidi više</div>
-        <div class="subtle-btn-line"></div>
-        <div class="full center cool-loader hide">
+        <div v-show="!loading" class="subtle-btn animate">Vidi više</div>
+        <div v-show="!loading" class="subtle-btn-line"></div>
+        <div v-show="loading" class="full center cool-loader hide">
           <div class="loader-square">
             <div></div>
             <div></div>
             <div></div>
           </div>
         </div>
-      </div>-->
+      </div>
     </div>
   </div>
 </template>
@@ -74,17 +76,26 @@ export default {
     return {
       posts: [],
       reading: [],
+      morePosts: [],
+      page: 2,
+      loading: false,
     }
   },
   mounted() {
     // this.getPosts()
   },
   methods: {
-    loadMore() {},
     getPosts() {
       this.$axios.get('portal/3').then((res) => {
         this.posts = res.data.posts
         this.reading = res.data.reading
+      })
+    },
+    loadMore() {
+      this.loading = true
+      this.$axios.get('portal/3/page' + this.page).then((res) => {
+        this.morePosts = [...this.morePosts, ...res.data.posts]
+        this.loading = false
       })
     },
   },

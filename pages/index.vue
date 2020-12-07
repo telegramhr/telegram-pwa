@@ -128,7 +128,7 @@
         </div>
         <div
           class="full center subtle-btn-parent mobile-only relative clickable"
-          onclick="requestArticles(this);"
+          onclick="loadMore"
         >
           <div class="subtle-btn animate">Vidi više</div>
           <div class="subtle-btn-line"></div>
@@ -186,6 +186,7 @@ export default {
         this.posts = res.data
       })
     },
+    loadMore() {},
   },
   head() {
     return {

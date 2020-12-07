@@ -43,20 +43,30 @@
           ></komentar>
         </div>
       </section>
-      <!--<div
+      <section
+        v-if="morePosts.length"
+        class="third flex-responsive flex mobile-only column-horizontal-pad flex mobile-side-pad"
+      >
+        <standard
+          v-for="post in morePosts"
+          :key="post.id"
+          :post="post"
+        ></standard>
+      </section>
+      <div
         class="full center subtle-btn-parent mobile-only relative clickable"
         @click="loadMore"
       >
-        <div class="subtle-btn animate">Vidi više</div>
-        <div class="subtle-btn-line"></div>
-        <div class="full center cool-loader hide">
+        <div v-show="!loading" class="subtle-btn animate">Vidi više</div>
+        <div v-show="!loading" class="subtle-btn-line"></div>
+        <div v-show="loading" class="full center cool-loader hide">
           <div class="loader-square">
             <div></div>
             <div></div>
             <div></div>
           </div>
         </div>
-      </div>-->
+      </div>
     </div>
   </div>
 </template>
@@ -73,16 +83,25 @@ export default {
   },
   data() {
     return {
+      morePosts: [],
       posts: [],
       comments: [],
       reading: [],
+      page: 2,
+      loading: false,
     }
   },
   mounted() {
     // this.getPosts()
   },
   methods: {
-    loadMore() {},
+    loadMore() {
+      this.loading = true
+      this.$axios.get('portal/2/page' + this.page).then((res) => {
+        this.morePosts = [...this.morePosts, ...res.data.posts]
+        this.loading = false
+      })
+    },
     getPosts() {
       this.$axios.get('portal/2').then((res) => {
         this.posts = res.data.posts
