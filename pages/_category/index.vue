@@ -77,10 +77,8 @@
 </template>
 
 <script>
-import Standard from 'components/articles/Standard'
 export default {
   name: 'CategoryIndex',
-  components: { Standard },
   async fetch() {
     await this.$axios
       .get('category/' + this.$route.params.category)
