@@ -135,6 +135,7 @@ export default {
   width: 100%;
   height: 30vw;
   z-index: 1;
+  overflow:hidden;
 }
 .background-wall img {
   width: 20%;
