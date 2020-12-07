@@ -104,6 +104,9 @@ export default {
       name: 'Telegram.hr',
       author: 'Telegram.hr',
     },
+    icon: {
+      fileName: 'app-icon.png',
+    },
   },
 
   googleAnalytics: {

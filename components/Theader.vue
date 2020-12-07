@@ -23,7 +23,7 @@
           <app-link to="/velike-price">Velike priče</app-link>
           <app-link to="/zivot">Život</app-link>
           <app-link to="/kultura">Kultura</app-link>
-          <app-link to="/fotogalerije">Fotogalerije</app-link>
+          <!--<app-link to="/fotogalerije">Fotogalerije</app-link>-->
         </div>
         <div class="half">
           <h3>Kanali</h3>
@@ -67,7 +67,7 @@
             <app-link to="/velike-price">Velike priče</app-link>
             <app-link to="/zivot">Život</app-link>
             <app-link to="/kultura">Kultura</app-link>
-            <app-link to="/fotogalerije">Fotogalerije</app-link>
+            <!--<app-link to="/fotogalerije">Fotogalerije</app-link>-->
           </div>
           <div v-show="headline" class="header-headline single-exclusive">
             {{ headline }}
@@ -156,7 +156,7 @@
               <app-link to="/velike-price">Velike priče</app-link>
               <app-link to="/zivot">Život</app-link>
               <app-link to="/kultura">Kultura</app-link>
-              <app-link to="/fotogalerije">Fotogalerije</app-link>
+              <!--<app-link to="/fotogalerije">Fotogalerije</app-link>-->
             </div>
           </div>
           <div class="flex fourth relative">
