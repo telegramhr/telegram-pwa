@@ -72,7 +72,7 @@
                 v-for="author in post.authors"
                 :key="author.name"
                 :to="author.url"
-                class="meta-author flex desktop-only"
+                class="meta-author flex"
                 ><img
                   v-if="author.image"
                   :src="author.image"
@@ -99,7 +99,7 @@
                 v-for="author in post.authors"
                 :key="author.name"
                 :to="author.url"
-                class="meta-author flex"
+                class="meta-author flex desktop-only"
                 ><img :src="author.image" :alt="author.name" /><span>Piše</span
                 ><span>{{ author.name }}</span></nuxt-link
               >
