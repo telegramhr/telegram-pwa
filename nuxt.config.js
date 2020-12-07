@@ -14,7 +14,6 @@ export default {
       { name: 'twitter:dnt', content: 'on' },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://use.typekit.net/yjw4lwh.css' },
       {
         rel: 'stylesheet',
