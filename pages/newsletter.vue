@@ -35,7 +35,10 @@
           </p>
         </div>
         <div class="half column-full-pad flex-responsive center">
-          <form class="widget widget-newsletter relative full flex">
+          <form
+            class="widget widget-newsletter relative full flex"
+            @submit.prevent="submit"
+          >
             <div class="full center desktop-only">
               <i class="fas fa-envelope-open-text"></i>
             </div>
@@ -55,7 +58,7 @@
                   type="submit"
                   value="Prijavite se"
                   class="btn clickable animate"
-                  @click="submit"
+                  @click.prevent="submit"
                 />
               </div>
             </div>

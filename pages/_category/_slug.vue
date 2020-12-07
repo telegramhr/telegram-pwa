@@ -46,7 +46,7 @@
       </div>
     </div>
     <div class="full relative">
-      <div class="container wallpaper-banners">
+      <div v-if="!mobile" class="container wallpaper-banners">
         <div class="wallpaper-left">
           <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
         </div>
@@ -210,6 +210,7 @@ export default {
   },
   data() {
     return {
+      mobile: true,
       post: {
         type: '',
         image: {
@@ -253,7 +254,13 @@ export default {
       }
     },
   },
+  mounted() {
+    this.resize()
+  },
   methods: {
+    resize() {
+      this.mobile = window.innerWidth < 1024
+    },
     getPost() {
       this.$axios.get('single/' + this.$route.params.slug).then((res) => {
         this.post = res.data
