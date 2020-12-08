@@ -276,7 +276,7 @@ export default {
       this.mobile = window.innerWidth < 1024
     },
     getPost() {
-      this.$axios.get('related/' + res.data.id).then((res) => {
+      this.$axios.get('related/' + this.post.id).then((res) => {
         this.related_posts = res.data
           .filter((item) => {
             return item.id !== this.post.id
