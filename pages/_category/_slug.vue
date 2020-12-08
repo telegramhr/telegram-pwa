@@ -217,8 +217,8 @@
 <script>
 export default {
   name: 'Slug',
-  fetch() {
-    this.getPost()
+  async fetch() {
+    this.post = await this.$axios.$get('single/' + this.$route.params.slug)
   },
   data() {
     return {
@@ -269,21 +269,19 @@ export default {
   },
   mounted() {
     this.resize()
+    this.getPost()
   },
   methods: {
     resize() {
       this.mobile = window.innerWidth < 1024
     },
     getPost() {
-      this.$axios.get('single/' + this.$route.params.slug).then((res) => {
-        this.post = res.data
-        this.$axios.get('related/' + res.data.id).then((res) => {
-          this.related_posts = res.data
-            .filter((item) => {
-              return item.id !== this.post.id
-            })
-            .splice(0, 3)
-        })
+      this.$axios.get('related/' + res.data.id).then((res) => {
+        this.related_posts = res.data
+          .filter((item) => {
+            return item.id !== this.post.id
+          })
+          .splice(0, 3)
       })
     },
     fbShare() {
