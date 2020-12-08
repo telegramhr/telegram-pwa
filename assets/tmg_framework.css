@@ -22,6 +22,11 @@ body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, 
     vertical-align: baseline;
     list-style: none;
 }
+.main-container {
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
 
 /* Basics */
 

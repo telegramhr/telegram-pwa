@@ -1879,7 +1879,7 @@ header {
     font-size: 64px;
 }
 .header-billboard {
-    background-color: #121212;
+    background-color: #fcf1e7;
     z-index: 200;
     position: relative;
 }
@@ -2227,6 +2227,9 @@ header {
     }
     .filler-404 {
         padding-bottom: 21vw;
+    }
+    .wallpaper-banners {
+        display: none;
     }
 }
 
