@@ -1,8 +1,11 @@
 <template>
   <div class="full">
     <div class="full center header-billboard">
-      <!--<ad-unit id="telegram_desktop_billboard_v1"></ad-unit>-->
-      <launch></launch>
+      <ad-unit
+        v-if="mobile && $route.fullPath !== '/'"
+        id="telegram_desktop_billboard_v1"
+      ></ad-unit>
+      <launch v-if="$route.fullPath === '/'"></launch>
     </div>
     <div
       :class="{
