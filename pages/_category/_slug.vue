@@ -100,8 +100,11 @@
                 :key="author.name"
                 :to="author.url"
                 class="meta-author flex desktop-only"
-                ><img :src="author.image" :alt="author.name" /><span>Piše</span
-                ><span>{{ author.name }}</span></nuxt-link
+                ><img
+                  v-if="author.image"
+                  :src="author.image"
+                  :alt="author.name"
+                /><span>Piše</span><span>{{ author.name }}</span></nuxt-link
               >
               <span class="meta-date">{{ post.time | parseTime }}</span>
               <span class="meta-preporuke"
@@ -218,7 +221,11 @@
 export default {
   name: 'Slug',
   async fetch() {
-    this.post = await this.$axios.$get('single/' + this.$route.params.slug)
+    if (this.$route.params.category === 'preview') {
+      this.post = await this.$axios.$get('preview/' + this.$route.params.slug)
+    } else {
+      this.post = await this.$axios.$get('single/' + this.$route.params.slug)
+    }
   },
   data() {
     return {

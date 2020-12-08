@@ -141,6 +141,9 @@
           </div>
         </div>
       </div>
+      <div class="full center">
+        <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
+      </div>
       <sport></sport>
       <super></super>
       <div class="full flex">
