@@ -312,7 +312,7 @@ export default {
         {
           hid: 'og:image',
           name: 'og:image',
-          content: this.post.social.image.url,
+          content: this.post.social.image,
         },
         {
           hid: 'og:url',
