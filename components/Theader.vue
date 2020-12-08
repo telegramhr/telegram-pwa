@@ -258,8 +258,6 @@ export default {
     },
     stock_key() {
       const keys = Object.keys(this.$store.state.stocks.stocks)
-      // eslint-disable-next-line
-      console.log(keys)
       return keys[Math.floor(Math.random() * keys.length)]
     },
   },

@@ -12,8 +12,6 @@
         {{ stock.percent }}%</span
       >
     </div>
-    <div class="full column-top-pad"></div>
-    <div class="full column-top-pad"></div>
   </div>
 </template>
 
