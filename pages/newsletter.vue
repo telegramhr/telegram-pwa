@@ -31,7 +31,7 @@
           </p>
           <p class="full newsletter-intro">
             Budite među prvima koji u inboxu primaju ključne vijesti i
-            ekskluzive.
+            ekskluzive. Telegramov newsletter startat će kroz nekoliko tjedana.
           </p>
         </div>
         <div class="half column-full-pad flex-responsive center">

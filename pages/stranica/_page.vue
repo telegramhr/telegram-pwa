@@ -32,7 +32,6 @@ export default {
         if (process.server) {
           this.$nuxt.context.res.statusCode = 404
         }
-        this.$router.push('/404')
       })
   },
   data() {

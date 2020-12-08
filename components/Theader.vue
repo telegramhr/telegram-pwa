@@ -42,7 +42,7 @@
         <div class="half">
           <h3>Info</h3>
           <app-link to="/stranica/impressum">Impressum</app-link>
-          <app-link to="/stranica/marketing">Oglašavanje</app-link>
+          <app-link to="/stranica/oglasavanje">Oglašavanje</app-link>
           <app-link to="/stranica/uvjeti-koristenja"
             >Uvjeti korištenja</app-link
           >
