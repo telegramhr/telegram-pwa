@@ -4,7 +4,11 @@
     :class="['main-container', 'flex', 'single-article', typeClass]"
   >
     <client-only>
-      <theader :headline="post.portal_title"></theader>
+      <theader
+        :headline="post.portal_title"
+        :side-menu-show="showSideMenu"
+        :search-menu-show="showSearchMenu"
+      ></theader>
     </client-only>
     <div class="full related-header-widget">
       <div class="container flex desktop-only column-vertical-pad">
@@ -24,11 +28,13 @@
         FOTO: {{ post.image.author }}
       </div>
       <div class="mobile-only full center mobile-pa-nav relative flex">
-        <a onclick="activateSidemenu()"><i class="far fa-bars"></i></a>
-        <nuxt-link href="/" class="logo">
+        <a @click.prevent="showSideMenu = !showSideMenu"
+          ><i class="far fa-bars"></i
+        ></a>
+        <nuxt-link to="/" class="logo">
           <img src="@/assets/img/telegram_logo_white.svg" alt="Telegram logo" />
         </nuxt-link>
-        <a href="#" onclick="activatesSearchmenu()">
+        <a @click.prevent="showSearchMenu = !showSearchMenu">
           <i class="far fa-search"></i>
         </a>
       </div>
@@ -231,6 +237,8 @@ export default {
     return {
       comments: false,
       mobile: true,
+      showSideMenu: false,
+      showSearchMenu: false,
       post: {
         type: '',
         image: {
@@ -284,7 +292,9 @@ export default {
     },
     getPost() {
       if (this.post && this.post.id) {
-        FB.XFBML.parse()
+        if (typeof FB !== 'undefined') {
+          FB.XFBML.parse()
+        }
         this.$axios.get('related/' + this.post.id).then((res) => {
           this.related_posts = res.data
             .filter((item) => {

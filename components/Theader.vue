@@ -250,6 +250,16 @@
 export default {
   name: 'Header',
   props: {
+    sideMenuShow: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    searchMenuShow: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     headline: {
       type: String,
       required: false,
@@ -258,8 +268,6 @@ export default {
   },
   data() {
     return {
-      searchMenuShow: false,
-      sideMenuShow: false,
       breaking: false,
       previousScroll: 0,
       dynamicHeader: false,

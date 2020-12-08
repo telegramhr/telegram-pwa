@@ -2028,7 +2028,7 @@ header {
         padding-top: 32px;
     }
     .single-article header nav.homepage-exclusive {
-        display: flex;
+        /* display: flex; */
     }
     .perex {
         font-size: 20px;
