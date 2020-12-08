@@ -151,11 +151,11 @@
                   <a
                     :href="
                       'https://twitter.com/intent/tweet?counturl=' +
-                      encodeURI(post.permalink) +
+                      encodeURI(post.social.path) +
                       '&text=' +
                       encodeURI(post.portal_title) +
                       '&url=' +
-                      encodeURI(post.permalink) +
+                      encodeURI(post.social.path) +
                       '&via=TelegramHR'
                     "
                     target="_blank"
