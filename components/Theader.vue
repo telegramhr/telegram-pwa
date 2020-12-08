@@ -263,15 +263,15 @@ export default {
     },
   },
   created() {
-    this.handleDebouncedScroll = this.debounce(this.handleScroll, 100)
+    // this.handleDebouncedScroll = this.debounce(this.handleScroll, 100)
     // eslint-disable-next-line
-    window.addEventListener('scroll', this.handleDebouncedScroll)
+    // window.addEventListener('scroll', this.handleDebouncedScroll)
     this.resize()
   },
   beforeDestroy() {
     // I switched the example from `destroyed` to `beforeDestroy`
     // to exercise your mind a bit. This lifecycle method works too.
-    window.removeEventListener('scroll', this.handleDebouncedScroll)
+    // window.removeEventListener('scroll', this.handleDebouncedScroll)
   },
   methods: {
     resize() {
