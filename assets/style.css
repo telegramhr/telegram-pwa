@@ -1287,7 +1287,7 @@ figure img {
     height: 100%;
     position: fixed;
     left: -101%;
-    z-index: 99;
+    z-index: 299;
     top: 0;
     background-color: #333;
     color: white;
