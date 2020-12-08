@@ -86,9 +86,14 @@
       v-show="searchMenuShow"
       class="sticky-search-menu search-menu animate full center"
     >
-      <form class="relative" action="" method="get">
-        <input type="text" name="s" placeholder="Pretražite Telegram..." />
-        <button type="submit" class="animate">
+      <form class="relative" action="" method="get" @submit.prevent="search">
+        <input
+          v-model="search_term"
+          type="text"
+          name="s"
+          placeholder="Pretražite Telegram..."
+        />
+        <button type="submit" class="animate" @click.prevent="search">
           <i class="far fa-search"></i>
         </button>
       </form>
@@ -200,10 +205,18 @@
           ></a>
         </div>
       </nav>
-      <div v-show="searchMenuShow" class="search-menu animate full center">
-        <form class="relative" action="" method="get">
-          <input type="text" name="q" placeholder="Pretražite Telegram..." />
-          <button type="submit" class="animate">
+      <div
+        v-show="searchMenuShow"
+        class="search-menu-activate search-menu animate full center"
+      >
+        <form class="relative" action="" method="get" @submit.prevent="search">
+          <input
+            v-model="search_term"
+            type="text"
+            name="q"
+            placeholder="Pretražite Telegram..."
+          />
+          <button type="submit" class="animate" @click.prevent="search">
             <i class="far fa-search"></i>
           </button>
         </form>
@@ -246,6 +259,7 @@ export default {
       dynamicHeader: false,
       hideDynamicHeader: false,
       mobile: true,
+      search_term: '',
     }
   },
   computed: {
@@ -300,6 +314,11 @@ export default {
         clearTimeout(timeout)
         timeout = setTimeout(later, wait)
         if (callNow) func.apply(context, args)
+      }
+    },
+    search() {
+      if (this.search_term) {
+        this.$router.push('/search/' + this.search_term)
       }
     },
   },

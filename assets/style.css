@@ -1478,7 +1478,7 @@ figure img {
     background-color: #333;
     padding: 24px;
     color: white;
-    display: none;
+    display: flex;
     z-index: 150;
 }
 .search-menu form {
@@ -1513,7 +1513,7 @@ figure img {
     z-index: 20;
 }
 .sticky-search-menu {
-    display: none;
+    display: flex;
     position: fixed;
     top: 32px;
 }
