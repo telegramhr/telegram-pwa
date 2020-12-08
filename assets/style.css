@@ -2116,19 +2116,17 @@ header {
     /* Sticky navbar */
 
     header {
-        position: fixed;
-        top: 0;
-        left: 0;
+        position: relative;
     }
     .single-article header nav {
         background-color: #212121;
     }
-    .single-article {
+    /*.single-article {
         padding-top: 50px;
     }
     .homepage > .tg-red:first-child {
         padding-top: 74px;
-    }
+    }*/
     .single-article-premium {
         padding-top: 0px;
     }
