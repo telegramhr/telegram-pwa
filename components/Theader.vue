@@ -137,7 +137,10 @@
         <!-- Mobile Subheader -->
         <div class="flex mobile-only">{{ date }}</div>
         <client-only>
-          <div class="flex mobile-only">
+          <div
+            v-if="$store.state.stocks.stocks.length"
+            class="flex mobile-only"
+          >
             <img
               :src="
                 '/stocks/tg_stonks_' +

@@ -1,5 +1,8 @@
 <template>
-  <div class="full flex article stonk-widget stretch column-top-border">
+  <div
+    v-if="$store.state.stocks.stocks"
+    class="full flex article stonk-widget stretch column-top-border"
+  >
     <div class="full flex">
       <h3 class="overtitle">Tržište</h3>
     </div>
