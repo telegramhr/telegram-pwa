@@ -67,12 +67,12 @@ import Standard from '@/components/articles/Standard'
 export default {
   name: 'Autor',
   components: { Standard },
-  /* async fetch() {
+  async fetch() {
     await this.$axios.get('author/' + this.$route.params.slug).then((res) => {
       this.author = res.data.author
       this.posts = res.data.posts
     })
-  }, */
+  },
   data() {
     return {
       author: {
@@ -87,18 +87,12 @@ export default {
       page: 2,
     }
   },
-  mounted() {
-    this.$axios.get('author/' + this.$route.params.slug).then((res) => {
-      this.author = res.data.author
-      this.posts = res.data.posts
-    })
-  },
   methods: {
     loadMore() {
       this.$axios
         .get('author/' + this.$route.params.slug + '/page/' + this.page)
         .then((res) => {
-          this.posts = [...this.posts, res.data.posts]
+          this.posts = [...this.posts, ...res.data.posts]
           this.page++
         })
     },
