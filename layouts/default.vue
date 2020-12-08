@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div id="fb-root"></div>
     <Nuxt />
     <img
       height="1"

@@ -165,11 +165,23 @@
                   <!-- <a href="#" class="animate center"
                     ><i class="fab fa-instagram"></i
                   ></a>-->
-                  <div class="classic-btn clickable animate">
+                  <div
+                    class="classic-btn clickable animate"
+                    @click="comments = !comments"
+                  >
                     {{ post.comments }}
                     komentara
                   </div>
                 </div>
+              </div>
+              <div v-show="comments" class="full">
+                <div
+                  class="fb-comments"
+                  :data-href="post.social.path"
+                  data-width="100%"
+                  data-numposts="5"
+                  data-lazy="true"
+                ></div>
               </div>
             </div>
           </div>
@@ -210,6 +222,7 @@ export default {
   },
   data() {
     return {
+      comments: false,
       mobile: true,
       post: {
         type: '',
