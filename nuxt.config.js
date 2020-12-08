@@ -24,6 +24,7 @@ export default {
     ],
     script: [
       {
+        hid: 'facebook',
         src:
           'https://connect.facebook.net/hr_HR/sdk.js#xfbml=1&version=v9.0&appId=1383786971938581',
         async: true,

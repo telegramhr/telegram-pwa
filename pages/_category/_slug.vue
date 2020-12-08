@@ -276,13 +276,18 @@ export default {
       this.mobile = window.innerWidth < 1024
     },
     getPost() {
-      this.$axios.get('related/' + this.post.id).then((res) => {
-        this.related_posts = res.data
-          .filter((item) => {
-            return item.id !== this.post.id
-          })
-          .splice(0, 3)
-      })
+      if (this.post && this.post.id) {
+        FB.XFBML.parse()
+        this.$axios.get('related/' + this.post.id).then((res) => {
+          this.related_posts = res.data
+            .filter((item) => {
+              return item.id !== this.post.id
+            })
+            .splice(0, 3)
+        })
+      } else {
+        setTimeout(this.getPost, 1000)
+      }
     },
     fbShare() {
       /* global FB */

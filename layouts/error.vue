@@ -11,7 +11,7 @@
     >
       <div class="full block-title-pattern relative"></div>
       <div class="container flex relative">
-        <app-link href="/" class="logo column-left-pad"
+        <app-link to="/" class="logo column-left-pad"
           ><img src="@/assets/img/telegram_logo_white.svg" alt="Telegram logo"
         /></app-link>
         <h2 class="full column-horizontal-pad desktop-only site-subtitle">
@@ -54,9 +54,3 @@
     <tfooter></tfooter>
   </div>
 </template>
-
-<script>
-export default {
-  name: '404',
-}
-</script>
