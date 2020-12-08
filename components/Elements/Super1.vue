@@ -93,7 +93,7 @@ export default {
     },
     loadMore() {
       this.loading = true
-      this.$axios.get('portal/3/page' + this.page).then((res) => {
+      this.$axios.get('portal/3/page/' + this.page).then((res) => {
         this.morePosts = [...this.morePosts, ...res.data.posts]
         this.loading = false
       })
