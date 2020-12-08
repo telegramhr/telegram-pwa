@@ -81,9 +81,6 @@ export default {
       loading: false,
     }
   },
-  mounted() {
-    // this.getPosts()
-  },
   methods: {
     getPosts() {
       this.$axios.get('portal/3').then((res) => {

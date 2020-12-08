@@ -270,10 +270,6 @@ export default {
               return item.id !== this.post.id
             })
             .splice(0, 3)
-          if (!process.server) {
-            /* global googletag */
-            googletag.refresh()
-          }
         })
       })
     },

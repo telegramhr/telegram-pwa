@@ -91,9 +91,6 @@ export default {
       loading: false,
     }
   },
-  mounted() {
-    // this.getPosts()
-  },
   methods: {
     loadMore() {
       this.loading = true

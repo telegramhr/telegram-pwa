@@ -106,7 +106,7 @@ export default {
       author: 'Telegram.hr',
     },
     icon: {
-      fileName: 'app-icon.png',
+      fileName: 'tg_neue_favicon.png',
     },
   },
 

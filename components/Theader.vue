@@ -1,6 +1,6 @@
 <template>
   <div class="full">
-    <div class="full center header-billboard">
+    <div v-if="!mobile" class="full center header-billboard">
       <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
     </div>
     <div
@@ -128,10 +128,7 @@
         <!-- Mobile Subheader -->
         <div class="flex mobile-only">{{ date }}</div>
         <client-only>
-          <div
-            v-if="$store.state.stocks.stocks.length"
-            class="flex mobile-only"
-          >
+          <div class="flex mobile-only">
             <img
               :src="
                 '/stocks/tg_stonks_' +
@@ -247,6 +244,7 @@ export default {
       previousScroll: 0,
       dynamicHeader: false,
       hideDynamicHeader: false,
+      mobile: true,
     }
   },
   computed: {
@@ -259,17 +257,17 @@ export default {
       }).format(new Date())
     },
     stock_key() {
-      if (this.$store.state.stocks.stocks.length) {
-        const keys = Object.keys(this.$store.state.stocks.stocks)
-        return keys[Math.floor(Math.random() * keys.length)]
-      }
-      return 0
+      const keys = Object.keys(this.$store.state.stocks.stocks)
+      // eslint-disable-next-line
+      console.log(keys)
+      return keys[Math.floor(Math.random() * keys.length)]
     },
   },
   created() {
     this.handleDebouncedScroll = this.debounce(this.handleScroll, 100)
     // eslint-disable-next-line
     window.addEventListener('scroll', this.handleDebouncedScroll)
+    this.resize()
   },
   beforeDestroy() {
     // I switched the example from `destroyed` to `beforeDestroy`
@@ -277,6 +275,9 @@ export default {
     window.removeEventListener('scroll', this.handleDebouncedScroll)
   },
   methods: {
+    resize() {
+      this.mobile = window.innerWidth < 1024
+    },
     handleScroll() {
       if (window.scrollY) {
         this.dynamicHeader = true
