@@ -217,8 +217,8 @@
 <script>
 export default {
   name: 'Slug',
-  async fetch() {
-    await this.getPost()
+  fetch() {
+    this.getPost()
   },
   data() {
     return {
@@ -318,6 +318,16 @@ export default {
           hid: 'og:url',
           name: 'og:url',
           content: this.post.social.path,
+        },
+        {
+          hid: 'twitter:card',
+          name: 'twitter:card',
+          content: 'summary_large_image',
+        },
+        {
+          hid: 'twitter:site',
+          name: 'twitter:site',
+          content: '@TelegramHR',
         },
       ],
       script: [
