@@ -1,7 +1,8 @@
 <template>
   <div class="full">
-    <div v-if="!mobile" class="full center header-billboard">
-      <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
+    <div class="full center header-billboard">
+      <!--<ad-unit id="telegram_desktop_billboard_v1"></ad-unit>-->
+      <launch></launch>
     </div>
     <div
       :class="{
