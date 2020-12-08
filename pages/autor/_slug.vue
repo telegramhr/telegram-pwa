@@ -10,11 +10,9 @@
         <div
           class="three-fourths flex-responsive flex author-segment stretch"
           style="margin-top: 48px"
-        ><div class="author-segment-image">
-          <img
-            :src="author.image.url"
-            :alt="author.image.alt"
-          />
+        >
+          <div class="author-segment-image">
+            <img :src="author.image.url" :alt="author.image.alt" />
           </div>
           <div class="author-segment-header center">
             <div class="full">
