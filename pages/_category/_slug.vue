@@ -314,13 +314,20 @@ export default {
   mounted() {
     this.resize()
     this.getPost()
+    this.loadAds()
   },
   methods: {
+    loadAds() {
+      if (!this.post.disable_ads) {
+        window.googletag.pubads().refresh()
+      }
+    },
     resize() {
       this.mobile = window.innerWidth < 1024
     },
     getPost() {
       if (this.post && this.post.id) {
+        this.loadAds()
         if (typeof FB !== 'undefined') {
           FB.XFBML.parse()
         }
