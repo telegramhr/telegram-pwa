@@ -875,6 +875,15 @@ footer .copyright {
 .single-article .single-article-body p {
     margin-bottom: 15px;
 }
+.single-article .single-article-body p a {
+    color: #ae3737;
+    text-decoration: underline;
+    text-decoration-color: rgba(0, 0, 0, 0);
+}
+.single-article .single-article-body p a:hover {
+    text-decoration: under;
+    text-decoration-color: #ae3737;
+}
 .article-head {
     margin-bottom: 24px;
 }
