@@ -20,6 +20,12 @@
       ></a>
       <div class="menu flex">
         <div class="half">
+          <h3 v-if="id && loggedIn" style="display: none">
+            <a
+              :href="`https://www.telegram.hr/wp-admin/post.php?post=${id}&action=edit`"
+              >Uredi</a
+            >>
+          </h3>
           <h3>Rubrika</h3>
           <app-link to="/politika-kriminal">Politika & Kriminal</app-link>
           <app-link to="/komentari">Komentari</app-link>
@@ -250,6 +256,11 @@
 export default {
   name: 'Header',
   props: {
+    id: {
+      type: Number,
+      required: false,
+      default: 0,
+    },
     sideMenuShow: {
       type: Boolean,
       required: false,
@@ -277,6 +288,13 @@ export default {
     }
   },
   computed: {
+    loggedIn() {
+      if (!process.server) {
+        const c = document.cookie
+        return c.indexOf('wordpress_logged_in_') > 0
+      }
+      return false
+    },
     date() {
       return new Intl.DateTimeFormat('hr-HR', {
         weekday: 'long',
