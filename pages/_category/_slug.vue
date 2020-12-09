@@ -319,7 +319,17 @@ export default {
   methods: {
     loadAds() {
       if (!this.post.disable_ads) {
-        window.googletag.pubads().refresh()
+        window.googlefc = window.googlefc || {}
+        window.googlefc.callbackQueue = window.googlefc.callbackQueue || []
+        /* global __tcfapi */
+        window.googlefc.callbackQueue.push({
+          CONSENT_DATA_READY: () =>
+            __tcfapi('getTCData', 0, (data, success) => {
+              if (data.purpose.consents[1]) {
+                window.googletag.pubads().refresh()
+              }
+            }),
+        })
       }
     },
     resize() {

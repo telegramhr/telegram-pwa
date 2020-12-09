@@ -178,9 +178,22 @@ export default {
   },
   mounted() {
     window.addEventListener('resize', this.resize)
-    // this.getPosts()
+    this.loadAds()
   },
   methods: {
+    loadAds() {
+      window.googlefc = window.googlefc || {}
+      window.googlefc.callbackQueue = window.googlefc.callbackQueue || []
+      /* global __tcfapi */
+      window.googlefc.callbackQueue.push({
+        CONSENT_DATA_READY: () =>
+          __tcfapi('getTCData', 0, (data, success) => {
+            if (data.purpose.consents[1]) {
+              window.googletag.pubads().refresh()
+            }
+          }),
+      })
+    },
     resize() {
       this.mobile = window.innerWidth < 1024
     },
