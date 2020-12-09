@@ -2036,7 +2036,10 @@ header {
         padding-top: 32px;
     }
     .single-article header nav.homepage-exclusive {
-        /* display: flex; */
+        display: flex;
+    }
+    .single-article-premium header nav.homepage-exclusive {
+        display: none;
     }
     .perex {
         font-size: 20px;
