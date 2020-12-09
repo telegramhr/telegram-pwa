@@ -200,7 +200,7 @@ img {
 
 /* Media Queries */
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1024px) {
     .mobile-only {
         display: inherit;
     }

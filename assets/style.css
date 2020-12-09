@@ -55,7 +55,7 @@ header nav {
     left: 0;
 }
 header nav .container {
-    padding: 4vw;
+    padding: 15px 4vw;
     height: 50px;
 }
 header .logo img {
@@ -403,7 +403,7 @@ h2.section-title {
     font-size: 20px;
     letter-spacing: 2.5px;
     z-index: 3;
-    word-spacing: 100px;
+    word-spacing: 400px;
     position: relative;
     text-shadow: 1px 1px #fcf1e7;
 }
@@ -1304,12 +1304,12 @@ figure img {
 .side-menu-exit {
     position: absolute;
     top: 16px;
-    left: 4vw;
+    left: 15px;
     z-index: 100;
 }
 .side-menu .half {
     width: 100%;
-    padding: 8vw 0px;
+    padding: 30px 0px;
 }
 .side-menu h3 {
     font-family: neuzeit-grotesk-extra-conden, sans-serif;
@@ -1715,7 +1715,7 @@ header {
     margin-bottom: 32px;
 }
 .gallery-content {
-    width: 888px;
+    max-width: 888px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -2002,7 +2002,7 @@ header {
     }
     header a:first-child, header a:last-child {
         opacity: 0.5;
-        font-size: 4vw;
+        font-size: 15px;
         position: absolute;
         top: 16px;
     }
@@ -2264,7 +2264,7 @@ header {
     }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1025px) {
     header nav .container {
         padding: 24px;
         height: auto;
@@ -2925,13 +2925,12 @@ header {
 }
 @media screen and (max-width: 1024px) and (max-height: 800px) {
     .side-menu .half {
-        padding: 4vw 0px;
+        padding: 15px 0px;
     }
 }
 @media screen and (max-width: 1024px) and (max-height: 700px) {
     .side-menu .half {
         width: 49.99%;
-        padding: 8vw 0px;
     }
     .side-menu {
         width: 100%;
