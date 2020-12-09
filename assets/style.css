@@ -1922,6 +1922,25 @@ header {
   margin: 0 auto;
 }
 
+/* U suradnji s element */
+
+.overtitle-parent {
+    justify-content: space-between;
+}
+.collab-overtitle {
+    display: flex;
+}
+.collab-overtitle h3.overtitle {
+    color: #c1b9b1;
+    margin-right: 5px;
+}
+.collab-overtitle img {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    bottom: -15px;
+}
+
 @keyframes square_anim {
     0% {
       top: 8px;
@@ -2239,6 +2258,9 @@ header {
     }
     .wallpaper-banners {
         display: none;
+    }
+    .collab-overtitle {
+        padding-bottom: 8px;
     }
 }
 

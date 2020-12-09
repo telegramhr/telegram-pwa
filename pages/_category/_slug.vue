@@ -45,8 +45,9 @@
         :alt="post.image.alt"
       />
       <div class="full flex article-head">
-        <div class="full flex">
+        <div class="full flex overtitle-parent">
           <h3 class="overtitle">{{ post.category }}</h3>
+          <div class="collab-overtitle hide"><h3 class="overtitle">U suradnji s</h3><img src=""></div>
         </div>
         <h1 class="full">{{ post.portal_title }}</h1>
         <h2 class="full">{{ post.subtitle }}</h2>
@@ -66,9 +67,10 @@
           class="container column-full-pad flex relative mobile-side-pad"
         >
           <div class="full column article-head column-top-pad flex">
-            <div class="full flex">
+            <div class="full flex overtitle-parent">
               <!-- eslint-disable-next-line -->
               <h3 class="overtitle" v-html="post.category"></h3>
+              <div class="collab-overtitle hide"><h3 class="overtitle">U suradnji s</h3><img src=""></div>
             </div>
             <h1 class="full">{{ post.title }}</h1>
             <h2 class="full">
