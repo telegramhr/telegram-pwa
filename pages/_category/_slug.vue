@@ -47,7 +47,10 @@
       <div class="full flex article-head">
         <div class="full flex overtitle-parent">
           <h3 class="overtitle">{{ post.category }}</h3>
-          <div class="collab-overtitle hide"><h3 class="overtitle">U suradnji s</h3><img src=""></div>
+          <div v-if="post.promo.partner" class="collab-overtitle">
+            <h3 class="overtitle">U suradnji s</h3>
+            <img :src="post.promo.logo" :alt="post.promo.partner" />
+          </div>
         </div>
         <h1 class="full">{{ post.portal_title }}</h1>
         <h2 class="full">{{ post.subtitle }}</h2>
@@ -70,25 +73,37 @@
             <div class="full flex overtitle-parent">
               <!-- eslint-disable-next-line -->
               <h3 class="overtitle" v-html="post.category"></h3>
-              <div class="collab-overtitle hide"><h3 class="overtitle">U suradnji s</h3><img src=""></div>
+              <div v-if="post.promo.partner" class="collab-overtitle">
+                <h3 class="overtitle">U suradnji s</h3>
+                <img :src="post.promo.logo" :alt="post.promo.partner" />
+              </div>
             </div>
             <h1 class="full">{{ post.title }}</h1>
             <h2 class="full">
               {{ post.subtitle }}
             </h2>
             <h5 class="full flex relative article-meta mobile-only">
-              <nuxt-link
-                v-for="author in post.authors"
-                :key="author.name"
-                :to="author.url"
-                class="meta-author flex"
-                ><img
-                  v-if="author.image"
-                  :src="author.image"
-                  :alt="author.name"
-                />
-                <span>Piše</span><span>{{ author.name }}</span></nuxt-link
-              >
+              <template v-if="post.promo.partner">
+                <a href="#" class="meta-author flex">
+                  <img :src="post.promo.logo" />
+                  <span>U suradnji s</span>
+                  <span>{{ post.promo.partner }}</span>
+                </a>
+              </template>
+              <template v-else>
+                <nuxt-link
+                  v-for="author in post.authors"
+                  :key="author.name"
+                  :to="author.url"
+                  class="meta-author flex"
+                  ><img
+                    v-if="author.image"
+                    :src="author.image"
+                    :alt="author.name"
+                  />
+                  <span>Piše</span><span>{{ author.name }}</span></nuxt-link
+                >
+              </template>
             </h5>
             <div class="full flex article-head-image-parent relative">
               <img
@@ -104,17 +119,26 @@
               {{ post.perex }}
             </p>
             <h5 class="full flex relative article-meta">
-              <nuxt-link
-                v-for="author in post.authors"
-                :key="author.name"
-                :to="author.url"
-                class="meta-author flex desktop-only"
-                ><img
-                  v-if="author.image"
-                  :src="author.image"
-                  :alt="author.name"
-                /><span>Piše</span><span>{{ author.name }}</span></nuxt-link
-              >
+              <template v-if="post.promo.partner">
+                <a href="#" class="meta-author flex desktop-only">
+                  <img :src="post.promo.logo" />
+                  <span>U suradnji s</span>
+                  <span>{{ post.promo.partner }}</span>
+                </a>
+              </template>
+              <template v-else>
+                <nuxt-link
+                  v-for="author in post.authors"
+                  :key="author.name"
+                  :to="author.url"
+                  class="meta-author flex desktop-only"
+                  ><img
+                    v-if="author.image"
+                    :src="author.image"
+                    :alt="author.name"
+                  /><span>Piše</span><span>{{ author.name }}</span></nuxt-link
+                >
+              </template>
               <span class="meta-date">{{ post.time | parseTime }}</span>
               <span class="meta-preporuke"
                 >{{ post.recommendations }} preporuka</span
