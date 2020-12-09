@@ -314,7 +314,6 @@ export default {
   mounted() {
     this.resize()
     this.getPost()
-    this.loadAds()
   },
   methods: {
     loadAds() {
