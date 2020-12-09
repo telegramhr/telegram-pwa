@@ -295,6 +295,10 @@ export default {
         if (typeof FB !== 'undefined') {
           FB.XFBML.parse()
         }
+        if (typeof twttr !== 'undefined') {
+          /* global twttr */
+          twttr.widgets.load()
+        }
         this.$axios.get('related/' + this.post.id).then((res) => {
           this.related_posts = res.data
             .filter((item) => {
