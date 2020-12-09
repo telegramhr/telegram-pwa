@@ -881,7 +881,6 @@ footer .copyright {
     text-decoration-color: rgba(0, 0, 0, 0);
 }
 .single-article .single-article-body p a:hover {
-    text-decoration: under;
     text-decoration-color: #ae3737;
 }
 .article-head {
