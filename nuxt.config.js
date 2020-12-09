@@ -57,7 +57,7 @@ export default {
           'https://www.telegram.hr/wp-content/plugins/telegram-ad-plugin/src/AdPlugin/assets/dfp/expand2.js',
       },
       {
-        src: 'https://www.telegram.hr/wp-content/ads_code',
+        src: 'https://www.telegram.hr/wp-content/ads_code1',
       },
     ],
   },
