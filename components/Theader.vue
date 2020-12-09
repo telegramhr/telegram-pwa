@@ -24,7 +24,7 @@
             <a
               :href="`https://www.telegram.hr/wp-admin/post.php?post=${id}&action=edit`"
               >Uredi</a
-            >>
+            >
           </h3>
           <h3>Rubrika</h3>
           <app-link to="/politika-kriminal">Politika & Kriminal</app-link>
@@ -291,7 +291,7 @@ export default {
     loggedIn() {
       if (!process.server) {
         const c = document.cookie
-        return c.indexOf('wordpress_logged_in_') > 0
+        return c.includes('wp-settings-time')
       }
       return false
     },
