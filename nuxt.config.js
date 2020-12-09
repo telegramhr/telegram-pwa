@@ -63,7 +63,11 @@ export default {
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: ['@/assets/tmg_framework.css', '@/assets/style.css'],
+  css: [
+    '@/assets/tmg_framework.css',
+    '@/assets/style.css',
+    'vue-slick-carousel/dist/vue-slick-carousel.css',
+  ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
@@ -71,6 +75,7 @@ export default {
     { src: '@/plugins/persisted.client.js' },
     { src: '@/plugins/analytics.client.js' },
     { src: '@/plugins/choices.client.js' },
+    { src: '@/plugins/vue-slick-carousel.js' },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
