@@ -38,7 +38,7 @@
         <div class="half">
           <h3>Kanali</h3>
           <a href="https://super1.telegram.hr">Super1</a>
-          <a href="https://telesport.telegram.hr">Teleport</a>
+          <a href="https://telesport.telegram.hr">Telesport</a>
         </div>
         <div class="half">
           <h3>Social</h3>
