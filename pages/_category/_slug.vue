@@ -5,6 +5,7 @@
   >
     <client-only>
       <theader
+        :id="post.id"
         :headline="post.portal_title"
         :side-menu-show="showSideMenu"
         :search-menu-show="showSearchMenu"

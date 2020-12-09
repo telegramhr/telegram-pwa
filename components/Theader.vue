@@ -20,7 +20,7 @@
       ></a>
       <div class="menu flex">
         <div class="half">
-          <h3 v-if="id && loggedIn" style="display: none">
+          <h3 v-show="id && loggedIn">
             <a
               :href="`https://www.telegram.hr/wp-admin/post.php?post=${id}&action=edit`"
               >Uredi</a
