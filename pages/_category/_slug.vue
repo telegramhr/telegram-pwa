@@ -202,6 +202,7 @@
                     ><i class="fab fa-instagram"></i
                   ></a>-->
                   <div
+                    v-if="!post.comments_off"
                     class="classic-btn clickable animate"
                     @click="comments = !comments"
                   >
@@ -210,7 +211,7 @@
                   </div>
                 </div>
               </div>
-              <div v-show="comments" class="full">
+              <div v-if="!post.comments_off" v-show="comments" class="full">
                 <div
                   class="fb-comments"
                   :data-href="post.social.path"
@@ -267,6 +268,7 @@ export default {
       showSideMenu: false,
       showSearchMenu: false,
       post: {
+        comments_off: false,
         type: '',
         image: {
           url: '',
