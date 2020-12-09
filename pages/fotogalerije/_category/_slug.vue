@@ -68,7 +68,11 @@
 export default {
   name: 'Slug',
   async fetch() {
-    this.post = await this.$axios.$get('single/' + this.$route.params.slug)
+    if (this.$route.params.category === 'preview') {
+      this.post = await this.$axios.$get('preview/' + this.$route.params.slug)
+    } else {
+      this.post = await this.$axios.$get('single/' + this.$route.params.slug)
+    }
   },
   data() {
     return {
