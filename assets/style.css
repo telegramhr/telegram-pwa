@@ -1898,12 +1898,16 @@ header {
     z-index: 200;
 }
 .wallpaper-left, .wallpaper-right {
+    display: flex;
     position: absolute;
     left: -300px;
     top: 32px;
     width: 300px;
     height: 900px;
     overflow: hidden;
+}
+.wallpaper-left {
+    justify-content: flex-end;
 }
 .wallpaper-right {
     left: auto;
