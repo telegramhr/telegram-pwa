@@ -414,6 +414,10 @@ export default {
           rel: 'amphtml',
           href: this.post.social.path + '/amp',
         },
+        {
+          rel: 'canonical',
+          href: this.post.social.path,
+        },
       ],
     }
   },

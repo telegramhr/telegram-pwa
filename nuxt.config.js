@@ -15,6 +15,7 @@ export default {
       { name: 'twitter:dnt', content: 'on' },
     ],
     link: [
+      { rel: 'canonical', href: 'https:/www.telegram.hr' },
       { rel: 'stylesheet', href: 'https://use.typekit.net/yjw4lwh.css' },
       {
         rel: 'stylesheet',
@@ -35,15 +36,6 @@ export default {
       {
         src: 'https://kit.fontawesome.com/4878256e09.js',
         crossorigin: 'anonymous',
-      },
-      {
-        src: 'https://hr.hit.gemius.pl/xgemius.js',
-        async: true,
-        defer: true,
-      },
-      {
-        src: 'https://script.dotmetrics.net/door.js?id=1182',
-        async: true,
       },
       {
         src: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js',
@@ -94,16 +86,25 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    '@nuxtjs/gtm',
   ],
+
+  gtm: {
+    id: 'GTM-TF4XJXD',
+    enabled: true,
+    debug: true,
+    pageTracking: true,
+  },
 
   pwa: {
     onesignal: false,
     workbox: false,
     meta: {
       lang: 'hr',
-      title: 'Telegram.hr',
+      title:
+        'Telegram.hr - Portal za društvena i kulturna pitanja. I svijet koji dolazi.',
       description:
-        'Portal za društvena i kulturna pitanja. I svijet koji dolazi.',
+        'Pročitajte najnovije vijesti iz Hrvatske i svijeta. Društvene analize, kolumne političkih stručnjaka, velike priče o malim ljudima. Portal bez treša i estrade, za ljude koji razmišljaju o svijetu budućnosti.',
       ogSiteName: 'Telegram.hr',
       ogHost: 'https://www.telegram.hr',
       mobileApp: false,
