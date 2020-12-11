@@ -344,6 +344,10 @@ export default {
           /* global twttr */
           twttr.widgets.load()
         }
+        if (typeof instgrm !== 'undefined') {
+          /* global instgrm */
+          instgrm.Embeds.process()
+        }
         this.$axios.get('related/' + this.post.id).then((res) => {
           this.related_posts = res.data
             .filter((item) => {
