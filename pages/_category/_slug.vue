@@ -409,6 +409,12 @@ export default {
             'https://www.instagram.com/static/bundles/metro/EmbedSDK.js/33cd2c5d5d59.js',
         },
       ],
+      link: [
+        {
+          rel: 'amphtml',
+          href: this.post.social.path + '/amp',
+        },
+      ],
     }
   },
 }

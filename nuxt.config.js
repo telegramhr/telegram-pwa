@@ -76,7 +76,6 @@ export default {
     { src: '@/plugins/analytics.client.js' },
     { src: '@/plugins/choices.client.js' },
     { src: '@/plugins/vue-slick-carousel.js' },
-    { src: '@/plugins/dfp.client.js' },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -106,7 +105,9 @@ export default {
       description:
         'Portal za društvena i kulturna pitanja. I svijet koji dolazi.',
       ogSiteName: 'Telegram.hr',
+      ogHost: 'https://www.telegram.hr',
       mobileApp: false,
+      appleStatusBarStyle: 'black',
       name: 'Telegram.hr',
       author: 'Telegram.hr',
     },
