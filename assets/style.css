@@ -1898,12 +1898,16 @@ header {
     z-index: 200;
 }
 .wallpaper-left, .wallpaper-right {
+    display: flex;
     position: absolute;
     left: -300px;
     top: 32px;
     width: 300px;
     height: 900px;
     overflow: hidden;
+}
+.wallpaper-left {
+    justify-content: flex-end;
 }
 .wallpaper-right {
     left: auto;
@@ -2229,9 +2233,9 @@ header {
     .single-article .single-article-body {
         line-height: 1.625rem;
     }
-    .single-article-body iframe {
+    /*.single-article-body iframe {
         height: 52.5vw;
-    }
+    }*/
     .block-3 .split-articles {
         border-bottom: 1px solid #c8c8c8;
     }
