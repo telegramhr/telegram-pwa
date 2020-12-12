@@ -92,7 +92,6 @@ export default {
   gtm: {
     id: 'GTM-TF4XJXD',
     enabled: true,
-    debug: true,
     pageTracking: true,
   },
 
@@ -114,6 +113,15 @@ export default {
     },
     icon: {
       fileName: 'tg_neue_favicon.png',
+    },
+    manifest: {
+      name: 'Telegram.hr',
+      lang: 'hr',
+      short_name: 'Telegram.hr',
+      description:
+        'Portal za društvena i kulturna pitanja. I svijet koji dolazi.',
+      background_color: '#fcf1e7',
+      display: 'standalone',
     },
   },
 
