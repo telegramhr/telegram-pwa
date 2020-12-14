@@ -933,6 +933,8 @@ footer .copyright {
     height: 30px;
     border-radius: 15px;
     margin-right: 4px;
+    object-fit: contain;
+    object-position: bottom center;
 }
 .sidebar-social {
     position: absolute;
@@ -1951,6 +1953,8 @@ header {
     height: 50px;
     position: relative;
     bottom: -15px;
+    object-fit: contain;
+    object-position: center center;
 }
 
 @keyframes square_anim {
