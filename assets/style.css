@@ -573,6 +573,8 @@ h2.section-title {
     color: #ae3737;
     font-size: 14px;
     background-color: white;
+    position: relative;
+    z-index: 200;
 }
 .subtle-btn {
     border: 1px solid #c1b9b1;
