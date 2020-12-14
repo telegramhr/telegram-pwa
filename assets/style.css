@@ -1655,6 +1655,14 @@ header {
     max-width: 100%;
 }
 
+.single-article-body .banner-intext {
+  margin-bottom: 15px;
+}
+
+.single-article-body .banner-intext iframe {
+  max-width: none;
+}
+
 .widget-more-on-2 {
     border-top: 1px solid #c8c8c8;
     border-bottom: 1px solid #c8c8c8;

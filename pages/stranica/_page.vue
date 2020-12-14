@@ -9,6 +9,7 @@
     </div>
     <div class="full flex">
       <article class="container column-full-pad flex relative mobile-side-pad">
+        <!-- eslint-disable vue/no-v-html -->
         <div
           class="full relative single-article-body"
           v-html="post.content"
