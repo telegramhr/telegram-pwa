@@ -15,7 +15,7 @@ export default {
       { name: 'twitter:dnt', content: 'on' },
     ],
     link: [
-      { rel: 'canonical', href: 'https:/www.telegram.hr' },
+      { hid: 'canonical', rel: 'canonical', href: 'https:/www.telegram.hr' },
       { rel: 'stylesheet', href: 'https://use.typekit.net/yjw4lwh.css' },
       {
         rel: 'stylesheet',

@@ -415,6 +415,7 @@ export default {
           href: this.post.social.path + '/amp',
         },
         {
+          hid: 'canonical',
           rel: 'canonical',
           href: this.post.social.path,
         },
