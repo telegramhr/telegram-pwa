@@ -166,7 +166,7 @@
           </div>
           <div class="full relative single-article-body">
             <!-- eslint-disable-next-line -->
-            <div v-html="post.content"></div>
+            <div id="article-content" v-html="post.content"></div>
             <!-- Article footer -->
             <div
               class="full relative single-article-footer flex column-top-pad"
@@ -348,6 +348,17 @@ export default {
           /* global instgrm */
           instgrm.Embeds.process()
         }
+        const images = [
+          ...document
+            .getElementById('article-content')
+            .getElementsByTagName('img'),
+        ]
+        images.forEach((image) => {
+          console.log(image)
+          if (image.width < image.height) {
+            image.classList.remove('size-full')
+          }
+        })
         this.$axios.get('related/' + this.post.id).then((res) => {
           this.related_posts = res.data
             .filter((item) => {
