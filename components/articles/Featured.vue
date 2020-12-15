@@ -6,9 +6,11 @@
     <div class="full flex article-pad">
       <app-link class="full flex" :to="post.permalink">
         <div class="full flex">
-          <h3 :class="{ overtitle: true, dynamicOvertitle: post.overtitle }">
-            <span v-if="post.overtitle" class="dynamic-overtitle-element">{{
-              post.overtitle
+          <h3
+            :class="{ overtitle: true, dynamicOvertitle: post.overtitle_tag }"
+          >
+            <span v-if="post.overtitle_tag" class="dynamic-overtitle-element">{{
+              post.overtitle_tag
             }}</span>
             <!-- eslint-disable-next-line -->
             <span v-html="post.category"></span>
@@ -62,7 +64,7 @@ export default {
           },
           permalink: '',
           title: '',
-          overtitle: '',
+          overtitle_tag: '',
           subtitle: '',
           category: '',
           authors: [],
