@@ -61,9 +61,6 @@
             <standard :post="posts[7]"></standard>
           </div>
         </section>
-        <div class="full flex mobile-only">
-          <newsletter></newsletter>
-        </div>
         <section
           class="fourth flex-responsive flex komentari mobile-side-pad column-horizontal-pad column-right-border"
         >
