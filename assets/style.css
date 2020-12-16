@@ -1091,7 +1091,7 @@ figure img {
 .single-article-commentary .article-head {
     text-align: center;
 }
-.single-article-commentary h3.overtitle {
+.single-article-commentary article h3.overtitle {
     margin: 0 auto;
     margin-bottom: 16px;
 }
@@ -1099,7 +1099,7 @@ figure img {
     margin: 0px;
     margin-bottom: 10px;
 }
-.single-article-commentary .meta-author:nth-child(n+2) {
+.single-article-commentary article .meta-author:nth-child(n+2) {
     display: none;
 }
 .single-article-commentary .related-header-widget, .single-article-premium .related-header-widget {
