@@ -98,7 +98,7 @@ export default {
       this.$axios
         .get('search/' + this.$route.params.search + '/page/' + this.page)
         .then((res) => {
-          this.posts = [...this.morePosts, ...res.data.posts]
+          this.morePosts = [...this.morePosts, ...res.data.posts]
           this.page++
           this.loading = false
         })
