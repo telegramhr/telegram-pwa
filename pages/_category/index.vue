@@ -48,12 +48,12 @@
         <div
           class="container flex relative native-block stretch mobile-side-pad"
         >
-          <div class="fourth flex-responsive column-full-pad">
-            <standard
-              v-for="post in morePosts"
-              :key="post.id"
-              :post="post"
-            ></standard>
+          <div
+            v-for="post in morePosts"
+            :key="post.id"
+            class="fourth flex-responsive column-full-pad"
+          >
+            <standard :post="post"></standard>
           </div>
         </div>
       </div>
@@ -102,7 +102,7 @@ export default {
       this.$axios
         .get('category/' + this.$route.params.category + '/page/' + this.page)
         .then((res) => {
-          this.posts = [...this.morePosts, ...res.data.posts]
+          this.morePosts = [...this.morePosts, ...res.data.posts]
           this.page++
           this.loading = false
         })

@@ -44,6 +44,19 @@
           <!-- 7x mini -->
         </div>
       </section>
+      <div v-if="morePosts.length" class="full flex">
+        <div
+          class="container flex relative native-block stretch mobile-side-pad"
+        >
+          <div
+            v-for="post in morePosts"
+            :key="post.id"
+            class="fourth flex-responsive column-full-pad"
+          >
+            <standard :post="post"></standard>
+          </div>
+        </div>
+      </div>
       <div
         class="full center subtle-btn-parent relative clickable"
         @click="loadMore"
@@ -76,16 +89,19 @@ export default {
     return {
       posts: [],
       category: '',
+      morePosts: [],
       page: 2,
     }
   },
   methods: {
     loadMore() {
+      this.loading = true
       this.$axios
-        .get('category/' + this.$route.params.slug + '/page/' + this.page)
+        .get('tag/' + this.$route.params.category + '/page/' + this.page)
         .then((res) => {
-          this.posts = [...this.posts, res.data]
+          this.morePosts = [...this.morePosts, ...res.data.posts]
           this.page++
+          this.loading = false
         })
     },
   },
