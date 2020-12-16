@@ -1,5 +1,6 @@
 export const state = () => ({
   init: false,
+  slots: false,
   prefix: '/1092744/telegram/',
   units: {
     telegram_desktop_billboard_v1: {
@@ -212,9 +213,56 @@ export const state = () => ({
 })
 
 export const mutations = {
-  setInit({ state }) {
+  setInit(state) {
     state.init = true
+  },
+  setSlots(state) {
+    state.slots = true
   },
 }
 
-export const actions = {}
+export const actions = {
+  initAds({ state, commit }) {
+    if (state.init) {
+      return
+    }
+    window.googletag = window.googletag || {}
+    window.googletag.cmd = window.googletag.cmd || []
+
+    window.googletag.cmd.push(() => {
+      // set targeting
+      window.googletag
+        .pubads()
+        .setTargeting('wp_post_type', ['home', 'single', 'archive'])
+
+      window.googletag.pubads().enableSingleRequest()
+      window.googletag.pubads().collapseEmptyDivs()
+      window.googletag.pubads().disableInitialLoad()
+      window.googletag.enableServices()
+    })
+    commit('setInit')
+  },
+  initSlots({ state, commit }) {
+    window.googletag.cmd.push(() => {
+      if (state.init) {
+        window.googletag.destroySlots()
+      }
+      const mobile = window.innerWidth < 1024
+      const prefix = state.prefix
+      const sizes = mobile ? 'mobile_sizes' : 'desktop_sizes'
+      let ds
+      for (const i in Object.keys(state.units)) {
+        if (i in state.units) {
+          const unit = state.units[i]
+          ds = window.googletag.defineSlot(prefix + i, unit[sizes], i)
+          if (typeof unit.sizeMapping !== 'undefined') {
+            ds.defineSizeMapping(unit.sizeMapping)
+          }
+          ds.addService(window.googletag.pubads())
+          ds.setTargeting('upc', unit.upc ? unit.upc : 7)
+        }
+      }
+    })
+    commit('setSlots')
+  },
+}

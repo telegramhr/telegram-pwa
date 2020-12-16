@@ -179,16 +179,11 @@ export default {
   },
   methods: {
     loadAds() {
-      window.googlefc = window.googlefc || {}
-      window.googlefc.callbackQueue = window.googlefc.callbackQueue || []
-      /* global __tcfapi */
-      window.googlefc.callbackQueue.push({
-        CONSENT_DATA_READY: () =>
-          __tcfapi('getTCData', 0, (data, success) => {
-            if (data.purpose.consents[1]) {
-              window.googletag.pubads().refresh()
-            }
-          }),
+      this.$store.dispatch('ads/initSlots')
+      window.googletag = window.googletag || {}
+      window.googletag.cmd = window.googletag.cmd || []
+      window.googletag.cmd.push(() => {
+        window.googletag.pubads().refresh()
       })
     },
     resize() {

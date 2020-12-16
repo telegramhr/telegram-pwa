@@ -1,4 +1,5 @@
 export default {
+  ssr: false,
   // Global page headers (https://go.nuxtjs.dev/config-head)
   globalName: 'telegram',
   head: {
@@ -39,6 +40,7 @@ export default {
       },
       {
         src: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js',
+        async: true,
       },
       {
         src:
@@ -47,9 +49,6 @@ export default {
       {
         src:
           'https://www.telegram.hr/wp-content/plugins/telegram-ad-plugin/src/AdPlugin/assets/dfp/expand2.js',
-      },
-      {
-        src: 'https://www.telegram.hr/wp-content/ads_code1',
       },
     ],
   },
@@ -68,6 +67,7 @@ export default {
     { src: '@/plugins/analytics.client.js' },
     { src: '@/plugins/choices.client.js' },
     { src: '@/plugins/vue-slick-carousel.js' },
+    { src: '@/plugins/dfp.client.js' },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
