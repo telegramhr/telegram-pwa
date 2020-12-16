@@ -174,17 +174,12 @@ export default {
     }
   },
   mounted() {
-    window.addEventListener('resize', this.resize)
+    this.resize()
     this.loadAds()
   },
   methods: {
     loadAds() {
-      this.$store.dispatch('ads/initSlots')
-      window.googletag = window.googletag || {}
-      window.googletag.cmd = window.googletag.cmd || []
-      window.googletag.cmd.push(() => {
-        window.googletag.pubads().refresh()
-      })
+      this.$store.dispatch('ads/initAds')
     },
     resize() {
       this.mobile = window.innerWidth < 1024

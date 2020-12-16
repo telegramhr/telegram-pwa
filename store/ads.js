@@ -222,36 +222,36 @@ export const mutations = {
 }
 
 export const actions = {
-  initAds({ state, commit }) {
-    if (state.init) {
-      return
+  initAds({ state, commit, dispatch }) {
+    if (!state.init) {
+      window.googletag = window.googletag || {}
+      window.googletag.cmd = window.googletag.cmd || []
+
+      window.googletag.cmd.push(() => {
+        // set targeting
+        window.googletag
+          .pubads()
+          .setTargeting('wp_post_type', ['home', 'single', 'archive'])
+
+        window.googletag.pubads().enableSingleRequest()
+        window.googletag.pubads().collapseEmptyDivs()
+        window.googletag.pubads().disableInitialLoad()
+        window.googletag.enableServices()
+      })
+      commit('setInit')
     }
-    window.googletag = window.googletag || {}
-    window.googletag.cmd = window.googletag.cmd || []
-
-    window.googletag.cmd.push(() => {
-      // set targeting
-      window.googletag
-        .pubads()
-        .setTargeting('wp_post_type', ['home', 'single', 'archive'])
-
-      window.googletag.pubads().enableSingleRequest()
-      window.googletag.pubads().collapseEmptyDivs()
-      window.googletag.pubads().disableInitialLoad()
-      window.googletag.enableServices()
-    })
-    commit('setInit')
+    dispatch('initSlots')
   },
-  initSlots({ state, commit }) {
+  initSlots({ state, commit, dispatch }) {
     window.googletag.cmd.push(() => {
-      if (state.init) {
+      if (state.slots) {
         window.googletag.destroySlots()
       }
       const mobile = window.innerWidth < 1024
       const prefix = state.prefix
       const sizes = mobile ? 'mobile_sizes' : 'desktop_sizes'
       let ds
-      for (const i in Object.keys(state.units)) {
+      for (const i of Object.keys(state.units)) {
         if (i in state.units) {
           const unit = state.units[i]
           ds = window.googletag.defineSlot(prefix + i, unit[sizes], i)
@@ -262,7 +262,15 @@ export const actions = {
           ds.setTargeting('upc', unit.upc ? unit.upc : 7)
         }
       }
+      commit('setSlots')
     })
-    commit('setSlots')
+    dispatch('refreshSlots')
+  },
+  refreshSlots() {
+    window.googletag = window.googletag || {}
+    window.googletag.cmd = window.googletag.cmd || []
+    window.googletag.cmd.push(() => {
+      window.googletag.pubads().refresh()
+    })
   },
 }

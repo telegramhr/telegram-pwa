@@ -318,12 +318,7 @@ export default {
   methods: {
     loadAds() {
       if (!this.post.disable_ads) {
-        this.$store.dispatch('ads/initSlots')
-        window.googletag = window.googletag || {}
-        window.googletag.cmd = window.googletag.cmd || []
-        window.googletag.cmd.push(() => {
-          window.googletag.pubads().refresh()
-        })
+        this.$store.dispatch('ads/initAds')
       }
     },
     resize() {
