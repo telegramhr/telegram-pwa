@@ -11,7 +11,7 @@
         :search-menu-show="showSearchMenu"
       ></theader>
     </client-only>
-    <div class="full related-header-widget">
+    <div v-if="related_posts" class="full related-header-widget">
       <div class="container flex desktop-only column-vertical-pad">
         <div v-for="rpost in related_posts" :key="rpost.id" class="third flex">
           <div class="full flex column-horizontal-pad">
@@ -295,6 +295,7 @@ export default {
           description: '',
           image: '',
         },
+        disable_ads: true,
       },
       related_posts: [],
     }

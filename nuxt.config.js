@@ -1,5 +1,5 @@
 export default {
-  ssr: false,
+  // ssr: false,
   // Global page headers (https://go.nuxtjs.dev/config-head)
   globalName: 'telegram',
   head: {
@@ -106,6 +106,7 @@ export default {
         'Pročitajte najnovije vijesti iz Hrvatske i svijeta. Društvene analize, kolumne političkih stručnjaka, velike priče o malim ljudima. Portal bez treša i estrade, za ljude koji razmišljaju o svijetu budućnosti.',
       ogSiteName: 'Telegram.hr',
       ogHost: 'https://www.telegram.hr',
+      ogAppId: '1383786971938581',
       mobileApp: false,
       appleStatusBarStyle: 'black',
       name: 'Telegram.hr',
