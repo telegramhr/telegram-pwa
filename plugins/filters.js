@@ -8,6 +8,6 @@ export default () => {
   })
   Vue.filter('parseCat', function (value) {
     const root = parse(value)
-    return root.text
+    return root.text ? root.text : ''
   })
 }
