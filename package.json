@@ -16,6 +16,7 @@
     "@nuxtjs/gtm": "^2.4.0",
     "@nuxtjs/pwa": "^3.0.2",
     "core-js": "^3.6.5",
+    "node-html-parser": "^2.0.0",
     "nuxt": "^2.14.6",
     "swiper": "^5.4.1",
     "vue-slick-carousel": "^1.0.6",

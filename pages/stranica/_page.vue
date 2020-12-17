@@ -43,5 +43,59 @@ export default {
       },
     }
   },
+  mounted() {
+    this.$store.dispatch('ads/initAds')
+  },
+  head() {
+    return {
+      title: this.post.title + ' | Telegram.hr',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.post.social.description,
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: this.post.social.description,
+        },
+        { hid: 'og:type', name: 'og:type', content: 'article' },
+        { hid: 'og:title', name: 'og:title', content: this.post.social.title },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          content: this.post.social.image,
+        },
+        {
+          hid: 'og:url',
+          name: 'og:url',
+          content: this.post.social.path,
+        },
+        {
+          hid: 'og:app_id',
+          name: 'og:app_id',
+          content: '1383786971938581',
+        },
+        {
+          hid: 'twitter:card',
+          name: 'twitter:card',
+          content: 'summary_large_image',
+        },
+        {
+          hid: 'twitter:site',
+          name: 'twitter:site',
+          content: '@TelegramHR',
+        },
+      ],
+      link: [
+        {
+          hid: 'canonical',
+          rel: 'canonical',
+          href: this.post.social.path,
+        },
+      ],
+    }
+  },
 }
 </script>

@@ -12,8 +12,7 @@
             <span v-if="post.overtitle_tag" class="dynamic-overtitle-element">{{
               post.overtitle_tag
             }}</span>
-            <!-- eslint-disable-next-line -->
-            <span v-html="post.category"></span>
+            <span>{{ post.category | parseCat }}</span>
           </h3>
         </div>
         <h2 class="full animate">{{ post.portal_title }}</h2>

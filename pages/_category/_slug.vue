@@ -71,8 +71,7 @@
         >
           <div class="full column article-head column-top-pad flex">
             <div class="full flex overtitle-parent">
-              <!-- eslint-disable-next-line -->
-              <h3 class="overtitle" v-html="post.category"></h3>
+              <h3 class="overtitle">{{ post.category | parseCat }}</h3>
               <div v-if="post.promo.partner" class="collab-overtitle">
                 <h3 class="overtitle">U suradnji s</h3>
                 <img :src="post.promo.logo" :alt="post.promo.partner" />
@@ -224,23 +223,25 @@
           </div>
         </article>
       </div>
-      <div class="full flex">
-        <div
-          class="container flex relative native-block stretch mobile-side-pad"
-        >
-          <!--<div class="full column-horizontal-pad flex">
+      <client-only v-if="post.content">
+        <div class="full flex">
+          <div
+            class="container flex relative native-block stretch mobile-side-pad"
+          >
+            <!--<div class="full column-horizontal-pad flex">
             <h2 class="full flex section-title">Više s weba</h2>
           </div>-->
-          <div id="midasWidget__657"></div>
-          <script
-            id="midas-phrygia"
-            async
-            src="https://www.midas-network.com/ScriptsControllerRule/midas-phrygia-1.min.js"
-            type="text/javascript"
-            data-widget="2?portalWidgetId=657&portalRuleId=49"
-          ></script>
+            <div id="midasWidget__657"></div>
+            <script
+              id="midas-phrygia"
+              async
+              src="https://www.midas-network.com/ScriptsControllerRule/midas-phrygia-1.min.js"
+              type="text/javascript"
+              data-widget="2?portalWidgetId=657&portalRuleId=49"
+            ></script>
+          </div>
         </div>
-      </div>
+      </client-only>
       <keep-reading
         v-if="post.category_slug"
         :category="post.category_slug"
@@ -298,6 +299,7 @@ export default {
         disable_ads: true,
       },
       related_posts: [],
+      midas: false,
     }
   },
   computed: {
@@ -320,6 +322,18 @@ export default {
     loadAds() {
       if (!this.post.disable_ads) {
         this.$store.dispatch('ads/initAds')
+        const container = document.querySelectorAll(
+          '[data-id=_mwayss-325b7d752b361c5458420729057fe2ff]'
+        )[0]
+        container.setAttribute(
+          'id',
+          container.getAttribute('data-id') + new Date().getTime()
+        )
+        container.removeAttribute('data-id')
+        const scriptTag = document.createElement('script')
+        scriptTag.src =
+          'https://ad.mox.tv/mox/mwayss_invocation.min.js?pzoneid=5182&height=405&width=720&tld=telegram.hr&ctype=div'
+        container.parentNode.insertBefore(scriptTag, container)
       }
     },
     resize() {
@@ -369,7 +383,7 @@ export default {
   },
   head() {
     return {
-      title: this.post.title,
+      title: this.post.title + ' | Telegram.hr',
       meta: [
         {
           hid: 'description',
@@ -392,6 +406,11 @@ export default {
           hid: 'og:url',
           name: 'og:url',
           content: this.post.social.path,
+        },
+        {
+          hid: 'og:app_id',
+          name: 'og:app_id',
+          content: '1383786971938581',
         },
         {
           hid: 'twitter:card',

@@ -93,6 +93,14 @@ export default {
       page: 2,
     }
   },
+  computed: {
+    cat() {
+      return this.$options.filters.parseCat(this.category)
+    },
+  },
+  mounted() {
+    this.$store.dispatch('ads/initAds')
+  },
   methods: {
     loadMore() {
       this.loading = true
@@ -104,6 +112,46 @@ export default {
           this.loading = false
         })
     },
+  },
+  head() {
+    return {
+      title: this.cat + ' | Telegram.hr',
+      meta: [
+        { hid: 'og:type', name: 'og:type', content: 'article' },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: this.cat,
+        },
+        {
+          hid: 'og:url',
+          name: 'og:url',
+          content: this.$route.fullPath,
+        },
+        {
+          hid: 'og:app_id',
+          name: 'og:app_id',
+          content: '1383786971938581',
+        },
+        {
+          hid: 'twitter:card',
+          name: 'twitter:card',
+          content: 'summary_large_image',
+        },
+        {
+          hid: 'twitter:site',
+          name: 'twitter:site',
+          content: '@TelegramHR',
+        },
+      ],
+      link: [
+        {
+          hid: 'canonical',
+          rel: 'canonical',
+          href: this.$route.fullPath,
+        },
+      ],
+    }
   },
 }
 </script>

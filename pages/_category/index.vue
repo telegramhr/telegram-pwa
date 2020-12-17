@@ -8,8 +8,7 @@
     <div class="block-title news-block-title full mobile-side-pad">
       <div class="full block-title-pattern relative"></div>
       <div class="container flex relative">
-        <!-- eslint-disable-next-line -->
-        <h1 class="full column-left-pad" v-html="category"></h1>
+        <h1 class="full column-left-pad">{{ category | parseCat }}</h1>
       </div>
     </div>
     <div
@@ -96,6 +95,14 @@ export default {
       loading: false,
     }
   },
+  computed: {
+    cat() {
+      return this.$options.filters.parseCat(this.category)
+    },
+  },
+  mounted() {
+    this.$store.dispatch('ads/initAds')
+  },
   methods: {
     loadMore() {
       this.loading = true
@@ -107,6 +114,46 @@ export default {
           this.loading = false
         })
     },
+  },
+  head() {
+    return {
+      title: this.cat + ' | Telegram.hr',
+      meta: [
+        { hid: 'og:type', name: 'og:type', content: 'article' },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: this.cat,
+        },
+        {
+          hid: 'og:url',
+          name: 'og:url',
+          content: this.$route.fullPath,
+        },
+        {
+          hid: 'og:app_id',
+          name: 'og:app_id',
+          content: '1383786971938581',
+        },
+        {
+          hid: 'twitter:card',
+          name: 'twitter:card',
+          content: 'summary_large_image',
+        },
+        {
+          hid: 'twitter:site',
+          name: 'twitter:site',
+          content: '@TelegramHR',
+        },
+      ],
+      link: [
+        {
+          hid: 'canonical',
+          rel: 'canonical',
+          href: this.$route.fullPath,
+        },
+      ],
+    }
   },
 }
 </script>

@@ -108,6 +108,9 @@ export default {
       },
     }
   },
+  mounted() {
+    this.$store.dispatch('ads/initAds')
+  },
   methods: {
     updateCurrent(slide) {
       this.current = slide + 1

@@ -8,8 +8,7 @@
     <div class="block-title news-block-title full mobile-side-pad">
       <div class="full block-title-pattern relative"></div>
       <div class="container flex relative">
-        <!-- eslint-disable-next-line -->
-        <h1 class="full column-left-pad">{{ search }}</h1>
+        <h1 class="full column-left-pad">{{ search | parseCat }}</h1>
       </div>
     </div>
     <div
@@ -92,6 +91,9 @@ export default {
       loading: false,
       search: this.$route.params.search,
     }
+  },
+  mounted() {
+    this.$store.dispatch('ads/initAds')
   },
   methods: {
     loadMore() {
