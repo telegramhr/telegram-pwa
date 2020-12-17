@@ -7,6 +7,9 @@ export default () => {
     return new Intl.DateTimeFormat('hr').format(date)
   })
   Vue.filter('parseCat', function (value) {
+    if (!value || value === 'null') {
+      return ''
+    }
     const root = parse(value)
     return root.text ? root.text : ''
   })
