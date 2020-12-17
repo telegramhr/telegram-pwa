@@ -15,9 +15,10 @@ export default {
     },
   },
   mounted() {
-    /* global googletag */
-    googletag.cmd.push(function () {
-      googletag.display(this.id)
+    window.googletag = window.googletag || {}
+    window.googletag.cmd = window.googletag.cmd || []
+    window.googletag.cmd.push(function () {
+      window.googletag.display(this.id)
     })
   },
 }

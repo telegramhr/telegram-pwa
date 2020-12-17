@@ -242,10 +242,12 @@ export const actions = {
     dispatch('initSlots')
   },
   initSlots({ state, commit, dispatch }) {
-    window.googletag.cmd.push(() => {
-      if (state.slots) {
+    if (state.slots) {
+      window.googletag.cmd.push(() => {
         window.googletag.destroySlots()
-      }
+      })
+    }
+    window.googletag.cmd.push(() => {
       const mobile = window.innerWidth < 1024
       const prefix = state.prefix
       const sizes = mobile ? 'mobile_sizes' : 'desktop_sizes'
@@ -253,12 +255,15 @@ export const actions = {
       for (const i of Object.keys(state.units)) {
         if (i in state.units) {
           const unit = state.units[i]
+          if (!unit[sizes]) {
+            continue
+          }
           ds = window.googletag.defineSlot(prefix + i, unit[sizes], i)
           if (typeof unit.sizeMapping !== 'undefined') {
             ds.defineSizeMapping(unit.sizeMapping)
           }
           ds.addService(window.googletag.pubads())
-          ds.setTargeting('upc', unit.upc ? unit.upc : 7)
+          ds.setTargeting('upc', unit.upc ? unit.upc : 10)
         }
       }
       commit('setSlots')
