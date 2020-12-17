@@ -236,6 +236,27 @@ export const actions = {
         window.googletag.pubads().collapseEmptyDivs()
         window.googletag.pubads().disableInitialLoad()
         window.googletag.enableServices()
+        window.googletag
+          .pubads()
+          .addEventListener('slotRenderEnded', function (event) {
+            const name = event.slot.getAdUnitPath().split('/').pop()
+            if (name.includes('sticky') && !event.isEmpty) {
+              const el = document.getElementById(event.slot.getSlotElementId())
+              const cross = document.createElement('a')
+              cross.innerHTML = '<i class="fa fa-times-circle fa-3x"></i>'
+              cross.style.cssText =
+                'position:fixed; left: 50%; margin-left: ' +
+                (event.size[0] / 2 - 25) +
+                'px; bottom: ' +
+                (event.size[1] - 25) +
+                'px; z-index:999;'
+              cross.addEventListener('click', function (e) {
+                e.preventDefault()
+                el.style.display = 'none'
+              })
+              el.appendChild(cross)
+            }
+          })
       })
       commit('setInit')
     }
