@@ -67,7 +67,6 @@ export default {
     { src: '@/plugins/analytics.client.js' },
     { src: '@/plugins/choices.client.js' },
     { src: '@/plugins/vue-slick-carousel.js' },
-    { src: '@/plugins/dfp.client.js' },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
