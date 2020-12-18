@@ -261,7 +261,7 @@ export const actions = {
     if (!state.init) {
       window.googletag = window.googletag || {}
       window.googletag.cmd = window.googletag.cmd || []
-
+      window.googletag.reloadedSlots = window.googletag.reloadedSlots || []
       window.googletag.cmd.push(() => {
         // set targeting
         window.googletag
@@ -291,6 +291,29 @@ export const actions = {
                 el.style.display = 'none'
               })
               el.appendChild(cross)
+            }
+            if (
+              !window.googletag.reloadedSlots.includes(name) &&
+              event.isEmpty &&
+              event.slot.getAdUnitPath().includes('wallpaper')
+            ) {
+              const el = document.getElementById(event.slot.getSlotElementId())
+              const unit = state.units[name]
+              el.innerHTML = ''
+              el.removeAttribute('data-google-query-id')
+              el.removeAttribute('style')
+              unit.opt_div = unit.opt_div + '_new'
+              el.setAttribute('id', unit.opt_div)
+              unit.desktop_sizes = [
+                [200, 900],
+                [300, 900],
+              ]
+              window.googletag
+                .defineSlot(state.prefix + name, unit.desktop_sizes, name)
+                .addService(window.googletag.pubads())
+                .setTargeting('upc', unit.upc ? unit.upc : 10)
+              window.googletag.display(unit.opt_div)
+              window.googletag.reloadedSlots.push(name)
             }
           })
       })
