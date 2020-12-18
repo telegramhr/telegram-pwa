@@ -5,7 +5,12 @@
     :to="post.permalink"
   >
     <div class="blurred-image">
-      <img :src="post.image.url" :alt="post.image.alt" loading="lazy" />
+      <img
+        :srcset="srcset"
+        :src="post.image.url"
+        :alt="post.image.alt"
+        loading="lazy"
+      />
     </div>
     <div class="full flex mobile-side-pad relative">
       <div class="full flex article-pad relative">
@@ -73,6 +78,18 @@ export default {
         },
       },
     }
+  },
+  computed: {
+    srcset() {
+      let set = `${this.post.image.url}`
+      if (this.post.image.url2) {
+        set += `, ${this.post.image.url2} 2x`
+      }
+      if (this.post.image.url3) {
+        set += `, ${this.post.image.url3} 3x`
+      }
+      return set
+    },
   },
   mounted() {
     this.$axios.get('big-break').then((res) => {

@@ -6,7 +6,12 @@
     <div class="komentar-box relative">
       <div class="komentar-quotation"><i class="fas fa-fire"></i></div>
       <div class="komentar-image">
-        <img :src="post.image.url" alt="post.image.alt" loading="lazy" />
+        <img
+          :srcset="srcset"
+          :src="post.image.url"
+          alt="post.image.alt"
+          loading="lazy"
+        />
       </div>
       <div class="komentar-content full">
         <h2 class="full">{{ post.portal_title }}</h2>
@@ -41,6 +46,18 @@ export default {
       default() {
         return {}
       },
+    },
+  },
+  computed: {
+    srcset() {
+      let set = `${this.post.image.url}`
+      if (this.post.image.url2) {
+        set += `, ${this.post.image.url2} 2x`
+      }
+      if (this.post.image.url3) {
+        set += `, ${this.post.image.url3} 3x`
+      }
+      return set
     },
   },
 }

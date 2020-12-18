@@ -3,7 +3,12 @@
     class="full flex article-standard article relative"
     :to="post.permalink"
   >
-    <img :src="post.image.url" :alt="post.image.alt" loading="lazy" />
+    <img
+      :srcset="srcset"
+      :src="post.image.url"
+      :alt="post.image.alt"
+      loading="lazy"
+    />
     <div class="full flex article-pad">
       <div class="full flex desktop-only">
         <h3 class="overtitle">{{ post.category | parseCat }}</h3>
@@ -58,6 +63,18 @@ export default {
       recommendations: 1,
       alt: '',
     }
+  },
+  computed: {
+    srcset() {
+      let set = `${this.post.image.url}`
+      if (this.post.image.url2) {
+        set += `, ${this.post.image.url2} 2x`
+      }
+      if (this.post.image.url3) {
+        set += `, ${this.post.image.url3} 3x`
+      }
+      return set
+    },
   },
 }
 </script>

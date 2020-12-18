@@ -1,7 +1,12 @@
 <template>
   <div class="full flex article-featured article">
     <app-link class="full flex" :to="post.permalink">
-      <img :src="post.image.url" :alt="post.image.alt" loading="lazy" />
+      <img
+        :srcset="srcset"
+        :src="post.image.url"
+        :alt="post.image.alt"
+        loading="lazy"
+      />
     </app-link>
     <div class="full flex article-pad">
       <app-link class="full flex" :to="post.permalink">
@@ -78,6 +83,18 @@ export default {
     return {
       related: [],
     }
+  },
+  computed: {
+    srcset() {
+      let set = `${this.post.image.url}`
+      if (this.post.image.url2) {
+        set += `, ${this.post.image.url2} 2x`
+      }
+      if (this.post.image.url3) {
+        set += `, ${this.post.image.url3} 3x`
+      }
+      return set
+    },
   },
 }
 </script>

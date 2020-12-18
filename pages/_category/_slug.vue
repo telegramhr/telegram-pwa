@@ -41,6 +41,7 @@
       </div>
       <img
         class="article-head-image"
+        :srcset="srcset"
         :src="post.image.url"
         :alt="post.image.alt"
       />
@@ -107,6 +108,7 @@
             <div class="full flex article-head-image-parent relative">
               <img
                 class="article-head-image"
+                :srcset="srcset"
                 :src="post.image.url"
                 :alt="post.image.alt"
               />
@@ -313,6 +315,16 @@ export default {
           return ''
       }
     },
+    srcset() {
+      let set = `${this.post.image.url}`
+      if (this.post.image.url2) {
+        set += `, ${this.post.image.url2} 2x`
+      }
+      if (this.post.image.url3) {
+        set += `, ${this.post.image.url3} 3x`
+      }
+      return set
+    },
   },
   mounted() {
     this.resize()
@@ -325,15 +337,17 @@ export default {
         const container = document.querySelectorAll(
           '[data-id=_mwayss-325b7d752b361c5458420729057fe2ff]'
         )[0]
-        container.setAttribute(
-          'id',
-          container.getAttribute('data-id') + new Date().getTime()
-        )
-        container.removeAttribute('data-id')
-        const scriptTag = document.createElement('script')
-        scriptTag.src =
-          'https://ad.mox.tv/mox/mwayss_invocation.min.js?pzoneid=5182&height=405&width=720&tld=telegram.hr&ctype=div'
-        container.parentNode.insertBefore(scriptTag, container)
+        if (container) {
+          container.setAttribute(
+            'id',
+            container.getAttribute('data-id') + new Date().getTime()
+          )
+          container.removeAttribute('data-id')
+          const scriptTag = document.createElement('script')
+          scriptTag.src =
+            'https://ad.mox.tv/mox/mwayss_invocation.min.js?pzoneid=5182&height=405&width=720&tld=telegram.hr&ctype=div'
+          container.parentNode.insertBefore(scriptTag, container)
+        }
       }
     },
     resize() {

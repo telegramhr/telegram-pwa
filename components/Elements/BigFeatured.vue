@@ -41,10 +41,10 @@
       ></div>
       <div class="dark-fade"></div>
       <div class="blurred-image">
-        <img :src="post.image.url" :alt="post.image.alt" />
+        <img :srcset="srcset" :src="post.image.url" :alt="post.image.alt" />
       </div>
       <div class="main-image">
-        <img :src="post.image.url" :alt="post.image.alt" />
+        <img :srcset="srcset" :src="post.image.url" :alt="post.image.alt" />
       </div>
     </app-link>
   </section>
@@ -85,6 +85,18 @@ export default {
         },
       },
     }
+  },
+  computed: {
+    srcset() {
+      let set = `${this.post.image.url}`
+      if (this.post.image.url2) {
+        set += `, ${this.post.image.url2} 2x`
+      }
+      if (this.post.image.url3) {
+        set += `, ${this.post.image.url3} 3x`
+      }
+      return set
+    },
   },
   mounted() {
     this.$axios.get('big-break').then((res) => {

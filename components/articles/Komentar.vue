@@ -15,7 +15,12 @@
       <div class="komentar-image">
         <picture>
           <source type="image/webp" :srcset="post.image.webp" />
-          <img :src="post.image.url" :alt="post.image.alt" loading="lazy" />
+          <img
+            :srcset="srcset"
+            :src="post.image.url"
+            :alt="post.image.alt"
+            loading="lazy"
+          />
         </picture>
       </div>
       <div class="komentar-content full">
@@ -66,10 +71,17 @@ export default {
       },
     },
   },
-  data() {
-    return {}
+  computed: {
+    srcset() {
+      let set = `${this.post.image.url}`
+      if (this.post.image.url2) {
+        set += `, ${this.post.image.url2} 2x`
+      }
+      if (this.post.image.url3) {
+        set += `, ${this.post.image.url3} 3x`
+      }
+      return set
+    },
   },
 }
 </script>
-
-<style scoped></style>
