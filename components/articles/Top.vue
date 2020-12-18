@@ -1,5 +1,5 @@
 <template>
-  <div class="full komentar list-article relative">
+  <app-link :to="post.permalink" class="full komentar list-article relative">
     <div class="komentar-author relative flex">
       <span class="full">#{{ i }}</span>
     </div>
@@ -26,7 +26,7 @@
         </h5>
       </div>
     </div>
-  </div>
+  </app-link>
 </template>
 
 <script>
