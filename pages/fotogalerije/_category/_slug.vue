@@ -28,7 +28,6 @@
             v-if="post.gallery.length"
             ref="carousel"
             :arrows="false"
-            :adaptive-height="true"
             style="display: block; width: 100%"
             @afterChange="updateCurrent"
           >
