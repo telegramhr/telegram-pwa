@@ -39,7 +39,8 @@
             >
               <img :src="image.url" />
               <figcaption class="wp-caption-text img-portrait">
-                {{ image.caption }}
+                <!-- eslint-disable-next-line -->
+                <span v-html="image.caption"></span>
                 <span class="photographer">{{ image.author }}</span>
               </figcaption>
             </figure>
