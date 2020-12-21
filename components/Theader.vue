@@ -13,18 +13,22 @@
         center: true,
         'side-menu-activate': sideMenuShow,
       }"
+      role="navigation"
     >
       <a class="side-menu-exit" @click.prevent="sideMenuShow = !sideMenuShow"
         ><i class="fas fa-times"></i
       ></a>
       <div class="menu flex">
         <div class="half">
-          <h3 v-show="id && loggedIn">
+          <template v-show="loggedIn">
+            <h3 v-show="loggedIn">Admin</h3>
+            <a href="https://www.telegram.hr/wp-admin">Admin</a>
             <a
+              v-if="id"
               :href="`https://www.telegram.hr/wp-admin/post.php?post=${id}&action=edit`"
               >Uredi</a
             >
-          </h3>
+          </template>
           <h3>Rubrika</h3>
           <app-link to="/politika-kriminal">Politika & Kriminal</app-link>
           <app-link to="/komentari">Komentari</app-link>
@@ -60,7 +64,7 @@
     </div>
     <div class="full subheader sticky-subheader mobile-side-pad center">
       <div class="container flex desktop-subheader column-horizontal-pad">
-        <div class="three-fourths flex">
+        <div class="three-fourths flex" role="navigation">
           <app-link to="/" class="logo"
             ><img
               src="@/assets/img/telegram_logo_white.svg"
@@ -158,6 +162,7 @@
         </client-only>
         <div
           class="container desktop-only flex desktop-subheader column-horizontal-pad homepage-exclusive"
+          role="navigation"
         >
           <div class="three-fourths flex">
             <a @click="sideMenuShow = !sideMenuShow"
