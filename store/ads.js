@@ -315,7 +315,7 @@ export const actions = {
               window.googletag.display(unit.opt_div)
               window.googletag.reloadedSlots.push(name)
             }
-            if (event.size[0] === 200 && event.size[1] === 250) {
+            if (event.size && event.size[0] === 200 && event.size[1] === 250) {
               el.style.right = '0px'
             }
           })
