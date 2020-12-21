@@ -224,25 +224,16 @@
           </div>
         </article>
       </div>
-      <client-only v-if="post.content">
-        <div class="full flex">
-          <div
-            class="container flex relative native-block stretch mobile-side-pad"
-          >
-            <!--<div class="full column-horizontal-pad flex">
-            <h2 class="full flex section-title">Više s weba</h2>
-          </div>-->
-            <div id="midasWidget__657"></div>
-            <script
-              id="midas-phrygia"
-              async
-              src="https://www.midas-network.com/ScriptsControllerRule/midas-phrygia-1.min.js"
-              type="text/javascript"
-              data-widget="2?portalWidgetId=657&portalRuleId=49"
-            ></script>
-          </div>
+      <div class="full flex">
+        <div
+          class="container flex relative native-block stretch mobile-side-pad"
+        >
+          <!--<div class="full column-horizontal-pad flex">
+          <h2 class="full flex section-title">Više s weba</h2>
+        </div>-->
+          <div id="midasWidget__657"></div>
         </div>
-      </client-only>
+      </div>
       <keep-reading
         v-if="post.category_slug"
         :category="post.category_slug"
@@ -333,20 +324,37 @@ export default {
     loadAds() {
       if (!this.post.disable_ads) {
         this.$store.dispatch('ads/initAds')
-        const container = document.querySelectorAll(
-          '[data-id=_mwayss-325b7d752b361c5458420729057fe2ff]'
-        )[0]
-        if (container) {
-          container.setAttribute(
-            'id',
-            container.getAttribute('data-id') + new Date().getTime()
-          )
-          container.removeAttribute('data-id')
-          const scriptTag = document.createElement('script')
-          scriptTag.src =
-            'https://ad.mox.tv/mox/mwayss_invocation.min.js?pzoneid=5182&height=405&width=720&tld=telegram.hr&ctype=div'
-          container.parentNode.insertBefore(scriptTag, container)
-        }
+        this.loadMox()
+        this.loadMidas()
+      }
+    },
+    loadMidas() {
+      const container = document.getElementById('midasWidget__657')
+      const scriptTag = document.createElement('script')
+      scriptTag.src =
+        'https://www.midas-network.com/ScriptsControllerRule/midas-phrygia-1.min.js'
+      scriptTag.async = true
+      scriptTag.id = 'midas-phrygia'
+      scriptTag.setAttribute(
+        'data-widget',
+        '2?portalWidgetId=657&portalRuleId=49'
+      )
+      container.parentNode.insertBefore(scriptTag, container)
+    },
+    loadMox() {
+      const container = document.querySelectorAll(
+        '[data-id=_mwayss-325b7d752b361c5458420729057fe2ff]'
+      )[0]
+      if (container) {
+        container.setAttribute(
+          'id',
+          container.getAttribute('data-id') + new Date().getTime()
+        )
+        container.removeAttribute('data-id')
+        const scriptTag = document.createElement('script')
+        scriptTag.src =
+          'https://ad.mox.tv/mox/mwayss_invocation.min.js?pzoneid=5182&height=405&width=720&tld=telegram.hr&ctype=div'
+        container.parentNode.insertBefore(scriptTag, container)
       }
     },
     resize() {
