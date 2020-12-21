@@ -2,6 +2,7 @@
   <app-link
     class="full flex article-standard article relative"
     :to="post.permalink"
+    role="article"
   >
     <img
       :srcset="srcset"

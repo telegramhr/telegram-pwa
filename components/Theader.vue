@@ -98,8 +98,8 @@
         <input
           v-model="search_term"
           type="text"
-          name="s"
           placeholder="Pretražite Telegram..."
+          aria-label="Pretražite Telegram"
         />
         <button type="submit" class="animate" @click.prevent="search">
           <i class="far fa-search"></i>
@@ -224,8 +224,8 @@
           <input
             v-model="search_term"
             type="text"
-            name="q"
             placeholder="Pretražite Telegram..."
+            aria-label="Pretražite Telegram"
           />
           <button type="submit" class="animate" @click.prevent="search">
             <i class="far fa-search"></i>

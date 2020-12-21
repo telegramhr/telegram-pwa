@@ -1,5 +1,5 @@
 <template>
-  <div class="full flex article-featured article">
+  <div class="full flex article-featured article" role="article">
     <app-link class="full flex" :to="post.permalink">
       <img
         :srcset="srcset"

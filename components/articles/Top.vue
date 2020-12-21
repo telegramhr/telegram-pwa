@@ -1,5 +1,9 @@
 <template>
-  <app-link :to="post.permalink" class="full komentar list-article relative">
+  <app-link
+    :to="post.permalink"
+    class="full komentar list-article relative"
+    role="article"
+  >
     <div class="komentar-author relative flex">
       <span class="full">#{{ i }}</span>
     </div>

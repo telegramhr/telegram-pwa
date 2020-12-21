@@ -1,5 +1,9 @@
 <template>
-  <app-link :to="post.permalink" class="full flex komentar relative">
+  <app-link
+    :to="post.permalink"
+    class="full flex komentar relative"
+    role="article"
+  >
     <div v-if="post.authors.length" class="komentar-author relative flex">
       <img
         v-if="post.authors[0].image"

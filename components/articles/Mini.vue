@@ -2,6 +2,7 @@
   <app-link
     class="full flex article-mini article relative"
     :to="post.permalink"
+    role="article"
   >
     <div class="full flex article-pad">
       <h2 class="full animate">{{ post.portal_title }}</h2>
