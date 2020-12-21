@@ -276,8 +276,8 @@ export const actions = {
           .pubads()
           .addEventListener('slotRenderEnded', function (event) {
             const name = event.slot.getAdUnitPath().split('/').pop()
+            const el = document.getElementById(event.slot.getSlotElementId())
             if (name.includes('sticky') && !event.isEmpty) {
-              const el = document.getElementById(event.slot.getSlotElementId())
               const cross = document.createElement('a')
               cross.innerHTML = '<i class="fa fa-times-circle fa-3x"></i>'
               cross.style.cssText =
@@ -297,7 +297,6 @@ export const actions = {
               event.isEmpty &&
               event.slot.getAdUnitPath().includes('wallpaper')
             ) {
-              const el = document.getElementById(event.slot.getSlotElementId())
               const unit = state.units[name]
               el.innerHTML = ''
               el.removeAttribute('data-google-query-id')
@@ -314,6 +313,9 @@ export const actions = {
                 .setTargeting('upc', unit.upc ? unit.upc : 10)
               window.googletag.display(unit.opt_div)
               window.googletag.reloadedSlots.push(name)
+            }
+            if (event.size[0] === 200 && event.size[1] === 250) {
+              el.style.right = '0px'
             }
           })
       })
