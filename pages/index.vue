@@ -80,7 +80,6 @@
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
       </div>
-      <partners></partners>
 
       <div class="block-title news-block-title full mobile-side-pad">
         <div class="full block-title-pattern relative"></div>
@@ -144,11 +143,12 @@
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
       </div>
-      <george></george>
+      <partners></partners>
       <sport></sport>
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v4"></ad-unit>
       </div>
+      <george></george>
       <super></super>
       <div class="full flex">
         <div class="container desktop-only flex relative column-full-pad"></div>

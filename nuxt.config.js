@@ -131,7 +131,7 @@ export default {
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
-    baseURL: 'https://www.telegram.hr/index.php?rest_route=/telegram/pwa/v1',
+    baseURL: 'https://www.telegram.hr/wp-json/telegram/pwa/v1',
   },
 
   // Content module configuration (https://go.nuxtjs.dev/config-content)
