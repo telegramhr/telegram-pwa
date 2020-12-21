@@ -1926,15 +1926,14 @@ header {
     right: -300px;
 }
 
-.stickyunit {
+#telegram_sticky {
   position: fixed;
   bottom: 0;
   z-index: 9999;
-  width: 100%;
   text-align: center;
 }
 
-.stickyunit iframe, .stickyunit img {
+#telegram_sticky iframe, #telegram_sticky img {
   margin: 0 auto;
 }
 
