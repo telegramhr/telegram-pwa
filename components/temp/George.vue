@@ -27,7 +27,7 @@
             />
           </div>
           <img
-            src="https://images.telegram.hr/SqEI6sJmZ-RnAPwJOpBT-W_pgaDV96PuHP0s8zi6Mik/preset:article2/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjAvMTIvdGctYmFja2dyb3VuZC5qcGc.jpg"
+            src="https://images.telegram.hr/-44tQN7KInLL2FX8CGzUABrEyOYVhZ244tfqSQloh-g/preset:single2/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjAvMTIvdGctYmFja2dyb3VuZC5qcGc.jpg"
             aria-hidden="true"
             loading="lazy"
           />
@@ -39,7 +39,7 @@
             class="third flex flex-responsive article-standard article relative column-full-pad"
           >
             <img
-              src="https://images.telegram.hr/prWgeprmcyxcUi1DYcgOxH3dQO_nJxRaXO7JHdxdNhg/preset:article2/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjAvMTIvc3JlZG5qYTEuanBn.jpg"
+              src="https://images.telegram.hr/vnyLlmsQj7IfUxGhz0q1MmfKveIQAlbQHAANUifAPBg/preset:single1/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjAvMTIvc3JlZG5qYTEuanBn.jpg"
               alt=""
               loading="lazy"
             />
@@ -60,7 +60,7 @@
             class="third flex flex-responsive article-standard article relative column-full-pad"
           >
             <img
-              src="https://images.telegram.hr/NeF7Rg8sJ16er8O9NiTPUDNQEg5-xguZffmgKtFlzAA/preset:article2/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjAvMTIvZXJzdGUtaXZhbi1rb21wNC5qcGc.jpg"
+              src="https://images.telegram.hr/S9n-WIcYpQS8NmkTdiMx27y96Ywn4d0pOhC8FSJwUyI/preset:single2/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjAvMTIvZXJzdGUtaXZhbi1rb21wNC5qcGc.jpg"
               alt=""
               loading="lazy"
             />
@@ -81,7 +81,7 @@
             class="third flex flex-responsive article-standard article relative column-full-pad"
           >
             <img
-              src="https://images.telegram.hr/k9Pfdj5gV_M3oNZzM3v1f7i99SPJgNRispGMn2P2BbQ/preset:article2/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjAvMTIvZ3JpZC0xLmpwZw.jpg"
+              src="https://images.telegram.hr/F-vhbXBoU7B0bkDqgbmhQa5E5I4m7LlSwcnTNP2jZ54/preset:single2/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjAvMTIvZ3JpZC0xLmpwZw.jpg"
               alt=""
               loading="lazy"
             />
