@@ -41,8 +41,7 @@
       </div>
       <img
         class="article-head-image"
-        :srcset="srcset"
-        :src="post.image.url"
+        :src="post.image.full"
         :alt="post.image.alt"
       />
       <div class="full flex article-head">
