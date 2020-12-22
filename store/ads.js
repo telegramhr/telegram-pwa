@@ -349,74 +349,77 @@ export const actions = {
       }
     }
     // init tags
-    if (!state.init) {
-      window.googletag = window.googletag || {}
-      window.googletag.cmd = window.googletag.cmd || []
-      window.googletag.reloadedSlots = window.googletag.reloadedSlots || []
-      window.googletag.cmd.push(() => {
-        // set targeting
-        for (const i in targeting) {
-          if (targeting[i].length) {
-            window.googletag.pubads().setTargeting(i, targeting[i])
+    window.googletag = window.googletag || {}
+    window.googletag.cmd = window.googletag.cmd || []
+    window.googletag.reloadedSlots = window.googletag.reloadedSlots || []
+    window.googletag.cmd.push(() => {
+      // set targeting
+      for (const i in targeting) {
+        if (targeting[i].length) {
+          window.googletag.pubads().setTargeting(i, targeting[i])
+        }
+      }
+      if (options && options.includes('nepromo')) {
+        window.googletag.pubads().setCategoryExclusion('NePromo')
+      }
+      window.googletag.pubads().enableSingleRequest()
+      window.googletag.pubads().collapseEmptyDivs()
+      window.googletag.pubads().disableInitialLoad()
+      window.googletag.enableServices()
+      window.googletag
+        .pubads()
+        .addEventListener('slotRenderEnded', function (event) {
+          const name = event.slot.getAdUnitPath().split('/').pop()
+          const el = document.getElementById(event.slot.getSlotElementId())
+          if (name.includes('sticky') && !event.isEmpty) {
+            const cross = document.createElement('a')
+            cross.innerHTML = '<i class="fa fa-times-circle fa-3x"></i>'
+            cross.style.cssText =
+              'position:fixed; left: 50%; margin-left: ' +
+              (event.size[0] / 2 - 25) +
+              'px; bottom: ' +
+              (event.size[1] - 25) +
+              'px; z-index:999;'
+            cross.addEventListener('click', function (e) {
+              e.preventDefault()
+              el.style.display = 'none'
+            })
+            el.appendChild(cross)
           }
-        }
-        if (options && options.includes('nepromo')) {
-          window.googletag.pubads().setCategoryExclusion('NePromo')
-        }
-        window.googletag.pubads().enableSingleRequest()
-        window.googletag.pubads().collapseEmptyDivs()
-        window.googletag.pubads().disableInitialLoad()
-        window.googletag.enableServices()
-        window.googletag
-          .pubads()
-          .addEventListener('slotRenderEnded', function (event) {
-            const name = event.slot.getAdUnitPath().split('/').pop()
-            const el = document.getElementById(event.slot.getSlotElementId())
-            if (name.includes('sticky') && !event.isEmpty) {
-              const cross = document.createElement('a')
-              cross.innerHTML = '<i class="fa fa-times-circle fa-3x"></i>'
-              cross.style.cssText =
-                'position:fixed; left: 50%; margin-left: ' +
-                (event.size[0] / 2 - 25) +
-                'px; bottom: ' +
-                (event.size[1] - 25) +
-                'px; z-index:999;'
-              cross.addEventListener('click', function (e) {
-                e.preventDefault()
-                el.style.display = 'none'
-              })
-              el.appendChild(cross)
-            }
-            if (
-              !window.googletag.reloadedSlots.includes(name) &&
-              event.isEmpty &&
-              event.slot.getAdUnitPath().includes('wallpaper')
-            ) {
-              const unit = state.units[name]
-              el.innerHTML = ''
-              el.removeAttribute('data-google-query-id')
-              el.removeAttribute('style')
-              const newName = name + '_new'
-              el.setAttribute('id', newName)
-              unit.desktop_sizes = [
-                [200, 900],
-                [300, 900],
-              ]
-              window.googletag
-                .defineSlot(state.prefix + name, unit.desktop_sizes, newName)
-                .addService(window.googletag.pubads())
-                .setTargeting('upc', unit.upc ? unit.upc : 10)
-              window.googletag.display(newName)
-              window.googletag.reloadedSlots.push(name)
-            }
-            if (event.size && event.size[0] === 200 && event.size[1] === 250) {
-              el.style.right = '0px'
-            }
-          })
-      })
-      commit('setInit')
-    }
+          if (
+            !window.googletag.reloadedSlots.includes(name) &&
+            event.isEmpty &&
+            event.slot.getAdUnitPath().includes('wallpaper')
+          ) {
+            const unit = state.units[name]
+            el.innerHTML = ''
+            el.removeAttribute('data-google-query-id')
+            el.removeAttribute('style')
+            const newName = name + '_new'
+            el.setAttribute('id', newName)
+            unit.desktop_sizes = [
+              [200, 900],
+              [300, 900],
+            ]
+            window.googletag
+              .defineSlot(state.prefix + name, unit.desktop_sizes, newName)
+              .addService(window.googletag.pubads())
+              .setTargeting('upc', unit.upc ? unit.upc : 10)
+            window.googletag.display(newName)
+            window.googletag.reloadedSlots.push(name)
+          }
+          if (event.size && event.size[0] === 200 && event.size[1] === 250) {
+            el.style.right = '0px'
+          }
+        })
+    })
+    commit('setInit')
+
     dispatch('initSlots', route)
+    dispatch('loadMox')
+    if (route.name === 'category-slug' && !options.include('midas')) {
+      dispatch('loadMidas')
+    }
   },
   initSlots({ state, commit, dispatch }, route) {
     if (state.slots) {
