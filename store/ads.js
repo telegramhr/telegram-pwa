@@ -416,10 +416,6 @@ export const actions = {
     commit('setInit')
 
     dispatch('initSlots', route)
-    dispatch('loadMox')
-    if (route.name === 'category-slug' && !options.include('midas')) {
-      dispatch('loadMidas')
-    }
   },
   initSlots({ state, commit, dispatch }, route) {
     if (state.slots) {
@@ -469,34 +465,5 @@ export const actions = {
           }
         }),
     })
-  },
-  loadMidas() {
-    const container = document.getElementById('midasWidget__657')
-    const scriptTag = document.createElement('script')
-    scriptTag.src =
-      'https://www.midas-network.com/ScriptsControllerRule/midas-phrygia-1.min.js'
-    scriptTag.async = true
-    scriptTag.id = 'midas-phrygia'
-    scriptTag.setAttribute(
-      'data-widget',
-      '2?portalWidgetId=657&portalRuleId=49'
-    )
-    container.parentNode.insertBefore(scriptTag, container)
-  },
-  loadMox() {
-    const container = document.querySelectorAll(
-      '[data-id=_mwayss-325b7d752b361c5458420729057fe2ff]'
-    )[0]
-    if (container) {
-      container.setAttribute(
-        'id',
-        container.getAttribute('data-id') + new Date().getTime()
-      )
-      container.removeAttribute('data-id')
-      const scriptTag = document.createElement('script')
-      scriptTag.src =
-        'https://ad.mox.tv/mox/mwayss_invocation.min.js?pzoneid=5182&height=405&width=720&tld=telegram.hr&ctype=div'
-      container.parentNode.insertBefore(scriptTag, container)
-    }
   },
 }
