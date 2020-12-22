@@ -396,8 +396,7 @@ export const actions = {
               el.innerHTML = ''
               el.removeAttribute('data-google-query-id')
               el.removeAttribute('style')
-              unit.opt_div = unit.opt_div + '_new'
-              el.setAttribute('id', unit.opt_div)
+              el.setAttribute('id', name + '_new')
               unit.desktop_sizes = [
                 [200, 900],
                 [300, 900],
@@ -406,7 +405,7 @@ export const actions = {
                 .defineSlot(state.prefix + name, unit.desktop_sizes, name)
                 .addService(window.googletag.pubads())
                 .setTargeting('upc', unit.upc ? unit.upc : 10)
-              window.googletag.display(unit.opt_div)
+              window.googletag.display(name + '_new')
               window.googletag.reloadedSlots.push(name)
             }
             if (event.size && event.size[0] === 200 && event.size[1] === 250) {
