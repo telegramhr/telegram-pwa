@@ -432,7 +432,10 @@ export const actions = {
       for (const i of Object.keys(state.units)) {
         if (i in state.units) {
           const unit = state.units[i]
-          if (!unit[sizes] || (route && !unit.routes.includes(route.name))) {
+          if (!unit[sizes]) {
+            continue
+          }
+          if (route && !unit.routes.includes(route.name)) {
             continue
           }
           ds = window.googletag.defineSlot(prefix + i, unit[sizes], i)
