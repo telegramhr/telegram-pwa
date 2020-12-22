@@ -186,7 +186,7 @@ export default {
   },
   methods: {
     loadAds() {
-      this.$store.dispatch('ads/initAds')
+      this.$store.dispatch('ads/initAds', this.$route)
     },
     resize() {
       this.mobile = window.innerWidth < 1024

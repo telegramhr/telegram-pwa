@@ -18,8 +18,20 @@ export const state = () => ({
         [1200, 250],
         [1200, 500],
       ],
+      routes: [
+        'index',
+        'category',
+        'category-slug',
+        'fotogalerije-category',
+        'fotogalerije-category-slug',
+        'category',
+        'search',
+        'author-slug',
+        'tema-slug',
+      ],
     },
     telegram_desktop_billboard_v2: {
+      routes: ['index'],
       mobile_sizes: [
         [300, 50],
         [300, 100],
@@ -38,6 +50,7 @@ export const state = () => ({
       ],
     },
     telegram_desktop_billboard_v3: {
+      routes: ['index'],
       mobile_sizes: [
         [300, 50],
         [300, 100],
@@ -56,6 +69,7 @@ export const state = () => ({
       ],
     },
     telegram_desktop_billboard_v4: {
+      routes: ['index'],
       mobile_sizes: [
         [300, 50],
         [300, 100],
@@ -80,6 +94,17 @@ export const state = () => ({
         [341, 1051],
       ],
       mobile_sizes: false,
+      routes: [
+        'index',
+        'category',
+        'category-slug',
+        'fotogalerije-category',
+        'fotogalerije-category-slug',
+        'category',
+        'search',
+        'author-slug',
+        'tema-slug',
+      ],
     },
     telegram_dekstop_wallpaper_right: {
       desktop_sizes: [
@@ -88,8 +113,20 @@ export const state = () => ({
         [341, 1051],
       ],
       mobile_sizes: false,
+      routes: [
+        'index',
+        'category',
+        'category-slug',
+        'fotogalerije-category',
+        'fotogalerije-category-slug',
+        'category',
+        'search',
+        'author-slug',
+        'tema-slug',
+      ],
     },
     telegram_desktop_intext_v1: {
+      routes: ['category-slug'],
       desktop_sizes: [
         [660, 350],
         [300, 250],
@@ -110,6 +147,7 @@ export const state = () => ({
       ],
     },
     telegram_desktop_intext_v2: {
+      routes: ['category-slug'],
       desktop_sizes: [
         [660, 350],
         [300, 250],
@@ -130,6 +168,7 @@ export const state = () => ({
       ],
     },
     telegram_desktop_intext_v3: {
+      routes: ['category-slug'],
       desktop_sizes: [
         [660, 350],
         [300, 250],
@@ -150,6 +189,7 @@ export const state = () => ({
       ],
     },
     telegram_desktop_intext_v4: {
+      routes: ['category-slug'],
       desktop_sizes: [
         [660, 350],
         [300, 250],
@@ -170,6 +210,7 @@ export const state = () => ({
       ],
     },
     telegram_desktop_intext_v5: {
+      routes: ['category-slug'],
       desktop_sizes: [
         [660, 350],
         [300, 250],
@@ -190,6 +231,7 @@ export const state = () => ({
       ],
     },
     telegram_desktop_intext_v6: {
+      routes: ['category-slug'],
       desktop_sizes: [
         [660, 350],
         [300, 250],
@@ -210,6 +252,7 @@ export const state = () => ({
       ],
     },
     telegram_desktop_intext_v7: {
+      routes: ['category-slug'],
       desktop_sizes: [
         [660, 350],
         [300, 250],
@@ -230,6 +273,17 @@ export const state = () => ({
       ],
     },
     telegram_sticky: {
+      routes: [
+        'index',
+        'category',
+        'category-slug',
+        'fotogalerije-category',
+        'fotogalerije-category-slug',
+        'category',
+        'search',
+        'author-slug',
+        'tema-slug',
+      ],
       mobile_sizes: [
         [300, 50],
         [300, 100],
@@ -258,17 +312,57 @@ export const mutations = {
 }
 
 export const actions = {
-  initAds({ state, commit, dispatch }) {
+  initAds({ state, commit, dispatch }, route, options) {
+    if (options && options.includes('all')) {
+      return
+    }
+    // set targeting
+    const targeting = {
+      wp_post_type: [],
+      post_slug: [],
+      post_tag: [],
+      post_category: [],
+    }
+    if (route) {
+      switch (route.name) {
+        case 'index':
+          targeting.wp_post_type = ['home']
+          break
+        case 'category':
+        case 'fotogalerije-category':
+          targeting.wp_post_type = ['category']
+          targeting.post_category = [route.params.category]
+          break
+        case 'tema':
+          targeting.wp_post_type = ['archive']
+          targeting.post_category = [route.params.slug]
+          break
+        case 'category-slug':
+        case 'fotogalerije-category-slug':
+          targeting.wp_post_type = ['single']
+          targeting.post_slug = [route.params.slug]
+          targeting.post_category = [route.params.category]
+          break
+        case 'search':
+          targeting.wp_post_type = ['search']
+          break
+      }
+    }
+    // init tags
     if (!state.init) {
       window.googletag = window.googletag || {}
       window.googletag.cmd = window.googletag.cmd || []
       window.googletag.reloadedSlots = window.googletag.reloadedSlots || []
       window.googletag.cmd.push(() => {
         // set targeting
-        window.googletag
-          .pubads()
-          .setTargeting('wp_post_type', ['home', 'single', 'archive'])
-
+        for (const i in targeting) {
+          if (targeting[i].length) {
+            window.googletag.pubads().setTargeting(i, targeting[i])
+          }
+        }
+        if (options && options.includes('nepromo')) {
+          window.googletag.pubads().setCategoryExclusion('NePromo')
+        }
         window.googletag.pubads().enableSingleRequest()
         window.googletag.pubads().collapseEmptyDivs()
         window.googletag.pubads().disableInitialLoad()
@@ -322,9 +416,9 @@ export const actions = {
       })
       commit('setInit')
     }
-    dispatch('initSlots')
+    dispatch('initSlots', route)
   },
-  initSlots({ state, commit, dispatch }) {
+  initSlots({ state, commit, dispatch }, route) {
     if (state.slots) {
       window.googletag.cmd.push(() => {
         window.googletag.destroySlots()
@@ -338,7 +432,7 @@ export const actions = {
       for (const i of Object.keys(state.units)) {
         if (i in state.units) {
           const unit = state.units[i]
-          if (!unit[sizes]) {
+          if (!unit[sizes] || (route && !unit.routes.includes(route.name))) {
             continue
           }
           ds = window.googletag.defineSlot(prefix + i, unit[sizes], i)
@@ -369,5 +463,34 @@ export const actions = {
           }
         }),
     })
+  },
+  loadMidas() {
+    const container = document.getElementById('midasWidget__657')
+    const scriptTag = document.createElement('script')
+    scriptTag.src =
+      'https://www.midas-network.com/ScriptsControllerRule/midas-phrygia-1.min.js'
+    scriptTag.async = true
+    scriptTag.id = 'midas-phrygia'
+    scriptTag.setAttribute(
+      'data-widget',
+      '2?portalWidgetId=657&portalRuleId=49'
+    )
+    container.parentNode.insertBefore(scriptTag, container)
+  },
+  loadMox() {
+    const container = document.querySelectorAll(
+      '[data-id=_mwayss-325b7d752b361c5458420729057fe2ff]'
+    )[0]
+    if (container) {
+      container.setAttribute(
+        'id',
+        container.getAttribute('data-id') + new Date().getTime()
+      )
+      container.removeAttribute('data-id')
+      const scriptTag = document.createElement('script')
+      scriptTag.src =
+        'https://ad.mox.tv/mox/mwayss_invocation.min.js?pzoneid=5182&height=405&width=720&tld=telegram.hr&ctype=div'
+      container.parentNode.insertBefore(scriptTag, container)
+    }
   },
 }
