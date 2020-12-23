@@ -273,6 +273,7 @@ export const state = () => ({
       ],
     },
     telegram_sticky: {
+      upc: 36,
       routes: [
         'index',
         'category',
