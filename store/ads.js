@@ -208,10 +208,11 @@ export const mutations = {
 }
 
 export const actions = {
-  initAds({ state, commit, dispatch }, route, options) {
-    if (options && options.includes('all')) {
+  initAds({ state, commit, dispatch }, payload) {
+    if (payload.options && payload.options.includes('all')) {
       return
     }
+    const route = payload.route || null
     // set targeting
     const targeting = {
       wp_post_type: [],
@@ -255,7 +256,7 @@ export const actions = {
           window.googletag.pubads().setTargeting(i, targeting[i])
         }
       }
-      if (options && options.includes('nepromo')) {
+      if (payload.options && payload.options.includes('nepromo')) {
         window.googletag.pubads().setCategoryExclusion('NePromo')
       }
       window.googletag.pubads().enableSingleRequest()

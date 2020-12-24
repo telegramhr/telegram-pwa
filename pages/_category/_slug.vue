@@ -321,7 +321,10 @@ export default {
   },
   methods: {
     loadAds() {
-      this.$store.dispatch('ads/initAds', this.$route, this.post.disable_ads)
+      this.$store.dispatch('ads/initAds', {
+        route: this.$route,
+        options: this.post.disable_ads,
+      })
       this.loadMox()
       if (
         this.$route.name === 'category-slug' &&

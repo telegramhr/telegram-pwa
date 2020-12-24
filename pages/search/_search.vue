@@ -93,7 +93,7 @@ export default {
     }
   },
   mounted() {
-    this.$store.dispatch('ads/initAds', this.$route)
+    this.$store.dispatch('ads/initAds', { route: this.$route })
   },
   methods: {
     loadMore() {
