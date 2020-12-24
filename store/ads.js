@@ -300,7 +300,7 @@ export const actions = {
             window.googletag
               .defineSlot(state.prefix + name, unit.desktop_sizes, newName)
               .addService(window.googletag.pubads())
-              .setTargeting('upc', unit.upc ? unit.upc : 10)
+              .setTargeting('upc', unit.upc ? unit.upc : 12)
             window.googletag.display(newName)
             window.googletag.reloadedSlots.push(name)
           }
@@ -338,7 +338,7 @@ export const actions = {
             ds.defineSizeMapping(unit.sizeMapping)
           }
           ds.addService(window.googletag.pubads())
-          ds.setTargeting('upc', unit.upc ? unit.upc : 10)
+          ds.setTargeting('upc', unit.upc ? unit.upc : 12)
         }
       }
       commit('setSlots')
