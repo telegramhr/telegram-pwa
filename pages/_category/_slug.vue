@@ -325,7 +325,9 @@ export default {
         route: this.$route,
         options: this.post.disable_ads,
       })
-      this.loadMox()
+      if (!this.post.disable_ads || !this.post.disable_ads.includes('all')) {
+        this.loadMox()
+      }
       if (
         this.$route.name === 'category-slug' &&
         !this.post.disable_ads.includes('midas')
