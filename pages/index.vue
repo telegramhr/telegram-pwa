@@ -181,8 +181,10 @@ export default {
     }
   },
   mounted() {
-    this.resize()
-    this.loadAds()
+    this.$nextTick(() => {
+      this.resize()
+      this.loadAds()
+    })
   },
   methods: {
     loadAds() {

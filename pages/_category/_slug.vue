@@ -316,8 +316,10 @@ export default {
     },
   },
   mounted() {
-    this.resize()
-    this.getPost()
+    this.$nextTick(() => {
+      this.resize()
+      this.getPost()
+    })
   },
   methods: {
     loadAds() {
