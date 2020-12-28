@@ -26,8 +26,5 @@ export default {
       return this.$store.state.stocks.stocks
     },
   },
-  mounted() {
-    this.$store.dispatch('stocks/pullStocks')
-  },
 }
 </script>

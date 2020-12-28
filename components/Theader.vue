@@ -146,10 +146,7 @@
         <!-- Mobile Subheader -->
         <div class="flex mobile-only">{{ date }}</div>
         <client-only>
-          <div
-            v-if="$store.state.stocks.stocks.length"
-            class="flex mobile-only"
-          >
+          <div v-if="$store.state.stocks.stocks" class="flex mobile-only">
             <img
               :src="
                 '/stocks/tg_stonks_' +
@@ -312,11 +309,12 @@ export default {
       return keys[Math.floor(Math.random() * keys.length)]
     },
   },
-  created() {
+  mounted() {
     // this.handleDebouncedScroll = this.debounce(this.handleScroll, 100)
     // eslint-disable-next-line
     // window.addEventListener('scroll', this.handleDebouncedScroll)
     this.resize()
+    this.$store.dispatch('stocks/pullStocks')
   },
   beforeDestroy() {
     // I switched the example from `destroyed` to `beforeDestroy`
