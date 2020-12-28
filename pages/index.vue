@@ -35,7 +35,7 @@
           <div
             class="five-sixths column-horizontal-pad flex-responsive flex column-bottom-border column-right-border"
           >
-            <featured :post="posts[0]"></featured>
+            <featured :key="posts[0].id" :post="posts[0]"></featured>
           </div>
           <aside
             class="sixth desktop-only flex column-horizontal-pad column-bottom-border"
@@ -48,9 +48,9 @@
           <div
             class="two-thirds column-horizontal-pad flex-responsive flex column-right-border column-top-pad"
           >
-            <featured :post="posts[1]"></featured>
-            <featured :post="posts[2]"></featured>
-            <featured :post="posts[3]"></featured>
+            <featured :key="posts[1].id" :post="posts[1]"></featured>
+            <featured :key="posts[2].id" :post="posts[2]"></featured>
+            <featured :key="posts[3].id" :post="posts[3]"></featured>
           </div>
           <div v-if="mobile" class="full center header-billboard mobile-only">
             <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
@@ -58,10 +58,10 @@
           <div
             class="third flex-responsive column-horizontal-pad flex column-top-pad"
           >
-            <standard :post="posts[4]"></standard>
-            <standard :post="posts[5]"></standard>
-            <standard :post="posts[6]"></standard>
-            <standard :post="posts[7]"></standard>
+            <standard :key="posts[4].id" :post="posts[4]"></standard>
+            <standard :key="posts[5].id" :post="posts[5]"></standard>
+            <standard :key="posts[6].id" :post="posts[6]"></standard>
+            <standard :key="posts[7].id" :post="posts[7]"></standard>
           </div>
         </section>
         <section
@@ -103,11 +103,11 @@
           <section
             class="two-thirds flex-responsive flex mobile-side-pad column-horizontal-pad column-right-border"
           >
-            <featured :post="posts[8]"></featured>
+            <featured :key="posts[8].id" :post="posts[8]"></featured>
             <div class="full flex split-articles">
               <standard
                 v-for="i in [9, 10, 11]"
-                :key="i"
+                :key="posts[i].id"
                 :post="posts[i]"
               ></standard>
             </div>
@@ -120,7 +120,7 @@
           >
             <standard
               v-for="i in [12, 13, 14]"
-              :key="i"
+              :key="posts[i].id"
               :post="posts[i]"
             ></standard>
           </section>
