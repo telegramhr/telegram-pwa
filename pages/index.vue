@@ -28,7 +28,7 @@
           <ad-unit id="telegram_dekstop_wallpaper_right"></ad-unit>
         </div>
       </div>
-      <div v-if="posts.length" class="container flex relative block-1 stretch">
+      <div v-if="posts" class="container flex relative block-1 stretch">
         <section
           class="three-fourths mobile-side-pad flex-responsive flex relative the-big-gs stretch elevate-over-section"
         >
@@ -81,7 +81,10 @@
         <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
       </div>
 
-      <div class="block-title news-block-title full mobile-side-pad">
+      <div
+        v-if="posts"
+        class="block-title news-block-title full mobile-side-pad"
+      >
         <div class="full block-title-pattern relative"></div>
         <div class="container flex relative">
           <h1 class="column-left-pad full">Još vijesti</h1>
@@ -89,7 +92,7 @@
       </div>
 
       <div
-        v-if="posts.length"
+        v-if="posts"
         class="container flex relative block-2 standard-block stretch"
       >
         <section
@@ -129,9 +132,9 @@
           class="full center subtle-btn-parent mobile-only relative clickable"
           onclick="loadMore"
         >
-          <div class="subtle-btn animate">Vidi više</div>
-          <div class="subtle-btn-line"></div>
-          <div class="full center cool-loader hide">
+          <div v-show="!loading" class="subtle-btn animate">Vidi više</div>
+          <div v-show="loading" class="subtle-btn-line"></div>
+          <div v-show="loading" class="full center cool-loader hide">
             <div class="loader-square">
               <div></div>
               <div></div>
@@ -172,13 +175,18 @@ import Super from '~/components/Elements/Super1'
 export default {
   components: { Trending, Super, Sport },
   async fetch() {
-    this.posts = await this.$axios.get('featured').then((res) => res.data)
+    await this.$store.dispatch('featured/pullPosts')
   },
   data() {
     return {
       mobile: true,
-      posts: [],
+      loading: false,
     }
+  },
+  computed: {
+    posts() {
+      return this.$store.state.featured.posts
+    },
   },
   mounted() {
     this.$nextTick(() => {
@@ -193,12 +201,12 @@ export default {
     resize() {
       this.mobile = window.innerWidth < 1024
     },
-    getPosts() {
-      this.$axios.get('featured').then((res) => {
-        this.posts = res.data
+    loadMore() {
+      this.loading = true
+      this.$store.dispatch('featured/loadMore').then(() => {
+        this.loading = false
       })
     },
-    loadMore() {},
   },
   head() {
     return {
