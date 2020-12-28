@@ -94,8 +94,8 @@
         </div>
       </div>
     </div>
-    <div
-      v-show="searchMenuShow"
+    <!--<div
+      :v-show="false"
       class="sticky-search-menu search-menu animate full center"
     >
       <form class="relative" action="" method="get" @submit.prevent="search">
@@ -109,7 +109,7 @@
           <i class="far fa-search"></i>
         </button>
       </form>
-    </div>
+    </div>-->
     <header
       :class="{
         full: true,
