@@ -84,7 +84,7 @@ export default {
   },
   computed: {
     comments() {
-      return this.$store.state.telesport.posts
+      return this.$store.state.telesport.comments
     },
     posts() {
       return this.$store.state.telesport.posts

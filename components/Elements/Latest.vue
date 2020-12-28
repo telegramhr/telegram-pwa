@@ -20,20 +20,15 @@ export default {
       default: true,
     },
   },
-  data() {
-    return {
-      posts: [],
-    }
+  computed: {
+    posts() {
+      return this.$store.state.latest.posts[this.portal]
+    },
   },
   mounted() {
-    this.getPosts()
-  },
-  methods: {
-    getPosts() {
-      this.$axios.get('/latest/' + this.portal).then((res) => {
-        this.posts = res.data
-      })
-    },
+    if (this.portal === 1) {
+      this.$store.dispatch('latest/pullPosts')
+    }
   },
 }
 </script>
