@@ -75,36 +75,32 @@
 export default {
   name: 'Sport',
   async fetch() {
-    await this.$axios.get('portal/2').then((res) => {
-      this.posts = res.data.posts
-      this.comments = res.data.comments
-      this.reading = res.data.reading
-    })
+    await this.$store.dispatch('telesport/pullPosts')
   },
   data() {
     return {
-      morePosts: [],
-      posts: [],
-      comments: [],
-      reading: [],
-      page: 2,
       loading: false,
     }
+  },
+  computed: {
+    comments() {
+      return this.$store.state.telesport.posts
+    },
+    posts() {
+      return this.$store.state.telesport.posts
+    },
+    reading() {
+      return this.$store.state.telesport.reading
+    },
+    morePosts() {
+      return this.$store.state.telesport.morePosts
+    },
   },
   methods: {
     loadMore() {
       this.loading = true
-      this.$axios.get('portal/2/page/' + this.page).then((res) => {
-        this.morePosts = [...this.morePosts, ...res.data.posts]
+      this.$store.dispatch('telesport/loadMore').then(() => {
         this.loading = false
-        this.page++
-      })
-    },
-    getPosts() {
-      this.$axios.get('portal/2').then((res) => {
-        this.posts = res.data.posts
-        this.comments = res.data.comments
-        this.reading = res.data.reading
       })
     },
   },

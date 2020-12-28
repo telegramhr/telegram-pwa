@@ -67,33 +67,29 @@
 export default {
   name: 'Super1',
   async fetch() {
-    await this.$axios.get('portal/3').then((res) => {
-      this.posts = res.data.posts
-      this.reading = res.data.reading
-    })
+    await this.$store.dispatch('super/pullPosts')
   },
   data() {
     return {
-      posts: [],
-      reading: [],
-      morePosts: [],
-      page: 2,
       loading: false,
     }
   },
-  methods: {
-    getPosts() {
-      this.$axios.get('portal/3').then((res) => {
-        this.posts = res.data.posts
-        this.reading = res.data.reading
-      })
+  computed: {
+    posts() {
+      return this.$store.state.super.posts
     },
+    reading() {
+      return this.$store.state.super.reading
+    },
+    morePosts() {
+      return this.$store.state.super.morePosts
+    },
+  },
+  methods: {
     loadMore() {
       this.loading = true
-      this.$axios.get('portal/3/page/' + this.page).then((res) => {
-        this.morePosts = [...this.morePosts, ...res.data.posts]
+      this.$store.dispatch('super/loadMore').then(() => {
         this.loading = false
-        this.page++
       })
     },
   },
