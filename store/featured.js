@@ -2,7 +2,7 @@ export const state = () => ({
   posts: [],
   morePosts: [],
   updated: null,
-  page: 2,
+  page: 1,
 })
 
 export const mutations = {
@@ -32,7 +32,7 @@ export const actions = {
   loadMore({ commit, state }) {
     return new Promise((resolve) => {
       this.$axios.get('featured/page/' + state.page).then((res) => {
-        commit('setMore', res.data.posts)
+        commit('setMore', res.data)
         resolve()
       })
     })

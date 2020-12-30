@@ -128,13 +128,26 @@
             ></standard>
           </section>
         </div>
+        <div v-if="morePosts.length" class="full flex">
+          <div
+            class="container flex relative native-block stretch mobile-side-pad"
+          >
+            <div
+              v-for="post in morePosts"
+              :key="post.id"
+              class="fourth flex-responsive column-full-pad"
+            >
+              <standard :post="post"></standard>
+            </div>
+          </div>
+        </div>
         <div
           class="full center subtle-btn-parent mobile-only relative clickable"
-          onclick="loadMore"
+          @click="loadMore"
         >
           <div v-show="!loading" class="subtle-btn animate">Vidi više</div>
-          <div v-show="loading" class="subtle-btn-line"></div>
-          <div v-show="loading" class="full center cool-loader hide">
+          <div v-show="!loading" class="subtle-btn-line"></div>
+          <div v-show="loading" class="full center cool-loader">
             <div class="loader-square">
               <div></div>
               <div></div>
@@ -186,6 +199,9 @@ export default {
   computed: {
     posts() {
       return this.$store.state.featured.posts
+    },
+    morePosts() {
+      return this.$store.state.featured.morePosts
     },
   },
   mounted() {
