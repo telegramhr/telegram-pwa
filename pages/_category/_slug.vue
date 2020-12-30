@@ -206,7 +206,7 @@
                     @click="comments = !comments"
                   >
                     {{ post.comments }}
-                    komentara
+                    {{ post.comments === 1 ? 'komentar' : 'komentara' }}
                   </div>
                 </div>
               </div>
@@ -377,7 +377,7 @@ export default {
         }
         if (typeof twttr !== 'undefined') {
           /* global twttr */
-          twttr.widgets.load()
+          twttr.widgets.load(document.getElementById('article-content'))
         }
         if (typeof instgrm !== 'undefined') {
           /* global instgrm */
@@ -455,8 +455,17 @@ export default {
       ],
       script: [
         {
+          vmid: 'instagram',
+          hid: 'instagram',
           src:
             'https://www.instagram.com/static/bundles/metro/EmbedSDK.js/33cd2c5d5d59.js',
+        },
+        {
+          vmid: 'twitter',
+          hid: 'twitter',
+          src: 'https://platform.twitter.com/widgets.js',
+          async: true,
+          defer: true,
         },
       ],
       link: [

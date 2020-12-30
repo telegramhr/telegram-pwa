@@ -14,6 +14,7 @@ export default {
           'Portal za društvena i kulturna pitanja. I svijet koji dolazi.',
       },
       { name: 'twitter:dnt', content: 'on' },
+      { name: 'twitter:widgets:csp', content: 'on' },
     ],
     link: [
       { hid: 'canonical', rel: 'canonical', href: 'https:/www.telegram.hr' },
@@ -22,6 +23,10 @@ export default {
         rel: 'stylesheet',
         href:
           'https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap',
+      },
+      {
+        rel: 'me',
+        href: 'https://twitter.com/TelegramHR',
       },
     ],
     script: [
@@ -64,7 +69,6 @@ export default {
   plugins: [
     { src: '@/plugins/filters.js' },
     { src: '@/plugins/persisted.client.js' },
-    { src: '@/plugins/analytics.client.js' },
     { src: '@/plugins/choices.client.js' },
     { src: '@/plugins/vue-slick-carousel.js' },
   ],
