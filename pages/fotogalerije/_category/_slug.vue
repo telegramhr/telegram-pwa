@@ -11,6 +11,7 @@
           </div>
           <h1 class="full">{{ post.title }}</h1>
           <h2 class="full">{{ post.subtitle }}</h2>
+          <!-- eslint-disable-next-line -->
           <div v-html="post.content"></div>
         </div>
         <div class="full flex gallery-content relative">
