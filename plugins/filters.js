@@ -11,7 +11,7 @@ export default () => {
     } else {
       const diff = (now - value) / 1000
       let h = diff / 3600
-      if (h > 1) {
+      if (h >= 1) {
         h = Math.round(h)
         if (h < 5) {
           return 'prije ' + h + ' sata'
@@ -20,7 +20,7 @@ export default () => {
       }
       let m = diff % 3600
       m = Math.round(m / 60)
-      if (m % 10 < 5) {
+      if (m % 10 > 0 && m % 10 < 5) {
         return 'prije ' + m + ' minute'
       }
       return 'prije ' + m + ' minuta'
