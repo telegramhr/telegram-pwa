@@ -20,11 +20,11 @@
       ></a>
       <div class="menu flex">
         <div class="half">
-          <template v-show="loggedIn">
-            <h3 v-show="loggedIn">Admin</h3>
+          <template v-if="loggedIn">
+            <h3>Admin</h3>
             <a href="https://www.telegram.hr/wp-admin">Admin</a>
             <a
-              v-if="id"
+              v-show="id"
               :href="`https://www.telegram.hr/wp-admin/post.php?post=${id}&action=edit`"
               >Uredi</a
             >

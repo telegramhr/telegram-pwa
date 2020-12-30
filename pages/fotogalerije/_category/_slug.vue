@@ -11,6 +11,7 @@
           </div>
           <h1 class="full">{{ post.title }}</h1>
           <h2 class="full">{{ post.subtitle }}</h2>
+          <div v-html="post.content"></div>
         </div>
         <div class="full flex gallery-content relative">
           <div class="gallery-header full flex">
@@ -36,10 +37,12 @@
               :key="image.id"
               class="full relative"
             >
-              <img :src="image.url" />
               <figcaption class="wp-caption-text img-portrait">
                 <!-- eslint-disable-next-line -->
                 <span v-html="image.caption"></span>
+              </figcaption>
+              <img :src="image.url" />
+              <figcaption class="wp-caption-text img-portrait">
                 <span class="photographer">{{ image.author }}</span>
               </figcaption>
             </figure>
