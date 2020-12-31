@@ -330,24 +330,23 @@ export default {
       if (!this.post.disable_ads || !this.post.disable_ads.includes('all')) {
         this.loadMox()
       }
-      if (
-        this.$route.name === 'category-slug' &&
-        !this.post.disable_ads.includes('midas')
-      ) {
+      if (!this.post.disable_ads.includes('midas')) {
         this.loadMidas()
       }
     },
     loadMidas() {
       const container = document.getElementById('midasWidget__657')
+      const intext = document.getElementById('midasWidget__r49')
+      let widget = '2?portalWidgetId=657'
+      if (intext) {
+        widget += '&portalRuleId=49'
+      }
       const scriptTag = document.createElement('script')
       scriptTag.src =
         'https://www.midas-network.com/ScriptsControllerRule/midas-phrygia-1.min.js'
       scriptTag.async = true
       scriptTag.id = 'midas-phrygia'
-      scriptTag.setAttribute(
-        'data-widget',
-        '2?portalWidgetId=657&portalRuleId=49'
-      )
+      scriptTag.setAttribute('data-widget', widget)
       container.parentNode.insertBefore(scriptTag, container)
     },
     loadMox() {
