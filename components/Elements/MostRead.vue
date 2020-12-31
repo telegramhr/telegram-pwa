@@ -13,8 +13,8 @@
 <script>
 export default {
   name: 'MostRead',
-  fetch() {
-    this.$store.dispatch('mostread/pullPosts')
+  async fetch() {
+    await this.$store.dispatch('mostread/pullPosts')
   },
   computed: {
     posts() {

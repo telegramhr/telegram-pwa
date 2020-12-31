@@ -1,5 +1,5 @@
 <template>
-  <div :class="['full', 'flex', desktop ? 'desktop-only' : '']">
+  <div class="full flex desktop-only">
     <h2 class="full flex section-title">Najnovije</h2>
     <mini v-for="post in posts" :key="post.id" :post="post"></mini>
   </div>
@@ -14,21 +14,14 @@ export default {
       required: true,
       default: 1,
     },
-    desktop: {
-      type: Boolean,
-      required: false,
-      default: true,
-    },
+  },
+  async fetch() {
+    await this.$store.dispatch('latest/pullPosts')
   },
   computed: {
     posts() {
       return this.$store.state.latest.posts[this.portal]
     },
-  },
-  mounted() {
-    if (this.portal === 1) {
-      this.$store.dispatch('latest/pullPosts')
-    }
   },
 }
 </script>

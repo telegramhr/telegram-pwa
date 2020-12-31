@@ -67,7 +67,7 @@
         <section
           class="fourth flex-responsive flex komentari mobile-side-pad column-horizontal-pad column-right-border"
         >
-          <latest :portal="1"></latest>
+          <latest v-if="!mobile" :portal="1"></latest>
           <commentary></commentary>
           <div class="full flex desktop-only">
             <h2 class="full flex section-title">Newsletter</h2>
@@ -174,7 +174,9 @@
         <category slug="biznis-tech"></category>
         <category slug="kultura"></category>
         <category slug="velike-price"></category>
-        <most-read v-if="mobile"></most-read>
+        <client-only>
+          <most-read v-if="mobile"></most-read>
+        </client-only>
       </div>
     </div>
     <tfooter></tfooter>
@@ -182,11 +184,10 @@
 </template>
 
 <script>
-import Trending from '@/components/Elements/Trending'
 import Sport from '~/components/Elements/Sport'
 import Super from '~/components/Elements/Super1'
 export default {
-  components: { Trending, Super, Sport },
+  components: { Super, Sport },
   async fetch() {
     await this.$store.dispatch('featured/pullPosts')
   },

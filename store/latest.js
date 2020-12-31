@@ -18,12 +18,11 @@ export const actions = {
   pullPosts({ commit, state }) {
     return new Promise((resolve) => {
       if (state.updated + 10 * 60 * 1000 < new Date().getTime()) {
-        this.$axios
-          .get('/latest/1')
-          .then((res) => {
-            commit('setPosts', { data: res.data, portal: 1 })
-          })
-          .then(() => {
+        this.$axios.get('/latest/1').then((res) => {
+          commit('setPosts', { data: res.data, portal: 1 })
+          resolve()
+        })
+        /* .then(() => {
             this.$axios.get('/latest/2').then((res) => {
               commit('setPosts', { data: res.data, portal: 2 })
             })
@@ -32,7 +31,7 @@ export const actions = {
             this.$axios.get('/latest/3').then((res) => {
               commit('setPosts', { data: res.data, portal: 3 })
             })
-          })
+          }) */
       } else {
         resolve()
       }
