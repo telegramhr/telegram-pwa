@@ -4,13 +4,13 @@ export const state = () => ({
   prefix: '/1092744/telegram/',
   units: {
     telegram_desktop_billboard_v1: {
-      mobile_sizes: [
+      mobile: [
         [300, 50],
         [300, 100],
         [300, 250],
         [320, 50],
       ],
-      desktop_sizes: [
+      desktop: [
         [970, 250],
         [970, 500],
         [1000, 250],
@@ -32,7 +32,7 @@ export const state = () => ({
     },
     telegram_desktop_billboard_v2: {
       routes: ['index'],
-      mobile_sizes: [
+      mobile: [
         [300, 50],
         [300, 100],
         [300, 250],
@@ -40,7 +40,7 @@ export const state = () => ({
         [320, 480],
         [300, 600],
       ],
-      desktop_sizes: [
+      desktop: [
         [970, 250],
         [970, 500],
         [1000, 250],
@@ -51,7 +51,7 @@ export const state = () => ({
     },
     telegram_desktop_billboard_v3: {
       routes: ['index'],
-      mobile_sizes: [
+      mobile: [
         [300, 50],
         [300, 100],
         [300, 250],
@@ -59,7 +59,7 @@ export const state = () => ({
         [320, 480],
         [300, 600],
       ],
-      desktop_sizes: [
+      desktop: [
         [970, 250],
         [970, 500],
         [1000, 250],
@@ -70,7 +70,7 @@ export const state = () => ({
     },
     telegram_desktop_billboard_v4: {
       routes: ['index'],
-      mobile_sizes: [
+      mobile: [
         [300, 50],
         [300, 100],
         [300, 250],
@@ -78,7 +78,7 @@ export const state = () => ({
         [320, 480],
         [300, 600],
       ],
-      desktop_sizes: [
+      desktop: [
         [970, 250],
         [970, 500],
         [1000, 250],
@@ -88,12 +88,12 @@ export const state = () => ({
       ],
     },
     telegram_desktop_wallpaper_left: {
-      desktop_sizes: [
+      desktop: [
         [300, 900],
         [200, 900],
         [341, 1051],
       ],
-      mobile_sizes: false,
+      mobile: false,
       routes: [
         'index',
         'category',
@@ -107,12 +107,12 @@ export const state = () => ({
       ],
     },
     telegram_dekstop_wallpaper_right: {
-      desktop_sizes: [
+      desktop: [
         [301, 901],
         [201, 901],
         [341, 1051],
       ],
-      mobile_sizes: false,
+      mobile: false,
       routes: [
         'index',
         'category',
@@ -127,7 +127,7 @@ export const state = () => ({
     },
     telegram_desktop_intext_v1: {
       routes: ['category-slug'],
-      desktop_sizes: [
+      desktop: [
         [660, 350],
         [300, 250],
         [320, 480],
@@ -136,7 +136,7 @@ export const state = () => ({
         [970, 250],
         [1200, 250],
       ],
-      mobile_sizes: [
+      mobile: [
         [300, 250],
         [320, 480],
         [300, 600],
@@ -148,7 +148,7 @@ export const state = () => ({
     },
     telegram_desktop_intext_v2: {
       routes: ['category-slug'],
-      desktop_sizes: [
+      desktop: [
         [660, 350],
         [300, 250],
         [320, 480],
@@ -157,7 +157,7 @@ export const state = () => ({
         [970, 250],
         [1200, 250],
       ],
-      mobile_sizes: [
+      mobile: [
         [300, 250],
         [320, 480],
         [300, 600],
@@ -168,7 +168,10 @@ export const state = () => ({
       ],
     },
     telegram_sticky: {
-      upc: 36,
+      upc: {
+        desktop: 36,
+        mobile: 36,
+      },
       routes: [
         'index',
         'category',
@@ -180,14 +183,14 @@ export const state = () => ({
         'author-slug',
         'tema-slug',
       ],
-      mobile_sizes: [
+      mobile: [
         [300, 50],
         [300, 100],
         [320, 50],
         [320, 150],
         [200, 250],
       ],
-      desktop_sizes: [
+      desktop: [
         [728, 90],
         [970, 90],
         [970, 150],
@@ -294,14 +297,18 @@ export const actions = {
             el.removeAttribute('style')
             const newName = name + '_new'
             el.setAttribute('id', newName)
-            unit.desktop_sizes = [
+            unit.desktop = [
               [200, 900],
               [300, 900],
             ]
+            let upc = 12
+            if (unit.upc) {
+              upc = unit.upc.desktop
+            }
             window.googletag
-              .defineSlot(state.prefix + name, unit.desktop_sizes, newName)
+              .defineSlot(state.prefix + name, unit.desktop, newName)
               .addService(window.googletag.pubads())
-              .setTargeting('upc', unit.upc ? unit.upc : 12)
+              .setTargeting('upc', upc)
             window.googletag.display(newName)
             window.googletag.reloadedSlots.push(name)
           }
@@ -323,11 +330,15 @@ export const actions = {
     window.googletag.cmd.push(() => {
       const mobile = window.innerWidth < 1024
       const prefix = state.prefix
-      const sizes = mobile ? 'mobile_sizes' : 'desktop_sizes'
+      const sizes = mobile ? 'mobile' : 'desktop'
       let ds
       for (const i of Object.keys(state.units)) {
         if (i in state.units) {
           const unit = state.units[i]
+          let upc = sizes === 'desktop' ? 14 : 12
+          if (unit.upc) {
+            upc = unit.upc[sizes]
+          }
           if (!unit[sizes]) {
             continue
           }
@@ -339,7 +350,7 @@ export const actions = {
             ds.defineSizeMapping(unit.sizeMapping)
           }
           ds.addService(window.googletag.pubads())
-          ds.setTargeting('upc', unit.upc ? unit.upc : 12)
+          ds.setTargeting('upc', upc)
         }
       }
       commit('setSlots')

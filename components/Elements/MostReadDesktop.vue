@@ -1,18 +1,13 @@
 <template>
-  <section class="full mobile-only flex mobile-side-pad">
+  <div>
     <h2 class="full flex section-title">Najčitanije</h2>
-    <top
-      v-for="(post, index) in posts"
-      :key="post.id"
-      :post="post"
-      :i="index + 1"
-    ></top>
-  </section>
+    <mini v-for="post in posts" :key="post.id" :post="post"></mini>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'MostRead',
+  name: 'MostReadDesktop',
   fetch() {
     this.$store.dispatch('mostread/pullPosts')
   },

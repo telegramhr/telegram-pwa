@@ -13,6 +13,9 @@ export default () => {
       let h = diff / 3600
       if (h >= 1) {
         h = Math.round(h)
+        if (h === 1) {
+          return 'prije jednog sata'
+        }
         if (h < 5) {
           return 'prije ' + h + ' sata'
         }

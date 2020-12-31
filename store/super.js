@@ -21,7 +21,7 @@ export const mutations = {
 export const actions = {
   pullPosts({ commit, state }) {
     return new Promise((resolve) => {
-      if (state.updated + 5 * 60 * 1000 < new Date().getTime()) {
+      if (state.updated + 10 * 60 * 1000 < new Date().getTime()) {
         this.$axios.get('portal/3').then((res) => {
           commit('setPosts', res.data)
           resolve()

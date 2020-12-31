@@ -50,8 +50,7 @@
             <latest :portal="1"></latest>
             <h2 class="full flex section-title">Newsletter</h2>
             <newsletter></newsletter>
-            <!--<h2 class="full flex section-title">Najčitanije</h2>
-          7x mini -->
+            <!-- <most-read-desktop></most-read-desktop> -->
           </div>
         </section>
         <div v-if="morePosts.length" class="full flex">
