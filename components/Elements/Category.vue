@@ -23,10 +23,12 @@ export default {
       default: '',
     },
   },
+  async fetch() {
+    await this.$store.dispatch('category/pullPosts', { category: this.slug })
+  },
   computed: {
     posts() {
-      const posts = this.$store.state.category.categories[this.slug].posts
-      return posts
+      return this.$store.state.category.categories[this.slug].posts
         .filter((x) => {
           const t = this.$store.state.featured.posts.filter((y) => {
             return y.id === x.id
@@ -38,9 +40,6 @@ export default {
     category() {
       return this.$store.state.category.categories[this.slug].name
     },
-  },
-  mounted() {
-    this.$store.dispatch('category/pullPosts', { category: this.slug })
   },
 }
 </script>

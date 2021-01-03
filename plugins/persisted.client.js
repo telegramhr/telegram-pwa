@@ -3,6 +3,14 @@ import createPersistedState from 'vuex-persistedstate'
 export default ({ store }) => {
   createPersistedState({
     key: 'tg',
-    paths: ['stocks', 'weather', 'super', 'telesport', 'latest', 'mostread'],
+    paths: [
+      'stocks',
+      'weather',
+      'super',
+      'telesport',
+      'latest',
+      'mostread',
+      'category',
+    ],
   })(store)
 }
