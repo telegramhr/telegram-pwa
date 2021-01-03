@@ -470,7 +470,7 @@ export default {
       link: [
         {
           rel: 'amphtml',
-          href: this.post.social.path + '/amp',
+          href: this.post.social.path + 'amp',
         },
         {
           hid: 'canonical',

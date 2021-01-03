@@ -23,17 +23,24 @@ export default {
       default: '',
     },
   },
-  data() {
-    return {
-      posts: [],
-      category: '',
-    }
+  computed: {
+    posts() {
+      const posts = this.$store.state.category.categories[this.slug].posts
+      return posts
+        .filter((x) => {
+          const t = this.$store.state.featured.posts.filter((y) => {
+            return y.id === x.id
+          })
+          return t.length === 0
+        })
+        .splice(4)
+    },
+    category() {
+      return this.$store.state.category.categories[this.slug].name
+    },
   },
   mounted() {
-    this.$axios.get('category/' + this.slug).then((res) => {
-      this.posts = res.data.posts
-      this.category = res.data.category
-    })
+    this.$store.dispatch('category/pullPosts', { category: this.slug })
   },
 }
 </script>

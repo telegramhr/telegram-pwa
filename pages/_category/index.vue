@@ -18,7 +18,7 @@
         <div class="full block-title-pattern relative"></div>
         <div class="container flex relative">
           <h1 class="full column-left-pad">
-            {{ category | parseCat }}
+            {{ cat }}
           </h1>
         </div>
       </div>
@@ -90,26 +90,28 @@
 export default {
   name: 'CategoryIndex',
   async fetch() {
-    await this.$axios
-      .get('category/' + this.$route.params.category)
-      .then((res) => {
-        this.posts = res.data.posts
-        this.category = res.data.category
-      })
+    await this.$store.dispatch('category/pullPosts', {
+      category: this.$route.params.category,
+    })
   },
   data() {
     return {
-      posts: [],
-      morePosts: [],
-      category: '',
-      page: 2,
       loading: false,
       mobile: true,
     }
   },
   computed: {
+    posts() {
+      return this.$store.state.category.categories[this.$route.params.category]
+        .posts
+    },
+    morePosts() {
+      return this.$store.state.category.morePosts[this.$route.params.category]
+        .posts
+    },
     cat() {
-      return this.$options.filters.parseCat(this.category)
+      return this.$store.state.category.categories[this.$route.params.category]
+        .name
     },
   },
   mounted() {
@@ -119,11 +121,11 @@ export default {
   methods: {
     loadMore() {
       this.loading = true
-      this.$axios
-        .get('category/' + this.$route.params.category + '/page/' + this.page)
+      this.$store
+        .dispatch('category/loadMore', {
+          category: this.$route.params.category,
+        })
         .then((res) => {
-          this.morePosts = [...this.morePosts, ...res.data.posts]
-          this.page++
           this.loading = false
         })
     },

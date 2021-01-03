@@ -68,10 +68,25 @@ export default {
   },
   data() {
     return {
-      posts: [],
       page: 1,
       loading: false,
     }
+  },
+  computed: {
+    posts() {
+      if (!this.category) {
+        return []
+      }
+      if (this.page > 1) {
+        return [
+          ...this.$store.state.category.categories[this.category].posts,
+          ...this.$store.state.category.morePosts[this.category].posts,
+        ].filter((x) => x.id !== this.p)
+      }
+      return this.$store.state.category.categories[this.category].posts.filter(
+        (x) => x.id !== this.p
+      )
+    },
   },
   mounted() {
     this.loadMore()
@@ -80,16 +95,21 @@ export default {
     loadMore() {
       if (this.category) {
         this.loading = true
-        this.$axios
-          .get('category/' + this.category + '/page/' + this.page)
-          .then((res) => {
-            const posts = res.data.posts.filter((item) => {
-              return item.id !== this.p
+        if (this.page === 1) {
+          this.$store
+            .dispatch('category/pullPosts', { category: this.category })
+            .then(() => {
+              this.loading = false
+              this.page++
             })
-            this.posts = [...this.posts, ...posts]
-            this.page++
-            this.loading = false
-          })
+        } else {
+          this.$store
+            .dispatch('category/loadMore', { category: this.category })
+            .then(() => {
+              this.loading = false
+              this.page++
+            })
+        }
       }
     },
   },
