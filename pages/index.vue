@@ -230,5 +230,22 @@ export default {
       title: 'Telegram.hr',
     }
   },
+  jsonld() {
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'Website',
+      url: 'https://www.telegram.hr',
+      name: 'Telegram.hr',
+      description:
+        'Portal za društvena i kulturna pitanja. I svijet koji dolazi.',
+      potentialAction: [
+        {
+          '@type': 'SearchAction',
+          target: 'https://www.telegram.hr/search/{search_term_string}',
+          'query-input': 'required name=search_term_string',
+        },
+      ],
+    }
+  },
 }
 </script>
