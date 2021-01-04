@@ -234,7 +234,7 @@
         </div>
       </div>
       <keep-reading
-        v-if="post.category_slug"
+        v-if="post.category_slug && post.category_slug !== 'promo'"
         :category="post.category_slug"
         :p="post.id"
       ></keep-reading>
