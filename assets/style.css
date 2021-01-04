@@ -1970,6 +1970,26 @@ header {
     margin-left: -50vw;
     margin-right: -50vw;
 }
+.midas-caption {
+    width: 100% !important;
+    font-family: neuzeit-grotesk,sans-serif !important;
+    font-weight: 900 !important;
+    font-size: 32px !important;
+    text-transform: none !important;
+    color: #111 !important;
+    padding-bottom: 4px !important;
+    border-bottom: 3px solid #ae3737 !important;
+    margin-bottom: 24px !important;
+}
+.midas-title {
+    font-family: neuzeit-grotesk-extra-conden,sans-serif !important;
+    font-weight: 900 !important;
+    font-style: normal !important;
+    font-size: 26px !important;
+    line-height: 1em !important;
+    letter-spacing: -.05em !important;
+    padding-top: 12px !important;
+}
 
 @keyframes square_anim {
     0% {
