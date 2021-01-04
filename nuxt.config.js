@@ -71,6 +71,7 @@ export default {
     { src: '@/plugins/persisted.client.js' },
     { src: '@/plugins/choices.client.js' },
     { src: '@/plugins/vue-slick-carousel.js' },
+    { src: '@/plugins/jsonld.js' },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)

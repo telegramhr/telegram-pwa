@@ -480,5 +480,50 @@ export default {
       ],
     }
   },
+  jsonld() {
+    const images = [this.post.image.url]
+    if (this.post.image.url2) {
+      images.push(this.post.image.url2)
+    }
+    if (this.post.image.url3) {
+      images.push(this.post.image.url3)
+    }
+    return [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'NewsArticle',
+        headline: this.post.title,
+        mainEntityOfPage: this.post.social.path,
+        datePublished: new Date(this.post.time).toISOString(),
+        image: images,
+        publisher: {
+          '@type': 'Organization',
+          name: 'Telegram.hr',
+          logo: {
+            '@type': 'ImageObject',
+            url: 'https://www.telegram.hr/tg_neue_favicon.png',
+          },
+        },
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: this.post.category,
+            item: 'https://www.telegram.hr/' + this.$route.params.category,
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: this.post.title,
+            item: this.post.social.path,
+          },
+        ],
+      },
+    ]
+  },
 }
 </script>
