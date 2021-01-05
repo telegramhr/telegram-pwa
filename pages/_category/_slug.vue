@@ -223,7 +223,13 @@
           </div>
         </article>
       </div>
-      <div id="midasWidget__657"></div>
+      <div class="full flex">
+        <div
+          class="container flex relative native-block stretch mobile-side-pad"
+        >
+          <div id="midasWidget__657"></div>
+        </div>
+      </div>
       <keep-reading
         v-if="post.category_slug && post.category_slug !== 'promo'"
         :category="post.category_slug"
