@@ -164,7 +164,6 @@
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v4"></ad-unit>
       </div>
-      <george></george>
       <super></super>
       <div class="full flex">
         <div class="container desktop-only flex relative column-full-pad"></div>
