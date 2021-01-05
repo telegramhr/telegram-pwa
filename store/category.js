@@ -94,9 +94,13 @@ export const actions = {
   loadMore({ commit, state }, payload) {
     return new Promise((resolve) => {
       this.$axios
-        .get(`category/${payload.category}/page/${state.page}`)
+        .get(
+          `category/${payload.category}/page/${
+            state.morePosts[payload.category].page
+          }`
+        )
         .then((res) => {
-          commit('setMore', { posts: res.data, slug: payload.category })
+          commit('setMore', { posts: res.data.posts, slug: payload.category })
           resolve()
         })
     })

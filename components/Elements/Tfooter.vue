@@ -53,7 +53,8 @@
         >
       </div>
       <div class="copyright full center-text">
-        Sva prava pridržana &copy; 2020 Telegram Media Grupa d.o.o.
+        Sva prava pridržana &copy; {{ new Date().getFullYear() }} Telegram Media
+        Grupa d.o.o.
       </div>
     </div>
     <div class="full center">
