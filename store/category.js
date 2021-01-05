@@ -34,27 +34,27 @@ export const state = () => ({
   morePosts: {
     'politika-kriminal': {
       posts: [],
-      page: 1,
+      page: 2,
     },
     kultura: {
       posts: [],
-      page: 1,
+      page: 2,
     },
     'biznis-tech': {
       posts: [],
-      page: 1,
+      page: 2,
     },
     'velike-price': {
       posts: [],
-      page: 1,
+      page: 2,
     },
     zivot: {
       posts: [],
-      page: 1,
+      page: 2,
     },
     komentari: {
       posts: [],
-      page: 1,
+      page: 2,
     },
   },
   updated: null,
@@ -69,7 +69,7 @@ export const mutations = {
   setMore(state, data) {
     state.morePosts[data.slug].posts = [
       ...state.morePosts[data.slug].posts,
-      ...data,
+      ...data.posts,
     ]
     state.morePosts[data.slug].page = state.morePosts[data.slug].page + 1
   },
