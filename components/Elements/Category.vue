@@ -35,7 +35,7 @@ export default {
           })
           return t.length === 0
         })
-        .splice(4)
+        .slice(0, 4)
     },
     category() {
       return this.$store.state.category.categories[this.slug].name
