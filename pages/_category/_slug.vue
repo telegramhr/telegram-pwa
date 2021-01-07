@@ -533,6 +533,21 @@ export default {
     },
   },
   head() {
+    const amp = {
+      hid: 'amphtml',
+      rel: 'amphtml',
+      href: this.post.social.path + 'amp',
+    }
+    const link = [
+      {
+        hid: 'canonical',
+        rel: 'canonical',
+        href: this.post.social.path,
+      },
+    ]
+    if (this.$route.params.category !== 'partneri') {
+      link.push(amp)
+    }
     return {
       title: this.post.title + ' | Telegram.hr',
       meta: [
@@ -595,17 +610,7 @@ export default {
           json: this.jsonld,
         },
       ],
-      link: [
-        {
-          rel: 'amphtml',
-          href: this.post.social.path + 'amp',
-        },
-        {
-          hid: 'canonical',
-          rel: 'canonical',
-          href: this.post.social.path,
-        },
-      ],
+      link,
     }
   },
 }
