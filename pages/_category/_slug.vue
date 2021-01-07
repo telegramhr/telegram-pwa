@@ -1,187 +1,155 @@
 <template>
-  <div
-    v-if="post.id"
-    :class="['main-container', 'flex', 'single-article', typeClass]"
-  >
-    <client-only>
-      <theader
-        :id="post.id"
-        :headline="post.portal_title"
-        :side-menu-show="showSideMenu"
-        :search-menu-show="showSearchMenu"
-      ></theader>
-    </client-only>
-    <div v-if="related_posts" class="full related-header-widget">
-      <div class="container flex desktop-only column-vertical-pad">
-        <div v-for="rpost in related_posts" :key="rpost.id" class="third flex">
-          <div class="full flex column-horizontal-pad">
-            <standard :post="rpost"></standard>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      v-if="post.type === 'premium'"
-      class="full premium-article-head relative"
-    >
-      <div v-if="post.image.author" class="meta-foto">
-        FOTO: {{ post.image.author }}
-      </div>
-      <div class="mobile-only full center mobile-pa-nav relative flex">
-        <a @click.prevent="showSideMenu = !showSideMenu"
-          ><i class="far fa-bars"></i
-        ></a>
-        <nuxt-link to="/" class="logo">
-          <img src="@/assets/img/telegram_logo_white.svg" alt="Telegram logo" />
-        </nuxt-link>
-        <a @click.prevent="showSearchMenu = !showSearchMenu">
-          <i class="far fa-search"></i>
-        </a>
-      </div>
-      <img
-        class="article-head-image"
-        :src="post.image.full"
-        :alt="post.image.alt"
-      />
-      <div class="full flex article-head">
-        <div class="full flex overtitle-parent">
-          <h3 class="overtitle">{{ post.category }}</h3>
-          <div v-if="post.promo.partner" class="collab-overtitle">
-            <h3 class="overtitle">U suradnji s</h3>
-            <img :src="post.promo.logo" :alt="post.promo.partner" />
-          </div>
-        </div>
-        <h1 class="full">{{ post.portal_title }}</h1>
-        <h2 class="full">{{ post.subtitle }}</h2>
-      </div>
-    </div>
-    <div class="full relative">
-      <div v-if="!mobile" class="container wallpaper-banners">
-        <div class="wallpaper-left">
-          <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
-        </div>
-        <div class="wallpaper-right">
-          <ad-unit id="telegram_dekstop_wallpaper_right"></ad-unit>
-        </div>
-      </div>
-      <div class="full flex">
-        <article
-          class="container column-full-pad flex relative mobile-side-pad"
-        >
-          <div class="full column article-head column-top-pad flex">
-            <div class="full flex overtitle-parent">
-              <h3 class="overtitle">{{ post.category | parseCat }}</h3>
-              <div v-if="post.promo.partner" class="collab-overtitle">
-                <h3 class="overtitle">U suradnji s</h3>
-                <img :src="post.promo.logo" :alt="post.promo.partner" />
-              </div>
+  <div :class="['main-container', 'flex', 'single-article', typeClass]">
+    <template v-if="post.id">
+      <client-only>
+        <theader
+          :id="post.id"
+          :headline="post.portal_title"
+          :side-menu-show="showSideMenu"
+          :search-menu-show="showSearchMenu"
+        ></theader>
+      </client-only>
+      <div v-if="related_posts" class="full related-header-widget">
+        <div class="container flex desktop-only column-vertical-pad">
+          <div
+            v-for="rpost in related_posts"
+            :key="rpost.id"
+            class="third flex"
+          >
+            <div class="full flex column-horizontal-pad">
+              <standard :post="rpost"></standard>
             </div>
-            <h1 class="full">{{ post.title }}</h1>
-            <h2 class="full">
-              {{ post.subtitle }}
-            </h2>
-            <h5 class="full flex relative article-meta mobile-only">
-              <template v-if="post.promo.partner">
-                <a href="#" class="meta-author flex">
-                  <img :src="post.promo.logo" />
-                  <span>U suradnji s</span>
-                  <span>{{ post.promo.partner }}</span>
-                </a>
-              </template>
-              <template v-else>
-                <nuxt-link
-                  v-for="author in post.authors"
-                  :key="author.name"
-                  :to="author.url"
-                  class="meta-author flex"
-                  ><img
-                    v-if="author.image"
-                    :src="author.image"
-                    :alt="author.name"
-                  />
-                  <span>Piše</span><span>{{ author.name }}</span></nuxt-link
-                >
-              </template>
-            </h5>
-            <div class="full flex article-head-image-parent relative">
-              <img
-                class="article-head-image"
-                :srcset="srcset"
-                :src="post.image.url"
-                :alt="post.image.alt"
-              />
-              <div v-if="post.image.author" class="meta-foto">
-                FOTO: {{ post.image.author }}
-              </div>
-            </div>
-            <p v-if="post.perex" class="perex">
-              {{ post.perex }}
-            </p>
-            <h5 class="full flex relative article-meta">
-              <template v-if="post.promo.partner">
-                <a href="#" class="meta-author flex desktop-only">
-                  <img :src="post.promo.logo" />
-                  <span>U suradnji s</span>
-                  <span>{{ post.promo.partner }}</span>
-                </a>
-              </template>
-              <template v-else>
-                <nuxt-link
-                  v-for="author in post.authors"
-                  :key="author.name"
-                  :to="author.url"
-                  class="meta-author flex desktop-only"
-                  ><img
-                    v-if="author.image"
-                    :src="author.image"
-                    :alt="author.name"
-                  /><span>Piše</span><span>{{ author.name }}</span></nuxt-link
-                >
-              </template>
-              <span class="meta-date">{{ post.time | parseTime }}</span>
-              <span class="meta-preporuke"
-                >{{ post.recommendations }} preporuka</span
-              >
-              <div class="sidebar-social flex">
-                <a href="#" @click.prevent="fbShare"
-                  ><i class="fab fa-facebook-f animate"></i
-                ></a>
-                <a
-                  :href="
-                    'https://twitter.com/intent/tweet?counturl=' +
-                    encodeURI(post.social.path) +
-                    '&text=' +
-                    encodeURI(post.portal_title) +
-                    '&url=' +
-                    encodeURI(post.social.path) +
-                    '&via=TelegramHR'
-                  "
-                  target="_blank"
-                  ><i class="fab fa-twitter animate"></i
-                ></a>
-                <!--<a href="#"><i class="fab fa-instagram animate"></i></a>-->
-              </div>
-            </h5>
           </div>
-          <div class="full relative single-article-body">
-            <!-- eslint-disable-next-line -->
-            <div id="article-content" v-html="post.content"></div>
-            <!-- Article footer -->
-            <div
-              class="full relative single-article-footer flex column-top-pad"
-            >
-              <div class="half flex-responsive article-tags">
-                <nuxt-link
-                  v-for="tag in post.tags"
-                  :key="tag.slug"
-                  :to="'/tema/' + tag.slug"
-                  >{{ tag.name }},
-                </nuxt-link>
+        </div>
+      </div>
+      <div
+        v-if="post.type === 'premium'"
+        class="full premium-article-head relative"
+      >
+        <div v-if="post.image.author" class="meta-foto">
+          FOTO: {{ post.image.author }}
+        </div>
+        <div class="mobile-only full center mobile-pa-nav relative flex">
+          <a @click.prevent="showSideMenu = !showSideMenu"
+            ><i class="far fa-bars"></i
+          ></a>
+          <nuxt-link to="/" class="logo">
+            <img
+              src="@/assets/img/telegram_logo_white.svg"
+              alt="Telegram logo"
+            />
+          </nuxt-link>
+          <a @click.prevent="showSearchMenu = !showSearchMenu">
+            <i class="far fa-search"></i>
+          </a>
+        </div>
+        <img
+          class="article-head-image"
+          :src="post.image.full"
+          :alt="post.image.alt"
+        />
+        <div class="full flex article-head">
+          <div class="full flex overtitle-parent">
+            <h3 class="overtitle">{{ post.category }}</h3>
+            <div v-if="post.promo.partner" class="collab-overtitle">
+              <h3 class="overtitle">U suradnji s</h3>
+              <img :src="post.promo.logo" :alt="post.promo.partner" />
+            </div>
+          </div>
+          <h1 class="full">{{ post.portal_title }}</h1>
+          <h2 class="full">{{ post.subtitle }}</h2>
+        </div>
+      </div>
+      <div class="full relative">
+        <div v-if="!mobile" class="container wallpaper-banners">
+          <div class="wallpaper-left">
+            <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
+          </div>
+          <div class="wallpaper-right">
+            <ad-unit id="telegram_dekstop_wallpaper_right"></ad-unit>
+          </div>
+        </div>
+        <div class="full flex">
+          <article
+            class="container column-full-pad flex relative mobile-side-pad"
+          >
+            <div class="full column article-head column-top-pad flex">
+              <div class="full flex overtitle-parent">
+                <h3 class="overtitle">{{ post.category | parseCat }}</h3>
+                <div v-if="post.promo.partner" class="collab-overtitle">
+                  <h3 class="overtitle">U suradnji s</h3>
+                  <img :src="post.promo.logo" :alt="post.promo.partner" />
+                </div>
               </div>
-              <div class="half flex-responsive">
-                <div class="flex float-right social-circle-buttons">
-                  <a href="#" class="animate center" @click.prevent="fbShare"
-                    ><i class="fab fa-facebook-f"></i
+              <h1 class="full">{{ post.title }}</h1>
+              <h2 class="full">
+                {{ post.subtitle }}
+              </h2>
+              <h5 class="full flex relative article-meta mobile-only">
+                <template v-if="post.promo.partner">
+                  <a href="#" class="meta-author flex">
+                    <img :src="post.promo.logo" />
+                    <span>U suradnji s</span>
+                    <span>{{ post.promo.partner }}</span>
+                  </a>
+                </template>
+                <template v-else>
+                  <nuxt-link
+                    v-for="author in post.authors"
+                    :key="author.name"
+                    :to="author.url"
+                    class="meta-author flex"
+                    ><img
+                      v-if="author.image"
+                      :src="author.image"
+                      :alt="author.name"
+                    />
+                    <span>Piše</span><span>{{ author.name }}</span></nuxt-link
+                  >
+                </template>
+              </h5>
+              <div class="full flex article-head-image-parent relative">
+                <img
+                  class="article-head-image"
+                  :srcset="srcset"
+                  :src="post.image.url"
+                  :alt="post.image.alt"
+                />
+                <div v-if="post.image.author" class="meta-foto">
+                  FOTO: {{ post.image.author }}
+                </div>
+              </div>
+              <p v-if="post.perex" class="perex">
+                {{ post.perex }}
+              </p>
+              <h5 class="full flex relative article-meta">
+                <template v-if="post.promo.partner">
+                  <a href="#" class="meta-author flex desktop-only">
+                    <img :src="post.promo.logo" />
+                    <span>U suradnji s</span>
+                    <span>{{ post.promo.partner }}</span>
+                  </a>
+                </template>
+                <template v-else>
+                  <nuxt-link
+                    v-for="author in post.authors"
+                    :key="author.name"
+                    :to="author.url"
+                    class="meta-author flex desktop-only"
+                    ><img
+                      v-if="author.image"
+                      :src="author.image"
+                      :alt="author.name"
+                    /><span>Piše</span><span>{{ author.name }}</span></nuxt-link
+                  >
+                </template>
+                <span class="meta-date">{{ post.time | parseTime }}</span>
+                <span class="meta-preporuke"
+                  >{{ post.recommendations }} preporuka</span
+                >
+                <div class="sidebar-social flex">
+                  <a href="#" @click.prevent="fbShare"
+                    ><i class="fab fa-facebook-f animate"></i
                   ></a>
                   <a
                     :href="
@@ -194,48 +162,143 @@
                       '&via=TelegramHR'
                     "
                     target="_blank"
-                    class="animate center"
-                    ><i class="fab fa-twitter"></i
+                    ><i class="fab fa-twitter animate"></i
                   ></a>
-                  <!-- <a href="#" class="animate center"
-                    ><i class="fab fa-instagram"></i
-                  ></a>-->
-                  <div
-                    v-if="!post.comments_off"
-                    class="classic-btn clickable animate"
-                    @click="comments = !comments"
-                  >
-                    {{ post.comments }}
-                    {{ post.comments === 1 ? 'komentar' : 'komentara' }}
+                  <!--<a href="#"><i class="fab fa-instagram animate"></i></a>-->
+                </div>
+              </h5>
+            </div>
+            <div class="full relative single-article-body">
+              <!-- eslint-disable-next-line -->
+              <div id="article-content" v-html="post.content"></div>
+              <!-- Article footer -->
+              <div
+                class="full relative single-article-footer flex column-top-pad"
+              >
+                <div class="half flex-responsive article-tags">
+                  <nuxt-link
+                    v-for="tag in post.tags"
+                    :key="tag.slug"
+                    :to="'/tema/' + tag.slug"
+                    >{{ tag.name }},
+                  </nuxt-link>
+                </div>
+                <div class="half flex-responsive">
+                  <div class="flex float-right social-circle-buttons">
+                    <a href="#" class="animate center" @click.prevent="fbShare"
+                      ><i class="fab fa-facebook-f"></i
+                    ></a>
+                    <a
+                      :href="
+                        'https://twitter.com/intent/tweet?counturl=' +
+                        encodeURI(post.social.path) +
+                        '&text=' +
+                        encodeURI(post.portal_title) +
+                        '&url=' +
+                        encodeURI(post.social.path) +
+                        '&via=TelegramHR'
+                      "
+                      target="_blank"
+                      class="animate center"
+                      ><i class="fab fa-twitter"></i
+                    ></a>
+                    <!-- <a href="#" class="animate center"
+                      ><i class="fab fa-instagram"></i
+                    ></a>-->
+                    <div
+                      v-if="!post.comments_off"
+                      class="classic-btn clickable animate"
+                      @click="comments = !comments"
+                    >
+                      {{ post.comments }}
+                      {{ post.comments === 1 ? 'komentar' : 'komentara' }}
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div v-if="!post.comments_off" v-show="comments" class="full">
-                <div
-                  class="fb-comments"
-                  :data-href="post.social.path"
-                  data-width="100%"
-                  data-numposts="5"
-                  data-lazy="true"
-                ></div>
+                <div v-if="!post.comments_off" v-show="comments" class="full">
+                  <div
+                    class="fb-comments"
+                    :data-href="post.social.path"
+                    data-width="100%"
+                    data-numposts="5"
+                    data-lazy="true"
+                  ></div>
+                </div>
               </div>
             </div>
+          </article>
+        </div>
+        <div class="full flex">
+          <div
+            class="container flex relative native-block stretch mobile-side-pad"
+          >
+            <div id="midasWidget__657"></div>
           </div>
-        </article>
+        </div>
+        <keep-reading
+          v-if="post.category_slug && post.category_slug !== 'promo'"
+          :category="post.category_slug"
+          :p="post.id"
+        ></keep-reading>
       </div>
-      <div class="full flex">
+    </template>
+    <template v-if="$fetchState.error">
+      <div class="full flex tg-red">
+        <client-only>
+          <theader
+            :id="post.id"
+            :headline="post.portal_title"
+            :side-menu-show="showSideMenu"
+            :search-menu-show="showSearchMenu"
+          ></theader>
+        </client-only>
+        <div class="full header-filler filler-404"></div>
+      </div>
+      <div
+        class="block-title news-block-title header-block-title full mobile-side-pad desktop-only"
+      >
+        <div class="full block-title-pattern relative"></div>
+        <div class="container flex relative">
+          <app-link to="/" class="logo column-left-pad"
+            ><img
+              src="@/assets/img/telegram_logo_white.svg"
+              alt="Telegram logo"
+          /></app-link>
+          <h2 class="full column-horizontal-pad desktop-only site-subtitle">
+            Portal za društvena i kulturna pitanja
+          </h2>
+        </div>
+      </div>
+      <img src="@/assets/img/tg_tear.png" aria-hidden="true" class="tear-404" />
+      <div class="container relative mobile-side-pad column-full-pad">
+        <div class="full center flex">
+          <h1 class="full title-404 center-text">404</h1>
+          <h2 class="full subtitle-404 center-text">
+            Nažalost ova stranica nije pronađena.
+          </h2>
+          <p class="full text-404 center-text"></p>
+        </div>
+      </div>
+      <!--<div class="full flex">
         <div
           class="container flex relative native-block stretch mobile-side-pad"
         >
-          <div id="midasWidget__657"></div>
+          <div class="full column-horizontal-pad flex">
+            <h2 class="full flex section-title">Možda će vas zanimati</h2>
+          </div>
+          <div class="fourth flex-responsive column-full-pad">
+            <standard></standard>
+          </div>
+        </div>
+        <div class="container flex relative mobile-side-pad">
+        <div class="full center subtle-btn-parent relative clickable" onclick="requestArticles(this);">
+          <div class="subtle-btn animate">Vidi više</div>
+          <div class="subtle-btn-line"></div>
+          <div class="full center cool-loader hide"><div class="loader-square"><div></div><div></div><div></div></div></div>
         </div>
       </div>
-      <keep-reading
-        v-if="post.category_slug && post.category_slug !== 'promo'"
-        :category="post.category_slug"
-        :p="post.id"
-      ></keep-reading>
-    </div>
+      </div>-->
+    </template>
     <tfooter></tfooter>
   </div>
 </template>
@@ -244,10 +307,27 @@
 export default {
   name: 'Slug',
   async fetch() {
+    let post
     if (this.$route.params.category === 'preview') {
-      this.post = await this.$axios.$get('preview/' + this.$route.params.slug)
+      post = await this.$axios.$get(
+        encodeURI('preview/' + this.$route.params.slug)
+      )
     } else {
-      this.post = await this.$axios.$get('single/' + this.$route.params.slug)
+      post = await this.$axios.$get(
+        encodeURI('single/' + this.$route.params.slug)
+      )
+    }
+    if (post.id) {
+      this.post = post
+    } else {
+      this.post.title = 'Objava ne postoji'
+      this.post.portal_title = 'Objava ne postoji'
+      // set status code on server and
+      if (process.server) {
+        this.$telegram.context.res.statusCode = 404
+      }
+      // use throw new Error()
+      throw new Error('Post not found')
     }
   },
   data() {

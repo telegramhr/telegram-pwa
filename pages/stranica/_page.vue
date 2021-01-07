@@ -31,7 +31,7 @@ export default {
       })
       .catch(() => {
         if (process.server) {
-          this.$nuxt.context.res.statusCode = 404
+          this.$telegram.context.res.statusCode = 404
         }
       })
   },
