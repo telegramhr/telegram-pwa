@@ -203,6 +203,23 @@ export default {
     morePosts() {
       return this.$store.state.featured.morePosts
     },
+    jsonld() {
+      return {
+        '@context': 'https://schema.org',
+        '@type': 'Website',
+        url: 'https://www.telegram.hr',
+        name: 'Telegram.hr',
+        description:
+          'Portal za društvena i kulturna pitanja. I svijet koji dolazi.',
+        potentialAction: [
+          {
+            '@type': 'SearchAction',
+            target: 'https://www.telegram.hr/search/{search_term_string}',
+            'query-input': 'required name=search_term_string',
+          },
+        ],
+      }
+    },
   },
   mounted() {
     this.$nextTick(() => {
@@ -227,21 +244,12 @@ export default {
   head() {
     return {
       title: 'Telegram.hr',
-    }
-  },
-  jsonld() {
-    return {
-      '@context': 'https://schema.org',
-      '@type': 'Website',
-      url: 'https://www.telegram.hr',
-      name: 'Telegram.hr',
-      description:
-        'Portal za društvena i kulturna pitanja. I svijet koji dolazi.',
-      potentialAction: [
+      script: [
         {
-          '@type': 'SearchAction',
-          target: 'https://www.telegram.hr/search/{search_term_string}',
-          'query-input': 'required name=search_term_string',
+          vmid: 'schema-ld',
+          hid: 'schema-ld',
+          type: 'application/ld+json',
+          json: this.jsonld,
         },
       ],
     }
