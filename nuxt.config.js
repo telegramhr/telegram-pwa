@@ -76,6 +76,7 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/google-analytics',
     'nuxt-font-loader',
+    'nuxt-purgecss',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -141,6 +142,10 @@ export default {
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
     baseURL: 'https://www.telegram.hr/wp-json/telegram/pwa/v1',
+  },
+
+  purgeCSS: {
+    enabled: true,
   },
 
   // Content module configuration (https://go.nuxtjs.dev/config-content)
