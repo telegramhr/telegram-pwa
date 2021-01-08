@@ -18,12 +18,6 @@ export default {
     ],
     link: [
       { hid: 'canonical', rel: 'canonical', href: 'https:/www.telegram.hr' },
-      { rel: 'stylesheet', href: 'https://use.typekit.net/yjw4lwh.css' },
-      {
-        rel: 'stylesheet',
-        href:
-          'https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap',
-      },
       {
         rel: 'me',
         href: 'https://twitter.com/TelegramHR',
@@ -81,6 +75,7 @@ export default {
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     '@nuxtjs/google-analytics',
+    'nuxt-font-loader',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -91,6 +86,16 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/gtm',
   ],
+
+  fontLoader: {
+    url: {
+      google:
+        'https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap',
+      custom: 'https://use.typekit.net/yjw4lwh.css',
+    },
+    prefetch: true,
+    preconnect: true,
+  },
 
   gtm: {
     id: 'GTM-TF4XJXD',

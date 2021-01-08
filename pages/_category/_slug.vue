@@ -527,9 +527,10 @@ export default {
     },
     fbShare() {
       /* global FB */
-      FB.ui({ method: 'share', href: this.post.social.path }, function (
-        response
-      ) {})
+      FB.ui(
+        { method: 'share', href: this.post.social.path },
+        function (response) {}
+      )
     },
   },
   head() {
