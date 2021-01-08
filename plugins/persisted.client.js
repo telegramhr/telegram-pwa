@@ -10,7 +10,7 @@ export default ({ store }) => {
       'telesport',
       'latest',
       'mostread',
-      'category',
+      'category.categories',
     ],
   })(store)
 }
