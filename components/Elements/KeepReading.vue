@@ -8,15 +8,15 @@
     </div>
     <div class="container flex relative block-related standard-block stretch">
       <section
+        v-if="!mobile"
         class="fourth flex desktop-only column-horizontal-pad column-right-border"
       >
         <latest :portal="1" :desktop="false"></latest>
       </section>
       <div
-        v-if="posts.length"
         class="three-fourths flex-responsive flex elevate-over-section mobile-side-pad"
       >
-        <!-- <template v-for="(post, index) in posts">
+        <template v-for="(post, index) in posts">
           <div
             v-if="index === 0"
             :key="post.id"
@@ -31,7 +31,7 @@
               <standard :post="post"></standard>
             </div>
           </div>
-        </template> -->
+        </template>
       </div>
       <div
         class="full center subtle-btn-parent relative clickable"
@@ -70,6 +70,7 @@ export default {
     return {
       page: 1,
       loading: false,
+      mobile: true,
     }
   },
   computed: {
@@ -90,6 +91,7 @@ export default {
   },
   mounted() {
     this.loadMore()
+    this.mobile = window.innerWidth < 1024
   },
   methods: {
     loadMore() {
