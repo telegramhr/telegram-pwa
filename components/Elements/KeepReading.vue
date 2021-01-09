@@ -16,7 +16,7 @@
         v-if="posts.length"
         class="three-fourths flex-responsive flex elevate-over-section mobile-side-pad"
       >
-        <template v-for="(post, index) in posts">
+        <!-- <template v-for="(post, index) in posts">
           <div
             v-if="index === 0"
             :key="post.id"
@@ -31,7 +31,7 @@
               <standard :post="post"></standard>
             </div>
           </div>
-        </template>
+        </template> -->
       </div>
       <div
         class="full center subtle-btn-parent relative clickable"

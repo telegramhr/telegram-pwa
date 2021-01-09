@@ -1,6 +1,7 @@
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   globalName: 'telegram',
+  modern: 'client',
   head: {
     title: 'Telegram.hr',
     meta: [

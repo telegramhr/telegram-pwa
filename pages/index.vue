@@ -28,7 +28,7 @@
           <ad-unit id="telegram_dekstop_wallpaper_right"></ad-unit>
         </div>
       </div>
-      <div v-if="posts" class="container flex relative block-1 stretch">
+      <div v-if="posts.length" class="container flex relative block-1 stretch">
         <section
           class="three-fourths mobile-side-pad flex-responsive flex relative the-big-gs stretch elevate-over-section"
         >

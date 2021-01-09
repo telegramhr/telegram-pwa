@@ -14,17 +14,21 @@
         <div
           class="two-thirds flex-responsive flex column-horizontal-pad column-right-border"
         >
-          <featured :post="posts[0]"></featured>
+          <featured :key="posts[0].id" :post="posts[0]"></featured>
           <div class="full flex split-articles">
             <standard
               v-for="i in [1, 2, 3]"
-              :key="i"
+              :key="posts[i].id"
               :post="posts[i]"
             ></standard>
           </div>
         </div>
         <div class="third flex-responsive column-horizontal-pad flex">
-          <standard v-for="i in [4, 5, 6]" :key="i" :post="posts[i]"></standard>
+          <standard
+            v-for="i in [4, 5, 6]"
+            :key="posts[i].id"
+            :post="posts[i]"
+          ></standard>
         </div>
       </section>
       <section
