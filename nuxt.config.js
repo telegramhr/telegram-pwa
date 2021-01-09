@@ -1,5 +1,4 @@
 export default {
-  // ssr: false,
   // Global page headers (https://go.nuxtjs.dev/config-head)
   globalName: 'telegram',
   head: {
@@ -18,6 +17,39 @@ export default {
     ],
     link: [
       { hid: 'canonical', rel: 'canonical', href: 'https:/www.telegram.hr' },
+      {
+        hid: 'gf-preconnect',
+        rel: 'preconnect',
+        href: 'https://fonts.gstatic.com',
+        crossorigin: true,
+      },
+      {
+        hid: 'gf-preload',
+        rel: 'preload',
+        as: 'style',
+        href:
+          'https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap',
+        crossorigin: true,
+      },
+      {
+        hid: 'tk-preconnect',
+        rel: 'preconnect',
+        href: 'https://use.typekit.net',
+        crossorigin: true,
+      },
+      {
+        hid: 'tk-preload',
+        rel: 'preload',
+        as: 'style',
+        href: 'https://use.typekit.net/yjw4lwh.css',
+        crossorigin: true,
+      },
+      { rel: 'stylesheet', href: 'https://use.typekit.net/yjw4lwh.css' },
+      {
+        rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap',
+      },
       {
         rel: 'me',
         href: 'https://twitter.com/TelegramHR',
@@ -75,7 +107,6 @@ export default {
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     '@nuxtjs/google-analytics',
-    'nuxt-font-loader',
     'nuxt-purgecss',
   ],
 
@@ -87,16 +118,6 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/gtm',
   ],
-
-  fontLoader: {
-    url: {
-      google:
-        'https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap',
-      custom: 'https://use.typekit.net/yjw4lwh.css',
-    },
-    prefetch: true,
-    preconnect: true,
-  },
 
   gtm: {
     id: 'GTM-TF4XJXD',
