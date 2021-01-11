@@ -42,7 +42,7 @@
                 <!-- eslint-disable-next-line -->
                 <span v-html="image.caption"></span>
               </figcaption>
-              <img :src="image.url" />
+              <img :src="image.url" :alt="image.caption" />
               <figcaption class="wp-caption-text img-portrait">
                 <span class="photographer">{{ image.author }}</span>
               </figcaption>
