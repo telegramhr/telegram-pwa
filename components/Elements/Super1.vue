@@ -1,5 +1,5 @@
 <template>
-  <div v-if="posts" class="full flex">
+  <div v-if="posts.length" class="full flex">
     <div class="full flex super1-block">
       <div class="block-title full mobile-side-pad">
         <div class="container flex relative">
@@ -12,11 +12,11 @@
         <section
           class="two-thirds flex-responsive flex mobile-side-pad column-horizontal-pad column-right-border"
         >
-          <featured :post="posts[0]"></featured>
+          <featured :key="'super-' + posts[0].id" :post="posts[0]"></featured>
           <div class="full flex split-articles">
             <standard
               v-for="i in [1, 2, 3]"
-              :key="i"
+              :key="'super-' + posts[i].id"
               :post="posts[i]"
             ></standard>
           </div>
@@ -24,7 +24,11 @@
         <section
           class="third flex-responsive flex column-horizontal-pad flex mobile-side-pad"
         >
-          <standard v-for="i in [4, 5, 6]" :key="i" :post="posts[i]"></standard>
+          <standard
+            v-for="i in [4, 5, 6]"
+            :key="'super-' + posts[i].id"
+            :post="posts[i]"
+          ></standard>
         </section>
       </section>
       <section
@@ -32,7 +36,11 @@
       >
         <h2 class="full flex section-title">Upravo se čita</h2>
         <div class="full flex">
-          <mini v-for="post in reading" :key="post.id" :post="post"></mini>
+          <mini
+            v-for="post in reading"
+            :key="'reading-' + post.id"
+            :post="post"
+          ></mini>
         </div>
       </section>
       <section

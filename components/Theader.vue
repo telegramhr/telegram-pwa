@@ -15,48 +15,66 @@
       }"
       role="navigation"
     >
-      <a class="side-menu-exit" @click.prevent="sideMenuShow = !sideMenuShow"
+      <a
+        class="side-menu-exit"
+        aria-label="Zatvori lijevi meni"
+        :aria-expanded="sideMenuShow.toString()"
+        aria-controls="sidebar"
+        @click.prevent="sideMenuShow = !sideMenuShow"
         ><i class="fas fa-times"></i
       ></a>
       <div class="menu flex">
-        <div class="half">
+        <div class="half" role="menu">
           <template v-if="loggedIn">
             <h3>Admin</h3>
-            <a href="https://www.telegram.hr/wp-admin">Admin</a>
+            <a role="menuitem" href="https://www.telegram.hr/wp-admin">Admin</a>
             <a
               v-show="id"
               :href="`https://www.telegram.hr/wp-admin/post.php?post=${id}&action=edit`"
+              role="menuitem"
               >Uredi</a
             >
           </template>
           <h3>Rubrika</h3>
-          <app-link to="/politika-kriminal">Politika & Kriminal</app-link>
-          <app-link to="/komentari">Komentari</app-link>
-          <app-link to="/biznis-tech">Biznis & Tech</app-link>
-          <app-link to="/velike-price">Velike priče</app-link>
-          <app-link to="/zivot">Život</app-link>
-          <app-link to="/kultura">Kultura</app-link>
+          <app-link role="menuitem" to="/politika-kriminal"
+            >Politika & Kriminal</app-link
+          >
+          <app-link role="menuitem" to="/komentari">Komentari</app-link>
+          <app-link role="menuitem" to="/biznis-tech">Biznis & Tech</app-link>
+          <app-link role="menuitem" to="/velike-price">Velike priče</app-link>
+          <app-link role="menuitem" to="/zivot">Život</app-link>
+          <app-link role="menuitem" to="/kultura">Kultura</app-link>
           <!--<app-link to="/fotogalerije">Fotogalerije</app-link>-->
         </div>
-        <div class="half">
+        <div class="half" role="menu">
           <h3>Kanali</h3>
-          <a href="https://super1.telegram.hr">Super1</a>
-          <a href="https://telesport.telegram.hr">Telesport</a>
+          <a role="menuitem" href="https://super1.telegram.hr">Super1</a>
+          <a role="menuitem" href="https://telesport.telegram.hr">Telesport</a>
         </div>
-        <div class="half">
+        <div class="half" role="menu">
           <h3>Social</h3>
-          <a href="https://www.facebook.com/www.telegram.hr/">Facebook</a>
-          <a href="https://twitter.com/telegramhr/">Twitter</a>
-          <a href="https://www.instagram.com/telegram.hr/">Instagram</a>
-          <a href="https://www.youtube.com/channel/UCV_gCZEP2ikrjZVTRulR7sw"
+          <a role="menuitem" href="https://www.facebook.com/www.telegram.hr/"
+            >Facebook</a
+          >
+          <a role="menuitem" href="https://twitter.com/telegramhr/">Twitter</a>
+          <a role="menuitem" href="https://www.instagram.com/telegram.hr/"
+            >Instagram</a
+          >
+          <a
+            role="menuitem"
+            href="https://www.youtube.com/channel/UCV_gCZEP2ikrjZVTRulR7sw"
             >Youtube</a
           >
         </div>
-        <div class="half">
+        <div class="half" role="menu">
           <h3>Info</h3>
-          <app-link to="/stranica/impressum">Impressum</app-link>
-          <app-link to="/stranica/oglasavanje">Oglašavanje</app-link>
-          <app-link to="/stranica/uvjeti-koristenja"
+          <app-link role="menuitem" to="/stranica/impressum"
+            >Impressum</app-link
+          >
+          <app-link role="menuitem" to="/stranica/oglasavanje"
+            >Oglašavanje</app-link
+          >
+          <app-link role="menuitem" to="/stranica/uvjeti-koristenja"
             >Uvjeti korištenja</app-link
           >
         </div>
@@ -70,16 +88,22 @@
               src="@/assets/img/telegram_logo_white.svg"
               alt="Telegram logo"
           /></app-link>
-          <a @click.prevent="sideMenuShow = !sideMenuShow"
+          <a
+            :aria-expanded="sideMenuShow.toString()"
+            aria-label="Prikaži lijevi meni"
+            aria-controls="sidebar"
+            @click.prevent="sideMenuShow = !sideMenuShow"
             ><i class="far fa-bars"></i
           ></a>
-          <div class="menu flex">
-            <app-link to="/politika-kriminal">Politika & Kriminal</app-link>
-            <app-link to="/komentari">Komentari</app-link>
-            <app-link to="/biznis-tech">Biznis & Tech</app-link>
-            <app-link to="/velike-price">Velike priče</app-link>
-            <app-link to="/zivot">Život</app-link>
-            <app-link to="/kultura">Kultura</app-link>
+          <div class="menu flex" role="menu">
+            <app-link role="menuitem" to="/politika-kriminal"
+              >Politika & Kriminal</app-link
+            >
+            <app-link role="menuitem" to="/komentari">Komentari</app-link>
+            <app-link role="menuitem" to="/biznis-tech">Biznis & Tech</app-link>
+            <app-link role="menuitem" to="/velike-price">Velike priče</app-link>
+            <app-link role="menuitem" to="/zivot">Život</app-link>
+            <app-link role="menuitem" to="/kultura">Kultura</app-link>
             <!--<app-link to="/fotogalerije">Fotogalerije</app-link>-->
           </div>
           <div v-show="headline" class="header-headline single-exclusive">
@@ -87,7 +111,11 @@
           </div>
         </div>
         <div class="flex fourth relative">
-          <a @click.prevent="searchMenuShow = !searchMenuShow"
+          <a
+            aria-label="Prikaži tražilicu"
+            :aria-expanded="searchMenuShow.toString()"
+            aria-controls="search"
+            @click.prevent="searchMenuShow = !searchMenuShow"
             ><i class="far fa-search"></i
           ></a>
           <app-link to="/newsletter" class="signup-btn">Prijavi se</app-link>
@@ -125,7 +153,11 @@
           class="container desktop-only flex desktop-subheader column-horizontal-pad single-exclusive"
         >
           <div class="fourth flex">
-            <a @click.prevent="sideMenuShow = !sideMenuShow"
+            <a
+              :aria-expanded="sideMenuShow.toString()"
+              aria-label="Prikaži lijevi meni"
+              aria-controls="sidebar"
+              @click.prevent="sideMenuShow = !sideMenuShow"
               ><i class="far fa-bars"></i
             ></a>
           </div>
@@ -137,7 +169,12 @@
             /></app-link>
           </div>
           <div class="flex fourth relative">
-            <a href="#" @click.prevent="searchMenuShow = !searchMenuShow"
+            <a
+              href="#"
+              aria-label="Prikaži tražilicu"
+              :aria-expanded="searchMenuShow.toString()"
+              aria-controls="search"
+              @click.prevent="searchMenuShow = !searchMenuShow"
               ><i class="far fa-search"></i
             ></a>
             <app-link to="/newsletter" class="signup-btn">Prijavi se</app-link>
@@ -158,25 +195,41 @@
           </div>
         </client-only>
         <div
+          id="sidebar"
           class="container desktop-only flex desktop-subheader column-horizontal-pad homepage-exclusive"
           role="navigation"
         >
-          <div class="three-fourths flex">
-            <a @click="sideMenuShow = !sideMenuShow"
+          <div class="three-fourths flex" role="menu">
+            <a
+              :aria-expanded="sideMenuShow.toString()"
+              aria-label="Prikaži lijevi meni"
+              aria-controls="sidebar"
+              @click="sideMenuShow = !sideMenuShow"
               ><i class="far fa-bars"></i
             ></a>
             <div class="menu flex">
-              <app-link to="/politika-kriminal">Politika & Kriminal</app-link>
-              <app-link to="/komentari">Komentari</app-link>
-              <app-link to="/biznis-tech">Biznis & Tech</app-link>
-              <app-link to="/velike-price">Velike priče</app-link>
-              <app-link to="/zivot">Život</app-link>
-              <app-link to="/kultura">Kultura</app-link>
+              <app-link role="menuitem" to="/politika-kriminal"
+                >Politika & Kriminal</app-link
+              >
+              <app-link role="menuitem" to="/komentari">Komentari</app-link>
+              <app-link role="menuitem" to="/biznis-tech"
+                >Biznis & Tech</app-link
+              >
+              <app-link role="menuitem" to="/velike-price"
+                >Velike priče</app-link
+              >
+              <app-link role="menuitem" to="/zivot">Život</app-link>
+              <app-link role="menuitem" to="/kultura">Kultura</app-link>
               <!--<app-link to="/fotogalerije">Fotogalerije</app-link>-->
             </div>
           </div>
           <div class="flex fourth relative">
-            <a href="#" @click.prevent="searchMenuShow = !searchMenuShow"
+            <a
+              href="#"
+              aria-label="Prikaži tražilicu"
+              :aria-expanded="searchMenuShow.toString()"
+              aria-controls="search"
+              @click.prevent="searchMenuShow = !searchMenuShow"
               ><i class="far fa-search"></i
             ></a>
             <app-link to="/newsletter" class="signup-btn">Prijavi se</app-link>
@@ -200,7 +253,12 @@
       </div>
       <nav class="full flex homepage-exclusive animate">
         <div class="container relative">
-          <a class="mobile-only" @click.prevent="sideMenuShow = !sideMenuShow"
+          <a
+            class="mobile-only"
+            aria-label="Prikaži lijevi meni"
+            :aria-expanded="sideMenuShow.toString()"
+            aria-controls="sidebar"
+            @click.prevent="sideMenuShow = !sideMenuShow"
             ><i class="far fa-bars"></i
           ></a>
           <app-link to="/" class="logo"
@@ -213,6 +271,9 @@
           </div>
           <a
             class="mobile-only"
+            aria-label="Prikaži tražilicu"
+            :aria-expanded="searchMenuShow.toString()"
+            aria-controls="search"
             @click.prevent="searchMenuShow = !searchMenuShow"
             ><i class="far fa-search"></i
           ></a>
@@ -220,6 +281,7 @@
       </nav>
       <div
         v-show="searchMenuShow"
+        id="search"
         class="search-menu-activate search-menu animate full center"
       >
         <form class="relative" action="" method="get" @submit.prevent="search">

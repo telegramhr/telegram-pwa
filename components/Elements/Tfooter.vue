@@ -20,17 +20,25 @@
         <app-link
           to="https://www.facebook.com/www.telegram.hr/"
           class="center animate"
+          aria-label="Facebook"
           ><i class="fab fa-facebook-f"></i
         ></app-link>
-        <app-link to="https://twitter.com/telegramhr/" class="center animate"
+        <app-link
+          to="https://twitter.com/telegramhr/"
+          class="center animate"
+          aria-label="Twitter"
           ><i class="fab fa-twitter"></i
         ></app-link>
         <app-link
           to="https://www.instagram.com/telegram.hr/"
           class="center animate"
+          aria-label="Instagram"
           ><i class="fab fa-instagram"></i
         ></app-link>
-        <app-link to="https://www.telegram.hr/feed" class="center animate"
+        <app-link
+          to="https://www.telegram.hr/feed"
+          class="center animate"
+          aria-label="RSS"
           ><i class="fas fa-rss"></i
         ></app-link>
       </div>

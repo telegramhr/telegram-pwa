@@ -3,6 +3,7 @@
     :to="post.permalink"
     class="full komentar list-article relative"
     role="article"
+    :aria-labelledby="'top-' + post.id"
   >
     <div class="komentar-author relative flex">
       <span class="full">#{{ i }}</span>
@@ -18,7 +19,7 @@
         />
       </div>
       <div class="komentar-content full">
-        <h2 class="full">{{ post.portal_title }}</h2>
+        <h2 :id="'top-' + post.id" class="full">{{ post.portal_title }}</h2>
         <h5 class="full flex article-meta">
           <span class="meta-author"
             ><i>Piše</i> {{ post.authors[0].name }}</span

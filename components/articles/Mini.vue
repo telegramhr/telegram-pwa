@@ -3,9 +3,12 @@
     class="full flex article-mini article relative"
     :to="post.permalink"
     role="article"
+    :aria-labelledby="'mini-' + post.id"
   >
     <div class="full flex article-pad">
-      <h2 class="full animate">{{ post.portal_title }}</h2>
+      <h2 :id="'mini-' + post.id" class="full animate">
+        {{ post.portal_title }}
+      </h2>
       <h5 class="full flex article-meta">
         <span v-if="post.authors.length" class="meta-author"
           ><i>Piše</i> {{ post.authors[0].name }}</span

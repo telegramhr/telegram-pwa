@@ -3,6 +3,7 @@
     :to="post.permalink"
     class="full flex komentar relative"
     role="article"
+    :aria-labelledby="'komentar-' + post.id"
   >
     <div v-if="post.authors.length" class="komentar-author relative flex">
       <img
@@ -35,7 +36,9 @@
           <i class="full">Piše</i>
           <span class="full">{{ post.authors[0].name }}</span>
         </div>
-        <h2 class="full animate">{{ post.portal_title }}</h2>
+        <h2 :id="'komentar-' + post.id" class="full animate">
+          {{ post.portal_title }}
+        </h2>
         <h5 class="full flex article-meta">
           <span class="meta-preporuke"
             >{{ post.recommendations }} preporuka</span

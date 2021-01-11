@@ -160,11 +160,15 @@
         <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
       </div>
       <partners></partners>
-      <sport></sport>
+      <client-only>
+        <sport></sport>
+      </client-only>
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v4"></ad-unit>
       </div>
-      <super></super>
+      <client-only>
+        <super></super>
+      </client-only>
       <div class="full flex">
         <div class="container desktop-only flex relative column-full-pad"></div>
       </div>

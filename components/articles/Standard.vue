@@ -3,6 +3,7 @@
     class="full flex article-standard article relative"
     :to="post.permalink"
     role="article"
+    :aria-labelledby="'standard-' + post.id"
   >
     <img
       :srcset="srcset"
@@ -14,7 +15,7 @@
       <div class="full flex desktop-only">
         <h3 class="overtitle">{{ post.category | parseCat }}</h3>
       </div>
-      <h2 class="full">{{ post.portal_title }}</h2>
+      <h2 :id="'standard-' + post.id" class="full">{{ post.portal_title }}</h2>
       <h4 class="full">{{ post.subtitle }}</h4>
       <h5 class="full flex article-meta">
         <span v-if="post.authors.length" class="meta-author"

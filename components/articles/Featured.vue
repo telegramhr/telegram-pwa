@@ -1,6 +1,10 @@
 <template>
   <div class="full flex article-featured article" role="article">
-    <app-link class="full flex" :to="post.permalink">
+    <app-link
+      class="full flex"
+      :to="post.permalink"
+      :aria-labelledby="'featured-' + post.id"
+    >
       <img
         :srcset="srcset"
         :src="post.image.url"
@@ -20,7 +24,9 @@
             <span>{{ post.category | parseCat }}</span>
           </h3>
         </div>
-        <h2 class="full animate">{{ post.portal_title }}</h2>
+        <h2 :id="'featured-' + post.id" class="full animate">
+          {{ post.portal_title }}
+        </h2>
         <h4 class="full">{{ post.subtitle }}</h4>
         <h5 class="full flex article-meta">
           <span class="meta-author"

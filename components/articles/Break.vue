@@ -3,6 +3,7 @@
     v-if="post.id"
     class="full flex article-break article relative"
     :to="post.permalink"
+    :aria-labelledby="'break-' + post.id"
   >
     <div class="blurred-image">
       <img
@@ -23,7 +24,9 @@
           />
         </div>
         <h3 class="overtitle full center-text">Preporuka</h3>
-        <h2 class="full center-text">{{ post.portal_title }}</h2>
+        <h2 :id="'break-' + post.id" class="full center-text">
+          {{ post.portal_title }}
+        </h2>
         <h5 class="full article-meta center-text">
           <span class="meta-author"
             ><i>Piše</i>
