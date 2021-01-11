@@ -13,7 +13,11 @@
       />
     </app-link>
     <div class="full flex article-pad">
-      <app-link class="full flex" :to="post.permalink">
+      <app-link
+        class="full flex"
+        :to="post.permalink"
+        :aria-labelledby="'featured-' + post.id"
+      >
         <div class="full flex">
           <h3
             :class="{ overtitle: true, dynamicOvertitle: post.overtitle_tag }"
