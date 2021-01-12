@@ -122,7 +122,7 @@
         </div>
       </div>
     </div>
-    <div
+    <!--<div
       :v-show="false"
       class="sticky-search-menu search-menu animate full center"
     >
@@ -137,7 +137,7 @@
           <i class="far fa-search"></i>
         </button>
       </form>
-    </div>
+    </div>-->
     <header
       :class="{
         full: true,
