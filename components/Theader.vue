@@ -181,7 +181,7 @@
           </div>
         </div>
         <!-- Mobile Subheader -->
-        <!--<div class="flex mobile-only">{{ date }}</div>
+        <div class="flex mobile-only">{{ date }}</div>
         <client-only>
           <div v-if="$store.state.stocks.stocks" class="flex mobile-only">
             <img
@@ -193,7 +193,7 @@
               aria-hidden="true"
             />{{ $store.state.stocks.stocks[stock_key].name }}
           </div>
-        </client-only>-->
+        </client-only>
         <div
           id="sidebar"
           class="container desktop-only flex desktop-subheader column-horizontal-pad homepage-exclusive"
