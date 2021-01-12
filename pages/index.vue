@@ -58,10 +58,10 @@
           <div
             class="third flex-responsive column-horizontal-pad flex column-top-pad"
           >
-            <standard :key="posts[4].id" :post="posts[4]"></standard>
-            <standard :key="posts[5].id" :post="posts[5]"></standard>
-            <standard :key="posts[6].id" :post="posts[6]"></standard>
-            <standard :key="posts[7].id" :post="posts[7]"></standard>
+            <medium :key="posts[4].id" :post="posts[4]"></medium>
+            <medium :key="posts[5].id" :post="posts[5]"></medium>
+            <medium :key="posts[6].id" :post="posts[6]"></medium>
+            <medium :key="posts[7].id" :post="posts[7]"></medium>
           </div>
         </section>
         <section
@@ -77,6 +77,9 @@
       </div>
 
       <big-featured></big-featured>
+      <section class="full mobile-only">
+        <break></break>
+      </section>
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
       </div>
@@ -108,15 +111,12 @@
           >
             <featured :key="posts[8].id" :post="posts[8]"></featured>
             <div class="full flex split-articles">
-              <standard
+              <medium
                 v-for="i in [9, 10, 11]"
                 :key="posts[i].id"
                 :post="posts[i]"
-              ></standard>
+              ></medium>
             </div>
-          </section>
-          <section class="full mobile-only">
-            <break></break>
           </section>
           <section
             class="third flex-responsive flex mobile-side-pad column-horizontal-pad"

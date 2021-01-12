@@ -5,11 +5,7 @@
   >
     <h2 class="full flex section-title">{{ category | parseCat }}</h2>
     <featured :key="posts[0].id" :post="posts[0]"></featured>
-    <standard
-      v-for="i in [1, 2, 3]"
-      :key="posts[i].id"
-      :post="posts[i]"
-    ></standard>
+    <medium v-for="i in [1, 2, 3]" :key="posts[i].id" :post="posts[i]"></medium>
   </section>
 </template>
 

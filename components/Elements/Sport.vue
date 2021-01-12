@@ -16,11 +16,11 @@
         >
           <featured :key="posts[0].id" :post="posts[0]"></featured>
           <div class="full flex split-articles">
-            <standard
+            <medium
               v-for="i in [1, 2, 3]"
               :key="posts[i].id"
               :post="posts[i]"
-            ></standard>
+            ></medium>
           </div>
         </div>
         <div class="third flex-responsive column-horizontal-pad flex">

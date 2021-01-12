@@ -14,11 +14,11 @@
         >
           <featured :key="'super-' + posts[0].id" :post="posts[0]"></featured>
           <div class="full flex split-articles">
-            <standard
+            <medium
               v-for="i in [1, 2, 3]"
               :key="'super-' + posts[i].id"
               :post="posts[i]"
-            ></standard>
+            ></medium>
           </div>
         </section>
         <section
