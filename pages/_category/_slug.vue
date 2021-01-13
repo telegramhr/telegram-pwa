@@ -269,6 +269,7 @@
           </h2>
         </div>
       </div>
+      <div class="full mobile-only filler-404 tg-red"></div>
       <img src="@/assets/img/tg_tear.png" aria-hidden="true" class="tear-404" />
       <div class="container relative mobile-side-pad column-full-pad">
         <div class="full center flex">

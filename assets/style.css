@@ -838,8 +838,8 @@ footer .main-footer-logo {
     height: 48px;
     padding: 8px;
     position: relative;
-    top: -12vw;
-    margin-bottom: -8vw;
+    top: -44px;
+    margin-bottom: -32px;
 }
 footer .logo {
     width: 50%;
@@ -1871,7 +1871,7 @@ header {
     position: relative;
     top: -2px;
 }
-.title-404 {
+.single-article .title-404 {
     font-size: 500px;
     line-height: 370px;
     position: relative;
@@ -1879,7 +1879,7 @@ header {
     left: -30px;
     margin-bottom: -120px;
     opacity: .2;
-    z-index: 1;
+    z-index: -1;
 }
 .subtitle-404 {
     font-size: 42px;
@@ -2005,7 +2005,6 @@ header {
         opacity: .7;
     }
 }
-
 @media screen and (max-width: 1024px) {
     .single-article {
         font-size: 17px;
@@ -2281,11 +2280,8 @@ header {
     .subtle-btn {
         margin: 16px auto;
     }
-    .tear-404 {
-        top: 76px;
-    }
-    .title-404 {
-        margin-top: 39px;
+    .single-article .title-404 {
+        margin-top: -12vw;
         font-size: 50vw;
         line-height: 40vw;
         position: relative;
@@ -2297,7 +2293,7 @@ header {
         font-size: 28px;
     }
     .filler-404 {
-        padding-bottom: 21vw;
+        padding-bottom: 10vw;
     }
     .wallpaper-banners {
         display: none;
@@ -2980,7 +2976,6 @@ header {
     }
 }
 
-
 /* New medium article */
 
 .article-medium .overtitle {
@@ -3035,5 +3030,66 @@ header {
     .block-5 .fourth .article-medium {
         padding-bottom: 16px;
         min-height: auto;
+    }
+}
+
+/* Tablet and big chungus smartphone adjustments */
+
+@media screen and (max-width: 1024px) and (min-width: 481px) {
+    .article h4 {
+        font-size: 16px;
+    }
+    .article h2 {
+        font-size: 28px;
+    }
+    .article-featured h2, .article-break h2 {
+        font-size: 32px;
+    }
+    .article h3.overtitle, h5.article-meta {
+        font-size: 14px;
+    }
+    .article-standard {
+        padding-left: 122px;
+        min-height: 165px;
+    }
+    .article-standard img {
+        width: 103px;
+        height: 103px;
+    }
+    .article-medium {
+        padding-left: 0px;
+    }
+    .article-medium img, .split-articles .article-medium img {
+        width: auto;
+        margin-left: 16px;
+    }
+}
+@media screen and (max-width: 480px) and (min-width: 411px) {
+    .article h4 {
+        font-size: 14px;
+    }
+    .article h2 {
+        font-size: 24px;
+    }
+    .article-featured h2, .article-break h2 {
+        font-size: 30px;
+    }
+    .article h3.overtitle, h5.article-meta {
+        font-size: 12px;
+    }
+    .article-standard {
+        padding-left: 112px;
+        min-height: 132px;
+    }
+    .article-standard img {
+        width: 90px;
+        height: 90px;
+    }
+    .article-medium {
+        padding-left: 0px;
+    }
+    .article-medium img, .split-articles .article-medium img {
+        width: auto;
+        margin-left: 16px;
     }
 }
