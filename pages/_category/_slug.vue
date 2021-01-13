@@ -449,10 +449,17 @@ export default {
         route: this.$route,
         options: this.post.disable_ads,
       })
-      if (!this.post.disable_ads || !this.post.disable_ads.includes('all')) {
+      if (
+        !this.post.disable_ads ||
+        !this.post.disable_ads.includes('all') ||
+        !this.post.disable_ads.includes('nepromo')
+      ) {
         this.loadMox()
       }
-      if (!this.post.disable_ads.includes('midas')) {
+      if (
+        !this.post.disable_ads.includes('midas') &&
+        !this.post.disable_ads.includes('nepromo')
+      ) {
         this.loadMidas()
       }
     },
