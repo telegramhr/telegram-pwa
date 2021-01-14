@@ -82,7 +82,7 @@ export default {
   async fetch() {
     await this.$axios.get('tag/' + this.$route.params.slug).then((res) => {
       this.posts = res.data.posts
-      this.category = res.data.category
+      this.category = res.data.tag
     })
   },
   data() {

@@ -259,7 +259,7 @@
       >
         <div class="full block-title-pattern relative"></div>
         <div class="container flex relative">
-          <app-link to="/" class="logo column-left-pad"
+          <app-link to="/" class="logo column-left-pad" aria-label="Naslovnica"
             ><img
               src="@/assets/img/telegram_logo_white.svg"
               alt="Telegram logo"
