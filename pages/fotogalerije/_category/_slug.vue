@@ -123,6 +123,7 @@ export default {
   head() {
     return {
       title: this.post.title,
+      titleTemplate: '%s | Telegram.hr',
       meta: [
         {
           hid: 'description',

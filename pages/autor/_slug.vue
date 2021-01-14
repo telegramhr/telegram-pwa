@@ -106,7 +106,8 @@ export default {
   },
   head() {
     return {
-      title: this.author.name + ' | Telegram.hr',
+      title: this.author.name,
+      titleTemplate: 'Autor %s | Telegram.hr',
       meta: [
         {
           hid: 'description',
