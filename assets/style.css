@@ -3056,7 +3056,7 @@ header {
         font-size: 32px;
     }
     .article h3.overtitle, h5.article-meta {
-        font-size: 14px;
+        font-size: 16px;
     }
     .article-standard {
         padding-left: 122px;
@@ -3073,15 +3073,65 @@ header {
         width: auto;
         margin-left: 16px;
     }
+    .single-article .single-article-body {
+        line-height: 1.55em;
+    }
+    .single-article, .article-head h2 {
+        font-size: 20px;
+    }
+    .article-head h1, .single-article-premium-alt .article-head h1 {
+        font-size: 40px;
+    }
+    .article h4, .article-head h3.overtitle, .single-article article .article-meta {
+        font-size: 18px;
+    }
+    .meta-foto {
+        font-size: 14px;
+        bottom: -18px;
+    }
+    footer .copyright {
+        font-size: 14px;
+    }
+    .side-menu h3 {
+        font-size: 16px;
+    }
+    .side-menu a {
+        font-size: 20px;
+    }
+    .single-article-body h2 {
+        font-size: 30px;
+    }
 }
 @media screen and (max-width: 480px) and (min-width: 411px) {
-    .article h4 {
+    .single-article .single-article-body {
+        line-height: 1.55em;
+    }
+    .single-article, .article-head h2 {
+        font-size: 19px;
+    }
+    .article-head h1, .single-article-premium-alt .article-head h1 {
+        font-size: 36px;
+    }
+    .article h4, .article-head h3.overtitle, .single-article article .article-meta {
+        font-size: 15px;
+    }
+    .meta-foto {
         font-size: 14px;
+        bottom: -18px;
+    }
+    footer .copyright {
+        font-size: 14px;
+    }
+    .side-menu h3 {
+        font-size: 16px;
+    }
+    .side-menu a {
+        font-size: 19px;
     }
     .article h2 {
         font-size: 24px;
     }
-    .article-featured h2, .article-break h2 {
+    .article-featured h2, .article-break h2, .single-article-body h2 {
         font-size: 30px;
     }
     .article h3.overtitle, h5.article-meta {
@@ -3101,5 +3151,15 @@ header {
     .article-medium img, .split-articles .article-medium img {
         width: auto;
         margin-left: 16px;
+    }
+    .subheader {
+        font-size: 14px;
+        height: 30px;
+    }
+    .single-article .article-head .meta-author span {
+        padding-top: 6px;
+    }
+    .single-article .article-head .meta-author img {
+        margin-right: 8px;
     }
 }
