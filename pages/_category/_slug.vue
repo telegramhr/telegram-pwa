@@ -596,9 +596,9 @@ export default {
           content: this.post.social.path,
         },
         {
-          hid: 'og:app_id',
-          name: 'og:app_id',
-          property: 'og:app_id',
+          hid: 'fb:app_id',
+          name: 'fb:app_id',
+          property: 'fb:app_id',
           content: '1383786971938581',
         },
         {

@@ -61,21 +61,34 @@ export default {
           name: 'og:description',
           content: this.post.social.description,
         },
-        { hid: 'og:type', name: 'og:type', content: 'article' },
-        { hid: 'og:title', name: 'og:title', content: this.post.social.title },
+        {
+          hid: 'og:type',
+          name: 'og:type',
+          property: 'og:type',
+          content: 'article',
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          property: 'og:title',
+          content: this.post.social.title,
+        },
         {
           hid: 'og:image',
           name: 'og:image',
+          property: 'og:image',
           content: this.post.social.image,
         },
         {
           hid: 'og:url',
           name: 'og:url',
+          property: 'og:url',
           content: this.post.social.path,
         },
         {
-          hid: 'og:app_id',
-          name: 'og:app_id',
+          hid: 'fb:app_id',
+          name: 'fb:app_id',
+          property: 'fb:app_id',
           content: '1383786971938581',
         },
         {

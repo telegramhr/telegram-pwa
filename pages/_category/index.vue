@@ -139,16 +139,19 @@ export default {
         {
           hid: 'og:title',
           name: 'og:title',
+          property: 'og:title',
           content: this.cat,
         },
         {
           hid: 'og:url',
           name: 'og:url',
+          property: 'og:url',
           content: this.$route.fullPath,
         },
         {
-          hid: 'og:app_id',
-          name: 'og:app_id',
+          hid: 'fb:app_id',
+          name: 'fb:app_id',
+          property: 'fb:app_id',
           content: '1383786971938581',
         },
         {

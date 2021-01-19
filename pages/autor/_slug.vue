@@ -119,21 +119,34 @@ export default {
           name: 'og:description',
           content: this.author.description,
         },
-        { hid: 'og:type', name: 'og:type', content: 'article' },
-        { hid: 'og:title', name: 'og:title', content: this.author.name },
+        {
+          hid: 'og:type',
+          name: 'og:type',
+          property: 'og:type',
+          content: 'article',
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          property: 'og:title',
+          content: this.author.name,
+        },
         {
           hid: 'og:image',
           name: 'og:image',
+          property: 'og:image',
           content: this.author.image.url,
         },
         {
           hid: 'og:url',
           name: 'og:url',
+          property: 'og:url',
           content: this.$route.fullPath,
         },
         {
-          hid: 'og:app_id',
-          name: 'og:app_id',
+          hid: 'fb:app_id',
+          name: 'fb:app_id',
+          property: 'fb:app_id',
           content: '1383786971938581',
         },
         {

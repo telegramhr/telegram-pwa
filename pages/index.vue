@@ -173,11 +173,11 @@
         <div class="container desktop-only flex relative column-full-pad"></div>
       </div>
       <div class="container flex relative block-5 standard-block">
-        <category slug="zivot"></category>
-        <category slug="biznis-tech"></category>
-        <category slug="kultura"></category>
-        <category slug="velike-price"></category>
         <client-only>
+          <category slug="zivot"></category>
+          <category slug="biznis-tech"></category>
+          <category slug="kultura"></category>
+          <category slug="velike-price"></category>
           <most-read v-if="mobile"></most-read>
         </client-only>
       </div>
