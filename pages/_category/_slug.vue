@@ -88,7 +88,10 @@
               <h5 class="full flex relative article-meta mobile-only">
                 <template v-if="post.promo.partner">
                   <a href="#" class="meta-author flex">
-                    <img :src="post.promo.logo" />
+                    <img
+                      v-if="!post.promo.signature_logo_off"
+                      :src="post.promo.logo"
+                    />
                     <span>U suradnji s</span>
                     <span>{{ post.promo.partner }}</span>
                   </a>
@@ -366,6 +369,10 @@ export default {
           image: '',
         },
         disable_ads: true,
+        promo: {
+          signature_logo_off: false,
+          partner: '',
+        },
       },
       related_posts: [],
       midas: false,

@@ -138,6 +138,7 @@ export default {
       ogSiteName: 'Telegram.hr',
       ogHost: 'https://www.telegram.hr',
       'fb:app_id': '1383786971938581',
+      'og:locale': 'hr_HR',
       mobileApp: false,
       appleStatusBarStyle: 'black',
       name: 'Telegram.hr',
