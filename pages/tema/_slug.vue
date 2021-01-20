@@ -105,7 +105,7 @@ export default {
     loadMore() {
       this.loading = true
       this.$axios
-        .get('tag/' + this.$route.params.category + '/page/' + this.page)
+        .get('tag/' + this.$route.params.slug + '/page/' + this.page)
         .then((res) => {
           this.morePosts = [...this.morePosts, ...res.data.posts]
           this.page++
