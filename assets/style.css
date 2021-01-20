@@ -2027,16 +2027,19 @@ header {
 }
 .collab-overtitle {
     display: flex;
+    position: relative;
+    top: -20px;
+    margin-bottom: -20px;
 }
 .collab-overtitle h3.overtitle {
     color: #c1b9b1;
     margin-right: 5px;
 }
 .collab-overtitle img {
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
     position: relative;
-    bottom: -15px;
+    bottom: -2px;
     object-fit: contain;
     object-position: center center;
 }
@@ -2386,8 +2389,15 @@ header {
     .wallpaper-banners {
         display: none;
     }
-    .collab-overtitle {
-        padding-bottom: 8px;
+    .overtitle-parent {
+        align-items: flex-end;
+    }
+    .collab-overtitle img {
+        bottom: -25px;
+    }
+    .collab-overtitle h3.overtitle {
+        margin-bottom: 36px;
+        margin-top: 57px;
     }
 }
 
