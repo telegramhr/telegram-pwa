@@ -367,6 +367,8 @@ export default {
           title: '',
           description: '',
           image: '',
+          width: '',
+          height: '',
         },
         disable_ads: true,
         promo: {
@@ -595,6 +597,18 @@ export default {
           name: 'og:image',
           property: 'og:image',
           content: this.post.social.image,
+        },
+        {
+          hid: 'og:image:width',
+          name: 'og:image:width',
+          property: 'og:image:width',
+          content: this.post.social.width,
+        },
+        {
+          hid: 'og:image:height',
+          name: 'og:image:height',
+          property: 'og:image:height',
+          content: this.post.social.height,
         },
         {
           hid: 'og:url',
