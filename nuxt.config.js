@@ -169,7 +169,7 @@ export default {
 
   purgeCSS: {
     enabled: true,
-    whitelistPatterns: [/slick/],
+    whitelistPatterns: [/slick/, /single-article-body/],
   },
 
   // Content module configuration (https://go.nuxtjs.dev/config-content)
