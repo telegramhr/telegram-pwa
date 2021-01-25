@@ -30,6 +30,11 @@ export const state = () => ({
       posts: [],
       updated: null,
     },
+    promo: {
+      name: 'Partneri',
+      posts: [],
+      updated: null,
+    },
   },
   morePosts: {
     'politika-kriminal': {
@@ -53,6 +58,10 @@ export const state = () => ({
       page: 2,
     },
     komentari: {
+      posts: [],
+      page: 2,
+    },
+    promo: {
       posts: [],
       page: 2,
     },
