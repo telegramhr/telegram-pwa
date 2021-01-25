@@ -35,6 +35,11 @@ export const state = () => ({
       posts: [],
       updated: null,
     },
+    sport: {
+      name: 'Sport',
+      posts: [],
+      updated: null,
+    },
   },
   morePosts: {
     'politika-kriminal': {
@@ -62,6 +67,10 @@ export const state = () => ({
       page: 2,
     },
     promo: {
+      posts: [],
+      page: 2,
+    },
+    sport: {
       posts: [],
       page: 2,
     },
