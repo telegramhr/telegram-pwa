@@ -100,6 +100,10 @@ export default {
     { src: '@/plugins/vue-slick-carousel.js' },
   ],
 
+  ngrok: {
+    region: 'eu',
+  },
+
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
 
@@ -109,6 +113,7 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/google-analytics',
     'nuxt-purgecss',
+    '@nuxtjs/ngrok',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)

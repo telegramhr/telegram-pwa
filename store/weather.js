@@ -6,6 +6,7 @@ export const state = () => ({
       humidity: '',
       wind: '',
       type: 0,
+      alt: '',
     },
     {
       day: '',
@@ -13,6 +14,7 @@ export const state = () => ({
       humidity: '',
       wind: '',
       type: 0,
+      alt: '',
     },
     {
       day: '',
@@ -20,6 +22,7 @@ export const state = () => ({
       humidity: '',
       wind: '',
       type: 0,
+      alt: '',
     },
     {
       day: '',
@@ -27,6 +30,7 @@ export const state = () => ({
       humidity: '',
       wind: '',
       type: 0,
+      alt: '',
     },
   ],
   updated: 0,

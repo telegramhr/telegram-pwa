@@ -8,6 +8,7 @@
         <object
           type="image/svg+xml"
           :data="`/weather/${weather.zagreb[0].type}.svg`"
+          :alt="weather.zagreb[0].alt"
         ></object>
       </div>
       <div class="half flex center">
@@ -24,6 +25,7 @@
           class="faded"
           type="image/svg+xml"
           data="/weather/vlaga_black.svg"
+          alt="Vlaga"
         ></object>
       </div>
       <div class="half flex center">
@@ -40,6 +42,7 @@
           class="faded"
           type="image/svg+xml"
           data="/weather/vjetar_black.svg"
+          alt="Vjetar"
         ></object>
       </div>
       <div class="half flex center">
@@ -55,6 +58,7 @@
         <object
           type="image/svg+xml"
           :data="`/weather/${weather.zagreb[1].type}.svg`"
+          :alt="weather.zagreb[1].alt"
         ></object>
       </div>
       <div class="half flex center">
@@ -69,6 +73,7 @@
         <object
           type="image/svg+xml"
           :data="`/weather/${weather.zagreb[2].type}.svg`"
+          :alt="weather.zagreb[2].alt"
         ></object>
       </div>
       <div class="half flex center">
@@ -83,6 +88,7 @@
         <object
           type="image/svg+xml"
           :data="`/weather/${weather.zagreb[3].type}.svg`"
+          :alt="weather.zagreb[3].alt"
         ></object>
       </div>
       <div v-if="weather.zagreb.length > 3" class="half flex center">

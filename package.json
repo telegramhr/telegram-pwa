@@ -14,6 +14,7 @@
     "@nuxt/content": "^1.11.1",
     "@nuxtjs/axios": "^5.12.5",
     "@nuxtjs/gtm": "^2.4.0",
+    "@nuxtjs/ngrok": "^2.0.0",
     "@nuxtjs/pwa": "^3.3.4",
     "core-js": "^3.8.2",
     "node-html-parser": "^2.0.1",
