@@ -1,12 +1,12 @@
 <template>
   <div v-if="posts.length" class="full flex">
-    <div class="sport-block full flex">
+    <a href="https://telesport.telegram.hr" class="sport-block full flex">
       <div class="block-title full mobile-side-pad">
         <div class="container flex relative">
           <h1 class="full column-left-pad">Telesport</h1>
         </div>
       </div>
-    </div>
+    </a>
     <div class="container flex relative block-3 standard-block sport-block">
       <section
         class="three-fourths flex-responsive flex mobile-side-pad elevate-over-section"

@@ -181,7 +181,7 @@ h5.article-meta i {
 .article-standard {
     padding-left: 100px;
     padding-left: 106px;
-    min-height: 130px;
+    min-height: 121px;
 }
 .article-standard img {
     width: 80px;
@@ -913,10 +913,10 @@ footer .copyright {
 .single-article .single-article-body p a {
     color: #ae3737;
     text-decoration: underline;
-    text-decoration-color: rgba(0, 0, 0, 0);
+    text-decoration-color: #ae3737;
 }
 .single-article .single-article-body p a:hover {
-    text-decoration-color: #ae3737;
+    text-decoration-color: rgba(0, 0, 0, 0);
 }
 .article-head {
     margin-bottom: 24px;
@@ -1369,7 +1369,7 @@ figure img {
 }
 .side-menu .half {
     width: 100%;
-    padding: 30px 0px;
+    padding: 20px 0px;
 }
 .side-menu h3 {
     font-family: neuzeit-grotesk-extra-conden, sans-serif;
@@ -2068,6 +2068,96 @@ header {
     margin-top: 0px;
 }
 
+/* Themes */
+
+.side-menu .half .theme-previews, .side-menu .half .fontsize-previews {
+    display: flex;
+    justify-content: space-between;
+}
+header .fa-sliders-h {
+    margin-left: 16px;
+}
+.side-menu .setting-btn {
+    position: absolute;
+    top: 16px;
+    right: 4vw;
+}
+.side-menu .half h3 {
+    padding-top: 20px;
+}
+.side-menu .half h3:first-child {
+    padding-top: 0px;
+}
+.theme-preview {
+    width: 30%;
+    text-align: center;
+    font-size: 16px;
+    padding: 4px;
+    margin-top: 2px;
+    margin-bottom: 4px;
+    border: 3px solid transparent;
+    color: #111;
+    cursor: pointer;
+}
+.fontsize-previews .theme-preview {
+    color: white;
+    font-size: 20px;
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+}
+.theme-previews input[type=radio]:checked+label {
+    border: 3px solid #ae3737;
+}
+.fontsize-previews input[type=radio]:checked+label {
+    border-bottom: 3px solid #ae3737;
+}
+.standard-theme-preview {
+    background-color: #fcf1e7;
+}
+.contrast-theme-preview {
+    background-color: white;
+}
+.dark-theme-preview {
+    background-color: #212121;
+    color: #efefef;
+}
+html.small-fontsize, .fontsize-previews .small-fontsize {
+    font-size: 18px;
+}
+html.large-fontsize, .fontsize-previews .large-fontsize {
+    font-size: 22px;
+}
+.contrast-mode {
+    background-color: white;
+}
+.dark-mode {
+    background-color: #212121;
+    color: #efefef;
+}
+.dark-mode .subheader, .dark-mode footer, .dark-mode .side-menu {
+    background-color: #121212;
+}
+.dark-mode .meta-foto {
+    background-color: #212121;
+}
+.dark-mode .komentar-author span {
+    text-shadow: none;
+}
+.dark-mode .article-featured:first-child .article-pad, .dark-mode .article-standard {
+    border-bottom: 1px solid #333;
+}
+.dark-mode .result-table .row {
+    border: 1px solid #555;
+    border-top: none;
+}
+.dark-mode .komentar-content {
+    border: 1px solid #333;
+}
+
+/* Animations */
+
 @keyframes square_anim {
     0% {
       top: 8px;
@@ -2089,6 +2179,7 @@ header {
         opacity: .7;
     }
 }
+
 @media screen and (max-width: 1024px) {
     .single-article {
         font-size: 17px;
@@ -2398,6 +2489,24 @@ header {
     .collab-overtitle h3.overtitle {
         margin-bottom: 36px;
         margin-top: 57px;
+    }
+
+    /* Themes */
+
+    .dark-mode .article-pad, .native-block .fourth .article, .dark-mode .block-3 .split-articles {
+        border-bottom: 1px solid #333;
+    }
+    .dark-mode .article-standard .article-pad, .dark-mode .article-standard:last-child {
+        border-bottom: none;
+    }
+    .native-block .fourth .article {
+        border-bottom: 1px solid #333;
+    }
+    .dark-mode .split-articles .article-medium:last-child {
+        border-bottom: 1px solid #333;
+    }
+    .dark-mode .native-block .fourth:last-child .article {
+        border-bottom: none;
     }
 }
 
@@ -3099,13 +3208,47 @@ header {
         font-size: 12px;
         font-size: 0.6rem;
     }
-}
-@media screen and (max-width: 1024px) and (max-height: 800px) {
-    .side-menu .half {
-        padding: 15px 0px;
+
+    /* Themes */
+
+    .dark-mode .column-bottom-border, .dark-mode .article-featured .article-pad:last-child, .dark-mode .article-standard {
+        border-bottom: 1px solid #333;
+    }
+    .dark-mode .widget {
+        border: 1px solid #333;
+    }
+    .dark-mode .article-standard:last-child, .dark-mode .article-featured:last-child .article-pad {
+        border-bottom: none;
+    }
+    .dark-mode .column-top-border {
+        border-top: 1px solid #333;
+    }
+    .dark-mode .column-right-border {
+        border-right: 1px solid #333;
+    }
+    .dark-mode .related-articles {
+        border-left: 1px solid #333;
+    }
+    .dark-mode .article:hover h2, .dark-mode .komentar:hover h2 {
+        color: #ccc;
+    }
+    .dark-mode .medium-mobile-articles .article-standard .article-meta > span {
+        background-color: #212121;
+        z-index: 10;
+    }
+    .contrast-mode .medium-mobile-articles .article-standard .article-meta > span {
+        background-color: white;
+        z-index: 10;
+    }
+    .dark-mode .elevate-over-section {
+        background-color: #212121;
+        color: #efefef;
+    }
+    .contrast-mode .elevate-over-section {
+        background-color: white;
     }
 }
-@media screen and (max-width: 1024px) and (max-height: 700px) {
+@media screen and (max-width: 1024px) and (max-height: 800px) {
     .side-menu .half {
         width: 49.99%;
     }
@@ -3141,6 +3284,10 @@ header {
         display: block;
         padding: 5vw 0px;
     }
+    .article-medium h2 {
+        font-size: 24px;
+        font-size: 1.2rem;
+    }
     .article-medium h4 {
         display: block;
     }
@@ -3156,6 +3303,16 @@ header {
         margin-bottom: 8px;
         float: right;
         top: auto;
+    }
+    .article-medium > .desktop-only {
+        display: block;
+        width: auto;
+    }
+    .article-medium h3.overtitle {
+        margin-top: 0px;
+        margin-bottom: 6px;
+        position: relative;
+        top: -2px;
     }
 }
 @media screen and (min-width: 1025px) {
@@ -3176,6 +3333,12 @@ header {
 @media screen and (max-width: 1024px) and (min-width: 481px) {
     html {
         font-size: 25px;
+    }
+    html.small-fontsize, .fontsize-previews .small-fontsize {
+        font-size: 20px;
+    }
+    html.large-fontsize, .fontsize-previews .large-fontsize {
+        font-size: 30px;
     }
     .single-article {
         font-size: 0.9rem;
@@ -3208,6 +3371,12 @@ header {
 @media screen and (max-width: 480px) and (min-width: 411px) {
     html {
         font-size: 23px;
+    }
+    html.small-fontsize, .fontsize-previews .small-fontsize {
+        font-size: 19px;
+    }
+    html.large-fontsize, .fontsize-previews .large-fontsize {
+        font-size: 26px;
     }
     .single-article {
         font-size: 0.9rem;

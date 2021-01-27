@@ -47,6 +47,91 @@
           <!--<app-link to="/fotogalerije">Fotogalerije</app-link>-->
         </div>
         <div class="half" role="menu">
+          <h3>Postavke izgleda</h3>
+          <div class="full flex theme-previews">
+            <input
+              id="regular-theme"
+              type="radio"
+              class="hide"
+              name="theme-selector"
+              value="regular-theme"
+              checked
+            />
+            <label
+              for="regular-theme"
+              class="theme-preview standard-theme-preview animate"
+              onclick="var pickel = document.querySelector('body'); pickel.classList.remove('contrast-mode'); pickel.classList.remove('dark-mode');"
+              >Aa</label
+            >
+            <input
+              id="contrast-theme"
+              type="radio"
+              class="hide"
+              name="theme-selector"
+              value="contrast-theme"
+            />
+            <label
+              for="contrast-theme"
+              class="theme-preview contrast-theme-preview animate contrast-mode"
+              onclick="var pickel = document.querySelector('body'); pickel.classList.add('contrast-mode'); pickel.classList.remove('dark-mode');"
+              >Aa</label
+            >
+            <input
+              id="dark-theme"
+              type="radio"
+              class="hide"
+              name="theme-selector"
+              value="dark-theme"
+            />
+            <label
+              for="dark-theme"
+              class="theme-preview dark-theme-preview animate dark-mode"
+              onclick="var pickel = document.querySelector('body'); pickel.classList.remove('contrast-mode'); pickel.classList.add('dark-mode');"
+              >Aa</label
+            >
+          </div>
+          <div class="full flex fontsize-previews">
+            <input
+              id="small-fontsize"
+              type="radio"
+              class="hide"
+              name="font-selector"
+              value="small-fontsize"
+            />
+            <label
+              for="small-fontsize"
+              class="theme-preview animate small-fontsize"
+              onclick="var pickel = document.querySelector('html'); pickel.classList.add('small-fontsize'); pickel.classList.remove('large-fontsize');"
+              >Aa</label
+            >
+            <input
+              id="normal-fontsize"
+              type="radio"
+              class="hide"
+              name="font-selector"
+              value="normal-fontsize"
+              checked
+            />
+            <label
+              for="normal-fontsize"
+              class="theme-preview animate"
+              onclick="var pickel = document.querySelector('html'); pickel.classList.remove('small-fontsize'); pickel.classList.remove('large-fontsize');"
+              >Aa</label
+            >
+            <input
+              id="large-fontsize"
+              type="radio"
+              class="hide"
+              name="font-selector"
+              value="large-fontsize"
+            />
+            <label
+              for="large-fontsize"
+              class="theme-preview animate large-fontsize"
+              onclick="var pickel = document.querySelector('html'); pickel.classList.remove('small-fontsize'); pickel.classList.add('large-fontsize');"
+              >Aa</label
+            >
+          </div>
           <h3>Kanali</h3>
           <a role="menuitem" href="https://super1.telegram.hr">Super1</a>
           <a role="menuitem" href="https://telesport.telegram.hr">Telesport</a>

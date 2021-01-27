@@ -1,12 +1,12 @@
 <template>
   <div v-if="posts.length" class="full flex">
-    <div class="full flex super1-block">
+    <a href="https://super1.telegram.hr" class="full flex super1-block">
       <div class="block-title full mobile-side-pad">
         <div class="container flex relative">
           <h1 class="full column-left-pad">Super1</h1>
         </div>
       </div>
-    </div>
+    </a>
     <div class="container flex relative block-4 standard-block super1-block">
       <section class="three-fourths flex-responsive flex elevate-over-section">
         <section
