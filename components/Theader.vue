@@ -51,84 +51,80 @@
           <div class="full flex theme-previews">
             <input
               id="regular-theme"
+              v-model="color_theme"
               type="radio"
               class="hide"
               name="theme-selector"
-              value="regular-theme"
-              checked
+              value="regular"
             />
             <label
               for="regular-theme"
               class="theme-preview standard-theme-preview animate"
-              onclick="var pickel = document.querySelector('body'); pickel.classList.remove('contrast-mode'); pickel.classList.remove('dark-mode');"
               >Aa</label
             >
             <input
               id="contrast-theme"
+              v-model="color_theme"
               type="radio"
               class="hide"
               name="theme-selector"
-              value="contrast-theme"
+              value="contrast"
             />
             <label
               for="contrast-theme"
               class="theme-preview contrast-theme-preview animate contrast-mode"
-              onclick="var pickel = document.querySelector('body'); pickel.classList.add('contrast-mode'); pickel.classList.remove('dark-mode');"
               >Aa</label
             >
             <input
               id="dark-theme"
+              v-model="color_theme"
               type="radio"
               class="hide"
               name="theme-selector"
-              value="dark-theme"
+              value="dark"
             />
             <label
               for="dark-theme"
               class="theme-preview dark-theme-preview animate dark-mode"
-              onclick="var pickel = document.querySelector('body'); pickel.classList.remove('contrast-mode'); pickel.classList.add('dark-mode');"
               >Aa</label
             >
           </div>
           <div class="full flex fontsize-previews">
             <input
               id="small-fontsize"
+              v-model="font_size"
               type="radio"
               class="hide"
               name="font-selector"
-              value="small-fontsize"
+              value="small"
             />
             <label
               for="small-fontsize"
               class="theme-preview animate small-fontsize"
-              onclick="var pickel = document.querySelector('html'); pickel.classList.add('small-fontsize'); pickel.classList.remove('large-fontsize');"
               >Aa</label
             >
             <input
               id="normal-fontsize"
+              v-model="font_size"
               type="radio"
               class="hide"
               name="font-selector"
-              value="normal-fontsize"
-              checked
+              value="normal"
             />
-            <label
-              for="normal-fontsize"
-              class="theme-preview animate"
-              onclick="var pickel = document.querySelector('html'); pickel.classList.remove('small-fontsize'); pickel.classList.remove('large-fontsize');"
+            <label for="normal-fontsize" class="theme-preview animate"
               >Aa</label
             >
             <input
               id="large-fontsize"
+              v-model="font_size"
               type="radio"
               class="hide"
               name="font-selector"
-              value="large-fontsize"
+              value="large"
             />
             <label
               for="large-fontsize"
               class="theme-preview animate large-fontsize"
-              onclick="var pickel = document.querySelector('html'); pickel.classList.remove('small-fontsize'); pickel.classList.add('large-fontsize');"
               >Aa</label
             >
           </div>
@@ -436,6 +432,22 @@ export default {
     }
   },
   computed: {
+    color_theme: {
+      get() {
+        return this.$store.state.theme.theme
+      },
+      set(value) {
+        this.$store.dispatch('theme/setTheme', value)
+      },
+    },
+    font_size: {
+      get() {
+        return this.$store.state.theme.font
+      },
+      set(value) {
+        this.$store.dispatch('theme/setFont', value)
+      },
+    },
     loggedIn() {
       if (!process.server) {
         const c = document.cookie
@@ -462,6 +474,7 @@ export default {
     // window.addEventListener('scroll', this.handleDebouncedScroll)
     this.resize()
     this.$store.dispatch('stocks/pullStocks')
+    this.$store.dispatch('theme/initTheme')
   },
   beforeDestroy() {
     // I switched the example from `destroyed` to `beforeDestroy`

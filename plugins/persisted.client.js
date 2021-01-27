@@ -11,6 +11,7 @@ export default ({ store }) => {
       'latest',
       'mostread',
       'category.categories',
+      'theme',
     ],
   })(store)
 }
