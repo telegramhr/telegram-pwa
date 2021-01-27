@@ -3,7 +3,9 @@
     v-if="posts.length"
     class="fourth flex-responsive column-horizontal-pad flex mobile-side-pad"
   >
-    <h2 class="full flex section-title">{{ category | parseCat }}</h2>
+    <h2 class="full flex section-title">
+      <nuxt-link :to="'/' + slug">{{ category | parseCat }}</nuxt-link>
+    </h2>
     <featured :key="posts[0].id" :post="posts[0]"></featured>
     <medium v-for="i in [1, 2, 3]" :key="posts[i].id" :post="posts[i]"></medium>
   </section>

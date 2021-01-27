@@ -2,7 +2,7 @@
   <div class="full">
     <div class="full center header-billboard">
       <ad-unit
-        v-if="!mobile || $route.name !== 'index'"
+        v-if="!mobile && $route.name !== 'category-slug'"
         id="telegram_desktop_billboard_v1"
       ></ad-unit>
     </div>
