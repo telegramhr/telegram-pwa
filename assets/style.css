@@ -2169,6 +2169,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .special-partner-widget {
     background-color: #212121;
     color: white;
+    margin-top: 36px;
 }
 .special-partner-logobox {
     padding: 32px;
@@ -2181,12 +2182,20 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .special-partner-widget .article:hover h2 {
     color: #ddd;
 }
+.special-partner-widget .special-partner-signature {
+    position: absolute;
+    top: -24px;
+    color: #111;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 .special-partner-widget .line-decoration-box {
     position: absolute;
     top: -31px;
     left: -48px;
     height: 64px;
     width: 33%;
+    z-index: 5;
 }
 .special-partner-widget .article-standard h4,
 .special-partner-widget .article-standard .desktop-only,
@@ -2603,11 +2612,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .special-partner-widget {
         padding-top: 16px;
         padding-bottom: 16px;
-        margin-top: 48px;
+        margin-top: 64px;
         margin-bottom: 48px;
-    }
-    .special-partner-logobox img {
-        width: 70%;
     }
     .special-partner-widget .line-decoration-box {
         left: 0px;
@@ -2621,6 +2627,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .special-partner-widget .fourth:nth-child(5) .article-standard {
         border-bottom: none;
+    }
+    .special-partner-widget .special-partner-signature {
+        text-align: right;
     }
 }
 

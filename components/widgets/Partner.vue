@@ -7,20 +7,16 @@
       <div class="line-2 animate"></div>
       <div class="line-3 animate"></div>
     </div>
-    <div
-      class="fourth flex-responsive column-full-pad center mobile-side-pad special-partner-logobox"
-    >
+    <div class="fourth flex-responsive column-full-pad mobile-side-pad">
       <a
         class="full flex relative"
         href="https://doktor-online.hr/"
         target="_blank"
       >
-        <div class="full flex center">
-          <img src="~/assets/img/telegram_logo_white.svg" alt="Telegram logo" />
-        </div>
-        <h5 class="full center-text">
-          <span class="faded">Omogućuje</span> Maxflu®
-        </h5>
+        <img
+          src="https://www.telegram.hr/wp-content/uploads/2021/01/widget-tg.png"
+          alt="Doktor Online - Vodeći Hrvatski doktori za vas"
+        />
       </a>
     </div>
     <div
@@ -55,6 +51,9 @@
         </div>
       </app-link>
     </div>
+    <h5 class="full center-text special-partner-signature">
+      <span class="faded">Omogućuje</span> Maxflu®
+    </h5>
     <div class="line-decoration-box animate">
       <div class="line-1 animate"></div>
       <div class="line-2 animate"></div>
