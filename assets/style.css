@@ -2492,7 +2492,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
 
     /* Themes */
-
+    .dark-mode .single-article header nav {
+        background-color: #121212;
+    }
     .dark-mode .article-pad, .native-block .fourth .article, .dark-mode .block-3 .split-articles {
         border-bottom: 1px solid #333;
     }
