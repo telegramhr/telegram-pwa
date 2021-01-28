@@ -309,7 +309,7 @@
       </div>
       </div>-->
     </template>
-    <tfooter></tfooter>
+    <tfooter v-if="post.id || $fetchState.error"></tfooter>
   </div>
 </template>
 
@@ -318,6 +318,11 @@ export default {
   name: 'Slug',
   async fetch() {
     let post
+    if (process.client) {
+      this.$nextTick(() => {
+        this.$telegram.$loading.start()
+      })
+    }
     if (this.$route.params.category === 'preview') {
       post = await this.$axios.$get(
         encodeURI('preview/' + this.$route.params.slug)
@@ -329,6 +334,7 @@ export default {
     }
     if (post.id) {
       this.post = post
+      this.$telegram.$loading.finish()
     } else {
       this.post.title = 'Objava ne postoji'
       this.post.portal_title = 'Objava ne postoji'

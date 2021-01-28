@@ -85,6 +85,8 @@ export default {
     ],
   },
 
+  loading: '~/components/loading.vue',
+
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
     '@/assets/tmg_framework.css',
