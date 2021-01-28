@@ -24,7 +24,11 @@
         <object
           class="faded"
           type="image/svg+xml"
-          data="/weather/vlaga_black.svg"
+          :data="
+            '/weather/vlaga' +
+            ($store.state.theme.theme === 'dark' ? '' : '_black') +
+            '.svg'
+          "
           alt="Vlaga"
         ></object>
       </div>
@@ -41,7 +45,11 @@
         <object
           class="faded"
           type="image/svg+xml"
-          data="/weather/vjetar_black.svg"
+          :data="
+            '/weather/vjetar' +
+            ($store.state.theme.theme === 'dark' ? '' : '_black') +
+            '.svg'
+          "
           alt="Vjetar"
         ></object>
       </div>
