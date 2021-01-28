@@ -1,5 +1,8 @@
 <template>
-  <div v-if="loading" class="container center column-full-pad">
+  <div
+    v-if="loading"
+    class="container center column-full-pad loading-container"
+  >
     <div class="loader3-animation">
       <div class="animate"></div>
       <div class="animate"></div>
@@ -28,6 +31,12 @@ export default {
 </script>
 
 <style scoped>
+.loading-container {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  max-width: 100vw;
+}
 .loader3-animation {
   position: relative;
   display: flex;

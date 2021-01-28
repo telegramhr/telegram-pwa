@@ -334,9 +334,6 @@ export default {
     }
     if (post.id) {
       this.post = post
-      if (process.client) {
-        this.$telegram.$loading.finish()
-      }
     } else {
       this.post.title = 'Objava ne postoji'
       this.post.portal_title = 'Objava ne postoji'
@@ -523,6 +520,9 @@ export default {
     },
     getPost() {
       if (this.post && this.post.id) {
+        if (process.client) {
+          // this.$telegram.$loading.finish()
+        }
         this.loadAds()
         if (typeof FB !== 'undefined') {
           FB.XFBML.parse()
@@ -553,7 +553,7 @@ export default {
             .splice(0, 3)
         })
       } else {
-        setTimeout(this.getPost, 1000)
+        setTimeout(this.getPost, 500)
       }
     },
     fbShare() {

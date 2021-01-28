@@ -11,7 +11,7 @@
     >
       <div class="full block-title-pattern relative"></div>
       <div class="container flex relative">
-        <nuxt-link to="/" class="logo column-left-pad"
+        <nuxt-link to="/" class="logo column-left-pad" @click="$fetch"
           ><img src="@/assets/img/telegram_logo_white.svg" alt="Telegram logo"
         /></nuxt-link>
         <h2 class="full column-horizontal-pad desktop-only site-subtitle">
@@ -75,11 +75,11 @@
           </div>
         </section>
       </div>
-      <!--<partner></partner>-->
       <big-featured></big-featured>
       <section class="full mobile-only">
         <break></break>
       </section>
+      <!--<partner></partner>-->
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
       </div>

@@ -4,6 +4,10 @@ export const state = () => ({
   prefix: '/1092744/telegram/',
   units: {
     telegram_desktop_billboard_v1: {
+      upc: {
+        desktop: 12,
+        mobile: 12,
+      },
       mobile: [
         [300, 50],
         [300, 100],
@@ -31,6 +35,10 @@ export const state = () => ({
       ],
     },
     telegram_desktop_billboard_v2: {
+      upc: {
+        desktop: 12,
+        mobile: 12,
+      },
       routes: ['index'],
       mobile: [
         [300, 50],
@@ -50,6 +58,10 @@ export const state = () => ({
       ],
     },
     telegram_desktop_billboard_v3: {
+      upc: {
+        desktop: 12,
+        mobile: 12,
+      },
       routes: ['index'],
       mobile: [
         [300, 50],
@@ -69,6 +81,10 @@ export const state = () => ({
       ],
     },
     telegram_desktop_billboard_v4: {
+      upc: {
+        desktop: 12,
+        mobile: 12,
+      },
       routes: ['index'],
       mobile: [
         [300, 50],
@@ -88,6 +104,10 @@ export const state = () => ({
       ],
     },
     telegram_desktop_wallpaper_left: {
+      upc: {
+        desktop: 6,
+        mobile: 6,
+      },
       desktop: [
         [300, 900],
         [200, 900],
@@ -107,6 +127,10 @@ export const state = () => ({
       ],
     },
     telegram_dekstop_wallpaper_right: {
+      upc: {
+        desktop: 6,
+        mobile: 6,
+      },
       desktop: [
         [301, 901],
         [201, 901],
@@ -126,20 +150,19 @@ export const state = () => ({
       ],
     },
     telegram_desktop_intext_v1: {
+      upc: {
+        desktop: 14,
+        mobile: 14,
+      },
       routes: ['category-slug'],
       desktop: [
         [660, 350],
         [300, 250],
-        [320, 480],
-        [300, 600],
         [710, 350],
-        [970, 250],
-        [1200, 250],
       ],
       mobile: [
         [300, 250],
         [320, 480],
-        [300, 600],
         [336, 280],
         [320, 50],
         [300, 100],
@@ -147,20 +170,20 @@ export const state = () => ({
       ],
     },
     telegram_desktop_intext_v2: {
+      upc: {
+        desktop: 13,
+        mobile: 13,
+      },
       routes: ['category-slug'],
       desktop: [
         [660, 350],
         [300, 250],
         [320, 480],
-        [300, 600],
         [710, 350],
-        [970, 250],
-        [1200, 250],
       ],
       mobile: [
         [300, 250],
         [320, 480],
-        [300, 600],
         [336, 280],
         [320, 50],
         [300, 100],
