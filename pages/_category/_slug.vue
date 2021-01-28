@@ -334,7 +334,9 @@ export default {
     }
     if (post.id) {
       this.post = post
-      this.$telegram.$loading.finish()
+      if (process.client) {
+        this.$telegram.$loading.finish()
+      }
     } else {
       this.post.title = 'Objava ne postoji'
       this.post.portal_title = 'Objava ne postoji'

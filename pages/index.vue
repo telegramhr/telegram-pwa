@@ -95,7 +95,7 @@
       </div>
 
       <div
-        v-if="posts"
+        v-if="posts.length"
         class="container flex relative block-2 standard-block stretch"
       >
         <section
