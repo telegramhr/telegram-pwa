@@ -60,6 +60,7 @@
             <label
               for="regular-theme"
               class="theme-preview standard-theme-preview animate"
+              aria-label="Koristi normalnu temu"
               >Aa</label
             >
             <input
@@ -73,6 +74,7 @@
             <label
               for="contrast-theme"
               class="theme-preview contrast-theme-preview animate contrast-mode"
+              aria-label="Koristi temu povećanog kontrasta"
               >Aa</label
             >
             <input
@@ -86,6 +88,7 @@
             <label
               for="dark-theme"
               class="theme-preview dark-theme-preview animate dark-mode"
+              aria-label="Koristi tamnu temu"
               >Aa</label
             >
           </div>
@@ -101,6 +104,7 @@
             <label
               for="small-fontsize"
               class="theme-preview animate small-fontsize"
+              aria-label="Smanji veličinu slova"
               >Aa</label
             >
             <input
@@ -111,7 +115,10 @@
               name="font-selector"
               value="normal"
             />
-            <label for="normal-fontsize" class="theme-preview animate"
+            <label
+              for="normal-fontsize"
+              class="theme-preview animate"
+              aria-label="Koristi srednju veličinu slova"
               >Aa</label
             >
             <input
@@ -125,6 +132,7 @@
             <label
               for="large-fontsize"
               class="theme-preview animate large-fontsize"
+              aria-label="Povećaj veličinu slova"
               >Aa</label
             >
           </div>
@@ -474,7 +482,6 @@ export default {
     // window.addEventListener('scroll', this.handleDebouncedScroll)
     this.resize()
     this.$store.dispatch('stocks/pullStocks')
-    this.$store.dispatch('theme/initTheme')
   },
   beforeDestroy() {
     // I switched the example from `destroyed` to `beforeDestroy`

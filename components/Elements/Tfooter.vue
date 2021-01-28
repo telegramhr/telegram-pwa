@@ -74,5 +74,8 @@
 <script>
 export default {
   name: 'Footer',
+  mounted() {
+    this.$store.dispatch('theme/initTheme')
+  },
 }
 </script>

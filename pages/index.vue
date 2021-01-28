@@ -75,7 +75,7 @@
           </div>
         </section>
       </div>
-
+      <!--<partner></partner>-->
       <big-featured></big-featured>
       <section class="full mobile-only">
         <break></break>
