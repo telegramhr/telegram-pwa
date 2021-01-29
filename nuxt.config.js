@@ -147,6 +147,8 @@ export default {
       ogHost: 'https://www.telegram.hr',
       'fb:app_id': '1383786971938581',
       'og:locale': 'hr_HR',
+      ogImage:
+        'https://www.telegram.hr/wp-content/uploads/2021/01/tg-background.jpg',
       mobileApp: false,
       appleStatusBarStyle: 'black',
       name: 'Telegram.hr',

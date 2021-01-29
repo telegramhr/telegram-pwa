@@ -1,6 +1,6 @@
 <template>
   <div :class="['main-container', 'flex', 'single-article', typeClass]">
-    <template v-if="post.id">
+    <template v-if="!$fetchState.error">
       <client-only>
         <theader
           :id="post.id"
@@ -179,7 +179,7 @@
             </div>
             <div class="full relative single-article-body">
               <!-- eslint-disable-next-line -->
-              <div id="article-content" v-html="post.content"></div>
+            <div id="article-content" v-html="post.content"></div>
               <!-- Article footer -->
               <div
                 class="full relative single-article-footer flex column-top-pad"
@@ -212,8 +212,8 @@
                       ><i class="fab fa-twitter"></i
                     ></a>
                     <!-- <a href="#" class="animate center"
-                      ><i class="fab fa-instagram"></i
-                    ></a>-->
+                    ><i class="fab fa-instagram"></i
+                  ></a>-->
                     <div
                       v-if="!post.comments_off"
                       class="classic-btn clickable animate"
@@ -226,11 +226,13 @@
                 </div>
                 <div v-if="!post.comments_off" v-show="comments" class="full">
                   <div
+                    v-show="comments"
                     class="fb-comments"
                     :data-href="post.social.path"
                     data-width="100%"
                     data-numposts="5"
                     data-lazy="true"
+                    data-colorscheme="dark"
                   ></div>
                 </div>
               </div>
@@ -648,6 +650,11 @@ export default {
           hid: 'twitter:site',
           name: 'twitter:site',
           content: '@TelegramHR',
+        },
+        {
+          hid: 'twitter:widgets:theme',
+          name: 'twitter:widgets:theme',
+          content: this.$store.state.theme.theme === 'dark' ? 'dark' : 'light',
         },
       ],
       script: [

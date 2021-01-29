@@ -52,7 +52,7 @@
       </app-link>
     </div>
     <h5 class="full center-text special-partner-signature">
-      <span class="faded">Omogućuje</span> Maxflu®
+      <span class="faded">Omogućuje</span> {{ title }}
     </h5>
     <div class="line-decoration-box animate">
       <div class="line-1 animate"></div>
@@ -66,11 +66,15 @@
 export default {
   name: 'Partner',
   async fetch() {
-    this.posts = await this.$axios.$get('partner-widget')
+    await this.$axios.$get('partner-widget').then((res) => {
+      this.posts = res.posts
+      this.title = res.title
+    })
   },
   data() {
     return {
       posts: [],
+      title: '',
     }
   },
   methods: {
