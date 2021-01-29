@@ -237,6 +237,9 @@
             </div>
           </article>
         </div>
+        <div v-if="!post.disable_ads" class="full flex">
+          <partner></partner>
+        </div>
         <div class="full flex">
           <div
             class="container flex relative native-block stretch mobile-side-pad"
@@ -521,7 +524,7 @@ export default {
     getPost() {
       if (this.post && this.post.id) {
         if (process.client) {
-          // this.$telegram.$loading.finish()
+          this.$telegram.$loading.finish()
         }
         this.loadAds()
         if (typeof FB !== 'undefined') {

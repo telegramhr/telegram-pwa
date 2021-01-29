@@ -2590,7 +2590,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
 
     /* Themes */
-    
+
     .dark-mode .single-article header nav {
         background-color: #121212;
     }
@@ -3531,4 +3531,13 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .single-article .article-head .meta-author img {
         margin-right: 8px;
     }
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s;
+}
+.page-enter,
+.page-leave-to {
+  opacity: 0;
 }

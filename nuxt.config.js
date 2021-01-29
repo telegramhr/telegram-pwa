@@ -104,6 +104,7 @@ export default {
 
   ngrok: {
     region: 'eu',
+    authtoken: process.env.NGROK_AUTHTOKEN,
   },
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
