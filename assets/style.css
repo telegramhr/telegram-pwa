@@ -2158,7 +2158,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .dark-mode .komentar-content {
     border: 1px solid #333;
 }
-
 .dark-mode .midas-itw-header-text, .dark-mode .midas-itw-list-1-column .midas-itw-list-item, .dark-mode .midas-itw-footer-sb {
     background-color: #212121 !important;
     color: #efefef !important;
@@ -2595,14 +2594,11 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .dark-mode .single-article header nav {
         background-color: #121212;
     }
-    .dark-mode .article-pad, .native-block .fourth .article, .dark-mode .block-3 .split-articles {
+    .dark-mode .article-pad, .dark-mode .native-block .fourth .article, .dark-mode .block-3 .split-articles {
         border-bottom: 1px solid #333;
     }
     .dark-mode .article-standard .article-pad, .dark-mode .article-standard:last-child {
         border-bottom: none;
-    }
-    .native-block .fourth .article {
-        border-bottom: 1px solid #333;
     }
     .dark-mode .split-articles .article-medium:last-child {
         border-bottom: 1px solid #333;
