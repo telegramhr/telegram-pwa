@@ -5,6 +5,11 @@ export const state = () => ({
       posts: [],
       updated: null,
     },
+    najnovije: {
+      name: 'Najnovije',
+      posts: [],
+      updated: null,
+    },
     kultura: {
       name: 'Kultura',
       posts: [],
@@ -43,6 +48,10 @@ export const state = () => ({
   },
   morePosts: {
     'politika-kriminal': {
+      posts: [],
+      page: 2,
+    },
+    najnovije: {
       posts: [],
       page: 2,
     },
