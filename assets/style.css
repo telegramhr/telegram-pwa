@@ -2169,7 +2169,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .special-partner-widget {
     background-color: #212121;
     color: white;
-    margin-top: 36px;
+    margin-top: 48px;
+    margin-bottom: 32px;
 }
 .special-partner-logobox {
     padding: 32px;
