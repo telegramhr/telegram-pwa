@@ -2189,6 +2189,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     text-transform: uppercase;
     letter-spacing: 1px;
 }
+.dark-mode .special-partner-widget .special-partner-signature {
+    color: #efefef;
+}
 .special-partner-widget .line-decoration-box {
     position: absolute;
     top: -31px;
