@@ -1,13 +1,13 @@
 <template>
   <div class="full">
-    <div class="full center header-billboard">
-      <ad-unit
-        v-if="
-          !(mobile && $route.name === 'index') ||
-          (!mobile && $route.name !== 'category-slug')
-        "
-        id="telegram_desktop_billboard_v1"
-      ></ad-unit>
+    <div
+      v-if="
+        !(mobile && $route.name === 'index') ||
+        (!mobile && $route.name !== 'category-slug')
+      "
+      class="full center header-billboard"
+    >
+      <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
     </div>
     <div
       :class="{
