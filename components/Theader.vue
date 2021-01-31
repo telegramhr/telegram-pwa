@@ -2,8 +2,10 @@
   <div class="full">
     <div
       v-if="
-        !(mobile && $route.name === 'index') ||
-        (!mobile && $route.name !== 'category-slug')
+        !(
+          (mobile && $route.name === 'index') ||
+          (!mobile && $route.name === 'category-slug')
+        )
       "
       class="full center header-billboard"
     >

@@ -575,7 +575,7 @@ export default {
       // handle only links that occur inside the component and do not reference external resources
       if (
         target &&
-        target.matches("#article-content a:not([href*='://'])") &&
+        // target.matches("#article-content a:not([href*='://'])") &&
         target.href
       ) {
         // some sanity checks taken from vue-router:
