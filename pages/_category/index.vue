@@ -90,9 +90,16 @@
 export default {
   name: 'CategoryIndex',
   async fetch() {
-    await this.$store.dispatch('category/pullPosts', {
-      category: this.$route.params.category,
-    })
+    await this.$store
+      .dispatch('category/pullPosts', {
+        category: this.$route.params.category,
+      })
+      .catch(() => {
+        if (process.server) {
+          this.$telegram.context.res.statusCode = 404
+        }
+        throw new Error('Kategorija ne postoji')
+      })
   },
   data() {
     return {
@@ -103,7 +110,9 @@ export default {
   computed: {
     posts() {
       return this.$store.state.category.categories[this.$route.params.category]
-        .posts
+        ? this.$store.state.category.categories[this.$route.params.category]
+            .posts
+        : []
     },
     morePosts() {
       return this.$store.state.category.morePosts[this.$route.params.category]
@@ -111,7 +120,9 @@ export default {
     },
     cat() {
       return this.$store.state.category.categories[this.$route.params.category]
-        .name
+        ? this.$store.state.category.categories[this.$route.params.category]
+            .name
+        : ''
     },
   },
   mounted() {
