@@ -27,7 +27,7 @@
         <h2 :id="'break-' + post.id" class="full center-text">
           {{ post.portal_title }}
         </h2>
-        <h5 class="full article-meta center-text">
+        <h5 v-if="post.authors.length" class="full article-meta center-text">
           <span class="meta-author"
             ><i>Piše</i>
             {{ post.authors[0].name }}

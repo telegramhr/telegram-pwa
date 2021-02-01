@@ -10,7 +10,9 @@
         {{ post.portal_title }}
       </h2>
       <h5 class="full flex article-meta">
-        <span class="meta-author"><i>Piše</i> {{ post.authors[0].name }}</span>
+        <span v-if="post.authors.length" class="meta-author"
+          ><i>Piše</i> {{ post.authors[0].name }}</span
+        >
         <span class="meta-date">{{ post.time | parseTime }}</span>
       </h5>
     </div>
