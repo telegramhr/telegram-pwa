@@ -58,6 +58,22 @@ export default {
     ],
     script: [
       {
+        hid: 'piano-block',
+        vmid: 'piano-block',
+        innerHTML:
+          'document.cookie = "__adblocker=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";' +
+          'var setNptTechAdblockerCookie = function(adblocker) {' +
+          'var d = new Date();' +
+          'd.setTime(d.getTime() + 60 * 5 * 1000);' +
+          'document.cookie = "__adblocker=" + (adblocker ? "true" : "false") + "; expires=" + d.toUTCString() + "; path=/";' +
+          '};' +
+          'var script = document.createElement("script");' +
+          'script.setAttribute("async", true);' +
+          'script.setAttribute("src", "//www.npttech.com/advertising.js");' +
+          'script.setAttribute("onerror", "setNptTechAdblockerCookie(true);");' +
+          'document.getElementsByTagName("head")[0].appendChild(script);',
+      },
+      {
         hid: 'facebook',
         src:
           'https://connect.facebook.net/hr_HR/sdk.js#xfbml=1&version=v9.0&appId=1383786971938581',
@@ -82,7 +98,31 @@ export default {
         src:
           'https://www.telegram.hr/wp-content/plugins/telegram-ad-plugin/src/AdPlugin/assets/dfp/expand2.js',
       },
+      {
+        hid: 'piano',
+        vmid: 'piano',
+        name: 'piano',
+        innerHTML:
+          'tp = window.tp || []; ' +
+          "tp.push(['setAid', 'NSqJ3UJWsu']); " +
+          "tp.push(['setSandbox', true]); " +
+          "tp.push(['setUseTinypassAccounts', true]); " +
+          "tp.push(['init', function() { tp.experience.init(); }]); " +
+          "(function(src) { var a = document.createElement('script'); " +
+          "a.type = 'text/javascript'; a.async = true; a.src = src; " +
+          "var b = document.getElementsByTagName('script')[0]; " +
+          'b.parentNode.insertBefore(a, b) ' +
+          "})('//cdn.tinypass.com/api/tinypass.min.js');",
+      },
     ],
+    __dangerouslyDisableSanitizersByTagID: {
+      piano: ['innerHTML'],
+      'piano-block': ['innerHTML'],
+    },
+  },
+
+  router: {
+    middleware: ['piano'],
   },
 
   loading: '~/components/loading.vue',
@@ -190,6 +230,7 @@ export default {
     cache: true,
     parallel: true,
     hardSource: true,
+    indicator: false,
     loaders: {
       vue: {
         prettify: false,
