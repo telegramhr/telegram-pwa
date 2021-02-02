@@ -186,5 +186,14 @@ export default {
   content: {},
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {},
+  build: {
+    cache: true,
+    parallel: true,
+    hardSource: true,
+    loaders: {
+      vue: {
+        prettify: false,
+      },
+    },
+  },
 }
