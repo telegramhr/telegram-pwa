@@ -21,7 +21,9 @@
         <div
           class="two-thirds flex-responsive flex column-horizontal-pad column-right-border mobile-side-pad"
         >
-          <featured v-for="i in [0, 1, 2, 3]" :key="i" :post="posts[i]" />
+          <template v-for="i in [0, 1, 2, 3]">
+            <featured v-if="posts[i]" :key="i" :post="posts[i]" />
+          </template>
         </div>
         <div class="full flex mobile-only">
           <newsletter></newsletter>
@@ -29,7 +31,9 @@
         <div
           class="third flex-responsive column-horizontal-pad flex mobile-side-pad"
         >
-          <standard v-for="i in [4, 5, 6, 7, 8]" :key="i" :post="posts[i]" />
+          <template v-for="i in [4, 5, 6, 7, 8]">
+            <standard v-if="posts[i]" :key="i" :post="posts[i]" />
+          </template>
         </div>
       </section>
       <section
@@ -58,6 +62,7 @@
         </div>
       </div>
       <div
+        v-if="hasMore"
         class="full center subtle-btn-parent relative clickable"
         @click="loadMore"
       >
@@ -83,6 +88,9 @@ export default {
     await this.$axios.get('tag/' + this.$route.params.slug).then((res) => {
       this.posts = res.data.posts
       this.category = res.data.tag
+      if (res.data.posts.length < 9) {
+        this.hasMore = false
+      }
     })
   },
   data() {
@@ -91,6 +99,7 @@ export default {
       category: '',
       morePosts: [],
       page: 2,
+      hasMore: true,
     }
   },
   computed: {
@@ -110,6 +119,9 @@ export default {
           this.morePosts = [...this.morePosts, ...res.data.posts]
           this.page++
           this.loading = false
+          if (res.data.posts < 9) {
+            this.hasMore = false
+          }
         })
     },
   },

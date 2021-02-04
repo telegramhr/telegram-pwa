@@ -50,6 +50,7 @@
       </div>
       <div class="container flex relative mobile-side-pad">
         <div
+          v-if="hasMore"
           class="full center subtle-btn-parent relative clickable"
           @click="loadMore"
         >
@@ -80,6 +81,9 @@ export default {
       .then((res) => {
         this.author = res.data.author
         this.posts = res.data.posts
+        if (this.posts.length < 8) {
+          this.hasMore = false
+        }
       })
       .catch(() => {
         // set status code on server and
@@ -102,6 +106,7 @@ export default {
       },
       posts: [],
       page: 2,
+      hasMore: true,
     }
   },
   mounted() {
@@ -114,6 +119,9 @@ export default {
         .then((res) => {
           this.posts = [...this.posts, ...res.data.posts]
           this.page++
+          if (res.data.posts < 8) {
+            this.hasMore = false
+          }
         })
     },
   },

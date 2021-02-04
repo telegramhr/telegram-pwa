@@ -57,6 +57,7 @@
         </div>
       </div>
       <div
+        v-if="hasMore"
         class="full center subtle-btn-parent relative clickable"
         @click="loadMore"
       >
@@ -81,6 +82,9 @@ export default {
   async fetch() {
     await this.$axios.get('search/' + this.$route.params.search).then((res) => {
       this.posts = res.data.posts
+      if (this.posts.length < 9) {
+        this.hasMore = false
+      }
     })
   },
   data() {
@@ -90,6 +94,7 @@ export default {
       page: 2,
       loading: false,
       search: this.$route.params.search,
+      hasMore: true,
     }
   },
   mounted() {
@@ -104,6 +109,9 @@ export default {
           this.morePosts = [...this.morePosts, ...res.data.posts]
           this.page++
           this.loading = false
+          if (res.data.posts < 9) {
+            this.hasMore = false
+          }
         })
     },
   },
