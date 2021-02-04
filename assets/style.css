@@ -759,7 +759,6 @@ h2.section-title {
     position: relative;
     top: -2.5px;
     font-feature-settings: "liga" 0, "clig" 0;
-    display: none;
 }
 .signup-btn:hover {
     color: #212121;

@@ -1,9 +1,11 @@
+/* eslint-disable */
 export default ({ app }) => {
   // Piano conf
   window.tp = window.tp || []
   window.tp.push(['setAid', 'NSqJ3UJWsu'])
   window.tp.push(['setSandbox', true])
   window.tp.push(['setUseTinypassAccounts', true])
+  window.tp.push(['setUsePianoIdUserProvider', true])
   window.tp.push([
     'init',
     function () {

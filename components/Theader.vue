@@ -212,7 +212,7 @@
             @click.prevent="searchMenuShow = !searchMenuShow"
             ><i class="far fa-search"></i
           ></a>
-          <app-link to="/newsletter" class="signup-btn">Prijavi se</app-link>
+          <a class="signup-btn" @click.prevent="login">Prijavi se</a>
         </div>
       </div>
     </div>
@@ -271,7 +271,7 @@
               @click.prevent="searchMenuShow = !searchMenuShow"
               ><i class="far fa-search"></i
             ></a>
-            <app-link to="/newsletter" class="signup-btn">Prijavi se</app-link>
+            <a class="signup-btn" @click="login">Prijavi se</a>
           </div>
         </div>
         <!-- Mobile Subheader -->
@@ -326,7 +326,7 @@
               @click.prevent="searchMenuShow = !searchMenuShow"
               ><i class="far fa-search"></i
             ></a>
-            <app-link to="/newsletter" class="signup-btn">Prijavi se</app-link>
+            <a class="signup-btn" @click.prevent="login">Prijavi se</a>
           </div>
         </div>
         <client-only>
@@ -526,6 +526,11 @@ export default {
       if (this.search_term) {
         this.$router.push('/search/' + this.search_term)
       }
+    },
+    login() {
+      window.tp.pianoId.show({
+        screen: 'login',
+      })
     },
   },
 }
