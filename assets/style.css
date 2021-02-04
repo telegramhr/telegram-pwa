@@ -2129,13 +2129,13 @@ html.small-fontsize, .fontsize-previews .small-fontsize {
 html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 22px;
 }
-.contrast-mode {
+.contrast-mode, .contrast-mode .author-segment {
     background-color: white;
 }
 .contrast-mode .meta-foto, .contrast-mode .header-billboard {
     background-color: white;
 }
-.dark-mode  {
+.dark-mode, .dark-mode .author-segment {
     background-color: #212121;
     color: #efefef;
 }
@@ -2253,6 +2253,45 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     bottom: auto;
     top: 0px;
 }
+
+/* Dojave
+
+.dojava-creative {
+    min-height: 30vw;
+}
+.dojava-creative .container {
+    padding-left: 120px;
+}
+.dojava-message {
+    padding: 24px;
+    border: 1px solid #c1b9b1;
+    background-color: white;
+    font-size: 36px;
+    font-size: 1.8rem;
+    border-radius: 24px;
+    border-bottom-left-radius: 0px;
+    margin-top: 24px;
+}
+.dojava-creative .container > img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.contact-tile {
+    border: 1px solid #c1b9b1;
+}
+.contact-tile h2 {
+    font-size: 48px;
+}
+.contact-tile h3 {
+    color: #ae3737;
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+*/
 
 /* Animations */
 
