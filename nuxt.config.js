@@ -98,22 +98,6 @@ export default {
         src:
           'https://www.telegram.hr/wp-content/plugins/telegram-ad-plugin/src/AdPlugin/assets/dfp/expand2.js',
       },
-      {
-        hid: 'piano',
-        vmid: 'piano',
-        name: 'piano',
-        innerHTML:
-          'tp = window.tp || []; ' +
-          "tp.push(['setAid', 'NSqJ3UJWsu']); " +
-          "tp.push(['setSandbox', true]); " +
-          "tp.push(['setUseTinypassAccounts', true]); " +
-          "tp.push(['init', function() { tp.experience.init(); }]); " +
-          "(function(src) { var a = document.createElement('script'); " +
-          "a.type = 'text/javascript'; a.async = true; a.src = src; " +
-          "var b = document.getElementsByTagName('script')[0]; " +
-          'b.parentNode.insertBefore(a, b) ' +
-          "})('//cdn.tinypass.com/api/tinypass.min.js');",
-      },
     ],
     __dangerouslyDisableSanitizersByTagID: {
       piano: ['innerHTML'],
@@ -140,6 +124,7 @@ export default {
     { src: '@/plugins/persisted.client.js' },
     { src: '@/plugins/choices.client.js' },
     { src: '@/plugins/vue-slick-carousel.js' },
+    { src: '@/plugins/piano.js', ssr: false },
   ],
 
   ngrok: {
@@ -228,7 +213,7 @@ export default {
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
     cache: true,
-    parallel: true,
+    // parallel: true,
     hardSource: true,
     indicator: false,
     loaders: {
