@@ -5,7 +5,10 @@
         <theader></theader>
       </client-only>
     </div>
-    <div class="container relative mobile-side-pad column-full-pad">
+    <div
+      v-if="author.id"
+      class="container relative mobile-side-pad column-full-pad"
+    >
       <div class="full center flex column-bottom-border">
         <div
           class="three-fourths flex-responsive flex author-segment stretch"
@@ -32,7 +35,7 @@
         </div>
       </div>
     </div>
-    <div class="full flex">
+    <div v-if="posts.length" class="full flex">
       <div class="container flex relative native-block stretch mobile-side-pad">
         <div class="full column-horizontal-pad flex">
           <h2 class="full flex section-title">Članci autora</h2>
@@ -72,10 +75,20 @@ export default {
   name: 'Autor',
   components: { Standard },
   async fetch() {
-    await this.$axios.get('author/' + this.$route.params.slug).then((res) => {
-      this.author = res.data.author
-      this.posts = res.data.posts
-    })
+    await this.$axios
+      .get('author/' + this.$route.params.slug)
+      .then((res) => {
+        this.author = res.data.author
+        this.posts = res.data.posts
+      })
+      .catch(() => {
+        // set status code on server and
+        if (process.server) {
+          this.$telegram.context.res.statusCode = 404
+        }
+        // use throw new Error()
+        throw new Error('User not found')
+      })
   },
   data() {
     return {

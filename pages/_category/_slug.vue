@@ -322,6 +322,9 @@
 export default {
   name: 'Slug',
   async fetch() {
+    if (!this.$route.params.slug) {
+      return
+    }
     let post
     if (process.client) {
       this.$nextTick(() => {
@@ -346,8 +349,6 @@ export default {
       if (process.server) {
         this.$telegram.context.res.statusCode = 404
       }
-      // use throw new Error()
-      throw new Error('Post not found')
     }
   },
   data() {
