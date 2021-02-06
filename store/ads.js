@@ -379,6 +379,18 @@ export const actions = {
       }
       commit('setSlots')
     })
+    dispatch('displaySlots')
+  },
+  displaySlots({ dispatch }) {
+    window.googletag = window.googletag || {}
+    window.googletag.cmd = window.googletag.cmd || []
+
+    const slots = document.getElementsByClassName('banner-slot')
+    slots.forEach((slot) => {
+      window.googletag.cmd.push(function () {
+        window.googletag.display(slot.id)
+      })
+    })
     dispatch('refreshSlots')
   },
   refreshSlots() {

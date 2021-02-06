@@ -1,14 +1,12 @@
 <template>
   <div :class="['main-container', 'flex', 'single-article', typeClass]">
     <template v-if="!$fetchState.error">
-      <client-only>
-        <theader
-          :id="post.id"
-          :headline="post.portal_title"
-          :side-menu-show="showSideMenu"
-          :search-menu-show="showSearchMenu"
-        ></theader>
-      </client-only>
+      <theader
+        :id="post.id"
+        :headline="post.portal_title"
+        :side-menu-show="showSideMenu"
+        :search-menu-show="showSearchMenu"
+      ></theader>
       <div v-if="related_posts" class="full related-header-widget">
         <div class="container flex desktop-only column-vertical-pad">
           <div
@@ -475,13 +473,14 @@ export default {
         tags: this.post.tags,
       })
       if (
-        !this.post.disable_ads ||
-        this.post.disable_ads.includes('all') ||
+        !this.post.disable_ads &&
+        !this.post.disable_ads.includes('all') &&
         !this.post.disable_ads.includes('nepromo')
       ) {
         this.loadMox()
       }
       if (
+        !this.post.disable_ads.includes('all') &&
         !this.post.disable_ads.includes('midas') &&
         !this.post.disable_ads.includes('nepromo')
       ) {

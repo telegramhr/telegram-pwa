@@ -1,6 +1,6 @@
 <template>
   <client-only>
-    <div :id="id"></div>
+    <div :id="id" class="banner-slot"></div>
   </client-only>
 </template>
 
@@ -13,13 +13,6 @@ export default {
       required: true,
       default: '',
     },
-  },
-  mounted() {
-    window.googletag = window.googletag || {}
-    window.googletag.cmd = window.googletag.cmd || []
-    window.googletag.cmd.push(function () {
-      window.googletag.display(this.id)
-    })
   },
 }
 </script>
