@@ -283,7 +283,7 @@ export const actions = {
           window.googletag.pubads().setTargeting(i, targeting[i])
         }
       }
-      if (payload.options && !payload.options.includes('nepromo')) {
+      if (payload.options && payload.options.includes('nepromo')) {
         window.googletag.pubads().setCategoryExclusion('NePromo')
       }
       window.googletag.pubads().enableSingleRequest()

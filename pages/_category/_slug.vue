@@ -476,7 +476,7 @@ export default {
       })
       if (
         !this.post.disable_ads ||
-        !this.post.disable_ads.includes('all') ||
+        this.post.disable_ads.includes('all') ||
         !this.post.disable_ads.includes('nepromo')
       ) {
         this.loadMox()
