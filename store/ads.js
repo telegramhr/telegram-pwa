@@ -265,6 +265,7 @@ export const actions = {
           targeting.wp_post_type = ['single']
           targeting.post_slug = [route.params.slug]
           targeting.post_category = [route.params.category]
+          targeting.post_tag = payload.tags.map((tag) => tag.slug)
           break
         case 'search':
           targeting.wp_post_type = ['search']
@@ -282,7 +283,7 @@ export const actions = {
           window.googletag.pubads().setTargeting(i, targeting[i])
         }
       }
-      if (payload.options && payload.options.includes('nepromo')) {
+      if (payload.options && !payload.options.includes('nepromo')) {
         window.googletag.pubads().setCategoryExclusion('NePromo')
       }
       window.googletag.pubads().enableSingleRequest()

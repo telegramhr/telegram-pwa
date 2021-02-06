@@ -239,9 +239,6 @@
             </div>
           </article>
         </div>
-        <div v-if="!post.disable_ads" class="full flex">
-          <partner></partner>
-        </div>
         <div class="full flex">
           <div
             class="container flex relative native-block stretch mobile-side-pad"
@@ -475,6 +472,7 @@ export default {
       this.$store.dispatch('ads/initAds', {
         route: this.$route,
         options: this.post.disable_ads,
+        tags: this.post.tags,
       })
       if (
         !this.post.disable_ads ||
