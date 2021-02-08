@@ -238,6 +238,11 @@ export const actions = {
     if (payload.options && payload.options.includes('all')) {
       return
     }
+    if (state.slots) {
+      window.googletag.cmd.push(() => {
+        window.googletag.destroySlots()
+      })
+    }
     const route = payload.route || null
     // set targeting
     const targeting = {
@@ -265,6 +270,7 @@ export const actions = {
           targeting.wp_post_type = ['single']
           targeting.post_slug = [route.params.slug]
           targeting.post_category = [route.params.category]
+          targeting.post_tag = payload.tags.map((tag) => tag.slug)
           break
         case 'search':
           targeting.wp_post_type = ['search']
@@ -345,11 +351,6 @@ export const actions = {
     dispatch('initSlots', route)
   },
   initSlots({ state, commit, dispatch }, route) {
-    if (state.slots) {
-      window.googletag.cmd.push(() => {
-        window.googletag.destroySlots()
-      })
-    }
     window.googletag.cmd.push(() => {
       const mobile = window.innerWidth < 1024
       const prefix = state.prefix
@@ -372,11 +373,25 @@ export const actions = {
           if (typeof unit.sizeMapping !== 'undefined') {
             ds.defineSizeMapping(unit.sizeMapping)
           }
-          ds.addService(window.googletag.pubads())
-          ds.setTargeting('upc', upc)
+          if (ds) {
+            ds.addService(window.googletag.pubads())
+            ds.setTargeting('upc', upc)
+          }
         }
       }
       commit('setSlots')
+    })
+    dispatch('displaySlots')
+  },
+  displaySlots({ dispatch }) {
+    window.googletag = window.googletag || {}
+    window.googletag.cmd = window.googletag.cmd || []
+
+    const slots = document.getElementsByClassName('banner-slot')
+    slots.forEach((slot) => {
+      window.googletag.cmd.push(function () {
+        window.googletag.display(slot.id)
+      })
     })
     dispatch('refreshSlots')
   },

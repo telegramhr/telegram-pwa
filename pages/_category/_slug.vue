@@ -239,9 +239,6 @@
             </div>
           </article>
         </div>
-        <div v-if="!post.disable_ads" class="full flex">
-          <partner></partner>
-        </div>
         <div class="full flex">
           <div
             class="container flex relative native-block stretch mobile-side-pad"
@@ -322,6 +319,9 @@
 export default {
   name: 'Slug',
   async fetch() {
+    if (!this.$route.params.slug) {
+      return
+    }
     let post
     if (process.client) {
       this.$nextTick(() => {
@@ -346,8 +346,6 @@ export default {
       if (process.server) {
         this.$telegram.context.res.statusCode = 404
       }
-      // use throw new Error()
-      throw new Error('Post not found')
     }
   },
   data() {
@@ -474,15 +472,17 @@ export default {
       this.$store.dispatch('ads/initAds', {
         route: this.$route,
         options: this.post.disable_ads,
+        tags: this.post.tags,
       })
       if (
-        !this.post.disable_ads ||
-        !this.post.disable_ads.includes('all') ||
+        !this.post.disable_ads &&
+        !this.post.disable_ads.includes('all') &&
         !this.post.disable_ads.includes('nepromo')
       ) {
         this.loadMox()
       }
       if (
+        !this.post.disable_ads.includes('all') &&
         !this.post.disable_ads.includes('midas') &&
         !this.post.disable_ads.includes('nepromo')
       ) {
