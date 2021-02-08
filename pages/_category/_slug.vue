@@ -534,7 +534,6 @@ export default {
       ])
       tp.push(['setContentSection', this.post.category])
       tp.push(['setContentIsNative', this.post.post_type === 'partneri'])
-      tp.push()
     },
     resize() {
       this.mobile = window.innerWidth < 1024
@@ -544,6 +543,7 @@ export default {
         if (process.client) {
           this.$telegram.$loading.finish()
         }
+        this.loadPiano()
         this.loadAds()
         if (typeof FB !== 'undefined') {
           FB.XFBML.parse()

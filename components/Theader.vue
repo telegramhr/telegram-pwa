@@ -40,6 +40,7 @@
               >Uredi</a
             >
           </template>
+          <app-link to="/moj-racun">Moj račun</app-link>
           <h3>Rubrika</h3>
           <app-link role="menuitem" to="/politika-kriminal"
             >Politika & Kriminal</app-link
