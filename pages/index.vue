@@ -71,7 +71,9 @@
           <commentary></commentary>
           <div class="full flex desktop-only">
             <h2 class="full flex section-title">Newsletter</h2>
-            <newsletter></newsletter>
+            <client-only>
+              <piano-esp></piano-esp>
+            </client-only>
           </div>
         </section>
       </div>

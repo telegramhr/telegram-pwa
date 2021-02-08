@@ -11,7 +11,7 @@ export default {
       'init',
       function () {
         console.log('load')
-        tp.myaccount.show({
+        window.tp.myaccount.show({
           displayMode: 'inline',
           containerSelector: '#my-account',
         })
