@@ -1,5 +1,13 @@
 <template>
   <div class="main-container flex homepage">
+    <div v-if="!mobile" class="container wallpaper-banners">
+      <div class="wallpaper-left">
+        <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
+      </div>
+      <div class="wallpaper-right">
+        <ad-unit id="telegram_dekstop_wallpaper_right"></ad-unit>
+      </div>
+    </div>
     <div class="full flex tg-red">
       <client-only>
         <theader></theader>
@@ -20,14 +28,6 @@
       </div>
     </div>
     <div class="full relative">
-      <div v-if="!mobile" class="container wallpaper-banners">
-        <div class="wallpaper-left">
-          <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
-        </div>
-        <div class="wallpaper-right">
-          <ad-unit id="telegram_dekstop_wallpaper_right"></ad-unit>
-        </div>
-      </div>
       <div v-if="posts.length" class="container flex relative block-1 stretch">
         <section
           class="three-fourths mobile-side-pad flex-responsive flex relative the-big-gs stretch elevate-over-section"

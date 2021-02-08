@@ -1987,16 +1987,17 @@ header {
     position: relative;
 }
 .wallpaper-banners {
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
+    right: 0;
     z-index: 200;
 }
 .wallpaper-left, .wallpaper-right {
     display: flex;
     position: absolute;
     left: -300px;
-    top: 32px;
+    top: 0px;
     width: 300px;
     height: 900px;
     overflow: hidden;
@@ -2290,8 +2291,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     color: #ae3737;
     font-size: 24px;
     margin-bottom: 8px;
-}
-*/
+} */
+
 
 /* Animations */
 

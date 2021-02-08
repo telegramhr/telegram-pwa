@@ -1,5 +1,13 @@
 <template>
   <div :class="['main-container', 'flex', 'single-article', typeClass]">
+    <div v-if="!mobile" class="container wallpaper-banners">
+      <div class="wallpaper-left">
+        <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
+      </div>
+      <div class="wallpaper-right">
+        <ad-unit id="telegram_dekstop_wallpaper_right"></ad-unit>
+      </div>
+    </div>
     <template v-if="!$fetchState.error">
       <client-only>
         <theader
@@ -67,14 +75,6 @@
         </div>
       </div>
       <div class="full relative">
-        <div v-if="!mobile" class="container wallpaper-banners">
-          <div class="wallpaper-left">
-            <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
-          </div>
-          <div class="wallpaper-right">
-            <ad-unit id="telegram_dekstop_wallpaper_right"></ad-unit>
-          </div>
-        </div>
         <div class="full flex">
           <article
             class="container column-full-pad flex relative mobile-side-pad"
@@ -179,7 +179,11 @@
             </div>
             <div class="full relative single-article-body">
               <!-- eslint-disable-next-line -->
-            <div id="article-content" @click="handleClick" v-html="post.content"></div>
+              <div
+                id="article-content"
+                @click="handleClick"
+                v-html="post.content"
+              ></div>
               <!-- Article footer -->
               <div
                 class="full relative single-article-footer flex column-top-pad"
