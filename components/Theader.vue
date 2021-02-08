@@ -212,7 +212,12 @@
             @click.prevent="searchMenuShow = !searchMenuShow"
             ><i class="far fa-search"></i
           ></a>
-          <a class="signup-btn" @click.prevent="login">Prijavi se</a>
+          <a v-if="canLogIn" class="signup-btn" @click.prevent="login"
+            >Prijavi se</a
+          >
+          <a v-if="!canLogIn" class="signup-btn" @click.prevent="logout"
+            >Odjavi se</a
+          >
         </div>
       </div>
     </div>
@@ -271,7 +276,10 @@
               @click.prevent="searchMenuShow = !searchMenuShow"
               ><i class="far fa-search"></i
             ></a>
-            <a class="signup-btn" @click="login">Prijavi se</a>
+            <a v-if="canLogIn" class="signup-btn" @click="login">Prijavi se</a>
+            <a v-if="!canLogIn" class="signup-btn" @click.prevent="logout"
+              >Odjavi se</a
+            >
           </div>
         </div>
         <!-- Mobile Subheader -->
@@ -326,7 +334,12 @@
               @click.prevent="searchMenuShow = !searchMenuShow"
               ><i class="far fa-search"></i
             ></a>
-            <a class="signup-btn" @click.prevent="login">Prijavi se</a>
+            <a v-if="canLogIn" class="signup-btn" @click.prevent="login"
+              >Prijavi se</a
+            >
+            <a v-if="!canLogIn" class="signup-btn" @click.prevent="logout"
+              >Odjavi se</a
+            >
           </div>
         </div>
         <client-only>
@@ -445,6 +458,9 @@ export default {
     }
   },
   computed: {
+    canLogIn() {
+      return this.$store.state.user.exp * 1000 < new Date().getTime()
+    },
     color_theme: {
       get() {
         return this.$store.state.theme.theme
@@ -528,9 +544,17 @@ export default {
       }
     },
     login() {
+      const _that = this
       window.tp.pianoId.show({
         screen: 'login',
+        loggedIn(data) {
+          _that.$store.dispatch('user/setUser', data)
+        },
       })
+    },
+    logout() {
+      window.tp.pianoId.logout()
+      this.$store.commit('user/logout')
     },
   },
 }
