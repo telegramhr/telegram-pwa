@@ -3570,4 +3570,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .single-article .article-head .meta-author img {
         margin-right: 8px;
     }
+    .single-article-commentary .article-head .meta-author img {
+        margin-right: auto;
+    }
 }
