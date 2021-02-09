@@ -236,8 +236,11 @@ export default {
   },
   methods: {
     handleScroll() {
-      const walls = document.getElementsByClassName('header-block-title')
-      if (window.scrollY) {
+      const walls = document.getElementsByClassName('wallpaper-banners')
+      const title = document
+        .getElementsByClassName('header-block-title')[0]
+        .getBoundingClientRect().top
+      if (window.scrollY > title) {
         walls.forEach((item) => {
           item.classList.add('sticky-homepage-wallpaper')
         })
