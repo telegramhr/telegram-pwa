@@ -27,6 +27,14 @@
         class="full center header-billboard"
       >
         <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
+        <div v-if="!mobile" class="container wallpaper-banners animate">
+          <div class="wallpaper-left">
+            <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
+          </div>
+          <div class="wallpaper-right">
+            <ad-unit id="telegram_dekstop_wallpaper_right"></ad-unit>
+          </div>
+        </div>
       </div>
       <div
         v-if="post.type === 'premium'"
@@ -67,14 +75,6 @@
         </div>
       </div>
       <div class="full relative">
-        <div v-if="!mobile" class="container wallpaper-banners">
-          <div class="wallpaper-left">
-            <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
-          </div>
-          <div class="wallpaper-right">
-            <ad-unit id="telegram_dekstop_wallpaper_right"></ad-unit>
-          </div>
-        </div>
         <div class="full flex">
           <article
             class="container column-full-pad flex relative mobile-side-pad"
@@ -179,7 +179,11 @@
             </div>
             <div class="full relative single-article-body">
               <!-- eslint-disable-next-line -->
-            <div id="article-content" @click="handleClick" v-html="post.content"></div>
+              <div
+                id="article-content"
+                @click="handleClick"
+                v-html="post.content"
+              ></div>
               <!-- Article footer -->
               <div
                 class="full relative single-article-footer flex column-top-pad"
@@ -465,9 +469,29 @@ export default {
     this.$nextTick(() => {
       this.resize()
       this.getPost()
+      window.addEventListener('scroll', this.handleScroll)
     })
   },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.handleScroll)
+  },
   methods: {
+    handleScroll() {
+      const walls = document.getElementsByClassName('wallpaper-banners')
+      const bill =
+        document
+          .getElementById('telegram_desktop_billboard_v1')
+          .getBoundingClientRect().top - 10
+      if (bill < 0) {
+        walls.forEach((item) => {
+          item.classList.add('sticky-single-wallpaper')
+        })
+      } else {
+        walls.forEach((item) => {
+          item.classList.remove('sticky-single-wallpaper')
+        })
+      }
+    },
     loadAds() {
       this.$store.dispatch('ads/initAds', {
         route: this.$route,

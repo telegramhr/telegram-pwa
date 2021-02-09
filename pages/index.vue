@@ -1,5 +1,13 @@
 <template>
   <div class="main-container flex homepage">
+    <div v-if="!mobile" class="container wallpaper-banners animate">
+      <div class="wallpaper-left">
+        <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
+      </div>
+      <div class="wallpaper-right">
+        <ad-unit id="telegram_dekstop_wallpaper_right"></ad-unit>
+      </div>
+    </div>
     <div class="full flex tg-red">
       <client-only>
         <theader></theader>
@@ -20,14 +28,6 @@
       </div>
     </div>
     <div class="full relative">
-      <div v-if="!mobile" class="container wallpaper-banners">
-        <div class="wallpaper-left">
-          <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
-        </div>
-        <div class="wallpaper-right">
-          <ad-unit id="telegram_dekstop_wallpaper_right"></ad-unit>
-        </div>
-      </div>
       <div v-if="posts.length" class="container flex relative block-1 stretch">
         <section
           class="three-fourths mobile-side-pad flex-responsive flex relative the-big-gs stretch elevate-over-section"
@@ -230,9 +230,28 @@ export default {
     this.$nextTick(() => {
       this.resize()
       this.loadAds()
+      window.addEventListener('scroll', this.handleScroll)
     })
   },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.handleScroll)
+  },
   methods: {
+    handleScroll() {
+      const walls = document.getElementsByClassName('wallpaper-banners')
+      const title = document
+        .getElementsByClassName('header-block-title')[0]
+        .getBoundingClientRect().top
+      if (title < 0) {
+        walls.forEach((item) => {
+          item.classList.add('sticky-homepage-wallpaper')
+        })
+      } else {
+        walls.forEach((item) => {
+          item.classList.remove('sticky-homepage-wallpaper')
+        })
+      }
+    },
     loadAds() {
       this.$store.dispatch('ads/initAds', { route: this.$route })
     },

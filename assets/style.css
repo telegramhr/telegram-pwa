@@ -1982,20 +1982,40 @@ header {
 }
 .header-billboard {
     background-color: #fcf1e7;
+    z-index: 150;
+    position: relative;
+}
+.single-article .header-billboard {
+    padding-top: 24px;
+    z-index: 5;
+}
+.header-billboard > * {
     z-index: 200;
     position: relative;
 }
 .wallpaper-banners {
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
+    right: 0;
     z-index: 200;
+}
+.single-article .wallpaper-banners {
+    position: absolute;
+    top: 24px;
+}
+.single-article .sticky-single-wallpaper {
+    position: fixed;
+    top: 56px;
+}
+.homepage .sticky-homepage-wallpaper {
+    top: 56px;
 }
 .wallpaper-left, .wallpaper-right {
     display: flex;
     position: absolute;
     left: -300px;
-    top: 32px;
+    top: 0px;
     width: 300px;
     height: 900px;
     overflow: hidden;
@@ -2289,8 +2309,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     color: #ae3737;
     font-size: 24px;
     margin-bottom: 8px;
-}
-*/
+} */
+
 
 /* Animations */
 
