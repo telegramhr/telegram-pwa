@@ -240,7 +240,7 @@ export default {
       const title = document
         .getElementsByClassName('header-block-title')[0]
         .getBoundingClientRect().top
-      if (title < 10) {
+      if (title < 0) {
         walls.forEach((item) => {
           item.classList.add('sticky-homepage-wallpaper')
         })

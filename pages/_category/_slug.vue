@@ -478,10 +478,11 @@ export default {
   methods: {
     handleScroll() {
       const walls = document.getElementsByClassName('wallpaper-banners')
-      const bill = document
-        .getElementById('telegram_desktop_billboard_v1')
-        .getBoundingClientRect().top
-      if (window.scrollY > bill) {
+      const bill =
+        document
+          .getElementById('telegram_desktop_billboard_v1')
+          .getBoundingClientRect().top - 10
+      if (bill < 0) {
         walls.forEach((item) => {
           item.classList.add('sticky-single-wallpaper')
         })
