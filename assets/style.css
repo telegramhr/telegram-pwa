@@ -2004,6 +2004,10 @@ header {
     position: absolute;
     top: 24px;
 }
+.single-article .sticky-single-wallpaper {
+    position: fixed;
+    top: 56px;
+}
 .wallpaper-left, .wallpaper-right {
     display: flex;
     position: absolute;
