@@ -599,7 +599,7 @@ export default {
       // handle only links that occur inside the component and do not reference external resources
       if (
         target &&
-        // target.matches("#article-content a:not([href*='://'])") &&
+        target.matches("#article-content a([href*='://www.telegram.hr'])") &&
         target.href
       ) {
         // some sanity checks taken from vue-router:
@@ -649,7 +649,27 @@ export default {
     if (this.$route.params.category !== 'partneri') {
       link.push(amp)
     }
+    let font, theme
+    if (process.server) {
+      font = this.$cookies.get('tmg_font')
+      theme = this.$cookies.get('tmg_theme')
+    } else {
+      font = this.$store.state.theme.font
+      theme = this.$store.state.theme.theme
+    }
     return {
+      htmlAttrs: {
+        class: [
+          font === 'small' ? 'small-fontsize' : '',
+          font === 'large' ? 'large-fontsize' : '',
+        ],
+      },
+      bodyAttrs: {
+        class: [
+          theme === 'contrast' ? 'contrast-mode' : '',
+          theme === 'dark' ? 'dark-mode' : '',
+        ],
+      },
       title: this.post.title,
       titleTemplate: '%s | Telegram.hr',
       meta: [

@@ -126,6 +126,7 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@nuxtjs/gtm',
+    'cookie-universal-nuxt',
   ],
 
   gtm: {
@@ -187,9 +188,9 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
-    cache: true,
-    parallel: true,
-    hardSource: true,
+    // cache: true,
+    // parallel: true,
+    // hardSource: true,
     loaders: {
       vue: {
         prettify: false,
