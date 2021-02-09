@@ -469,29 +469,13 @@ export default {
     this.$nextTick(() => {
       this.resize()
       this.getPost()
-      this.handleDebouncedScroll = this.debounce(this.handleScroll, 100)
-      window.addEventListener('scroll', this.handleDebouncedScroll)
+      window.addEventListener('scroll', this.handleScroll)
     })
   },
   beforeDestroy() {
-    window.removeEventListener('scroll', this.handleDebouncedScroll)
+    window.removeEventListener('scroll', this.handleScroll)
   },
   methods: {
-    debounce(func, wait, immediate) {
-      let timeout
-      return function () {
-        const context = this
-        const args = arguments
-        const later = function () {
-          timeout = null
-          if (!immediate) func.apply(context, args)
-        }
-        const callNow = immediate && !timeout
-        clearTimeout(timeout)
-        timeout = setTimeout(later, wait)
-        if (callNow) func.apply(context, args)
-      }
-    },
     handleScroll() {
       const walls = document.getElementsByClassName('wallpaper-banners')
       if (window.scrollY) {

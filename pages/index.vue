@@ -228,9 +228,25 @@ export default {
     this.$nextTick(() => {
       this.resize()
       this.loadAds()
+      window.addEventListener('scroll', this.handleScroll)
     })
   },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.handleScroll)
+  },
   methods: {
+    handleScroll() {
+      const walls = document.getElementsByClassName('header-block-title')
+      if (window.scrollY) {
+        walls.forEach((item) => {
+          item.classList.add('sticky-homepage-wallpaper')
+        })
+      } else {
+        walls.forEach((item) => {
+          item.classList.remove('sticky-homepage-wallpaper')
+        })
+      }
+    },
     loadAds() {
       this.$store.dispatch('ads/initAds', { route: this.$route })
     },
