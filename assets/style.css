@@ -1987,7 +1987,7 @@ header {
     position: relative;
 }
 .single-article .header-billboard {
-    margin-top: 24px;
+    padding-top: 24px;
 }
 .header-billboard > * {
     z-index: 200;
@@ -2002,6 +2002,7 @@ header {
 }
 .single-article .wallpaper-banners {
     position: absolute;
+    top: 24px;
 }
 .wallpaper-left, .wallpaper-right {
     display: flex;
