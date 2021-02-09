@@ -2009,6 +2009,9 @@ header {
     position: fixed;
     top: 56px;
 }
+.homepage .sticky-homepage-wallpaper {
+    top: 56px;
+}
 .wallpaper-left, .wallpaper-right {
     display: flex;
     position: absolute;
