@@ -1,11 +1,19 @@
 <template>
-  <div></div>
+  <div class="main-container flex category-page">
+    <div class="full flex relative single-article">
+      <client-only>
+        <theader></theader>
+      </client-only>
+    </div>
+    <div id="content" class="container full relative"></div>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'ResetPassword',
   mounted() {
+    const _that = this
     window.tp.push([
       'init',
       function () {
@@ -18,10 +26,12 @@ export default {
             const token = tokenMatch[1]
             // Present password reset form with the found token
             window.tp.pianoId.show({
+              display: 'inline',
+              containerSelector: '#content',
               resetPasswordToken: token,
-              loggedIn() {
-                // Once user logs in - refresh the page
-                location.reload()
+              loggedIn(data) {
+                _that.$store.dispatch('user/setUser', data)
+                this.$router.push('/')
               },
             })
           }
