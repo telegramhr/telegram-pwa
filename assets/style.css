@@ -1986,6 +1986,9 @@ header {
     z-index: 150;
     position: relative;
 }
+.single-article .header-billboard {
+    margin-top: 24px;
+}
 .header-billboard > * {
     z-index: 200;
     position: relative;
@@ -1996,6 +1999,9 @@ header {
     left: 0;
     right: 0;
     z-index: 200;
+}
+.single-article .wallpaper-banners {
+    position: absolute;
 }
 .wallpaper-left, .wallpaper-right {
     display: flex;
