@@ -6,6 +6,7 @@
       </client-only>
     </div>
     <div id="content" class="container full relative"></div>
+    <tfooter></tfooter>
   </div>
 </template>
 
@@ -26,7 +27,7 @@ export default {
             const token = tokenMatch[1]
             // Present password reset form with the found token
             window.tp.pianoId.show({
-              display: 'inline',
+              displayMode: 'inline',
               containerSelector: '#content',
               resetPasswordToken: token,
               loggedIn(data) {
