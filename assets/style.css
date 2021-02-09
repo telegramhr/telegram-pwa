@@ -1988,6 +1988,7 @@ header {
 }
 .single-article .header-billboard {
     padding-top: 24px;
+    z-index: 5;
 }
 .header-billboard > * {
     z-index: 200;

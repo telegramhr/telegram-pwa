@@ -27,7 +27,7 @@
         class="full center header-billboard"
       >
         <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
-        <div v-if="!mobile" class="container wallpaper-banners">
+        <div v-if="!mobile" class="container wallpaper-banners animate">
           <div class="wallpaper-left">
             <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
           </div>
