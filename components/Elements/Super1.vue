@@ -44,7 +44,7 @@
         </div>
       </section>
       <section
-        v-if="morePosts.length"
+        v-if="showMore && morePosts.length"
         class="third flex-responsive flex mobile-only column-horizontal-pad flex mobile-side-pad"
       >
         <standard
@@ -79,7 +79,9 @@ export default {
   },
   data() {
     return {
+      showMore: false,
       loading: false,
+      page: 2,
     }
   },
   computed: {
@@ -96,8 +98,10 @@ export default {
   methods: {
     loadMore() {
       this.loading = true
-      this.$store.dispatch('super/loadMore').then(() => {
+      this.$store.dispatch('super/loadMore', this.page).then(() => {
         this.loading = false
+        this.page++
+        this.showMore = true
       })
     },
   },

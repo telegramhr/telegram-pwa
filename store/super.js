@@ -3,6 +3,7 @@ export const state = () => ({
   morePosts: [],
   reading: [],
   updated: null,
+  moreUpdated: null,
   page: 2,
 })
 
@@ -15,6 +16,11 @@ export const mutations = {
   setMore(state, data) {
     state.morePosts = [...state.morePosts, ...data]
     state.page = state.page + 1
+    state.moreUpdated = new Date().getTime()
+  },
+  clearMore(state) {
+    state.morePosts = []
+    state.page = 2
   },
 }
 
@@ -31,12 +37,19 @@ export const actions = {
       }
     })
   },
-  loadMore({ commit, state }) {
+  loadMore({ commit, state }, page) {
     return new Promise((resolve) => {
-      this.$axios.get('portal/3/page/' + state.page).then((res) => {
-        commit('setMore', res.data.posts)
+      if (state.moreUpdated + 3600 * 1000 < new Date().getTime()) {
+        commit('clearMore')
+      }
+      if (state.morePosts.length < page * 7) {
+        this.$axios.get('portal/3/page/' + page).then((res) => {
+          commit('setMore', res.data.posts)
+          resolve()
+        })
+      } else {
         resolve()
-      })
+      }
     })
   },
 }
