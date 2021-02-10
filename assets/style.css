@@ -1986,10 +1986,6 @@ header {
     z-index: 150;
     position: relative;
 }
-.single-article .header-billboard {
-    padding-top: 24px;
-    z-index: 5;
-}
 .header-billboard > * {
     z-index: 200;
     position: relative;
@@ -2277,41 +2273,77 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 /* Dojave
 
 .dojava-creative {
-    min-height: 30vw;
+    color: white;
 }
-.dojava-creative .container {
-    padding-left: 120px;
+.dojava-creative p {
+    font-size: 20px;
+    margin-top: 16px;
 }
-.dojava-message {
-    padding: 24px;
-    border: 1px solid #c1b9b1;
-    background-color: white;
-    font-size: 36px;
-    font-size: 1.8rem;
-    border-radius: 24px;
-    border-bottom-left-radius: 0px;
-    margin-top: 24px;
+.dojava-visual{
+    margin-bottom: -26%;
+    padding-left: 4%;
 }
-.dojava-creative .container > img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+.dojava-creative h1 {
+    margin-top: 20px;
+    font-size: 64px;
 }
 .contact-tile {
     border: 1px solid #c1b9b1;
 }
 .contact-tile h2 {
     font-size: 48px;
+    padding-right: 68px;
 }
 .contact-tile h3 {
     color: #ae3737;
     font-size: 24px;
-    margin-bottom: 8px;
-} */
+    margin-bottom: 16px;
+    padding-right: 68px;
+}
+.dojave-intro {
+    margin-top: 24px;
+    padding-right: 40% !important;
+    font-size: 20px;
+}
+.contact-tile i {
+    color: #c1b9b1;
+    font-size: 60px;
+    font-size: 3rem;
+    position: absolute;
+    top: 32px;
+    right: 26px;
+}
 
+@media screen and (max-width: 1024px) {
+    .dojava-creative h1 {
+        font-size: 36px;
+        font-size: 1.8rem;
+    }
+    .contact-tile {
+        font-size: 24px;
+        font-size: 1.2rem;
+        margin-top: 32px;
+    }
+    .contact-tile h3 {
+        font-size: 20px;
+        font-size: 1rem;
+    }
+    .contact-tile p {
+        font-size: 16px;
+        font-size: 0.8rem;
+    }
+    .contact-tile {
+        padding: 24px;
+    }
+    .dojave-intro {
+        margin-top: 30%;
+        padding-top: 24px;
+        padding-right: 0% !important;
+    }
+    .dojava-creative p {
+        margin-bottom: 24px;
+    }
+}*/
 
 /* Animations */
 
@@ -3428,6 +3460,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .contrast-mode .elevate-over-section {
         background-color: white;
+    }
+    .single-article .header-billboard {
+        padding-top: 24px;
+        z-index: 5;
     }
 }
 @media screen and (max-width: 1024px) and (max-height: 800px) {
