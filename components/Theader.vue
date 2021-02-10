@@ -470,7 +470,7 @@ export default {
         return this.$store.state.theme.theme
       },
       set(value) {
-        this.$store.dispatch('theme/setTheme', value)
+        this.$store.dispatch('theme/setTheme', { type: value, app: this })
       },
     },
     font_size: {
@@ -478,7 +478,7 @@ export default {
         return this.$store.state.theme.font
       },
       set(value) {
-        this.$store.dispatch('theme/setFont', value)
+        this.$store.dispatch('theme/setFont', { type: value, app: this })
       },
     },
     loggedIn() {
