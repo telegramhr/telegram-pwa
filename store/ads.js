@@ -270,7 +270,9 @@ export const actions = {
           targeting.wp_post_type = ['single']
           targeting.post_slug = [route.params.slug]
           targeting.post_category = [route.params.category]
-          targeting.post_tag = payload.tags.map((tag) => tag.slug)
+          if (payload.tags) {
+            targeting.post_tag = payload.tags.map((tag) => tag.slug)
+          }
           break
         case 'search':
           targeting.wp_post_type = ['search']
