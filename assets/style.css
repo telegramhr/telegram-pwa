@@ -2270,7 +2270,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     top: 0px;
 }
 
-/* Dojave
+/* Dojave */
 
 .dojava-creative {
     color: white;
@@ -2284,7 +2284,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     padding-left: 4%;
 }
 .dojava-creative h1 {
-    margin-top: 20px;
+    line-height: 1em;
+    margin-top: 30px;
     font-size: 64px;
 }
 .contact-tile {
@@ -2312,6 +2313,14 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     position: absolute;
     top: 32px;
     right: 26px;
+}
+.special-partner-tagline {
+    text-align: center;
+    font-size: 0.9rem;
+    font-family: neuzeit-grotesk, sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.2px;
+    opacity: .7;
 }
 
 @media screen and (max-width: 1024px) {
@@ -2343,7 +2352,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .dojava-creative p {
         margin-bottom: 24px;
     }
-}*/
+}
 
 /* Animations */
 
@@ -2375,7 +2384,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 0.85rem;
         padding-top: 0px;
     }
-    .single-article .subheader {
+    .single-article .subheader, .red-header-page .subheader {
         display: none;
     }
     .sticky-subheader {
@@ -2561,7 +2570,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     header {
         position: relative;
     }
-    .single-article header nav {
+    .single-article header nav, .red-header-page header nav {
         background-color: #212121;
     }
     /*.single-article {

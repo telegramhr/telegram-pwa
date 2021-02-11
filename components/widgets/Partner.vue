@@ -1,23 +1,21 @@
 <template>
-  <div
-    class="container flex relative stretch special-partner-widget maxflu-style"
-  >
+  <div class="container flex relative stretch special-partner-widget">
     <div class="line-decoration-box animate">
       <div class="line-1 animate"></div>
       <div class="line-2 animate"></div>
       <div class="line-3 animate"></div>
     </div>
     <div class="fourth flex-responsive column-full-pad mobile-side-pad">
-      <a
-        class="full flex relative"
-        href="https://doktor-online.hr/"
-        target="_blank"
-      >
+      <div class="full flex relative">
         <img
-          src="https://www.telegram.hr/wp-content/uploads/2021/01/widget-tg.png"
-          alt="Doktor Online - Vodeći Hrvatski doktori za vas"
+          src="https://www.telegram.hr/wp-content/uploads/2021/02/afera-boras-widget.jpg"
+          alt="Afera Boras na Telegram.hr"
         />
-      </a>
+        <p class="full special-partner-tagline">
+          Serijal Dore Kršul<br />
+          o zlostavljanju na Sveučilištu
+        </p>
+      </div>
     </div>
     <div
       v-for="post in posts"
@@ -51,7 +49,7 @@
         </div>
       </app-link>
     </div>
-    <h5 class="full center-text special-partner-signature">
+    <h5 class="full center-text special-partner-signature hide">
       <span class="faded">Omogućuje</span> {{ title }}
     </h5>
     <div class="line-decoration-box animate">
@@ -91,9 +89,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-.maxflu-style {
-  background-color: #0c2043;
-}
-</style>
