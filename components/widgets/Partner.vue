@@ -12,8 +12,7 @@
           alt="Afera Boras na Telegram.hr"
         />
         <p class="full special-partner-tagline">
-          Serijal Dore Kršul<br />
-          o zlostavljanju na Sveučilištu
+          Serijal Telegramove Dore Kršul o zlostavljanju na Sveučilištu
         </p>
       </div>
     </div>
