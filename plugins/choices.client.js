@@ -1,5 +1,11 @@
 /* eslint-disable */
 export default ({ app }) => {
+  const ua = process.server
+    ? app.req.headers['user-agent']
+    : navigator.userAgent
+  if (ua === 'cXensebot') {
+    return
+  }
   ;(function (w) {
     ;(function () {
       /*
