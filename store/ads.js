@@ -105,13 +105,13 @@ export const state = () => ({
     },
     telegram_desktop_wallpaper_left: {
       upc: {
-        desktop: 6,
-        mobile: 6,
+        desktop: 36,
+        mobile: 36,
       },
       desktop: [
         [300, 900],
         [200, 900],
-        [341, 1051],
+        [340, 1050],
       ],
       mobile: false,
       routes: [
@@ -128,8 +128,8 @@ export const state = () => ({
     },
     telegram_dekstop_wallpaper_right: {
       upc: {
-        desktop: 6,
-        mobile: 6,
+        desktop: 36,
+        mobile: 36,
       },
       desktop: [
         [301, 901],
@@ -315,7 +315,7 @@ export const actions = {
             })
             el.appendChild(cross)
           }
-          if (
+          /* if (
             !window.googletag.reloadedSlots.includes(name) &&
             event.isEmpty &&
             event.slot.getAdUnitPath().includes('wallpaper')
@@ -340,7 +340,7 @@ export const actions = {
               .setTargeting('upc', upc)
             window.googletag.display(newName)
             window.googletag.reloadedSlots.push(name)
-          }
+          } */
           if (event.size && event.size[0] === 200 && event.size[1] === 250) {
             el.style.right = '0px'
           }

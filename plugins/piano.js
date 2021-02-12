@@ -20,19 +20,6 @@ export default ({ app }) => {
   const b = document.getElementsByTagName('script')[0]
   b.parentNode.insertBefore(a, b)
 
-  // ESP conf
-  window.PianoESPConfig = {
-    id: 648,
-  }
-  const e = document.createElement('script')
-  e.setAttribute('id', 'pnesplucidsdksel')
-  e.type = 'text/javascript'
-  e.src =
-    '//sandbox-api-esp.piano.io/public/sdk/v04/sdk.js?v=' +
-    ((localStorage && localStorage.lucidsdkver) || 'xxx')
-  e.async = true
-  document.getElementsByTagName('script')[0].parentNode.appendChild(e)
-
   // Adblock
   document.cookie =
     '__adblocker=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/'
