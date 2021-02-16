@@ -553,6 +553,7 @@ export default {
         screen: 'login',
         loggedIn(data) {
           _that.$store.dispatch('user/setUser', data)
+          window.location.reload()
         },
       })
     },
