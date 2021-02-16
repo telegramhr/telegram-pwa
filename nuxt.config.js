@@ -82,6 +82,10 @@ export default {
         src:
           'https://www.telegram.hr/wp-content/plugins/telegram-ad-plugin/src/AdPlugin/assets/dfp/expand2.js',
       },
+      {
+        src: 'https://cdn.cxense.com/cx.js',
+        async: true,
+      },
     ],
   },
 
@@ -128,6 +132,10 @@ export default {
     '@nuxtjs/gtm',
     'cookie-universal-nuxt',
   ],
+
+  router: {
+    middleware: ['piano'],
+  },
 
   gtm: {
     id: 'GTM-TF4XJXD',
