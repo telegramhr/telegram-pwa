@@ -104,6 +104,7 @@ export default {
     { src: '@/plugins/persisted.client.js' },
     { src: '@/plugins/choices.client.js' },
     { src: '@/plugins/vue-slick-carousel.js' },
+    { src: '@/plugins/piano-cxense.js', ssr: false },
   ],
 
   ngrok: {
@@ -132,10 +133,6 @@ export default {
     '@nuxtjs/gtm',
     'cookie-universal-nuxt',
   ],
-
-  router: {
-    middleware: ['piano'],
-  },
 
   gtm: {
     id: 'GTM-TF4XJXD',
