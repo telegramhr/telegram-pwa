@@ -79,7 +79,7 @@
       <section class="full mobile-only">
         <break></break>
       </section>
-      <partner></partner>
+
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
       </div>
@@ -181,6 +181,7 @@
           <most-read v-if="mobile"></most-read>
         </client-only>
       </div>
+      <partner></partner>
     </div>
     <tfooter></tfooter>
   </div>
