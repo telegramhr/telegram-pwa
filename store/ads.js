@@ -304,12 +304,13 @@ export const actions = {
           const el = document.getElementById(event.slot.getSlotElementId())
           if (name.includes('sticky') && !event.isEmpty) {
             const cross = document.createElement('a')
-            cross.innerHTML = '<i class="fa fa-times-circle fa-3x"></i>'
+            cross.innerHTML =
+              '<i class="fa fa-times-circle fa-2x" style="color: #ae3736;"></i>'
             cross.style.cssText =
               'position:fixed; left: 50%; margin-left: ' +
               (event.size[0] / 2 - 25) +
               'px; bottom: ' +
-              (event.size[1] - 25) +
+              (event.size[1] - 10) +
               'px; z-index:999;'
             cross.addEventListener('click', function (e) {
               e.preventDefault()
