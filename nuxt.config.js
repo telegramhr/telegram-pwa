@@ -2,6 +2,7 @@ export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   globalName: 'telegram',
   modern: 'client',
+  telemetry: false,
   head: {
     title: 'Telegram.hr',
     meta: [
@@ -89,6 +90,10 @@ export default {
     ],
   },
 
+  router: {
+    middleware: ['piano'],
+  },
+
   loading: '~/components/loading.vue',
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
@@ -105,6 +110,7 @@ export default {
     { src: '@/plugins/choices.client.js' },
     { src: '@/plugins/vue-slick-carousel.js' },
     { src: '@/plugins/piano-cxense.js', ssr: false },
+    { src: '@/plugins/piano.js', ssr: false },
   ],
 
   ngrok: {

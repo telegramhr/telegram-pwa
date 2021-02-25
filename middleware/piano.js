@@ -10,5 +10,7 @@ export default function () {
       'GRU',
       'f0432a5c19cac4cf07c94cc89ef57dd30575ec83',
     ])
+
+    window.tp.experience.execute()
   }
 }

@@ -12,6 +12,7 @@ export default ({ store }) => {
       'mostread',
       'category.categories',
       'theme',
+      'user',
     ],
   })(store)
 }

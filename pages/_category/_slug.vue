@@ -547,6 +547,24 @@ export default {
         container.parentNode.insertBefore(scriptTag, container)
       }
     },
+    loadPiano() {
+      const tp = window.tp || []
+      if (this.post.tags.length) {
+        tp.push([
+          'setTags',
+          this.post.tags.map((tag) => {
+            return tag.slug
+          }),
+        ])
+      }
+      tp.push([
+        'setContentCreated',
+        new Date(this.post.time * 1000).toISOString(),
+      ])
+      tp.push(['setContentSection', this.post.category])
+      tp.push(['setContentAuthor', this.post.authors[0].name])
+      tp.push(['setContentIsNative', this.post.post_type === 'partneri'])
+    },
     resize() {
       this.mobile = window.innerWidth < 1024
     },
@@ -555,6 +573,7 @@ export default {
         if (process.client) {
           this.$telegram.$loading.finish()
         }
+        this.loadPiano()
         this.loadAds()
         if (typeof FB !== 'undefined') {
           FB.XFBML.parse()
