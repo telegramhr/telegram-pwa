@@ -23,7 +23,7 @@ export default {
         hid: 'gf-preconnect',
         rel: 'preconnect',
         href: 'https://fonts.gstatic.com',
-        crossorigin: true,
+        crossorigin: 'anonymous',
       },
       {
         hid: 'gf-preload',
@@ -31,20 +31,20 @@ export default {
         as: 'style',
         href:
           'https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap',
-        crossorigin: true,
+        crossorigin: 'anonymous',
       },
       {
         hid: 'tk-preconnect',
         rel: 'preconnect',
         href: 'https://use.typekit.net',
-        crossorigin: true,
+        crossorigin: 'anonymous',
       },
       {
         hid: 'tk-preload',
         rel: 'preload',
         as: 'style',
         href: 'https://use.typekit.net/yjw4lwh.css',
-        crossorigin: true,
+        crossorigin: 'anonymous',
       },
       { rel: 'stylesheet', href: 'https://use.typekit.net/yjw4lwh.css' },
       {
