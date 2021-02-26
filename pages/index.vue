@@ -181,7 +181,6 @@
           <most-read v-if="mobile"></most-read>
         </client-only>
       </div>
-      <partner></partner>
     </div>
     <tfooter></tfooter>
   </div>
