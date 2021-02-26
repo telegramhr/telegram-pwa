@@ -3,6 +3,7 @@ export default ({ app }) => {
   // Piano conf
   window.tp = window.tp || []
   window.tp.push(['setAid', 'NSqJ3UJWsu'])
+  window.tp.push(["setCxenseSiteId", "1128464677385494954"]);
   window.tp.push(['setSandbox', true])
   window.tp.push(['setUseTinypassAccounts', true])
   window.tp.push(['setUsePianoIdUserProvider', true])
