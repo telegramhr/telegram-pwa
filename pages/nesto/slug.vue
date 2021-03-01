@@ -187,7 +187,13 @@
                 vodio.
               </p>
               <div class="banner-intext center intext">
-                <div id="telegram_desktop_intext_v1" class="banner-slot"></div>
+                <div id="telegram_desktop_intext_v1" class="banner-slot">
+                  <script>
+                    window.googletag = window.googletag || {}
+                    window.googletag.cmd = window.googletag.cmd || []
+                    window.googletag.cmd.push(function () {})
+                  </script>
+                </div>
               </div>
 
               <p>
@@ -252,7 +258,7 @@
                 </p>
 
                 <div
-                  id="_mwayss-325b7d752b361c5458420729057fe2ff1614600749387"
+                  data-id="_mwayss-325b7d752b361c5458420729057fe2ff1614600749387"
                 ></div>
                 <p>
                   Iznenada se, prisjeća se Milički, pojavljuje vlasnik autoškole
@@ -281,10 +287,13 @@
                   više, no sud je samo ispravio rješenje.
                 </p>
                 <div class="banner-intext center intext">
-                  <div
-                    id="telegram_desktop_intext_v2"
-                    class="banner-slot"
-                  ></div>
+                  <div id="telegram_desktop_intext_v2" class="banner-slot">
+                    <script>
+                      window.googletag = window.googletag || {}
+                      window.googletag.cmd = window.googletag.cmd || []
+                      window.googletag.cmd.push(function () {})
+                    </script>
+                  </div>
                 </div>
 
                 <p>

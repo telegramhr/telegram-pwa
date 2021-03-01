@@ -26,6 +26,7 @@ export const state = () => ({
         'index',
         'category',
         'category-slug',
+        'nesto-slug',
         'fotogalerije-category',
         'fotogalerije-category-slug',
         'category',
@@ -118,6 +119,7 @@ export const state = () => ({
         'index',
         'category',
         'category-slug',
+        'nesto-slug',
         'fotogalerije-category',
         'fotogalerije-category-slug',
         'category',
@@ -141,6 +143,8 @@ export const state = () => ({
         'index',
         'category',
         'category-slug',
+        'nesto-slug',
+        'nesto-slug',
         'fotogalerije-category',
         'fotogalerije-category-slug',
         'category',
@@ -154,7 +158,7 @@ export const state = () => ({
         desktop: 14,
         mobile: 14,
       },
-      routes: ['category-slug'],
+      routes: ['category-slug', 'nesto-slug'],
       desktop: [
         [660, 350],
         [300, 250],
@@ -174,7 +178,7 @@ export const state = () => ({
         desktop: 13,
         mobile: 13,
       },
-      routes: ['category-slug'],
+      routes: ['category-slug', 'nesto-slug'],
       desktop: [
         [660, 350],
         [300, 250],
@@ -199,6 +203,7 @@ export const state = () => ({
         'index',
         'category',
         'category-slug',
+        'nesto-slug',
         'fotogalerije-category',
         'fotogalerije-category-slug',
         'category',
@@ -266,6 +271,7 @@ export const actions = {
           targeting.post_category = [route.params.slug]
           break
         case 'category-slug':
+        case 'nesto-slug':
         case 'fotogalerije-category-slug':
           targeting.wp_post_type = ['single']
           targeting.post_slug = [route.params.slug]
