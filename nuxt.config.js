@@ -25,25 +25,178 @@ export default {
         href: 'https://fonts.gstatic.com',
         crossorigin: 'anonymous',
       },
-      {
-        hid: 'gf-preload',
+      /* {
+        hid: 'gf-preload-1',
         rel: 'preload',
-        as: 'style',
+        as: 'font',
         href:
-          'https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap',
-        crossorigin: 'anonymous',
+          'https://fonts.gstatic.com/s/barlow/v5/7cHrv4kjgoGqM7E_Cfs0wH8DnzcjTrA.woff2',
+        crossorigin: true,
       },
+      {
+        hid: 'gf-preload-2',
+        rel: 'preload',
+        as: 'font',
+        href:
+          'https://fonts.gstatic.com/s/barlow/v5/7cHrv4kjgoGqM7E_Cfs1wH8DnzcjTrA.woff2',
+        crossorigin: true,
+      },
+      {
+        hid: 'gf-preload-3',
+        rel: 'preload',
+        as: 'font',
+        href:
+          'https://fonts.gstatic.com/s/barlow/v5/7cHrv4kjgoGqM7E_Cfs7wH8Dnzcj.woff2',
+        crossorigin: true,
+      },
+      {
+        hid: 'gf-preload-4',
+        rel: 'preload',
+        as: 'font',
+        href:
+          'https://fonts.gstatic.com/s/barlow/v5/7cHpv4kjgoGqM7E_Ass5ynghnQci.woff2',
+        crossorigin: true,
+      },
+      {
+        hid: 'gf-preload-5',
+        rel: 'preload',
+        as: 'font',
+        href:
+          'https://fonts.gstatic.com/s/barlow/v5/7cHpv4kjgoGqM7E_DMs5ynghnQ.woff2',
+        crossorigin: true,
+      },
+      {
+        hid: 'gf-preload-6',
+        rel: 'preload',
+        as: 'font',
+        href:
+          'https://fonts.gstatic.com/s/barlow/v5/7cHqv4kjgoGqM7E30-8s6Vostz0rdom9.woff2',
+        crossorigin: true,
+      },
+      {
+        hid: 'gf-preload-7',
+        rel: 'preload',
+        as: 'font',
+        href:
+          'https://fonts.gstatic.com/s/barlow/v5/7cHqv4kjgoGqM7E30-8s51ostz0rdg.woff2',
+        crossorigin: true,
+      },
+      {
+        hid: 'gf-preload-8',
+        rel: 'preload',
+        as: 'font',
+        href:
+          'https://fonts.gstatic.com/s/barlow/v5/7cHqv4kjgoGqM7E3t-4s6Vostz0rdom9.woff2',
+        crossorigin: true,
+      },
+      {
+        hid: 'gf-preload-9',
+        rel: 'preload',
+        as: 'font',
+        href:
+          'https://fonts.gstatic.com/s/barlow/v5/7cHqv4kjgoGqM7E3t-4s51ostz0rdg.woff2',
+        crossorigin: true,
+      },
+      {
+        hid: 'gf-preload-10',
+        rel: 'preload',
+        as: 'font',
+        href:
+          'https://fonts.gstatic.com/s/merriweather/v22/u-4l0qyriQwlOrhSvowK_l5-eR7lXff2jvzDP3WGO5g.woff2',
+        crossorigin: true,
+      },
+      {
+        hid: 'gf-preload-11',
+        rel: 'preload',
+        as: 'font',
+        href:
+          'https://fonts.gstatic.com/s/merriweather/v22/u-4l0qyriQwlOrhSvowK_l5-eR7lXff4jvzDP3WG.woff2',
+        crossorigin: true,
+      },
+      {
+        hid: 'gf-preload-12',
+        rel: 'preload',
+        as: 'font',
+        href:
+          'https://fonts.gstatic.com/s/merriweather/v22/u-4m0qyriQwlOrhSvowK_l5-eRZAf-LVrPHpBXw.woff2',
+        crossorigin: true,
+      },
+      {
+        hid: 'gf-preload-13',
+        rel: 'preload',
+        as: 'font',
+        href:
+          'https://fonts.gstatic.com/s/merriweather/v22/u-4m0qyriQwlOrhSvowK_l5-eRZOf-LVrPHp.woff2',
+        crossorigin: true,
+      },
+      {
+        hid: 'gf-preload-14',
+        rel: 'preload',
+        as: 'font',
+        href:
+          'https://fonts.gstatic.com/s/merriweather/v22/u-4l0qyriQwlOrhSvowK_l5-eR71Wvf2jvzDP3WGO5g.woff2',
+        crossorigin: true,
+      },
+      {
+        hid: 'gf-preload-15',
+        rel: 'preload',
+        as: 'font',
+        href:
+          'https://fonts.gstatic.com/s/merriweather/v22/u-4l0qyriQwlOrhSvowK_l5-eR71Wvf4jvzDP3WG.woff2',
+        crossorigin: true,
+      },
+      {
+        hid: 'gf-preload-16',
+        rel: 'preload',
+        as: 'font',
+        href:
+          'https://fonts.gstatic.com/s/merriweather/v22/u-4n0qyriQwlOrhSvowK_l521wRZVsf6hPvhPUWH.woff2',
+        crossorigin: true,
+      },
+      {
+        hid: 'gf-preload-17',
+        rel: 'preload',
+        as: 'font',
+        href:
+          'https://fonts.gstatic.com/s/merriweather/v22/u-4n0qyriQwlOrhSvowK_l521wRZWMf6hPvhPQ.woff2',
+        crossorigin: true,
+      },
+      {
+        hid: 'gf-preload-18',
+        rel: 'preload',
+        as: 'font',
+        href:
+          'https://fonts.gstatic.com/s/merriweather/v22/u-440qyriQwlOrhSvowK_l5-ciZMdeX3rsHo.woff2',
+        crossorigin: true,
+      },
+      {
+        hid: 'gf-preload-19',
+        rel: 'preload',
+        as: 'font',
+        href:
+          'https://fonts.gstatic.com/s/merriweather/v22/u-440qyriQwlOrhSvowK_l5-fCZMdeX3rg.woff2',
+        crossorigin: true,
+      },
+      {
+        hid: 'gf-preload-20',
+        rel: 'preload',
+        as: 'font',
+        href:
+          'https://fonts.gstatic.com/s/merriweather/v22/u-4n0qyriQwlOrhSvowK_l52xwNZVsf6hPvhPUWH.woff2',
+        crossorigin: true,
+      },
+      {
+        hid: 'gf-preload-21',
+        rel: 'preload',
+        as: 'font',
+        href:
+          'https://fonts.gstatic.com/s/merriweather/v22/u-4n0qyriQwlOrhSvowK_l52xwNZWMf6hPvhPQ.woff2',
+        crossorigin: true,
+      }, */
       {
         hid: 'tk-preconnect',
         rel: 'preconnect',
         href: 'https://use.typekit.net',
-        crossorigin: 'anonymous',
-      },
-      {
-        hid: 'tk-preload',
-        rel: 'preload',
-        as: 'style',
-        href: 'https://use.typekit.net/yjw4lwh.css',
         crossorigin: 'anonymous',
       },
       { rel: 'stylesheet', href: 'https://use.typekit.net/yjw4lwh.css' },
