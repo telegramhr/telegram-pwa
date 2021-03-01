@@ -18,7 +18,10 @@
       </div>
     </div>
     <div
-      v-if="!mobile && $route.name === 'category-slug'"
+      v-if="
+        !mobile &&
+        ($route.name === 'category-slug' || $route.name === 'nesto-slug')
+      "
       class="full center header-billboard"
     >
       <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
@@ -257,9 +260,7 @@
                   poduzetničku zonu.
                 </p>
 
-                <div
-                  data-id="_mwayss-325b7d752b361c5458420729057fe2ff1614600749387"
-                ></div>
+                <div data-id="_mwayss-325b7d752b361c5458420729057fe2ff"></div>
                 <p>
                   Iznenada se, prisjeća se Milički, pojavljuje vlasnik autoškole
                   iz susjedne općine koji traži poligon za svoje mlade vozače.
@@ -615,7 +616,6 @@ export default {
       container.parentNode.insertBefore(scriptTag, container)
     },
     loadMox() {
-      console.log('mox')
       const container = document.querySelectorAll(
         '[data-id=_mwayss-325b7d752b361c5458420729057fe2ff]'
       )[0]
