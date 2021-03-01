@@ -243,7 +243,6 @@ export const actions = {
     if (payload.options && payload.options.includes('all')) {
       return
     }
-    console.log('initads')
     if (state.slots) {
       window.googletag.cmd.push(() => {
         window.googletag.destroySlots()
@@ -361,7 +360,6 @@ export const actions = {
     dispatch('initSlots', route)
   },
   initSlots({ state, commit, dispatch }, route) {
-    console.log('initslots')
     window.googletag.cmd.push(() => {
       const mobile = window.innerWidth < 1024
       const prefix = state.prefix
@@ -407,7 +405,6 @@ export const actions = {
     dispatch('refreshSlots')
   },
   refreshSlots() {
-    console.log('refreshslots')
     window.googlefc = window.googlefc || {}
     window.googlefc.callbackQueue = window.googlefc.callbackQueue || []
     window.googletag = window.googletag || {}
