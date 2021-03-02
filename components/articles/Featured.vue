@@ -33,7 +33,7 @@
         </h2>
         <h4 class="full">{{ post.subtitle }}</h4>
         <h5 class="full flex article-meta">
-          <span class="meta-author"
+          <span v-if="post.authors.length" class="meta-author"
             ><i>Piše</i>
             {{ post.authors.length ? post.authors[0].name : '' }}</span
           >
