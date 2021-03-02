@@ -72,10 +72,22 @@
 export default {
   name: 'Slug',
   async fetch() {
+    let post
     if (this.$route.params.category === 'preview') {
-      this.post = await this.$axios.$get('preview/' + this.$route.params.slug)
+      post = await this.$axios.$get('preview/' + this.$route.params.slug)
     } else {
-      this.post = await this.$axios.$get('single/' + this.$route.params.slug)
+      post = await this.$axios.$get('single/' + this.$route.params.slug)
+    }
+
+    if (post.id) {
+      this.post = post
+    } else {
+      this.post.title = 'Objava ne postoji'
+      this.post.portal_title = 'Objava ne postoji'
+      // set status code on server and
+      if (process.server) {
+        this.$telegram.context.res.statusCode = 404
+      }
     }
   },
   data() {
