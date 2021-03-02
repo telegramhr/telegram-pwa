@@ -10,7 +10,9 @@ export default ({ app }) => {
   window.tp.push([
     'init',
     function () {
-      window.tp.experience.init()
+      if (window.tp) {
+        window.tp.experience.init()
+      }
     },
   ])
 
