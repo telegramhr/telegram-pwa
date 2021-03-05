@@ -6,15 +6,17 @@
     <div class="full flex">
       <h3 class="overtitle">Tržište</h3>
     </div>
-
-    <div v-for="stock in stocks" :key="stock.name" class="full stock-market">
-      <img
-        :src="'/stocks/tg_stonks_' + (stock.up ? 'up' : 'down') + '.png'"
-      />{{ stock.name
-      }}<span :class="['superbold', stock.up ? 'green' : 'red']">
-        {{ stock.percent }}%</span
-      >
-    </div>
+    <template v-for="(stock, key) in stocks">
+      <div v-if="stock.name" :key="key" class="full stock-market">
+        <img
+          :src="'/stocks/tg_stonks_' + (stock.up ? 'up' : 'down') + '.png'"
+        />{{ stock.name
+        }}<span :class="['superbold', stock.up ? 'green' : 'red']">
+          {{ stock.percent }}%</span
+        >
+      </div>
+      <div v-else :key="key" class="full column-top-pad"></div>
+    </template>
   </div>
 </template>
 
