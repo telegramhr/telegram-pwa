@@ -3472,8 +3472,13 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         background-color: white;
     }
     .single-article .header-billboard {
-        padding-top: 24px;
         z-index: 5;
+    }
+    .single-article .header-billboard > *:first-child {
+        margin-top: 24px;
+    }
+    .single-article .header-billboard > .wallpaper-banners:first-child {
+        margin-top: 0px;
     }
     .category-page .single-article .header-billboard {
         padding-top: 0px;
