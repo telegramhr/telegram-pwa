@@ -416,7 +416,7 @@ export default {
           '@type': 'NewsArticle',
           headline: this.post.title,
           mainEntityOfPage: this.post.social.path,
-          datePublished: new Date(this.post.time).toISOString(),
+          datePublished: new Date(this.post.time * 1000).toISOString(),
           image: images,
           publisher: {
             '@type': 'Organization',

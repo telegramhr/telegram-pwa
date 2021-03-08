@@ -97,6 +97,7 @@ export default {
   data() {
     return {
       author: {
+        id: 0,
         image: {
           url: '',
           alt: '',
