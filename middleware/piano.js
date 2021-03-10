@@ -10,8 +10,11 @@ export default function () {
       'GRU',
       'f0432a5c19cac4cf07c94cc89ef57dd30575ec83',
     ])
-    if (window.tp) {
-      window.tp.experience.execute()
-    }
+    window.tp.push([
+      'init',
+      function () {
+        window.tp.experience.execute()
+      },
+    ])
   }
 }
