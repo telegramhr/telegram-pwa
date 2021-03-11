@@ -324,8 +324,10 @@ export const actions = {
             })
             el.appendChild(cross)
           }
-          if (event.isEmpty && name.includes('intext')) {
-            el.parentNode.parentNode.style.display = 'none'
+          if (!event.isEmpty && name.includes('intext')) {
+            document
+              .getElementById(event.slot.getSlotElementId() + '-info')
+              .classList.remove('hide')
           }
           /* if (
             !window.googletag.reloadedSlots.includes(name) &&
