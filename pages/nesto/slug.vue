@@ -329,25 +329,37 @@
                 </p>
 
                 <div class="banner-intext center intext">
-                  <div id="telegram_desktop_intext_v3" class="banner-slot">
-                    <script>
-                      window.googletag = window.googletag || {}
-                      window.googletag.cmd = window.googletag.cmd || []
-                      window.googletag.cmd.push(function () {
-                        const ds = window.googletag.defineSlot(
-                          '/1092744/telegram/telegram_desktop_intext_v3',
-                          [
-                            [300, 250],
-                            [660, 350],
-                            [710, 350],
-                            [320, 480],
-                          ],
-                          'telegram_desktop_intext_v3'
-                        )
-                        ds.addService(googletag.pubads())
-                        ds.setTargeting('upc', 12)
-                      })
-                    </script>
+                  <div class="full flex">
+                    <div
+                      class="full center banner-separator relative mobile-only"
+                    >
+                      <div><span>Članak se nastavlja ispod oglasa</span></div>
+                    </div>
+                    <div class="full center">
+                      <div id="telegram_desktop_intext_v3" class="banner-slot">
+                        <script>
+                          window.googletag = window.googletag || {}
+                          window.googletag.cmd = window.googletag.cmd || []
+                          window.googletag.cmd.push(function () {
+                            const ds = window.googletag.defineSlot(
+                              '/1092744/telegram/telegram_desktop_intext_v3',
+                              [
+                                [300, 250],
+                                [660, 350],
+                                [710, 350],
+                                [320, 480],
+                              ],
+                              'telegram_desktop_intext_v3'
+                            )
+                            ds.addService(googletag.pubads())
+                            ds.setTargeting('upc', 12)
+                          })
+                        </script>
+                      </div>
+                    </div>
+                    <div
+                      class="full center banner-separator relative mobile-only"
+                    ></div>
                   </div>
                 </div>
               </div>

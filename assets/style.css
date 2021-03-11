@@ -2084,6 +2084,32 @@ header {
     margin-top: 0px;
 }
 
+/* Banner separator */
+
+.banner-separator > div {
+    background-color: #fcf1e7;
+    padding: 2px 8px;
+    padding-bottom: 3px;
+    z-index: 5;
+}
+.banner-separator > div > span {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    font-size: 0.55rem;
+    text-transform: uppercase;
+    opacity: .4;
+}
+.banner-separator::before {
+    content: ' ';
+    position: absolute;
+    background-color: #c8c8c8;
+    width: 100%;
+    height: 1px;
+    top: 50%;
+    left: 0px;
+}
+
 /* Themes */
 
 .side-menu .half .theme-previews, .side-menu .half .fontsize-previews {
@@ -2145,15 +2171,18 @@ html.small-fontsize, .fontsize-previews .small-fontsize {
 html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 22px;
 }
-.contrast-mode, .contrast-mode .author-segment {
+.contrast-mode, .contrast-mode .author-segment, .contrast-mode .banner-separator > div {
     background-color: white;
 }
 .contrast-mode .meta-foto, .contrast-mode .header-billboard {
     background-color: white;
 }
-.dark-mode, .dark-mode .author-segment {
+.dark-mode, .dark-mode .author-segment, .dark-mode .banner-separator > div  {
     background-color: #212121;
     color: #efefef;
+}
+.dark-mode .banner-separator::before {
+    background-color: #555;
 }
 .dark-mode .subheader, .dark-mode footer, .dark-mode .side-menu {
     background-color: #121212;
@@ -2323,6 +2352,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     opacity: .7;
     padding: 14px;
 }
+
 
 @media screen and (max-width: 1024px) {
     .dojava-creative h1 {
