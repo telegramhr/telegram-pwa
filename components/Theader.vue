@@ -30,16 +30,20 @@
       ></a>
       <div class="menu flex">
         <div class="half" role="menu">
-          <template v-if="loggedIn">
-            <h3>Admin</h3>
-            <a role="menuitem" href="https://www.telegram.hr/wp-admin">Admin</a>
-            <a
-              v-show="id"
-              :href="`https://www.telegram.hr/wp-admin/post.php?post=${id}&action=edit`"
-              role="menuitem"
-              >Uredi</a
-            >
-          </template>
+          <client-only>
+            <template v-if="loggedIn">
+              <h3>Admin</h3>
+              <a role="menuitem" href="https://www.telegram.hr/wp-admin"
+                >Admin</a
+              >
+              <a
+                v-show="id"
+                :href="`https://www.telegram.hr/wp-admin/post.php?post=${id}&action=edit`"
+                role="menuitem"
+                >Uredi</a
+              >
+            </template>
+          </client-only>
           <!--<app-link to="/moj-racun">Moj račun</app-link>-->
           <h3>Rubrika</h3>
           <app-link role="menuitem" to="/politika-kriminal"
