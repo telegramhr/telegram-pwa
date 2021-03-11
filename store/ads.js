@@ -324,6 +324,9 @@ export const actions = {
             })
             el.appendChild(cross)
           }
+          if (event.isEmpty && name.includes('intext')) {
+            el.parentNode.parentNode.style.display = 'none'
+          }
           /* if (
             !window.googletag.reloadedSlots.includes(name) &&
             event.isEmpty &&
