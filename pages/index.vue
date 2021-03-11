@@ -9,9 +9,7 @@
       </div>
     </div>
     <div class="full flex tg-red">
-      <client-only>
-        <theader></theader>
-      </client-only>
+      <theader></theader>
       <div class="full header-filler"></div>
     </div>
     <div

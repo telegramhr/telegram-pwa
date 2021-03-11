@@ -16,16 +16,16 @@
         'side-menu': true,
         animate: true,
         center: true,
-        'side-menu-activate': sideMenuShow,
+        'side-menu-activate': $store.state.header.showSideMenu,
       }"
       role="navigation"
     >
       <a
         class="side-menu-exit"
         aria-label="Zatvori lijevi meni"
-        :aria-expanded="sideMenuShow.toString()"
+        :aria-expanded="$store.state.header.showSideMenu.toString()"
         aria-controls="sidebar"
-        @click.prevent="sideMenuShow = !sideMenuShow"
+        @click.prevent="$store.commit('header/updateMenu', 'side')"
         ><i class="fas fa-times"></i
       ></a>
       <div class="menu flex">
@@ -40,6 +40,7 @@
               >Uredi</a
             >
           </template>
+          <!--<app-link to="/moj-racun">Moj račun</app-link>-->
           <h3>Rubrika</h3>
           <app-link role="menuitem" to="/politika-kriminal"
             >Politika & Kriminal</app-link
@@ -183,10 +184,10 @@
               alt="Telegram logo"
           /></app-link>
           <a
-            :aria-expanded="sideMenuShow.toString()"
+            :aria-expanded="$store.state.header.showSideMenu.toString()"
             aria-label="Prikaži lijevi meni"
             aria-controls="sidebar"
-            @click.prevent="sideMenuShow = !sideMenuShow"
+            @click.prevent="$store.commit('header/updateMenu', 'side')"
             ><i class="far fa-bars"></i
           ></a>
           <div class="menu flex" role="menu">
@@ -207,12 +208,17 @@
         <div class="flex fourth relative">
           <a
             aria-label="Prikaži tražilicu"
-            :aria-expanded="searchMenuShow.toString()"
+            :aria-expanded="$store.state.header.showSearchMenu.toString()"
             aria-controls="search"
-            @click.prevent="searchMenuShow = !searchMenuShow"
+            @click.prevent="$store.commit('header/updateMenu', 'search')"
             ><i class="far fa-search"></i
           ></a>
-          <app-link to="/newsletter" class="signup-btn">Prijavi se</app-link>
+          <a v-if="canLogIn" class="signup-btn" @click.prevent="login"
+            >Prijavi se</a
+          >
+          <a v-if="!canLogIn" class="signup-btn" @click.prevent="logout"
+            >Odjavi se</a
+          >
         </div>
       </div>
     </div>
@@ -248,10 +254,10 @@
         >
           <div class="fourth flex">
             <a
-              :aria-expanded="sideMenuShow.toString()"
+              :aria-expanded="$store.state.header.showSideMenu.toString()"
               aria-label="Prikaži lijevi meni"
               aria-controls="sidebar"
-              @click.prevent="sideMenuShow = !sideMenuShow"
+              @click.prevent="$store.commit('header/updateMenu', 'side')"
               ><i class="far fa-bars"></i
             ></a>
           </div>
@@ -266,12 +272,15 @@
             <a
               href="#"
               aria-label="Prikaži tražilicu"
-              :aria-expanded="searchMenuShow.toString()"
+              :aria-expanded="$store.state.header.showSearchMenu.toString()"
               aria-controls="search"
-              @click.prevent="searchMenuShow = !searchMenuShow"
+              @click.prevent="$store.commit('header/updateMenu', 'search')"
               ><i class="far fa-search"></i
             ></a>
-            <app-link to="/newsletter" class="signup-btn">Prijavi se</app-link>
+            <a v-if="canLogIn" class="signup-btn" @click="login">Prijavi se</a>
+            <a v-if="!canLogIn" class="signup-btn" @click.prevent="logout"
+              >Odjavi se</a
+            >
           </div>
         </div>
         <!-- Mobile Subheader -->
@@ -298,10 +307,10 @@
         >
           <div class="three-fourths flex" role="menu">
             <a
-              :aria-expanded="sideMenuShow.toString()"
+              :aria-expanded="$store.state.header.showSideMenu.toString()"
               aria-label="Prikaži lijevi meni"
               aria-controls="sidebar"
-              @click="sideMenuShow = !sideMenuShow"
+              @click="$store.commit('header/updateMenu', 'side')"
               ><i class="far fa-bars"></i
             ></a>
             <div class="menu flex">
@@ -324,12 +333,17 @@
             <a
               href="#"
               aria-label="Prikaži tražilicu"
-              :aria-expanded="searchMenuShow.toString()"
+              :aria-expanded="$store.state.header.showSearchMenu.toString()"
               aria-controls="search"
-              @click.prevent="searchMenuShow = !searchMenuShow"
+              @click.prevent="$store.commit('header/updateMenu', 'search')"
               ><i class="far fa-search"></i
             ></a>
-            <app-link to="/newsletter" class="signup-btn">Prijavi se</app-link>
+            <a v-if="canLogIn" class="signup-btn" @click.prevent="login"
+              >Prijavi se</a
+            >
+            <a v-if="!canLogIn" class="signup-btn" @click.prevent="logout"
+              >Odjavi se</a
+            >
           </div>
         </div>
         <client-only>
@@ -353,9 +367,9 @@
           <a
             class="mobile-only"
             aria-label="Prikaži lijevi meni"
-            :aria-expanded="sideMenuShow.toString()"
+            :aria-expanded="$store.state.header.showSideMenu.toString()"
             aria-controls="sidebar"
-            @click.prevent="sideMenuShow = !sideMenuShow"
+            @click.prevent="$store.commit('header/updateMenu', 'side')"
             ><i class="far fa-bars"></i
           ></a>
           <app-link to="/" class="logo"
@@ -369,15 +383,15 @@
           <a
             class="mobile-only"
             aria-label="Prikaži tražilicu"
-            :aria-expanded="searchMenuShow.toString()"
+            :aria-expanded="$store.state.header.showSearchMenu.toString()"
             aria-controls="search"
-            @click.prevent="searchMenuShow = !searchMenuShow"
+            @click.prevent="$store.commit('header/updateMenu', 'search')"
             ><i class="far fa-search"></i
           ></a>
         </div>
       </nav>
       <div
-        v-show="searchMenuShow"
+        v-show="$store.state.header.showSearchMenu"
         id="search"
         class="search-menu-activate search-menu animate full center"
       >
@@ -421,16 +435,6 @@ export default {
       required: false,
       default: 0,
     },
-    sideMenuShow: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
-    searchMenuShow: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
     headline: {
       type: String,
       required: false,
@@ -448,6 +452,9 @@ export default {
     }
   },
   computed: {
+    canLogIn() {
+      return this.$store.state.user.exp * 1000 < new Date().getTime()
+    },
     color_theme: {
       get() {
         return this.$store.state.theme.theme
@@ -529,6 +536,20 @@ export default {
       if (this.search_term) {
         this.$router.push('/search/' + this.search_term)
       }
+    },
+    login() {
+      const _that = this
+      window.tp.pianoId.show({
+        screen: 'login',
+        loggedIn(data) {
+          _that.$store.dispatch('user/setUser', data)
+          window.location.reload()
+        },
+      })
+    },
+    logout() {
+      window.tp.pianoId.logout()
+      this.$store.commit('user/logout')
     },
   },
 }
