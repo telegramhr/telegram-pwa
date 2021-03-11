@@ -217,12 +217,14 @@
             @click.prevent="$store.commit('header/updateMenu', 'search')"
             ><i class="far fa-search"></i
           ></a>
-          <a v-if="canLogIn" class="signup-btn" @click.prevent="login"
-            >Prijavi se</a
-          >
-          <a v-if="!canLogIn" class="signup-btn" @click.prevent="logout"
-            >Odjavi se</a
-          >
+          <client-only>
+            <a v-if="canLogIn" class="signup-btn" @click.prevent="login"
+              >Prijavi se</a
+            >
+            <a v-if="!canLogIn" class="signup-btn" @click.prevent="logout"
+              >Odjavi se</a
+            >
+          </client-only>
         </div>
       </div>
     </div>
@@ -281,10 +283,14 @@
               @click.prevent="$store.commit('header/updateMenu', 'search')"
               ><i class="far fa-search"></i
             ></a>
-            <a v-if="canLogIn" class="signup-btn" @click="login">Prijavi se</a>
-            <a v-if="!canLogIn" class="signup-btn" @click.prevent="logout"
-              >Odjavi se</a
-            >
+            <client-only>
+              <a v-if="canLogIn" class="signup-btn" @click="login"
+                >Prijavi se</a
+              >
+              <a v-if="!canLogIn" class="signup-btn" @click.prevent="logout"
+                >Odjavi se</a
+              >
+            </client-only>
           </div>
         </div>
         <!-- Mobile Subheader -->
@@ -342,12 +348,14 @@
               @click.prevent="$store.commit('header/updateMenu', 'search')"
               ><i class="far fa-search"></i
             ></a>
-            <a v-if="canLogIn" class="signup-btn" @click.prevent="login"
-              >Prijavi se</a
-            >
-            <a v-if="!canLogIn" class="signup-btn" @click.prevent="logout"
-              >Odjavi se</a
-            >
+            <client-only>
+              <a v-if="canLogIn" class="signup-btn" @click.prevent="login"
+                >Prijavi se</a
+              >
+              <a v-if="!canLogIn" class="signup-btn" @click.prevent="logout"
+                >Odjavi se</a
+              >
+            </client-only>
           </div>
         </div>
         <client-only>
