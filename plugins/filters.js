@@ -23,7 +23,7 @@ export default () => {
       }
       let m = diff % 3600
       m = Math.round(m / 60)
-      if (m % 10 > 0 && m % 10 < 5) {
+      if (m % 10 > 0 && m % 10 < 5 && (m < 10 || m > 19)) {
         return 'prije ' + m + ' minute'
       }
       return 'prije ' + m + ' minuta'
