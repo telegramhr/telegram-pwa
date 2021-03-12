@@ -369,9 +369,8 @@ export const actions = {
   },
   initSlots({ state, commit, dispatch }, route) {
     window.googletag.cmd.push(() => {
-      const mobile = window.innerWidth < 1024
       const prefix = state.prefix
-      const sizes = mobile ? 'mobile' : 'desktop'
+      const sizes = this.$mobile ? 'mobile' : 'desktop'
       let ds
       for (const i of Object.keys(state.units)) {
         if (i in state.units) {
