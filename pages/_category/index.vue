@@ -6,7 +6,7 @@
       </client-only>
     </div>
     <div class="full relative">
-      <div v-if="!mobile" class="container wallpaper-banners">
+      <div v-if="!$mobile" class="container wallpaper-banners">
         <div class="wallpaper-left">
           <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
         </div>
@@ -104,7 +104,6 @@ export default {
   data() {
     return {
       loading: false,
-      mobile: true,
     }
   },
   computed: {
@@ -127,7 +126,6 @@ export default {
   },
   mounted() {
     this.$store.dispatch('ads/initAds', { route: this.$route })
-    this.mobile = window.innerWidth < 1024
   },
   methods: {
     loadMore() {

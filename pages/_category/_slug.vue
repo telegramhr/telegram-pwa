@@ -16,11 +16,11 @@
         </div>
       </div>
       <div
-        v-if="!mobile && $route.name === 'category-slug'"
+        v-if="!$mobile && $route.name === 'category-slug'"
         class="full center header-billboard"
       >
         <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
-        <div v-if="!mobile" class="container wallpaper-banners animate">
+        <div v-if="!$mobile" class="container wallpaper-banners animate">
           <div class="wallpaper-left">
             <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
           </div>
@@ -339,6 +339,13 @@ export default {
     }
     if (post.id) {
       this.post = post
+      await this.$axios.get('related/' + post.id).then((res) => {
+        this.related_posts = res.data
+          .filter((item) => {
+            return item.id !== post.id
+          })
+          .splice(0, 3)
+      })
     } else {
       this.post.title = 'Objava ne postoji'
       this.post.portal_title = 'Objava ne postoji'
@@ -351,7 +358,6 @@ export default {
   data() {
     return {
       comments: false,
-      mobile: true,
       showSideMenu: false,
       showSearchMenu: false,
       post: {
@@ -463,7 +469,6 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      this.resize()
       this.getPost()
       window.addEventListener('scroll', this.handleScroll)
     })
@@ -558,9 +563,6 @@ export default {
       tp.push(['setContentAuthor', this.post.authors[0].name])
       tp.push(['setContentIsNative', this.post.post_type === 'partneri'])
     },
-    resize() {
-      this.mobile = window.innerWidth < 1024
-    },
     getPost() {
       if (this.post && this.post.id) {
         if (process.client) {
@@ -588,13 +590,6 @@ export default {
           if (image.width < image.height) {
             image.classList.remove('size-full')
           }
-        })
-        this.$axios.get('related/' + this.post.id).then((res) => {
-          this.related_posts = res.data
-            .filter((item) => {
-              return item.id !== this.post.id
-            })
-            .splice(0, 3)
         })
       } else {
         setTimeout(this.getPost, 500)

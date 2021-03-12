@@ -50,7 +50,7 @@
             <featured :key="posts[2].id" :post="posts[2]"></featured>
             <featured :key="posts[3].id" :post="posts[3]"></featured>
           </div>
-          <div v-if="mobile" class="full center header-billboard mobile-only">
+          <div v-if="$mobile" class="full center header-billboard mobile-only">
             <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
           </div>
           <div
@@ -65,7 +65,7 @@
         <section
           class="fourth flex-responsive flex komentari mobile-side-pad column-horizontal-pad column-right-border"
         >
-          <latest v-if="!mobile" :portal="1"></latest>
+          <latest v-if="!$mobile" :portal="1"></latest>
           <commentary></commentary>
           <div class="full flex desktop-only">
             <h2 class="full flex section-title">Newsletter</h2>
@@ -176,7 +176,7 @@
           <category slug="biznis-tech"></category>
           <category slug="kultura"></category>
           <category slug="velike-price"></category>
-          <most-read v-if="mobile"></most-read>
+          <most-read v-if="$mobile"></most-read>
         </client-only>
       </div>
     </div>
@@ -194,7 +194,6 @@ export default {
   },
   data() {
     return {
-      mobile: true,
       loading: false,
     }
   },
@@ -225,7 +224,6 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      this.resize()
       this.loadAds()
       window.addEventListener('scroll', this.handleScroll)
     })
@@ -251,9 +249,6 @@ export default {
     },
     loadAds() {
       this.$store.dispatch('ads/initAds', { route: this.$route })
-    },
-    resize() {
-      this.mobile = window.innerWidth < 1024
     },
     loadMore() {
       this.loading = true

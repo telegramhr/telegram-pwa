@@ -329,6 +329,9 @@ export const actions = {
               .getElementById(event.slot.getSlotElementId() + '-info')
               .classList.remove('hide')
           }
+          if (event.isEmpty) {
+            el.style.minHeight = '0px'
+          }
           /* if (
             !window.googletag.reloadedSlots.includes(name) &&
             event.isEmpty &&

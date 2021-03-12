@@ -1,7 +1,5 @@
 <template>
-  <client-only>
-    <div :id="id" class="banner-slot"></div>
-  </client-only>
+  <div :id="id" class="banner-slot" style="min-height: 250px"></div>
 </template>
 
 <script>

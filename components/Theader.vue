@@ -3,8 +3,8 @@
     <div
       v-if="
         !(
-          (mobile && $route.name === 'index') ||
-          (!mobile && $route.name === 'category-slug')
+          ($mobile && $route.name === 'index') ||
+          (!$mobile && $route.name === 'category-slug')
         )
       "
       class="full center header-billboard"
@@ -459,7 +459,6 @@ export default {
       previousScroll: 0,
       dynamicHeader: false,
       hideDynamicHeader: false,
-      mobile: true,
       search_term: '',
     }
   },
@@ -507,7 +506,6 @@ export default {
     // this.handleDebouncedScroll = this.debounce(this.handleScroll, 100)
     // eslint-disable-next-line
     // window.addEventListener('scroll', this.handleDebouncedScroll)
-    this.resize()
     this.$store.dispatch('stocks/pullStocks')
   },
   beforeDestroy() {
@@ -516,9 +514,6 @@ export default {
     // window.removeEventListener('scroll', this.handleDebouncedScroll)
   },
   methods: {
-    resize() {
-      this.mobile = window.innerWidth < 1024
-    },
     handleScroll() {
       if (window.scrollY) {
         this.dynamicHeader = true
