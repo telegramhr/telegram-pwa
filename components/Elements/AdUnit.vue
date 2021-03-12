@@ -1,5 +1,5 @@
 <template>
-  <div :id="id" class="banner-slot" style="min-height: 250px"></div>
+  <div :id="id" class="banner-slot" :style="style"></div>
 </template>
 
 <script>
@@ -10,6 +10,14 @@ export default {
       type: String,
       required: true,
       default: '',
+    },
+  },
+  computed: {
+    style() {
+      if (this.id.includes('sticky')) {
+        return ''
+      }
+      return 'min-height: 250px;'
     },
   },
 }
