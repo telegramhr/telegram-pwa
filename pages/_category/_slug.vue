@@ -750,6 +750,14 @@ export default {
           name: 'twitter:widgets:theme',
           content: this.$store.state.theme.theme === 'dark' ? 'dark' : 'light',
         },
+        {
+          hid: 'robots',
+          name: 'robots',
+          content:
+            this.route.params.category === 'preview'
+              ? 'noindex, noarchive, nocache, nosnippet'
+              : 'index, follow',
+        },
       ],
       script: [
         {
