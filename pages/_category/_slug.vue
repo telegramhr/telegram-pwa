@@ -754,7 +754,8 @@ export default {
           hid: 'robots',
           name: 'robots',
           content:
-            this.$route.params.category === 'preview'
+            this.$route.params.category === 'preview' ||
+            this.post.status !== 'publish'
               ? 'noindex, noarchive, nocache, nosnippet'
               : 'index, follow',
         },
