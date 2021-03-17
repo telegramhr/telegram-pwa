@@ -101,12 +101,16 @@
                     :key="author.name"
                     :to="author.url"
                     class="meta-author flex"
+                    rel="author"
                     ><img
                       v-if="author.image"
                       :src="author.image"
                       :alt="author.name"
                     />
-                    <span>Piše</span><span>{{ author.name }}</span></nuxt-link
+                    <span>Piše</span
+                    ><span class="vcard author">{{
+                      author.name
+                    }}</span></nuxt-link
                   >
                 </template>
               </h5>
@@ -138,11 +142,15 @@
                     :key="author.name"
                     :to="author.url"
                     class="meta-author flex desktop-only"
+                    rel="author"
                     ><img
                       v-if="author.image"
                       :src="author.image"
                       :alt="author.name"
-                    /><span>Piše</span><span>{{ author.name }}</span></nuxt-link
+                    /><span>Piše</span
+                    ><span class="vcard author">{{
+                      author.name
+                    }}</span></nuxt-link
                   >
                 </template>
                 <span class="meta-date">{{ post.time | parseTime }}</span>
@@ -166,17 +174,18 @@
                     target="_blank"
                     ><i class="fab fa-twitter animate"></i
                   ></a>
-                  <!--<a href="#"><i class="fab fa-instagram animate"></i></a>-->
                 </div>
               </h5>
             </div>
             <div class="full relative single-article-body">
-              <!-- eslint-disable-next-line -->
+              <!-- eslint-disable vue/no-v-html -->
               <div
                 id="article-content"
+                class="cXenseParse"
                 @click="handleClick"
                 v-html="post.content"
               ></div>
+              <!-- eslint-enable vue/no-v-html -->
               <!-- Article footer -->
               <div
                 class="full relative single-article-footer flex column-top-pad"
@@ -560,7 +569,9 @@ export default {
         new Date(this.post.time * 1000).toISOString(),
       ])
       tp.push(['setContentSection', this.post.category])
-      tp.push(['setContentAuthor', this.post.authors[0].name])
+      if (this.post.authors.length) {
+        tp.push(['setContentAuthor', this.post.authors[0].name])
+      }
       tp.push(['setContentIsNative', this.post.post_type === 'partneri'])
     },
     getPost() {
@@ -683,6 +694,21 @@ export default {
       title: this.post.title,
       titleTemplate: '%s | Telegram.hr',
       meta: [
+        {
+          hid: 'cXenseParse:articleid',
+          name: 'cXenseParse:articleid',
+          content: this.post.id,
+        },
+        {
+          hid: 'cXenseParse:image',
+          name: 'cXenseParse:image',
+          content: this.post.image.url,
+        },
+        {
+          hid: 'cXenseParse:title',
+          name: 'cXenseParse:title',
+          content: this.post.portal_title,
+        },
         {
           hid: 'description',
           name: 'description',

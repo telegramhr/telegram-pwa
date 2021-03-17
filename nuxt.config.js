@@ -18,6 +18,12 @@ export default {
       { name: 'twitter:widgets:csp', content: 'on' },
     ],
     link: [
+      {
+        hid: 'favicon',
+        rel: 'icon',
+        type: 'image/x-icon',
+        href: '/favicon.ico',
+      },
       { hid: 'canonical', rel: 'canonical', href: 'https:/www.telegram.hr' },
       {
         hid: 'gf-preconnect',
@@ -163,6 +169,7 @@ export default {
         'Portal za društvena i kulturna pitanja. I svijet koji dolazi.',
       background_color: '#fcf1e7',
       display: 'standalone',
+      start_url: '/',
     },
   },
 
