@@ -8,7 +8,7 @@
     >
       <div class="full block-title-pattern relative"></div>
       <div class="container flex relative center">
-        <nuxt-link to="/" class="logo" @click="$fetch"
+        <nuxt-link to="/" class="logo"
           ><img src="@/assets/img/telegram_logo_white.svg" alt="Telegram logo"
         /></nuxt-link>
       </div>
@@ -31,7 +31,10 @@
           </p>
         </div>
       </div>
-      <div class="full flex relative" style="padding-top: 500px"></div>
+      <div
+        id="landing"
+        class="full flex relative"
+      ></div>
       <div class="full flex relative">
         <div class="container relative flex">
           <div
@@ -153,16 +156,7 @@
 
 <script>
 export default {
-  name: 'Dojave',
-  data() {
-    return {
-      loading: false,
-      posts: [],
-      page: 1,
-      email: '',
-      thanks: false,
-    }
-  },
+  name: 'Pretplata',
 }
 </script>
 
