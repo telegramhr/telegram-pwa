@@ -34,42 +34,10 @@
             ekskluzive. Telegramov newsletter startat će kroz nekoliko tjedana.
           </p>
         </div>
-        <div class="half column-full-pad flex-responsive center">
-          <form
-            class="widget widget-newsletter relative full flex"
-            @submit.prevent="submit"
-          >
-            <div class="full center desktop-only">
-              <i class="fas fa-envelope-open-text"></i>
-            </div>
-            <div v-show="!thanks" class="widget-box full flex">
-              <input
-                v-model="email"
-                type="email"
-                placeholder="Upišite svoj email..."
-                class="full"
-              />
-              <p class="disclaimer-text">
-                Prijavom na newsletter prihvaćate da će Telegram Media Grupa
-                spremiti vaš mail i koristiti ga za dostavljanje newslettera.
-              </p>
-              <div class="full center">
-                <input
-                  type="submit"
-                  value="Prijavite se"
-                  class="btn clickable animate"
-                  @click.prevent="submit"
-                />
-              </div>
-            </div>
-            <div v-show="thanks">
-              <p>Hvala na prijavi</p>
-            </div>
-            <div class="full center mobile-only">
-              <i class="fas fa-envelope-open-text"></i>
-            </div>
-          </form>
-        </div>
+        <div
+          id="newsletter"
+          class="half column-full-pad flex-responsive center"
+        ></div>
       </div>
     </div>
     <div class="full flex">

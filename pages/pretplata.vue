@@ -31,10 +31,7 @@
           </p>
         </div>
       </div>
-      <div
-        id="landing"
-        class="full flex relative"
-      ></div>
+      <div id="landing" class="full flex relative"></div>
       <div class="full flex relative">
         <div class="container relative flex">
           <div
