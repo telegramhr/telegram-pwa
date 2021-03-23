@@ -363,6 +363,28 @@
                   </div>
                 </div>
               </div>
+              <app-link
+                to="/pretplata"
+                class="full flex relative pretplata-ticker"
+              >
+                <div class="full center">
+                  <img
+                    src="@/assets/img/tg_neue_favicon.png"
+                    aria-hidden="true"
+                    class="pretplata-avatar"
+                  />
+                </div>
+                <h2 class="full">
+                  Bespoštedno novinarstvo koje gura društvo naprijed.
+                </h2>
+                <p class="full center-text">
+                  Za neograničeno čitanje Telegrama i podršku istraživačkim
+                  serijalima, odaberite jedan od paketa.
+                </p>
+                <div class="full center">
+                  <div class="btn">Pretplatite se</div>
+                </div>
+              </app-link>
             </div>
             <!-- Article footer -->
             <div
