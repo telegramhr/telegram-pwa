@@ -1,4 +1,4 @@
-export default function () {
+export default function ({ route }) {
   if (!process.server) {
     window.cX = window.cX || {}
     window.cX.callQueue = window.cX.callQueue || []
@@ -10,11 +10,13 @@ export default function () {
       'GRU',
       'f0432a5c19cac4cf07c94cc89ef57dd30575ec83',
     ])
-    window.tp.push([
-      'init',
-      function () {
-        window.tp.experience.execute()
-      },
-    ])
+    if (route.name !== 'category-slug') {
+      window.tp.push([
+        'init',
+        function () {
+          window.tp.experience.execute()
+        },
+      ])
+    }
   }
 }

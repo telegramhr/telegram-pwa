@@ -188,6 +188,7 @@ export default {
     // cache: true,
     // parallel: true,
     // hardSource: true,
+    indicator: false,
     loaders: {
       vue: {
         prettify: false,

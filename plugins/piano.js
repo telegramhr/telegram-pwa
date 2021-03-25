@@ -5,7 +5,8 @@ export default ({ app }) => {
   window.tp.push(['setAid', 'NSqJ3UJWsu'])
   window.tp.push(["setCxenseSiteId", "1128464677385494954"]);
   window.tp.push(['setSandbox', true])
-  window.tp.push(['setUseTinypassAccounts', true])
+  window.tp.push(['setDebug', true])
+  //window.tp.push(['setUseTinypassAccounts', true])
   window.tp.push(['setUsePianoIdUserProvider', true])
   window.tp.push([
     'init',

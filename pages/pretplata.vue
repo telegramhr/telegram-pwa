@@ -47,7 +47,7 @@
           <div
             class="pretplata-keypoint fourth flex-responsive column-full-pad mobile-side-pad"
           >
-            <h3>Vrhunski autori</h3>
+            <h3 @click="startCheckout('TMC561I3C1ZT')">Vrhunski autori</h3>
           </div>
           <div
             class="pretplata-keypoint fourth flex-responsive column-full-pad mobile-side-pad"
@@ -324,5 +324,33 @@
 <script>
 export default {
   name: 'Pretplata',
+  methods: {
+    startCheckout(termId) {
+      if (this.$store.state.user.token) {
+        this.checkout(termId)
+      } else {
+        const _that = this
+        window.tp.pianoId.show({
+          screen: 'login',
+          loggedIn(data) {
+            _that.$store.dispatch('user/setUser', data)
+            // window.location.reload()
+            _that.checkout(termId)
+          },
+        })
+      }
+    },
+    checkout(termId) {
+      window.tp.push([
+        'init',
+        () => {
+          window.tp.offer.show({
+            offerId: 'OFO942FEQZ5P',
+            termId,
+          })
+        },
+      ])
+    },
+  },
 }
 </script>

@@ -548,6 +548,7 @@ export default {
       const _that = this
       window.tp.pianoId.show({
         screen: 'login',
+        width: '100%',
         loggedIn(data) {
           _that.$store.dispatch('user/setUser', data)
           window.location.reload()

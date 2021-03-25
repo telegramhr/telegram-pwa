@@ -177,6 +177,7 @@
                 @click="handleClick"
                 v-html="post.content"
               ></div>
+              <intext></intext>
               <!-- Article footer -->
               <div
                 class="full relative single-article-footer flex column-top-pad"
@@ -251,6 +252,7 @@
           :category="post.category_slug"
           :p="post.id"
         ></keep-reading>
+        <ticker></ticker>
       </div>
     </template>
     <template v-if="$fetchState.error">
@@ -562,6 +564,12 @@ export default {
       tp.push(['setContentSection', this.post.category])
       tp.push(['setContentAuthor', this.post.authors[0].name])
       tp.push(['setContentIsNative', this.post.post_type === 'partneri'])
+      tp.push([
+        'init',
+        function () {
+          tp.experience.execute()
+        },
+      ])
     },
     getPost() {
       if (this.post && this.post.id) {

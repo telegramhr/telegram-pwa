@@ -464,24 +464,6 @@
         :p="post.id"
       ></keep-reading>
     </div>
-    <div class="full pretplata-ticker relative">
-      <div class="close-ticker-btn center animate">
-        <i class="fas fa-times"></i>
-      </div>
-      <div class="container flex relative">
-        <h2 class="full center-text">
-          Bespoštedno novinarstvo koje gura društvo naprijed.
-        </h2>
-        <p class="full center-text">
-          Za neograničeno čitanje Telegrama i podršku istraživačkim serijalima,
-          odaberite jedan od paketa.
-        </p>
-        <div class="full center">
-          <app-link to="/pretplata" class="btn">Pretplatite se</app-link>
-          <div class="btn">Prijavite se</div>
-        </div>
-      </div>
-    </div>
     <tfooter></tfooter>
   </div>
 </template>

@@ -759,7 +759,6 @@ h2.section-title {
     position: relative;
     top: -2.5px;
     font-feature-settings: "liga" 0, "clig" 0;
-    display: none;
 }
 .signup-btn:hover {
     color: #212121;
@@ -2530,9 +2529,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 #landing {
     margin-bottom: 64px;
 }
-  
+
 /* FAQ */
-  
+
 .pretplata-faq h2 {
     margin-bottom: 24px;
 }
@@ -2576,7 +2575,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     top: 12px;
     opacity: 1;
 }
-  
+
 @media screen and (min-width: 1025px) {
     .alt-sub-point .half {
       order: 1;
@@ -2729,6 +2728,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         margin-right: -50vw;
         margin-top: 16px;
         margin-bottom: 0px;
+    }
+    .article-head-image img {
+      aspect-ratio: 1.584191788;
     }
     .single-article .article-head .article-meta {
         margin-top: 8px;

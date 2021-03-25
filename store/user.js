@@ -4,6 +4,8 @@ export const state = () => ({
   email: '',
   token: '',
   exp: 0,
+  offer_id: null,
+  term_id: null,
 })
 
 export const mutations = {
@@ -20,6 +22,10 @@ export const mutations = {
     state.email = ''
     state.token = ''
     state.exp = 0
+  },
+  setTerm(state, data) {
+    state.offer_id = data.offer_id
+    state.term_id = data.term_id
   },
 }
 
