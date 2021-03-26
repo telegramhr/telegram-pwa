@@ -115,15 +115,20 @@
                 </template>
               </h5>
               <div class="full flex article-head-image-parent relative">
-                <img
-                  class="article-head-image"
-                  :srcset="srcset"
-                  :src="post.image.url"
-                  :alt="post.image.alt"
-                />
-                <div v-if="post.image.author" class="meta-foto">
-                  FOTO: {{ post.image.author }}
-                </div>
+                <template v-if="post.video">
+                  <div style="width: 100%" v-html="post.video" />
+                </template>
+                <template v-else>
+                  <img
+                    class="article-head-image"
+                    :srcset="srcset"
+                    :src="post.image.url"
+                    :alt="post.image.alt"
+                  />
+                  <div v-if="post.image.author" class="meta-foto">
+                    FOTO: {{ post.image.author }}
+                  </div>
+                </template>
               </div>
               <p v-if="post.perex" class="perex">
                 {{ post.perex }}
