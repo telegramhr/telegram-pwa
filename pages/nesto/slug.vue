@@ -199,7 +199,7 @@
                 </div>
               </div>
 
-              <p>
+              <p class="premium-fade-out">
                 Teške optužbe na račun stečajnog upravitelja Petanjeka iznosi i
                 načelnik općine Marija Bistrica
                 <strong>Josip Milički</strong>. Sprema se protiv Petanjeka
@@ -208,6 +208,31 @@
                 planirala, nakon što su nekretnine te tvrtke prodane u stečaju,
                 otvoriti poduzetničku zonu.
               </p>
+              <app-link
+                to="/pretplata"
+                class="full flex relative pretplata-intext"
+              >
+                <div class="full center">
+                  <img
+                    src="@/assets/img/tg_neue_favicon.png"
+                    aria-hidden="true"
+                    class="pretplata-avatar"
+                  />
+                </div>
+                <h2 class="full">
+                  Pročitali ste sve besplatne članke ovaj mjesec.
+                </h2>
+                <p class="full center-text">
+                  Za neograničeno čitanje Telegrama i podršku istraživačkim
+                  serijalima, odaberite jedan od paketa.
+                </p>
+                <div class="full center">
+                  <div class="btn">Pretplatite se</div>
+                  <div class="login-sidebtn animate">
+                    Već imate pretplatu? Prijavite se
+                  </div>
+                </div>
+              </app-link>
               <div id="piano-content">
                 <h2>Stečaj moćne tvrtke u Mariji Bistrici</h2>
                 <p>
@@ -438,6 +463,24 @@
         :category="post.category_slug"
         :p="post.id"
       ></keep-reading>
+    </div>
+    <div class="full pretplata-ticker relative">
+      <div class="close-ticker-btn center animate">
+        <i class="fas fa-times"></i>
+      </div>
+      <div class="container flex relative">
+        <h2 class="full center-text">
+          Bespoštedno novinarstvo koje gura društvo naprijed.
+        </h2>
+        <p class="full center-text">
+          Za neograničeno čitanje Telegrama i podršku istraživačkim serijalima,
+          odaberite jedan od paketa.
+        </p>
+        <div class="full center">
+          <app-link to="/pretplata" class="btn">Pretplatite se</app-link>
+          <div class="btn">Već imam pretplatu</div>
+        </div>
+      </div>
     </div>
     <tfooter></tfooter>
   </div>

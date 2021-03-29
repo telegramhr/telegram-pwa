@@ -1,30 +1,73 @@
 <template>
-  <div class="main-container flex">
+  <div class="main-container flex red-header-page">
     <div class="full flex tg-red">
       <client-only>
         <theader></theader>
       </client-only>
     </div>
-    <div class="full flex newsletter-header relative center">
-      <div class="background-wall flex">
-        <img
-          v-for="post in posts"
-          :key="post.id"
-          :src="post.image.url"
-          :alt="post.image.alt"
-          loading="lazy"
-        />
-      </div>
-      <div class="container relative mobile-side-pad column-full-pad">
-        <h1 class="full center-text">Dojave</h1>
+    <div class="full flex dojava-creative tg-red">
+      <div class="container relative flex mobile-side-pad">
+        <div class="half flex-responsive column-full-pad">
+          <h1>Podijelite s nama informacije koje javnost zaslužuje znati.</h1>
+          <p>Javite nam se putem jednog od sigurnih kanala komunikacije.</p>
+        </div>
+        <div class="half flex-responsive column-full-pad">
+          <img
+            src="@/assets/img/tg_graphic_dojava.png"
+            aria-hidden="true"
+            class="dojava-visual"
+          />
+        </div>
       </div>
     </div>
     <div class="full flex">
       <div class="container relative flex stretch">
-        <div class="half column-full-pad mobile-side-pad flex-responsive">
-          <p class="full newsletter-intro">Uskoro!</p>
+        <div class="full mobile-side-pad flex">
+          <p class="full column-full-pad dojave-intro">
+            Dobra dojava informativna je i lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Vestibulum erat urna, gravida at turpis
+            quis, luctus consequat mauris. Fusce consectetur nisi ut est ornare
+            dapibus.
+          </p>
+          <div class="third flex-responsive column-full-pad flex">
+            <div class="full contact-tile column-full-pad flex relative">
+              <i class="fad fa-comment-dots"></i>
+              <h2 class="full">Signal</h2>
+              <h3 class="full contact-data">099 624 3591</h3>
+              <p class="full">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Vestibulum erat urna, gravida at turpis quis, luctus consequat
+                mauris. Fusce consectetur nisi ut est ornare dapibus.
+              </p>
+            </div>
+          </div>
+          <div class="third flex-responsive column-full-pad flex">
+            <div class="full contact-tile column-full-pad flex relative">
+              <i class="fad fa-envelope-open-text"></i>
+              <h2 class="full">Email</h2>
+              <h3 class="full contact-data">
+                <a href="mailto:dojave@telegram.hr">dojave@telegram.hr</a>
+              </h3>
+              <p class="full">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Vestibulum erat urna, gravida at turpis quis, luctus consequat
+                mauris. Fusce consectetur nisi ut est ornare dapibus.
+              </p>
+            </div>
+          </div>
+          <div class="third flex-responsive column-full-pad flex">
+            <div class="full contact-tile column-full-pad flex relative">
+              <i class="fab fa-telegram"></i>
+              <h2 class="full">Telegram</h2>
+              <h3 class="full contact-data">099 624 3591</h3>
+              <p class="full">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Vestibulum erat urna, gravida at turpis quis, luctus consequat
+                mauris. Fusce consectetur nisi ut est ornare dapibus.
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="half column-full-pad flex-responsive center"></div>
       </div>
     </div>
     <div class="full flex">

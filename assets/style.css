@@ -748,7 +748,7 @@ h2.section-title {
     font-size: 12px;*/
     background: rgba(255,255,255,0.07);
     padding: 4px 16px;
-    display: block;
+    display: none;
     font-family: 'Barlow', sans-serif;
     font-weight: 600;
     letter-spacing: 3px;
@@ -759,7 +759,6 @@ h2.section-title {
     position: relative;
     top: -2.5px;
     font-feature-settings: "liga" 0, "clig" 0;
-    display: none;
 }
 .signup-btn:hover {
     color: #212121;
@@ -2184,7 +2183,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .dark-mode .banner-separator::before {
     background-color: #555;
 }
-.dark-mode .subheader, .dark-mode footer, .dark-mode .side-menu {
+.dark-mode .subheader, .dark-mode footer, .dark-mode .side-menu, .dark-mode .pretplata-ticker {
     background-color: #121212;
 }
 .dark-mode .meta-foto, .dark-mode .header-billboard {
@@ -2200,7 +2199,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     border: 1px solid #555;
     border-top: none;
 }
-.dark-mode .komentar-content {
+.dark-mode .komentar-content, .dark-mode .pretplata-intext {
     border: 1px solid #333;
 }
 .dark-mode .midas-itw-header-text, .dark-mode .midas-itw-list-1-column .midas-itw-list-item, .dark-mode .midas-itw-footer-sb {
@@ -2354,7 +2353,420 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 
 
+/* Pretplata stuff */
+
+.pretplata-avatar {
+    margin-top: -56px;
+    width: 72px;
+    height: 72px;
+}
+.pretplata-intext {
+    margin-top: 48px;
+    padding: 20px;
+    margin-bottom: 72px;
+    border: 1px solid #c1b9b1;
+    position: relative;
+    z-index: 10;
+}
+.single-article-body .pretplata-intext h2, .pretplata-intext h2 {
+    text-align: center;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+    font-size: 30px;
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+    margin-top: 24px;
+    line-height: 1.4em;
+}
+.pretplata-intext .btn, .pretplata-ticker .btn {
+    padding: 4px 24px;
+    border: 1px solid #c1b9b1;
+    color: white;
+    background-color: #ae3737;
+    margin-bottom: -36px;
+    font-size: 12px;
+    font-size: 0.6rem;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    z-index: 200;
+}
+.pretplata-intext .login-sidebtn {
+    position: absolute;
+    bottom: -48px;
+    opacity: .35;
+    width: 100%;
+    font-size: 12px;
+    font-size: 0.6rem;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+}
+.pretplata-intext .login-sidebtn:hover {
+    opacity: 1;
+}
+.single-article .single-article-body #article-content > p.premium-fade-out {
+    position: relative;
+    margin-bottom: -30px;
+}
+.single-article .single-article-body #article-content > p.premium-fade-out::before {
+    content: ' ';
+    background: linear-gradient(to top, rgba(252,241,231, 1), rgba(252,241,231, 0));
+    width: 100%;
+    height: 150px;
+    z-index: 5;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.dark-mode .single-article .single-article-body #article-content > p.premium-fade-out::before {
+    background: linear-gradient(to top, rgba(33,33,33, 1), rgba(33,33,33, 0));
+}
+.contrast-mode .single-article .single-article-body #article-content > p.premium-fade-out::before {
+    background: linear-gradient(to top, rgba(255,255,255, 1), rgba(255,255,255, 0));
+}
+.pretplata-ticker {
+    background-color: #212121;
+    color: white;
+    padding: 32px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 300;
+}
+.pretplata-ticker h2 {
+    font-size: 48px;
+    font-size: 2.4rem;
+    letter-spacing: -0.05em;
+    margin-bottom: 8px;
+}
+.close-ticker-btn {
+    background-color: #ae3737;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+}
+.pretplata-ticker p {
+    margin-bottom: 16px;
+}
+.pretplata-ticker .btn {
+    padding: 8px 24px;
+    border: none;
+    margin-bottom: 8px;
+    margin-right: 8px;
+}
+.pretplata-ticker .btn:nth-child(2) {
+    cursor: pointer;
+    border: 1px solid white;
+    background-color: transparent;
+}
+
+.pretplata-page {
+    scroll-behavior: smooth;
+}
+.pretplata-page h1 {
+    font-size: 64px;
+    font-size: 3.2rem;
+    margin-top: 0px;
+    line-height: 1em;
+    letter-spacing: -0.05em;
+    margin-bottom: 16px;
+}
+.pretplata-page h2, .pretplata-page .single-article-body h2 {
+    font-size: 60px;
+    font-size: 3rem;
+    line-height: 1em;
+    letter-spacing: -0.05em;
+    margin-bottom: 16px;
+}
+.pretplata-page p {
+    font-size: 20px;
+    font-size: 1rem;
+}
+.pretplata-keypoint {
+    position: relative;
+    padding-top: 24px;
+    margin-bottom: 48px;
+}
+.pretplata-keypoint::before {
+    content: ' ';
+    background-color: #ae3737;
+    width: 30%;
+    height: 8px;
+    position: absolute;
+    top: 0;
+    left: 35%;
+}
+.pretplata-keypoint h3 {
+    font-size: 54px;
+    font-size: 2.7rem;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: neuzeit-grotesk-extra-conden, sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    letter-spacing: -0.05em;
+}
+.pretplata-page-content {
+    padding-top: 36px;
+}
+.pretplata-page .header-block-title {
+    padding-bottom: 36px;
+}
+.pretplata-page .header-block-title img {
+    height: 36px;
+}
+.dark-mode-only {
+    display: none;
+}
+.dark-mode .light-mode-only {
+    display: none;
+}
+.dark-mode .dark-mode-only {
+    display: block;
+}
+#landing {
+    margin-bottom: 64px;
+}
+
+/* FAQ */
+
+.pretplata-faq h2 {
+    margin-bottom: 24px;
+}
+.pretplata-faq summary:focus {
+    outline: none;
+}
+.pretplata-faq summary {
+    font-size: 2.4px;
+    font-size: 1.2rem;
+    margin-bottom: 24px;
+    padding-right: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+}
+.pretplata-faq details {
+    margin-top: 24px;
+    border-bottom: 1px solid #c8c8c8;
+}
+.pretplata-faq details:last-child {
+    border-bottom: none;
+}
+.pretplata-faq details p {
+    margin-bottom: 24px;
+}
+.pretplata-faq summary::before {
+    content: ' ';
+    position: absolute;
+    transition: all 0.3s;
+    top: 7px;
+    width: 8px;
+    height: 8px;
+    right: 4px;
+    transform: rotate(-45deg);
+    border-left: 4px solid #ae3737;
+    border-bottom: 4px solid #ae3737;
+    opacity: 0.5;
+}
+.pretplata-faq details[open] > summary::before {
+    transform: rotate(-225deg);
+    top: 11px;
+    opacity: 1;
+}
+
+.pretplata-packs {
+    margin-top: 48px;
+    margin-bottom: 64px;
+}
+.pretplata-packboxes {
+    align-items: stretch;
+}
+.pretplata-packbox {
+    padding: 24px;
+    max-width: 360px;
+    border: 1px solid #c8c8c8;
+    margin: 8px;
+    margin-top: 48px;
+    text-align: center;
+}
+.pretplata-page .pretplata-packbox h2 {
+    font-size: 72px;
+    font-size: 3.6rem;
+}
+.pretplata-benefits {
+    margin-bottom: 8px;
+}
+.pretplata-benefits p {
+    font-size: 16px;
+    font-size: 0.8rem;
+    margin-bottom: 4px;
+    opacity: .7;
+}
+.pretplata-benefits:hover p {
+    opacity: 1;
+}
+.pretplata-benefits p a {
+    color: #ae3737;
+}
+
+.pretplata-packbox .btn-parent {
+    position: absolute;
+    bottom: 20px;
+    left: 0px;
+}
+.pretplata-packbox .btn {
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    background-color: white;
+    position: relative;
+    z-index: 200;
+    border: 1px solid #c1b9b1;
+    color: white;
+    background-color: #ae3737;
+    margin-bottom: -36px;
+    font-size: 12px;
+    font-size: 0.6rem;
+    padding: 8px 24px;
+}
+.pretplata-packbox .btn:hover {
+    background-color: #8f2d2d;
+}
+.pretplata-packbox .overtitle {
+    text-transform: uppercase;
+    background-color: #fcf1e7;
+    padding: 4px 16px;
+    font-size: 16px;
+    width: 120px;
+    font-size: 0.8rem;
+    border: 1px solid #c8c8c8;
+    margin: 0 auto;
+}
+.contrast-mode .pretplata-packbox .overtitle {
+    background-color: white;
+}
+.dark-mode .pretplata-packbox .overtitle {
+    background-color: #212121;
+    color: white;
+    border: 1px solid #333;
+}
+.pretplata-packbox:nth-child(2n) .overtitle {
+    background-color: #ae3737;
+    color: white;
+}
+.pretplata-packbox .overtitle-parent {
+    position: relative;
+    top: -36px;
+    margin-bottom: -24px;
+}
+#yeartoggle {
+    display: none;
+}
+.yeartoggle-parent {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    color: #111;
+    text-transform: uppercase;
+    position: relative;
+}
+.yeartoggle-parent label {
+    width: auto;
+    border: 1px solid #c8c8c8;
+    cursor: pointer;
+    font-size: 16px;
+    font-size: 0.8rem;
+    display: flex;
+}
+.dark-mode .yeartoggle-parent label {
+    border-color: #333;
+}
+.togglemonth, .toggleyear {
+    padding: 8px 32px;
+    transition: all 0.3s;
+    background-color: transparent;
+    width: 150px;
+    text-align: center;
+}
+.best-price-sticker {
+    background-color: #ae3737;
+    color: white;
+    position: absolute;
+    top: -16px;
+    right: -52px;
+    text-align: center;
+    padding: 5px;
+    font-size: 10px;
+    font-size: 0.5rem;
+    opacity: 1;
+}
+.togglemonth {
+    background-color: #ae3737;
+    border-color: #ae3737;
+    color: white;
+}
+#yeartoggle:checked ~ .yeartoggle-parent .best-price-sticker {
+    opacity: 0;
+}
+#yeartoggle:checked ~ .yeartoggle-parent label .toggleyear {
+    background-color: #ae3737;
+    border-color: #ae3737;
+    color: white;
+}
+#yeartoggle:checked ~ .yeartoggle-parent label .togglemonth {
+    background-color: transparent;
+    color: #111;
+}
+.pretplata-packbox:nth-child(3), .pretplata-packbox:nth-child(4) {
+    display: none;
+}
+#yeartoggle:checked ~ .pretplata-packboxes .pretplata-packbox:nth-child(1), #yeartoggle:checked ~ .pretplata-packboxes .pretplata-packbox:nth-child(2) {
+    display: none;
+}
+#yeartoggle:checked ~ .pretplata-packboxes .pretplata-packbox:nth-child(3), #yeartoggle:checked ~ .pretplata-packboxes .pretplata-packbox:nth-child(4) {
+    display: flex;
+}
+
+@media screen and (min-width: 1025px) {
+    .alt-sub-point .half {
+      order: 1;
+    }
+    .alt-sub-point .half:first-child {
+      order: 2;
+    }
+}
 @media screen and (max-width: 1024px) {
+    .pretplata-keypoint {
+      width: 49.99%;
+    }
+    .pretplata-keypoint h3 {
+      font-size: 30px;
+    }
+    .pretplata-page .flex-responsive img {
+      margin-top: 16px;
+    }
+    .pretplata-page h1 {
+      font-size: 48px;
+      font-size: 2.4rem;
+    }
+    .pretplata-page h2 {
+      font-size: 36px;
+      font-size: 1.8rem;
+    }
     .dojava-creative h1 {
         font-size: 36px;
         font-size: 1.8rem;
@@ -2382,6 +2794,13 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .dojava-creative p {
         margin-bottom: 24px;
+    }
+    .togglemonth, .toggleyear {
+        padding: 8px 16px;
+        width: 120px;
+    }
+    .pretplata-packbox {
+        margin-top: 72px;
     }
 }
 
@@ -2477,6 +2896,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         margin-right: -50vw;
         margin-top: 16px;
         margin-bottom: 0px;
+    }
+    .article-head-image img {
+      aspect-ratio: 1.584191788;
     }
     .single-article .article-head .article-meta {
         margin-top: 8px;
@@ -2761,6 +3183,35 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .special-partner-widget .special-partner-signature {
         text-align: right;
+    }
+    .single-article-body .pretplata-intext h2, .pretplata-intext h2 {
+        font-size: 22px;
+        font-size: 1.1rem;
+    }
+    .pretplata-ticker {
+        padding: 4vw;
+        padding-right: 50px;
+    }
+    .pretplata-ticker h2 {
+        font-size: 32px;
+        font-size: 1.6rem;
+        letter-spacing: -0.05em;
+        margin-bottom: 8px;
+        text-align: left;
+    }
+    .pretplata-ticker p {
+        text-align: left;
+        line-height: 1.55em;
+    }
+    .pretplata-ticker .center {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+    .pretplata-ticker .close-ticker-btn {
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        top: -15px;
     }
 }
 
@@ -3513,6 +3964,13 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .category-page .single-article .header-billboard {
         padding-top: 0px;
         z-index: 105;
+    }
+
+    /* Pretplata */
+
+    .pretplata-page h1 {
+        font-size: 84px;
+        font-size: 4.2rem;
     }
 }
 @media screen and (max-width: 1024px) and (max-height: 800px) {
