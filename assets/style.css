@@ -2183,10 +2183,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .dark-mode .banner-separator::before {
     background-color: #555;
 }
-.dark-mode .subheader, .dark-mode footer, .dark-mode .side-menu {
+.dark-mode .subheader, .dark-mode footer, .dark-mode .side-menu, .dark-mode .pretplata-ticker {
     background-color: #121212;
 }
-.dark-mode .meta-foto, .dark-mode .header-billboard, .dark-mode .pretplata-ticker {
+.dark-mode .meta-foto, .dark-mode .header-billboard {
     background-color: #212121;
 }
 .dark-mode .komentar-author span {
