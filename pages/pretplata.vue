@@ -402,6 +402,21 @@ export default {
   name: 'Pretplata',
   methods: {
     checkout(termId) {
+      if (this.$store.state.user.token) {
+        this.checkout2(termId)
+      } else {
+        const _that = this
+        window.tp.pianoId.show({
+          screen: 'register',
+          loggedIn(data) {
+            _that.$store.dispatch('user/setUser', data)
+            // window.location.reload()
+            _that.checkout2(termId)
+          },
+        })
+      }
+    },
+    checkout2(termId) {
       window.tp.push([
         'init',
         () => {
@@ -411,6 +426,9 @@ export default {
             templateId: 'OTXWXSOL0WWS',
             checkoutFlowId: 'CF65KTMVQXXX',
             closeOnLogout: true,
+            complete: () => {
+              this.$router.back()
+            },
           })
         },
       ])

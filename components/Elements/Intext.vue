@@ -11,10 +11,10 @@
         class="pretplata-avatar"
       />
     </div>
-    <h2 class="full">Pročitali ste sve besplatne članke ovaj mjesec.</h2>
+    <h2 class="full">Pročitali ste sve besplatne članke u ovom mjesecu.</h2>
     <p class="full center-text">
       Za neograničeno čitanje Telegrama i podršku istraživačkim serijalima,
-      odaberite jedan od paketa.
+      pretplatite se na Telegram.
     </p>
     <div class="full center">
       <div class="btn">Pretplatite se</div>
