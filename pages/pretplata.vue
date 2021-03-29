@@ -18,7 +18,7 @@
       </div>
       <div class="full flex">
         <div class="container relative flex pretplata-packs mobile-side-pad">
-          <input type="checkbox" id="yeartoggle" name="yeartoggle" />
+          <input id="yeartoggle" type="checkbox" name="yeartoggle" />
           <div class="full center yeartoggle-parent">
             <label for="yeartoggle" class="relative">
               <div class="best-price-sticker animate">
@@ -40,7 +40,10 @@
                 <p class="full animate">neograničeno čitanje Telegrama</p>
                 <p class="full animate">specijalni newsletteri</p>
               </div>
-              <div class="full center btn-parent">
+              <div
+                class="full center btn-parent"
+                @click="checkout('TMC561I3C1ZT')"
+              >
                 <div class="btn animate">Odaberi</div>
               </div>
             </div>
@@ -62,7 +65,10 @@
                   >
                 </p>
               </div>
-              <div class="full center btn-parent">
+              <div
+                class="full center btn-parent"
+                @click="checkout('TM68H8RUQ7VJ')"
+              >
                 <div class="btn animate">Odaberi</div>
               </div>
             </div>
@@ -77,7 +83,10 @@
                 <p class="full animate">neograničeno čitanje Telegrama</p>
                 <p class="full animate">specijalni newsletteri</p>
               </div>
-              <div class="full center btn-parent">
+              <div
+                class="full center btn-parent"
+                @click="checkout('TMA44DJRTT2A')"
+              >
                 <div class="btn animate">Odaberi</div>
               </div>
             </div>
@@ -99,7 +108,10 @@
                   >
                 </p>
               </div>
-              <div class="full center btn-parent">
+              <div
+                class="full center btn-parent"
+                @click="checkout('TM6MUK1A0QU6')"
+              >
                 <div class="btn animate">Odaberi</div>
               </div>
             </div>
@@ -111,7 +123,7 @@
           <div
             class="pretplata-keypoint fourth flex-responsive column-full-pad mobile-side-pad"
           >
-            <h3 @click="startCheckout('TMC561I3C1ZT')">Vrhunski autori</h3>
+            <h3>Vrhunski autori</h3>
           </div>
           <div
             class="pretplata-keypoint fourth flex-responsive column-full-pad mobile-side-pad"
@@ -298,7 +310,7 @@
               poklon.
             </p>
           </details>
-          <details class="full flex relative" id="knjige-disclaimer" open>
+          <details id="knjige-disclaimer" class="full flex relative" open>
             <summary class="full flex relative">
               Kako mogu dobiti knjigu na poklon?
             </summary>
@@ -389,21 +401,6 @@
 export default {
   name: 'Pretplata',
   methods: {
-    startCheckout(termId) {
-      if (this.$store.state.user.token) {
-        this.checkout(termId)
-      } else {
-        const _that = this
-        window.tp.pianoId.show({
-          screen: 'login',
-          loggedIn(data) {
-            _that.$store.dispatch('user/setUser', data)
-            // window.location.reload()
-            _that.checkout(termId)
-          },
-        })
-      }
-    },
     checkout(termId) {
       window.tp.push([
         'init',
@@ -411,6 +408,8 @@ export default {
           window.tp.offer.show({
             offerId: 'OFO942FEQZ5P',
             termId,
+            templateId: 'OTTXZFQ6FGFC',
+            checkoutFlowId: 'CF8Q59Z3RJ5G',
           })
         },
       ])
