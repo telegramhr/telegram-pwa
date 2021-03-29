@@ -42,7 +42,7 @@
               </div>
               <div
                 class="full center btn-parent"
-                @click="checkout('TMC561I3C1ZT')"
+                @click="checkout('TM0FMYURHRA3')"
               >
                 <div class="btn animate">Odaberi</div>
               </div>
@@ -67,7 +67,7 @@
               </div>
               <div
                 class="full center btn-parent"
-                @click="checkout('TM68H8RUQ7VJ')"
+                @click="checkout('TMVUCFM94OA7')"
               >
                 <div class="btn animate">Odaberi</div>
               </div>
@@ -85,7 +85,7 @@
               </div>
               <div
                 class="full center btn-parent"
-                @click="checkout('TMA44DJRTT2A')"
+                @click="checkout('TMXKYJUN5YN5')"
               >
                 <div class="btn animate">Odaberi</div>
               </div>
@@ -110,7 +110,7 @@
               </div>
               <div
                 class="full center btn-parent"
-                @click="checkout('TM6MUK1A0QU6')"
+                @click="checkout('TM8R9U7RK5B1')"
               >
                 <div class="btn animate">Odaberi</div>
               </div>
@@ -406,10 +406,10 @@ export default {
         'init',
         () => {
           window.tp.offer.show({
-            offerId: 'OFO942FEQZ5P',
+            offerId: 'OF5JVPQYFLE1',
             termId,
-            templateId: 'OTTXZFQ6FGFC',
-            checkoutFlowId: 'CF8Q59Z3RJ5G',
+            templateId: 'OTXWXSOL0WWS',
+            checkoutFlowId: 'CF65KTMVQXXX',
             closeOnLogout: true,
           })
         },
