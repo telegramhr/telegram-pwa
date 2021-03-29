@@ -2186,7 +2186,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .dark-mode .subheader, .dark-mode footer, .dark-mode .side-menu {
     background-color: #121212;
 }
-.dark-mode .meta-foto, .dark-mode .header-billboard {
+.dark-mode .meta-foto, .dark-mode .header-billboard, .dark-mode .pretplata-ticker {
     background-color: #212121;
 }
 .dark-mode .komentar-author span {
@@ -2199,7 +2199,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     border: 1px solid #555;
     border-top: none;
 }
-.dark-mode .komentar-content {
+.dark-mode .komentar-content, .dark-mode .pretplata-intext {
     border: 1px solid #333;
 }
 .dark-mode .midas-itw-header-text, .dark-mode .midas-itw-list-1-column .midas-itw-list-item, .dark-mode .midas-itw-footer-sb {
@@ -2414,17 +2414,23 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .single-article .single-article-body #article-content > p.premium-fade-out {
     position: relative;
-    margin-bottom: -36px;
+    margin-bottom: -30px;
 }
 .single-article .single-article-body #article-content > p.premium-fade-out::before {
     content: ' ';
-    background: linear-gradient(to top, #fcf1e7, transparent);
+    background: linear-gradient(to top, rgba(252,241,231, 1), rgba(252,241,231, 0));
     width: 100%;
-    height: 200px;
+    height: 150px;
     z-index: 5;
     position: absolute;
     bottom: 0;
     left: 0;
+}
+.dark-mode .single-article .single-article-body #article-content > p.premium-fade-out::before {
+    background: linear-gradient(to top, rgba(33,33,33, 1), rgba(33,33,33, 0));
+}
+.contrast-mode .single-article .single-article-body #article-content > p.premium-fade-out::before {
+    background: linear-gradient(to top, rgba(255,255,255, 1), rgba(255,255,255, 0));
 }
 .pretplata-ticker {
     background-color: #212121;
@@ -2465,6 +2471,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     background-color: transparent;
 }
 
+.pretplata-page {
+    scroll-behavior: smooth;
+}
 .pretplata-page h1 {
     font-size: 64px;
     font-size: 3.2rem;
@@ -2561,7 +2570,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     content: ' ';
     position: absolute;
     transition: all 0.3s;
-    top: 8px;
+    top: 7px;
     width: 8px;
     height: 8px;
     right: 4px;
@@ -2572,10 +2581,166 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .pretplata-faq details[open] > summary::before {
     transform: rotate(-225deg);
-    top: 12px;
+    top: 11px;
     opacity: 1;
 }
 
+.pretplata-packs {
+    margin-top: 48px;
+    margin-bottom: 64px;
+}
+.pretplata-packboxes {
+    align-items: stretch;
+}
+.pretplata-packbox {
+    padding: 24px;
+    max-width: 360px;
+    border: 1px solid #c8c8c8;
+    margin: 8px;
+    margin-top: 48px;
+    text-align: center;
+}
+.pretplata-page .pretplata-packbox h2 {
+    font-size: 72px;
+    font-size: 3.6rem;
+}
+.pretplata-benefits {
+    margin-bottom: 8px;
+}
+.pretplata-benefits p {
+    font-size: 16px;
+    font-size: 0.8rem;
+    margin-bottom: 4px;
+    opacity: .7;
+}
+.pretplata-benefits:hover p {
+    opacity: 1;
+}
+.pretplata-benefits p a {
+    color: #ae3737;
+}
+
+.pretplata-packbox .btn-parent {
+    position: absolute;
+    bottom: 20px;
+    left: 0px;
+}
+.pretplata-packbox .btn {
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    background-color: white;
+    position: relative;
+    z-index: 200;
+    border: 1px solid #c1b9b1;
+    color: white;
+    background-color: #ae3737;
+    margin-bottom: -36px;
+    font-size: 12px;
+    font-size: 0.6rem;
+    padding: 8px 24px;
+}
+.pretplata-packbox .btn:hover {
+    background-color: #8f2d2d;
+}
+.pretplata-packbox .overtitle {
+    text-transform: uppercase;
+    background-color: #fcf1e7;
+    padding: 4px 16px;
+    font-size: 16px;
+    width: 120px;
+    font-size: 0.8rem;
+    border: 1px solid #c8c8c8;
+    margin: 0 auto;
+}
+.contrast-mode .pretplata-packbox .overtitle {
+    background-color: white;
+}
+.dark-mode .pretplata-packbox .overtitle {
+    background-color: #212121;
+    color: white;
+    border: 1px solid #333;
+}
+.pretplata-packbox:nth-child(2n) .overtitle {
+    background-color: #ae3737;
+    color: white;
+}
+.pretplata-packbox .overtitle-parent {
+    position: relative;
+    top: -36px;
+    margin-bottom: -24px;
+}
+#yeartoggle {
+    display: none;
+}
+.yeartoggle-parent {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    color: #111;
+    text-transform: uppercase;
+    position: relative;
+}
+.yeartoggle-parent label {
+    width: auto;
+    border: 1px solid #c8c8c8;
+    cursor: pointer;
+    font-size: 16px;
+    font-size: 0.8rem;
+    display: flex;
+}
+.dark-mode .yeartoggle-parent label {
+    border-color: #333;
+}
+.togglemonth, .toggleyear {
+    padding: 8px 32px;
+    transition: all 0.3s;
+    background-color: transparent;
+    width: 150px;
+    text-align: center;
+}
+.best-price-sticker {
+    background-color: #ae3737;
+    color: white;
+    position: absolute;
+    top: -16px;
+    right: -52px;
+    text-align: center;
+    padding: 5px;
+    font-size: 10px;
+    font-size: 0.5rem;
+    opacity: 1;
+}
+.togglemonth {
+    background-color: #ae3737;
+    border-color: #ae3737;
+    color: white;
+}
+#yeartoggle:checked ~ .yeartoggle-parent .best-price-sticker {
+    opacity: 0;
+}
+#yeartoggle:checked ~ .yeartoggle-parent label .toggleyear {
+    background-color: #ae3737;
+    border-color: #ae3737;
+    color: white;
+}
+#yeartoggle:checked ~ .yeartoggle-parent label .togglemonth {
+    background-color: transparent;
+    color: #111;
+}
+.pretplata-packbox:nth-child(3), .pretplata-packbox:nth-child(4) {
+    display: none;
+}
+#yeartoggle:checked ~ .pretplata-packboxes .pretplata-packbox:nth-child(1), #yeartoggle:checked ~ .pretplata-packboxes .pretplata-packbox:nth-child(2) {
+    display: none;
+}
+#yeartoggle:checked ~ .pretplata-packboxes .pretplata-packbox:nth-child(3), #yeartoggle:checked ~ .pretplata-packboxes .pretplata-packbox:nth-child(4) {
+    display: flex;
+}
+  
 @media screen and (min-width: 1025px) {
     .alt-sub-point .half {
       order: 1;
@@ -2602,10 +2767,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
       font-size: 36px;
       font-size: 1.8rem;
     }
-}
-
-
-@media screen and (max-width: 1024px) {
     .dojava-creative h1 {
         font-size: 36px;
         font-size: 1.8rem;
@@ -2633,6 +2794,13 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .dojava-creative p {
         margin-bottom: 24px;
+    }
+    .togglemonth, .toggleyear {
+        padding: 8px 16px;
+        width: 120px;
+    }
+    .pretplata-packbox {
+        margin-top: 72px;
     }
 }
 
@@ -3796,6 +3964,13 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .category-page .single-article .header-billboard {
         padding-top: 0px;
         z-index: 105;
+    }
+
+    /* Pretplata */
+
+    .pretplata-page h1 {
+        font-size: 84px;
+        font-size: 4.2rem;
     }
 }
 @media screen and (max-width: 1024px) and (max-height: 800px) {

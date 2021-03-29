@@ -1,45 +1,109 @@
 <template>
-  <div class="main-container flex red-header-page pretplata-page">
+  <div
+    class="main-container flex red-header-page pretplata-page single-article"
+  >
     <div class="full flex tg-red">
       <theader></theader>
     </div>
-    <div
-      class="block-title news-block-title header-block-title full mobile-side-pad desktop-only"
-    >
-      <div class="full block-title-pattern relative"></div>
-      <div class="container flex relative center">
-        <nuxt-link to="/" class="logo"
-          ><img src="@/assets/img/telegram_logo_white.svg" alt="Telegram logo"
-        /></nuxt-link>
-      </div>
-    </div>
     <div class="full flex pretplata-page-content">
       <div class="full flex relative">
-        <div class="container relative flex mobile-side-pad stretch">
-          <div class="half flex-responsive center column-full-pad">
-            <div class="full flex">
-              <h1 class="full">
-                Pretplatite se. Za još priča koje guraju društvo naprijed.
-              </h1>
-              <p class="full">
-                Odaberite jedan od paketa pretplate i podržite Telegram u
-                daljnjem otkrivanju korupcije, autorskim pričama, istraživačkim
-                serijalima i propitivanju društvenih normi. Jer postoji još puno
-                priča koje bismo, uz vašu podršku, voljeli ispričati.
-              </p>
-            </div>
-          </div>
-          <div class="half flex-responsive column-full-pad">
-            <img
-              src="@/assets/img/tg_pretplata_main_vizual.jpg"
-              aria-hidden="true"
-            />
-          </div>
+        <div
+          class="container relative flex mobile-side-pad stretch column-full-pad"
+        >
+          <h1 class="full center-text">Priče koje guraju društvo naprijed.</h1>
+          <p class="full center-text">
+            Pretplatite se i podržite naše bespoštedno novinarstvo.
+          </p>
         </div>
       </div>
       <div class="full flex">
-        <div class="container relative flex">
-          <div id="landing" class="full flex relative"></div>
+        <div class="container relative flex pretplata-packs mobile-side-pad">
+          <input type="checkbox" id="yeartoggle" name="yeartoggle" />
+          <div class="full center yeartoggle-parent">
+            <label for="yeartoggle" class="relative">
+              <div class="best-price-sticker animate">
+                Najbolja <br />vrijednost
+              </div>
+              <div class="togglemonth">Mjesečno</div>
+              <div class="toggleyear">Godišnje</div>
+            </label>
+          </div>
+          <div class="full flex center pretplata-packboxes">
+            <div
+              class="half flex-responsive flex relative pretplata-packbox stretch"
+            >
+              <div class="full flex overtitle-parent">
+                <h3 class="overtitle">Standard</h3>
+              </div>
+              <h2 class="full">49kn</h2>
+              <div class="full pretplata-benefits">
+                <p class="full animate">neograničeno čitanje Telegrama</p>
+                <p class="full animate">specijalni newsletteri</p>
+              </div>
+              <div class="full center btn-parent">
+                <div class="btn animate">Odaberi</div>
+              </div>
+            </div>
+            <div
+              class="half flex-responsive flex relative pretplata-packbox stretch"
+            >
+              <div class="full flex overtitle-parent">
+                <h3 class="overtitle">Premium</h3>
+              </div>
+              <h2 class="full">69kn</h2>
+              <div class="full pretplata-benefits">
+                <p class="full animate">neograničeno čitanje Telegrama</p>
+                <p class="full animate">neograničeno čitanje Telesporta</p>
+                <p class="full animate">specijalni newsletteri</p>
+                <p class="full animate">surfanje bez oglasa</p>
+                <p class="full animate">
+                  knjiga jednog od naših autora<a href="#knjige-disclaimer"
+                    >*</a
+                  >
+                </p>
+              </div>
+              <div class="full center btn-parent">
+                <div class="btn animate">Odaberi</div>
+              </div>
+            </div>
+            <div
+              class="half flex-responsive flex relative pretplata-packbox stretch"
+            >
+              <div class="full flex overtitle-parent">
+                <h3 class="overtitle">Standard</h3>
+              </div>
+              <h2 class="full">499kn</h2>
+              <div class="full pretplata-benefits">
+                <p class="full animate">neograničeno čitanje Telegrama</p>
+                <p class="full animate">specijalni newsletteri</p>
+              </div>
+              <div class="full center btn-parent">
+                <div class="btn animate">Odaberi</div>
+              </div>
+            </div>
+            <div
+              class="half flex-responsive flex relative pretplata-packbox stretch"
+            >
+              <div class="full flex overtitle-parent">
+                <h3 class="overtitle">Premium</h3>
+              </div>
+              <h2 class="full">699kn</h2>
+              <div class="full pretplata-benefits">
+                <p class="full animate">neograničeno čitanje Telegrama</p>
+                <p class="full animate">neograničeno čitanje Telesporta</p>
+                <p class="full animate">specijalni newsletteri</p>
+                <p class="full animate">surfanje bez oglasa</p>
+                <p class="full animate">
+                  knjiga jednog od naših autora<a href="#knjige-disclaimer"
+                    >*</a
+                  >
+                </p>
+              </div>
+              <div class="full center btn-parent">
+                <div class="btn animate">Odaberi</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="full flex relative">
@@ -80,7 +144,7 @@
                 Autorski pristup i dublji uvid u ključne društvene teme
               </h2>
               <p>
-                elegramovu ekipu čine renomirana imena i nagrađivani novinari
+                Telegramovu ekipu čine renomirana imena i nagrađivani novinari
                 kao što su Drago Hedl, Sanja Modrić, Andrej Dimitrijević, Ana
                 Raić Knežević, Jasmin Klarić, Marko Repecki, Dora Kršul,
                 Aleksandar Holiga, Mladen Pleše, Đivo Đurović i mnogi drugi. A
@@ -168,7 +232,7 @@
           </div>
         </div>
       </div>
-      <div class="full flex pretplata-faq single-article">
+      <div class="full flex pretplata-faq">
         <div
           class="container relative flex mobile-side-pad column-full-pad single-article-body"
         >
@@ -234,7 +298,7 @@
               poklon.
             </p>
           </details>
-          <details class="full flex relative">
+          <details class="full flex relative" id="knjige-disclaimer" open>
             <summary class="full flex relative">
               Kako mogu dobiti knjigu na poklon?
             </summary>
