@@ -410,6 +410,7 @@ export default {
             termId,
             templateId: 'OTTXZFQ6FGFC',
             checkoutFlowId: 'CF8Q59Z3RJ5G',
+            closeOnLogout: true,
           })
         },
       ])

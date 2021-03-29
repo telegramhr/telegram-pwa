@@ -11,7 +11,7 @@
       </p>
       <div class="full center">
         <app-link to="/pretplata" class="btn">Pretplatite se</app-link>
-        <div class="btn" @click="login">Prijavite se</div>
+        <div class="btn" @click="login">Već imam pretplatu</div>
       </div>
     </div>
   </div>
