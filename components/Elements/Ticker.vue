@@ -7,7 +7,7 @@
       <h2 class="full center-text">{{ messages[page].title }}</h2>
       <p class="full center-text">
         Za neograničeno čitanje Telegrama i podršku istraživačkim serijalima,
-        odaberite jedan od paketa.
+        pretplatite se na Telegram.
       </p>
       <div class="full center">
         <app-link to="/pretplata" class="btn">Pretplatite se</app-link>
@@ -32,7 +32,7 @@ export default {
           title: 'Bespoštedno novinarstvo koje gura društvo naprijed.',
         },
         6: {
-          title: 'Ostao vam je još 1 besplatni članak ovaj mjesec.',
+          title: 'Ostao vam je još 1 besplatni članak u ovom mjesecu.',
         },
         7: {
           title: 'Ovo vam je posljednji besplatni članak ovaj mjesec.',
