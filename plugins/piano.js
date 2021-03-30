@@ -1,5 +1,5 @@
 /* eslint-disable */
-export default ({ app }) => {
+export default ({ app, inject }) => {
   // Piano conf
   window.tp = window.tp || []
   window.tp.push(['setAid', process.env.PIANO_AID])

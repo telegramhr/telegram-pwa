@@ -45,10 +45,7 @@
                   <i class="fas fa-check"></i> specijalni newsletteri
                 </p>
               </div>
-              <div
-                class="full center btn-parent"
-                @click="checkout(process.env.PIANO_TELEGRAM1)"
-              >
+              <div class="full center btn-parent" @click="checkout(one)">
                 <div class="btn animate">Odaberi</div>
               </div>
             </div>
@@ -80,10 +77,7 @@
                   >
                 </p>
               </div>
-              <div
-                class="full center btn-parent"
-                @click="checkout(process.env.PIANO_TELEGRAM2)"
-              >
+              <div class="full center btn-parent" @click="checkout(two)">
                 <div class="btn animate">Odaberi</div>
               </div>
             </div>
@@ -103,10 +97,7 @@
                   <i class="fas fa-check"></i> specijalni newsletteri
                 </p>
               </div>
-              <div
-                class="full center btn-parent"
-                @click="checkout(process.env.PIANO_TELEGRAM3)"
-              >
+              <div class="full center btn-parent" @click="checkout(three)">
                 <div class="btn animate">Odaberi</div>
               </div>
             </div>
@@ -135,10 +126,7 @@
                   <i class="fas fa-check"></i> poklon: Telegram knjiga
                 </p>
               </div>
-              <div
-                class="full center btn-parent"
-                @click="checkout(process.env.PIANO_TELEGRAM4)"
-              >
+              <div class="full center btn-parent" @click="checkout(four)">
                 <div class="btn animate">Odaberi</div>
               </div>
             </div>
@@ -211,7 +199,7 @@
           </div>
         </div>
       </div>
-      <div class="full flex relative sub-point" id="keypoint-autori">
+      <div id="keypoint-autori" class="full flex relative sub-point">
         <div class="container relative flex mobile-side-pad stretch">
           <div class="half flex-responsive column-full-pad">
             <img
@@ -247,8 +235,8 @@
         </div>
       </div>
       <div
-        class="full flex relative sub-point alt-sub-point"
         id="keypoint-korupcija"
+        class="full flex relative sub-point alt-sub-point"
       >
         <div class="container relative flex mobile-side-pad stretch">
           <div class="half flex-responsive column-full-pad">
@@ -284,7 +272,7 @@
           </div>
         </div>
       </div>
-      <div class="full flex relative sub-point" id="keypoint-istrazivacki">
+      <div id="keypoint-istrazivacki" class="full flex relative sub-point">
         <div class="container relative flex mobile-side-pad stretch">
           <div class="half flex-responsive column-full-pad">
             <img
@@ -320,8 +308,8 @@
         </div>
       </div>
       <div
-        class="full flex relative sub-point alt-sub-point"
         id="keypoint-inspiracija"
+        class="full flex relative sub-point alt-sub-point"
       >
         <div class="container relative flex mobile-side-pad stretch">
           <div class="half flex-responsive column-full-pad">
@@ -513,6 +501,44 @@
 <script>
 export default {
   name: 'Pretplata',
+  computed: {
+    one() {
+      if (process.client) {
+        if (window.tp.sandbox) {
+          return 'TMC561I3C1ZT'
+        }
+        return 'TM0FMYURHRA3'
+      }
+      return ''
+    },
+    two() {
+      if (process.client) {
+        if (window.tp.sandbox) {
+          return 'TM68H8RUQ7VJ'
+        }
+        return 'TMVUCFM94OA7'
+      }
+      return ''
+    },
+    three() {
+      if (process.client) {
+        if (window.tp.sandbox) {
+          return 'TMA44DJRTT2A'
+        }
+        return 'TMXKYJUN5YN5'
+      }
+      return ''
+    },
+    four() {
+      if (process.client) {
+        if (window.tp.sandbox) {
+          return 'TM6MUK1A0QU6'
+        }
+        return 'TM8R9U7RK5B1'
+      }
+      return ''
+    },
+  },
   methods: {
     checkout(termId) {
       if (this.$store.state.user.token) {
@@ -521,6 +547,7 @@ export default {
         const _that = this
         window.tp.pianoId.show({
           screen: 'register',
+          width: window.innerWidth > 720 ? 600 : 375,
           loggedIn(data) {
             _that.$store.dispatch('user/setUser', data)
             // window.location.reload()
@@ -534,10 +561,10 @@ export default {
         'init',
         () => {
           window.tp.offer.show({
-            offerId: process.env.PIANO_OFFER,
+            offerId: window.tp.sandbox ? 'OFVZ3BQ00JLQ' : 'OF5JVPQYFLE1',
             termId,
-            templateId: process.env.PIANO_TEMPLATE,
-            checkoutFlowId: process.env.PIANO_CHECKOUT,
+            templateId: window.tp.sandbox ? 'OTTXZFQ6FGFC' : 'OTXWXSOL0WWS',
+            checkoutFlowId: window.tp.sandbox ? 'CF8Q59Z3RJ5G' : 'CF65KTMVQXXX',
             closeOnLogout: true,
             complete: () => {
               this.$router.back()
