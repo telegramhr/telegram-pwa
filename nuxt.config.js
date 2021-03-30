@@ -120,6 +120,7 @@ export default {
     '@nuxtjs/google-analytics',
     'nuxt-purgecss',
     '@nuxtjs/ngrok',
+    '@nuxtjs/dotenv',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)

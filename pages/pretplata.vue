@@ -42,7 +42,7 @@
               </div>
               <div
                 class="full center btn-parent"
-                @click="checkout('TM0FMYURHRA3')"
+                @click="checkout(process.env.PIANO_TELEGRAM1)"
               >
                 <div class="btn animate">Odaberi</div>
               </div>
@@ -67,7 +67,7 @@
               </div>
               <div
                 class="full center btn-parent"
-                @click="checkout('TMVUCFM94OA7')"
+                @click="checkout(process.env.PIANO_TELEGRAM2)"
               >
                 <div class="btn animate">Odaberi</div>
               </div>
@@ -85,7 +85,7 @@
               </div>
               <div
                 class="full center btn-parent"
-                @click="checkout('TMXKYJUN5YN5')"
+                @click="checkout(process.env.PIANO_TELEGRAM3)"
               >
                 <div class="btn animate">Odaberi</div>
               </div>
@@ -110,7 +110,7 @@
               </div>
               <div
                 class="full center btn-parent"
-                @click="checkout('TM8R9U7RK5B1')"
+                @click="checkout(process.env.PIANO_TELEGRAM4)"
               >
                 <div class="btn animate">Odaberi</div>
               </div>
@@ -421,10 +421,10 @@ export default {
         'init',
         () => {
           window.tp.offer.show({
-            offerId: 'OF5JVPQYFLE1',
+            offerId: process.env.PIANO_OFFER,
             termId,
-            templateId: 'OTXWXSOL0WWS',
-            checkoutFlowId: 'CF65KTMVQXXX',
+            templateId: process.env.PIANO_TEMPLATE,
+            checkoutFlowId: process.env.PIANO_CHECKOUT,
             closeOnLogout: true,
             complete: () => {
               this.$router.back()

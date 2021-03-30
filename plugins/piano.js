@@ -2,11 +2,10 @@
 export default ({ app }) => {
   // Piano conf
   window.tp = window.tp || []
-  window.tp.push(['setAid', 'QuTHmVhFpu'])
+  window.tp.push(['setAid', process.env.PIANO_AID])
   window.tp.push(["setCxenseSiteId", "1128464677385494954"]);
-  window.tp.push(['setSandbox', false])
-  window.tp.push(['setDebug', false])
-  //window.tp.push(['setUseTinypassAccounts', true])
+  window.tp.push(['setSandbox', process.env.PIANO_SANDOX])
+  window.tp.push(['setDebug', process.env.PIANO_SANDOX])
   window.tp.push(['setUsePianoIdUserProvider', true])
   window.tp.push([
     'init',
