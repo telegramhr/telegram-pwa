@@ -11,7 +11,7 @@
           class="container relative flex mobile-side-pad stretch column-full-pad"
         >
           <h1 class="full center-text">Priče koje guraju društvo naprijed.</h1>
-          <p class="full center-text">
+          <p class="full center-text pretplata-tagline">
             Pretplatite se i podržite naše bespoštedno novinarstvo.
           </p>
         </div>
@@ -36,9 +36,14 @@
                 <h3 class="overtitle">Standard</h3>
               </div>
               <h2 class="full">49kn</h2>
+              <h4 class="full center-text undertitle">Mjesečno</h4>
               <div class="full pretplata-benefits">
-                <p class="full animate">neograničeno čitanje Telegrama</p>
-                <p class="full animate">specijalni newsletteri</p>
+                <p class="full animate">
+                  <i class="fas fa-check"></i> neograničeno čitanje Telegrama
+                </p>
+                <p class="full animate">
+                  <i class="fas fa-check"></i> specijalni newsletteri
+                </p>
               </div>
               <div
                 class="full center btn-parent"
@@ -54,13 +59,23 @@
                 <h3 class="overtitle">Premium</h3>
               </div>
               <h2 class="full">69kn</h2>
+              <h4 class="full center-text undertitle">Mjesečno</h4>
               <div class="full pretplata-benefits">
-                <p class="full animate">neograničeno čitanje Telegrama</p>
-                <p class="full animate">neograničeno čitanje Telesporta</p>
-                <p class="full animate">specijalni newsletteri</p>
-                <p class="full animate">surfanje bez oglasa</p>
                 <p class="full animate">
-                  knjiga jednog od naših autora<a href="#knjige-disclaimer"
+                  <i class="fas fa-check"></i> neograničeno čitanje Telegrama
+                </p>
+                <p class="full animate">
+                  <i class="fas fa-check"></i> neograničeno čitanje Telesporta
+                </p>
+                <p class="full animate">
+                  <i class="fas fa-check"></i> specijalni newsletteri
+                </p>
+                <p class="full animate">
+                  <i class="fas fa-check"></i> surfanje bez oglasa
+                </p>
+                <p class="full animate">
+                  <i class="fas fa-check"></i> poklon: Telegram knjiga<a
+                    href="#knjige-disclaimer"
                     >*</a
                   >
                 </p>
@@ -78,10 +93,15 @@
               <div class="full flex overtitle-parent">
                 <h3 class="overtitle">Standard</h3>
               </div>
-              <h2 class="full">499kn</h2>
+              <h2 class="full">39kn</h2>
+              <h4 class="full center-text undertitle">Ukupno 468kn godišnje</h4>
               <div class="full pretplata-benefits">
-                <p class="full animate">neograničeno čitanje Telegrama</p>
-                <p class="full animate">specijalni newsletteri</p>
+                <p class="full animate">
+                  <i class="fas fa-check"></i> neograničeno čitanje Telegrama
+                </p>
+                <p class="full animate">
+                  <i class="fas fa-check"></i> specijalni newsletteri
+                </p>
               </div>
               <div
                 class="full center btn-parent"
@@ -96,16 +116,23 @@
               <div class="full flex overtitle-parent">
                 <h3 class="overtitle">Premium</h3>
               </div>
-              <h2 class="full">699kn</h2>
+              <h2 class="full">49kn</h2>
+              <h4 class="full center-text undertitle">Ukupno 588kn godišnje</h4>
               <div class="full pretplata-benefits">
-                <p class="full animate">neograničeno čitanje Telegrama</p>
-                <p class="full animate">neograničeno čitanje Telesporta</p>
-                <p class="full animate">specijalni newsletteri</p>
-                <p class="full animate">surfanje bez oglasa</p>
                 <p class="full animate">
-                  knjiga jednog od naših autora<a href="#knjige-disclaimer"
-                    >*</a
-                  >
+                  <i class="fas fa-check"></i> neograničeno čitanje Telegrama
+                </p>
+                <p class="full animate">
+                  <i class="fas fa-check"></i> neograničeno čitanje Telesporta
+                </p>
+                <p class="full animate">
+                  <i class="fas fa-check"></i> specijalni newsletteri
+                </p>
+                <p class="full animate">
+                  <i class="fas fa-check"></i> surfanje bez oglasa
+                </p>
+                <p class="full animate">
+                  <i class="fas fa-check"></i> poklon: Telegram knjiga
                 </p>
               </div>
               <div
@@ -115,6 +142,16 @@
                 <div class="btn animate">Odaberi</div>
               </div>
             </div>
+            <a
+              href="mailto:pretplata@telegram.hr"
+              class="full center-text undertitle first-undertitle"
+              >Imate pitanja? Javite nam se.</a
+            >
+            <a
+              href="mailto:pretplata@telegram.hr"
+              class="full center-text undertitle"
+              >Posebna ponuda za tvrtke.</a
+            >
           </div>
         </div>
       </div>
@@ -123,31 +160,74 @@
           <div
             class="pretplata-keypoint fourth flex-responsive column-full-pad mobile-side-pad"
           >
-            <h3>Vrhunski autori</h3>
+            <a class="full flex relative" href="#keypoint-autori">
+              <img
+                src="@/assets/img/tg_pretplata_mini_vizual_autori.jpg"
+                aria-hidden="true"
+              />
+              <div class="keypoint-text full center">
+                <h3>Vrhunski autori</h3>
+              </div>
+            </a>
           </div>
           <div
             class="pretplata-keypoint fourth flex-responsive column-full-pad mobile-side-pad"
           >
-            <h3>Otkrivanje korupcije</h3>
+            <a class="full flex relative" href="#keypoint-korupcija">
+              <img
+                src="@/assets/img/tg_pretplata_mini_vizual_korupcija.jpg"
+                aria-hidden="true"
+              />
+              <div class="keypoint-text full center">
+                <h3>Otkrivanje korupcije</h3>
+              </div>
+            </a>
           </div>
           <div
             class="pretplata-keypoint fourth flex-responsive column-full-pad mobile-side-pad"
           >
-            <h3>Istraživački specijali</h3>
+            <a class="full flex relative" href="#keypoint-istrazivacki">
+              <img
+                src="@/assets/img/tg_pretplata_mini_vizual_istrazivacki.jpg"
+                aria-hidden="true"
+              />
+              <div class="keypoint-text full center">
+                <h3>Istraživački specijali</h3>
+              </div>
+            </a>
           </div>
           <div
             class="pretplata-keypoint fourth flex-responsive column-full-pad mobile-side-pad"
           >
-            <h3>Inspirativne reportaže</h3>
+            <a class="full flex relative" href="#keypoint-inspiracija">
+              <img
+                src="@/assets/img/tg_pretplata_mini_vizual_inspiracija.jpg"
+                aria-hidden="true"
+              />
+              <div class="keypoint-text full center">
+                <h3>Inspirativne reportaže</h3>
+              </div>
+            </a>
           </div>
         </div>
       </div>
-      <div class="full flex relative sub-point">
+      <div class="full flex relative sub-point" id="keypoint-autori">
         <div class="container relative flex mobile-side-pad stretch">
           <div class="half flex-responsive column-full-pad">
             <img
               src="@/assets/img/tg_pretplata_keypoint_vizual_autori.jpg"
               aria-hidden="true"
+              class="light-mode-only"
+            />
+            <img
+              src="@/assets/img/tg_pretplata_keypoint_vizual_autori_dark.jpg"
+              aria-hidden="true"
+              class="dark-mode-only"
+            />
+            <img
+              src="@/assets/img/tg_pretplata_keypoint_vizual_autori_white.jpg"
+              aria-hidden="true"
+              class="contrast-mode-only"
             />
           </div>
           <div class="half center flex-responsive column-full-pad">
@@ -158,20 +238,34 @@
               <p>
                 Telegramovu ekipu čine renomirana imena i nagrađivani novinari
                 kao što su Drago Hedl, Sanja Modrić, Andrej Dimitrijević, Ana
-                Raić Knežević, Jasmin Klarić, Marko Repecki, Dora Kršul,
-                Aleksandar Holiga, Mladen Pleše, Đivo Đurović i mnogi drugi. A
-                želimo se, naravno, i pojačati.
+                Raić Knežević, Jasmin Klarić, Marko Repecki, Dora Kršul, Goranko
+                Fižulić, Aleksandar Holiga, Mladen Pleše, Đivo Đurović i mnogi
+                drugi. A želimo se, naravno, i pojačati.
               </p>
             </div>
           </div>
         </div>
       </div>
-      <div class="full flex relative sub-point alt-sub-point">
+      <div
+        class="full flex relative sub-point alt-sub-point"
+        id="keypoint-korupcija"
+      >
         <div class="container relative flex mobile-side-pad stretch">
           <div class="half flex-responsive column-full-pad">
             <img
               src="@/assets/img/tg_pretplata_keypoint_vizual_korupcija.jpg"
               aria-hidden="true"
+              class="light-mode-only"
+            />
+            <img
+              src="@/assets/img/tg_pretplata_keypoint_vizual_korupcija_dark.jpg"
+              aria-hidden="true"
+              class="dark-mode-only"
+            />
+            <img
+              src="@/assets/img/tg_pretplata_keypoint_vizual_korupcija_white.jpg"
+              aria-hidden="true"
+              class="contrast-mode-only"
             />
           </div>
           <div class="half center flex-responsive column-full-pad">
@@ -190,12 +284,23 @@
           </div>
         </div>
       </div>
-      <div class="full flex relative sub-point">
+      <div class="full flex relative sub-point" id="keypoint-istrazivacki">
         <div class="container relative flex mobile-side-pad stretch">
           <div class="half flex-responsive column-full-pad">
             <img
               src="@/assets/img/tg_pretplata_keypoint_vizual_istrazivacki.jpg"
               aria-hidden="true"
+              class="light-mode-only"
+            />
+            <img
+              src="@/assets/img/tg_pretplata_keypoint_vizual_istrazivacki_dark.jpg"
+              aria-hidden="true"
+              class="dark-mode-only"
+            />
+            <img
+              src="@/assets/img/tg_pretplata_keypoint_vizual_istrazivacki_white.jpg"
+              aria-hidden="true"
+              class="contrast-mode-only"
             />
           </div>
           <div class="half center flex-responsive column-full-pad">
@@ -214,7 +319,10 @@
           </div>
         </div>
       </div>
-      <div class="full flex relative sub-point alt-sub-point">
+      <div
+        class="full flex relative sub-point alt-sub-point"
+        id="keypoint-inspiracija"
+      >
         <div class="container relative flex mobile-side-pad stretch">
           <div class="half flex-responsive column-full-pad">
             <img
@@ -226,6 +334,11 @@
               src="@/assets/img/tg_pretplata_keypoint_vizual_inspiracija_dark.jpg"
               aria-hidden="true"
               class="dark-mode-only"
+            />
+            <img
+              src="@/assets/img/tg_pretplata_keypoint_vizual_inspiracija_white.jpg"
+              aria-hidden="true"
+              class="contrast-mode-only"
             />
           </div>
           <div class="half center flex-responsive column-full-pad">

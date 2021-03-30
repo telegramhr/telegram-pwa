@@ -7,6 +7,7 @@
 
 html {
     font-size: 20px;
+    scroll-behavior: smooth;
 }
 body {
     font-family: 'Merriweather', serif;
@@ -589,7 +590,6 @@ h2.section-title {
     margin-bottom: 20px;
     font-family: 'Barlow', sans-serif;
     font-weight: 600;
-    letter-spacing: 3px;
     text-transform: uppercase;
     color: #ae3737;
     font-size: 14px;
@@ -604,7 +604,6 @@ h2.section-title {
     background-color: transparent;
     font-family: 'Barlow', sans-serif;
     font-weight: 600;
-    letter-spacing: 3px;
     text-transform: uppercase;
     font-size: 12px;
     font-size: 0.6rem;
@@ -739,19 +738,11 @@ h2.section-title {
     bottom: 0px;
 }
 .signup-btn {
-    /*padding: 3px 8px;
-    border: 1px solid rgba(255,255,255,0.5);
-    margin-bottom: -16px;
-    position: relative;
-    top: -3px;
-    font-weight: 700;
-    font-size: 12px;*/
     background: rgba(255,255,255,0.07);
     padding: 4px 16px;
     display: none;
     font-family: 'Barlow', sans-serif;
     font-weight: 600;
-    letter-spacing: 3px;
     text-transform: uppercase;
     font-size: 10px;
     font-size: 0.5rem;
@@ -759,10 +750,27 @@ h2.section-title {
     position: relative;
     top: -2.5px;
     font-feature-settings: "liga" 0, "clig" 0;
+    margin-right: 12px;
+}
+.side-menu .signup-btn {
+    font-size: 10px;
+    font-size: 0.5rem;
+    text-align: center;
+}
+.sub-btn {
+    background: #ae3737;
+    color: white;
 }
 .signup-btn:hover {
     color: #212121;
     background: rgba(255,255,255,1);
+}
+.sub-btn:hover {
+    background: #dc4646;
+    color: white;
+}
+.pretplata-page .sub-btn {
+    display: none;
 }
 
 /* Block title */
@@ -1370,6 +1378,9 @@ figure img {
     width: 100%;
     padding: 20px 0px;
 }
+.side-menu .half:nth-child(2n-1) {
+    padding-right: 20px;
+}
 .side-menu h3 {
     font-family: neuzeit-grotesk-extra-conden, sans-serif;
     font-weight: 900;
@@ -1643,8 +1654,18 @@ header {
 }
 .header-headline {
     height: 16px;
-    max-width: 720px;
+    max-width: 620px;
     overflow: hidden;
+    position: relative;
+}
+.header-headline::before {
+    content: ' ';
+    height: 16px;
+    width: 20%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: linear-gradient(to left, rgba(31,31,31,1), rgba(31,31,31,0));
 }
 
 /* Breaking */
@@ -1656,7 +1677,7 @@ header {
     font-size: 0.8rem;
 }
 .homepage .breaking-news {
-    background-color: #6f2323;
+    background-color: #dc4646;
 }
 .breaking-news b {
     font-family: neuzeit-grotesk, sans-serif;
@@ -2186,6 +2207,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .dark-mode .subheader, .dark-mode footer, .dark-mode .side-menu, .dark-mode .pretplata-ticker {
     background-color: #121212;
 }
+.dark-mode .subheader .header-headline::before {
+    background: linear-gradient(to left, rgba(18,18,18,1), rgba(18,18,18,0));
+}
 .dark-mode .meta-foto, .dark-mode .header-billboard {
     background-color: #212121;
 }
@@ -2470,17 +2494,15 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     border: 1px solid white;
     background-color: transparent;
 }
-
-.pretplata-page {
-    scroll-behavior: smooth;
-}
 .pretplata-page h1 {
-    font-size: 64px;
-    font-size: 3.2rem;
     margin-top: 0px;
     line-height: 1em;
     letter-spacing: -0.05em;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
+}
+.pretplata-page p.pretplata-tagline {
+    font-size: 28px;
+    font-size: 1.4rem;
 }
 .pretplata-page h2, .pretplata-page .single-article-body h2 {
     font-size: 60px;
@@ -2495,10 +2517,16 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .pretplata-keypoint {
     position: relative;
-    padding-top: 24px;
+    padding-top: 48px;
     margin-bottom: 48px;
 }
-.pretplata-keypoint::before {
+/*.pretplata-keypoint > .full {
+    background-color: #212121;
+}*/
+.pretplata-keypoint img {
+    opacity: .3;
+}
+/*.pretplata-keypoint::before {
     content: ' ';
     background-color: #ae3737;
     width: 30%;
@@ -2506,16 +2534,25 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     position: absolute;
     top: 0;
     left: 35%;
-}
+}*/
 .pretplata-keypoint h3 {
-    font-size: 54px;
-    font-size: 2.7rem;
+    font-size: 44px;
+    font-size: 2.2rem;
+    padding: 10px;
+    padding-top: 12px;
     text-transform: uppercase;
     text-align: center;
     font-family: neuzeit-grotesk-extra-conden, sans-serif;
     font-weight: 900;
     font-style: normal;
     letter-spacing: -0.05em;
+}
+.keypoint-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    text-shadow: 0px 0px 5px #fcf1e7;
 }
 .pretplata-page-content {
     padding-top: 36px;
@@ -2529,11 +2566,20 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .dark-mode-only {
     display: none;
 }
-.dark-mode .light-mode-only {
+.dark-mode .light-mode-only, .dark-mode .contrast-mode-only {
     display: none;
 }
 .dark-mode .dark-mode-only {
     display: block;
+}
+.contrast-mode-only {
+    display: none;
+}
+.contrast-mode .contrast-mode-only {
+    display: block;
+}
+.contrast-mode .light-mode-only, .contrast-mode .dark-mode-only {
+    display: none;
 }
 #landing {
     margin-bottom: 64px;
@@ -2551,10 +2597,14 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 2.4px;
     font-size: 1.2rem;
     margin-bottom: 24px;
-    padding-right: 20px;
+    padding-right: 24px;
     font-weight: bold;
     cursor: pointer;
     position: relative;
+    list-style-image: none;
+}
+.pretplata-faq summary::-webkit-details-marker {
+    display: none;
 }
 .pretplata-faq details {
     margin-top: 24px;
@@ -2584,7 +2634,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     top: 11px;
     opacity: 1;
 }
-
 .pretplata-packs {
     margin-top: 48px;
     margin-bottom: 64px;
@@ -2597,12 +2646,27 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     max-width: 360px;
     border: 1px solid #c8c8c8;
     margin: 8px;
-    margin-top: 48px;
+    margin-top: 36px;
+    margin-bottom: 16px;
     text-align: center;
 }
 .pretplata-page .pretplata-packbox h2 {
     font-size: 72px;
     font-size: 3.6rem;
+    margin-bottom: 0px;
+}
+.pretplata-packboxes .undertitle {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    font-size: 0.6rem;
+    opacity: .4;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+.pretplata-packboxes .first-undertitle {
+    margin-bottom: 6px;
 }
 .pretplata-benefits {
     margin-bottom: 8px;
@@ -2610,20 +2674,31 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .pretplata-benefits p {
     font-size: 16px;
     font-size: 0.8rem;
-    margin-bottom: 4px;
-    opacity: .7;
+    margin-bottom: 8px;
+    color: #444;
+    text-align: left;
+    position: relative;
 }
-.pretplata-benefits:hover p {
-    opacity: 1;
+.pretplata-benefits p i.fas {
+    color: #35a843;
+    margin-right: 4px;
 }
 .pretplata-benefits p a {
     color: #ae3737;
 }
-
 .pretplata-packbox .btn-parent {
     position: absolute;
     bottom: 20px;
     left: 0px;
+}
+.pretplata-packboxes a.undertitle {
+    opacity: .3;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+}
+.pretplata-packboxes a.undertitle:hover {
+    text-decoration-color: #111;
+
 }
 .pretplata-packbox .btn {
     cursor: pointer;
@@ -2631,48 +2706,29 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     display: block;
     font-family: 'Barlow', sans-serif;
     font-weight: 600;
-    letter-spacing: 3px;
     text-transform: uppercase;
     background-color: white;
     position: relative;
-    z-index: 200;
+    z-index: 5;
     border: 1px solid #c1b9b1;
     color: white;
     background-color: #ae3737;
-    margin-bottom: -36px;
-    font-size: 12px;
-    font-size: 0.6rem;
+    margin-bottom: -40px;
+    font-size: 14px;
+    font-size: 0.7rem;
     padding: 8px 24px;
 }
 .pretplata-packbox .btn:hover {
-    background-color: #8f2d2d;
+    background-color: #dc4646;
 }
 .pretplata-packbox .overtitle {
     text-transform: uppercase;
-    background-color: #fcf1e7;
-    padding: 4px 16px;
-    font-size: 16px;
+    font-size: 14px;
     width: 120px;
-    font-size: 0.8rem;
-    border: 1px solid #c8c8c8;
+    font-size: 0.7rem;
+    color: #ae3737;
     margin: 0 auto;
-}
-.contrast-mode .pretplata-packbox .overtitle {
-    background-color: white;
-}
-.dark-mode .pretplata-packbox .overtitle {
-    background-color: #212121;
-    color: white;
-    border: 1px solid #333;
-}
-.pretplata-packbox:nth-child(2n) .overtitle {
-    background-color: #ae3737;
-    color: white;
-}
-.pretplata-packbox .overtitle-parent {
-    position: relative;
-    top: -36px;
-    margin-bottom: -24px;
+    letter-spacing: 1.5px;
 }
 #yeartoggle {
     display: none;
@@ -2688,48 +2744,60 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     width: auto;
     border: 1px solid #c8c8c8;
     cursor: pointer;
-    font-size: 16px;
-    font-size: 0.8rem;
+    font-size: 14px;
+    font-size: 0.7rem;
     display: flex;
 }
 .dark-mode .yeartoggle-parent label {
     border-color: #333;
 }
 .togglemonth, .toggleyear {
-    padding: 8px 32px;
+    padding: 8px 20px;
     transition: all 0.3s;
-    background-color: transparent;
-    width: 150px;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 132px;
+    color: #666;
     text-align: center;
 }
 .best-price-sticker {
-    background-color: #ae3737;
-    color: white;
+    background-color: #e5c473;
+    color: #111;
     position: absolute;
-    top: -16px;
-    right: -52px;
+    top: -36px;
+    transform: rotate(15deg);
+    right: -36px;
+    width: 64px;
+    height: 64px;
+    border-radius: 32px;
+    align-items: center;
+    display: flex;
     text-align: center;
     padding: 5px;
     font-size: 10px;
     font-size: 0.5rem;
     opacity: 1;
+    overflow: hidden;
+}
+.best-price-sticker::before {
+    content: ' ';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 64px;
+    height: 8px;
+    background-color: #c8ab64;
 }
 .togglemonth {
-    background-color: #ae3737;
-    border-color: #ae3737;
-    color: white;
-}
-#yeartoggle:checked ~ .yeartoggle-parent .best-price-sticker {
-    opacity: 0;
+    background-color: rgba(0, 0, 0, 0);
+    color: #111;
 }
 #yeartoggle:checked ~ .yeartoggle-parent label .toggleyear {
-    background-color: #ae3737;
-    border-color: #ae3737;
-    color: white;
+    background-color: rgba(0, 0, 0, 0);
+    color: #111;
 }
 #yeartoggle:checked ~ .yeartoggle-parent label .togglemonth {
-    background-color: transparent;
-    color: #111;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #666;
 }
 .pretplata-packbox:nth-child(3), .pretplata-packbox:nth-child(4) {
     display: none;
@@ -2752,12 +2820,17 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 @media screen and (max-width: 1024px) {
     .pretplata-keypoint {
       width: 49.99%;
+      padding-top: 16px;
+      margin-bottom: 16px;
     }
     .pretplata-keypoint h3 {
       font-size: 30px;
     }
     .pretplata-page .flex-responsive img {
       margin-top: 16px;
+    }
+    .pretplata-page .pretplata-keypoint img {
+        margin-top: 0px;
     }
     .pretplata-page h1 {
       font-size: 48px;
@@ -2797,10 +2870,14 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .togglemonth, .toggleyear {
         padding: 8px 16px;
-        width: 120px;
+        width: 132px;
     }
     .pretplata-packbox {
-        margin-top: 72px;
+        margin-top: 36px;
+        margin-bottom: 36px;
+    }
+    .pretplata-packs {
+        margin-bottom: 0px;
     }
 }
 
@@ -3350,7 +3427,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .article-featured:last-child .article-pad {
         border-bottom: none;
     }
-    .desktop-subheader .fourth:last-child {
+    .desktop-subheader .third:last-child {
         justify-content: flex-end;
     }
     .subheader {
@@ -3969,8 +4046,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     /* Pretplata */
 
     .pretplata-page h1 {
-        font-size: 84px;
-        font-size: 4.2rem;
+        font-size: 68px;
+        font-size: 3.4rem;
     }
 }
 @media screen and (max-width: 1024px) and (max-height: 800px) {

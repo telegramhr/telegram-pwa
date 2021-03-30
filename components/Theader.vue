@@ -30,6 +30,17 @@
       ></a>
       <div class="menu flex">
         <div class="half" role="menu">
+          <app-link to="/pretplata" class="signup-btn sub-btn"
+            >Pretplatite se</app-link
+          >
+          <client-only>
+            <a v-if="canLogIn" class="signup-btn" @click.prevent="login"
+              >Prijavi se</a
+            >
+            <a v-if="!canLogIn" class="signup-btn" @click.prevent="logout"
+              >Odjavite se</a
+            >
+          </client-only>
           <client-only>
             <template v-if="loggedIn">
               <h3>Admin</h3>
@@ -181,7 +192,7 @@
     </div>
     <div class="full subheader sticky-subheader mobile-side-pad center">
       <div class="container flex desktop-subheader column-horizontal-pad">
-        <div class="three-fourths flex" role="navigation">
+        <div class="two-thirds flex" role="navigation">
           <app-link to="/" class="logo"
             ><img
               src="@/assets/img/telegram_logo_white.svg"
@@ -209,7 +220,18 @@
             {{ headline }}
           </div>
         </div>
-        <div class="flex fourth relative">
+        <div class="flex third relative">
+          <app-link to="/pretplata" class="signup-btn sub-btn"
+            >Pretplatite se</app-link
+          >
+          <client-only>
+            <a v-if="canLogIn" class="signup-btn" @click.prevent="login"
+              >Prijavi se</a
+            >
+            <a v-if="!canLogIn" class="signup-btn" @click.prevent="logout"
+              >Odjavite se</a
+            >
+          </client-only>
           <a
             aria-label="Prikaži tražilicu"
             :aria-expanded="$store.state.header.showSearchMenu.toString()"
@@ -217,14 +239,6 @@
             @click.prevent="$store.commit('header/updateMenu', 'search')"
             ><i class="far fa-search"></i
           ></a>
-          <client-only>
-            <a v-if="canLogIn" class="signup-btn" @click.prevent="login"
-              >Prijavi se</a
-            >
-            <a v-if="!canLogIn" class="signup-btn" @click.prevent="logout"
-              >Odjavi se</a
-            >
-          </client-only>
         </div>
       </div>
     </div>
@@ -258,7 +272,7 @@
         <div
           class="container desktop-only flex desktop-subheader column-horizontal-pad single-exclusive"
         >
-          <div class="fourth flex">
+          <div class="third flex">
             <a
               :aria-expanded="$store.state.header.showSideMenu.toString()"
               aria-label="Prikaži lijevi meni"
@@ -267,14 +281,25 @@
               ><i class="far fa-bars"></i
             ></a>
           </div>
-          <div class="half center relative">
+          <div class="third center relative">
             <app-link to="/" class="logo"
               ><img
                 src="@/assets/img/telegram_logo_white.svg"
                 alt="Telegram logo"
             /></app-link>
           </div>
-          <div class="flex fourth relative">
+          <div class="flex third relative">
+            <app-link to="/pretplata" class="signup-btn sub-btn"
+              >Pretplatite se</app-link
+            >
+            <client-only>
+              <a v-if="canLogIn" class="signup-btn" @click="login"
+                >Prijavi se</a
+              >
+              <a v-if="!canLogIn" class="signup-btn" @click.prevent="logout"
+                >Odjavite se</a
+              >
+            </client-only>
             <a
               href="#"
               aria-label="Prikaži tražilicu"
@@ -283,14 +308,6 @@
               @click.prevent="$store.commit('header/updateMenu', 'search')"
               ><i class="far fa-search"></i
             ></a>
-            <client-only>
-              <a v-if="canLogIn" class="signup-btn" @click="login"
-                >Prijavi se</a
-              >
-              <a v-if="!canLogIn" class="signup-btn" @click.prevent="logout"
-                >Odjavi se</a
-              >
-            </client-only>
           </div>
         </div>
         <!-- Mobile Subheader -->
@@ -315,7 +332,7 @@
           class="container desktop-only flex desktop-subheader column-horizontal-pad homepage-exclusive"
           role="navigation"
         >
-          <div class="three-fourths flex" role="menu">
+          <div class="two-thirds flex" role="menu">
             <a
               :aria-expanded="$store.state.header.showSideMenu.toString()"
               aria-label="Prikaži lijevi meni"
@@ -339,7 +356,18 @@
               <!--<app-link to="/fotogalerije">Fotogalerije</app-link>-->
             </div>
           </div>
-          <div class="flex fourth relative">
+          <div class="flex third relative">
+            <app-link to="/pretplata" class="signup-btn sub-btn"
+              >Pretplatite se</app-link
+            >
+            <client-only>
+              <a v-if="canLogIn" class="signup-btn" @click.prevent="login"
+                >Prijavi se</a
+              >
+              <a v-if="!canLogIn" class="signup-btn" @click.prevent="logout"
+                >Odjavite se</a
+              >
+            </client-only>
             <a
               href="#"
               aria-label="Prikaži tražilicu"
@@ -348,14 +376,6 @@
               @click.prevent="$store.commit('header/updateMenu', 'search')"
               ><i class="far fa-search"></i
             ></a>
-            <client-only>
-              <a v-if="canLogIn" class="signup-btn" @click.prevent="login"
-                >Prijavi se</a
-              >
-              <a v-if="!canLogIn" class="signup-btn" @click.prevent="logout"
-                >Odjavi se</a
-              >
-            </client-only>
           </div>
         </div>
         <client-only>

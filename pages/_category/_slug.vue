@@ -583,7 +583,7 @@ export default {
       tp.push([
         'init',
         function () {
-          tp.experience.execute()
+          window.tp.experience.execute()
         },
       ])
     },
