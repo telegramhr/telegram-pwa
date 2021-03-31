@@ -88,7 +88,9 @@
                 <h3 class="overtitle">Standard</h3>
               </div>
               <h2 class="full">39kn</h2>
-              <h4 class="full center-text undertitle">Ukupno 468kn godišnje</h4>
+              <h4 class="full center-text undertitle">
+                mjesečno, za cijelu godinu 468kn
+              </h4>
               <div class="full pretplata-benefits">
                 <p class="full animate">
                   <i class="fas fa-check"></i> neograničeno čitanje Telegrama
@@ -108,7 +110,9 @@
                 <h3 class="overtitle">Premium</h3>
               </div>
               <h2 class="full">49kn</h2>
-              <h4 class="full center-text undertitle">Ukupno 588kn godišnje</h4>
+              <h4 class="full center-text undertitle">
+                mjesečno, za cijelu godinu 588kn
+              </h4>
               <div class="full pretplata-benefits">
                 <p class="full animate">
                   <i class="fas fa-check"></i> neograničeno čitanje Telegrama
@@ -356,8 +360,8 @@
             </summary>
             <p>
               Pretplata na Telegram omogućuje Vam, ovisno o paketu, neograničeno
-              čitanje Telegrama, Telesporta i Super1, ali i brojne druge
-              benefite i funkcionalnosti poput surfanja bez oglasa ili
+              čitanje Telegrama i Telesporta, ali i brojne druge benefite i
+              funkcionalnosti poput surfanja bez oglasa, poklon knjige i
               ekskluzivnih newslettera koje ćemo uskoro pokrenuti.
             </p>
           </details>
@@ -384,7 +388,7 @@
             <p>
               Vrlo jednostavno, samo odaberite jedan od gore ponuđenih mjesečnih
               ili godišnjih paketa, a sustav će Vas dalje sam voditi kroz vrlo
-              kratak i jednostavan proces.
+              kratak i jednostavan proces registracije i kupnje.
             </p>
           </details>
           <details class="full flex relative">
@@ -404,11 +408,11 @@
               Koja mi se opcija pretplate najviše isplati?
             </summary>
             <p>
-              Najisplativija opcija je godišnja premium pretplata koja Vam za 49
-              kuna mjesečno omogućuje dvanaest mjeseci neograničenog čitanja
-              Telegrama, Telesporta i Super1 bez oglasa, nove funkcionalnosti
-              koje ćemo uvoditi i knjigu jednog od naših autora kao poseban
-              poklon.
+              Najisplativija opcija je godišnja premium pretplata: u njoj za
+              samo 49 kuna mjesečno (godišnji iznos naplaćuje se jednokratno)
+              dobivate godinu dana neograničenog čitanja Telegrama i Telesporta
+              bez oglasa, nove funkcionalnosti koje ćemo uvoditi i knjigu jednog
+              od naših autora kao poseban poklon.
             </p>
           </details>
           <details id="knjige-disclaimer" class="full flex relative" open>
@@ -452,6 +456,15 @@
           </details>
           <details class="full flex relative">
             <summary class="full flex relative">
+              Mogu li dijeliti svoju pretplatu s drugima?
+            </summary>
+            <p>
+              Ne, dijeljenje pretplate nije dopušteno, a u slučaju sumnje u
+              dijeljenje pretplate zadržavamo pravo zatvoriti korisnički račun.
+            </p>
+          </details>
+          <details class="full flex relative">
+            <summary class="full flex relative">
               Mi smo tvrtka/škola/knjižnica/fakultet, postoji li opcija grupne
               pretplate?
             </summary>
@@ -474,11 +487,20 @@
           </details>
           <details class="full flex relative">
             <summary class="full flex relative">
-              Mogu li se pretplatiti samo na Telesport ili Super1?
+              Mogu li se pretplatiti samo na Telesport?
             </summary>
             <p>
-              Naravno, možete se pretplatiti samo na neki od naših portala ili
-              na sve portale zajedno, kako Vama više odgovara.
+              Naravno, možete se pretplatiti samo na Telegram, samo na Telesport
+              ili na oba portala zajedno, kako Vama najbolje odgovara.
+            </p>
+          </details>
+          <details class="full flex relative">
+            <summary class="full flex relative">
+              Mogu li otkazati pretplatu jednom kad se pretplatim?
+            </summary>
+            <p>
+              Naravno, pretplatu možete samostalno i jednostavno otkazati u bilo
+              kojem trenutku kroz korisničko sučelje.
             </p>
           </details>
           <details class="full flex relative">

@@ -30,15 +30,18 @@
       ></a>
       <div class="menu flex">
         <div class="half" role="menu">
-          <app-link to="/pretplata" class="signup-btn sub-btn"
-            >Pretplatite se</app-link
-          >
           <client-only>
+            <app-link v-if="canLogIn" to="/pretplata" class="signup-btn sub-btn"
+              >Pretplatite se</app-link
+            >
             <a v-if="canLogIn" class="signup-btn" @click.prevent="login"
-              >Prijavi se</a
+              >Prijava</a
+            >
+            <app-link v-if="!canLogIn" to="/moj-racun" class="signup-btn"
+              >Moj račun</app-link
             >
             <a v-if="!canLogIn" class="signup-btn" @click.prevent="logout"
-              >Odjavite se</a
+              >Odjava</a
             >
           </client-only>
           <client-only>
@@ -221,15 +224,18 @@
           </div>
         </div>
         <div class="flex third relative">
-          <app-link to="/pretplata" class="signup-btn sub-btn"
-            >Pretplatite se</app-link
-          >
           <client-only>
-            <a v-if="canLogIn" class="signup-btn" @click.prevent="login"
-              >Prijavi se</a
+            <app-link v-if="canLogIn" to="/pretplata" class="signup-btn sub-btn"
+              >Pretplatite se</app-link
             >
+            <a v-if="canLogIn" class="signup-btn" @click.prevent="login"
+              >Prijava</a
+            >
+            <app-link v-if="!canLogIn" to="/moj-racun" aria-label="Moj račun"
+              ><i class="far fa-user"></i
+            ></app-link>
             <a v-if="!canLogIn" class="signup-btn" @click.prevent="logout"
-              >Odjavite se</a
+              >Odjava</a
             >
           </client-only>
           <a
@@ -289,16 +295,22 @@
             /></app-link>
           </div>
           <div class="flex third relative">
-            <app-link to="/pretplata" class="signup-btn sub-btn"
-              >Pretplatite se</app-link
-            >
             <client-only>
-              <a v-if="canLogIn" class="signup-btn" @click="login"
-                >Prijavi se</a
+              <app-link
+                v-if="canLogIn"
+                to="/pretplata"
+                class="signup-btn sub-btn"
+                >Pretplatite se</app-link
+              >
+              <a v-if="canLogIn" class="signup-btn" @click.prevent="login"
+                >Prijava</a
               >
               <a v-if="!canLogIn" class="signup-btn" @click.prevent="logout"
-                >Odjavite se</a
+                >Odjava</a
               >
+              <app-link v-if="!canLogIn" to="/moj-racun" aria-label="Moj račun"
+                ><i class="far fa-user"></i
+              ></app-link>
             </client-only>
             <a
               href="#"
@@ -357,16 +369,22 @@
             </div>
           </div>
           <div class="flex third relative">
-            <app-link to="/pretplata" class="signup-btn sub-btn"
-              >Pretplatite se</app-link
-            >
             <client-only>
+              <app-link
+                v-if="canLogIn"
+                to="/pretplata"
+                class="signup-btn sub-btn"
+                >Pretplatite se</app-link
+              >
               <a v-if="canLogIn" class="signup-btn" @click.prevent="login"
-                >Prijavi se</a
+                >Prijava</a
               >
               <a v-if="!canLogIn" class="signup-btn" @click.prevent="logout"
-                >Odjavite se</a
+                >Odjava</a
               >
+              <app-link v-if="!canLogIn" to="/moj-racun" aria-label="Moj račun"
+                ><i class="far fa-user"></i
+              ></app-link>
             </client-only>
             <a
               href="#"
