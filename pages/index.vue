@@ -248,6 +248,17 @@ export default {
       }
     },
     loadAds() {
+      if (this.$route.query.reset_token) {
+        window.tp.push([
+          'init',
+          function () {
+            window.tp.pianoId.show({
+              displayMode: 'modal',
+              screen: 'new_password',
+            })
+          },
+        ])
+      }
       this.$store.dispatch('ads/initAds', { route: this.$route })
     },
     loadMore() {
