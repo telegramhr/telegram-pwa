@@ -2811,6 +2811,17 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     display: flex;
 }
 
+.dark-mode .pretplata-benefits p {
+    color: #999;
+}
+.dark-mode #yeartoggle:checked ~ .yeartoggle-parent label .toggleyear, .dark-mode .togglemonth {
+    color: #efefef;
+    background-color: #333;
+}
+.dark-mode .keypoint-text {
+    text-shadow: 0 0 5px #212121;
+}
+
 @media screen and (min-width: 1025px) {
     .alt-sub-point .half {
       order: 1;

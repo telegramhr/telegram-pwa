@@ -231,12 +231,12 @@
             <a v-if="canLogIn" class="signup-btn" @click.prevent="login"
               >Prijava</a
             >
-            <app-link v-if="!canLogIn" to="/moj-racun" aria-label="Moj račun"
-              ><i class="far fa-user"></i
-            ></app-link>
             <a v-if="!canLogIn" class="signup-btn" @click.prevent="logout"
               >Odjava</a
             >
+            <app-link v-if="!canLogIn" to="/moj-racun" aria-label="Moj račun"
+              ><i class="far fa-user"></i
+            ></app-link>
           </client-only>
           <a
             aria-label="Prikaži tražilicu"
