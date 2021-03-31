@@ -43,6 +43,7 @@
         ></app-link>
       </div>
       <div class="full flex services center">
+        <app-link to="/pretplata" class="animate">Pretplata</app-link>
         <app-link to="/stranica/impressum" class="animate">Impressum</app-link>
         <app-link to="/stranica/oglasavanje" class="animate"
           >Oglašavanje</app-link
