@@ -644,7 +644,32 @@ export default {
           theme === 'dark' ? 'dark-mode' : '',
         ],
       },
-      title: 'Telegram.hr pretplata',
+      title: 'Telegram.hr Pretplata',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Odaberite jedan od paketa i podržite nas',
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: 'Odaberite jedan od paketa i podržite nas',
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          property: 'og:title',
+          content: 'Telegram.hr Pretplata',
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          property: 'og:image',
+          content:
+            'https://www.telegram.hr/wp-content/uploads/2021/01/tg-background.jpg',
+        },
+      ],
     }
   },
 }

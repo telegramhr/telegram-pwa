@@ -21,6 +21,7 @@ export const mutations = {
     state.email = ''
     state.token = ''
     state.exp = 0
+    state.access = false
   },
   setTerm(state, data) {
     state.access = data
