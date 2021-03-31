@@ -138,7 +138,11 @@
                   <i class="fas fa-check"></i> surfanje bez oglasa
                 </p>
                 <p class="full animate">
-                  <i class="fas fa-check"></i> poklon: Telegram knjiga
+                  <i class="fas fa-check"></i> poklon: Telegram knjiga<a
+                    href="#knjige-disclaimer"
+                    onclick="document.getElementById('knjige-disclaimer').open = true;"
+                    >*</a
+                  >
                 </p>
               </div>
               <div class="full center btn-parent" @click="checkout(four)">
