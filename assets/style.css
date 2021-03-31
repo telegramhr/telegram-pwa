@@ -2418,7 +2418,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 0.6rem;
     font-family: 'Barlow', sans-serif;
     font-weight: 600;
-    letter-spacing: 3px;
     text-transform: uppercase;
     text-align: center;
     display: block;
@@ -2488,7 +2487,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .pretplata-ticker .btn {
     padding: 8px 24px;
-    border: none;
+    border: 1px solid #ae3737;
     margin-bottom: 8px;
     margin-right: 8px;
 }
@@ -3278,28 +3277,29 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .pretplata-ticker {
         padding: 4vw;
-        padding-right: 50px;
     }
     .pretplata-ticker h2 {
-        font-size: 32px;
-        font-size: 1.6rem;
+        font-size: 28px;
+        font-size: 1.4rem;
         letter-spacing: -0.05em;
         margin-bottom: 8px;
-        text-align: left;
     }
     .pretplata-ticker p {
-        text-align: left;
         line-height: 1.55em;
-    }
-    .pretplata-ticker .center {
-        justify-content: flex-start;
-        flex-wrap: wrap;
+        font-size: 13px;
+        font-size: 0.65rem;
     }
     .pretplata-ticker .close-ticker-btn {
         justify-content: center;
         width: 30px;
         height: 30px;
         top: -15px;
+    }
+    .pretplata-ticker .btn {
+        padding: 8px 24px;
+    }
+    .pretplata-ticker .center .btn:last-child {
+        margin-right: 0px;
     }
 }
 
