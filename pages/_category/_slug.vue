@@ -531,6 +531,9 @@ export default {
       }
     },
     loadMidas() {
+      if (this.$store.state.user.access) {
+        return
+      }
       const container = document.getElementById('midasWidget__657')
       const intext = document.getElementById('midasWidget__r49')
       let widget = '2?portalWidgetId=657'
@@ -546,6 +549,9 @@ export default {
       container.parentNode.insertBefore(scriptTag, container)
     },
     loadMox() {
+      if (this.$store.state.user.access) {
+        return
+      }
       const container = document.querySelectorAll(
         '[data-id=_mwayss-325b7d752b361c5458420729057fe2ff]'
       )[0]
