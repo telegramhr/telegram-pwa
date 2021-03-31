@@ -31,13 +31,21 @@
       <div class="menu flex">
         <div class="half" role="menu">
           <client-only>
-            <app-link v-if="canLogIn" to="/pretplata" class="signup-btn sub-btn"
+            <app-link
+              v-if="canLogIn"
+              to="/pretplata"
+              class="signup-btn sub-btn"
+              @click.native="maybeCloseSide"
               >Pretplatite se</app-link
             >
             <a v-if="canLogIn" class="signup-btn" @click.prevent="login"
               >Prijava</a
             >
-            <app-link v-if="!canLogIn" to="/moj-racun" class="signup-btn"
+            <app-link
+              v-if="!canLogIn"
+              to="/moj-racun"
+              class="signup-btn"
+              @click.native="maybeCloseSide"
               >Moj račun</app-link
             >
             <a v-if="!canLogIn" class="signup-btn" @click.prevent="logout"
@@ -60,14 +68,36 @@
           </client-only>
           <!--<app-link to="/moj-racun">Moj račun</app-link>-->
           <h3>Rubrika</h3>
-          <app-link role="menuitem" to="/politika-kriminal"
+          <app-link
+            role="menuitem"
+            to="/politika-kriminal"
+            @click.native="maybeCloseSide"
             >Politika & Kriminal</app-link
           >
-          <app-link role="menuitem" to="/komentari">Komentari</app-link>
-          <app-link role="menuitem" to="/biznis-tech">Biznis & Tech</app-link>
-          <app-link role="menuitem" to="/velike-price">Velike priče</app-link>
-          <app-link role="menuitem" to="/zivot">Život</app-link>
-          <app-link role="menuitem" to="/kultura">Kultura</app-link>
+          <app-link
+            role="menuitem"
+            to="/komentari"
+            @click.native="maybeCloseSide"
+            >Komentari</app-link
+          >
+          <app-link
+            role="menuitem"
+            to="/biznis-tech"
+            @click.native="maybeCloseSide"
+            >Biznis & Tech</app-link
+          >
+          <app-link
+            role="menuitem"
+            to="/velike-price"
+            @click.native="maybeCloseSide"
+            >Velike priče</app-link
+          >
+          <app-link role="menuitem" to="/zivot" @click.native="maybeCloseSide"
+            >Život</app-link
+          >
+          <app-link role="menuitem" to="/kultura" @click.native="maybeCloseSide"
+            >Kultura</app-link
+          >
           <!--<app-link to="/fotogalerije">Fotogalerije</app-link>-->
         </div>
         <div class="half" role="menu">
@@ -181,13 +211,22 @@
         </div>
         <div class="half" role="menu">
           <h3>Info</h3>
-          <app-link role="menuitem" to="/stranica/impressum"
+          <app-link
+            role="menuitem"
+            to="/stranica/impressum"
+            @click.native="maybeCloseSide"
             >Impressum</app-link
           >
-          <app-link role="menuitem" to="/stranica/oglasavanje"
+          <app-link
+            role="menuitem"
+            to="/stranica/oglasavanje"
+            @click.native="maybeCloseSide"
             >Oglašavanje</app-link
           >
-          <app-link role="menuitem" to="/stranica/uvjeti-koristenja"
+          <app-link
+            role="menuitem"
+            to="/stranica/uvjeti-koristenja"
+            @click.native="maybeCloseSide"
             >Uvjeti korištenja</app-link
           >
         </div>
@@ -584,6 +623,7 @@ export default {
     },
     login() {
       const _that = this
+      this.maybeCloseSide()
       window.tp.pianoId.show({
         screen: 'login',
         loggedIn(data) {
@@ -596,8 +636,14 @@ export default {
       })
     },
     logout() {
+      this.maybeCloseSide()
       window.tp.pianoId.logout()
       this.$store.commit('user/logout')
+    },
+    maybeCloseSide() {
+      if (this.$mobile) {
+        this.$store.commit('header/updateMenu', 'side')
+      }
     },
   },
 }
