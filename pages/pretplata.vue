@@ -242,8 +242,8 @@
                 Telegramovu ekipu čine renomirana imena i nagrađivani novinari
                 kao što su Drago Hedl, Sanja Modrić, Andrej Dimitrijević, Ana
                 Raić Knežević, Jasmin Klarić, Marko Repecki, Dora Kršul, Goranko
-                Fižulić, Aleksandar Holiga, Mladen Pleše, Đivo Đurović i mnogi
-                drugi. A želimo se, naravno, i pojačati.
+                Fižulić, Aleksandar Holiga, Mladen Pleše, Vjekoslav Skledar,
+                Đivo Đurović i mnogi drugi. A želimo se, naravno, i pojačati.
               </p>
             </div>
           </div>
