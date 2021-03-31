@@ -20,12 +20,22 @@
         <div class="container relative flex pretplata-packs mobile-side-pad">
           <input id="yeartoggle" type="checkbox" name="yeartoggle" />
           <div class="full center yeartoggle-parent">
-            <label for="yeartoggle" class="relative">
+            <label class="relative">
               <div class="best-price-sticker animate">
                 Najbolja <br />vrijednost
               </div>
-              <div class="togglemonth">Mjesečno</div>
-              <div class="toggleyear">Godišnje</div>
+              <div
+                class="togglemonth"
+                onclick="document.getElementById('yeartoggle').checked = false;"
+              >
+                Mjesečno
+              </div>
+              <div
+                class="toggleyear"
+                onclick="document.getElementById('yeartoggle').checked = true;"
+              >
+                Godišnje
+              </div>
             </label>
           </div>
           <div class="full flex center pretplata-packboxes">
@@ -73,6 +83,7 @@
                 <p class="full animate">
                   <i class="fas fa-check"></i> poklon: Telegram knjiga<a
                     href="#knjige-disclaimer"
+                    onclick="document.getElementById('knjige-disclaimer').open = true;"
                     >*</a
                   >
                 </p>
@@ -415,7 +426,7 @@
               od naših autora kao poseban poklon.
             </p>
           </details>
-          <details id="knjige-disclaimer" class="full flex relative" open>
+          <details id="knjige-disclaimer" class="full flex relative">
             <summary class="full flex relative">
               Kako mogu dobiti knjigu na poklon?
             </summary>
