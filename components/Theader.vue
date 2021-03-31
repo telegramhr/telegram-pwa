@@ -629,8 +629,9 @@ export default {
         loggedIn(data) {
           _that.$store.dispatch('user/setUser', data)
           window.tp.api.callApi('/access/list', {}, function (response) {
-            _that.$store.dispatch('user/setAccess', response)
-            window.location.reload()
+            _that.$store.dispatch('user/setAccess', response).then(() => {
+              window.location.reload()
+            })
           })
         },
       })

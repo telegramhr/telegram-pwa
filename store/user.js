@@ -33,13 +33,17 @@ export const actions = {
     commit('setUser', data)
   },
   setAccess({ commit }, data) {
-    if (data.data.length) {
-      data.data.forEach((item) => {
-        if (item.resource.rid === 'BR92VTWM') {
-          commit('setTerm', true)
-        }
-      })
-    }
+    return new Promise((resolve) => {
+      if (data.data.length) {
+        data.data.forEach((item) => {
+          if (item.resource.rid === 'BR92VTWM') {
+            commit('setTerm', true)
+          }
+        })
+        resolve()
+      }
+      resolve()
+    })
   },
   logout({ commit }) {
     commit('logout')
