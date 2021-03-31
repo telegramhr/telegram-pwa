@@ -239,8 +239,11 @@ export const mutations = {
 }
 
 export const actions = {
-  initAds({ state, commit, dispatch }, payload) {
+  initAds({ state, commit, dispatch, rootState }, payload) {
     if (payload.options && payload.options.includes('all')) {
+      return
+    }
+    if (rootState.user.access) {
       return
     }
     if (state.slots) {

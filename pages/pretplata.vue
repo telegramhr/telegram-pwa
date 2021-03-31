@@ -572,6 +572,17 @@ export default {
       return ''
     },
   },
+  mounted() {
+    window.tp.push([
+      'addHandler',
+      'checkoutComplete',
+      function (conversion) {
+        if (conversion.rid === '') {
+          this.$store.commit('user/setTerm', true)
+        }
+      },
+    ])
+  },
   methods: {
     checkout(termId) {
       if (this.$store.state.user.token) {
