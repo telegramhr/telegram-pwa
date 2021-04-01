@@ -151,13 +151,9 @@
             </div>
             <a
               href="mailto:pretplata@telegram.hr"
-              class="full center-text undertitle first-undertitle"
-              >Imate pitanja? Javite nam se.</a
-            >
-            <a
-              href="mailto:pretplata@telegram.hr"
               class="full center-text undertitle"
-              >Posebna ponuda za tvrtke.</a
+              >Trebat će vam R1 račun ili želite ponudu za pravne osobe? Javite
+              nam se.</a
             >
           </div>
         </div>
