@@ -674,7 +674,7 @@ export default {
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: this.post.social.path,
+          href: 'https://www.telegram.hr/pretplata',
         },
       ],
     }
