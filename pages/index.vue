@@ -47,6 +47,7 @@
             class="two-thirds column-horizontal-pad flex-responsive flex column-right-border column-top-pad"
           >
             <featured :key="posts[1].id" :post="posts[1]"></featured>
+            <mini-pretplata></mini-pretplata>
             <featured :key="posts[2].id" :post="posts[2]"></featured>
             <featured :key="posts[3].id" :post="posts[3]"></featured>
           </div>

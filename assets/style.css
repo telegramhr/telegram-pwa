@@ -2826,10 +2826,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 /* Mini pretplata widget */
 
 .mini-pretplata {
-    padding-bottom: 16px;
+    padding-bottom: 18px;
     margin-bottom: 16px;
+    /*padding-right: 128px;*/
     border-bottom: 1px solid #c8c8c8;
-    padding-right: 92px;
+    font-size: 14px;
+    font-size: 0.7rem;
 }
 .dark-mode .mini-pretplata {
     border-color: #333;
@@ -2839,11 +2841,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-weight: 700;
     font-size: 20px;
     font-size: 1rem;
+    margin-bottom: 8px;
 }
 .mini-pretplata .btn {
     cursor: pointer;
     text-align: center;
-    display: block;
+    display: inline-block;
     font-family: 'Barlow', sans-serif;
     font-weight: 600;
     text-transform: uppercase;
@@ -2853,14 +2856,34 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     border: 1px solid #c1b9b1;
     color: white;
     background-color: #ae3737;
-    font-size: 14px;
-    font-size: 0.7rem;
-    padding: 8px 24px;
-    position: absolute;
-    right: 0;
-    top: 0;
+    font-size: 12px;
+    margin-left: 6px;
+    font-size: 0.6rem;
+    padding: 4px 16px;
 }
-
+/*.mini-pretplata .btn-parent {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    padding-bottom: 16px;
+}*/
+@media screen and (max-width: 1024px) { 
+    .mini-pretplata {
+        order: 1;
+    }
+    .block-1 .article-featured {
+        order: 2;
+    }
+    .mini-pretplata .btn {
+        margin-top: 8px;
+    }
+    .mini-pretplata h2 {
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
 
 @media screen and (min-width: 1025px) {
     .alt-sub-point .half {
