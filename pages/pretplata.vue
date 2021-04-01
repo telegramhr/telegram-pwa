@@ -669,6 +669,17 @@ export default {
           content:
             'https://www.telegram.hr/wp-content/uploads/2021/01/tg-background.jpg',
         },
+        {
+          hid: 'og:url',
+          name: 'og:url',
+          property: 'og:url',
+          content: 'https://www.telegram.hr/pretplata',
+        },
+        {
+          hid: 'canonical',
+          rel: 'canonical',
+          href: this.post.social.path,
+        },
       ],
     }
   },
