@@ -2638,7 +2638,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .pretplata-packs {
     margin-top: 48px;
-    margin-bottom: 64px;
+    margin-bottom: 24px;
 }
 .pretplata-packboxes {
     align-items: stretch;
@@ -2649,7 +2649,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     border: 1px solid #c8c8c8;
     margin: 8px;
     margin-top: 36px;
-    margin-bottom: 16px;
+    margin-bottom: 48px;
     text-align: center;
 }
 .pretplata-page .pretplata-packbox h2 {
@@ -2821,6 +2821,46 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .dark-mode .keypoint-text {
     text-shadow: 0 0 5px #212121;
 }
+
+
+/* Mini pretplata widget */
+
+.mini-pretplata {
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #c8c8c8;
+    padding-right: 92px;
+}
+.dark-mode .mini-pretplata {
+    border-color: #333;
+}
+.mini-pretplata h2 {
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+    font-size: 20px;
+    font-size: 1rem;
+}
+.mini-pretplata .btn {
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    background-color: white;
+    position: relative;
+    z-index: 5;
+    border: 1px solid #c1b9b1;
+    color: white;
+    background-color: #ae3737;
+    font-size: 14px;
+    font-size: 0.7rem;
+    padding: 8px 24px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
 
 @media screen and (min-width: 1025px) {
     .alt-sub-point .half {
