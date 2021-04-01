@@ -671,6 +671,8 @@ export default {
           property: 'og:url',
           content: 'https://www.telegram.hr/pretplata',
         },
+      ],
+      link: [
         {
           hid: 'canonical',
           rel: 'canonical',
