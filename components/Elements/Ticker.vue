@@ -28,13 +28,13 @@ export default {
         1: {
           title: 'Bespoštedno novinarstvo koje gura društvo naprijed.',
         },
-        4: {
+        6: {
           title: 'Bespoštedno novinarstvo koje gura društvo naprijed.',
         },
-        6: {
+        9: {
           title: 'Ostao vam je još 1 besplatni članak u ovom mjesecu.',
         },
-        7: {
+        10: {
           title: 'Ovo vam je posljednji besplatni članak u ovom mjesecu.',
         },
       },
