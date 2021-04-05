@@ -10,7 +10,6 @@ export default {
     tp.push([
       'init',
       function () {
-        console.log('load')
         window.tp.myaccount.show({
           displayMode: 'inline',
           containerSelector: '#my-account',

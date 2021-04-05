@@ -1,6 +1,6 @@
 <template>
   <div class="main-container flex homepage">
-    <div v-if="!$mobile" class="container wallpaper-banners animate">
+    <div v-show="!$mobile" class="container wallpaper-banners animate">
       <div class="wallpaper-left">
         <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
       </div>
@@ -51,7 +51,10 @@
             <featured :key="posts[2].id" :post="posts[2]"></featured>
             <featured :key="posts[3].id" :post="posts[3]"></featured>
           </div>
-          <div v-if="$mobile" class="full center header-billboard mobile-only">
+          <div
+            v-show="$mobile"
+            class="full center header-billboard mobile-only"
+          >
             <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
           </div>
           <div
@@ -66,7 +69,7 @@
         <section
           class="fourth flex-responsive flex komentari mobile-side-pad column-horizontal-pad column-right-border"
         >
-          <latest v-if="!$mobile" :portal="1"></latest>
+          <latest v-show="!$mobile" :portal="1"></latest>
           <commentary></commentary>
           <div class="full flex desktop-only">
             <h2 class="full flex section-title">Newsletter</h2>
@@ -177,7 +180,7 @@
           <category slug="biznis-tech"></category>
           <category slug="kultura"></category>
           <category slug="velike-price"></category>
-          <most-read v-if="$mobile"></most-read>
+          <most-read v-show="$mobile"></most-read>
         </client-only>
       </div>
     </div>

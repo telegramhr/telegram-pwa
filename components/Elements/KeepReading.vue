@@ -8,7 +8,7 @@
     </div>
     <div class="container flex relative block-related standard-block stretch">
       <section
-        v-if="!$mobile"
+        v-show="!$mobile"
         class="fourth flex desktop-only column-horizontal-pad column-right-border"
       >
         <latest :portal="1" :desktop="false"></latest>

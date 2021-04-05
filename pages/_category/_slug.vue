@@ -2,7 +2,7 @@
   <div :class="['main-container', 'flex', 'single-article', typeClass]">
     <template v-if="!$fetchState.error">
       <theader :id="post.id" :headline="post.portal_title"></theader>
-      <div v-if="related_posts" class="full related-header-widget">
+      <div v-show="related_posts" class="full related-header-widget">
         <div class="container flex desktop-only column-vertical-pad">
           <div
             v-for="rpost in related_posts"
@@ -16,11 +16,11 @@
         </div>
       </div>
       <div
-        v-if="!$mobile && $route.name === 'category-slug'"
+        v-show="!$mobile && $route.name === 'category-slug'"
         class="full center header-billboard"
       >
         <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
-        <div v-if="!$mobile" class="container wallpaper-banners animate">
+        <div v-show="!$mobile" class="container wallpaper-banners animate">
           <div class="wallpaper-left">
             <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
           </div>
@@ -116,6 +116,7 @@
               </h5>
               <div class="full flex article-head-image-parent relative">
                 <template v-if="post.video">
+                  <!-- eslint-disable-next-line -->
                   <div style="width: 100%" v-html="post.video" />
                 </template>
                 <template v-else>

@@ -2605,7 +2605,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     position: relative;
     list-style-image: none;
 }
-.pretplata-faq summary::-webkit-details-marker {
+.pretplata-faq summary::marker {
     display: none;
 }
 .pretplata-faq details {
@@ -2868,7 +2868,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     height: 100%;
     padding-bottom: 16px;
 }*/
-@media screen and (max-width: 1024px) { 
+@media screen and (max-width: 1024px) {
     .mini-pretplata {
         order: 1;
     }
