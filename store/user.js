@@ -5,6 +5,7 @@ export const state = () => ({
   token: '',
   exp: 0,
   access: null,
+  updated: null,
 })
 
 export const mutations = {
@@ -25,6 +26,7 @@ export const mutations = {
   },
   setTerm(state, data) {
     state.access = data
+    state.updated = new Date().getTime()
   },
 }
 
@@ -44,6 +46,21 @@ export const actions = {
       }
       resolve()
     })
+  },
+  checkAccess({ state, dispatch }) {
+    if (
+      state.token &&
+      state.updated + 24 * 3600 * 1000 < new Date().getTime()
+    ) {
+      window.tp.push([
+        'init',
+        function () {
+          window.tp.api.callApi('/access/list', {}, function (response) {
+            dispatch('setAccess', response)
+          })
+        },
+      ])
+    }
   },
   logout({ commit }) {
     commit('logout')

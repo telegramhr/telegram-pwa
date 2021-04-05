@@ -16,13 +16,6 @@ export default ({ app, inject }) => {
     },
   ])
 
-  const a = document.createElement('script')
-  a.type = 'text/javascript'
-  a.async = true
-  a.src = '//cdn.tinypass.com/api/tinypass.min.js'
-  const b = document.getElementsByTagName('script')[0]
-  b.parentNode.insertBefore(a, b)
-
   // Adblock
   document.cookie =
     '__adblocker=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/'

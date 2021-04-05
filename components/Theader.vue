@@ -584,6 +584,7 @@ export default {
     // eslint-disable-next-line
     // window.addEventListener('scroll', this.handleDebouncedScroll)
     this.$store.dispatch('stocks/pullStocks')
+    this.$store.dispatch('user/checkAccess')
   },
   beforeDestroy() {
     // I switched the example from `destroyed` to `beforeDestroy`

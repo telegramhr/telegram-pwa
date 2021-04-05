@@ -50,6 +50,11 @@ export default {
     ],
     script: [
       {
+        hid: 'piano',
+        src: '//cdn.tinypass.com/api/tinypass.min.js',
+        async: true,
+      },
+      {
         hid: 'facebook',
         src:
           'https://connect.facebook.net/hr_HR/sdk.js#xfbml=1&version=v9.0&appId=1383786971938581',
@@ -75,6 +80,7 @@ export default {
           'https://www.telegram.hr/wp-content/plugins/telegram-ad-plugin/src/AdPlugin/assets/dfp/expand2.js',
       },
       {
+        hid: 'cxense',
         src: 'https://cdn.cxense.com/cx.cce.js',
         async: true,
       },
