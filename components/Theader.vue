@@ -640,7 +640,7 @@ export default {
     logout() {
       this.maybeCloseSide()
       window.tp.pianoId.logout()
-      this.$store.commit('user/logout')
+      this.$store.dispatch('user/logout')
     },
     maybeCloseSide() {
       if (this.$mobile) {

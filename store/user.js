@@ -34,7 +34,7 @@ export const actions = {
   setUser({ commit }, data) {
     commit('setUser', data)
   },
-  setAccess({ commit }, data) {
+  setAccess({ commit, dispatch }, data) {
     return new Promise((resolve) => {
       if (data.data.length) {
         data.data.forEach((item) => {
@@ -42,18 +42,20 @@ export const actions = {
             this.$cookies.set('tmg_access', 'BR92VTWM', {
               path: '/',
               domain: '.telegram.hr',
-              maxAge: 365 * 24 * 3600,
+              maxAge: 10 * 24 * 3600,
             })
             commit('setTerm', true)
           } else {
             this.$cookies.set('tmg_access', item.resource.rid, {
               path: '/',
               domain: '.telegram.hr',
-              maxAge: 365 * 24 * 3600,
+              maxAge: 10 * 24 * 3600,
             })
           }
         })
         resolve()
+      } else {
+        dispatch('logout')
       }
       resolve()
     })
