@@ -587,7 +587,7 @@ export default {
         tp.push(['setContentAuthor', this.post.authors[0].name])
       }
       tp.push(['setContentIsNative', this.post.post_type === 'partneri'])
-      tp.push(['isPaywall', this.post.paywall])
+      tp.push(['setCustomVariable', 'isPaywall', this.post.paywall])
       tp.push([
         'init',
         function () {
