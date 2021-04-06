@@ -44,6 +44,11 @@ export const actions = {
               maxAge: 365 * 24 * 3600,
             })
             commit('setTerm', true)
+          } else {
+            this.$cookies.set('tmg_access', item.resource.rid, {
+              domain: '.telegram.hr',
+              maxAge: 365 * 24 * 3600,
+            })
           }
         })
         resolve()
