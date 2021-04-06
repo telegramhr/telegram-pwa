@@ -39,6 +39,10 @@ export const actions = {
       if (data.data.length) {
         data.data.forEach((item) => {
           if (item.resource.rid === 'BR92VTWM') {
+            this.$cookies.set('tmg_access', 'BR92VTWM', {
+              domain: '.telegram.hr',
+              maxAge: 365 * 24 * 3600,
+            })
             commit('setTerm', true)
           }
         })
