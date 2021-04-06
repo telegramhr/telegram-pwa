@@ -67,6 +67,7 @@ export const actions = {
     }
   },
   logout({ commit }) {
+    this.$cookies.remove('tmg_access')
     commit('logout')
   },
 }
