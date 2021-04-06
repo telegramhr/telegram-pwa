@@ -2,7 +2,7 @@
   <div class="full flex desktop-only">
     <h2 class="full flex section-title">Najnovije</h2>
     <mini
-      v-for="post in $store.state.latest.posts[1]"
+      v-for="post in $store.state.latest.posts"
       :key="post.id"
       :post="post"
     ></mini>
@@ -22,9 +22,14 @@ export default {
   async fetch() {
     await this.$store.dispatch('latest/pullPosts')
   },
-  computed: {
-    posts() {
-      return this.$store.state.latest.posts[this.portal]
+  mounted() {
+    this.updateCache()
+  },
+  methods: {
+    updateCache() {
+      if (!process.server) {
+        this.$store.dispatch('latest/pullPosts')
+      }
     },
   },
 }
