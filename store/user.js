@@ -40,12 +40,14 @@ export const actions = {
         data.data.forEach((item) => {
           if (item.resource.rid === 'BR92VTWM') {
             this.$cookies.set('tmg_access', 'BR92VTWM', {
+              path: '/',
               domain: '.telegram.hr',
               maxAge: 365 * 24 * 3600,
             })
             commit('setTerm', true)
           } else {
             this.$cookies.set('tmg_access', item.resource.rid, {
+              path: '/',
               domain: '.telegram.hr',
               maxAge: 365 * 24 * 3600,
             })
@@ -72,7 +74,10 @@ export const actions = {
     }
   },
   logout({ commit }) {
-    this.$cookies.remove('tmg_access')
+    this.$cookies.remove('tmg_access', {
+      path: '/',
+      domain: '.telegram.hr',
+    })
     commit('logout')
   },
 }
