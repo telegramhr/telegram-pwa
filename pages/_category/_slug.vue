@@ -584,7 +584,15 @@ export default {
       ])
       tp.push(['setContentSection', this.post.category])
       if (this.post.authors.length) {
-        tp.push(['setContentAuthor', this.post.authors[0].name])
+        if (this.post.authors.length > 1) {
+          if (this.post.authors[1].name === 'Hina') {
+            tp.push(['setContentAuthor', this.post.authors[1].name])
+          } else {
+            tp.push(['setContentAuthor', this.post.authors[0].name])
+          }
+        } else {
+          tp.push(['setContentAuthor', this.post.authors[0].name])
+        }
       }
       tp.push(['setContentIsNative', this.post.post_type === 'partneri'])
       tp.push(['setCustomVariable', 'isPaywall', this.post.paywall])
