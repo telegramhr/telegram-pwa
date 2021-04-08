@@ -70,28 +70,30 @@ export default {
     return {
       page: 1,
       loading: false,
+      posts: [],
     }
   },
-  computed: {
-    posts() {
-      if (!this.category) {
-        return []
-      }
-      if (this.page > 1) {
-        return [
-          ...this.$store.state.category.categories[this.category].posts,
-          ...this.$store.state.category.morePosts[this.category].posts,
-        ].filter((x) => x.id !== this.p)
-      }
-      return this.$store.state.category.categories[this.category].posts.filter(
-        (x) => x.id !== this.p
-      )
-    },
-  },
   mounted() {
-    this.loadMore()
+    this.loadPosts()
   },
   methods: {
+    loadPosts() {
+      this.$axios
+        .post('http://api.cxense.com/public/widget/data', {
+          widgetId: '236a2277d3a4b6b64573cb9a9d59ec465840fac7',
+        })
+        .then((res) => {
+          this.posts = res.data.items.map((item) => {
+            return {
+              id: item['recs-articleid'],
+              portal_title: item.title,
+              permalink: item.click_url,
+              image: { url: item.dominantimage, alt: '' },
+              authors: [],
+            }
+          })
+        })
+    },
     loadMore() {
       if (this.category) {
         this.loading = true
