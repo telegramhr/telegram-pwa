@@ -2379,6 +2379,11 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     padding: 14px;
 }
 
+/* fb comments */
+
+.dark-mode .fb-comments {
+  background-color: #ffffff;
+}
 
 /* Pretplata stuff */
 
