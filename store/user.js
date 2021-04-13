@@ -80,6 +80,7 @@ export const actions = {
       path: '/',
       domain: '.telegram.hr',
     })
+    window.tp.pianoId.logout()
     commit('logout')
   },
 }

@@ -163,6 +163,7 @@ export const state = () => ({
         [660, 350],
         [300, 250],
         [710, 350],
+        [970, 250],
         [970, 500],
       ],
       mobile: [
@@ -299,6 +300,9 @@ export const actions = {
         if (targeting[i].length) {
           window.googletag.pubads().setTargeting(i, targeting[i])
         }
+      }
+      if (!rootState.user.token) {
+        window.googletag.pubads().setTargeting('nosubscription', 1)
       }
       if (payload.options && payload.options.includes('nepromo')) {
         window.googletag.pubads().setCategoryExclusion('NePromo')

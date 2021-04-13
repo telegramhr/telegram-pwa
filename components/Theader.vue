@@ -639,7 +639,6 @@ export default {
     },
     logout() {
       this.maybeCloseSide()
-      window.tp.pianoId.logout()
       this.$store.dispatch('user/logout')
     },
     maybeCloseSide() {

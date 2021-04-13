@@ -175,7 +175,7 @@ export default {
       description:
         'Portal za društvena i kulturna pitanja. I svijet koji dolazi.',
       background_color: '#fcf1e7',
-      display: 'standalone',
+      display: 'browser',
       start_url: '/',
     },
   },
