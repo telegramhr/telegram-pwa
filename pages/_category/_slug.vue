@@ -237,7 +237,11 @@
                     </div>
                   </div>
                 </div>
-                <div v-if="!post.comments_off" v-show="comments" class="full">
+                <div
+                  v-if="!post.comments_off"
+                  v-show="comments"
+                  class="full fb-parent"
+                >
                   <div
                     v-show="comments"
                     class="fb-comments"
