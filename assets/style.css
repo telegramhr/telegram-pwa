@@ -881,6 +881,7 @@ footer .main-footer-logo {
     position: relative;
     top: -44px;
     margin-bottom: -32px;
+    z-index: 5;
 }
 footer .logo {
     width: 50%;
@@ -2439,6 +2440,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     text-transform: uppercase;
     text-align: center;
 }
+
 .pretplata-intext .login-sidebtn:hover {
     opacity: 1;
 }
@@ -2471,6 +2473,17 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     left: 0;
     z-index: 300;
 }
+.pretplata-prefooter {
+    background-color: #333;
+    margin-top: 64px;
+    position: relative;
+    z-index: 1;
+    margin-bottom: -64px;
+    padding-bottom: 64px;
+}
+.dark-mode .pretplata-prefooter {
+    background-color: #171717;
+}
 .pretplata-ticker h2 {
     font-size: 48px;
     font-size: 2.4rem;
@@ -2499,6 +2512,14 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     cursor: pointer;
     border: 1px solid white;
     background-color: transparent;
+}
+.pretplata-ticker .btn:nth-child(1):hover {
+    background: #dc4646;
+    color: white;
+}
+.pretplata-ticker .btn:nth-child(2):hover {
+    color: #212121;
+    background: rgba(255,255,255,1);
 }
 .pretplata-page h1 {
     margin-top: 0px;
@@ -3378,6 +3399,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .pretplata-ticker .center .btn:last-child {
         margin-right: 0px;
+    }
+    .pretplata-prefooter {
+        padding-bottom: 48px;
     }
 }
 
