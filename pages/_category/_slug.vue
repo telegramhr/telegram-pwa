@@ -252,6 +252,9 @@
                     data-colorscheme="dark"
                   ></div>
                 </div>
+                <mini-pretplata
+                  v-show="!$store.state.user.token"
+                ></mini-pretplata>
               </div>
             </div>
           </article>

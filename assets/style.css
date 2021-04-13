@@ -2866,15 +2866,22 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 14px;
     font-size: 0.7rem;
 }
-.dark-mode .mini-pretplata {
-    border-color: #333;
-}
 .mini-pretplata h2, .single-article-body .mini-pretplata h2 {
     font-family: 'Merriweather', serif;
     font-weight: 700;
     font-size: 20px;
     font-size: 1rem;
     margin-bottom: 8px;
+}
+.single-article-body .mini-pretplata {
+    border-top: 1px solid #c8c8c8;
+    margin-top: 16px;
+}
+.dark-mode .mini-pretplata {
+    border-color: #333;
+}
+.single-article-body .mini-pretplata h2 {
+    margin-top: 24px;
 }
 .mini-pretplata .btn {
     cursor: pointer;
@@ -2893,6 +2900,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     margin-left: 6px;
     font-size: 0.6rem;
     padding: 4px 16px;
+    line-height: normal;
 }
 /*.mini-pretplata .btn-parent {
     position: absolute;
