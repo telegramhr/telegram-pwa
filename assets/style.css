@@ -2381,8 +2381,13 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 
 /* fb comments */
 
-.dark-mode .fb-comments {
+.dark-mode .fb-comments,
+.dark-mode .fb-parent {
   background-color: #ffffff;
+}
+
+.fb-comments iframe {
+  width: 1000px !important;
 }
 
 /* Pretplata stuff */

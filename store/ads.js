@@ -302,7 +302,7 @@ export const actions = {
         }
       }
       if (!rootState.user.token) {
-        window.googletag.pubads().setTargeting('nosubscription', 1)
+        window.googletag.pubads().setTargeting('nosubscription', '1')
       }
       if (payload.options && payload.options.includes('nepromo')) {
         window.googletag.pubads().setCategoryExclusion('NePromo')
