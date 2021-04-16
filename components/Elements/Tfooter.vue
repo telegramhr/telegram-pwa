@@ -1,8 +1,8 @@
 <template>
   <div class="full flex relative">
     <div
-      class="full pretplata-ticker pretplata-prefooter relative"
       v-show="!$store.state.user.token"
+      class="full pretplata-ticker pretplata-prefooter relative"
     >
       <div class="container flex relative">
         <h2 class="full center-text">
@@ -102,5 +102,22 @@
 <script>
 export default {
   name: 'Footer',
+  methods: {
+    login() {
+      const _that = this
+      this.maybeCloseSide()
+      window.tp.pianoId.show({
+        screen: 'login',
+        loggedIn(data) {
+          _that.$store.dispatch('user/setUser', data)
+          window.tp.api.callApi('/access/list', {}, function (response) {
+            _that.$store.dispatch('user/setAccess', response).then(() => {
+              window.location.reload()
+            })
+          })
+        },
+      })
+    },
+  },
 }
 </script>

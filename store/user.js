@@ -53,9 +53,6 @@ export const actions = {
             })
           }
         })
-        resolve()
-      } else {
-        dispatch('logout')
       }
       resolve()
     })
@@ -69,7 +66,9 @@ export const actions = {
         'init',
         function () {
           window.tp.api.callApi('/access/list', {}, function (response) {
-            dispatch('setAccess', response)
+            if (response.data) {
+              dispatch('setAccess', response)
+            }
           })
         },
       ])
