@@ -173,6 +173,7 @@ export const state = () => ({
         [320, 50],
         [300, 100],
         [300, 50],
+        [300, 600],
       ],
     },
     telegram_desktop_intext_v2: {
@@ -194,6 +195,7 @@ export const state = () => ({
         [320, 50],
         [300, 100],
         [300, 50],
+        [300, 600],
       ],
     },
     telegram_sticky: {

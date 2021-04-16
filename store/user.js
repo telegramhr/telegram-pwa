@@ -58,21 +58,20 @@ export const actions = {
     })
   },
   checkAccess({ state, dispatch }) {
-    if (
-      state.token &&
-      state.updated + 24 * 3600 * 1000 < new Date().getTime()
-    ) {
-      window.tp.push([
-        'init',
-        function () {
+    window.tp.push([
+      'init',
+      function () {
+        if (window.tp.pianoId.getUser()) {
           window.tp.api.callApi('/access/list', {}, function (response) {
             if (response.data) {
               dispatch('setAccess', response)
             }
           })
-        },
-      ])
-    }
+        } else {
+          dispatch('logout')
+        }
+      },
+    ])
   },
   logout({ commit }) {
     this.$cookies.remove('tmg_access', {
