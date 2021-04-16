@@ -585,6 +585,7 @@ export default {
     // window.addEventListener('scroll', this.handleDebouncedScroll)
     this.$store.dispatch('stocks/pullStocks')
     this.$store.dispatch('user/checkAccess')
+    this.$store.dispatch('theme/loadTheme')
   },
   beforeDestroy() {
     // I switched the example from `destroyed` to `beforeDestroy`

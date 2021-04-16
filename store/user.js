@@ -58,16 +58,19 @@ export const actions = {
     })
   },
   checkAccess({ state, dispatch }) {
+    const that = this
     window.tp.push([
       'init',
       function () {
         if (window.tp.pianoId.getUser()) {
+          that.$ga.set('dimension3', '1')
           window.tp.api.callApi('/access/list', {}, function (response) {
             if (response.data) {
               dispatch('setAccess', response)
             }
           })
         } else {
+          that.$ga.set('dimension3', 0)
           dispatch('logout')
         }
       },
