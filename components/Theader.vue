@@ -32,7 +32,7 @@
         <div class="half" role="menu">
           <client-only>
             <app-link
-              v-if="canLogIn"
+              v-if="!$store.state.user.access"
               to="/pretplata"
               class="signup-btn sub-btn"
               @click.native="maybeCloseSide"
@@ -282,7 +282,10 @@
         </div>
         <div class="flex third relative">
           <client-only>
-            <app-link v-if="canLogIn" to="/pretplata" class="signup-btn sub-btn"
+            <app-link
+              v-if="!$store.state.user.access"
+              to="/pretplata"
+              class="signup-btn sub-btn"
               >Pretplatite se</app-link
             >
             <a v-if="canLogIn" class="signup-btn" @click.prevent="login"
@@ -354,7 +357,7 @@
           <div class="flex third relative">
             <client-only>
               <app-link
-                v-if="canLogIn"
+                v-if="!$store.state.user.access"
                 to="/pretplata"
                 class="signup-btn sub-btn"
                 >Pretplatite se</app-link
@@ -428,7 +431,7 @@
           <div class="flex third relative">
             <client-only>
               <app-link
-                v-if="canLogIn"
+                v-if="!$store.state.user.access"
                 to="/pretplata"
                 class="signup-btn sub-btn"
                 >Pretplatite se</app-link
@@ -487,12 +490,12 @@
           <div class="desktop-only full center-text tagline">
             Portal za društvena i kulturna pitanja. I svijet koji dolazi.
           </div>
-          <a class="mobile-only" v-if="canLogIn" @click.prevent="login"
+          <a v-if="canLogIn" class="mobile-only" @click.prevent="login"
             ><i class="far fa-user"></i
           ></a>
           <app-link
-            class="mobile-only"
             v-if="!canLogIn"
+            class="mobile-only"
             to="/moj-racun"
             aria-label="Moj račun"
             ><i class="far fa-user"></i

@@ -15,7 +15,7 @@ export const mutations = {
 }
 
 export const actions = {
-  loadTheme({ commit, dispatch }) {
+  loadTheme({ commit }) {
     commit('setTheme', this.$cookies.get('tmg_theme'))
     commit('setFont', this.$cookies.get('tmg_font'))
   },
