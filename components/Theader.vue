@@ -52,7 +52,7 @@
               >Odjava</a
             >
           </client-only>
-          <client-only>
+          <!--<client-only>
             <template v-if="loggedIn">
               <h3>Admin</h3>
               <a role="menuitem" href="https://www.telegram.hr/wp-admin"
@@ -65,7 +65,7 @@
                 >Uredi</a
               >
             </template>
-          </client-only>
+          </client-only>-->
           <div class="full flex search-menu">
             <form
               class="relative"
@@ -666,7 +666,7 @@ export default {
       this.$store.dispatch('user/logout')
     },
     maybeCloseSide() {
-      if (this.$mobile) {
+      if (this.$mobile && this.$store.state.header.showSideMenu) {
         this.$store.commit('header/updateMenu', 'side')
       }
     },
