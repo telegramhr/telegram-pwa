@@ -32,28 +32,28 @@
         <div class="half" role="menu">
           <client-only>
             <app-link
-              v-if="!$store.state.user.access"
+              v-show="!$store.state.user.access"
               to="/pretplata"
               class="signup-btn sub-btn"
               @click.native="maybeCloseSide"
               >Pretplatite se</app-link
             >
-            <a v-if="canLogIn" class="signup-btn" @click.prevent="login"
+            <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
               >Prijava</a
             >
             <app-link
-              v-if="!canLogIn"
+              v-show="!canLogIn"
               to="/moj-racun"
               class="signup-btn"
               @click.native="maybeCloseSide"
               >Moj račun</app-link
             >
-            <a v-if="!canLogIn" class="signup-btn" @click.prevent="logout"
+            <a v-show="!canLogIn" class="signup-btn" @click.prevent="logout"
               >Odjava</a
             >
           </client-only>
-          <!--<client-only>
-            <template v-if="loggedIn">
+          <client-only>
+            <template v-show="loggedIn">
               <h3>Admin</h3>
               <a role="menuitem" href="https://www.telegram.hr/wp-admin"
                 >Admin</a
@@ -65,7 +65,7 @@
                 >Uredi</a
               >
             </template>
-          </client-only>-->
+          </client-only>
           <div class="full flex search-menu">
             <form
               class="relative"
@@ -283,18 +283,18 @@
         <div class="flex third relative">
           <client-only>
             <app-link
-              v-if="!$store.state.user.access"
+              v-show="!$store.state.user.access"
               to="/pretplata"
               class="signup-btn sub-btn"
               >Pretplatite se</app-link
             >
-            <a v-if="canLogIn" class="signup-btn" @click.prevent="login"
+            <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
               >Prijava</a
             >
-            <a v-if="!canLogIn" class="signup-btn" @click.prevent="logout"
+            <a v-show="!canLogIn" class="signup-btn" @click.prevent="logout"
               >Odjava</a
             >
-            <app-link v-if="!canLogIn" to="/moj-racun" aria-label="Moj račun"
+            <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun"
               ><i class="far fa-user"></i
             ></app-link>
           </client-only>
@@ -357,18 +357,18 @@
           <div class="flex third relative">
             <client-only>
               <app-link
-                v-if="!$store.state.user.access"
+                v-show="!$store.state.user.access"
                 to="/pretplata"
                 class="signup-btn sub-btn"
                 >Pretplatite se</app-link
               >
-              <a v-if="canLogIn" class="signup-btn" @click.prevent="login"
+              <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
                 >Prijava</a
               >
-              <a v-if="!canLogIn" class="signup-btn" @click.prevent="logout"
+              <a v-show="!canLogIn" class="signup-btn" @click.prevent="logout"
                 >Odjava</a
               >
-              <app-link v-if="!canLogIn" to="/moj-racun" aria-label="Moj račun"
+              <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun"
                 ><i class="far fa-user"></i
               ></app-link>
             </client-only>
@@ -431,18 +431,18 @@
           <div class="flex third relative">
             <client-only>
               <app-link
-                v-if="!$store.state.user.access"
+                v-show="!$store.state.user.access"
                 to="/pretplata"
                 class="signup-btn sub-btn"
                 >Pretplatite se</app-link
               >
-              <a v-if="canLogIn" class="signup-btn" @click.prevent="login"
+              <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
                 >Prijava</a
               >
-              <a v-if="!canLogIn" class="signup-btn" @click.prevent="logout"
+              <a v-show="!canLogIn" class="signup-btn" @click.prevent="logout"
                 >Odjava</a
               >
-              <app-link v-if="!canLogIn" to="/moj-racun" aria-label="Moj račun"
+              <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun"
                 ><i class="far fa-user"></i
               ></app-link>
             </client-only>
@@ -490,11 +490,11 @@
           <div class="desktop-only full center-text tagline">
             Portal za društvena i kulturna pitanja. I svijet koji dolazi.
           </div>
-          <a v-if="canLogIn" class="mobile-only" @click.prevent="login"
+          <a v-show="canLogIn" class="mobile-only" @click.prevent="login"
             ><i class="far fa-user"></i
           ></a>
           <app-link
-            v-if="!canLogIn"
+            v-show="!canLogIn"
             class="mobile-only"
             to="/moj-racun"
             aria-label="Moj račun"
