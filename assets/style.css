@@ -1362,7 +1362,7 @@ figure img {
 .side-menu {
     padding: 4vw;
     padding-top: 80px;
-    width: 160px;
+    width: 200px;
     height: 100%;
     position: fixed;
     left: -101%;
@@ -1573,6 +1573,10 @@ figure img {
     display: flex;
     z-index: 150;
 }
+.side-menu .search-menu  {
+    margin-top: 16px;
+    padding: 0px;
+}
 .search-menu form {
     width: 80%;
     max-width: 320px;
@@ -1580,6 +1584,14 @@ figure img {
     padding-right: 64px;
     background: none;
     outline: none;
+}
+.side-menu .search-menu form {
+    width: 100%;
+    padding-right: 32px;
+}
+.side-menu .search-menu form input::placeholder {
+    font-size: 12px;
+    font-size: 0.6rem;
 }
 .search-menu form input {
     width: 100%;
@@ -3937,7 +3949,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .side-menu {
         padding: 24px;
         padding-top: 58px;
-        width: 200px;
+        width: 220px;
         height: 100%;
         left: -301px;
         background-image: none;
@@ -4179,7 +4191,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 3.4rem;
     }
 }
-@media screen and (max-width: 1024px) and (max-height: 800px) {
+@media screen and (max-width: 1024px) and (max-height: 880px) {
     .side-menu .half {
         width: 49.99%;
     }

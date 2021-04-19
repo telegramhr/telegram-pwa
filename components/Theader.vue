@@ -66,6 +66,24 @@
               >
             </template>
           </client-only>
+          <div class="full flex search-menu">
+            <form
+              class="relative"
+              action=""
+              method="get"
+              @submit.prevent="search"
+            >
+              <input
+                v-model="search_term"
+                type="text"
+                placeholder="Pretražite Telegram..."
+                aria-label="Pretražite Telegram"
+              />
+              <button type="submit" class="animate" @click.prevent="search">
+                <i class="far fa-search"></i>
+              </button>
+            </form>
+          </div>
           <!--<app-link to="/moj-racun">Moj račun</app-link>-->
           <h3>Rubrika</h3>
           <app-link
@@ -469,14 +487,16 @@
           <div class="desktop-only full center-text tagline">
             Portal za društvena i kulturna pitanja. I svijet koji dolazi.
           </div>
-          <a
-            class="mobile-only"
-            aria-label="Prikaži tražilicu"
-            :aria-expanded="$store.state.header.showSearchMenu.toString()"
-            aria-controls="search"
-            @click.prevent="$store.commit('header/updateMenu', 'search')"
-            ><i class="far fa-search"></i
+          <a class="mobile-only" v-if="canLogIn" @click.prevent="login"
+            ><i class="far fa-user"></i
           ></a>
+          <app-link
+            class="mobile-only"
+            v-if="!canLogIn"
+            to="/moj-racun"
+            aria-label="Moj račun"
+            ><i class="far fa-user"></i
+          ></app-link>
         </div>
       </nav>
       <div
