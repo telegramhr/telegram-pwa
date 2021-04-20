@@ -8,8 +8,8 @@
     <div class="fourth flex-responsive column-full-pad mobile-side-pad">
       <div class="full flex relative">
         <img
-          src="https://www.telegram.hr/wp-content/uploads/2021/04/afera-cijepise-widget-alt.jpg"
-          alt="Afera Boras na Telegram.hr"
+          src="https://www.telegram.hr/wp-content/uploads/2021/04/afera-cijepise-widget2.jpg"
+          alt="Afera Cvjećarka na Telegram.hr"
         />
         <p class="full special-partner-tagline hide"></p>
       </div>
@@ -17,12 +17,12 @@
     <div class="fourth flex-responsive column-full-pad mobile-side-pad">
       <a
         class="full flex article-standard article relative"
-        href="https://www.telegram.hr/politika-kriminal/telegram-otkriva-ono-sto-beros-mjesecima-skriva-propali-cijepise-radio-njegov-poznanik-kojem-daje-milijune/"
+        href="https://www.telegram.hr/politika-kriminal/telegram-otkriva-ministarstvo-zdravstva-dalo-it-posao-od-16-milijuna-kn-tvrtki-koja-je-dosad-radila-cvjetne-aranzmane/"
         target="_blank"
       >
         <img
-          src="https://images.telegram.hr/ksjEK786iuKOv_hdqOY4Agu-UTCS8Ov3fkURXZ8zmyw/preset:single2/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjEvMDQvdGVsZWdyYW0tY3VzcGlzLWJlcm9zLmpwZWc.jpg"
-          alt="Telegram otkriva ono što Beroš mjesecima skriva: propali Cijepise radio njegov poznanik kojem daje milijune"
+          src="https://images.telegram.hr/hKZUx__tzJT4V8rWL4x12Fb-Xg_5nQqUZQagpEUx1Is/preset:single2/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjEvMDQvYmVyb3MtY3ZqZWNhcmthLW5hdGplY2FqLmpwZWc.jpg"
+          alt="Telegram otkriva: Ministarstvo zdravstva dalo IT posao od 1,6 milijuna kuna tvrtki koja je dosad radila cvjetne aranžmane"
           loading="lazy"
         />
         <div class="full flex article-pad">
@@ -30,8 +30,8 @@
             <h3 class="overtitle"></h3>
           </div>
           <h2 class="full">
-            Telegram otkriva ono što Beroš mjesecima skriva: propali Cijepise
-            radio njegov poznanik kojem daje milijune
+            Telegram otkriva: Ministarstvo zdravstva dalo IT posao od 1,6
+            milijuna kuna tvrtki koja je dosad radila cvjetne aranžmane
           </h2>
           <h4 class="full"></h4>
           <h5 class="full flex article-meta">
@@ -45,12 +45,12 @@
     <div class="fourth flex-responsive column-full-pad mobile-side-pad">
       <a
         class="full flex article-standard article relative"
-        href="https://www.telegram.hr/politika-kriminal/objavljujemo-detalje-dopisivanja-s-vladom-ovako-su-dva-mjeseca-izbjegavali-odgovoriti-tko-je-i-za-koju-cijenu-radio-cijepise/"
+        href="https://www.telegram.hr/politika-kriminal/ovako-izgleda-web-stranica-firme-kojoj-je-ministarstvo-dalo-vazan-it-posao-od-16-miljuna-kuna/"
         target="_blank"
       >
         <img
-          src="https://images.telegram.hr/pAafpb5id6YFyoIJEO5QouH-gG6uMtfllyniorUfpjQ/preset:single2/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjEvMDQvYmVyb3MtbWFpbG92aS1jaWplcGlzZS5qcGVn.jpg"
-          alt="Objavljujemo detalje dopisivanja s Vladom. Ovako su dva mjeseca izbjegavali odgovoriti tko je i za koji iznos radio Cijepise"
+          src="https://images.telegram.hr/GtbgU7syZH8ZZw_UiUL042rZzK7p-UEQQ-vkReJ0K_M/preset:single1/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjEvMDQvc2NyZWVuc2hvdC0yMDIxLTA0LTE5LWF0LTE4NTUyNy5qcGc.jpg"
+          alt="Ovako izgleda web stranica firme kojoj je Ministarstvo zdravstva dalo važan IT posao od 1,6 miljuna kuna"
           loading="lazy"
         />
         <div class="full flex article-pad">
@@ -58,8 +58,8 @@
             <h3 class="overtitle"></h3>
           </div>
           <h2 class="full">
-            Objavljujemo detalje dopisivanja s Vladom. Ovako su dva mjeseca
-            izbjegavali odgovoriti tko je i za koji iznos radio Cijepise
+            Ovako izgleda web stranica firme kojoj je Ministarstvo zdravstva
+            dalo važan IT posao od 1,6 miljuna kuna
           </h2>
           <h4 class="full"></h4>
           <h5 class="full flex article-meta">
@@ -73,12 +73,12 @@
     <div class="fourth flex-responsive column-full-pad mobile-side-pad">
       <a
         class="full flex article-standard article relative"
-        href="https://www.telegram.hr/politika-kriminal/autor-cijepise-kojem-beros-daje-milijune-radio-prvi-web-hdz-a-uskok-zbog-njega-upao-u-hzzo/"
+        href="https://www.telegram.hr/politika-kriminal/novi-berosev-skandal-i-bivsi-hdz-ov-ministar-dobit-ce-milijun-kuna-da-bi-nadzirao-cuvenu-cvjecarku-u-it-poslovima/"
         target="_blank"
       >
         <img
-          src="https://images.telegram.hr/b-WIxfmxfWOPtWo8KTtM9aNGbQHe1gYf60xQcXCw60c/preset:single2/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjEvMDQvdmlua28tcG9ydHJldC10ZWxlZ3JhbS5qcGc.jpg"
-          alt="Tko je autor propale platforme Cijepise kojem Beroš daje milijune: radio prvi web HDZ-a, USKOK zbog njega upao u HZZO"
+          src="https://images.telegram.hr/3b_47T60pxoR9D3sZMclwrRhwSCRPphsMsm7uNgPuK8/preset:single2/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjEvMDQvdGVsZWdyYW0tbGp1YmljaWMtbmFkem9yLXYyLmpwZWc.jpg"
+          alt="Novi Berošev skandal: I bivši HDZ-ov ministar dobit će milijun kuna. Da bi nadzirao čuvenu cvjećarku u IT poslovima"
           loading="lazy"
         />
         <div class="full flex article-pad">
@@ -86,8 +86,8 @@
             <h3 class="overtitle"></h3>
           </div>
           <h2 class="full">
-            Tko je autor propale platforme Cijepise kojem Beroš daje milijune:
-            radio prvi web HDZ-a, USKOK zbog njega upao u HZZO
+            Novi Berošev skandal: I bivši HDZ-ov ministar dobit će milijun kuna.
+            Da bi nadzirao čuvenu cvjećarku u IT poslovima
           </h2>
           <h4 class="full"></h4>
           <h5 class="full flex article-meta">
