@@ -361,19 +361,23 @@ export default {
       this.$nextTick(() => {
         this.$telegram.$loading.start()
       })
+      post = this.$store.state.posts.posts[this.$route.params.slug]
     }
-    if (this.$route.params.category === 'preview') {
-      post = await this.$axios.$get(
-        encodeURI('preview/' + this.$route.params.slug)
-      )
-    } else {
-      post = await this.$axios.$get(
-        encodeURI('single/' + this.$route.params.slug)
-      )
+    if (!post) {
+      if (this.$route.params.category === 'preview') {
+        post = await this.$axios.$get(
+          encodeURI('preview/' + this.$route.params.slug)
+        )
+      } else {
+        post = await this.$axios.$get(
+          encodeURI('single/' + this.$route.params.slug)
+        )
+      }
     }
     if (post.id) {
       this.post = post
       await this.$axios.get('related/' + post.id).then((res) => {
+        this.$store.dispatch('posts/setPosts', res.data, { root: true })
         this.related_posts = res.data
           .filter((item) => {
             return item.id !== post.id

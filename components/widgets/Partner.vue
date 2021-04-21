@@ -112,12 +112,12 @@
 <script>
 export default {
   name: 'Partner',
-  async fetch() {
+  /* async fetch() {
     await this.$axios.$get('partner-widget').then((res) => {
       this.posts = res.posts
       this.title = res.title
     })
-  },
+  }, */
   data() {
     return {
       posts: [],
