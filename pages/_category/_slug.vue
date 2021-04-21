@@ -46,9 +46,19 @@
               alt="Telegram logo"
             />
           </nuxt-link>
-          <a @click.prevent="showSearchMenu = !showSearchMenu">
-            <i class="far fa-search"></i>
-          </a>
+          <a
+            v-show="canLogIn"
+            class="mob-nav-otherbtn mobile-only"
+            @click.prevent="login"
+            ><i class="far fa-user"></i
+          ></a>
+          <app-link
+            v-show="!canLogIn"
+            class="mobile-only mob-nav-otherbtn"
+            to="/moj-racun"
+            aria-label="Moj račun"
+            ><i class="far fa-user"></i
+          ></app-link>
         </div>
         <img
           class="article-head-image"
@@ -237,7 +247,11 @@
                     </div>
                   </div>
                 </div>
-                <div v-if="!post.comments_off" v-show="comments" class="full">
+                <div
+                  v-if="!post.comments_off"
+                  v-show="comments"
+                  class="full fb-parent"
+                >
                   <div
                     v-show="comments"
                     class="fb-comments"
@@ -248,13 +262,16 @@
                     data-colorscheme="dark"
                   ></div>
                 </div>
+                <mini-pretplata
+                  v-show="!$store.state.user.token"
+                ></mini-pretplata>
               </div>
             </div>
           </article>
         </div>
-        <!--<div class="full flex">
+        <div class="full flex">
           <partner></partner>
-        </div>-->
+        </div>
         <div class="full flex">
           <div
             class="container flex relative native-block stretch mobile-side-pad"
@@ -344,19 +361,23 @@ export default {
       this.$nextTick(() => {
         this.$telegram.$loading.start()
       })
+      post = this.$store.state.posts.posts[this.$route.params.slug]
     }
-    if (this.$route.params.category === 'preview') {
-      post = await this.$axios.$get(
-        encodeURI('preview/' + this.$route.params.slug)
-      )
-    } else {
-      post = await this.$axios.$get(
-        encodeURI('single/' + this.$route.params.slug)
-      )
+    if (!post) {
+      if (this.$route.params.category === 'preview') {
+        post = await this.$axios.$get(
+          encodeURI('preview/' + this.$route.params.slug)
+        )
+      } else {
+        post = await this.$axios.$get(
+          encodeURI('single/' + this.$route.params.slug)
+        )
+      }
     }
     if (post.id) {
       this.post = post
       await this.$axios.get('related/' + post.id).then((res) => {
+        this.$store.dispatch('posts/setPosts', res.data, { root: true })
         this.related_posts = res.data
           .filter((item) => {
             return item.id !== post.id
@@ -699,27 +720,7 @@ export default {
     if (this.$route.params.category !== 'partneri') {
       link.push(amp)
     }
-    let font, theme
-    if (process.server) {
-      font = this.$cookies.get('tmg_font')
-      theme = this.$cookies.get('tmg_theme')
-    } else {
-      font = this.$store.state.theme.font
-      theme = this.$store.state.theme.theme
-    }
     return {
-      htmlAttrs: {
-        class: [
-          font === 'small' ? 'small-fontsize' : '',
-          font === 'large' ? 'large-fontsize' : '',
-        ],
-      },
-      bodyAttrs: {
-        class: [
-          theme === 'contrast' ? 'contrast-mode' : '',
-          theme === 'dark' ? 'dark-mode' : '',
-        ],
-      },
       title: this.post.title,
       titleTemplate: '%s | Telegram.hr',
       meta: [

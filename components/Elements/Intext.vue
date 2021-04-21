@@ -11,7 +11,7 @@
         class="pretplata-avatar"
       />
     </div>
-    <h2 class="full">Pročitali ste sve besplatne članke u ovom mjesecu.</h2>
+    <h2 class="full">{{ title }}</h2>
     <p class="full center-text">
       Za neograničeno čitanje Telegrama i podršku istraživačkim serijalima,
       pretplatite se na Telegram.
@@ -31,16 +31,30 @@ export default {
   data() {
     return {
       show: false,
+      title: 'Pročitali ste sve besplatne članke u ovom mjesecu.',
     }
   },
   mounted() {
     window.addEventListener('piano_intext', this.load)
+    window.addEventListener('piano_intext_paywall', this.paywall)
   },
   destroyed() {
     window.removeEventListener('piano_intext', this.load)
+    window.removeEventListener('piano_intext_paywall', this.paywall)
   },
   methods: {
+    paywall() {
+      this.title = 'Ovaj članak dostupan je samo pretplatnicima.'
+      const el = document.getElementById('piano-content')
+      if (el) {
+        this.show = true
+        el.parentNode.removeChild(el)
+      } else {
+        setTimeout(this.paywall, 500)
+      }
+    },
     load() {
+      this.title = 'Pročitali ste sve besplatne članke u ovom mjesecu.'
       const el = document.getElementById('piano-content')
       if (el) {
         this.show = true

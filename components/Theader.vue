@@ -32,28 +32,28 @@
         <div class="half" role="menu">
           <client-only>
             <app-link
-              v-if="canLogIn"
+              v-show="!$store.state.user.access"
               to="/pretplata"
               class="signup-btn sub-btn"
               @click.native="maybeCloseSide"
               >Pretplatite se</app-link
             >
-            <a v-if="canLogIn" class="signup-btn" @click.prevent="login"
+            <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
               >Prijava</a
             >
             <app-link
-              v-if="!canLogIn"
+              v-show="!canLogIn"
               to="/moj-racun"
               class="signup-btn"
               @click.native="maybeCloseSide"
               >Moj račun</app-link
             >
-            <a v-if="!canLogIn" class="signup-btn" @click.prevent="logout"
+            <a v-show="!canLogIn" class="signup-btn" @click.prevent="logout"
               >Odjava</a
             >
           </client-only>
           <client-only>
-            <template v-if="loggedIn">
+            <template v-show="loggedIn">
               <h3>Admin</h3>
               <a role="menuitem" href="https://www.telegram.hr/wp-admin"
                 >Admin</a
@@ -66,6 +66,24 @@
               >
             </template>
           </client-only>
+          <div class="full flex search-menu">
+            <form
+              class="relative"
+              action=""
+              method="get"
+              @submit.prevent="search"
+            >
+              <input
+                v-model="search_term"
+                type="text"
+                placeholder="Pretražite Telegram..."
+                aria-label="Pretražite Telegram"
+              />
+              <button type="submit" class="animate" @click.prevent="search">
+                <i class="far fa-search"></i>
+              </button>
+            </form>
+          </div>
           <!--<app-link to="/moj-racun">Moj račun</app-link>-->
           <h3>Rubrika</h3>
           <app-link
@@ -264,16 +282,19 @@
         </div>
         <div class="flex third relative">
           <client-only>
-            <app-link v-if="canLogIn" to="/pretplata" class="signup-btn sub-btn"
+            <app-link
+              v-show="!$store.state.user.access"
+              to="/pretplata"
+              class="signup-btn sub-btn"
               >Pretplatite se</app-link
             >
-            <a v-if="canLogIn" class="signup-btn" @click.prevent="login"
+            <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
               >Prijava</a
             >
-            <a v-if="!canLogIn" class="signup-btn" @click.prevent="logout"
+            <a v-show="!canLogIn" class="signup-btn" @click.prevent="logout"
               >Odjava</a
             >
-            <app-link v-if="!canLogIn" to="/moj-racun" aria-label="Moj račun"
+            <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun"
               ><i class="far fa-user"></i
             ></app-link>
           </client-only>
@@ -336,18 +357,21 @@
           <div class="flex third relative">
             <client-only>
               <app-link
-                v-if="canLogIn"
+                v-show="!$store.state.user.access"
                 to="/pretplata"
                 class="signup-btn sub-btn"
                 >Pretplatite se</app-link
               >
-              <a v-if="canLogIn" class="signup-btn" @click.prevent="login"
+              <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
                 >Prijava</a
               >
-              <a v-if="!canLogIn" class="signup-btn" @click.prevent="logout"
+              <a v-show="!canLogIn" class="signup-btn" @click.prevent="logout"
                 >Odjava</a
               >
-              <app-link v-if="!canLogIn" to="/moj-racun" aria-label="Moj račun"
+              <app-link
+                v-show="!canLogIn"
+                to="/moj-racun"
+                aria-label="Moj račun"
                 ><i class="far fa-user"></i
               ></app-link>
             </client-only>
@@ -410,18 +434,21 @@
           <div class="flex third relative">
             <client-only>
               <app-link
-                v-if="canLogIn"
+                v-show="!$store.state.user.access"
                 to="/pretplata"
                 class="signup-btn sub-btn"
                 >Pretplatite se</app-link
               >
-              <a v-if="canLogIn" class="signup-btn" @click.prevent="login"
+              <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
                 >Prijava</a
               >
-              <a v-if="!canLogIn" class="signup-btn" @click.prevent="logout"
+              <a v-show="!canLogIn" class="signup-btn" @click.prevent="logout"
                 >Odjava</a
               >
-              <app-link v-if="!canLogIn" to="/moj-racun" aria-label="Moj račun"
+              <app-link
+                v-show="!canLogIn"
+                to="/moj-racun"
+                aria-label="Moj račun"
                 ><i class="far fa-user"></i
               ></app-link>
             </client-only>
@@ -470,13 +497,18 @@
             Portal za društvena i kulturna pitanja. I svijet koji dolazi.
           </div>
           <a
-            class="mobile-only"
-            aria-label="Prikaži tražilicu"
-            :aria-expanded="$store.state.header.showSearchMenu.toString()"
-            aria-controls="search"
-            @click.prevent="$store.commit('header/updateMenu', 'search')"
-            ><i class="far fa-search"></i
+            v-show="canLogIn"
+            class="mob-nav-otherbtn mobile-only"
+            @click.prevent="login"
+            ><i class="far fa-user"></i
           ></a>
+          <app-link
+            v-show="!canLogIn"
+            class="mobile-only mob-nav-otherbtn"
+            to="/moj-racun"
+            aria-label="Moj račun"
+            ><i class="far fa-user"></i
+          ></app-link>
         </div>
       </nav>
       <div
@@ -585,6 +617,7 @@ export default {
     // window.addEventListener('scroll', this.handleDebouncedScroll)
     this.$store.dispatch('stocks/pullStocks')
     this.$store.dispatch('user/checkAccess')
+    this.$store.dispatch('theme/loadTheme')
   },
   beforeDestroy() {
     // I switched the example from `destroyed` to `beforeDestroy`
@@ -639,11 +672,10 @@ export default {
     },
     logout() {
       this.maybeCloseSide()
-      window.tp.pianoId.logout()
       this.$store.dispatch('user/logout')
     },
     maybeCloseSide() {
-      if (this.$mobile) {
+      if (this.$mobile && this.$store.state.header.showSideMenu) {
         this.$store.commit('header/updateMenu', 'side')
       }
     },

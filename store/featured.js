@@ -17,11 +17,12 @@ export const mutations = {
 }
 
 export const actions = {
-  pullPosts({ commit, state }) {
+  pullPosts({ commit, dispatch, state }) {
     return new Promise((resolve) => {
       if (state.updated + 2 * 60 * 1000 < new Date().getTime()) {
         this.$axios.get('featured').then((res) => {
           commit('setPosts', res.data)
+          dispatch('posts/setPosts', res.data, { root: true })
           resolve()
         })
       } else {
@@ -29,10 +30,11 @@ export const actions = {
       }
     })
   },
-  loadMore({ commit, state }) {
+  loadMore({ commit, dispatch, state }) {
     return new Promise((resolve) => {
       this.$axios.get('featured/page/' + state.page).then((res) => {
         commit('setMore', res.data)
+        dispatch('posts/setPosts', res.data, { root: true })
         resolve()
       })
     })

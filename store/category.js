@@ -103,7 +103,7 @@ export const mutations = {
 }
 
 export const actions = {
-  pullPosts({ commit, state }, payload) {
+  pullPosts({ commit, dispatch, state }, payload) {
     return new Promise((resolve) => {
       if (
         state.categories[payload.category].updated + 10 * 60 * 1000 <
@@ -111,6 +111,7 @@ export const actions = {
       ) {
         this.$axios.get('category/' + payload.category).then((res) => {
           commit('setPosts', { posts: res.data.posts, slug: payload.category })
+          dispatch('posts/setPosts', res.data.posts, { root: true })
           resolve()
         })
       } else {
@@ -118,7 +119,7 @@ export const actions = {
       }
     })
   },
-  loadMore({ commit, state }, payload) {
+  loadMore({ commit, dispatch, state }, payload) {
     return new Promise((resolve) => {
       this.$axios
         .get(
@@ -128,6 +129,7 @@ export const actions = {
         )
         .then((res) => {
           commit('setMore', { posts: res.data.posts, slug: payload.category })
+          dispatch('posts/setPosts', res.data.posts, { root: true })
           resolve()
         })
     })

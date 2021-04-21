@@ -7,12 +7,11 @@ export default ({ app, inject }) => {
   window.tp.push(['setSandbox', process.env.PIANO_SANDOX === "true"])
   window.tp.push(['setDebug', process.env.PIANO_SANDOX === "true"])
   window.tp.push(['setUsePianoIdUserProvider', true])
+  window.tp.push(['setCloudflareWorkerUrl', 'https://auth.telegram.hr']);
   window.tp.push([
     'init',
     function () {
-      if (window.tp) {
-        window.tp.experience.init()
-      }
+      window.tp.experience.init()
     },
   ])
 

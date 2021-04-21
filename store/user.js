@@ -53,33 +53,35 @@ export const actions = {
             })
           }
         })
-        resolve()
-      } else {
-        dispatch('logout')
       }
       resolve()
     })
   },
   checkAccess({ state, dispatch }) {
-    if (
-      state.token &&
-      state.updated + 24 * 3600 * 1000 < new Date().getTime()
-    ) {
-      window.tp.push([
-        'init',
-        function () {
+    const that = this
+    window.tp.push([
+      'init',
+      function () {
+        if (window.tp.pianoId.getUser()) {
+          that.$ga.set('dimension3', '1')
           window.tp.api.callApi('/access/list', {}, function (response) {
-            dispatch('setAccess', response)
+            if (response.data) {
+              dispatch('setAccess', response)
+            }
           })
-        },
-      ])
-    }
+        } else {
+          that.$ga.set('dimension3', 0)
+          dispatch('logout')
+        }
+      },
+    ])
   },
   logout({ commit }) {
     this.$cookies.remove('tmg_access', {
       path: '/',
       domain: '.telegram.hr',
     })
+    window.tp.pianoId.logout()
     commit('logout')
   },
 }

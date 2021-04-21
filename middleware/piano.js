@@ -1,8 +1,15 @@
-export default function ({ route }) {
+export default function ({ route, store }) {
   if (!process.server) {
     window.cX = window.cX || {}
     window.cX.callQueue = window.cX.callQueue || []
     window.cX.callQueue.push(['setSiteId', '1128464677385494954'])
+    window.cX.callQueue.push([
+      'setCustomParameters',
+      {
+        'gru-theme': store.state.theme.theme,
+        'gru-font': store.state.theme.font,
+      },
+    ])
     window.cX.CCE = window.cX.CCE || {}
     window.cX.CCE.callQueue = window.cX.CCE.callQueue || []
     window.cX.CCE.callQueue.push([

@@ -7,7 +7,10 @@ export default {
     title: 'Telegram.hr',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1, maximum-scale=1',
+      },
       {
         hid: 'description',
         name: 'description',
@@ -175,7 +178,7 @@ export default {
       description:
         'Portal za društvena i kulturna pitanja. I svijet koji dolazi.',
       background_color: '#fcf1e7',
-      display: 'standalone',
+      display: 'browser',
       start_url: '/',
     },
   },
@@ -206,6 +209,11 @@ export default {
     loaders: {
       vue: {
         prettify: false,
+      },
+    },
+    optimization: {
+      splitChunks: {
+        maxSize: 0,
       },
     },
   },
