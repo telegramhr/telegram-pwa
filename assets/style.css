@@ -1655,7 +1655,7 @@ header {
 .mobile-pa-nav .logo img {
     height: 20px;
 }
-.mobile-pa-nav > a:first-child, .mobile-pa-nav > a:last-child  {
+.mobile-pa-nav > a:first-child, .mobile-pa-nav > a.mob-nav-otherbtn  {
     position: absolute;
     top: 16px;
     color: white;
@@ -1665,7 +1665,7 @@ header {
 .mobile-pa-nav > a:first-child {
     left: 4vw;
 }
-.mobile-pa-nav > a:last-child {
+.mobile-pa-nav > a.mob-nav-otherbtn {
     right: 4vw;
 }
 .header-headline {
@@ -3042,6 +3042,25 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
 }
 
+
+/* Specijali page */
+
+.specijal-page .header-billboard {
+    display: none;
+}
+.specijal-page .specijal-patron {
+    z-index: 5;
+    color: white;
+}
+.specijal-page .specijal-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 @media screen and (max-width: 1024px) {
     .single-article {
         font-size: 17px;
@@ -3080,7 +3099,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .subheader .half:last-child {
         justify-content: flex-end;
     }
-    header a:first-child, header a:last-child {
+    header a:first-child, header a.mob-nav-otherbtn {
         opacity: 0.5;
         font-size: 15px;
         font-size: 0.75rem;
@@ -3090,7 +3109,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     header a:first-child {
         left: 4vw;
     }
-    header a:last-child {
+    header a.mob-nav-otherbtn {
         right: 4vw;
     }
     .article-standard h4 {

@@ -368,7 +368,10 @@
               <a v-show="!canLogIn" class="signup-btn" @click.prevent="logout"
                 >Odjava</a
               >
-              <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun"
+              <app-link
+                v-show="!canLogIn"
+                to="/moj-racun"
+                aria-label="Moj račun"
                 ><i class="far fa-user"></i
               ></app-link>
             </client-only>
@@ -442,7 +445,10 @@
               <a v-show="!canLogIn" class="signup-btn" @click.prevent="logout"
                 >Odjava</a
               >
-              <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun"
+              <app-link
+                v-show="!canLogIn"
+                to="/moj-racun"
+                aria-label="Moj račun"
                 ><i class="far fa-user"></i
               ></app-link>
             </client-only>
@@ -490,12 +496,12 @@
           <div class="desktop-only full center-text tagline">
             Portal za društvena i kulturna pitanja. I svijet koji dolazi.
           </div>
-          <a v-show="canLogIn" class="mobile-only" @click.prevent="login"
+          <a v-show="canLogIn" class="mob-nav-otherbtn mobile-only" @click.prevent="login"
             ><i class="far fa-user"></i
           ></a>
           <app-link
             v-show="!canLogIn"
-            class="mobile-only"
+            class="mobile-only mob-nav-otherbtn"
             to="/moj-racun"
             aria-label="Moj račun"
             ><i class="far fa-user"></i

@@ -46,9 +46,19 @@
               alt="Telegram logo"
             />
           </nuxt-link>
-          <a @click.prevent="showSearchMenu = !showSearchMenu">
-            <i class="far fa-search"></i>
-          </a>
+          <a
+            v-show="canLogIn"
+            class="mob-nav-otherbtn mobile-only"
+            @click.prevent="login"
+            ><i class="far fa-user"></i
+          ></a>
+          <app-link
+            v-show="!canLogIn"
+            class="mobile-only mob-nav-otherbtn"
+            to="/moj-racun"
+            aria-label="Moj račun"
+            ><i class="far fa-user"></i
+          ></app-link>
         </div>
         <img
           class="article-head-image"
