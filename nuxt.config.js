@@ -211,5 +211,10 @@ export default {
         prettify: false,
       },
     },
+    optimization: {
+      splitChunks: {
+        maxSize: 0,
+      },
+    },
   },
 }

@@ -496,7 +496,10 @@
           <div class="desktop-only full center-text tagline">
             Portal za društvena i kulturna pitanja. I svijet koji dolazi.
           </div>
-          <a v-show="canLogIn" class="mob-nav-otherbtn mobile-only" @click.prevent="login"
+          <a
+            v-show="canLogIn"
+            class="mob-nav-otherbtn mobile-only"
+            @click.prevent="login"
             ><i class="far fa-user"></i
           ></a>
           <app-link
