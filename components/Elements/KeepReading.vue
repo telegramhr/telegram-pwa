@@ -33,20 +33,6 @@
           </div>
         </template>
       </div>
-      <div
-        class="full center subtle-btn-parent relative clickable"
-        @click="loadMore"
-      >
-        <div v-show="!loading" class="subtle-btn animate">Vidi više</div>
-        <div v-show="!loading" class="subtle-btn-line"></div>
-        <div v-show="loading" class="full center cool-loader">
-          <div class="loader-square">
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </template>
@@ -65,6 +51,11 @@ export default {
       required: true,
       default: 0,
     },
+    permalink: {
+      type: String,
+      required: true,
+      default: '',
+    },
   },
   data() {
     return {
@@ -79,19 +70,28 @@ export default {
   methods: {
     loadPosts() {
       this.$axios
-        .post('http://api.cxense.com/public/widget/data', {
-          widgetId: '236a2277d3a4b6b64573cb9a9d59ec465840fac7',
+        .post('https://api.cxense.com/public/widget/data', {
+          widgetId: 'eb43035256b53a5328fa62b38d8d96bde4e44037',
+          context: {
+            url: this.permalink,
+          },
+          user: {
+            ids: { usi: this.$cookies.get('cX_P') },
+          },
         })
         .then((res) => {
-          this.posts = res.data.items.map((item) => {
-            return {
-              id: item['recs-articleid'],
-              portal_title: item.title,
-              permalink: item.click_url,
-              image: { url: item.dominantimage, alt: '' },
-              authors: [],
-            }
+          const items = res.data.items.map((item) => {
+            return item['recs-articleid']
           })
+          this.$axios.get('/keep/' + items).then((r) => {
+            this.posts = r.data
+            this.posts.forEach((post, index) => {
+              post.permalink = res.data.items[index].click_url
+            })
+          })
+        })
+        .catch((err) => {
+          console.log(err)
         })
     },
     loadMore() {
