@@ -30,10 +30,14 @@ export const actions = {
   pullPosts({ commit, state }) {
     return new Promise((resolve) => {
       if (state.updated + 5 * 60 * 1000 < new Date().getTime()) {
-        this.$axios.get('portal/2').then((res) => {
-          commit('setPosts', res.data)
-          resolve()
-        })
+        this.$axios
+          .get(
+            'https://telesport.telegram.hr/wp-json/telegram/pwa2/v1/portal/2'
+          )
+          .then((res) => {
+            commit('setPosts', res.data)
+            resolve()
+          })
       } else {
         resolve()
       }
@@ -45,10 +49,15 @@ export const actions = {
         commit('clearMore')
       }
       if (state.morePosts.length < page * 7) {
-        this.$axios.get('portal/2/page/' + page).then((res) => {
-          commit('setMore', res.data.posts)
-          resolve()
-        })
+        this.$axios
+          .get(
+            'https://telesport.telegram.hr/wp-json/telegram/pwa2/v1/portal/2/page/' +
+              page
+          )
+          .then((res) => {
+            commit('setMore', res.data.posts)
+            resolve()
+          })
       } else {
         resolve()
       }
