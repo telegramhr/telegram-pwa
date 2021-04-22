@@ -73,12 +73,12 @@
     <div class="fourth flex-responsive column-full-pad mobile-side-pad">
       <a
         class="full flex article-standard article relative"
-        href="https://www.telegram.hr/politika-kriminal/novi-berosev-skandal-i-bivsi-hdz-ov-ministar-dobit-ce-milijun-kuna-da-bi-nadzirao-cuvenu-cvjecarku-u-it-poslovima/"
+        href="https://www.telegram.hr/komentari/zasto-je-natjecaj-koji-je-trebao-dobiti-bivsi-sanaderov-ministar-najmucnija-afera-u-berosevom-mandatu/"
         target="_blank"
       >
         <img
-          src="https://images.telegram.hr/3b_47T60pxoR9D3sZMclwrRhwSCRPphsMsm7uNgPuK8/preset:single2/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjEvMDQvdGVsZWdyYW0tbGp1YmljaWMtbmFkem9yLXYyLmpwZWc.jpg"
-          alt="Novi Berošev skandal: I bivši HDZ-ov ministar dobit će milijun kuna. Da bi nadzirao čuvenu cvjećarku u IT poslovima"
+          src="https://images.telegram.hr/kKRWgdFdiSfkk-K5em5fcVxElR7vxju_fQv29jmZ_z0/preset:single2/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjEvMDQvdGVsZWdyYW0tamFzbWluLWxqdWJpY2ljLmpwZWc.jpg"
+          alt="Zašto je natječaj koji je trebao dobiti bivši Sanaderov ministar najmučnija afera u Beroševom mandatu"
           loading="lazy"
         />
         <div class="full flex article-pad">
@@ -86,8 +86,8 @@
             <h3 class="overtitle"></h3>
           </div>
           <h2 class="full">
-            Novi Berošev skandal: I bivši HDZ-ov ministar dobit će milijun kuna.
-            Da bi nadzirao čuvenu cvjećarku u IT poslovima
+            Zašto je natječaj koji je trebao dobiti bivši Sanaderov ministar
+            najmučnija afera u Beroševom mandatu
           </h2>
           <h4 class="full"></h4>
           <h5 class="full flex article-meta">
