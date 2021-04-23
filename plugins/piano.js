@@ -1,5 +1,8 @@
 /* eslint-disable */
 export default ({ app, inject }) => {
+  window.PianoESPConfig = {
+    id: 280
+  }
   // Piano conf
   window.tp = window.tp || []
   window.tp.push(['setAid', process.env.PIANO_AID])
