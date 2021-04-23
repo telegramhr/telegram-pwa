@@ -63,6 +63,9 @@ export const actions = {
       'init',
       function () {
         if (window.tp.pianoId.getUser()) {
+          window.PianoESP &&
+            typeof window.PianoESP.handleUserEmail === 'function' &&
+            window.PianoESP.handleUserEmail(state.email)
           that.$ga.set('dimension3', '1')
           window.tp.api.callApi('/access/list', {}, function (response) {
             if (response.data) {
