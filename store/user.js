@@ -1,4 +1,5 @@
 export const state = () => ({
+  uid: '',
   first_name: '',
   last_name: '',
   email: '',
@@ -15,6 +16,7 @@ export const mutations = {
     state.email = data.user.email
     state.token = data.token
     state.exp = data.user.exp
+    state.uid = data.user.uid
   },
   logout(state) {
     state.first_name = ''
@@ -32,6 +34,7 @@ export const mutations = {
 
 export const actions = {
   setUser({ commit }, data) {
+    console.log(data)
     commit('setUser', data)
   },
   setAccess({ commit, dispatch }, data) {
@@ -62,10 +65,11 @@ export const actions = {
     window.tp.push([
       'init',
       function () {
-        if (window.tp.pianoId.getUser()) {
+        const user = window.tp.pianoId.getUser()
+        if (user) {
           window.PianoESP &&
             typeof window.PianoESP.handleUserEmail === 'function' &&
-            window.PianoESP.handleUserEmail(state.email)
+            window.PianoESP.handleUserEmail(user.email)
           that.$ga.set('dimension3', '1')
           window.tp.api.callApi('/access/list', {}, function (response) {
             if (response.data) {
