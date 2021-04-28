@@ -4,9 +4,11 @@ export const state = () => ({
 
 export const mutations = {
   setPosts(state, data) {
-    data.forEach((item) => {
-      state.posts[item.slug] = item
-    })
+    if (Array.isArray(data)) {
+      data.forEach((item) => {
+        state.posts[item.slug] = item
+      })
+    }
   },
 }
 

@@ -374,12 +374,14 @@ export default {
     if (post.id) {
       this.post = post
       await this.$axios.get('related/' + post.id).then((res) => {
-        this.$store.dispatch('posts/setPosts', res.data, { root: true })
-        this.related_posts = res.data
-          .filter((item) => {
-            return item.id !== post.id
-          })
-          .splice(0, 3)
+        if (Array.isArray(res.data)) {
+          this.$store.dispatch('posts/setPosts', res.data, { root: true })
+          this.related_posts = res.data
+            .filter((item) => {
+              return item.id !== post.id
+            })
+            .splice(0, 3)
+        }
       })
     } else {
       this.post.title = 'Objava ne postoji'
