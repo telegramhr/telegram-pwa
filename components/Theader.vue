@@ -652,6 +652,7 @@ export default {
     },
     search() {
       if (this.search_term) {
+        this.maybeCloseSide()
         this.$router.push('/search/' + this.search_term)
       }
     },
