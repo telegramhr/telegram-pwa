@@ -74,9 +74,17 @@ export default {
   async fetch() {
     let post
     if (this.$route.params.category === 'preview') {
-      post = await this.$axios.$get('preview/' + this.$route.params.slug)
+      post = await this.$axios
+        .$get('preview/' + this.$route.params.slug)
+        .catch(() => {
+          // TODO: error logging
+        })
     } else {
-      post = await this.$axios.$get('single/' + this.$route.params.slug)
+      post = await this.$axios
+        .$get('single/' + this.$route.params.slug)
+        .catch(() => {
+          // TODO: error logging
+        })
     }
 
     if (post.id) {

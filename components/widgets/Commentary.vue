@@ -15,9 +15,14 @@ export default {
     }
   },
   mounted() {
-    this.$axios.get('commentary').then((res) => {
-      this.posts = res.data
-    })
+    this.$axios
+      .get('commentary')
+      .then((res) => {
+        this.posts = res.data
+      })
+      .catch(() => {
+        // TODO: error logging
+      })
   },
 }
 </script>

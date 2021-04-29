@@ -16,7 +16,14 @@ export default {
     },
   },
   async fetch() {
-    this.posts = await this.$axios.$get('/latest/1')
+    await this.$axios
+      .$get('/latest/1')
+      .then((res) => {
+        this.posts = res
+      })
+      .catch(() => {
+        // error logging
+      })
   },
   data() {
     return {

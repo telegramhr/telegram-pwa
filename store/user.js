@@ -1,4 +1,5 @@
 export const state = () => ({
+  uid: '',
   first_name: '',
   last_name: '',
   email: '',
@@ -10,11 +11,11 @@ export const state = () => ({
 
 export const mutations = {
   setUser(state, data) {
-    state.first_name = data.user.first_name
-    state.last_name = data.user.last_name
-    state.email = data.user.email
-    state.token = data.token
-    state.exp = data.user.exp
+    state.first_name = data.first_name
+    state.last_name = data.last_name
+    state.email = data.email
+    state.exp = data.exp
+    state.uid = data.uid
   },
   logout(state) {
     state.first_name = ''
@@ -27,6 +28,9 @@ export const mutations = {
   setTerm(state, data) {
     state.access = data
     state.updated = new Date().getTime()
+  },
+  setToken(state, token) {
+    state.token = token
   },
 }
 
@@ -62,7 +66,12 @@ export const actions = {
     window.tp.push([
       'init',
       function () {
-        if (window.tp.pianoId.getUser()) {
+        const user = window.tp.pianoId.getUser()
+        if (user) {
+          dispatch('setUser', user)
+          window.PianoESP &&
+            typeof window.PianoESP.handleUserEmail === 'function' &&
+            window.PianoESP.handleUserEmail(user.email)
           that.$ga.set('dimension3', '1')
           window.tp.api.callApi('/access/list', {}, function (response) {
             if (response.data) {

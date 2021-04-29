@@ -652,6 +652,7 @@ export default {
     },
     search() {
       if (this.search_term) {
+        this.maybeCloseSide()
         this.$router.push('/search/' + this.search_term)
       }
     },
@@ -661,7 +662,8 @@ export default {
       window.tp.pianoId.show({
         screen: 'login',
         loggedIn(data) {
-          _that.$store.dispatch('user/setUser', data)
+          _that.$store.dispatch('user/setUser', data.user)
+          _that.$store.commit('user/setToken', data.token)
           window.tp.api.callApi('/access/list', {}, function (response) {
             _that.$store.dispatch('user/setAccess', response).then(() => {
               window.location.reload()

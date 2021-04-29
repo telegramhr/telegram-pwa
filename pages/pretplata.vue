@@ -593,7 +593,7 @@ export default {
           screen: 'register',
           width: window.innerWidth > 720 ? 600 : 375,
           loggedIn(data) {
-            _that.$store.dispatch('user/setUser', data)
+            _that.$store.dispatch('user/setUser', data.user)
             // window.location.reload()
             _that.checkout2(termId)
           },

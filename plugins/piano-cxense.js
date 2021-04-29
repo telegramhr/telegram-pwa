@@ -9,6 +9,22 @@ export default function ({ store }) {
       'gru-font': store.state.theme.font,
     },
   ])
+  if (store.state.user.uid) {
+    window.cX.callQueue.push([
+      'addExternalId',
+      {
+        id: store.state.user.uid,
+        type: 'gru',
+      },
+    ])
+    window.cX.callQueue.push([
+      'addExternalId',
+      {
+        id: store.state.user.uid,
+        type: 'zuo',
+      },
+    ])
+  }
   window.cX.CCE = window.cX.CCE || {}
   window.cX.CCE.callQueue = window.cX.CCE.callQueue || []
   window.cX.CCE.callQueue.push([
