@@ -1,6 +1,6 @@
 <template>
   <div :class="['main-container', 'flex', 'single-article', typeClass]">
-    <template v-if="!$fetchState.error">
+    <template v-if="!($fetchState.error || post.title === 'Objava ne postoji')">
       <theader :id="post.id" :headline="post.portal_title"></theader>
       <div v-show="related_posts" class="full related-header-widget">
         <div class="container flex desktop-only column-vertical-pad">
@@ -284,7 +284,7 @@
         <ticker></ticker>
       </div>
     </template>
-    <template v-if="$fetchState.error">
+    <template v-if="$fetchState.error || post.title === 'Objava ne postoji'">
       <div class="full flex tg-red">
         <client-only>
           <theader
@@ -362,27 +362,36 @@ export default {
     }
     if (!post) {
       if (this.$route.params.category === 'preview') {
-        post = await this.$axios.$get(
-          encodeURI('preview/' + this.$route.params.slug)
-        )
+        post = await this.$axios
+          .$get(encodeURI('preview/' + this.$route.params.slug))
+          .catch(() => {
+            // TODO: error logging
+          })
       } else {
-        post = await this.$axios.$get(
-          encodeURI('single/' + this.$route.params.slug)
-        )
+        post = await this.$axios
+          .$get(encodeURI('single/' + this.$route.params.slug))
+          .catch(() => {
+            // TODO: error logging
+          })
       }
     }
-    if (post.id) {
+    if (post && post.id) {
       this.post = post
-      await this.$axios.get('related/' + post.id).then((res) => {
-        if (Array.isArray(res.data)) {
-          this.$store.dispatch('posts/setPosts', res.data, { root: true })
-          this.related_posts = res.data
-            .filter((item) => {
-              return item.id !== post.id
-            })
-            .splice(0, 3)
-        }
-      })
+      await this.$axios
+        .get('related/' + post.id)
+        .then((res) => {
+          if (Array.isArray(res.data)) {
+            this.$store.dispatch('posts/setPosts', res.data, { root: true })
+            this.related_posts = res.data
+              .filter((item) => {
+                return item.id !== post.id
+              })
+              .splice(0, 3)
+          }
+        })
+        .catch(() => {
+          // TODO: error logging
+        })
     } else {
       this.post.title = 'Objava ne postoji'
       this.post.portal_title = 'Objava ne postoji'

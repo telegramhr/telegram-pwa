@@ -91,9 +91,14 @@ export default {
   },
   methods: {
     loadMore() {
-      this.$axios.get('featured').then((res) => {
-        this.posts = res.data
-      })
+      this.$axios
+        .get('featured')
+        .then((res) => {
+          this.posts = res.data
+        })
+        .catch(() => {
+          // TODO: error logging
+        })
     },
     submit() {
       this.$axios
@@ -107,6 +112,9 @@ export default {
         )
         .then(() => {
           this.thanks = true
+        })
+        .catch(() => {
+          // TODO: error logging
         })
     },
   },

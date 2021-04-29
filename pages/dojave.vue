@@ -121,9 +121,14 @@ export default {
   },
   methods: {
     loadMore() {
-      this.$axios.get('featured').then((res) => {
-        this.posts = res.data
-      })
+      this.$axios
+        .get('featured')
+        .then((res) => {
+          this.posts = res.data
+        })
+        .catch(() => {
+          // TODO: error logging
+        })
     },
   },
 }

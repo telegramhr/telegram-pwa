@@ -26,9 +26,14 @@ export default {
   },
   methods: {
     getPosts() {
-      this.$axios.get('promos').then((res) => {
-        this.posts = res.data
-      })
+      this.$axios
+        .get('promos')
+        .then((res) => {
+          this.posts = res.data
+        })
+        .catch(() => {
+          // TODO: error logging
+        })
     },
   },
 }

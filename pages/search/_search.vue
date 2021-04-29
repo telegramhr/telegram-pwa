@@ -80,12 +80,17 @@
 export default {
   name: 'CategoryIndex',
   async fetch() {
-    await this.$axios.get('search/' + this.$route.params.search).then((res) => {
-      this.posts = res.data.posts
-      if (this.posts.length < 9) {
-        this.hasMore = false
-      }
-    })
+    await this.$axios
+      .get('search/' + this.$route.params.search)
+      .then((res) => {
+        this.posts = res.data.posts
+        if (this.posts.length < 9) {
+          this.hasMore = false
+        }
+      })
+      .catch(() => {
+        // TODO: error logging
+      })
   },
   data() {
     return {
@@ -112,6 +117,9 @@ export default {
           if (res.data.posts < 9) {
             this.hasMore = false
           }
+        })
+        .catch(() => {
+          // TODO: error logging
         })
     },
   },

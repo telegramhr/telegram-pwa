@@ -126,6 +126,9 @@ export default {
             this.hasMore = false
           }
         })
+        .catch(() => {
+          // TODO: error logging
+        })
     },
   },
   head() {

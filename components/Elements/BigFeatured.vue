@@ -99,9 +99,14 @@ export default {
     },
   },
   mounted() {
-    this.$axios.get('big-break').then((res) => {
-      this.post = res.data
-    })
+    this.$axios
+      .get('big-break')
+      .then((res) => {
+        this.post = res.data
+      })
+      .catch(() => {
+        // TODO: error logging
+      })
   },
 }
 </script>

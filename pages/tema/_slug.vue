@@ -85,13 +85,18 @@
 export default {
   name: 'TemaIndex',
   async fetch() {
-    await this.$axios.get('tag/' + this.$route.params.slug).then((res) => {
-      this.posts = res.data.posts
-      this.category = res.data.tag
-      if (res.data.posts.length < 9) {
-        this.hasMore = false
-      }
-    })
+    await this.$axios
+      .get('tag/' + this.$route.params.slug)
+      .then((res) => {
+        this.posts = res.data.posts
+        this.category = res.data.tag
+        if (res.data.posts.length < 9) {
+          this.hasMore = false
+        }
+      })
+      .catch(() => {
+        // TODO: error logging
+      })
   },
   data() {
     return {
@@ -122,6 +127,9 @@ export default {
           if (res.data.posts < 9) {
             this.hasMore = false
           }
+        })
+        .catch(() => {
+          // TODO: error logging
         })
     },
   },
