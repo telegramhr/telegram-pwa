@@ -74,9 +74,15 @@ export default {
           widgetId: 'eb43035256b53a5328fa62b38d8d96bde4e44037',
           context: {
             url: this.permalink,
+            categories: {
+              taxonomy: this.category,
+            },
           },
           user: {
-            ids: { usi: this.$cookies.get('cX_P') },
+            ids: {
+              usi: this.$cookies.get('cX_P'),
+              gru: this.$store.state.user.uid,
+            },
           },
         })
         .then((res) => {
@@ -90,8 +96,8 @@ export default {
             })
           })
         })
-        .catch((err) => {
-          console.log(err)
+        .catch(() => {
+          // TODO: error logging
         })
     },
     loadMore() {
