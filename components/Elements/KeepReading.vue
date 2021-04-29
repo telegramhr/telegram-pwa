@@ -33,20 +33,6 @@
           </div>
         </template>
       </div>
-      <div
-        class="full center subtle-btn-parent relative clickable"
-        @click="loadMore"
-      >
-        <div v-show="!loading" class="subtle-btn animate">Vidi više</div>
-        <div v-show="!loading" class="subtle-btn-line"></div>
-        <div v-show="loading" class="full center cool-loader">
-          <div class="loader-square">
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </template>
@@ -65,33 +51,55 @@ export default {
       required: true,
       default: 0,
     },
+    permalink: {
+      type: String,
+      required: true,
+      default: '',
+    },
   },
   data() {
     return {
       page: 1,
       loading: false,
+      posts: [],
     }
   },
-  computed: {
-    posts() {
-      if (!this.category) {
-        return []
-      }
-      if (this.page > 1) {
-        return [
-          ...this.$store.state.category.categories[this.category].posts,
-          ...this.$store.state.category.morePosts[this.category].posts,
-        ].filter((x) => x.id !== this.p)
-      }
-      return this.$store.state.category.categories[this.category].posts.filter(
-        (x) => x.id !== this.p
-      )
-    },
-  },
   mounted() {
-    this.loadMore()
+    this.loadPosts()
   },
   methods: {
+    loadPosts() {
+      this.$axios
+        .post('https://api.cxense.com/public/widget/data', {
+          widgetId: 'eb43035256b53a5328fa62b38d8d96bde4e44037',
+          context: {
+            url: this.permalink,
+            categories: {
+              taxonomy: this.category,
+            },
+          },
+          user: {
+            ids: {
+              usi: this.$cookies.get('cX_P'),
+              gru: this.$store.state.user.uid,
+            },
+          },
+        })
+        .then((res) => {
+          const items = res.data.items.map((item) => {
+            return item['recs-articleid']
+          })
+          this.$axios.get('/keep/' + items).then((r) => {
+            this.posts = r.data
+            this.posts.forEach((post, index) => {
+              post.permalink = res.data.items[index].click_url
+            })
+          })
+        })
+        .catch(() => {
+          // TODO: error logging
+        })
+    },
     loadMore() {
       if (this.category) {
         this.loading = true
