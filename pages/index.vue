@@ -81,10 +81,10 @@
       <section class="full mobile-only">
         <break></break>
       </section>
+      <midas></midas>
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
       </div>
-
       <div
         v-if="posts"
         class="block-title news-block-title full mobile-side-pad"
