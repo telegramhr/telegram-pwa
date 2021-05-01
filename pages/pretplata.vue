@@ -80,6 +80,22 @@
                 <p class="full animate">
                   <i class="fas fa-check"></i> surfanje bez oglasa
                 </p>
+                <p class="full animate">
+                  <i class="fas fa-check"></i> popust na knjige u izdanju
+                  Telegrama<a
+                    href="#knjige-disclaimer"
+                    onclick="document.getElementById('knjige-disclaimer').open = true;"
+                    >*</a
+                  >
+                </p>
+                <p class="full animate">
+                  <i class="fas fa-check"></i> popust na knjige u izdanju
+                  Telegrama<a
+                    href="#knjige-disclaimer"
+                    onclick="document.getElementById('knjige-disclaimer').open = true;"
+                    >*</a
+                  >
+                </p>
               </div>
               <div class="full center btn-parent" @click="checkout(two)">
                 <div class="btn animate">Odaberi</div>
@@ -129,6 +145,14 @@
                 </p>
                 <p class="full animate">
                   <i class="fas fa-check"></i> surfanje bez oglasa
+                </p>
+                <p class="full animate">
+                  <i class="fas fa-check"></i> popust na knjige u izdanju
+                  Telegrama<a
+                    href="#knjige-disclaimer"
+                    onclick="document.getElementById('knjige-disclaimer').open = true;"
+                    >*</a
+                  >
                 </p>
               </div>
               <div class="full center btn-parent" @click="checkout(four)">
@@ -409,7 +433,22 @@
               samo 49 kuna mjesečno (godišnji iznos naplaćuje se jednokratno)
               dobivate godinu dana neograničenog čitanja Telegrama i Telesporta
               bez oglasa, nove funkcionalnosti koje ćemo uvoditi i popust na
-              knjigu jednog od naših autora kao poseban poklon.
+              knjigu jednog od naših autora.
+            </p>
+          </details>
+          <details id="knjige-disclaimer" class="full flex relative">
+            <summary class="full flex relative">
+              Što je to popust na knjige u izdanju Telegrama?
+            </summary>
+            <p>
+              Uskoro ćemo izdati knjigu jednog od naših autora, a u planu nam je
+              nastaviti s tom praksom i redovito izdavati knjige koje pišu naši
+              najpoznatiji i najnagrađivaniji autori. Sve fizičke osobe s
+              godišnjom Premium pretplatom i mjesečni premium pretplatnici nakon
+              najmanje tri mjeseca pretplate, koji su se pretplatili do 1.
+              svibnja 2021. godine, prvu knjigu će dobiti gratis. Svi ostali
+              godišnji premium pretplatnici moći će knjigu kupiti po sniženoj
+              cijeni.
             </p>
           </details>
           <details class="full flex relative">
