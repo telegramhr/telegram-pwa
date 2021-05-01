@@ -80,13 +80,6 @@
                 <p class="full animate">
                   <i class="fas fa-check"></i> surfanje bez oglasa
                 </p>
-                <p class="full animate">
-                  <i class="fas fa-check"></i> poklon: Telegram knjiga<a
-                    href="#knjige-disclaimer"
-                    onclick="document.getElementById('knjige-disclaimer').open = true;"
-                    >*</a
-                  >
-                </p>
               </div>
               <div class="full center btn-parent" @click="checkout(two)">
                 <div class="btn animate">Odaberi</div>
@@ -136,13 +129,6 @@
                 </p>
                 <p class="full animate">
                   <i class="fas fa-check"></i> surfanje bez oglasa
-                </p>
-                <p class="full animate">
-                  <i class="fas fa-check"></i> poklon: Telegram knjiga<a
-                    href="#knjige-disclaimer"
-                    onclick="document.getElementById('knjige-disclaimer').open = true;"
-                    >*</a
-                  >
                 </p>
               </div>
               <div class="full center btn-parent" @click="checkout(four)">
@@ -372,7 +358,7 @@
             <p>
               Pretplata na Telegram omogućuje Vam, ovisno o paketu, neograničeno
               čitanje Telegrama i Telesporta, ali i brojne druge benefite i
-              funkcionalnosti poput surfanja bez oglasa, poklon knjige i
+              funkcionalnosti poput surfanja bez oglasa, popust na knjige i
               ekskluzivnih newslettera koje ćemo uskoro pokrenuti.
             </p>
           </details>
@@ -422,20 +408,8 @@
               Najisplativija opcija je godišnja premium pretplata: u njoj za
               samo 49 kuna mjesečno (godišnji iznos naplaćuje se jednokratno)
               dobivate godinu dana neograničenog čitanja Telegrama i Telesporta
-              bez oglasa, nove funkcionalnosti koje ćemo uvoditi i knjigu jednog
-              od naših autora kao poseban poklon.
-            </p>
-          </details>
-          <details id="knjige-disclaimer" class="full flex relative">
-            <summary class="full flex relative">
-              Kako mogu dobiti knjigu na poklon?
-            </summary>
-            <p>
-              Ubrzo ćemo izdati knjigu jednog od naših autora, ali detalje još
-              čuvamo u tajnosti. Kada knjiga bude predstavljena, poklonit ćemo
-              ju našim najvjernijim pretplatnicima, a pravo na poklon knjigu
-              ostvarujete pretplatom na Premium paket za cijelu godinu, ili
-              nakon 3 mjeseca Premium mjesečnog paketa.
+              bez oglasa, nove funkcionalnosti koje ćemo uvoditi i popust na
+              knjigu jednog od naših autora kao poseban poklon.
             </p>
           </details>
           <details class="full flex relative">
