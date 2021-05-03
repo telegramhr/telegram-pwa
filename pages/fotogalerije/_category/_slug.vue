@@ -1,7 +1,7 @@
 <template>
   <div class="main-container flex single-article gallery">
     <client-only>
-      <theader></theader>
+      <theader :id="post.id"></theader>
     </client-only>
     <div v-if="post.id" class="full gallery-body">
       <div class="container flex relative mobile-side-pad">
