@@ -59,6 +59,12 @@
                 >Admin</a
               >
               <a
+                role="menuitem"
+                href="https://www.telegram.hr/wp-admin/post-new.php"
+              >
+                Nova objava
+              </a>
+              <a
                 v-show="id"
                 :href="`https://www.telegram.hr/wp-admin/post.php?post=${id}&action=edit`"
                 role="menuitem"
