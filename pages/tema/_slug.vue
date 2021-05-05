@@ -142,7 +142,7 @@ export default {
           hid: 'og:type',
           name: 'og:type',
           property: 'og:type',
-          content: 'article',
+          content: 'website',
         },
         {
           hid: 'og:title',

@@ -144,13 +144,14 @@ export default {
         {
           hid: 'og:description',
           name: 'og:description',
+          property: 'og:description',
           content: this.author.description,
         },
         {
           hid: 'og:type',
           name: 'og:type',
           property: 'og:type',
-          content: 'article',
+          content: 'author',
         },
         {
           hid: 'og:title',

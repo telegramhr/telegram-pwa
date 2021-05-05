@@ -144,7 +144,7 @@ export default {
       title: this.cat,
       titleTemplate: 'Kategorija %s | Telegram.hr',
       meta: [
-        { hid: 'og:type', name: 'og:type', content: 'article' },
+        { hid: 'og:type', name: 'og:type', content: 'website' },
         {
           hid: 'og:title',
           name: 'og:title',

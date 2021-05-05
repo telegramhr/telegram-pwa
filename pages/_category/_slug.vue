@@ -756,6 +756,7 @@ export default {
         {
           hid: 'og:description',
           name: 'og:description',
+          property: 'og:description',
           content: this.post.social.description,
         },
         {
