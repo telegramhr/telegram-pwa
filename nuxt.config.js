@@ -112,6 +112,7 @@ export default {
     { src: '@/plugins/piano-cxense.js', ssr: false },
     { src: '@/plugins/piano.js', ssr: false },
     { src: '@/plugins/mobile.js' },
+    { src: '@/plugins/cxtrack.js', ssr: false },
   ],
 
   ngrok: {

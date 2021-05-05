@@ -92,7 +92,10 @@ export default {
           this.$axios.get('/keep/' + items).then((r) => {
             this.posts = r.data
             this.posts.forEach((post, index) => {
-              post.permalink = res.data.items[index].click_url
+              post.trackerPermalink = res.data.items[index].click_url.replace(
+                'http://api.cxense.com/public/widget/click/',
+                ''
+              )
             })
           })
         })

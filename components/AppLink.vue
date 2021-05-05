@@ -12,6 +12,11 @@ export default {
       required: true,
       type: String,
     },
+    tracker: {
+      required: false,
+      type: String,
+      default: '',
+    },
   },
   methods: {
     linkProperties(route) {
@@ -22,10 +27,16 @@ export default {
           target: '_blank',
         }
       }
-
       return {
-        is: 'router-link',
-        to: route,
+        is: 'nuxt-link',
+        to: {
+          path: route,
+          query: this.tracker
+            ? {
+                tracker: this.tracker,
+              }
+            : {},
+        },
       }
     },
   },
