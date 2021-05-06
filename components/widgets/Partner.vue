@@ -5,24 +5,41 @@
       <div class="line-2 animate"></div>
       <div class="line-3 animate"></div>
     </div>
-    <div class="fourth flex-responsive column-full-pad mobile-side-pad">
-      <div class="full flex relative">
+    <div class="fourth flex-responsive relative center">
+      <img
+        src="@/assets/img/bg_wall.jpg"
+        aria-hidden="true"
+        class="partner-widget-bg"
+      />
+      <a
+        class="full flex article-standard article relative mobile-side-pad"
+        href="https://super1.telegram.hr/native/boca-zivota/"
+        target="_blank"
+      >
         <img
-          src="https://www.telegram.hr/wp-content/uploads/2021/04/afera-cijepise-widget2.jpg"
-          alt="Afera Cvjećarka na Telegram.hr"
+          src="https://super1.telegram.hr/wp-content/themes/super1-theme/templates/native/aquarius/boca_zivota/images/blue-bg-top.png"
+          aria-hidden="true"
         />
-        <p class="full special-partner-tagline hide"></p>
-      </div>
+        <h2 class="full">
+          Izgubljenu šansu možda ne možeš vratiti, <br />
+          ali možeš djelovati.
+        </h2>
+        <h4 class="full">Pročitaj kako vratiti motivaciju i energiju</h4>
+        <img
+          src="https://super1.telegram.hr/wp-content/themes/super1-theme/templates/native/aquarius/boca_zivota/images/blue-bg-bottom.png"
+          aria-hidden="true"
+        />
+      </a>
     </div>
     <div class="fourth flex-responsive column-full-pad mobile-side-pad">
       <a
         class="full flex article-standard article relative"
-        href="https://www.telegram.hr/politika-kriminal/telegram-otkriva-ministarstvo-zdravstva-dalo-it-posao-od-16-milijuna-kn-tvrtki-koja-je-dosad-radila-cvjetne-aranzmane/"
+        href="https://www.telegram.hr/partneri/andrej-je-usred-covid-krize-dao-otkaz-i-otvorio-svoju-firmu-nije-se-bojao-inspirirao-ga-je-winston-churchill/"
         target="_blank"
       >
         <img
-          src="https://images.telegram.hr/hKZUx__tzJT4V8rWL4x12Fb-Xg_5nQqUZQagpEUx1Is/preset:single2/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjEvMDQvYmVyb3MtY3ZqZWNhcmthLW5hdGplY2FqLmpwZWc.jpg"
-          alt="Telegram otkriva: Ministarstvo zdravstva dalo IT posao od 1,6 milijuna kuna tvrtki koja je dosad radila cvjetne aranžmane"
+          src="https://www.telegram.hr/wp-content/uploads/2021/04/andrej-kajganic-01.jpg"
+          alt="Andrej je usred covid-krize dao otkaz i otvorio svoju firmu. Nije se bojao, inspirirao ga je Winston Churchill"
           loading="lazy"
         />
         <div class="full flex article-pad">
@@ -30,8 +47,8 @@
             <h3 class="overtitle"></h3>
           </div>
           <h2 class="full">
-            Telegram otkriva: Ministarstvo zdravstva dalo IT posao od 1,6
-            milijuna kuna tvrtki koja je dosad radila cvjetne aranžmane
+            Andrej je usred covid-krize dao otkaz i otvorio svoju firmu. Nije se
+            bojao, inspirirao ga je Winston Churchill
           </h2>
           <h4 class="full"></h4>
           <h5 class="full flex article-meta">
@@ -45,12 +62,12 @@
     <div class="fourth flex-responsive column-full-pad mobile-side-pad">
       <a
         class="full flex article-standard article relative"
-        href="https://www.telegram.hr/politika-kriminal/ovako-izgleda-web-stranica-firme-kojoj-je-ministarstvo-dalo-vazan-it-posao-od-16-miljuna-kuna/"
+        href="https://super1.telegram.hr/fit/snimala-je-po-12-sati-dnevno-i-trenirala-pet-puta-tjedno-lucia-nije-stajala-no-danas-zivi-svoj-san/"
         target="_blank"
       >
         <img
-          src="https://images.telegram.hr/GtbgU7syZH8ZZw_UiUL042rZzK7p-UEQQ-vkReJ0K_M/preset:single1/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjEvMDQvc2NyZWVuc2hvdC0yMDIxLTA0LTE5LWF0LTE4NTUyNy5qcGc.jpg"
-          alt="Ovako izgleda web stranica firme kojoj je Ministarstvo zdravstva dalo važan IT posao od 1,6 miljuna kuna"
+          src="https://super1.telegram.hr/wp-content/uploads/sites/3/2021/04/lucia-stefanija-glavich-mandaric-01-880x520.jpg"
+          alt="Snimala je po 12 sati dnevno i trenirala pet puta tjedno. Lucia nije stajala, no danas živi svoj san"
           loading="lazy"
         />
         <div class="full flex article-pad">
@@ -58,8 +75,8 @@
             <h3 class="overtitle"></h3>
           </div>
           <h2 class="full">
-            Ovako izgleda web stranica firme kojoj je Ministarstvo zdravstva
-            dalo važan IT posao od 1,6 miljuna kuna
+            Snimala je po 12 sati dnevno i trenirala pet puta tjedno. Lucia nije
+            stajala, no danas živi svoj san
           </h2>
           <h4 class="full"></h4>
           <h5 class="full flex article-meta">
@@ -73,12 +90,12 @@
     <div class="fourth flex-responsive column-full-pad mobile-side-pad">
       <a
         class="full flex article-standard article relative"
-        href="https://www.telegram.hr/komentari/zasto-je-natjecaj-koji-je-trebao-dobiti-bivsi-sanaderov-ministar-najmucnija-afera-u-berosevom-mandatu/"
+        href="https://www.krenizdravo.hr/prehrana/upoznajte-velicanstveni-cink-i-magnezij-kljuc-bistrog-uma-i-snaznog-imuniteta"
         target="_blank"
       >
         <img
-          src="https://images.telegram.hr/kKRWgdFdiSfkk-K5em5fcVxElR7vxju_fQv29jmZ_z0/preset:single2/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjEvMDQvdGVsZWdyYW0tamFzbWluLWxqdWJpY2ljLmpwZWc.jpg"
-          alt="Zašto je natječaj koji je trebao dobiti bivši Sanaderov ministar najmučnija afera u Beroševom mandatu"
+          src="https://www.krenizdravo.hr/wp-content/uploads/2015/04/aquarius-water-vaznost-cinka-i-magnezija.jpg"
+          alt="Upoznajte veličanstveni cink i magnezij. Ključ bistrog uma i snažnog imuniteta"
           loading="lazy"
         />
         <div class="full flex article-pad">
@@ -86,8 +103,8 @@
             <h3 class="overtitle"></h3>
           </div>
           <h2 class="full">
-            Zašto je natječaj koji je trebao dobiti bivši Sanaderov ministar
-            najmučnija afera u Beroševom mandatu
+            Upoznajte veličanstveni cink i magnezij. Ključ bistrog uma i snažnog
+            imuniteta
           </h2>
           <h4 class="full"></h4>
           <h5 class="full flex article-meta">
@@ -101,6 +118,64 @@
     <h5 class="full center-text special-partner-signature hide">
       <span class="faded">Omogućuje</span> {{ title }}
     </h5>
+    <style scoped>
+      .special-partner-widget .partner-widget-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+      }
+      .special-partner-widget .fourth:nth-child(2) .article {
+        z-index: 3;
+        position: relative;
+        margin-top: 60px;
+        margin-bottom: 60px;
+        background-color: #005ba4;
+        padding: 0px 24px;
+      }
+      .special-partner-widget .fourth:nth-child(2) .article img {
+        position: absolute;
+        width: 100%;
+        height: auto;
+        left: 0;
+        top: -35px;
+        z-index: 1;
+      }
+      .special-partner-widget .fourth:nth-child(2) .article img:last-child {
+        top: auto;
+        bottom: -35px;
+      }
+      .special-partner-widget .fourth:nth-child(2) .article h2 {
+        font-size: 1.6rem;
+        position: relative;
+        z-index: 5;
+      }
+      .special-partner-widget .fourth:nth-child(2) .article h4 {
+        display: block;
+        margin-bottom: 0px;
+        z-index: 5;
+        position: relative;
+      }
+      @media screen and (min-width: 1025px) {
+        .special-partner-widget .article img {
+          height: 150px;
+        }
+      }
+      @media screen and (max-width: 1024px) {
+        .special-partner-widget .fourth:nth-child(2) .article img {
+          top: -45px;
+        }
+        .special-partner-widget .fourth:nth-child(2) .article img:last-child {
+          bottom: -45px;
+        }
+        .special-partner-widget {
+          padding-top: 0px;
+        }
+      }
+    </style>
     <div class="line-decoration-box animate">
       <div class="line-1 animate"></div>
       <div class="line-2 animate"></div>
