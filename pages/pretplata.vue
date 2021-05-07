@@ -626,14 +626,17 @@ export default {
             closeOnLogout: true,
             complete: () => {
               _that.$store.dispatch('user/checkAccess')
-              _that.$axios.post(
-                'https://api-esp.piano.io/tracker/securesub?api_key=V2rR5WTQbQyHEqCMvFEaUGU3ZNVkt4s6hnvmCz9dXt9aUwzMaUmXAhVzmv83',
-                {
-                  email: _that.$store.state.user.email,
-                  mlids: [2128],
-                }
-              )
-              _that.$router.back()
+              _that.$axios
+                .post(
+                  'https://api-esp.piano.io/tracker/securesub?api_key=V2rR5WTQbQyHEqCMvFEaUGU3ZNVkt4s6hnvmCz9dXt9aUwzMaUmXAhVzmv83',
+                  {
+                    email: _that.$store.state.user.email,
+                    mlids: [2128],
+                  }
+                )
+                .then(() => {
+                  _that.$router.back()
+                })
             },
           })
         },
