@@ -173,7 +173,7 @@ export default {
     },
     getToken() {
       this.$axios
-        .get('https://pretplate.test/braintree/client/1')
+        .get('https://pretplate.telegram.hr/braintree/client/PNIyIvmLCqr8wkb')
         .then((res) => {
           this.token = res.data.token
           braintree.client
