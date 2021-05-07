@@ -118,64 +118,6 @@
     <h5 class="full center-text special-partner-signature hide">
       <span class="faded">Omogućuje</span> {{ title }}
     </h5>
-    <style scoped>
-      .special-partner-widget .partner-widget-bg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: 1;
-      }
-      .special-partner-widget .fourth:nth-child(2) .article {
-        z-index: 3;
-        position: relative;
-        margin-top: 60px;
-        margin-bottom: 60px;
-        background-color: #005ba4;
-        padding: 0px 24px;
-      }
-      .special-partner-widget .fourth:nth-child(2) .article img {
-        position: absolute;
-        width: 100%;
-        height: auto;
-        left: 0;
-        top: -35px;
-        z-index: 1;
-      }
-      .special-partner-widget .fourth:nth-child(2) .article img:last-child {
-        top: auto;
-        bottom: -35px;
-      }
-      .special-partner-widget .fourth:nth-child(2) .article h2 {
-        font-size: 1.6rem;
-        position: relative;
-        z-index: 5;
-      }
-      .special-partner-widget .fourth:nth-child(2) .article h4 {
-        display: block;
-        margin-bottom: 0px;
-        z-index: 5;
-        position: relative;
-      }
-      @media screen and (min-width: 1025px) {
-        .special-partner-widget .article img {
-          height: 150px;
-        }
-      }
-      @media screen and (max-width: 1024px) {
-        .special-partner-widget .fourth:nth-child(2) .article img {
-          top: -45px;
-        }
-        .special-partner-widget .fourth:nth-child(2) .article img:last-child {
-          bottom: -45px;
-        }
-        .special-partner-widget {
-          padding-top: 0px;
-        }
-      }
-    </style>
     <div class="line-decoration-box animate">
       <div class="line-1 animate"></div>
       <div class="line-2 animate"></div>
@@ -183,6 +125,65 @@
     </div>
   </div>
 </template>
+
+<style scoped>
+.special-partner-widget .partner-widget-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+.special-partner-widget .fourth:nth-child(2) .article {
+  z-index: 3;
+  position: relative;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  background-color: #005ba4;
+  padding: 0px 24px;
+}
+.special-partner-widget .fourth:nth-child(2) .article img {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  left: 0;
+  top: -35px;
+  z-index: 1;
+}
+.special-partner-widget .fourth:nth-child(2) .article img:last-child {
+  top: auto;
+  bottom: -35px;
+}
+.special-partner-widget .fourth:nth-child(2) .article h2 {
+  font-size: 1.6rem;
+  position: relative;
+  z-index: 5;
+}
+.special-partner-widget .fourth:nth-child(2) .article h4 {
+  display: block;
+  margin-bottom: 0px;
+  z-index: 5;
+  position: relative;
+}
+@media screen and (min-width: 1025px) {
+  .special-partner-widget .article img {
+    height: 150px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .special-partner-widget .fourth:nth-child(2) .article img {
+    top: -45px;
+  }
+  .special-partner-widget .fourth:nth-child(2) .article img:last-child {
+    bottom: -45px;
+  }
+  .special-partner-widget {
+    padding-top: 0px;
+  }
+}
+</style>
 
 <script>
 export default {
