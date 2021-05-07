@@ -16,6 +16,7 @@
     "@nuxtjs/gtm": "^2.4.0",
     "@nuxtjs/ngrok": "^2.0.0",
     "@nuxtjs/pwa": "^3.3.4",
+    "braintree-web": "^3.76.3",
     "cookie-universal-nuxt": "^2.1.4",
     "core-js": "^3.8.2",
     "node-html-parser": "^2.0.1",

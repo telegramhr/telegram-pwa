@@ -28,7 +28,7 @@
 
 <script>
 export default {
-  name: 'Standard',
+  name: 'Medium',
   props: {
     post: {
       required: true,
