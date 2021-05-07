@@ -137,17 +137,37 @@
       </div>
     </div>
 
-    <div id="popup">
-      <input type="text" name="name" placeholder="Ime i prezime" />
-      <input type="text" name="address" placeholder="Adresa" />
-      <input type="text" name="address2" placeholder="Adresa2" />
-      <input type="text" name="city" placeholder="Grad" />
-      <input type="text" name="city" placeholder="Grad" />
-      <div id="postal-code" type="text"></div>
-      <div id="credit-card"></div>
-      <div id="cvv" type="text"></div>
-      <div id="expiration-date" type="text"></div>
-      <button @click="submit">Plati</button>
+    <div id="book-pay-popup" class="center">
+      <div class="flex relative">
+        <div id="close-book-popup" class="center center-text">
+          <i class="fas fa-times"></i>
+        </div>
+        <div class="full flex book-popup-content">
+          <div class="full center book-popup-header">
+            <img src="@/assets/img/tg_neue_favicon.png" alt="Telegram Logo" />
+          </div>
+          <div class="full flex column-full-pad mobile-side-pad">
+            <h2 class="full center-text">Unesite podatke</h2>
+            <label for="name">Ime i prezime</label>
+            <input type="text" name="name" placeholder="" />
+            <label for="name">Grad</label>
+            <input type="text" name="city" placeholder="" />
+            <label for="name">Adresa</label>
+            <input type="text" name="address" placeholder="" />
+            <label for="name">Dodatne informacije za dostavu</label>
+            <input type="text" name="address2" placeholder="" />
+            <label>Poštanski broj</label>
+            <div id="postal-code" type="text" class="hosted-field"></div>
+            <label>Broj kartice</label>
+            <div id="credit-card" class="hosted-field"></div>
+            <label>CVV</label>
+            <div id="cvv" type="text" class="hosted-field"></div>
+            <label>Datum isteka</label>
+            <div id="expiration-date" class="hosted-field" type="text"></div>
+            <button @click="submit">Plati</button>
+          </div>
+        </div>
+      </div>
     </div>
     <tfooter></tfooter>
   </div>
@@ -186,23 +206,24 @@ export default {
                   client: clientInstance,
                   styles: {
                     input: {
-                      'font-size': '14px',
+                      'font-size': '16px',
+                      color: '#666',
                     },
                     'input.invalid': {
-                      color: 'red',
+                      color: '#ae3737',
                     },
                     'input.valid': {
-                      color: 'green',
+                      color: '#35a843',
                     },
                   },
                   fields: {
                     number: {
                       selector: '#credit-card',
-                      placeholder: 'Broj kreditne kartice',
+                      placeholder: '1111 1111 1111 1111',
                     },
                     cvv: {
                       selector: '#cvv',
-                      placeholder: 'CVV',
+                      placeholder: '111',
                     },
                     expirationDate: {
                       selector: '#expiration-date',
@@ -210,7 +231,7 @@ export default {
                     },
                     postalCode: {
                       selector: '#postal-code',
-                      placeholder: 'Poštanski broj',
+                      placeholder: '12345',
                     },
                   },
                 })
@@ -336,6 +357,111 @@ export default {
 }
 .knjiga-page .gallery-content {
   padding: 0px;
+}
+#book-pay-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 500;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 24px;
+}
+#book-pay-popup h2 {
+  letter-spacing: -0.05em;
+  font-size: 36px;
+  font-size: 1.8rem;
+}
+#book-pay-popup > div {
+  border: 1px solid #c8c8c8;
+  background-color: #fcf1e7;
+  width: 100%;
+  max-width: 480px;
+}
+.book-popup-header {
+  padding-top: 50px;
+  margin-bottom: 50px;
+  background-color: #ae3737;
+}
+.book-popup-header img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: -50px;
+}
+#book-pay-popup input {
+  width: 100%;
+  font-size: 16px;
+  background: none;
+  outline: none;
+  border: none;
+  padding: 0px;
+  height: 24px;
+  color: #666;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #c8c8c8;
+}
+#book-pay-popup label {
+  opacity: 0.7;
+  font-size: 14px;
+  font-size: 0.7rem;
+  font-family: 'Barlow', sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+.hosted-field {
+  height: 24px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #c8c8c8;
+  width: 100%;
+}
+#book-pay-popup button {
+  padding: 8px 32px;
+  text-align: center;
+  display: block;
+  margin: 16px auto;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: white;
+  font-size: 20px;
+  font-size: 1rem;
+  background-color: #ae3737;
+  position: relative;
+  z-index: 200;
+  cursor: pointer;
+}
+#close-book-popup {
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  width: 36px;
+  height: 36px;
+  background-color: white;
+  border: 1px solid #c8c8c8;
+  border-radius: 18px;
+  color: #666;
+  font-size: 24px;
+  z-index: 501;
+  cursor: pointer;
+}
+@media screen and (max-height: 900px) {
+  #book-pay-popup .book-popup-content {
+    max-height: 90vh;
+    overflow-y: scroll;
+  }
+}
+@media screen and (max-width: 1024px) {
+  #book-pay-popup {
+    padding: 4vw;
+  }
+  #close-book-popup {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }
 }
 @media screen and (min-width: 1025px) {
   .knjiga-cover {
