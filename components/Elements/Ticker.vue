@@ -28,7 +28,7 @@ export default {
         1: {
           title: 'Bespoštedno novinarstvo koje gura društvo naprijed.',
         },
-        6: {
+        4: {
           title: 'Bespoštedno novinarstvo koje gura društvo naprijed.',
         },
         9: {
