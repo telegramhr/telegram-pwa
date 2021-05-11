@@ -24,10 +24,12 @@
       <div class="container relative flex stretch">
         <div class="full mobile-side-pad flex">
           <p class="full column-full-pad dojave-intro">
-            Dobra dojava informativna je i lorem ipsum dolor sit amet,
-            consectetur adipiscing elit. Vestibulum erat urna, gravida at turpis
-            quis, luctus consequat mauris. Fusce consectetur nisi ut est ornare
-            dapibus.
+            Pouzdana i kvalitetna dojava ključna je u otkrivanju korupcije,
+            kriminala i afera koje utječu na cijelo društvo. U naše kanale za
+            dojavu možete imati puno povjerenje.<br />
+
+            Za upite, priopćenja i sve što nisu dojave molimo da koristite
+            adresu <a href="mailto:kontakt@telegram.hr">kontakt@telegram.hr</a>.
           </p>
           <div class="third flex-responsive column-full-pad flex">
             <div class="full contact-tile column-full-pad flex relative">
@@ -35,9 +37,12 @@
               <h2 class="full">Signal</h2>
               <h3 class="full contact-data">099 624 3591</h3>
               <p class="full">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum erat urna, gravida at turpis quis, luctus consequat
-                mauris. Fusce consectetur nisi ut est ornare dapibus.
+                Signal je aplikacija za razmjenu poruka, slika, videa i poziva
+                koji su zaštićeni potpunom enkripcijom. Jedina informacija
+                potrebna za slobodno korištenje aplikacije je Vaš broj mobitela
+                preko kojeg šaljete dojave. Također, postoji mogućnost
+                automatskog brisanja svih poruka s mobitela primatelja i
+                pošiljatelja nakon nekog vremena.
               </p>
             </div>
           </div>
@@ -49,9 +54,11 @@
                 <a href="mailto:dojave@telegram.hr">dojave@telegram.hr</a>
               </h3>
               <p class="full">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum erat urna, gravida at turpis quis, luctus consequat
-                mauris. Fusce consectetur nisi ut est ornare dapibus.
+                Našem dediciranom emailu za dojave pristup ima malen i zatvoren
+                broj urednika na Telegramu. Sve primljene dojave provjeravamo i
+                podatke o pošiljateljima nikad ne dijelimo ni sa kim osim,
+                ukoliko je potrebno, novinarima koji će raditi na konkretnoj
+                priči.
               </p>
             </div>
           </div>
@@ -61,9 +68,11 @@
               <h2 class="full">Telegram</h2>
               <h3 class="full contact-data">099 624 3591</h3>
               <p class="full">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum erat urna, gravida at turpis quis, luctus consequat
-                mauris. Fusce consectetur nisi ut est ornare dapibus.
+                Slično kao Signal, Telegram je aplikacija za sigurnu razmjenu
+                poruka, slika, videa i dokumenata zaštićena potpunom
+                enkripcijom. Aplikacija također ima mogućnost brisanja svih
+                poruka i nestanak razgovora koji se odvio nakon određenog
+                vremena.
               </p>
             </div>
           </div>

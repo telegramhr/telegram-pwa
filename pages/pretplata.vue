@@ -88,14 +88,6 @@
                     >*</a
                   >
                 </p>
-                <p class="full animate">
-                  <i class="fas fa-check"></i> popust na knjige u izdanju
-                  Telegrama<a
-                    href="#knjige-disclaimer"
-                    onclick="document.getElementById('knjige-disclaimer').open = true;"
-                    >*</a
-                  >
-                </p>
               </div>
               <div class="full center btn-parent" @click="checkout(two)">
                 <div class="btn animate">Odaberi</div>
