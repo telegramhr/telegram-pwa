@@ -32,7 +32,7 @@
             <div class="full flex knjiga-features">
               <h1 class="full relative center-text">Cijena: 179 kn</h1>
               <h2 class="full relative center-text">
-                Za Telegram pretplatnike: 159 kn
+                Za Telegram pretplatnike: {{ free ? 'Besplatno' : '149kn' }}
               </h2>
               <div class="full knjiga-keypoints">
                 <p class="full center-text">Broj stranica: 378</p>
@@ -40,7 +40,16 @@
                 <p class="full center-text">Izdavač: Telegram Media Grupa</p>
               </div>
               <div class="full center btn-parent">
-                <div class="btn animate">Kupite</div>
+                <div
+                  v-if="$store.state.user.email"
+                  class="btn animate"
+                  @click="buy"
+                >
+                  {{ free ? 'Preuzmite' : 'Kupite' }}
+                </div>
+                <div v-else class="btn animate" @click="login">
+                  Prijavite se kako bi kupili
+                </div>
               </div>
             </div>
           </div>
@@ -137,15 +146,70 @@
       </div>
     </div>
 
-    <braintree></braintree>
+    <braintree v-show="showModal" @close="close"></braintree>
     <tfooter></tfooter>
   </div>
 </template>
 
 <script>
 export default {
+  name: 'Paladino',
   data() {
-    return {}
+    return {
+      access: {},
+      showModal: false,
+    }
+  },
+  computed: {
+    free() {
+      return (
+        this.access &&
+        this.access.resource &&
+        this.access.resource.rid === 'BR92VTWM' &&
+        this.access.start_date < 1619820000
+      )
+    },
+  },
+  mounted() {
+    const that = this
+    window.tp.push([
+      'init',
+      function () {
+        const user = window.tp.pianoId.getUser()
+        if (user) {
+          window.tp.api.callApi('/access/list', {}, function (response) {
+            if (response.data) {
+              if (response.data[0]) {
+                that.access = response.data[0]
+              }
+            }
+          })
+        }
+      },
+    ])
+  },
+  methods: {
+    buy() {
+      this.showModal = true
+    },
+    close() {
+      this.showModal = false
+    },
+    login() {
+      const _that = this
+      window.tp.pianoId.show({
+        screen: 'login',
+        loggedIn(data) {
+          _that.$store.dispatch('user/setUser', data.user)
+          _that.$store.commit('user/setToken', data.token)
+          window.tp.api.callApi('/access/list', {}, function (response) {
+            _that.$store.dispatch('user/setAccess', response).then(() => {
+              window.location.reload()
+            })
+          })
+        },
+      })
+    },
   },
   head() {
     return {}

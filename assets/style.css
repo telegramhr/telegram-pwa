@@ -2394,7 +2394,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 /* fb comments */
 
 .dark-mode .fb-comments,
-.dark-mode .fb-parent {
+.dark-mode .fb-parent,
+.dark-mode .fb-post {
   background-color: #ffffff;
 }
 

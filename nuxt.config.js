@@ -191,6 +191,7 @@ export default {
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
     baseURL: 'https://www.telegram.hr/wp-json/telegram/pwa/v1',
+    credentials: true,
   },
 
   purgeCSS: {
@@ -216,9 +217,6 @@ export default {
       splitChunks: {
         maxSize: 0,
       },
-    },
-    babel: {
-      plugins: [['@babel/plugin-proposal-private-methods', { loose: true }]],
     },
   },
 }

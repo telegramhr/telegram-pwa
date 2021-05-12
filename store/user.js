@@ -11,8 +11,8 @@ export const state = () => ({
 
 export const mutations = {
   setUser(state, data) {
-    state.first_name = data.first_name
-    state.last_name = data.last_name
+    state.first_name = data.firstName
+    state.last_name = data.lastName
     state.email = data.email
     state.exp = data.exp
     state.uid = data.uid

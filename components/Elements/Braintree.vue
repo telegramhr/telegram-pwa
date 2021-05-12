@@ -1,15 +1,28 @@
 <template>
   <div id="book-pay-popup" class="center">
     <div class="flex relative">
-      <div id="close-book-popup" class="center center-text">
+      <div id="close-book-popup" class="center center-text" @click="close">
         <i class="fas fa-times"></i>
       </div>
       <div class="full flex book-popup-content">
         <div class="full center book-popup-header">
           <img src="@/assets/img/tg_neue_favicon.png" alt="Telegram Logo" />
         </div>
-        <div class="full flex column-full-pad mobile-side-pad">
-          <h2 class="full center-text">Unesite podatke</h2>
+        <div v-if="error" class="full flex column-full-pad mobile-side-pad">
+          <h2 class="full center-text">
+            Nešto je pozlo po zlu, probajte ponovo.
+          </h2>
+        </div>
+        <div v-if="thankyou" class="full flex column-full-pad mobile-side-pad">
+          <h2 class="full center-text">
+            Hvala na narudžbi. Uskoro ćete primiti email s potvrdom narudžbe.
+          </h2>
+        </div>
+        <div
+          v-if="!thankyou && !error"
+          class="full flex column-full-pad mobile-side-pad"
+        >
+          <h2 class="full center-text">Unesite podatke za dostavu</h2>
           <label for="name">Ime i prezime</label>
           <input
             id="name"
@@ -42,22 +55,35 @@
             name="city"
             placeholder="Grad"
           />
-          <label>Poštanski broj</label>
-          <div id="postal-code" class="hosted-field"></div>
-          <label>Država</label>
+          <label for="postal-code">Poštanski broj</label>
           <input
-            v-model="country"
+            id="postal-code"
+            v-model="postal_code"
             type="text"
-            name="country"
-            placeholder="Hrvatska"
+            name="postal_code"
+            placeholder="10000"
           />
-          <label>Broj kartice</label>
-          <div id="credit-card" class="hosted-field"></div>
-          <label>CVV</label>
-          <div id="cvv" class="hosted-field"></div>
-          <label>Datum isteka</label>
-          <div id="expiration-date" class="hosted-field"></div>
-          <button @click="submit">Plati</button>
+          <label>Država</label>
+          <input v-model="country" type="text" name="country" disabled />
+          <small
+            >Ako želite naručite van Hrvatske, molimo javite nam se na
+            <a href="mailto:pretplata@telegram.hr"
+              >pretplata@telegram.hr</a
+            ></small
+          >
+          <textare v-model="note" name="note" placeholder="Napomene"></textare>
+          <template v-if="price">
+            <label>Broj kartice</label>
+            <div id="credit-card" class="hosted-field"></div>
+            <label>CVV</label>
+            <div id="cvv" class="hosted-field"></div>
+            <label>Datum isteka</label>
+            <div id="expiration-date" class="hosted-field"></div>
+            <button @click="submit">Plati {{ this.price }} kn</button>
+          </template>
+          <template v-else>
+            <button @click="order">Naruči</button>
+          </template>
         </div>
       </div>
     </div>
@@ -71,91 +97,115 @@ export default {
   name: 'Braintree',
   data() {
     return {
-      name: '',
+      access: {},
+      thankyou: false,
+      error: false,
+      name:
+        this.$store.state.user.first_name +
+        ' ' +
+        this.$store.state.user.last_name,
       address: '',
       address2: '',
       city: '',
+      postal_code: '',
+      note: '',
       token: '',
-      country: '',
+      country: 'Hrvatska',
       deviceData: null,
       hostedInstance: null,
       threeDS: null,
     }
   },
+  computed: {
+    price() {
+      if (this.access && this.access.resource) {
+        if (
+          this.access.resource.rid === 'BR92VTWM' &&
+          this.access.start_date < 1619820000
+        ) {
+          return 0
+        } else {
+          return 149
+        }
+      }
+      return 179
+    },
+  },
   mounted() {
-    this.getToken()
+    this.checkPrice()
   },
   methods: {
     getToken() {
-      this.$axios
-        .get('https://pretplate.test/braintree/client/1')
-        .then((res) => {
-          this.token = res.data.token
-          braintree.client
-            .create({
-              authorization: res.data.token,
-            })
-            .then((clientInstance) => {
-              return Promise.all([
-                braintree.hostedFields.create({
-                  client: clientInstance,
-                  styles: {
-                    input: {
-                      'font-size': '16px',
-                      color: '#666',
-                    },
-                    'input.invalid': {
-                      color: '#ae3737',
-                    },
-                    'input.valid': {
-                      color: '#35a843',
-                    },
-                  },
-                  fields: {
-                    number: {
-                      selector: '#credit-card',
-                      placeholder: '1111 1111 1111 1111',
-                      supportedCardBrands: {
-                        'diners-club': false,
+      if (this.price) {
+        this.$axios
+          .get('https://pretplate.test/braintree/client/1')
+          .then((res) => {
+            this.token = res.data.token
+            braintree.client
+              .create({
+                authorization: res.data.token,
+              })
+              .then((clientInstance) => {
+                return Promise.all([
+                  braintree.hostedFields.create({
+                    client: clientInstance,
+                    styles: {
+                      input: {
+                        'font-size': '16px',
+                        color: '#666',
+                      },
+                      'input.invalid': {
+                        color: '#ae3737',
+                      },
+                      'input.valid': {
+                        color: '#35a843',
                       },
                     },
-                    cvv: {
-                      selector: '#cvv',
-                      placeholder: '111',
+                    fields: {
+                      number: {
+                        selector: '#credit-card',
+                        placeholder: '1111 1111 1111 1111',
+                        supportedCardBrands: {
+                          'diners-club': false,
+                        },
+                      },
+                      cvv: {
+                        selector: '#cvv',
+                        placeholder: '111',
+                      },
+                      expirationDate: {
+                        selector: '#expiration-date',
+                        placeholder: 'MM/YYYY',
+                      },
                     },
-                    expirationDate: {
-                      selector: '#expiration-date',
-                      placeholder: 'MM/YYYY',
-                    },
-                    postalCode: {
-                      selector: '#postal-code',
-                      placeholder: '12345',
-                    },
-                  },
-                }),
-                braintree.threeDSecure.create({
-                  authorization: res.data.token,
-                  version: 2,
-                }),
-                braintree.dataCollector.create({
-                  client: clientInstance,
-                }),
-              ])
-            })
-            .then((instances) => {
-              this.hostedInstance = instances[0]
-              this.threeDS = instances[1]
-              this.deviceData = instances[2]
-            })
-            .catch((err) => {
-              console.error(err)
-            })
-        })
+                  }),
+                  braintree.threeDSecure.create({
+                    authorization: res.data.token,
+                    version: 2,
+                  }),
+                  braintree.dataCollector.create({
+                    client: clientInstance,
+                  }),
+                ])
+              })
+              .then((instances) => {
+                this.hostedInstance = instances[0]
+                this.threeDS = instances[1]
+                this.deviceData = instances[2]
+              })
+              .catch((err) => {
+                console.error(err)
+              })
+          })
+      }
+    },
+    close() {
+      this.error = false
+      this.$emit('close')
     },
     submit() {
       this.hostedInstance
         .tokenize({
-          vault: true,
           cardholderName: this.name,
         })
         .then((payload) => {
@@ -163,22 +213,78 @@ export default {
             onLookupComplete: (data, next) => {
               next()
             },
-            ammount: '179.00',
+            amount: this.price,
             nonce: payload.nonce,
             bin: payload.details.bin,
-            email: this.email,
+            email: this.$store.state.user.email,
             billingAddress: {
               streetAddress: this.address,
-              postalCode: this.postalCode,
+              postalCode: this.postal_code,
             },
           })
         })
         .then((payload) => {
           if (!payload.liabilityShifted) {
             console.log('Liability did not shift', payload)
-            // TODO: error out
+            this.error = true
           }
-          // TODO: submit to server for transaction with payload.nonce
+          this.nonce = payload.nonce
+          this.submitToServer()
+        })
+    },
+    checkPrice() {
+      const that = this
+      window.tp.push([
+        'init',
+        function () {
+          const user = window.tp.pianoId.getUser()
+          if (user) {
+            window.tp.api.callApi('/access/list', {}, function (response) {
+              if (response.data) {
+                if (response.data[0]) {
+                  that.access = response.data[0]
+                  that.getToken()
+                }
+              }
+            })
+          }
+        },
+      ])
+    },
+    order() {
+      if (this.token) {
+        this.submit()
+      } else {
+        this.submitToServer()
+      }
+    },
+    submitToServer() {
+      this.$axios
+        .get('https://pretplate.telegram.hr/sanctum/csrf-cookie')
+        .then(() => {
+          this.$axios
+            .post('https://pretplate.telegram.hr/api/order', {
+              name: this.name,
+              shipping: {
+                name: this.name,
+                address: this.address,
+                address2: this.address2,
+                city: this.city,
+                country: this.country,
+                postal_code: this.postal_code,
+                note: this.note,
+              },
+              billing: false,
+              nonce: this.nonce,
+              amount: this.price,
+              deviceData: this.deviceData.deviceData,
+            })
+            .then(() => {
+              this.thankyou = true
+            })
+            .catch(() => {
+              this.error = true
+            })
         })
     },
   },
