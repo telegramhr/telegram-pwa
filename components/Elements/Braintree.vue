@@ -138,7 +138,7 @@ export default {
     getToken() {
       if (this.price) {
         this.$axios
-          .get('https://pretplate.test/braintree/client/1')
+          .get('https://pretplate.telegram.hr/braintree/client/1')
           .then((res) => {
             this.token = res.data.token
             braintree.client
@@ -265,6 +265,8 @@ export default {
           this.$axios
             .post('https://pretplate.telegram.hr/api/order', {
               name: this.name,
+              email: this.$store.state.user.email,
+              uid: this.$store.state.user.uid,
               shipping: {
                 name: this.name,
                 address: this.address,
