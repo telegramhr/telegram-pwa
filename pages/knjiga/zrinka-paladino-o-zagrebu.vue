@@ -36,7 +36,7 @@
               </h2>
               <div class="full knjiga-keypoints">
                 <p class="full center-text">Broj stranica: 378</p>
-                <p class="full center-text">Godinja izdavanja: 2021.</p>
+                <p class="full center-text">Godina izdavanja: 2021.</p>
                 <p class="full center-text">Izdavač: Telegram Media Grupa</p>
               </div>
               <div class="full center btn-parent">
