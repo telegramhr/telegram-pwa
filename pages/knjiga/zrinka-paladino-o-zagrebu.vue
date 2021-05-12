@@ -48,7 +48,7 @@
                   {{ free ? 'Naručite' : 'Kupite' }}
                 </div>
                 <div v-else class="btn animate" @click="login">
-                  Prijavite se kako bi kupili
+                  Prijavite se za kupnju
                 </div>
               </div>
             </div>
