@@ -109,7 +109,7 @@ export const actions = {
         state.categories[payload.category].updated + 10 * 60 * 1000 <
         new Date().getTime()
       ) {
-        this.$axios.get('category/' + payload.category).then((res) => {
+        this.$axios.get('/api/category/' + payload.category).then((res) => {
           commit('setPosts', { posts: res.data.posts, slug: payload.category })
           dispatch('posts/setPosts', res.data.posts, { root: true })
           resolve()
@@ -123,7 +123,7 @@ export const actions = {
     return new Promise((resolve) => {
       this.$axios
         .get(
-          `category/${payload.category}/page/${
+          `/api/category/${payload.category}/page/${
             state.morePosts[payload.category].page
           }`
         )

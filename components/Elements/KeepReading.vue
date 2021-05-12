@@ -89,7 +89,7 @@ export default {
           const items = res.data.items.map((item) => {
             return item['recs-articleid']
           })
-          this.$axios.get('/keep/' + items).then((r) => {
+          this.$axios.get('/api/keep/' + items).then((r) => {
             this.posts = r.data
             this.posts.forEach((post, index) => {
               post.trackerPermalink = res.data.items[index].click_url.replace(

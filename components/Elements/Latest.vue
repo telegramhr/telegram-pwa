@@ -17,7 +17,7 @@ export default {
   },
   async fetch() {
     await this.$axios
-      .$get('/latest/1')
+      .$get('/api/latest/1')
       .then((res) => {
         this.posts = res
       })

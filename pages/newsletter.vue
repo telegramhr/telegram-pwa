@@ -92,7 +92,7 @@ export default {
   methods: {
     loadMore() {
       this.$axios
-        .get('featured')
+        .get('/api/featured')
         .then((res) => {
           this.posts = res.data
         })

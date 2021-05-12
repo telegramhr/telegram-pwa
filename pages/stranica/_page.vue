@@ -25,7 +25,7 @@ export default {
   name: 'Page',
   async fetch() {
     await this.$axios
-      .get('single/' + this.$route.params.page)
+      .get('/api/single/' + this.$route.params.page)
       .then((res) => {
         this.post = res.data
       })

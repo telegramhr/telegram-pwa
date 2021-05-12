@@ -731,7 +731,7 @@ export default {
             image.classList.remove('size-full')
           }
         })
-        this.$axios.get('related/' + this.post.id).then((res) => {
+        this.$axios.get('/api/related/' + this.post.id).then((res) => {
           this.related_posts = res.data
             .filter((item) => {
               return item.id !== this.post.id

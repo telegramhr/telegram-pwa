@@ -16,7 +16,7 @@ export default {
   },
   mounted() {
     this.$axios
-      .get('commentary')
+      .get('/api/commentary')
       .then((res) => {
         this.posts = res.data
       })

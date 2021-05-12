@@ -190,8 +190,19 @@ export default {
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
-    baseURL: 'https://www.telegram.hr/wp-json/telegram/pwa/v1',
     credentials: true,
+    proxy: true,
+  },
+
+  proxy: {
+    '/api/': {
+      target: 'https://www.telegram.hr/wp-json/telegram/pwa/v1/',
+      pathRewrite: { '^/api/': '' },
+    },
+    '/pretplate/': {
+      target: 'https://pretplate.telegram.hr',
+      pathRewrite: { '^/pretplate/': '' },
+    },
   },
 
   purgeCSS: {

@@ -135,66 +135,64 @@ export default {
   methods: {
     getToken() {
       if (this.price) {
-        this.$axios
-          .get('https://pretplate.telegram.hr/braintree/client/1')
-          .then((res) => {
-            this.token = res.data.token
-            braintree.client
-              .create({
-                authorization: res.data.token,
-              })
-              .then((clientInstance) => {
-                return Promise.all([
-                  braintree.hostedFields.create({
-                    client: clientInstance,
-                    styles: {
-                      input: {
-                        'font-size': '16px',
-                        color: '#666',
-                      },
-                      'input.invalid': {
-                        color: '#ae3737',
-                      },
-                      'input.valid': {
-                        color: '#35a843',
+        this.$axios.get('/pretplate/braintree/client/1').then((res) => {
+          this.token = res.data.token
+          braintree.client
+            .create({
+              authorization: res.data.token,
+            })
+            .then((clientInstance) => {
+              return Promise.all([
+                braintree.hostedFields.create({
+                  client: clientInstance,
+                  styles: {
+                    input: {
+                      'font-size': '16px',
+                      color: '#666',
+                    },
+                    'input.invalid': {
+                      color: '#ae3737',
+                    },
+                    'input.valid': {
+                      color: '#35a843',
+                    },
+                  },
+                  fields: {
+                    number: {
+                      selector: '#credit-card',
+                      placeholder: '1111 1111 1111 1111',
+                      supportedCardBrands: {
+                        'diners-club': false,
                       },
                     },
-                    fields: {
-                      number: {
-                        selector: '#credit-card',
-                        placeholder: '1111 1111 1111 1111',
-                        supportedCardBrands: {
-                          'diners-club': false,
-                        },
-                      },
-                      cvv: {
-                        selector: '#cvv',
-                        placeholder: '111',
-                      },
-                      expirationDate: {
-                        selector: '#expiration-date',
-                        placeholder: 'MM/YYYY',
-                      },
+                    cvv: {
+                      selector: '#cvv',
+                      placeholder: '111',
                     },
-                  }),
-                  braintree.threeDSecure.create({
-                    authorization: res.data.token,
-                    version: 2,
-                  }),
-                  braintree.dataCollector.create({
-                    client: clientInstance,
-                  }),
-                ])
-              })
-              .then((instances) => {
-                this.hostedInstance = instances[0]
-                this.threeDS = instances[1]
-                this.deviceData = instances[2]
-              })
-              .catch((err) => {
-                console.error(err)
-              })
-          })
+                    expirationDate: {
+                      selector: '#expiration-date',
+                      placeholder: 'MM/YYYY',
+                    },
+                  },
+                }),
+                braintree.threeDSecure.create({
+                  authorization: res.data.token,
+                  version: 2,
+                }),
+                braintree.dataCollector.create({
+                  client: clientInstance,
+                }),
+              ])
+            })
+            .then((instances) => {
+              this.hostedInstance = instances[0]
+              this.threeDS = instances[1]
+              this.deviceData = instances[2]
+            })
+            .catch((err) => {
+              console.error(err)
+            })
+        })
       }
     },
     close() {
@@ -242,27 +240,33 @@ export default {
     },
     submitToServer() {
       this.$axios
-        .get('https://pretplate.telegram.hr/sanctum/csrf-cookie')
+        .get('/pretplate/sanctum/csrf-cookie', {
+          withCredentials: true,
+        })
         .then(() => {
           this.$axios
-            .post('https://pretplate.telegram.hr/api/order', {
-              name: this.name,
-              email: this.$store.state.user.email,
-              uid: this.$store.state.user.uid,
-              shipping: {
+            .post(
+              '/pretplate/order',
+              {
                 name: this.name,
-                address: this.address,
-                address2: this.address2,
-                city: this.city,
-                country: this.country,
-                postal_code: this.postal_code,
-                note: this.note,
+                email: this.$store.state.user.email,
+                uid: this.$store.state.user.uid,
+                shipping: {
+                  name: this.name,
+                  address: this.address,
+                  address2: this.address2,
+                  city: this.city,
+                  country: this.country,
+                  postal_code: this.postal_code,
+                  note: this.note,
+                },
+                billing: false,
+                nonce: this.nonce,
+                amount: this.price,
+                deviceData: this.deviceData.deviceData,
               },
-              billing: false,
-              nonce: this.nonce,
-              amount: this.price,
-              deviceData: this.deviceData.deviceData,
-            })
+              { withCredentials: true }
+            )
             .then(() => {
               this.thankyou = true
             })

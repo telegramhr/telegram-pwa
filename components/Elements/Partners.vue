@@ -27,7 +27,7 @@ export default {
   methods: {
     getPosts() {
       this.$axios
-        .get('promos')
+        .get('/api/promos')
         .then((res) => {
           this.posts = res.data
         })

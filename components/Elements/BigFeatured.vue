@@ -100,7 +100,7 @@ export default {
   },
   mounted() {
     this.$axios
-      .get('big-break')
+      .get('/api/big-break')
       .then((res) => {
         this.post = res.data
       })

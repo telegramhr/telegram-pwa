@@ -189,7 +189,7 @@
 export default {
   name: 'Partner',
   /* async fetch() {
-    await this.$axios.$get('partner-widget').then((res) => {
+    await this.$axios.$get('/api/partner-widget').then((res) => {
       this.posts = res.posts
       this.title = res.title
     })

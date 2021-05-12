@@ -367,13 +367,13 @@ export default {
     if (!post) {
       if (this.$route.params.category === 'preview') {
         post = await this.$axios
-          .$get(encodeURI('preview/' + this.$route.params.slug))
+          .$get(encodeURI('/api/preview/' + this.$route.params.slug))
           .catch(() => {
             // TODO: error logging
           })
       } else {
         post = await this.$axios
-          .$get(encodeURI('single/' + this.$route.params.slug))
+          .$get(encodeURI('/api/single/' + this.$route.params.slug))
           .catch(() => {
             // TODO: error logging
           })
@@ -382,7 +382,7 @@ export default {
     if (post && post.id) {
       this.post = post
       await this.$axios
-        .get('related/' + post.id)
+        .get('/api/related/' + post.id)
         .then((res) => {
           if (Array.isArray(res.data)) {
             this.$store.dispatch('posts/setPosts', res.data, { root: true })
