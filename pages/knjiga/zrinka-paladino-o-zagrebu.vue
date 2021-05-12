@@ -32,7 +32,10 @@
             <div class="full flex knjiga-features">
               <h1 class="full relative center-text">Cijena: 179 kn</h1>
               <h2 class="full relative center-text">
-                Za Telegram pretplatnike: {{ free ? 'Besplatno' : '149kn' }}
+                Za Standard pretplatnike: 149kn
+              </h2>
+              <h2 class="full relative center-text">
+                Za Premium pretplatnike: besplatno
               </h2>
               <div class="full knjiga-keypoints">
                 <p class="full center-text">Broj stranica: 378</p>
@@ -45,11 +48,9 @@
                   class="btn animate"
                   @click="buy"
                 >
-                  {{ free ? 'Naručite' : 'Kupite' }}
+                  {{ price ? 'Kupite' : 'Naručite' }}
                 </div>
-                <div v-else class="btn animate" @click="login">
-                  Prijavite se za kupnju
-                </div>
+                <div v-else class="btn animate" @click="login">Kupite</div>
               </div>
             </div>
           </div>
@@ -146,7 +147,7 @@
       </div>
     </div>
 
-    <braintree v-show="showModal" @close="close"></braintree>
+    <braintree v-show="showModal" :price="price" @close="close"></braintree>
     <tfooter></tfooter>
   </div>
 </template>
@@ -158,37 +159,18 @@ export default {
     return {
       access: {},
       showModal: false,
+      price: false,
     }
   },
-  computed: {
-    free() {
-      return (
-        this.access &&
-        this.access.resource &&
-        this.access.resource.rid === 'BR92VTWM' &&
-        this.access.start_date < 1619820000
-      )
-    },
-  },
   mounted() {
-    const that = this
-    window.tp.push([
-      'init',
-      function () {
-        const user = window.tp.pianoId.getUser()
-        if (user) {
-          window.tp.api.callApi('/access/list', {}, function (response) {
-            if (response.data) {
-              if (response.data[0]) {
-                that.access = response.data[0]
-              }
-            }
-          })
-        }
-      },
-    ])
+    this.getPrice()
   },
   methods: {
+    getPrice() {
+      this.$axios.get('https://pretplate.telegram.hr/get_price').then((res) => {
+        this.price = res.data.price
+      })
+    },
     buy() {
       this.showModal = true
     },
@@ -198,7 +180,7 @@ export default {
     login() {
       const _that = this
       window.tp.pianoId.show({
-        screen: 'login',
+        screen: 'register',
         loggedIn(data) {
           _that.$store.dispatch('user/setUser', data.user)
           _that.$store.commit('user/setToken', data.token)

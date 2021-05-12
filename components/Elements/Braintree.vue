@@ -83,7 +83,7 @@
             <div id="cvv" class="hosted-field"></div>
             <label>Datum isteka</label>
             <div id="expiration-date" class="hosted-field"></div>
-            <button @click="submit">Platite{{ this.price }} kn</button>
+            <button @click="submit">Platite {{ price }} kn</button>
           </template>
           <template v-else>
             <button @click="order">Naručite</button>
@@ -99,6 +99,13 @@ import braintree from 'braintree-web'
 
 export default {
   name: 'Braintree',
+  props: {
+    price: {
+      required: true,
+      type: Number,
+      default: 179,
+    },
+  },
   data() {
     return {
       access: {},
@@ -120,23 +127,10 @@ export default {
       threeDS: null,
     }
   },
-  computed: {
-    price() {
-      if (this.access && this.access.resource) {
-        if (
-          this.access.resource.rid === 'BR92VTWM' &&
-          this.access.start_date < 1619820000
-        ) {
-          return 0
-        } else {
-          return 149
-        }
-      }
-      return 179
-    },
-  },
   mounted() {
-    this.checkPrice()
+    if (this.price) {
+      this.getToken()
+    }
   },
   methods: {
     getToken() {
@@ -235,25 +229,6 @@ export default {
           this.nonce = payload.nonce
           this.submitToServer()
         })
-    },
-    checkPrice() {
-      const that = this
-      window.tp.push([
-        'init',
-        function () {
-          const user = window.tp.pianoId.getUser()
-          if (user) {
-            window.tp.api.callApi('/access/list', {}, function (response) {
-              if (response.data) {
-                if (response.data[0]) {
-                  that.access = response.data[0]
-                  that.getToken()
-                }
-              }
-            })
-          }
-        },
-      ])
     },
     order() {
       if (!(this.name && this.address && this.city && this.postal_code)) {
