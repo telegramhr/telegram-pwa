@@ -168,7 +168,9 @@ export default {
   methods: {
     getPrice() {
       this.$axios
-        .get('https://pretplate.telegram.hr/api/get_price')
+        .get('https://pretplate.telegram.hr/get_price/', {
+          withCredentials: true,
+        })
         .then((res) => {
           this.price = res.data.price
         })
