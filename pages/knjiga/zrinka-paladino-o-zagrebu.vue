@@ -32,7 +32,10 @@
             <div class="full flex knjiga-features">
               <h1 class="full relative center-text">Cijena: 179 kn</h1>
               <h2 class="full relative center-text">
-                Za Telegram pretplatnike: 149kn
+                Za Standard pretplatnike: 149kn
+              </h2>
+              <h2 class="full relative center-text">
+                Za Premium pretplatnike: besplatno
               </h2>
               <div class="full knjiga-keypoints">
                 <p class="full center-text">Broj stranica: 378</p>
