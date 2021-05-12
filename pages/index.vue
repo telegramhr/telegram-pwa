@@ -72,8 +72,8 @@
           <latest v-show="!$mobile" :portal="1"></latest>
           <commentary></commentary>
           <div class="full flex desktop-only">
-            <h2 class="full flex section-title">Newsletter</h2>
-            <newsletter></newsletter>
+            <h2 class="full flex section-title">Knjiga</h2>
+            <knjiga></knjiga>
           </div>
         </section>
       </div>
