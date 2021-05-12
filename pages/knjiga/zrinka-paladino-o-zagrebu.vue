@@ -35,7 +35,7 @@
                 Za Standard pretplatnike: 149kn
               </h2>
               <app-link
-                v-if="!$store.state.user.uid"
+                v-show="!$store.state.user.uid"
                 to="/pretplata"
                 class="special-sub-cta full relative center-text"
               >
@@ -43,14 +43,14 @@
                 <u>prijavite se ili pretplatite</u>
               </app-link>
               <div
+                v-show="$store.state.user.uid && price"
                 class="special-sub-cta full relative center-text"
-                v-if="$store.state.user.uid && price"
               >
                 Cijena knjige za vaš pretplatnički paket iznosi {{ price }}kn
               </div>
               <div
+                v-show="$store.state.user.uid && !price"
                 class="special-sub-cta full relative center-text"
-                v-if="$store.state.user.uid && !price"
               >
                 Knjiga je besplatna za vaš pretplatnički paket
               </div>
