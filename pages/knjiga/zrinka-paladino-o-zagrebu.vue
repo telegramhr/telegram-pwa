@@ -42,12 +42,18 @@
                 Za premium pretplatnike posebne ponude, <br />
                 <u>prijavite se ili pretplatite</u>
               </app-link>
-              <h2 v-if="$store.state.user.uid && price">
+              <div
+                class="special-sub-cta full relative center-text"
+                v-if="$store.state.user.uid && price"
+              >
                 Cijena knjige za vaš pretplatnički paket iznosi {{ price }}kn
-              </h2>
-              <h2 v-if="$store.state.user.uid && !price">
+              </div>
+              <div
+                class="special-sub-cta full relative center-text"
+                v-if="$store.state.user.uid && !price"
+              >
                 Knjiga je besplatna za vaš pretplatnički paket
-              </h2>
+              </div>
               <div class="full knjiga-keypoints">
                 <p class="full center-text">Broj stranica: 378</p>
                 <p class="full center-text">Godina izdavanja: 2021.</p>
