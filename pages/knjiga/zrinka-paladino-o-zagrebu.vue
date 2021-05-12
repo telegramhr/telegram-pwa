@@ -151,7 +151,7 @@
       </div>
     </div>
 
-    <braintree v-show="showModal" :price="price" @close="close"></braintree>
+    <braintree v-if="showModal" :price="price" @close="close"></braintree>
     <tfooter></tfooter>
   </div>
 </template>
@@ -163,7 +163,7 @@ export default {
     return {
       access: {},
       showModal: false,
-      price: false,
+      price: 0,
     }
   },
   mounted() {
@@ -171,9 +171,11 @@ export default {
   },
   methods: {
     getPrice() {
-      this.$axios.get('https://pretplate.telegram.hr/get_price').then((res) => {
-        this.price = res.data.price
-      })
+      this.$axios
+        .get('https://pretplate.telegram.hr/api/get_price')
+        .then((res) => {
+          this.price = res.data.price
+        })
     },
     buy() {
       this.showModal = true
