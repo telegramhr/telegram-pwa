@@ -252,6 +252,9 @@ export default {
       ])
     },
     order() {
+      if (!(this.name && this.address && this.city && this.postal_code)) {
+        return
+      }
       if (this.token) {
         this.submit()
       } else {
