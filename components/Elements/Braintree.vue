@@ -10,7 +10,7 @@
         </div>
         <div v-if="error" class="full flex column-full-pad mobile-side-pad">
           <h2 class="full center-text">
-            Nešto je pozlo po zlu, probajte ponovo.
+            Nešto je pošlo po zlu, probajte ponovo.
           </h2>
         </div>
         <div v-if="thankyou" class="full flex column-full-pad mobile-side-pad">
@@ -71,7 +71,11 @@
               >pretplata@telegram.hr</a
             ></small
           >
-          <textare v-model="note" name="note" placeholder="Napomene"></textare>
+          <textarea
+            v-model="note"
+            name="note"
+            placeholder="Napomene"
+          ></textarea>
           <template v-if="price">
             <label>Broj kartice</label>
             <div id="credit-card" class="hosted-field"></div>
@@ -318,6 +322,11 @@ export default {
   width: 100%;
   max-width: 480px;
 }
+.dark-mode #book-pay-popup > div {
+  border: 1px solid #c8c8c8;
+  background-color: #121212;
+  color: white;
+}
 .book-popup-header {
   padding-top: 50px;
   margin-bottom: 50px;
@@ -340,6 +349,10 @@ export default {
   padding-bottom: 4px;
   border-bottom: 1px solid #c8c8c8;
 }
+.dark-mode #book-pay-popup input {
+  border-color: #555;
+  color: #efefef;
+}
 #book-pay-popup label {
   opacity: 0.7;
   font-size: 14px;
@@ -356,6 +369,10 @@ export default {
   border-bottom: 1px solid #c8c8c8;
   width: 100%;
 }
+.dark-mode .hosted-field {
+  border-color: #555;
+  color: #efefef;
+}
 #book-pay-popup button {
   padding: 8px 32px;
   text-align: center;
@@ -371,6 +388,24 @@ export default {
   position: relative;
   z-index: 200;
   cursor: pointer;
+}
+#book-pay-popup textarea {
+  width: 100%;
+  height: 80px;
+  border: 1px solid #c8c8c8;
+  margin-top: 16px;
+  background: none;
+  outline: none;
+  font-family: 'Barlow', sans-serif;
+  color: #666;
+  font-size: 16px;
+}
+.dark-mode #book-pay-popup textarea {
+  border-color: #555;
+  color: #efefef;
+}
+#book-pay-popup small {
+  margin-top: 16px;
 }
 #close-book-popup {
   position: absolute;
