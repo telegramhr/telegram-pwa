@@ -34,9 +34,13 @@
               <h2 class="full relative center-text">
                 Za Standard pretplatnike: 149kn
               </h2>
-              <h2 class="full relative center-text">
-                Za Premium pretplatnike: besplatno
-              </h2>
+              <app-link
+                to="/pretplata"
+                class="special-sub-cta full relative center-text"
+              >
+                Za premium pretplatnike posebne ponude, <br />
+                <u>prijavite se ili pretplatite</u>
+              </app-link>
               <div class="full knjiga-keypoints">
                 <p class="full center-text">Broj stranica: 378</p>
                 <p class="full center-text">Godina izdavanja: 2021.</p>
@@ -341,13 +345,24 @@ export default {
   line-height: 1em;
 }
 .knjiga-features h2 {
-  margin-top: 16px;
+  margin-top: 8px;
+  margin-bottom: 16px;
 }
 .book-quote img {
   width: 200vw;
   max-width: 200vw;
   position: relative;
   left: -50vw;
+}
+.special-sub-cta {
+  font-size: 16px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+  margin-bottom: 24px;
+  line-height: 1rem;
+  opacity: 0.7;
 }
 .single-article .single-article-body .knjiga-keypoints p {
   opacity: 0.7;
