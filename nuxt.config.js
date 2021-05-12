@@ -218,5 +218,8 @@ export default {
         maxSize: 0,
       },
     },
+    babel: {
+      plugins: [['@babel/plugin-proposal-private-methods', { loose: true }]],
+    },
   },
 }
