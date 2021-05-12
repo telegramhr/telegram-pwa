@@ -212,7 +212,73 @@ export default {
     },
   },
   head() {
-    return {}
+    return {
+      title: 'Zrinka Paladino - O Zagrebu i... Telegramovih 48',
+      titleTemplate: '%s | Telegram.hr',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            ' Čuvena arhitektica, konzervatorica i kolumnistica donosi veliku kroniku Zagreba, njegove arhitekture, devastacije, i društva. Sve kolumne prvi put na jednom mjestu, obogaćene novim zapisima, ilustracijama i fotografijama. ',
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          property: 'og:description',
+          content:
+            ' Čuvena arhitektica, konzervatorica i kolumnistica donosi veliku kroniku Zagreba, njegove arhitekture, devastacije, i društva. Sve kolumne prvi put na jednom mjestu, obogaćene novim zapisima, ilustracijama i fotografijama. ',
+        },
+        {
+          hid: 'og:type',
+          name: 'og:type',
+          property: 'og:type',
+          content: 'article',
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          property: 'og:title',
+          content: 'Zrinka Paladino: O Zagrebu i ... Telegramovih 48',
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          property: 'og:image',
+          content:
+            'https://www.telegram.hr/_nuxt/assets/img/paladino_cover.jpg',
+        },
+        {
+          hid: 'og:url',
+          name: 'og:url',
+          property: 'og:url',
+          content: 'https://www.telegra.hr/knjiga/zrinka-paladino-o-zagrebu',
+        },
+        {
+          hid: 'fb:app_id',
+          name: 'fb:app_id',
+          property: 'fb:app_id',
+          content: '1383786971938581',
+        },
+        {
+          hid: 'twitter:card',
+          name: 'twitter:card',
+          content: 'summary_large_image',
+        },
+        {
+          hid: 'twitter:site',
+          name: 'twitter:site',
+          content: '@TelegramHR',
+        },
+      ],
+      link: [
+        {
+          hid: 'canonical',
+          rel: 'canonical',
+          href: 'https://www.telegra.hr/knjiga/zrinka-paladino-o-zagrebu',
+        },
+      ],
+    }
   },
 }
 </script>
