@@ -422,7 +422,7 @@ export default {
   cursor: pointer;
 }
 
-@media screen and (max-height: 900px) {
+@media screen and (max-height: 1100px) {
   #book-pay-popup .book-popup-content {
     max-height: 90vh;
     overflow-y: scroll;
