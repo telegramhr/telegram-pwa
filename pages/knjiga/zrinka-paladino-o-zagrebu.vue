@@ -45,7 +45,7 @@
                   class="btn animate"
                   @click="buy"
                 >
-                  {{ free ? 'Preuzmite' : 'Kupite' }}
+                  {{ free ? 'Naručite' : 'Kupite' }}
                 </div>
                 <div v-else class="btn animate" @click="login">
                   Prijavite se kako bi kupili
@@ -246,7 +246,7 @@ export default {
           name: 'og:image',
           property: 'og:image',
           content:
-            'https://www.telegram.hr/_nuxt/assets/img/paladino_cover.jpg',
+            'https://www.telegram.hr/_nuxt/img/paladino_cover.8a4431d.jpg',
         },
         {
           hid: 'og:url',
