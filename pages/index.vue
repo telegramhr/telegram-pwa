@@ -160,6 +160,9 @@
         <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
       </div>
       <midas></midas>
+      <div class="full flex mobile-only">
+        <knjiga></knjiga>
+      </div>
       <partners></partners>
       <client-only>
         <sport></sport>
