@@ -10,7 +10,7 @@
         </div>
         <div v-if="error" class="full flex column-full-pad mobile-side-pad">
           <h2 class="full center-text">
-            Nešto je pošlo po zlu, probajte ponovo.
+            {{ error }}
           </h2>
         </div>
         <div v-if="thankyou" class="full flex column-full-pad mobile-side-pad">
@@ -228,7 +228,8 @@ export default {
         .then((payload) => {
           if (!payload.liabilityShifted) {
             console.log('Liability did not shift', payload)
-            this.error = true
+            this.error =
+              '3DS autorizacija kartice nije prošla. Probajte ponovo.'
           }
           this.nonce = payload.nonce
           this.submitToServer()
@@ -277,7 +278,7 @@ export default {
               this.thankyou = true
             })
             .catch(() => {
-              this.error = true
+              this.error = 'Plaćanje nije uspjelo. Probajte ponovo.'
             })
         })
     },
