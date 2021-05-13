@@ -203,6 +203,11 @@ export default {
       this.hostedInstance
         .tokenize({
           cardholderName: this.name,
+          billingAddress: {
+            postalCode: this.postal_code,
+            streetAddress: this.address,
+            locality: this.city,
+          },
         })
         .then((payload) => {
           return this.threeDS.verifyCard({
@@ -213,6 +218,7 @@ export default {
             nonce: payload.nonce,
             bin: payload.details.bin,
             email: this.$store.state.user.email,
+            challengeRequested: true,
             billingAddress: {
               streetAddress: this.address,
               postalCode: this.postal_code,
