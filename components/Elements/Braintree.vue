@@ -61,7 +61,7 @@
             v-model="postal_code"
             type="text"
             name="postal_code"
-            placeholder="10000"
+            placeholder="Poštanski broj"
           />
           <label>Država</label>
           <input v-model="country" type="text" name="country" disabled />
@@ -230,9 +230,10 @@ export default {
             console.log('Liability did not shift', payload)
             this.error =
               '3DS autorizacija kartice nije prošla. Probajte ponovo.'
+          } else {
+            this.nonce = payload.nonce
+            this.submitToServer()
           }
-          this.nonce = payload.nonce
-          this.submitToServer()
         })
     },
     order() {
