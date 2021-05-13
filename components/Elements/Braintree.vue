@@ -187,7 +187,7 @@ export default {
             .then((instances) => {
               this.hostedInstance = instances[0]
               this.threeDS = instances[1]
-              this.deviceData = instances[2]
+              this.deviceData = instances[2].deviceData
             })
             .catch((err) => {
               console.error(err)
@@ -263,7 +263,7 @@ export default {
                 billing: false,
                 nonce: this.nonce,
                 amount: this.price,
-                deviceData: this.deviceData.deviceData,
+                deviceData: this.deviceData,
               },
               { withCredentials: true }
             )
