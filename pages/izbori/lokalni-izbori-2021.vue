@@ -50,7 +50,7 @@
   </div>
 </template>
 
-<style scoped>
+<style>
 .section-title-less-margin {
   margin-bottom: 4px;
 }

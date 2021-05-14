@@ -4,13 +4,13 @@
       {{ city.gropNaziv ? city.gropNaziv : city.zupNaziv }}
     </h3>
     <div
-      v-for="lista in city.lista"
-      :key="lista.jedinstvenaSifra"
+      v-for="lista in kandidati"
+      :key="lista.naziv"
       :style="{ order: 100 - parseFloat(lista.posto) }"
       class="full flex kandidat"
     >
       <div class="half">
-        <img :src="getImage(lista.jedinstvenaSifra)" />
+        <img :src="getImage(lista.naziv)" />
       </div>
       <div class="half flex center">
         <div class="full">
@@ -32,14 +32,32 @@ export default {
       required: true,
       type: Object,
       default() {
-        return {}
+        return {
+          lista: [],
+        }
       },
     },
   },
+  computed: {
+    kandidati() {
+      if (this.city.lista) {
+        return this.city.lista.slice().splice(0, 4)
+      }
+      return []
+    },
+  },
   methods: {
-    getImage(id) {
+    getImage(name) {
+      name = name
+        .toLowerCase()
+        .replaceAll(' ', '-')
+        .replaceAll('č', 'c')
+        .replaceAll('ć', 'c')
+        .replaceAll('đ', 'd')
+        .replaceAll('ž', 'z')
+        .replaceAll('š', 's')
       try {
-        return require(`@/assets/img/extras/izbori_lokalni/${id}.gif`)
+        return require(`@/assets/img/extras/izbori_lokalni/${name}.gif`)
       } catch (e) {
         return require('@/assets/img/extras/izbori_lokalni/anon.gif')
       }

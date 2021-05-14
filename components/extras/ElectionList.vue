@@ -11,13 +11,13 @@
       </div>
       <div
         v-for="lista in city.lista"
-        :key="lista.jedinstvenaSifra"
+        :key="lista.naziv"
         class="full row flex animate center"
         :style="{ order: 100 - parseFloat(lista.posto) }"
       >
         <div>
           <div></div>
-          <img :src="getImage(lista.jedinstvenaSifra)" />
+          <img :src="getImage(lista.naziv)" />
           <div class="full flex relative kandidat-box">
             <div class="full">{{ lista.naziv }}</div>
             <div class="full">{{ lista.stranke }}</div>
@@ -50,9 +50,17 @@ export default {
     },
   },
   methods: {
-    getImage(id) {
+    getImage(name) {
+      name = name
+        .toLowerCase()
+        .replaceAll(' ', '-')
+        .replaceAll('č', 'c')
+        .replaceAll('ć', 'c')
+        .replaceAll('đ', 'd')
+        .replaceAll('ž', 'z')
+        .replaceAll('š', 's')
       try {
-        return require(`@/assets/img/extras/izbori_lokalni/${id}.gif`)
+        return require(`@/assets/img/extras/izbori_lokalni/${name}.gif`)
       } catch (e) {
         return require('@/assets/img/extras/izbori_lokalni/anon.gif')
       }
