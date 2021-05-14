@@ -32,13 +32,19 @@
           </option>
         </select>
         <select v-if="zupanija" v-model="grad">
-          <option v-for="city in cities" :key="city.code" :value="city.code">
+          <option v-for="city in cities" :key="city.code" :value="city">
             {{ city.title }}
           </option>
         </select>
       </div>
-      <election-list v-if="leader.lista" :city="leader"></election-list>
-      <election-list v-if="council.lista" :city="council"></election-list>
+      <template v-if="leader.lista">
+        <p>{{ leaderElectionTitle }}</p>
+        <election-list :city="leader"></election-list>
+      </template>
+      <template v-if="council.lista">
+        <p>{{ councilElectionTitle }}</p>
+        <election-list :city="council"></election-list>
+      </template>
     </div>
     <tfooter></tfooter>
   </div>
@@ -169,6 +175,32 @@ export default {
       type: 'leader',
     }
   },
+  computed: {
+    leaderElectionTitle() {
+      if (this.grad) {
+        if (this.grad.type === 'GRAD') {
+          return 'Izbor gradonačelnika'
+        }
+        return 'Izbor načelnika'
+      }
+      if (this.zupanija === 21) {
+        return 'Izbor gradonačelnika'
+      }
+      return 'Izbor župana'
+    },
+    councilElectionTitle() {
+      if (this.grad) {
+        if (this.grad.type === 'GRAD') {
+          return 'Gradsko vijeće'
+        }
+        return 'Općinsko vijeće'
+      }
+      if (this.zupanija === 21) {
+        return 'Skupština Grada Zagreba'
+      }
+      return 'Županijska skupština'
+    },
+  },
   watch: {
     zupanija() {
       this.pullCounty()
@@ -233,7 +265,7 @@ export default {
         .get(
           `/pretplate/izbori/r_17_${this.zupanija
             .toString()
-            .padStart(2, '0')}_${this.grad}_000.json`
+            .padStart(2, '0')}_${this.grad.code}_000.json`
         )
         .then((res) => {
           this.leader = res.data
@@ -242,7 +274,7 @@ export default {
         .get(
           `/pretplate/izbori/r_08_${this.zupanija
             .toString()
-            .padStart(2, '0')}_${this.grad}_000.json`
+            .padStart(2, '0')}_${this.grad.code}_000.json`
         )
         .then((res) => {
           this.council = res.data
