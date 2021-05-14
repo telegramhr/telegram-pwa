@@ -22,10 +22,6 @@
       <election-list :city="osijek"></election-list>
       <div class="full flex search-element column-full-pad">
         <h2 class="full section-title">Ostali rezultati</h2>
-        <select v-model="type">
-          <option value="leader">Gradonačelnik/Načelnik/Župan</option>
-          <option value="council">Skupština</option>
-        </select>
         <select v-model="zupanija">
           <option
             v-for="county in counties"
@@ -41,7 +37,8 @@
           </option>
         </select>
       </div>
-      <election-list v-if="choice.lista" :city="choice"></election-list>
+      <election-list v-if="leader.lista" :city="leader"></election-list>
+      <election-list v-if="council.lista" :city="council"></election-list>
     </div>
     <tfooter></tfooter>
   </div>
@@ -163,7 +160,8 @@ export default {
       split: {},
       rijeka: {},
       osijek: {},
-      choice: {},
+      leader: {},
+      council: {},
       counties: [],
       cities: [],
       zupanija: null,
@@ -198,21 +196,26 @@ export default {
       })
     },
     pullCounty() {
-      let type = '15'
-      if (this.type === 'council') {
-        type = '06'
-      }
       if (!this.zupanija) {
         return
       }
       this.$axios
         .get(
-          `/pretplate/izbori/r_${type}_${this.zupanija
+          `/pretplate/izbori/r_15_${this.zupanija
             .toString()
             .padStart(2, '0')}_0000_000.json`
         )
         .then((res) => {
-          this.choice = res.data
+          this.leader = res.data
+        })
+      this.$axios
+        .get(
+          `/pretplate/izbori/r_06_${this.zupanija
+            .toString()
+            .padStart(2, '0')}_0000_000.json`
+        )
+        .then((res) => {
+          this.council = res.data
         })
     },
     pullCities() {
@@ -223,21 +226,26 @@ export default {
         })
     },
     pullCity() {
-      let type = '17'
-      if (this.type === 'council') {
-        type = '08'
-      }
       if (!this.grad) {
         return
       }
       this.$axios
         .get(
-          `/pretplate/izbori/r_${type}_${this.zupanija
+          `/pretplate/izbori/r_17_${this.zupanija
             .toString()
             .padStart(2, '0')}_${this.grad}_000.json`
         )
         .then((res) => {
-          this.choice = res.data
+          this.leader = res.data
+        })
+      this.$axios
+        .get(
+          `/pretplate/izbori/r_08_${this.zupanija
+            .toString()
+            .padStart(2, '0')}_${this.grad}_000.json`
+        )
+        .then((res) => {
+          this.council = res.data
         })
     },
     pullBig() {
