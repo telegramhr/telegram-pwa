@@ -271,7 +271,7 @@ h5.article-meta i {
     flex-wrap: nowrap;
     position: relative;
 }
-.result-table .row div {
+.result-table .row > div {
     padding: 10px 4px;
     padding-bottom: 8px;
 }
@@ -282,26 +282,26 @@ h5.article-meta i {
     border: none;
     border-bottom: 1px solid #bbbbbb;
 }
-.result-table .row div:nth-child(1) {
+.result-table .row > div:nth-child(1) {
     text-align: left;
     width: 59.99%;
     position: relative;
     padding-left: 48px;
 }
-.result-table .row:first-child div:first-child {
+.result-table .row:first-child > div:first-child {
     padding-left: 4px;
 }
-.result-table .row div:nth-child(2) {
+.result-table .row > div:nth-child(2) {
     width: 12.99%;
 }
-.result-table .row div:nth-child(3) {
+.result-table .row > div:nth-child(3) {
     width: 14.99%;
     padding-left: 16px;
 }
-.result-table .row div:nth-child(4) {
+.result-table .row > div:nth-child(4) {
     width: 11.99%;
 }
-.result-table .row div:nth-child(1) img {
+.result-table .row > div:nth-child(1) img {
     display: inline-block;
     position: absolute;
     top: 4px;
@@ -312,10 +312,10 @@ h5.article-meta i {
     border-radius: 15px;
     filter: grayscale(100%);
 }
-.result-table .row div:nth-child(3) {
+.result-table .row > div:nth-child(3) {
     font-weight: 700;
 }
-.result-table .row:first-child div:nth-child(3) {
+.result-table .row:first-child > div:nth-child(3) {
     font-weight: 400;
 }
 .result-table .row  div:first-child::before {
