@@ -16,156 +16,32 @@
       </div>
     </div>
     <div class="container flex relative mobile-side-pad">
-      <div class="half flex-responsive column-full-pad flex">
-        <h2 class="full flex section-title section-title-less-margin">
-          Zagreb
-        </h2>
-        <div class="full flex relative result-table total-results">
-          <div class="full row flex">
-            <div>Lista</div>
-            <div>Postotak</div>
-            <div></div>
-          </div>
-          <div
-            v-for="lista in zagreb.lista"
-            :key="lista.rbr"
-            class="full row flex animate center"
-            :style="{ order: 100 - parseFloat(lista.posto) }"
-          >
-            <div>
-              <div></div>
-              <img :src="getImage(lista.jedinstvenaSifra)" />
-              <div class="full flex relative kandidat-box">
-                <div class="full">{{ lista.naziv }}</div>
-                <div class="full">{{ lista.stranke }}</div>
-              </div>
-            </div>
-            <div class="postotak">{{ lista.posto }}%</div>
-            <div class="relative flex result-graph">
-              <div
-                class="flex"
-                :style="{
-                  width: Number(lista.posto.replace(',', '.')) * 2 + '%',
-                }"
-              ></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="half flex-responsive column-full-pad flex">
-        <h2 class="full flex section-title section-title-less-margin">Split</h2>
-        <div class="full flex relative result-table total-results">
-          <div class="full row flex">
-            <div>Lista</div>
-            <div>Postotak</div>
-            <div></div>
-          </div>
-          <div
-            v-for="lista in split.lista"
-            :key="lista.rbr"
-            class="full row flex animate center"
-            :style="{ order: 100 - parseFloat(lista.posto) }"
-          >
-            <div>
-              <div></div>
-              <img :src="getImage(lista.jedinstvenaSifra)" />
-              <div class="full flex relative kandidat-box">
-                <div class="full">{{ lista.naziv }}</div>
-                <div class="full">{{ lista.stranke }}</div>
-              </div>
-            </div>
-            <div class="postotak">{{ lista.posto }}%</div>
-            <div class="relative flex result-graph">
-              <div
-                class="flex"
-                :style="{
-                  width: Number(lista.posto.replace(',', '.')) * 2 + '%',
-                }"
-              ></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="half flex-responsive column-full-pad flex">
-        <h2 class="full flex section-title section-title-less-margin">
-          Rijeka
-        </h2>
-        <div class="full flex relative result-table total-results">
-          <div class="full row flex">
-            <div>Lista</div>
-            <div>Postotak</div>
-            <div></div>
-          </div>
-          <div
-            v-for="lista in rijeka.lista"
-            :key="lista.rbr"
-            class="full row flex animate center"
-            :style="{ order: 100 - parseFloat(lista.posto) }"
-          >
-            <div>
-              <div></div>
-              <img :src="getImage(lista.jedinstvenaSifra)" />
-              <div class="full flex relative kandidat-box">
-                <div class="full">{{ lista.naziv }}</div>
-                <div class="full">{{ lista.stranke }}</div>
-              </div>
-            </div>
-            <div class="postotak">{{ lista.posto }}%</div>
-            <div class="relative flex result-graph">
-              <div
-                class="flex"
-                :style="{
-                  width: Number(lista.posto.replace(',', '.')) * 2 + '%',
-                }"
-              ></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="half flex-responsive column-full-pad flex">
-        <h2 class="full flex section-title section-title-less-margin">
-          Osijek
-        </h2>
-        <div class="full flex relative result-table total-results">
-          <div class="full row flex">
-            <div>Lista</div>
-            <div>Postotak</div>
-            <div></div>
-          </div>
-          <div
-            v-for="lista in osijek.lista"
-            :key="lista.rbr"
-            class="full row flex animate center"
-            :style="{ order: 100 - parseFloat(lista.posto) }"
-          >
-            <div>
-              <div></div>
-              <img :src="getImage(lista.jedinstvenaSifra)" />
-              <div class="full flex relative kandidat-box">
-                <div class="full">{{ lista.naziv }}</div>
-                <div class="full">{{ lista.stranke }}</div>
-              </div>
-            </div>
-            <div class="postotak">{{ lista.posto }}%</div>
-            <div class="relative flex result-graph">
-              <div
-                class="flex"
-                :style="{
-                  width: Number(lista.posto.replace(',', '.')) * 2 + '%',
-                }"
-              ></div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <election-list :city="zagreb"></election-list>
+      <election-list :city="split"></election-list>
+      <election-list :city="rijeka"></election-list>
+      <election-list :city="osijek"></election-list>
       <div class="full flex search-element column-full-pad">
         <h2 class="full section-title">Ostali rezultati</h2>
-        <input
-          id="searchbox"
-          type="text"
-          placeholder="Pretražite rezultate ostalih općina, gradova i županija..."
-        />
+        <select v-model="type">
+          <option value="leader">Gradonačelnik/Načelnik/Župan</option>
+          <option value="council">Skupština</option>
+        </select>
+        <select v-model="zupanija">
+          <option
+            v-for="county in counties"
+            :key="county.code"
+            :value="county.code"
+          >
+            {{ county.title }}
+          </option>
+        </select>
+        <select v-if="zupanija" v-model="grad">
+          <option v-for="city in cities" :key="city.code" :value="city.code">
+            {{ city.title }}
+          </option>
+        </select>
       </div>
+      <election-list v-if="choice.lista" :city="choice"></election-list>
     </div>
     <tfooter></tfooter>
   </div>
@@ -288,19 +164,81 @@ export default {
       rijeka: {},
       osijek: {},
       choice: {},
+      counties: [],
+      cities: [],
+      zupanija: null,
+      grad: null,
+      type: 'leader',
     }
+  },
+  watch: {
+    zupanija() {
+      this.pullCounty()
+      this.pullCities()
+    },
+    grad() {
+      this.pullCity()
+    },
+    type() {
+      if (this.grad) {
+        this.pullCity()
+      } else {
+        this.pullCounty()
+      }
+    },
   },
   mounted() {
     this.pullBig()
+    this.pullCounties()
   },
   methods: {
-    getImage(id) {
-      try {
-        const m = require(`@/assets/img/extras/izbori_lokalni/${id}.gif`)
-        return m
-      } catch (e) {
-        return require('@/assets/img/extras/izbori_lokalni/anon.gif')
+    pullCounties() {
+      this.$axios.get('/pretplate/api/zupanija').then((res) => {
+        this.counties = res.data
+      })
+    },
+    pullCounty() {
+      let type = '15'
+      if (this.type === 'council') {
+        type = '06'
       }
+      if (!this.zupanija) {
+        return
+      }
+      this.$axios
+        .get(
+          `/pretplate/izbori/r_${type}_${this.zupanija
+            .toString()
+            .padStart(2, '0')}_0000_000.json`
+        )
+        .then((res) => {
+          this.choice = res.data
+        })
+    },
+    pullCities() {
+      this.$axios
+        .get(`/pretplate/api/zupanija/${this.zupanija}/grad`)
+        .then((res) => {
+          this.cities = res.data
+        })
+    },
+    pullCity() {
+      let type = '17'
+      if (this.type === 'council') {
+        type = '08'
+      }
+      if (!this.grad) {
+        return
+      }
+      this.$axios
+        .get(
+          `/pretplate/izbori/r_${type}_${this.zupanija
+            .toString()
+            .padStart(2, '0')}_${this.grad}_000.json`
+        )
+        .then((res) => {
+          this.choice = res.data
+        })
     },
     pullBig() {
       this.$axios.get('/pretplate/izbori/r_15_21_0000_000.json').then((res) => {
