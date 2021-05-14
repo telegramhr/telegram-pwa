@@ -34,27 +34,7 @@
           >
             <div>
               <div></div>
-              <img src="@/assets/img/extras/izbori_lokalni/anon.gif" />
-              <img
-                v-if="lista.jedinstvenaSifra === '001003023'"
-                src="@/assets/img/extras/izbori_lokalni/filipovic.gif"
-              />
-              <img
-                v-if="lista.jedinstvenaSifra === '171'"
-                src="@/assets/img/extras/izbori_lokalni/pavicic.gif"
-              />
-              <img
-                v-if="lista.jedinstvenaSifra === '231267'"
-                src="@/assets/img/extras/izbori_lokalni/skoro.gif"
-              />
-              <img
-                v-if="lista.jedinstvenaSifra === '284'"
-                src="@/assets/img/extras/izbori_lokalni/skare.gif"
-              />
-              <img
-                v-if="lista.jedinstvenaSifra === '138225229255287'"
-                src="@/assets/img/extras/izbori_lokalni/tomasevic.gif"
-              />
+              <img :src="getImage(lista.jedinstvenaSifra)" />
               <div class="full flex relative kandidat-box">
                 <div class="full">{{ lista.naziv }}</div>
                 <div class="full">{{ lista.stranke }}</div>
@@ -88,19 +68,7 @@
           >
             <div>
               <div></div>
-              <img src="@/assets/img/extras/izbori_lokalni/anon.gif" />
-              <img
-                v-if="lista.jedinstvenaSifra === '097'"
-                src="@/assets/img/extras/izbori_lokalni/kerum.gif"
-              />
-              <img
-                v-if="lista.jedinstvenaSifra === '003'"
-                src="@/assets/img/extras/izbori_lokalni/vice.gif"
-              />
-              <img
-                v-if="lista.jedinstvenaSifra === '179'"
-                src="@/assets/img/extras/izbori_lokalni/puljak.gif"
-              />
+              <img :src="getImage(lista.jedinstvenaSifra)" />
               <div class="full flex relative kandidat-box">
                 <div class="full">{{ lista.naziv }}</div>
                 <div class="full">{{ lista.stranke }}</div>
@@ -136,7 +104,7 @@
           >
             <div>
               <div></div>
-              <img src="@/assets/img/extras/izbori_lokalni/anon.gif" />
+              <img :src="getImage(lista.jedinstvenaSifra)" />
               <div class="full flex relative kandidat-box">
                 <div class="full">{{ lista.naziv }}</div>
                 <div class="full">{{ lista.stranke }}</div>
@@ -172,7 +140,7 @@
           >
             <div>
               <div></div>
-              <img src="@/assets/img/extras/izbori_lokalni/anon.gif" />
+              <img :src="getImage(lista.jedinstvenaSifra)" />
               <div class="full flex relative kandidat-box">
                 <div class="full">{{ lista.naziv }}</div>
                 <div class="full">{{ lista.stranke }}</div>
@@ -193,8 +161,8 @@
       <div class="full flex search-element column-full-pad">
         <h2 class="full section-title">Ostali rezultati</h2>
         <input
-          type="text"
           id="searchbox"
+          type="text"
           placeholder="Pretražite rezultate ostalih općina, gradova i županija..."
         />
       </div>
@@ -326,6 +294,14 @@ export default {
     this.pullBig()
   },
   methods: {
+    getImage(id) {
+      try {
+        const m = require(`@/assets/img/extras/izbori_lokalni/${id}.gif`)
+        return m
+      } catch (e) {
+        return require('@/assets/img/extras/izbori_lokalni/anon.gif')
+      }
+    },
     pullBig() {
       this.$axios.get('/pretplate/izbori/r_15_21_0000_000.json').then((res) => {
         this.zagreb = res.data
