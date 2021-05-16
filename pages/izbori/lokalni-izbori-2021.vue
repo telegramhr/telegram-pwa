@@ -16,11 +16,23 @@
       </div>
     </div>
     <div class="container flex relative mobile-side-pad">
-      <election-list :city="zagreb" type="Gradonačelnik"></election-list>
+      <election-list
+        :city="this.$store.state.elections.zagreb"
+        type="Gradonačelnik"
+      ></election-list>
       <election-list :city="zagreb_council" type="Skupština"></election-list>
-      <election-list :city="split" type="Gradonačelnik"></election-list>
-      <election-list :city="rijeka" type="Gradonačelnik"></election-list>
-      <election-list :city="osijek" type="Gradonačelnik"></election-list>
+      <election-list
+        :city="this.$store.state.elections.split"
+        type="Gradonačelnik"
+      ></election-list>
+      <election-list
+        :city="this.$store.state.elections.rijeka"
+        type="Gradonačelnik"
+      ></election-list>
+      <election-list
+        :city="this.$store.state.elections.osijek"
+        type="Gradonačelnik"
+      ></election-list>
       <election-list :city="zadar" type="Gradonačelnik"></election-list>
       <election-list :city="varazdin" type="Gradonačelnik"></election-list>
       <election-list :city="dubrovnik" type="Gradonačelnik"></election-list>
@@ -294,8 +306,8 @@ export default {
   watch: {
     zupanija() {
       this.grad = null
-      this.pullCounty()
       this.pullCities()
+      this.pullCounty()
     },
     grad() {
       this.pullCity()
@@ -319,20 +331,22 @@ export default {
       })
     },
     pullCounty() {
+      const now = new Date()
+      const time = now.getHours() + now.getMinutes()
       this.$axios
         .get(
-          `/izbori/r_15_${this.zupanija
+          `/pretplate/izbori/r_15_${this.zupanija
             .toString()
-            .padStart(2, '0')}_0000_000.json`
+            .padStart(2, '0')}_0000_000.json?t=${time}`
         )
         .then((res) => {
           this.leader = res.data
         })
       this.$axios
         .get(
-          `/izbori/r_06_${this.zupanija
+          `/pretplate/izbori/r_06_${this.zupanija
             .toString()
-            .padStart(2, '0')}_0000_000.json`
+            .padStart(2, '0')}_0000_000.json?t=${time}`
         )
         .then((res) => {
           this.council = res.data
@@ -349,48 +363,39 @@ export default {
       if (!this.grad) {
         return
       }
+      const now = new Date()
+      const time = now.getHours() + now.getMinutes()
       this.$axios
         .get(
-          `/izbori/r_17_${this.zupanija.toString().padStart(2, '0')}_${
-            this.grad.code
-          }_000.json`
+          `/pretplate/izbori/r_17_${this.zupanija
+            .toString()
+            .padStart(2, '0')}_${this.grad.code}_000.json?t=${time}`
         )
         .then((res) => {
           this.leader = res.data
         })
       this.$axios
         .get(
-          `/izbori/r_08_${this.zupanija.toString().padStart(2, '0')}_${
-            this.grad.code
-          }_000.json`
+          `/pretplate/izbori/r_08_${this.zupanija
+            .toString()
+            .padStart(2, '0')}_${this.grad.code}_000.json?t=${time}`
         )
         .then((res) => {
           this.council = res.data
         })
     },
     pullBig() {
-      this.$axios.get('/izbori/r_15_21_0000_000.json').then((res) => {
-        this.zagreb = res.data
-      })
-      this.$axios.get('/izbori/r_06_21_0000_000.json').then((res) => {
+      this.$store.dispatch('elections/pullBig')
+      this.$axios.get('/pretplate/izbori/r_06_21_0000_000.json').then((res) => {
         this.zagreb_council = res.data
       })
-      this.$axios.get('/izbori/r_17_17_4090_000.json').then((res) => {
-        this.split = res.data
-      })
-      this.$axios.get('/izbori/r_17_08_3735_000.json').then((res) => {
-        this.rijeka = res.data
-      })
-      this.$axios.get('/izbori/r_17_14_3123_000.json').then((res) => {
-        this.osijek = res.data
-      })
-      this.$axios.get('/izbori/r_17_13_5207_000.json').then((res) => {
+      this.$axios.get('/pretplate/izbori/r_17_13_5207_000.json').then((res) => {
         this.zadar = res.data
       })
-      this.$axios.get('/izbori/r_17_05_4723_000.json').then((res) => {
+      this.$axios.get('/pretplate/izbori/r_17_05_4723_000.json').then((res) => {
         this.varazdin = res.data
       })
-      this.$axios.get('/izbori/r_17_19_0981_000.json').then((res) => {
+      this.$axios.get('/pretplate/izbori/r_17_19_0981_000.json').then((res) => {
         this.dubrovnik = res.data
       })
     },
@@ -434,7 +439,8 @@ export default {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/izbori/lokalni-izbori-2021',
+          content:
+            'https://www.telegram.hr/pretplate/izbori/lokalni-izbori-2021',
         },
         {
           hid: 'fb:app_id',
@@ -457,7 +463,7 @@ export default {
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: 'https://www.telegram.hr/izbori/lokalni-izbori-2021',
+          href: 'https://www.telegram.hr/pretplate/izbori/lokalni-izbori-2021',
         },
       ],
     }

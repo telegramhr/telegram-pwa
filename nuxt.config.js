@@ -203,10 +203,6 @@ export default {
       target: 'https://pretplate.telegram.hr',
       pathRewrite: { '^/pretplate/': '' },
     },
-    '/izbori/': {
-      target: 'https://www.izbori.hr/lokalni2021/rezultati/1/data/',
-      pathRewrite: { '^/izbori/': '' },
-    },
   },
 
   purgeCSS: {

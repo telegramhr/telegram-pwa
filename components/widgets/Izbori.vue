@@ -6,10 +6,18 @@
       >
         <h2 class="full center-text column-top-border">Lokalni izbori uživo</h2>
       </div>
-      <election-list-widget :city="zagreb"></election-list-widget>
-      <election-list-widget :city="split"></election-list-widget>
-      <election-list-widget :city="rijeka"></election-list-widget>
-      <election-list-widget :city="osijek"></election-list-widget>
+      <election-list-widget
+        :city="this.$store.state.elections.zagreb"
+      ></election-list-widget>
+      <election-list-widget
+        :city="this.$store.state.elections.split"
+      ></election-list-widget>
+      <election-list-widget
+        :city="this.$store.state.elections.rijeka"
+      ></election-list-widget>
+      <election-list-widget
+        :city="this.$store.state.elections.osijek"
+      ></election-list-widget>
       <h3 class="overtitle full center-text izbori-cta animate">
         Pratite rezultate za sve županije, gradove i općine uživo u našem
         specijalu.
@@ -152,22 +160,32 @@ export default {
     }
   },
   mounted() {
-    this.pullBig()
+    this.$store.dispatch('elections/pullBig')
   },
   methods: {
     pullBig() {
-      this.$axios.get('/izbori/r_15_21_0000_000.json').then((res) => {
-        this.zagreb = res.data
-      })
-      this.$axios.get('/izbori/r_17_17_4090_000.json').then((res) => {
-        this.split = res.data
-      })
-      this.$axios.get('/izbori/r_17_08_3735_000.json').then((res) => {
-        this.rijeka = res.data
-      })
-      this.$axios.get('/izbori/r_17_14_3123_000.json').then((res) => {
-        this.osijek = res.data
-      })
+      const now = new Date()
+      const time = now.getHours() + now.getMinutes()
+      this.$axios
+        .get('/pretplate/izbori/r_15_21_0000_000.json?t=' + time)
+        .then((res) => {
+          this.zagreb = res.data
+        })
+      this.$axios
+        .get('/pretplate/izbori/r_17_17_4090_000.json?t=' + time)
+        .then((res) => {
+          this.split = res.data
+        })
+      this.$axios
+        .get('/pretplate/izbori/r_17_08_3735_000.json?t=' + time)
+        .then((res) => {
+          this.rijeka = res.data
+        })
+      this.$axios
+        .get('/pretplate/izbori/r_17_14_3123_000.json?t=' + time)
+        .then((res) => {
+          this.osijek = res.data
+        })
     },
   },
 }
