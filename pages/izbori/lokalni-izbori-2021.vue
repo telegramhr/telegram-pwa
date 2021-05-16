@@ -23,7 +23,6 @@
       <election-list :city="osijek" type="Gradonačelnik"></election-list>
       <election-list :city="zadar" type="Gradonačelnik"></election-list>
       <election-list :city="varazdin" type="Gradonačelnik"></election-list>
-      <election-list :city="pula" type="Gradonačelnik"></election-list>
       <election-list :city="dubrovnik" type="Gradonačelnik"></election-list>
       <div class="full flex search-element column-full-pad">
         <h2 class="full section-title">Ostali rezultati</h2>
@@ -392,16 +391,13 @@ export default {
       this.$axios.get('/pretplate/izbori/r_17_14_3123_000.json').then((res) => {
         this.osijek = res.data
       })
-      this.$axios.get('/pretplate/izbori/r_06_13_5207_000.json').then((res) => {
+      this.$axios.get('/pretplate/izbori/r_17_13_5207_000.json').then((res) => {
         this.zadar = res.data
       })
-      this.$axios.get('/pretplate/izbori/r_06_05_4723_000.json').then((res) => {
+      this.$axios.get('/pretplate/izbori/r_17_05_4723_000.json').then((res) => {
         this.varazdin = res.data
       })
-      this.$axios.get('/pretplate/izbori/r_06_18_3590_000.json').then((res) => {
-        this.pula = res.data
-      })
-      this.$axios.get('/pretplate/izbori/r_06_19_0981_000.json').then((res) => {
+      this.$axios.get('/pretplate/izbori/r_17_19_0981_000.json').then((res) => {
         this.dubrovnik = res.data
       })
     },

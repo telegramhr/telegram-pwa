@@ -10,6 +10,10 @@
       <election-list-widget :city="split"></election-list-widget>
       <election-list-widget :city="rijeka"></election-list-widget>
       <election-list-widget :city="osijek"></election-list-widget>
+      <h3 class="overtitle full center-text izbori-cta animate">
+        Pratite rezultate za sve županije, gradove i općine uživo u našem
+        specijalu.
+      </h3>
     </div>
   </app-link>
 </template>
@@ -76,6 +80,24 @@
 }
 .izbori-mini-widget h3.overtitle:hover .data-age-time {
   opacity: 0.7;
+}
+.izbori-mini-widget h3.izbori-cta {
+  font-weight: 400;
+  font-style: italic;
+  font-family: 'Merriweather', serif;
+  font-weight: 400;
+  color: #111;
+  opacity: 0.5;
+  letter-spacing: normal;
+  text-transform: none;
+  text-decoration: underline;
+}
+.dark-mode .izbori-mini-widget h3.izbori-cta {
+  color: #efefef;
+}
+.izbori-mini-widget:hover h3.izbori-cta {
+  color: #ae3737;
+  opacity: 1;
 }
 @media screen and (max-width: 1024px) {
   .grad-segment {
