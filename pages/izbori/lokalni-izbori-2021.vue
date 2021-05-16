@@ -16,10 +16,15 @@
       </div>
     </div>
     <div class="container flex relative mobile-side-pad">
-      <election-list :city="zagreb"></election-list>
-      <election-list :city="split"></election-list>
-      <election-list :city="rijeka"></election-list>
-      <election-list :city="osijek"></election-list>
+      <election-list :city="zagreb" type="Gradonačelnik"></election-list>
+      <election-list :city="zagreb_council" type="Skupština"></election-list>
+      <election-list :city="split" type="Gradonačelnik"></election-list>
+      <election-list :city="rijeka" type="Gradonačelnik"></election-list>
+      <election-list :city="osijek" type="Gradonačelnik"></election-list>
+      <election-list :city="zadar" type="Gradonačelnik"></election-list>
+      <election-list :city="varazdin" type="Gradonačelnik"></election-list>
+      <election-list :city="pula" type="Gradonačelnik"></election-list>
+      <election-list :city="dubrovnik" type="Gradonačelnik"></election-list>
       <div class="full flex search-element column-full-pad">
         <h2 class="full section-title">Ostali rezultati</h2>
         <select v-model="zupanija">
@@ -163,16 +168,20 @@ export default {
   data() {
     return {
       zagreb: {},
+      zagreb_council: {},
       split: {},
       rijeka: {},
       osijek: {},
+      zadar: {},
+      varazdin: {},
+      pula: {},
+      dubrovnik: {},
       leader: {},
       council: {},
       counties: [],
       cities: [],
       zupanija: null,
       grad: null,
-      type: 'leader',
     }
   },
   computed: {
@@ -220,6 +229,11 @@ export default {
   mounted() {
     this.pullBig()
     this.pullCounties()
+    setTimeout(() => {
+      this.pullBig()
+      this.pullCounty()
+      this.pullCity()
+    }, 120000)
   },
   methods: {
     pullCounties() {
@@ -228,7 +242,7 @@ export default {
       })
     },
     pullCounty() {
-      if (!this.zupanija) {
+      if (!this.zupanija || this.grad) {
         return
       }
       this.$axios
@@ -284,6 +298,9 @@ export default {
       this.$axios.get('/pretplate/izbori/r_15_21_0000_000.json').then((res) => {
         this.zagreb = res.data
       })
+      this.$axios.get('/pretplate/izbori/r_06_21_0000_000.json').then((res) => {
+        this.zagreb_council = res.data
+      })
       this.$axios.get('/pretplate/izbori/r_17_17_4090_000.json').then((res) => {
         this.split = res.data
       })
@@ -292,6 +309,18 @@ export default {
       })
       this.$axios.get('/pretplate/izbori/r_17_14_3123_000.json').then((res) => {
         this.osijek = res.data
+      })
+      this.$axios.get('/pretplate/izbori/r_17_14_3123_000.json').then((res) => {
+        this.zadar = res.data
+      })
+      this.$axios.get('/pretplate/izbori/r_17_14_3123_000.json').then((res) => {
+        this.varazdin = res.data
+      })
+      this.$axios.get('/pretplate/izbori/r_17_14_3123_000.json').then((res) => {
+        this.pula = res.data
+      })
+      this.$axios.get('/pretplate/izbori/r_17_14_3123_000.json').then((res) => {
+        this.dubrovnik = res.data
       })
     },
   },

@@ -1,8 +1,10 @@
 <template>
   <div class="half flex-responsive column-full-pad flex">
     <h2 class="full flex section-title section-title-less-margin">
-      {{ city.gropNaziv ? city.gropNaziv : city.zupNaziv }}
+      {{ city.gropNaziv ? city.gropNaziv : city.zupNaziv
+      }}{{ type ? ' - ' + type : '' }}
     </h2>
+    <h3>Osvježeno u {{ city.vrijeme }}</h3>
     <div class="full flex relative result-table total-results">
       <div class="full row flex">
         <div>Lista</div>
@@ -45,8 +47,16 @@ export default {
       required: true,
       type: Object,
       default() {
-        return {}
+        return {
+          izboriOznaka: '06',
+          lista: [],
+        }
       },
+    },
+    type: {
+      required: false,
+      type: String,
+      default: '',
     },
   },
   methods: {
