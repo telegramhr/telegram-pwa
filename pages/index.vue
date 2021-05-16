@@ -30,7 +30,7 @@
         <section
           class="three-fourths mobile-side-pad flex-responsive flex relative the-big-gs stretch elevate-over-section"
         >
-          <izbori></izbori>
+          <izborialt></izborialt>
           <div
             class="five-sixths column-horizontal-pad flex-responsive flex column-bottom-border column-right-border column-top-pad column-top-border"
           >

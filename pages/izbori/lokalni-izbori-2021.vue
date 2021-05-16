@@ -27,7 +27,8 @@
       <election-list :city="dubrovnik" type="Gradonačelnik"></election-list>
       <div class="full flex search-element column-full-pad">
         <h2 class="full section-title">Ostali rezultati</h2>
-        <select v-model="zupanija">
+        <p class="full column-top-pad">Odaberite županiju:</p>
+        <select v-model="zupanija" class="dropdown-izbornik">
           <option
             v-for="county in counties"
             :key="county.code"
@@ -36,20 +37,25 @@
             {{ county.title }}
           </option>
         </select>
-        <select v-if="zupanija" v-model="grad">
+        <p v-if="zupanija" class="full column-top-pad">
+          Odaberite grad ili općinu:
+        </p>
+        <select v-if="zupanija" v-model="grad" class="dropdown-izbornik">
           <option v-for="city in cities" :key="city.code" :value="city">
             {{ city.title }}
           </option>
         </select>
       </div>
-      <template v-if="leader.lista">
-        <p>{{ leaderElectionTitle }}</p>
-        <election-list :city="leader"></election-list>
-      </template>
-      <template v-if="council.lista">
-        <p>{{ councilElectionTitle }}</p>
-        <election-list :city="council"></election-list>
-      </template>
+      <div class="full flex dynamic-election-results">
+        <template v-if="leader.lista">
+          <p>{{ leaderElectionTitle }}</p>
+          <election-list :city="leader"></election-list>
+        </template>
+        <template v-if="council.lista">
+          <p>{{ councilElectionTitle }}</p>
+          <election-list :city="council"></election-list>
+        </template>
+      </div>
     </div>
     <tfooter></tfooter>
   </div>
@@ -73,14 +79,24 @@
   height: 40vw;
   margin-bottom: 48px;
 }
-h1 {
+.pretplata-page h1 {
   margin-top: 2vw;
+  font-size: 122px;
+  font-size: 6.1rem;
 }
 h2.section-title {
-  font-size: 48px;
-  font-size: 2.4rem;
+  font-size: 40px;
+  font-size: 2rem;
   letter-spacing: normal;
   padding-bottom: 6px;
+  margin-bottom: 8px;
+}
+h3.timestamp-disclose {
+  opacity: 0.3;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-size: 0.7rem;
+  margin-bottom: 16px;
 }
 .result-table .row > div:first-child > div:first-child {
   position: absolute;
@@ -140,14 +156,73 @@ h1 {
   margin-top: 64px;
   margin-bottom: 8px;
 }
+.dropdown-izbornik {
+  display: block;
+  font-size: 16px;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+  color: #111;
+  line-height: 1.3;
+  padding: 0.6em 1.4em 0.5em 0.8em;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid #c8c8c8;
+  border-radius: 0;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: white;
+  background-image: url('https://www.telegram.hr/wp-content/themes/telegram2-desktop/assets/img/angle-down-solid-tgred.svg');
+  background-repeat: no-repeat, repeat;
+  background-position: right 0.7em top 50%, 0 0;
+  background-size: 0.65em auto, 100%;
+  margin-top: 8px;
+}
+.dropdown-izbornik::-ms-expand {
+  display: none;
+}
+.dropdown-izbornik:hover {
+  border-color: #666;
+}
+.dropdown-izbornik:focus {
+  border-color: #ae3737;
+  color: #222;
+  outline: none;
+}
+.dynamic-election-results div.half h2.section-title {
+  margin-top: 8px;
+}
+.dynamic-election-results p {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+  color: #ae3737;
+  font-size: 16px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  display: flex;
+}
+.dark-mode .result-table .row:first-child {
+  border-top: 1px solid #555;
+}
 @media screen and (min-width: 1025px) {
   #searchbox {
     font-size: 20px;
     font-size: 1rem;
   }
+  .dynamic-election-results p {
+    order: 1;
+    padding: 0px 24px;
+    width: 49.99%;
+  }
+  .dynamic-election-results div.half {
+    order: 2;
+    padding-top: 0px;
+  }
 }
 @media screen and (max-width: 1024px) {
-  h1 {
+  .pretplata-page h1 {
     font-size: 54px;
     font-size: 2.7rem;
     margin-top: 32px;
@@ -158,6 +233,13 @@ h1 {
   }
   .result-table .row > div:nth-child(1) img {
     margin-top: 0px;
+  }
+  .dynamic-election-results p {
+    margin-top: 24px;
+  }
+  .search-element p {
+    margin-top: 24px;
+    margin-bottom: 4px;
   }
 }
 </style>
@@ -310,16 +392,16 @@ export default {
       this.$axios.get('/pretplate/izbori/r_17_14_3123_000.json').then((res) => {
         this.osijek = res.data
       })
-      this.$axios.get('/pretplate/izbori/r_17_14_3123_000.json').then((res) => {
+      this.$axios.get('/pretplate/izbori/r_06_13_5207_000.json').then((res) => {
         this.zadar = res.data
       })
-      this.$axios.get('/pretplate/izbori/r_17_14_3123_000.json').then((res) => {
+      this.$axios.get('/pretplate/izbori/r_06_05_4723_000.json').then((res) => {
         this.varazdin = res.data
       })
-      this.$axios.get('/pretplate/izbori/r_17_14_3123_000.json').then((res) => {
+      this.$axios.get('/pretplate/izbori/r_06_18_3590_000.json').then((res) => {
         this.pula = res.data
       })
-      this.$axios.get('/pretplate/izbori/r_17_14_3123_000.json').then((res) => {
+      this.$axios.get('/pretplate/izbori/r_06_19_0981_000.json').then((res) => {
         this.dubrovnik = res.data
       })
     },
