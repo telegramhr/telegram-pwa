@@ -12,7 +12,7 @@
       <div class="full flex kandidat">
         <div class="half">
           <img
-            src="/_nuxt/assets/img/extras/izbori_lokalni/tomislav-tomasevic.gif"
+            src="@/assets/img/extras/izbori_lokalni/tomislav-tomasevic.gif"
           />
         </div>
         <div class="half flex center">
@@ -25,7 +25,7 @@
       <div class="full flex kandidat">
         <div class="half">
           <img
-            src="/_nuxt/assets/img/extras/izbori_lokalni/jelena-pavicic-vukicevic.gif"
+            src="@/assets/img/extras/izbori_lokalni/jelena-pavicic-vukicevic.gif"
           />
         </div>
         <div class="half flex center">
@@ -37,9 +37,7 @@
       </div>
       <div class="full flex kandidat">
         <div class="half">
-          <img
-            src="/_nuxt/assets/img/extras/izbori_lokalni/miroslav-skoro.gif"
-          />
+          <img src="@/assets/img/extras/izbori_lokalni/miroslav-skoro.gif" />
         </div>
         <div class="half flex center">
           <div class="full">
@@ -50,9 +48,7 @@
       </div>
       <div class="full flex kandidat">
         <div class="half">
-          <img
-            src="/_nuxt/assets/img/extras/izbori_lokalni/vesna-skare-ozbolt.gif"
-          />
+          <img src="@/assets/img/extras/izbori_lokalni/davor-filipovic.gif" />
         </div>
         <div class="half flex center">
           <div class="full">
@@ -66,7 +62,7 @@
       <h3 class="full overtitle column-top-border">SPLIT</h3>
       <div class="full flex kandidat">
         <div class="half">
-          <img src="/_nuxt/assets/img/extras/izbori_lokalni/ivica-puljak.gif" />
+          <img src="@/assets/img/extras/izbori_lokalni/ivica-puljak.gif" />
         </div>
         <div class="half flex center">
           <div class="full">
@@ -77,9 +73,7 @@
       </div>
       <div class="full flex kandidat">
         <div class="half">
-          <img
-            src="/_nuxt/assets/img/extras/izbori_lokalni/vice-mihanovic.gif"
-          />
+          <img src="@/assets/img/extras/izbori_lokalni/vice-mihanovic.gif" />
         </div>
         <div class="half flex center">
           <div class="full">
@@ -90,7 +84,7 @@
       </div>
       <div class="full flex kandidat">
         <div class="half">
-          <img src="/_nuxt/assets/img/extras/izbori_lokalni/zeljko-kerum.gif" />
+          <img src="@/assets/img/extras/izbori_lokalni/zeljko-kerum.gif" />
         </div>
         <div class="half flex center">
           <div class="full">
@@ -101,7 +95,7 @@
       </div>
       <div class="full flex kandidat">
         <div class="half">
-          <img src="/_nuxt/assets/img/extras/izbori_lokalni/anon.gif" />
+          <img src="@/assets/img/extras/izbori_lokalni/anon.gif" />
         </div>
         <div class="half flex center">
           <div class="full">
@@ -115,9 +109,7 @@
       <h3 class="full overtitle column-top-border">RIJEKA</h3>
       <div class="full flex kandidat">
         <div class="half">
-          <img
-            src="/_nuxt/assets/img/extras/izbori_lokalni/marko-filipovic.gif"
-          />
+          <img src="@/assets/img/extras/izbori_lokalni/marko-filipovic.gif" />
         </div>
         <div class="half flex center">
           <div class="full">
@@ -128,7 +120,7 @@
       </div>
       <div class="full flex kandidat">
         <div class="half">
-          <img src="/_nuxt/assets/img/extras/izbori_lokalni/anon.gif" />
+          <img src="@/assets/img/extras/izbori_lokalni/anon.gif" />
         </div>
         <div class="half flex center">
           <div class="full">
@@ -139,7 +131,7 @@
       </div>
       <div class="full flex kandidat">
         <div class="half">
-          <img src="/_nuxt/assets/img/extras/izbori_lokalni/anon.gif" />
+          <img src="@/assets/img/extras/izbori_lokalni/anon.gif" />
         </div>
         <div class="half flex center">
           <div class="full">
@@ -150,7 +142,7 @@
       </div>
       <div class="full flex kandidat">
         <div class="half">
-          <img src="/_nuxt/assets/img/extras/izbori_lokalni/anon.gif" />
+          <img src="@/assets/img/extras/izbori_lokalni/anon.gif" />
         </div>
         <div class="half flex center">
           <div class="full">
@@ -164,7 +156,7 @@
       <h3 class="full overtitle column-top-border">OSIJEK</h3>
       <div class="full flex kandidat">
         <div class="half">
-          <img src="/_nuxt/assets/img/extras/izbori_lokalni/ivan-radic.gif" />
+          <img src="@/assets/img/extras/izbori_lokalni/ivan-radic.gif" />
         </div>
         <div class="half flex center">
           <div class="full">
@@ -175,7 +167,9 @@
       </div>
       <div class="full flex kandidat">
         <div class="half">
-          <img src="/_nuxt/assets/img/extras/izbori_lokalni/anon.gif" />
+          <img
+            src="@/assets/img/extras/izbori_lokalni/berislav-mlinarevic.gif"
+          />
         </div>
         <div class="half flex center">
           <div class="full">
@@ -186,7 +180,7 @@
       </div>
       <div class="full flex kandidat">
         <div class="half">
-          <img src="/_nuxt/assets/img/extras/izbori_lokalni/anon.gif" />
+          <img src="@/assets/img/extras/izbori_lokalni/anon.gif" />
         </div>
         <div class="half flex center">
           <div class="full">
@@ -197,7 +191,7 @@
       </div>
       <div class="full flex kandidat">
         <div class="half">
-          <img src="/_nuxt/assets/img/extras/izbori_lokalni/anon.gif" />
+          <img src="@/assets/img/extras/izbori_lokalni/anon.gif" />
         </div>
         <div class="half flex center">
           <div class="full">
@@ -213,6 +207,9 @@
 <style>
 .izbori-mini-widget {
   padding-top: 0px;
+}
+.izbori-mini-widget:hover h2 {
+  color: #111;
 }
 .izbori-widget-header h2 {
   text-transform: none;
