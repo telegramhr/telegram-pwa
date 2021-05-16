@@ -221,7 +221,7 @@
   }
 }
 @media screen and (max-width: 1024px) {
-  .izbori-page .pretplata-page h1 {
+  .izbori-page h1 {
     font-size: 54px;
     font-size: 2.7rem;
     margin-top: 32px;
@@ -405,6 +405,7 @@ export default {
   head() {
     return {
       title: 'Lokalni izbori 2021. uživo',
+      titleTemplate: '%s | Telegram.hr',
       meta: [
         {
           hid: 'description',
@@ -414,7 +415,14 @@ export default {
         {
           hid: 'og:description',
           name: 'og:description',
+          property: 'og:description',
           content: 'Pratite rezultate na Telegramu kroz cijelu izbornu noć.',
+        },
+        {
+          hid: 'og:type',
+          name: 'og:type',
+          property: 'og:type',
+          content: 'article',
         },
         {
           hid: 'og:title',
@@ -434,6 +442,22 @@ export default {
           name: 'og:url',
           property: 'og:url',
           content: 'https://www.telegram.hr/izbori/lokalni-izbori-2021',
+        },
+        {
+          hid: 'fb:app_id',
+          name: 'fb:app_id',
+          property: 'fb:app_id',
+          content: '1383786971938581',
+        },
+        {
+          hid: 'twitter:card',
+          name: 'twitter:card',
+          content: 'summary_large_image',
+        },
+        {
+          hid: 'twitter:site',
+          name: 'twitter:site',
+          content: '@TelegramHR',
         },
       ],
       link: [
