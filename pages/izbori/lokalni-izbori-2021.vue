@@ -1,6 +1,6 @@
 <template>
   <div
-    class="main-container flex red-header-page pretplata-page single-article"
+    class="main-container flex red-header-page pretplata-page single-article izbori-page"
   >
     <div class="full flex tg-red">
       <theader></theader>
@@ -61,14 +61,14 @@
 </template>
 
 <style>
-.section-title-less-margin {
+.izbori-page .section-title-less-margin {
   margin-bottom: 4px;
 }
-.result-table .result-graph > div {
+.izbori-page .result-table .result-graph > div {
   background-color: #ae3737;
   height: 18px;
 }
-.hero {
+.izbori-page .hero {
   position: relative;
   align-content: flex-end;
   color: white;
@@ -78,31 +78,31 @@
   height: 40vw;
   margin-bottom: 48px;
 }
-.pretplata-page h1 {
+.izbori-page h1 {
   margin-top: 2vw;
   font-size: 122px;
   font-size: 6.1rem;
 }
-h2.section-title {
+.izbori-page h2.section-title {
   font-size: 40px;
   font-size: 2rem;
   letter-spacing: normal;
   padding-bottom: 6px;
   margin-bottom: 8px;
 }
-h3.timestamp-disclose {
+.izbori-page h3.timestamp-disclose {
   opacity: 0.3;
   text-transform: uppercase;
   font-size: 14px;
   font-size: 0.7rem;
   margin-bottom: 16px;
 }
-.result-table .row > div:first-child > div:first-child {
+.izbori-page .result-table .row > div:first-child > div:first-child {
   position: absolute;
   top: 0;
   left: 0;
 }
-.kandidat-box {
+.izbori-page .kandidat-box {
   font-size: inherit;
 }
 .kandidat-box > div:first-child {
@@ -110,35 +110,35 @@ h3.timestamp-disclose {
   font-size: 1rem;
   font-weight: bold;
 }
-.kandidat-box > div:nth-child(2) {
+.izbori-page .kandidat-box > div:nth-child(2) {
   font-size: 14px;
   font-size: 0.7rem;
   opacity: 0.7;
   height: 16px;
   overflow: hidden;
 }
-.result-table .row > div:nth-child(1) img {
+.izbori-page .result-table .row > div:nth-child(1) img {
   width: 50px;
   height: 50px;
   border-radius: 25px;
   z-index: 5;
   filter: none;
 }
-.result-table .row > div:nth-child(1) img:first-child {
+.izbori-page .result-table .row > div:nth-child(1) img:first-child {
   z-index: 3;
 }
-.result-table .row > div:nth-child(1) {
+.izbori-page .result-table .row > div:nth-child(1) {
   width: 69.99%;
   padding-left: 72px;
 }
-.result-table .row > div:nth-child(3) {
+.izbori-page .result-table .row > div:nth-child(3) {
   width: 16.99%;
 }
-h1 {
+.izbori-page h1 {
   margin-top: 64px;
   font-size: 6.1rem;
 }
-#searchbox {
+.izbori-page #searchbox {
   margin: 16px 0px;
   width: 100%;
   max-width: 640px;
@@ -148,14 +148,14 @@ h1 {
   border: none;
   border-bottom: 1px solid #c8c8c8;
 }
-.dark-mode #searchbox {
+.dark-mode .izbori-page #searchbox {
   border-color: #333;
 }
-.search-element h2 {
+.izbori-page .search-element h2 {
   margin-top: 64px;
   margin-bottom: 8px;
 }
-.dropdown-izbornik {
+.izbori-page .dropdown-izbornik {
   display: block;
   font-size: 16px;
   font-family: 'Barlow', sans-serif;
@@ -179,21 +179,21 @@ h1 {
   background-size: 0.65em auto, 100%;
   margin-top: 8px;
 }
-.dropdown-izbornik::-ms-expand {
+.izbori-page .dropdown-izbornik::-ms-expand {
   display: none;
 }
-.dropdown-izbornik:hover {
+.izbori-page .dropdown-izbornik:hover {
   border-color: #666;
 }
-.dropdown-izbornik:focus {
+.izbori-page .dropdown-izbornik:focus {
   border-color: #ae3737;
   color: #222;
   outline: none;
 }
-.dynamic-election-results div.half h2.section-title {
+.izbori-page .dynamic-election-results div.half h2.section-title {
   margin-top: 8px;
 }
-.dynamic-election-results p {
+.izbori-page .dynamic-election-results p {
   font-family: 'Barlow', sans-serif;
   font-weight: 600;
   color: #ae3737;
@@ -202,41 +202,41 @@ h1 {
   text-transform: uppercase;
   display: flex;
 }
-.dark-mode .result-table .row:first-child {
+.dark-mode .izbori-page .result-table .row:first-child {
   border-top: 1px solid #555;
 }
 @media screen and (min-width: 1025px) {
-  #searchbox {
+  .izbori-page #searchbox {
     font-size: 20px;
     font-size: 1rem;
   }
-  .dynamic-election-results p {
+  .izbori-page .dynamic-election-results p {
     order: 1;
     padding: 0px 24px;
     width: 49.99%;
   }
-  .dynamic-election-results div.half {
+  .izbori-page .dynamic-election-results div.half {
     order: 2;
     padding-top: 0px;
   }
 }
 @media screen and (max-width: 1024px) {
-  .pretplata-page h1 {
+  .izbori-page .pretplata-page h1 {
     font-size: 54px;
     font-size: 2.7rem;
     margin-top: 32px;
   }
-  h2.section-title {
+  .izbori-page h2.section-title {
     font-size: 36px;
     font-size: 1.8rem;
   }
-  .result-table .row > div:nth-child(1) img {
+  .izbori-page .result-table .row > div:nth-child(1) img {
     margin-top: 0px;
   }
-  .dynamic-election-results p {
+  .izbori-page .dynamic-election-results p {
     margin-top: 24px;
   }
-  .search-element p {
+  .izbori-page .search-element p {
     margin-top: 24px;
     margin-bottom: 4px;
   }
@@ -401,6 +401,49 @@ export default {
         this.dubrovnik = res.data
       })
     },
+  },
+  head() {
+    return {
+      title: 'Lokalni izbori 2021. uživo',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Pratite rezultate na Telegramu kroz cijelu izbornu noć.',
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: 'Pratite rezultate na Telegramu kroz cijelu izbornu noć.',
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          property: 'og:title',
+          content: 'Lokalni izbori 2021. uživo',
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          property: 'og:image',
+          content:
+            'https://www.telegram.hr/wp-content/uploads/2021/05/tg-izlazne-lokalni.jpg',
+        },
+        {
+          hid: 'og:url',
+          name: 'og:url',
+          property: 'og:url',
+          content: 'https://www.telegram.hr/izbori/lokalni-izbori-2021a',
+        },
+      ],
+      link: [
+        {
+          hid: 'canonical',
+          rel: 'canonical',
+          href: 'https://www.telegram.hr/izbori/lokalni-izbori-2021a',
+        },
+      ],
+    }
   },
 }
 </script>
