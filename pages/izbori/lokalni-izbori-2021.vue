@@ -433,14 +433,14 @@ export default {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/izbori/lokalni-izbori-2021a',
+          content: 'https://www.telegram.hr/izbori/lokalni-izbori-2021',
         },
       ],
       link: [
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: 'https://www.telegram.hr/izbori/lokalni-izbori-2021a',
+          href: 'https://www.telegram.hr/izbori/lokalni-izbori-2021',
         },
       ],
     }
