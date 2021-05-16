@@ -17,8 +17,8 @@
         </div>
         <div class="half flex center">
           <div class="full">
-            <p class="full faded smaller-text">TOMISLAV TOMAŠEVIĆ</p>
-            <p class="full"><span class="big-number">48,6%</span></p>
+            <p class="full faded smaller-text">TOMISLAV TOMAŠEVIĆ (MOŽEMO)</p>
+            <p class="full"><span class="big-number">48,18%</span></p>
           </div>
         </div>
       </div>
@@ -30,8 +30,10 @@
         </div>
         <div class="half flex center">
           <div class="full">
-            <p class="full faded smaller-text">JELENA PAVIČIĆ VUKIČEVIĆ</p>
-            <p class="full"><span class="big-number">11,5%</span></p>
+            <p class="full faded smaller-text">
+              JELENA PAVIČIĆ VUKIČEVIĆ (365)
+            </p>
+            <p class="full"><span class="big-number">11,38%</span></p>
           </div>
         </div>
       </div>
@@ -41,8 +43,8 @@
         </div>
         <div class="half flex center">
           <div class="full">
-            <p class="full faded smaller-text">MIROSLAV ŠKORO</p>
-            <p class="full"><span class="big-number">11,4%</span></p>
+            <p class="full faded smaller-text">MIROSLAV ŠKORO (DP)</p>
+            <p class="full"><span class="big-number">11,23%</span></p>
           </div>
         </div>
       </div>
@@ -52,8 +54,8 @@
         </div>
         <div class="half flex center">
           <div class="full">
-            <p class="full faded smaller-text">DAVOR FILIPOVIĆ</p>
-            <p class="full"><span class="big-number">10,3%</span></p>
+            <p class="full faded smaller-text">DAVOR FILIPOVIĆ (HDZ)</p>
+            <p class="full"><span class="big-number">10,24%</span></p>
           </div>
         </div>
       </div>
@@ -66,8 +68,8 @@
         </div>
         <div class="half flex center">
           <div class="full">
-            <p class="full faded smaller-text">IVICA PULJAK</p>
-            <p class="full"><span class="big-number">27,4%</span></p>
+            <p class="full faded smaller-text">IVICA PULJAK (CENTAR)</p>
+            <p class="full"><span class="big-number">27,23%</span></p>
           </div>
         </div>
       </div>
@@ -77,8 +79,8 @@
         </div>
         <div class="half flex center">
           <div class="full">
-            <p class="full faded smaller-text">VICE MIHANOVIĆ</p>
-            <p class="full"><span class="big-number">23,4%</span></p>
+            <p class="full faded smaller-text">VICE MIHANOVIĆ (HDZ)</p>
+            <p class="full"><span class="big-number">23,41%</span></p>
           </div>
         </div>
       </div>
@@ -88,19 +90,19 @@
         </div>
         <div class="half flex center">
           <div class="full">
-            <p class="full faded smaller-text">ŽELJKO KERUM</p>
-            <p class="full"><span class="big-number">16,1%</span></p>
+            <p class="full faded smaller-text">ŽELJKO KERUM (HGS)</p>
+            <p class="full"><span class="big-number">16,33%</span></p>
           </div>
         </div>
       </div>
       <div class="full flex kandidat">
         <div class="half">
-          <img src="@/assets/img/extras/izbori_lokalni/anon.gif" />
+          <img src="@/assets/img/extras/izbori_lokalni/ante-franic.gif" />
         </div>
         <div class="half flex center">
           <div class="full">
-            <p class="full faded smaller-text">ANTE FRANIĆ</p>
-            <p class="full"><span class="big-number">6,8%</span></p>
+            <p class="full faded smaller-text">ANTE FRANIĆ (SDP)</p>
+            <p class="full"><span class="big-number">6,45%</span></p>
           </div>
         </div>
       </div>
@@ -113,41 +115,41 @@
         </div>
         <div class="half flex center">
           <div class="full">
-            <p class="full faded smaller-text">MARKO FILIPOVIĆ</p>
-            <p class="full"><span class="big-number">29,9%</span></p>
+            <p class="full faded smaller-text">MARKO FILIPOVIĆ (SDP)</p>
+            <p class="full"><span class="big-number">28,67%</span></p>
           </div>
         </div>
       </div>
       <div class="full flex kandidat">
         <div class="half">
-          <img src="@/assets/img/extras/izbori_lokalni/anon.gif" />
+          <img src="@/assets/img/extras/izbori_lokalni/davor-stimac.gif" />
         </div>
         <div class="half flex center">
           <div class="full">
             <p class="full faded smaller-text">DAVOR ŠTIMAC</p>
-            <p class="full"><span class="big-number">16,3%</span></p>
+            <p class="full"><span class="big-number">16,51%</span></p>
           </div>
         </div>
       </div>
       <div class="full flex kandidat">
         <div class="half">
-          <img src="@/assets/img/extras/izbori_lokalni/anon.gif" />
+          <img src="@/assets/img/extras/izbori_lokalni/josip-ostrogovic.gif" />
         </div>
         <div class="half flex center">
           <div class="full">
-            <p class="full faded smaller-text">JOSIP OSTROGOVIĆ</p>
-            <p class="full"><span class="big-number">15,0%</span></p>
+            <p class="full faded smaller-text">JOSIP OSTROGOVIĆ (HDZ)</p>
+            <p class="full"><span class="big-number">14,84%</span></p>
           </div>
         </div>
       </div>
       <div class="full flex kandidat">
         <div class="half">
-          <img src="@/assets/img/extras/izbori_lokalni/anon.gif" />
+          <img src="@/assets/img/extras/izbori_lokalni/marin-miletic.gif" />
         </div>
         <div class="half flex center">
           <div class="full">
-            <p class="full faded smaller-text">MARIN MILETIĆ</p>
-            <p class="full"><span class="big-number">11,7%</span></p>
+            <p class="full faded smaller-text">MARIN MILETIĆ (MOST)</p>
+            <p class="full"><span class="big-number">11,83%</span></p>
           </div>
         </div>
       </div>
@@ -160,8 +162,8 @@
         </div>
         <div class="half flex center">
           <div class="full">
-            <p class="full faded smaller-text">IVAN RADIĆ</p>
-            <p class="full"><span class="big-number">41,4%</span></p>
+            <p class="full faded smaller-text">IVAN RADIĆ (HDZ)</p>
+            <p class="full"><span class="big-number">39,89%</span></p>
           </div>
         </div>
       </div>
@@ -173,30 +175,34 @@
         </div>
         <div class="half flex center">
           <div class="full">
-            <p class="full faded smaller-text">BERISLAV MLINAREVIĆ</p>
-            <p class="full"><span class="big-number">19,2%</span></p>
+            <p class="full faded smaller-text">
+              BERISLAV MLINAREVIĆ (DP, MOST)
+            </p>
+            <p class="full"><span class="big-number">19,55%</span></p>
           </div>
         </div>
       </div>
       <div class="full flex kandidat">
         <div class="half">
-          <img src="@/assets/img/extras/izbori_lokalni/anon.gif" />
+          <img src="@/assets/img/extras/izbori_lokalni/goran-kusec.gif" />
         </div>
         <div class="half flex center">
           <div class="full">
-            <p class="full faded smaller-text">GORAN KUŠEC</p>
-            <p class="full"><span class="big-number">16,6%</span></p>
+            <p class="full faded smaller-text">GORAN KUŠEC (SDP)</p>
+            <p class="full"><span class="big-number">17,22%</span></p>
           </div>
         </div>
       </div>
       <div class="full flex kandidat">
         <div class="half">
-          <img src="@/assets/img/extras/izbori_lokalni/anon.gif" />
+          <img
+            src="@/assets/img/extras/izbori_lokalni/vladimir-sisljagic.gif"
+          />
         </div>
         <div class="half flex center">
           <div class="full">
-            <p class="full faded smaller-text">VLADIMIR HAM</p>
-            <p class="full"><span class="big-number">5,5%</span></p>
+            <p class="full faded smaller-text">VLADIMIR ŠIŠLJAGIĆ</p>
+            <p class="full"><span class="big-number">7,82%</span></p>
           </div>
         </div>
       </div>
