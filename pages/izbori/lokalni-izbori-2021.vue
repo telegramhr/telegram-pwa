@@ -293,6 +293,7 @@ export default {
   },
   watch: {
     zupanija() {
+      this.grad = null
       this.pullCounty()
       this.pullCities()
     },
@@ -310,11 +311,6 @@ export default {
   mounted() {
     this.pullBig()
     this.pullCounties()
-    setTimeout(() => {
-      this.pullBig()
-      this.pullCounty()
-      this.pullCity()
-    }, 120000)
   },
   methods: {
     pullCounties() {
@@ -323,12 +319,9 @@ export default {
       })
     },
     pullCounty() {
-      if (!this.zupanija || this.grad) {
-        return
-      }
       this.$axios
         .get(
-          `/pretplate/izbori/r_15_${this.zupanija
+          `/izbori/r_15_${this.zupanija
             .toString()
             .padStart(2, '0')}_0000_000.json`
         )
@@ -337,7 +330,7 @@ export default {
         })
       this.$axios
         .get(
-          `/pretplate/izbori/r_06_${this.zupanija
+          `/izbori/r_06_${this.zupanija
             .toString()
             .padStart(2, '0')}_0000_000.json`
         )
@@ -358,46 +351,46 @@ export default {
       }
       this.$axios
         .get(
-          `/pretplate/izbori/r_17_${this.zupanija
-            .toString()
-            .padStart(2, '0')}_${this.grad.code}_000.json`
+          `/izbori/r_17_${this.zupanija.toString().padStart(2, '0')}_${
+            this.grad.code
+          }_000.json`
         )
         .then((res) => {
           this.leader = res.data
         })
       this.$axios
         .get(
-          `/pretplate/izbori/r_08_${this.zupanija
-            .toString()
-            .padStart(2, '0')}_${this.grad.code}_000.json`
+          `/izbori/r_08_${this.zupanija.toString().padStart(2, '0')}_${
+            this.grad.code
+          }_000.json`
         )
         .then((res) => {
           this.council = res.data
         })
     },
     pullBig() {
-      this.$axios.get('/pretplate/izbori/r_15_21_0000_000.json').then((res) => {
+      this.$axios.get('/izbori/r_15_21_0000_000.json').then((res) => {
         this.zagreb = res.data
       })
-      this.$axios.get('/pretplate/izbori/r_06_21_0000_000.json').then((res) => {
+      this.$axios.get('/izbori/r_06_21_0000_000.json').then((res) => {
         this.zagreb_council = res.data
       })
-      this.$axios.get('/pretplate/izbori/r_17_17_4090_000.json').then((res) => {
+      this.$axios.get('/izbori/r_17_17_4090_000.json').then((res) => {
         this.split = res.data
       })
-      this.$axios.get('/pretplate/izbori/r_17_08_3735_000.json').then((res) => {
+      this.$axios.get('/izbori/r_17_08_3735_000.json').then((res) => {
         this.rijeka = res.data
       })
-      this.$axios.get('/pretplate/izbori/r_17_14_3123_000.json').then((res) => {
+      this.$axios.get('/izbori/r_17_14_3123_000.json').then((res) => {
         this.osijek = res.data
       })
-      this.$axios.get('/pretplate/izbori/r_17_13_5207_000.json').then((res) => {
+      this.$axios.get('/izbori/r_17_13_5207_000.json').then((res) => {
         this.zadar = res.data
       })
-      this.$axios.get('/pretplate/izbori/r_17_05_4723_000.json').then((res) => {
+      this.$axios.get('/izbori/r_17_05_4723_000.json').then((res) => {
         this.varazdin = res.data
       })
-      this.$axios.get('/pretplate/izbori/r_17_19_0981_000.json').then((res) => {
+      this.$axios.get('/izbori/r_17_19_0981_000.json').then((res) => {
         this.dubrovnik = res.data
       })
     },

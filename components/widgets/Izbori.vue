@@ -156,16 +156,16 @@ export default {
   },
   methods: {
     pullBig() {
-      this.$axios.get('/pretplate/izbori/r_15_21_0000_000.json').then((res) => {
+      this.$axios.get('/izbori/r_15_21_0000_000.json').then((res) => {
         this.zagreb = res.data
       })
-      this.$axios.get('/pretplate/izbori/r_17_17_4090_000.json').then((res) => {
+      this.$axios.get('/izbori/r_17_17_4090_000.json').then((res) => {
         this.split = res.data
       })
-      this.$axios.get('/pretplate/izbori/r_17_08_3735_000.json').then((res) => {
+      this.$axios.get('/izbori/r_17_08_3735_000.json').then((res) => {
         this.rijeka = res.data
       })
-      this.$axios.get('/pretplate/izbori/r_17_14_3123_000.json').then((res) => {
+      this.$axios.get('/izbori/r_17_14_3123_000.json').then((res) => {
         this.osijek = res.data
       })
     },
