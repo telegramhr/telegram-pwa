@@ -105,7 +105,6 @@ export default {
   methods: {
     login() {
       const _that = this
-      this.maybeCloseSide()
       window.tp.pianoId.show({
         screen: 'login',
         loggedIn(data) {

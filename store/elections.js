@@ -9,7 +9,7 @@ export const state = () => ({
 export const mutations = {
   setCity(state, payload) {
     state[payload.city] = payload.data
-    state.updated = new Date()
+    state.updated = new Date().getTime()
   },
 }
 

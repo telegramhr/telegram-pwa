@@ -279,12 +279,14 @@
             <div id="midasWidget__657"></div>
           </div>
         </div>
-        <keep-reading
-          v-if="post.category_slug && post.category_slug !== 'promo'"
-          :category="post.category_slug"
-          :p="post.id"
-          :permalink="post.permalink"
-        ></keep-reading>
+        <client-only>
+          <keep-reading
+            v-if="post.category_slug && post.category_slug !== 'promo'"
+            :category="post.category_slug"
+            :p="post.id"
+            :permalink="post.permalink"
+          ></keep-reading>
+        </client-only>
         <ticker></ticker>
       </div>
     </template>
