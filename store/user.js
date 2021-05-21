@@ -6,6 +6,7 @@ export const state = () => ({
   token: '',
   exp: 0,
   access: null,
+  active_sub: false,
   updated: null,
 })
 
@@ -24,6 +25,7 @@ export const mutations = {
     state.token = ''
     state.exp = 0
     state.access = false
+    state.active_sub = false
   },
   setTerm(state, data) {
     state.access = data
@@ -31,6 +33,9 @@ export const mutations = {
   },
   setToken(state, token) {
     state.token = token
+  },
+  setActive(state, payload) {
+    state.active_sub = payload
   },
 }
 
@@ -49,12 +54,14 @@ export const actions = {
               maxAge: 10 * 24 * 3600,
             })
             commit('setTerm', true)
+            commit('setActive', true)
           } else {
             this.$cookies.set('tmg_access', item.resource.rid, {
               path: '/',
               domain: '.telegram.hr',
               maxAge: 10 * 24 * 3600,
             })
+            commit('setActive', true)
           }
         })
       }
