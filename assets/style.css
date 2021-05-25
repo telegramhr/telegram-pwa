@@ -2254,6 +2254,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     margin-top: 48px;
     margin-bottom: 48px;
 }
+.dark-mode .special-partner-widget {
+    background-color: #121212;
+}
 .special-partner-logobox {
     padding: 32px;
 }

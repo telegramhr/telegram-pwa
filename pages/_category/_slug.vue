@@ -270,6 +270,9 @@
           </article>
         </div>
         <div class="full flex">
+          <partner></partner>
+        </div>
+        <div class="full flex">
           <div
             class="container flex relative native-block stretch mobile-side-pad"
           >
