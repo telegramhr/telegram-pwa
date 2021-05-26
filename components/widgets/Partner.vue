@@ -7,36 +7,8 @@
     </div>
     <div class="fourth flex-responsive relative center">
       <div class="full flex article-standard article relative mobile-side-pad">
-        <h2 class="full">Pročitajte još...</h2>
+        <h2 class="full">TEME TJEDNA</h2>
       </div>
-    </div>
-    <div class="fourth flex-responsive column-full-pad mobile-side-pad">
-      <a
-        class="full flex article-standard article relative"
-        href="https://www.telegram.hr/native/petra-patrik-neven-i-fabijan-petra-patrik-neven-i-fabijan-cuvari-su-nasih-prirodnih-stanista-i-zivotinja-evo-s-cime-se-susrecu-svaki-dan/"
-        target="_blank"
-      >
-        <img
-          src="https://www.telegram.hr/wp-content/themes/telegram2-desktop/templates/native/velux/bioraznolikost/img/wwf_03.jpg"
-          alt="Petra, Patrik, Neven i Fabijan čuvari su naših prirodnih staništa i životinja. Evo s čime se susreću svaki dan"
-          loading="lazy"
-        />
-        <div class="full flex article-pad">
-          <div class="full flex desktop-only">
-            <h3 class="overtitle"></h3>
-          </div>
-          <h2 class="full">
-            Petra, Patrik, Neven i Fabijan čuvari su naših prirodnih staništa i
-            životinja. Evo s čime se susreću svaki dan
-          </h2>
-          <h4 class="full"></h4>
-          <h5 class="full flex article-meta">
-            <span class="meta-author"></span>
-            <span class="meta-preporuke"></span>
-            <span class="meta-date"></span>
-          </h5>
-        </div>
-      </a>
     </div>
     <div class="fourth flex-responsive column-full-pad mobile-side-pad">
       <a
@@ -73,7 +45,7 @@
       >
         <img
           src="https://super1.telegram.hr/wp-content/uploads/sites/3/2021/04/lucia-i-suzana-07.jpg"
-          alt="Mi smo nacija koja voli puno pricati. Ja kazem - radi, probaj, vidi."
+          alt="Mi smo nacija koja voli puno pričati. Ja kažem - radi, probaj, vidi. Ovo su naše priče"
           loading="lazy"
         />
         <div class="full flex article-pad">
@@ -82,6 +54,35 @@
           </div>
           <h2 class="full">
             Mi smo nacija koja voli puno pričati. Ja kažem - radi, probaj, vidi.
+            Ovo su naše priče
+          </h2>
+          <h4 class="full"></h4>
+          <h5 class="full flex article-meta">
+            <span class="meta-author"></span>
+            <span class="meta-preporuke"></span>
+            <span class="meta-date"></span>
+          </h5>
+        </div>
+      </a>
+    </div>
+    <div class="fourth flex-responsive column-full-pad mobile-side-pad">
+      <a
+        class="full flex article-standard article relative"
+        href="https://www.telegram.hr/native/petra-patrik-neven-i-fabijan-petra-patrik-neven-i-fabijan-cuvari-su-nasih-prirodnih-stanista-i-zivotinja-evo-s-cime-se-susrecu-svaki-dan/"
+        target="_blank"
+      >
+        <img
+          src="https://www.telegram.hr/wp-content/themes/telegram2-desktop/templates/native/velux/bioraznolikost/img/wwf_03.jpg"
+          alt="Petra, Patrik, Neven i Fabijan čuvari su naših prirodnih staništa i životinja. Evo s čime se susreću svaki dan"
+          loading="lazy"
+        />
+        <div class="full flex article-pad">
+          <div class="full flex desktop-only">
+            <h3 class="overtitle"></h3>
+          </div>
+          <h2 class="full">
+            Petra, Patrik, Neven i Fabijan čuvari su naših prirodnih staništa i
+            životinja. Evo s čime se susreću svaki dan
           </h2>
           <h4 class="full"></h4>
           <h5 class="full flex article-meta">
