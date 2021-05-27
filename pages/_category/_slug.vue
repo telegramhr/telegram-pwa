@@ -276,7 +276,7 @@
           <div
             class="container flex relative native-block stretch mobile-side-pad"
           >
-            <div id="midasWidget__657"></div>
+            <div id="midasWidget__r176"></div>
           </div>
         </div>
         <client-only>
@@ -570,9 +570,9 @@ export default {
       if (this.$store.state.user.access) {
         return
       }
-      const container = document.getElementById('midasWidget__657')
+      const container = document.getElementById('midasWidget__r176')
       const intext = document.getElementById('midasWidget__r49')
-      let widget = '2?portalWidgetId=657'
+      let widget = '2?portalRuleId=176'
       if (intext) {
         widget += '&portalRuleId=49'
       }
