@@ -81,8 +81,7 @@
                   <i class="fas fa-check"></i> surfanje bez oglasa
                 </p>
                 <p class="full animate">
-                  <i class="fas fa-check"></i> popust na knjige u izdanju
-                  Telegrama<a
+                  <i class="fas fa-check"></i> nakon 3 mjeseca gratis knjiga u izdanju Telegrama<a
                     href="#knjige-disclaimer"
                     onclick="document.getElementById('knjige-disclaimer').open = true;"
                     >*</a
@@ -139,8 +138,7 @@
                   <i class="fas fa-check"></i> surfanje bez oglasa
                 </p>
                 <p class="full animate">
-                  <i class="fas fa-check"></i> popust na knjige u izdanju
-                  Telegrama<a
+                  <i class="fas fa-check"></i> gratis knjiga u izdanju Telegrama<a
                     href="#knjige-disclaimer"
                     onclick="document.getElementById('knjige-disclaimer').open = true;"
                     >*</a
@@ -430,17 +428,21 @@
           </details>
           <details id="knjige-disclaimer" class="full flex relative">
             <summary class="full flex relative">
-              Što je to popust na knjige u izdanju Telegrama?
+              Kako mogu besplatno dobiti knjigu u izdanju Telegrama?
             </summary>
             <p>
-              Uskoro ćemo izdati knjigu jednog od naših autora, a u planu nam je
-              nastaviti s tom praksom i redovito izdavati knjige koje pišu naši
-              najpoznatiji i najnagrađivaniji autori. Sve fizičke osobe s
-              godišnjom Premium pretplatom i mjesečni premium pretplatnici nakon
-              najmanje tri mjeseca pretplate, koji su se pretplatili do 1.
-              svibnja 2021. godine, prvu knjigu će dobiti gratis. Svi ostali
-              godišnji premium pretplatnici moći će knjigu kupiti po sniženoj
-              cijeni.
+              Plan nam je redovito izdavati knjige koje pišu naši najpoznatiji i
+              najnagrađivaniji autori, a prvu knjigu već smo izdali - "O Zagrebu
+              i..." naše Zrinke Paladino. Sve fizičke osobe s godišnjom Premium
+              pretplatom prvu knjigu dobivaju gratis, potrebno je samo posjetiti
+              <a
+                href="https://www.telegram.hr/knjiga/zrinka-paladino-o-zagrebu"
+                target="_blank"
+                >ovu stranicu</a
+              >, prijaviti se i ispuniti tražene podatke. Također, pravo na
+              besplatnu prvu knjigu ostvaruju i svi mjesečni premium
+              pretplatnici nakon najmanje tri mjeseca pretplate, a da bi došli
+              do knjige potrebno je samo javiti nam se na pretplata@telegram.hr.
             </p>
           </details>
           <details class="full flex relative">
@@ -517,6 +519,17 @@
             <p>
               Naravno, pretplatu možete samostalno i jednostavno otkazati u bilo
               kojem trenutku kroz korisničko sučelje.
+            </p>
+          </details>
+          <details class="full flex relative">
+            <summary class="full flex relative">
+              Kako se obnavlja jednom kupljena pretplata?
+            </summary>
+            <p>
+              Sve mjesečne i godišnje pretplate automatski se obnavljaju po svom
+              isteku na isti vremenski period kako Vi ne biste morali brinuti o
+              tome. Ukoliko želite isključiti automatsku obnovu, to možete
+              jednostavno napraviti jednim klikom u korisničkom sučelju.
             </p>
           </details>
           <details class="full flex relative">
