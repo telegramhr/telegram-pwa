@@ -7,7 +7,7 @@
     </div>
     <div class="fourth flex-responsive relative center">
       <div class="full flex article-standard article relative mobile-side-pad">
-        <h2 class="full">TEME TJEDNA</h2>
+        <h2 class="full">Pročitajte još...</h2>
       </div>
     </div>
     <div class="fourth flex-responsive column-full-pad mobile-side-pad">
