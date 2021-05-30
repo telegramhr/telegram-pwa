@@ -2,7 +2,9 @@
   <div class="fourth flex column-full-pad grad-segment">
     <h3 class="full overtitle column-top-border">
       {{ city.gropNaziv ? city.gropNaziv : city.zupNaziv }}
-      <span class="data-age-time animate">{{ city.vrijeme }}</span>
+      <span class="data-age-time animate"
+        >{{ Math.round((city.bmZatvoreno / city.bmUkupno) * 100) }}%</span
+      >
     </h3>
     <div
       v-for="lista in kandidati"

@@ -4,7 +4,9 @@
       {{ city.gropNaziv ? city.gropNaziv : city.zupNaziv
       }}{{ type ? ' - ' + type : '' }}
     </h2>
-    <h3 class="timestamp-disclose">Osvježeno u {{ city.vrijeme }}</h3>
+    <h3 class="timestamp-disclose">
+      {{ Math.round((city.bmZatvoreno / city.bmUkupno) * 100) }}% prebrojano
+    </h3>
     <div class="full flex relative result-table total-results">
       <div class="full row flex">
         <div>Lista</div>
