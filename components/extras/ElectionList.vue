@@ -15,7 +15,11 @@
         v-for="lista in city.lista"
         :key="lista.naziv"
         class="full row flex animate center"
-        :style="{ order: 100 - parseFloat(lista.posto) }"
+        :style="{
+          order:
+            100 -
+            Math.round((lista.glasova / city.listiciVazeci) * 10000) / 100,
+        }"
       >
         <div>
           <div></div>
@@ -25,12 +29,18 @@
             <div class="full">{{ lista.stranke }}</div>
           </div>
         </div>
-        <div class="postotak">{{ lista.posto }}%</div>
+        <div class="postotak">
+          {{ Math.round((lista.glasova / city.listiciVazeci) * 10000) / 100 }}%
+        </div>
         <div class="relative flex result-graph">
           <div
             class="flex"
             :style="{
-              width: Number(lista.posto.replace(',', '.')) * 2 + '%',
+              width:
+                (Math.round((lista.glasova / city.listiciVazeci) * 10000) /
+                  100) *
+                  2 +
+                '%',
             }"
           ></div>
         </div>
