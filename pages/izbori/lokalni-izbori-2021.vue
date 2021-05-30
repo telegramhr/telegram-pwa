@@ -20,7 +20,6 @@
         :city="this.$store.state.elections.zagreb"
         type="Gradonačelnik"
       ></election-list>
-      <election-list :city="zagreb_council" type="Skupština"></election-list>
       <election-list
         :city="this.$store.state.elections.split"
         type="Gradonačelnik"
@@ -61,10 +60,6 @@
         <template v-if="leader.lista">
           <p>{{ leaderElectionTitle }}</p>
           <election-list :city="leader"></election-list>
-        </template>
-        <template v-if="council.lista">
-          <p>{{ councilElectionTitle }}</p>
-          <election-list :city="council"></election-list>
         </template>
       </div>
     </div>
@@ -307,7 +302,6 @@ export default {
     zupanija() {
       this.grad = null
       this.pullCities()
-      this.pullCounty()
     },
     grad() {
       this.pullCity()
@@ -315,8 +309,6 @@ export default {
     type() {
       if (this.grad) {
         this.pullCity()
-      } else {
-        this.pullCounty()
       }
     },
   },

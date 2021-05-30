@@ -15,7 +15,7 @@ export const mutations = {
 
 export const actions = {
   pullBig({ commit, state }) {
-    if (state.updated + 5 * 60 * 1000 > new Date().getTime()) {
+    if (state.updated + 2 * 60 * 1000 > new Date().getTime()) {
       return
     }
     this.$axios.get('/pretplate/izbori/r_15_21_0000_000.json').then((res) => {
