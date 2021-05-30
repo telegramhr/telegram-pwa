@@ -17,7 +17,11 @@
         <div class="full">
           <p class="full faded smaller-text">{{ lista.naziv }}</p>
           <p class="full">
-            <span class="big-number">{{ lista.posto }}%</span>
+            <span class="big-number"
+              >{{
+                Math.round((lista.glasova / city.listiciVazeci) * 10000) / 100
+              }}%</span
+            >
           </p>
         </div>
       </div>
