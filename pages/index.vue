@@ -30,13 +30,16 @@
         <section
           class="three-fourths mobile-side-pad flex-responsive flex relative the-big-gs stretch elevate-over-section"
         >
+          <client-only>
+            <izborialt></izborialt>
+          </client-only>
           <div
-            class="five-sixths column-horizontal-pad flex-responsive flex column-bottom-border column-right-border"
+            class="five-sixths column-horizontal-pad flex-responsive flex column-bottom-border column-right-border column-top-pad column-top-border"
           >
             <featured :key="posts[0].id" :post="posts[0]"></featured>
           </div>
           <aside
-            class="sixth desktop-only flex column-horizontal-pad column-bottom-border"
+            class="sixth desktop-only flex column-horizontal-pad column-bottom-border column-top-border"
           >
             <client-only>
               <weather></weather>
