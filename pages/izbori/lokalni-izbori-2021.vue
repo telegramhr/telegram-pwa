@@ -302,14 +302,10 @@ export default {
     zupanija() {
       this.grad = null
       this.pullCities()
+      this.pullCounty()
     },
     grad() {
       this.pullCity()
-    },
-    type() {
-      if (this.grad) {
-        this.pullCity()
-      }
     },
   },
   mounted() {
@@ -333,15 +329,6 @@ export default {
         )
         .then((res) => {
           this.leader = res.data
-        })
-      this.$axios
-        .get(
-          `/pretplate/izbori/r_06_${this.zupanija
-            .toString()
-            .padStart(2, '0')}_0000_000.json?t=${time}`
-        )
-        .then((res) => {
-          this.council = res.data
         })
     },
     pullCities() {
