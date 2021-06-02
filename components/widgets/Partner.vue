@@ -13,12 +13,12 @@
     <div class="fourth flex-responsive column-full-pad mobile-side-pad">
       <a
         class="full flex article-standard article relative"
-        href="https://super1.telegram.hr/relax/imas-li-nesto-protiv-bolova-sve-tajne-zenskih-torbica/"
+        href="https://www.telegram.hr/partneri/zeljni-ste-sjajnih-vina-i-dobre-spize-onda-biste-iduci-vikend-trebali-biti-u-sibeniku-evo-sto-se-tamo-sprema/"
         target="_blank"
       >
         <img
-          src="https://super1.telegram.hr/wp-content/uploads/sites/3/2021/05/super1-lupocet-10-1-880x520.jpg"
-          alt="Imaš li nešto protiv bolova? Sve tajne ženskih torbica "
+          src="https://images.telegram.hr/U_IoxESfx-bisUYCKVlYbhCXFlQkFAdoccsfhV5bElQ/preset:single1/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjEvMDUvdGctbmFzbG92bmEtMjAyMS01LTI4LmpwZw.jpg"
+          alt="Željni ste sjajnih vina i dobre spize? Onda biste idući vikend trebali biti u Šibeniku. Evo što se tamo sprema"
           loading="lazy"
         />
         <div class="full flex article-pad">
@@ -26,7 +26,8 @@
             <h3 class="overtitle"></h3>
           </div>
           <h2 class="full">
-            Imaš li nešto protiv bolova? Sve tajne ženskih torbica
+            Željni ste sjajnih vina i dobre spize? Onda biste idući vikend
+            trebali biti u Šibeniku. Evo što se tamo sprema
           </h2>
           <h4 class="full"></h4>
           <h5 class="full flex article-meta">
@@ -68,12 +69,12 @@
     <div class="fourth flex-responsive column-full-pad mobile-side-pad">
       <a
         class="full flex article-standard article relative"
-        href="https://www.telegram.hr/native/petra-patrik-neven-i-fabijan-petra-patrik-neven-i-fabijan-cuvari-su-nasih-prirodnih-stanista-i-zivotinja-evo-s-cime-se-susrecu-svaki-dan/"
+        href="https://www.telegram.hr/partneri/uigrani-tim-ove-cetiri-zene-predvode-digitalizaciju-domace-industrije-osiguranja/"
         target="_blank"
       >
         <img
-          src="https://www.telegram.hr/wp-content/themes/telegram2-desktop/templates/native/velux/bioraznolikost/img/wwf_03.jpg"
-          alt="Petra, Patrik, Neven i Fabijan čuvari su naših prirodnih staništa i životinja. Evo s čime se susreću svaki dan"
+          src="https://images.telegram.hr/RlEoPXdFpQBi99cRH-B99wGqSIP38z9VAn98J73riGw/preset:single2/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjEvMDUvY28temFqZWRuaWNrYS5qcGc.jpg"
+          alt="igrani tim: Ove četiri žene predvode digitalizaciju domaće industrije osiguranja"
           loading="lazy"
         />
         <div class="full flex article-pad">
@@ -81,8 +82,8 @@
             <h3 class="overtitle"></h3>
           </div>
           <h2 class="full">
-            Petra, Patrik, Neven i Fabijan čuvari su naših prirodnih staništa i
-            životinja. Evo s čime se susreću svaki dan
+            Uigrani tim: Ove četiri žene predvode digitalizaciju domaće
+            industrije osiguranja
           </h2>
           <h4 class="full"></h4>
           <h5 class="full flex article-meta">
