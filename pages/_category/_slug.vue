@@ -36,7 +36,7 @@
         <div v-if="post.image.author" class="meta-foto">
           FOTO: {{ post.image.author }}
         </div>
-        <div class="mobile-only full center mobile-pa-nav relative flex">
+        <div class="mobile-only full center parmobile-pa-nav relative flex">
           <a @click.prevent="showSideMenu = !showSideMenu"
             ><i class="far fa-bars"></i
           ></a>
@@ -147,7 +147,10 @@
               <h5 class="full flex relative article-meta">
                 <template v-if="post.promo.partner">
                   <a href="#" class="meta-author flex desktop-only">
-                    <img :src="post.promo.logo" />
+                    <img
+                      v-if="!post.promo.signature_logo_off"
+                      :src="post.promo.logo"
+                    />
                     <span>U suradnji s</span>
                     <span>{{ post.promo.partner }}</span>
                   </a>
