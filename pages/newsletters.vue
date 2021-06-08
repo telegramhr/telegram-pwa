@@ -43,7 +43,9 @@
                 otkrivaju krupne afere radi kojih odlaze ministri i objašnjavaju
                 kontekst dnevnih događaja.
               </p>
-              <div class="btn animate btn-unsub">Odjavi me</div>
+              <div class="btn animate btn-unsub">
+                Odjavi me <i class="fal fa-minus-square"></i>
+              </div>
             </div>
           </div>
         </div>
@@ -69,7 +71,9 @@
                 otkrivaju krupne afere radi kojih odlaze ministri i objašnjavaju
                 kontekst dnevnih događaja.
               </p>
-              <div class="btn animate">Prijavi me</div>
+              <div class="btn animate">
+                Prijavi me <i class="fal fa-plus-square"></i>
+              </div>
             </div>
           </div>
         </div>
@@ -95,7 +99,9 @@
                 otkrivaju krupne afere radi kojih odlaze ministri i objašnjavaju
                 kontekst dnevnih događaja.
               </p>
-              <div class="btn animate btn-unsub">Odjavi me</div>
+              <div class="btn animate btn-unsub">
+                Odjavi me <i class="fal fa-minus-square"></i>
+              </div>
             </div>
           </div>
         </div>
@@ -177,6 +183,9 @@ export default {
   font-size: 13px;
   font-size: 0.65rem;
   padding: 5px 20px;
+}
+.newsletter-box .btn i {
+  margin-left: 8px;
 }
 .newsletter-box .btn-unsub {
   border: 1px solid #111;

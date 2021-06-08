@@ -36,7 +36,7 @@
             <featured :key="posts[0].id" :post="posts[0]"></featured>
           </div>
           <aside
-            class="sixth desktop-only flex column-horizontal-pad column-bottom-border"
+            class="sixth desktop-only flex column-horizontal-pad column-bottom-pad column-bottom-border"
           >
             <client-only>
               <weather></weather>

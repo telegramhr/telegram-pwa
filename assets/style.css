@@ -2932,7 +2932,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 767px) {
     .mini-pretplata {
         order: 1;
     }
@@ -2949,7 +2949,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 767px) {
     .alt-sub-point .half {
       order: 1;
     }
@@ -2957,7 +2957,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
       order: 2;
     }
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 767px) {
     .pretplata-keypoint {
       width: 49.99%;
       padding-top: 16px;
@@ -3091,7 +3091,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     margin-bottom: 20px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 767px) {
     .single-article {
         font-size: 17px;
         font-size: 0.85rem;
@@ -3482,7 +3482,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 767px) {
     header nav .container {
         padding: 24px;
         height: auto;
@@ -3534,6 +3534,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .column-full-pad {
         padding: 24px;
+    }
+    .column-bottom-pad {
+        padding-bottom: 24px;
     }
     .article-featured img {
         margin-bottom: 10px;
@@ -4232,7 +4235,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         padding-top: 0px;
         z-index: 105;
     }
-
+    .single-article-premium .header-billboard > *:first-child {
+        margin-top: 0px;
+    }
     /* Pretplata */
 
     .pretplata-page h1 {
@@ -4240,7 +4245,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 3.4rem;
     }
 }
-@media screen and (max-width: 1024px) and (max-height: 880px) {
+@media screen and (max-width: 767px) and (max-height: 880px) {
     .side-menu .half {
         width: 49.99%;
     }
@@ -4270,7 +4275,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     float: right;
     top: auto;
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 767px) {
     .article-medium {
         padding-left: 0px;
         display: block;
@@ -4307,7 +4312,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         top: -2px;
     }
 }
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 767px) {
     .split-articles .article-medium {
         padding-top: 4px;
     }
@@ -4320,9 +4325,90 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
 }
 
-/* Tablet and big chungus smartphone adjustments */
+/* Tablet style */
+@media screen and (max-width: 1240px) {
+    .single-article .header-headline {
+        max-width: 60%;
+    }
+}
 
-@media screen and (max-width: 1024px) and (min-width: 481px) {
+@media screen and (max-width: 1180px) and (min-width: 767px) {
+    .homepage .block-1 .the-big-gs {
+        position: relative;
+    }
+    .homepage .block-1 .the-big-gs .five-sixths{
+        width: 79.99%;
+    }
+    .homepage .block-1 .the-big-gs .sixth {
+        width: 19.99%;
+    }
+    .header-block-title img {
+        height: 26px;
+    }
+    .site-subtitle {
+        font-size: 14px;
+        font-size: 0.7rem;
+    }
+    .header-block-title h1, .category-page .block-title h1 {
+        font-size: 28px;
+        font-size: 1.4rem;
+    }
+}
+
+@media screen and (max-width: 1025px) and (min-width: 767px) {
+    .homepage .standard-block > .fourth, .homepage .block-1 > .fourth, .block-related > .fourth, .category-page .standard-block .fourth {
+        display: none;
+    }
+    .homepage .standard-block > .three-fourths, .homepage .block-1 > .three-fourths, .block-related > .three-fourths,  .category-page .standard-block .three-fourths {
+        width: 100%;
+    }
+    .elevate-over-section {
+        margin-top: 0px;
+    }
+    .block-title {
+        text-align: center;
+    }
+    .block-title .logo {
+        padding: 0px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .header-block-title {
+        padding-top: 24px;
+    }
+    .five-sixths .article-featured h2 {
+        font-size: 40px;
+        font-size: 2rem;
+    }
+    .native-block .fourth {
+        width: 49.99%;
+    }
+    .native-block .fourth .article-standard {
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+    }
+    .sticky-subheader .menu {
+        display: none;
+    }
+    .single-article-body .mini-pretplata {
+        margin-top: 24px;
+    }
+    .related-header-widget .desktop-only {
+        display: none;
+    }
+    .pretplata-ticker h2 {
+        font-size: 40px;
+        font-size: 2rem;
+    }
+    .pretplata-ticker p {
+        font-size: 14px;
+        font-size: 0.7rem;
+    }
+}
+
+/* Big chungus smartphone adjustments */
+
+@media screen and (max-width: 767px) and (min-width: 481px) {
     html {
         font-size: 25px;
     }
