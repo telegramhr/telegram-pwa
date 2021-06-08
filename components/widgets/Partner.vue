@@ -13,62 +13,6 @@
     <div class="fourth flex-responsive column-full-pad mobile-side-pad">
       <a
         class="full flex article-standard article relative"
-        href="https://www.telegram.hr/partneri/zeljni-ste-sjajnih-vina-i-dobre-spize-onda-biste-iduci-vikend-trebali-biti-u-sibeniku-evo-sto-se-tamo-sprema/"
-        target="_blank"
-      >
-        <img
-          src="https://images.telegram.hr/U_IoxESfx-bisUYCKVlYbhCXFlQkFAdoccsfhV5bElQ/preset:single1/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjEvMDUvdGctbmFzbG92bmEtMjAyMS01LTI4LmpwZw.jpg"
-          alt="Željni ste sjajnih vina i dobre spize? Onda biste idući vikend trebali biti u Šibeniku. Evo što se tamo sprema"
-          loading="lazy"
-        />
-        <div class="full flex article-pad">
-          <div class="full flex desktop-only">
-            <h3 class="overtitle"></h3>
-          </div>
-          <h2 class="full">
-            Željni ste sjajnih vina i dobre spize? Onda biste idući vikend
-            trebali biti u Šibeniku. Evo što se tamo sprema
-          </h2>
-          <h4 class="full"></h4>
-          <h5 class="full flex article-meta">
-            <span class="meta-author"></span>
-            <span class="meta-preporuke"></span>
-            <span class="meta-date"></span>
-          </h5>
-        </div>
-      </a>
-    </div>
-    <div class="fourth flex-responsive column-full-pad mobile-side-pad">
-      <a
-        class="full flex article-standard article relative"
-        href="https://super1.telegram.hr/native/boca-zivota/"
-        target="_blank"
-      >
-        <img
-          src="https://super1.telegram.hr/wp-content/uploads/sites/3/2021/04/lucia-i-suzana-07.jpg"
-          alt="Mi smo nacija koja voli puno pričati. Ja kažem - radi, probaj, vidi. Ovo su naše priče"
-          loading="lazy"
-        />
-        <div class="full flex article-pad">
-          <div class="full flex desktop-only">
-            <h3 class="overtitle"></h3>
-          </div>
-          <h2 class="full">
-            Mi smo nacija koja voli puno pričati. Ja kažem - radi, probaj, vidi.
-            Ovo su naše priče
-          </h2>
-          <h4 class="full"></h4>
-          <h5 class="full flex article-meta">
-            <span class="meta-author"></span>
-            <span class="meta-preporuke"></span>
-            <span class="meta-date"></span>
-          </h5>
-        </div>
-      </a>
-    </div>
-    <div class="fourth flex-responsive column-full-pad mobile-side-pad">
-      <a
-        class="full flex article-standard article relative"
         href="https://www.telegram.hr/partneri/uigrani-tim-ove-cetiri-zene-predvode-digitalizaciju-domace-industrije-osiguranja/"
         target="_blank"
       >
@@ -84,6 +28,62 @@
           <h2 class="full">
             Uigrani tim: Ove četiri žene predvode digitalizaciju domaće
             industrije osiguranja
+          </h2>
+          <h4 class="full"></h4>
+          <h5 class="full flex article-meta">
+            <span class="meta-author"></span>
+            <span class="meta-preporuke"></span>
+            <span class="meta-date"></span>
+          </h5>
+        </div>
+      </a>
+    </div>
+    <div class="fourth flex-responsive column-full-pad mobile-side-pad">
+      <a
+        class="full flex article-standard article relative"
+        href="https://www.telegram.hr/partneri/tijekom-epidemije-slab-odaziv-darivatelja-krvi-lijecnica-poziva-darujte-krv-i-spasite-zivot/"
+        target="_blank"
+      >
+        <img
+          src="https://images.telegram.hr/C9r24qVabajTcRNQlOn6_Qkwd9eD9PWwmCTYTz4d9Eg/preset:single1/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjEvMDYvc2xpa2EtbWFyaWphbmEtbmFkaW5pYy5qcGc.jpg"
+          alt="Tijekom epidemije slab odaziv darivatelja krvi. Liječnica poziva: Darujte krv i spasite život"
+          loading="lazy"
+        />
+        <div class="full flex article-pad">
+          <div class="full flex desktop-only">
+            <h3 class="overtitle"></h3>
+          </div>
+          <h2 class="full">
+            Tijekom epidemije slab odaziv darivatelja krvi. Liječnica poziva:
+            Darujte krv i spasite život
+          </h2>
+          <h4 class="full"></h4>
+          <h5 class="full flex article-meta">
+            <span class="meta-author"></span>
+            <span class="meta-preporuke"></span>
+            <span class="meta-date"></span>
+          </h5>
+        </div>
+      </a>
+    </div>
+    <div class="fourth flex-responsive column-full-pad mobile-side-pad">
+      <a
+        class="full flex article-standard article relative"
+        href="https://www.telegram.hr/partneri/cini-se-da-nas-je-2020-puno-naucila-zivotu-i-zdravlju-ovo-su-4-wellbeing-trenda-u-2021/"
+        target="_blank"
+      >
+        <img
+          src="https://images.telegram.hr/3Bdm6zuO4xGSMZbzMlgZxY9R5202uyqWoqmfDB3iRpk/preset:single2/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjEvMDUvZ2V0dHlpbWFnZXMtMTIxNjUzMjM5MS5qcGc.jpg"
+          alt="Čini se da nas je 2020. puno naučila o životu i zdravlju. Ovo su 4 wellbeing trenda u 2021."
+          loading="lazy"
+        />
+        <div class="full flex article-pad">
+          <div class="full flex desktop-only">
+            <h3 class="overtitle"></h3>
+          </div>
+          <h2 class="full">
+            Čini se da nas je 2020. puno naučila o životu i zdravlju. Ovo su 4
+            wellbeing trenda u 2021.
           </h2>
           <h4 class="full"></h4>
           <h5 class="full flex article-meta">
