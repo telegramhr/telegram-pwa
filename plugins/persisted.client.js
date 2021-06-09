@@ -13,7 +13,6 @@ export default ({ store }) => {
       'category.categories',
       'theme',
       'user',
-      'elections',
     ],
   })(store)
 }

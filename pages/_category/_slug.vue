@@ -737,6 +737,11 @@ export default {
     if (this.$route.params.category !== 'partneri') {
       link.push(amp)
     }
+    const fbPaywall = {
+      none: 'metered',
+      always: 'locked',
+      never: 'free',
+    }
     return {
       title: this.post.title,
       titleTemplate: '%s | Telegram.hr',
@@ -763,51 +768,53 @@ export default {
         },
         {
           hid: 'og:description',
-          name: 'og:description',
           property: 'og:description',
           content: this.post.social.description,
         },
         {
           hid: 'og:type',
-          name: 'og:type',
           property: 'og:type',
           content: 'article',
         },
         {
           hid: 'og:title',
-          name: 'og:title',
           property: 'og:title',
           content: this.post.social.title,
         },
         {
           hid: 'og:image',
-          name: 'og:image',
           property: 'og:image',
           content: this.post.social.image,
         },
         {
           hid: 'og:image:width',
-          name: 'og:image:width',
           property: 'og:image:width',
           content: this.post.social.width,
         },
         {
           hid: 'og:image:height',
-          name: 'og:image:height',
           property: 'og:image:height',
           content: this.post.social.height,
         },
         {
           hid: 'og:url',
-          name: 'og:url',
           property: 'og:url',
           content: this.post.social.path,
         },
         {
           hid: 'fb:app_id',
-          name: 'fb:app_id',
           property: 'fb:app_id',
           content: '1383786971938581',
+        },
+        {
+          hid: 'article:opinion',
+          property: 'article:opinion',
+          content: this.post.category === 'Komentari',
+        },
+        {
+          hid: 'article:content_tier',
+          property: 'article:content_tier',
+          content: fbPaywall[this.post.paywall],
         },
         {
           hid: 'twitter:card',

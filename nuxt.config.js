@@ -60,7 +60,7 @@ export default {
       {
         hid: 'facebook',
         src:
-          'https://connect.facebook.net/hr_HR/sdk.js#xfbml=1&version=v9.0&appId=1383786971938581',
+          'https://connect.facebook.net/hr_HR/sdk.js#xfbml=1&version=v11.0&appId=1383786971938581',
         async: true,
         defer: true,
         crossorigin: 'anonymous',
