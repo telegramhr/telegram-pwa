@@ -111,21 +111,25 @@
           >
             <featured :key="posts[8].id" :post="posts[8]"></featured>
             <div class="full flex split-articles">
-              <medium
-                v-for="i in [9, 10, 11]"
-                :key="posts[i].id"
-                :post="posts[i]"
-              ></medium>
+              <template v-for="i in [9, 10, 11]">
+                <medium
+                  v-if="posts[i]"
+                  :key="posts[i].id"
+                  :post="posts[i]"
+                ></medium>
+              </template>
             </div>
           </section>
           <section
             class="third flex-responsive flex mobile-side-pad column-horizontal-pad"
           >
-            <standard
-              v-for="i in [12, 13, 14]"
-              :key="posts[i].id"
-              :post="posts[i]"
-            ></standard>
+            <template v-for="i in [12, 13, 14]">
+              <standard
+                v-if="posts[i]"
+                :key="posts[i].id"
+                :post="posts[i]"
+              ></standard>
+            </template>
           </section>
         </div>
         <div v-if="morePosts.length" class="full flex">
