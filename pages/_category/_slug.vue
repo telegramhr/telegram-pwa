@@ -245,8 +245,7 @@
                       class="classic-btn clickable animate"
                       @click="comments = !comments"
                     >
-                      {{ post.comments }}
-                      {{ post.comments === 1 ? 'komentar' : 'komentara' }}
+                      Komentari
                     </div>
                   </div>
                 </div>
@@ -585,7 +584,7 @@ export default {
       scriptTag.async = true
       scriptTag.id = 'midas-phrygia'
       scriptTag.setAttribute('data-widget', widget)
-      container.parentNode.insertBefore(scriptTag, container)
+      container.parentNode.append(scriptTag)
     },
     loadMox() {
       if (this.$store.state.user.access) {
