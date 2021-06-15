@@ -173,7 +173,7 @@
                   >
                 </template>
                 <span class="meta-date">{{ post.time | parseTime }}</span>
-                <span class="meta-preporuke"
+                <span v-if="post.recommendations" class="meta-preporuke"
                   >{{ post.recommendations }} preporuka</span
                 >
                 <div class="sidebar-social flex">
