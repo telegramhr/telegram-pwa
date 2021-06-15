@@ -39,7 +39,7 @@
             ><i>Piše</i>
             {{ post.authors.length ? post.authors[0].name : '' }}</span
           >
-          <span class="meta-preporuke"
+          <span v-if="post.recommendations" class="meta-preporuke"
             >{{ post.recommendations }} preporuka</span
           >
           <span class="meta-date">{{ post.time | parseTime }}</span>

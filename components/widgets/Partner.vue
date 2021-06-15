@@ -13,12 +13,12 @@
     <div class="fourth flex-responsive column-full-pad mobile-side-pad">
       <a
         class="full flex article-standard article relative"
-        href="https://www.telegram.hr/partneri/uigrani-tim-ove-cetiri-zene-predvode-digitalizaciju-domace-industrije-osiguranja/"
+        href="https://www.telegram.hr/partneri/sibenik-postaje-kulturna-meka-dalmacije-a-za-sve-je-zasluzan-tim-kreativaca-pricali-smo-s-njima/"
         target="_blank"
       >
         <img
-          src="https://images.telegram.hr/RlEoPXdFpQBi99cRH-B99wGqSIP38z9VAn98J73riGw/preset:single2/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjEvMDUvY28temFqZWRuaWNrYS5qcGc.jpg"
-          alt="igrani tim: Ove četiri žene predvode digitalizaciju domaće industrije osiguranja"
+          src="https://www.telegram.hr/wp-content/uploads/2021/06/tvrdjava-sv-mihovila-sibenik-8-scaled.jpg"
+          alt="Šibenik postaje kulturna meka Dalmacije, a za sve je zaslužan tim kreativaca. Pričali smo s njima"
           loading="lazy"
         />
         <div class="full flex article-pad">
@@ -26,36 +26,8 @@
             <h3 class="overtitle"></h3>
           </div>
           <h2 class="full">
-            Uigrani tim: Ove četiri žene predvode digitalizaciju domaće
-            industrije osiguranja
-          </h2>
-          <h4 class="full"></h4>
-          <h5 class="full flex article-meta">
-            <span class="meta-author"></span>
-            <span class="meta-preporuke"></span>
-            <span class="meta-date"></span>
-          </h5>
-        </div>
-      </a>
-    </div>
-    <div class="fourth flex-responsive column-full-pad mobile-side-pad">
-      <a
-        class="full flex article-standard article relative"
-        href="https://www.telegram.hr/partneri/tijekom-epidemije-slab-odaziv-darivatelja-krvi-lijecnica-poziva-darujte-krv-i-spasite-zivot/"
-        target="_blank"
-      >
-        <img
-          src="https://images.telegram.hr/C9r24qVabajTcRNQlOn6_Qkwd9eD9PWwmCTYTz4d9Eg/preset:single1/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjEvMDYvc2xpa2EtbWFyaWphbmEtbmFkaW5pYy5qcGc.jpg"
-          alt="Tijekom epidemije slab odaziv darivatelja krvi. Liječnica poziva: Darujte krv i spasite život"
-          loading="lazy"
-        />
-        <div class="full flex article-pad">
-          <div class="full flex desktop-only">
-            <h3 class="overtitle"></h3>
-          </div>
-          <h2 class="full">
-            Tijekom epidemije slab odaziv darivatelja krvi. Liječnica poziva:
-            Darujte krv i spasite život
+            Šibenik postaje kulturna meka Dalmacije, a za sve je zaslužan tim
+            kreativaca. Pričali smo s njima
           </h2>
           <h4 class="full"></h4>
           <h5 class="full flex article-meta">
@@ -73,7 +45,7 @@
         target="_blank"
       >
         <img
-          src="https://images.telegram.hr/3Bdm6zuO4xGSMZbzMlgZxY9R5202uyqWoqmfDB3iRpk/preset:single2/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjEvMDUvZ2V0dHlpbWFnZXMtMTIxNjUzMjM5MS5qcGc.jpg"
+          src="https://images.telegram.hr/5XyeTEoRdYN-Ix8ONCGVLkE9d86Qg-U-ROqMYYURIZs/preset:single1/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjEvMDYvZ2V0dHlpbWFnZXMtMTIxMzEyODE5Mi1zY2FsZWQuanBn.jpg"
           alt="Čini se da nas je 2020. puno naučila o životu i zdravlju. Ovo su 4 wellbeing trenda u 2021."
           loading="lazy"
         />
@@ -82,8 +54,36 @@
             <h3 class="overtitle"></h3>
           </div>
           <h2 class="full">
-            Čini se da nas je 2020. puno naučila o životu i zdravlju. Ovo su 4
-            wellbeing trenda u 2021.
+            Urbano vrtlarstvo kao posljedica pandemije? Saznali smo što još
+            dobroga nosi 2021.
+          </h2>
+          <h4 class="full"></h4>
+          <h5 class="full flex article-meta">
+            <span class="meta-author"></span>
+            <span class="meta-preporuke"></span>
+            <span class="meta-date"></span>
+          </h5>
+        </div>
+      </a>
+    </div>
+    <div class="fourth flex-responsive column-full-pad mobile-side-pad">
+      <a
+        class="full flex article-standard article relative"
+        href="https://super1.telegram.hr/native/zavolimo-svoju-kozu/"
+        target="_blank"
+      >
+        <img
+          src="https://images.telegram.hr/zNVD_h6IFyO9O3PCC8ZmfL-fjNkSrwpxwXmh-9ZeWcE/preset:single1/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjEvMDYvaW1nLTYzMjQuanBn.jpg"
+          alt="Crvenilo i akne? Ove četiri žene uspjele su zavoljeti svoju kožu unatoč svemu. Ovo je njihova priča"
+          loading="lazy"
+        />
+        <div class="full flex article-pad">
+          <div class="full flex desktop-only">
+            <h3 class="overtitle"></h3>
+          </div>
+          <h2 class="full">
+            Crvenilo i akne? Ove četiri žene uspjele su zavoljeti svoju kožu
+            unatoč svemu. Ovo je njihova priča
           </h2>
           <h4 class="full"></h4>
           <h5 class="full flex article-meta">

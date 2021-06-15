@@ -40,7 +40,7 @@
           {{ post.portal_title }}
         </h2>
         <h5 class="full flex article-meta">
-          <span class="meta-preporuke"
+          <span v-if="post.recommendations" class="meta-preporuke"
             >{{ post.recommendations }} preporuka</span
           >
           <span class="meta-date">{{ post.time | parseTime }}</span>

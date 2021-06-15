@@ -22,7 +22,9 @@
         <span v-if="post.authors.length" class="meta-author"
           ><i>Piše</i> {{ post.authors[0].name }}</span
         >
-        <span class="meta-preporuke">{{ post.recommendations }} preporuka</span>
+        <span v-if="post.recommendations" class="meta-preporuke"
+          >{{ post.recommendations }} preporuka</span
+        >
         <span class="meta-date">{{ post.time | parseTime }}</span>
       </h5>
     </div>
