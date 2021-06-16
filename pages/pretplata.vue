@@ -81,7 +81,8 @@
                   <i class="fas fa-check"></i> surfanje bez oglasa
                 </p>
                 <p class="full animate">
-                  <i class="fas fa-check"></i> nakon 3 mjeseca gratis knjiga u izdanju Telegrama<a
+                  <i class="fas fa-check"></i> nakon 3 mjeseca gratis knjiga u
+                  izdanju Telegrama<a
                     href="#knjige-disclaimer"
                     onclick="document.getElementById('knjige-disclaimer').open = true;"
                     >*</a
@@ -138,7 +139,8 @@
                   <i class="fas fa-check"></i> surfanje bez oglasa
                 </p>
                 <p class="full animate">
-                  <i class="fas fa-check"></i> gratis knjiga u izdanju Telegrama<a
+                  <i class="fas fa-check"></i> gratis knjiga u izdanju
+                  Telegrama<a
                     href="#knjige-disclaimer"
                     onclick="document.getElementById('knjige-disclaimer').open = true;"
                     >*</a
@@ -628,6 +630,7 @@ export default {
             termId,
             templateId: window.tp.sandbox ? 'OTTXZFQ6FGFC' : 'OTXWXSOL0WWS',
             checkoutFlowId: window.tp.sandbox ? 'CF8Q59Z3RJ5G' : 'CF65KTMVQXXX',
+            promoCode: this.$route.query.promo_code,
             closeOnLogout: true,
             complete: () => {
               _that.$store.dispatch('user/checkAccess')

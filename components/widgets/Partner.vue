@@ -10,15 +10,20 @@
         <h2 class="full">Pročitajte još...</h2>
       </div>
     </div>
-    <div class="fourth flex-responsive column-full-pad mobile-side-pad">
+    <div
+      v-for="post in posts"
+      :key="post.image.id"
+      class="fourth flex-responsive column-full-pad mobile-side-pad"
+    >
       <a
         class="full flex article-standard article relative"
-        href="https://www.telegram.hr/partneri/sibenik-postaje-kulturna-meka-dalmacije-a-za-sve-je-zasluzan-tim-kreativaca-pricali-smo-s-njima/"
+        :href="post.permalink"
         target="_blank"
       >
         <img
-          src="https://www.telegram.hr/wp-content/uploads/2021/06/tvrdjava-sv-mihovila-sibenik-8-scaled.jpg"
-          alt="Šibenik postaje kulturna meka Dalmacije, a za sve je zaslužan tim kreativaca. Pričali smo s njima"
+          :src="post.image.url"
+          :srcset="srcset(post)"
+          :alt="post.title"
           loading="lazy"
         />
         <div class="full flex article-pad">
@@ -26,8 +31,7 @@
             <h3 class="overtitle"></h3>
           </div>
           <h2 class="full">
-            Šibenik postaje kulturna meka Dalmacije, a za sve je zaslužan tim
-            kreativaca. Pričali smo s njima
+            {{ post.title }}
           </h2>
           <h4 class="full"></h4>
           <h5 class="full flex article-meta">
@@ -38,65 +42,9 @@
         </div>
       </a>
     </div>
-    <div class="fourth flex-responsive column-full-pad mobile-side-pad">
-      <a
-        class="full flex article-standard article relative"
-        href="https://www.telegram.hr/partneri/cini-se-da-nas-je-2020-puno-naucila-zivotu-i-zdravlju-ovo-su-4-wellbeing-trenda-u-2021/"
-        target="_blank"
-      >
-        <img
-          src="https://images.telegram.hr/5XyeTEoRdYN-Ix8ONCGVLkE9d86Qg-U-ROqMYYURIZs/preset:single1/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjEvMDYvZ2V0dHlpbWFnZXMtMTIxMzEyODE5Mi1zY2FsZWQuanBn.jpg"
-          alt="Čini se da nas je 2020. puno naučila o životu i zdravlju. Ovo su 4 wellbeing trenda u 2021."
-          loading="lazy"
-        />
-        <div class="full flex article-pad">
-          <div class="full flex desktop-only">
-            <h3 class="overtitle"></h3>
-          </div>
-          <h2 class="full">
-            Urbano vrtlarstvo kao posljedica pandemije? Saznali smo što još
-            dobroga nosi 2021.
-          </h2>
-          <h4 class="full"></h4>
-          <h5 class="full flex article-meta">
-            <span class="meta-author"></span>
-            <span class="meta-preporuke"></span>
-            <span class="meta-date"></span>
-          </h5>
-        </div>
-      </a>
-    </div>
-    <div class="fourth flex-responsive column-full-pad mobile-side-pad">
-      <a
-        class="full flex article-standard article relative"
-        href="https://super1.telegram.hr/native/zavolimo-svoju-kozu/"
-        target="_blank"
-      >
-        <img
-          src="https://images.telegram.hr/zNVD_h6IFyO9O3PCC8ZmfL-fjNkSrwpxwXmh-9ZeWcE/preset:single1/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjEvMDYvaW1nLTYzMjQuanBn.jpg"
-          alt="Crvenilo i akne? Ove četiri žene uspjele su zavoljeti svoju kožu unatoč svemu. Ovo je njihova priča"
-          loading="lazy"
-        />
-        <div class="full flex article-pad">
-          <div class="full flex desktop-only">
-            <h3 class="overtitle"></h3>
-          </div>
-          <h2 class="full">
-            Crvenilo i akne? Ove četiri žene uspjele su zavoljeti svoju kožu
-            unatoč svemu. Ovo je njihova priča
-          </h2>
-          <h4 class="full"></h4>
-          <h5 class="full flex article-meta">
-            <span class="meta-author"></span>
-            <span class="meta-preporuke"></span>
-            <span class="meta-date"></span>
-          </h5>
-        </div>
-      </a>
-    </div>
-    <h5 class="full center-text special-partner-signature hide">
+    <!--<h5 class="full center-text special-partner-signature hide">
       <span class="faded">Omogućuje</span> {{ title }}
-    </h5>
+    </h5>-->
     <div class="line-decoration-box animate">
       <div class="line-1 animate"></div>
       <div class="line-2 animate"></div>
@@ -169,12 +117,11 @@
 <script>
 export default {
   name: 'Partner',
-  /* async fetch() {
+  async fetch() {
     await this.$axios.$get('/api/partner-widget').then((res) => {
       this.posts = res.posts
-      this.title = res.title
     })
-  }, */
+  },
   data() {
     return {
       posts: [],
