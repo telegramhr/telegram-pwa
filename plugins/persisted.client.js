@@ -13,6 +13,8 @@ export default ({ store }) => {
       'category.categories',
       'theme',
       'user',
+      'partner',
+      'break',
     ],
   })(store)
 }

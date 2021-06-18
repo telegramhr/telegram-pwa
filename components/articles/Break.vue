@@ -49,40 +49,10 @@
 <script>
 export default {
   name: 'Break',
-  data() {
-    return {
-      post: {
-        id: 0,
-        type: '',
-        image: {
-          url: '',
-          alt: '',
-          author: '',
-        },
-        authors: [
-          {
-            url: '',
-            name: '',
-            image: '',
-          },
-        ],
-        overtitle: '',
-        title: '',
-        subtitle: '',
-        content: '',
-        recommendations: 0,
-        comments: 0,
-        time: 0,
-        tags: [],
-        social: {
-          title: '',
-          description: '',
-          image: '',
-        },
-      },
-    }
-  },
   computed: {
+    post() {
+      return this.$store.state.break.post
+    },
     srcset() {
       let set = `${this.post.image.url}`
       if (this.post.image.url2) {
@@ -95,14 +65,7 @@ export default {
     },
   },
   mounted() {
-    this.$axios
-      .get('/api/big-break')
-      .then((res) => {
-        this.post = res.data
-      })
-      .catch(() => {
-        // TODO: error logging
-      })
+    this.$store.dispatch('break/pullPosts')
   },
 }
 </script>
