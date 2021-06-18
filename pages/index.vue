@@ -77,10 +77,12 @@
           </div>
         </section>
       </div>
-      <big-featured></big-featured>
-      <section class="full mobile-only">
-        <break></break>
-      </section>
+      <client-only>
+        <big-featured></big-featured>
+        <section class="full mobile-only">
+          <break></break>
+        </section>
+      </client-only>
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
       </div>
@@ -164,29 +166,29 @@
         <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
       </div>
       <midas></midas>
-      <div class="full flex mobile-only">
-        <knjiga></knjiga>
+      <div v-show="$mobile" class="full flex mobile-only">
+        <lazy-knjiga></lazy-knjiga>
       </div>
-      <partners></partners>
+      <lazy-partners></lazy-partners>
       <client-only>
-        <sport></sport>
+        <lazy-sport></lazy-sport>
       </client-only>
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v4"></ad-unit>
       </div>
       <client-only>
-        <super></super>
+        <lazy-super1></lazy-super1>
       </client-only>
       <div class="full flex">
         <div class="container desktop-only flex relative column-full-pad"></div>
       </div>
       <div class="container flex relative block-5 standard-block">
         <client-only>
-          <category slug="zivot"></category>
-          <category slug="biznis-tech"></category>
-          <category slug="kultura"></category>
-          <category slug="velike-price"></category>
-          <most-read v-show="$mobile"></most-read>
+          <lazy-category slug="zivot"></lazy-category>
+          <lazy-category slug="biznis-tech"></lazy-category>
+          <lazy-category slug="kultura"></lazy-category>
+          <lazy-category slug="velike-price"></lazy-category>
+          <lazy-most-read v-show="$mobile"></lazy-most-read>
         </client-only>
       </div>
     </div>
@@ -195,10 +197,7 @@
 </template>
 
 <script>
-import Sport from '~/components/Elements/Sport'
-import Super from '~/components/Elements/Super1'
 export default {
-  components: { Super, Sport },
   async fetch() {
     await this.$store.dispatch('featured/pullPosts')
   },

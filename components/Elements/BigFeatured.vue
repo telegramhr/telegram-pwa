@@ -1,5 +1,5 @@
 <template>
-  <section v-if="post.id" class="full desktop-only">
+  <section v-show="post.id" class="full desktop-only">
     <app-link
       :to="post.permalink"
       class="immersive-break flex"

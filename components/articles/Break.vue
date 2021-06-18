@@ -1,6 +1,6 @@
 <template>
   <app-link
-    v-if="post.id"
+    v-show="post.id"
     class="full flex article-break article relative"
     :to="post.permalink"
     :aria-labelledby="'break-' + post.id"

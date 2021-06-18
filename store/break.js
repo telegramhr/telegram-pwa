@@ -1,5 +1,8 @@
 export const state = () => ({
-  post: {},
+  post: {
+    id: 0,
+    color: '',
+  },
   updated: null,
 })
 
