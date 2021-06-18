@@ -69,6 +69,9 @@ export default {
   },
   methods: {
     loadPosts() {
+      if (!this.$storageAvailable) {
+        return
+      }
       this.$axios
         .post('https://api.cxense.com/public/widget/data', {
           widgetId: 'eb43035256b53a5328fa62b38d8d96bde4e44037',

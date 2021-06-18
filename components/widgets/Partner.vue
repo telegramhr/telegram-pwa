@@ -11,7 +11,7 @@
       </div>
     </div>
     <div
-      v-for="post in posts"
+      v-for="post in $store.state.partner.posts"
       :key="post.image.id"
       class="fourth flex-responsive column-full-pad mobile-side-pad"
     >
@@ -117,16 +117,11 @@
 <script>
 export default {
   name: 'Partner',
-  async fetch() {
-    await this.$axios.$get('/api/partner-widget').then((res) => {
-      this.posts = res.posts
-    })
-  },
-  data() {
-    return {
-      posts: [],
-      title: '',
+  mounted() {
+    if (!this.$storageAvailable) {
+      return
     }
+    this.$store.dispatch('partner/pullPosts')
   },
   methods: {
     srcset(post) {

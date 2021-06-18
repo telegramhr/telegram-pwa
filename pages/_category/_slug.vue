@@ -272,7 +272,9 @@
           </article>
         </div>
         <div class="full flex">
-          <partner></partner>
+          <client-only>
+            <partner></partner>
+          </client-only>
         </div>
         <div class="full flex">
           <div

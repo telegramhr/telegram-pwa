@@ -15,6 +15,9 @@ export default {
     }
   },
   mounted() {
+    if (!this.$storageAvailable) {
+      return
+    }
     this.$axios
       .get('/api/commentary')
       .then((res) => {
