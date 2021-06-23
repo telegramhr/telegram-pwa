@@ -606,7 +606,7 @@ export default {
   methods: {
     checkout(termId) {
       if (this.$store.state.user.token) {
-        this.checkout2(termId)
+        this.checkout2(termId, -1)
       } else {
         const _that = this
         window.tp.pianoId.show({
@@ -615,12 +615,12 @@ export default {
           loggedIn(data) {
             _that.$store.dispatch('user/setUser', data.user)
             // window.location.reload()
-            _that.checkout2(termId)
+            _that.checkout2(termId, -2)
           },
         })
       }
     },
-    checkout2(termId) {
+    checkout2(termId, back) {
       const _that = this
       window.tp.push([
         'init',
@@ -643,7 +643,7 @@ export default {
                   }
                 )
                 .then(() => {
-                  _that.$router.back()
+                  _that.$router.go(back)
                 })
             },
           })
