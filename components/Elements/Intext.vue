@@ -30,7 +30,7 @@ export default {
   name: 'Intext',
   data() {
     return {
-      show: false,
+      show: true,
       title: 'Pročitali ste sve besplatne članke u ovom mjesecu.',
     }
   },
