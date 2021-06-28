@@ -2448,7 +2448,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     text-align: center;
     display: block;
     z-index: 200;
+    cursor: pointer;
 }
+.pretplata-intext .altbtn {
+    background-color: #333;
+    margin-left: 8px;
+} 
 .pretplata-intext .login-sidebtn {
     position: absolute;
     bottom: -48px;

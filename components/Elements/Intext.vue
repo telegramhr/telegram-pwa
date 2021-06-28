@@ -1,9 +1,5 @@
 <template>
-  <app-link
-    v-show="show"
-    to="/pretplata"
-    class="full flex relative pretplata-intext"
-  >
+  <div v-show="show" class="full flex relative pretplata-intext">
     <div class="full center">
       <img
         src="@/assets/img/tg_neue_favicon.png"
@@ -17,12 +13,10 @@
       pretplatite se na Telegram.
     </p>
     <div class="full center">
-      <div class="btn">Pretplatite se</div>
-      <div class="login-sidebtn animate" @click.prevent="login">
-        Već imate pretplatu? Prijavite se
-      </div>
+      <app-link to="/pretplata" class="btn">Pretplatite se</app-link>
+      <div class="btn altbtn" @click.prevent="login">Već imam pretplatu</div>
     </div>
-  </app-link>
+  </div>
 </template>
 
 <script>
