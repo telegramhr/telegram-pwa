@@ -2454,6 +2454,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     background-color: #333;
     margin-left: 8px;
 } 
+@media screen and (max-width: 400px) {
+    .pretplata-intext .btn {
+        padding: 2px 16px;
+        font-size: 0.5rem;
+    }
+}
 .pretplata-intext .login-sidebtn {
     position: absolute;
     bottom: -48px;
