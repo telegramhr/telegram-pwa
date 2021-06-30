@@ -481,7 +481,7 @@
           </div>
         </client-only>
       </div>
-      <div v-if="breaking" class="full desktop-only">
+      <div class="full desktop-only">
         <breaking></breaking>
       </div>
       <nav class="full flex homepage-exclusive animate">
