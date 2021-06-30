@@ -45,11 +45,11 @@
           <span class="meta-date">{{ post.time | parseTime }}</span>
         </h5>
       </app-link>
-      <template v-if="related.length">
+      <template v-if="post.related && post.related.length">
         <div class="full flex related-articles relative">
           <h5 class="full">Još o temi</h5>
           <app-link
-            v-for="article in related"
+            v-for="article in post.related"
             :key="'related' + article.id"
             class="full flex"
             :to="article.permalink"
@@ -73,6 +73,7 @@ export default {
       default() {
         return {
           id: '',
+          related: [],
           image: {
             url: '',
             alt: '',
