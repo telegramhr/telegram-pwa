@@ -15,6 +15,7 @@ export default ({ store }) => {
       'user',
       'partner',
       'break',
+      'breaking',
     ],
   })(store)
 }
