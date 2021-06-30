@@ -15,7 +15,7 @@ export const mutations = {
 export const actions = {
   pullPosts({ commit, state }) {
     if (state.updated + 5 * 60 * 1000 < new Date().getTime()) {
-      this.$axios.get('/api/braking').then((res) => {
+      this.$axios.get('/api/breaking').then((res) => {
         commit('setPosts', res.data.title)
       })
     }
