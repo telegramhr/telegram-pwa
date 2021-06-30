@@ -1,7 +1,9 @@
 <template>
   <div v-show="$store.state.breaking.on" class="full flex breaking-news">
     <div class="container column-full-pad">
-      <b>Breaking:</b> {{ $store.state.breaking.title }}
+      <nuxt-link :to="$store.state.breaking.link"
+        ><b>Breaking:</b> {{ $store.state.breaking.title }}</nuxt-link
+      >
     </div>
   </div>
 </template>
