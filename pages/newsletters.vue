@@ -80,10 +80,14 @@
                 otkrivaju krupne afere radi kojih odlaze ministri i objašnjavaju
                 kontekst dnevnih događaja.
               </p>
-              <div v-if="hasSub(2254)" class="btn animate btn-unsub">
+              <div
+                v-if="hasSub(2554)"
+                class="btn animate btn-unsub"
+                @click="unsub(2554)"
+              >
                 Odjavi me <i class="fal fa-minus-square"></i>
               </div>
-              <div v-else class="btn animate">
+              <div v-else class="btn animate" @click="sub(2554)">
                 Prijavi me <i class="fal fa-plus-square"></i>
               </div>
             </div>
@@ -111,10 +115,14 @@
                 otkrivaju krupne afere radi kojih odlaze ministri i objašnjavaju
                 kontekst dnevnih događaja.
               </p>
-              <div v-if="hasSub(2555)" class="btn animate btn-unsub">
+              <div
+                v-if="hasSub(2555)"
+                class="btn animate btn-unsub"
+                @click="unsub(2555)"
+              >
                 Odjavi me <i class="fal fa-minus-square"></i>
               </div>
-              <div v-else class="btn animate">
+              <div v-else class="btn animate" @click="sub(2555)">
                 Prijavi me <i class="fal fa-plus-square"></i>
               </div>
             </div>
