@@ -43,8 +43,15 @@
                 otkrivaju krupne afere radi kojih odlaze ministri i objašnjavaju
                 kontekst dnevnih događaja.
               </p>
-              <div class="btn animate btn-unsub">
+              <div
+                v-if="hasSub(2128)"
+                class="btn animate btn-unsub"
+                @click="unsub(2128)"
+              >
                 Odjavi me <i class="fal fa-minus-square"></i>
+              </div>
+              <div v-else class="btn animate" @click="sub(2128)">
+                Prijavi me <i class="fal fa-plus-square"></i>
               </div>
             </div>
           </div>
@@ -59,9 +66,11 @@
                 />
               </div>
               <div class="full relative">
-                <h3 class="full overtitle">Svaki dan</h3>
-                <h2 class="full newsletter-title">Tjedni Telegram</h2>
-                <h3 class="full subtitle">Kuriraju naši autori</h3>
+                <h3 class="full overtitle">Ponedjeljkom</h3>
+                <h2 class="full newsletter-title">Možda ste propustili</h2>
+                <h3 class="full subtitle">
+                  Vijesti koje možda niste pročitali
+                </h3>
               </div>
             </div>
             <div class="full flex newsletter-box">
@@ -71,7 +80,10 @@
                 otkrivaju krupne afere radi kojih odlaze ministri i objašnjavaju
                 kontekst dnevnih događaja.
               </p>
-              <div class="btn animate">
+              <div v-if="hasSub(2254)" class="btn animate btn-unsub">
+                Odjavi me <i class="fal fa-minus-square"></i>
+              </div>
+              <div v-else class="btn animate">
                 Prijavi me <i class="fal fa-plus-square"></i>
               </div>
             </div>
@@ -87,8 +99,8 @@
                 />
               </div>
               <div class="full relative">
-                <h3 class="full overtitle">Svaki dan</h3>
-                <h2 class="full newsletter-title">Teme za Vas</h2>
+                <h3 class="full overtitle">Petak</h3>
+                <h2 class="full newsletter-title">Vikend na Telegramu</h2>
                 <h3 class="full subtitle">Personaliziran za čitatelja</h3>
               </div>
             </div>
@@ -99,8 +111,11 @@
                 otkrivaju krupne afere radi kojih odlaze ministri i objašnjavaju
                 kontekst dnevnih događaja.
               </p>
-              <div class="btn animate btn-unsub">
+              <div v-if="hasSub(2555)" class="btn animate btn-unsub">
                 Odjavi me <i class="fal fa-minus-square"></i>
+              </div>
+              <div v-else class="btn animate">
+                Prijavi me <i class="fal fa-plus-square"></i>
               </div>
             </div>
           </div>
@@ -114,6 +129,82 @@
 <script>
 export default {
   name: 'Newsletters',
+  data() {
+    return {
+      api_key: 'V2rR5WTQbQyHEqCMvFEaUGU3ZNVkt4s6hnvmCz9dXt9aUwzMaUmXAhVzmv83',
+      lists: {
+        2128: false,
+        2554: false,
+        2555: false,
+      },
+    }
+  },
+  mounted() {
+    this.checkAccess()
+  },
+  methods: {
+    checkAccess() {
+      Object.keys(this.lists).forEach((key) => {
+        if (this.$store.state.user.email && key) {
+          this.$axios
+            .get(
+              `https://api-esp.piano.io/tracker/securesub/email/${this.$store.state.user.email}/ml/${key}?api_key=${this.api_key}`
+            )
+            .then(() => {
+              this.lists[key] = true
+            })
+            .catch(() => {
+              this.lists[key] = false
+            })
+        }
+      })
+    },
+    hasSub(mlid) {
+      return this.lists[mlid]
+    },
+    sub(mlid) {
+      if (!this.$store.state.user.email) {
+        // no user, prompt to login
+        const _that = this
+        window.tp.pianoId.show({
+          screen: 'login',
+          width: window.innerWidth > 720 ? 600 : 375,
+          loggedIn(data) {
+            _that.$store.dispatch('user/setUser', data.user)
+            // window.location.reload()
+            _that.sub(mlid)
+          },
+        })
+      } else {
+        this.$axios
+          .post(
+            'https://api-esp.piano.io/tracker/securesub?api_key=V2rR5WTQbQyHEqCMvFEaUGU3ZNVkt4s6hnvmCz9dXt9aUwzMaUmXAhVzmv83',
+            {
+              email: this.$store.state.user.email,
+              mlids: [mlid],
+            }
+          )
+          .then(() => {
+            this.lists[mlid] = true
+          })
+      }
+    },
+    unsub(mlid) {
+      this.$axios
+        .delete(
+          'https://api-esp.piano.io/tracker/securesub?api_key=V2rR5WTQbQyHEqCMvFEaUGU3ZNVkt4s6hnvmCz9dXt9aUwzMaUmXAhVzmv83',
+          {
+            data: {
+              email: this.$store.state.user.email,
+              mlids: [mlid],
+            },
+          }
+        )
+        .then(() => {
+          this.lists[mlid] = false
+        })
+    },
+  },
 }
 </script>
 

@@ -2,6 +2,11 @@ export const state = () => ({
   post: {
     id: 0,
     color: '',
+    image: {
+      url: '',
+      alt: '',
+      color: '',
+    },
   },
   updated: null,
 })
