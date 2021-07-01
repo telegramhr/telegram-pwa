@@ -157,7 +157,14 @@
                   na čelu Hrvatskog jedriličarskog saveza, od 2000. do 2008.
                   Objavljuje redovne kolumne i analize u Telegramu.
                 </p>
-                <div class="btn animate">
+                <div
+                  v-if="hasSub(2559)"
+                  class="btn animate btn-unsub"
+                  @click="unsub(2559)"
+                >
+                  Odjavi me <i class="fal fa-minus-square"></i>
+                </div>
+                <div v-else class="btn animate" @click="sub(2559)">
                   Prijavi me <i class="fal fa-plus-square"></i>
                 </div>
               </div>
@@ -188,7 +195,14 @@
                   listu (urednica Politike, pomoćnica glavnog urednika). Pisala
                   za Feral i niz drugih izdanja.
                 </p>
-                <div class="btn animate">
+                <div
+                  v-if="hasSub(2560)"
+                  class="btn animate btn-unsub"
+                  @click="unsub(2560)"
+                >
+                  Odjavi me <i class="fal fa-minus-square"></i>
+                </div>
+                <div v-else class="btn animate" @click="sub(2560)">
                   Prijavi me <i class="fal fa-plus-square"></i>
                 </div>
               </div>
@@ -217,7 +231,14 @@
                   Harriman istog sveučilišta stekao je i diplomu iz ruskih,
                   eurazijskih i istočnoeuropskih studija.
                 </p>
-                <div class="btn animate">
+                <div
+                  v-if="hasSub(2561)"
+                  class="btn animate btn-unsub"
+                  @click="unsub(2561)"
+                >
+                  Odjavi me <i class="fal fa-minus-square"></i>
+                </div>
+                <div v-else class="btn animate" @click="sub(2561)">
                   Prijavi me <i class="fal fa-plus-square"></i>
                 </div>
               </div>
@@ -245,7 +266,14 @@
                   otkrivaju krupne afere radi kojih odlaze ministri i
                   objašnjavaju kontekst dnevnih događaja.
                 </p>
-                <div class="btn animate">
+                <div
+                  v-if="hasSub(2562)"
+                  class="btn animate btn-unsub"
+                  @click="unsub(2562)"
+                >
+                  Odjavi me <i class="fal fa-minus-square"></i>
+                </div>
+                <div v-else class="btn animate" @click="sub(2562)">
                   Prijavi me <i class="fal fa-plus-square"></i>
                 </div>
               </div>
@@ -273,7 +301,14 @@
                   otkrivaju krupne afere radi kojih odlaze ministri i
                   objašnjavaju kontekst dnevnih događaja.
                 </p>
-                <div class="btn animate">
+                <div
+                  v-if="hasSub(2563)"
+                  class="btn animate btn-unsub"
+                  @click="unsub(2563)"
+                >
+                  Odjavi me <i class="fal fa-minus-square"></i>
+                </div>
+                <div v-else class="btn animate" @click="sub(2563)">
                   Prijavi me <i class="fal fa-plus-square"></i>
                 </div>
               </div>
@@ -309,7 +344,14 @@
                   Tribune i Jutarnji list, u kojem je bio zaposlen od 2008.
                   godine kao jedan od glavnih istraživačkih novinara.
                 </p>
-                <div class="btn animate">
+                <div
+                  v-if="hasSub(2564)"
+                  class="btn animate btn-unsub"
+                  @click="unsub(2564)"
+                >
+                  Odjavi me <i class="fal fa-minus-square"></i>
+                </div>
+                <div v-else class="btn animate" @click="sub(2564)">
                   Prijavi me <i class="fal fa-plus-square"></i>
                 </div>
               </div>
@@ -338,7 +380,14 @@
                   procesa što ga nije pratila ili teškog kriminala o kojem nije
                   izvještavala.
                 </p>
-                <div class="btn animate">
+                <div
+                  v-if="hasSub(2565)"
+                  class="btn animate btn-unsub"
+                  @click="unsub(2565)"
+                >
+                  Odjavi me <i class="fal fa-minus-square"></i>
+                </div>
+                <div v-else class="btn animate" @click="sub(2565)">
                   Prijavi me <i class="fal fa-plus-square"></i>
                 </div>
               </div>
@@ -366,7 +415,14 @@
                   otkrivaju krupne afere radi kojih odlaze ministri i
                   objašnjavaju kontekst dnevnih događaja.
                 </p>
-                <div class="btn animate">
+                <div
+                  v-if="hasSub(2566)"
+                  class="btn animate btn-unsub"
+                  @click="unsub(2566)"
+                >
+                  Odjavi me <i class="fal fa-minus-square"></i>
+                </div>
+                <div v-else class="btn animate" @click="sub(2566)">
                   Prijavi me <i class="fal fa-plus-square"></i>
                 </div>
               </div>
@@ -394,7 +450,14 @@
                   otkrivaju krupne afere radi kojih odlaze ministri i
                   objašnjavaju kontekst dnevnih događaja.
                 </p>
-                <div class="btn animate">
+                <div
+                  v-if="hasSub(2567)"
+                  class="btn animate btn-unsub"
+                  @click="unsub(2567)"
+                >
+                  Odjavi me <i class="fal fa-minus-square"></i>
+                </div>
+                <div v-else class="btn animate" @click="sub(2567)">
                   Prijavi me <i class="fal fa-plus-square"></i>
                 </div>
               </div>
@@ -422,7 +485,14 @@
                   otkrivaju krupne afere radi kojih odlaze ministri i
                   objašnjavaju kontekst dnevnih događaja.
                 </p>
-                <div class="btn animate">
+                <div
+                  v-if="hasSub(2568)"
+                  class="btn animate btn-unsub"
+                  @click="unsub(2568)"
+                >
+                  Odjavi me <i class="fal fa-minus-square"></i>
+                </div>
+                <div v-else class="btn animate" @click="sub(2568)">
                   Prijavi me <i class="fal fa-plus-square"></i>
                 </div>
               </div>
@@ -445,6 +515,15 @@ export default {
         2128: false,
         2554: false,
         2555: false,
+        2560: false,
+        2561: false,
+        2562: false,
+        2563: false,
+        2564: false,
+        2565: false,
+        2566: false,
+        2567: false,
+        2568: false,
       },
     }
   },
