@@ -609,9 +609,13 @@ export default {
   background-color: transparent;
   color: #111;
 }
+.dark-mode .newsletter-box .btn-unsub {
+  border: 1px solid #eee;
+  color: #eee;
+}
 .newsletter-box p {
   line-height: 1.55em;
-  color: #333;
+  opacity: 0.8;
 }
 @media screen and (max-width: 1025px) {
   .newsletter-title {
