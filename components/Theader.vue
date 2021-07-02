@@ -624,6 +624,7 @@ export default {
     this.$store.dispatch('stocks/pullStocks')
     this.$store.dispatch('user/checkAccess')
     this.$store.dispatch('theme/loadTheme')
+    this.triggerLogin()
   },
   beforeDestroy() {
     // I switched the example from `destroyed` to `beforeDestroy`
@@ -677,6 +678,17 @@ export default {
           })
         },
       })
+    },
+    triggerLogin() {
+      if (this.$route.query.login) {
+        const tp = window.tp || []
+        tp.push([
+          'init',
+          () => {
+            this.login()
+          },
+        ])
+      }
     },
     logout() {
       this.maybeCloseSide()
