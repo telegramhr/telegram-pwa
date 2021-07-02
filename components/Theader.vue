@@ -680,7 +680,7 @@ export default {
       })
     },
     triggerLogin() {
-      if (this.$route.query.login) {
+      if (this.$route.query.login && !this.$store.state.user.email) {
         const tp = window.tp || []
         tp.push([
           'init',
