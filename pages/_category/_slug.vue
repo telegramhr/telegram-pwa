@@ -206,6 +206,7 @@
               ></div>
               <!-- eslint-enable vue/no-v-html -->
               <intext></intext>
+              <div v-show="$mobile" id="midasWidget__r190"></div>
               <!-- Article footer -->
               <div
                 class="full relative single-article-footer flex column-top-pad"
@@ -291,6 +292,9 @@
             :permalink="post.permalink"
           ></keep-reading>
         </client-only>
+        <div v-show="$mobile" class="full flex">
+          <div id="midasWidget__r191"></div>
+        </div>
         <ticker></ticker>
       </div>
     </template>
@@ -579,6 +583,9 @@ export default {
       let widget = '2?portalRuleId=176'
       if (intext) {
         widget += '&portalRuleId=49'
+      }
+      if (this.$mobile) {
+        widget += '&portalRuleId=190&portalRulId=191'
       }
       const scriptTag = document.createElement('script')
       scriptTag.src =
