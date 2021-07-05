@@ -1,7 +1,7 @@
 <template>
   <div class="full">
     <div
-      v-show="
+      v-if="
         !(
           ($mobile && $route.name === 'index') ||
           (!$mobile && $route.name === 'category-slug')

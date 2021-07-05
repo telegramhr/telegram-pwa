@@ -585,7 +585,7 @@ export default {
         widget += '&portalRuleId=49'
       }
       if (this.$mobile) {
-        widget += '&portalRuleId=190&portalRulId=191'
+        widget += '&portalRuleId=190&portalRuleId=191'
       }
       const scriptTag = document.createElement('script')
       scriptTag.src =
