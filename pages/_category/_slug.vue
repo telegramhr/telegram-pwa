@@ -578,7 +578,7 @@ export default {
       if (this.$store.state.user.access) {
         return
       }
-      const container = document.getElementById('midasWidget__r176')
+      const container = document.getElementById('midasWidget__r191')
       const intext = document.getElementById('midasWidget__r49')
       let widget = '2?portalRuleId=176'
       if (intext) {

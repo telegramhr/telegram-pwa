@@ -54,7 +54,7 @@ export default {
     script: [
       {
         hid: 'piano',
-        src: '//cdn.tinypass.com/api/tinypass.min.js',
+        src: 'https://cdn.tinypass.com/api/tinypass.min.js',
         async: true,
       },
       {
