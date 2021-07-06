@@ -207,7 +207,7 @@ export default {
 
   purgeCSS: {
     enabled: true,
-    whitelistPatterns: [/slick/, /banner/],
+    whitelistPatterns: [/slick/, /banner/, /yt-embed/],
   },
 
   // Content module configuration (https://go.nuxtjs.dev/config-content)
