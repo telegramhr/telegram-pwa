@@ -17,13 +17,21 @@
         <div class="full flex gallery-content relative">
           <div class="gallery-header full flex">
             <div class="third animate" @click="$refs.carousel.prev()">
-              <i class="far fa-angle-left"></i> Prethodna
+              <font-awesome-icon
+                :icon="['far', 'angle-left']"
+                class="animate"
+              ></font-awesome-icon>
+              Prethodna
             </div>
             <div class="gallery-count third animate">
               Slika {{ current }}/{{ post.gallery.length }}
             </div>
             <div class="third animate" @click="$refs.carousel.next()">
-              Sljedeća <i class="far fa-angle-right"></i>
+              Sljedeća
+              <font-awesome-icon
+                :icon="['far', 'angle-right']"
+                class="animate"
+              ></font-awesome-icon>
             </div>
           </div>
           <VueSlickCarousel
@@ -53,13 +61,19 @@
             class="gallery-left center gallery-arrow desktop-only animate"
             @click="$refs.carousel.prev()"
           >
-            <i class="far fa-angle-left animate"></i>
+            <font-awesome-icon
+              :icon="['far', 'angle-left']"
+              class="animate"
+            ></font-awesome-icon>
           </div>
           <div
             class="gallery-right center gallery-arrow desktop-only animate"
             @click="$refs.carousel.next()"
           >
-            <i class="far fa-angle-right animate"></i>
+            <font-awesome-icon
+              :icon="['far', 'angle-right']"
+              class="animate"
+            ></font-awesome-icon>
           </div>
         </div>
       </div>

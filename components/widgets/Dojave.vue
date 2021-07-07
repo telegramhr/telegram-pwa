@@ -8,7 +8,9 @@
       <div class="full center">
         <div class="btn animate">Javite nam se</div>
       </div>
-      <div class="full center"><i class="fad fa-user-lock"></i></div>
+      <div class="full center">
+        <font-awesome-icon :icon="['fad', 'user-lock']"></font-awesome-icon>
+      </div>
     </div>
   </app-link>
 </template>

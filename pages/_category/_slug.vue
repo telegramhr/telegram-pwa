@@ -37,8 +37,8 @@
           FOTO: {{ post.image.author }}
         </div>
         <div class="mobile-only full center parmobile-pa-nav relative flex">
-          <a @click.prevent="showSideMenu = !showSideMenu"
-            ><i class="far fa-bars"></i
+          <a @click.prevent="showSideMenu = !showSideMenu">
+            <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon
           ></a>
           <nuxt-link to="/" class="logo">
             <img
@@ -50,14 +50,16 @@
             v-show="canLogIn"
             class="mob-nav-otherbtn mobile-only"
             @click.prevent="login"
-            ><i class="far fa-user"></i
+          >
+            <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
           ></a>
           <app-link
             v-show="!canLogIn"
             class="mobile-only mob-nav-otherbtn"
             to="/moj-racun"
             aria-label="Moj račun"
-            ><i class="far fa-user"></i
+          >
+            <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
           ></app-link>
         </div>
         <img
@@ -178,8 +180,11 @@
                 >
                 <div class="sidebar-social flex">
                   <a href="#" @click.prevent="fbShare"
-                    ><i class="fab fa-facebook-f animate"></i
-                  ></a>
+                    ><font-awesome-icon
+                      :icon="['fab', 'facebook-f']"
+                      class="animate"
+                    ></font-awesome-icon>
+                  </a>
                   <a
                     :href="
                       'https://twitter.com/intent/tweet?counturl=' +
@@ -191,7 +196,10 @@
                       '&via=TelegramHR'
                     "
                     target="_blank"
-                    ><i class="fab fa-twitter animate"></i
+                    ><font-awesome-icon
+                      :icon="['fab', 'twitter']"
+                      class="animate"
+                    ></font-awesome-icon
                   ></a>
                 </div>
               </h5>
@@ -221,8 +229,10 @@
                 </div>
                 <div class="half flex-responsive">
                   <div class="flex float-right social-circle-buttons">
-                    <a href="#" class="animate center" @click.prevent="fbShare"
-                      ><i class="fab fa-facebook-f"></i
+                    <a href="#" class="animate center" @click.prevent="fbShare">
+                      <font-awesome-icon
+                        :icon="['fab', 'facebook-f']"
+                      ></font-awesome-icon
                     ></a>
                     <a
                       :href="
@@ -236,7 +246,10 @@
                       "
                       target="_blank"
                       class="animate center"
-                      ><i class="fab fa-twitter"></i
+                    >
+                      <font-awesome-icon
+                        :icon="['fab', 'twitter']"
+                      ></font-awesome-icon
                     ></a>
                     <!-- <a href="#" class="animate center"
                     ><i class="fab fa-instagram"></i

@@ -47,10 +47,16 @@
                 class="btn animate btn-unsub"
                 @click="unsub(2128)"
               >
-                Odjavi me <i class="fal fa-minus-square"></i>
+                Odjavi me
+                <font-awesome-icon
+                  :icon="['fal', 'minus-square']"
+                ></font-awesome-icon>
               </div>
               <div v-else class="btn animate" @click="sub(2128)">
-                Prijavi me <i class="fal fa-plus-square"></i>
+                Prijavi me
+                <font-awesome-icon
+                  :icon="['fal', 'plus-square']"
+                ></font-awesome-icon>
               </div>
             </div>
           </div>
@@ -81,10 +87,16 @@
                 class="btn animate btn-unsub"
                 @click="unsub(2554)"
               >
-                Odjavi me <i class="fal fa-minus-square"></i>
+                Odjavi me
+                <font-awesome-icon
+                  :icon="['fal', 'minus-square']"
+                ></font-awesome-icon>
               </div>
               <div v-else class="btn animate" @click="sub(2554)">
-                Prijavi me <i class="fal fa-plus-square"></i>
+                Prijavi me
+                <font-awesome-icon
+                  :icon="['fal', 'plus-square']"
+                ></font-awesome-icon>
               </div>
             </div>
           </div>
@@ -115,10 +127,16 @@
                 class="btn animate btn-unsub"
                 @click="unsub(2555)"
               >
-                Odjavi me <i class="fal fa-minus-square"></i>
+                Odjavi me
+                <font-awesome-icon
+                  :icon="['fal', 'minus-square']"
+                ></font-awesome-icon>
               </div>
               <div v-else class="btn animate" @click="sub(2555)">
-                Prijavi me <i class="fal fa-plus-square"></i>
+                Prijavi me
+                <font-awesome-icon
+                  :icon="['fal', 'plus-square']"
+                ></font-awesome-icon>
               </div>
             </div>
           </div>
@@ -155,10 +173,16 @@
                     class="btn animate btn-unsub"
                     @click="unsub(2560)"
                   >
-                    Odjavi me <i class="fal fa-minus-square"></i>
+                    Odjavi me
+                    <font-awesome-icon
+                      :icon="['fal', 'minus-square']"
+                    ></font-awesome-icon>
                   </div>
                   <div v-else class="btn animate" @click="sub(2560)">
-                    Prijavi me <i class="fal fa-plus-square"></i>
+                    Prijavi me
+                    <font-awesome-icon
+                      :icon="['fal', 'plus-square']"
+                    ></font-awesome-icon>
                   </div>
                 </div>
               </div>
@@ -185,14 +209,20 @@
                     uvidom u stvarne odnose i agende.
                   </p>
                   <div
-                    v-if="hasSub(2560)"
+                    v-if="hasSub(2596)"
                     class="btn animate btn-unsub"
-                    @click="unsub(2560)"
+                    @click="unsub(2596)"
                   >
-                    Odjavi me <i class="fal fa-minus-square"></i>
+                    Odjavi me
+                    <font-awesome-icon
+                      :icon="['fal', 'minus-square']"
+                    ></font-awesome-icon>
                   </div>
-                  <div v-else class="btn animate" @click="sub(2560)">
-                    Prijavi me <i class="fal fa-plus-square"></i>
+                  <div v-else class="btn animate" @click="sub(2596)">
+                    Prijavi me
+                    <font-awesome-icon
+                      :icon="['fal', 'plus-square']"
+                    ></font-awesome-icon>
                   </div>
                 </div>
               </div>
@@ -223,10 +253,16 @@
                     class="btn animate btn-unsub"
                     @click="unsub(2562)"
                   >
-                    Odjavi me <i class="fal fa-minus-square"></i>
+                    Odjavi me
+                    <font-awesome-icon
+                      :icon="['fal', 'minus-square']"
+                    ></font-awesome-icon>
                   </div>
                   <div v-else class="btn animate" @click="sub(2562)">
-                    Prijavi me <i class="fal fa-plus-square"></i>
+                    Prijavi me
+                    <font-awesome-icon
+                      :icon="['fal', 'plus-square']"
+                    ></font-awesome-icon>
                   </div>
                 </div>
               </div>
@@ -257,10 +293,16 @@
                     class="btn animate btn-unsub"
                     @click="unsub(2559)"
                   >
-                    Odjavi me <i class="fal fa-minus-square"></i>
+                    Odjavi me
+                    <font-awesome-icon
+                      :icon="['fal', 'minus-square']"
+                    ></font-awesome-icon>
                   </div>
                   <div v-else class="btn animate" @click="sub(2559)">
-                    Prijavi me <i class="fal fa-plus-square"></i>
+                    Prijavi me
+                    <font-awesome-icon
+                      :icon="['fal', 'plus-square']"
+                    ></font-awesome-icon>
                   </div>
                 </div>
               </div>
@@ -292,10 +334,16 @@
                     class="btn animate btn-unsub"
                     @click="unsub(2561)"
                   >
-                    Odjavi me <i class="fal fa-minus-square"></i>
+                    Odjavi me
+                    <font-awesome-icon
+                      :icon="['fal', 'minus-square']"
+                    ></font-awesome-icon>
                   </div>
                   <div v-else class="btn animate" @click="sub(2561)">
-                    Prijavi me <i class="fal fa-plus-square"></i>
+                    Prijavi me
+                    <font-awesome-icon
+                      :icon="['fal', 'plus-square']"
+                    ></font-awesome-icon>
                   </div>
                 </div>
               </div>
@@ -325,10 +373,16 @@
                     class="btn animate btn-unsub"
                     @click="unsub(2563)"
                   >
-                    Odjavi me <i class="fal fa-minus-square"></i>
+                    Odjavi me
+                    <font-awesome-icon
+                      :icon="['fal', 'minus-square']"
+                    ></font-awesome-icon>
                   </div>
                   <div v-else class="btn animate" @click="sub(2563)">
-                    Prijavi me <i class="fal fa-plus-square"></i>
+                    Prijavi me
+                    <font-awesome-icon
+                      :icon="['fal', 'plus-square']"
+                    ></font-awesome-icon>
                   </div>
                 </div>
               </div>
@@ -364,10 +418,16 @@
                     class="btn animate btn-unsub"
                     @click="unsub(2564)"
                   >
-                    Odjavi me <i class="fal fa-minus-square"></i>
+                    Odjavi me
+                    <font-awesome-icon
+                      :icon="['fal', 'minus-square']"
+                    ></font-awesome-icon>
                   </div>
                   <div v-else class="btn animate" @click="sub(2564)">
-                    Prijavi me <i class="fal fa-plus-square"></i>
+                    Prijavi me
+                    <font-awesome-icon
+                      :icon="['fal', 'plus-square']"
+                    ></font-awesome-icon>
                   </div>
                 </div>
               </div>
@@ -398,10 +458,16 @@
                     class="btn animate btn-unsub"
                     @click="unsub(2565)"
                   >
-                    Odjavi me <i class="fal fa-minus-square"></i>
+                    Odjavi me
+                    <font-awesome-icon
+                      :icon="['fal', 'minus-square']"
+                    ></font-awesome-icon>
                   </div>
                   <div v-else class="btn animate" @click="sub(2565)">
-                    Prijavi me <i class="fal fa-plus-square"></i>
+                    Prijavi me
+                    <font-awesome-icon
+                      :icon="['fal', 'plus-square']"
+                    ></font-awesome-icon>
                   </div>
                 </div>
               </div>
@@ -428,14 +494,20 @@
                     Kujundžića, marljivo kopa afere.
                   </p>
                   <div
-                    v-if="hasSub(2566)"
+                    v-if="hasSub(2597)"
                     class="btn animate btn-unsub"
-                    @click="unsub(2566)"
+                    @click="unsub(2597)"
                   >
-                    Odjavi me <i class="fal fa-minus-square"></i>
+                    Odjavi me
+                    <font-awesome-icon
+                      :icon="['fal', 'minus-square']"
+                    ></font-awesome-icon>
                   </div>
-                  <div v-else class="btn animate" @click="sub(2566)">
-                    Prijavi me <i class="fal fa-plus-square"></i>
+                  <div v-else class="btn animate" @click="sub(2597)">
+                    Prijavi me
+                    <font-awesome-icon
+                      :icon="['fal', 'plus-square']"
+                    ></font-awesome-icon>
                   </div>
                 </div>
               </div>
@@ -466,10 +538,16 @@
                     class="btn animate btn-unsub"
                     @click="unsub(2566)"
                   >
-                    Odjavi me <i class="fal fa-minus-square"></i>
+                    Odjavi me
+                    <font-awesome-icon
+                      :icon="['fal', 'minus-square']"
+                    ></font-awesome-icon>
                   </div>
                   <div v-else class="btn animate" @click="sub(2566)">
-                    Prijavi me <i class="fal fa-plus-square"></i>
+                    Prijavi me
+                    <font-awesome-icon
+                      :icon="['fal', 'plus-square']"
+                    ></font-awesome-icon>
                   </div>
                 </div>
               </div>
@@ -496,14 +574,20 @@
                     manipulacije s javnim nabavama.
                   </p>
                   <div
-                    v-if="hasSub(2567)"
+                    v-if="hasSub(2598)"
                     class="btn animate btn-unsub"
-                    @click="unsub(2567)"
+                    @click="unsub(2598)"
                   >
-                    Odjavi me <i class="fal fa-minus-square"></i>
+                    Odjavi me
+                    <font-awesome-icon
+                      :icon="['fal', 'minus-square']"
+                    ></font-awesome-icon>
                   </div>
-                  <div v-else class="btn animate" @click="sub(2567)">
-                    Prijavi me <i class="fal fa-plus-square"></i>
+                  <div v-else class="btn animate" @click="sub(2598)">
+                    Prijavi me
+                    <font-awesome-icon
+                      :icon="['fal', 'plus-square']"
+                    ></font-awesome-icon>
                   </div>
                 </div>
               </div>
@@ -530,14 +614,20 @@
                     politike.
                   </p>
                   <div
-                    v-if="hasSub(2567)"
+                    v-if="hasSub(2599)"
                     class="btn animate btn-unsub"
-                    @click="unsub(2567)"
+                    @click="unsub(2599)"
                   >
-                    Odjavi me <i class="fal fa-minus-square"></i>
+                    Odjavi me
+                    <font-awesome-icon
+                      :icon="['fal', 'minus-square']"
+                    ></font-awesome-icon>
                   </div>
-                  <div v-else class="btn animate" @click="sub(2567)">
-                    Prijavi me <i class="fal fa-plus-square"></i>
+                  <div v-else class="btn animate" @click="sub(2599)">
+                    Prijavi me
+                    <font-awesome-icon
+                      :icon="['fal', 'plus-square']"
+                    ></font-awesome-icon>
                   </div>
                 </div>
               </div>
@@ -568,10 +658,16 @@
                     class="btn animate btn-unsub"
                     @click="unsub(2567)"
                   >
-                    Odjavi me <i class="fal fa-minus-square"></i>
+                    Odjavi me
+                    <font-awesome-icon
+                      :icon="['fal', 'minus-square']"
+                    ></font-awesome-icon>
                   </div>
-                  <div v-else class="btn animate" @click="sub(2567)">
-                    Prijavi me <i class="fal fa-plus-square"></i>
+                  <div v-else class="btn animate" @click="sub(2598)">
+                    Prijavi me
+                    <font-awesome-icon
+                      :icon="['fal', 'plus-square']"
+                    ></font-awesome-icon>
                   </div>
                 </div>
               </div>
@@ -604,10 +700,16 @@
                     class="btn animate btn-unsub"
                     @click="unsub(2568)"
                   >
-                    Odjavi me <i class="fal fa-minus-square"></i>
+                    Odjavi me
+                    <font-awesome-icon
+                      :icon="['fal', 'minus-square']"
+                    ></font-awesome-icon>
                   </div>
                   <div v-else class="btn animate" @click="sub(2568)">
-                    Prijavi me <i class="fal fa-plus-square"></i>
+                    Prijavi me
+                    <font-awesome-icon
+                      :icon="['fal', 'plus-square']"
+                    ></font-awesome-icon>
                   </div>
                 </div>
               </div>
@@ -634,14 +736,20 @@
                     recenzije, intervjue, najave i analize.
                   </p>
                   <div
-                    v-if="hasSub(2568)"
+                    v-if="hasSub(2600)"
                     class="btn animate btn-unsub"
-                    @click="unsub(2568)"
+                    @click="unsub(2600)"
                   >
-                    Odjavi me <i class="fal fa-minus-square"></i>
+                    Odjavi me
+                    <font-awesome-icon
+                      :icon="['fal', 'minus-square']"
+                    ></font-awesome-icon>
                   </div>
-                  <div v-else class="btn animate" @click="sub(2568)">
-                    Prijavi me <i class="fal fa-plus-square"></i>
+                  <div v-else class="btn animate" @click="sub(2600)">
+                    Prijavi me
+                    <font-awesome-icon
+                      :icon="['fal', 'plus-square']"
+                    ></font-awesome-icon>
                   </div>
                 </div>
               </div>
@@ -673,14 +781,20 @@
                   & kriminal.
                 </p>
                 <div
-                  v-if="hasSub(2560)"
+                  v-if="hasSub(2626)"
                   class="btn animate btn-unsub"
-                  @click="unsub(2560)"
+                  @click="unsub(2626)"
                 >
-                  Odjavi me <i class="fal fa-minus-square"></i>
+                  Odjavi me
+                  <font-awesome-icon
+                    :icon="['fal', 'minus-square']"
+                  ></font-awesome-icon>
                 </div>
-                <div v-else class="btn animate" @click="sub(2560)">
-                  Prijavi me <i class="fal fa-plus-square"></i>
+                <div v-else class="btn animate" @click="sub(2626)">
+                  Prijavi me
+                  <font-awesome-icon
+                    :icon="['fal', 'plus-square']"
+                  ></font-awesome-icon>
                 </div>
               </div>
             </div>
@@ -706,14 +820,20 @@
                   kolumni.
                 </p>
                 <div
-                  v-if="hasSub(2560)"
+                  v-if="hasSub(2627)"
                   class="btn animate btn-unsub"
-                  @click="unsub(2560)"
+                  @click="unsub(2627)"
                 >
-                  Odjavi me <i class="fal fa-minus-square"></i>
+                  Odjavi me
+                  <font-awesome-icon
+                    :icon="['fal', 'minus-square']"
+                  ></font-awesome-icon>
                 </div>
-                <div v-else class="btn animate" @click="sub(2560)">
-                  Prijavi me <i class="fal fa-plus-square"></i>
+                <div v-else class="btn animate" @click="sub(2627)">
+                  Prijavi me
+                  <font-awesome-icon
+                    :icon="['fal', 'plus-square']"
+                  ></font-awesome-icon>
                 </div>
               </div>
             </div>
@@ -739,14 +859,20 @@
                   tech.
                 </p>
                 <div
-                  v-if="hasSub(2560)"
+                  v-if="hasSub(2628)"
                   class="btn animate btn-unsub"
-                  @click="unsub(2560)"
+                  @click="unsub(2628)"
                 >
-                  Odjavi me <i class="fal fa-minus-square"></i>
+                  Odjavi me
+                  <font-awesome-icon
+                    :icon="['fal', 'minus-square']"
+                  ></font-awesome-icon>
                 </div>
-                <div v-else class="btn animate" @click="sub(2560)">
-                  Prijavi me <i class="fal fa-plus-square"></i>
+                <div v-else class="btn animate" @click="sub(2628)">
+                  Prijavi me
+                  <font-awesome-icon
+                    :icon="['fal', 'plus-square']"
+                  ></font-awesome-icon>
                 </div>
               </div>
             </div>
@@ -771,14 +897,20 @@
                   Tjedni odabir najboljih Telegramovih priča iz rubrike Život.
                 </p>
                 <div
-                  v-if="hasSub(2560)"
+                  v-if="hasSub(2629)"
                   class="btn animate btn-unsub"
-                  @click="unsub(2560)"
+                  @click="unsub(2629)"
                 >
-                  Odjavi me <i class="fal fa-minus-square"></i>
+                  Odjavi me
+                  <font-awesome-icon
+                    :icon="['fal', 'minus-square']"
+                  ></font-awesome-icon>
                 </div>
-                <div v-else class="btn animate" @click="sub(2560)">
-                  Prijavi me <i class="fal fa-plus-square"></i>
+                <div v-else class="btn animate" @click="sub(2629)">
+                  Prijavi me
+                  <font-awesome-icon
+                    :icon="['fal', 'plus-square']"
+                  ></font-awesome-icon>
                 </div>
               </div>
             </div>
@@ -804,14 +936,20 @@
                   priče.
                 </p>
                 <div
-                  v-if="hasSub(2560)"
+                  v-if="hasSub(2630)"
                   class="btn animate btn-unsub"
-                  @click="unsub(2560)"
+                  @click="unsub(2630)"
                 >
-                  Odjavi me <i class="fal fa-minus-square"></i>
+                  Odjavi me
+                  <font-awesome-icon
+                    :icon="['fal', 'minus-square']"
+                  ></font-awesome-icon>
                 </div>
-                <div v-else class="btn animate" @click="sub(2560)">
-                  Prijavi me <i class="fal fa-plus-square"></i>
+                <div v-else class="btn animate" @click="sub(2630)">
+                  Prijavi me
+                  <font-awesome-icon
+                    :icon="['fal', 'plus-square']"
+                  ></font-awesome-icon>
                 </div>
               </div>
             </div>
@@ -836,14 +974,20 @@
                   Tjedni odabir najboljih Telegramovih priča iz rubrike Kultura.
                 </p>
                 <div
-                  v-if="hasSub(2560)"
+                  v-if="hasSub(2631)"
                   class="btn animate btn-unsub"
-                  @click="unsub(2560)"
+                  @click="unsub(2631)"
                 >
-                  Odjavi me <i class="fal fa-minus-square"></i>
+                  Odjavi me
+                  <font-awesome-icon
+                    :icon="['fal', 'minus-square']"
+                  ></font-awesome-icon>
                 </div>
-                <div v-else class="btn animate" @click="sub(2560)">
-                  Prijavi me <i class="fal fa-plus-square"></i>
+                <div v-else class="btn animate" @click="sub(2631)">
+                  Prijavi me
+                  <font-awesome-icon
+                    :icon="['fal', 'plus-square']"
+                  ></font-awesome-icon>
                 </div>
               </div>
             </div>
@@ -874,6 +1018,17 @@ export default {
         2566: false,
         2567: false,
         2568: false,
+        2596: false,
+        2597: false,
+        2598: false,
+        2599: false,
+        2600: false,
+        2626: false,
+        2627: false,
+        2628: false,
+        2629: false,
+        2630: false,
+        2631: false,
       },
     }
   },
@@ -882,6 +1037,13 @@ export default {
   },
   methods: {
     checkAccess() {
+      let email = this.$store.state.user.email
+      if (!email && this.$route.query.user) {
+        email = this.$route.query.email
+      }
+      if (!email) {
+        return
+      }
       Object.keys(this.lists).forEach((key) => {
         if (this.$store.state.user.email && key) {
           this.$axios

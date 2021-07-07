@@ -1,7 +1,7 @@
 <template>
   <div v-show="shown" class="full pretplata-ticker relative">
     <div class="close-ticker-btn center animate" @click="shown = !shown">
-      <i class="fas fa-times"></i>
+      <font-awesome-icon :icon="['fas', 'times']"></font-awesome-icon>
     </div>
     <div class="container flex relative">
       <h2 class="full center-text">{{ messages[page].title }}</h2>

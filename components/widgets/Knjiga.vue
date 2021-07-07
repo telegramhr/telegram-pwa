@@ -19,7 +19,9 @@
       <div class="full center">
         <div class="btn animate">Kupite</div>
       </div>
-      <div class="full center"><i class="fas fa-book"></i></div>
+      <div class="full center">
+        <font-awesome-icon :icon="['fas', 'book']"></font-awesome-icon>
+      </div>
     </div>
   </app-link>
 </template>

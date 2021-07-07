@@ -2,7 +2,7 @@
   <div id="book-pay-popup" class="center">
     <div class="flex relative">
       <div id="close-book-popup" class="center center-text" @click="close">
-        <i class="fas fa-times"></i>
+        <font-awesome-icon :icon="['fas', 'times']"></font-awesome-icon>
       </div>
       <div class="full flex book-popup-content">
         <div class="full center book-popup-header">

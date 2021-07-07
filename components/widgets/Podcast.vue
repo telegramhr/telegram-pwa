@@ -18,7 +18,9 @@
       <div class="full center">
         <div class="btn animate">Poslušaj podcast</div>
       </div>
-      <div class="full center"><i class="fas fa-podcast"></i></div>
+      <div class="full center">
+        <font-awesome-icon :icon="['fas', 'podcast']"></font-awesome-icon>
+      </div>
     </div>
   </a>
 </template>

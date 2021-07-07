@@ -45,25 +45,29 @@
             to="https://www.facebook.com/www.telegram.hr/"
             class="center animate"
             aria-label="Facebook"
-            ><i class="fab fa-facebook-f"></i
+          >
+            <font-awesome-icon :icon="['fab', 'facebook-f']"></font-awesome-icon
           ></app-link>
           <app-link
             to="https://twitter.com/telegramhr/"
             class="center animate"
             aria-label="Twitter"
-            ><i class="fab fa-twitter"></i
+          >
+            <font-awesome-icon :icon="['fab', 'twitter']"></font-awesome-icon
           ></app-link>
           <app-link
             to="https://www.instagram.com/telegram.hr/"
             class="center animate"
             aria-label="Instagram"
-            ><i class="fab fa-instagram"></i
+          >
+            <font-awesome-icon :icon="['fab', 'instagram']"></font-awesome-icon
           ></app-link>
           <app-link
             to="https://www.telegram.hr/feed"
             class="center animate"
             aria-label="RSS"
-            ><i class="fas fa-rss"></i
+          >
+            <font-awesome-icon :icon="['fas', 'rss']"></font-awesome-icon
           ></app-link>
         </div>
         <div class="full flex services center">

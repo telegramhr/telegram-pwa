@@ -67,10 +67,6 @@ export default {
         nonce: 'LFZOW4mi',
       },
       {
-        src: 'https://kit.fontawesome.com/4878256e09.js',
-        crossorigin: 'anonymous',
-      },
-      {
         src: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js',
         async: true,
       },
@@ -101,6 +97,7 @@ export default {
     '@/assets/tmg_framework.css',
     '@/assets/style.css',
     'vue-slick-carousel/dist/vue-slick-carousel.css',
+    '@fortawesome/fontawesome-svg-core/styles.css',
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
@@ -113,6 +110,7 @@ export default {
     { src: '@/plugins/piano.js', ssr: false },
     { src: '@/plugins/mobile.js' },
     { src: '@/plugins/cxtrack.js', ssr: false },
+    { src: '@/plugins/fontawesome.js' },
   ],
 
   ngrok: {
@@ -207,7 +205,7 @@ export default {
 
   purgeCSS: {
     enabled: true,
-    whitelistPatterns: [/slick/, /banner/, /yt-embed/],
+    whitelistPatterns: [/slick/, /banner/, /yt-embed/, /fa.*/, /svg.*/],
   },
 
   // Content module configuration (https://go.nuxtjs.dev/config-content)

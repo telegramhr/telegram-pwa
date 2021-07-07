@@ -33,7 +33,9 @@
           </p>
           <div class="third flex-responsive column-full-pad flex">
             <div class="full contact-tile column-full-pad flex relative">
-              <i class="fad fa-comment-dots"></i>
+              <font-awesome-icon
+                :icon="['fad', 'comment-dots']"
+              ></font-awesome-icon>
               <h2 class="full">Signal</h2>
               <h3 class="full contact-data">099 624 3591</h3>
               <p class="full">
@@ -48,7 +50,9 @@
           </div>
           <div class="third flex-responsive column-full-pad flex">
             <div class="full contact-tile column-full-pad flex relative">
-              <i class="fad fa-envelope-open-text"></i>
+              <font-awesome-icon
+                :icon="['fad', 'envelope-open-text']"
+              ></font-awesome-icon>
               <h2 class="full">Email</h2>
               <h3 class="full contact-data">
                 <a href="mailto:dojave@telegram.hr">dojave@telegram.hr</a>
@@ -64,7 +68,9 @@
           </div>
           <div class="third flex-responsive column-full-pad flex">
             <div class="full contact-tile column-full-pad flex relative">
-              <i class="fab fa-telegram"></i>
+              <font-awesome-icon
+                :icon="['fab', 'telegram']"
+              ></font-awesome-icon>
               <h2 class="full">Telegram</h2>
               <h3 class="full contact-data">099 624 3591</h3>
               <p class="full">

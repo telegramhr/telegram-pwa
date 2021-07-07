@@ -9,7 +9,9 @@
       <span class="full">#{{ i }}</span>
     </div>
     <div class="komentar-box relative">
-      <div class="komentar-quotation"><i class="fas fa-fire"></i></div>
+      <div class="komentar-quotation">
+        <font-awesome-icon :icon="['fas', 'fire']"></font-awesome-icon>
+      </div>
       <div class="komentar-image">
         <img
           :srcset="srcset"

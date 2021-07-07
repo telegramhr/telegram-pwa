@@ -26,8 +26,8 @@
         :aria-expanded="$store.state.header.showSideMenu.toString()"
         aria-controls="sidebar"
         @click.prevent="$store.commit('header/updateMenu', 'side')"
-        ><i class="fas fa-times"></i
-      ></a>
+        ><font-awesome-icon :icon="['fas', 'times']"></font-awesome-icon>
+      </a>
       <div class="menu flex">
         <div class="half" role="menu">
           <client-only>
@@ -86,7 +86,9 @@
                 aria-label="Pretražite Telegram"
               />
               <button type="submit" class="animate" @click.prevent="search">
-                <i class="far fa-search"></i>
+                <font-awesome-icon
+                  :icon="['far', 'search']"
+                ></font-awesome-icon>
               </button>
             </form>
           </div>
@@ -269,8 +271,9 @@
             aria-label="Prikaži lijevi meni"
             aria-controls="sidebar"
             @click.prevent="$store.commit('header/updateMenu', 'side')"
-            ><i class="far fa-bars"></i
-          ></a>
+          >
+            <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon>
+          </a>
           <div class="menu flex" role="menu">
             <app-link role="menuitem" to="/politika-kriminal"
               >Politika & Kriminal</app-link
@@ -300,17 +303,18 @@
             <a v-show="!canLogIn" class="signup-btn" @click.prevent="logout"
               >Odjava</a
             >
-            <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun"
-              ><i class="far fa-user"></i
-            ></app-link>
+            <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun">
+              <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
+            </app-link>
           </client-only>
           <a
             aria-label="Prikaži tražilicu"
             :aria-expanded="$store.state.header.showSearchMenu.toString()"
             aria-controls="search"
             @click.prevent="$store.commit('header/updateMenu', 'search')"
-            ><i class="far fa-search"></i
-          ></a>
+          >
+            <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon>
+          </a>
         </div>
       </div>
     </div>
@@ -350,7 +354,8 @@
               aria-label="Prikaži lijevi meni"
               aria-controls="sidebar"
               @click.prevent="$store.commit('header/updateMenu', 'side')"
-              ><i class="far fa-bars"></i
+            >
+              <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon
             ></a>
           </div>
           <div class="third center relative">
@@ -378,7 +383,8 @@
                 v-show="!canLogIn"
                 to="/moj-racun"
                 aria-label="Moj račun"
-                ><i class="far fa-user"></i
+              >
+                <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
               ></app-link>
             </client-only>
             <a
@@ -387,7 +393,8 @@
               :aria-expanded="$store.state.header.showSearchMenu.toString()"
               aria-controls="search"
               @click.prevent="$store.commit('header/updateMenu', 'search')"
-              ><i class="far fa-search"></i
+            >
+              <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon
             ></a>
           </div>
         </div>
@@ -419,7 +426,8 @@
               aria-label="Prikaži lijevi meni"
               aria-controls="sidebar"
               @click="$store.commit('header/updateMenu', 'side')"
-              ><i class="far fa-bars"></i
+            >
+              <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon
             ></a>
             <div class="menu flex">
               <app-link role="menuitem" to="/politika-kriminal"
@@ -455,7 +463,8 @@
                 v-show="!canLogIn"
                 to="/moj-racun"
                 aria-label="Moj račun"
-                ><i class="far fa-user"></i
+              >
+                <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
               ></app-link>
             </client-only>
             <a
@@ -464,7 +473,8 @@
               :aria-expanded="$store.state.header.showSearchMenu.toString()"
               aria-controls="search"
               @click.prevent="$store.commit('header/updateMenu', 'search')"
-              ><i class="far fa-search"></i
+            >
+              <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon
             ></a>
           </div>
         </div>
@@ -492,7 +502,8 @@
             :aria-expanded="$store.state.header.showSideMenu.toString()"
             aria-controls="sidebar"
             @click.prevent="$store.commit('header/updateMenu', 'side')"
-            ><i class="far fa-bars"></i
+          >
+            <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon
           ></a>
           <app-link to="/" class="logo"
             ><img
@@ -506,14 +517,16 @@
             v-show="canLogIn"
             class="mob-nav-otherbtn mobile-only"
             @click.prevent="login"
-            ><i class="far fa-user"></i
+          >
+            <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
           ></a>
           <app-link
             v-show="!canLogIn"
             class="mobile-only mob-nav-otherbtn"
             to="/moj-racun"
             aria-label="Moj račun"
-            ><i class="far fa-user"></i
+          >
+            <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
           ></app-link>
         </div>
       </nav>
@@ -530,7 +543,7 @@
             aria-label="Pretražite Telegram"
           />
           <button type="submit" class="animate" @click.prevent="search">
-            <i class="far fa-search"></i>
+            <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon>
           </button>
         </form>
       </div>

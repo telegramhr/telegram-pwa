@@ -121,13 +121,19 @@
             class="gallery-left center gallery-arrow desktop-only animate"
             @click="$refs.carousel.prev()"
           >
-            <i class="far fa-angle-left animate"></i>
+            <font-awesome-icon
+              :icon="['far', 'angle-left']"
+              class="animate"
+            ></font-awesome-icon>
           </div>
           <div
             class="gallery-right center gallery-arrow desktop-only animate"
             @click="$refs.carousel.next()"
           >
-            <i class="far fa-angle-right animate"></i>
+            <font-awesome-icon
+              :icon="['far', 'angle-right']"
+              class="animate"
+            ></font-awesome-icon>
           </div>
         </div>
         <h2 class="full relative">O autorici</h2>
@@ -176,7 +182,7 @@ export default {
     return {
       access: {},
       showModal: false,
-      price: 0,
+      price: 179,
     }
   },
   mounted() {

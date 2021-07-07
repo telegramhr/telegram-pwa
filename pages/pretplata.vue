@@ -49,10 +49,16 @@
               <h4 class="full center-text undertitle">Mjesečno</h4>
               <div class="full pretplata-benefits">
                 <p class="full animate">
-                  <i class="fas fa-check"></i> neograničeno čitanje Telegrama
+                  <font-awesome-icon
+                    :icon="['fas', 'check']"
+                  ></font-awesome-icon>
+                  neograničeno čitanje Telegrama
                 </p>
                 <p class="full animate">
-                  <i class="fas fa-check"></i> specijalni newsletteri
+                  <font-awesome-icon
+                    :icon="['fas', 'check']"
+                  ></font-awesome-icon>
+                  specijalni newsletteri
                 </p>
               </div>
               <div class="full center btn-parent" @click="checkout(one)">
@@ -69,20 +75,34 @@
               <h4 class="full center-text undertitle">Mjesečno</h4>
               <div class="full pretplata-benefits">
                 <p class="full animate">
-                  <i class="fas fa-check"></i> neograničeno čitanje Telegrama
+                  <font-awesome-icon
+                    :icon="['fas', 'check']"
+                  ></font-awesome-icon>
+                  neograničeno čitanje Telegrama
                 </p>
                 <p class="full animate">
-                  <i class="fas fa-check"></i> neograničeno čitanje Telesporta
+                  <font-awesome-icon
+                    :icon="['fas', 'check']"
+                  ></font-awesome-icon>
+                  neograničeno čitanje Telesporta
                 </p>
                 <p class="full animate">
-                  <i class="fas fa-check"></i> specijalni newsletteri
+                  <font-awesome-icon
+                    :icon="['fas', 'check']"
+                  ></font-awesome-icon>
+                  specijalni newsletteri
                 </p>
                 <p class="full animate">
-                  <i class="fas fa-check"></i> surfanje bez oglasa
+                  <font-awesome-icon
+                    :icon="['fas', 'check']"
+                  ></font-awesome-icon>
+                  surfanje bez oglasa
                 </p>
                 <p class="full animate">
-                  <i class="fas fa-check"></i> nakon 3 mjeseca gratis knjiga u
-                  izdanju Telegrama<a
+                  <font-awesome-icon
+                    :icon="['fas', 'check']"
+                  ></font-awesome-icon>
+                  nakon 3 mjeseca gratis knjiga u izdanju Telegrama<a
                     href="#knjige-disclaimer"
                     onclick="document.getElementById('knjige-disclaimer').open = true;"
                     >*</a
@@ -105,10 +125,16 @@
               </h4>
               <div class="full pretplata-benefits">
                 <p class="full animate">
-                  <i class="fas fa-check"></i> neograničeno čitanje Telegrama
+                  <font-awesome-icon
+                    :icon="['fas', 'check']"
+                  ></font-awesome-icon>
+                  neograničeno čitanje Telegrama
                 </p>
                 <p class="full animate">
-                  <i class="fas fa-check"></i> specijalni newsletteri
+                  <font-awesome-icon
+                    :icon="['fas', 'check']"
+                  ></font-awesome-icon>
+                  specijalni newsletteri
                 </p>
               </div>
               <div class="full center btn-parent" @click="checkout(three)">
@@ -127,20 +153,34 @@
               </h4>
               <div class="full pretplata-benefits">
                 <p class="full animate">
-                  <i class="fas fa-check"></i> neograničeno čitanje Telegrama
+                  <font-awesome-icon
+                    :icon="['fas', 'check']"
+                  ></font-awesome-icon>
+                  neograničeno čitanje Telegrama
                 </p>
                 <p class="full animate">
-                  <i class="fas fa-check"></i> neograničeno čitanje Telesporta
+                  <font-awesome-icon
+                    :icon="['fas', 'check']"
+                  ></font-awesome-icon>
+                  neograničeno čitanje Telesporta
                 </p>
                 <p class="full animate">
-                  <i class="fas fa-check"></i> specijalni newsletteri
+                  <font-awesome-icon
+                    :icon="['fas', 'check']"
+                  ></font-awesome-icon>
+                  specijalni newsletteri
                 </p>
                 <p class="full animate">
-                  <i class="fas fa-check"></i> surfanje bez oglasa
+                  <font-awesome-icon
+                    :icon="['fas', 'check']"
+                  ></font-awesome-icon>
+                  surfanje bez oglasa
                 </p>
                 <p class="full animate">
-                  <i class="fas fa-check"></i> gratis knjiga u izdanju
-                  Telegrama<a
+                  <font-awesome-icon
+                    :icon="['fas', 'check']"
+                  ></font-awesome-icon>
+                  gratis knjiga u izdanju Telegrama<a
                     href="#knjige-disclaimer"
                     onclick="document.getElementById('knjige-disclaimer').open = true;"
                     >*</a

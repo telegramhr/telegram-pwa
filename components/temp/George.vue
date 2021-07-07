@@ -17,7 +17,10 @@
           <div class="full flex article-pad">
             <h2 class="full">Stigao je novi Telegram.</h2>
             <p class="full">
-              Pročitaj naš specijal <i class="fas fa-angle-right"></i>
+              Pročitaj naš specijal
+              <font-awesome-icon
+                :icon="['fas', 'angle-right']"
+              ></font-awesome-icon>
             </p>
           </div>
           <div class="full george-disclaimer center">
