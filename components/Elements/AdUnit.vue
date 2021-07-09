@@ -5,7 +5,8 @@
         :id="id"
         class="banner-slot"
         :style="{
-          right: size[0] === 200 && size[1] === 250 ? '0px' : 'initial',
+          right: 0,
+          left: size[0] > 200 ? 0 : 'initial',
         }"
       ></div>
       <a
@@ -18,7 +19,7 @@
           marginLeft: closeMargin + 'px',
           bottom: size[1] - 15 + 'px',
         }"
-        @click="shouldHide = true"
+        @click.prevent="shouldHide = true"
         ><font-awesome-icon
           :icon="['fas', 'times-circle']"
           size="2x"
