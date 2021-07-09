@@ -180,7 +180,14 @@
                       :icon="['fal', 'minus-square']"
                     ></font-awesome-icon>
                   </div>
-                  <div v-else class="btn animate" @click="sub(2560)">
+                  <app-link
+                    v-else-if="!$store.state.user.active_sub"
+                    to="/pretplata"
+                    class="btn animate"
+                  >
+                    Dostupno samo za pretplatnike
+                  </app-link>
+                  <div v-else class="btn animate" @click="sub(2560, 1)">
                     Prijavi me
                     <font-awesome-icon
                       :icon="['fal', 'plus-square']"
@@ -220,7 +227,14 @@
                       :icon="['fal', 'minus-square']"
                     ></font-awesome-icon>
                   </div>
-                  <div v-else class="btn animate" @click="sub(2596)">
+                  <app-link
+                    v-else-if="!$store.state.user.active_sub"
+                    to="/pretplata"
+                    class="btn animate"
+                  >
+                    Dostupno samo za pretplatnike
+                  </app-link>
+                  <div v-else class="btn animate" @click="sub(2596, 1)">
                     Prijavi me
                     <font-awesome-icon
                       :icon="['fal', 'plus-square']"
@@ -260,7 +274,14 @@
                       :icon="['fal', 'minus-square']"
                     ></font-awesome-icon>
                   </div>
-                  <div v-else class="btn animate" @click="sub(2562)">
+                  <app-link
+                    v-else-if="!$store.state.user.active_sub"
+                    to="/pretplata"
+                    class="btn animate"
+                  >
+                    Dostupno samo za pretplatnike
+                  </app-link>
+                  <div v-else class="btn animate" @click="sub(2562, 1)">
                     Prijavi me
                     <font-awesome-icon
                       :icon="['fal', 'plus-square']"
@@ -300,7 +321,14 @@
                       :icon="['fal', 'minus-square']"
                     ></font-awesome-icon>
                   </div>
-                  <div v-else class="btn animate" @click="sub(2559)">
+                  <app-link
+                    v-else-if="!$store.state.user.active_sub"
+                    to="/pretplata"
+                    class="btn animate"
+                  >
+                    Dostupno samo za pretplatnike
+                  </app-link>
+                  <div v-else class="btn animate" @click="sub(2559, 1)">
                     Prijavi me
                     <font-awesome-icon
                       :icon="['fal', 'plus-square']"
@@ -341,7 +369,14 @@
                       :icon="['fal', 'minus-square']"
                     ></font-awesome-icon>
                   </div>
-                  <div v-else class="btn animate" @click="sub(2561)">
+                  <app-link
+                    v-else-if="!$store.state.user.active_sub"
+                    to="/pretplata"
+                    class="btn animate"
+                  >
+                    Dostupno samo za pretplatnike
+                  </app-link>
+                  <div v-else class="btn animate" @click="sub(2561, 1)">
                     Prijavi me
                     <font-awesome-icon
                       :icon="['fal', 'plus-square']"
@@ -380,7 +415,14 @@
                       :icon="['fal', 'minus-square']"
                     ></font-awesome-icon>
                   </div>
-                  <div v-else class="btn animate" @click="sub(2563)">
+                  <app-link
+                    v-else-if="!$store.state.user.active_sub"
+                    to="/pretplata"
+                    class="btn animate"
+                  >
+                    Dostupno samo za pretplatnike
+                  </app-link>
+                  <div v-else class="btn animate" @click="sub(2563, 1)">
                     Prijavi me
                     <font-awesome-icon
                       :icon="['fal', 'plus-square']"
@@ -425,7 +467,14 @@
                       :icon="['fal', 'minus-square']"
                     ></font-awesome-icon>
                   </div>
-                  <div v-else class="btn animate" @click="sub(2564)">
+                  <app-link
+                    v-else-if="!$store.state.user.active_sub"
+                    to="/pretplata"
+                    class="btn animate"
+                  >
+                    Dostupno samo za pretplatnike
+                  </app-link>
+                  <div v-else class="btn animate" @click="sub(2564, 1)">
                     Prijavi me
                     <font-awesome-icon
                       :icon="['fal', 'plus-square']"
@@ -465,7 +514,14 @@
                       :icon="['fal', 'minus-square']"
                     ></font-awesome-icon>
                   </div>
-                  <div v-else class="btn animate" @click="sub(2565)">
+                  <app-link
+                    v-else-if="!$store.state.user.active_sub"
+                    to="/pretplata"
+                    class="btn animate"
+                  >
+                    Dostupno samo za pretplatnike
+                  </app-link>
+                  <div v-else class="btn animate" @click="sub(2565, 1)">
                     Prijavi me
                     <font-awesome-icon
                       :icon="['fal', 'plus-square']"
@@ -505,7 +561,14 @@
                       :icon="['fal', 'minus-square']"
                     ></font-awesome-icon>
                   </div>
-                  <div v-else class="btn animate" @click="sub(2597)">
+                  <app-link
+                    v-else-if="!$store.state.user.active_sub"
+                    to="/pretplata"
+                    class="btn animate"
+                  >
+                    Dostupno samo za pretplatnike
+                  </app-link>
+                  <div v-else class="btn animate" @click="sub(2597, 1)">
                     Prijavi me
                     <font-awesome-icon
                       :icon="['fal', 'plus-square']"
@@ -545,7 +608,14 @@
                       :icon="['fal', 'minus-square']"
                     ></font-awesome-icon>
                   </div>
-                  <div v-else class="btn animate" @click="sub(2566)">
+                  <app-link
+                    v-else-if="!$store.state.user.active_sub"
+                    to="/pretplata"
+                    class="btn animate"
+                  >
+                    Dostupno samo za pretplatnike
+                  </app-link>
+                  <div v-else class="btn animate" @click="sub(2566, 1)">
                     Prijavi me
                     <font-awesome-icon
                       :icon="['fal', 'plus-square']"
@@ -585,7 +655,14 @@
                       :icon="['fal', 'minus-square']"
                     ></font-awesome-icon>
                   </div>
-                  <div v-else class="btn animate" @click="sub(2642)">
+                  <app-link
+                    v-else-if="!$store.state.user.active_sub"
+                    to="/pretplata"
+                    class="btn animate"
+                  >
+                    Dostupno samo za pretplatnike
+                  </app-link>
+                  <div v-else class="btn animate" @click="sub(2642, 1)">
                     Prijavi me
                     <font-awesome-icon
                       :icon="['fal', 'plus-square']"
@@ -625,7 +702,14 @@
                       :icon="['fal', 'minus-square']"
                     ></font-awesome-icon>
                   </div>
-                  <div v-else class="btn animate" @click="sub(2599)">
+                  <app-link
+                    v-else-if="!$store.state.user.active_sub"
+                    to="/pretplata"
+                    class="btn animate"
+                  >
+                    Dostupno samo za pretplatnike
+                  </app-link>
+                  <div v-else class="btn animate" @click="sub(2599, 1)">
                     Prijavi me
                     <font-awesome-icon
                       :icon="['fal', 'plus-square']"
@@ -665,7 +749,14 @@
                       :icon="['fal', 'minus-square']"
                     ></font-awesome-icon>
                   </div>
-                  <div v-else class="btn animate" @click="sub(2598)">
+                  <app-link
+                    v-else-if="!$store.state.user.active_sub"
+                    to="/pretplata"
+                    class="btn animate"
+                  >
+                    Dostupno samo za pretplatnike
+                  </app-link>
+                  <div v-else class="btn animate" @click="sub(2598, 1)">
                     Prijavi me
                     <font-awesome-icon
                       :icon="['fal', 'plus-square']"
@@ -707,7 +798,14 @@
                       :icon="['fal', 'minus-square']"
                     ></font-awesome-icon>
                   </div>
-                  <div v-else class="btn animate" @click="sub(2568)">
+                  <app-link
+                    v-else-if="!$store.state.user.active_sub"
+                    to="/pretplata"
+                    class="btn animate"
+                  >
+                    Dostupno samo za pretplatnike
+                  </app-link>
+                  <div v-else class="btn animate" @click="sub(2568, 1)">
                     Prijavi me
                     <font-awesome-icon
                       :icon="['fal', 'plus-square']"
@@ -747,7 +845,14 @@
                       :icon="['fal', 'minus-square']"
                     ></font-awesome-icon>
                   </div>
-                  <div v-else class="btn animate" @click="sub(2600)">
+                  <app-link
+                    v-else-if="!$store.state.user.active_sub"
+                    to="/pretplata"
+                    class="btn animate"
+                  >
+                    Dostupno samo za pretplatnike
+                  </app-link>
+                  <div v-else class="btn animate" @click="sub(2600, 1)">
                     Prijavi me
                     <font-awesome-icon
                       :icon="['fal', 'plus-square']"
@@ -947,7 +1052,14 @@
                     :icon="['fal', 'minus-square']"
                   ></font-awesome-icon>
                 </div>
-                <div v-else class="btn animate" @click="sub(2630)">
+                <app-link
+                  v-else-if="!$store.state.user.active_sub"
+                  to="/pretplata"
+                  class="btn animate"
+                >
+                  Dostupno samo za pretplatnike
+                </app-link>
+                <div v-else class="btn animate" @click="sub(2630, 1)">
                   Prijavi me
                   <font-awesome-icon
                     :icon="['fal', 'plus-square']"
@@ -1049,7 +1161,7 @@ export default {
     hasSub(mlid) {
       return this.lists[mlid]
     },
-    sub(mlid) {
+    sub(mlid, full) {
       if (!this.$store.state.user.email) {
         // no user, prompt to login
         const _that = this
@@ -1058,11 +1170,10 @@ export default {
           width: window.innerWidth > 720 ? 600 : 375,
           loggedIn(data) {
             _that.$store.dispatch('user/setUser', data.user)
-            // window.location.reload()
             _that.sub(mlid)
           },
         })
-      } else {
+      } else if (full && this.$store.state.user.active_sub) {
         this.$axios
           .post(
             'https://api-esp.piano.io/tracker/securesub?api_key=V2rR5WTQbQyHEqCMvFEaUGU3ZNVkt4s6hnvmCz9dXt9aUwzMaUmXAhVzmv83',
