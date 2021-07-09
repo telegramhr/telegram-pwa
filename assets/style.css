@@ -104,10 +104,10 @@ header .logo {
     text-transform: uppercase;
     margin-right: 12px;
 }
-.desktop-subheader i {
+.desktop-subheader svg {
     margin-right: 16px;
 }
-.desktop-subheader i.fa-search {
+.desktop-subheader svg.fa-search {
     margin-right: 0px;
 }
 
@@ -657,10 +657,10 @@ h2.section-title {
     width: 15%;
     height: 20px;
 }
-.widget i {
+.widget svg {
     display: block;
-    font-size: 100px;
-    font-size: 5rem;
+    width: 100px !important;
+    height: auto;
     position: relative;
     bottom: -40px;
     color: #fcf1e7;
@@ -1881,10 +1881,10 @@ header {
 .gallery-header > .third:hover {
     opacity: 1;
 }
-.gallery-header .third i {
+.gallery-header .third svg {
     margin-right: 8px;
 }
-.gallery-header .third:last-child i {
+.gallery-header .third:last-child svg {
     margin-left: 8px;
     margin-right: 0px;
 }
@@ -1901,10 +1901,10 @@ header {
 .gallery-content .gallery-arrow:hover {
     background-color: rgba(255,255,255,0.1);
 }
-.gallery-content .gallery-arrow i {
+.gallery-content .gallery-arrow svg {
     opacity: .5;
 }
-.gallery-content .gallery-arrow:hover i {
+.gallery-content .gallery-arrow:hover svg {
     opacity: 1;
 }
 .gallery-content .gallery-left {
@@ -2376,7 +2376,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     padding-right: 40% !important;
     font-size: 20px;
 }
-.contact-tile i {
+.contact-tile svg {
     color: #c1b9b1;
     font-size: 60px;
     font-size: 3rem;
@@ -3717,10 +3717,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .sport-block .widget .btn {
         background-color: #376cae;
     }
-    .widget i {
+    .widget svg {
         color: #c1b9b1;
-        font-size: 42px;
-        font-size: 2.1rem;
+        width: 36px !important;
         position: absolute;
         top: 20px;
         right: 20px;
