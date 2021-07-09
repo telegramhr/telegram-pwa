@@ -315,65 +315,6 @@ export const actions = {
       window.googletag.pubads().collapseEmptyDivs()
       window.googletag.pubads().disableInitialLoad()
       window.googletag.enableServices()
-      window.googletag
-        .pubads()
-        .addEventListener('slotRenderEnded', function (event) {
-          const name = event.slot.getAdUnitPath().split('/').pop()
-          const el = document.getElementById(event.slot.getSlotElementId())
-          if (name.includes('sticky') && !event.isEmpty) {
-            const cross = document.createElement('a')
-            cross.innerHTML =
-              '<i class="fa fa-times-circle fa-2x" style="color: #ae3736;"></i>'
-            cross.style.cssText =
-              'position:fixed; left: 50%; margin-left: ' +
-              (event.size[0] / 2 - 25) +
-              'px; bottom: ' +
-              (event.size[1] - 10) +
-              'px; z-index:999;'
-            cross.addEventListener('click', function (e) {
-              e.preventDefault()
-              el.style.display = 'none'
-            })
-            el.appendChild(cross)
-          }
-          if (!event.isEmpty && name.includes('intext')) {
-            document
-              .getElementById(event.slot.getSlotElementId() + '-info')
-              .classList.remove('hide')
-          }
-          if (event.isEmpty) {
-            el.style.minHeight = '0px'
-          }
-          /* if (
-            !window.googletag.reloadedSlots.includes(name) &&
-            event.isEmpty &&
-            event.slot.getAdUnitPath().includes('wallpaper')
-          ) {
-            const unit = state.units[name]
-            el.innerHTML = ''
-            el.removeAttribute('data-google-query-id')
-            el.removeAttribute('style')
-            const newName = name + '_new'
-            el.setAttribute('id', newName)
-            unit.desktop = [
-              [200, 900],
-              [300, 900],
-            ]
-            let upc = 12
-            if (unit.upc) {
-              upc = unit.upc.desktop
-            }
-            window.googletag
-              .defineSlot(state.prefix + name, unit.desktop, newName)
-              .addService(window.googletag.pubads())
-              .setTargeting('upc', upc)
-            window.googletag.display(newName)
-            window.googletag.reloadedSlots.push(name)
-          } */
-          if (event.size && event.size[0] === 200 && event.size[1] === 250) {
-            el.style.right = '0px'
-          }
-        })
     })
     commit('setInit')
 
