@@ -1212,18 +1212,18 @@ export default {
       },
     ]
     return {
-      title: 'Telegram Newsletters',
+      title: 'Telegram, svaki dan u vašem inboxu.',
       titleTemplate: '%s | Telegram.hr',
       meta: [
         {
           hid: 'cXenseParse:image',
           name: 'cXenseParse:image',
-          content: '',
+          content: require('~/assets/img/tg_share_newsletter.jpg'),
         },
         {
           hid: 'cXenseParse:title',
           name: 'cXenseParse:title',
-          content: 'Telegram, svaki dan, u vašem inboxu.',
+          content: 'Telegram, svaki dan u vašem inboxu.',
         },
         {
           hid: 'description',
@@ -1245,22 +1245,22 @@ export default {
         {
           hid: 'og:title',
           property: 'og:title',
-          content: 'Telegram, svaki dan, u vašem inboxu.',
+          content: 'Telegram, svaki dan u vašem inboxu.',
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: '',
+          content: require('~/assets/img/tg_share_newsletter.jpg'),
         },
         {
           hid: 'og:image:width',
           property: 'og:image:width',
-          content: '',
+          content: '1920',
         },
         {
           hid: 'og:image:height',
           property: 'og:image:height',
-          content: '',
+          content: '1080',
         },
         {
           hid: 'og:url',
