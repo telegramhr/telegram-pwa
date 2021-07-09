@@ -1,23 +1,25 @@
 <template>
   <client-only>
-    <a
-      v-show="id === 'telegram_sticky' && showClose"
-      href="#"
-      :style="{
-        position: 'fixed',
-        left: '50%',
-        zIndex: 999,
-        marginLeft: size[0] / 2 - 25 + 'px',
-        bottom: size[1] - 10 + 'px',
-      }"
-      @click="showClose = false"
-      ><font-awesome-icon
-        :icon="['fas', 'times-circle']"
-        size="2x"
-        style="color: #ae3736"
-      ></font-awesome-icon
-    ></a>
-    <div :id="id" class="banner-slot"></div>
+    <div v-show="!shouldHide">
+      <div :id="id" class="banner-slot"></div>
+      <a
+        v-show="id === 'telegram_sticky' && showClose"
+        href="#"
+        :style="{
+          position: 'fixed',
+          left: '50%',
+          zIndex: 10000,
+          marginLeft: closeMargin + 'px',
+          bottom: size[1] - 10 + 'px',
+        }"
+        @click="shouldHide = true"
+        ><font-awesome-icon
+          :icon="['fas', 'times-circle']"
+          size="2x"
+          style="color: #ae3736"
+        ></font-awesome-icon
+      ></a>
+    </div>
   </client-only>
 </template>
 
@@ -35,9 +37,16 @@ export default {
     return {
       size: [0, 0],
       showClose: false,
+      shouldHide: false,
     }
   },
   computed: {
+    closeMargin() {
+      if (this.size[0] === 200) {
+        return -10
+      }
+      return this.size[0] / 2 - 25
+    },
     style() {
       if (this.id.includes('sticky')) {
         return ''
@@ -46,6 +55,7 @@ export default {
     },
   },
   mounted() {
+    const _that = this
     window.googletag = window.googletag || {}
     window.googletag.cmd = window.googletag.cmd || []
     window.googletag.cmd.push(() => {
@@ -55,7 +65,8 @@ export default {
           const name = event.slot.getAdUnitPath().split('/').pop()
           const el = document.getElementById(event.slot.getSlotElementId())
           if (name.includes('sticky') && !event.isEmpty) {
-            this.showClose = true
+            _that.showClose = true
+            _that.size = event.size
           }
           if (!event.isEmpty && name.includes('intext')) {
             document

@@ -10,6 +10,7 @@ import {
   faBook,
   faEnvelopeOpenText as fasEnvelopeOpenText,
   faCheck,
+  faTimesCircle,
 } from '@fortawesome/free-solid-svg-icons'
 import {
   faUserLock,
@@ -61,7 +62,8 @@ library.add(
   faUser,
   faTelegram,
   faMinusSquare,
-  faPlusSquare
+  faPlusSquare,
+  faTimesCircle
 )
 
 // Register the component globally
