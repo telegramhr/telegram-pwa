@@ -1,7 +1,13 @@
 <template>
   <client-only>
     <div v-show="!shouldHide">
-      <div :id="id" class="banner-slot"></div>
+      <div
+        :id="id"
+        class="banner-slot"
+        :style="{
+          right: size[0] === 200 && size[1] === 250 ? '0px' : 'initial',
+        }"
+      ></div>
       <a
         v-show="id === 'telegram_sticky' && showClose"
         href="#"
@@ -10,7 +16,7 @@
           left: '50%',
           zIndex: 10000,
           marginLeft: closeMargin + 'px',
-          bottom: size[1] - 10 + 'px',
+          bottom: size[1] - 15 + 'px',
         }"
         @click="shouldHide = true"
         ><font-awesome-icon
@@ -63,7 +69,6 @@ export default {
         .pubads()
         .addEventListener('slotRenderEnded', function (event) {
           const name = event.slot.getAdUnitPath().split('/').pop()
-          const el = document.getElementById(event.slot.getSlotElementId())
           if (name.includes('sticky') && !event.isEmpty) {
             _that.showClose = true
             _that.size = event.size
@@ -72,12 +77,6 @@ export default {
             document
               .getElementById(event.slot.getSlotElementId() + '-info')
               .classList.remove('hide')
-          }
-          if (event.isEmpty) {
-            el.style.minHeight = '0px'
-          }
-          if (event.size && event.size[0] === 200 && event.size[1] === 250) {
-            el.style.right = '0px'
           }
         })
     })

@@ -71,14 +71,6 @@ export default {
         async: true,
       },
       {
-        src:
-          'https://cdnjs.cloudflare.com/ajax/libs/postscribe/2.0.8/postscribe.min.js',
-      },
-      {
-        src:
-          'https://www.telegram.hr/wp-content/plugins/telegram-ad-plugin/src/AdPlugin/assets/dfp/expand2.js',
-      },
-      {
         hid: 'cxense',
         src: 'https://cdn.cxense.com/cx.cce.js',
         async: true,
