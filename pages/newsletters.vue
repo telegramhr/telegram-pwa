@@ -756,7 +756,7 @@
                   >
                     Dostupno samo za pretplatnike
                   </app-link>
-                  <div v-else class="btn animate" @click="sub(2598, 1)">
+                  <div v-else class="btn animate" @click="sub(2567, 1)">
                     Prijavi me
                     <font-awesome-icon
                       :icon="['fal', 'plus-square']"
