@@ -576,16 +576,16 @@
                     o filmu, društvu, obitelji i gastronomiji.
                   </p>
                   <div
-                    v-if="hasSub(2598)"
+                    v-if="hasSub(2642)"
                     class="btn animate btn-unsub"
-                    @click="unsub(2598)"
+                    @click="unsub(2642)"
                   >
                     Odjavi me
                     <font-awesome-icon
                       :icon="['fal', 'minus-square']"
                     ></font-awesome-icon>
                   </div>
-                  <div v-else class="btn animate" @click="sub(2598)">
+                  <div v-else class="btn animate" @click="sub(2642)">
                     Prijavi me
                     <font-awesome-icon
                       :icon="['fal', 'plus-square']"
@@ -1015,6 +1015,7 @@ export default {
         2629: false,
         2630: false,
         2631: false,
+        2642: false,
       },
     }
   },
