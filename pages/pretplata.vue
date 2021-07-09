@@ -3,7 +3,9 @@
     class="main-container flex red-header-page pretplata-page single-article"
   >
     <div class="full flex tg-red">
-      <theader></theader>
+      <theader
+        headline="Pretplatite se i podržite naše bespoštedno novinarstvo."
+      ></theader>
     </div>
     <div class="full flex pretplata-page-content">
       <div class="full flex relative">
