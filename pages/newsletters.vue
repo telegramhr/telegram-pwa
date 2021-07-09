@@ -4,7 +4,7 @@
   >
     <div class="full flex tg-red">
       <client-only>
-        <theader></theader>
+        <theader headline="Telegram, svaki dan, u vašem inboxu."></theader>
       </client-only>
     </div>
     <div class="full flex pretplata-page">
@@ -1202,6 +1202,94 @@ export default {
           this.lists[mlid] = false
         })
     },
+  },
+  head() {
+    const link = [
+      {
+        hid: 'canonical',
+        rel: 'canonical',
+        href: 'https://www.telegram.hr/newsletters',
+      },
+    ]
+    return {
+      title: 'Telegram Newsletters',
+      titleTemplate: '%s | Telegram.hr',
+      meta: [
+        {
+          hid: 'cXenseParse:image',
+          name: 'cXenseParse:image',
+          content: '',
+        },
+        {
+          hid: 'cXenseParse:title',
+          name: 'cXenseParse:title',
+          content: 'Telegram, svaki dan, u vašem inboxu.',
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'Prijavite se za newslettere i primajte najbolje od Telegrama. ',
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content:
+            'Prijavite se za newslettere i primajte najbolje od Telegrama. ',
+        },
+        {
+          hid: 'og:type',
+          property: 'og:type',
+          content: 'article',
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'Telegram, svaki dan, u vašem inboxu.',
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: '',
+        },
+        {
+          hid: 'og:image:width',
+          property: 'og:image:width',
+          content: '',
+        },
+        {
+          hid: 'og:image:height',
+          property: 'og:image:height',
+          content: '',
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: 'https://www.telegram.hr/newsletters',
+        },
+        {
+          hid: 'fb:app_id',
+          property: 'fb:app_id',
+          content: '1383786971938581',
+        },
+        {
+          hid: 'twitter:card',
+          name: 'twitter:card',
+          content: 'summary_large_image',
+        },
+        {
+          hid: 'twitter:site',
+          name: 'twitter:site',
+          content: '@TelegramHR',
+        },
+        {
+          hid: 'robots',
+          name: 'robots',
+          content: 'index, follow',
+        },
+      ],
+      link,
+    }
   },
 }
 </script>
