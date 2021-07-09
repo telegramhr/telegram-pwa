@@ -1,5 +1,7 @@
 <template>
-  <div class="main-container flex">
+  <div
+    class="main-container flex red-header-page single-article hide-billboard"
+  >
     <div class="full flex tg-red">
       <client-only>
         <theader></theader>
@@ -232,7 +234,7 @@
                 <div class="full flex newsletter-header">
                   <div class="newsletter-avatar">
                     <img
-                      src="https://www.telegram.hr/wp-content/uploads/2020/04/repecki-marko1.png"
+                      src="https://www.telegram.hr/wp-content/uploads/2020/04/repecki2.png"
                       aria-hidden="true"
                     />
                   </div>
@@ -312,7 +314,7 @@
                 <div class="full flex newsletter-header">
                   <div class="newsletter-avatar">
                     <img
-                      src="https://www.telegram.hr/wp-content/uploads/2017/06/divo_durovic_2.png"
+                      src="https://www.telegram.hr/wp-content/uploads/2017/06/divo2.png"
                       aria-hidden="true"
                     />
                   </div>
@@ -529,7 +531,7 @@
                 </div>
                 <div class="full flex newsletter-box">
                   <p class="full newsletter-intro">
-                    Dobitnica dvije nagrade HND-a, specijalizirana školstvo,
+                    Dobitnica dvije nagrade HND-a, specijalizirana za školstvo,
                     redovno otkriva važne priče poput dubrovačkog apartmana
                     rektora Borasa i seksualnog zlostavljanja na Sveučilištu.
                   </p>
@@ -556,22 +558,22 @@
               <div class="full newsletter-listing flex relative stretch">
                 <div class="full flex newsletter-header">
                   <div class="newsletter-avatar">
-                    <!--<img
-                    src=""
-                    aria-hidden="true"
-                  />-->
+                    <img
+                      src="https://www.telegram.hr/wp-content/uploads/2020/08/rajko-grlic.png"
+                      aria-hidden="true"
+                    />
                   </div>
                   <div class="full relative">
                     <h3 class="full overtitle">Redovito</h3>
-                    <h2 class="full newsletter-title">Kristian Došen</h2>
+                    <h2 class="full newsletter-title">Rajko Grlić</h2>
                     <h3 class="full subtitle">Puni članci autora</h3>
                   </div>
                 </div>
                 <div class="full flex newsletter-box">
                   <p class="full newsletter-intro">
-                    Telegramov istraživački novinar, autor brojnih važnih
-                    otkrića, specijaliziran za zloupotrebe javnih sredstava i
-                    manipulacije s javnim nabavama.
+                    Cijenjeni redatelj i scenarist, redovni profesor filma u
+                    Americi, za Telegram piše kolumnu 'Iz svakog džepa ponešto',
+                    o filmu, društvu, obitelji i gastronomiji.
                   </p>
                   <div
                     v-if="hasSub(2598)"
@@ -637,7 +639,7 @@
                 <div class="full flex newsletter-header">
                   <div class="newsletter-avatar">
                     <img
-                      src="https://www.telegram.hr/wp-content/uploads/2017/09/mladen_plese_3.png"
+                      src="https://www.telegram.hr/wp-content/uploads/2017/09/plese.png"
                       aria-hidden="true"
                     />
                   </div>
@@ -677,7 +679,7 @@
                 <div class="full flex newsletter-header">
                   <div class="newsletter-avatar">
                     <img
-                      src="https://www.telegram.hr/wp-content/uploads/2018/11/tg_irena.png"
+                      src="https://www.telegram.hr/wp-content/uploads/2018/11/irena.png"
                       aria-hidden="true"
                     />
                   </div>
@@ -959,36 +961,20 @@
               <div class="full flex newsletter-header">
                 <div class="newsletter-avatar">
                   <img
-                    src="@/assets/img/tg_newsletter_avatars_kultura.jpg"
+                    src="@/assets/img/tg_newsletter_avatars_next.jpg"
                     aria-hidden="true"
                   />
                 </div>
                 <div class="full relative">
-                  <h3 class="full overtitle">Jednom tjedno</h3>
-                  <h2 class="full newsletter-title">Kultura</h2>
-                  <h3 class="full subtitle">Najbolje iz rubrike</h3>
+                  <h3 class="full overtitle">To nije sve</h3>
+                  <h2 class="full newsletter-title">Još newslettera</h2>
+                  <h3 class="full subtitle">Dolazi uskoro</h3>
                 </div>
               </div>
               <div class="full flex newsletter-box">
                 <p class="full newsletter-intro">
-                  Tjedni odabir najboljih Telegramovih priča iz rubrike Kultura.
+                  Još newslettera dolazi uskoro. Imate ideju? Javite nam se!
                 </p>
-                <div
-                  v-if="hasSub(2631)"
-                  class="btn animate btn-unsub"
-                  @click="unsub(2631)"
-                >
-                  Odjavi me
-                  <font-awesome-icon
-                    :icon="['fal', 'minus-square']"
-                  ></font-awesome-icon>
-                </div>
-                <div v-else class="btn animate" @click="sub(2631)">
-                  Prijavi me
-                  <font-awesome-icon
-                    :icon="['fal', 'plus-square']"
-                  ></font-awesome-icon>
-                </div>
               </div>
             </div>
           </div>
@@ -1210,7 +1196,7 @@ export default {
   font-size: 0.65rem;
   padding: 5px 20px;
 }
-.newsletter-box .btn i {
+.newsletter-box .btn svg {
   margin-left: 8px;
 }
 .newsletter-box .btn-unsub {
