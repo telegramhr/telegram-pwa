@@ -235,17 +235,36 @@ export const state = () => ({
   },
   pb_units: [
     {
-      code: state.prefix + 'telegram_billboard_v2',
+      code: state.prefix + 'telegram_billboard_v3',
       mediaTypes: {
         banner: {
-          sizes: [970, 250],
+          sizes: [
+            [970, 250],
+            [300, 250],
+          ],
         },
       },
       bids: [
         {
           bidder: 'sovrn',
           params: {
-            tagid: [929050],
+            tagid: [929051, 929093],
+          },
+        },
+      ],
+    },
+    {
+      code: state.prefix + 'telegram_intext_v2',
+      mediaTypes: {
+        banner: {
+          sizes: [[300, 250]],
+        },
+      },
+      bids: [
+        {
+          bidder: 'sovrn',
+          params: {
+            tagid: [929094],
           },
         },
       ],
@@ -380,10 +399,9 @@ export const actions = {
         window.googletag.display(slot.id)
       })
     })
-    // dispatch('refreshSlots')
-    dispatch('initPBJS')
+    dispatch('refreshSlots')
   },
-  refreshSlots() {
+  refreshSlots({ dispatch }) {
     window.googlefc = window.googlefc || {}
     window.googlefc.callbackQueue = window.googlefc.callbackQueue || []
     window.googletag = window.googletag || {}
@@ -393,27 +411,32 @@ export const actions = {
       CONSENT_DATA_READY: () =>
         __tcfapi('getTCData', 0, (data, success) => {
           if (data.purpose.consents[1]) {
-            window.googletag.cmd.push(() => {
-              window.googletag.pubads().refresh()
-            })
+            dispatch('initPBJS')
           }
         }),
     })
   },
-  initPBJS({ state }) {
+  initPBJS({ state, dispatch }) {
     window.pbjs = window.pbjs || {}
     window.pbjs.que = window.pbjs.que || []
-    console.log('init pbjs')
     window.pbjs.que.push(() => {
+      window.pbjs.setConfig({
+        debug: true,
+        consentManagement: {
+          gdpr: {
+            cmpApi: 'iab',
+            defaultGdprScope: true,
+          },
+        },
+      })
       window.pbjs.addAdUnits(state.pb_units)
       window.pbjs.requestBids({
-        bidsBackHandler: this.initAdserver(),
+        bidsBackHandler: () => dispatch('initAdserver'),
         timeout: 1000,
       })
     })
   },
   initAdserver() {
-    console.log('init ad server')
     if (window.pbjs.initAdserverSet) return
     window.pbjs.initAdserverSet = true
     window.googletag.cmd.push(function () {
