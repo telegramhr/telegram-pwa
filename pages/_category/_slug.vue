@@ -36,7 +36,7 @@
         <div v-if="post.image.author" class="meta-foto">
           FOTO: {{ post.image.author }}
         </div>
-        <div class="mobile-only full center parmobile-pa-nav relative flex">
+        <div class="mobile-only full center mobile-pa-nav relative flex">
           <a @click.prevent="showSideMenu = !showSideMenu">
             <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon
           ></a>
