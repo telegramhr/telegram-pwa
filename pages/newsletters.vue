@@ -756,7 +756,7 @@
                   >
                     Dostupno samo za pretplatnike
                   </app-link>
-                  <div v-else class="btn animate" @click="sub(2598, 1)">
+                  <div v-else class="btn animate" @click="sub(2567, 1)">
                     Prijavi me
                     <font-awesome-icon
                       :icon="['fal', 'plus-square']"
@@ -1107,6 +1107,7 @@ export default {
         2128: false,
         2554: false,
         2555: false,
+        2559: false,
         2560: false,
         2561: false,
         2562: false,
@@ -1212,18 +1213,18 @@ export default {
       },
     ]
     return {
-      title: 'Telegram Newsletters',
+      title: 'Telegram, svaki dan u vašem inboxu',
       titleTemplate: '%s | Telegram.hr',
       meta: [
         {
           hid: 'cXenseParse:image',
           name: 'cXenseParse:image',
-          content: '',
+          content: require('~/assets/img/tg_share_newsletter.jpg'),
         },
         {
           hid: 'cXenseParse:title',
           name: 'cXenseParse:title',
-          content: 'Telegram, svaki dan, u vašem inboxu.',
+          content: 'Telegram, svaki dan u vašem inboxu',
         },
         {
           hid: 'description',
@@ -1245,22 +1246,22 @@ export default {
         {
           hid: 'og:title',
           property: 'og:title',
-          content: 'Telegram, svaki dan, u vašem inboxu.',
+          content: 'Telegram, svaki dan u vašem inboxu',
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: '',
+          content: require('~/assets/img/tg_share_newsletter.jpg'),
         },
         {
           hid: 'og:image:width',
           property: 'og:image:width',
-          content: '',
+          content: '1920',
         },
         {
           hid: 'og:image:height',
           property: 'og:image:height',
-          content: '',
+          content: '1080',
         },
         {
           hid: 'og:url',
