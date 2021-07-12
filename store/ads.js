@@ -233,6 +233,24 @@ export const state = () => ({
       ],
     },
   },
+  pb_units: [
+    {
+      code: state.prefix + 'telegram_billboard_v2',
+      mediaTypes: {
+        banner: {
+          sizes: [970, 250],
+        },
+      },
+      bids: [
+        {
+          bidder: 'sovrn',
+          params: {
+            tagid: [929050],
+          },
+        },
+      ],
+    },
+  ],
 })
 
 export const mutations = {
@@ -362,7 +380,8 @@ export const actions = {
         window.googletag.display(slot.id)
       })
     })
-    dispatch('refreshSlots')
+    // dispatch('refreshSlots')
+    dispatch('initPBJS')
   },
   refreshSlots() {
     window.googlefc = window.googlefc || {}
@@ -379,6 +398,28 @@ export const actions = {
             })
           }
         }),
+    })
+  },
+  initPBJS({ state }) {
+    window.pbjs = window.pbjs || {}
+    window.pbjs.que = window.pbjs.que || []
+    console.log('init pbjs')
+    window.pbjs.que.push(() => {
+      window.pbjs.addAdUnits(state.pb_units)
+      window.pbjs.requestBids({
+        bidsBackHandler: this.initAdserver(),
+        timeout: 1000,
+      })
+    })
+  },
+  initAdserver() {
+    console.log('init ad server')
+    if (window.pbjs.initAdserverSet) return
+    window.pbjs.initAdserverSet = true
+    window.googletag.cmd.push(function () {
+      window.pbjs.setTargetingForGPTAsync &&
+        window.pbjs.setTargetingForGPTAsync()
+      window.googletag.pubads().refresh()
     })
   },
 }

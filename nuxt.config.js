@@ -71,6 +71,10 @@ export default {
         async: true,
       },
       {
+        src: 'prebid5.4.0.js',
+        async: true,
+      },
+      {
         hid: 'cxense',
         src: 'https://cdn.cxense.com/cx.cce.js',
         async: true,
