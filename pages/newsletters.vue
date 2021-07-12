@@ -1174,7 +1174,7 @@ export default {
             _that.sub(mlid)
           },
         })
-      } else if (full && this.$store.state.user.active_sub) {
+      } else {
         this.$axios
           .post(
             'https://api-esp.piano.io/tracker/securesub?api_key=V2rR5WTQbQyHEqCMvFEaUGU3ZNVkt4s6hnvmCz9dXt9aUwzMaUmXAhVzmv83',
