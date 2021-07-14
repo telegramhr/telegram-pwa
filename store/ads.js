@@ -106,7 +106,7 @@ export const state = () => ({
     },
     telegram_desktop_wallpaper_left: {
       upc: {
-        desktop: 36,
+        desktop: 2,
         mobile: 36,
       },
       desktop: [
@@ -270,6 +270,9 @@ export const state = () => ({
       ],
     },
   ],
+  upc_b: 1,
+  upc: {},
+  upc_updated: null,
 })
 
 export const mutations = {
@@ -278,6 +281,10 @@ export const mutations = {
   },
   setSlots(state) {
     state.slots = true
+  },
+  setUpc(state, data) {
+    state.upc = data
+    state.upc_updated = new Date().getTime()
   },
 }
 
@@ -288,6 +295,11 @@ export const actions = {
     }
     if (rootState.user.access) {
       return
+    }
+    if (state.upc_updated + 60 * 60 * 1000 < new Date().getTime()) {
+      this.$axios.get('/api/upc').then((res) => {
+        commit('setUpc', res.data)
+      })
     }
     if (state.slots) {
       window.googletag.cmd.push(() => {
@@ -366,8 +378,10 @@ export const actions = {
         if (i in state.units) {
           const unit = state.units[i]
           let upc = sizes === 'desktop' ? 14 : 12
-          if (unit.upc) {
-            upc = unit.upc[sizes]
+          if (state.upc[i]) {
+            upc = state.upc[i][sizes]
+          } else {
+            upc = state.upc_b
           }
           if (!unit[sizes]) {
             continue

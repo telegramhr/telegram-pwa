@@ -62,14 +62,14 @@
         </div>
       </div>
       <div class="full column-top-pad"></div>
-      <div class="half">
+      <div v-if="weather.zagreb[1]" class="half">
         <object
           type="image/svg+xml"
           :data="`/weather/${weather.zagreb[1].type}.svg`"
           :alt="weather.zagreb[1].alt"
         ></object>
       </div>
-      <div class="half flex center">
+      <div v-if="weather.zagreb[1]" class="half flex center">
         <div class="full">
           <p class="full faded smaller-text">{{ weather.zagreb[1].day }}</p>
           <p class="full">
@@ -77,14 +77,14 @@
           </p>
         </div>
       </div>
-      <div class="half">
+      <div v-if="weather.zagreb[2]" class="half">
         <object
           type="image/svg+xml"
           :data="`/weather/${weather.zagreb[2].type}.svg`"
           :alt="weather.zagreb[2].alt"
         ></object>
       </div>
-      <div class="half flex center">
+      <div v-if="weather.zagreb[2]" class="half flex center">
         <div class="full">
           <p class="full faded smaller-text">{{ weather.zagreb[2].day }}</p>
           <p class="full">
