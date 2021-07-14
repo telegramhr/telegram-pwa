@@ -7,7 +7,9 @@
       <nuxt-link :to="'/' + slug">{{ category | parseCat }}</nuxt-link>
     </h2>
     <featured :key="posts[0].id" :post="posts[0]"></featured>
-    <medium v-for="i in [1, 2, 3]" :key="posts[i].id" :post="posts[i]"></medium>
+    <template v-for="i in [1, 2, 3]">
+      <medium v-if="posts[i]" :key="posts[i].id" :post="posts[i]"></medium>
+    </template>
   </section>
 </template>
 
