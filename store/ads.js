@@ -435,7 +435,6 @@ export const actions = {
     window.pbjs.que = window.pbjs.que || []
     window.pbjs.que.push(() => {
       window.pbjs.setConfig({
-        debug: true,
         consentManagement: {
           gdpr: {
             cmpApi: 'iab',
