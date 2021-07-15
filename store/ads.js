@@ -254,6 +254,22 @@ export const state = () => ({
       ],
     },
     {
+      code: state.prefix + 'telegram_billboard_v4',
+      mediaTypes: {
+        banner: {
+          sizes: [[970, 250]],
+        },
+      },
+      bids: [
+        {
+          bidder: 'sovrn',
+          params: {
+            tagid: [929563],
+          },
+        },
+      ],
+    },
+    {
       code: state.prefix + 'telegram_intext_v2',
       mediaTypes: {
         banner: {
@@ -302,6 +318,12 @@ export const actions = {
       })
     }
     if (state.slots) {
+      window.pbjs = window.pbjs || {}
+      window.pbjs.que = window.pbjs.que || []
+      window.pbjs.initAdserverSet = false
+      window.pbjs.que.push(() => {
+        window.pbjs.removeAdUnit()
+      })
       window.googletag.cmd.push(() => {
         window.googletag.destroySlots()
       })
@@ -426,6 +448,9 @@ export const actions = {
         __tcfapi('getTCData', 0, (data, success) => {
           if (data.purpose.consents[1]) {
             dispatch('initPBJS')
+            /* window.googletag.cmd.push(function () {
+              window.googletag.pubads().refresh()
+            }) */
           }
         }),
     })
@@ -448,6 +473,9 @@ export const actions = {
         timeout: 1000,
       })
     })
+    setTimeout(() => {
+      dispatch('initAdserver')
+    }, 1500)
   },
   initAdserver() {
     if (window.pbjs.initAdserverSet) return

@@ -1,6 +1,6 @@
 <template>
   <app-link
-    to="/newsletter"
+    to="/newsletters"
     class="widget widget-newsletter relative full flex"
   >
     <div class="widget-box full flex">
