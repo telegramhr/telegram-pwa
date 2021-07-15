@@ -681,7 +681,7 @@ export default {
                   'https://api-esp.piano.io/tracker/securesub?api_key=V2rR5WTQbQyHEqCMvFEaUGU3ZNVkt4s6hnvmCz9dXt9aUwzMaUmXAhVzmv83',
                   {
                     email: _that.$store.state.user.email,
-                    mlids: [2128],
+                    mlids: [2128, 2555, 2554],
                   }
                 )
                 .then(() => {
