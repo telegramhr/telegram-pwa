@@ -71,13 +71,20 @@ export default {
         async: true,
       },
       {
-        src: 'prebid5.4.0.js',
+        src: '/prebid5.4.0.js',
         async: true,
       },
       {
         hid: 'cxense',
         src: 'https://cdn.cxense.com/cx.cce.js',
         async: true,
+      },
+      {
+        hid: 'sovrn',
+        src:
+          'https://get.s-onetag.com/71db7e62-a54b-43f0-98c7-ae8594228b02/tag.min.js',
+        async: true,
+        defer: true,
       },
     ],
   },
