@@ -80,6 +80,17 @@ export const state = () => ({
         [1200, 250],
         [1200, 500],
       ],
+      pbjs: {
+        sizes: [[970, 250]],
+        bids: [
+          {
+            bidder: 'sovrn',
+            params: {
+              tagid: [929051],
+            },
+          },
+        ],
+      },
     },
     telegram_desktop_billboard_v4: {
       upc: {
@@ -103,6 +114,17 @@ export const state = () => ({
         [1200, 250],
         [1200, 500],
       ],
+      pbjs: {
+        sizes: [[970, 250]],
+        bids: [
+          {
+            bidder: 'sovrn',
+            params: {
+              tagid: [929051],
+            },
+          },
+        ],
+      },
     },
     telegram_desktop_wallpaper_left: {
       upc: {
@@ -199,6 +221,17 @@ export const state = () => ({
         [300, 50],
         [300, 600],
       ],
+      pbjs: {
+        sizes: [[300, 250]],
+        bids: [
+          {
+            bidder: 'sovrn',
+            params: {
+              tagid: [929094],
+            },
+          },
+        ],
+      },
     },
     telegram_sticky: {
       upc: {
@@ -233,59 +266,6 @@ export const state = () => ({
       ],
     },
   },
-  pb_units: [
-    {
-      code: state.prefix + 'telegram_billboard_v3',
-      mediaTypes: {
-        banner: {
-          sizes: [
-            [970, 250],
-            [300, 250],
-          ],
-        },
-      },
-      bids: [
-        {
-          bidder: 'sovrn',
-          params: {
-            tagid: [929051, 929093],
-          },
-        },
-      ],
-    },
-    {
-      code: state.prefix + 'telegram_billboard_v4',
-      mediaTypes: {
-        banner: {
-          sizes: [[970, 250]],
-        },
-      },
-      bids: [
-        {
-          bidder: 'sovrn',
-          params: {
-            tagid: [929563],
-          },
-        },
-      ],
-    },
-    {
-      code: state.prefix + 'telegram_intext_v2',
-      mediaTypes: {
-        banner: {
-          sizes: [[300, 250]],
-        },
-      },
-      bids: [
-        {
-          bidder: 'sovrn',
-          params: {
-            tagid: [929094],
-          },
-        },
-      ],
-    },
-  ],
   upc_b: 1,
   upc: {},
   upc_updated: null,
@@ -423,6 +403,39 @@ export const actions = {
       }
       commit('setSlots')
     })
+    window.pbjs = window.pbjs || {}
+    window.pbjs.que = window.pbjs.que || []
+    window.pbjs.que.push(() => {
+      window.pbjs.setConfig({
+        consentManagement: {
+          gdpr: {
+            cmpApi: 'iab',
+            defaultGdprScope: true,
+          },
+        },
+      })
+      // const prefix = state.prefix
+      for (const i of Object.keys(state.units)) {
+        if (i in state.units && state.units[i].pbjs) {
+          const unit = state.units[i]
+          if (!unit.pbjs.sizes) {
+            continue
+          }
+          if (route && !unit.routes.includes(route.name)) {
+            continue
+          }
+          window.pbjs.addAdUnits({
+            code: i,
+            mediaTypes: {
+              banner: {
+                sizes: unit.pbjs.sizes,
+              },
+            },
+            bids: unit.pbjs.bids,
+          })
+        }
+      }
+    })
     dispatch('displaySlots')
   },
   displaySlots({ dispatch }) {
@@ -448,9 +461,6 @@ export const actions = {
         __tcfapi('getTCData', 0, (data, success) => {
           if (data.purpose.consents[1]) {
             dispatch('initPBJS')
-            /* window.googletag.cmd.push(function () {
-              window.googletag.pubads().refresh()
-            }) */
           }
         }),
     })
@@ -459,15 +469,6 @@ export const actions = {
     window.pbjs = window.pbjs || {}
     window.pbjs.que = window.pbjs.que || []
     window.pbjs.que.push(() => {
-      window.pbjs.setConfig({
-        consentManagement: {
-          gdpr: {
-            cmpApi: 'iab',
-            defaultGdprScope: true,
-          },
-        },
-      })
-      window.pbjs.addAdUnits(state.pb_units)
       window.pbjs.requestBids({
         bidsBackHandler: () => dispatch('initAdserver'),
         timeout: 1000,
