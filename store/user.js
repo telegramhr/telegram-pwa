@@ -64,6 +64,9 @@ export const actions = {
             commit('setActive', true)
           }
         })
+        window.fbq('trackCustom', 'HasSubscription', { value: 1 })
+      } else {
+        window.fbq('trackCustom', 'HasSubscription', { value: 0 })
       }
       resolve()
     })
