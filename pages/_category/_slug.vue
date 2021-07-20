@@ -279,7 +279,7 @@
                   ></div>
                 </div>
                 <mini-pretplata
-                  v-show="!$store.state.user.token"
+                  v-show="!$store.state.user.access"
                 ></mini-pretplata>
               </div>
             </div>
