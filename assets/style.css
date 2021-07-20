@@ -1763,6 +1763,11 @@ header {
 .single-article-body iframe {
     margin-left: auto !important;
     margin-right: auto !important;
+    max-width: 100%;
+}
+
+.dark-mode .single-article-body iframe {
+  background-color: #fcf1e7;
 }
 
 .single-article-body .banner-intext {
@@ -2453,7 +2458,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .pretplata-intext .altbtn {
     background-color: #333;
     margin-left: 8px;
-} 
+}
 @media screen and (max-width: 400px) {
     .pretplata-intext .btn {
         padding: 2px 16px;
