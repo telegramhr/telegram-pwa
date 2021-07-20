@@ -1,7 +1,7 @@
 <template>
   <div class="full flex relative">
     <div
-      v-show="!$store.state.user.access"
+      v-show="!$store.state.user.active_sub"
       class="full pretplata-ticker pretplata-prefooter relative"
     >
       <div class="container flex relative">

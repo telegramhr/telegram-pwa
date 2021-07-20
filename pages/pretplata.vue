@@ -665,7 +665,7 @@ export default {
   },
   methods: {
     checkout(termId) {
-      if (this.$store.state.user.access) {
+      if (this.$store.state.user.token) {
         this.checkout2(termId, -1)
       } else {
         const _that = this

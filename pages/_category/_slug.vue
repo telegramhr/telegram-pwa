@@ -279,7 +279,7 @@
                   ></div>
                 </div>
                 <mini-pretplata
-                  v-show="!$store.state.user.access"
+                  v-show="!$store.state.user.active_sub"
                 ></mini-pretplata>
               </div>
             </div>
