@@ -3491,6 +3491,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .pretplata-prefooter {
         padding-bottom: 48px;
     }
+    .widget {
+        overflow: hidden;
+    }
 }
 
 @media screen and (min-width: 767px) {
