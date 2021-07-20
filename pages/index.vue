@@ -166,9 +166,6 @@
         <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
       </div>
       <midas></midas>
-      <div v-show="$mobile" class="full flex mobile-only">
-        <lazy-newsletter></lazy-newsletter>
-      </div>
       <lazy-partners></lazy-partners>
       <client-only>
         <lazy-sport></lazy-sport>

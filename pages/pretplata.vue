@@ -596,6 +596,16 @@
 <script>
 export default {
   name: 'Pretplata',
+  data() {
+    return {
+      terms: {
+        TM0FMYURHRA3: 49,
+        TMXKYJUN5YN5: 69,
+        TMVUCFM94OA7: 468,
+        TM8R9U7RK5B1: 588,
+      },
+    }
+  },
   computed: {
     one() {
       if (process.client) {
@@ -635,6 +645,14 @@ export default {
     },
   },
   mounted() {
+    window.fbq('track', 'ViewContent', {
+      content_ids: [
+        'TM0FMYURHRA3',
+        'TMXKYJUN5YN5',
+        'TMVUCFM94OA7',
+        'TM8R9U7RK5B1',
+      ],
+    })
     window.tp.push([
       'addHandler',
       'checkoutComplete',
@@ -664,6 +682,11 @@ export default {
     },
     checkout2(termId, back) {
       const _that = this
+      window.fbq('track', 'InitiateCheckout', {
+        content_ids: [termId],
+        currency: 'HRK',
+        value: this.terms[termId],
+      })
       window.tp.push([
         'init',
         () => {
@@ -676,6 +699,15 @@ export default {
             closeOnLogout: true,
             complete: () => {
               _that.$store.dispatch('user/checkAccess')
+              window.fbq('track', 'Purchase', {
+                content_ids: [termId],
+                currency: 'HRK',
+                value: this.terms[termId],
+              })
+              window.fbq('track', 'Subscribe', {
+                currency: 'HRK',
+                value: this.terms[termId],
+              })
               _that.$axios
                 .post(
                   'https://api-esp.piano.io/tracker/securesub?api_key=V2rR5WTQbQyHEqCMvFEaUGU3ZNVkt4s6hnvmCz9dXt9aUwzMaUmXAhVzmv83',
