@@ -708,15 +708,12 @@ export default {
                 currency: 'HRK',
                 value: this.terms[termId],
               })
-              _that.$axios
-                .post(
-                  'https://api-esp.piano.io/tracker/securesub?api_key=V2rR5WTQbQyHEqCMvFEaUGU3ZNVkt4s6hnvmCz9dXt9aUwzMaUmXAhVzmv83',
-                  {
-                    email: _that.$store.state.user.email,
-                    mlids: [2128, 2555, 2554],
-                  }
-                )
-                .then(() => {
+              window.PianoESP &&
+                typeof window.PianoESP.handleUserDataPromise === 'function' &&
+                window.PianoESP.handleUserDataPromise({
+                  email: _that.$store.state.user.email,
+                  squads: [2128, 2555, 2554],
+                }).then(() => {
                   _that.$router.go(back)
                 })
             },

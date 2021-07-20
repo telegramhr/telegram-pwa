@@ -1175,15 +1175,12 @@ export default {
           },
         })
       } else {
-        this.$axios
-          .post(
-            'https://api-esp.piano.io/tracker/securesub?api_key=V2rR5WTQbQyHEqCMvFEaUGU3ZNVkt4s6hnvmCz9dXt9aUwzMaUmXAhVzmv83',
-            {
-              email: this.$store.state.user.email,
-              mlids: [mlid],
-            }
-          )
-          .then(() => {
+        window.PianoESP &&
+          typeof window.PianoESP.handleUserDataPromise === 'function' &&
+          window.PianoESP.handleUserDataPromise({
+            email: this.$store.state.user.email,
+            squads: [mlid],
+          }).then(() => {
             this.lists[mlid] = true
           })
       }
