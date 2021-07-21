@@ -1167,7 +1167,7 @@ export default {
         // no user, prompt to login
         const _that = this
         window.tp.pianoId.show({
-          screen: 'login',
+          screen: 'register',
           width: window.innerWidth > 720 ? 600 : 375,
           loggedIn(data) {
             _that.$store.dispatch('user/setUser', data.user)
