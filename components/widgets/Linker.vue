@@ -1,7 +1,6 @@
 <template>
   <div>
-    <div v-if="id" class="lwdgt" :data-wid="id"></div>
-    <script async src="https://linker.hr/lw.js"></script>
+    <div class="lwdgt" :data-wid="id"></div>
   </div>
 </template>
 
