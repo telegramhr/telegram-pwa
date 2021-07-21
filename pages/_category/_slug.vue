@@ -294,7 +294,7 @@
           <div
             class="container flex relative native-block stretch mobile-side-pad"
           >
-            <div id="midasWidget__r176"></div>
+            <linker></linker>
           </div>
         </div>
         <client-only>
