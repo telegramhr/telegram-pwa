@@ -50,6 +50,11 @@ export default {
         rel: 'me',
         href: 'https://twitter.com/TelegramHR',
       },
+      {
+        rel: 'stylesheet',
+        type: 'text/css',
+        href: 'https://linker.hr/widget/lw.css',
+      },
     ],
     script: [
       {

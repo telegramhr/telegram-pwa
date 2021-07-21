@@ -550,14 +550,6 @@ export default {
     window.removeEventListener('scroll', this.handleScroll)
   },
   methods: {
-    loadLinker() {
-      window.lwdgt_executed = undefined
-      const container = document.getElementsByClassName('lwdgt')[0]
-      const scriptTag = document.createElement('script')
-      scriptTag.src = 'https://linker.hr/lw-reg.js'
-      scriptTag.async = true
-      container.parentNode.append(scriptTag)
-    },
     handleScroll() {
       const walls = document.getElementsByClassName('wallpaper-banners')
       const bill =
@@ -575,7 +567,6 @@ export default {
       }
     },
     loadAds() {
-      this.loadLinker()
       this.$store.dispatch('ads/initAds', {
         route: this.$route,
         options: this.post.disable_ads,
