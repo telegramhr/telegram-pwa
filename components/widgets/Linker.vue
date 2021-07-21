@@ -52,11 +52,16 @@ export default {
       },
     }
     const id = ids[this.$route.params.category][this.type]
-    this.$axios
-      .get(`https://linker.hr/widget/lw.php?&wid=${id}`)
-      .then((res) => {
-        this.html = res.data
-      })
+    this.callLinker(id)
+  },
+  methods: {
+    callLinker(id) {
+      this.$axios
+        .get(`https://linker.hr/widget/lw.php?&wid=${id}`)
+        .then((res) => {
+          this.html = res.data
+        })
+    },
   },
 }
 </script>

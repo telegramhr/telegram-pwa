@@ -294,7 +294,7 @@
           <div
             class="container flex relative native-block stretch mobile-side-pad"
           >
-            <linker></linker>
+            <linker type="category"></linker>
           </div>
         </div>
         <client-only>
@@ -306,7 +306,7 @@
           ></keep-reading>
         </client-only>
         <div v-show="$mobile" class="full flex">
-          <div id="midasWidget__r191"></div>
+          <linker type="mobile"></linker>
         </div>
         <ticker></ticker>
       </div>
@@ -396,7 +396,7 @@ export default {
           })
       } else {
         post = await this.$axios
-          .$get(encodeURI('/api/single/' + this.$route.params.slug))
+          .$get(encodeURI('/api/single/' + this.$route.params.slug) + '?pwa=1')
           .catch(() => {
             // TODO: error logging
           })
@@ -584,7 +584,11 @@ export default {
         !this.post.disable_ads.includes('midas') &&
         !this.post.disable_ads.includes('nepromo')
       ) {
-        this.loadMidas()
+        this.$axios
+          .get(`https://linker.hr/widget/lw.php?&wid=476`)
+          .then((res) => {
+            document.getElementById('linker-intext').innerHTML = res.data
+          })
       }
     },
     loadMidas() {
