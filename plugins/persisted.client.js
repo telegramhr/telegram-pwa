@@ -16,6 +16,7 @@ export default ({ store }) => {
       'partner',
       'break',
       'breaking',
+      'newsletters',
     ],
   })(store)
 }

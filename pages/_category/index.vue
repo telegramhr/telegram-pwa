@@ -47,69 +47,7 @@
           class="fourth flex-responsive flex komentari mobile-side-pad column-horizontal-pad column-right-border"
         >
           <div class="full flex desktop-only">
-            <h2 class="full flex section-title less-bottom-margin">
-              Newsletteri
-            </h2>
-            <div class="full flex">
-              <div class="full newsletter-listing flex relative stretch">
-                <div class="full flex newsletter-header">
-                  <div class="newsletter-avatar">
-                    <img
-                      src="@/assets/img/tg_newsletter_avatars_pk.jpg"
-                      aria-hidden="true"
-                    />
-                  </div>
-                  <div class="full relative">
-                    <h3 class="full overtitle">Jednom tjedno</h3>
-                    <h2 class="full newsletter-title">Politika & kriminal</h2>
-                    <h3 class="full subtitle">Najbolje iz rubrike</h3>
-                  </div>
-                </div>
-                <div class="full flex newsletter-box">
-                  <p class="full newsletter-intro">
-                    Tjedni odabir najboljih Telegramovih priča iz rubrike
-                    Politika & kriminal.
-                  </p>
-                  <div class="btn animate btn-unsub">
-                    Odjavi me
-                    <font-awesome-icon
-                      :icon="['fal', 'minus-square']"
-                    ></font-awesome-icon>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="full flex">
-              <div class="full newsletter-listing flex relative stretch">
-                <div class="full flex newsletter-header">
-                  <div class="newsletter-avatar newsletter-dnevni">
-                    <img
-                      src="@/assets/img/tg_newsletter_avatars_dnevni.jpg"
-                      aria-hidden="true"
-                    />
-                  </div>
-                  <div class="full relative">
-                    <h3 class="full overtitle">Radnim danom</h3>
-                    <h2 class="full newsletter-title">Dnevni Telegram</h2>
-                    <h3 class="full subtitle">Odabir najvažnijih tema</h3>
-                  </div>
-                </div>
-                <div class="full flex newsletter-box">
-                  <p class="full newsletter-intro">
-                    Iz dana u dan, naši nagrađivani novinari donose važne priče
-                    o Hrvatskoj i svijetu, ekskluzivno otkrivaju afere zbog
-                    kojih odlaze ministri i objašnjavaju kontekst dnevnih
-                    događaja.
-                  </p>
-                  <div class="btn animate btn-unsub">
-                    Odjavi me
-                    <font-awesome-icon
-                      :icon="['fal', 'minus-square']"
-                    ></font-awesome-icon>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <category-newsletters></category-newsletters>
             <latest :portal="1"></latest>
             <h2 class="full flex section-title">Newsletter</h2>
             <newsletter></newsletter>
