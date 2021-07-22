@@ -1,6 +1,5 @@
 <template>
-  <!-- eslint-disable vue/no-v-html -->
-  <div class="lwdgt" v-html="html"></div>
+  <div :id="'linker-' + id" class="lwdgt" :data-wid="id"></div>
 </template>
 
 <script>
@@ -13,54 +12,41 @@ export default {
       default: 'category',
     },
   },
-  data() {
-    return {
-      html: '',
-    }
-  },
-  mounted() {
-    const ids = {
-      'politika-kriminal': {
-        category: 486,
-        intext: 4,
-        mobile: 495,
-      },
-      kultura: {
-        category: 488,
-        intext: 4,
-        mobile: 497,
-      },
-      biznis: {
-        category: 487,
-        intext: 4,
-        mobile: 496,
-      },
-      komentari: {
-        category: 490,
-        intext: 4,
-        mobile: 499,
-      },
-      zivot: {
-        category: 489,
-        intext: 4,
-        mobile: 498,
-      },
-      'velike-price': {
-        category: 491,
-        intext: 4,
-        mobile: 500,
-      },
-    }
-    const id = ids[this.$route.params.category][this.type]
-    this.callLinker(id)
-  },
-  methods: {
-    callLinker(id) {
-      this.$axios
-        .get(`https://linker.hr/widget/lw.php?&wid=${id}`)
-        .then((res) => {
-          this.html = res.data
-        })
+  computed: {
+    id() {
+      const ids = {
+        'politika-kriminal': {
+          category: 486,
+          intext: 4,
+          mobile: 495,
+        },
+        kultura: {
+          category: 488,
+          intext: 4,
+          mobile: 497,
+        },
+        biznis: {
+          category: 487,
+          intext: 4,
+          mobile: 496,
+        },
+        komentari: {
+          category: 490,
+          intext: 4,
+          mobile: 499,
+        },
+        zivot: {
+          category: 489,
+          intext: 4,
+          mobile: 498,
+        },
+        'velike-price': {
+          category: 491,
+          intext: 4,
+          mobile: 500,
+        },
+      }
+      return ids[this.$route.params.category][this.type]
     },
   },
 }

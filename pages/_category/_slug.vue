@@ -584,11 +584,7 @@ export default {
         !this.post.disable_ads.includes('midas') &&
         !this.post.disable_ads.includes('nepromo')
       ) {
-        this.$axios
-          .get(`https://linker.hr/widget/lw.php?&wid=476`)
-          .then((res) => {
-            document.getElementById('linker-intext').innerHTML = res.data
-          })
+        this.$linker.reloadLinker()
       }
     },
     loadMidas() {
