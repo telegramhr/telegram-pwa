@@ -5,23 +5,21 @@
       <div class="full newsletter-listing flex relative stretch">
         <div class="full flex newsletter-header">
           <div class="newsletter-avatar">
-            <img
-              src="@/assets/img/tg_newsletter_avatars_pk.jpg"
-              aria-hidden="true"
-            />
+            <img :src="category.image" aria-hidden="true" />
           </div>
           <div class="full relative">
             <h3 class="full overtitle">Jednom tjedno</h3>
-            <h2 class="full newsletter-title">{{ title }}</h2>
+            <h2 class="full newsletter-title">{{ category.title }}</h2>
             <h3 class="full subtitle">Najbolje iz rubrike</h3>
           </div>
         </div>
         <div class="full flex newsletter-box">
           <p class="full newsletter-intro">
-            Tjedni odabir najboljih Telegramovih priča iz rubrike {{ title }}
+            Tjedni odabir najboljih Telegramovih priča iz rubrike
+            {{ category.title }}
           </p>
           <subscribe-button
-            :mlid="mlid"
+            :mlid="category.mlid"
             :free="this.$route.params.category !== 'velike-price'"
           ></subscribe-button>
         </div>
@@ -59,27 +57,40 @@
 export default {
   name: 'CategoryNewsletters',
   computed: {
-    title() {
-      const titles = {
-        'politika-kriminal': 'Politika & kriminal',
-        kultura: 'Kultura',
-        komentari: 'Komentari',
-        zivot: 'Život',
-        'biznis-tech': 'Biznis & tech',
-        'velike-price': 'Velike priče',
+    category() {
+      const categories = {
+        'politika-kriminal': {
+          title: 'Politika & kriminal',
+          mlid: 2626,
+          image: require('@/assets/img/tg_newsletter_avatars_pk.jpg'),
+        },
+        kultura: {
+          title: 'Kultura',
+          mlid: 2631,
+          image: require('@/assets/img/tg_newsletter_avatars_kultura.jpg'),
+        },
+        komentari: {
+          title: 'Komentari',
+          mlid: 2627,
+          image: require('@/assets/img/tg_newsletter_avatars_komentari.jpg'),
+        },
+        zivot: {
+          title: 'Život',
+          mlid: 2629,
+          image: require('@/assets/img/tg_newsletter_avatars_zivot.jpg'),
+        },
+        'biznis-tech': {
+          title: 'Biznis & tech',
+          mlid: 2628,
+          image: require('@/assets/img/tg_newsletter_avatars_bt.jpg'),
+        },
+        'velike-price': {
+          title: 'Velike priče',
+          mlid: 2630,
+          image: require('@/assets/img/tg_newsletter_avatars_price.jpg'),
+        },
       }
-      return titles[this.$route.params.category]
-    },
-    mlid() {
-      const mlids = {
-        'politika-kriminal': 2626,
-        kultura: 2631,
-        komentari: 2627,
-        zivot: 2629,
-        'biznis-tech': 2628,
-        'velike-price': 2630,
-      }
-      return mlids[this.$route.params.category]
+      return categories[this.$route.params.category]
     },
   },
   mounted() {
