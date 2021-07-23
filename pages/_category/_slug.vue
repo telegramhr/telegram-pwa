@@ -124,18 +124,8 @@
                       author.name
                     }}</span></nuxt-link
                   >
-                  <div class="meta-author flex article-newsletters-btn hide">
-                    <span></span><span>Pratite kroz newsletter</span>
-                  </div>
                 </template>
-                <app-link
-                  to="/newsletters"
-                  class="full relative article-head-newsletter"
-                  ><span
-                    >Za još važnih vijesti, istraga i analiza pretplatite se na
-                  </span>
-                  <b>Dnevni Telegram</b><span> newsletter.</span></app-link
-                >
+                <subscribe-link :author="post.authors[0]"></subscribe-link>
               </h5>
               <div class="full flex article-head-image-parent relative">
                 <template v-if="post.video">
@@ -216,14 +206,10 @@
               </h5>
             </div>
             <div class="full relative single-article-body">
-              <app-link
-                to="/newsletters"
-                class="full relative article-head-newsletter desktop-only"
-                ><span
-                  >Za još važnih vijesti, istraga i analiza pretplatite se na
-                </span>
-                <b>Dnevni Telegram</b><span> newsletter.</span></app-link
-              >
+              <subscribe-link
+                v-show="!$mobile && post.type !== 'commentary'"
+                :author="post.authors[0]"
+              ></subscribe-link>
               <!-- eslint-disable vue/no-v-html -->
               <div
                 id="article-content"
@@ -308,108 +294,7 @@
           <client-only>
             <partner></partner>
           </client-only>
-          <div class="container flex relative mobile-side-pad column-top-pad">
-            <div
-              class="full flex relative post-article-newsletters stretch column-top-pad column-top-border"
-            >
-              <h2 class="full center-text">
-                Otkrijte još članaka kao ovaj u Telegramovim newsletterima
-              </h2>
-              <div class="third flex-responsive column-full-pad flex stretch">
-                <div class="full newsletter-listing flex relative stretch">
-                  <div class="full flex newsletter-header">
-                    <div class="newsletter-avatar newsletter-dnevni">
-                      <img
-                        src="@/assets/img/tg_newsletter_avatars_dnevni.jpg"
-                        aria-hidden="true"
-                      />
-                    </div>
-                    <div class="full relative">
-                      <h3 class="full overtitle">Radnim danom</h3>
-                      <h2 class="full newsletter-title">Dnevni Telegram</h2>
-                      <h3 class="full subtitle">Odabir najvažnijih tema</h3>
-                    </div>
-                  </div>
-                  <div class="full flex newsletter-box">
-                    <p class="full newsletter-intro">
-                      Iz dana u dan, naši nagrađivani novinari donose važne
-                      priče o Hrvatskoj i svijetu, ekskluzivno otkrivaju afere
-                      zbog kojih odlaze ministri i objašnjavaju kontekst dnevnih
-                      događaja.
-                    </p>
-                    <div class="btn animate btn-unsub">
-                      Odjavi me
-                      <font-awesome-icon
-                        :icon="['fal', 'minus-square']"
-                      ></font-awesome-icon>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="third flex-responsive column-full-pad flex stretch newsletter-komentari"
-              >
-                <div class="full newsletter-listing flex relative stretch">
-                  <div class="full flex newsletter-header">
-                    <div class="newsletter-avatar">
-                      <img
-                        src="https://www.telegram.hr/wp-content/uploads/2017/09/drago_hedl-1.png"
-                        aria-hidden="true"
-                      />
-                    </div>
-                    <div class="full relative">
-                      <h3 class="full overtitle">Redovito</h3>
-                      <h2 class="full newsletter-title">Drago Hedl</h2>
-                      <h3 class="full subtitle">Puni članci autora</h3>
-                    </div>
-                  </div>
-                  <div class="full flex newsletter-box">
-                    <p class="full newsletter-intro">
-                      Jedan od najnagrađivanijih hrvatskih novinara, autor
-                      čuvenih istraživačkih serijala, knjiga i romana, za
-                      Telegram gotovo svakodnevno otkriva nove afere moćnika.
-                    </p>
-                    <div class="btn animate">
-                      Prijavi me
-                      <font-awesome-icon
-                        :icon="['fal', 'plus-square']"
-                      ></font-awesome-icon>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="third flex-responsive column-full-pad flex stretch">
-                <div class="full newsletter-listing flex relative stretch">
-                  <div class="full flex newsletter-header">
-                    <div class="newsletter-avatar newsletter-tag">
-                      <img
-                        src="@/assets/img/tg_newsletter_avatars_vikend.jpg"
-                        aria-hidden="true"
-                      />
-                    </div>
-                    <div class="full relative">
-                      <h3 class="full overtitle">Petkom</h3>
-                      <h2 class="full newsletter-title">Vikend na Telegramu</h2>
-                      <h3 class="full subtitle">Najbolje za vikend čitanje</h3>
-                    </div>
-                  </div>
-                  <div class="full flex newsletter-box">
-                    <p class="full newsletter-intro">
-                      Odabir naših najboljih tekstova za koje možda niste imali
-                      dovoljno vremena preko tjedna, ali bi vam mogli biti
-                      izvrsno štivo tijekom vikenda.
-                    </p>
-                    <div class="btn animate">
-                      Prijavi me
-                      <font-awesome-icon
-                        :icon="['fal', 'plus-square']"
-                      ></font-awesome-icon>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <single-newsletters :author="post.authors[0]"></single-newsletters>
         </div>
         <div class="full flex">
           <div
@@ -567,6 +452,8 @@ export default {
             url: '',
             name: '',
             image: '',
+            newsletter_image: '',
+            newsletter_list: 0,
           },
         ],
         overtitle: '',

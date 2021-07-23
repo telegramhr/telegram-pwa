@@ -46,7 +46,7 @@
             Hrvatskoj i svijetu, ekskluzivno otkrivaju afere zbog kojih odlaze
             ministri i objašnjavaju kontekst dnevnih događaja.
           </p>
-          <subscribe-button :mlid="1707" :free="true"></subscribe-button>
+          <subscribe-button :mlid="2128" :free="true"></subscribe-button>
         </div>
       </div>
     </div>

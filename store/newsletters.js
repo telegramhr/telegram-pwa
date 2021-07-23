@@ -39,6 +39,12 @@ export const mutations = {
     state.lists[mlid] = false
     state.updated = new Date().getTime()
   },
+  clearAccess(state) {
+    Object.keys(state.lists).forEach((i) => {
+      state.lists[i] = false
+    })
+    state.updated = null
+  },
 }
 
 export const actions = {
@@ -109,5 +115,8 @@ export const actions = {
       .then(() => {
         commit('unSub', payload.mlid)
       })
+  },
+  clearAccess({ commit }) {
+    commit('clearAccess')
   },
 }

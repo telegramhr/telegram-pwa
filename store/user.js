@@ -97,12 +97,13 @@ export const actions = {
       },
     ])
   },
-  logout({ commit }) {
+  logout({ commit, dispatch }) {
     this.$cookies.remove('tmg_access', {
       path: '/',
       domain: '.telegram.hr',
     })
     window.tp.pianoId.logout()
+    dispatch('newsletters/clearAccess', null, { root: true })
     commit('logout')
   },
 }
