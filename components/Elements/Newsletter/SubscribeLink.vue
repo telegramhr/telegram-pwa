@@ -5,7 +5,7 @@
     @click.prevent="sub"
   >
     <template v-if="show === 1">
-      <span>Za još članaka ovog autora pretplatite se </span>
+      <span>Za još članaka ovog autora pretplatite se na</span>
       <b>newsletter autora.</b></template
     >
     <template v-if="show === 2">
