@@ -198,6 +198,9 @@ export default {
   axios: {
     credentials: true,
     proxy: true,
+    headers: {
+      'X-Staging': 1,
+    },
   },
 
   proxy: {

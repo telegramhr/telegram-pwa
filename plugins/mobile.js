@@ -8,25 +8,25 @@ export default ({ app, req }, inject) => {
     },
 
     processLinker(widgetId) {
-      app.$axios
-        .get(`https://linker.hr/widget/lw.php?&wid=${widgetId}`)
-        .then((res) => {
-          const el = document.getElementById(`linker-${widgetId}`)
-          el.innerHTML = res.data
-          const arr = el.getElementsByTagName('script')
-          for (let n = 0; n < arr.length; n++) {
-            const s = document.createElement('script')
-            s.setAttribute('type', 'text/javascript')
-            if (arr[n].src) {
-              s.setAttribute('src', arr[n].src)
-            }
-            if (arr[n].innerHTML) {
-              s.innerHTML = arr[n].innerHTML
-            }
-            s.async = true
-            document.body.appendChild(s)
+      const a = app.$axios.create()
+      delete a.defaults.headers['X-Staging']
+      a.get(`https://linker.hr/widget/lw.php?&wid=${widgetId}`).then((res) => {
+        const el = document.getElementById(`linker-${widgetId}`)
+        el.innerHTML = res.data
+        const arr = el.getElementsByTagName('script')
+        for (let n = 0; n < arr.length; n++) {
+          const s = document.createElement('script')
+          s.setAttribute('type', 'text/javascript')
+          if (arr[n].src) {
+            s.setAttribute('src', arr[n].src)
           }
-        })
+          if (arr[n].innerHTML) {
+            s.innerHTML = arr[n].innerHTML
+          }
+          s.async = true
+          document.body.appendChild(s)
+        }
+      })
     },
   }
   let isMobile = false

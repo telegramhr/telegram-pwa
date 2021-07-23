@@ -1,5 +1,5 @@
 <template>
-  <div :id="'linker-' + id" class="lwdgt" :data-wid="id"></div>
+  <div v-if="id" :id="'linker-' + id" class="lwdgt" :data-wid="id"></div>
 </template>
 
 <script>
@@ -25,7 +25,7 @@ export default {
           intext: 4,
           mobile: 497,
         },
-        biznis: {
+        'biznis-tech': {
           category: 487,
           intext: 4,
           mobile: 496,
@@ -46,7 +46,9 @@ export default {
           mobile: 500,
         },
       }
-      return ids[this.$route.params.category][this.type]
+      return ids[this.$route.params.category]
+        ? ids[this.$route.params.category][this.type]
+        : 0
     },
   },
 }
