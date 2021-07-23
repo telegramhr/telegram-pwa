@@ -11,10 +11,9 @@ export default ({ app, req }, inject) => {
       app.$axios
         .get(`https://linker.hr/widget/lw.php?&wid=${widgetId}`)
         .then((res) => {
-          document.getElementById(`linker-${widgetId}`).innerHTML = res.data
-          const arr = document
-            .getElementById(widgetId)
-            .getElementsByTagName('script')
+          const el = document.getElementById(`linker-${widgetId}`)
+          el.innerHTML = res.data
+          const arr = el.getElementsByTagName('script')
           for (let n = 0; n < arr.length; n++) {
             const s = document.createElement('script')
             s.setAttribute('type', 'text/javascript')
