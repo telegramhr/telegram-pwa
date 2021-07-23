@@ -58,7 +58,10 @@
         </div>
       </div>
       <div v-else class="third flex-responsive column-full-pad flex stretch">
-        <div class="full newsletter-listing flex relative stretch">
+        <div
+          v-if="category"
+          class="full newsletter-listing flex relative stretch"
+        >
           <div class="full flex newsletter-header">
             <div class="newsletter-avatar">
               <img
@@ -166,6 +169,8 @@ export default {
         },
       }
       return categories[this.$route.params.category]
+        ? categories[this.$route.params.category]
+        : null
     },
   },
   mounted() {

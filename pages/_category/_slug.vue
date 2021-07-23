@@ -1,7 +1,7 @@
 <template>
   <div :class="['main-container', 'flex', 'single-article', typeClass]">
     <template v-if="!($fetchState.error || post.title === 'Objava ne postoji')">
-      <theader :id="post.id" :headline="post.portal_title"></theader>
+      <theader :id="Number(post.id)" :headline="post.portal_title"></theader>
       <div v-show="related_posts" class="full related-header-widget">
         <div class="container flex desktop-only column-vertical-pad">
           <div
@@ -307,7 +307,7 @@
           <keep-reading
             v-if="post.category_slug && post.category_slug !== 'promo'"
             :category="post.category_slug"
-            :p="post.id"
+            :p="Number(post.id)"
             :permalink="post.permalink"
           ></keep-reading>
         </client-only>
@@ -321,7 +321,7 @@
       <div class="full flex tg-red">
         <client-only>
           <theader
-            :id="post.id"
+            :id="Number(post.id)"
             :headline="post.portal_title"
             :side-menu-show="showSideMenu"
             :search-menu-show="showSearchMenu"
