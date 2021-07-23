@@ -125,6 +125,7 @@
                     }}</span></nuxt-link
                   >
                 </template>
+                <subscribe-link :author="post.authors[0]"></subscribe-link>
               </h5>
               <div class="full flex article-head-image-parent relative">
                 <template v-if="post.video">
@@ -205,6 +206,10 @@
               </h5>
             </div>
             <div class="full relative single-article-body">
+              <subscribe-link
+                v-show="!$mobile && post.type !== 'commentary'"
+                :author="post.authors[0]"
+              ></subscribe-link>
               <!-- eslint-disable vue/no-v-html -->
               <div
                 id="article-content"
@@ -289,6 +294,7 @@
           <client-only>
             <partner></partner>
           </client-only>
+          <single-newsletters :author="post.authors[0]"></single-newsletters>
         </div>
         <div class="full flex">
           <div
@@ -446,6 +452,8 @@ export default {
             url: '',
             name: '',
             image: '',
+            newsletter_image: '',
+            newsletter_list: 0,
           },
         ],
         overtitle: '',

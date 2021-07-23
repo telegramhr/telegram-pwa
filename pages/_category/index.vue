@@ -47,6 +47,7 @@
           class="fourth flex-responsive flex komentari mobile-side-pad column-horizontal-pad column-right-border"
         >
           <div class="full flex desktop-only">
+            <category-newsletters></category-newsletters>
             <latest :portal="1"></latest>
             <h2 class="full flex section-title">Newsletter</h2>
             <newsletter></newsletter>
