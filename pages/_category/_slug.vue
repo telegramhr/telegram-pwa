@@ -125,7 +125,9 @@
                     }}</span></nuxt-link
                   >
                 </template>
-                <subscribe-link :author="post.authors[0]"></subscribe-link>
+                <client-only>
+                  <subscribe-link :author="post.authors[0]"></subscribe-link>
+                </client-only>
               </h5>
               <div class="full flex article-head-image-parent relative">
                 <template v-if="post.video">
@@ -206,10 +208,12 @@
               </h5>
             </div>
             <div class="full relative single-article-body">
-              <subscribe-link
-                v-show="!$mobile && post.type !== 'commentary'"
-                :author="post.authors[0]"
-              ></subscribe-link>
+              <client-only>
+                <subscribe-link
+                  v-show="!$mobile && post.type !== 'commentary'"
+                  :author="post.authors[0]"
+                ></subscribe-link>
+              </client-only>
               <!-- eslint-disable vue/no-v-html -->
               <div
                 id="article-content"

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <client-only>
     <div v-if="hasSub()" class="btn animate btn-unsub" @click="unsub()">
       Odjavi me
       <font-awesome-icon :icon="['fal', 'minus-square']"></font-awesome-icon>
@@ -15,7 +15,7 @@
       Prijavi me
       <font-awesome-icon :icon="['fal', 'plus-square']"></font-awesome-icon>
     </div>
-  </div>
+  </client-only>
 </template>
 
 <script>
