@@ -1,18 +1,27 @@
 <template>
-  <a
-    v-if="show"
-    class="full relative article-head-newsletter"
-    @click.prevent="sub"
-  >
-    <template v-if="show === 1">
-      <span>Za još članaka ovog autora pretplatite se na</span>
-      <b>newsletter autora.</b></template
+  <div>
+    <a
+      v-if="show"
+      class="full relative article-head-newsletter"
+      @click.prevent="sub"
     >
-    <template v-if="show === 2">
-      <span>Za još važnih vijesti, istraga i analiza pretplatite se na </span>
-      <b>Dnevni Telegram</b><span> newsletter.</span>
-    </template>
-  </a>
+      <template v-if="show === 1">
+        <span>Za još članaka ovog autora pretplatite se na</span>
+        <b>newsletter autora.</b></template
+      >
+      <template v-if="show === 2">
+        <span>Za još važnih vijesti, istraga i analiza pretplatite se na </span>
+        <b>Dnevni Telegram</b><span> newsletter.</span>
+      </template>
+    </a>
+    <a
+      v-if="thankyou && !show"
+      class="full relative animate article-head-newsletter"
+      @click.prevent
+    >
+      <span>Uspješno ste se prijavili na newsletter</span>
+    </a>
+  </div>
 </template>
 
 <script>
@@ -33,6 +42,11 @@ export default {
         }
       },
     },
+  },
+  data() {
+    return {
+      thankyou: false,
+    }
   },
   computed: {
     show() {
@@ -58,10 +72,14 @@ export default {
   },
   methods: {
     sub() {
-      this.$store.dispatch('newsletters/subscribe', {
-        free: this.show === 2,
-        mlid: this.show === 1 ? this.author.newsletter_list : 2128,
-      })
+      this.$store
+        .dispatch('newsletters/subscribe', {
+          free: this.show === 2,
+          mlid: this.show === 1 ? this.author.newsletter_list : 2128,
+        })
+        .then(() => {
+          this.thankyou = true
+        })
     },
   },
 }
