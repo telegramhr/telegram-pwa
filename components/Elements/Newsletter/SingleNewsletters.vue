@@ -4,7 +4,7 @@
       class="full flex relative post-article-newsletters stretch column-top-pad column-top-border"
     >
       <h2 class="full center-text">
-        Otkrijte još članaka kao ovaj u Telegramovim newsletterima
+        Za još članaka poput ovog, prijavite se na Telegramove newslettere
       </h2>
       <div class="third flex-responsive column-full-pad flex stretch">
         <div class="full newsletter-listing flex relative stretch">
