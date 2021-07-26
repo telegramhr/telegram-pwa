@@ -219,7 +219,9 @@
               ></div>
               <!-- eslint-enable vue/no-v-html -->
               <intext></intext>
-              <div v-show="$mobile" id="midasWidget__r190"></div>
+              <client-only>
+                <linker type="mobile"></linker>
+              </client-only>
               <!-- Article footer -->
               <div
                 class="full relative single-article-footer flex column-top-pad"
@@ -310,10 +312,8 @@
             :p="post.id"
             :permalink="post.permalink"
           ></keep-reading>
+          <linker type="footer"></linker>
         </client-only>
-        <div v-show="$mobile" class="full flex">
-          <linker type="mobile"></linker>
-        </div>
         <ticker></ticker>
       </div>
     </template>
