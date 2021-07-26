@@ -1,3 +1,5 @@
+import Vue from 'vue'
+
 export const state = () => ({
   api_key: 'V2rR5WTQbQyHEqCMvFEaUGU3ZNVkt4s6hnvmCz9dXt9aUwzMaUmXAhVzmv83',
   lists: {
@@ -32,7 +34,7 @@ export const state = () => ({
 
 export const mutations = {
   hasSub(state, data) {
-    state.lists[data] = true
+    Vue.set(state.lists, data, true)
     state.updated = new Date().getTime()
   },
   unSub(state, mlid) {
