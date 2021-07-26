@@ -50,8 +50,21 @@ export default {
         rel: 'me',
         href: 'https://twitter.com/TelegramHR',
       },
+      {
+        rel: 'preload',
+        href: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js',
+        as: 'script',
+      },
     ],
     script: [
+      {
+        src: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js',
+        async: true,
+      },
+      {
+        src: '/prebid5.4.0.js',
+        async: true,
+      },
       {
         hid: 'piano',
         src: 'https://cdn.tinypass.com/api/tinypass.min.js',
@@ -65,14 +78,6 @@ export default {
         defer: true,
         crossorigin: 'anonymous',
         nonce: 'LFZOW4mi',
-      },
-      {
-        src: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js',
-        async: true,
-      },
-      {
-        src: '/prebid5.4.0.js',
-        async: true,
       },
       {
         hid: 'cxense',

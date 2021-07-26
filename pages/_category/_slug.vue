@@ -15,20 +15,22 @@
           </div>
         </div>
       </div>
-      <div
-        v-show="!$mobile && $route.name === 'category-slug'"
-        class="full center header-billboard"
-      >
-        <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
-        <div v-show="!$mobile" class="container wallpaper-banners animate">
-          <div class="wallpaper-left">
-            <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
-          </div>
-          <div class="wallpaper-right">
-            <ad-unit id="telegram_dekstop_wallpaper_right"></ad-unit>
+      <client-only>
+        <div
+          v-if="!$mobile && $route.name === 'category-slug'"
+          class="full center header-billboard"
+        >
+          <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
+          <div v-if="!$mobile" class="container wallpaper-banners animate">
+            <div class="wallpaper-left">
+              <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
+            </div>
+            <div class="wallpaper-right">
+              <ad-unit id="telegram_dekstop_wallpaper_right"></ad-unit>
+            </div>
           </div>
         </div>
-      </div>
+      </client-only>
       <div
         v-if="post.type === 'premium'"
         class="full premium-article-head relative"
