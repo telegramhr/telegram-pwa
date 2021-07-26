@@ -4643,6 +4643,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     padding-top: 8px;
     border-top: #c8c8c8 1px solid;
     margin-top: 10px;
+    display: block;
 }
 .article-head-newsletter > span {
     opacity: .5;
