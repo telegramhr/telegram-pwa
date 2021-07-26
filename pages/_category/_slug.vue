@@ -312,7 +312,9 @@
             :p="post.id"
             :permalink="post.permalink"
           ></keep-reading>
-          <linker type="footer"></linker>
+          <div class="full flex">
+            <linker type="footer"></linker>
+          </div>
         </client-only>
         <ticker></ticker>
       </div>
