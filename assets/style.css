@@ -4738,6 +4738,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .fancy-author-tile {
     background-color: #333;
     color: white;
+    margin-bottom: 16px;
 }
 .fancy-author-tile img {
     background: linear-gradient(to right, #666666, #444444);
@@ -4746,8 +4747,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     position: relative;
     width: 100%;
     height: 250px;
-    object-fit: contain;
-    object-position: bottom center;
+    object-fit: cover;
+    object-position: top center;
 }
 .fancy-author-content {
     padding: 16px;
@@ -4758,7 +4759,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-weight: 900;
     font-size: 48px;
     line-height: 54px;
-    word-spacing: 200px;
+    padding-right: 10px;
     margin-top: -32px;
     z-index: 3;
     position: relative;
@@ -4771,17 +4772,19 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .fancy-article-preview {
     height: 120px;
 }
+/*.fancy-authors-widget .fourth {
+    scroll-snap-align: start;
+}
+
 @media screen and (max-width: 767px) {
-    .fancy-authors-widget {
-        padding-bottom: 16px;
+    /*.fancy-authors-widget {
         flex-wrap: nowrap;
         overflow-x: scroll;
         display: flex;
         scroll-snap-type: x mandatory;
     }
     .fancy-authors-widget .fourth {
-        scroll-snap-align: start;
         width: 80vw;
         min-width: 80vw;
     }
-}
+}*/
