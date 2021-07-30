@@ -59,7 +59,7 @@ export default {
       } else {
         return [...array]
           .sort((a, b) => {
-            return a.time < b.time
+            return b.time - a.time
           })
           .filter((item) => {
             let keep = true
