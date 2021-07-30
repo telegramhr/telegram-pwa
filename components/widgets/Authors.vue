@@ -3,11 +3,7 @@
     <div class="full column-full-pad mobile-side-pad">
       <h2 class="full section-title">Autori</h2>
     </div>
-    <VueSlickCarousel
-      v-if="posts.length"
-      v-bind="settings"
-      class="full flex fancy-authors-widget stretch"
-    >
+    <div class="full flex fancy-authors-widget stretch">
       <div
         v-for="post in posts"
         :key="'authors-' + post.id"
@@ -32,36 +28,13 @@
           </div>
         </app-link>
       </div>
-    </VueSlickCarousel>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'Authors',
-  data() {
-    return {
-      settings: {
-        arrows: false,
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        responsive: [
-          {
-            breakpoint: 800,
-            settings: {
-              slidesToShow: 2,
-            },
-          },
-          {
-            breakpoint: 480,
-            settings: {
-              slidesToShow: 1,
-            },
-          },
-        ],
-      },
-    }
-  },
   computed: {
     posts() {
       const array = this.$store.state.authors.posts

@@ -4757,14 +4757,18 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .fancy-author-name {
     font-family: neuzeit-grotesk, sans-serif;
     font-weight: 900;
-    font-size: 48px;
-    line-height: 54px;
-    padding-right: 10px;
-    margin-top: -32px;
+    font-size: 44px;
+    line-height: 48px;
+    padding-right: 38px;
+    margin-top: -26px;
+    text-shadow: 1px 1px 5px #333333;
     z-index: 3;
     position: relative;
 }
 .fancy-author-title {
+    font-size: 15px;
+    font-size: 0.75rem;
+    margin-top: 4px;
     padding-bottom: 16px;
     margin-bottom: 16px;
     border-bottom: 2px solid black;
@@ -4772,19 +4776,58 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .fancy-article-preview {
     height: 120px;
 }
-/*.fancy-authors-widget .fourth {
-    scroll-snap-align: start;
+.fancy-authors-widget .arrow {
+    width: 16px;
+    height: 16px;
+    transform: rotate(-135deg);
+    border-right: 2px solid #999;
+    border-top: 2px solid #999;
+    position: absolute;
+    top: 40%;
+    cursor: pointer;
+    left: -16px;
+    z-index: 10;
+}
+.fancy-authors-widget .right-arrow {
+    left: auto;
+    right: -16px;
+    transform: rotate(48deg);
+}
+.fancy-authors-widget .fourth:nth-child(n+5) {
+    display: none;
 }
 
-@media screen and (max-width: 767px) {
-    /*.fancy-authors-widget {
+@media screen and (max-width: 1248px) {
+    .fancy-authors-widget {
         flex-wrap: nowrap;
         overflow-x: scroll;
         display: flex;
         scroll-snap-type: x mandatory;
     }
+    .fancy-authors-widget .fourth:nth-child(n+5) {
+        display: flex;
+    }
+    .fancy-authors-widget .fourth {
+        scroll-snap-align: start;
+        width: 320px;
+        min-width: 320px;
+    }
+    .fancy-author-tile img {
+        height: 320px;
+    }
+}
+@media screen and (max-width: 767px) {
+    .fancy-article-preview {
+        font-size: 13px;
+        font-size: 0.65rem;
+    }
+}
+@media screen and (max-width: 481px) {
     .fancy-authors-widget .fourth {
         width: 80vw;
         min-width: 80vw;
     }
-}*/
+    .fancy-author-tile img {
+        height: 80vw;
+    }
+}
