@@ -1,17 +1,21 @@
 <template>
   <client-only>
-    <div v-if="hasSub()" class="btn animate btn-unsub" @click="unsub()">
+    <div
+      v-if="hasSub()"
+      class="btn newsletter-btn animate newsletter-btn-unsub"
+      @click="unsub()"
+    >
       Odjavi me
       <font-awesome-icon :icon="['fal', 'minus-square']"></font-awesome-icon>
     </div>
     <app-link
       v-else-if="!$store.state.user.active_sub && !free"
       to="/pretplata"
-      class="btn animate"
+      class="btn newsletter-btn newsletter-not-available animate"
     >
       Dostupno samo za pretplatnike
     </app-link>
-    <div v-else class="btn animate" @click="sub(free)">
+    <div v-else class="btn newsletter-btn animate" @click="sub(free)">
       Prijavi me
       <font-awesome-icon :icon="['fal', 'plus-square']"></font-awesome-icon>
     </div>

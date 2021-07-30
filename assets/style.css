@@ -1980,6 +1980,9 @@ header {
 .author-segment p {
     line-height: 1.625rem;
 }
+.author-segment .newsletter-btn {
+    padding: 8px 24px;
+}
 .main-karta svg {
     width: 100%;
 }
@@ -3388,7 +3391,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .block-3 .split-articles {
         border-bottom: 1px solid #c8c8c8;
     }
-    .subtle-btn {
+    .subtle-btn, .author-segment .btn {
         margin: 16px auto;
     }
     .single-article .title-404 {
@@ -4197,8 +4200,11 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 50px;
         font-size: 2.5rem;
     }
-    .author-segment .subtle-btn {
+    .author-segment .subtle-btn, .author-segment .btn {
         margin: 32px 0px;
+    }
+    .author-segment .subtle-btn {
+        margin-right: 8px;
     }
     .author-segment-title {
         font-size: 12px;
@@ -4606,7 +4612,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     width: 150%;
     overflow-x: visible;
 }
-.newsletter-box .btn {
+.newsletter-btn {
     margin-top: 16px;
     cursor: pointer;
     background-color: #ae3737;
@@ -4618,10 +4624,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 0.65rem;
     padding: 5px 20px;
 }
-.newsletter-box .btn svg {
+.newsletter-btn svg {
     margin-left: 8px;
 }
-.newsletter-box .btn-unsub {
+.newsletter-btn-unsub {
     border: 1px solid #111;
     background-color: transparent;
     color: #111;
@@ -4814,12 +4820,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .fancy-author-tile img {
         height: 320px;
-    }
-}
-@media screen and (max-width: 767px) {
-    .fancy-article-preview {
-        font-size: 13px;
-        font-size: 0.65rem;
     }
 }
 @media screen and (max-width: 481px) {
