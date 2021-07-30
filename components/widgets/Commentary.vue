@@ -22,6 +22,10 @@ export default {
       .get('/api/commentary')
       .then((res) => {
         this.posts = res.data
+        this.$store.commit('category/setPosts', {
+          slug: 'commentary',
+          posts: res.data,
+        })
       })
       .catch(() => {
         // TODO: error logging

@@ -90,9 +90,6 @@
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
       </div>
-      <div class="full center">
-        <authors></authors>
-      </div>
       <div
         v-if="posts"
         class="block-title news-block-title full mobile-side-pad"
@@ -172,11 +169,14 @@
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
       </div>
+      <div class="full center">
+        <authors></authors>
+      </div>
       <midas></midas>
-      <lazy-partners></lazy-partners>
       <client-only>
         <lazy-sport></lazy-sport>
       </client-only>
+      <lazy-partners></lazy-partners>
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v4"></ad-unit>
       </div>

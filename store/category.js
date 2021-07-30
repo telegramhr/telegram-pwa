@@ -45,6 +45,11 @@ export const state = () => ({
       posts: [],
       updated: null,
     },
+    commentary: {
+      name: '',
+      posts: [],
+      updated: null,
+    },
   },
   morePosts: {
     'politika-kriminal': {
