@@ -4780,7 +4780,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     border-bottom: 2px solid black;
 }
 .fancy-article-preview {
-    height: 120px;
+    min-height: 120px;
+    padding-bottom: 8px;
 }
 .fancy-authors-widget .arrow {
     width: 16px;
