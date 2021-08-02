@@ -4,6 +4,7 @@ export default ({ store }) => {
   createPersistedState({
     key: 'tg',
     paths: [
+      'ads',
       'stocks',
       'weather',
       'super',

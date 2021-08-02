@@ -266,9 +266,10 @@ export const state = () => ({
       ],
     },
   },
-  upc_b: 1,
+  upc_b: 4,
   upc: {},
   upc_updated: null,
+  route: '',
 })
 
 export const mutations = {
@@ -282,21 +283,13 @@ export const mutations = {
     state.upc = data
     state.upc_updated = new Date().getTime()
   },
+  setRoute(state, route) {
+    state.route = route.name
+  },
 }
 
 export const actions = {
-  initAds({ state, commit, dispatch, rootState }, payload) {
-    if (payload.options && payload.options.includes('all')) {
-      return
-    }
-    if (rootState.user.access) {
-      return
-    }
-    if (state.upc_updated + 60 * 60 * 1000 < new Date().getTime()) {
-      this.$axios.get('/api/upc').then((res) => {
-        commit('setUpc', res.data)
-      })
-    }
+  setup({ state, commit, dispatch, rootState }, payload) {
     if (state.slots) {
       window.pbjs = window.pbjs || {}
       window.pbjs.que = window.pbjs.que || []
@@ -317,6 +310,7 @@ export const actions = {
       post_category: [],
     }
     if (route) {
+      commit('setRoute', route)
       switch (route.name) {
         case 'index':
           targeting.wp_post_type = ['home']
@@ -370,6 +364,26 @@ export const actions = {
     commit('setInit')
 
     dispatch('initSlots', route)
+  },
+  initAds({ state, commit, dispatch, rootState }, payload) {
+    if (payload.options && payload.options.includes('all')) {
+      return
+    }
+    if (rootState.user.access) {
+      return
+    }
+    if (state.upc_updated + 60 * 60 * 1000 < new Date().getTime()) {
+      this.$axios
+        .get('/api/upc')
+        .then((res) => {
+          commit('setUpc', res.data)
+        })
+        .then(() => {
+          dispatch('setup', payload)
+        })
+    } else {
+      dispatch('setup', payload)
+    }
   },
   initSlots({ state, commit, dispatch }, route) {
     window.googletag.cmd.push(() => {
@@ -478,10 +492,10 @@ export const actions = {
       dispatch('initAdserver')
     }, 1500)
   },
-  initAdserver() {
+  initAdserver({ state }) {
     if (window.pbjs.initAdserverSet) return
     window.pbjs.initAdserverSet = true
-    if (this.$route.name === 'nesto-slug') {
+    if (state.route === 'nesto-slug') {
       return
     }
     window.googletag.cmd.push(function () {
