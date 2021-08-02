@@ -201,6 +201,27 @@
             >
           </div>
         </div>
+        <div class="container relative flex mobile-side-pad">
+          Trebate R1 račun?<br />
+          // Ime tvrtke<br />
+          // Adresa<br />
+          // Grad<br />
+          // Poštanski broj<br />
+          // OIB<br />
+        </div>
+        <div class="container relative flex mobile-side-pad">
+          // Načini plaćanja<br />
+          // Kreditna kartica<br />
+          // Bankovna uplata<br />
+          // Apple Pay<br />
+          // Google Pay<br />
+        </div>
+        <div class="container relative flex mobile-side-pad">
+          // Prikaz za bankovnu uplatu // ovdje će se prikazati info za uplatu s
+          barkodom, to ćeš tek dobiti konkretno info, ali od podataka će biti
+          broj računa, broj ponude, cijena i HUB kod<br />
+          Za sve ostale načine plaćanja ide piano popup, pa tu nemaš što raditi.
+        </div>
       </div>
       <div class="full flex relative">
         <div class="container relative flex">
