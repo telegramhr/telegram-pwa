@@ -215,7 +215,7 @@
                 otvoriti poduzetničku zonu.
               </p>
               <intext></intext>
-              <div id="piano-content" style="display: none">
+              <div id="piano-content1">
                 <h2>Stečaj moćne tvrtke u Mariji Bistrici</h2>
                 <p>
                   Sve je počelo prije desetak godina kada je Tehnomehanika, koja
@@ -232,6 +232,15 @@
                   se Milički uglađenog stečajnog upravitelja protiv kojeg sada
                   priprema kaznenu prijavu.
                 </p>
+                <div class="banner-intext center intext">
+                  <div id="telegram_desktop_intext_v2" class="banner-slot">
+                    <script>
+                      window.googletag = window.googletag || {}
+                      window.googletag.cmd = window.googletag.cmd || []
+                      window.googletag.cmd.push(function () {})
+                    </script>
+                  </div>
+                </div>
                 <h2>Rasprodaja imovine stečajnog dužnika</h2>
                 <p>
                   Strojevi iz bivše Tehnomehanike vrlo brzo su se počeli
@@ -240,7 +249,6 @@
                   koji su počupali sve metalne dijelove, uzimali pipe, razbijeli
                   granitne ploče, vadili žice iz zidova.
                 </p>
-                <div id="midasWidget__r49"></div>
                 <p>
                   U nekoliko navrata zbog požara koji su izazvali ti Petanjekovi
                   ljudi morala je, prema načelnikovim riječima, intervenirati i
@@ -266,8 +274,6 @@
                   je bila pokrenuti tamo poslovne procese, svojevrsnu
                   poduzetničku zonu.
                 </p>
-
-                <div data-id="_mwayss-325b7d752b361c5458420729057fe2ff"></div>
                 <p>
                   Iznenada se, prisjeća se Milički, pojavljuje vlasnik autoškole
                   iz susjedne općine koji traži poligon za svoje mlade vozače.
@@ -294,15 +300,6 @@
                   riječima, za istu cijenu vlasnik autoškole kupio je 600 čhv
                   više, no sud je samo ispravio rješenje.
                 </p>
-                <div class="banner-intext center intext">
-                  <div id="telegram_desktop_intext_v2" class="banner-slot">
-                    <script>
-                      window.googletag = window.googletag || {}
-                      window.googletag.cmd = window.googletag.cmd || []
-                      window.googletag.cmd.push(function () {})
-                    </script>
-                  </div>
-                </div>
 
                 <p>
                   Iako je općina ukazala na pogrešku i uložila prigovor sud ih
@@ -341,28 +338,6 @@
                       class="full center banner-separator relative mobile-only"
                     >
                       <div><span>Članak se nastavlja ispod oglasa</span></div>
-                    </div>
-                    <div class="full center">
-                      <div id="telegram_desktop_intext_v3" class="banner-slot">
-                        <script>
-                          window.googletag = window.googletag || {}
-                          window.googletag.cmd = window.googletag.cmd || []
-                          window.googletag.cmd.push(function () {
-                            const ds = window.googletag.defineSlot(
-                              '/1092744/telegram/telegram_desktop_intext_v3',
-                              [
-                                [300, 250],
-                                [660, 350],
-                                [710, 350],
-                                [320, 480],
-                              ],
-                              'telegram_desktop_intext_v3'
-                            )
-                            ds.addService(googletag.pubads())
-                            ds.setTargeting('upc', 12)
-                          })
-                        </script>
-                      </div>
                     </div>
                     <div
                       class="full center banner-separator relative mobile-only"
@@ -580,7 +555,8 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.resize()
-      this.getPost()
+      this.loadAds()
+      //  this.getPost()
       window.addEventListener('scroll', this.handleScroll)
     })
   },

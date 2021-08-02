@@ -17,6 +17,7 @@ export default ({ store }) => {
       'break',
       'breaking',
       'newsletters',
+      'authors',
     ],
   })(store)
 }

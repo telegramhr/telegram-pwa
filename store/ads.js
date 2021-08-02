@@ -481,6 +481,9 @@ export const actions = {
   initAdserver() {
     if (window.pbjs.initAdserverSet) return
     window.pbjs.initAdserverSet = true
+    if (this.$route.name === 'nesto-slug') {
+      return
+    }
     window.googletag.cmd.push(function () {
       window.pbjs.setTargetingForGPTAsync &&
         window.pbjs.setTargetingForGPTAsync()
