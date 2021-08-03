@@ -35,7 +35,10 @@
             <app-link to="/dojave" class="subtle-btn animate"
               >Kontaktiraj autora</app-link
             >
+          </div>
+          <div v-if="author.newsletter_list" class="full flex">
             <subscribe-button
+              v-if="author.newsletter_list"
               :mlid="author.newsletter_list"
               :free="false"
             ></subscribe-button>
