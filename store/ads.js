@@ -289,8 +289,12 @@ export const mutations = {
 }
 
 export const actions = {
-  setup({ state, commit, dispatch, rootState }, payload) {
+  initAds({ state, commit, dispatch, rootState }, payload) {
+    window.googletag = window.googletag || {}
+    window.googletag.cmd = window.googletag.cmd || []
+    window.googletag.reloadedSlots = window.googletag.reloadedSlots || []
     if (state.slots) {
+      // clean old stuff from previous request
       window.pbjs = window.pbjs || {}
       window.pbjs.que = window.pbjs.que || []
       window.pbjs.initAdserverSet = false
@@ -301,6 +305,31 @@ export const actions = {
         window.googletag.destroySlots()
       })
     }
+    // check if we should even show any ads
+    if (payload.options && payload.options.includes('all')) {
+      return
+    }
+    if (rootState.user.access) {
+      return
+    }
+    // load the up to date floor data
+    if (state.upc_updated + 60 * 60 * 1000 < new Date().getTime()) {
+      this.$axios
+        .get('/api/upc')
+        .then((res) => {
+          commit('setUpc', res.data)
+        })
+        .then(() => {
+          dispatch('setup', payload)
+        })
+    } else {
+      dispatch('setupTargeting', payload)
+    }
+  },
+  setupTargeting({ state, commit, dispatch, rootState }, payload) {
+    window.googletag = window.googletag || {}
+    window.googletag.cmd = window.googletag.cmd || []
+    window.googletag.reloadedSlots = window.googletag.reloadedSlots || []
     const route = payload.route || null
     // set targeting
     const targeting = {
@@ -339,10 +368,6 @@ export const actions = {
           break
       }
     }
-    // init tags
-    window.googletag = window.googletag || {}
-    window.googletag.cmd = window.googletag.cmd || []
-    window.googletag.reloadedSlots = window.googletag.reloadedSlots || []
     window.googletag.cmd.push(() => {
       // set targeting
       for (const i in targeting) {
@@ -364,26 +389,6 @@ export const actions = {
     commit('setInit')
 
     dispatch('initSlots', route)
-  },
-  initAds({ state, commit, dispatch, rootState }, payload) {
-    if (payload.options && payload.options.includes('all')) {
-      return
-    }
-    if (rootState.user.access) {
-      return
-    }
-    if (state.upc_updated + 60 * 60 * 1000 < new Date().getTime()) {
-      this.$axios
-        .get('/api/upc')
-        .then((res) => {
-          commit('setUpc', res.data)
-        })
-        .then(() => {
-          dispatch('setup', payload)
-        })
-    } else {
-      dispatch('setup', payload)
-    }
   },
   initSlots({ state, commit, dispatch }, route) {
     window.googletag.cmd.push(() => {
@@ -479,7 +484,7 @@ export const actions = {
         }),
     })
   },
-  initPBJS({ state, dispatch }) {
+  initPBJS({ dispatch }) {
     window.pbjs = window.pbjs || {}
     window.pbjs.que = window.pbjs.que || []
     window.pbjs.que.push(() => {

@@ -60,20 +60,18 @@
           <standard :post="post"></standard>
         </div>
       </div>
-      <div class="container flex relative mobile-side-pad">
-        <div
-          v-if="hasMore"
-          class="full center subtle-btn-parent relative clickable"
-          @click="loadMore"
-        >
-          <div class="subtle-btn animate">Vidi više</div>
-          <div class="subtle-btn-line"></div>
-          <div class="full center cool-loader hide">
-            <div class="loader-square">
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
+      <div
+        v-if="hasMore"
+        class="full center subtle-btn-parent relative clickable"
+        @click="loadMore"
+      >
+        <div class="subtle-btn animate">Vidi više</div>
+        <div class="subtle-btn-line"></div>
+        <div class="full center cool-loader hide">
+          <div class="loader-square">
+            <div></div>
+            <div></div>
+            <div></div>
           </div>
         </div>
       </div>
