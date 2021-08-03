@@ -37,6 +37,7 @@
             >
           </div>
           <div v-if="author.newsletter_list" class="full flex">
+            <div class="bold full">Newsletter autora</div>
             <subscribe-button
               v-if="author.newsletter_list"
               :mlid="author.newsletter_list"

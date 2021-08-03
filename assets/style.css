@@ -3392,7 +3392,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         border-bottom: 1px solid #c8c8c8;
     }
     .subtle-btn, .author-segment .btn {
-        margin: 16px auto;
+        margin: 16px 0px;
+    }
+    .author-segment .newsletter-btn {
+        margin-top: 8px;
     }
     .single-article .title-404 {
         margin-top: -12vw;
@@ -4203,8 +4206,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .author-segment .subtle-btn, .author-segment .btn {
         margin: 32px 0px;
     }
-    .author-segment .subtle-btn {
-        margin-right: 8px;
+    .author-segment .newsletter-btn {
+        margin-top: 16px;
     }
     .author-segment-title {
         font-size: 12px;
