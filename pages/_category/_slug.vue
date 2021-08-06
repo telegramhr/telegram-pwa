@@ -388,6 +388,7 @@
 <script>
 export default {
   name: 'Slug',
+  scrollToTop: true,
   async fetch() {
     if (!this.$route.params.slug) {
       return

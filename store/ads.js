@@ -201,6 +201,63 @@ export const state = () => ({
     },
     telegram_desktop_intext_v2: {
       upc: {
+        desktop: 10,
+        mobile: 10,
+      },
+      routes: ['category-slug', 'nesto-slug'],
+      desktop: [
+        [660, 350],
+        [300, 250],
+        [320, 480],
+        [710, 350],
+        [970, 500],
+      ],
+      mobile: [
+        [300, 250],
+        [320, 480],
+        [336, 280],
+        [320, 50],
+        [300, 100],
+        [300, 50],
+        [300, 600],
+      ],
+      pbjs: {
+        sizes: [[300, 250]],
+        bids: [
+          {
+            bidder: 'sovrn',
+            params: {
+              tagid: [929094],
+            },
+          },
+        ],
+      },
+    },
+    telegram_desktop_intext_v3: {
+      upc: {
+        desktop: 10,
+        mobile: 10,
+      },
+      routes: ['category-slug', 'nesto-slug'],
+      desktop: [
+        [660, 350],
+        [300, 250],
+        [320, 480],
+        [710, 350],
+        [970, 500],
+      ],
+      mobile: [
+        [300, 250],
+        [320, 480],
+        [336, 280],
+        [320, 50],
+        [300, 100],
+        [300, 50],
+        [300, 600],
+      ],
+    },
+    telegram_desktop_intext_v4: {
+      upc: {
         desktop: 13,
         mobile: 13,
       },
@@ -232,6 +289,52 @@ export const state = () => ({
           },
         ],
       },
+    },
+    telegram_desktop_intext_v5: {
+      upc: {
+        desktop: 13,
+        mobile: 13,
+      },
+      routes: ['category-slug', 'nesto-slug'],
+      desktop: [
+        [660, 350],
+        [300, 250],
+        [320, 480],
+        [710, 350],
+        [970, 500],
+      ],
+      mobile: [
+        [300, 250],
+        [320, 480],
+        [336, 280],
+        [320, 50],
+        [300, 100],
+        [300, 50],
+        [300, 600],
+      ],
+    },
+    telegram_desktop_intext_v6: {
+      upc: {
+        desktop: 13,
+        mobile: 13,
+      },
+      routes: ['category-slug', 'nesto-slug'],
+      desktop: [
+        [660, 350],
+        [300, 250],
+        [320, 480],
+        [710, 350],
+        [970, 500],
+      ],
+      mobile: [
+        [300, 250],
+        [320, 480],
+        [336, 280],
+        [320, 50],
+        [300, 100],
+        [300, 50],
+        [300, 600],
+      ],
     },
     telegram_sticky: {
       upc: {
@@ -410,6 +513,9 @@ export const actions = {
           if (route && !unit.routes.includes(route.name)) {
             continue
           }
+          if (!document.getElementById(i)) {
+            continue
+          }
           ds = window.googletag.defineSlot(prefix + i, unit[sizes], i)
           if (typeof unit.sizeMapping !== 'undefined') {
             ds.defineSizeMapping(unit.sizeMapping)
@@ -441,6 +547,9 @@ export const actions = {
             continue
           }
           if (route && !unit.routes.includes(route.name)) {
+            continue
+          }
+          if (!document.getElementById(i)) {
             continue
           }
           window.pbjs.addAdUnits({
