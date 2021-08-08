@@ -423,7 +423,7 @@ export const actions = {
           commit('setUpc', res.data)
         })
         .then(() => {
-          dispatch('setup', payload)
+          dispatch('setupTargeting', payload)
         })
     } else {
       dispatch('setupTargeting', payload)

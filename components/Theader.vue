@@ -631,20 +631,26 @@ export default {
     },
   },
   mounted() {
-    // this.handleDebouncedScroll = this.debounce(this.handleScroll, 100)
-    // eslint-disable-next-line
-    // window.addEventListener('scroll', this.handleDebouncedScroll)
+    this.clearFC()
     this.$store.dispatch('stocks/pullStocks')
     this.$store.dispatch('user/checkAccess')
     this.$store.dispatch('theme/loadTheme')
     this.triggerLogin()
   },
-  beforeDestroy() {
-    // I switched the example from `destroyed` to `beforeDestroy`
-    // to exercise your mind a bit. This lifecycle method works too.
-    // window.removeEventListener('scroll', this.handleDebouncedScroll)
-  },
   methods: {
+    clearFC() {
+      if (this.process.client) {
+        if (!this.$cookies.get('FC_reset')) {
+          this.$cookies.remove('FCCDCF')
+          this.$cookies.set('FC_reset', 'true', {
+            value: 'true',
+            maxAge: 30 * 60 * 60 * 24,
+            path: '/',
+            domain: '.telegram.hr',
+          })
+        }
+      }
+    },
     handleScroll() {
       if (window.scrollY) {
         this.dynamicHeader = true
