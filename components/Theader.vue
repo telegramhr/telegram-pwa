@@ -639,7 +639,7 @@ export default {
   },
   methods: {
     clearFC() {
-      if (this.process.client) {
+      if (process.client) {
         if (!this.$cookies.get('FC_reset')) {
           this.$cookies.remove('FCCDCF')
           this.$cookies.set('FC_reset', 'true', {
