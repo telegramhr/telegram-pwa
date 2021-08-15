@@ -9,7 +9,7 @@
           left: size[0] > 200 ? 0 : 'initial',
         }"
       ></div>
-      <!--<a
+      <a
         v-show="id === 'telegram_sticky' && showClose"
         href="#"
         :style="{
@@ -25,7 +25,7 @@
           size="2x"
           style="color: #ae3736"
         ></font-awesome-icon
-      ></a>-->
+      ></a>
     </div>
   </client-only>
 </template>
