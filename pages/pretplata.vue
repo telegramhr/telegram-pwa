@@ -13,15 +13,23 @@
           class="container relative flex mobile-side-pad stretch column-full-pad"
         >
           <h1 class="full center-text">Priče koje guraju društvo naprijed.</h1>
-          <p class="full center-text pretplata-tagline">
+          <p class="full clickable center-text pretplata-tagline">
             Pretplatite se i podržite naše bespoštedno novinarstvo.
           </p>
         </div>
       </div>
       <div class="full flex">
-        <div class="container relative flex pretplata-packs mobile-side-pad">
-          <input id="yeartoggle" type="checkbox" name="yeartoggle" />
-          <div class="full center yeartoggle-parent">
+        <div
+          id="pretplata-packs"
+          class="container relative flex pretplata-packs animate mobile-side-pad"
+        >
+          <input
+            id="yeartoggle"
+            class="yeartoggle"
+            type="checkbox"
+            name="yeartoggle"
+          />
+          <div class="full center yeartoggle-parent animate">
             <label class="relative">
               <div class="best-price-sticker animate">
                 Najbolja <br />vrijednost
@@ -42,14 +50,19 @@
           </div>
           <div class="full flex center pretplata-packboxes">
             <div
-              class="half flex-responsive flex relative pretplata-packbox stretch"
+              class="half flex-responsive flex relative pretplata-packbox animate stretch"
             >
+              <div class="deselect-packbox-btn animate">
+                <font-awesome-icon
+                  :icon="['fas', 'times-circle']"
+                ></font-awesome-icon>
+              </div>
               <div class="full flex overtitle-parent">
                 <h3 class="overtitle">Standard</h3>
               </div>
               <h2 class="full">49kn</h2>
               <h4 class="full center-text undertitle">Mjesečno</h4>
-              <div class="full pretplata-benefits">
+              <div class="full pretplata-benefits animate">
                 <p class="full animate">
                   <font-awesome-icon
                     :icon="['fas', 'check']"
@@ -68,14 +81,21 @@
               </div>
             </div>
             <div
-              class="half flex-responsive flex relative pretplata-packbox stretch"
+              id="selected-packbox"
+              onclick="document.querySelector('#selected-packbox').classList.toggle('selected-packbox'); document.querySelector('#login-screen').classList.toggle('reveal-paymentflow-element');"
+              class="half clickable flex-responsive flex relative pretplata-packbox animate stretch"
             >
+              <div class="deselect-packbox-btn animate">
+                <font-awesome-icon
+                  :icon="['fas', 'times-circle']"
+                ></font-awesome-icon>
+              </div>
               <div class="full flex overtitle-parent">
                 <h3 class="overtitle">Premium</h3>
               </div>
               <h2 class="full">69kn</h2>
               <h4 class="full center-text undertitle">Mjesečno</h4>
-              <div class="full pretplata-benefits">
+              <div class="full pretplata-benefits animate">
                 <p class="full animate">
                   <font-awesome-icon
                     :icon="['fas', 'check']"
@@ -112,12 +132,25 @@
                 </p>
               </div>
               <div class="full center btn-parent" @click="checkout(two)">
-                <div class="btn animate">Odaberi</div>
+                <div class="btn animate">
+                  <span class="unselected">Odaberi</span>
+                  <span class="selected"
+                    >Odabrano
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon
+                  ></span>
+                </div>
               </div>
             </div>
             <div
-              class="half flex-responsive flex relative pretplata-packbox stretch"
+              class="half flex-responsive flex relative pretplata-packbox animate stretch"
             >
+              <div class="deselect-packbox-btn animate">
+                <font-awesome-icon
+                  :icon="['fas', 'times-circle']"
+                ></font-awesome-icon>
+              </div>
               <div class="full flex overtitle-parent">
                 <h3 class="overtitle">Standard</h3>
               </div>
@@ -125,7 +158,7 @@
               <h4 class="full center-text undertitle">
                 mjesečno, za cijelu godinu 468kn
               </h4>
-              <div class="full pretplata-benefits">
+              <div class="full pretplata-benefits animate">
                 <p class="full animate">
                   <font-awesome-icon
                     :icon="['fas', 'check']"
@@ -144,8 +177,13 @@
               </div>
             </div>
             <div
-              class="half flex-responsive flex relative pretplata-packbox stretch"
+              class="half flex-responsive flex relative pretplata-packbox animate stretch"
             >
+              <div class="deselect-packbox-btn animate">
+                <font-awesome-icon
+                  :icon="['fas', 'times-circle']"
+                ></font-awesome-icon>
+              </div>
               <div class="full flex overtitle-parent">
                 <h3 class="overtitle">Premium</h3>
               </div>
@@ -153,7 +191,7 @@
               <h4 class="full center-text undertitle">
                 mjesečno, za cijelu godinu 588kn
               </h4>
-              <div class="full pretplata-benefits">
+              <div class="full pretplata-benefits animate">
                 <p class="full animate">
                   <font-awesome-icon
                     :icon="['fas', 'check']"
@@ -196,31 +234,121 @@
             <a
               href="mailto:pretplata@telegram.hr"
               class="full center-text undertitle"
-              >Trebat će vam R1 račun ili želite ponudu za pravne osobe? Javite
-              nam se.</a
+              >Želite ponudu za pravne osobe? Javite nam se.</a
             >
           </div>
         </div>
-        <div class="container relative flex mobile-side-pad">
-          Trebate R1 račun?<br />
-          // Ime tvrtke<br />
-          // Adresa<br />
-          // Grad<br />
-          // Poštanski broj<br />
-          // OIB<br />
+      </div>
+      <div
+        id="login-screen"
+        class="full flex animate long-animate"
+        onclick="document.querySelector('#payment-options').classList.toggle('reveal-paymentflow-element'); document.querySelector('#login-screen').classList.toggle('reveal-paymentflow-element');"
+      >
+        <div class="container clickable center relative flex">
+          <img src="@/assets/img/login_preview.jpg" aria-hidden="true" />
         </div>
-        <div class="container relative flex mobile-side-pad">
-          // Načini plaćanja<br />
-          // Kreditna kartica<br />
-          // Bankovna uplata<br />
-          // Apple Pay<br />
-          // Google Pay<br />
-        </div>
-        <div class="container relative flex mobile-side-pad">
-          // Prikaz za bankovnu uplatu // ovdje će se prikazati info za uplatu s
-          barkodom, to ćeš tek dobiti konkretno info, ali od podataka će biti
-          broj računa, broj ponude, cijena i HUB kod<br />
-          Za sve ostale načine plaćanja ide piano popup, pa tu nemaš što raditi.
+      </div>
+      <div id="payment-options" class="full flex animate long-animate">
+        <div class="container relative flex large-bottom-margin">
+          <div class="full flex r1-toggle hide">
+            <h3
+              class="full overtitle mobile-side-pad center-text small-bottom-margin"
+            >
+              Trebate li R1 račun?
+            </h3>
+            <div class="full flex relative mobile-side-pad">
+              <input
+                id="billtoggle"
+                class="yeartoggle"
+                type="checkbox"
+                name="billtoggle"
+              />
+              <div
+                class="full center yeartoggle-parent billtoggle-parent large-bottom-margin"
+              >
+                <label class="relative" for="billtoggle">
+                  <div class="togglemonth">Obični račun</div>
+                  <div class="toggleyear">R1 račun</div>
+                </label>
+              </div>
+              <form class="full flex r1-bill-info large-bottom-margin">
+                <label>Ime tvrtke</label>
+                <input id="r1-tvrtka" type="text" class="full flex" />
+                <label>Adresa</label>
+                <input id="r1-adresa" type="text" class="full flex" />
+                <label>Grad</label>
+                <input id="r1-grad" type="text" class="full flex" />
+                <label>Poštanski broj</label>
+                <input id="r1-postanski" type="text" class="full flex" />
+                <label>OIB</label>
+                <input id="r1-oib" type="text" class="full flex" />
+              </form>
+            </div>
+          </div>
+          <h3
+            class="full overtitle mobile-side-pad center-text small-bottom-margin"
+          >
+            Prijavljeni ste kao: marijan@telegram.hr.
+          </h3>
+          <h3
+            class="full overtitle mobile-side-pad center-text small-bottom-margin"
+          >
+            Odaberite način plaćanja za nastavak:
+          </h3>
+          <div class="full flex payment-methods large-bottom-margin">
+            <div class="fourth center">
+              <div class="full center payment-tile" for="payment-creditcard">
+                <div class="full flex animate">
+                  <div class="full center">
+                    <font-awesome-icon
+                      :icon="['fad', 'credit-card']"
+                    ></font-awesome-icon>
+                  </div>
+                  <p class="full center-text">Kreditna kartica</p>
+                </div>
+              </div>
+            </div>
+            <div class="fourth center">
+              <div class="full center payment-tile" for="payment-creditcard">
+                <div class="full flex animate">
+                  <div class="full center">
+                    <font-awesome-icon
+                      :icon="['fad', 'university']"
+                    ></font-awesome-icon>
+                  </div>
+                  <p class="full center-text">Bankovna uplata</p>
+                </div>
+              </div>
+            </div>
+            <div class="fourth center">
+              <div
+                class="full center payment-tile payment-monopolist"
+                for="payment-creditcard"
+              >
+                <div class="full flex animate">
+                  <div class="full center">
+                    <font-awesome-icon
+                      :icon="['fab', 'apple-pay']"
+                    ></font-awesome-icon>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="fourth center">
+              <div
+                class="full center payment-tile payment-monopolist"
+                for="payment-creditcard"
+              >
+                <div class="full flex animate">
+                  <div class="full center">
+                    <font-awesome-icon
+                      :icon="['fab', 'google-pay']"
+                    ></font-awesome-icon>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="full flex relative">
@@ -666,14 +794,14 @@ export default {
     },
   },
   mounted() {
-    window.fbq('track', 'ViewContent', {
+    /* window.fbq('track', 'ViewContent', {
       content_ids: [
         'TM0FMYURHRA3',
         'TMXKYJUN5YN5',
         'TMVUCFM94OA7',
         'TM8R9U7RK5B1',
       ],
-    })
+    }) */
     window.tp.push([
       'addHandler',
       'checkoutComplete',

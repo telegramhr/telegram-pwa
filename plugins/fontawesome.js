@@ -16,6 +16,8 @@ import {
   faUserLock,
   faCommentDots,
   faEnvelopeOpenText,
+  faCreditCard,
+  faUniversity,
 } from '@fortawesome/pro-duotone-svg-icons'
 
 import {
@@ -23,6 +25,8 @@ import {
   faInstagram,
   faTwitter,
   faTelegram,
+  faGooglePay,
+  faApplePay,
 } from '@fortawesome/free-brands-svg-icons'
 
 import {
@@ -63,7 +67,11 @@ library.add(
   faTelegram,
   faMinusSquare,
   faPlusSquare,
-  faTimesCircle
+  faTimesCircle,
+  faGooglePay,
+  faApplePay,
+  faCreditCard,
+  faUniversity
 )
 
 // Register the component globally
