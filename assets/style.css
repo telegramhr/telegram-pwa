@@ -4389,6 +4389,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .homepage .standard-block > .fourth, .homepage .block-1 > .fourth, .block-related > .fourth, .category-page .standard-block .fourth {
         display: none;
     }
+    .homepage .block-5 > .fourth {
+        display: flex;
+        width: 49.99%;
+    }
     .homepage .standard-block > .three-fourths, .homepage .block-1 > .three-fourths, .block-related > .three-fourths,  .category-page .standard-block .three-fourths {
         width: 100%;
     }
