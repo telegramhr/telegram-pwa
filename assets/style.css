@@ -4094,7 +4094,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     header nav, .weekday-title {
         background: transparent;
     }
-    .single-article .article-head > *, .single-article #article-content > * {
+    .single-article .article-head > *, .single-article #article-content > *, .single-article-footer {
         width: 710px;
         margin-left: auto;
         margin-right: auto;
@@ -5059,19 +5059,20 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 h1.openspace-header {
   letter-spacing: -0.01em;
   font-size: 120px;
-  font-family: henriette-compressed, sans-serif;
+  font-family: futura-pt, sans-serif; 
   font-weight: 700;
   font-style: normal;
   padding-bottom: 32px;
   border-bottom: 2px solid #111;
 }
 .openspace .article h2 {
-  font-family: henriette-compressed, sans-serif;
-  font-weight: 500;
+  font-family: futura-pt, sans-serif; 
+  font-weight: 600;
   font-style: normal;
   font-size: 1.2rem;
   letter-spacing: normal;
   line-height: 1.2em;
+  letter-spacing: -0.01em;
 }
 .openspace .article-featured h2 {
   font-size: 1.3rem;
@@ -5092,13 +5093,13 @@ h1.openspace-header {
   display: none;
 }
 .openspace .immersive-break h2 {
-  font-family: henriette-compressed, sans-serif;
+  font-family: futura-pt, sans-serif; 
   font-weight: 700;
   font-style: normal;
   margin-bottom: 24px;
 }
 .openspace .block-title h1 {
-  font-family: henriette-compressed, sans-serif;
+  font-family: futura-pt, sans-serif; 
   font-weight: 700;
   font-style: normal;
 }
@@ -5106,7 +5107,7 @@ h1.openspace-header {
   background-color: #333;
 }
 .openspace .section-title {
-  font-family: henriette-compressed, sans-serif;
+  font-family: futura-pt, sans-serif; 
   font-weight: 700;
   font-style: normal;
   border-top: 2px solid #111;
@@ -5123,7 +5124,7 @@ h1.openspace-header {
     background-color: #212121;
 }
 .openspace.single-article h1 {
-    font-family: henriette-compressed, sans-serif;
+    font-family: futura-pt, sans-serif; 
     font-weight: 400;
     font-style: normal;
     letter-spacing: normal;
@@ -5136,7 +5137,7 @@ h1.openspace-header {
     display: none;
 }
 .openspace .single-article-body h2 {
-    font-family: henriette-compressed, sans-serif;
+    font-family: futura-pt, sans-serif; 
     font-weight: 400;
     font-style: normal;
     letter-spacing: normal;
