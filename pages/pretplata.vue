@@ -18,339 +18,349 @@
           </p>
         </div>
       </div>
-      <div class="full flex">
-        <div
-          id="pretplata-packs"
-          class="container relative flex pretplata-packs animate mobile-side-pad"
-        >
-          <input
-            id="yeartoggle"
-            class="yeartoggle"
-            type="checkbox"
-            name="yeartoggle"
-          />
-          <div class="full center yeartoggle-parent animate">
-            <label class="relative">
-              <div class="best-price-sticker animate">
-                Najbolja <br />vrijednost
-              </div>
-              <div
-                class="togglemonth"
-                onclick="document.getElementById('yeartoggle').checked = false;"
-              >
-                Mjesečno
-              </div>
-              <div
-                class="toggleyear"
-                onclick="document.getElementById('yeartoggle').checked = true;"
-              >
-                Godišnje
-              </div>
-            </label>
-          </div>
-          <div class="full flex center pretplata-packboxes">
-            <div
-              class="half flex-responsive flex relative pretplata-packbox animate stretch"
-            >
-              <div class="deselect-packbox-btn animate">
-                <font-awesome-icon
-                  :icon="['fas', 'times-circle']"
-                ></font-awesome-icon>
-              </div>
-              <div class="full flex overtitle-parent">
-                <h3 class="overtitle">Standard</h3>
-              </div>
-              <h2 class="full">49kn</h2>
-              <h4 class="full center-text undertitle">Mjesečno</h4>
-              <div class="full pretplata-benefits animate">
-                <p class="full animate">
-                  <font-awesome-icon
-                    :icon="['fas', 'check']"
-                  ></font-awesome-icon>
-                  neograničeno čitanje Telegrama
-                </p>
-                <p class="full animate">
-                  <font-awesome-icon
-                    :icon="['fas', 'check']"
-                  ></font-awesome-icon>
-                  specijalni newsletteri
-                </p>
-              </div>
-              <div class="full center btn-parent" @click="checkout(one)">
-                <div class="btn animate">Odaberi</div>
-              </div>
+      <transition name="reveal-block">
+        <div v-show="screen === 'packs'" class="full flex">
+          <div
+            id="pretplata-packs"
+            class="container relative flex pretplata-packs animate mobile-side-pad"
+          >
+            <input
+              id="yeartoggle"
+              class="yeartoggle"
+              type="checkbox"
+              name="yeartoggle"
+            />
+            <div class="full center yeartoggle-parent animate">
+              <label class="relative">
+                <div class="best-price-sticker animate">
+                  Najbolja <br />vrijednost
+                </div>
+                <div
+                  class="togglemonth"
+                  onclick="document.getElementById('yeartoggle').checked = false;"
+                >
+                  Mjesečno
+                </div>
+                <div
+                  class="toggleyear"
+                  onclick="document.getElementById('yeartoggle').checked = true;"
+                >
+                  Godišnje
+                </div>
+              </label>
             </div>
-            <div
-              id="selected-packbox"
-              onclick="document.querySelector('#selected-packbox').classList.toggle('selected-packbox'); document.querySelector('#login-screen').classList.toggle('reveal-paymentflow-element');"
-              class="half clickable flex-responsive flex relative pretplata-packbox animate stretch"
-            >
-              <div class="deselect-packbox-btn animate">
-                <font-awesome-icon
-                  :icon="['fas', 'times-circle']"
-                ></font-awesome-icon>
-              </div>
-              <div class="full flex overtitle-parent">
-                <h3 class="overtitle">Premium</h3>
-              </div>
-              <h2 class="full">69kn</h2>
-              <h4 class="full center-text undertitle">Mjesečno</h4>
-              <div class="full pretplata-benefits animate">
-                <p class="full animate">
+            <div class="full flex center pretplata-packboxes">
+              <div
+                class="half flex-responsive flex relative pretplata-packbox animate stretch"
+              >
+                <div class="deselect-packbox-btn animate">
                   <font-awesome-icon
-                    :icon="['fas', 'check']"
+                    :icon="['fas', 'times-circle']"
                   ></font-awesome-icon>
-                  neograničeno čitanje Telegrama
-                </p>
-                <p class="full animate">
-                  <font-awesome-icon
-                    :icon="['fas', 'check']"
-                  ></font-awesome-icon>
-                  neograničeno čitanje Telesporta
-                </p>
-                <p class="full animate">
-                  <font-awesome-icon
-                    :icon="['fas', 'check']"
-                  ></font-awesome-icon>
-                  specijalni newsletteri
-                </p>
-                <p class="full animate">
-                  <font-awesome-icon
-                    :icon="['fas', 'check']"
-                  ></font-awesome-icon>
-                  surfanje bez oglasa
-                </p>
-                <p class="full animate">
-                  <font-awesome-icon
-                    :icon="['fas', 'check']"
-                  ></font-awesome-icon>
-                  nakon 3 mjeseca gratis knjiga u izdanju Telegrama<a
-                    href="#knjige-disclaimer"
-                    onclick="document.getElementById('knjige-disclaimer').open = true;"
-                    >*</a
-                  >
-                </p>
-              </div>
-              <div class="full center btn-parent" @click="checkout(two)">
-                <div class="btn animate">
-                  <span class="unselected">Odaberi</span>
-                  <span class="selected"
-                    >Odabrano
+                </div>
+                <div class="full flex overtitle-parent">
+                  <h3 class="overtitle">Standard</h3>
+                </div>
+                <h2 class="full">49kn</h2>
+                <h4 class="full center-text undertitle">Mjesečno</h4>
+                <div class="full pretplata-benefits animate">
+                  <p class="full animate">
                     <font-awesome-icon
                       :icon="['fas', 'check']"
-                    ></font-awesome-icon
-                  ></span>
+                    ></font-awesome-icon>
+                    neograničeno čitanje Telegrama
+                  </p>
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    specijalni newsletteri
+                  </p>
+                </div>
+                <div class="full center btn-parent" @click="checkout(one)">
+                  <div class="btn animate">Odaberi</div>
                 </div>
               </div>
+              <div
+                id="selected-packbox"
+                class="half clickable flex-responsive flex relative pretplata-packbox animate stretch"
+              >
+                <div class="deselect-packbox-btn animate">
+                  <font-awesome-icon
+                    :icon="['fas', 'times-circle']"
+                  ></font-awesome-icon>
+                </div>
+                <div class="full flex overtitle-parent">
+                  <h3 class="overtitle">Premium</h3>
+                </div>
+                <h2 class="full">69kn</h2>
+                <h4 class="full center-text undertitle">Mjesečno</h4>
+                <div class="full pretplata-benefits animate">
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    neograničeno čitanje Telegrama
+                  </p>
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    neograničeno čitanje Telesporta
+                  </p>
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    specijalni newsletteri
+                  </p>
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    surfanje bez oglasa
+                  </p>
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    nakon 3 mjeseca gratis knjiga u izdanju Telegrama<a
+                      href="#knjige-disclaimer"
+                      onclick="document.getElementById('knjige-disclaimer').open = true;"
+                      >*</a
+                    >
+                  </p>
+                </div>
+                <div class="full center btn-parent" @click="checkout(two)">
+                  <div class="btn animate">
+                    <span class="unselected">Odaberi</span>
+                    <span class="selected"
+                      >Odabrano
+                      <font-awesome-icon
+                        :icon="['fas', 'check']"
+                      ></font-awesome-icon
+                    ></span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="half flex-responsive flex relative pretplata-packbox animate stretch"
+              >
+                <div class="deselect-packbox-btn animate">
+                  <font-awesome-icon
+                    :icon="['fas', 'times-circle']"
+                  ></font-awesome-icon>
+                </div>
+                <div class="full flex overtitle-parent">
+                  <h3 class="overtitle">Standard</h3>
+                </div>
+                <h2 class="full">39kn</h2>
+                <h4 class="full center-text undertitle">
+                  mjesečno, za cijelu godinu 468kn
+                </h4>
+                <div class="full pretplata-benefits animate">
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    neograničeno čitanje Telegrama
+                  </p>
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    specijalni newsletteri
+                  </p>
+                </div>
+                <div class="full center btn-parent" @click="checkout(three)">
+                  <div class="btn animate">Odaberi</div>
+                </div>
+              </div>
+              <div
+                class="half flex-responsive flex relative pretplata-packbox animate stretch"
+              >
+                <div class="deselect-packbox-btn animate">
+                  <font-awesome-icon
+                    :icon="['fas', 'times-circle']"
+                  ></font-awesome-icon>
+                </div>
+                <div class="full flex overtitle-parent">
+                  <h3 class="overtitle">Premium</h3>
+                </div>
+                <h2 class="full">49kn</h2>
+                <h4 class="full center-text undertitle">
+                  mjesečno, za cijelu godinu 588kn
+                </h4>
+                <div class="full pretplata-benefits animate">
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    neograničeno čitanje Telegrama
+                  </p>
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    neograničeno čitanje Telesporta
+                  </p>
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    specijalni newsletteri
+                  </p>
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    surfanje bez oglasa
+                  </p>
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    gratis knjiga u izdanju Telegrama<a
+                      href="#knjige-disclaimer"
+                      onclick="document.getElementById('knjige-disclaimer').open = true;"
+                      >*</a
+                    >
+                  </p>
+                </div>
+                <div class="full center btn-parent" @click="checkout(four)">
+                  <div class="btn animate">Odaberi</div>
+                </div>
+              </div>
+              <a
+                href="mailto:pretplata@telegram.hr"
+                class="full center-text undertitle"
+                >Želite ponudu za pravne osobe? Javite nam se.</a
+              >
             </div>
-            <div
-              class="half flex-responsive flex relative pretplata-packbox animate stretch"
-            >
-              <div class="deselect-packbox-btn animate">
-                <font-awesome-icon
-                  :icon="['fas', 'times-circle']"
-                ></font-awesome-icon>
-              </div>
-              <div class="full flex overtitle-parent">
-                <h3 class="overtitle">Standard</h3>
-              </div>
-              <h2 class="full">39kn</h2>
-              <h4 class="full center-text undertitle">
-                mjesečno, za cijelu godinu 468kn
-              </h4>
-              <div class="full pretplata-benefits animate">
-                <p class="full animate">
-                  <font-awesome-icon
-                    :icon="['fas', 'check']"
-                  ></font-awesome-icon>
-                  neograničeno čitanje Telegrama
-                </p>
-                <p class="full animate">
-                  <font-awesome-icon
-                    :icon="['fas', 'check']"
-                  ></font-awesome-icon>
-                  specijalni newsletteri
-                </p>
-              </div>
-              <div class="full center btn-parent" @click="checkout(three)">
-                <div class="btn animate">Odaberi</div>
-              </div>
-            </div>
-            <div
-              class="half flex-responsive flex relative pretplata-packbox animate stretch"
-            >
-              <div class="deselect-packbox-btn animate">
-                <font-awesome-icon
-                  :icon="['fas', 'times-circle']"
-                ></font-awesome-icon>
-              </div>
-              <div class="full flex overtitle-parent">
-                <h3 class="overtitle">Premium</h3>
-              </div>
-              <h2 class="full">49kn</h2>
-              <h4 class="full center-text undertitle">
-                mjesečno, za cijelu godinu 588kn
-              </h4>
-              <div class="full pretplata-benefits animate">
-                <p class="full animate">
-                  <font-awesome-icon
-                    :icon="['fas', 'check']"
-                  ></font-awesome-icon>
-                  neograničeno čitanje Telegrama
-                </p>
-                <p class="full animate">
-                  <font-awesome-icon
-                    :icon="['fas', 'check']"
-                  ></font-awesome-icon>
-                  neograničeno čitanje Telesporta
-                </p>
-                <p class="full animate">
-                  <font-awesome-icon
-                    :icon="['fas', 'check']"
-                  ></font-awesome-icon>
-                  specijalni newsletteri
-                </p>
-                <p class="full animate">
-                  <font-awesome-icon
-                    :icon="['fas', 'check']"
-                  ></font-awesome-icon>
-                  surfanje bez oglasa
-                </p>
-                <p class="full animate">
-                  <font-awesome-icon
-                    :icon="['fas', 'check']"
-                  ></font-awesome-icon>
-                  gratis knjiga u izdanju Telegrama<a
-                    href="#knjige-disclaimer"
-                    onclick="document.getElementById('knjige-disclaimer').open = true;"
-                    >*</a
-                  >
-                </p>
-              </div>
-              <div class="full center btn-parent" @click="checkout(four)">
-                <div class="btn animate">Odaberi</div>
-              </div>
-            </div>
-            <a
-              href="mailto:pretplata@telegram.hr"
-              class="full center-text undertitle"
-              >Želite ponudu za pravne osobe? Javite nam se.</a
-            >
           </div>
         </div>
-      </div>
-      <div
-        id="login-screen"
-        class="full flex animate long-animate"
-        onclick="document.querySelector('#payment-options').classList.toggle('reveal-paymentflow-element'); document.querySelector('#login-screen').classList.toggle('reveal-paymentflow-element');"
-      >
-        <div class="container clickable center relative flex">
-          <img src="@/assets/img/login_preview.jpg" aria-hidden="true" />
+      </transition>
+      <transition name="reveal-block">
+        <div
+          v-show="screen === 'login'"
+          id="login-screen"
+          class="full flex animate long-animate"
+          @click="screen = 'payment'"
+        >
+          <div class="container clickable center relative flex">
+            <img src="@/assets/img/login_preview.jpg" aria-hidden="true" />
+          </div>
         </div>
-      </div>
-      <div id="payment-options" class="full flex animate long-animate">
-        <div class="container relative flex large-bottom-margin">
-          <div class="full flex r1-toggle hide">
+      </transition>
+      <transition>
+        <div
+          v-show="screen === 'payment'"
+          id="payment-options"
+          class="full flex animate long-animate"
+        >
+          <div class="container relative flex large-bottom-margin">
+            <div class="full flex r1-toggle hide">
+              <h3
+                class="full overtitle mobile-side-pad center-text small-bottom-margin"
+              >
+                Trebate li R1 račun?
+              </h3>
+              <div class="full flex relative mobile-side-pad">
+                <input
+                  id="billtoggle"
+                  class="yeartoggle"
+                  type="checkbox"
+                  name="billtoggle"
+                />
+                <div
+                  class="full center yeartoggle-parent billtoggle-parent large-bottom-margin"
+                >
+                  <label class="relative" for="billtoggle">
+                    <div class="togglemonth">Obični račun</div>
+                    <div class="toggleyear">R1 račun</div>
+                  </label>
+                </div>
+                <form class="full flex r1-bill-info large-bottom-margin">
+                  <label>Ime tvrtke</label>
+                  <input id="r1-tvrtka" type="text" class="full flex" />
+                  <label>Adresa</label>
+                  <input id="r1-adresa" type="text" class="full flex" />
+                  <label>Grad</label>
+                  <input id="r1-grad" type="text" class="full flex" />
+                  <label>Poštanski broj</label>
+                  <input id="r1-postanski" type="text" class="full flex" />
+                  <label>OIB</label>
+                  <input id="r1-oib" type="text" class="full flex" />
+                </form>
+              </div>
+            </div>
             <h3
               class="full overtitle mobile-side-pad center-text small-bottom-margin"
             >
-              Trebate li R1 račun?
+              Prijavljeni ste kao: marijan@telegram.hr.
             </h3>
-            <div class="full flex relative mobile-side-pad">
-              <input
-                id="billtoggle"
-                class="yeartoggle"
-                type="checkbox"
-                name="billtoggle"
-              />
-              <div
-                class="full center yeartoggle-parent billtoggle-parent large-bottom-margin"
-              >
-                <label class="relative" for="billtoggle">
-                  <div class="togglemonth">Obični račun</div>
-                  <div class="toggleyear">R1 račun</div>
-                </label>
-              </div>
-              <form class="full flex r1-bill-info large-bottom-margin">
-                <label>Ime tvrtke</label>
-                <input id="r1-tvrtka" type="text" class="full flex" />
-                <label>Adresa</label>
-                <input id="r1-adresa" type="text" class="full flex" />
-                <label>Grad</label>
-                <input id="r1-grad" type="text" class="full flex" />
-                <label>Poštanski broj</label>
-                <input id="r1-postanski" type="text" class="full flex" />
-                <label>OIB</label>
-                <input id="r1-oib" type="text" class="full flex" />
-              </form>
-            </div>
-          </div>
-          <h3
-            class="full overtitle mobile-side-pad center-text small-bottom-margin"
-          >
-            Prijavljeni ste kao: marijan@telegram.hr.
-          </h3>
-          <h3
-            class="full overtitle mobile-side-pad center-text small-bottom-margin"
-          >
-            Odaberite način plaćanja za nastavak:
-          </h3>
-          <div class="full flex payment-methods large-bottom-margin">
-            <div class="fourth center">
-              <div class="full center payment-tile" for="payment-creditcard">
-                <div class="full flex animate">
-                  <div class="full center">
-                    <font-awesome-icon
-                      :icon="['fad', 'credit-card']"
-                    ></font-awesome-icon>
-                  </div>
-                  <p class="full center-text">Kreditna kartica</p>
-                </div>
-              </div>
-            </div>
-            <div class="fourth center">
-              <div class="full center payment-tile" for="payment-creditcard">
-                <div class="full flex animate">
-                  <div class="full center">
-                    <font-awesome-icon
-                      :icon="['fad', 'university']"
-                    ></font-awesome-icon>
-                  </div>
-                  <p class="full center-text">Bankovna uplata</p>
-                </div>
-              </div>
-            </div>
-            <div class="fourth center">
-              <div
-                class="full center payment-tile payment-monopolist"
-                for="payment-creditcard"
-              >
-                <div class="full flex animate">
-                  <div class="full center">
-                    <font-awesome-icon
-                      :icon="['fab', 'apple-pay']"
-                    ></font-awesome-icon>
+            <h3
+              class="full overtitle mobile-side-pad center-text small-bottom-margin"
+            >
+              Odaberite način plaćanja za nastavak:
+            </h3>
+            <div class="full flex payment-methods large-bottom-margin">
+              <div class="fourth center">
+                <div class="full center payment-tile" for="payment-creditcard">
+                  <div class="full flex animate">
+                    <div class="full center">
+                      <font-awesome-icon
+                        :icon="['fad', 'credit-card']"
+                      ></font-awesome-icon>
+                    </div>
+                    <p class="full center-text">Kreditna kartica</p>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="fourth center">
-              <div
-                class="full center payment-tile payment-monopolist"
-                for="payment-creditcard"
-              >
-                <div class="full flex animate">
-                  <div class="full center">
-                    <font-awesome-icon
-                      :icon="['fab', 'google-pay']"
-                    ></font-awesome-icon>
+              <div class="fourth center">
+                <div class="full center payment-tile" for="payment-creditcard">
+                  <div class="full flex animate">
+                    <div class="full center">
+                      <font-awesome-icon
+                        :icon="['fad', 'university']"
+                      ></font-awesome-icon>
+                    </div>
+                    <p class="full center-text">Bankovna uplata</p>
+                  </div>
+                </div>
+              </div>
+              <div class="fourth center">
+                <div
+                  class="full center payment-tile payment-monopolist"
+                  for="payment-creditcard"
+                >
+                  <div class="full flex animate">
+                    <div class="full center">
+                      <font-awesome-icon
+                        :icon="['fab', 'apple-pay']"
+                      ></font-awesome-icon>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="fourth center">
+                <div
+                  class="full center payment-tile payment-monopolist"
+                  for="payment-creditcard"
+                >
+                  <div class="full flex animate">
+                    <div class="full center">
+                      <font-awesome-icon
+                        :icon="['fab', 'google-pay']"
+                      ></font-awesome-icon>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </transition>
       <div class="full flex relative">
         <div class="container relative flex">
           <div
@@ -753,6 +763,7 @@ export default {
         TMVUCFM94OA7: 468,
         TM8R9U7RK5B1: 588,
       },
+      screen: 'packs',
     }
   },
   computed: {
@@ -814,7 +825,8 @@ export default {
   },
   methods: {
     checkout(termId) {
-      if (this.$store.state.user.token) {
+      this.screen = 'login'
+      /* if (this.$store.state.user.token) {
         this.checkout2(termId, -1)
       } else {
         const _that = this
@@ -827,7 +839,7 @@ export default {
             _that.checkout2(termId, -2)
           },
         })
-      }
+      } */
     },
     checkout2(termId, back) {
       const _that = this
