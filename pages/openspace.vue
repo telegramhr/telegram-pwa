@@ -118,17 +118,27 @@
 <script>
 export default {
   async fetch() {
-    await this.$store.dispatch('featured/pullPosts')
+    await this.$axios
+      .get('/api/author/ivan-luzar')
+      .then((res) => {
+        this.posts = res.data.posts
+      })
+      .catch(() => {
+        // set status code on server and
+        if (process.server) {
+          this.$telegram.context.res.statusCode = 404
+        }
+        // use throw new Error()
+        throw new Error('User not found')
+      })
   },
   data() {
     return {
       loading: false,
+      posts: [],
+      page: 2,
+      hasMore: true,
     }
-  },
-  computed: {
-    posts() {
-      return this.$store.state.featured.posts
-    },
   },
   head() {
     return {
