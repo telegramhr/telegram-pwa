@@ -3070,36 +3070,29 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 */
 
-.long-animate {
-    -webkit-transition: all 1.5s;
-    -moz-transition: all 1.5s;
-    -ms-transition: all 1.5s;
-    -o-transition: all 1.5s;
-    transition: all 1.5s;
-    -webkit-transform: translateZ(0);
-    -moz-transform: translateZ(0);
-    -ms-transform: translateZ(0);
-    -o-transform: translateZ(0);
-    transform: translateZ(0);
-}
-#login-screen, #payment-options {
-    max-height: 0px;
-    overflow: hidden;
-    opacity: 0;
-}
 #login-screen {
     background-color: rgba(0, 0, 0, 0.2);
-}
-#login-screen.reveal-paymentflow-element {
     padding: 24px;
+    overflow: hidden;
 }
 #login-screen img {
     max-width: 360px;
 }
-#login-screen.reveal-paymentflow-element, #payment-options.reveal-paymentflow-element {
-    max-height: 1000px;
-    opacity: 1;
+
+.reveal-block-enter-active, .reveal-block-leave-active {
+    transition: all 1.5s;
 }
+.reveal-block-enter, .reveal-block-leave-to {
+    max-height: 0px;
+    opacity: 0;
+}
+#login-screen.reveal-block-leave-to {
+    padding: 0px;
+}
+.reveal-block-enter-to, .reveal-block-leave {
+    max-height: 1000px;
+}
+
 
 
 /* Mini pretplata widget */
@@ -5067,9 +5060,9 @@ h1.openspace-header {
 }
 .openspace .article h2 {
   font-family: futura-pt, sans-serif; 
-  font-weight: 600;
+  font-weight: 700;
   font-style: normal;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   letter-spacing: normal;
   line-height: 1.2em;
   letter-spacing: -0.01em;
@@ -5114,7 +5107,7 @@ h1.openspace-header {
   border-bottom: 2px solid #111;
   text-align: center;
   padding-top: 8px;
-  padding-bottom: 16px;
+  padding-bottom: 12px;
   font-size: 64px;
 }
 .openspace .header-billboard {
@@ -5170,7 +5163,7 @@ h1.openspace-header {
 }
 @media screen and (min-width: 767px) {
   .openspace .os-article1 h2 {
-    font-size: 2rem;
+    font-size: 1.7rem;
   }
   .os-article1 .article-featured {
     flex-wrap: wrap;
@@ -5190,7 +5183,6 @@ h1.openspace-header {
     order: 1;
   }
 }
-
 /* Inarticle table of contents widget */
 
 .inarticle-table {
