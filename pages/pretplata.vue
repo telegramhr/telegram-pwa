@@ -933,6 +933,9 @@ export default {
   methods: {
     payment(type) {
       this.payment_type = type
+      if (type === 'credit') {
+        this.checkout2(this.selected_package)
+      }
     },
     checkout(termId) {
       this.selected_package = termId
