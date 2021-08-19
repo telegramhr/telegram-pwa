@@ -288,25 +288,35 @@
           class="full flex animate long-animate"
         >
           <div class="container relative flex large-bottom-margin">
-            <div class="full flex r1-toggle hide">
+            <div class="full flex r1-toggle">
               <h3
                 class="full overtitle mobile-side-pad center-text small-bottom-margin"
               >
                 Trebate li R1 račun?
               </h3>
               <div class="full flex relative mobile-side-pad">
-                <input
-                  id="billtoggle"
-                  class="yeartoggle"
-                  type="checkbox"
-                  name="billtoggle"
-                />
                 <div
                   class="full center yeartoggle-parent billtoggle-parent large-bottom-margin"
                 >
-                  <label class="relative" for="billtoggle">
-                    <div class="togglemonth">Obični račun</div>
-                    <div class="toggleyear">R1 račun</div>
+                  <label class="relative">
+                    <div
+                      :class="[
+                        'togglemonth',
+                        invoice === 'plain' ? 'invoice_selected' : '',
+                      ]"
+                      @click="invoice = 'plain'"
+                    >
+                      Obični račun
+                    </div>
+                    <div
+                      :class="[
+                        'toggleyear',
+                        invoice === 'r1' ? 'invoice_selected' : '',
+                      ]"
+                      @click="invoice = 'r1'"
+                    >
+                      R1 račun
+                    </div>
                   </label>
                 </div>
                 <form class="full flex r1-bill-info large-bottom-margin">
@@ -326,7 +336,8 @@
             <h3
               class="full overtitle mobile-side-pad center-text small-bottom-margin"
             >
-              Prijavljeni ste kao: marijan@telegram.hr.
+              Prijavljeni ste kao:
+              {{ $store.state.user.email }}.
             </h3>
             <h3
               class="full overtitle mobile-side-pad center-text small-bottom-margin"
@@ -335,7 +346,10 @@
             </h3>
             <div class="full flex payment-methods large-bottom-margin">
               <div class="fourth center">
-                <div class="full center payment-tile" for="payment-creditcard">
+                <div
+                  class="full center payment-tile"
+                  @click="payment('credit')"
+                >
                   <div class="full flex animate">
                     <div class="full center">
                       <font-awesome-icon
@@ -347,7 +361,7 @@
                 </div>
               </div>
               <div class="fourth center">
-                <div class="full center payment-tile" for="payment-creditcard">
+                <div class="full center payment-tile" @click="payment('bank')">
                   <div class="full flex animate">
                     <div class="full center">
                       <font-awesome-icon
@@ -361,7 +375,7 @@
               <div class="fourth center">
                 <div
                   class="full center payment-tile payment-monopolist"
-                  for="payment-creditcard"
+                  @click="payment('apple')"
                 >
                   <div class="full flex animate">
                     <div class="full center">
@@ -375,7 +389,7 @@
               <div class="fourth center">
                 <div
                   class="full center payment-tile payment-monopolist"
-                  for="payment-creditcard"
+                  @click="payment('google')"
                 >
                   <div class="full flex animate">
                     <div class="full center">
@@ -794,6 +808,8 @@ export default {
       },
       screen: 'packs',
       selected_package: '',
+      invoice: 'plain',
+      payment_type: '',
     }
   },
   computed: {
@@ -854,6 +870,9 @@ export default {
     ])
   },
   methods: {
+    payment(type) {
+      this.payment_type = type
+    },
     checkout(termId) {
       this.selected_package = termId
       if (this.$store.state.user.email) {
