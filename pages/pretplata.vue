@@ -875,40 +875,28 @@ export default {
   },
   computed: {
     one() {
-      if (process.client) {
-        if (window.tp.sandbox) {
-          return 'TMC561I3C1ZT'
-        }
-        return 'TM0FMYURHRA3'
+      if (process.client && window.tp.sandbox) {
+        return 'TMC561I3C1ZT'
       }
-      return ''
+      return 'TM0FMYURHRA3'
     },
     two() {
-      if (process.client) {
-        if (window.tp.sandbox) {
-          return 'TM68H8RUQ7VJ'
-        }
-        return 'TMXKYJUN5YN5'
+      if (process.client && window.tp.sandbox) {
+        return 'TM68H8RUQ7VJ'
       }
-      return ''
+      return 'TMXKYJUN5YN5'
     },
     three() {
-      if (process.client) {
-        if (window.tp.sandbox) {
-          return 'TMA44DJRTT2A'
-        }
-        return 'TMVUCFM94OA7'
+      if (process.client && window.tp.sandbox) {
+        return 'TMA44DJRTT2A'
       }
-      return ''
+      return 'TMVUCFM94OA7'
     },
     four() {
-      if (process.client) {
-        if (window.tp.sandbox) {
-          return 'TM6MUK1A0QU6'
-        }
-        return 'TM8R9U7RK5B1'
+      if (process.client && window.tp.sandbox) {
+        return 'TM6MUK1A0QU6'
       }
-      return ''
+      return 'TM8R9U7RK5B1'
     },
   },
   mounted() {
