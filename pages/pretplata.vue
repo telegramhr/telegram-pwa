@@ -356,15 +356,40 @@
                   class="full flex r1-bill-info large-bottom-margin"
                 >
                   <label>Ime tvrtke</label>
-                  <input id="r1-tvrtka" type="text" class="full flex" />
+                  <input
+                    id="r1-tvrtka"
+                    v-model="invoice_data.company"
+                    type="text"
+                    class="full flex"
+                  />
                   <label>Adresa</label>
-                  <input id="r1-adresa" type="text" class="full flex" />
+                  <input
+                    id="r1-adresa"
+                    v-model="invoice_data.address"
+                    type="text"
+                    class="full flex"
+                  />
                   <label>Grad</label>
-                  <input id="r1-grad" type="text" class="full flex" />
+                  <input
+                    id="r1-grad"
+                    v-model="invoice_data.city"
+                    type="text"
+                    class="full flex"
+                  />
                   <label>Poštanski broj</label>
-                  <input id="r1-postanski" type="text" class="full flex" />
+                  <input
+                    id="r1-postanski"
+                    v-model="invoice_data.postal_code"
+                    type="text"
+                    class="full flex"
+                  />
                   <label>OIB</label>
-                  <input id="r1-oib" type="text" class="full flex" />
+                  <input
+                    id="r1-oib"
+                    v-model="invoice_data.vat"
+                    type="text"
+                    class="full flex"
+                  />
                 </form>
               </div>
             </div>
@@ -839,6 +864,13 @@ export default {
       selected_package: '',
       invoice: 'plain',
       payment_type: '',
+      invoice_data: {
+        company: '',
+        address: '',
+        city: '',
+        postal_code: '',
+        vat: '',
+      },
     }
   },
   computed: {
@@ -969,7 +1001,14 @@ export default {
                 window.PianoESP.handleUserDataPromise({
                   email: _that.$store.state.user.email,
                   squads: [2128, 2555, 2554],
-                }).then(() => {
+                })
+              this.$axios
+                .post('/pretplate/order', {
+                  email: _that.$store.state.user.email,
+                  invoice_type: _that.invoice,
+                  payment: this.payment_type,
+                })
+                .then(() => {
                   _that.$router.go(back)
                 })
             },
