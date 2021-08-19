@@ -86,7 +86,15 @@
                 </p>
               </div>
               <div class="full center btn-parent" @click="checkout(one)">
-                <div class="btn animate">Odaberi</div>
+                <div class="btn animate">
+                  <span class="unselected">Odaberi</span>
+                  <span class="selected"
+                    >Odabrano
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon
+                  ></span>
+                </div>
               </div>
             </div>
             <div
@@ -198,7 +206,15 @@
                 </p>
               </div>
               <div class="full center btn-parent" @click="checkout(three)">
-                <div class="btn animate">Odaberi</div>
+                <div class="btn animate">
+                  <span class="unselected">Odaberi</span>
+                  <span class="selected"
+                    >Odabrano
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon
+                  ></span>
+                </div>
               </div>
             </div>
             <div
@@ -262,7 +278,15 @@
                 </p>
               </div>
               <div class="full center btn-parent" @click="checkout(four)">
-                <div class="btn animate">Odaberi</div>
+                <div class="btn animate">
+                  <span class="unselected">Odaberi</span>
+                  <span class="selected"
+                    >Odabrano
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon
+                  ></span>
+                </div>
               </div>
             </div>
             <a
@@ -274,12 +298,14 @@
         </div>
       </div>
       <transition name="reveal-block">
-        <div
-          v-show="screen === 'login'"
-          id="login-screen"
-          class="full flex animate long-animate"
-          @click="screen = 'payment'"
-        ></div>
+        <div class="full center login-screen-wrapper">
+          <div
+            v-show="screen === 'login'"
+            id="login-screen"
+            class="full flex animate long-animate"
+            @click="screen = 'payment'"
+          ></div>
+        </div>
       </transition>
       <transition name="reveal-block">
         <div
@@ -288,6 +314,12 @@
           class="full flex animate long-animate"
         >
           <div class="container relative flex large-bottom-margin">
+            <h3
+              class="full overtitle mobile-side-pad center-text small-bottom-margin"
+            >
+              Prijavljeni ste kao:
+              {{ $store.state.user.email }}.
+            </h3>
             <div class="full flex r1-toggle">
               <h3
                 class="full overtitle mobile-side-pad center-text small-bottom-margin"
@@ -319,7 +351,10 @@
                     </div>
                   </label>
                 </div>
-                <form class="full flex r1-bill-info large-bottom-margin">
+                <form
+                  v-show="invoice === 'r1'"
+                  class="full flex r1-bill-info large-bottom-margin"
+                >
                   <label>Ime tvrtke</label>
                   <input id="r1-tvrtka" type="text" class="full flex" />
                   <label>Adresa</label>
@@ -333,12 +368,6 @@
                 </form>
               </div>
             </div>
-            <h3
-              class="full overtitle mobile-side-pad center-text small-bottom-margin"
-            >
-              Prijavljeni ste kao:
-              {{ $store.state.user.email }}.
-            </h3>
             <h3
               class="full overtitle mobile-side-pad center-text small-bottom-margin"
             >

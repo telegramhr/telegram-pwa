@@ -2879,11 +2879,11 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     background-color: rgba(0, 0, 0, 0);
     color: #111;
 }
-.yeartoggle:checked ~ .yeartoggle-parent label .toggleyear {
+.yeartoggle:checked ~ .yeartoggle-parent label .toggleyear, .billtoggle-parent label .invoice_selected {
     background-color: rgba(0, 0, 0, 0);
     color: #111;
 }
-.yeartoggle:checked ~ .yeartoggle-parent label .togglemonth {
+.yeartoggle:checked ~ .yeartoggle-parent label .togglemonth, .billtoggle-parent label *:not(.invoice_selected) {
     background-color: rgba(0, 0, 0, 0.3);
     color: #666;
 }
@@ -2899,16 +2899,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 #billtoggle {
     margin-bottom: 16px;
 }
-.r1-bill-info {
-    display: none;
-}
-.yeartoggle:checked ~ .r1-bill-info {
-    display: flex;
-}
 .dark-mode .pretplata-benefits p {
     color: #999;
 }
-.dark-mode .yeartoggle:checked ~ .yeartoggle-parent label .toggleyear, .dark-mode .togglemonth {
+.dark-mode .yeartoggle:checked ~ .yeartoggle-parent label .toggleyear, .dark-mode .togglemonth, .dark-mode .billtoggle-parent label .invoice_selected {
     color: #efefef;
     background-color: #333;
 }
@@ -3070,13 +3064,13 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 */
 
-#login-screen {
+.login-screen-wrapper {
     background-color: rgba(0, 0, 0, 0.2);
+}
+#login-screen {
     padding: 24px;
     overflow: hidden;
-}
-#login-screen img {
-    max-width: 360px;
+    max-width: 480px;
 }
 
 .reveal-block-enter-active, .reveal-block-leave-active {
@@ -3093,6 +3087,11 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     max-height: 1000px;
 }
 
+@media screen and (max-width: 767px) {
+    #login-screen {
+        padding: 4vw;
+    }
+}
 
 
 /* Mini pretplata widget */
@@ -5074,7 +5073,13 @@ h1.openspace-header {
     font-size: 1.2rem;
 }
 .openspace .article .overtitle {
-  display: none;
+    font-family: ibm-plex-mono, sans-serif; 
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+.openspace .article h5.article-meta {
+    font-family: ibm-plex-mono, sans-serif;
+    font-weight: 700;
 }
 .openspace .article h5.article-meta > span {
   display: none;
