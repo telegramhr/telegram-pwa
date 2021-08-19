@@ -50,7 +50,16 @@
           </div>
           <div class="full flex center pretplata-packboxes">
             <div
-              class="half flex-responsive flex relative pretplata-packbox animate stretch"
+              :class="[
+                'half',
+                'flex-responsive',
+                'flex',
+                'relative',
+                'pretplata-packbox',
+                'animate',
+                'stretch',
+                one === selected_package ? 'selected-packbox' : '',
+              ]"
             >
               <div class="deselect-packbox-btn animate">
                 <font-awesome-icon
@@ -81,8 +90,16 @@
               </div>
             </div>
             <div
-              id="selected-packbox"
-              class="half clickable flex-responsive flex relative pretplata-packbox animate stretch"
+              :class="[
+                'half',
+                'flex-responsive',
+                'flex',
+                'relative',
+                'pretplata-packbox',
+                'animate',
+                'stretch',
+                two === selected_package ? 'selected-packbox' : '',
+              ]"
             >
               <div class="deselect-packbox-btn animate">
                 <font-awesome-icon
@@ -143,7 +160,16 @@
               </div>
             </div>
             <div
-              class="half flex-responsive flex relative pretplata-packbox animate stretch"
+              :class="[
+                'half',
+                'flex-responsive',
+                'flex',
+                'relative',
+                'pretplata-packbox',
+                'animate',
+                'stretch',
+                three === selected_package ? 'selected-packbox' : '',
+              ]"
             >
               <div class="deselect-packbox-btn animate">
                 <font-awesome-icon
@@ -176,7 +202,16 @@
               </div>
             </div>
             <div
-              class="half flex-responsive flex relative pretplata-packbox animate stretch"
+              :class="[
+                'half',
+                'flex-responsive',
+                'flex',
+                'relative',
+                'pretplata-packbox',
+                'animate',
+                'stretch',
+                four === selected_package ? 'selected-packbox' : '',
+              ]"
             >
               <div class="deselect-packbox-btn animate">
                 <font-awesome-icon
@@ -244,11 +279,7 @@
           id="login-screen"
           class="full flex animate long-animate"
           @click="screen = 'payment'"
-        >
-          <div class="container clickable center relative flex">
-            <img src="@/assets/img/login_preview.jpg" aria-hidden="true" />
-          </div>
-        </div>
+        ></div>
       </transition>
       <transition name="reveal-block">
         <div
@@ -762,6 +793,7 @@ export default {
         TM8R9U7RK5B1: 588,
       },
       screen: 'packs',
+      selected_package: '',
     }
   },
   computed: {
@@ -823,7 +855,24 @@ export default {
   },
   methods: {
     checkout(termId) {
-      this.screen = 'login'
+      this.selected_package = termId
+      if (this.$store.state.user.email) {
+        this.screen = 'payment'
+      } else {
+        this.screen = 'login'
+        const _that = this
+        window.tp.pianoId.show({
+          screen: 'register',
+          displayMode: 'inline',
+          containerSelector: '#login-screen',
+          loggedIn(data) {
+            _that.$store.dispatch('user/setUser', data.user)
+            _that.screen = 'payment'
+            // window.location.reload()
+            // _that.checkout2(termId, -2)
+          },
+        })
+      }
       /* if (this.$store.state.user.token) {
         this.checkout2(termId, -1)
       } else {
