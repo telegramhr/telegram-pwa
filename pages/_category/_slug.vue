@@ -603,7 +603,7 @@ export default {
       }
     },
     loadMidas() {
-      if (this.$store.state.user.access) {
+      if (this.$store.state.user.active_sub) {
         return
       }
       const container = document.getElementById('midasWidget__r191')
