@@ -297,9 +297,9 @@
           </article>
         </div>
         <div class="full flex">
-          <!--<client-only>
+          <client-only>
             <partner></partner>
-          </client-only>-->
+          </client-only>
           <single-newsletters :author="post.authors[0]"></single-newsletters>
         </div>
         <div class="full flex">
