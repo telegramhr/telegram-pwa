@@ -2368,6 +2368,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .contact-tile {
     border: 1px solid #c1b9b1;
+    height: 100%;
 }
 .contact-tile h2 {
     font-size: 48px;
@@ -3007,6 +3008,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 24px;
         font-size: 1.2rem;
         margin-top: 32px;
+        height: auto;
     }
     .contact-tile h3 {
         font-size: 20px;
@@ -4382,6 +4384,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .header-block-title h1, .category-page .block-title h1 {
         font-size: 28px;
         font-size: 1.4rem;
+    }
+    .contact-tile svg {
+        font-size: 2rem;
     }
 }
 
