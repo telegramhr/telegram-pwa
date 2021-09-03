@@ -298,7 +298,7 @@
         </div>
         <div class="full flex">
           <client-only>
-            <partner></partner>
+            <native></native>
           </client-only>
           <single-newsletters :author="post.authors[0]"></single-newsletters>
         </div>
