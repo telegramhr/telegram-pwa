@@ -5,9 +5,9 @@
       <div class="line-2 animate"></div>
       <div class="line-3 animate"></div>
     </div>
-    <div class="fourth flex-responsive relative center">
+    <div class="fourth flex-responsive relative center hide">
       <div class="full flex article-standard article relative mobile-side-pad">
-        <h2 class="full">Pročitajte još...</h2>
+        <h2 class="full">Sadržaj donosi Mastercard</h2>
       </div>
     </div>
     <div
@@ -42,9 +42,9 @@
         </div>
       </a>
     </div>
-    <!--<h5 class="full center-text special-partner-signature hide">
-      <span class="faded">Omogućuje</span> {{ title }}
-    </h5>-->
+    <h5 class="full center-text special-partner-signature">
+      <span class="faded">Sadržaj donosi</span> Mastercard
+    </h5>
     <div class="line-decoration-box animate">
       <div class="line-1 animate"></div>
       <div class="line-2 animate"></div>
