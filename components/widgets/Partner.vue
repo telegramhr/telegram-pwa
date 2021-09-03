@@ -43,7 +43,7 @@
       </a>
     </div>
     <h5 class="full center-text special-partner-signature">
-      <span class="faded">Sadržaj donosi</span> Mastercard
+      <span class="faded">Sadržaj donosi</span> Uplift.hr
     </h5>
     <div class="line-decoration-box animate">
       <div class="line-1 animate"></div>
