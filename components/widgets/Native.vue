@@ -119,7 +119,7 @@
 
 <script>
 export default {
-  name: 'Partner',
+  name: 'Native',
   mounted() {
     if (!this.$storageAvailable) {
       return
