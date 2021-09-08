@@ -57,6 +57,30 @@ export const state = () => ({
         [1200, 250],
         [1200, 500],
       ],
+      pbjs: {
+        desktop: {
+          sizes: [[970, 250]],
+          bids: [
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [929050],
+              },
+            },
+          ],
+        },
+        mobile: {
+          sizes: [[300, 250]],
+          bids: [
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [950915],
+              },
+            },
+          ],
+        },
+      },
     },
     telegram_desktop_billboard_v3: {
       upc: {
@@ -81,15 +105,28 @@ export const state = () => ({
         [1200, 500],
       ],
       pbjs: {
-        sizes: [[970, 250]],
-        bids: [
-          {
-            bidder: 'sovrn',
-            params: {
-              tagid: [929051],
+        desktop: {
+          sizes: [[970, 250]],
+          bids: [
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [929051],
+              },
             },
-          },
-        ],
+          ],
+        },
+        mobile: {
+          sizes: [[300, 250]],
+          bids: [
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [929093],
+              },
+            },
+          ],
+        },
       },
     },
     telegram_desktop_billboard_v4: {
@@ -115,15 +152,28 @@ export const state = () => ({
         [1200, 500],
       ],
       pbjs: {
-        sizes: [[970, 250]],
-        bids: [
-          {
-            bidder: 'sovrn',
-            params: {
-              tagid: [929051],
+        desktop: {
+          sizes: [[970, 250]],
+          bids: [
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [929563],
+              },
             },
-          },
-        ],
+          ],
+        },
+        mobile: {
+          sizes: [[300, 250]],
+          bids: [
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [950916],
+              },
+            },
+          ],
+        },
       },
     },
     telegram_desktop_wallpaper_left: {
@@ -222,15 +272,28 @@ export const state = () => ({
         [300, 600],
       ],
       pbjs: {
-        sizes: [[300, 250]],
-        bids: [
-          {
-            bidder: 'sovrn',
-            params: {
-              tagid: [929094],
+        desktop: {
+          sizes: [[300, 250]],
+          bids: [
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [929094],
+              },
             },
-          },
-        ],
+          ],
+        },
+        mobile: {
+          sizes: [[300, 250]],
+          bids: [
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [929094],
+              },
+            },
+          ],
+        },
       },
     },
     telegram_desktop_intext_v3: {
@@ -255,6 +318,30 @@ export const state = () => ({
         [300, 50],
         [300, 600],
       ],
+      pbjs: {
+        desktop: {
+          sizes: [[300, 250]],
+          bids: [
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [950917],
+              },
+            },
+          ],
+        },
+        mobile: {
+          sizes: [[300, 250]],
+          bids: [
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [950917],
+              },
+            },
+          ],
+        },
+      },
     },
     telegram_desktop_intext_v4: {
       upc: {
@@ -279,15 +366,28 @@ export const state = () => ({
         [300, 600],
       ],
       pbjs: {
-        sizes: [[300, 250]],
-        bids: [
-          {
-            bidder: 'sovrn',
-            params: {
-              tagid: [929094],
+        desktop: {
+          sizes: [[300, 250]],
+          bids: [
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [950918],
+              },
             },
-          },
-        ],
+          ],
+        },
+        mobile: {
+          sizes: [[300, 250]],
+          bids: [
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [950918],
+              },
+            },
+          ],
+        },
       },
     },
     telegram_desktop_intext_v5: {
@@ -312,6 +412,30 @@ export const state = () => ({
         [300, 50],
         [300, 600],
       ],
+      pbjs: {
+        desktop: {
+          sizes: [[300, 250]],
+          bids: [
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [950919],
+              },
+            },
+          ],
+        },
+        mobile: {
+          sizes: [[300, 250]],
+          bids: [
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [950919],
+              },
+            },
+          ],
+        },
+      },
     },
     telegram_desktop_intext_v6: {
       upc: {
@@ -335,6 +459,30 @@ export const state = () => ({
         [300, 50],
         [300, 600],
       ],
+      pbjs: {
+        desktop: {
+          sizes: [[300, 250]],
+          bids: [
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [950920],
+              },
+            },
+          ],
+        },
+        mobile: {
+          sizes: [[300, 250]],
+          bids: [
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [950920],
+              },
+            },
+          ],
+        },
+      },
     },
     telegram_sticky: {
       upc: {
@@ -540,10 +688,11 @@ export const actions = {
         },
       })
       // const prefix = state.prefix
+      const sizes = this.$mobile ? 'mobile' : 'desktop'
       for (const i of Object.keys(state.units)) {
         if (i in state.units && state.units[i].pbjs) {
           const unit = state.units[i]
-          if (!unit.pbjs.sizes) {
+          if (!unit.pbjs[sizes].sizes) {
             continue
           }
           if (route && !unit.routes.includes(route.name)) {
@@ -556,10 +705,10 @@ export const actions = {
             code: i,
             mediaTypes: {
               banner: {
-                sizes: unit.pbjs.sizes,
+                sizes: unit.pbjs[sizes].sizes,
               },
             },
-            bids: unit.pbjs.bids,
+            bids: unit.pbjs[sizes].bids,
           })
         }
       }
