@@ -195,7 +195,7 @@
                 tvrtki Herbos, Slavijatrans i TVIM čije je stečajeve također
                 vodio.
               </p>
-              <div class="banner-intext center intext">
+              <div class="banner-intext center intext article-full-width">
                 <div id="telegram_desktop_intext_v1" class="banner-slot">
                   <script>
                     window.googletag = window.googletag || {}
