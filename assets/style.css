@@ -3888,13 +3888,21 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     header nav, .weekday-title {
         background: transparent;
     }
-    .single-article .article-head > *, .single-article .single-article-body > * {
+    .single-article .article-head > *, .single-article .single-article-body > *, .single-article .single-article-body > #article-content > *, .single-article .single-article-body > #article-content > #piano-content > * {
         width: 710px;
         margin-left: auto;
         margin-right: auto;
     }
-    .single-article .single-article-body > img, .single-article .single-article-body > figure, .single-article .single-article-body > .extra-width {
+    .single-article .single-article-body > #article-content, .single-article .single-article-body > #article-content > #piano-content {
+        width: 1200px;
+    }
+    .single-article .single-article-body > img, .single-article .single-article-body > figure, .single-article .single-article-body > .extra-width,
+    .single-article .single-article-body > #article-content > img, .single-article .single-article-body > #article-content > figure, .single-article .single-article-body > #article-content > .extra-width,
+    .single-article .single-article-body > #article-content > #piano-content > img, .single-article .single-article-body > #article-content > #piano-content > figure, .single-article .single-article-body > #article-content > #piano-content > .extra-width {
         width: 888px;
+    }
+    .single-article .single-article-body > .article-full-width, .single-article .single-article-body > #article-content > .article-full-width, .single-article .single-article-body > #article-content > #piano-content > .article-full-width {
+        width: 1200px;
     }
     .single-article .article-head > .article-head-image-parent {
         width: 888px;
