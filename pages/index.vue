@@ -86,7 +86,6 @@
       </div>
       <client-only>
         <big-featured></big-featured>
-        <partner></partner>
       </client-only>
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
