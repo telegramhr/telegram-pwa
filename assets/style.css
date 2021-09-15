@@ -4852,3 +4852,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         height: 80vw;
     }
 }
+
+/* Embed tweaks */
+
+.fb-post.fb_iframe_widget {
+    display: block !important;
+}
