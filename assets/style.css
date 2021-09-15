@@ -4855,6 +4855,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 
 /* Embed tweaks */
 
-.fb-post.fb_iframe_widget {
+.fb_iframe_widget {
     display: block !important;
+    margin-bottom: 15px;
+}
+.instagram-media {
+    width: 100%;
 }
