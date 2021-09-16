@@ -2415,6 +2415,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
   width: 1000px !important;
 }
 
+/* twitter embed */
+
+.dark-mode .twitter-tweet iframe {
+  background-color: #212121;
+}
+
 /* Pretplata stuff */
 
 .pretplata-avatar {

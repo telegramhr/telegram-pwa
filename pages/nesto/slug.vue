@@ -196,13 +196,7 @@
                 vodio.
               </p>
               <div class="banner-intext center intext article-full-width">
-                <div id="telegram_desktop_intext_v1" class="banner-slot">
-                  <script>
-                    window.googletag = window.googletag || {}
-                    window.googletag.cmd = window.googletag.cmd || []
-                    window.googletag.cmd.push(function () {})
-                  </script>
-                </div>
+                <div id="telegram_desktop_intext_v1" class="banner-slot"></div>
               </div>
 
               <p class="premium-fade-out">
@@ -275,13 +269,10 @@
                   priprema kaznenu prijavu.
                 </p>
                 <div class="banner-intext center intext">
-                  <div id="telegram_desktop_intext_v2" class="banner-slot">
-                    <script>
-                      window.googletag = window.googletag || {}
-                      window.googletag.cmd = window.googletag.cmd || []
-                      window.googletag.cmd.push(function () {})
-                    </script>
-                  </div>
+                  <div
+                    id="telegram_desktop_intext_v2"
+                    class="banner-slot"
+                  ></div>
                 </div>
                 <h2>Rasprodaja imovine stečajnog dužnika</h2>
                 <p>
