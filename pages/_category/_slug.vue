@@ -300,6 +300,8 @@
           <client-only>
             <native></native>
           </client-only>
+        </div>
+        <div class="full flex">
           <single-newsletters :author="post.authors[0]"></single-newsletters>
         </div>
         <div class="full flex">
