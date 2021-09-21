@@ -53,7 +53,7 @@
             >
           </client-only>
           <client-only>
-            <template v-show="loggedIn">
+            <template v-if="$store.state.user.admin">
               <h3>Admin</h3>
               <a role="menuitem" href="https://www.telegram.hr/wp-admin"
                 >Admin</a
@@ -610,13 +610,6 @@ export default {
         this.$store.dispatch('theme/setFont', { type: value, app: this })
       },
     },
-    loggedIn() {
-      if (!process.server) {
-        const c = document.cookie
-        return c.includes('wp-settings-time')
-      }
-      return false
-    },
     date() {
       return new Intl.DateTimeFormat('hr-HR', {
         weekday: 'long',
@@ -640,6 +633,7 @@ export default {
   methods: {
     clearFC() {
       if (process.client) {
+        this.$store.dispatch('user/checkAdmin')
         if (!this.$cookies.get('FC_reset')) {
           this.$cookies.remove('FCCDCF')
           this.$cookies.set('FC_reset', 'true', {

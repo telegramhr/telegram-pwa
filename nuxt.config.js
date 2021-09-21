@@ -220,6 +220,7 @@ export default {
       /fa.*/,
       /svg.*/,
       /fb_.*/,
+      /twitter.*/,
     ],
   },
 

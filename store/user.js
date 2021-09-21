@@ -8,6 +8,7 @@ export const state = () => ({
   access: null,
   active_sub: false,
   updated: null,
+  admin: false,
 })
 
 export const mutations = {
@@ -36,6 +37,9 @@ export const mutations = {
   },
   setActive(state, payload) {
     state.active_sub = payload
+  },
+  setAdmin(state) {
+    state.admin = true
   },
 }
 
@@ -96,6 +100,12 @@ export const actions = {
         }
       },
     ])
+  },
+  checkAdmin({ commit }) {
+    console.log('check admin')
+    if (document.cookie.includes('wp-settings-time')) {
+      commit('setAdmin')
+    }
   },
   logout({ commit, dispatch }) {
     this.$cookies.remove('tmg_access', {

@@ -7,6 +7,12 @@
         :style="{
           right: 0,
           left: size[0] > 200 ? 0 : 'initial',
+          minHeight:
+            id === 'telegram_desktop_billboard_v1' &&
+            $route.name === 'category-slug' &&
+            !$store.state.user.active_sub
+              ? '250px'
+              : 0,
         }"
       ></div>
       <a
@@ -78,6 +84,11 @@ export default {
             document
               .getElementById(event.slot.getSlotElementId() + '-info')
               .classList.remove('hide')
+          }
+          if (event.isEmpty && name.includes('billboard_v1')) {
+            document.getElementById(
+              event.slot.getSlotElementId()
+            ).style.minHeight = 0
           }
         })
     })
