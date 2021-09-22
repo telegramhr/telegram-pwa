@@ -4,30 +4,11 @@
       <h2 class="full section-title">Autori</h2>
     </div>
     <div class="full flex fancy-authors-widget stretch">
-      <div
+      <author
         v-for="post in posts"
         :key="'authors-' + post.id"
-        class="fourth flex column-horizontal-pad mobile-side-pad stretch"
-      >
-        <app-link :to="post.permalink" class="full flex fancy-author-tile">
-          <img :src="post.authors[0].image" :alt="post.authors[0].name" />
-          <div class="full flex fancy-author-content">
-            <h2 class="fancy-author-name">{{ post.authors[0].name }}</h2>
-            <h3 class="fancy-author-title faded">
-              {{ post.authors[0].byline }}
-            </h3>
-            <p class="fancy-article-preview">
-              {{ post.portal_title }}
-            </p>
-            <h5 class="article-meta">
-              <span class="meta-date">{{ post.time | parseTime }}</span>
-              <span v-if="post.recommendations" class="meta-preporuke"
-                >{{ post.recommendations }} preporuka</span
-              >
-            </h5>
-          </div>
-        </app-link>
-      </div>
+        :post="post"
+      ></author>
     </div>
   </div>
 </template>

@@ -53,7 +53,7 @@
             >
           </client-only>
           <client-only>
-            <template v-if="$store.state.user.admin">
+            <div v-show="$store.state.user.admin" class="half">
               <h3>Admin</h3>
               <a role="menuitem" href="https://www.telegram.hr/wp-admin"
                 >Admin</a
@@ -70,7 +70,7 @@
                 role="menuitem"
                 >Uredi</a
               >
-            </template>
+            </div>
           </client-only>
           <div class="full flex search-menu">
             <form

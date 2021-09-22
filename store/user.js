@@ -102,8 +102,7 @@ export const actions = {
     ])
   },
   checkAdmin({ commit }) {
-    console.log('check admin')
-    if (document.cookie.includes('wp-settings-time')) {
+    if (document.cookie.includes('wordpress_test_cookie')) {
       commit('setAdmin')
     }
   },
