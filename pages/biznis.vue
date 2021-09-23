@@ -1,24 +1,51 @@
 <template>
-  <div class="main-container flex fancy-rubrika openspace">
+  <div class="main-container flex fancy-rubrika tg-biznis">
     <div class="full flex">
       <theader></theader>
     </div>
     <div class="full flex relative fancy-rubrika-header">
       <div class="os-section-title-left-el"></div>
       <div class="os-section-title-right-el"></div>
-      <div class="container flex os-section-parent">
-        <h1
-          class="full section-title mobile-side-pad center-text column-full-pad os-section-title"
+      <div class="container flex os-section-parent stretch">
+        <div
+          class="third flex-responsive flex rubrika-header-logo column-full-pad"
         >
-          Open Space
-        </h1>
-        <nav class="full center page-header-nav">
-          <app-link role="menuitem" to="/politika-kriminal">Vještine</app-link>
-          <app-link role="menuitem" to="/komentari">Tvrtke i karijere</app-link>
+          <div class="full flex">
+            <img
+              src="@/assets/img/telegram_logo_black.svg"
+              alt="Telegram"
+              class="tg-overlogo"
+            />
+          </div>
+          <div class="full flex">
+            <img
+              src="@/assets/img/tg_biznis_logo.svg"
+              alt="Telegram Biznis"
+              class="rubrika-logo"
+            />
+          </div>
+        </div>
+        <div class="two-thirds flex-responsive flex center">
+          <div class="half flex">
+            <client-only>
+              <stocks></stocks>
+            </client-only>
+          </div>
+          <div class="half flex">
+            <client-only>
+              <stocks></stocks>
+            </client-only>
+          </div>
+        </div>
+        <nav class="full center page-header-nav hide">
+          <app-link role="menuitem" to="/biznis-tech">Vještine</app-link>
+          <app-link role="menuitem" to="/biznis-tech"
+            >Tvrtke i karijere</app-link
+          >
           <app-link role="menuitem" to="/biznis-tech"
             >Kvizovi i testovi</app-link
           >
-          <app-link role="menuitem" to="/velike-price">Vodiči</app-link>
+          <app-link role="menuitem" to="/biznis-tech">Vodiči</app-link>
         </nav>
       </div>
     </div>
@@ -162,51 +189,8 @@
         </div>
       </div>
     </div>
-    <div class="block-title news-block-title full mobile-side-pad hide">
-      <div class="full block-title-pattern relative"></div>
-      <div class="container flex relative">
-        <h1 class="column-left-pad full">Još priča</h1>
-      </div>
-    </div>
-    <div class="full flex relative os-about-section">
-      <div class="container column-vertical-pad mobile-side-pad flex">
-        <h2 class="full flex column-horizontal-pad os-elevate-title">
-          Što je Open Space?
-        </h2>
-        <div class="full flex relative">
-          <div
-            class="third column-horizontal-pad flex-responsive column-right-border"
-          >
-            <h3 class="full os-about-subtitle">Mjesto za radnike</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-              malesuada dignissim sapien, ut commodo lorem gravida eu. Vivamus
-              scelerisque tellus iaculis elit ultrices, eget semper risus
-              ullamcorper.
-            </p>
-          </div>
-          <div
-            class="third column-horizontal-pad flex-responsive column-right-border"
-          >
-            <h3 class="full os-about-subtitle">Izvor za poduzetnike</h3>
-            <p>
-              Integer ullamcorper molestie sapien a ultricies. Duis consequat,
-              metus ut faucibus iaculis, risus magna auctor nunc, ut posuere
-              lectus elit at lacus. Phasellus a velit sem. Nunc vel leo aliquet,
-              egestas dui in, eleifend nulla.
-            </p>
-          </div>
-          <div class="third column-horizontal-pad flex-responsive">
-            <h3 class="full os-about-subtitle">Riječ za drugu riječ</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-              malesuada dignissim sapien, ut commodo lorem gravida eu. Vivamus
-              scelerisque tellus iaculis elit ultrices, eget semper risus
-              ullamcorper.
-            </p>
-          </div>
-        </div>
-      </div>
+    <div class="full center column-full-pad">
+      <div style="width: 1200px; height: 250px; background-color: #ccc"></div>
     </div>
     <div class="full relative">
       <div class="container flex relative block-2 standard-block stretch">
@@ -214,138 +198,9 @@
           class="fourth flex flex-responsive column-horizontal-pad mobile-side-pad"
         >
           <div class="full flex desktop-only">
-            <h3 class="full flex overtitle os-widget-overtitle">Newsletter</h3>
+            <trending :id="1"></trending>
+            <h2 class="full flex section-title">Newsletter</h2>
             <newsletter></newsletter>
-            <h3 class="full flex overtitle os-widget-overtitle">
-              Open Space Test
-            </h3>
-            <ostest></ostest>
-            <h3 class="full flex overtitle os-widget-overtitle">
-              Pregled prilika
-            </h3>
-            <app-link
-              to="komentari"
-              class="full flex komentar os-prilika relative"
-            >
-              <div class="komentar-author relative flex">
-                <img
-                  src="@/assets/img/extras/partner_logos/rimac_automobili.png"
-                  loading="lazy"
-                />
-                <i class="full mobile-only">Donosi</i>
-                <span class="full mobile-only">Rimac Automobili</span>
-              </div>
-              <div class="komentar-box relative">
-                <div class="komentar-quotation">
-                  <font-awesome-icon
-                    :icon="['fas', 'briefcase']"
-                  ></font-awesome-icon>
-                </div>
-                <div class="komentar-image">
-                  <picture>
-                    <img
-                      src="https://images.telegram.hr/MHh6tv8Sf5-PdPpF_vCdav5LWN_mIW8kIUUAetmZ1gI/preset:single2/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjEvMDgvMjAyMDEyMjItMDEtMjguanBn.jpg"
-                      loading="lazy"
-                    />
-                  </picture>
-                </div>
-                <div class="komentar-content full">
-                  <div class="komentar-author relative flex desktop-only">
-                    <i class="full">Donosi</i>
-                    <span class="full">Rimac Automobili</span>
-                  </div>
-                  <h2 class="full animate">
-                    Sensor Fusion & Scene Understanding Research Engineer
-                  </h2>
-                  <h5 class="full flex article-meta">
-                    <span class="meta-author"><i>Prijave do</i></span>
-                    <span class="meta-date">22.09.2021.</span>
-                  </h5>
-                </div>
-              </div>
-            </app-link>
-            <app-link
-              to="komentari"
-              class="full flex komentar os-prilika relative"
-            >
-              <div class="komentar-author relative flex">
-                <img
-                  src="@/assets/img/extras/partner_logos/ht.png"
-                  loading="lazy"
-                />
-                <i class="full mobile-only">Donosi</i>
-                <span class="full mobile-only">Hrvatski Telekom</span>
-              </div>
-              <div class="komentar-box relative">
-                <div class="komentar-quotation">
-                  <font-awesome-icon
-                    :icon="['fas', 'briefcase']"
-                  ></font-awesome-icon>
-                </div>
-                <div class="komentar-image">
-                  <picture>
-                    <img
-                      src="https://www.telegram.hr/wp-content/uploads/2021/08/5g-unboxing-smart-city-2-11-screenshot.png"
-                      loading="lazy"
-                    />
-                  </picture>
-                </div>
-                <div class="komentar-content full">
-                  <div class="komentar-author relative flex desktop-only">
-                    <i class="full">Donosi</i>
-                    <span class="full">Hrvatski Telekom</span>
-                  </div>
-                  <h2 class="full animate">
-                    Operater za tehničku podršku poslovnim korisnicima
-                  </h2>
-                  <h5 class="full flex article-meta">
-                    <span class="meta-author"><i>Prijave do</i></span>
-                    <span class="meta-date">25.09.2021.</span>
-                  </h5>
-                </div>
-              </div>
-            </app-link>
-            <app-link
-              to="komentari"
-              class="full flex komentar os-prilika relative"
-            >
-              <div class="komentar-author relative flex">
-                <img
-                  src="@/assets/img/extras/partner_logos/rimac_automobili.png"
-                  loading="lazy"
-                />
-                <i class="full mobile-only">Donosi</i>
-                <span class="full mobile-only">Rimac Automobili</span>
-              </div>
-              <div class="komentar-box relative">
-                <div class="komentar-quotation">
-                  <font-awesome-icon
-                    :icon="['fas', 'briefcase']"
-                  ></font-awesome-icon>
-                </div>
-                <div class="komentar-image">
-                  <picture>
-                    <img
-                      src="https://images.telegram.hr/MHh6tv8Sf5-PdPpF_vCdav5LWN_mIW8kIUUAetmZ1gI/preset:single2/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjEvMDgvMjAyMDEyMjItMDEtMjguanBn.jpg"
-                      loading="lazy"
-                    />
-                  </picture>
-                </div>
-                <div class="komentar-content full">
-                  <div class="komentar-author relative flex desktop-only">
-                    <i class="full">Donosi</i>
-                    <span class="full">Rimac Automobili</span>
-                  </div>
-                  <h2 class="full animate">
-                    Sensor Fusion & Scene Understanding Research Engineer
-                  </h2>
-                  <h5 class="full flex article-meta">
-                    <span class="meta-author"><i>Prijave do</i></span>
-                    <span class="meta-date">22.09.2021.</span>
-                  </h5>
-                </div>
-              </div>
-            </app-link>
           </div>
         </section>
         <div class="three-fourths flex-responsive flex">
@@ -404,7 +259,7 @@
         </div>
       </div>
     </div>
-    <osfooter></osfooter>
+    <tfooter></tfooter>
   </div>
 </template>
 
@@ -435,7 +290,7 @@ export default {
   },
   head() {
     return {
-      title: 'Open Space',
+      title: 'Telegram Biznis',
     }
   },
 }

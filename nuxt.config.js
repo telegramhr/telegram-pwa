@@ -41,6 +41,7 @@ export default {
         crossorigin: 'anonymous',
       },
       { rel: 'stylesheet', href: 'https://use.typekit.net/yjw4lwh.css' },
+      { rel: 'stylesheet', href: 'https://use.typekit.net/vrv6rlv.css' },
       {
         rel: 'stylesheet',
         href:
@@ -135,7 +136,6 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/google-analytics',
     'nuxt-purgecss',
-    '@nuxtjs/ngrok',
     '@nuxtjs/dotenv',
   ],
 

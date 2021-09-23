@@ -11,6 +11,7 @@ import {
   faEnvelopeOpenText as fasEnvelopeOpenText,
   faCheck,
   faTimesCircle,
+  faBriefcase,
 } from '@fortawesome/free-solid-svg-icons'
 import {
   faUserLock,
@@ -18,6 +19,7 @@ import {
   faEnvelopeOpenText,
   faCreditCard,
   faUniversity,
+  faMapMarkerQuestion,
 } from '@fortawesome/pro-duotone-svg-icons'
 
 import {
@@ -71,7 +73,9 @@ library.add(
   faGooglePay,
   faApplePay,
   faCreditCard,
-  faUniversity
+  faUniversity,
+  faMapMarkerQuestion,
+  faBriefcase
 )
 
 // Register the component globally

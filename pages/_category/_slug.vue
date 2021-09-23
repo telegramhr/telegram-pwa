@@ -1,5 +1,13 @@
 <template>
-  <div :class="['main-container', 'flex', 'single-article', typeClass]">
+  <div
+    :class="[
+      'main-container',
+      'flex',
+      'single-article',
+      'openspace',
+      typeClass,
+    ]"
+  >
     <template v-if="!($fetchState.error || post.title === 'Objava ne postoji')">
       <theader :id="Number(post.id)" :headline="post.portal_title"></theader>
       <div v-show="related_posts" class="full related-header-widget">
@@ -297,9 +305,9 @@
           </article>
         </div>
         <div class="full flex">
-          <client-only>
+          <!--<client-only>
             <partner></partner>
-          </client-only>
+          </client-only>-->
           <single-newsletters :author="post.authors[0]"></single-newsletters>
         </div>
         <div class="full flex">
@@ -381,7 +389,7 @@
       </div>
       </div>-->
     </template>
-    <tfooter v-if="post.id || $fetchState.error"></tfooter>
+    <osfooter v-if="post.id || $fetchState.error"></osfooter>
   </div>
 </template>
 

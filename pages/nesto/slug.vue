@@ -1,5 +1,13 @@
 <template>
-  <div :class="['main-container', 'flex', 'single-article', typeClass]">
+  <div
+    :class="[
+      'main-container',
+      'flex',
+      'single-article',
+      'openspace',
+      typeClass,
+    ]"
+  >
     <client-only>
       <theader
         :id="post.id"
@@ -59,7 +67,7 @@
       />
       <div class="full flex article-head">
         <div class="full flex overtitle-parent">
-          <h3 class="overtitle">{{ post.category }}</h3>
+          <h3 class="overtitle">Tvrtke i karijere</h3>
           <div v-if="post.promo.partner" class="collab-overtitle">
             <h3 class="overtitle">U suradnji s</h3>
             <img :src="post.promo.logo" :alt="post.promo.partner" />
@@ -76,7 +84,7 @@
         >
           <div class="full column article-head column-top-pad flex">
             <div class="full flex overtitle-parent">
-              <h3 class="overtitle">{{ post.category | parseCat }}</h3>
+              <h3 class="overtitle">Tvrtke i karijere</h3>
               <div v-if="post.promo.partner" class="collab-overtitle">
                 <h3 class="overtitle">U suradnji s</h3>
                 <img :src="post.promo.logo" :alt="post.promo.partner" />
@@ -181,195 +189,172 @@
           <div class="full relative single-article-body">
             <div id="article-content" @click="handleClick">
               <p>
-                Stečajnog upravitelja <strong>Branka Petanjeka</strong>, koji je
-                nedavno uhićen sa sucem Trgovačkog suda
-                <strong>Mihaelom Kovačićem</strong>, USKOK istražuje zbog
+                Ove godine je, ako do sada nije bilo to jasno, postalo jasno
+                koliko su digitalni komunikacijski kanali bitni. Ne samo rad,
+                već i cijelu našu svakodnevicu morali smo na neki način
+                prilagoditi novim uvjetima života. Upravo zbog toga su
+                zaposlenici Hrvatskog Telekoma uložili velike napore kako bi
+                njihovi korisnici, privatni i poslovni, mogli nesmetano
+                funkcionirati i biti povezani. Kako nam priča Ivan Bartulović,
+                član Uprave za ljudske potencijale, Hrvatski Telekom je svoje
+                zaposlenike ove godine odlučio posebno nagraditi.
+              </p>
+              <style>
+                .premium-fade-out {
+                  display: none;
+                }
+              </style>
+              <p>I should be invisible!</p>
+              <div class="full flex stretch relative inarticle-table">
+                <h2 class="full">Priča u koracima</h2>
+                <ul class="full">
+                  <li>
+                    <a class="animate" href="#article-subtitle-1"
+                      >Nagrađuju svoje zaposlenike</a
+                    >
+                  </li>
+                  <li>
+                    <a class="animate" href="#article-subtitle-2"
+                      >Rad od kuće je bila svijetla točka</a
+                    >
+                  </li>
+                  <li>
+                    <a class="animate" href="#article-subtitle-3"
+                      >Zaposlenici nisu 15 godina bili toliko zadovoljni</a
+                    >
+                  </li>
+                  <li>
+                    <a class="animate" href="#article-subtitle-4"
+                      >Produktivnost je porasla</a
+                    >
+                  </li>
+                  <li>
+                    <a class="animate" href="#article-subtitle-5"
+                      >Digitalna komunikacija postala je standard</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <intext></intext>
+              <!--<div id="piano-content" style="display: none">-->
+              <h2 id="article-subtitle-1">Nagrađuju svoje zaposlenike</h2>
+              <p>
+                Stoga su u HT-u zaključili da je ova godina idealna prilika da
+                zaposlenicima na razne načine zahvale za njihov rad i angažman.
+                Premda se u ovom božićnom periodu ne mogu okupiti uživo i
+                družiti, Hrvatski Telekom je odlučio zaposlenicima pokazati
+                koliko su važan dio uspjeha kompanije, ne samo poslovnog.
+                “Ponosni smo i što su iskazali želju i za privatnim angažmanom u
+                nacionalnom programu digitalnog opismenjavanja starijeg
+                stanovništva kojeg smo pokrenuli u suradnji s Volonterskim
+                centrom Zagreb, a u sklopu kojeg će kao volonteri imati važnu
+                ulogu”, priča Bartulović.
+              </p>
+              <p>
+                Hrvatski Telekom je tako ove godine svojim zaposlenicima
+                isplatio božićnicu u iznosu od 1.250 kuna, a kao priznanje za
+                poseban angažman u vrijeme korone, svi zaposlenici dobili su i
+                dodatnu naknadu u iznosu od 3.750 kuna. “U prosincu su naši
+                zaposlenici već dobili i prigodni dar za djecu u iznosu od 600
+                kuna, odnosno 3.000 kuna bruto za djecu obitelji s četvero i
+                više djece te djecu s poteškoćama u razvoju”, nastavlja
+                Bartulović.
+              </p>
+              <p>
+                “Uz sve ovo, važno nam je i da u ovim neobičnim vremenima barem
+                donekle donesemo i dio božićne atmosfere među naše zaposlenike.
+                Tako smo, dodatno, organizirali i prigodne aktivnosti i darove –
+                online predstavu i slatke poklone za svu djecu zaposlenika,
+                prigodni božićni dar za sve zaposlenike te četverodijelni online
+                serijal adventskih radionica na temu spremanja božićnog obroka,
+                božićnog ukrašavanja, malo prijeko potrebnog humora i
+                inspirativnih priča”, dodaje Bartulović.
+              </p>
+              <h2 id="article-subtitle-2">
+                Rad od kuće je bila svijetla točka
+              </h2>
+              <p>
+                Zaposlenici HT-a još od sredine ožujka rade od kuće, a u svibnju
+                smo s Bartulovićem
                 <a
-                  href="https://www.telegram.hr/politika-kriminal/policija-i-uskok-upali-na-trgovacki-sud-stecajni-sudac-i-upravitelji-ostetili-ljude-za-30-milijuna-kuna/"
-                  >stečajnog kriminala</a
+                  href="https://www.telegram.hr/biznis-tech/kako-se-hrvatski-telekom-s-preko-5000-zaposlenika-u-manje-od-deset-dana-prebacio-na-rad-od-kuce/"
+                  >pričali</a
                 >
-                teškog oko 30 milijuna kuna. Neki njegovi sumnjivi potezi sežu
-                još u 2009. kada je bio stečajni upravitelj u Željezari Sisak.
-                Iz nje je, prema sumnjama USKOK-a, izvučeno gotovo 12 milijuna
-                kuna. Istražitelji Petanjeka povezuju i s izvlačenjem novca iz
-                tvrtki Herbos, Slavijatrans i TVIM čije je stečajeve također
-                vodio.
+                o tome kako je bilo prebaciti 5000 zaposlenika na rad od kuće.
+                Bartulović je tada bio zadovoljan što su uspješno izveli takav
+                golemi podvig, a kako nam sada priča, zadovoljni su i
+                zaposlenici.
+              </p>
+              <div id="midasWidget__r49"></div>
+              <p>
+                “Sudeći po našim internim istraživanjima, rekao bih da je remote
+                work zapravo jedna od najsvjetlijih točaka kad govorimo o radu
+                tijekom korona krize. S time da je u našem slučaju, tijekom
+                lockdowna, remote work ugrađen u naš novi poslovni model
+                SmartWork. Riječ je o hibridnom operativnom modelu koji se
+                donedavno smatrao nemogućim, a koji u sebi integrira najbolje od
+                oba svijeta – pogodnosti rada u uredu i rada od kuće. Stoga su
+                naši zaposlenici odlično reagirali na ovaj model, prepoznajući u
+                njemu našu brigu za njihovo zdravlje i dobrobit”, kaže.
+              </p>
+              <h2 id="article-subtitle-3">
+                Zaposlenici nisu 15 godina bili toliko zadovoljni
+              </h2>
+              <p>
+                Zanimljivo je također što je uslijed stanja straha i
+                neizvjesnosti, a kod nekih zaposlenika i šoka, koji je vladao u
+                prvoj polovici godine, Hrvatski Telekom zabilježio najveće
+                zadovoljstvo zaposlenika u posljednjih 15 godina. U sklopu
+                istraživanja na 4000 zaposlenika u svibnju ove godine,
+                zaposlenici su isticali kako su jako zadovoljni što im je
+                omogućen rad od kuće, a 82 posto istaknulo je da im je
+                produktivnost jednaka ili veća dok rade od kuće.
+              </p>
+              <p>
+                “Dakle, rekao bih da ovi podaci potvrđuju kako kvalitetne
+                organizacije pokazuju svoju pravu vrijednost onda kad je
+                najpotrebnije. I na kraju, moram istaknuti kako SmartWork model
+                nećemo vezati samo uz krizna razdoblja, već ćemo zasigurno
+                nastaviti s takvom praksom i dalje”, kaže Bartulović. Za kraj,
+                Bartulović dodaje kako su nedavna istraživanja pokazala i veliki
+                rast zadovoljstva korisnika, ponajbolji ikad, a u tom duhu će
+                nastaviti i u 2021. godini.
               </p>
               <div class="banner-intext center intext">
-                <div id="telegram_desktop_intext_v1" class="banner-slot">
-                  <script>
-                    window.googletag = window.googletag || {}
-                    window.googletag.cmd = window.googletag.cmd || []
-                    window.googletag.cmd.push(function () {})
-                  </script>
+                <div class="full flex">
+                  <div
+                    class="full center banner-separator relative mobile-only"
+                  >
+                    <div><span>Članak se nastavlja ispod oglasa</span></div>
+                  </div>
+                  <div class="full center">
+                    <div id="telegram_desktop_intext_v3" class="banner-slot">
+                      <script>
+                        window.googletag = window.googletag || {}
+                        window.googletag.cmd = window.googletag.cmd || []
+                        window.googletag.cmd.push(function () {
+                          const ds = window.googletag.defineSlot(
+                            '/1092744/telegram/telegram_desktop_intext_v3',
+                            [
+                              [300, 250],
+                              [660, 350],
+                              [710, 350],
+                              [320, 480],
+                            ],
+                            'telegram_desktop_intext_v3'
+                          )
+                          ds.addService(googletag.pubads())
+                          ds.setTargeting('upc', 12)
+                        })
+                      </script>
+                    </div>
+                  </div>
+                  <div
+                    class="full center banner-separator relative mobile-only"
+                  ></div>
                 </div>
               </div>
-
-              <p class="premium-fade-out">
-                Teške optužbe na račun stečajnog upravitelja Petanjeka iznosi i
-                načelnik općine Marija Bistrica
-                <strong>Josip Milički</strong>. Sprema se protiv Petanjeka
-                pokrenuti i kazneni postupak, jer je, tvrdi, uništio imovinu
-                nekadašnje Tehnomehanike u Mariji Bistrici u kojoj je općina
-                planirala, nakon što su nekretnine te tvrtke prodane u stečaju,
-                otvoriti poduzetničku zonu.
-              </p>
-              <intext></intext>
-              <div id="piano-content" style="display: none">
-                <h2>Stečaj moćne tvrtke u Mariji Bistrici</h2>
-                <p>
-                  Sve je počelo prije desetak godina kada je Tehnomehanika, koja
-                  se bavila proizvodnjom vatrogasnih vozila, otišla u stečaj.
-                  Jedna od firmi koja je preuzela najveći dio njezine imovine
-                  bio je Petrakom. Naknadno je i ta firma, prema dostupnim
-                  podacima, završila u stečaju.
-                </p>
-                <p>
-                  Za stečajnog upravitelja postavljen je upravo Branko Petanjek.
-                  “Došao je k nama u općinu. Bio je vrlo ljubazan. Rekao nam je
-                  da mu je poslodavac država i da će sve dobro proći. Objasnio
-                  nam je da po nalogu države mora namiriti vjerovnike”, prisjeća
-                  se Milički uglađenog stečajnog upravitelja protiv kojeg sada
-                  priprema kaznenu prijavu.
-                </p>
-                <h2>Rasprodaja imovine stečajnog dužnika</h2>
-                <p>
-                  Strojevi iz bivše Tehnomehanike vrlo brzo su se počeli
-                  odvoziti, a načelnik općine tvrdi da ih se prodavalo kao na
-                  Hreliću. Nakon nekog vremena pojavili su se, opisuje, i ljudi
-                  koji su počupali sve metalne dijelove, uzimali pipe, razbijeli
-                  granitne ploče, vadili žice iz zidova.
-                </p>
-                <div id="midasWidget__r49"></div>
-                <p>
-                  U nekoliko navrata zbog požara koji su izazvali ti Petanjekovi
-                  ljudi morala je, prema načelnikovim riječima, intervenirati i
-                  policija, te vatrogasci. Naime, u središtu hale zapaljena je
-                  vatra na kojoj su spaljivani neki dijelovi inventara, a plamen
-                  je oštetio i krov.
-                </p>
-                <p>
-                  Dražbe su se provodile bez ikakvog nadzora iako je i država
-                  bila vjerovnik, tvrdi Milički. “Očekivao sam normalan stečaj
-                  kao što su ga vodili stečajni upravitelji ostalih tvrtki koje
-                  su preuzele imovinu Tehnomehanike. Oni su svi bili korektni, a
-                  Petanjeka sam morao upozoravati da ne dopušta devastiranje
-                  imovine”, rekao nam je načelnik općine.
-                </p>
-                <h2>Nova kaznena prijava protiv Petanjeka</h2>
-                <p>
-                  U kaznenoj prijavi posebni dio odnosit će se na prodaju
-                  parkinga s pristupnom cestom i teniskog igrališta s objektom
-                  koji se nalaze na jednoj od parcela propale firme. Općina
-                  Marija Bistrica planirala je te nekretnine kupiti ili
-                  dogovoriti s državom da joj ih ustupi nakon preuzimanja. Ideja
-                  je bila pokrenuti tamo poslovne procese, svojevrsnu
-                  poduzetničku zonu.
-                </p>
-
-                <div data-id="_mwayss-325b7d752b361c5458420729057fe2ff"></div>
-                <p>
-                  Iznenada se, prisjeća se Milički, pojavljuje vlasnik autoškole
-                  iz susjedne općine koji traži poligon za svoje mlade vozače.
-                  Petanjek mu, budući da još nije bila spremna dražba,
-                  iznajmljuje dvjestotinjak kvadrata za to. Cijela čestica bivše
-                  Tehnomehanike obuhvaća oko osam tisuća kvadrata.
-                </p>
-                <p>
-                  Na dražbi što je organizirana u studenom 2018. procijenjeno je
-                  da ta parcela od 1635 četvornih hvata vrijedi nešto više od
-                  dva milijuna kuna. Kako nije prodana na toj dražbi, iduća se
-                  organizira vrlo brzo – već dva mjeseca kasnije, u siječnju
-                  2019. godine. To je, kaže nam načelnik Milički, bilo
-                  neuobičajeno jer su se inače dražbe održavale svakih devet
-                  mjeseci.
-                </p>
-                <h2>Prodano za deset puta manji iznos</h2>
-                <p>
-                  U konačnici je tih 1635 čhv prodano vlasniku autoškole za
-                  manje od 200 tisuća kuna, dakle, za deset puta manju cijenu
-                  nego što je bila procijenjena vrijednost. Ubrzo sud utvrđuje
-                  da je u rješenju o dosudi napravljena greška odnosno da se ne
-                  radi o 1635 čhv, već o jednom jutru i 635 čhv. Drugim
-                  riječima, za istu cijenu vlasnik autoškole kupio je 600 čhv
-                  više, no sud je samo ispravio rješenje.
-                </p>
-                <div class="banner-intext center intext">
-                  <div id="telegram_desktop_intext_v2" class="banner-slot">
-                    <script>
-                      window.googletag = window.googletag || {}
-                      window.googletag.cmd = window.googletag.cmd || []
-                      window.googletag.cmd.push(function () {})
-                    </script>
-                  </div>
-                </div>
-
-                <p>
-                  Iako je općina ukazala na pogrešku i uložila prigovor sud ih
-                  je odbio. Kažu, sve je bilo po zakonu, pa tko i ovaj ispravak.
-                  Ipak, upis vlasništva zaustavljen je jer je općina ukazala da
-                  baš tim područjem prolazi jedna od njezinih nerazvrstanih
-                  cesta. Cijeli slučaj sada je ponovno završio na sudu.
-                </p>
-                <h2>‘Petanjek je mirno uživao na Braču’</h2>
-                <p>
-                  “Kad sam nazvao Petanjeka i pitao ga što je to izveo kazao mi
-                  je kako nema pojma, jer je u vrijeme dražbe bio na Braču”,
-                  prisjeća se s ogorčenjem načelnik Marije Bistrice kojoj je u
-                  međuvremenu Vlada RH darovala većinu nekadašnjeg kompleksa
-                  Tehnomehanike vrijednog nešto manje od 12 milijuna kuna. No,
-                  dio što ga je Petanjek prodao autoškoli nije obuhvaćen time
-                  iako je iznimno važan jer njime prolazi jedini prilazni put
-                  budućoj poslovnoj zoni Mariji Bistrica.
-                </p>
-                <p>
-                  “Sada radimo analizu jer moramo sve obnoviti. I krov je
-                  nagorio i infrastruktura je uništena. No, proglasili smo tu
-                  poslovnu zonu i planiramo je pokrenuti”, zaključuje načelnik
-                  Milički pokazujući nam i fotografije uništenog pogona.
-                </p>
-                <p>
-                  Prema dostupnoj dokumentaciji zbog unovčenja onih nešto manje
-                  od 19,2 milijuna kuna imovine nekadašnje Tehnmehanike
-                  stečajnom upravitelju Petanjeku sud je odobrio nagradu od 600
-                  tisuća kuna bruto.
-                </p>
-
-                <div class="banner-intext center intext">
-                  <div class="full flex">
-                    <div
-                      class="full center banner-separator relative mobile-only"
-                    >
-                      <div><span>Članak se nastavlja ispod oglasa</span></div>
-                    </div>
-                    <div class="full center">
-                      <div id="telegram_desktop_intext_v3" class="banner-slot">
-                        <script>
-                          window.googletag = window.googletag || {}
-                          window.googletag.cmd = window.googletag.cmd || []
-                          window.googletag.cmd.push(function () {
-                            const ds = window.googletag.defineSlot(
-                              '/1092744/telegram/telegram_desktop_intext_v3',
-                              [
-                                [300, 250],
-                                [660, 350],
-                                [710, 350],
-                                [320, 480],
-                              ],
-                              'telegram_desktop_intext_v3'
-                            )
-                            ds.addService(googletag.pubads())
-                            ds.setTargeting('upc', 12)
-                          })
-                        </script>
-                      </div>
-                    </div>
-                    <div
-                      class="full center banner-separator relative mobile-only"
-                    ></div>
-                  </div>
-                </div>
-              </div>
+              <!--</div>-->
             </div>
             <!-- Article footer -->
             <div
@@ -452,7 +437,7 @@
       ></keep-reading>
     </div>
     <ticker></ticker>
-    <tfooter></tfooter>
+    <osfooter></osfooter>
   </div>
 </template>
 
@@ -471,23 +456,23 @@ export default {
         type: '',
         image: {
           url:
-            'https://images.telegram.hr/-DjAhFbwQRwfqnU7ipYj1HThD6NxyNgDtqxmrAVRTp0/preset:single1/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjEvMDMvc3RlY2FqbmkwMDFtdC5wbmc.jpg',
+            'https://images.telegram.hr/nJ4pWuHi0fEcQfzBfxRlJfN_79KCZyj6WmUMN05CVYc/preset:single2/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjAvMTIvYmFydHVsb3ZpYy1pdmFuMi5qcGc.jpg',
           alt: 'alt-text',
           author: 'Vjeko',
         },
         authors: [
           {
-            url: 'https://www.telegram.hr/autor/ana-raic-knezevic/',
-            name: 'Ana Raić Knežević',
+            url: 'https://www.telegram.hr/autor/ivan-luzar/',
+            name: 'Ivan Luzar',
             image:
-              'https://images.telegram.hr/Ilq3bPrfrIoMjGq5-olOV4GyC22dFsGpCOaQusE0O8I/preset:author/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMTcvMDkvYW5hX3JhaWNfMy5wbmc.png',
+              'https://images.telegram.hr/Op9RF6L17oWBU4ZUybAyJGwn7sOVaRU8Jq80Y5Ahk90/preset:author/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMTcvMDUvdGctbHV6YXIucG5n.png',
           },
         ],
         overtitle: '',
         title:
-          "Doznajemo detalje nove prijave protiv uhićenog stečajnog upravitelja: 'Prodao je dio tvrtke 10 puta ispod cijene'",
+          'Kako je HT nagradio napore svojih zaposlenika ovog Božića usred pandemije koronavirusa',
         subtitle:
-          'Iz Marije Bistrice teško optužuju Branka Petanjeka koji je vodio stečaj posrnule tvrtke u njihovoj općini',
+          'Član Uprave za ljudske potencijale HT-a nam je pojasnio kako nagrađuju svoje zaposlenike',
         content: '',
         recommendations: 100,
         comments: 2,
