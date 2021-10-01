@@ -8,6 +8,7 @@
           right: 0,
           left: size[0] > 200 ? 0 : 'initial',
           minHeight:
+            !disable &&
             id === 'telegram_desktop_billboard_v1' &&
             $route.name === 'category-slug' &&
             !$store.state.user.active_sub
@@ -64,12 +65,6 @@ export default {
         return -10
       }
       return this.size[0] / 2 - 25
-    },
-    style() {
-      if (this.id.includes('sticky') || this.disable) {
-        return ''
-      }
-      return 'min-height: 250px;'
     },
   },
   mounted() {
