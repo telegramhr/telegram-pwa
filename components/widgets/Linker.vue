@@ -17,6 +17,9 @@ export default {
       if (this.type === 'footer') {
         return 503
       }
+      if (this.type === 'naslovnica') {
+        return 519
+      }
       const ids = {
         'politika-kriminal': {
           category: 486,
@@ -41,10 +44,6 @@ export default {
         'velike-price': {
           category: 491,
           mobile: 500,
-        },
-        naslovnica: {
-          category: 0,
-          mobile: 519,
         },
       }
       return ids[this.$route.params.category]
