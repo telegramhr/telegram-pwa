@@ -8,6 +8,9 @@ export default ({ app, req }, inject) => {
     },
 
     processLinker(widgetId) {
+      if (app.$store.state.user.active_sub) {
+        return
+      }
       app.$axios
         .get(`https://linker.hr/widget/lw.php?&wid=${widgetId}`)
         .then((res) => {
