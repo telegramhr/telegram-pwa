@@ -42,6 +42,10 @@ export default {
           category: 491,
           mobile: 500,
         },
+        naslovnica: {
+          category: 0,
+          mobile: 519,
+        },
       }
       return ids[this.$route.params.category]
         ? ids[this.$route.params.category][this.type]
