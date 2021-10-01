@@ -4,10 +4,9 @@
       <font-awesome-icon :icon="['fas', 'times']"></font-awesome-icon>
     </div>
     <div class="container flex relative">
-      <h2 class="full center-text">{{ messages[page].title }}</h2>
+      <h2 class="full center-text">{{ title }}</h2>
       <p class="full center-text">
-        Za neograničeno čitanje Telegrama i podršku istraživačkim serijalima,
-        pretplatite se na Telegram.
+        {{ subtitle }}
       </p>
       <div class="full center">
         <app-link to="/pretplata" class="btn animate">Pretplatite se</app-link>
@@ -24,20 +23,9 @@ export default {
     return {
       shown: false,
       page: 1,
-      messages: {
-        1: {
-          title: 'Bespoštedno novinarstvo koje gura društvo naprijed.',
-        },
-        4: {
-          title: 'Bespoštedno novinarstvo koje gura društvo naprijed.',
-        },
-        9: {
-          title: 'Ostao vam je još 1 besplatni članak u ovom mjesecu.',
-        },
-        10: {
-          title: 'Ovo vam je posljednji besplatni članak u ovom mjesecu.',
-        },
-      },
+      title: 'Bespoštedno novinarstvo koje gura društvo naprijed.',
+      subtitle:
+        'Za neograničeno čitanje Telegrama i podršku istraživačkim serijalima, pretplatite se na Telegram.',
     }
   },
   mounted() {
@@ -48,10 +36,11 @@ export default {
   },
   methods: {
     load(e) {
-      this.shown = true
       if (e.detail) {
-        this.page = e.detail
+        this.title = e.detail.title
+        this.subtitle = e.detail.subtitle
       }
+      this.shown = true
     },
     login() {
       const _that = this
