@@ -51,6 +51,11 @@ export default {
         href: 'https://twitter.com/TelegramHR',
       },
       {
+        rel: 'stylesheet',
+        type: 'text/css',
+        href: 'https://linker.hr/widget/lw.css',
+      },
+      {
         rel: 'preload',
         href: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js',
         as: 'script',
@@ -198,6 +203,9 @@ export default {
   axios: {
     credentials: true,
     proxy: true,
+    headers: {
+      'X-Staging': 1,
+    },
   },
 
   proxy: {

@@ -61,12 +61,13 @@ export const actions = {
     if (!email) {
       return
     }
+    const a = this.$axios.create()
+    delete a.defaults.headers['X-Staging']
     Object.keys(state.lists).forEach((key) => {
       if (email && key) {
-        this.$axios
-          .get(
-            `https://api-esp.piano.io/tracker/securesub/email/${email}/ml/${key}?api_key=${state.api_key}`
-          )
+        a.get(
+          `https://api-esp.piano.io/tracker/securesub/email/${email}/ml/${key}?api_key=${state.api_key}`
+        )
           .then(() => {
             commit('hasSub', key)
           })
