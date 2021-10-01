@@ -8,7 +8,7 @@ export default ({ app, req }, inject) => {
     },
 
     processLinker(widgetId) {
-      this.$axios
+      app.$axios
         .get(`https://linker.hr/widget/lw.php?&wid=${widgetId}`)
         .then((res) => {
           const el = document.getElementById(`linker-${widgetId}`)

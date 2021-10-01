@@ -17,7 +17,7 @@ export default {
       if (this.type === 'footer') {
         return 503
       }
-      if (this.type === 'naslovnica') {
+      if (this.type === 'naslovnica' && this.$mobile) {
         return 519
       }
       const ids = {
