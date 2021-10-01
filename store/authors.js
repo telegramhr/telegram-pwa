@@ -1,21 +1,11 @@
 export const state = () => ({
-  post: {
-    id: 0,
-    color: '',
-    image: {
-      url: '',
-      alt: '',
-      color: '',
-    },
-    authors: [],
-    permalink: '',
-  },
+  posts: [],
   updated: null,
 })
 
 export const mutations = {
   setPosts(state, data) {
-    state.post = data
+    state.posts = data
     state.updated = new Date().getTime()
   },
 }
@@ -23,7 +13,7 @@ export const mutations = {
 export const actions = {
   pullPosts({ commit, dispatch, state }) {
     if (state.updated + 10 * 60 * 1000 < new Date().getTime()) {
-      this.$axios.get('/api/big-break').then((res) => {
+      this.$axios.get('/api/widgets/authors').then((res) => {
         commit('setPosts', res.data)
       })
     }

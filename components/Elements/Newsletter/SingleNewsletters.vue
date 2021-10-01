@@ -4,7 +4,7 @@
       class="full flex relative post-article-newsletters stretch column-top-pad column-top-border"
     >
       <h2 class="full center-text">
-        Otkrijte još članaka kao ovaj u Telegramovim newsletterima
+        Za još članaka poput ovog, prijavite se na Telegramove newslettere
       </h2>
       <div class="third flex-responsive column-full-pad flex stretch">
         <div class="full newsletter-listing flex relative stretch">
@@ -12,7 +12,7 @@
             <div class="newsletter-avatar newsletter-dnevni">
               <img
                 src="@/assets/img/tg_newsletter_avatars_dnevni.jpg"
-                aria-hidden="true"
+                loading="lazy"
               />
             </div>
             <div class="full relative">
@@ -38,7 +38,7 @@
         <div class="full newsletter-listing flex relative stretch">
           <div class="full flex newsletter-header">
             <div class="newsletter-avatar">
-              <img :src="author.image" aria-hidden="true" />
+              <img :src="author.image" loading="lazy" />
             </div>
             <div class="full relative">
               <h3 class="full overtitle">Redovito</h3>
@@ -58,12 +58,15 @@
         </div>
       </div>
       <div v-else class="third flex-responsive column-full-pad flex stretch">
-        <div class="full newsletter-listing flex relative stretch">
+        <div
+          v-if="category"
+          class="full newsletter-listing flex relative stretch"
+        >
           <div class="full flex newsletter-header">
             <div class="newsletter-avatar">
               <img
                 src="@/assets/img/tg_newsletter_avatars_pk.jpg"
-                aria-hidden="true"
+                loading="lazy"
               />
             </div>
             <div class="full relative">
@@ -90,7 +93,7 @@
             <div class="newsletter-avatar newsletter-tag">
               <img
                 src="@/assets/img/tg_newsletter_avatars_vikend.jpg"
-                aria-hidden="true"
+                loading="lazy"
               />
             </div>
             <div class="full relative">
@@ -166,6 +169,8 @@ export default {
         },
       }
       return categories[this.$route.params.category]
+        ? categories[this.$route.params.category]
+        : null
     },
   },
   mounted() {

@@ -85,6 +85,7 @@
 <script>
 export default {
   name: 'Slug',
+  scrollToTop: true,
   async fetch() {
     let post
     if (this.$route.params.category === 'preview') {

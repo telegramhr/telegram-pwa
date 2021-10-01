@@ -1,7 +1,7 @@
 <template>
   <div :class="['main-container', 'flex', 'single-article', typeClass]">
     <template v-if="!($fetchState.error || post.title === 'Objava ne postoji')">
-      <theader :id="post.id" :headline="post.portal_title"></theader>
+      <theader :id="Number(post.id)" :headline="post.portal_title"></theader>
       <div v-show="related_posts" class="full related-header-widget">
         <div class="container flex desktop-only column-vertical-pad">
           <div
@@ -15,20 +15,22 @@
           </div>
         </div>
       </div>
-      <div
-        v-show="!$mobile && $route.name === 'category-slug'"
-        class="full center header-billboard"
-      >
-        <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
-        <div v-show="!$mobile" class="container wallpaper-banners animate">
-          <div class="wallpaper-left">
-            <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
-          </div>
-          <div class="wallpaper-right">
-            <ad-unit id="telegram_dekstop_wallpaper_right"></ad-unit>
+      <client-only>
+        <div
+          v-if="!$mobile && $route.name === 'category-slug'"
+          class="full center header-billboard"
+        >
+          <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
+          <div v-if="!$mobile" class="container wallpaper-banners animate">
+            <div class="wallpaper-left">
+              <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
+            </div>
+            <div class="wallpaper-right">
+              <ad-unit id="telegram_dekstop_wallpaper_right"></ad-unit>
+            </div>
           </div>
         </div>
-      </div>
+      </client-only>
       <div
         v-if="post.type === 'premium'"
         class="full premium-article-head relative"
@@ -125,7 +127,9 @@
                     }}</span></nuxt-link
                   >
                 </template>
-                <subscribe-link :author="post.authors[0]"></subscribe-link>
+                <client-only>
+                  <subscribe-link :author="post.authors[0]"></subscribe-link>
+                </client-only>
               </h5>
               <div class="full flex article-head-image-parent relative">
                 <template v-if="post.video">
@@ -206,10 +210,12 @@
               </h5>
             </div>
             <div class="full relative single-article-body">
-              <subscribe-link
-                v-show="!$mobile && post.type !== 'commentary'"
-                :author="post.authors[0]"
-              ></subscribe-link>
+              <client-only>
+                <subscribe-link
+                  v-show="!$mobile && post.type !== 'commentary'"
+                  :author="post.authors[0]"
+                ></subscribe-link>
+              </client-only>
               <!-- eslint-disable vue/no-v-html -->
               <div
                 id="article-content"
@@ -294,8 +300,10 @@
         </div>
         <div class="full flex">
           <client-only>
-            <partner></partner>
+            <native></native>
           </client-only>
+        </div>
+        <div class="full flex">
           <single-newsletters :author="post.authors[0]"></single-newsletters>
         </div>
         <div class="full flex">
@@ -309,7 +317,7 @@
           <keep-reading
             v-if="post.category_slug && post.category_slug !== 'promo'"
             :category="post.category_slug"
-            :p="post.id"
+            :p="Number(post.id)"
             :permalink="post.permalink"
           ></keep-reading>
           <div class="full flex">
@@ -323,7 +331,7 @@
       <div class="full flex tg-red">
         <client-only>
           <theader
-            :id="post.id"
+            :id="Number(post.id)"
             :headline="post.portal_title"
             :side-menu-show="showSideMenu"
             :search-menu-show="showSearchMenu"
@@ -384,6 +392,7 @@
 <script>
 export default {
   name: 'Slug',
+  scrollToTop: true,
   async fetch() {
     if (!this.$route.params.slug) {
       return
@@ -598,7 +607,7 @@ export default {
       }
     },
     loadMidas() {
-      if (this.$store.state.user.access) {
+      if (this.$store.state.user.active_sub) {
         return
       }
       const container = document.getElementById('midasWidget__r191')

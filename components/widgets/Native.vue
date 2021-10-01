@@ -1,17 +1,20 @@
 <template>
-  <div class="container flex relative stretch special-partner-widget">
+  <div
+    v-show="$store.state.native.posts.length"
+    class="container flex relative stretch special-partner-widget"
+  >
     <div class="line-decoration-box animate">
       <div class="line-1 animate"></div>
       <div class="line-2 animate"></div>
       <div class="line-3 animate"></div>
     </div>
-    <div class="fourth flex-responsive relative center hide">
+    <div class="fourth flex-responsive relative center">
       <div class="full flex article-standard article relative mobile-side-pad">
-        <h2 class="full">Sadržaj donosi Mastercard</h2>
+        <h2 class="full">Pročitajte još...</h2>
       </div>
     </div>
     <div
-      v-for="post in $store.state.partner.posts"
+      v-for="post in $store.state.native.posts"
       :key="post.image.id"
       class="fourth flex-responsive column-full-pad mobile-side-pad"
     >
@@ -42,9 +45,9 @@
         </div>
       </a>
     </div>
-    <h5 class="full center-text special-partner-signature">
-      <span class="faded">Sadržaj donosi</span> Uplift.hr
-    </h5>
+    <!--<h5 class="full center-text special-partner-signature hide">
+      <span class="faded">Omogućuje</span> {{ title }}
+    </h5>-->
     <div class="line-decoration-box animate">
       <div class="line-1 animate"></div>
       <div class="line-2 animate"></div>
@@ -116,12 +119,12 @@
 
 <script>
 export default {
-  name: 'Partner',
+  name: 'Native',
   mounted() {
     if (!this.$storageAvailable) {
       return
     }
-    this.$store.dispatch('partner/pullPosts')
+    this.$store.dispatch('native/pullPosts')
   },
   methods: {
     srcset(post) {

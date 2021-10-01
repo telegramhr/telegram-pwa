@@ -53,7 +53,7 @@
             >
           </client-only>
           <client-only>
-            <template v-show="loggedIn">
+            <div v-show="$store.state.user.admin" class="half">
               <h3>Admin</h3>
               <a role="menuitem" href="https://www.telegram.hr/wp-admin"
                 >Admin</a
@@ -70,7 +70,7 @@
                 role="menuitem"
                 >Uredi</a
               >
-            </template>
+            </div>
           </client-only>
           <div class="full flex search-menu">
             <form
@@ -610,13 +610,6 @@ export default {
         this.$store.dispatch('theme/setFont', { type: value, app: this })
       },
     },
-    loggedIn() {
-      if (!process.server) {
-        const c = document.cookie
-        return c.includes('wp-settings-time')
-      }
-      return false
-    },
     date() {
       return new Intl.DateTimeFormat('hr-HR', {
         weekday: 'long',
@@ -631,20 +624,27 @@ export default {
     },
   },
   mounted() {
-    // this.handleDebouncedScroll = this.debounce(this.handleScroll, 100)
-    // eslint-disable-next-line
-    // window.addEventListener('scroll', this.handleDebouncedScroll)
+    this.clearFC()
     this.$store.dispatch('stocks/pullStocks')
     this.$store.dispatch('user/checkAccess')
     this.$store.dispatch('theme/loadTheme')
     this.triggerLogin()
   },
-  beforeDestroy() {
-    // I switched the example from `destroyed` to `beforeDestroy`
-    // to exercise your mind a bit. This lifecycle method works too.
-    // window.removeEventListener('scroll', this.handleDebouncedScroll)
-  },
   methods: {
+    clearFC() {
+      if (process.client) {
+        this.$store.dispatch('user/checkAdmin')
+        if (!this.$cookies.get('FC_reset')) {
+          this.$cookies.remove('FCCDCF')
+          this.$cookies.set('FC_reset', 'true', {
+            value: 'true',
+            maxAge: 30 * 60 * 60 * 24,
+            path: '/',
+            domain: '.telegram.hr',
+          })
+        }
+      }
+    },
     handleScroll() {
       if (window.scrollY) {
         this.dynamicHeader = true

@@ -1,13 +1,15 @@
 <template>
   <div class="main-container flex homepage">
-    <div v-show="!$mobile" class="container wallpaper-banners animate">
-      <div class="wallpaper-left">
-        <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
+    <client-only>
+      <div v-if="!$mobile" class="container wallpaper-banners animate">
+        <div class="wallpaper-left">
+          <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
+        </div>
+        <div class="wallpaper-right">
+          <ad-unit id="telegram_dekstop_wallpaper_right"></ad-unit>
+        </div>
       </div>
-      <div class="wallpaper-right">
-        <ad-unit id="telegram_dekstop_wallpaper_right"></ad-unit>
-      </div>
-    </div>
+    </client-only>
     <div class="full flex tg-red">
       <theader></theader>
       <div class="full header-filler"></div>
@@ -167,11 +169,14 @@
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
       </div>
+      <div class="full center">
+        <authors></authors>
+      </div>
       <midas></midas>
-      <lazy-partners></lazy-partners>
       <client-only>
         <lazy-sport></lazy-sport>
       </client-only>
+      <lazy-partners></lazy-partners>
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v4"></ad-unit>
       </div>

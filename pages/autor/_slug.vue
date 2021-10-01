@@ -22,7 +22,9 @@
               <h2 class="full author-segment-name">
                 {{ author.name }}
               </h2>
-              <h3 class="author-segment-title">Telegram autor</h3>
+              <h3 class="author-segment-title">
+                {{ author.byline }}
+              </h3>
             </div>
           </div>
           <div class="bold full">Biografija autora</div>
@@ -33,6 +35,14 @@
             <app-link to="/dojave" class="subtle-btn animate"
               >Kontaktiraj autora</app-link
             >
+          </div>
+          <div v-if="author.newsletter_list" class="full flex">
+            <div class="bold full">Newsletter autora</div>
+            <subscribe-button
+              v-if="author.newsletter_list"
+              :mlid="author.newsletter_list"
+              :free="false"
+            ></subscribe-button>
           </div>
         </div>
       </div>
@@ -50,20 +60,18 @@
           <standard :post="post"></standard>
         </div>
       </div>
-      <div class="container flex relative mobile-side-pad">
-        <div
-          v-if="hasMore"
-          class="full center subtle-btn-parent relative clickable"
-          @click="loadMore"
-        >
-          <div class="subtle-btn animate">Vidi više</div>
-          <div class="subtle-btn-line"></div>
-          <div class="full center cool-loader hide">
-            <div class="loader-square">
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
+      <div
+        v-if="hasMore"
+        class="full center subtle-btn-parent relative clickable"
+        @click="loadMore"
+      >
+        <div class="subtle-btn animate">Vidi više</div>
+        <div class="subtle-btn-line"></div>
+        <div class="full center cool-loader hide">
+          <div class="loader-square">
+            <div></div>
+            <div></div>
+            <div></div>
           </div>
         </div>
       </div>

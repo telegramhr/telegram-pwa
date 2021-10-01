@@ -5,7 +5,7 @@
       <div class="full newsletter-listing flex relative stretch">
         <div class="full flex newsletter-header">
           <div class="newsletter-avatar">
-            <img :src="category.image" aria-hidden="true" />
+            <img :src="category.image" loading="lazy" />
           </div>
           <div class="full relative">
             <h3 class="full overtitle">Jednom tjedno</h3>
@@ -31,7 +31,7 @@
           <div class="newsletter-avatar newsletter-dnevni">
             <img
               src="@/assets/img/tg_newsletter_avatars_dnevni.jpg"
-              aria-hidden="true"
+              loading="lazy"
             />
           </div>
           <div class="full relative">
