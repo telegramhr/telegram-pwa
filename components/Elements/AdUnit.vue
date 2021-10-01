@@ -45,6 +45,11 @@ export default {
       required: true,
       default: '',
     },
+    disable: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data() {
     return {
@@ -61,7 +66,7 @@ export default {
       return this.size[0] / 2 - 25
     },
     style() {
-      if (this.id.includes('sticky')) {
+      if (this.id.includes('sticky') || this.disable) {
         return ''
       }
       return 'min-height: 250px;'
