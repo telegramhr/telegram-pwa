@@ -78,6 +78,13 @@ export const state = () => ({
                 tagid: [950915],
               },
             },
+            {
+              bidder: 'luponmedia',
+              params: {
+                siteId: 4396,
+                keyId: 'telegramhr300x250',
+              },
+            },
           ],
         },
       },
@@ -281,6 +288,13 @@ export const state = () => ({
                 tagid: [929094],
               },
             },
+            {
+              bidder: 'luponmedia',
+              params: {
+                siteId: 4396,
+                keyId: 'telegramhr300x250',
+              },
+            },
           ],
         },
         mobile: {
@@ -290,6 +304,13 @@ export const state = () => ({
               bidder: 'sovrn',
               params: {
                 tagid: [929094],
+              },
+            },
+            {
+              bidder: 'luponmedia',
+              params: {
+                siteId: 4396,
+                keyId: 'telegramhr300x250',
               },
             },
           ],

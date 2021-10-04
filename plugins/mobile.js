@@ -1,4 +1,4 @@
-export default ({ app, req }, inject) => {
+export default ({ app, req, store }, inject) => {
   const linker = {
     reloadLinker() {
       const lwdgtDivs = document.getElementsByClassName('lwdgt')
@@ -8,7 +8,7 @@ export default ({ app, req }, inject) => {
     },
 
     processLinker(widgetId) {
-      if (app.$store.state.user.active_sub) {
+      if (store.state.user.active_sub) {
         return
       }
       app.$axios
