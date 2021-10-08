@@ -286,7 +286,7 @@
                 golemi podvig, a kako nam sada priča, zadovoljni su i
                 zaposlenici.
               </p>
-              <div id="midasWidget__r49"></div>
+
               <p>
                 “Sudeći po našim internim istraživanjima, rekao bih da je remote
                 work zapravo jedna od najsvjetlijih točaka kad govorimo o radu
@@ -566,7 +566,8 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.resize()
-      this.getPost()
+      this.loadAds()
+      //  this.getPost()
       window.addEventListener('scroll', this.handleScroll)
     })
   },

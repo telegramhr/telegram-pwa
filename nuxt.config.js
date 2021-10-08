@@ -52,6 +52,11 @@ export default {
         href: 'https://twitter.com/TelegramHR',
       },
       {
+        rel: 'stylesheet',
+        type: 'text/css',
+        href: 'https://linker.hr/widget/lw.css',
+      },
+      {
         rel: 'preload',
         href: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js',
         as: 'script',
@@ -63,7 +68,7 @@ export default {
         async: true,
       },
       {
-        src: '/prebid5.4.0.js',
+        src: '/prebid4.43.4.js',
         async: true,
       },
       {
@@ -213,7 +218,15 @@ export default {
 
   purgeCSS: {
     enabled: true,
-    whitelistPatterns: [/slick/, /banner/, /yt-embed/, /fa.*/, /svg.*/],
+    whitelistPatterns: [
+      /slick/,
+      /banner/,
+      /yt-embed/,
+      /fa.*/,
+      /svg.*/,
+      /fb_.*/,
+      /twitter.*/,
+    ],
   },
 
   // Content module configuration (https://go.nuxtjs.dev/config-content)

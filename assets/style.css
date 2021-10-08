@@ -2369,6 +2369,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .contact-tile {
     border: 1px solid #c1b9b1;
+    height: 100%;
 }
 .contact-tile h2 {
     font-size: 48px;
@@ -2413,6 +2414,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 
 .fb-comments iframe {
   width: 1000px !important;
+}
+
+/* twitter embed */
+
+.dark-mode .twitter-tweet iframe {
+  background-color: #212121;
 }
 
 /* Pretplata stuff */
@@ -3208,6 +3215,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 24px;
         font-size: 1.2rem;
         margin-top: 32px;
+        height: auto;
     }
     .contact-tile h3 {
         font-size: 20px;
@@ -3593,7 +3601,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         border-bottom: 1px solid #c8c8c8;
     }
     .subtle-btn, .author-segment .btn {
-        margin: 16px auto;
+        margin: 16px 0px;
+    }
+    .author-segment .newsletter-btn {
+        margin-top: 8px;
     }
     .single-article .title-404 {
         margin-top: -12vw;
@@ -4412,8 +4423,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .author-segment .subtle-btn, .author-segment .btn {
         margin: 32px 0px;
     }
-    .author-segment .subtle-btn {
-        margin-right: 8px;
+    .author-segment .newsletter-btn {
+        margin-top: 16px;
     }
     .author-segment-title {
         font-size: 12px;
@@ -4589,11 +4600,18 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 28px;
         font-size: 1.4rem;
     }
+    .contact-tile svg {
+        font-size: 2rem;
+    }
 }
 
 @media screen and (max-width: 1025px) and (min-width: 767px) {
     .homepage .standard-block > .fourth, .homepage .block-1 > .fourth, .block-related > .fourth, .category-page .standard-block .fourth {
         display: none;
+    }
+    .homepage .block-5 > .fourth {
+        display: flex;
+        width: 49.99%;
     }
     .homepage .standard-block > .three-fourths, .homepage .block-1 > .three-fourths, .block-related > .three-fourths,  .category-page .standard-block .three-fourths {
         width: 100%;
@@ -4989,7 +5007,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     border-bottom: 2px solid black;
 }
 .fancy-article-preview {
-    height: 120px;
+    min-height: 120px;
+    padding-bottom: 8px;
 }
 .fancy-authors-widget .arrow {
     width: 16px;
@@ -5068,7 +5087,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 1rem;
 }
 .openspace .article .overtitle {
-    font-family: ibm-plex-mono, sans-serif; 
+    font-family: ibm-plex-mono, sans-serif;
     font-weight: 700;
     margin-bottom: 6px;
     color: #464b7a;
@@ -5280,7 +5299,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .openspace .os-prilika .meta-date {
     opacity: 1;
-    color: #464b7a; 
+    color: #464b7a;
 }
 .openspace .os-prilika .meta-preporuke {
     display: none;
@@ -5325,7 +5344,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 @media screen and (min-width: 767px) {
     .single-article #article-content > .inarticle-table {
-        max-width: 758px; 
+        max-width: 758px;
     }
 }
 @media screen and (max-width: 767px) {
@@ -5634,8 +5653,16 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 2.2rem;
 }
 .single-tg-biznis .single-article-body .inarticle-table h2 {
-    font-family: orpheuspro, serif;
-    font-weight: 700;
-    font-style: normal;
-    letter-spacing: normal;
+  font-family: orpheuspro, serif;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: normal;
+}
+/* Embed tweaks */
+.fb_iframe_widget {
+    display: block !important;
+    margin-bottom: 15px;
+}
+.instagram-media {
+    width: 100%;
 }

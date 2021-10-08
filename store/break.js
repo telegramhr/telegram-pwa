@@ -7,6 +7,8 @@ export const state = () => ({
       alt: '',
       color: '',
     },
+    authors: [],
+    permalink: '',
   },
   updated: null,
 })

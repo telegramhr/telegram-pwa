@@ -7,6 +7,13 @@
         :style="{
           right: 0,
           left: size[0] > 200 ? 0 : 'initial',
+          minHeight:
+            !disable &&
+            id === 'telegram_desktop_billboard_v1' &&
+            $route.name === 'category-slug' &&
+            !$store.state.user.active_sub
+              ? '250px'
+              : 0,
         }"
       ></div>
       <a
@@ -39,6 +46,11 @@ export default {
       required: true,
       default: '',
     },
+    disable: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data() {
     return {
@@ -53,12 +65,6 @@ export default {
         return -10
       }
       return this.size[0] / 2 - 25
-    },
-    style() {
-      if (this.id.includes('sticky')) {
-        return ''
-      }
-      return 'min-height: 250px;'
     },
   },
   mounted() {
@@ -78,6 +84,11 @@ export default {
             document
               .getElementById(event.slot.getSlotElementId() + '-info')
               .classList.remove('hide')
+          }
+          if (event.isEmpty && name.includes('billboard_v1')) {
+            document.getElementById(
+              event.slot.getSlotElementId()
+            ).style.minHeight = 0
           }
         })
     })

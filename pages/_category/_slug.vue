@@ -28,7 +28,10 @@
           v-if="!$mobile && $route.name === 'category-slug'"
           class="full center header-billboard"
         >
-          <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
+          <ad-unit
+            id="telegram_desktop_billboard_v1"
+            :disable="post.disable_ads.includes('all')"
+          ></ad-unit>
           <div v-if="!$mobile" class="container wallpaper-banners animate">
             <div class="wallpaper-left">
               <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
@@ -233,7 +236,9 @@
               ></div>
               <!-- eslint-enable vue/no-v-html -->
               <intext></intext>
-              <div v-show="$mobile" id="midasWidget__r190"></div>
+              <client-only>
+                <linker type="mobile"></linker>
+              </client-only>
               <!-- Article footer -->
               <div
                 class="full relative single-article-footer flex column-top-pad"
@@ -305,16 +310,18 @@
           </article>
         </div>
         <div class="full flex">
-          <!--<client-only>
-            <partner></partner>
-          </client-only>-->
+          <client-only>
+            <native></native>
+          </client-only>
+        </div>
+        <div class="full flex">
           <single-newsletters :author="post.authors[0]"></single-newsletters>
         </div>
         <div class="full flex">
           <div
             class="container flex relative native-block stretch mobile-side-pad"
           >
-            <div id="midasWidget__r176"></div>
+            <linker type="category"></linker>
           </div>
         </div>
         <client-only>
@@ -324,10 +331,10 @@
             :p="Number(post.id)"
             :permalink="post.permalink"
           ></keep-reading>
+          <div class="full flex">
+            <linker type="footer"></linker>
+          </div>
         </client-only>
-        <div v-show="$mobile" class="full flex">
-          <div id="midasWidget__r191"></div>
-        </div>
         <ticker></ticker>
       </div>
     </template>
@@ -396,6 +403,7 @@
 <script>
 export default {
   name: 'Slug',
+  scrollToTop: true,
   async fetch() {
     if (!this.$route.params.slug) {
       return
@@ -416,7 +424,7 @@ export default {
           })
       } else {
         post = await this.$axios
-          .$get(encodeURI('/api/single/' + this.$route.params.slug))
+          .$get(encodeURI('/api/single/' + this.$route.params.slug) + '?pwa=1')
           .catch(() => {
             // TODO: error logging
           })
@@ -612,29 +620,8 @@ export default {
         !this.post.disable_ads.includes('midas') &&
         !this.post.disable_ads.includes('nepromo')
       ) {
-        this.loadMidas()
+        this.$linker.reloadLinker()
       }
-    },
-    loadMidas() {
-      if (this.$store.state.user.access) {
-        return
-      }
-      const container = document.getElementById('midasWidget__r191')
-      const intext = document.getElementById('midasWidget__r49')
-      let widget = '2?portalRuleId=176'
-      if (intext) {
-        widget += '&portalRuleId=49'
-      }
-      if (this.$mobile) {
-        widget += '&portalRuleId=190&portalRuleId=191'
-      }
-      const scriptTag = document.createElement('script')
-      scriptTag.src =
-        'https://www.midas-network.com/ScriptsControllerRule/midas-phrygia-1.min.js'
-      scriptTag.async = true
-      scriptTag.id = 'midas-phrygia'
-      scriptTag.setAttribute('data-widget', widget)
-      container.parentNode.append(scriptTag)
     },
     loadMox() {
       if (this.$store.state.user.access) {

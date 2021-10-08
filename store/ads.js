@@ -57,6 +57,37 @@ export const state = () => ({
         [1200, 250],
         [1200, 500],
       ],
+      pbjs: {
+        desktop: {
+          sizes: [[970, 250]],
+          bids: [
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [929050],
+              },
+            },
+          ],
+        },
+        mobile: {
+          sizes: [[300, 250]],
+          bids: [
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [950915],
+              },
+            },
+            {
+              bidder: 'luponmedia',
+              params: {
+                siteId: 4396,
+                keyId: 'telegramhr300x250',
+              },
+            },
+          ],
+        },
+      },
     },
     telegram_desktop_billboard_v3: {
       upc: {
@@ -81,15 +112,28 @@ export const state = () => ({
         [1200, 500],
       ],
       pbjs: {
-        sizes: [[970, 250]],
-        bids: [
-          {
-            bidder: 'sovrn',
-            params: {
-              tagid: [929051],
+        desktop: {
+          sizes: [[970, 250]],
+          bids: [
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [929051],
+              },
             },
-          },
-        ],
+          ],
+        },
+        mobile: {
+          sizes: [[300, 250]],
+          bids: [
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [929093],
+              },
+            },
+          ],
+        },
       },
     },
     telegram_desktop_billboard_v4: {
@@ -115,15 +159,28 @@ export const state = () => ({
         [1200, 500],
       ],
       pbjs: {
-        sizes: [[970, 250]],
-        bids: [
-          {
-            bidder: 'sovrn',
-            params: {
-              tagid: [929051],
+        desktop: {
+          sizes: [[970, 250]],
+          bids: [
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [929563],
+              },
             },
-          },
-        ],
+          ],
+        },
+        mobile: {
+          sizes: [[300, 250]],
+          bids: [
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [950916],
+              },
+            },
+          ],
+        },
       },
     },
     telegram_desktop_wallpaper_left: {
@@ -201,6 +258,114 @@ export const state = () => ({
     },
     telegram_desktop_intext_v2: {
       upc: {
+        desktop: 10,
+        mobile: 10,
+      },
+      routes: ['category-slug', 'nesto-slug'],
+      desktop: [
+        [660, 350],
+        [300, 250],
+        [320, 480],
+        [710, 350],
+        [970, 500],
+      ],
+      mobile: [
+        [300, 250],
+        [320, 480],
+        [336, 280],
+        [320, 50],
+        [300, 100],
+        [300, 50],
+        [300, 600],
+      ],
+      pbjs: {
+        desktop: {
+          sizes: [[300, 250]],
+          bids: [
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [929094],
+              },
+            },
+            {
+              bidder: 'luponmedia',
+              params: {
+                siteId: 4396,
+                keyId: 'telegramhr300x250',
+              },
+            },
+          ],
+        },
+        mobile: {
+          sizes: [[300, 250]],
+          bids: [
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [929094],
+              },
+            },
+            {
+              bidder: 'luponmedia',
+              params: {
+                siteId: 4396,
+                keyId: 'telegramhr300x250',
+              },
+            },
+          ],
+        },
+      },
+    },
+    telegram_desktop_intext_v3: {
+      upc: {
+        desktop: 10,
+        mobile: 10,
+      },
+      routes: ['category-slug', 'nesto-slug'],
+      desktop: [
+        [660, 350],
+        [300, 250],
+        [320, 480],
+        [710, 350],
+        [970, 500],
+      ],
+      mobile: [
+        [300, 250],
+        [320, 480],
+        [336, 280],
+        [320, 50],
+        [300, 100],
+        [300, 50],
+        [300, 600],
+      ],
+      pbjs: {
+        desktop: {
+          sizes: [[300, 250]],
+          bids: [
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [950917],
+              },
+            },
+          ],
+        },
+        mobile: {
+          sizes: [[300, 250]],
+          bids: [
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [950917],
+              },
+            },
+          ],
+        },
+      },
+    },
+    telegram_desktop_intext_v4: {
+      upc: {
         desktop: 13,
         mobile: 13,
       },
@@ -222,15 +387,122 @@ export const state = () => ({
         [300, 600],
       ],
       pbjs: {
-        sizes: [[300, 250]],
-        bids: [
-          {
-            bidder: 'sovrn',
-            params: {
-              tagid: [929094],
+        desktop: {
+          sizes: [[300, 250]],
+          bids: [
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [950918],
+              },
             },
-          },
-        ],
+          ],
+        },
+        mobile: {
+          sizes: [[300, 250]],
+          bids: [
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [950918],
+              },
+            },
+          ],
+        },
+      },
+    },
+    telegram_desktop_intext_v5: {
+      upc: {
+        desktop: 13,
+        mobile: 13,
+      },
+      routes: ['category-slug', 'nesto-slug'],
+      desktop: [
+        [660, 350],
+        [300, 250],
+        [320, 480],
+        [710, 350],
+        [970, 500],
+      ],
+      mobile: [
+        [300, 250],
+        [320, 480],
+        [336, 280],
+        [320, 50],
+        [300, 100],
+        [300, 50],
+        [300, 600],
+      ],
+      pbjs: {
+        desktop: {
+          sizes: [[300, 250]],
+          bids: [
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [950919],
+              },
+            },
+          ],
+        },
+        mobile: {
+          sizes: [[300, 250]],
+          bids: [
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [950919],
+              },
+            },
+          ],
+        },
+      },
+    },
+    telegram_desktop_intext_v6: {
+      upc: {
+        desktop: 13,
+        mobile: 13,
+      },
+      routes: ['category-slug', 'nesto-slug'],
+      desktop: [
+        [660, 350],
+        [300, 250],
+        [320, 480],
+        [710, 350],
+        [970, 500],
+      ],
+      mobile: [
+        [300, 250],
+        [320, 480],
+        [336, 280],
+        [320, 50],
+        [300, 100],
+        [300, 50],
+        [300, 600],
+      ],
+      pbjs: {
+        desktop: {
+          sizes: [[300, 250]],
+          bids: [
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [950920],
+              },
+            },
+          ],
+        },
+        mobile: {
+          sizes: [[300, 250]],
+          bids: [
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [950920],
+              },
+            },
+          ],
+        },
       },
     },
     telegram_sticky: {
@@ -263,12 +535,14 @@ export const state = () => ({
         [970, 150],
         [984, 150],
         [1200, 150],
+        [1200, 200],
       ],
     },
   },
-  upc_b: 1,
+  upc_b: 4,
   upc: {},
   upc_updated: null,
+  route: '',
 })
 
 export const mutations = {
@@ -282,22 +556,18 @@ export const mutations = {
     state.upc = data
     state.upc_updated = new Date().getTime()
   },
+  setRoute(state, route) {
+    state.route = route.name
+  },
 }
 
 export const actions = {
   initAds({ state, commit, dispatch, rootState }, payload) {
-    if (payload.options && payload.options.includes('all')) {
-      return
-    }
-    if (rootState.user.access) {
-      return
-    }
-    if (state.upc_updated + 60 * 60 * 1000 < new Date().getTime()) {
-      this.$axios.get('/api/upc').then((res) => {
-        commit('setUpc', res.data)
-      })
-    }
+    window.googletag = window.googletag || {}
+    window.googletag.cmd = window.googletag.cmd || []
+    window.googletag.reloadedSlots = window.googletag.reloadedSlots || []
     if (state.slots) {
+      // clean old stuff from previous request
       window.pbjs = window.pbjs || {}
       window.pbjs.que = window.pbjs.que || []
       window.pbjs.initAdserverSet = false
@@ -308,6 +578,31 @@ export const actions = {
         window.googletag.destroySlots()
       })
     }
+    // check if we should even show any ads
+    if (payload.options && payload.options.includes('all')) {
+      return
+    }
+    if (rootState.user.access) {
+      return
+    }
+    // load the up to date floor data
+    if (state.upc_updated + 60 * 60 * 1000 < new Date().getTime()) {
+      this.$axios
+        .get('/api/upc')
+        .then((res) => {
+          commit('setUpc', res.data)
+        })
+        .then(() => {
+          dispatch('setupTargeting', payload)
+        })
+    } else {
+      dispatch('setupTargeting', payload)
+    }
+  },
+  setupTargeting({ state, commit, dispatch, rootState }, payload) {
+    window.googletag = window.googletag || {}
+    window.googletag.cmd = window.googletag.cmd || []
+    window.googletag.reloadedSlots = window.googletag.reloadedSlots || []
     const route = payload.route || null
     // set targeting
     const targeting = {
@@ -317,6 +612,7 @@ export const actions = {
       post_category: [],
     }
     if (route) {
+      commit('setRoute', route)
       switch (route.name) {
         case 'index':
           targeting.wp_post_type = ['home']
@@ -345,10 +641,6 @@ export const actions = {
           break
       }
     }
-    // init tags
-    window.googletag = window.googletag || {}
-    window.googletag.cmd = window.googletag.cmd || []
-    window.googletag.reloadedSlots = window.googletag.reloadedSlots || []
     window.googletag.cmd.push(() => {
       // set targeting
       for (const i in targeting) {
@@ -391,6 +683,9 @@ export const actions = {
           if (route && !unit.routes.includes(route.name)) {
             continue
           }
+          if (!document.getElementById(i)) {
+            continue
+          }
           ds = window.googletag.defineSlot(prefix + i, unit[sizes], i)
           if (typeof unit.sizeMapping !== 'undefined') {
             ds.defineSizeMapping(unit.sizeMapping)
@@ -415,23 +710,27 @@ export const actions = {
         },
       })
       // const prefix = state.prefix
+      const sizes = this.$mobile ? 'mobile' : 'desktop'
       for (const i of Object.keys(state.units)) {
         if (i in state.units && state.units[i].pbjs) {
           const unit = state.units[i]
-          if (!unit.pbjs.sizes) {
+          if (!unit.pbjs[sizes].sizes) {
             continue
           }
           if (route && !unit.routes.includes(route.name)) {
+            continue
+          }
+          if (!document.getElementById(i)) {
             continue
           }
           window.pbjs.addAdUnits({
             code: i,
             mediaTypes: {
               banner: {
-                sizes: unit.pbjs.sizes,
+                sizes: unit.pbjs[sizes].sizes,
               },
             },
-            bids: unit.pbjs.bids,
+            bids: unit.pbjs[sizes].bids,
           })
         }
       }
@@ -465,7 +764,7 @@ export const actions = {
         }),
     })
   },
-  initPBJS({ state, dispatch }) {
+  initPBJS({ dispatch }) {
     window.pbjs = window.pbjs || {}
     window.pbjs.que = window.pbjs.que || []
     window.pbjs.que.push(() => {
@@ -478,9 +777,12 @@ export const actions = {
       dispatch('initAdserver')
     }, 1500)
   },
-  initAdserver() {
+  initAdserver({ state }) {
     if (window.pbjs.initAdserverSet) return
     window.pbjs.initAdserverSet = true
+    if (state.route === 'nesto-slug') {
+      return
+    }
     window.googletag.cmd.push(function () {
       window.pbjs.setTargetingForGPTAsync &&
         window.pbjs.setTargetingForGPTAsync()

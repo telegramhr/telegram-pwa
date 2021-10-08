@@ -22,14 +22,13 @@
     </div>
     <div class="full flex">
       <div class="container relative flex stretch">
-        <div class="full mobile-side-pad flex">
+        <div class="full mobile-side-pad flex stretch">
           <p class="full column-full-pad dojave-intro">
             Pouzdana i kvalitetna dojava ključna je u otkrivanju korupcije,
             kriminala i afera koje utječu na cijelo društvo. U naše kanale za
-            dojavu možete imati puno povjerenje.<br />
-
-            Za upite, priopćenja i sve što nisu dojave molimo da koristite
-            adresu <a href="mailto:kontakt@telegram.hr">kontakt@telegram.hr</a>.
+            dojavu možete imati puno povjerenje. Za upite, priopćenja i sve što
+            nisu dojave molimo da koristite adresu
+            <a href="mailto:kontakt@telegram.hr">kontakt@telegram.hr</a>.
           </p>
           <div class="third flex-responsive column-full-pad flex">
             <div class="full contact-tile column-full-pad flex relative">

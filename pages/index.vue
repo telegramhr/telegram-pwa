@@ -172,7 +172,7 @@
       <div class="full center">
         <authors></authors>
       </div>
-      <midas></midas>
+      <linker type="naslovnica"></linker>
       <client-only>
         <lazy-sport></lazy-sport>
       </client-only>
@@ -273,6 +273,9 @@ export default {
         ])
       }
       this.$store.dispatch('ads/initAds', { route: this.$route })
+      if (!this.$store.state.user.access) {
+        this.$linker.reloadLinker()
+      }
     },
     loadMore() {
       this.loading = true

@@ -9,12 +9,17 @@
     </div>
     <h2 class="full">{{ title }}</h2>
     <p class="full center-text">
-      Za neograničeno čitanje Telegrama i podršku istraživačkim serijalima,
-      pretplatite se na Telegram.
+      {{ subtitle }}
     </p>
     <div class="full center">
       <app-link to="/pretplata" class="btn">Pretplatite se</app-link>
-      <div class="btn altbtn" @click.prevent="login">Već imam pretplatu</div>
+      <div
+        v-if="!$store.state.user.token"
+        class="btn altbtn"
+        @click.prevent="login"
+      >
+        Već imam pretplatu
+      </div>
     </div>
   </div>
 </template>
@@ -26,6 +31,8 @@ export default {
     return {
       show: false,
       title: 'Pročitali ste sve besplatne članke u ovom mjesecu.',
+      subtitle:
+        'Za neograničeno čitanje Telegrama i podršku istraživačkim serijalima, pretplatite se na Telegram.',
     }
   },
   mounted() {
@@ -39,16 +46,27 @@ export default {
   methods: {
     paywall() {
       this.title = 'Ovaj članak dostupan je samo pretplatnicima.'
-      const el = document.getElementById('piano-content')
-      if (el) {
-        this.show = true
-        el.parentNode.removeChild(el)
-      } else {
-        setTimeout(this.paywall, 500)
+      this.subtitle =
+        'Za neograničeno čitanje Telegrama i podršku istraživačkim serijalima, pretplatite se na Telegram.'
+      if (this.$store.state.user.token) {
+        this.title = 'Vaš korisnički račun nema aktivnu pretplatu.'
+        this.subtitle =
+          'Pretplatite se odmah kako biste imali neograničen pristup svim sadržajima.'
       }
+      this.triggerShow()
     },
     load() {
       this.title = 'Pročitali ste sve besplatne članke u ovom mjesecu.'
+      this.subtitle =
+        'Za neograničeno čitanje Telegrama i podršku istraživačkim serijalima, pretplatite se na Telegram.'
+      if (this.$store.state.user.token) {
+        this.title = 'Vaš korisnički račun nema aktivnu pretplatu.'
+        this.subtitle =
+          'Pretplatite se odmah kako biste imali neograničen pristup svim sadržajima.'
+      }
+      this.triggerShow()
+    },
+    triggerShow() {
       const el = document.getElementById('piano-content')
       if (el) {
         this.show = true
