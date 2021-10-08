@@ -1,5 +1,13 @@
 <template>
-  <div :class="['main-container', 'flex', 'single-article', typeClass]">
+  <div
+    :class="[
+      'main-container',
+      'flex',
+      'single-article',
+      typeClass,
+      categoryClass,
+    ]"
+  >
     <template v-if="!($fetchState.error || post.title === 'Objava ne postoji')">
       <theader :id="Number(post.id)" :headline="post.portal_title"></theader>
       <div v-show="related_posts" class="full related-header-widget">
@@ -542,6 +550,12 @@ export default {
         default:
           return ''
       }
+    },
+    categoryClass() {
+      if (this.post.category_slug) {
+        return this.post.category_slug
+      }
+      return ''
     },
     srcset() {
       let set = `${this.post.image.url}`
