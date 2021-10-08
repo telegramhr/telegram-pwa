@@ -6,12 +6,19 @@
     <div class="full flex relative fancy-rubrika-header">
       <div class="os-section-title-left-el"></div>
       <div class="os-section-title-right-el"></div>
-      <div class="container flex os-section-parent">
+      <div class="container flex fancyr-section-parent">
         <h1
-          class="full section-title mobile-side-pad center-text column-full-pad os-section-title"
+          class="full section-title mobile-side-pad center-text column-full-pad os-section-title hide"
         >
-          Open Space
+          openspace
         </h1>
+        <div class="full center">
+          <img
+            src="@/assets/img/openspace_logo_normal.svg"
+            class="os-header-logo"
+            alt="openspace logo"
+          />
+        </div>
         <nav class="full center page-header-nav">
           <app-link role="menuitem" to="/politika-kriminal">Vještine</app-link>
           <app-link role="menuitem" to="/komentari">Tvrtke i karijere</app-link>
@@ -404,7 +411,7 @@
         </div>
       </div>
     </div>
-    <osfooter></osfooter>
+    <tfooter></tfooter>
   </div>
 </template>
 
@@ -435,7 +442,8 @@ export default {
   },
   head() {
     return {
-      title: 'Open Space',
+      title:
+        'openspace - platforma za poslovne vijesti, prilike i usavršavanje',
     }
   },
 }

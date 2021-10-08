@@ -1,13 +1,5 @@
 <template>
-  <div
-    :class="[
-      'main-container',
-      'flex',
-      'single-article',
-      'openspace',
-      typeClass,
-    ]"
-  >
+  <div :class="['main-container', 'flex', 'single-article', typeClass]">
     <template v-if="!($fetchState.error || post.title === 'Objava ne postoji')">
       <theader :id="Number(post.id)" :headline="post.portal_title"></theader>
       <div v-show="related_posts" class="full related-header-widget">
@@ -389,7 +381,7 @@
       </div>
       </div>-->
     </template>
-    <osfooter v-if="post.id || $fetchState.error"></osfooter>
+    <tfooter v-if="post.id || $fetchState.error"></tfooter>
   </div>
 </template>
 

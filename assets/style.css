@@ -5043,10 +5043,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 
 /* Open Space and Fancy rubrika */
 
-.fancy-rubrika, .fancy-rubrika .intro-block {
+.fancy-rubrika, .fancy-rubrika .intro-block, .fancy-article, .fancy-rubrika .header-billboard, .fancy-article .header-billboard {
   background-color: white;
 }
-.dark-mode .fancy-rubrika, .dark-mode .fancy-rubrika .intro-block {
+.dark-mode .fancy-rubrika, .dark-mode .fancy-rubrika .intro-block, .dark-mode .fancy-article {
   background-color: #212121;
   color: #efefef;
 }
@@ -5157,6 +5157,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     border-right: 1px solid #c8c8c8;
     z-index: 5;
 }
+.os-header-logo {
+    width: 80%;
+    max-width: 460px;
+    margin-top: 64px;
+    margin-bottom: 24px;
+}
 .os-section-title-left-el {
     width: 50%;
     position: absolute;
@@ -5233,8 +5239,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .openspace footer .logo-line img {
     width: 24.99%;
 }
-.openspace footer .logo-line img:nth-child(2) {
-    padding: 17px;
+.openspace footer .logo-line img:nth-child(3) {
+    padding: 19px;
 }
 .openspace footer .main-footer-logo {
     background-color: #2c2e41;
@@ -5289,6 +5295,51 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     background-color: white;
 }
 
+/* Inarticle table of contents widget */
+
+.inarticle-table {
+    border: 1px solid #c8c8c8;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    padding: 24px;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+}
+.single-article .single-article-body .inarticle-table h2 {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    font-size: 1.1rem;
+    margin-top: 0px;
+    padding-left: 17px;
+}
+.single-article-body .inarticle-table ul li{
+    list-style-type: disc;
+}
+.inarticle-table li a {
+    text-decoration: underline;
+    text-decoration-color: #c8c8c8;
+}
+.inarticle-table li:hover a {
+    text-decoration-color: #464b7a;
+}
+@media screen and (min-width: 767px) {
+    .single-article #article-content > .inarticle-table {
+        max-width: 758px; 
+    }
+}
+@media screen and (max-width: 767px) {
+    .inarticle-table {
+        border-left: none;
+        padding-left: 0px;
+    }
+    .single-article .single-article-body .inarticle-table h2 {
+        padding-left: 2px;
+    }
+}
+
+/* Generic fancy rubrika */
+
 .fancy-rubrika .tg-overlogo {
     width: 40vw;
     max-width: 150px;
@@ -5301,44 +5352,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     margin-bottom: 16px;
 }
 
-.tg-biznis .fancy-rubrika-header .stonk-widget {
-    border-top: none;
-}
-.tg-biznis h3, .tg-biznis h5 {
-    font-family: neuzeit-grotesk, sans-serif;
-}
-.tg-biznis .fancy-rubrika-header .two-thirds {
-    align-content: flex-end;
-    padding-bottom: 38px;
-}
-.tg-biznis .fancy-rubrika-header .stock-market {
-    width: 49.99%;
-    padding-left: 80px;
-}
-.tg-biznis .fancy-rubrika-header .column-top-pad {
-    display: none;
-}
-.tg-biznis .fancy-rubrika-header .stonk-widget h3.overtitle {
-    display: none;
-}
-.tg-biznis .article .overtitle, .tg-biznis .single-article-body p a, .tg-biznis .os-widget-overtitle, .tg-biznis .block-related h2.section-title, .tg-biznis .meta-preporuke, .tg-biznis .article-mini .meta-date  {
-    color: #328143;
-    text-decoration-color: #328143;
-}
-.tg-biznis h2.section-title {
-    border-color: #328143;
-}
-.tg-biznis .classic-btn {
-    background-color: #328143;
-}
-.tg-biznis .fancy-rubrika-header .stonk-widget {
-    padding-top: 0px;
-    justify-content: flex-end;
-}
-.tg-biznis .article-standard h2, .tg-biznis .article-featured h2 {
-    font-family: neuzeit-grotesk, sans-serif;
-    font-weight: 700;
-}
+/* Responsive for Open Space & Fancy rubrika */
 
 @media screen and (max-width: 767px) {
     .openspace .homepage-exclusive {
@@ -5461,6 +5475,18 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         height: 40px;
         bottom: 6px;
     }
+    .tg-biznis .article-featured h2 {
+        font-size: 26px;
+        font-size: 1.3rem;
+    }
+    .tg-biznis .article-standard h2 {
+        font-size: 20px;
+        font-size: 1rem;
+    }
+    .fancy-rubrika .article-big h2 {
+        font-size: 36px;
+        font-size: 1.8rem;
+    }
 }
 @media screen and (max-width: 1180px) and (min-width: 767px) {
     .openspace .block-2 .fourth {
@@ -5486,45 +5512,130 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
 }
 
-/* Inarticle table of contents widget */
+/* TG Biznis homepage */
 
-.inarticle-table {
-    border: 1px solid #c8c8c8;
-    margin-top: 24px;
-    margin-bottom: 24px;
-    padding: 24px;
-    font-family: 'Barlow', sans-serif;
-    font-weight: 400;
+.tg-biznis .fancy-rubrika-header .stonk-widget {
+    border-top: none;
 }
-.single-article .single-article-body .inarticle-table h2 {
-    font-family: 'Barlow', sans-serif;
+.tg-biznis .fancy-rubrika-header .two-thirds {
+    align-content: flex-end;
+    padding-bottom: 38px;
+}
+.tg-biznis .fancy-rubrika-header .stock-market {
+    width: 49.99%;
+    padding-left: 80px;
+}
+.tg-biznis .fancy-rubrika-header .column-top-pad {
+    display: none;
+}
+.tg-biznis .fancy-rubrika-header .stonk-widget h3.overtitle {
+    display: none;
+}
+.tg-biznis .article .overtitle, .tg-biznis .single-article-body p a, .tg-biznis .os-widget-overtitle, .tg-biznis .block-related h2.section-title, .tg-biznis .meta-preporuke, .tg-biznis .article-mini .meta-date  {
+    color: #328143;
+    text-decoration-color: #328143;
+}
+.tg-biznis h2.section-title {
+    border-color: #328143;
+}
+.tg-biznis .classic-btn {
+    background-color: #328143;
+}
+.tg-biznis .fancy-rubrika-header .stonk-widget {
+    padding-top: 0px;
+    justify-content: flex-end;
+}
+.tg-biznis .article-standard h2, .tg-biznis .article-featured h2 {
+    font-family: orpheuspro, serif;
     font-weight: 700;
-    font-size: 22px;
-    font-size: 1.1rem;
-    margin-top: 0px;
-    padding-left: 17px;
+    font-style: normal;
+    letter-spacing: -0.02em;
+    line-height: 1.1em;
+    margin-bottom: 4px;
 }
-.single-article-body .inarticle-table ul li{
-    list-style-type: disc;
+.tg-biznis .article-standard h2 {
+    letter-spacing: -0.01em;
+    line-height: 1.15em;
 }
-.inarticle-table li a {
-    text-decoration: underline;
-    text-decoration-color: #c8c8c8;
+.tg-biznis .article-featured h3.overtitle {
+    margin-top: 6px;
+    margin-bottom: 12px;
 }
-.inarticle-table li:hover a {
-    text-decoration-color: #464b7a;
+@media screen and (max-width: 1180px) {
+    .tg-biznis .fancy-rubrika-header .stock-market {
+        width: 100%;
+        padding-left: 4vw;
+        padding-right: 4vw;
+    }
+    .tg-biznis .fancy-rubrika-header .third {
+        width: 49.99%;
+    }
+    .tg-biznis .fancy-rubrika-header .two-thirds {
+        width: 49.99%;
+        padding-top: 4vw;
+    }
+    .fancy-rubrika .standard-block > .fourth {
+        display: none;
+    }
+    .fancy-rubrika .standard-block > .three-fourths {
+        width: 100%;
+    }
+    .tg-biznis .article-featured h2 {
+        font-size: 1.1rem;
+    }
+    .fancy-rubrika .article-big h2 {
+        font-size: 1.5rem;
+    }
 }
-@media screen and (min-width: 767px) {
-    .single-article #article-content > .inarticle-table {
-        max-width: 758px; 
+@media screen and (max-width: 1180px) and (min-width: 767px) {
+    .fancy-rubrika .intro-block .third .article-featured img {
+        height: 18vw;
     }
 }
 @media screen and (max-width: 767px) {
-    .inarticle-table {
-        border-left: none;
-        padding-left: 0px;
+    .fancy-rubrika .tg-overlogo {
+        display: none;
     }
-    .single-article .single-article-body .inarticle-table h2 {
-        padding-left: 2px;
+    .fancy-rubrika .fancy-rubrika-header .fancyr-section-parent .third {
+        width: 100%;
     }
+    .fancy-rubrika .rubrika-logo {
+        margin: 10px auto;
+    }
+}
+
+/* TG Biznis single */
+
+.single-tg-biznis .article-head h3.overtitle, .single-tg-biznis .related-header-widget h3.overtitle, .single-tg-biznis .meta-preporuke {
+    color: #328143;
+}
+.single-tg-biznis .article-head h1, .single-tg-biznis .related-header-widget h2, .single-tg-biznis .single-article-body h2 {
+    font-family: orpheuspro, serif;
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: -0.02em;
+    line-height: 1em;
+}
+.single-tg-biznis .single-article-body h2 {
+    letter-spacing: -0.01em;
+}
+.single-tg-biznis .single-article-body h2 {
+    font-size: 26px;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    margin-top: 36px;
+}
+.single-tg-biznis .related-header-widget .article-standard h2 {
+    font-size: 17px;
+    font-size: 0.85rem;
+}
+.single-tg-biznis h1 {
+    font-size: 44px;
+    font-size: 2.2rem;
+}
+.single-tg-biznis .single-article-body .inarticle-table h2 {
+    font-family: orpheuspro, serif;
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: normal;
 }

@@ -6,7 +6,7 @@
     <div class="full flex relative fancy-rubrika-header">
       <div class="os-section-title-left-el"></div>
       <div class="os-section-title-right-el"></div>
-      <div class="container flex os-section-parent stretch">
+      <div class="container flex fancyr-section-parent stretch">
         <div
           class="third flex-responsive flex rubrika-header-logo column-full-pad"
         >

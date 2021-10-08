@@ -4,7 +4,8 @@
       'main-container',
       'flex',
       'single-article',
-      'openspace',
+      'fancy-article',
+      'single-tg-biznis',
       typeClass,
     ]"
   >
@@ -437,7 +438,7 @@
       ></keep-reading>
     </div>
     <ticker></ticker>
-    <osfooter></osfooter>
+    <tfooter v-if="post.id || $fetchState.error"></tfooter>
   </div>
 </template>
 

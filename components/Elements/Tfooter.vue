@@ -32,12 +32,16 @@
         </div>
         <div class="full flex center">
           <div class="full logo-line flex">
-            <img src="@/assets/img/super1_logo_white.svg" alt="Telegram logo" />
+            <img src="@/assets/img/super1_logo_white.svg" alt="Super1 logo" />
             <img
               src="@/assets/img/telesport_logo_white.svg"
-              alt="Telegram logo"
+              alt="Telesport logo"
             />
-            <img src="@/assets/img/tg_studio_white.svg" alt="Telegram logo" />
+            <img
+              src="@/assets/img/openspace_logo_negative.svg"
+              alt="openspace logo"
+            />
+            <img src="@/assets/img/tg_studio_white.svg" alt="TG Studio logo" />
           </div>
         </div>
         <div class="full flex social-links center">
