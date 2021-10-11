@@ -15,7 +15,17 @@
         <div class="full center">
           <img
             src="@/assets/img/openspace_logo_normal.svg"
-            class="os-header-logo"
+            class="os-header-logo light-mode-only"
+            alt="openspace logo"
+          />
+          <img
+            src="@/assets/img/openspace_logo_normal.svg"
+            class="os-header-logo contrast-mode-only"
+            alt="openspace logo"
+          />
+          <img
+            src="@/assets/img/openspace_logo_negative.svg"
+            class="os-header-logo dark-mode-only"
             alt="openspace logo"
           />
         </div>
