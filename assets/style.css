@@ -3906,6 +3906,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         margin-top: -72px;
         z-index: 5;
     }
+    .fancy-rubrika .elevate-over-section {
+        background-color: #ffffff;
+    }
     .komentar {
         margin-bottom: 32px;
     }
@@ -5092,9 +5095,16 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     margin-bottom: 6px;
     color: #464b7a;
 }
+.dark-mode .openspace .article .overtitle {
+    color: #7077b7;
+}
 .openspace .single-article-body p a {
     color: #464b7a;
     text-decoration-color: #464b7a;
+}
+.dark-mode .openspace .single-article-body p a {
+    color: #7077b7;
+    text-decoration-color: #7077b7;
 }
 .openspace .article h5.article-meta {
     font-family: ibm-plex-mono, sans-serif;
@@ -5137,6 +5147,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 1.2rem;
     position: relative;
     z-index: 3;
+}
+.dark-mode .openspace .os-widget-overtitle, .dark-mode .openspace .block-related h2.section-title {
+    color: #7077b7;
 }
 .openspace .immersive-break .article-meta {
     font-family: ibm-plex-mono, sans-serif;
@@ -5216,9 +5229,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .openspace .standard-block {
     background-color: white;
 }
+.dark-mode .openspace .standard-block, .dark-mode .elevate-over-section {
+    background-color: #212121;
+    color: #efefef;
+} 
 .openspace .header-billboard {
     background-color: white;
-    height: 0px;
 }
 .dark-mode .openspace .header-billboard {
     background-color: #212121;
@@ -5246,6 +5262,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-weight: 400;
     color: #464b7a;
 }
+.dark-mode .openspace .article-head h3.overtitle {
+    color: #7077b7;
+}
 .openspace .single-article-body h2 {
     font-family: 'Barlow', sans-serif;
     font-weight: 700;
@@ -5271,6 +5290,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     padding-bottom: 24px;
     background-color: #f4f5f6;
 }
+.dark-mode .os-about-section {
+    background-color: rgba(0,0,0,0.1);
+}
 .os-elevate-title {
     font-size: 40px;
     font-size: 2rem;
@@ -5288,8 +5310,14 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 1.2rem;
     margin-bottom: 16px;
 }
+.dark-mode .os-about-subtitle {
+    color: #7077b7;
+}
 .openspace .meta-preporuke {
     color: #464b7a;
+}
+.dark-mode .openspace .meta-preporuke {
+    color: #7077b7;
 }
 .openspace .os-prilika .komentar-image {
     background-color: #2c2e41;
@@ -5297,9 +5325,15 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .openspace .classic-btn {
     background-color: #464b7a;
 }
+.dark-mode .openspace .classic-btn {
+    background-color: #7077b7;
+}
 .openspace .os-prilika .meta-date {
     opacity: 1;
     color: #464b7a;
+}
+.dark-mode .openspace .os-prilika .meta-date {
+    color: #7077b7;
 }
 .openspace .os-prilika .meta-preporuke {
     display: none;
@@ -5340,7 +5374,13 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     text-decoration-color: #c8c8c8;
 }
 .inarticle-table li:hover a {
+    text-decoration-color: #ae3737;
+}
+.openspace .inarticle-table li:hover a {
     text-decoration-color: #464b7a;
+}
+.dark-mode .openspace .inarticle-table li:hover a {
+    text-decoration-color: #7077b7;
 }
 @media screen and (min-width: 767px) {
     .single-article #article-content > .inarticle-table {
