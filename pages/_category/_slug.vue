@@ -486,6 +486,8 @@ export default {
         comments: 0,
         time: 0,
         tags: [],
+        category: '',
+        category_slug: '',
         social: {
           title: '',
           description: '',
@@ -561,6 +563,9 @@ export default {
     },
     categoryClass() {
       if (this.post.category_slug) {
+        if (this.post.category_slug === 'openspace') {
+          return this.post.category_slug + ' fancy-rubrika'
+        }
         return this.post.category_slug
       }
       return ''
@@ -603,6 +608,9 @@ export default {
       }
     },
     loadAds() {
+      if (this.post.category_slug === 'openspace') {
+        return
+      }
       this.$store.dispatch('ads/initAds', {
         route: this.$route,
         options: this.post.disable_ads,
