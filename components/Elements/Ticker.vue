@@ -10,11 +10,7 @@
       </p>
       <div class="full center">
         <app-link to="/pretplata" class="btn animate">Pretplatite se</app-link>
-        <div
-          v-if="$store.state.user.active_sub"
-          class="btn animate"
-          @click="login"
-        >
+        <div v-if="$store.state.user.access" class="btn animate" @click="login">
           Već imam pretplatu
         </div>
       </div>

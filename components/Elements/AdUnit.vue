@@ -11,7 +11,7 @@
             !disable &&
             id === 'telegram_desktop_billboard_v1' &&
             $route.name === 'category-slug' &&
-            !$store.state.user.active_sub
+            !$store.state.user.hasPremium
               ? '250px'
               : 0,
         }"

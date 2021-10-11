@@ -9,7 +9,7 @@
       <font-awesome-icon :icon="['fal', 'minus-square']"></font-awesome-icon>
     </div>
     <app-link
-      v-else-if="!$store.state.user.active_sub && !free"
+      v-else-if="!$store.state.user.access && !free"
       to="/pretplata"
       class="btn newsletter-btn newsletter-not-available animate"
     >

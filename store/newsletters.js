@@ -86,7 +86,7 @@ export const actions = {
           dispatch('subscribe', payload)
         },
       })
-    } else if (payload.free || rootState.user.active_sub) {
+    } else if (payload.free || rootState.user.access) {
       window.PianoESP &&
         typeof window.PianoESP.handleUserDataPromise === 'function' &&
         window.PianoESP.handleUserDataPromise({
