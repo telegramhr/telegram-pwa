@@ -442,7 +442,6 @@
               >
               <app-link role="menuitem" to="/zivot">Život</app-link>
               <app-link role="menuitem" to="/kultura">Kultura</app-link>
-              <!--<app-link to="/fotogalerije">Fotogalerije</app-link>-->
             </div>
           </div>
           <div class="flex third relative">
