@@ -582,7 +582,7 @@ export const actions = {
     if (payload.options && payload.options.includes('all')) {
       return
     }
-    if (rootState.user.hasPremium) {
+    if (rootState.user.access === 'BR92VTWM') {
       return
     }
     // load the up to date floor data
