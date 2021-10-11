@@ -5,10 +5,10 @@ export default ({ app, inject }) => {
   }
   // Piano conf
   window.tp = window.tp || []
-  window.tp.push(['setAid', process.env.PIANO_AID])
-  window.tp.push(["setCxenseSiteId", "1128464677385494954"]);
-  window.tp.push(['setSandbox', process.env.PIANO_SANDOX === "true"])
-  window.tp.push(['setDebug', process.env.PIANO_SANDOX === "true"])
+  window.tp.push(['setAid', 'QuTHmVhFpu'])
+  window.tp.push(['setCxenseSiteId', '1128464677385494954']);
+  window.tp.push(['setSandbox', false])
+  window.tp.push(['setDebug', false])
   window.tp.push(['setUsePianoIdUserProvider', true])
   window.tp.push(['setCloudflareWorkerUrl', 'https://auth.telegram.hr']);
   window.tp.push([

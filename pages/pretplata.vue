@@ -470,6 +470,24 @@
           </div>
         </div>
       </transition>
+      <transition name="reveal-block">
+        <div
+          v-show="screen === 'bank'"
+          id="payment-bank"
+          class="full flex animate long-animate"
+        >
+          <p>Molimo uplatite koristeći sljedeće podatke:</p>
+          <p>IBAN: HR73 23600001101437160</p>
+          <p>Iznos: {{ terms[selected_package] }}.00 kn</p>
+          <p>Model plaćanja: HR01</p>
+          <p>Poziv na broj: 104-2021-00000010</p>
+          <p>Plaćanje pretplate</p>
+          <p>
+            Ili skenirajte sljedeći kod:
+            <img :src="'data:image/png;base64, ' + code" />
+          </p>
+        </div>
+      </transition>
       <div class="full flex relative">
         <div class="container relative flex">
           <div
@@ -887,28 +905,19 @@ export default {
   },
   computed: {
     one() {
-      if (process.client && window.tp.sandbox) {
-        return 'TMC561I3C1ZT'
-      }
       return 'TM0FMYURHRA3'
     },
     two() {
-      if (process.client && window.tp.sandbox) {
-        return 'TM68H8RUQ7VJ'
-      }
       return 'TMXKYJUN5YN5'
     },
     three() {
-      if (process.client && window.tp.sandbox) {
-        return 'TMA44DJRTT2A'
-      }
       return 'TMVUCFM94OA7'
     },
     four() {
-      if (process.client && window.tp.sandbox) {
-        return 'TM6MUK1A0QU6'
-      }
       return 'TM8R9U7RK5B1'
+    },
+    code() {
+      return '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'
     },
   },
   mounted() {
@@ -935,6 +944,9 @@ export default {
       this.payment_type = type
       if (type === 'credit') {
         this.checkout2(this.selected_package)
+      }
+      if (type === 'bank') {
+        this.screen = 'bank'
       }
     },
     checkout(termId) {
@@ -973,11 +985,11 @@ export default {
     },
     checkout2(termId, back) {
       const _that = this
-      window.fbq('track', 'InitiateCheckout', {
+      /* window.fbq('track', 'InitiateCheckout', {
         content_ids: [termId],
         currency: 'HRK',
         value: this.terms[termId],
-      })
+      }) */
       window.tp.push([
         'init',
         () => {
@@ -988,6 +1000,9 @@ export default {
             checkoutFlowId: window.tp.sandbox ? 'CF8Q59Z3RJ5G' : 'CF65KTMVQXXX',
             promoCode: this.$route.query.promo_code,
             closeOnLogout: true,
+            displayMode: 'inline',
+            containerSelector: '#payment-creditcard',
+            showCloseButton: false,
             complete: () => {
               _that.$store.dispatch('user/checkAccess')
               window.fbq('track', 'Purchase', {
