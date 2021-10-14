@@ -715,6 +715,18 @@ export const actions = {
             defaultGdprScope: true,
           },
         },
+        usersync: {
+          filterSetting: {
+            iframe: {
+              bidders: '*',
+              filter: 'include',
+            },
+            image: {
+              bidders: '*',
+              filter: 'include',
+            },
+          },
+        },
       })
       // const prefix = state.prefix
       const sizes = this.$mobile ? 'mobile' : 'desktop'
