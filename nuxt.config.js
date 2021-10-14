@@ -67,7 +67,7 @@ export default {
         async: true,
       },
       {
-        src: '/prebid4.43.4.js',
+        src: '/prebid4.43.4-1.js',
         async: true,
       },
       {
