@@ -67,6 +67,13 @@ export const state = () => ({
                 tagid: [929050],
               },
             },
+            {
+              bidder: 'iprom',
+              params: {
+                id: '1ac5399de31649f8',
+                dimension: '970x250',
+              },
+            },
           ],
         },
         mobile: {
@@ -280,19 +287,19 @@ export const state = () => ({
       ],
       pbjs: {
         desktop: {
-          sizes: [[300, 250]],
+          sizes: [[970, 250]],
           bids: [
             {
               bidder: 'sovrn',
               params: {
-                tagid: [929094],
+                tagid: [969220],
               },
             },
             {
-              bidder: 'luponmedia',
+              bidder: 'iprom',
               params: {
-                siteId: 4396,
-                keyId: 'telegramhr300x250',
+                id: '1ac5399de31649f8',
+                dimension: '970x250',
               },
             },
           ],
