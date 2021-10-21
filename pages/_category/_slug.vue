@@ -303,7 +303,7 @@
                   ></div>
                 </div>
                 <mini-pretplata
-                  v-show="!$store.state.user.active_sub"
+                  v-show="!$store.state.user.access"
                 ></mini-pretplata>
               </div>
             </div>

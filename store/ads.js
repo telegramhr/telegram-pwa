@@ -67,10 +67,21 @@ export const state = () => ({
                 tagid: [929050],
               },
             },
+            {
+              bidder: 'luponmedia',
+              params: {
+                siteId: 4396,
+                keyId: 'uid_telegramhr',
+              },
+            },
           ],
         },
         mobile: {
-          sizes: [[300, 250]],
+          sizes: [
+            [300, 250],
+            [336, 280],
+            [300, 600],
+          ],
           bids: [
             {
               bidder: 'sovrn',
@@ -82,7 +93,7 @@ export const state = () => ({
               bidder: 'luponmedia',
               params: {
                 siteId: 4396,
-                keyId: 'telegramhr300x250',
+                keyId: 'uid_telegramhr',
               },
             },
           ],
@@ -116,15 +127,20 @@ export const state = () => ({
           sizes: [[970, 250]],
           bids: [
             {
-              bidder: 'sovrn',
+              bidder: 'iprom',
               params: {
-                tagid: [929051],
+                id: '1ac5399de31649f8',
+                dimension: '970x250',
               },
             },
           ],
         },
         mobile: {
-          sizes: [[300, 250]],
+          sizes: [
+            [300, 250],
+            [336, 280],
+            [300, 600],
+          ],
           bids: [
             {
               bidder: 'sovrn',
@@ -168,15 +184,33 @@ export const state = () => ({
                 tagid: [929563],
               },
             },
+            {
+              bidder: 'luponmedia',
+              params: {
+                siteId: 4396,
+                keyId: 'uid_telegramhr',
+              },
+            },
           ],
         },
         mobile: {
-          sizes: [[300, 250]],
+          sizes: [
+            [300, 250],
+            [336, 280],
+            [300, 600],
+          ],
           bids: [
             {
               bidder: 'sovrn',
               params: {
                 tagid: [950916],
+              },
+            },
+            {
+              bidder: 'luponmedia',
+              params: {
+                siteId: 4396,
+                keyId: 'uid_telegramhr',
               },
             },
           ],
@@ -280,25 +314,36 @@ export const state = () => ({
       ],
       pbjs: {
         desktop: {
-          sizes: [[300, 250]],
+          sizes: [[970, 250]],
           bids: [
             {
               bidder: 'sovrn',
               params: {
-                tagid: [929094],
+                tagid: [969220],
+              },
+            },
+            {
+              bidder: 'iprom',
+              params: {
+                id: '1ac5399de31649f8',
+                dimension: '970x250',
               },
             },
             {
               bidder: 'luponmedia',
               params: {
                 siteId: 4396,
-                keyId: 'telegramhr300x250',
+                keyId: 'uid_telegramhr',
               },
             },
           ],
         },
         mobile: {
-          sizes: [[300, 250]],
+          sizes: [
+            [300, 250],
+            [336, 280],
+            [300, 600],
+          ],
           bids: [
             {
               bidder: 'sovrn',
@@ -310,7 +355,7 @@ export const state = () => ({
               bidder: 'luponmedia',
               params: {
                 siteId: 4396,
-                keyId: 'telegramhr300x250',
+                keyId: 'uid_telegramhr',
               },
             },
           ],
@@ -341,7 +386,10 @@ export const state = () => ({
       ],
       pbjs: {
         desktop: {
-          sizes: [[300, 250]],
+          sizes: [
+            [300, 250],
+            [970, 250],
+          ],
           bids: [
             {
               bidder: 'sovrn',
@@ -349,15 +397,33 @@ export const state = () => ({
                 tagid: [950917],
               },
             },
+            {
+              bidder: 'luponmedia',
+              params: {
+                siteId: 4396,
+                keyId: 'uid_telegramhr',
+              },
+            },
           ],
         },
         mobile: {
-          sizes: [[300, 250]],
+          sizes: [
+            [300, 250],
+            [336, 280],
+            [300, 600],
+          ],
           bids: [
             {
               bidder: 'sovrn',
               params: {
                 tagid: [950917],
+              },
+            },
+            {
+              bidder: 'luponmedia',
+              params: {
+                siteId: 4396,
+                keyId: 'uid_telegramhr',
               },
             },
           ],
@@ -388,7 +454,10 @@ export const state = () => ({
       ],
       pbjs: {
         desktop: {
-          sizes: [[300, 250]],
+          sizes: [
+            [300, 250],
+            [970, 250],
+          ],
           bids: [
             {
               bidder: 'sovrn',
@@ -396,15 +465,33 @@ export const state = () => ({
                 tagid: [950918],
               },
             },
+            {
+              bidder: 'luponmedia',
+              params: {
+                siteId: 4396,
+                keyId: 'uid_telegramhr',
+              },
+            },
           ],
         },
         mobile: {
-          sizes: [[300, 250]],
+          sizes: [
+            [300, 250],
+            [336, 280],
+            [300, 600],
+          ],
           bids: [
             {
               bidder: 'sovrn',
               params: {
                 tagid: [950918],
+              },
+            },
+            {
+              bidder: 'luponmedia',
+              params: {
+                siteId: 4396,
+                keyId: 'uid_telegramhr',
               },
             },
           ],
@@ -435,7 +522,10 @@ export const state = () => ({
       ],
       pbjs: {
         desktop: {
-          sizes: [[300, 250]],
+          sizes: [
+            [300, 250],
+            [970, 250],
+          ],
           bids: [
             {
               bidder: 'sovrn',
@@ -443,15 +533,33 @@ export const state = () => ({
                 tagid: [950919],
               },
             },
+            {
+              bidder: 'luponmedia',
+              params: {
+                siteId: 4396,
+                keyId: 'uid_telegramhr',
+              },
+            },
           ],
         },
         mobile: {
-          sizes: [[300, 250]],
+          sizes: [
+            [300, 250],
+            [336, 280],
+            [300, 600],
+          ],
           bids: [
             {
               bidder: 'sovrn',
               params: {
                 tagid: [950919],
+              },
+            },
+            {
+              bidder: 'luponmedia',
+              params: {
+                siteId: 4396,
+                keyId: 'uid_telegramhr',
               },
             },
           ],
@@ -482,7 +590,10 @@ export const state = () => ({
       ],
       pbjs: {
         desktop: {
-          sizes: [[300, 250]],
+          sizes: [
+            [300, 250],
+            [970, 250],
+          ],
           bids: [
             {
               bidder: 'sovrn',
@@ -490,15 +601,33 @@ export const state = () => ({
                 tagid: [950920],
               },
             },
+            {
+              bidder: 'luponmedia',
+              params: {
+                siteId: 4396,
+                keyId: 'uid_telegramhr',
+              },
+            },
           ],
         },
         mobile: {
-          sizes: [[300, 250]],
+          sizes: [
+            [300, 250],
+            [336, 280],
+            [300, 600],
+          ],
           bids: [
             {
               bidder: 'sovrn',
               params: {
                 tagid: [950920],
+              },
+            },
+            {
+              bidder: 'luponmedia',
+              params: {
+                siteId: 4396,
+                keyId: 'uid_telegramhr',
               },
             },
           ],
@@ -582,7 +711,7 @@ export const actions = {
     if (payload.options && payload.options.includes('all')) {
       return
     }
-    if (rootState.user.access) {
+    if (rootState.user.access === 'BR92VTWM') {
       return
     }
     // load the up to date floor data
@@ -667,10 +796,10 @@ export const actions = {
     window.googletag.cmd.push(() => {
       const prefix = state.prefix
       const sizes = this.$mobile ? 'mobile' : 'desktop'
-      let ds
+      let ds, unit
       for (const i of Object.keys(state.units)) {
         if (i in state.units) {
-          const unit = state.units[i]
+          unit = state.units[i]
           let upc = sizes === 'desktop' ? 14 : 12
           if (state.upc[i]) {
             upc = state.upc[i][sizes]
@@ -708,12 +837,25 @@ export const actions = {
             defaultGdprScope: true,
           },
         },
+        userSync: {
+          filterSettings: {
+            iframe: {
+              bidders: '*',
+              filter: 'include',
+            },
+            image: {
+              bidders: '*',
+              filter: 'include',
+            },
+          },
+        },
       })
       // const prefix = state.prefix
       const sizes = this.$mobile ? 'mobile' : 'desktop'
+      let unit
       for (const i of Object.keys(state.units)) {
         if (i in state.units && state.units[i].pbjs) {
-          const unit = state.units[i]
+          unit = state.units[i]
           if (!unit.pbjs[sizes].sizes) {
             continue
           }
@@ -754,6 +896,7 @@ export const actions = {
     window.googlefc.callbackQueue = window.googlefc.callbackQueue || []
     window.googletag = window.googletag || {}
     window.googletag.cmd = window.googletag.cmd || []
+    dispatch('initPBJS')
     /* global __tcfapi */
     window.googlefc.callbackQueue.push({
       CONSENT_DATA_READY: () =>

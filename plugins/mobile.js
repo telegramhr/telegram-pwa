@@ -8,7 +8,7 @@ export default ({ app, req, store }, inject) => {
     },
 
     processLinker(widgetId) {
-      if (store.state.user.active_sub) {
+      if (store.state.user.access) {
         return
       }
       app.$axios

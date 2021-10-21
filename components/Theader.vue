@@ -32,7 +32,7 @@
         <div class="half" role="menu">
           <client-only>
             <app-link
-              v-show="!$store.state.user.active_sub"
+              v-show="!$store.state.user.access"
               to="/pretplata"
               class="signup-btn sub-btn"
               @click.native="maybeCloseSide"
@@ -292,7 +292,7 @@
         <div class="flex third relative">
           <client-only>
             <app-link
-              v-show="!$store.state.user.active_sub"
+              v-show="!$store.state.user.access"
               to="/pretplata"
               class="signup-btn sub-btn"
               >Pretplatite se</app-link
@@ -368,7 +368,7 @@
           <div class="flex third relative">
             <client-only>
               <app-link
-                v-show="!$store.state.user.active_sub"
+                v-show="!$store.state.user.access"
                 to="/pretplata"
                 class="signup-btn sub-btn"
                 >Pretplatite se</app-link
@@ -442,13 +442,12 @@
               >
               <app-link role="menuitem" to="/zivot">Život</app-link>
               <app-link role="menuitem" to="/kultura">Kultura</app-link>
-              <!--<app-link to="/fotogalerije">Fotogalerije</app-link>-->
             </div>
           </div>
           <div class="flex third relative">
             <client-only>
               <app-link
-                v-show="!$store.state.user.active_sub"
+                v-show="!$store.state.user.access"
                 to="/pretplata"
                 class="signup-btn sub-btn"
                 >Pretplatite se</app-link

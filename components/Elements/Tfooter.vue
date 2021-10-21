@@ -1,7 +1,7 @@
 <template>
   <div class="full flex relative">
     <div
-      v-show="!$store.state.user.active_sub"
+      v-show="!$store.state.user.access"
       class="full pretplata-ticker pretplata-prefooter relative"
     >
       <div class="container flex relative">
@@ -99,9 +99,6 @@
           Sva prava pridržana &copy; {{ new Date().getFullYear() }} Telegram
           Media Grupa d.o.o.
         </div>
-      </div>
-      <div class="full center">
-        <ad-unit id="telegram_sticky"></ad-unit>
       </div>
     </footer>
   </div>
