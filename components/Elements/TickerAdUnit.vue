@@ -11,19 +11,7 @@
         bannerClass === 'ticker-right' ? 'sticky-right' : '',
       ]"
     >
-      <div
-        id="telegram_sticky"
-        :class="bannerClass"
-        :style="{
-          minHeight:
-            !disable &&
-            id === 'telegram_desktop_billboard_v1' &&
-            $route.name === 'category-slug' &&
-            !$store.getters['user/hasPremium']
-              ? '250px'
-              : 0,
-        }"
-      ></div>
+      <div id="telegram_sticky" :class="bannerClass"></div>
       <a
         href="#"
         :style="{
