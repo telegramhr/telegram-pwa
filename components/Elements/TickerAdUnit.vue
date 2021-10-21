@@ -13,6 +13,7 @@
     >
       <div id="telegram_sticky" :class="bannerClass"></div>
       <a
+        v-show="showClose"
         href="#"
         :style="{
           position: 'relative',
