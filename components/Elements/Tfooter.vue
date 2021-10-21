@@ -96,9 +96,6 @@
           Media Grupa d.o.o.
         </div>
       </div>
-      <div class="full center">
-        <ad-unit id="telegram_sticky"></ad-unit>
-      </div>
     </footer>
   </div>
 </template>

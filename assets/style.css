@@ -2068,17 +2068,6 @@ header {
     right: -300px;
 }
 
-#telegram_sticky {
-  position: fixed;
-  bottom: 0;
-  z-index: 9999;
-  text-align: center;
-}
-
-#telegram_sticky iframe, #telegram_sticky img {
-  margin: 0 auto;
-}
-
 /* U suradnji s element */
 
 .overtitle-parent {
