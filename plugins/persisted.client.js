@@ -18,6 +18,7 @@ export default ({ store }) => {
       'breaking',
       'newsletters',
       'authors',
+      'openspace',
     ],
   })(store)
 }
