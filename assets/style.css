@@ -1764,7 +1764,6 @@ header {
 .single-article-body iframe {
     margin-left: auto !important;
     margin-right: auto !important;
-    max-width: 100%;
 }
 
 .dark-mode .single-article-body iframe {
@@ -5221,7 +5220,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .dark-mode .openspace .standard-block, .dark-mode .elevate-over-section {
     background-color: #212121;
     color: #efefef;
-} 
+}
 .openspace .header-billboard {
     background-color: white;
 }
