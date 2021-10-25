@@ -101,7 +101,7 @@ export default {
   },
 
   router: {
-    middleware: ['piano'],
+    middleware: ['piano', 'gemius'],
   },
 
   loading: '~/components/loading.vue',
@@ -125,6 +125,7 @@ export default {
     { src: '@/plugins/mobile.js' },
     { src: '@/plugins/cxtrack.js', ssr: false },
     { src: '@/plugins/fontawesome.js' },
+    { src: '@/plugins/gemius.client.js' },
   ],
 
   ngrok: {
