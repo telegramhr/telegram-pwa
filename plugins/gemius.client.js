@@ -21,7 +21,6 @@ export default ({ route }) => {
     window.pp_gemius_identifier = 'nSdLyvtwW.A9i9jJKh9.c_UTHZEdEXuOnL7hjdYBhsX.h7'
   }
   function gemius_pending(i) {
-    console.log(i)
     window[i] =
       window[i] ||
       function () {

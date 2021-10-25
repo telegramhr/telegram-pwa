@@ -89,13 +89,15 @@ export const actions = {
       commit('setAdmin')
     }
   },
-  logout({ commit, dispatch }) {
+  logout({ commit, dispatch, state }) {
     this.$cookies.remove('tmg_access', {
       path: '/',
       domain: '.telegram.hr',
     })
-    window.tp.pianoId.logout()
-    dispatch('newsletters/clearAccess', null, { root: true })
+    if (state.first_name) {
+      window.tp.pianoId.logout()
+      dispatch('newsletters/clearAccess', null, { root: true })
+    }
     commit('logout')
   },
 }
