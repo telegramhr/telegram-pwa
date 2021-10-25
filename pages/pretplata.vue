@@ -20,7 +20,12 @@
       </div>
       <div class="full flex">
         <div class="container relative flex pretplata-packs mobile-side-pad">
-          <input id="yeartoggle" type="checkbox" name="yeartoggle" />
+          <input
+            id="yeartoggle"
+            type="checkbox"
+            class="yeartoggle"
+            name="yeartoggle"
+          />
           <div class="full center yeartoggle-parent">
             <label class="relative">
               <div class="best-price-sticker animate">
