@@ -703,16 +703,18 @@ export default {
           /* global instgrm */
           instgrm.Embeds.process()
         }
-        const images = [
-          ...document
-            .getElementById('article-content')
-            .getElementsByTagName('img'),
-        ]
-        images.forEach((image) => {
-          if (image.width < image.height) {
-            image.classList.remove('size-full')
-          }
-        })
+        if (document.getElementById('article-content')) {
+          const images = [
+            ...document
+              .getElementById('article-content')
+              .getElementsByTagName('img'),
+          ]
+          images.forEach((image) => {
+            if (image.width < image.height) {
+              image.classList.remove('size-full')
+            }
+          })
+        }
       } else {
         setTimeout(this.getPost, 500)
       }

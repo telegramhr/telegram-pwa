@@ -1,5 +1,5 @@
 <template>
-  <div class="main-container flex category-page">
+  <div :class="['main-container', 'flex', 'category-page', extraClass]">
     <div class="full flex relative single-article">
       <client-only>
         <theader></theader>
@@ -108,6 +108,12 @@ export default {
     }
   },
   computed: {
+    extraClass() {
+      return this.$store.state.category.categories[this.$route.params.category]
+        ? this.$store.state.category.categories[this.$route.params.category]
+            .extraClass
+        : ''
+    },
     posts() {
       return this.$store.state.category.categories[this.$route.params.category]
         ? this.$store.state.category.categories[this.$route.params.category]

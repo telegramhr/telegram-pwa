@@ -30,12 +30,14 @@
           />
         </div>
         <nav class="full center page-header-nav">
-          <app-link role="menuitem" to="/politika-kriminal">Vještine</app-link>
-          <app-link role="menuitem" to="/komentari">Tvrtke i karijere</app-link>
-          <app-link role="menuitem" to="/biznis-tech"
+          <app-link role="menuitem" to="/vjestine">Vještine</app-link>
+          <app-link role="menuitem" to="/tvrtke-karijere"
+            >Tvrtke i karijere</app-link
+          >
+          <app-link role="menuitem" to="/kvizovi-testovi"
             >Kvizovi i testovi</app-link
           >
-          <app-link role="menuitem" to="/velike-price">Vodiči</app-link>
+          <app-link role="menuitem" to="/vodici">Vodiči</app-link>
         </nav>
       </div>
     </div>
@@ -294,31 +296,29 @@
 export default {
   async fetch() {
     await this.$store.dispatch('openspace/pullPosts')
-    await this.$axios
-      .get('/api/author/ivan-luzar')
-      .then((res) => {
-        this.posts = res.data.posts
+    await this.$store
+      .dispatch('category/pullPosts', {
+        category: 'openspace',
       })
       .catch(() => {
-        // set status code on server and
         if (process.server) {
           this.$telegram.context.res.statusCode = 404
         }
-        // use throw new Error()
-        throw new Error('User not found')
+        throw new Error('Kategorija ne postoji')
       })
   },
   data() {
     return {
       loading: false,
-      posts: [],
-      page: 2,
       hasMore: true,
     }
   },
   computed: {
     featured() {
       return this.$store.state.openspace.posts
+    },
+    posts() {
+      return this.$store.state.category.categories.openspace.posts
     },
   },
   head() {

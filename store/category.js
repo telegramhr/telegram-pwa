@@ -50,6 +50,36 @@ export const state = () => ({
       posts: [],
       updated: null,
     },
+    openspace: {
+      name: 'Openspace',
+      posts: [],
+      updated: null,
+      extraClass: 'openspace',
+    },
+    'kvizovi-testovi': {
+      name: 'Kvizovi i testovi',
+      posts: [],
+      updated: null,
+      extraClass: 'openspace',
+    },
+    'tvrtke-karijere': {
+      name: 'Tvrtke i karijere',
+      posts: [],
+      updated: null,
+      extraClass: 'openspace',
+    },
+    vjestine: {
+      name: 'Vještine',
+      posts: [],
+      updated: null,
+      extraClass: 'openspace',
+    },
+    vodici: {
+      name: 'Vodiči',
+      posts: [],
+      updated: null,
+      extraClass: 'openspace',
+    },
   },
   morePosts: {
     'politika-kriminal': {
@@ -85,6 +115,22 @@ export const state = () => ({
       page: 2,
     },
     sport: {
+      posts: [],
+      page: 2,
+    },
+    'kvizovi-testovi': {
+      posts: [],
+      page: 2,
+    },
+    'tvrtke-karijere': {
+      posts: [],
+      page: 2,
+    },
+    vjestine: {
+      posts: [],
+      page: 2,
+    },
+    vodici: {
       posts: [],
       page: 2,
     },
