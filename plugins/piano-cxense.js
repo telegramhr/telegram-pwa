@@ -1,6 +1,7 @@
 export default function ({ store }) {
   window.cX = window.cX || {}
   window.cX.callQueue = window.cX.callQueue || []
+  window.cX.options = window.cX.options || { compat: { c1x: { wait: 3000 } } }
   window.cX.callQueue.push(['setSiteId', '1128464677385494954'])
   window.cX.callQueue.push([
     'setCustomParameters',

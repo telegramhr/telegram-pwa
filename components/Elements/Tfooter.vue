@@ -37,10 +37,10 @@
               src="@/assets/img/telesport_logo_white.svg"
               alt="Telesport logo"
             />
-            <img
+            <!--<img
               src="@/assets/img/openspace_logo_negative.svg"
               alt="openspace logo"
-            />
+            />-->
             <img src="@/assets/img/tg_studio_white.svg" alt="TG Studio logo" />
           </div>
         </div>

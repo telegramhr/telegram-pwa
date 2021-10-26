@@ -1,5 +1,8 @@
 /* eslint-disable */
 export default ({ app }) => {
+  if (navigator.userAgent.includes('cXensebot')) {
+    return
+  }
   ;(function (w) {
     ;(function () {
       /*
