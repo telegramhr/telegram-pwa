@@ -7,7 +7,6 @@
         minHeight:
           !disable &&
           id === 'telegram_desktop_billboard_v1' &&
-          $route.name === 'category-slug' &&
           !$store.getters['user/hasPremium']
             ? '250px'
             : 0,
