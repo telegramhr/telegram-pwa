@@ -563,7 +563,7 @@ export default {
     },
     categoryClass() {
       if (this.post.category_slug) {
-        if (this.post.category_slug === 'openspace') {
+        if (this.post.category_slug.includes('openspace')) {
           return this.post.category_slug + ' fancy-rubrika'
         }
         return this.post.category_slug
@@ -608,7 +608,7 @@ export default {
       }
     },
     loadAds() {
-      if (this.post.category_slug === 'openspace') {
+      if (this.post.category_slug.includes('openspace')) {
         return
       }
       this.$store.dispatch('ads/initAds', {
