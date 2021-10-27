@@ -30,7 +30,10 @@
         >
           <ad-unit
             id="telegram_desktop_billboard_v1"
-            :disable="post.disable_ads.includes('all')"
+            :disable="
+              post.disable_ads.includes('all') ||
+              post.category_slug.includes('openspace')
+            "
           ></ad-unit>
           <div v-if="!$mobile" class="container wallpaper-banners animate">
             <div class="wallpaper-left">
