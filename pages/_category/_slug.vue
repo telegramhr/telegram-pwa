@@ -31,7 +31,7 @@
           <ad-unit
             id="telegram_desktop_billboard_v1"
             :disable="
-              (post.disable_ads && post.disable_ads.includes('all')) ||
+              post.disable_ads.includes('all') ||
               (post.category_slug && post.category_slug.includes('openspace'))
             "
           ></ad-unit>
@@ -318,9 +318,7 @@
           </client-only>
         </div>
         <div class="full flex">
-          <lazy-single-newsletters
-            :author="post.authors[0]"
-          ></lazy-single-newsletters>
+          <single-newsletters :author="post.authors[0]"></single-newsletters>
         </div>
         <div class="full flex">
           <div
@@ -336,10 +334,10 @@
             :p="Number(post.id)"
             :permalink="post.permalink"
           ></keep-reading>
-          <div class="full flex">
-            <linker type="footer"></linker>
-          </div>
         </client-only>
+        <div class="full flex">
+          <linker type="footer"></linker>
+        </div>
         <ticker></ticker>
       </div>
     </template>
@@ -625,15 +623,12 @@ export default {
         tags: this.post.tags,
       })
       if (
-        !this.post.disable_ads &&
-        this.post.disable_ads &&
         !this.post.disable_ads.includes('all') &&
         !this.post.disable_ads.includes('nepromo')
       ) {
         this.loadMox()
       }
       if (
-        this.post.disable_ads &&
         !this.post.disable_ads.includes('all') &&
         !this.post.disable_ads.includes('midas') &&
         !this.post.disable_ads.includes('nepromo')

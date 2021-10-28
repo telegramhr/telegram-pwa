@@ -1,16 +1,18 @@
 <template>
   <div class="full">
-    <div
-      v-if="
-        !(
-          ($mobile && $route.name === 'index') ||
-          (!$mobile && $route.name === 'category-slug')
-        )
-      "
-      class="full center header-billboard"
-    >
-      <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
-    </div>
+    <client-only>
+      <div
+        v-if="
+          !(
+            ($mobile && $route.name === 'index') ||
+            (!$mobile && $route.name === 'category-slug')
+          )
+        "
+        class="full center header-billboard"
+      >
+        <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
+      </div>
+    </client-only>
     <div
       :class="{
         'side-menu': true,
@@ -92,7 +94,6 @@
               </button>
             </form>
           </div>
-          <!--<app-link to="/moj-racun">Moj račun</app-link>-->
           <h3>Rubrika</h3>
           <app-link
             role="menuitem"
@@ -124,7 +125,6 @@
           <app-link role="menuitem" to="/kultura" @click.native="maybeCloseSide"
             >Kultura</app-link
           >
-          <!--<app-link to="/fotogalerije">Fotogalerije</app-link>-->
         </div>
         <div class="half" role="menu">
           <h3>Postavke izgleda</h3>
