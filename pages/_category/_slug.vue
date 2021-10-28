@@ -318,7 +318,9 @@
           </client-only>
         </div>
         <div class="full flex">
-          <single-newsletters :author="post.authors[0]"></single-newsletters>
+          <lazy-single-newsletters
+            :author="post.authors[0]"
+          ></lazy-single-newsletters>
         </div>
         <div class="full flex">
           <div
@@ -698,13 +700,11 @@ export default {
         if (typeof FB !== 'undefined') {
           FB.XFBML.parse()
         }
-        if (typeof twttr !== 'undefined') {
-          /* global twttr */
-          twttr.widgets.load(document.getElementById('article-content'))
-        }
-        if (typeof instgrm !== 'undefined') {
-          /* global instgrm */
-          instgrm.Embeds.process()
+        if (document.getElementsByClassName('twitter-tweet')) {
+          const head = document.getElementsByTagName('head')[0]
+          const scriptTag = document.createElement('script')
+          scriptTag.src = 'https://platform.twitter.com/widgets.js'
+          head.append(scriptTag)
         }
         if (document.getElementById('article-content')) {
           const images = [
@@ -891,19 +891,6 @@ export default {
         },
       ],
       script: [
-        {
-          vmid: 'instagram',
-          hid: 'instagram',
-          src:
-            'https://www.instagram.com/static/bundles/metro/EmbedSDK.js/33cd2c5d5d59.js',
-        },
-        {
-          vmid: 'twitter',
-          hid: 'twitter',
-          src: 'https://platform.twitter.com/widgets.js',
-          async: true,
-          defer: true,
-        },
         {
           vmid: 'schema-ld',
           hid: 'schema-ld',
