@@ -31,8 +31,8 @@
           <ad-unit
             id="telegram_desktop_billboard_v1"
             :disable="
-              post.disable_ads.includes('all') ||
-              post.category_slug.includes('openspace')
+              (post.disable_ads && post.disable_ads.includes('all')) ||
+              (post.category_slug && post.category_slug.includes('openspace'))
             "
           ></ad-unit>
           <div v-if="!$mobile" class="container wallpaper-banners animate">
@@ -613,7 +613,10 @@ export default {
       }
     },
     loadAds() {
-      if (this.post.category_slug.includes('openspace')) {
+      if (
+        this.post.category_slug &&
+        this.post.category_slug.includes('openspace')
+      ) {
         return
       }
       this.$store.dispatch('ads/initAds', {
@@ -623,12 +626,14 @@ export default {
       })
       if (
         !this.post.disable_ads &&
+        this.post.disable_ads &&
         !this.post.disable_ads.includes('all') &&
         !this.post.disable_ads.includes('nepromo')
       ) {
         this.loadMox()
       }
       if (
+        this.post.disable_ads &&
         !this.post.disable_ads.includes('all') &&
         !this.post.disable_ads.includes('midas') &&
         !this.post.disable_ads.includes('nepromo')
