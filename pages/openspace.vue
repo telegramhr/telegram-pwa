@@ -141,7 +141,9 @@
               Open Space Test
             </h3>
             <ostest></ostest>-->
-            <opportunities></opportunities>
+            <client-only>
+              <opportunities></opportunities>
+            </client-only>
           </div>
         </section>
         <div class="three-fourths flex-responsive flex">
@@ -225,11 +227,60 @@ export default {
     posts() {
       return this.$store.state.category.categories.openspace.posts
     },
+    jsonld() {
+      return {
+        '@context': 'https://schema.org',
+        '@type': 'Website',
+        url: 'https://www.telegram.hr/openspace',
+        name: 'Openspace.hr',
+        description:
+          'Telegramova platforma za traženje idealnog posla, profesionalno napredovanje i karijernu inspiraciju.',
+      }
+    },
   },
   head() {
     return {
-      title:
-        'openspace - platforma za poslovne vijesti, prilike i usavršavanje',
+      title: 'Openspace.hr',
+      meta: [
+        { hid: 'og:type', name: 'og:type', content: 'website' },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          property: 'og:title',
+          content: 'Openspace.hr',
+        },
+        {
+          hid: 'og:url',
+          name: 'og:url',
+          property: 'og:url',
+          content: 'https://www.telegram.hr/openspace',
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: '',
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'Telegramova platforma za traženje idealnog posla, profesionalno napredovanje i karijernu inspiraciju.',
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content:
+            'Telegramova platforma za traženje idealnog posla, profesionalno napredovanje i karijernu inspiraciju.',
+        },
+      ],
+      script: [
+        {
+          vmid: 'schema-ld',
+          hid: 'schema-ld',
+          type: 'application/ld+json',
+          json: this.jsonld,
+        },
+      ],
     }
   },
 }
