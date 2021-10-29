@@ -51,11 +51,14 @@ export const actions = {
           maxAge: 10 * 24 * 3600,
         })
         commit('setTerm', data.data[0].resource.rid)
-        window.fbq('trackCustom', 'HasSubscription', { value: 1 })
-      } else {
-        window.fbq('trackCustom', 'HasSubscription', { value: 0 })
+        if (window.fbq) {
+          window.fbq('trackCustom', 'HasSubscription', { value: 1 })
+        }
+        resolve()
+      } else if (window.fbq) {
+        window.fbq && window.fbq('trackCustom', 'HasSubscription', { value: 0 })
+        resolve()
       }
-      resolve()
     })
   },
   checkAccess({ state, dispatch }) {
