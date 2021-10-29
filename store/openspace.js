@@ -1,7 +1,11 @@
 export const state = () => ({
   posts: [],
+  break: {
+    id: 0,
+  },
   morePosts: [],
   updated: null,
+  break_updated: null,
   page: 1,
 })
 
@@ -13,6 +17,10 @@ export const mutations = {
   setMore(state, data) {
     state.morePosts = [...state.morePosts, ...data]
     state.page = state.page + 1
+  },
+  setBreak(state, data) {
+    state.break = data
+    state.break_updated = new Date().getTime()
   },
 }
 
@@ -38,5 +46,12 @@ export const actions = {
         resolve()
       })
     })
+  },
+  pullBreak({ commit, dispatch, state }) {
+    if (state.break_updated + 10 * 60 * 1000 < new Date().getTime()) {
+      this.$axios.get('/api/big-break/openspace').then((res) => {
+        commit('setBreak', res.data)
+      })
+    }
   },
 }

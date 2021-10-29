@@ -8,7 +8,15 @@
       <div class="os-section-title-right-el"></div>
       <div class="container flex fancyr-section-parent">
         <h1
-          class="full section-title mobile-side-pad center-text column-full-pad os-section-title hide"
+          class="
+            full
+            section-title
+            mobile-side-pad
+            center-text
+            column-full-pad
+            os-section-title
+            hide
+          "
         >
           openspace
         </h1>
@@ -41,7 +49,7 @@
         </nav>
       </div>
     </div>
-    <div class="full relative">
+    <div v-if="featured.length" class="full relative">
       <div class="container flex relative stretch standard-block intro-block">
         <div
           class="full flex column-horizontal-pad column-top-pad mobile-side-pad"
@@ -76,7 +84,12 @@
         </h2>
         <div class="full flex relative">
           <div
-            class="third column-horizontal-pad flex-responsive column-right-border"
+            class="
+              third
+              column-horizontal-pad
+              flex-responsive
+              column-right-border
+            "
           >
             <h3 class="full os-about-subtitle">Mjesto za radnike</h3>
             <p>
@@ -87,7 +100,12 @@
             </p>
           </div>
           <div
-            class="third column-horizontal-pad flex-responsive column-right-border"
+            class="
+              third
+              column-horizontal-pad
+              flex-responsive
+              column-right-border
+            "
           >
             <h3 class="full os-about-subtitle">Izvor za poduzetnike</h3>
             <p>
@@ -109,10 +127,15 @@
         </div>
       </div>
     </div>
-    <div class="full relative">
+    <div v-if="featured.length" class="full relative">
       <div class="container flex relative block-2 standard-block stretch">
         <section
-          class="fourth flex flex-responsive column-horizontal-pad mobile-side-pad"
+          class="
+            fourth
+            flex flex-responsive
+            column-horizontal-pad
+            mobile-side-pad
+          "
         >
           <div class="full flex desktop-only">
             <h3 class="full flex overtitle os-widget-overtitle">Newsletter</h3>
@@ -251,7 +274,12 @@
         </section>
         <div class="three-fourths flex-responsive flex">
           <section
-            class="two-thirds flex-responsive flex mobile-side-pad column-horizontal-pad column-right-border column-left-border"
+            class="
+              two-thirds
+              flex-responsive flex
+              mobile-side-pad
+              column-horizontal-pad column-right-border column-left-border
+            "
           >
             <featured :key="featured[4].id" :post="featured[4]"></featured>
             <div class="full flex split-articles">
@@ -261,7 +289,12 @@
             </div>
           </section>
           <section
-            class="third flex-responsive flex mobile-side-pad column-horizontal-pad"
+            class="
+              third
+              flex-responsive flex
+              mobile-side-pad
+              column-horizontal-pad
+            "
           >
             <template v-for="post in featured.slice(8, 11)">
               <medium :key="post.id" :post="post"></medium>
@@ -271,7 +304,7 @@
       </div>
     </div>
     <client-only>
-      <big-featured></big-featured>
+      <big-featured type="openspace"></big-featured>
     </client-only>
     <div class="full flex">
       <div class="container flex relative native-block stretch mobile-side-pad">
