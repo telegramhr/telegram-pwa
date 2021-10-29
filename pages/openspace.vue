@@ -91,12 +91,11 @@
               column-right-border
             "
           >
-            <h3 class="full os-about-subtitle">Mjesto za radnike</h3>
+            <h3 class="full os-about-subtitle">Alati za najbolji posao</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-              malesuada dignissim sapien, ut commodo lorem gravida eu. Vivamus
-              scelerisque tellus iaculis elit ultrices, eget semper risus
-              ullamcorper.
+              Platforma Openspace pruža vam sve potrebne alate za ostvarivanje
+              punog profesionalnog potencijala, od pronalaska idealnog radnog
+              mjesta do promjene karijere ili pregovora o povišici.
             </p>
           </div>
           <div
@@ -107,21 +106,19 @@
               column-right-border
             "
           >
-            <h3 class="full os-about-subtitle">Izvor za poduzetnike</h3>
+            <h3 class="full os-about-subtitle">Vodiči, savjeti i vještine</h3>
             <p>
-              Integer ullamcorper molestie sapien a ultricies. Duis consequat,
-              metus ut faucibus iaculis, risus magna auctor nunc, ut posuere
-              lectus elit at lacus. Phasellus a velit sem. Nunc vel leo aliquet,
-              egestas dui in, eleifend nulla.
+              Kroz životne priče i inspirativne primjere pojedinaca i kompanija,
+              dajemo vam insajderski uvid u najkorisnije vještine i savjete za
+              vaš profesionalni put, kao i motivaciju za daljnji napredak.
             </p>
           </div>
           <div class="third column-horizontal-pad flex-responsive">
-            <h3 class="full os-about-subtitle">Riječ za drugu riječ</h3>
+            <h3 class="full os-about-subtitle">Najbolji ljudi za tim</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-              malesuada dignissim sapien, ut commodo lorem gravida eu. Vivamus
-              scelerisque tellus iaculis elit ultrices, eget semper risus
-              ullamcorper.
+              Mjesto za poslodavce koji žele ispričati svoju priču, predstaviti
+              kulturu i objasniti vrijednosti, te tako pronaći potencijalne
+              zaposlenike koji bi se najbolje mogli uklopiti u vaše planove.
             </p>
           </div>
         </div>
