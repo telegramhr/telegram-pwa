@@ -106,7 +106,7 @@
               column-right-border
             "
           >
-            <h3 class="full os-about-subtitle">Vodiči, savjeti i vještine</h3>
+            <h3 class="full os-about-subtitle">Vodiči i savjeti</h3>
             <p>
               Kroz životne priče i inspirativne primjere pojedinaca i kompanija,
               dajemo vam insajderski uvid u najkorisnije vještine i savjete za
