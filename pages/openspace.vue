@@ -80,7 +80,7 @@
     <div class="full flex relative os-about-section">
       <div class="container column-vertical-pad mobile-side-pad flex">
         <h2 class="full flex column-horizontal-pad os-elevate-title">
-          Što je Open Space?
+          Što je Openspace?
         </h2>
         <div class="full flex relative">
           <div
@@ -135,138 +135,13 @@
           "
         >
           <div class="full flex desktop-only">
-            <h3 class="full flex overtitle os-widget-overtitle">Newsletter</h3>
+            <!--<h3 class="full flex overtitle os-widget-overtitle">Newsletter</h3>
             <newsletter></newsletter>
             <h3 class="full flex overtitle os-widget-overtitle">
               Open Space Test
             </h3>
-            <ostest></ostest>
-            <h3 class="full flex overtitle os-widget-overtitle">
-              Pregled prilika
-            </h3>
-            <app-link
-              to="komentari"
-              class="full flex komentar os-prilika relative"
-            >
-              <div class="komentar-author relative flex">
-                <img
-                  src="@/assets/img/extras/partner_logos/rimac_automobili.png"
-                  loading="lazy"
-                />
-                <i class="full mobile-only">Donosi</i>
-                <span class="full mobile-only">Rimac Automobili</span>
-              </div>
-              <div class="komentar-box relative">
-                <div class="komentar-quotation">
-                  <font-awesome-icon
-                    :icon="['fas', 'briefcase']"
-                  ></font-awesome-icon>
-                </div>
-                <div class="komentar-image">
-                  <picture>
-                    <img
-                      src="https://images.telegram.hr/MHh6tv8Sf5-PdPpF_vCdav5LWN_mIW8kIUUAetmZ1gI/preset:single2/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjEvMDgvMjAyMDEyMjItMDEtMjguanBn.jpg"
-                      loading="lazy"
-                    />
-                  </picture>
-                </div>
-                <div class="komentar-content full">
-                  <div class="komentar-author relative flex desktop-only">
-                    <i class="full">Donosi</i>
-                    <span class="full">Rimac Automobili</span>
-                  </div>
-                  <h2 class="full animate">
-                    Sensor Fusion & Scene Understanding Research Engineer
-                  </h2>
-                  <h5 class="full flex article-meta">
-                    <span class="meta-author"><i>Prijave do</i></span>
-                    <span class="meta-date">22.09.2021.</span>
-                  </h5>
-                </div>
-              </div>
-            </app-link>
-            <app-link
-              to="komentari"
-              class="full flex komentar os-prilika relative"
-            >
-              <div class="komentar-author relative flex">
-                <img
-                  src="@/assets/img/extras/partner_logos/ht.png"
-                  loading="lazy"
-                />
-                <i class="full mobile-only">Donosi</i>
-                <span class="full mobile-only">Hrvatski Telekom</span>
-              </div>
-              <div class="komentar-box relative">
-                <div class="komentar-quotation">
-                  <font-awesome-icon
-                    :icon="['fas', 'briefcase']"
-                  ></font-awesome-icon>
-                </div>
-                <div class="komentar-image">
-                  <picture>
-                    <img
-                      src="https://www.telegram.hr/wp-content/uploads/2021/08/5g-unboxing-smart-city-2-11-screenshot.png"
-                      loading="lazy"
-                    />
-                  </picture>
-                </div>
-                <div class="komentar-content full">
-                  <div class="komentar-author relative flex desktop-only">
-                    <i class="full">Donosi</i>
-                    <span class="full">Hrvatski Telekom</span>
-                  </div>
-                  <h2 class="full animate">
-                    Operater za tehničku podršku poslovnim korisnicima
-                  </h2>
-                  <h5 class="full flex article-meta">
-                    <span class="meta-author"><i>Prijave do</i></span>
-                    <span class="meta-date">25.09.2021.</span>
-                  </h5>
-                </div>
-              </div>
-            </app-link>
-            <app-link
-              to="komentari"
-              class="full flex komentar os-prilika relative"
-            >
-              <div class="komentar-author relative flex">
-                <img
-                  src="@/assets/img/extras/partner_logos/rimac_automobili.png"
-                  loading="lazy"
-                />
-                <i class="full mobile-only">Donosi</i>
-                <span class="full mobile-only">Rimac Automobili</span>
-              </div>
-              <div class="komentar-box relative">
-                <div class="komentar-quotation">
-                  <font-awesome-icon
-                    :icon="['fas', 'briefcase']"
-                  ></font-awesome-icon>
-                </div>
-                <div class="komentar-image">
-                  <picture>
-                    <img
-                      src="https://images.telegram.hr/MHh6tv8Sf5-PdPpF_vCdav5LWN_mIW8kIUUAetmZ1gI/preset:single2/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjEvMDgvMjAyMDEyMjItMDEtMjguanBn.jpg"
-                      loading="lazy"
-                    />
-                  </picture>
-                </div>
-                <div class="komentar-content full">
-                  <div class="komentar-author relative flex desktop-only">
-                    <i class="full">Donosi</i>
-                    <span class="full">Rimac Automobili</span>
-                  </div>
-                  <h2 class="full animate">
-                    Sensor Fusion & Scene Understanding Research Engineer
-                  </h2>
-                  <h5 class="full flex article-meta">
-                    <span class="meta-author"><i>Prijave do</i></span>
-                    <span class="meta-date">22.09.2021.</span>
-                  </h5>
-                </div>
-              </div>
-            </app-link>
+            <ostest></ostest>-->
+            <opportunities></opportunities>
           </div>
         </section>
         <div class="three-fourths flex-responsive flex">
