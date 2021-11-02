@@ -5260,7 +5260,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     letter-spacing: normal;
 }
 .openspace .subheader, .openspace footer {
-    background-color: #191a25;
+    background-color: #111;
 }
 .openspace footer .logo-line img {
     width: 24.99%;
@@ -5404,6 +5404,13 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 @media screen and (max-width: 767px) {
     .openspace .homepage-exclusive {
         display: none;
+    }
+    .openspace nav.homepage-exclusive {
+        display: flex;
+        background-color: #222;
+    }
+    .os-header-logo {
+        margin-top: 48px;
     }
     h1.openspace-header {
         font-size: 20vw;
