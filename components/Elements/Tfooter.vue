@@ -32,16 +32,29 @@
         </div>
         <div class="full flex center">
           <div class="full logo-line flex">
-            <img src="@/assets/img/super1_logo_white.svg" alt="Super1 logo" />
+            <a href="https://super1.telegram.hr" target="_blank">
+              <img src="@/assets/img/super1_logo_white.svg" alt="Super1 logo" />
+            </a>
+            <a href="https://telesport.telegram.hr" target="_blank">
+              <img
+                src="@/assets/img/telesport_logo_white.svg"
+                alt="Telesport logo"
+              />
+            </a>
+            <!--
+            <app-link href="https://www.telegram.hr/openspace">
             <img
-              src="@/assets/img/telesport_logo_white.svg"
-              alt="Telesport logo"
-            />
-            <!--<img
               src="@/assets/img/openspace_logo_negative.svg"
               alt="openspace logo"
-            />-->
-            <img src="@/assets/img/tg_studio_white.svg" alt="TG Studio logo" />
+            />
+            </app-link>
+            -->
+            <a href="https://www.telegramgrupa.hr#studio" target="_blank">
+              <img
+                src="@/assets/img/tg_studio_white.svg"
+                alt="TG Studio logo"
+              />
+            </a>
           </div>
         </div>
         <div class="full flex social-links center">
