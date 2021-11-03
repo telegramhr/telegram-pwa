@@ -47,7 +47,6 @@
               <img
                 src="@/assets/img/telesport_logo_white.svg"
                 alt="Telesport logo"
-                class="center animate"
               />
             </a>
             <!--
@@ -58,7 +57,11 @@
             />
             </app-link>
             -->
-            <a href="https://www.telegramgrupa.hr#studio" target="_blank">
+            <a
+              href="https://www.telegramgrupa.hr#studio"
+              target="_blank"
+              class="center animate"
+            >
               <img
                 src="@/assets/img/tg_studio_white.svg"
                 alt="TG Studio logo"
