@@ -118,9 +118,7 @@
               Open Space Test
             </h3>
             <ostest></ostest>-->
-            <client-only>
-              <opportunities></opportunities>
-            </client-only>
+            <opportunities></opportunities>
           </div>
         </section>
         <div class="three-fourths flex-responsive flex">
@@ -144,9 +142,7 @@
         </div>
       </div>
     </div>
-    <client-only>
-      <big-featured type="openspace"></big-featured>
-    </client-only>
+    <big-featured type="openspace"></big-featured>
     <div class="full flex">
       <div class="container flex relative native-block stretch mobile-side-pad">
         <div
@@ -170,16 +166,9 @@
 export default {
   async fetch() {
     await this.$store.dispatch('openspace/pullPosts')
-    await this.$store
-      .dispatch('category/pullPosts', {
-        category: 'openspace',
-      })
-      .catch(() => {
-        if (process.server) {
-          this.$telegram.context.res.statusCode = 404
-        }
-        throw new Error('Kategorija ne postoji')
-      })
+    await this.$store.dispatch('category/pullPosts', {
+      category: 'openspace',
+    })
   },
   data() {
     return {

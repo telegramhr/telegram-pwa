@@ -29,7 +29,7 @@
           <h2 class="full animate">
             {{ opportunity.title }}
           </h2>
-          <h5 v-if="opportunity.ends_at" class="full flex article-meta">
+          <h5 v-show="opportunity.ends_at" class="full flex article-meta">
             <span class="meta-author"><i>Prijave do</i></span>
             <span class="meta-date">{{ opportunity.ends_at }}</span>
           </h5>
@@ -42,15 +42,13 @@
 <script>
 export default {
   name: 'Opportunities',
+  async fetch() {
+    this.opportunities = await this.$axios.$get('/api/widgets/opportunities')
+  },
   data() {
     return {
       opportunities: [],
     }
-  },
-  mounted() {
-    this.$axios.get('/api/widgets/opportunities').then((res) => {
-      this.opportunities = res.data
-    })
   },
 }
 </script>

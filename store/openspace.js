@@ -2,6 +2,14 @@ export const state = () => ({
   posts: [],
   break: {
     id: 0,
+    color: '',
+    image: {
+      url: '',
+      alt: '',
+      color: '',
+    },
+    authors: [],
+    permalink: '',
   },
   morePosts: [],
   updated: null,

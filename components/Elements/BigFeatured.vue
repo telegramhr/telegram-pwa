@@ -1,6 +1,6 @@
 <template>
   <section
-    v-if="post.id"
+    v-show="post.id"
     :class="['full', $mobile ? 'mobile-only' : 'desktop-only']"
   >
     <app-link
@@ -22,9 +22,9 @@
               </h3>
             </div>
             <h2 class="full">{{ post.title }}</h2>
-            <h5 v-if="post.authors.length" class="full flex article-meta">
+            <h5 v-show="post.authors[0]" class="full flex article-meta">
               piše
-              {{ post.authors[0].name }}
+              {{ post.authors[0] ? post.authors[0].name : '' }}
             </h5>
             <h4 class="full hide">{{ post.subtitle }}</h4>
           </div>
@@ -33,12 +33,6 @@
       </div>
       <div
         class="immersive-fade desktop-only"
-        :style="{
-          background: `linear-gradient(to right, rgba(${post.image.color}, 0) 0%, rgba(${post.image.color}, 1) 50%, rgba(${post.image.color}, 0) 100%)`,
-        }"
-      ></div>
-      <div
-        class="immersive-fade mobile-only"
         :style="{
           background: `linear-gradient(to right, rgba(${post.image.color}, 0) 0%, rgba(${post.image.color}, 1) 50%, rgba(${post.image.color}, 0) 100%)`,
         }"
@@ -53,7 +47,6 @@
     </app-link>
     <app-link
       v-if="$mobile"
-      v-show="post.id"
       class="full flex article-break article relative"
       :to="post.permalink"
       :aria-labelledby="'break-' + post.id"
@@ -80,15 +73,19 @@
           <h2 :id="'break-' + post.id" class="full center-text">
             {{ post.portal_title }}
           </h2>
-          <h5 v-if="post.authors.length" class="full article-meta center-text">
+          <h5
+            v-show="post.authors.length"
+            class="full article-meta center-text"
+          >
             <span class="meta-author"
               ><i>Piše</i>
-              {{ post.authors[0].name }}
+              {{ post.authors[0] ? post.authors[0].name : '' }}
             </span>
           </h5>
           <div class="full flex">
             <img
               class="break-image"
+              :srcset="srcset"
               :src="post.image.url"
               :alt="post.image.alt"
               loading="lazy"
@@ -110,13 +107,27 @@ export default {
       default: 'homepage',
     },
   },
+  async fetch() {
+    this.post = await this.$axios.$get('/api/big-break/' + this.type)
+  },
+  data() {
+    return {
+      post: {
+        id: 0,
+        color: '',
+        image: {
+          url: '',
+          url2: '',
+          url3: '',
+          alt: '',
+          color: '',
+        },
+        authors: [],
+        permalink: '',
+      },
+    }
+  },
   computed: {
-    post() {
-      if (this.type === 'openspace') {
-        return this.$store.state.openspace.break
-      }
-      return this.$store.state.break.post
-    },
     srcset() {
       let set = `${this.post.image.url}`
       if (this.post.image.url2) {
@@ -127,14 +138,6 @@ export default {
       }
       return set
     },
-  },
-  mounted() {
-    if (this.type === 'homepage') {
-      this.$store.dispatch('break/pullPosts')
-    }
-    if (this.type === 'openspace') {
-      this.$store.dispatch('openspace/pullBreak')
-    }
   },
 }
 </script>

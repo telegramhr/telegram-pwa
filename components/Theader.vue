@@ -5,7 +5,8 @@
         v-if="
           !(
             ($mobile && $route.name === 'index') ||
-            (!$mobile && $route.name === 'category-slug')
+            (!$mobile && $route.name === 'category-slug') ||
+            $route.name === 'openspace'
           )
         "
         class="full center header-billboard"
@@ -346,7 +347,14 @@
       <div class="full subheader mobile-side-pad center">
         <!-- Desktop Subheader -->
         <div
-          class="container desktop-only flex desktop-subheader column-horizontal-pad single-exclusive"
+          class="
+            container
+            desktop-only
+            flex
+            desktop-subheader
+            column-horizontal-pad
+            single-exclusive
+          "
         >
           <div class="third flex">
             <a
@@ -417,7 +425,14 @@
         </client-only>
         <div
           id="sidebar"
-          class="container desktop-only flex desktop-subheader column-horizontal-pad homepage-exclusive"
+          class="
+            container
+            desktop-only
+            flex
+            desktop-subheader
+            column-horizontal-pad
+            homepage-exclusive
+          "
           role="navigation"
         >
           <div class="two-thirds flex" role="menu">
