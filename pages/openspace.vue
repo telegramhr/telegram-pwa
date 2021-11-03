@@ -96,7 +96,7 @@
             </p>
           </div>
           <div class="third column-horizontal-pad flex-responsive">
-            <h3 class="full os-about-subtitle">Najbolji ljudi za tim</h3>
+            <h3 class="full os-about-subtitle">Top ljudi za tim</h3>
             <p>
               Mjesto za poslodavce koji žele ispričati svoju priču, predstaviti
               kulturu i objasniti vrijednosti, te tako pronaći potencijalne
