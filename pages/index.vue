@@ -15,7 +15,14 @@
       <div class="full header-filler"></div>
     </div>
     <div
-      class="block-title news-block-title header-block-title full mobile-side-pad desktop-only"
+      class="
+        block-title
+        news-block-title
+        header-block-title
+        full
+        mobile-side-pad
+        desktop-only
+      "
     >
       <div class="full block-title-pattern relative"></div>
       <div class="container flex relative">
@@ -30,15 +37,33 @@
     <div class="full relative">
       <div v-if="posts.length" class="container flex relative block-1 stretch">
         <section
-          class="three-fourths mobile-side-pad flex-responsive flex relative the-big-gs stretch elevate-over-section"
+          class="
+            three-fourths
+            mobile-side-pad
+            flex-responsive flex
+            relative
+            the-big-gs
+            stretch
+            elevate-over-section
+          "
         >
           <div
-            class="five-sixths column-horizontal-pad flex-responsive flex column-bottom-border column-right-border"
+            class="
+              five-sixths
+              column-horizontal-pad
+              flex-responsive flex
+              column-bottom-border column-right-border
+            "
           >
             <featured :key="posts[0].id" :post="posts[0]"></featured>
           </div>
           <aside
-            class="sixth desktop-only flex column-horizontal-pad column-bottom-pad column-bottom-border"
+            class="
+              sixth
+              desktop-only
+              flex
+              column-horizontal-pad column-bottom-pad column-bottom-border
+            "
           >
             <client-only>
               <weather></weather>
@@ -46,7 +71,12 @@
             </client-only>
           </aside>
           <div
-            class="two-thirds column-horizontal-pad flex-responsive flex column-right-border column-top-pad"
+            class="
+              two-thirds
+              column-horizontal-pad
+              flex-responsive flex
+              column-right-border column-top-pad
+            "
           >
             <featured :key="posts[1].id" :post="posts[1]"></featured>
             <mini-pretplata v-show="!$store.state.user.access"></mini-pretplata>
@@ -60,16 +90,29 @@
             <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
           </div>
           <div
-            class="third flex-responsive column-horizontal-pad flex column-top-pad"
+            class="
+              third
+              flex-responsive
+              column-horizontal-pad
+              flex
+              column-top-pad
+            "
           >
-            <medium :key="posts[4].id" :post="posts[4]"></medium>
-            <medium :key="posts[5].id" :post="posts[5]"></medium>
-            <medium :key="posts[6].id" :post="posts[6]"></medium>
-            <medium :key="posts[7].id" :post="posts[7]"></medium>
+            <medium
+              v-for="post in posts.slice(4, 7)"
+              :key="post"
+              :post="post"
+            ></medium>
           </div>
         </section>
         <section
-          class="fourth flex-responsive flex komentari mobile-side-pad column-horizontal-pad column-right-border"
+          class="
+            fourth
+            flex-responsive flex
+            komentari
+            mobile-side-pad
+            column-horizontal-pad column-right-border
+          "
         >
           <latest v-show="!$mobile" :portal="1"></latest>
           <commentary></commentary>
@@ -103,7 +146,12 @@
         class="container flex relative block-2 standard-block stretch"
       >
         <section
-          class="fourth flex desktop-only column-horizontal-pad column-right-border"
+          class="
+            fourth
+            flex
+            desktop-only
+            column-horizontal-pad column-right-border
+          "
         >
           <trending :id="1"></trending>
           <h2 class="full flex section-title">Dojave</h2>
@@ -111,7 +159,12 @@
         </section>
         <div class="three-fourths flex-responsive flex elevate-over-section">
           <section
-            class="two-thirds flex-responsive flex mobile-side-pad column-horizontal-pad column-right-border"
+            class="
+              two-thirds
+              flex-responsive flex
+              mobile-side-pad
+              column-horizontal-pad column-right-border
+            "
           >
             <featured :key="posts[8].id" :post="posts[8]"></featured>
             <div class="full flex split-articles">
@@ -125,7 +178,12 @@
             </div>
           </section>
           <section
-            class="third flex-responsive flex mobile-side-pad column-horizontal-pad"
+            class="
+              third
+              flex-responsive flex
+              mobile-side-pad
+              column-horizontal-pad
+            "
           >
             <template v-for="i in [12, 13, 14]">
               <standard
