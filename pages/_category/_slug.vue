@@ -901,6 +901,13 @@ export default {
           type: 'application/ld+json',
           json: this.jsonld,
         },
+        {
+          vmid: 'linker-slider',
+          hid: 'linker-slider',
+          type: 'text/javascript',
+          src: 'https://linker.hr/widget/slider/splide.min.js',
+          async: true,
+        },
       ],
       link,
     }

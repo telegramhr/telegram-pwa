@@ -1,17 +1,17 @@
 <template>
   <div class="main-container flex homepage">
     <client-only>
-      <!--<div v-if="!$mobile" class="container wallpaper-banners animate">
+      <div v-if="!$mobile" class="container wallpaper-banners animate">
         <div class="wallpaper-left">
           <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
         </div>
         <div class="wallpaper-right">
           <ad-unit id="telegram_dekstop_wallpaper_right"></ad-unit>
         </div>
-      </div>-->
+      </div>
     </client-only>
     <div class="full flex tg-red">
-      <!--<theader></theader>-->
+      <theader></theader>
       <div class="full header-filler"></div>
     </div>
     <div
