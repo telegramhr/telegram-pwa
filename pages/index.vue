@@ -98,11 +98,10 @@
               column-top-pad
             "
           >
-            <medium
-              v-for="post in posts.slice(4, 7)"
-              :key="post"
-              :post="post"
-            ></medium>
+            <medium :key="posts[4].id" :post="posts[4]"></medium>
+            <medium :key="posts[5].id" :post="posts[5]"></medium>
+            <medium :key="posts[6].id" :post="posts[6]"></medium>
+            <medium :key="posts[7].id" :post="posts[7]"></medium>
           </div>
         </section>
         <section
