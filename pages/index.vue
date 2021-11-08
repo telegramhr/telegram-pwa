@@ -1,17 +1,17 @@
 <template>
   <div class="main-container flex homepage">
     <client-only>
-      <div v-if="!$mobile" class="container wallpaper-banners animate">
+      <!--<div v-if="!$mobile" class="container wallpaper-banners animate">
         <div class="wallpaper-left">
           <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
         </div>
         <div class="wallpaper-right">
           <ad-unit id="telegram_dekstop_wallpaper_right"></ad-unit>
         </div>
-      </div>
+      </div>-->
     </client-only>
     <div class="full flex tg-red">
-      <theader></theader>
+      <!--<theader></theader>-->
       <div class="full header-filler"></div>
     </div>
     <div
@@ -229,14 +229,14 @@
       </div>
       <linker type="naslovnica"></linker>
       <client-only>
-        <lazy-sport></lazy-sport>
+        <sport></sport>
       </client-only>
-      <lazy-partners></lazy-partners>
+      <partners></partners>
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v4"></ad-unit>
       </div>
       <client-only>
-        <lazy-super1></lazy-super1>
+        <super1></super1>
       </client-only>
       <div class="full flex">
         <div class="container desktop-only flex relative column-full-pad"></div>
@@ -249,6 +249,9 @@
           <lazy-category slug="velike-price"></lazy-category>
           <lazy-most-read v-show="$mobile"></lazy-most-read>
         </client-only>
+      </div>
+      <div class="container flex center">
+        <div id="linker-526" class="lwdgt" data-wid="526"></div>
       </div>
     </div>
     <tfooter></tfooter>
@@ -348,6 +351,13 @@ export default {
           hid: 'schema-ld',
           type: 'application/ld+json',
           json: this.jsonld,
+        },
+        {
+          vmid: 'linker-slider',
+          hid: 'linker-slider',
+          type: 'text/javascript',
+          src: 'https://linker.hr/widget/slider/splide.min.js',
+          async: true,
         },
       ],
     }

@@ -338,6 +338,9 @@
         <div class="full flex">
           <linker type="footer"></linker>
         </div>
+        <div class="container flex center">
+          <div id="linker-526" class="lwdgt" data-wid="526"></div>
+        </div>
         <ticker></ticker>
       </div>
     </template>
@@ -354,7 +357,14 @@
         <div class="full header-filler filler-404"></div>
       </div>
       <div
-        class="block-title news-block-title header-block-title full mobile-side-pad desktop-only"
+        class="
+          block-title
+          news-block-title
+          header-block-title
+          full
+          mobile-side-pad
+          desktop-only
+        "
       >
         <div class="full block-title-pattern relative"></div>
         <div class="container flex relative">
@@ -741,14 +751,8 @@ export default {
       ) {
         // some sanity checks taken from vue-router:
         // https://github.com/vuejs/vue-router/blob/dev/src/components/link.js#L106
-        const {
-          altKey,
-          ctrlKey,
-          metaKey,
-          shiftKey,
-          button,
-          defaultPrevented,
-        } = event
+        const { altKey, ctrlKey, metaKey, shiftKey, button, defaultPrevented } =
+          event
         // don't handle with control keys
         if (metaKey || altKey || ctrlKey || shiftKey) return
         // don't handle when preventDefault called
