@@ -3274,44 +3274,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
 }
 
-
-/* Specijali page */
-
-.specijal-page .header-billboard {
-    display: none;
-}
-.specijal-page .specijal-patron {
-    z-index: 5;
-    color: white;
-}
-.specijal-page .specijal-cover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.specijal-header h1 {
-    z-index: 5;
-    font-size: 92px;
-    color: white;
-    margin-top: 15vw;
-    margin-bottom: 15vw;
-}
-.specijal-patron .overtitle {
-    font-size: .75rem;
-    font-family: neuzeit-grotesk,sans-serif;
-    font-weight: 300;
-    letter-spacing: .2px;
-    opacity: .7;
-    margin-bottom: 6px;
-}
-.specijal-patron img {
-    height: 32px;
-    margin-bottom: 20px;
-}
-
 @media screen and (max-width: 767px) {
     .single-article {
         font-size: 17px;
@@ -4432,6 +4394,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .dark-mode .column-bottom-border, .dark-mode .article-featured .article-pad:last-child, .dark-mode .article-standard {
         border-bottom: 1px solid #333;
     }
+    .dark-mode .column-left-border {
+        border-color: #333;
+    }
     .dark-mode .widget {
         border: 1px solid #333;
     }
@@ -5072,12 +5037,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-family: 'Barlow', sans-serif;
     font-weight: 700;
     font-style: normal;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     line-height: 1.2em;
     letter-spacing: -0.01em;
 }
 .openspace .article-featured h2 {
-    font-size: 1.4rem;
+    font-size: 1.25rem;
 }
 .openspace .block-related .article-standard h2, .openspace .block-related .article-featured h2 {
     font-size: 1rem;
@@ -5239,6 +5204,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     letter-spacing: normal;
     margin-bottom: 16px;
     line-height: 1.1em;
+    font-size: 2rem;
 }
 .openspace.single-article article .article-meta {
     font-family: ibm-plex-mono, sans-serif;
@@ -5403,6 +5369,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 @media screen and (max-width: 767px) {
     .openspace .homepage-exclusive {
         display: none;
+    }
+    .openspace.single-article h1 {
+        font-size: 1.4rem;
     }
     .openspace nav.homepage-exclusive {
         display: flex;
@@ -5637,7 +5606,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 1.1rem;
     }
     .fancy-rubrika .article-big h2 {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 }
 @media screen and (max-width: 1180px) and (min-width: 767px) {
@@ -5699,4 +5668,122 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .instagram-media {
     width: 100%;
+}
+
+/* Specijali page */
+
+.specijal-page .header-billboard {
+    display: none;
+}
+.specijal-page .specijal-header {
+    z-index: 2;
+}
+.specijal-page .elevate-over-section {
+    z-index: 3;
+    padding-top: 0px;
+}
+.specijal-header .specijal-cover {
+    width: 100%;
+    max-height: 90vh;
+    object-fit: cover;
+    z-index: 1;
+    position: relative;
+}
+.specijal-header::before {
+    content: ' ';
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0));
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+}
+.specijal-header h1 {
+    position: absolute;
+    bottom: 94px;
+    left: 0;
+    width: 100%;
+    height: auto;
+    color: white;
+    font-family: neuzeit-grotesk,sans-serif;
+    font-weight: 700;
+    font-size: 92px;
+    z-index: 3;
+    text-shadow: 0px 5px 15px rgba(0,0,0,0.5);
+}
+.specijal-patron {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 3;
+    padding: 24px;
+}
+.specijal-patron .overtitle {
+    font-size: .75rem;
+    font-family: neuzeit-grotesk,sans-serif;
+    font-weight: 300;
+    letter-spacing: .2px;
+    opacity: .7;
+    margin-bottom: 8px;
+    color: white;
+    text-transform: uppercase;
+    text-align: right;
+}
+.specijal-patron img {
+    width: 100px;
+    height: auto;
+    object-fit: contain;
+    object-position: bottom center;
+}
+.specijal-page .pretplata-prefooter {
+    display: none;
+}
+@media screen and (min-width: 767px) {
+    .specijal-page .standard-block .article-standard {
+        border-bottom: none;
+    }
+    .specijal-page .standard-block .article-standard {
+        width: 33.33%;
+        padding: 24px;
+    }
+}
+@media screen and (max-width: 1180px) {
+    .specijal-header::before {
+        display: none;
+    }
+    .specijal-header h1 {
+        position: relative;
+        color: inherit;
+        text-shadow: none;
+        bottom: 0px;
+        font-size: 3rem;
+    }
+    .specijal-patron {
+        position: relative;
+        z-index: 3;
+        padding: 24px;
+        padding-top: 0px;
+        width: 100%;
+    }
+    .specijal-patron .overtitle {
+        color: inherit;
+        width: 100%;
+        text-align: center;
+    }
+    .specijal-patron img {
+        margin: 0 auto;
+    }
+    .specijal-page .standard-block .article-standard {
+        width: 49.99%;
+    }
+}
+@media screen and (max-width: 767px) {
+    .specijal-page .standard-block .article-standard {
+        width: 100%;
+    }
+    .specijal-header h1 {
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
 }
