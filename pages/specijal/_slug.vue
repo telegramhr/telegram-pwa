@@ -6,18 +6,13 @@
       </client-only>
     </div>
     <div class="full flex relative specijal-header">
-      <img
-        class="specijal-cover"
-        src="https://www.telegram.hr/wp-content/uploads/2021/10/zapi5.jpg"
-      />
+      <img class="specijal-cover" :src="post.image.url" :alt="post.image.alt" />
       <h1 class="full relative center-text column-full-pad">
-        Lorem ipsum dolor sit amet
+        {{ post.title }}
       </h1>
       <div class="relative flex-responsive specijal-patron">
         <h3 class="full overtitle center-text">Omogućuje</h3>
-        <img
-          src="https://www.telegram.hr/wp-content/uploads/2021/05/zagrebacka-500x400-144626jpgaxd.jpeg"
-        />
+        <img :src="post.company.logo" :alt="post.company.name" />
       </div>
     </div>
     <div class="container flex relative standard-block block-1 stretch">
@@ -25,9 +20,7 @@
         class="full flex relative stretch elevate-over-section mobile-side-pad"
       >
         <div v-if="posts.length" class="full flex relative">
-          <template v-for="i in [0, 1, 2, 3, 4, 5]">
-            <standard v-if="posts[i]" :key="i" :post="posts[i]" />
-          </template>
+          <standard v-for="p in posts.slice(0, 5)" :key="p.id" :post="p" />
         </div>
       </section>
     </div>
@@ -40,20 +33,27 @@ export default {
   name: 'SpecijalIndex',
   async fetch() {
     await this.$axios
-      .get('/api/tag/' + this.$route.params.slug)
+      .get('/api/special/' + this.$route.params.slug)
       .then((res) => {
-        this.posts = res.data.posts
-        this.category = res.data.tag
-        if (res.data.posts.length < 9) {
-          this.hasMore = false
-        }
-      })
-      .catch(() => {
-        // TODO: error logging
+        this.post = res.data
+        this.getPosts()
       })
   },
   data() {
     return {
+      post: {
+        id: 0,
+        title: '',
+        image: {
+          url: '',
+          alt: '',
+          author: '',
+        },
+        company: {
+          name: '',
+          logo: '',
+        },
+      },
       posts: [],
       category: '',
       morePosts: [],
@@ -61,19 +61,24 @@ export default {
       hasMore: true,
     }
   },
-  computed: {
-    cat() {
-      return this.$options.filters.parseCat(this.category)
-    },
-  },
-  mounted() {
-    this.$store.dispatch('ads/initAds', { route: this.$route })
-  },
   methods: {
+    getPosts() {
+      this.$axios
+        .get('/api/tag/' + this.post.tag)
+        .then((res) => {
+          this.posts = res.data.posts
+          if (res.data.posts.length < 9) {
+            this.hasMore = false
+          }
+        })
+        .catch(() => {
+          // TODO: error logging
+        })
+    },
     loadMore() {
       this.loading = true
       this.$axios
-        .get('/api/tag/' + this.$route.params.slug + '/page/' + this.page)
+        .get('/api/tag/' + this.post.tag + '/page/' + this.page)
         .then((res) => {
           this.morePosts = [...this.morePosts, ...res.data.posts]
           this.page++

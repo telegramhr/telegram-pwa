@@ -652,6 +652,7 @@ export const state = () => ({
         'tema-slug',
       ],
       mobile: [
+        [1,1],
         [300, 50],
         [300, 100],
         [320, 50],
