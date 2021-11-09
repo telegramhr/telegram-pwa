@@ -31,14 +31,6 @@
 <script>
 export default {
   name: 'SpecijalIndex',
-  async fetch() {
-    await this.$axios
-      .get('/api/special/' + this.$route.params.slug)
-      .then((res) => {
-        this.post = res.data
-        this.getPosts()
-      })
-  },
   data() {
     return {
       post: {
@@ -61,20 +53,18 @@ export default {
       hasMore: true,
     }
   },
+  mounted() {
+    this.$axios.get('/api/special/' + this.$route.params.slug).then((res) => {
+      this.post = res.data
+      this.$axios.get('/api/tag/' + res.data.tag).then((r) => {
+        this.posts = r.data.posts
+        if (r.data.posts.length < 9) {
+          this.hasMore = false
+        }
+      })
+    })
+  },
   methods: {
-    getPosts() {
-      this.$axios
-        .get('/api/tag/' + this.post.tag)
-        .then((res) => {
-          this.posts = res.data.posts
-          if (res.data.posts.length < 9) {
-            this.hasMore = false
-          }
-        })
-        .catch(() => {
-          // TODO: error logging
-        })
-    },
     loadMore() {
       this.loading = true
       this.$axios
