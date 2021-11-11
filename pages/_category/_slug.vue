@@ -335,6 +335,16 @@
             :permalink="post.permalink"
           ></keep-reading>
         </client-only>
+        <div class="container center">
+          <div
+            data-contentexchange-widget="k7dWfvWSYDqoSZvwu"
+            data-contentexchange-source="ughr"
+          ></div>
+          <script
+            src="https://ughr.contentexchange.me/static/tracker.js"
+            async
+          ></script>
+        </div>
         <div class="full flex">
           <linker type="footer"></linker>
         </div>
