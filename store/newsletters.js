@@ -37,6 +37,9 @@ export const mutations = {
     Vue.set(state.lists, data, true)
     state.updated = new Date().getTime()
   },
+  updated(state) {
+    state.updated = new Date().getTime()
+  },
   unSub(state, mlid) {
     state.lists[mlid] = false
     state.updated = new Date().getTime()
@@ -62,7 +65,7 @@ export const actions = {
       return
     }
     const a = this.$axios.create()
-    delete a.defaults.headers['X-Staging']
+    commit('updated')
     Object.keys(state.lists).forEach((key) => {
       if (email && key) {
         a.get(

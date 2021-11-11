@@ -53,7 +53,7 @@ export default {
         this.subtitle =
           'Pretplatite se odmah kako biste imali neograničen pristup svim sadržajima.'
       }
-      this.triggerShow()
+      this.triggerShow('paywall')
     },
     load() {
       this.title = 'Pročitali ste sve besplatne članke u ovom mjesecu.'
@@ -64,15 +64,24 @@ export default {
         this.subtitle =
           'Pretplatite se odmah kako biste imali neograničen pristup svim sadržajima.'
       }
-      this.triggerShow()
+      this.triggerShow('load')
     },
-    triggerShow() {
+    triggerShow(type) {
+      if (this.show) {
+        return
+      }
       const el = document.getElementById('piano-content')
+      console.log(el)
       if (el) {
         this.show = true
         el.parentNode.removeChild(el)
       } else {
-        setTimeout(this.load, 500)
+        if (this.type === 'load') {
+          setTimeout(this.load, 500)
+        }
+        if (this.type === 'paywall') {
+          setTimeout(this.paywall, 500)
+        }
       }
     },
     login() {

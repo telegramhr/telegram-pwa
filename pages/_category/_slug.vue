@@ -238,8 +238,8 @@
                 v-html="post.content"
               ></div>
               <!-- eslint-enable vue/no-v-html -->
-              <intext></intext>
               <client-only>
+                <intext></intext>
                 <linker type="mobile"></linker>
               </client-only>
               <!-- Article footer -->
@@ -508,7 +508,7 @@ export default {
           width: '',
           height: '',
         },
-        disable_ads: true,
+        disable_ads: [],
         promo: {
           signature_logo_off: false,
           partner: '',
@@ -519,6 +519,9 @@ export default {
     }
   },
   computed: {
+    canLogIn() {
+      return this.$store.state.user.exp * 1000 < new Date().getTime()
+    },
     jsonld() {
       const images = [this.post.image.url]
       if (this.post.image.url2) {
