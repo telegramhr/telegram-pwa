@@ -110,15 +110,20 @@
           <app-link to="/stranica/kontaktirajte-nas" class="animate"
             >Kontakt</app-link
           >
-          <app-link to="https://www.telegramgrupa.hr/jobs.php" class="animate"
-            >Karijere</app-link
-          >
           <app-link to="/stranica/uvjeti-koristenja" class="animate"
             >Uvjeti korištenja</app-link
           >
           <app-link to="/stranica/pravila-privatnosti" class="animate"
             >Pravila o privatnosti</app-link
           >
+          <a
+            v-if="$route.name === 'openspace'"
+            href="https://hr.jooble.org/"
+            target="_blank"
+            rel="sponsored"
+          >
+            Jooble oglasi
+          </a>
         </div>
         <div class="copyright full center-text">
           Sva prava pridržana &copy; {{ new Date().getFullYear() }} Telegram
