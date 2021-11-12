@@ -80,6 +80,12 @@ export const state = () => ({
       updated: null,
       extraClass: 'openspace',
     },
+    'pitanje-zdravlja': {
+      name: 'Pitanje zdravlja',
+      posts: [],
+      updated: null,
+      extraClass: 'pitanje-zdravlja',
+    },
   },
   morePosts: {
     'politika-kriminal': {

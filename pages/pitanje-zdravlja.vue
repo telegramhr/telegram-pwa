@@ -166,6 +166,9 @@
 </template>
 
 <script>
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+
 export default {
   name: 'PitanjeZdravlja',
   async fetch() {
@@ -197,6 +200,9 @@ export default {
           'Telegramova platforma za traženje idealnog posla, profesionalno napredovanje i karijernu inspiraciju.',
       }
     },
+  },
+  mounted() {
+    AOS.init()
   },
 }
 </script>

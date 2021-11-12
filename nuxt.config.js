@@ -44,8 +44,7 @@ export default {
       { rel: 'stylesheet', href: 'https://use.typekit.net/vrv6rlv.css' },
       {
         rel: 'stylesheet',
-        href:
-          'https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap',
       },
       {
         rel: 'me',
@@ -78,8 +77,7 @@ export default {
       },
       {
         hid: 'facebook',
-        src:
-          'https://connect.facebook.net/hr_HR/sdk.js#xfbml=1&version=v11.0&appId=1383786971938581',
+        src: 'https://connect.facebook.net/hr_HR/sdk.js#xfbml=1&version=v11.0&appId=1383786971938581',
         async: true,
         defer: true,
         crossorigin: 'anonymous',
@@ -92,8 +90,7 @@ export default {
       },
       {
         hid: 'sovrn',
-        src:
-          'https://get.s-onetag.com/71db7e62-a54b-43f0-98c7-ae8594228b02/tag.min.js',
+        src: 'https://get.s-onetag.com/71db7e62-a54b-43f0-98c7-ae8594228b02/tag.min.js',
         async: true,
         defer: true,
       },
@@ -218,7 +215,7 @@ export default {
   },
 
   purgeCSS: {
-    enabled: true,
+    enabled: false,
     whitelistPatterns: [
       /slick/,
       /banner/,
@@ -242,6 +239,7 @@ export default {
       },
     },
     optimization: {
+      minimize: true,
       splitChunks: {
         maxSize: 0,
       },
