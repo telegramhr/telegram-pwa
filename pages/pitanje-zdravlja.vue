@@ -233,8 +233,8 @@
 </template>
 
 <script>
-import AOS from 'aos'
-import 'aos/dist/aos.css'
+/* import AOS from 'aos'
+import 'aos/dist/aos.css' */
 
 export default {
   name: 'PitanjeZdravlja',
@@ -268,12 +268,12 @@ export default {
       }
     },
   },
-  mounted() {
+  /* mounted() {
     AOS.init({
       duration: 1000,
       delay: 250,
     })
-  },
+  }, */
 }
 </script>
 

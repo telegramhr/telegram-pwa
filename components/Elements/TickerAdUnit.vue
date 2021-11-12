@@ -11,24 +11,25 @@
         bannerClass === 'ticker-right' ? 'sticky-right' : '',
       ]"
     >
-      <div id="telegram_sticky" :class="bannerClass"></div>
-      <a
-        v-show="showClose"
-        href="#"
-        :style="{
-          position: 'relative',
-          marginLeft: '-22px',
-          left: bannerClass === 'ticker-right' ? '22px' : 0,
-          zIndex: 201,
-          top: -size[1] / 2 + 'px',
-        }"
-        @click.prevent="shouldHide = true"
-        ><font-awesome-icon
-          :icon="['fas', 'times-circle']"
-          size="3x"
-          style="color: #ae3736"
-        ></font-awesome-icon
-      ></a>
+      <div class="relative">
+        <div id="telegram_sticky" :class="bannerClass"></div>
+        <a
+          v-show="showClose"
+          href="#"
+          :style="{
+            position: 'absolute',
+            right: '-23px',
+            top: '-23px',
+            zIndex: 201,
+          }"
+          @click.prevent="shouldHide = true"
+          ><font-awesome-icon
+            :icon="['fas', 'times-circle']"
+            size="3x"
+            style="color: #ae3736"
+          ></font-awesome-icon
+        ></a>
+      </div>
     </div>
   </client-only>
 </template>
