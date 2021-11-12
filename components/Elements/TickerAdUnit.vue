@@ -57,7 +57,10 @@ export default {
   },
   computed: {
     bannerClass() {
-      if (this.size[0] === 900 && this.size[1] === 600) {
+      if (
+        (this.size[0] === 900 && this.size[1] === 600) ||
+        (this.size[0] === 320 && this.size[1] === 480)
+      ) {
         return 'takeover'
       }
       if (this.size[0] === 200 && this.size[1] === 250) {
