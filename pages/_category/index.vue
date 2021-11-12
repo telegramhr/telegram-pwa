@@ -27,24 +27,56 @@
         class="container flex relative standard-block block-1 stretch"
       >
         <section
-          class="three-fourths flex-responsive flex relative the-big-gs stretch elevate-over-section"
+          class="
+            three-fourths
+            flex-responsive flex
+            relative
+            the-big-gs
+            stretch
+            elevate-over-section
+          "
         >
           <div
-            class="two-thirds flex-responsive flex column-horizontal-pad column-right-border mobile-side-pad"
+            class="
+              two-thirds
+              flex-responsive flex
+              column-horizontal-pad column-right-border
+              mobile-side-pad
+            "
           >
-            <featured v-for="i in [0, 1, 2, 3]" :key="i" :post="posts[i]" />
+            <featured
+              v-for="post in posts.slice(0, 4)"
+              :key="post.id"
+              :post="post"
+            />
           </div>
           <div class="full flex mobile-only">
             <newsletter></newsletter>
           </div>
           <div
-            class="third flex-responsive column-horizontal-pad flex mobile-side-pad"
+            class="
+              third
+              flex-responsive
+              column-horizontal-pad
+              flex
+              mobile-side-pad
+            "
           >
-            <standard v-for="i in [4, 5, 6, 7, 8]" :key="i" :post="posts[i]" />
+            <standard
+              v-for="post in posts.slice(4, 9)"
+              :key="post.id"
+              :post="post"
+            />
           </div>
         </section>
         <section
-          class="fourth flex-responsive flex komentari mobile-side-pad column-horizontal-pad column-right-border"
+          class="
+            fourth
+            flex-responsive flex
+            komentari
+            mobile-side-pad
+            column-horizontal-pad column-right-border
+          "
         >
           <div class="full flex desktop-only">
             <category-newsletters></category-newsletters>
