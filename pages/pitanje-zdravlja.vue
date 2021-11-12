@@ -13,28 +13,51 @@
             src="@/assets/img/tgstudio_pitanjezdravlja_logo_white.svg"
             class="pz-header-logo"
             alt="Pitanje zdravlja logo"
+            data-aos="fade-down"
+            data-aos-delay="250"
           />
         </a>
         <nav class="full flex relative">
-          <a class="animate">Sasvim iskreno</a>
-          <a class="animate">Zdrave vijesti</a>
-          <a class="animate">Leksikon zdravlja</a>
-          <a class="animate">Rezultati istraživanja</a>
+          <a class="animate" data-aos="fade-down" data-aos-delay="500"
+            >Sasvim iskreno</a
+          >
+          <a class="animate" data-aos="fade-down" data-aos-delay="750"
+            >Zdrave vijesti</a
+          >
+          <a class="animate" data-aos="fade-down" data-aos-delay="1000"
+            >Leksikon zdravlja</a
+          >
+          <a class="animate" data-aos="fade-down" data-aos-delay="1250"
+            >Rezultati istraživanja</a
+          >
         </nav>
       </div>
     </div>
     <div class="full pz-hero center">
       <div class="container column-full-pad mobile-side-pad">
-        <h1 class="full center-text" data-aos="fade-up" data-aos-delay="750">
-          <span>Pitanje</span><span> zdravlja</span>
+        <h1 class="full center-text">
+          <span data-aos="fade-up" data-aos-delay="750">Pitanje</span
+          ><span data-aos="fade-down" data-aos-delay="1500"> zdravlja</span>
         </h1>
-        <p class="full pz-intro center-text">
+        <p
+          class="full pz-intro center-text"
+          data-aos="fade-up"
+          data-aos-delay="1750"
+        >
           Pitanje zdravlja je pitanje zdravstvene pismenosti.
         </p>
-        <p class="full pz-intro center-text">
+        <p
+          class="full pz-intro center-text"
+          data-aos="fade-up"
+          data-aos-delay="2000"
+        >
           Provodimo prvo istraživanje o zdravstvenoj pismenosti u Hrvatskoj.
         </p>
-        <div class="full center column-top-pad">
+        <div
+          class="full center column-top-pad"
+          data-aos="fade-up"
+          data-aos-delay="2250"
+        >
           <div class="pz-button">Pogledaj rezultate</div>
         </div>
       </div>
@@ -48,16 +71,32 @@
           <div class="pz-fancy-line"></div>
         </div>
         <div class="full column-full-pad">
-          <h2 class="full center-text">
+          <h2
+            class="full center-text"
+            data-aos="fade-down"
+            data-aos-delay="750"
+          >
             Što je <span class="pz-blue pz-dynamic">Pitanje zdravlja?</span>
           </h2>
-          <p class="full pz-intro center-text">
+          <p
+            class="full pz-intro center-text"
+            data-aos="fade-up"
+            data-aos-delay="1250"
+          >
             Platforma koja o zdravlju piše na kritički način.
           </p>
-          <p class="full pz-intro center-text">
+          <p
+            class="full pz-intro center-text"
+            data-aos="fade-up"
+            data-aos-delay="1500"
+          >
             Objavljujemo točne informacije.
           </p>
-          <p class="full pz-intro center-text">
+          <p
+            class="full pz-intro center-text"
+            data-aos="fade-up"
+            data-aos-delay="1750"
+          >
             Želimo pomoći u razvijanju zdravstvene pismenosti Hrvata.
           </p>
         </div>
@@ -97,22 +136,34 @@
           <div class="pz-fancy-line"></div>
         </div>
         <div class="full column-full-pad">
-          <h2 class="full center-text">
+          <h2
+            class="full center-text"
+            data-aos="fade-down"
+            data-aos-delay="750"
+          >
             Postavite svoje
             <span class="pz-blue pz-dynamic">pitanje o zdravlju</span>
           </h2>
-          <p class="full pz-intro center-text">
+          <p
+            class="full pz-intro center-text"
+            data-aos="fade-up"
+            data-aos-delay="1250"
+          >
             Projekt pitanje zdravlja lansiran je s ciljem promocije zdravstvene
             pismenosti kod Hrvata.
           </p>
-          <p class="full pz-intro center-text">
+          <p
+            class="full pz-intro center-text"
+            data-aos="fade-up"
+            data-aos-delay="1500"
+          >
             Postavite nam svoje pitanje u vezi zdravlja, a mi ćemo ponuditi
             točan odgovor.
           </p>
-          <div class="full center">
+          <div class="full center" data-aos="fade-up" data-aos-delay="2000">
             <textarea id="pz-query"></textarea>
           </div>
-          <div class="full center">
+          <div class="full center" data-aos="fade-up" data-aos-delay="2000">
             <div class="pz-button">Pošalji pitanje</div>
           </div>
         </div>
@@ -162,6 +213,22 @@
         </div>
       </div>
     </div>
+    <div class="full native-signature">
+      <div class="container flex mobile-side-pad">
+        <div class="full center">
+          <img
+            class="tg-studio"
+            src="@/assets/img/tg_studio.png"
+            alt="TG Studio logo"
+          />
+        </div>
+        <p class="full center-text column-full-pad">
+          Producirano u radionici TG Studija, Telegramove in-house agencije za
+          nativni marketing, u suradnji s partnerom adidas i po najvišim
+          uredničkim standardima Telegram Media Grupe.
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -202,7 +269,10 @@ export default {
     },
   },
   mounted() {
-    AOS.init()
+    AOS.init({
+      duration: 1000,
+      delay: 250,
+    })
   },
 }
 </script>
@@ -241,6 +311,7 @@ export default {
 .pz-header nav a {
   padding: 16px;
   font-size: 16px;
+  font-size: 0.8rem;
   opacity: 0.7;
 }
 .pz-header nav a:hover {
@@ -375,6 +446,17 @@ export default {
   text-transform: uppercase;
   color: #0a80c5;
 }
+.pitanje-zdravlja .native-signature .tg-studio {
+  width: 70px;
+  height: 90px;
+  object-fit: contain;
+}
+.pitanje-zdravlja .native-signature p {
+  max-width: 660px;
+  line-height: 1.2em;
+  opacity: 0.7;
+  margin: 0 auto;
+}
 @keyframes point-down {
   0% {
     opacity: 0;
@@ -397,7 +479,10 @@ export default {
   .pz-header nav {
     flex-wrap: nowrap;
     overflow-x: scroll;
-    height: 70px;
+    height: 62px;
+  }
+  .pz-header nav a {
+    padding: 12px;
   }
   .pz-hero h1 {
     font-size: 18vw;
@@ -433,6 +518,8 @@ export default {
   }
   .pitanje-zdravlja .article h4 {
     margin-bottom: 0px;
+    font-size: 15px;
+    font-size: 0.75rem;
   }
   .pitanje-zdravlja
     .intro-block
@@ -440,6 +527,13 @@ export default {
     .article-featured:first-child
     .article-pad {
     border-bottom: none;
+  }
+  .pitanje-zdravlja .native-signature {
+    margin-top: 48px;
+  }
+  .pitanje-zdravlja .native-signature p {
+    margin-top: 16px;
+    margin-bottom: 48px;
   }
 }
 </style>
