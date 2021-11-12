@@ -313,19 +313,17 @@
           </article>
         </div>
         <div class="full flex">
+          <div
+            class="container flex relative native-block stretch mobile-side-pad"
+          >
+            <linker type="category"></linker>
+          </div>
           <client-only>
             <native></native>
           </client-only>
         </div>
         <div class="full flex">
           <single-newsletters :author="post.authors[0]"></single-newsletters>
-        </div>
-        <div class="full flex">
-          <div
-            class="container flex relative native-block stretch mobile-side-pad"
-          >
-            <linker type="category"></linker>
-          </div>
         </div>
         <client-only>
           <keep-reading
