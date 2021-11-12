@@ -2,7 +2,10 @@
   <div>
     <h2 class="full flex section-title less-bottom-margin">Newsletteri</h2>
     <div class="full flex">
-      <div class="full newsletter-listing flex relative stretch">
+      <div
+        v-if="category"
+        class="full newsletter-listing flex relative stretch"
+      >
         <div class="full flex newsletter-header">
           <div class="newsletter-avatar">
             <img :src="category.image" loading="lazy" />
