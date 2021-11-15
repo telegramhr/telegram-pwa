@@ -239,10 +239,10 @@ import 'aos/dist/aos.css' */
 export default {
   name: 'PitanjeZdravlja',
   async fetch() {
-    await this.$store.dispatch('openspace/pullPosts')
-    await this.$store.dispatch('category/pullPosts', {
-      category: 'openspace',
-    })
+    await this.$store.dispatch('zdravlje/pullPosts')
+    /* await this.$store.dispatch('category/pullPosts', {
+      category: 'pitanje-zdravlja',
+    }) */
   },
   data() {
     return {
@@ -252,19 +252,18 @@ export default {
   },
   computed: {
     featured() {
-      return this.$store.state.openspace.posts
+      return this.$store.state.zdravlje.posts
     },
     posts() {
-      return this.$store.state.category.categories.openspace.posts
+      return this.$store.state.category.categories['pitanje-zdravlja'].posts
     },
     jsonld() {
       return {
         '@context': 'https://schema.org',
         '@type': 'Website',
         url: 'https://www.telegram.hr/openspace',
-        name: 'Openspace.hr',
-        description:
-          'Telegramova platforma za traženje idealnog posla, profesionalno napredovanje i karijernu inspiraciju.',
+        name: 'Pitanje zdravlja',
+        description: 'Telegramova platforma za zdraviji život',
       }
     },
   },
