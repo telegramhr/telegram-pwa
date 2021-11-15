@@ -18,7 +18,8 @@
           href="#"
           :style="{
             position: 'absolute',
-            right: '-23px',
+            right: bannerClass === 'ticker-right' ? 'auto' : '-23px',
+            left: bannerClass === 'ticker-right' ? '-23px' : 'auto',
             top: '-23px',
             zIndex: 201,
           }"
@@ -97,7 +98,6 @@ export default {
 }
 
 .sticky-right {
-  flex-direction: row-reverse;
   justify-content: end;
 }
 
