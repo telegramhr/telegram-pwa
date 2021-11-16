@@ -185,6 +185,15 @@
           <div class="full flex desktop-only">
             <h3 class="full flex overtitle pz-widget-overtitle">Teme</h3>
           </div>
+          <a class="full center pz-special-tile">
+            <h2 class="full center-text">Zdravlje prostate</h2>
+          </a>
+          <a class="full center pz-special-tile">
+            <h2 class="full center-text">Moždani udar</h2>
+          </a>
+          <a class="full center pz-special-tile">
+            <h2 class="full center-text">Imunitet</h2>
+          </a>
         </section>
         <div class="three-fourths flex-responsive flex">
           <section
@@ -282,6 +291,7 @@ export default {
   background-attachment: fixed;
   font-family: neuzeit-grotesk, sans-serif;
   font-weight: 300;
+  color: #111;
 }
 .pz-header {
   position: fixed;
@@ -318,6 +328,27 @@ export default {
 }
 .pz-hero {
   height: 100vh;
+}
+.pitanje-zdravlja .related-articles {
+  display: none;
+}
+.pz-special-tile {
+  border: 1px solid #ededed;
+  background-color: white;
+  height: 150px;
+  border-radius: 20px;
+  margin-top: 24px;
+  padding: 24px;
+}
+.pz-special-tile h2 {
+  background: -webkit-linear-gradient(#27a9e0, #0a80c5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  font-size: 30px;
+  font-size: 1.5rem;
+  font-family: neuzeit-grotesk, sans-serif;
+  font-weight: 300;
 }
 .pz-hero h1 {
   font-size: 90px;
