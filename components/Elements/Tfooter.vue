@@ -120,7 +120,6 @@
             v-if="$route.name === 'openspace'"
             href="https://hr.jooble.org/"
             target="_blank"
-            rel="sponsored"
           >
             Jooble oglasi
           </a>
