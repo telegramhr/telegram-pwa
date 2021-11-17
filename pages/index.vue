@@ -238,6 +238,7 @@
       <client-only>
         <super1></super1>
       </client-only>
+      <os-homepage></os-homepage>
       <div class="full flex">
         <div class="container desktop-only flex relative column-full-pad"></div>
       </div>
