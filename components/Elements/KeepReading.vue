@@ -9,29 +9,29 @@
     <div class="container flex relative block-related standard-block stretch">
       <section
         v-show="!$mobile"
-        class="fourth flex desktop-only column-horizontal-pad column-right-border"
+        class="
+          fourth
+          flex
+          desktop-only
+          column-horizontal-pad column-right-border
+        "
       >
         <latest :portal="1" :desktop="false"></latest>
       </section>
       <div
-        class="three-fourths flex-responsive flex elevate-over-section mobile-side-pad"
+        class="
+          three-fourths
+          flex-responsive flex
+          elevate-over-section
+          mobile-side-pad
+        "
       >
-        <template v-for="(post, index) in posts">
-          <div
-            v-if="index === 0"
-            :key="post.id"
-            class="third flex-responsive flex"
-          >
-            <div class="full flex column-horizontal-pad">
-              <featured :post="post"></featured>
-            </div>
-          </div>
-          <div v-else :key="post.id" class="third flex-responsive flex">
-            <div class="full flex column-horizontal-pad">
-              <standard :post="post"></standard>
-            </div>
-          </div>
-        </template>
+        <div
+          class="lwdgt"
+          data-wid="542"
+          data-infinite="true"
+          data-cycles="20"
+        ></div>
       </div>
     </div>
   </div>
@@ -65,7 +65,7 @@ export default {
     }
   },
   mounted() {
-    this.loadPosts()
+    // this.loadPosts()
   },
   methods: {
     loadPosts() {
