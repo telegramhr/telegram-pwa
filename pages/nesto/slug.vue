@@ -321,6 +321,7 @@
                 rast zadovoljstva korisnika, ponajbolji ikad, a u tom duhu će
                 nastaviti i u 2021. godini.
               </p>
+              <quiz :data="questions"></quiz>
               <div class="banner-intext center intext">
                 <div class="full flex">
                   <div
@@ -456,8 +457,7 @@ export default {
         comments_off: false,
         type: '',
         image: {
-          url:
-            'https://images.telegram.hr/nJ4pWuHi0fEcQfzBfxRlJfN_79KCZyj6WmUMN05CVYc/preset:single2/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjAvMTIvYmFydHVsb3ZpYy1pdmFuMi5qcGc.jpg',
+          url: 'https://images.telegram.hr/nJ4pWuHi0fEcQfzBfxRlJfN_79KCZyj6WmUMN05CVYc/preset:single2/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjAvMTIvYmFydHVsb3ZpYy1pdmFuMi5qcGc.jpg',
           alt: 'alt-text',
           author: 'Vjeko',
         },
@@ -494,6 +494,39 @@ export default {
       },
       related_posts: [],
       midas: false,
+      questions: {
+        questions: [
+          {
+            id: 0,
+            type: 'QuizSingleAnswer',
+            question: 'Koje je pitanje?',
+            answers: [
+              {
+                id: 0,
+                text: 'Odgovor 1',
+              },
+              {
+                id: 1,
+                text: 'Odgovor 2',
+              },
+            ],
+          },
+        ],
+        results: [
+          {
+            score_min: 0,
+            score_max: 20,
+            title: 'Neko rješenje',
+            description: 'Opis ',
+          },
+        ],
+        scoring: {
+          0: {
+            0: 0,
+            1: 2,
+          },
+        },
+      },
     }
   },
   computed: {
@@ -718,14 +751,8 @@ export default {
       ) {
         // some sanity checks taken from vue-router:
         // https://github.com/vuejs/vue-router/blob/dev/src/components/link.js#L106
-        const {
-          altKey,
-          ctrlKey,
-          metaKey,
-          shiftKey,
-          button,
-          defaultPrevented,
-        } = event
+        const { altKey, ctrlKey, metaKey, shiftKey, button, defaultPrevented } =
+          event
         // don't handle with control keys
         if (metaKey || altKey || ctrlKey || shiftKey) return
         // don't handle when preventDefault called
@@ -859,8 +886,7 @@ export default {
         {
           vmid: 'instagram',
           hid: 'instagram',
-          src:
-            'https://www.instagram.com/static/bundles/metro/EmbedSDK.js/33cd2c5d5d59.js',
+          src: 'https://www.instagram.com/static/bundles/metro/EmbedSDK.js/33cd2c5d5d59.js',
         },
         {
           vmid: 'twitter',
