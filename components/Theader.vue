@@ -285,7 +285,11 @@
             <app-link role="menuitem" to="/velike-price">Velike priče</app-link>
             <app-link role="menuitem" to="/zivot">Život</app-link>
             <app-link role="menuitem" to="/kultura">Kultura</app-link>
-            <!--<app-link to="/fotogalerije">Fotogalerije</app-link>-->
+            <app-link role="menuitem" to="/openspace">Openspace</app-link>
+            <a href="https://super1.telegram.hr" role="menuitem">Super1</a>
+            <a href="https://telesport.telegram.hr" role="menuitem">
+              Telesport
+            </a>
           </div>
           <div v-show="headline" class="header-headline single-exclusive">
             {{ headline }}

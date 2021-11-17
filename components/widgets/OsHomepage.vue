@@ -1,7 +1,9 @@
 <template>
   <div class="container flex relative native-block stretch mobile-side-pad">
     <div class="full column-horizontal-pad flex">
-      <h2 class="full flex section-title">Openspace</h2>
+      <h2 class="full flex section-title">
+        <app-link to="/openspace">openspace</app-link>
+      </h2>
     </div>
     <div
       v-for="post in posts"
@@ -16,13 +18,15 @@
 <script>
 export default {
   name: 'Partners',
-  computed: {
-    posts() {
-      return this.$store.state.category.categories.openspace.posts.slice(0, 4)
-    },
+  async fetch() {
+    this.posts = await this.$axios
+      .get('/api/category/openspace?pure=1')
+      .then((res) => res.data.posts.slice(0, 4))
   },
-  mounted() {
-    this.$store.dispatch('category/pullPosts', { category: 'openspace' })
+  data() {
+    return {
+      posts: [],
+    }
   },
 }
 </script>
