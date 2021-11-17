@@ -220,6 +220,7 @@
           <h3>Kanali</h3>
           <a role="menuitem" href="https://super1.telegram.hr">Super1</a>
           <a role="menuitem" href="https://telesport.telegram.hr">Telesport</a>
+          <app-link role="menuitem" to="/openspace">Openspace</app-link>
         </div>
         <div class="half" role="menu">
           <h3>Social</h3>

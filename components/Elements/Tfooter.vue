@@ -49,14 +49,12 @@
                 alt="Telesport logo"
               />
             </a>
-            <!--
-            <app-link href="https://www.telegram.hr/openspace" class="center animate">
-            <img
-              src="@/assets/img/openspace_logo_negative.svg"
-              alt="openspace logo"
-            />
+            <app-link to="/openspace" class="center animate">
+              <img
+                src="@/assets/img/openspace_logo_negative.svg"
+                alt="openspace logo"
+              />
             </app-link>
-            -->
             <a
               href="https://www.telegramgrupa.hr#studio"
               target="_blank"
