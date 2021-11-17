@@ -237,6 +237,7 @@
                 @click="handleClick"
                 v-html="post.content"
               ></div>
+              <quiz v-if="post.quiz" :data="post.quiz"></quiz>
               <!-- eslint-enable vue/no-v-html -->
               <client-only>
                 <intext></intext>
@@ -521,6 +522,7 @@ export default {
           signature_logo_off: false,
           partner: '',
         },
+        quiz: null,
       },
       related_posts: [],
       midas: false,
