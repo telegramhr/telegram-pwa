@@ -15,8 +15,8 @@
         ></component>
       </template>
       <div>
-        <h2>{{ data.results[0].title }}</h2>
-        <p>{{ data.results[0].description }}</p>
+        <h2>{{ result.title }}</h2>
+        <p v-html="result.description"></p>
       </div>
     </VueSlickCarousel>
   </div>
@@ -50,8 +50,8 @@ export default {
           ],
           results: [
             {
-              score_min: 0,
-              score_max: 20,
+              score_from: 0,
+              score_to: 20,
               title: 'Neko rješenje',
               description: 'Opis ',
             },
@@ -71,9 +71,26 @@ export default {
       scores: [],
     }
   },
+  computed: {
+    totalScore() {
+      return this.scores.reduce((score, answer, question) => {
+        return score + parseInt(this.data.scoring[question][answer])
+      }, 0)
+    },
+    result() {
+      return this.data.results.filter((result) => {
+        if (
+          this.totalScore >= parseInt(result.score_from) &&
+          this.totalScore <= parseInt(result.score_to)
+        ) {
+          return true
+        }
+      })[0]
+    },
+  },
   methods: {
     getAnswer(question, val) {
-      this.scores[question] = val
+      this.$set(this.scores, question, val)
       // advance slide
       this.$refs.carousel.next()
     },

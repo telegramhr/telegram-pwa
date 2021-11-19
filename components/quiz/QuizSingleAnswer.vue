@@ -37,7 +37,7 @@ export default {
   },
   watch: {
     answered() {
-      this.$emit('answer', this.answered)
+      this.$emit('answer', this.data.id, this.answered)
     },
   },
 }
