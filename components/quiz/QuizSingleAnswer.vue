@@ -3,7 +3,7 @@
     <h2>{{ data.question }}</h2>
     <label v-for="answer in data.answers" :key="answer.id">
       <input v-model="answered" type="radio" :value="answer.id" />
-      {{ answer.text }}
+      <span>{{ answer.text }}</span>
     </label>
   </div>
 </template>

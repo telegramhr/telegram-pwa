@@ -1,9 +1,11 @@
 <template>
-  <div>
+  <div class="native-quiz">
     <VueSlickCarousel
       v-if="data.questions.length"
       ref="carousel"
       :arrows="false"
+      :draggable="false"
+      :adaptive-height="true"
       style="display: block; width: 100%"
     >
       <template v-for="question in data.questions">

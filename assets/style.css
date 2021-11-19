@@ -5300,6 +5300,16 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .openspace .banner-separator > div {
     background-color: white;
 }
+.openspace .special-partner-widget .line-decoration-box > div {
+    background-color: #464b7a;
+}
+.openspace .article-tags > a {
+    border-bottom-color: #464b7a;
+}
+.openspace .article-tags > a:hover {
+    color: #464b7a;
+    border-bottom-color: transparent;
+}
 
 /* Inarticle table of contents widget */
 
@@ -5786,4 +5796,44 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         margin-top: 16px;
         margin-bottom: 16px;
     }
+}
+
+
+/* Native quiz */
+
+.native-quiz label span {
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    position: relative;
+    padding: 5px 10px;
+    padding-top: 4px;
+    cursor: pointer;
+    width: auto;
+    margin-bottom: 8px;
+}
+.native-quiz input[type=radio] {
+    display: none;
+}
+.native-quiz label span::before {
+    content: ' ';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: #c8c8c8;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    z-index: -1;
+}
+.native-quiz label span:hover::before {
+    background: #ae3737;
+    width: 4px;
+}
+.openspace .native-quiz label span:hover::before {
+    background: #464b7a;
 }
