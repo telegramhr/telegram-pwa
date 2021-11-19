@@ -2,7 +2,12 @@
   <div>
     <h2>{{ data.question }}</h2>
     <label v-for="answer in data.answers" :key="answer.id">
-      <input v-model="answered" type="radio" :value="answer.id" />
+      <input
+        v-model="answered"
+        type="radio"
+        :name="'answer-' + data.id + '-' + answer.id"
+        :value="answer.id"
+      />
       <span>{{ answer.text }}</span>
     </label>
   </div>

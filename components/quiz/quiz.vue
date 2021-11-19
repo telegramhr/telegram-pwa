@@ -6,16 +6,16 @@
       :arrows="false"
       :draggable="false"
       :adaptive-height="true"
+      :infinite="false"
       style="display: block; width: 100%"
     >
-      <template v-for="question in data.questions">
+      <div v-for="question in data.questions" :key="question.id">
         <component
           :is="question.type"
-          :key="question.id"
           :data="question"
           @answer="getAnswer"
         ></component>
-      </template>
+      </div>
       <div>
         <h2>{{ result.title }}</h2>
         <p v-html="result.description"></p>
@@ -33,37 +33,9 @@ export default {
       required: false,
       default() {
         return {
-          questions: [
-            {
-              id: 0,
-              type: 'QuizSingleAnswer',
-              question: 'Koje je pitanje?',
-              answers: [
-                {
-                  id: 0,
-                  text: 'Odgovor 1',
-                },
-                {
-                  id: 1,
-                  text: 'Odgovor 2',
-                },
-              ],
-            },
-          ],
-          results: [
-            {
-              score_from: 0,
-              score_to: 20,
-              title: 'Neko rješenje',
-              description: 'Opis ',
-            },
-          ],
-          scoring: {
-            0: {
-              0: 0,
-              1: 2,
-            },
-          },
+          questions: [],
+          results: [],
+          scoring: {},
         }
       },
     },
