@@ -10,7 +10,14 @@
     <div class="full flex pretplata-page-content">
       <div class="full flex relative">
         <div
-          class="container relative flex mobile-side-pad stretch column-full-pad"
+          class="
+            container
+            relative
+            flex
+            mobile-side-pad
+            stretch
+            column-full-pad
+          "
         >
           <h1 class="full center-text">Priče koje guraju društvo naprijed.</h1>
           <p class="full center-text pretplata-tagline">
@@ -47,7 +54,13 @@
           </div>
           <div class="full flex center pretplata-packboxes">
             <div
-              class="half flex-responsive flex relative pretplata-packbox stretch"
+              class="
+                half
+                flex-responsive flex
+                relative
+                pretplata-packbox
+                stretch
+              "
             >
               <div class="full flex overtitle-parent">
                 <h3 class="overtitle">Standard</h3>
@@ -79,7 +92,13 @@
               </div>
             </div>
             <div
-              class="half flex-responsive flex relative pretplata-packbox stretch"
+              class="
+                half
+                flex-responsive flex
+                relative
+                pretplata-packbox
+                stretch
+              "
             >
               <div class="full flex overtitle-parent">
                 <h3 class="overtitle">Premium</h3>
@@ -127,7 +146,13 @@
               </div>
             </div>
             <div
-              class="half flex-responsive flex relative pretplata-packbox stretch"
+              class="
+                half
+                flex-responsive flex
+                relative
+                pretplata-packbox
+                stretch
+              "
             >
               <div class="full flex overtitle-parent">
                 <h3 class="overtitle">Standard</h3>
@@ -161,7 +186,13 @@
               </div>
             </div>
             <div
-              class="half flex-responsive flex relative pretplata-packbox stretch"
+              class="
+                half
+                flex-responsive flex
+                relative
+                pretplata-packbox
+                stretch
+              "
             >
               <div class="full flex overtitle-parent">
                 <h3 class="overtitle">Premium</h3>
@@ -222,7 +253,13 @@
       <div class="full flex relative">
         <div class="container relative flex">
           <div
-            class="pretplata-keypoint fourth flex-responsive column-full-pad mobile-side-pad"
+            class="
+              pretplata-keypoint
+              fourth
+              flex-responsive
+              column-full-pad
+              mobile-side-pad
+            "
           >
             <a class="full flex relative" href="#keypoint-autori">
               <img
@@ -235,7 +272,13 @@
             </a>
           </div>
           <div
-            class="pretplata-keypoint fourth flex-responsive column-full-pad mobile-side-pad"
+            class="
+              pretplata-keypoint
+              fourth
+              flex-responsive
+              column-full-pad
+              mobile-side-pad
+            "
           >
             <a class="full flex relative" href="#keypoint-korupcija">
               <img
@@ -248,7 +291,13 @@
             </a>
           </div>
           <div
-            class="pretplata-keypoint fourth flex-responsive column-full-pad mobile-side-pad"
+            class="
+              pretplata-keypoint
+              fourth
+              flex-responsive
+              column-full-pad
+              mobile-side-pad
+            "
           >
             <a class="full flex relative" href="#keypoint-istrazivacki">
               <img
@@ -261,7 +310,13 @@
             </a>
           </div>
           <div
-            class="pretplata-keypoint fourth flex-responsive column-full-pad mobile-side-pad"
+            class="
+              pretplata-keypoint
+              fourth
+              flex-responsive
+              column-full-pad
+              mobile-side-pad
+            "
           >
             <a class="full flex relative" href="#keypoint-inspiracija">
               <img
@@ -423,7 +478,14 @@
       </div>
       <div class="full flex pretplata-faq">
         <div
-          class="container relative flex mobile-side-pad column-full-pad single-article-body"
+          class="
+            container
+            relative
+            flex
+            mobile-side-pad
+            column-full-pad
+            single-article-body
+          "
         >
           <h2 class="full">Često postavljana pitanja</h2>
           <details class="full flex relative">
@@ -662,6 +724,7 @@ export default {
     },
   },
   mounted() {
+    window.fbq = window.fbq || {}
     window.fbq('track', 'ViewContent', {
       content_ids: [
         'TM0FMYURHRA3',
@@ -699,11 +762,13 @@ export default {
     },
     checkout2(termId, back) {
       const _that = this
+      window.fbq = window.fbq || {}
       window.fbq('track', 'InitiateCheckout', {
         content_ids: [termId],
         currency: 'HRK',
         value: this.terms[termId],
       })
+      const promo = this.$route.query.promo_code
       window.tp.push([
         'init',
         () => {
@@ -712,7 +777,7 @@ export default {
             termId,
             templateId: window.tp.sandbox ? 'OTTXZFQ6FGFC' : 'OTXWXSOL0WWS',
             checkoutFlowId: window.tp.sandbox ? 'CF8Q59Z3RJ5G' : 'CF65KTMVQXXX',
-            promoCode: this.$route.query.promo_code,
+            promoCode: promo,
             closeOnLogout: true,
             complete: () => {
               _that.$store.dispatch('user/checkAccess')
