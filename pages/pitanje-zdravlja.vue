@@ -1,11 +1,9 @@
 <template>
   <div class="main-container flex pitanje-zdravlja">
     <div class="full pz-header">
-      <a class="full center pz-subheader relative">
-        <app-link to="/" class="logo"
-          ><img src="@/assets/img/telegram_logo_white.svg" alt="Telegram logo"
-        /></app-link>
-      </a>
+      <app-link to="/" class="full center pz-subheader relative"
+        ><img src="@/assets/img/telegram_logo_white.svg" alt="Telegram logo"
+      /></app-link>
       <div
         class="container column-horizontal-pad mobile-side-pad flex relative"
       >
@@ -531,7 +529,7 @@ header .subheader {
   padding: 7px 0;
   background-color: #212121;
 }
-.pz-subheader a img {
+.pz-subheader img {
   height: 15px;
 }
 @keyframes point-down {
