@@ -132,17 +132,17 @@
             flex flex-responsive
             column-horizontal-pad
             mobile-side-pad
+            bypass-show-mobile
+            os-prilike-widget
           "
         >
-          <div class="full flex desktop-only">
-            <!--<h3 class="full flex overtitle os-widget-overtitle">Newsletter</h3>
+          <!--<h3 class="full flex overtitle os-widget-overtitle">Newsletter</h3>
             <newsletter></newsletter>
             <h3 class="full flex overtitle os-widget-overtitle">
               Open Space Test
             </h3>
             <ostest></ostest>-->
-            <opportunities></opportunities>
-          </div>
+          <opportunities></opportunities>
         </section>
         <div class="three-fourths flex-responsive flex">
           <section
