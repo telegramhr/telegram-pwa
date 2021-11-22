@@ -1,6 +1,11 @@
 <template>
   <div class="main-container flex pitanje-zdravlja">
     <div class="full pz-header">
+      <a class="full center pz-subheader relative">
+        <app-link to="/" class="logo"
+          ><img src="@/assets/img/telegram_logo_white.svg" alt="Telegram logo"
+        /></app-link>
+      </a>
       <div
         class="container column-horizontal-pad mobile-side-pad flex relative"
       >
@@ -44,17 +49,17 @@
           data-aos="fade-up"
           data-aos-delay="1750"
         >
-          Pitanje zdravlja je pitanje zdravstvene pismenosti.
+          I točni odgovori.
         </p>
         <p
           class="full pz-intro center-text"
           data-aos="fade-up"
           data-aos-delay="2000"
         >
-          Provodimo prvo istraživanje o zdravstvenoj pismenosti u Hrvatskoj.
+          Platforma koja govori o zdravstvenim temama na kritički način.
         </p>
         <div
-          class="full center column-top-pad"
+          class="full center column-top-pad hide"
           data-aos="fade-up"
           data-aos-delay="2250"
         >
@@ -64,6 +69,31 @@
       <a class="arrow-indicator center" href="#first-content">
         <div></div>
       </a>
+    </div>
+    <div v-if="featured.length" class="full relative">
+      <div
+        id="first-content"
+        class="container flex relative stretch standard-block intro-block"
+      >
+        <div
+          class="full flex column-horizontal-pad column-top-pad mobile-side-pad"
+        >
+          <div class="full flex article-big column-bottom-border">
+            <featured :key="featured[0].id" :post="featured[0]"></featured>
+          </div>
+        </div>
+        <div class="full flex mobile-side-pad stretch">
+          <div
+            v-for="post in featured.slice(1, 4)"
+            :key="post.id"
+            class="third flex-responsive column-vertical-pad stretch"
+          >
+            <div class="full flex column-horizontal-pad">
+              <featured :post="post"></featured>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="full pz-fancy-slide relative center">
       <div class="container flex mobile-side-pad relative">
@@ -99,73 +129,6 @@
           >
             Želimo pomoći u razvijanju zdravstvene pismenosti Hrvata.
           </p>
-        </div>
-        <div class="full center column-full-pad">
-          <div class="pz-fancy-line"></div>
-        </div>
-      </div>
-    </div>
-    <div v-if="featured.length" class="full relative">
-      <div
-        id="first-content"
-        class="container flex relative stretch standard-block intro-block"
-      >
-        <div
-          class="full flex column-horizontal-pad column-top-pad mobile-side-pad"
-        >
-          <div class="full flex article-big column-bottom-border">
-            <featured :key="featured[0].id" :post="featured[0]"></featured>
-          </div>
-        </div>
-        <div class="full flex mobile-side-pad stretch">
-          <div
-            v-for="post in featured.slice(1, 4)"
-            :key="post.id"
-            class="third flex-responsive column-vertical-pad stretch"
-          >
-            <div class="full flex column-horizontal-pad">
-              <featured :post="post"></featured>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="full pz-fancy-slide relative center">
-      <div class="container flex relative mobile-side-pad">
-        <div class="full center column-full-pad">
-          <div class="pz-fancy-line"></div>
-        </div>
-        <div class="full column-full-pad">
-          <h2
-            class="full center-text"
-            data-aos="fade-down"
-            data-aos-delay="750"
-          >
-            Postavite svoje
-            <span class="pz-blue pz-dynamic">pitanje o zdravlju</span>
-          </h2>
-          <p
-            class="full pz-intro center-text"
-            data-aos="fade-up"
-            data-aos-delay="1250"
-          >
-            Projekt pitanje zdravlja lansiran je s ciljem promocije zdravstvene
-            pismenosti kod Hrvata.
-          </p>
-          <p
-            class="full pz-intro center-text"
-            data-aos="fade-up"
-            data-aos-delay="1500"
-          >
-            Postavite nam svoje pitanje u vezi zdravlja, a mi ćemo ponuditi
-            točan odgovor.
-          </p>
-          <div class="full center" data-aos="fade-up" data-aos-delay="2000">
-            <textarea id="pz-query"></textarea>
-          </div>
-          <div class="full center" data-aos="fade-up" data-aos-delay="2000">
-            <div class="pz-button">Pošalji pitanje</div>
-          </div>
         </div>
         <div class="full center column-full-pad">
           <div class="pz-fancy-line"></div>
@@ -222,8 +185,68 @@
         </div>
       </div>
     </div>
+    <div class="full pz-fancy-slide relative center">
+      <div class="container flex relative mobile-side-pad">
+        <div class="full center column-full-pad">
+          <div class="pz-fancy-line"></div>
+        </div>
+        <div class="full column-full-pad">
+          <h2
+            class="full center-text"
+            data-aos="fade-down"
+            data-aos-delay="750"
+          >
+            Vaše
+            <span class="pz-blue pz-dynamic">pitanje zdravlja</span>
+          </h2>
+          <p
+            class="full pz-intro center-text"
+            data-aos="fade-up"
+            data-aos-delay="1250"
+          >
+            Pitanje zdravlja lansirano je s ciljem promocije zdravstvene
+            pismenosti kod Hrvata.
+          </p>
+          <p
+            class="full pz-intro center-text"
+            data-aos="fade-up"
+            data-aos-delay="1500"
+          >
+            Napišite koja zdravstvena tema vas zanima, istražit ćemo je i
+            ponuditi točne odgovore.
+          </p>
+          <div class="full center" data-aos="fade-up" data-aos-delay="2000">
+            <textarea id="pz-query"></textarea>
+          </div>
+          <div class="full center" data-aos="fade-up" data-aos-delay="2000">
+            <div class="pz-button">Pošalji pitanje</div>
+          </div>
+        </div>
+        <div class="full center column-full-pad">
+          <div class="pz-fancy-line"></div>
+        </div>
+      </div>
+    </div>
     <div class="full native-signature">
       <div class="container flex mobile-side-pad">
+        <h2
+          class="full center-text pz-fancy-title"
+          data-aos="fade-down"
+          data-aos-delay="750"
+        >
+          Pitanje zdravlja
+          <span class="pz-blue pz-dynamic">podržavaju</span>
+        </h2>
+        <div class="full center pz-logos">
+          <img
+            src="https://www.telegram.hr/wp-content/uploads/2021/11/logo.png"
+            alt="Sve za nju logo"
+          />
+          <img
+            src="https://www.telegram.hr/wp-content/uploads/2021/11/logo-kuz-120x96-1.jpg"
+            alt="Savez udruga u zdravstvu logo"
+          />
+        </div>
         <div class="full center">
           <img
             class="tg-studio"
@@ -233,8 +256,8 @@
         </div>
         <p class="full center-text column-full-pad">
           Producirano u radionici TG Studija, Telegramove in-house agencije za
-          nativni marketing, u suradnji s partnerom adidas i po najvišim
-          uredničkim standardima Telegram Media Grupe.
+          nativni marketing, u suradnji s partnerima i po najvišim uredničkim
+          standardima Telegram Media Grupe.
         </p>
       </div>
     </div>
@@ -293,10 +316,13 @@ export default {
   font-weight: 300;
   color: #111;
 }
+.pitanje-zdravlja .header-billboard {
+  display: none;
+}
 .pz-header {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 0px;
+  left: 0px;
   background: white;
   box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.15);
   z-index: 10;
@@ -424,7 +450,8 @@ export default {
 .pitanje-zdravlja .article .article-meta {
   display: none;
 }
-.pz-fancy-slide h2 {
+.pz-fancy-slide h2,
+.pz-fancy-title {
   font-size: 54px;
   font-size: 2.7rem;
   font-family: neuzeit-grotesk, sans-serif;
@@ -487,6 +514,26 @@ export default {
   opacity: 0.7;
   margin: 0 auto;
 }
+.pz-logos img {
+  width: 120px;
+  height: 80px;
+  margin: 16px;
+  object-fit: contain;
+  object-position: center center;
+  mix-blend-mode: darken;
+}
+.pitanje-zdravlja header nav,
+header .subheader {
+  display: none;
+}
+.pz-subheader {
+  z-index: 11;
+  padding: 7px 0;
+  background-color: #212121;
+}
+.pz-subheader a img {
+  height: 15px;
+}
 @keyframes point-down {
   0% {
     opacity: 0;
@@ -517,7 +564,8 @@ export default {
   .pz-hero h1 {
     font-size: 18vw;
   }
-  .pz-fancy-slide h2 {
+  .pz-fancy-slide h2,
+  .pz-fancy-title {
     font-size: 40px;
     font-size: 2rem;
     margin-bottom: 24px;
