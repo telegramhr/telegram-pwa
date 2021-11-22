@@ -87,7 +87,7 @@
           <div class="full flex overtitle-parent">
             <h3 class="overtitle">{{ post.category }}</h3>
             <div v-if="post.promo.partner" class="collab-overtitle">
-              <h3 class="overtitle">U suradnji s</h3>
+              <h3 class="overtitle">{{ post.promo.prefix }}</h3>
               <img :src="post.promo.logo" :alt="post.promo.partner" />
             </div>
           </div>
@@ -104,7 +104,7 @@
               <div class="full flex overtitle-parent">
                 <h3 class="overtitle">{{ post.category | parseCat }}</h3>
                 <div v-if="post.promo.partner" class="collab-overtitle">
-                  <h3 class="overtitle">U suradnji s</h3>
+                  <h3 class="overtitle">{{ post.promo.prefix }}</h3>
                   <img :src="post.promo.logo" :alt="post.promo.partner" />
                 </div>
               </div>
@@ -119,7 +119,7 @@
                       v-if="!post.promo.signature_logo_off"
                       :src="post.promo.logo"
                     />
-                    <span>U suradnji s</span>
+                    <span>{{ post.promo.prefix }}</span>
                     <span>{{ post.promo.partner }}</span>
                   </a>
                 </template>
@@ -172,7 +172,7 @@
                       v-if="!post.promo.signature_logo_off"
                       :src="post.promo.logo"
                     />
-                    <span>U suradnji s</span>
+                    <span>{{ post.promo.prefix }}</span>
                     <span>{{ post.promo.partner }}</span>
                   </a>
                 </template>
