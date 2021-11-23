@@ -724,7 +724,7 @@ export default {
     },
   },
   mounted() {
-    window.fbq = window.fbq || {}
+    window.fbq = window.fbq || function () {}
     window.fbq('track', 'ViewContent', {
       content_ids: [
         'TM0FMYURHRA3',
@@ -762,7 +762,7 @@ export default {
     },
     checkout2(termId, back) {
       const _that = this
-      window.fbq = window.fbq || {}
+      window.fbq = window.fbq || function () {}
       window.fbq('track', 'InitiateCheckout', {
         content_ids: [termId],
         currency: 'HRK',
