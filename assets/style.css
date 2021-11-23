@@ -4066,9 +4066,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .single-article .single-article-body > #article-content, .single-article .single-article-body > #article-content > #piano-content {
         max-width: 1200px;
     }
-    .single-article .single-article-body > img, .single-article .single-article-body > figure, .single-article .single-article-body > .extra-width,
-    .single-article .single-article-body > #article-content > img, .single-article .single-article-body > #article-content > figure, .single-article .single-article-body > #article-content > .extra-width,
-    .single-article .single-article-body > #article-content > #piano-content > img, .single-article .single-article-body > #article-content > #piano-content > figure, .single-article .single-article-body > #article-content > #piano-content > .extra-width {
+    .single-article .single-article-body > img, .single-article .single-article-body > figure.wp-block-image, .single-article .single-article-body > .extra-width,
+    .single-article .single-article-body > #article-content > img, .single-article .single-article-body > #article-content > figure.wp-block-image, .single-article .single-article-body > #article-content > .extra-width,
+    .single-article .single-article-body > #article-content > #piano-content > img, .single-article .single-article-body > #article-content > #piano-content > figure.wp-block-image, .single-article .single-article-body > #article-content > #piano-content > .extra-width {
         max-width: 888px;
     }
     .single-article .single-article-body > .article-full-width, .single-article .single-article-body > #article-content > .article-full-width, .single-article .single-article-body > #article-content > #piano-content > .article-full-width {
