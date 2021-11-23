@@ -1,5 +1,5 @@
 <template>
-  <div class="main-container flex specijal-page">
+  <div :class="['main-container', 'flex', 'specijal-page', post.class]">
     <div class="full flex relative single-article">
       <client-only>
         <theader></theader>
@@ -45,6 +45,7 @@ export default {
           name: '',
           logo: '',
         },
+        class: '',
       },
       posts: [],
       category: '',
