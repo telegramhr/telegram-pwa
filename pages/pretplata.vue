@@ -25,6 +25,65 @@
           </p>
         </div>
       </div>
+      <div class="full flex relative dark-mode pretplata-bf">
+        <div
+          class="
+            container
+            center
+            relative
+            mobile-side-pad
+            pretplata-packs pretplata-packboxes
+          "
+        >
+          <div
+            class="
+              full
+              flex-responsive flex
+              relative
+              pretplata-packbox
+              bf-packbox
+              stretch
+            "
+          >
+            <div class="best-price-sticker animate">Najbolja <br />cijena</div>
+            <div class="full flex overtitle-parent">
+              <h3 class="overtitle">Black Friday akcija</h3>
+            </div>
+            <h2 class="full">1+1 gratis</h2>
+            <h4 class="full center-text undertitle">
+              platite samo 588 kn za 24 mjeseca čitanja
+            </h4>
+            <div class="full pretplata-benefits">
+              <p class="full animate">
+                <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+                dvije godine za cijenu jedne
+              </p>
+              <p class="full animate">
+                <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+                neograničeno čitanje Telegrama
+              </p>
+              <p class="full animate">
+                <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+                neograničeno čitanje Telesporta
+              </p>
+              <p class="full animate">
+                <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+                ekskluzivni newsletteri
+              </p>
+              <p class="full animate">
+                <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+                surfanje bez oglasa
+              </p>
+              <h4 class="full center-text undertitle">
+                *ponuda vrijedi samo za nove korisnike
+              </h4>
+            </div>
+            <div class="full center btn-parent" @click="checkout(four)">
+              <div class="btn animate">Odaberi</div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="full flex">
         <div class="container relative flex pretplata-packs mobile-side-pad">
           <input
@@ -35,7 +94,7 @@
           />
           <div class="full center yeartoggle-parent">
             <label class="relative">
-              <div class="best-price-sticker animate">
+              <div class="best-price-sticker animate hide">
                 Najbolja <br />vrijednost
               </div>
               <div

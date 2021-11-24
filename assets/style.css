@@ -6223,3 +6223,95 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         margin-bottom: 48px;
     }
 }
+
+/* Black Friday packbox */
+
+.dark-mode .pretplata-bf {
+    background-color: #111111;
+}
+.pretplata-bf {
+    margin-top: 32px;
+}
+.bf-packbox {
+    margin-top: 20px;
+}
+.pretplata-bf .pretplata-benefits p {
+    color: white;
+    opacity: .8;
+    margin-bottom: 16px;
+}
+.bf-packbox p svg {
+    margin-right: 4px;
+}
+.bf-packbox {
+    text-transform: uppercase;
+    max-width: 540px;
+    border: 1px solid #ae3737;
+    margin-bottom: 64px;
+}
+.bf-packbox p {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+}
+.bf-packbox .overtitle {
+    width: 100%;
+}
+.bf-packbox .btn {
+    border: none;
+}
+.bf-packbox .best-price-sticker {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+    right: -8px;
+}
+.bf-packbox .best-price-sticker {
+    padding: 6px;
+}
+.pretplata-page .bf-packbox h2 {
+    font-size: 74px;
+    font-size: 3.7rem;
+    position: relative;
+    left: -4px;
+}
+
+@media screen and (min-width: 767px) {
+    .pretplata-page .bf-packbox h2 {
+        font-size: 86px;
+        font-size: 4.3rem;
+        margin-top: 4px;
+        margin-bottom: 4px;
+    }
+    .bf-packbox {
+        padding: 32px;
+        margin-bottom: 48px;
+    }
+    .bf-packbox .undertitle {
+        font-size: 14px;
+        font-size: 0.7rem;
+    }
+    .bf-packbox p {
+        font-size: 20px;
+        font-size: 1rem;
+    }
+    .bf-packbox p svg {
+        margin-right: 8px;
+    }
+    .bf-packbox .overtitle {
+        font-size: 18px;
+        font-size: 0.9rem;
+    }
+    .bf-packbox .best-price-sticker {
+        right: -40px;
+        top: -40px;
+        width: 80px;
+        height: 80px;
+        font-size: 12px;
+        font-size: 0.6rem;
+        border-radius: 50px;
+        padding: 10px;
+    }
+    .bf-packbox .best-price-sticker::before {
+        width: 80px;
+        height: 10px;
+    }
+}
