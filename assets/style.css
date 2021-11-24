@@ -6127,7 +6127,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     mix-blend-mode: darken;
 }
 .pitanje-zdravlja header nav,
-header .subheader {
+.pitanje-zdravlja header .subheader {
     display: none;
 }
 .pz-subheader {
