@@ -13,8 +13,8 @@
     >
       <div class="relative">
         <div id="telegram_sticky" :class="bannerClass"></div>
-        <!--<a
-          v-show="showClose"
+        <a
+          v-show="!noClose && showClose"
           href="#"
           :style="{
             position: 'absolute',
@@ -29,7 +29,7 @@
             size="3x"
             style="color: #ae3736"
           ></font-awesome-icon
-        ></a>-->
+        ></a>
       </div>
     </div>
   </client-only>
@@ -55,6 +55,7 @@ export default {
       size: [900, 250],
       showClose: false,
       shouldHide: false,
+      noClose: false,
     }
   },
   computed: {
@@ -86,6 +87,14 @@ export default {
           }
         })
     })
+    window.addEventListener('message', this.handleClose)
+  },
+  methods: {
+    handleClose(e) {
+      if (e.data === 'shouldHaveClose') {
+        this.noClose = true
+      }
+    },
   },
 }
 </script>
