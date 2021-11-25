@@ -13,7 +13,7 @@
     >
       <div class="relative">
         <div id="telegram_sticky" :class="bannerClass"></div>
-        <a
+        <!--<a
           v-show="showClose"
           href="#"
           :style="{
@@ -29,7 +29,7 @@
             size="3x"
             style="color: #ae3736"
           ></font-awesome-icon
-        ></a>
+        ></a>-->
       </div>
     </div>
   </client-only>
