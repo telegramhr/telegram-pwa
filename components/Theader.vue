@@ -11,7 +11,14 @@
         "
         class="full center header-billboard"
       >
-        <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
+        <ad-unit
+          id="telegram_desktop_billboard_v1"
+          :disable="
+            post &&
+            (post.disable_ads.includes('all') ||
+              (post.category_slug && post.category_slug.includes('openspace')))
+          "
+        ></ad-unit>
       </div>
     </client-only>
     <div
@@ -598,6 +605,13 @@ export default {
       type: String,
       required: false,
       default: '',
+    },
+    post: {
+      type: Object,
+      required: false,
+      default() {
+        return {}
+      },
     },
   },
   data() {

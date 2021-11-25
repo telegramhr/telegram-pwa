@@ -9,7 +9,11 @@
     ]"
   >
     <template v-if="!($fetchState.error || post.title === 'Objava ne postoji')">
-      <theader :id="Number(post.id)" :headline="post.portal_title"></theader>
+      <theader
+        :id="Number(post.id)"
+        :headline="post.portal_title"
+        :post="post"
+      ></theader>
       <div v-show="related_posts" class="full related-header-widget">
         <div class="container flex desktop-only column-vertical-pad">
           <div
