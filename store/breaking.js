@@ -1,4 +1,5 @@
 export const state = () => ({
+  prefix: 'Breaking:',
   title: '',
   link: '',
   on: false,
