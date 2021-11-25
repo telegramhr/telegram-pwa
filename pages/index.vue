@@ -79,7 +79,9 @@
             "
           >
             <featured :key="posts[1].id" :post="posts[1]"></featured>
-            <mini-pretplata v-show="!$store.state.user.access"></mini-pretplata>
+            <mini-pretplata-home
+              v-show="!$store.state.user.access"
+            ></mini-pretplata-home>
             <featured :key="posts[2].id" :post="posts[2]"></featured>
             <featured :key="posts[3].id" :post="posts[3]"></featured>
           </div>
