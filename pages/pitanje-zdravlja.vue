@@ -21,8 +21,12 @@
           />
         </a>
         <nav class="full flex relative">
-          <a class="animate" data-aos="fade-down" data-aos-delay="500"
-            >Sasvim iskreno</a
+          <app-link
+            to="/specijal/sasvim-iskreno"
+            class="animate"
+            data-aos="fade-down"
+            data-aos-delay="500"
+            >Sasvim iskreno</app-link
           >
           <a class="animate" data-aos="fade-down" data-aos-delay="750"
             >Zdrave vijesti</a

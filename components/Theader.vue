@@ -610,7 +610,10 @@ export default {
       type: Object,
       required: false,
       default() {
-        return {}
+        return {
+          disable_ads: [],
+          post_category: '',
+        }
       },
     },
   },

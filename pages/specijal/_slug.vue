@@ -10,7 +10,10 @@
       <h1 class="full relative center-text column-full-pad">
         {{ post.title }}
       </h1>
-      <div class="relative flex-responsive specijal-patron">
+      <div
+        v-if="post.company.name"
+        class="relative flex-responsive specijal-patron"
+      >
         <h3 class="full overtitle center-text">Omogućuje</h3>
         <img :src="post.company.logo" :alt="post.company.name" />
       </div>
