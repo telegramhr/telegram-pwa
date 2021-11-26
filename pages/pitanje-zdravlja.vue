@@ -219,8 +219,8 @@
             alt="Savez udruga u zdravstvu logo"
           />
           <img
-            src="https://www.telegram.hr/wp-content/uploads/2021/11/logo.png"
-            alt="Sve za nju logo"
+            src="https://www.telegram.hr/wp-content/uploads/2021/11/nismo-same.png"
+            alt="Nismo same logo"
           />
         </div>
         <div class="full center">
