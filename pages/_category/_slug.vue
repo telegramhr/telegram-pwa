@@ -593,7 +593,10 @@ export default {
     },
     categoryClass() {
       if (this.post.category_slug) {
-        if (this.post.category_slug.includes('openspace')) {
+        if (
+          this.post.category_slug.includes('openspace') ||
+          this.post.category_slug.includes('pitanje-zdravlja')
+        ) {
           return this.post.category_slug + ' fancy-rubrika'
         }
         return this.post.category_slug
