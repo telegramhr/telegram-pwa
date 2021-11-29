@@ -6169,18 +6169,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .single-article.pitanje-zdravlja .classic-btn {
     background-color: #0a80c5;
 }
-.single-article.pitanje-zdravlja .single-article-body, .single-article.pitanje-zdravlja .article-head h2 {
-    font-family: neuzeit-grotesk, sans-serif;
-    font-weight: 400;
-    font-size: 20px;
-    font-size: 1rem;
-}
 .single-article.pitanje-zdravlja h1 {
     font-family: neuzeit-grotesk, sans-serif;
-    font-weight: 400;
+    font-weight: 700;
     letter-spacing: -0.02em;
-    font-size: 40px;
-    font-size: 2rem;
     line-height: 1.1em;
 }
 .single-article.pitanje-zdravlja .special-partner-widget .line-decoration-box > div {
@@ -6188,9 +6180,14 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .single-article.pitanje-zdravlja .single-article-body h2 {
     font-family: neuzeit-grotesk, sans-serif;
-    font-weight: 400;
+    font-weight: 700;
 }
-
+@media screen and (min-width: 767px) {
+    .single-article.pitanje-zdravlja h1 {
+        font-size: 40px;
+        font-size: 2rem;
+    }
+}
 
 @keyframes point-down {
     0% {
