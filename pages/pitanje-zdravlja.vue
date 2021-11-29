@@ -124,13 +124,16 @@
       </div>
     </div>
     <div v-if="featured.length" class="full relative">
-      <div class="container flex relative block-2 standard-block stretch">
+      <div
+        class="container flex center relative block-2 standard-block stretch"
+      >
         <section
           class="
             fourth
             flex flex-responsive
             column-horizontal-pad
             mobile-side-pad
+            hide
           "
         >
           <div class="full flex desktop-only">
@@ -152,7 +155,7 @@
               two-thirds
               flex-responsive flex
               mobile-side-pad
-              column-horizontal-pad column-right-border column-left-border
+              column-horizontal-pad column-right-border
             "
           >
             <featured :key="featured[4].id" :post="featured[4]"></featured>
@@ -209,14 +212,9 @@
     </div>
     <div class="full native-signature">
       <div class="container flex mobile-side-pad">
-        <h2
-          class="full center-text pz-fancy-title"
-          data-aos="fade-down"
-          data-aos-delay="750"
-        >
-          Pitanje zdravlja
-          <span class="pz-blue pz-dynamic">podržavaju</span>
-        </h2>
+        <p class="full center-text footer-subtitle">
+          Pitanje zdravlja podržavaju
+        </p>
         <div class="full center pz-logos">
           <img
             src="https://www.telegram.hr/wp-content/uploads/2021/11/logo-kuz-120x96-1.jpg"
@@ -273,7 +271,7 @@ export default {
       return {
         '@context': 'https://schema.org',
         '@type': 'Website',
-        url: 'https://www.telegram.hr/openspace',
+        url: 'https://www.telegram.hr/pitanje-zdravlja',
         name: 'Pitanje zdravlja',
         description: 'Telegramova platforma za zdraviji život',
       }

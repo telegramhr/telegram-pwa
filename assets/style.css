@@ -5920,6 +5920,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     background: linear-gradient(to top, #ededed, #fefefe);
     background-attachment: fixed;
     color: #111;
+    font-family: neuzeit-grotesk, sans-serif;
+    font-weight: 300;
 }
 .pitanje-zdravlja .header-billboard {
     display: none;
@@ -6131,6 +6133,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     object-position: center center;
     mix-blend-mode: darken;
 }
+.pitanje-zdravlja .footer-subtitle {
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding-bottom: 16px;
+}
 .pitanje-zdravlja header nav,
 .pitanje-zdravlja header .subheader {
     display: none;
@@ -6160,6 +6168,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .single-article.pitanje-zdravlja .classic-btn {
     background-color: #0a80c5;
+}
+.single-article.pitanje-zdravlja .single-article-body, .single-article.pitanje-zdravlja .article-head h2 {
+    font-family: neuzeit-grotesk, sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    font-size: 1rem;
 }
 .single-article.pitanje-zdravlja h1 {
     font-family: neuzeit-grotesk, sans-serif;
