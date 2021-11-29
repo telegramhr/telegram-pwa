@@ -927,13 +927,13 @@ footer .copyright {
 .single-article .single-article-body p {
     margin-bottom: 15px;
 }
-.single-article .single-article-body p a {
+.single-article .single-article-body p a, .single-article .single-article-body ul a {
     color: #ae3737;
     text-decoration: underline;
     text-decoration-color: #ae3737;
 }
-.single-article .single-article-body p a:hover {
-    text-decoration-color: rgba(0, 0, 0, 0);
+.single-article .single-article-body a:hover {
+    text-decoration-color: rgba(0, 0, 0, 0) !important;
 }
 .article-head {
     margin-bottom: 24px;
@@ -5061,11 +5061,11 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .dark-mode .openspace .article .overtitle {
     color: #7077b7;
 }
-.openspace .single-article-body p a {
+.openspace .single-article-body p a, .openspace .single-article-body ul a {
     color: #464b7a;
     text-decoration-color: #464b7a;
 }
-.dark-mode .openspace .single-article-body p a {
+.dark-mode .openspace .single-article-body p a, .dark-mode .openspace .single-article-body ul a {
     color: #7077b7;
     text-decoration-color: #7077b7;
 }
@@ -5323,16 +5323,20 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     margin-top: 24px;
     margin-bottom: 24px;
     padding: 24px;
+}
+.openspace .inarticle-table {
     font-family: 'Barlow', sans-serif;
     font-weight: 400;
 }
 .single-article .single-article-body .inarticle-table h2 {
+    margin-top: 0px;
+    padding-left: 17px;
+}
+.single-article.openspace .single-article-body .inarticle-table h2 {
     font-family: 'Barlow', sans-serif;
     font-weight: 700;
     font-size: 22px;
     font-size: 1.1rem;
-    margin-top: 0px;
-    padding-left: 17px;
 }
 .single-article-body .inarticle-table ul li{
     list-style-type: disc;
@@ -5568,7 +5572,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .tg-biznis .fancy-rubrika-header .stonk-widget h3.overtitle {
     display: none;
 }
-.tg-biznis .article .overtitle, .tg-biznis .single-article-body p a, .tg-biznis .os-widget-overtitle, .tg-biznis .block-related h2.section-title, .tg-biznis .meta-preporuke, .tg-biznis .article-mini .meta-date  {
+.tg-biznis .article .overtitle, .tg-biznis .single-article-body p a, .tg-biznis .single-article-body ul a, .tg-biznis .os-widget-overtitle, .tg-biznis .block-related h2.section-title, .tg-biznis .meta-preporuke, .tg-biznis .article-mini .meta-date  {
     color: #328143;
     text-decoration-color: #328143;
 }
@@ -5808,6 +5812,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .specijal-page .pretplata-prefooter {
     display: none;
 }
+.specijal-page .breaking-news {
+    display: none;
+}
 @media screen and (min-width: 767px) {
     .specijal-page .standard-block .article-standard {
         border-bottom: none;
@@ -5901,12 +5908,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 
 /* Pitanje zdravlja */
 
-.pitanje-zdravlja {
-    font-family: neuzeit-grotesk, sans-serif;
-    font-weight: 300;
-}
 .pitanje-zdravlja.specijal-page, .pitanje-zdravlja.specijal-page .elevate-over-section {
     background-color: white;
+    font-family: neuzeit-grotesk, sans-serif;
+    font-weight: 300;
 }
 .dark-mode .pitanje-zdravlja.specijal-page, .dark-mode .pitanje-zdravlja.specijal-page .elevate-over-section {
     background-color: #212121;
@@ -6015,7 +6020,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     cursor: pointer;
     margin-top: 36px;
 }
-.pitanje-zdravlja .article h2 {
+.pitanje-zdravlja .article-standard h2, .pitanje-zdravlja .article-featured h2 {
     font-family: neuzeit-grotesk, sans-serif;
     font-weight: 400;
     letter-spacing: -0.02em;
@@ -6143,6 +6148,36 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-weight: 300;
     text-transform: uppercase;
 }
+.single-article.pitanje-zdravlja .related-header-widget, .single-article.pitanje-zdravlja .mini-pretplata, .single-article.pitanje-zdravlja .article-head-newsletter, .single-article.pitanje-zdravlja .post-article-newsletters {
+    display: none;
+}
+.single-article.pitanje-zdravlja .article-head h3.overtitle, .single-article.pitanje-zdravlja .single-article-body p a, .single-article.pitanje-zdravlja .single-article-body ul a {
+    color: #0a80c5;
+    text-decoration-color: #0a80c5;
+}
+.single-article.pitanje-zdravlja .article-tags > a {
+    border-color: #0a80c5;
+}
+.single-article.pitanje-zdravlja .classic-btn {
+    background-color: #0a80c5;
+}
+.single-article.pitanje-zdravlja h1 {
+    font-family: neuzeit-grotesk, sans-serif;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    font-size: 40px;
+    font-size: 2rem;
+    line-height: 1.1em;
+}
+.single-article.pitanje-zdravlja .special-partner-widget .line-decoration-box > div {
+    background-color: #0a80c5;
+}
+.single-article.pitanje-zdravlja .single-article-body h2 {
+    font-family: neuzeit-grotesk, sans-serif;
+    font-weight: 400;
+}
+
+
 @keyframes point-down {
     0% {
         opacity: 0;
@@ -6313,5 +6348,58 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .bf-packbox .best-price-sticker::before {
         width: 80px;
         height: 10px;
+    }
+}
+
+/* Product Guide */
+
+.product-gallery {
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+.product-gallery-item {
+    width: 31%;
+}
+.product-gallery-item h2 {
+    font-family: neuzeit-grotesk, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: normal;
+    margin-top: 24px;
+    margin-bottom: 16px;
+}
+.single-article .single-article-body .product-gallery-item p {
+    margin-bottom: 4px;
+}
+.product-gallery-buttons {
+    margin-top: 16px;
+}
+.product-gallery .classic-btn {
+    background-color: transparent;
+    border: 1.5px solid black;
+    color: black;
+    opacity: .8;
+    margin-bottom: 0px;
+}
+.dark-mode .product-gallery .classic-btn {
+    border-color: white;
+    color: white;
+}
+.product-gallery .classic-btn:hover {
+    background-color: #ae3737;
+    border-color: #ae3737;
+    color: white;
+    opacity: 1;
+}
+@media screen and (max-width: 1180px) {
+    .product-gallery-item {
+        width: 47%;
+    }
+}
+@media screen and (max-width: 767px) {
+    .product-gallery-item {
+        width: 100%;
+        margin-top: 16px;
+        margin-bottom: 16px;
     }
 }
