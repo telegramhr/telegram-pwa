@@ -1,14 +1,5 @@
 <template>
-  <div
-    :class="[
-      'main-container',
-      'flex',
-      'single-article',
-      'fancy-article',
-      'single-tg-biznis',
-      typeClass,
-    ]"
-  >
+  <div :class="['main-container', 'flex', 'single-article', typeClass]">
     <client-only>
       <theader
         :id="post.id"
@@ -200,12 +191,6 @@
                 član Uprave za ljudske potencijale, Hrvatski Telekom je svoje
                 zaposlenike ove godine odlučio posebno nagraditi.
               </p>
-              <style>
-                .premium-fade-out {
-                  display: none;
-                }
-              </style>
-              <p>I should be invisible!</p>
               <div class="full flex stretch relative inarticle-table">
                 <h2 class="full">Priča u koracima</h2>
                 <ul class="full">
@@ -251,6 +236,7 @@
                 centrom Zagreb, a u sklopu kojeg će kao volonteri imati važnu
                 ulogu”, priča Bartulović.
               </p>
+              <product-guide></product-guide>
               <p>
                 Hrvatski Telekom je tako ove godine svojim zaposlenicima
                 isplatio božićnicu u iznosu od 1.250 kuna, a kao priznanje za
@@ -261,67 +247,7 @@
                 više djece te djecu s poteškoćama u razvoju”, nastavlja
                 Bartulović.
               </p>
-              <p>
-                “Uz sve ovo, važno nam je i da u ovim neobičnim vremenima barem
-                donekle donesemo i dio božićne atmosfere među naše zaposlenike.
-                Tako smo, dodatno, organizirali i prigodne aktivnosti i darove –
-                online predstavu i slatke poklone za svu djecu zaposlenika,
-                prigodni božićni dar za sve zaposlenike te četverodijelni online
-                serijal adventskih radionica na temu spremanja božićnog obroka,
-                božićnog ukrašavanja, malo prijeko potrebnog humora i
-                inspirativnih priča”, dodaje Bartulović.
-              </p>
-              <h2 id="article-subtitle-2">
-                Rad od kuće je bila svijetla točka
-              </h2>
-              <p>
-                Zaposlenici HT-a još od sredine ožujka rade od kuće, a u svibnju
-                smo s Bartulovićem
-                <a
-                  href="https://www.telegram.hr/biznis-tech/kako-se-hrvatski-telekom-s-preko-5000-zaposlenika-u-manje-od-deset-dana-prebacio-na-rad-od-kuce/"
-                  >pričali</a
-                >
-                o tome kako je bilo prebaciti 5000 zaposlenika na rad od kuće.
-                Bartulović je tada bio zadovoljan što su uspješno izveli takav
-                golemi podvig, a kako nam sada priča, zadovoljni su i
-                zaposlenici.
-              </p>
-
-              <p>
-                “Sudeći po našim internim istraživanjima, rekao bih da je remote
-                work zapravo jedna od najsvjetlijih točaka kad govorimo o radu
-                tijekom korona krize. S time da je u našem slučaju, tijekom
-                lockdowna, remote work ugrađen u naš novi poslovni model
-                SmartWork. Riječ je o hibridnom operativnom modelu koji se
-                donedavno smatrao nemogućim, a koji u sebi integrira najbolje od
-                oba svijeta – pogodnosti rada u uredu i rada od kuće. Stoga su
-                naši zaposlenici odlično reagirali na ovaj model, prepoznajući u
-                njemu našu brigu za njihovo zdravlje i dobrobit”, kaže.
-              </p>
-              <h2 id="article-subtitle-3">
-                Zaposlenici nisu 15 godina bili toliko zadovoljni
-              </h2>
-              <p>
-                Zanimljivo je također što je uslijed stanja straha i
-                neizvjesnosti, a kod nekih zaposlenika i šoka, koji je vladao u
-                prvoj polovici godine, Hrvatski Telekom zabilježio najveće
-                zadovoljstvo zaposlenika u posljednjih 15 godina. U sklopu
-                istraživanja na 4000 zaposlenika u svibnju ove godine,
-                zaposlenici su isticali kako su jako zadovoljni što im je
-                omogućen rad od kuće, a 82 posto istaknulo je da im je
-                produktivnost jednaka ili veća dok rade od kuće.
-              </p>
-              <p>
-                “Dakle, rekao bih da ovi podaci potvrđuju kako kvalitetne
-                organizacije pokazuju svoju pravu vrijednost onda kad je
-                najpotrebnije. I na kraju, moram istaknuti kako SmartWork model
-                nećemo vezati samo uz krizna razdoblja, već ćemo zasigurno
-                nastaviti s takvom praksom i dalje”, kaže Bartulović. Za kraj,
-                Bartulović dodaje kako su nedavna istraživanja pokazala i veliki
-                rast zadovoljstva korisnika, ponajbolji ikad, a u tom duhu će
-                nastaviti i u 2021. godini.
-              </p>
-              <quiz :data="questions"></quiz>
+              <!--<quiz :data="questions"></quiz>-->
               <div class="banner-intext center intext">
                 <div class="full flex">
                   <div
