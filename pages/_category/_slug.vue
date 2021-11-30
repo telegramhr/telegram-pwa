@@ -323,6 +323,8 @@
           >
             <linker type="category"></linker>
           </div>
+        </div>
+        <div class="full flex">
           <client-only>
             <native></native>
           </client-only>
