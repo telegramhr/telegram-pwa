@@ -1,0 +1,505 @@
+<template>
+  <div
+    :class="[
+      'main-container',
+      'flex',
+      'single-article',
+      'single-article-premium',
+      'single-article-premium-alt',
+      categoryClass,
+    ]"
+  >
+    <theader
+      :id="Number(post.id)"
+      :headline="post.portal_title"
+      :post="post"
+    ></theader>
+    <div v-show="related_posts" class="full related-header-widget">
+      <div class="container flex desktop-only column-vertical-pad">
+        <div v-for="rpost in related_posts" :key="rpost.id" class="third flex">
+          <div class="full flex column-horizontal-pad">
+            <standard :post="rpost"></standard>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="full premium-article-head relative">
+      <div v-if="post.image.author" class="meta-foto">
+        FOTO: {{ post.image.author }}
+      </div>
+      <div class="mobile-only full center mobile-pa-nav relative flex">
+        <a @click.prevent="showSideMenu = !showSideMenu">
+          <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon
+        ></a>
+        <nuxt-link to="/" class="logo">
+          <img src="@/assets/img/telegram_logo_white.svg" alt="Telegram logo" />
+        </nuxt-link>
+        <a
+          v-show="canLogIn"
+          class="mob-nav-otherbtn mobile-only"
+          @click.prevent="login"
+        >
+          <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
+        ></a>
+        <app-link
+          v-show="!canLogIn"
+          class="mobile-only mob-nav-otherbtn"
+          to="/moj-racun"
+          aria-label="Moj račun"
+        >
+          <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
+        ></app-link>
+      </div>
+      <img
+        class="article-head-image"
+        :src="post.image.full"
+        :alt="post.image.alt"
+      />
+      <div class="full flex article-head">
+        <div class="full flex overtitle-parent">
+          <h3 class="overtitle">{{ post.category }}</h3>
+          <div v-if="post.promo.partner" class="collab-overtitle">
+            <h3 class="overtitle">{{ post.promo.prefix }}</h3>
+            <img :src="post.promo.logo" :alt="post.promo.partner" />
+          </div>
+        </div>
+        <h1 class="full">{{ post.portal_title }}</h1>
+        <h2 class="full">{{ post.subtitle }}</h2>
+      </div>
+    </div>
+    <div class="full relative">
+      <div class="full flex">
+        <article
+          class="container column-full-pad flex relative mobile-side-pad"
+        >
+          <div class="full column article-head column-top-pad flex">
+            <div class="full flex overtitle-parent">
+              <h3 class="overtitle">{{ post.category | parseCat }}</h3>
+              <div v-if="post.promo.partner" class="collab-overtitle">
+                <h3 class="overtitle">{{ post.promo.prefix }}</h3>
+                <img :src="post.promo.logo" :alt="post.promo.partner" />
+              </div>
+            </div>
+            <h1 class="full">{{ post.title }}</h1>
+            <h2 class="full">
+              {{ post.subtitle }}
+            </h2>
+            <p v-if="post.perex" class="perex">
+              {{ post.perex }}
+            </p>
+            <h5 class="full flex relative article-meta">
+              <span class="meta-date">{{ post.time | parseTime }}</span>
+              <span v-if="post.recommendations" class="meta-preporuke"
+                >{{ post.recommendations }} preporuka</span
+              >
+              <div class="sidebar-social flex">
+                <a href="#" @click.prevent="fbShare"
+                  ><font-awesome-icon
+                    :icon="['fab', 'facebook-f']"
+                    class="animate"
+                  ></font-awesome-icon>
+                </a>
+                <a
+                  :href="
+                    'https://twitter.com/intent/tweet?counturl=' +
+                    encodeURI(post.social.path) +
+                    '&text=' +
+                    encodeURI(post.portal_title) +
+                    '&url=' +
+                    encodeURI(post.social.path) +
+                    '&via=TelegramHR'
+                  "
+                  target="_blank"
+                  ><font-awesome-icon
+                    :icon="['fab', 'twitter']"
+                    class="animate"
+                  ></font-awesome-icon
+                ></a>
+              </div>
+            </h5>
+          </div>
+          <div class="full relative single-article-body">
+            <!-- eslint-disable vue/no-v-html -->
+            <div
+              id="article-content"
+              class="cXenseParse"
+              @click="handleClick"
+              v-html="post.content"
+            ></div>
+            <!-- eslint-enable vue/no-v-html -->
+            <product-guide :products="post.products"></product-guide>
+            <!-- Article footer -->
+            <div
+              class="full relative single-article-footer flex column-top-pad"
+            >
+              <div class="half flex-responsive">
+                <div class="flex float-right social-circle-buttons">
+                  <a href="#" class="animate center" @click.prevent="fbShare">
+                    <font-awesome-icon
+                      :icon="['fab', 'facebook-f']"
+                    ></font-awesome-icon
+                  ></a>
+                  <a
+                    :href="
+                      'https://twitter.com/intent/tweet?counturl=' +
+                      encodeURI(post.social.path) +
+                      '&text=' +
+                      encodeURI(post.portal_title) +
+                      '&url=' +
+                      encodeURI(post.social.path) +
+                      '&via=TelegramHR'
+                    "
+                    target="_blank"
+                    class="animate center"
+                  >
+                    <font-awesome-icon
+                      :icon="['fab', 'twitter']"
+                    ></font-awesome-icon
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+    <tfooter></tfooter>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'Slug',
+  scrollToTop: true,
+  async fetch() {
+    const path = this.$route.params.pathMatch.split('/')
+    let slug = path[path.length - 1]
+    if (!slug) {
+      slug = path[path.length - 2]
+    }
+    let post
+    if (!post) {
+      post = await this.$axios
+        .$get(encodeURI('/api/shop-guide/' + slug))
+        .catch(() => {
+          // TODO: error logging
+        })
+    }
+    if (post && post.id) {
+      this.post = post
+    } else {
+      this.post.title = 'Objava ne postoji'
+      this.post.portal_title = 'Objava ne postoji'
+      // set status code on server and
+      if (process.server) {
+        this.$telegram.context.res.statusCode = 404
+      }
+    }
+  },
+  data() {
+    return {
+      comments: false,
+      showSideMenu: false,
+      showSearchMenu: false,
+      post: {
+        comments_off: false,
+        type: '',
+        image: {
+          url: '',
+          alt: '',
+          author: '',
+        },
+        overtitle: '',
+        title: '',
+        subtitle: '',
+        content: '',
+        recommendations: 0,
+        comments: 0,
+        time: 0,
+        tags: [],
+        category: '',
+        category_slug: '',
+        social: {
+          title: '',
+          description: '',
+          image: '',
+          width: '',
+          height: '',
+        },
+        disable_ads: [],
+        promo: {
+          signature_logo_off: false,
+          partner: '',
+        },
+        quiz: null,
+      },
+      related_posts: [],
+      midas: false,
+    }
+  },
+  computed: {
+    canLogIn() {
+      return this.$store.state.user.exp * 1000 < new Date().getTime()
+    },
+    jsonld() {
+      const images = [this.post.image.url]
+      if (this.post.image.url2) {
+        images.push(this.post.image.url2)
+      }
+      if (this.post.image.url3) {
+        images.push(this.post.image.url3)
+      }
+      return [
+        {
+          '@context': 'https://schema.org',
+          '@type': 'NewsArticle',
+          headline: this.post.title,
+          mainEntityOfPage: this.post.social.path,
+          datePublished: new Date(this.post.time * 1000).toISOString(),
+          image: images,
+          publisher: {
+            '@type': 'Organization',
+            name: 'Telegram.hr',
+            logo: {
+              '@type': 'ImageObject',
+              url: 'https://www.telegram.hr/tg_neue_favicon.png',
+            },
+          },
+        },
+        {
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: this.post.category,
+              item: 'https://www.telegram.hr/' + this.$route.params.category,
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: this.post.title,
+              item: this.post.social.path,
+            },
+          ],
+        },
+      ]
+    },
+    categoryClass() {
+      if (this.post.category_slug) {
+        if (
+          this.post.category_slug.includes('openspace') ||
+          this.post.category_slug.includes('pitanje-zdravlja')
+        ) {
+          return this.post.category_slug + ' fancy-rubrika'
+        }
+        return this.post.category_slug
+      }
+      return ''
+    },
+    srcset() {
+      let set = `${this.post.image.url}`
+      if (this.post.image.url2) {
+        set += `, ${this.post.image.url2} 2x`
+      }
+      if (this.post.image.url3) {
+        set += `, ${this.post.image.url3} 3x`
+      }
+      return set
+    },
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.getPost()
+    })
+  },
+  methods: {
+    getPost() {
+      if (this.post && this.post.id) {
+        if (process.client) {
+          this.$telegram.$loading.finish()
+        }
+        if (document.getElementById('article-content')) {
+          const images = [
+            ...document
+              .getElementById('article-content')
+              .getElementsByTagName('img'),
+          ]
+          images.forEach((image) => {
+            if (image.width < image.height) {
+              image.classList.remove('size-full')
+            }
+          })
+        }
+      } else {
+        setTimeout(this.getPost, 500)
+      }
+    },
+    fbShare() {
+      /* global FB */
+      FB.ui(
+        { method: 'share', href: this.post.social.path },
+        function (response) {}
+      )
+    },
+    handleClick(event) {
+      // ensure we use the link, in case the click has been received by a subelement
+      let { target } = event
+      while (target && target.tagName !== 'A') target = target.parentNode
+      // handle only links that occur inside the component and do not reference external resources
+      if (
+        target &&
+        target.matches("#article-content a([href*='://www.telegram.hr'])") &&
+        target.href
+      ) {
+        // some sanity checks taken from vue-router:
+        // https://github.com/vuejs/vue-router/blob/dev/src/components/link.js#L106
+        const { altKey, ctrlKey, metaKey, shiftKey, button, defaultPrevented } =
+          event
+        // don't handle with control keys
+        if (metaKey || altKey || ctrlKey || shiftKey) return
+        // don't handle when preventDefault called
+        if (defaultPrevented) return
+        // don't handle right clicks
+        if (button !== undefined && button !== 0) return
+        // don't handle if `target="_blank"`
+        if (target && target.getAttribute) {
+          const linkTarget = target.getAttribute('target')
+          if (/\b_blank\b/i.test(linkTarget)) return
+        }
+        // don't handle same page links/anchors
+        const url = new URL(target.href)
+        const to = url.pathname
+        if (window.location.pathname !== to && event.preventDefault) {
+          event.preventDefault()
+          this.$router.push(to)
+        }
+      }
+    },
+  },
+  head() {
+    const link = [
+      {
+        hid: 'canonical',
+        rel: 'canonical',
+        href: this.post.social.path,
+      },
+    ]
+    const fbPaywall = {
+      none: 'metered',
+      always: 'locked',
+      never: 'free',
+    }
+    return {
+      title: this.post.title,
+      titleTemplate: '%s | Telegram.hr',
+      meta: [
+        {
+          hid: 'cXenseParse:articleid',
+          name: 'cXenseParse:articleid',
+          content: this.post.id,
+        },
+        {
+          hid: 'cXenseParse:image',
+          name: 'cXenseParse:image',
+          content: this.post.image.url,
+        },
+        {
+          hid: 'cXenseParse:title',
+          name: 'cXenseParse:title',
+          content: this.post.portal_title,
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.post.social.description,
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.post.social.description,
+        },
+        {
+          hid: 'og:type',
+          property: 'og:type',
+          content: 'article',
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.post.social.title,
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: this.post.social.image,
+        },
+        {
+          hid: 'og:image:width',
+          property: 'og:image:width',
+          content: this.post.social.width,
+        },
+        {
+          hid: 'og:image:height',
+          property: 'og:image:height',
+          content: this.post.social.height,
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: this.post.social.path,
+        },
+        {
+          hid: 'fb:app_id',
+          property: 'fb:app_id',
+          content: '1383786971938581',
+        },
+        {
+          hid: 'article:opinion',
+          property: 'article:opinion',
+          content: this.post.category === 'Komentari',
+        },
+        {
+          hid: 'article:content_tier',
+          property: 'article:content_tier',
+          content: fbPaywall[this.post.paywall],
+        },
+        {
+          hid: 'twitter:card',
+          name: 'twitter:card',
+          content: 'summary_large_image',
+        },
+        {
+          hid: 'twitter:site',
+          name: 'twitter:site',
+          content: '@TelegramHR',
+        },
+        {
+          hid: 'twitter:widgets:theme',
+          name: 'twitter:widgets:theme',
+          content: this.$store.state.theme.theme === 'dark' ? 'dark' : 'light',
+        },
+        {
+          hid: 'robots',
+          name: 'robots',
+          content:
+            this.$route.params.category === 'preview' ||
+            this.post.status !== 'publish'
+              ? 'noindex, noarchive, nocache, nosnippet'
+              : 'index, follow',
+        },
+      ],
+      script: [
+        {
+          vmid: 'schema-ld',
+          hid: 'schema-ld',
+          type: 'application/ld+json',
+          json: this.jsonld,
+        },
+      ],
+      link,
+    }
+  },
+}
+</script>
