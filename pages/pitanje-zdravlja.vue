@@ -160,7 +160,11 @@
             mobile-side-pad
           "
         >
-          <latest v-show="!$mobile" :portal="1"></latest>
+          <latest
+            v-show="!$mobile"
+            :portal="1"
+            category="pitanje-zdravlja"
+          ></latest>
         </section>
         <div class="three-fourths flex-responsive flex">
           <section
@@ -230,9 +234,18 @@
         >
           <standard :post="post"></standard>
         </div>
-        <div class="full center subtle-btn-parent relative clickable">
-          <div class="subtle-btn animate">Vidi više</div>
-          <div class="subtle-btn-line"></div>
+        <div
+          class="full center subtle-btn-parent relative clickable"
+          @click="loadMore"
+        >
+          <div v-show="!loading" class="subtle-btn animate">Vidi više</div>
+          <div v-show="loading" class="full center cool-loader">
+            <div class="loader-square">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -282,7 +295,10 @@ export default {
       return this.$store.state.zdravlje.posts
     },
     posts() {
-      return this.$store.state.category.categories['pitanje-zdravlja'].posts
+      return [
+        ...this.$store.state.category.categories['pitanje-zdravlja'].posts,
+        ...this.$store.state.category.morePosts['pitanje-zdravlja'].posts,
+      ]
     },
     jsonld() {
       return {
@@ -292,6 +308,18 @@ export default {
         name: 'Pitanje zdravlja',
         description: 'Telegramova platforma za zdraviji život',
       }
+    },
+  },
+  methods: {
+    loadMore() {
+      this.loading = true
+      this.$store
+        .dispatch('category/loadMore', {
+          category: 'pitanje-zdravlja',
+        })
+        .then((res) => {
+          this.loading = false
+        })
     },
   },
 }

@@ -140,6 +140,10 @@ export const state = () => ({
       posts: [],
       page: 2,
     },
+    'pitanje-zdravlja': {
+      posts: [],
+      page: 2,
+    },
   },
   updated: null,
   page: 1,
