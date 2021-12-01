@@ -221,7 +221,7 @@
         </div>
       </div>
     </div>
-    <div class="full flex hide">
+    <div class="full flex">
       <div class="container flex relative native-block stretch mobile-side-pad">
         <div
           v-for="post in posts"
@@ -249,13 +249,6 @@
           <img
             src="https://www.telegram.hr/wp-content/uploads/2021/11/nismo-same.png"
             alt="Nismo same logo"
-          />
-        </div>
-        <div class="full center">
-          <img
-            class="tg-studio"
-            src="@/assets/img/tg_studio.png"
-            alt="TG Studio logo"
           />
         </div>
         <p class="full center-text column-full-pad">
