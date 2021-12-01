@@ -1,82 +1,34 @@
 <template>
-  <div class="main-container flex pitanje-zdravlja pz-homepage">
-    <div class="full pz-header">
-      <app-link to="/" class="full center pz-subheader relative"
-        ><img src="@/assets/img/telegram_logo_white.svg" alt="Telegram logo"
-      /></app-link>
-      <div
-        class="container column-horizontal-pad mobile-side-pad flex relative"
-      >
-        <a class="flex pz-header-badge">
-          <img
-            src="@/assets/img/tgstudio_pitanjezdravlja_badge.svg"
-            aria-hidden="true"
-          />
-          <img
-            src="@/assets/img/tgstudio_pitanjezdravlja_logo_white.svg"
-            class="pz-header-logo"
-            alt="Pitanje zdravlja logo"
-            data-aos="fade-down"
-            data-aos-delay="250"
-          />
-        </a>
-        <nav class="full flex relative">
-          <app-link
-            to="/specijal/sasvim-iskreno"
-            class="animate"
-            data-aos="fade-down"
-            data-aos-delay="500"
-            >Sasvim iskreno</app-link
-          >
-          <a class="animate" data-aos="fade-down" data-aos-delay="750"
-            >Zdrave vijesti</a
-          >
-          <a class="animate" data-aos="fade-down" data-aos-delay="1000"
-            >Leksikon zdravlja</a
-          >
-          <a class="animate" data-aos="fade-down" data-aos-delay="1250"
-            >Rezultati istraživanja</a
-          >
-        </nav>
-      </div>
+  <div class="main-container flex fancy-rubrika pitanje-zdravlja">
+    <div class="full flex">
+      <theader></theader>
     </div>
-    <div class="full pz-hero center relative">
-      <div class="container column-full-pad mobile-side-pad">
+    <div class="full flex relative fancy-rubrika-header">
+      <div class="os-section-title-left-el"></div>
+      <div class="os-section-title-right-el"></div>
+      <div class="container flex fancyr-section-parent pz-hero">
         <h1 class="full center-text">
           <span data-aos="fade-up" data-aos-delay="750">Pitanje</span
           ><span data-aos="fade-down" data-aos-delay="1500"> zdravlja</span>
         </h1>
-        <p
-          class="full pz-intro center-text"
-          data-aos="fade-up"
-          data-aos-delay="1750"
-        >
-          I točni odgovori.
-        </p>
-        <p
-          class="full pz-intro center-text"
-          data-aos="fade-up"
-          data-aos-delay="2000"
-        >
-          Kritički progovaramo o zdravstvenim temama.
-        </p>
-        <div
-          class="full center column-top-pad hide"
-          data-aos="fade-up"
-          data-aos-delay="2250"
-        >
-          <div class="pz-button">Pogledaj rezultate</div>
-        </div>
+        <nav class="full center page-header-nav">
+          <app-link role="menuitem" to="/specijal/sasvim-iskreno"
+            >Sasvim iskreno</app-link
+          >
+          <app-link role="menuitem" to="/specijal/zdrave-vijesti"
+            >Zdrave vijesti</app-link
+          >
+          <app-link role="menuitem" to="/specijal/leksikon-zdravlja"
+            >Leksikon zdravlja</app-link
+          >
+          <app-link role="menuitem" to="/specijal/rezultati-istrazivanja"
+            >Rezultati istraživanja</app-link
+          >
+        </nav>
       </div>
-      <a class="arrow-indicator center" href="#first-content">
-        <div></div>
-      </a>
     </div>
     <div v-if="featured.length" class="full relative">
-      <div
-        id="first-content"
-        class="container flex relative stretch standard-block intro-block"
-      >
+      <div class="container flex relative stretch standard-block intro-block">
         <div
           class="full flex column-horizontal-pad column-top-pad mobile-side-pad"
         >
@@ -88,7 +40,7 @@
           <div
             v-for="post in featured.slice(1, 4)"
             :key="post.id"
-            class="third flex-responsive column-vertical-pad stretch"
+            class="third flex-responsive column-top-pad stretch"
           >
             <div class="full flex column-horizontal-pad">
               <featured :post="post"></featured>
@@ -97,57 +49,118 @@
         </div>
       </div>
     </div>
-    <div class="full pz-fancy-slide relative center">
-      <div class="container flex mobile-side-pad relative">
-        <div class="full center column-full-pad">
-          <div class="pz-fancy-line"></div>
-        </div>
-        <div class="full column-full-pad">
-          <h2
-            class="full center-text"
-            data-aos="fade-down"
-            data-aos-delay="750"
+    <div class="block-title news-block-title full mobile-side-pad hide">
+      <div class="full block-title-pattern relative"></div>
+      <div class="container flex relative">
+        <h1 class="column-left-pad full">Još priča</h1>
+      </div>
+    </div>
+    <div class="full flex relative os-about-section">
+      <div class="container column-vertical-pad mobile-side-pad flex">
+        <h2 class="full flex column-horizontal-pad os-elevate-title">
+          Što je Pitanje zdravlja?
+        </h2>
+        <div class="full flex relative">
+          <div
+            class="
+              third
+              column-horizontal-pad
+              flex-responsive
+              column-right-border
+            "
           >
-            Što je <span class="pz-blue pz-dynamic">Pitanje zdravlja?</span>
-          </h2>
-          <p
-            class="full pz-intro center-text"
-            data-aos="fade-up"
-            data-aos-delay="1250"
+            <h3 class="full os-about-subtitle">
+              <span>Kritički progovaramo</span
+              ><span> o zdravstvenim temama</span>
+            </h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+              sit amet dignissim nisl. Integer ac porttitor nisi, finibus
+              ultricies felis. Nam pellentesque turpis sed egestas egestas.
+            </p>
+          </div>
+          <div
+            class="
+              third
+              column-horizontal-pad
+              flex-responsive
+              column-right-border
+            "
           >
-            Platforma koja pomaže u razvoju zdravstvene pismenosti građana.
-          </p>
+            <h3 class="full os-about-subtitle">
+              <span>Pomažemo u razvoju</span
+              ><span> zdravstvene pismenosti građana</span>
+            </h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+              sit amet dignissim nisl. Integer ac porttitor nisi, finibus
+              ultricies felis. Nam pellentesque turpis sed egestas egestas.
+            </p>
+          </div>
+          <div class="third column-horizontal-pad flex-responsive">
+            <h3 class="full os-about-subtitle">
+              <span>Dajemo točne odgovore</span><span> na vaša pitanja</span>
+            </h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+              sit amet dignissim nisl. Integer ac porttitor nisi, finibus
+              ultricies felis. Nam pellentesque turpis sed egestas egestas.
+            </p>
+          </div>
         </div>
-        <div class="full center column-full-pad">
-          <div class="pz-fancy-line"></div>
+      </div>
+    </div>
+    <div class="full flex relative pz-specials-widget hide">
+      <div class="container flex relative">
+        <div class="fourth flex-responsive column-full-pad mobile-side-pad">
+          <a class="full center pz-special-tile relative">
+            <img
+              src="https://images.telegram.hr/Fk65hhW56aR_lNZxLPgF702hOVhqTJ5uar4HYwakSho/preset:single1/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjAvMTEvMDAwLTh2cTZiMi5qcGc.jpg"
+              aria-hidden="true"
+            />
+            <h2 class="full center-text">Zdravlje prostate</h2>
+          </a>
+        </div>
+        <div class="fourth flex-responsive column-full-pad mobile-side-pad">
+          <a class="full center pz-special-tile relative">
+            <img
+              src="https://images.telegram.hr/Fk65hhW56aR_lNZxLPgF702hOVhqTJ5uar4HYwakSho/preset:single1/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjAvMTEvMDAwLTh2cTZiMi5qcGc.jpg"
+              aria-hidden="true"
+            />
+            <h2 class="full center-text">Moždani udar</h2>
+          </a>
+        </div>
+        <div class="fourth flex-responsive column-full-pad mobile-side-pad">
+          <a class="full center pz-special-tile relative">
+            <img
+              src="https://images.telegram.hr/Fk65hhW56aR_lNZxLPgF702hOVhqTJ5uar4HYwakSho/preset:single1/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjAvMTEvMDAwLTh2cTZiMi5qcGc.jpg"
+              aria-hidden="true"
+            />
+            <h2 class="full center-text">Imunitet</h2>
+          </a>
+        </div>
+        <div class="fourth flex-responsive column-full-pad mobile-side-pad">
+          <a class="full center pz-special-tile relative">
+            <img
+              src="https://images.telegram.hr/Fk65hhW56aR_lNZxLPgF702hOVhqTJ5uar4HYwakSho/preset:single1/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjAvMTEvMDAwLTh2cTZiMi5qcGc.jpg"
+              aria-hidden="true"
+            />
+            <h2 class="full center-text">Briga o koži</h2>
+          </a>
         </div>
       </div>
     </div>
     <div v-if="featured.length" class="full relative">
-      <div
-        class="container flex center relative block-2 standard-block stretch"
-      >
+      <div class="container flex relative block-2 standard-block stretch">
         <section
           class="
             fourth
             flex flex-responsive
             column-horizontal-pad
             mobile-side-pad
-            hide
           "
         >
-          <div class="full flex desktop-only">
-            <h3 class="full flex overtitle pz-widget-overtitle">Teme</h3>
-          </div>
-          <a class="full center pz-special-tile">
-            <h2 class="full center-text">Zdravlje prostate</h2>
-          </a>
-          <a class="full center pz-special-tile">
-            <h2 class="full center-text">Moždani udar</h2>
-          </a>
-          <a class="full center pz-special-tile">
-            <h2 class="full center-text">Imunitet</h2>
-          </a>
+          <latest v-show="!$mobile" :portal="1"></latest>
         </section>
         <div class="three-fourths flex-responsive flex">
           <section
@@ -155,11 +168,15 @@
               two-thirds
               flex-responsive flex
               mobile-side-pad
-              column-horizontal-pad column-right-border
+              column-horizontal-pad column-right-border column-left-border
             "
           >
             <featured :key="featured[4].id" :post="featured[4]"></featured>
-            <featured :key="featured[5].id" :post="featured[5]"></featured>
+            <div class="full flex split-articles">
+              <template v-for="post in featured.slice(5, 8)">
+                <medium :key="post.id" :post="post"></medium>
+              </template>
+            </div>
           </section>
           <section
             class="
@@ -169,7 +186,7 @@
               column-horizontal-pad
             "
           >
-            <template v-for="post in featured.slice(6, 9)">
+            <template v-for="post in featured.slice(8, 11)">
               <medium :key="post.id" :post="post"></medium>
             </template>
           </section>
@@ -178,9 +195,6 @@
     </div>
     <div class="full pz-fancy-slide relative center">
       <div class="container flex relative mobile-side-pad">
-        <div class="full center column-full-pad">
-          <div class="pz-fancy-line"></div>
-        </div>
         <div class="full column-full-pad">
           <h2
             class="full center-text"
@@ -205,8 +219,20 @@
             <div class="pz-button">Pošalji pitanje</div>
           </div>
         </div>
-        <div class="full center column-full-pad">
-          <div class="pz-fancy-line"></div>
+      </div>
+    </div>
+    <div class="full flex hide">
+      <div class="container flex relative native-block stretch mobile-side-pad">
+        <div
+          v-for="post in posts"
+          :key="post.id"
+          class="fourth flex-responsive column-full-pad"
+        >
+          <standard :post="post"></standard>
+        </div>
+        <div class="full center subtle-btn-parent relative clickable">
+          <div class="subtle-btn animate">Vidi više</div>
+          <div class="subtle-btn-line"></div>
         </div>
       </div>
     </div>
@@ -239,13 +265,11 @@
         </p>
       </div>
     </div>
+    <tfooter></tfooter>
   </div>
 </template>
 
 <script>
-import AOS from 'aos'
-import 'aos/dist/aos.css'
-
 export default {
   name: 'PitanjeZdravlja',
   async fetch() {
@@ -276,12 +300,6 @@ export default {
         description: 'Telegramova platforma za zdraviji život',
       }
     },
-  },
-  mounted() {
-    AOS.init({
-      duration: 1000,
-      delay: 250,
-    })
   },
 }
 </script>
