@@ -267,9 +267,9 @@ export default {
   name: 'PitanjeZdravlja',
   async fetch() {
     await this.$store.dispatch('zdravlje/pullPosts')
-    /* await this.$store.dispatch('category/pullPosts', {
+    await this.$store.dispatch('category/pullPosts', {
       category: 'pitanje-zdravlja',
-    }) */
+    })
   },
   data() {
     return {

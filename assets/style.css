@@ -5493,7 +5493,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-family: ibm-plex-mono, sans-serif;
         font-weight: 700;
     }
-    .openspace .widget .btn, .subtle-btn-parent:hover .subtle-btn, .subtle-btn:hover {
+    .openspace .widget .btn, .openspace .subtle-btn-parent:hover .subtle-btn, .openspace .subtle-btn:hover {
         background-color: #2c2e41;
     }
     .block-title h1 {
@@ -6198,7 +6198,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .pitanje-zdravlja .intro-block .third .article-featured .article-pad {
     padding-bottom: 0px;
 }
-
+.pitanje-zdravlja .widget .btn, .pitanje-zdravlja .subtle-btn-parent:hover .subtle-btn, .pitanje-zdravlja .subtle-btn:hover {
+    background-color: #0a80c5;
+}
+.pitanje-zdravlja .native-block .subtle-btn-parent {
+    margin-bottom: 64px;
+}
 .pitanje-zdravlja .os-about-subtitle span {
     display: inline-block;
 }
