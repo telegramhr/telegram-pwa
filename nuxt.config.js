@@ -212,6 +212,10 @@ export default {
       target: 'https://pretplate.telegram.hr',
       pathRewrite: { '^/pretplate/': '' },
     },
+    '/gscripts/': {
+      target: 'https://script.google.com/macros/s/',
+      pathRewrite: { '^/gscripts/': '' },
+    },
   },
 
   purgeCSS: {

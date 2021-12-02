@@ -217,10 +217,12 @@
             ponuditi točne odgovore.
           </p>
           <div class="full center" data-aos="fade-up" data-aos-delay="2000">
-            <textarea id="pz-query"></textarea>
+            <textarea id="pz-query" v-model="question"></textarea>
           </div>
           <div class="full center" data-aos="fade-up" data-aos-delay="2000">
-            <div class="pz-button">Pošalji pitanje</div>
+            <div class="pz-button" @click.prevent="submitQuestion">
+              Pošalji pitanje
+            </div>
           </div>
         </div>
       </div>
@@ -288,6 +290,7 @@ export default {
     return {
       loading: false,
       hasMore: true,
+      question: '',
     }
   },
   computed: {
@@ -319,6 +322,20 @@ export default {
         })
         .then((res) => {
           this.loading = false
+        })
+    },
+    submitQuestion() {
+      this.$axios
+        .get(
+          '/gscripts/AKfycbwgk-r1uOxx60N9HSeLONiFKzcyMz_fj50K11wxg4ZDba5lUtuuDxh1ux440WL2veFZ/exec',
+          {
+            params: {
+              pitanje: this.question,
+            },
+          }
+        )
+        .then(() => {
+          // TODO: success
         })
     },
   },
