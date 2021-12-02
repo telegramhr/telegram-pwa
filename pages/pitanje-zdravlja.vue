@@ -318,8 +318,9 @@ export default {
         '@context': 'https://schema.org',
         '@type': 'Website',
         url: 'https://www.telegram.hr/pitanje-zdravlja',
-        name: 'Pitanje zdravlja',
-        description: 'Telegramova platforma za zdraviji život',
+        name: 'PitanjeZdravlja',
+        description:
+          'Provjerene i ekskluzivne zdravstvene vijesti, analize i priče',
       }
     },
   },
@@ -352,6 +353,51 @@ export default {
           this.sentsubmission = true
         })
     },
+  },
+  head() {
+    return {
+      title: 'PitanjeZdravlja',
+      meta: [
+        { hid: 'og:type', name: 'og:type', content: 'website' },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          property: 'og:title',
+          content: 'PitanjeZdravlja',
+        },
+        {
+          hid: 'og:url',
+          name: 'og:url',
+          property: 'og:url',
+          content: 'https://www.telegram.hr/pitanje-zdravlja',
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: 'https://www.telegram.hr/img/os_share_home.jpg',
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'Provjerene i ekskluzivne zdravstvene vijesti, analize i priče',
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content:
+            'Provjerene i ekskluzivne zdravstvene vijesti, analize i priče',
+        },
+      ],
+      script: [
+        {
+          vmid: 'schema-ld',
+          hid: 'schema-ld',
+          type: 'application/ld+json',
+          json: this.jsonld,
+        },
+      ],
+    }
   },
 }
 </script>
