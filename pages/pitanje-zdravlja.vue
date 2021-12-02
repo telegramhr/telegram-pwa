@@ -347,6 +347,10 @@ export default {
         .then(() => {
           this.sentsubmission = true
         })
+        .catch(() => {
+          // special case because CORS fails, but data goes through
+          this.sentsubmission = true
+        })
     },
   },
 }
