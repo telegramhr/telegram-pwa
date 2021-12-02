@@ -25,7 +25,7 @@
           </p>
         </div>
       </div>
-      <div class="full flex relative pretplata-sale hide">
+      <div class="full flex relative pretplata-sale">
         <div
           class="
             container
