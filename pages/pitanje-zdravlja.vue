@@ -9,7 +9,7 @@
       <div class="container flex fancyr-section-parent pz-hero">
         <h1 class="full center-text">
           <span data-aos="fade-up" data-aos-delay="750">Pitanje</span
-          ><span data-aos="fade-down" data-aos-delay="1500"> zdravlja</span>
+          ><span data-aos="fade-down" data-aos-delay="1500">zdravlja</span>
         </h1>
         <nav class="full center page-header-nav">
           <app-link role="menuitem" to="/specijal/sasvim-iskreno"
@@ -74,9 +74,8 @@
               ><span> o zdravstvenim temama</span>
             </h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-              sit amet dignissim nisl. Integer ac porttitor nisi, finibus
-              ultricies felis. Nam pellentesque turpis sed egestas egestas.
+              Obrađujemo zdravstvene teme iz svih kuteva, koristimo relevantne
+              izvore podataka i otvaramo diskusiju s čitateljima.
             </p>
           </div>
           <div
@@ -92,9 +91,9 @@
               ><span> zdravstvene pismenosti građana</span>
             </h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-              sit amet dignissim nisl. Integer ac porttitor nisi, finibus
-              ultricies felis. Nam pellentesque turpis sed egestas egestas.
+              Educiramo, informiramo i demistificiramo. Zdravstvene teme
+              objašnjavamo laički. Pomažemo vam da steknete kontrolu nad svojim
+              zdravstvenim stanjem.
             </p>
           </div>
           <div class="third column-horizontal-pad flex-responsive">
@@ -102,9 +101,8 @@
               <span>Dajemo točne odgovore</span><span> na vaša pitanja</span>
             </h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-              sit amet dignissim nisl. Integer ac porttitor nisi, finibus
-              ultricies felis. Nam pellentesque turpis sed egestas egestas.
+              Pitanje zdravlja je pravo mjesto za informacije o zdravstvenim
+              temama. Kritički obrađujemo teme koje vas zanimaju.
             </p>
           </div>
         </div>
@@ -165,6 +163,10 @@
             :portal="1"
             category="pitanje-zdravlja"
           ></latest>
+          <div class="full flex desktop-only">
+            <h2 class="full flex section-title">Newsletter</h2>
+            <newsletter></newsletter>
+          </div>
         </section>
         <div class="three-fourths flex-responsive flex">
           <section

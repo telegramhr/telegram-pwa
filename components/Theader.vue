@@ -269,7 +269,7 @@
     </div>
     <div class="full subheader sticky-subheader mobile-side-pad center">
       <div class="container flex desktop-subheader column-horizontal-pad">
-        <div class="two-thirds flex" role="navigation">
+        <div class="two-thirds flex subheader-ow-fix" role="navigation">
           <app-link to="/" class="logo"
             ><img
               src="@/assets/img/telegram_logo_white.svg"
@@ -447,7 +447,7 @@
           "
           role="navigation"
         >
-          <div class="two-thirds flex" role="menu">
+          <div class="two-thirds flex subheader-ow-fix" role="menu">
             <a
               :aria-expanded="$store.state.header.showSideMenu.toString()"
               aria-label="Prikaži lijevi meni"
@@ -469,6 +469,11 @@
               >
               <app-link role="menuitem" to="/zivot">Život</app-link>
               <app-link role="menuitem" to="/kultura">Kultura</app-link>
+              <app-link role="menuitem" to="/openspace">Openspace</app-link>
+              <a href="https://super1.telegram.hr" role="menuitem">Super1</a>
+              <a href="https://telesport.telegram.hr" role="menuitem">
+                Telesport
+              </a>
             </div>
           </div>
           <div class="flex third relative">

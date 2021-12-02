@@ -1,13 +1,13 @@
 <template>
   <div class="product-gallery-item flex flex-responsive column-vertical-pad">
     <img :src="product.image" />
-    <h2>
+    <h2 class="full">
       {{ product.title }}
     </h2>
-    <p>
+    <p class="full">
       {{ product.description }}
     </p>
-    <p class="bold">Cijena: {{ product.price }} kn</p>
+    <p class="full bold">Cijena: {{ product.price }} kn</p>
     <div class="full flex product-gallery-buttons">
       <a :href="product.link" class="classic-btn">{{ product.shop }}</a>
     </div>

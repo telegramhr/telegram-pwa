@@ -17,7 +17,7 @@
       <div class="block-title news-block-title full mobile-side-pad">
         <div class="full block-title-pattern relative"></div>
         <div class="container flex relative">
-          <h1 class="full column-left-pad">
+          <h1 class="fourth column-left-pad">
             {{ cat }}
           </h1>
         </div>

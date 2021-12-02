@@ -110,6 +110,11 @@ header .logo {
 .desktop-subheader svg.fa-search {
     margin-right: 0px;
 }
+.subheader-ow-fix {
+    flex-wrap: nowrap;
+    overflow: hidden;
+    height: 16px;
+}
 
 /* Homepage articles */
 
@@ -5139,6 +5144,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     border: none;
     margin-bottom: 16px;
 }
+.openspace.category-page .fourth .section-title, .openspace.category-page .fourth .section-title:first-child {
+    margin-top: 32px;
+    border-bottom: 3px solid #464b7a;
+}
 .openspace .block-related .section-title:first-child {
     margin-top: 24px;
 }
@@ -5986,8 +5995,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-weight: 300;
 }
 .pz-hero h1 {
-    font-size: 66px;
-    font-size: 3.3rem;
+    font-size: 68px;
+    font-size: 3.4rem;
     text-transform: uppercase;
     font-family: neuzeit-grotesk, sans-serif;
     font-weight: 300;
@@ -6053,6 +6062,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .pitanje-zdravlja .article h3.overtitle,
 .pz-blue {
     color: #0a80c5;
+}
+.pitanje-zdravlja .block-related .article h3.overtitle {
+    color: #ae3737;
 }
 .pitanje-zdravlja .article-featured img {
     margin-bottom: 16px;
@@ -6209,7 +6221,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .single-article.pitanje-zdravlja .article-tags > a {
     border-color: #0a80c5;
 }
-.single-article.pitanje-zdravlja .classic-btn {
+.single-article.pitanje-zdravlja .classic-btn, .pitanje-zdravlja .loader-square div {
     background-color: #0a80c5;
 }
 .single-article.pitanje-zdravlja h1 {
@@ -6272,7 +6284,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         padding: 12px;
     }
     .pz-hero h1 {
-        font-size: 9.3vw;
+        font-size: 9.6vw;
     }
     .pz-fancy-slide h2,
     .pz-fancy-title {
@@ -6289,13 +6301,17 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 1rem;
     }
     .pitanje-zdravlja .article h2 {
-        font-size: 22px;
-        font-size: 1.1rem;
+        font-size: 18px;
+        font-size: 0.9rem;
+    }
+    .pitanje-zdravlja .article-medium h2 {
+        font-size: 20px;
+        font-size: 1rem;
     }
     .pitanje-zdravlja .article-big h2,
     .pitanje-zdravlja .article-featured h2 {
-        font-size: 26px;
-        font-size: 1.3rem;
+        font-size: 24px;
+        font-size: 1.2rem;
     }
     .pitanje-zdravlja .article-featured img {
         margin-bottom: 0px;
@@ -6350,6 +6366,11 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .pz-hero {
         padding-top: 36px;
     }
+    .page-header-nav a {
+        font-size: 16px;
+        font-size: 0.8rem;
+        opacity: .6;
+    }
     .pitanje-zdravlja nav.homepage-exclusive {
         display: flex;
         background-color: #222;
@@ -6367,83 +6388,135 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
 }
 
-/* Black Friday packbox */
+/* Sale special packbox */
 
-.dark-mode .pretplata-bf {
-    background-color: #111111;
-}
-.pretplata-bf {
+.pretplata-sale {
     margin-top: 32px;
+    background-color: #ae3737;
+    overflow: hidden;
+    color: white;
 }
-.bf-packbox {
-    margin-top: 20px;
-}
-.pretplata-bf .pretplata-benefits p {
+.pretplata-sale .pretplata-benefits p {
     color: white;
     opacity: .8;
     margin-bottom: 16px;
 }
-.bf-packbox p svg {
+.sale-packbox p svg {
     margin-right: 4px;
 }
-.bf-packbox {
+.sale-packbox {
     text-transform: uppercase;
     max-width: 540px;
-    border: 1px solid #ae3737;
+    border: 1px solid white;
     margin-bottom: 64px;
+    margin-top: 20px;
 }
-.bf-packbox p {
+.sale-packbox p {
     font-family: 'Barlow', sans-serif;
     font-weight: 400;
 }
-.bf-packbox .overtitle {
+.sale-packbox .overtitle {
     width: 100%;
+    color: white;
+    opacity: .8;
 }
-.bf-packbox .btn {
-    border: none;
+.sale-packbox .undertitle {
+    opacity: .8;
 }
-.bf-packbox .best-price-sticker {
+.sale-packbox h2 span {
+    opacity: .4;
+    position: relative;
+    padding: 0px 8px;
+    font-weight: 400;
+}
+.sale-packbox h2 span::before {
+    content: ' ';
+    position: absolute;
+    top: 47.5%;
+    left: 0;
+    width: 100%;
+    height: 7%;
+    background-color: white;
+}
+.sale-packbox .btn {
+    border-color: white;
+}
+.sale-packbox .best-price-sticker {
     font-family: 'Barlow', sans-serif;
     font-weight: 400;
     right: -8px;
 }
-.bf-packbox .best-price-sticker {
+.sale-packbox .best-price-sticker {
     padding: 6px;
 }
-.pretplata-page .bf-packbox h2 {
+.pretplata-page .sale-packbox h2 {
     font-size: 74px;
     font-size: 3.7rem;
     position: relative;
     left: -4px;
 }
+.ps-xmas1, .ps-xmas2 {
+    position: absolute;
+    width: 500px;
+    height: auto;
+    opacity: .4;
+}
+.ps-xmas1 {
+    right: -600px;
+    bottom: -73px;
+}
+.ps-xmas2 {
+    left: -600px;
+    top: -69px;
+}
 
+@media screen and (max-width: 1180px) {
+    .sale-packbox {
+        margin: 0px;
+        margin-bottom: 112px;
+        margin-top: 68px;
+    }
+    .ps-xmas1, .ps-xmas2 {
+        position: absolute;
+        width: 72vw;
+        margin-top: 0px;
+    }
+    .ps-xmas1 {
+        right: 10vw;
+        bottom: -120px;
+    }
+    .ps-xmas2 {
+        left: 10vw;
+        top: -150px;
+    }
+}
 @media screen and (min-width: 767px) {
-    .pretplata-page .bf-packbox h2 {
+    .pretplata-page .sale-packbox h2 {
         font-size: 86px;
         font-size: 4.3rem;
         margin-top: 4px;
         margin-bottom: 4px;
     }
-    .bf-packbox {
+    .sale-packbox {
         padding: 32px;
         margin-bottom: 48px;
     }
-    .bf-packbox .undertitle {
+    .sale-packbox .undertitle {
         font-size: 14px;
         font-size: 0.7rem;
     }
-    .bf-packbox p {
+    .sale-packbox p {
         font-size: 20px;
         font-size: 1rem;
     }
-    .bf-packbox p svg {
+    .sale-packbox p svg {
         margin-right: 8px;
     }
-    .bf-packbox .overtitle {
+    .sale-packbox .overtitle {
         font-size: 18px;
         font-size: 0.9rem;
     }
-    .bf-packbox .best-price-sticker {
+    .sale-packbox .best-price-sticker {
         right: -40px;
         top: -40px;
         width: 80px;
@@ -6453,7 +6526,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         border-radius: 50px;
         padding: 10px;
     }
-    .bf-packbox .best-price-sticker::before {
+    .sale-packbox .best-price-sticker::before {
         width: 80px;
         height: 10px;
     }
