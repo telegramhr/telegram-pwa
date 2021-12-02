@@ -222,9 +222,16 @@
             <textarea id="pz-query" v-model="question"></textarea>
           </div>
           <div class="full center" data-aos="fade-up" data-aos-delay="2000">
-            <div class="pz-button" @click.prevent="submitQuestion">
+            <div
+              v-show="!sentsubmission"
+              class="pz-button"
+              @click.prevent="submitQuestion"
+            >
               Pošalji pitanje
             </div>
+            <p v-show="sentsubmission" class="full pz-intro center-text">
+              Vaše pitanje je spremljeno. Hvala na prijavi!
+            </p>
           </div>
         </div>
       </div>
@@ -292,6 +299,7 @@ export default {
     return {
       loading: false,
       hasMore: true,
+      sentsubmission: false,
       question: '',
     }
   },
@@ -337,7 +345,7 @@ export default {
           }
         )
         .then(() => {
-          // TODO: success
+          this.sentsubmission = true
         })
     },
   },
