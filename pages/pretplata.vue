@@ -87,7 +87,7 @@
                 *promotivna ponuda vrijedi samo za nove pretplatnike
               </h4>
             </div>
-            <div class="full center btn-parent" @click="checkout(one)">
+            <div class="full center btn-parent" @click="checkout(promo)">
               <div class="btn animate">Odaberi</div>
             </div>
           </div>
@@ -750,6 +750,7 @@ export default {
         TMXKYJUN5YN5: 69,
         TMVUCFM94OA7: 468,
         TM8R9U7RK5B1: 588,
+        TMBXUSHKJZZ0: 49,
       },
     }
   },
@@ -790,6 +791,9 @@ export default {
       }
       return ''
     },
+    promo() {
+      return 'TMBXUSHKJZZ0'
+    },
   },
   mounted() {
     window.fbq = window.fbq || function () {}
@@ -799,6 +803,7 @@ export default {
         'TMXKYJUN5YN5',
         'TMVUCFM94OA7',
         'TM8R9U7RK5B1',
+        'TMBXUSHKJZZ0',
       ],
     })
     window.tp.push([
