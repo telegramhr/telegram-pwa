@@ -324,11 +324,6 @@
             <linker type="category"></linker>
           </div>
         </div>
-        <div class="full flex">
-          <client-only>
-            <native></native>
-          </client-only>
-        </div>
         <div class="container center">
           <div
             data-contentexchange-widget="k7dWfvWSYDqoSZvwu"
