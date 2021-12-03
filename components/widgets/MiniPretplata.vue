@@ -5,15 +5,15 @@
       Zbog istrage Telegrama uhićena je Gabrijela Žalac. Neovisno istraživačko
       novinarstvo najteže je novinarstvo, a kako bismo nastavili s našim
       istraživačkim specijalima, britkim komentarima, analizama i velikim
-      pričama, potrebna nam je i vaša podrška. Kupnjom pretplate
-      <b>već za manje od 1.5 kune dnevno</b> podržavate rad Telegramovih
-      istraživačkih novinara, kolumnista i analitičara te nam dajete još bolju
-      šansu u borbi protiv močvarnih struktura i kriminalnih organizacija koje
-      misle da su nedodirljive.
-      <b
-        >Ako vjerujete u naš rad i želite nas podržati u našoj misiji, odaberite
-        svoj paket pretplate već danas.</b
-      >
+      pričama, potrebna nam je i vaša podrška. Kupnjom pretplate podržavate rad
+      Telegramovih istraživačkih novinara, kolumnista i analitičara te nam
+      dajete još bolju šansu u borbi protiv močvarnih struktura i kriminalnih
+      organizacija koje misle da su nedodirljive; a
+      <b>
+        u božićnoj akciji možete dobiti prvi mjesec pretplate za samo 1 kunu.
+      </b>
+      Ako vjerujete u naš rad i želite nas podržati u našoj misiji, odaberite
+      svoj paket pretplate već danas.
     </p>
     <div class="full center">
       <div class="classic-btn">Pretplatite se</div>

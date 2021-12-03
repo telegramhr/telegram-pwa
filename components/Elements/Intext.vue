@@ -47,22 +47,22 @@ export default {
     paywall() {
       this.title = 'Ovaj članak dostupan je samo pretplatnicima.'
       this.subtitle =
-        'Pretplatite se već za malo više od 1 kune dnevno i čitajte ekskluzivne sadržaje bez ograničenja.'
+        'Iskoristite božićnu akciju i čitajte prvi mjesec bez limita za samo 1 kunu.'
       if (this.$store.state.user.token) {
         this.title = 'Vaš korisnički račun nema aktivnu pretplatu.'
         this.subtitle =
-          'Pretplatite se odmah kako biste imali neograničen pristup svim sadržajima.'
+          'Iskoristite božićnu akciju i čitajte prvi mjesec bez limita za samo 1 kunu.'
       }
       this.triggerShow('paywall')
     },
     load() {
       this.title = 'Pročitali ste sve besplatne članke u ovom mjesecu.'
       this.subtitle =
-        'Pretplatite se već za malo više od 1 kune dnevno i čitajte Telegram bez ograničenja.'
+        'Iskoristite božićnu akciju i čitajte prvi mjesec bez limita za samo 1 kunu.'
       if (this.$store.state.user.token) {
         this.title = 'Vaš korisnički račun nema aktivnu pretplatu.'
         this.subtitle =
-          'Pretplatite se odmah kako biste imali neograničen pristup svim sadržajima.'
+          'Iskoristite božićnu akciju i čitajte prvi mjesec bez limita za samo 1 kunu.'
       }
       this.triggerShow('load')
     },

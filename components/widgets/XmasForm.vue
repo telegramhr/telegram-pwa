@@ -13,17 +13,35 @@
     </p>
     <form id="xmas-form" class="full flex relative">
       <label class="full" for="xmas-ime">Vaše ime i prezime:</label>
-      <input id="xmas-ime" class="full" type="text" name="xmas-ime" />
+      <input
+        id="xmas-ime"
+        v-model="ime"
+        class="full"
+        type="text"
+        name="xmas-ime"
+      />
       <label class="full" for="xmas-email">Vaš email:</label>
-      <input id="xmas-email" class="full" type="text" name="xmas-email" />
+      <input
+        id="xmas-email"
+        v-model="email"
+        class="full"
+        type="text"
+        name="xmas-email"
+      />
       <label class="full" for="xmas-idea"
         ><b>Nagradno pitanje:</b> Tražimo najoriginalnije i zabavnije ideje za
         poklone! Recite nam svoju ideju idealnog poklona, za koga je namijenjen,
         o kojem poklonu je riječ i zašto je baš to dobra ideja?</label
       >
-      <textarea id="xmas-idea" class="full" name="xmas-idea"></textarea>
+      <textarea
+        id="xmas-idea"
+        v-model="odgovor"
+        class="full"
+        name="xmas-idea"
+      ></textarea>
       <input
         id="consent"
+        v-model="consent"
         type="checkbox"
         name="consent"
         value="1"
@@ -38,7 +56,11 @@
         ></label
       >
       <div class="full flex">
-        <div v-show="!xmasattempt" class="classic-btn" @click="xmassubmit">
+        <div
+          v-show="!xmasattempt"
+          class="classic-btn"
+          @click.prevent="xmassubmit"
+        >
           Pošalji prijavu
         </div>
         <div v-show="xmasloading" class="full center cool-loader">
@@ -62,13 +84,40 @@ export default {
       xmasloading: false,
       xmassent: false,
       xmasattempt: false,
+      ime: '',
+      email: '',
+      odgovor: '',
+      consent: false,
     }
   },
   methods: {
     xmassubmit() {
-      this.xmasattempt = true
-      this.xmasloading = true
-      // This is where the smart stuff would go if I knew how to code smart stuff.
+      if (this.consent) {
+        this.xmasattempt = true
+        this.xmasloading = true
+        this.$axios
+          .get(
+            '/gscripts/AKfycbz1N8o3ioCOzaz_nSdpg-goTrQd37AZtKkXB-5ePjmQFdaZfPev_KcWazsMRl0ATkvFbw/exec',
+            {
+              params: {
+                ime: this.ime,
+                email: this.email,
+                odgovor: this.odgovor,
+              },
+            }
+          )
+          .then(() => {
+            this.xmasattempt = false
+            this.xmasloading = false
+            this.xmassent = true
+          })
+          .catch(() => {
+            // special case because CORS fails, but data goes through
+            this.xmasattempt = false
+            this.xmasloading = false
+            this.xmassent = true
+          })
+      }
     },
   },
 }
