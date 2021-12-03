@@ -369,7 +369,7 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: 'https://www.telegram.hr/img/os_share_home.jpg',
+          content: 'https://www.telegram.hr/img/pz_share.jpg',
         },
         {
           hid: 'description',
