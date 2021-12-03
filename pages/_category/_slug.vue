@@ -329,9 +329,6 @@
             <native></native>
           </client-only>
         </div>
-        <div class="full flex">
-          <single-newsletters :author="post.authors[0]"></single-newsletters>
-        </div>
         <div class="container center">
           <div
             data-contentexchange-widget="k7dWfvWSYDqoSZvwu"
