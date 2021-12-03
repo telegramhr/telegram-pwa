@@ -930,6 +930,13 @@ export default {
           src: 'https://linker.hr/widget/slider/splide.min.js',
           async: true,
         },
+        {
+          vmid: 'linker-infinite',
+          hid: 'linker-infinite',
+          type: 'text/javascript',
+          src: 'https://linker.hr/lw-inf.js',
+          async: true,
+        },
       ],
       link,
     }
