@@ -332,14 +332,6 @@
         <div class="full flex">
           <single-newsletters :author="post.authors[0]"></single-newsletters>
         </div>
-        <client-only>
-          <keep-reading
-            v-if="post.category_slug && post.category_slug !== 'promo'"
-            :category="post.category_slug"
-            :p="Number(post.id)"
-            :permalink="post.permalink"
-          ></keep-reading>
-        </client-only>
         <div class="container center">
           <div
             data-contentexchange-widget="k7dWfvWSYDqoSZvwu"
@@ -356,6 +348,14 @@
         <div class="container flex center">
           <div id="linker-526" class="lwdgt" data-wid="526"></div>
         </div>
+        <client-only>
+          <keep-reading
+            v-if="post.category_slug && post.category_slug !== 'promo'"
+            :category="post.category_slug"
+            :p="Number(post.id)"
+            :permalink="post.permalink"
+          ></keep-reading>
+        </client-only>
         <ticker></ticker>
       </div>
     </template>
