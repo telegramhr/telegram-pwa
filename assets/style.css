@@ -6592,3 +6592,46 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         margin-bottom: 16px;
     }
 }
+
+/* Inarticle form */
+
+.inarticle-form input, .inarticle-form textarea {
+    margin-top: 8px;
+    background: none;
+    outline: none;
+    border: none;
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+    font-size: 16px;
+    font-size: 0.8rem;
+    padding: 4px;
+    margin-bottom: 16px;
+}
+.inarticle-form .classic-btn {
+    cursor: pointer;
+    margin-top: 16px;
+}
+.inarticle-form textarea {
+    border: 1px solid #c8c8c8;
+}
+.inarticle-form input[type="text"] {
+    border-bottom: 1px solid #c8c8c8;
+}
+.inarticle-form .consent-label {
+    cursor: pointer;
+    padding-left: 8px;
+    padding-top: 1px;
+}
+.inarticle-form .consent-label a {
+    color: #ae3737;
+    text-decoration: underline;
+}
+.inarticle-form .consent-label a:hover {
+    text-decoration-color: transparent;
+}
+.dark-mode .inarticle-form input[type="text"] {
+    border-color: #333;
+}
+.dark-mode .inarticle-form input, .dark-mode  .inarticle-form textarea {
+    color: #efefef;
+}

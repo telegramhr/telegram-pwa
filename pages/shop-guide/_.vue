@@ -128,12 +128,13 @@
             ></div>
             <!-- eslint-enable vue/no-v-html -->
             <product-guide :products="post.products"></product-guide>
+            <xmas-form></xmas-form>
             <!-- Article footer -->
             <div
               class="full relative single-article-footer flex column-top-pad"
             >
-              <div class="half flex-responsive">
-                <div class="flex float-right social-circle-buttons">
+              <div class="full center">
+                <div class="flex social-circle-buttons">
                   <a href="#" class="animate center" @click.prevent="fbShare">
                     <font-awesome-icon
                       :icon="['fab', 'facebook-f']"
@@ -168,8 +169,10 @@
 </template>
 
 <script>
+import XmasForm from '../../components/widgets/XmasForm.vue'
 export default {
   name: 'Slug',
+  components: { XmasForm },
   scrollToTop: true,
   async fetch() {
     const path = this.$route.params.pathMatch.split('/')
