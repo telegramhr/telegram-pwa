@@ -5836,7 +5836,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         margin-bottom: 0px;
     }
 }
-@media screen and (max-width: 1180px) {
+@media screen and (max-width: 1025px) {
     .specijal-header::before {
         display: none;
     }
@@ -5926,10 +5926,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .dark-mode .pitanje-zdravlja.specijal-page, .dark-mode .pitanje-zdravlja.specijal-page .elevate-over-section {
     background-color: #212121;
-}
-.pz-homepage {
-    font-family: neuzeit-grotesk, sans-serif;
-    font-weight: 300;
 }
 .pitanje-zdravlja .header-billboard {
     display: none;
@@ -6260,7 +6256,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .pitanje-zdravlja .pz-specials-widget {
         margin-bottom: 64px;
     }
-    .pitanje-zdravlja.single-article-premium header .subheader {
+    .pz-homepage .breaking-news {
+        display: none;
+    }
+    .pitanje-zdravlja.single-article header .subheader {
         display: flex;
     }
 }
