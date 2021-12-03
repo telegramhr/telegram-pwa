@@ -1,5 +1,5 @@
 <template>
-  <div class="main-container flex fancy-rubrika pitanje-zdravlja">
+  <div class="main-container flex fancy-rubrika pitanje-zdravlja pz-homepage">
     <div class="full flex">
       <theader></theader>
     </div>
