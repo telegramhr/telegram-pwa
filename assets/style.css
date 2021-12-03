@@ -873,8 +873,8 @@ footer {
     margin-top: 60px;
 }
 footer .logo-line a {
-    width: 24.99%;
-    padding: 8px;
+    width: 19.99%;
+    padding: 16px;
     opacity: .5;
 }
 footer .logo-line a:hover {
@@ -3682,6 +3682,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .widget {
         overflow: hidden;
     }
+    footer .logo-line {
+        justify-content: center;
+    }
+    footer .logo-line a {
+        width: 33.33%;
+    }
 }
 
 @media screen and (min-width: 767px) {
@@ -4005,11 +4011,11 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         width: auto;
     }
     footer .main-footer-logo img {
-        height: 40px;
+        height: 30px;
         width: auto;
     }
     footer .logo-line img {
-        height: 56px;
+        height: 46px;
     }
     footer .logo-line a:first-child img {
         padding: 8px;
@@ -6253,6 +6259,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .pitanje-zdravlja .pz-specials-widget {
         margin-bottom: 64px;
+    }
+    .pitanje-zdravlja.single-article-premium header .subheader {
+        display: flex;
     }
 }
 

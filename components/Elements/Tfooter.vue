@@ -55,6 +55,12 @@
                 alt="openspace logo"
               />
             </app-link>
+            <app-link to="/pitanje-zdravlja" class="center animate">
+              <img
+                src="@/assets/img/pz_logo_negative.svg"
+                alt="openspace logo"
+              />
+            </app-link>
             <a
               href="https://www.telegramgrupa.hr#studio"
               target="_blank"

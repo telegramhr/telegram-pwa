@@ -275,11 +275,6 @@
             alt="Nismo same logo"
           />
         </div>
-        <p class="full center-text column-full-pad">
-          Producirano u radionici TG Studija, Telegramove in-house agencije za
-          nativni marketing, u suradnji s partnerima i po najvišim uredničkim
-          standardima Telegram Media Grupe.
-        </p>
       </div>
     </div>
     <tfooter></tfooter>
