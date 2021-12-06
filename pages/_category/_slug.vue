@@ -809,7 +809,6 @@ export default {
         json: this.jsonld,
       },
     ]
-    console.log(this.$store.getters['user/hasPremium'])
     if (!this.$store.getters['user/hasPremium']) {
       script = [
         ...script,
@@ -829,7 +828,6 @@ export default {
         },
       ]
     }
-    console.log(script)
     if (this.$route.params.category !== 'partneri') {
       link.push(amp)
     }
