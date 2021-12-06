@@ -129,7 +129,7 @@
             class="container flex relative native-block stretch mobile-side-pad"
           >
             <div class="full column-horizontal-pad flex">
-              <h2 class="full flex section-title">Možda će vas zanimati</h2>
+              <h2 class="full flex section-title">Još šoping vodiča</h2>
             </div>
             <div
               v-for="p in posts"
