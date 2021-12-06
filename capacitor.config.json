@@ -1,0 +1,6 @@
+{
+  "appId": "hr.telegram",
+  "appName": "Telegram.hr",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}
