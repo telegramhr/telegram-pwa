@@ -6,6 +6,7 @@
       'single-article',
       'single-article-premium',
       'single-article-premium-alt',
+      'shop-guide',
       categoryClass,
     ]"
   >
