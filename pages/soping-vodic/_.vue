@@ -124,6 +124,18 @@
             </div>
           </div>
         </article>
+        <!--<div class="full flex">
+          <div
+            class="container flex relative native-block stretch mobile-side-pad"
+          >
+            <div class="full column-horizontal-pad flex">
+              <h2 class="full flex section-title">Možda će vas zanimati</h2>
+            </div>
+            <div class="fourth flex-responsive column-full-pad">
+              <standard></standard>
+            </div>
+          </div>
+      </div>-->
       </div>
     </div>
     <tfooter></tfooter>

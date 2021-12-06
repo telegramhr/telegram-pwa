@@ -6626,6 +6626,20 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         margin-top: 16px;
         margin-bottom: 16px;
     }
+    .product-gallery {
+        margin-top: 16px;
+        border-top: 1px solid #c8c8c8;
+    }
+    .dark-mode .product-gallery {
+        border-color: #333;
+    }
+    .product-gallery-filters span {
+        width: 100%;
+    }
+    .product-gallery-filters .classic-btn {
+        margin-left: 0px;
+        margin-top: 0px;
+    }
 }
 @media screen and (min-width: 767px) {
     .single-article.shop-guide .article-head > .article-head-image-parent {
