@@ -6592,6 +6592,29 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .shop-guide .header-billboard {
     height: 0px;
 }
+.product-gallery-filters span {
+    padding: 8px 8px;
+    padding-left: 0px;
+    margin: 8px 0px;
+    font-size: 12px;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    line-height: initial;
+}
+.product-gallery-filters .classic-btn {
+    width: auto;
+    margin: 8px;
+    cursor: pointer;
+}
+.product-gallery-filters .classic-btn.selected-btn {
+    background-color: #ae3737;
+    border-color: #ae3737;
+    color: white;
+    opacity: 1;
+}
+
 @media screen and (max-width: 1180px) {
     .product-gallery-item {
         width: 47%;

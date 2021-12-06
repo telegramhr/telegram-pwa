@@ -1,5 +1,5 @@
 <template>
-  <div id="xmasform" class="full flex relative inarticle-form">
+  <div id="xmasform" class="full flex relative inarticle-form column-top-pad">
     <img
       src="https://www.telegram.hr/wp-content/uploads/2021/12/xmas-goodybag.jpg"
       alt="Sadržaj ultimativnog Santa's baga"

@@ -8,6 +8,11 @@
       column-top-border column-bottom-border
     "
   >
+    <div class="full flex product-gallery-filters">
+      <span>Poredaj proizvode:</span>
+      <div class="classic-btn selected-btn">Najjeftiniji</div>
+      <div class="classic-btn">Najskuplji</div>
+    </div>
     <product-guide-single
       v-for="product in list"
       :key="product.id"
