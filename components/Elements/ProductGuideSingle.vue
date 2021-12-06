@@ -9,9 +9,13 @@
     </p>
     <p class="full bold">Cijena: {{ product.price | parseCurrency }}</p>
     <div v-if="product.link" class="full flex product-gallery-buttons">
-      <a :href="product.link" class="classic-btn" target="_blank">{{
-        product.shop
-      }}</a>
+      <a
+        :href="product.link"
+        class="classic-btn"
+        target="_blank"
+        rel="sponsored"
+        >{{ product.shop }}</a
+      >
     </div>
   </div>
 </template>

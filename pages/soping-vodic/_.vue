@@ -124,18 +124,22 @@
             </div>
           </div>
         </article>
-        <!--<div class="full flex">
+        <div class="full flex">
           <div
             class="container flex relative native-block stretch mobile-side-pad"
           >
             <div class="full column-horizontal-pad flex">
               <h2 class="full flex section-title">Možda će vas zanimati</h2>
             </div>
-            <div class="fourth flex-responsive column-full-pad">
-              <standard></standard>
+            <div
+              v-for="p in posts"
+              :key="p.id"
+              class="fourth flex-responsive column-full-pad"
+            >
+              <standard :post="p"></standard>
             </div>
           </div>
-      </div>-->
+        </div>
       </div>
     </div>
     <tfooter></tfooter>
@@ -175,10 +179,10 @@ export default {
   },
   data() {
     return {
-      comments: false,
       showSideMenu: false,
       showSearchMenu: false,
       post: {
+        id: 0,
         comments_off: false,
         type: '',
         image: {
@@ -210,8 +214,7 @@ export default {
         },
         quiz: null,
       },
-      related_posts: [],
-      midas: false,
+      posts: [],
     }
   },
   computed: {
@@ -289,6 +292,7 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.getPost()
+      this.getRelated()
     })
   },
   methods: {
@@ -312,6 +316,11 @@ export default {
       } else {
         setTimeout(this.getPost, 500)
       }
+    },
+    async getRelated() {
+      this.posts = await this.$axios.$get(
+        '/api/shop-guide/related/' + this.post.id
+      )
     },
     fbShare() {
       /* global FB */
