@@ -10,8 +10,18 @@
   >
     <div class="full flex product-gallery-filters">
       <span>Poredaj proizvode:</span>
-      <div class="classic-btn selected-btn">Najjeftiniji</div>
-      <div class="classic-btn">Najskuplji</div>
+      <div
+        :class="['classic-btn', sortType === 'priceAsc' ? 'selected-btn' : '']"
+        @click="sortType = 'priceAsc'"
+      >
+        Najjeftiniji
+      </div>
+      <div
+        :class="['classic-btn', sortType === 'priceDesc' ? 'selected-btn' : '']"
+        @click="sortType = 'priceDesc'"
+      >
+        Najskuplji
+      </div>
     </div>
     <product-guide-single
       v-for="product in list"
