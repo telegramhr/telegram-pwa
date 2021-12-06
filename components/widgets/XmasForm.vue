@@ -9,7 +9,12 @@
       Dok vi birate poklone za druge, mi brinemo o poklonima za vas. Odgovorite
       na nagradno pitanje i osvojite Ultimativni Santa's bag prepun poklona.
       Svaki dan biramo jednog dobitnika, a što se krije u vreći poklona saznajte
-      <a target="_blank" class="bold">ovdje.</a>
+      <a
+        target="_blank"
+        href="https://super1.telegram.hr/relax/xmas-giveaway-2021/"
+        class="bold"
+        >ovdje.</a
+      >
     </p>
     <form id="xmas-form" class="full flex relative">
       <label class="full" for="xmas-ime">Vaše ime i prezime:</label>
