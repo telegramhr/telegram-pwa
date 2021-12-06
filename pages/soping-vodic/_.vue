@@ -4,8 +4,6 @@
       'main-container',
       'flex',
       'single-article',
-      'single-article-premium',
-      'single-article-premium-alt',
       'shop-guide',
       categoryClass,
     ]"
@@ -15,59 +13,6 @@
       :headline="post.portal_title"
       :post="post"
     ></theader>
-    <div v-show="related_posts" class="full related-header-widget">
-      <div class="container flex desktop-only column-vertical-pad">
-        <div v-for="rpost in related_posts" :key="rpost.id" class="third flex">
-          <div class="full flex column-horizontal-pad">
-            <standard :post="rpost"></standard>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="full premium-article-head relative">
-      <div v-if="post.image.author" class="meta-foto">
-        FOTO: {{ post.image.author }}
-      </div>
-      <div class="mobile-only full center mobile-pa-nav relative flex">
-        <a @click.prevent="showSideMenu = !showSideMenu">
-          <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon
-        ></a>
-        <nuxt-link to="/" class="logo">
-          <img src="@/assets/img/telegram_logo_white.svg" alt="Telegram logo" />
-        </nuxt-link>
-        <a
-          v-show="canLogIn"
-          class="mob-nav-otherbtn mobile-only"
-          @click.prevent="login"
-        >
-          <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
-        ></a>
-        <app-link
-          v-show="!canLogIn"
-          class="mobile-only mob-nav-otherbtn"
-          to="/moj-racun"
-          aria-label="Moj račun"
-        >
-          <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
-        ></app-link>
-      </div>
-      <img
-        class="article-head-image"
-        :src="post.image.full"
-        :alt="post.image.alt"
-      />
-      <div class="full flex article-head">
-        <div class="full flex overtitle-parent">
-          <h3 class="overtitle">{{ post.category }}</h3>
-          <div v-if="post.promo.partner" class="collab-overtitle">
-            <h3 class="overtitle">{{ post.promo.prefix }}</h3>
-            <img :src="post.promo.logo" :alt="post.promo.partner" />
-          </div>
-        </div>
-        <h1 class="full">{{ post.portal_title }}</h1>
-        <h2 class="full">{{ post.subtitle }}</h2>
-      </div>
-    </div>
     <div class="full relative">
       <div class="full flex">
         <article
@@ -118,6 +63,22 @@
                 ></a>
               </div>
             </h5>
+            <div class="full flex article-head-image-parent relative">
+              <template v-if="post.video">
+                <!-- eslint-disable-next-line -->
+                  <div style="width: 100%" v-html="post.video" />
+              </template>
+              <template v-else>
+                <img
+                  class="article-head-image"
+                  :src="post.image.full"
+                  :alt="post.image.alt"
+                />
+                <div v-if="post.image.author" class="meta-foto">
+                  FOTO: {{ post.image.author }}
+                </div>
+              </template>
+            </div>
           </div>
           <div class="full relative single-article-body">
             <!-- eslint-disable vue/no-v-html -->

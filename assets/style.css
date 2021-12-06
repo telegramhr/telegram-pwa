@@ -6589,6 +6589,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .shop-guide .premium-article-head > img {
     position: relative;
 }
+.shop-guide .header-billboard {
+    height: 0px;
+}
 @media screen and (max-width: 1180px) {
     .product-gallery-item {
         width: 47%;
@@ -6599,6 +6602,14 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         width: 100%;
         margin-top: 16px;
         margin-bottom: 16px;
+    }
+}
+@media screen and (min-width: 767px) {
+    .single-article.shop-guide .article-head > .article-head-image-parent {
+        max-width: 1200px;
+    }
+    .shop-guide .article-head-image {
+        height: auto;
     }
 }
 
@@ -6631,6 +6642,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     padding-left: 8px;
     padding-top: 1px;
 }
+.inarticle-form h2 {
+    font-family: neuzeit-grotesk, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: normal;
+}
 .inarticle-form .consent-label a {
     color: #ae3737;
     text-decoration: underline;
@@ -6643,4 +6660,14 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .dark-mode .inarticle-form input, .dark-mode  .inarticle-form textarea {
     color: #efefef;
+}
+@media screen and (max-width: 767px) {
+    .inarticle-form {
+        margin-top: 32px;
+        padding-top: 48px;
+        border-top: 1px solid #c8c8c8;
+    }
+    .dark-mode .inarticle-form {
+        border-color: #333;
+    }
 }
