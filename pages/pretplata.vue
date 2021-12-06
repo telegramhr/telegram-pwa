@@ -155,7 +155,7 @@
                   surfanje s manje oglasa
                 </p>
               </div>
-              <div class="full center btn-parent" @click="checkout(one)">
+              <div class="full center btn-parent" @click="checkout(promo)">
                 <div class="btn animate">Odaberi</div>
               </div>
             </div>
