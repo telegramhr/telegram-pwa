@@ -11,6 +11,8 @@
     "lint": "npm run lint:js"
   },
   "dependencies": {
+    "@capacitor/core": "^3.3.2",
+    "@capacitor/ios": "^3.3.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
     "@fortawesome/free-regular-svg-icons": "^5.15.3",
@@ -35,6 +37,7 @@
     "vuex-persistedstate": "^4.0.0-beta.2"
   },
   "devDependencies": {
+    "@capacitor/cli": "^3.3.2",
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/eslint-module": "^3.0.0",
