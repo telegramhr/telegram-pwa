@@ -44,25 +44,43 @@ export default {
     window.removeEventListener('piano_intext_paywall', this.paywall)
   },
   methods: {
-    paywall() {
-      this.title = 'Ovaj članak dostupan je samo pretplatnicima.'
-      this.subtitle =
-        'Iskoristite božićnu akciju i čitajte prvi mjesec bez limita za samo 1 kunu.'
-      if (this.$store.state.user.token) {
-        this.title = 'Vaš korisnički račun nema aktivnu pretplatu.'
+    paywall(e) {
+      if (e.detail) {
+        this.title = e.detail.title
+        this.subtitle = e.detail.subtitle
+        if (this.$store.state.user.token) {
+          this.title = e.detail.title_user
+          this.subtitle = e.detail.subtitle_user
+        }
+      } else {
+        this.title = 'Ovaj članak dostupan je samo pretplatnicima.'
         this.subtitle =
           'Iskoristite božićnu akciju i čitajte prvi mjesec bez limita za samo 1 kunu.'
+        if (this.$store.state.user.token) {
+          this.title = 'Vaš korisnički račun nema aktivnu pretplatu.'
+          this.subtitle =
+            'Iskoristite božićnu akciju i čitajte prvi mjesec bez limita za samo 1 kunu.'
+        }
       }
       this.triggerShow('paywall')
     },
-    load() {
-      this.title = 'Pročitali ste sve besplatne članke u ovom mjesecu.'
-      this.subtitle =
-        'Iskoristite božićnu akciju i čitajte prvi mjesec bez limita za samo 1 kunu.'
-      if (this.$store.state.user.token) {
-        this.title = 'Vaš korisnički račun nema aktivnu pretplatu.'
+    load(e) {
+      if (e.detail) {
+        this.title = e.detail.title
+        this.subtitle = e.detail.subtitle
+        if (this.$store.state.user.token) {
+          this.title = e.detail.title_user
+          this.subtitle = e.detail.subtitle_user
+        }
+      } else {
+        this.title = 'Pročitali ste sve besplatne članke u ovom mjesecu.'
         this.subtitle =
           'Iskoristite božićnu akciju i čitajte prvi mjesec bez limita za samo 1 kunu.'
+        if (this.$store.state.user.token) {
+          this.title = 'Vaš korisnički račun nema aktivnu pretplatu.'
+          this.subtitle =
+            'Iskoristite božićnu akciju i čitajte prvi mjesec bez limita za samo 1 kunu.'
+        }
       }
       this.triggerShow('load')
     },
@@ -71,7 +89,6 @@ export default {
         return
       }
       const el = document.getElementById('piano-content')
-      console.log(el)
       if (el) {
         this.show = true
         el.parentNode.removeChild(el)
