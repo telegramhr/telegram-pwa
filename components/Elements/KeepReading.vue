@@ -26,7 +26,24 @@
           mobile-side-pad
         "
       >
+        <template v-for="(post, index) in posts">
+          <div
+            v-if="index === 0"
+            :key="post.id"
+            class="third flex-responsive flex"
+          >
+            <div class="full flex column-horizontal-pad">
+              <featured :post="post"></featured>
+            </div>
+          </div>
+          <div v-else :key="post.id" class="third flex-responsive flex">
+            <div class="full flex column-horizontal-pad">
+              <standard :post="post"></standard>
+            </div>
+          </div>
+        </template>
         <div
+          v-if="!$store.getters['user/hasPremium']"
           class="lwdgt"
           data-wid="542"
           data-infinite="true"
@@ -65,7 +82,9 @@ export default {
     }
   },
   mounted() {
-    // this.loadPosts()
+    if (this.$store.getters['user/hasPremium']) {
+      this.loadPosts()
+    }
   },
   methods: {
     loadPosts() {

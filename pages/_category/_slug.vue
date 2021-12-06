@@ -801,6 +801,35 @@ export default {
         href: this.post.social.path,
       },
     ]
+    let script = [
+      {
+        vmid: 'schema-ld',
+        hid: 'schema-ld',
+        type: 'application/ld+json',
+        json: this.jsonld,
+      },
+    ]
+    console.log(this.$store.getters['user/hasPremium'])
+    if (!this.$store.getters['user/hasPremium']) {
+      script = [
+        ...script,
+        {
+          vmid: 'linker-slider',
+          hid: 'linker-slider',
+          type: 'text/javascript',
+          src: 'https://linker.hr/widget/slider/splide.min.js',
+          async: true,
+        },
+        {
+          vmid: 'linker-infinite',
+          hid: 'linker-infinite',
+          type: 'text/javascript',
+          src: 'https://linker.hr/lw-inf.js',
+          async: true,
+        },
+      ]
+    }
+    console.log(script)
     if (this.$route.params.category !== 'partneri') {
       link.push(amp)
     }
@@ -908,28 +937,7 @@ export default {
               : 'index, follow',
         },
       ],
-      script: [
-        {
-          vmid: 'schema-ld',
-          hid: 'schema-ld',
-          type: 'application/ld+json',
-          json: this.jsonld,
-        },
-        {
-          vmid: 'linker-slider',
-          hid: 'linker-slider',
-          type: 'text/javascript',
-          src: 'https://linker.hr/widget/slider/splide.min.js',
-          async: true,
-        },
-        {
-          vmid: 'linker-infinite',
-          hid: 'linker-infinite',
-          type: 'text/javascript',
-          src: 'https://linker.hr/lw-inf.js',
-          async: true,
-        },
-      ],
+      script,
       link,
     }
   },
