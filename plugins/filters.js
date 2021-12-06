@@ -36,4 +36,13 @@ export default () => {
     const root = parse(value)
     return root.text ? root.text : ''
   })
+  Vue.filter('parseCurrency', function (value) {
+    const formatter = new Intl.NumberFormat('hr-HR', {
+      style: 'currency',
+      currency: 'HRK',
+      currencyDisplay: 'narrowSymbol',
+      minimumFractionDigits: (value * 100) % 100 ? 2 : 0,
+    })
+    return formatter.format(value)
+  })
 }

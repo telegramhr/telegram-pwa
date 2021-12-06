@@ -7,8 +7,8 @@
     <p class="full">
       {{ product.description }}
     </p>
-    <p class="full bold">Cijena: {{ product.price }} kn</p>
-    <div class="full flex product-gallery-buttons">
+    <p class="full bold">Cijena: {{ product.price | parseCurrency }}</p>
+    <div v-if="product.link" class="full flex product-gallery-buttons">
       <a :href="product.link" class="classic-btn">{{ product.shop }}</a>
     </div>
   </div>
