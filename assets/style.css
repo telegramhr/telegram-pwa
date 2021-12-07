@@ -6619,6 +6619,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     color: white;
     opacity: 1;
 }
+.xmas-breaking {
+    background: #0d4570;
+}
 
 @media screen and (max-width: 1180px) {
     .product-gallery-item {
