@@ -28,6 +28,13 @@
       :key="product.id"
       :product="product"
     ></product-guide-single>
+    <div
+      v-if="showMore"
+      class="full center subtle-btn-parent relative clickable"
+      @click="page++"
+    >
+      <div class="subtle-btn animate">Vidi više</div>
+    </div>
   </div>
 </template>
 
@@ -46,31 +53,51 @@ export default {
   data() {
     return {
       sortType: '',
+      page: 1,
+      randomProducts: [],
     }
   },
   computed: {
     list() {
+      const ps = [...this.randomProducts]
+      let sorted
       switch (this.sortType) {
         case 'priceAsc':
-          return [...this.products].sort((a, b) => {
+          sorted = ps.sort((a, b) => {
             return a.price - b.price
           })
+          break
         case 'priceDesc':
-          return [...this.products].sort((a, b) => {
+          sorted = ps.sort((a, b) => {
             return b.price - a.price
           })
+          break
         case 'titleAsc':
-          return [...this.products].sort((a, b) => {
+          sorted = ps.sort((a, b) => {
             return a.title.localeCompare(b.title, 'hr')
           })
+          break
         case 'titleDesc':
-          return [...this.products].sort((a, b) => {
+          sorted = ps.sort((a, b) => {
             return b.title.localeCompare(a.title, 'hr')
           })
+          break
         default:
-          return this.products
+          sorted = ps
+          break
       }
+      if (sorted.length > 50) {
+        // assume homepage
+        sorted = sorted.slice(0, this.page * 9)
+      }
+      return sorted
     },
+    showMore() {
+      return this.products.length > this.list.length
+    },
+  },
+  mounted() {
+    this.randomProducts = [...this.products].sort(() => 0.5 - Math.random())
   },
 }
 </script>
