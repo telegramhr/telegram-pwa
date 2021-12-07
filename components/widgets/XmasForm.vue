@@ -1,9 +1,5 @@
 <template>
   <div id="xmasform" class="full flex relative inarticle-form column-top-pad">
-    <img
-      src="https://www.telegram.hr/wp-content/uploads/2021/12/xmas-goodybag.jpg"
-      alt="Sadržaj ultimativnog Santa's baga"
-    />
     <h2 class="full">Ultimativni Santa's bag</h2>
     <p>
       Dok vi birate poklone za druge, mi brinemo o poklonima za vas. Odgovorite
