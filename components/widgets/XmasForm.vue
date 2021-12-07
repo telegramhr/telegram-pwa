@@ -33,11 +33,11 @@
         type="text"
         name="xmas-email"
       />
-      <label class="full" for="xmas-idea"
-        ><b>Nagradno pitanje:</b> Tražimo najoriginalnije i zabavnije ideje za
-        poklone! Recite nam svoju ideju idealnog poklona, za koga je namijenjen,
-        o kojem poklonu je riječ i zašto je baš to dobra ideja?</label
-      >
+      <label class="full" for="xmas-idea">
+        <b>Nagradno pitanje:</b> Tražimo najoriginalnije i zabavnije ideje za
+        poklone! Recite nam svoju ideju idealnog poklona, kome je namijenjen, o
+        kojem poklonu je riječ i zašto je baš to dobra ideja?
+      </label>
       <textarea
         id="xmas-idea"
         v-model="odgovor"
