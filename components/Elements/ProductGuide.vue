@@ -97,7 +97,20 @@ export default {
     },
   },
   mounted() {
-    this.randomProducts = [...this.products].sort(() => 0.5 - Math.random())
+    let p = false
+    this.randomProducts = [...this.products]
+      .filter((a) => {
+        if (a.title === 'Telegram pretplata') {
+          if (p) {
+            return false
+          } else {
+            p = true
+            return true
+          }
+        }
+        return true
+      })
+      .sort(() => 0.5 - Math.random())
   },
 }
 </script>
