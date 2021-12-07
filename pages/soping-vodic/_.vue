@@ -16,9 +16,9 @@
     <div class="full relative">
       <div v-if="post.parent" class="full flex breaking-news xmas-breaking">
         <div class="container column-full-pad">
-          <a href="https://www.telegram.hr/soping-vodic/bozicni-pokloni-2021/"
+          <app-link to="/soping-vodic/bozicni-pokloni-2021/"
             ><b>BOŽIĆNI POKLONI 2021:</b> Telegramov vodič kroz najbolje
-            poklone</a
+            poklone</app-link
           >
         </div>
       </div>
