@@ -97,7 +97,6 @@ export default {
     },
   },
   mounted() {
-    const p = false
     this.randomProducts = [...this.products].sort(() => 0.5 - Math.random())
   },
 }
