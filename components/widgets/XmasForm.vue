@@ -34,12 +34,7 @@
         poklone! Recite nam svoju ideju idealnog poklona, kome je namijenjen, o
         kojem poklonu je riječ i zašto je baš to dobra ideja?
       </label>
-      <textarea
-        id="xmas-idea"
-        v-model="odgovor"
-        class="full"
-        name="xmas-idea"
-      ></textarea>
+      <textarea id="xmas-idea" v-model="odgovor" class="full"></textarea>
       <input
         id="consent"
         v-model="consent"
