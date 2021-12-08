@@ -6695,20 +6695,38 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .inarticle-form textarea {
     border: 1px solid #c8c8c8;
+    margin-top: 8px;
 }
 .inarticle-form input[type="text"] {
     border-bottom: 1px solid #c8c8c8;
+}
+.inarticle-form > * {
+    max-width: 710px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.inarticle-form .big-quote {
+    max-width: 888px;
 }
 .inarticle-form .consent-label {
     cursor: pointer;
     padding-left: 8px;
     padding-top: 1px;
 }
+.inarticle-form .article-head {
+    margin-bottom: 0px;
+}
 .inarticle-form h2 {
     font-family: neuzeit-grotesk, sans-serif;
     font-weight: 700;
     font-style: normal;
     letter-spacing: normal;
+}
+.inarticle-form h2.inarticle-form-title {
+    text-align: center;
+    font-size: 40px;
+    font-size: 2rem;
+    margin-bottom: 36px;
 }
 .inarticle-form .consent-label a {
     color: #ae3737;

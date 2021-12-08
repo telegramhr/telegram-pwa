@@ -1,6 +1,14 @@
 <template>
-  <div id="xmasform" class="full flex relative inarticle-form column-top-pad">
-    <h2 class="full">Ultimativni Santa's bag</h2>
+  <div
+    id="xmasform"
+    class="full flex relative inarticle-form column-top-pad article-full-width"
+  >
+    <h2 class="full inarticle-form-title">Ultimativni Santa's bag</h2>
+    <img
+      src="@/assets/img/xmas_proizvodi.gif"
+      alt="Sadržaj ultimativnog Santa's baga"
+      class="xmas-santasbag-gif"
+    />
     <p>
       Dok vi birate poklone za druge, mi brinemo o poklonima za vas. Odgovorite
       na nagradno pitanje i osvojite Ultimativni Santa's bag prepun poklona.
@@ -12,6 +20,19 @@
         >ovdje.</a
       >
     </p>
+    <div class="full article-head center-text">
+      <h3 class="overtitle">Dobitnički odgovori</h3>
+    </div>
+    <div class="full flex big-quote">
+      <p>
+        Poklon za supruga: avionska karta za Kolumbiju, da pobjegne iz zime u
+        divno ljeto.
+      </p>
+      <span class="quote-author">- Radmila Trbojević, dobitnik 6.12.</span>
+    </div>
+    <div class="full article-head center-text">
+      <h3 class="overtitle">Pošaljite vašu prijavu</h3>
+    </div>
     <form id="xmas-form" class="full flex relative">
       <label class="full" for="xmas-ime">Vaše ime i prezime:</label>
       <input
