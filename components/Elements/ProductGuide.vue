@@ -54,12 +54,11 @@ export default {
     return {
       sortType: '',
       page: 1,
-      randomProducts: [],
     }
   },
   computed: {
     list() {
-      const ps = [...this.randomProducts]
+      const ps = [...this.products]
       let sorted
       switch (this.sortType) {
         case 'priceAsc':
@@ -95,9 +94,6 @@ export default {
     showMore() {
       return this.products.length > this.list.length
     },
-  },
-  mounted() {
-    this.randomProducts = [...this.products].sort(() => 0.5 - Math.random())
   },
 }
 </script>

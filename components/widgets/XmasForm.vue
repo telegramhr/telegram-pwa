@@ -31,6 +31,14 @@
     >
       <div class="full flex big-quote">
         <p>
+          Moj idealni poklon je wellness escape za mene i sestru jer obje radimo
+          jako puno i jako stresno 🙂 Osim toga, ljudima je to ideja kao nešto
+          što si možeš priuštiti sam pa uvijek 'izvisiš'.
+        </p>
+        <span class="quote-author">- Barbara Buble, dobitnik 7.12.</span>
+      </div>
+      <div class="full flex big-quote">
+        <p>
           Poklon za supruga: avionska karta za Kolumbiju, da pobjegne iz zime u
           divno ljeto.
         </p>
