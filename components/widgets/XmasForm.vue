@@ -23,13 +23,20 @@
     <div class="full article-head center-text">
       <h3 class="overtitle">Dobitnički odgovori</h3>
     </div>
-    <div class="full flex big-quote">
-      <p>
-        Poklon za supruga: avionska karta za Kolumbiju, da pobjegne iz zime u
-        divno ljeto.
-      </p>
-      <span class="quote-author">- Radmila Trbojević, dobitnik 6.12.</span>
-    </div>
+    <VueSlickCarousel
+      :arrows="false"
+      :dots="false"
+      :autoplay="true"
+      :speed="1000"
+    >
+      <div class="full flex big-quote">
+        <p>
+          Poklon za supruga: avionska karta za Kolumbiju, da pobjegne iz zime u
+          divno ljeto.
+        </p>
+        <span class="quote-author">- Radmila Trbojević, dobitnik 6.12.</span>
+      </div>
+    </VueSlickCarousel>
     <div class="full article-head center-text">
       <h3 class="overtitle">Pošaljite vašu prijavu</h3>
     </div>
