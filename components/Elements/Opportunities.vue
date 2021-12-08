@@ -43,7 +43,9 @@
 export default {
   name: 'Opportunities',
   async fetch() {
-    this.opportunities = await this.$axios.$get('/api/widgets/opportunities')
+    this.opportunities = await this.$axios.$get(
+      'https://www.telegram.hr/wp-json/telegram/pwa/v1/widgets/opportunities'
+    )
   },
   data() {
     return {

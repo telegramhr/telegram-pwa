@@ -136,7 +136,7 @@ export default {
   methods: {
     loadMore() {
       this.$axios
-        .get('/api/featured')
+        .get('https://www.telegram.hr/wp-json/telegram/pwa/v1/featured')
         .then((res) => {
           this.posts = res.data
         })

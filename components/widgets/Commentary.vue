@@ -19,7 +19,7 @@ export default {
       return
     }
     this.$axios
-      .get('/api/commentary')
+      .get('https://www.telegram.hr/wp-json/telegram/pwa/v1/commentary')
       .then((res) => {
         this.posts = res.data
         this.$store.commit('category/setPosts', {

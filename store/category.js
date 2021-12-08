@@ -170,7 +170,7 @@ export const actions = {
         state.categories[payload.category].updated + 10 * 60 * 1000 <
         new Date().getTime()
       ) {
-        this.$axios.get('/api/category/' + payload.category).then((res) => {
+        this.$axios.get('https://www.telegram.hr/wp-json/telegram/pwa/v1/category/' + payload.category).then((res) => {
           commit('setPosts', { posts: res.data.posts, slug: payload.category })
           dispatch('posts/setPosts', res.data.posts, { root: true })
           resolve()
@@ -184,7 +184,7 @@ export const actions = {
     return new Promise((resolve) => {
       this.$axios
         .get(
-          `/api/category/${payload.category}/page/${
+          `https://www.telegram.hr/wp-json/telegram/pwa/v1/category/${payload.category}/page/${
             state.morePosts[payload.category].page
           }`
         )

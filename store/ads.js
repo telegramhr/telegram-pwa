@@ -720,7 +720,7 @@ export const actions = {
     // load the up to date floor data
     if (state.upc_updated + 60 * 60 * 1000 < new Date().getTime()) {
       this.$axios
-        .get('/api/upc')
+        .get('https://www.telegram.hr/wp-json/telegram/pwa/v1/upc')
         .then((res) => {
           commit('setUpc', res.data)
         })

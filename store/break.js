@@ -23,7 +23,7 @@ export const mutations = {
 export const actions = {
   pullPosts({ commit, dispatch, state }) {
     if (state.updated + 10 * 60 * 1000 < new Date().getTime()) {
-      this.$axios.get('/api/big-break').then((res) => {
+      this.$axios.get('https://www.telegram.hr/wp-json/telegram/pwa/v1/big-break').then((res) => {
         commit('setPosts', res.data)
       })
     }

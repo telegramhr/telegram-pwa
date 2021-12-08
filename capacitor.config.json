@@ -2,5 +2,10 @@
   "appId": "hr.telegram",
   "appName": "Telegram.hr",
   "webDir": "dist",
-  "bundledWebRuntime": false
+  "bundledWebRuntime": false,
+  "server": {
+    "allowNavigation": [
+      "www.telegram.hr"
+    ]
+  }
 }

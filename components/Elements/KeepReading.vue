@@ -111,15 +111,19 @@ export default {
           const items = res.data.items.map((item) => {
             return item['recs-articleid']
           })
-          this.$axios.get('/api/keep/' + items).then((r) => {
-            this.posts = r.data
-            this.posts.forEach((post, index) => {
-              post.trackerPermalink = res.data.items[index].click_url.replace(
-                'http://api.cxense.com/public/widget/click/',
-                ''
-              )
+          this.$axios
+            .get(
+              'https://www.telegram.hr/wp-json/telegram/pwa/v1/keep/' + items
+            )
+            .then((r) => {
+              this.posts = r.data
+              this.posts.forEach((post, index) => {
+                post.trackerPermalink = res.data.items[index].click_url.replace(
+                  'http://api.cxense.com/public/widget/click/',
+                  ''
+                )
+              })
             })
-          })
         })
         .catch(() => {
           // TODO: error logging

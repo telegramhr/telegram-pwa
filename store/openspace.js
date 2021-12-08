@@ -36,7 +36,7 @@ export const actions = {
   pullPosts({ commit, dispatch, state }) {
     return new Promise((resolve) => {
       if (state.updated + 2 * 60 * 1000 < new Date().getTime()) {
-        this.$axios.get('/api/featured/openspace').then((res) => {
+        this.$axios.get('https://www.telegram.hr/wp-json/telegram/pwa/v1/featured/openspace').then((res) => {
           commit('setPosts', res.data)
           dispatch('posts/setPosts', res.data, { root: true })
           resolve()
@@ -48,7 +48,7 @@ export const actions = {
   },
   loadMore({ commit, dispatch, state }) {
     return new Promise((resolve) => {
-      this.$axios.get('/api/featured/page/' + state.page).then((res) => {
+      this.$axios.get('https://www.telegram.hr/wp-json/telegram/pwa/v1/featured/page/' + state.page).then((res) => {
         commit('setMore', res.data)
         dispatch('posts/setPosts', res.data, { root: true })
         resolve()
@@ -57,7 +57,7 @@ export const actions = {
   },
   pullBreak({ commit, dispatch, state }) {
     if (state.break_updated + 10 * 60 * 1000 < new Date().getTime()) {
-      this.$axios.get('/api/big-break/openspace').then((res) => {
+      this.$axios.get('https://www.telegram.hr/wp-json/telegram/pwa/v1/big-break/openspace').then((res) => {
         commit('setBreak', res.data)
       })
     }

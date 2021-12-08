@@ -20,7 +20,9 @@ export default {
   name: 'Partners',
   async fetch() {
     this.posts = await this.$axios
-      .get('/api/category/openspace?pure=1')
+      .get(
+        'https://www.telegram.hr/wp-json/telegram/pwa/v1/category/openspace?pure=1'
+      )
       .then((res) => res.data.posts.slice(0, 4))
   },
   data() {

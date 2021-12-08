@@ -90,13 +90,19 @@ export default {
     let post
     if (this.$route.params.category === 'preview') {
       post = await this.$axios
-        .$get('/api/preview/' + this.$route.params.slug)
+        .$get(
+          'https://www.telegram.hr/wp-json/telegram/pwa/v1/preview/' +
+            this.$route.params.slug
+        )
         .catch(() => {
           // TODO: error logging
         })
     } else {
       post = await this.$axios
-        .$get('/api/single/' + this.$route.params.slug)
+        .$get(
+          'https://www.telegram.hr/wp-json/telegram/pwa/v1/single/' +
+            this.$route.params.slug
+        )
         .catch(() => {
           // TODO: error logging
         })

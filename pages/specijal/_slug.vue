@@ -58,9 +58,9 @@ export default {
     }
   },
   mounted() {
-    this.$axios.get('/api/special/' + this.$route.params.slug).then((res) => {
+    this.$axios.get('https://www.telegram.hr/wp-json/telegram/pwa/v1/special/' + this.$route.params.slug).then((res) => {
       this.post = res.data
-      this.$axios.get('/api/tag/' + res.data.tag + '/special').then((r) => {
+      this.$axios.get('https://www.telegram.hr/wp-json/telegram/pwa/v1/tag/' + res.data.tag + '/special').then((r) => {
         this.posts = r.data.posts
         if (r.data.posts.length < 9) {
           this.hasMore = false
@@ -72,7 +72,7 @@ export default {
     loadMore() {
       this.loading = true
       this.$axios
-        .get('/api/tag/' + this.post.tag + '/page/' + this.page)
+        .get('https://www.telegram.hr/wp-json/telegram/pwa/v1/tag/' + this.post.tag + '/page/' + this.page)
         .then((res) => {
           this.morePosts = [...this.morePosts, ...res.data.posts]
           this.page++

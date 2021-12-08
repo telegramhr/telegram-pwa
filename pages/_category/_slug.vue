@@ -438,13 +438,23 @@ export default {
     if (!post) {
       if (this.$route.params.category === 'preview') {
         post = await this.$axios
-          .$get(encodeURI('/api/preview/' + this.$route.params.slug))
+          .$get(
+            encodeURI(
+              'https://www.telegram.hr/wp-json/telegram/pwa/v1/preview/' +
+                this.$route.params.slug
+            )
+          )
           .catch(() => {
             // TODO: error logging
           })
       } else {
         post = await this.$axios
-          .$get(encodeURI('/api/single/' + this.$route.params.slug) + '?pwa=1')
+          .$get(
+            encodeURI(
+              'https://www.telegram.hr/wp-json/telegram/pwa/v1/single/' +
+                this.$route.params.slug
+            ) + '?pwa=1'
+          )
           .catch(() => {
             // TODO: error logging
           })
@@ -453,7 +463,9 @@ export default {
     if (post && post.id) {
       this.post = post
       await this.$axios
-        .get('/api/related/' + post.id)
+        .get(
+          'https://www.telegram.hr/wp-json/telegram/pwa/v1/related/' + post.id
+        )
         .then((res) => {
           if (Array.isArray(res.data)) {
             this.$store.dispatch('posts/setPosts', res.data, { root: true })
@@ -680,6 +692,7 @@ export default {
       }
     },
     loadPiano() {
+      return
       const tp = window.tp || []
       if (this.post.tags.length) {
         tp.push([

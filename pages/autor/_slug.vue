@@ -87,7 +87,10 @@ export default {
   components: { Standard },
   async fetch() {
     await this.$axios
-      .get('/api/author/' + this.$route.params.slug)
+      .get(
+        'https://www.telegram.hr/wp-json/telegram/pwa/v1/author/' +
+          this.$route.params.slug
+      )
       .then((res) => {
         this.author = res.data.author
         this.posts = res.data.posts
@@ -126,7 +129,12 @@ export default {
   methods: {
     loadMore() {
       this.$axios
-        .get('/api/author/' + this.$route.params.slug + '/page/' + this.page)
+        .get(
+          'https://www.telegram.hr/wp-json/telegram/pwa/v1/author/' +
+            this.$route.params.slug +
+            '/page/' +
+            this.page
+        )
         .then((res) => {
           this.posts = [...this.posts, ...res.data.posts]
           this.page++

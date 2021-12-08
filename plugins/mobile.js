@@ -8,6 +8,7 @@ export default ({ app, req, store }, inject) => {
     },
 
     processLinker(widgetId) {
+      return
       if (store.state.user.access) {
         return
       }

@@ -62,6 +62,7 @@ export const actions = {
     })
   },
   checkAccess({ state, dispatch }) {
+    return true
     const that = this
     window.tp.push([
       'init',
@@ -74,7 +75,7 @@ export const actions = {
           window.PianoESP &&
             typeof window.PianoESP.handleUserEmail === 'function' &&
             window.PianoESP.handleUserEmail(user.email)
-          that.$ga.set('dimension3', '1')
+          // that.$ga.set('dimension3', '1')
           window.tp.api.callApi('/access/list', {}, function (response) {
             if (response.data) {
               dispatch('setAccess', response)

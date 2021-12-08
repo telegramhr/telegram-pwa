@@ -13,7 +13,7 @@ export const mutations = {
 export const actions = {
   pullStocks({ commit, state }) {
     if (state.updated + 10 * 60 * 1000 < new Date().getTime()) {
-      this.$axios.get('/api/stocks').then((res) => {
+      this.$axios.get('https://www.telegram.hr/wp-json/telegram/pwa/v1/stocks').then((res) => {
         commit('setStocks', res.data)
       })
     }

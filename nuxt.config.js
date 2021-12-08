@@ -98,7 +98,7 @@ export default {
   modern: true,
   ssr: false,
   router: {
-    middleware: ['piano', 'gemius'],
+    // middleware: ['piano', 'gemius'],
   },
 
   loading: '~/components/loading.vue',
@@ -114,21 +114,16 @@ export default {
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
     { src: '@/plugins/filters.js' },
-    { src: '@/plugins/persisted.client.js' },
-    { src: '@/plugins/choices.client.js' },
+    // { src: '@/plugins/persisted.client.js' },
+    // { src: '@/plugins/choices.client.js' },
     { src: '@/plugins/vue-slick-carousel.js' },
-    { src: '@/plugins/piano-cxense.js', ssr: false },
-    { src: '@/plugins/piano.js', ssr: false },
+    // { src: '@/plugins/piano-cxense.js', ssr: false },
+    // { src: '@/plugins/piano.js', ssr: false },
     { src: '@/plugins/mobile.js' },
-    { src: '@/plugins/cxtrack.js', ssr: false },
+    // { src: '@/plugins/cxtrack.js', ssr: false },
     { src: '@/plugins/fontawesome.js' },
-    { src: '@/plugins/gemius.client.js' },
+    // { src: '@/plugins/gemius.client.js' },
   ],
-
-  ngrok: {
-    region: 'eu',
-    authtoken: process.env.NGROK_AUTHTOKEN,
-  },
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: [{ path: '~/components', pathPrefix: false }],
@@ -137,7 +132,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
-    '@nuxtjs/google-analytics',
+    // '@nuxtjs/google-analytics',
     'nuxt-purgecss',
     '@nuxtjs/dotenv',
   ],
@@ -147,8 +142,8 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa',
-    '@nuxtjs/gtm',
+    // '@nuxtjs/pwa',
+    // '@nuxtjs/gtm',
     'cookie-universal-nuxt',
   ],
 
@@ -200,7 +195,7 @@ export default {
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
     credentials: true,
-    proxy: true,
+    // proxy: true,
   },
 
   proxy: {

@@ -108,7 +108,9 @@ export default {
     },
   },
   async fetch() {
-    this.post = await this.$axios.$get('/api/big-break/' + this.type)
+    this.post = await this.$axios.$get(
+      'https://www.telegram.hr/wp-json/telegram/pwa/v1/big-break/' + this.type
+    )
   },
   data() {
     return {

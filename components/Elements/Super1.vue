@@ -10,7 +10,12 @@
     <div class="container flex relative block-4 standard-block super1-block">
       <section class="three-fourths flex-responsive flex elevate-over-section">
         <section
-          class="two-thirds flex-responsive flex mobile-side-pad column-horizontal-pad column-right-border"
+          class="
+            two-thirds
+            flex-responsive flex
+            mobile-side-pad
+            column-horizontal-pad column-right-border
+          "
         >
           <featured :key="'super-' + posts[0].id" :post="posts[0]"></featured>
           <div class="full flex split-articles">
@@ -22,7 +27,13 @@
           </div>
         </section>
         <section
-          class="third flex-responsive flex column-horizontal-pad flex mobile-side-pad"
+          class="
+            third
+            flex-responsive flex
+            column-horizontal-pad
+            flex
+            mobile-side-pad
+          "
         >
           <standard
             v-for="i in [4, 5, 6]"
@@ -32,7 +43,12 @@
         </section>
       </section>
       <section
-        class="fourth flex desktop-only column-horizontal-pad column-right-border"
+        class="
+          fourth
+          flex
+          desktop-only
+          column-horizontal-pad column-right-border
+        "
       >
         <h2 class="full flex section-title">Upravo se čita</h2>
         <div class="full flex">
@@ -45,7 +61,14 @@
       </section>
       <section
         v-if="showMore && morePosts.length"
-        class="third flex-responsive flex mobile-only column-horizontal-pad flex mobile-side-pad"
+        class="
+          third
+          flex-responsive flex
+          mobile-only
+          column-horizontal-pad
+          flex
+          mobile-side-pad
+        "
       >
         <standard
           v-for="post in morePosts"
@@ -75,7 +98,7 @@
 export default {
   name: 'Super1',
   async fetch() {
-    await this.$store.dispatch('super/pullPosts')
+    // await this.$store.dispatch('super/pullPosts')
   },
   data() {
     return {

@@ -16,10 +16,22 @@
       class="container flex relative standard-block block-1 stretch"
     >
       <section
-        class="three-fourths flex-responsive flex relative the-big-gs stretch elevate-over-section"
+        class="
+          three-fourths
+          flex-responsive flex
+          relative
+          the-big-gs
+          stretch
+          elevate-over-section
+        "
       >
         <div
-          class="two-thirds flex-responsive flex column-horizontal-pad column-right-border mobile-side-pad"
+          class="
+            two-thirds
+            flex-responsive flex
+            column-horizontal-pad column-right-border
+            mobile-side-pad
+          "
         >
           <featured v-for="i in [0, 1, 2, 3]" :key="i" :post="posts[i]" />
         </div>
@@ -27,13 +39,25 @@
           <newsletter></newsletter>
         </div>
         <div
-          class="third flex-responsive column-horizontal-pad flex mobile-side-pad"
+          class="
+            third
+            flex-responsive
+            column-horizontal-pad
+            flex
+            mobile-side-pad
+          "
         >
           <standard v-for="i in [4, 5, 6, 7, 8]" :key="i" :post="posts[i]" />
         </div>
       </section>
       <section
-        class="fourth flex-responsive flex komentari mobile-side-pad column-horizontal-pad column-right-border"
+        class="
+          fourth
+          flex-responsive flex
+          komentari
+          mobile-side-pad
+          column-horizontal-pad column-right-border
+        "
       >
         <div class="full flex desktop-only">
           <latest :portal="1"></latest>
@@ -81,7 +105,10 @@ export default {
   name: 'CategoryIndex',
   async fetch() {
     await this.$axios
-      .get('/api/search/' + this.$route.params.search)
+      .get(
+        'https://www.telegram.hr/wp-json/telegram/pwa/v1/search/' +
+          this.$route.params.search
+      )
       .then((res) => {
         this.posts = res.data.posts
         if (this.posts.length < 9) {
@@ -109,7 +136,12 @@ export default {
     loadMore() {
       this.loading = true
       this.$axios
-        .get('/api/search/' + this.$route.params.search + '/page/' + this.page)
+        .get(
+          'https://www.telegram.hr/wp-json/telegram/pwa/v1/search/' +
+            this.$route.params.search +
+            '/page/' +
+            this.page
+        )
         .then((res) => {
           this.morePosts = [...this.morePosts, ...res.data.posts]
           this.page++

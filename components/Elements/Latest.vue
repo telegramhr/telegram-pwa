@@ -22,7 +22,10 @@ export default {
   },
   async fetch() {
     await this.$axios
-      .$get('/api/latest/1/' + this.category)
+      .$get(
+        'https://www.telegram.hr/wp-json/telegram/pwa/v1/latest/1/' +
+          this.category
+      )
       .then((res) => {
         this.posts = res
       })

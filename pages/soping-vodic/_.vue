@@ -145,7 +145,11 @@ export default {
     let post
     if (!post) {
       post = await this.$axios
-        .$get(encodeURI('/api/shop-guide/' + slug))
+        .$get(
+          encodeURI(
+            'https://www.telegram.hr/wp-json/telegram/pwa/v1/shop-guide/' + slug
+          )
+        )
         .catch(() => {
           // TODO: error logging
         })

@@ -27,7 +27,9 @@ export default {
   methods: {
     getPosts() {
       this.$axios
-        .get('/api/trending/' + this.id)
+        .get(
+          'https://www.telegram.hr/wp-json/telegram/pwa/v1/trending/' + this.id
+        )
         .then((res) => {
           this.posts = res.data
         })

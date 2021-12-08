@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  middleware: 'piano',
+  // middleware: 'piano',
   head() {
     let font, theme
     if (process.server) {

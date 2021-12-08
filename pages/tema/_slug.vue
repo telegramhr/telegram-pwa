@@ -86,7 +86,7 @@ export default {
   name: 'TemaIndex',
   async fetch() {
     await this.$axios
-      .get('/api/tag/' + this.$route.params.slug)
+      .get('https://www.telegram.hr/wp-json/telegram/pwa/v1/tag/' + this.$route.params.slug)
       .then((res) => {
         this.posts = res.data.posts
         this.category = res.data.tag
@@ -119,7 +119,7 @@ export default {
     loadMore() {
       this.loading = true
       this.$axios
-        .get('/api/tag/' + this.$route.params.slug + '/page/' + this.page)
+        .get('https://www.telegram.hr/wp-json/telegram/pwa/v1/tag/' + this.$route.params.slug + '/page/' + this.page)
         .then((res) => {
           this.morePosts = [...this.morePosts, ...res.data.posts]
           this.page++

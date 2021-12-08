@@ -25,7 +25,7 @@ export default {
   name: 'Page',
   async fetch() {
     await this.$axios
-      .get('/api/single/' + this.$route.params.page)
+      .get('https://www.telegram.hr/wp-json/telegram/pwa/v1/single/' + this.$route.params.page)
       .then((res) => {
         this.post = res.data
       })
