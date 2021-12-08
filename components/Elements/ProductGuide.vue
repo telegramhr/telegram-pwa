@@ -88,7 +88,7 @@ export default {
       }
       if (sorted.length > 50) {
         // assume homepage
-        sorted = sorted.slice(0, this.page * 9)
+        sorted = sorted.slice(0, this.page * 30)
       }
       return sorted
     },
