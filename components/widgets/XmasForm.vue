@@ -29,20 +29,17 @@
       :autoplay="true"
       :speed="1000"
     >
-      <div class="full flex big-quote">
+      <div
+        v-for="winner in winners"
+        :key="winner.date"
+        class="full flex big-quote"
+      >
         <p>
-          Moj idealni poklon je wellness escape za mene i sestru jer obje radimo
-          jako puno i jako stresno 🙂 Osim toga, ljudima je to ideja kao nešto
-          što si možeš priuštiti sam pa uvijek 'izvisiš'.
+          {{ winner.message }}
         </p>
-        <span class="quote-author">- Barbara Buble, dobitnik 7.12.</span>
-      </div>
-      <div class="full flex big-quote">
-        <p>
-          Poklon za supruga: avionska karta za Kolumbiju, da pobjegne iz zime u
-          divno ljeto.
-        </p>
-        <span class="quote-author">- Radmila Trbojević, dobitnik 6.12.</span>
+        <span class="quote-author"
+          >- {{ winner.person }}, dobitnik {{ winner.date }}</span
+        >
       </div>
     </VueSlickCarousel>
     <div class="full article-head center-text">
@@ -120,6 +117,20 @@ export default {
       email: '',
       odgovor: '',
       consent: false,
+      winners: [
+        {
+          message:
+            'Poklon za supruga: avionska karta za Kolumbiju, da pobjegne iz zime u divno ljeto.',
+          person: 'Radmila Trbojević',
+          date: '6.12.',
+        },
+        {
+          message:
+            "Moj idealni poklon je wellness escape za mene i sestru jer obje radimo jako puno i jako stresno 🙂 Osim toga, ljudima je to ideja kao nešto što si možeš priuštiti sam pa uvijek 'izvisiš'.",
+          person: 'Barbara Buble',
+          date: '7.12',
+        },
+      ],
     }
   },
   methods: {
