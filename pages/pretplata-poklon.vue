@@ -125,6 +125,108 @@
           </div>
         </div>
       </div>
+      <div class="full flex pretplata-faq">
+        <div
+          class="
+            container
+            relative
+            flex
+            mobile-side-pad
+            column-full-pad
+            single-article-body
+          "
+        >
+          <h2 class="full">Često postavljana pitanja</h2>
+          <details class="full flex relative">
+            <summary class="full flex relative">
+              Kako mogu nekome pokloniti pretplatu?
+            </summary>
+            <p>
+              Vrlo je jednostavno: odaberite jedan od dva paketa pretplate,
+              Standard ili Premium, zatim upišite podatke osobe kojoj poklanjate
+              pretplatu i svoje podatke za plaćanje. Po uspješno izvršenoj
+              kupovini, Vaš poklon stići će emailom osobi kojoj ste pretplatu
+              poklonili.
+            </p>
+          </details>
+          <details class="full flex relative">
+            <summary class="full flex relative">
+              Što je pretplata na Telegram?
+            </summary>
+            <p>
+              Pretplata na Telegram omogućuje pretplatnicima, ovisno o paketu,
+              neograničeno čitanje Telegrama i Telesporta, ali i brojne druge
+              benefite i funkcionalnosti poput surfanja bez oglasa, popusta i
+              ekskluzivnih newslettera.
+            </p>
+          </details>
+          <details class="full flex relative">
+            <summary class="full flex relative">
+              Kako mogu platiti pretplatu koju poklanjam?
+            </summary>
+            <p>
+              Pretplatu možete sigurno platiti svim Maestro, Mastercard i Visa
+              karticama.
+            </p>
+          </details>
+          <details class="full flex relative">
+            <summary class="full flex relative">
+              Mogu li kupiti više poklon pretplata?
+            </summary>
+            <p>
+              Naravno, možete pokloniti koliko god pretplata želite. Jedino za
+              svaki poklon trebate posebno unijeti podatke o primatelju.
+            </p>
+          </details>
+          <details class="full flex relative">
+            <summary class="full flex relative">
+              Kupujem poklon preko firme, mogu li dobiti R1 račun?
+            </summary>
+            <p>
+              Naravno, samo nam se javite na pretplata@telegram.hr nakon što
+              kupite poklon pretplatu online, a mi ćemo Vam izdati R1 račun.
+            </p>
+          </details>
+          <details class="full flex relative">
+            <summary class="full flex relative">
+              Može li se pretplata čitati na svim uređajima?
+            </summary>
+            <p>
+              Naravno, svaki pretplatnik može čitati Telegram na svakom uređaju,
+              bio to mobitel, računalo ili tablet.
+            </p>
+          </details>
+          <details class="full flex relative">
+            <summary class="full flex relative">
+              Može li osoba dijeliti poklonjenu pretplatu s drugima?
+            </summary>
+            <p>
+              Ne, dijeljenje pretplate nije dopušteno, a u slučaju sumnje u
+              dijeljenje pretplate zadržavamo pravo zatvoriti korisnički račun.
+            </p>
+          </details>
+          <details id="knjige-disclaimer" class="full flex relative">
+            <summary class="full flex relative">
+              Što će se dogoditi s pretplatom kada istekne?
+            </summary>
+            <p>
+              Po isteku godinu dana, pretplata će postati neaktivna te ćete ju
+              moći ili Vi ponovno pokloniti, ili osoba kojoj je poklonjena
+              produžiti.
+            </p>
+          </details>
+          <details class="full flex relative">
+            <summary class="full flex relative">
+              Ne mogu pronaći odgovor na svoje pitanje.
+            </summary>
+            <p>
+              Javite nam se na
+              <a href="mailto:pretplata@telegram.hr">pretplata@telegram.hr</a> i
+              odgovorit ćemo vam u najkraćem roku.
+            </p>
+          </details>
+        </div>
+      </div>
       <div class="full flex relative">
         <div class="container relative flex">
           <div
@@ -349,108 +451,6 @@
               </p>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="full flex pretplata-faq">
-        <div
-          class="
-            container
-            relative
-            flex
-            mobile-side-pad
-            column-full-pad
-            single-article-body
-          "
-        >
-          <h2 class="full">Često postavljana pitanja</h2>
-          <details class="full flex relative">
-            <summary class="full flex relative">
-              Kako mogu nekome pokloniti pretplatu?
-            </summary>
-            <p>
-              Vrlo je jednostavno: odaberite jedan od dva paketa pretplate,
-              Standard ili Premium, zatim upišite podatke osobe kojoj poklanjate
-              pretplatu i svoje podatke za plaćanje. Po uspješno izvršenoj
-              kupovini, Vaš poklon stići će emailom osobi kojoj ste pretplatu
-              poklonili.
-            </p>
-          </details>
-          <details class="full flex relative">
-            <summary class="full flex relative">
-              Što je pretplata na Telegram?
-            </summary>
-            <p>
-              Pretplata na Telegram omogućuje pretplatnicima, ovisno o paketu,
-              neograničeno čitanje Telegrama i Telesporta, ali i brojne druge
-              benefite i funkcionalnosti poput surfanja bez oglasa, popusta i
-              ekskluzivnih newslettera.
-            </p>
-          </details>
-          <details class="full flex relative">
-            <summary class="full flex relative">
-              Kako mogu platiti pretplatu koju poklanjam?
-            </summary>
-            <p>
-              Pretplatu možete sigurno platiti svim Maestro, Mastercard i Visa
-              karticama.
-            </p>
-          </details>
-          <details class="full flex relative">
-            <summary class="full flex relative">
-              Mogu li kupiti više poklon pretplata?
-            </summary>
-            <p>
-              Naravno, možete pokloniti koliko god pretplata želite. Jedino za
-              svaki poklon trebate posebno unijeti podatke o primatelju.
-            </p>
-          </details>
-          <details class="full flex relative">
-            <summary class="full flex relative">
-              Kupujem poklon pretplatu preko firme, mogu li dobiti R1 račun?
-            </summary>
-            <p>
-              Naravno, samo nam se javite na pretplata@telegram.hr nakon što
-              kupite poklon pretplatu online, a mi ćemo Vam izdati R1 račun.
-            </p>
-          </details>
-          <details class="full flex relative">
-            <summary class="full flex relative">
-              Hoće li osoba kojoj poklanjam moći čitati na svim uređajima?
-            </summary>
-            <p>
-              Naravno, svaki pretplatnik može čitati Telegram na svakom uređaju,
-              bio to mobitel, računalo ili tablet.
-            </p>
-          </details>
-          <details class="full flex relative">
-            <summary class="full flex relative">
-              Može li osoba kojoj poklanjam dijeliti tu pretplatu s drugima?
-            </summary>
-            <p>
-              Ne, dijeljenje pretplate nije dopušteno, a u slučaju sumnje u
-              dijeljenje pretplate zadržavamo pravo zatvoriti korisnički račun.
-            </p>
-          </details>
-          <details id="knjige-disclaimer" class="full flex relative">
-            <summary class="full flex relative">
-              Što će se dogoditi s pretplatom kada istekne godinu dana?
-            </summary>
-            <p>
-              Po isteku godinu dana, pretplata će postati neaktivna te ćete ju
-              moći ili Vi ponovno pokloniti, ili osoba kojoj je poklonjena
-              produžiti.
-            </p>
-          </details>
-          <details class="full flex relative">
-            <summary class="full flex relative">
-              Ne mogu pronaći odgovor na svoje pitanje.
-            </summary>
-            <p>
-              Javite nam se na
-              <a href="mailto:pretplata@telegram.hr">pretplata@telegram.hr</a> i
-              odgovorit ćemo vam u najkraćem roku.
-            </p>
-          </details>
         </div>
       </div>
     </div>
