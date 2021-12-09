@@ -6520,6 +6520,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .sale-packbox .best-price-sticker {
     padding: 6px;
 }
+.pretplata-sale .container {
+    flex-wrap: wrap;
+}
 .pretplata-page .sale-packbox h2 {
     font-size: 74px;
     font-size: 3.7rem;
@@ -6555,24 +6558,42 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     top: -69px;
 }
 
-@media screen and (max-width: 1180px) {
-    .sale-packbox {
-        margin: 0px;
-        margin-bottom: 112px;
-        margin-top: 68px;
+@media screen and (max-width: 767px) {
+    .pretplata-sale .pretplata-packbox {
+        margin-left: 0px;
+        margin-right: 0px;
+        max-width: 100%;
     }
-    .ps-xmas1, .ps-xmas2 {
+    .pretplata-sale .pretplata-packbox:first-child {
+        margin-top: 25vw;
+    }
+    .pretplata-sale .pretplata-packbox:last-child {
+        margin-bottom: 30vw;
+    }
+    .ps-xmas1, .ps-xmas2, .ps-xmas3, .ps-xmas4 {
         position: absolute;
         width: 72vw;
         margin-top: 0px;
     }
     .ps-xmas1 {
         right: 10vw;
-        bottom: -120px;
+        bottom: -30vw;
+        margin-bottom: 0px !important;
     }
     .ps-xmas2 {
         left: 10vw;
-        top: -150px;
+        top: -40vw;
+        margin-top: 0px !important;
+    }
+    .ps-xmas3 {
+        right: 10vw;
+        bottom: -30vw;
+        margin-bottom: 0px !important;
+    }
+    .ps-xmas4 {
+        left: 10vw;
+        top: -40vw;
+        margin-top: 0px !important;
     }
 }
 @media screen and (min-width: 767px) {
