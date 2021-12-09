@@ -64,7 +64,12 @@ export default {
   },
   methods: {
     getAnswer(question, val) {
-      this.$set(this.scores, question, val)
+      if (this.data.questions[question].type === 'QuizSingleAnswer') {
+        this.$set(this.scores, question, val)
+      }
+      if (this.data.questions[question].type === 'QuizPersonalDetails') {
+        // submit
+      }
       // advance slide
       this.$refs.carousel.next()
     },

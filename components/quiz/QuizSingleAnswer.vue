@@ -10,6 +10,7 @@
       />
       <span>{{ answer.text }}</span>
     </label>
+    <button @click="next">Sljedeće</button>
   </div>
 </template>
 
@@ -40,8 +41,8 @@ export default {
       answered: 0,
     }
   },
-  watch: {
-    answered() {
+  methods: {
+    next() {
       this.$emit('answer', this.data.id, this.answered)
     },
   },
