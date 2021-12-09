@@ -10,7 +10,7 @@
       />
       <span>{{ answer.text }}</span>
     </label>
-    <button @click="next">Sljedeće</button>
+    <button class="classic-btn" @click="next">Sljedeće</button>
   </div>
 </template>
 

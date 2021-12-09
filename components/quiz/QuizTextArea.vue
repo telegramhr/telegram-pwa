@@ -2,7 +2,7 @@
   <div>
     <h2>{{ data.question }}</h2>
     <textarea v-model="answer"></textarea>
-    <button @click="next">Sljedeće</button>
+    <button class="classic-btn" @click="next">Sljedeće</button>
   </div>
 </template>
 

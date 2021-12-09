@@ -2585,6 +2585,14 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 28px;
     font-size: 1.4rem;
 }
+.pretplata-page p.smaller-pretplata-tagline {
+    max-width: 990px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 22px;
+    font-size: 1.1rem;
+    margin-top: 16px;
+}
 .pretplata-page h2, .pretplata-page .single-article-body h2 {
     font-size: 60px;
     font-size: 3rem;
@@ -5912,10 +5920,63 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     background: #ae3737;
     width: 4px;
 }
-.openspace .native-quiz label span:hover::before {
+.native-quiz label input[type=radio]:checked~span::before {
+    background: #ae3737;
+    width: 6px;
+}
+.native-quiz textarea {
+    height: 91px;
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+    background: none;
+    color: inherit;
+    border: 1px solid #c8c8c8;
+    width: 100%;
+    resize: none;
+    padding: 8px;
+    line-height: 1.55em;
+}
+.native-quiz input[type=text], .native-quiz input[type=email], .native-quiz input[type=password] {
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+    background: none;
+    color: inherit;
+    border: none;
+    font-size: inherit;
+    margin-top: 4px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #c8c8c8;
+    width: 100%;
+    resize: none;
+    padding: 4px 0px;
+}
+.dark-mode .native-quiz textarea, .dark-mode .native-quiz input  {
+    border-color: #333;
+}
+.native-quiz .classic-btn {
+    border: none;
+    margin-top: 16px;
+    cursor: pointer;
+}
+.openspace .native-quiz label span:hover::before, .openspace .native-quiz .classic-btn {
     background: #464b7a;
 }
-
+.native-quiz a {
+    color: #ae3737;
+    text-decoration: underline;
+    text-decoration-color: #ae3737;
+}
+.native-quiz a:hover {
+    text-decoration-color: rgba(0, 0, 0, 0) !important;
+}
+.openspace .native-quiz a {
+    text-decoration-color: #464b7a;
+    color: #464b7a;
+}
+.native-quiz input[type=checkbox] {
+    position: relative;
+    top: -1px;
+}
 
 /* Pitanje zdravlja */
 
@@ -6417,13 +6478,15 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     max-width: 540px;
     border: 1px solid white;
     margin-bottom: 64px;
+}
+.pretplata-sale .pretplata-packbox {
     margin-top: 20px;
 }
 .sale-packbox p {
     font-family: 'Barlow', sans-serif;
     font-weight: 400;
 }
-.sale-packbox .overtitle {
+.pretplata-sale .overtitle {
     width: 100%;
     color: white;
     opacity: .8;
@@ -6475,6 +6538,20 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .ps-xmas2 {
     left: -600px;
+    top: -69px;
+}
+.ps-xmas3, .ps-xmas4 {
+    position: absolute;
+    width: 500px;
+    height: auto;
+    opacity: .4;
+}
+.ps-xmas3 {
+    right: -400px;
+    bottom: -73px;
+}
+.ps-xmas4 {
+    left: -400px;
     top: -69px;
 }
 

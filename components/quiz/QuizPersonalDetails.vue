@@ -5,7 +5,7 @@
     <input v-model="name" type="text" />
     <label>Email</label>
     <input v-model="email" type="email" />
-    <label>
+    <label class="clickable">
       <input v-model="consent" type="checkbox" value="1" />
       Prihvaćam
       <app-link to="/stranica/pravila-privatnosti"
@@ -22,7 +22,7 @@
         </a>
       </template>
     </label>
-    <button @click="submit">Pošalji</button>
+    <button class="classic-btn" @click="submit">Pošalji</button>
   </div>
 </template>
 
