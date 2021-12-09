@@ -130,6 +130,12 @@ export default {
           person: 'Barbara Buble',
           date: '7.12',
         },
+        {
+          message:
+            'Maska za lice 🤭 da mi suprug lakše mijenja pelene našem dvomjesečnom bebaču,a ja da imam više vremena za sebe.',
+          person: 'Tihana Vučić',
+          date: '8.12',
+        },
       ],
     }
   },
