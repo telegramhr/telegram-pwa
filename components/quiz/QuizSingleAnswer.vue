@@ -8,7 +8,19 @@
         :name="'answer-' + data.id + '-' + answer.id"
         :value="answer.id"
       />
-      <span>{{ answer.text }}</span>
+      <span>
+        {{ answer.text }}
+        <font-awesome-icon
+          v-if="answer.id === answered && answer.correct"
+          :icon="['fas', 'check']"
+          style="color: lightgreen; margin-left: 20px"
+        ></font-awesome-icon>
+        <font-awesome-icon
+          v-if="answer.id === answered && !answer.correct"
+          :icon="['fas', 'times']"
+          style="color: lightcoral; margin-left: 20px"
+        ></font-awesome-icon
+      ></span>
     </label>
     <button class="classic-btn" @click="next">Sljedeće</button>
   </div>
