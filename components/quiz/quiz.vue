@@ -87,13 +87,13 @@ export default {
       // advance slide
       this.$refs.carousel.next()
     },
-  },
-  submit() {
-    if (this.data.script) {
-      this.$axios.get('/gscripts/' + this.data.script + '/exec', {
-        params: this.answers,
-      })
-    }
+    submit() {
+      if (this.data.script) {
+        this.$axios.get('/gscripts/' + this.data.script + '/exec', {
+          params: this.answers,
+        })
+      }
+    },
   },
 }
 </script>
