@@ -241,8 +241,11 @@
                 @click="handleClick"
                 v-html="post.content"
               ></div>
-              <quiz v-if="post.quiz" :data="post.quiz"></quiz>
-              <!-- eslint-enable vue/no-v-html -->
+
+              <portal v-if="showQuiz" selector="#quiz-container">
+                <quiz v-if="post.quiz" :data="post.quiz"></quiz>
+              </portal>
+
               <client-only>
                 <intext></intext>
                 <linker type="mobile"></linker>
@@ -421,9 +424,11 @@
 </template>
 
 <script>
+import { Portal } from '@linusborg/vue-simple-portal'
 export default {
   name: 'Slug',
   scrollToTop: true,
+  components: { Portal },
   async fetch() {
     if (!this.$route.params.slug) {
       return
@@ -478,6 +483,7 @@ export default {
   },
   data() {
     return {
+      showQuiz: false,
       comments: false,
       showSideMenu: false,
       showSearchMenu: false,
@@ -718,6 +724,9 @@ export default {
       if (this.post && this.post.id) {
         if (process.client) {
           this.$telegram.$loading.finish()
+        }
+        if (this.post.quiz) {
+          this.showQuiz = true
         }
         this.loadPiano()
         this.loadAds()

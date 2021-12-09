@@ -18,7 +18,9 @@
       </div>
       <div>
         <h2>{{ result.title }}</h2>
+        <!-- eslint-disable vue/no-v-html -->
         <p v-html="result.description"></p>
+        <!-- eslint-enable vue/no-v-html -->
       </div>
     </VueSlickCarousel>
   </div>
@@ -43,6 +45,7 @@ export default {
   data() {
     return {
       scores: [],
+      answers: {},
     }
   },
   computed: {
@@ -64,15 +67,33 @@ export default {
   },
   methods: {
     getAnswer(question, val) {
-      if (this.data.questions[question].type === 'QuizSingleAnswer') {
+      const q = parseInt(question) - 1
+      if (this.data.questions[q].type === 'QuizSingleAnswer') {
         this.$set(this.scores, question, val)
       }
-      if (this.data.questions[question].type === 'QuizPersonalDetails') {
-        // submit
+      if (this.data.questions[q].type === 'QuizPersonalDetails') {
+        this.$set(this.answers, 'ime', val.name)
+        this.$set(this.answers, 'email', val.email)
+        this.submit()
+      } else if (this.data.questions[q].answers.length) {
+        this.$set(
+          this.answers,
+          'q' + q,
+          this.data.questions[q].answers[parseInt(val) - 1].text
+        )
+      } else {
+        this.$set(this.answers, 'q' + q, val)
       }
       // advance slide
       this.$refs.carousel.next()
     },
+  },
+  submit() {
+    if (this.data.script) {
+      this.$axios.get('/gscripts/' + this.data.script + '/exec', {
+        params: this.answers,
+      })
+    }
   },
 }
 </script>
