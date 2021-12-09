@@ -22,6 +22,11 @@
         </a>
       </template>
     </label>
+    <label v-if="data.terms_conditions" class="clickable">
+      <input v-model="consent2" type="checkbox" value="1" />
+      Prihvaćam
+      <a target="_blank" :href="data.terms_conditions"> pravila natječaja </a>
+    </label>
     <button class="classic-btn" @click="submit">Pošalji</button>
   </div>
 </template>
@@ -48,10 +53,14 @@ export default {
       email: '',
       name: '',
       consent: 0,
+      consent2: 0,
     }
   },
   methods: {
     submit() {
+      if (this.data.terms_conditions && !this.consent2) {
+        return
+      }
       if (this.consent) {
         this.$emit('answer', this.data.id, {
           email: this.email,
