@@ -165,8 +165,20 @@
               Kako mogu platiti pretplatu koju poklanjam?
             </summary>
             <p>
-              Pretplatu možete sigurno platiti svim Maestro, Mastercard i Visa
-              karticama.
+              Pretplatu možete sigurno platiti svim Maestro, Mastercard, Visa i
+              Diners karticama.
+            </p>
+          </details>
+          <details class="full flex relative">
+            <summary class="full flex relative">
+              Mogu li odabrati kada će poklon stići?
+            </summary>
+            <p>
+              Možete, pri kupovini poklon pretplate bit će Vam ponuđeno želite
+              li da poklon stigne odmah ili neki drugi dan, naprimjer baš na
+              Božić. Slobodno odaberite opciju koja Vama više odgovara, 365 dana
+              pretplate počinje teći od dana kada ju osoba kojoj ste pretplatu
+              poklonili aktivira.
             </p>
           </details>
           <details class="full flex relative">
