@@ -72,7 +72,7 @@
                 surfanje s manje oglasa
               </p>
             </div>
-            <div class="full center btn-parent" @click="checkout(three)">
+            <div class="full center btn-parent" @click="checkout(one)">
               <div class="btn animate">Odaberi</div>
             </div>
           </div>
@@ -119,7 +119,7 @@
                 >
               </p>
             </div>
-            <div class="full center btn-parent" @click="checkout(four)">
+            <div class="full center btn-parent" @click="checkout(two)">
               <div class="btn animate">Odaberi</div>
             </div>
           </div>
@@ -464,65 +464,23 @@ export default {
   data() {
     return {
       terms: {
-        TM0FMYURHRA3: 49,
-        TMXKYJUN5YN5: 69,
-        TMVUCFM94OA7: 468,
-        TM8R9U7RK5B1: 588,
-        TMBXUSHKJZZ0: 49,
+        TM6L5G5WJDIH: 468,
+        TMC2CGIYTVI0: 588,
       },
     }
   },
   computed: {
     one() {
-      if (process.client) {
-        if (window.tp.sandbox) {
-          return 'TMC561I3C1ZT'
-        }
-        return 'TM0FMYURHRA3'
-      }
-      return ''
+      return 'TM6L5G5WJDIH'
     },
     two() {
-      if (process.client) {
-        if (window.tp.sandbox) {
-          return 'TM68H8RUQ7VJ'
-        }
-        return 'TMXKYJUN5YN5'
-      }
-      return ''
-    },
-    three() {
-      if (process.client) {
-        if (window.tp.sandbox) {
-          return 'TMA44DJRTT2A'
-        }
-        return 'TMVUCFM94OA7'
-      }
-      return ''
-    },
-    four() {
-      if (process.client) {
-        if (window.tp.sandbox) {
-          return 'TM6MUK1A0QU6'
-        }
-        return 'TM8R9U7RK5B1'
-      }
-      return ''
-    },
-    promo() {
-      return 'TMBXUSHKJZZ0'
+      return 'TMC2CGIYTVI0'
     },
   },
   mounted() {
     window.fbq = window.fbq || function () {}
     window.fbq('track', 'ViewContent', {
-      content_ids: [
-        'TM0FMYURHRA3',
-        'TMXKYJUN5YN5',
-        'TMVUCFM94OA7',
-        'TM8R9U7RK5B1',
-        'TMBXUSHKJZZ0',
-      ],
+      content_ids: ['TM6L5G5WJDIH', 'TMC2CGIYTVI0'],
     })
     window.tp.push([
       'addHandler',
@@ -559,16 +517,14 @@ export default {
         currency: 'HRK',
         value: this.terms[termId],
       })
-      const promo = this.$route.query.promo_code
       window.tp.push([
         'init',
         () => {
           window.tp.offer.show({
-            offerId: window.tp.sandbox ? 'OFVZ3BQ00JLQ' : 'OF5JVPQYFLE1',
+            offerId: 'OFZJIAYJJ98S',
             termId,
-            templateId: window.tp.sandbox ? 'OTTXZFQ6FGFC' : 'OTXWXSOL0WWS',
-            checkoutFlowId: window.tp.sandbox ? 'CF8Q59Z3RJ5G' : 'CF65KTMVQXXX',
-            promoCode: promo,
+            templateId: 'OTXWXSOL0WWS',
+            checkoutFlowId: 'CF65KTMVQXXX',
             closeOnLogout: true,
             complete: () => {
               _that.$store.dispatch('user/checkAccess')
@@ -577,18 +533,6 @@ export default {
                 currency: 'HRK',
                 value: this.terms[termId],
               })
-              window.fbq('track', 'Subscribe', {
-                currency: 'HRK',
-                value: this.terms[termId],
-              })
-              window.PianoESP &&
-                typeof window.PianoESP.handleUserDataPromise === 'function' &&
-                window.PianoESP.handleUserDataPromise({
-                  email: _that.$store.state.user.email,
-                  squads: [2128, 2555, 2554],
-                }).then(() => {
-                  _that.$router.go(back)
-                })
             },
           })
         },
