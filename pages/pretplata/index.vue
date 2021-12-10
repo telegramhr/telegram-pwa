@@ -650,8 +650,10 @@
               Mogu li nekome pokloniti pretplatu?
             </summary>
             <p>
-              Trenutno ne, ali radimo na tome i uskoro ćemo to uvesti kao
-              mogućnost.
+              Dapače, upravo je u tijeku Božićna akcija darivanja. Samo
+              posjetite
+              <app-link to="/pretplata/poklon">ovu stranicu</app-link> i pratite
+              korake za jedan od najoriginalnijih poklona ovog Božića.
             </p>
           </details>
           <details class="full flex relative">
