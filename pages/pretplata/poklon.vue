@@ -553,7 +553,7 @@ export default {
   },
   head() {
     return {
-      title: 'Poklonite Telegram.hr Pretplatu',
+      title: 'Telegram.hr - Poklonite pretplatu',
       meta: [
         {
           hid: 'description',
@@ -569,27 +569,27 @@ export default {
           hid: 'og:title',
           name: 'og:title',
           property: 'og:title',
-          content: 'Telegram.hr Pretplata',
+          content:
+            'Ovog Božića poklonite poklon koji se otvara svaki dan, 365 dana',
         },
         {
           hid: 'og:image',
           name: 'og:image',
           property: 'og:image',
-          content:
-            'https://www.telegram.hr/wp-content/uploads/2021/01/tg-background.jpg',
+          content: 'https://www.telegram.hr/pretplata_poklon.png',
         },
         {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/pretplata-poklon',
+          content: 'https://www.telegram.hr/pretplata/poklon',
         },
       ],
       link: [
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: 'https://www.telegram.hr/pretplata-poklon',
+          href: 'https://www.telegram.hr/pretplata/poklon',
         },
       ],
     }
