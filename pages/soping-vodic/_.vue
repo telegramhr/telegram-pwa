@@ -100,6 +100,39 @@
             <product-guide :products="post.products"></product-guide>
             <xmas-form></xmas-form>
             <!-- Article footer -->
+            <div v-if="!post.parent" class="full relative single-article-body">
+              <p>
+                Ako ove genijalne poklone želite poslati dragoj osobi koja nije
+                blizu,
+                <a
+                  href="https://www.posta.hr/paket24/5286"
+                  target="_blank"
+                  rel="sponsored"
+                  >Paket24</a
+                >
+                i Paketomat u tome će pomoći. Paket24 Hrvatske pošte, jedina je
+                usluga koja preuzima i isporučuje pošiljke ravnomjerno na
+                području cijele Hrvatske. Preuzimaju se na vašoj adresi i
+                garantira se njihovo uručenje u dogovorenom roku, a u više od
+                200 mjesta jamči se uručenje idući dan. Druga opcija je
+                inovativni
+                <a
+                  href="https://www.posta.hr/paketomat/8672"
+                  target="_blank"
+                  rel="sponsored"
+                  >Paketomat</a
+                >
+                kojim primate i šaljete pakete 24 sata dnevno, sedam dana u
+                tjednu.
+              </p>
+              <p class="center">
+                <img
+                  src="https://www.telegram.hr/wp-content/uploads/2021/12/croatian-post-hrvatska-posta-logosvg.png"
+                  alt="Hrvatska pošta logo"
+                  width="300"
+                />
+              </p>
+            </div>
             <div
               class="full relative single-article-footer flex column-top-pad"
             >

@@ -136,6 +136,12 @@ export default {
           person: 'Tihana Vučić',
           date: '8.12',
         },
+        {
+          message:
+            'Tečaj kuhanja za supruga kojem je u ovom trenu kulinarski domet jaje na oko. To bi bio prijenos obveza na finjaka, obzirom da sam godinama dežurna kuharica u obitelji.',
+          person: 'Ljiljana Stanić',
+          date: '9.12',
+        },
       ],
     }
   },
