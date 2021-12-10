@@ -11,7 +11,7 @@
       <span>
         {{ answer.text }}
         <font-awesome-icon
-          v-if="answer.id === answered && answer.correct"
+          v-if="answer.correct && answered"
           :icon="['fas', 'check']"
           style="color: lightgreen; margin-left: 20px"
         ></font-awesome-icon>
