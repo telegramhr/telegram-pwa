@@ -125,6 +125,70 @@
           </div>
         </div>
       </div>
+      <div class="full flex relative fancy-quotes">
+        <div class="container relative flex mobile-side-pad column-full-pad">
+          <div class="fancy-quote relative">
+            <div class="quotation-marks">„</div>
+            <img
+              class="quote-author-image"
+              src="https://telegram.hr/wp-content/themes/telegram2-desktop/templates/native/erste/tgneue/img/sprajc.png?ver=2.0"
+              alt="Zoran Šprajc"
+            />
+            <h2 class="full">
+              Telegram je letvicu istraživačkog novinarstva podignuo dosta
+              visoko. Pokazao je da internet novinarstvo može biti zanimljivo i
+              ozbiljno, ako ne i ozbiljnije od tradicionalnih medija.
+            </h2>
+            <h3 class="fancy-quote-author">Zoran Šprajc</h3>
+            <div class="quotation-marks">“</div>
+          </div>
+          <div class="fancy-quote relative">
+            <div class="quotation-marks">„</div>
+            <img
+              class="quote-author-image"
+              src="@/assets/img/extras/people/maja-sever.png"
+              alt="Maja Sever"
+            />
+            <h2 class="full">
+              Pretplatila sam se na Telegram zato što je novinarstvo u našem
+              društvu jedan od rijetkih korektiva vlasti. U državi u kojoj
+              institucije ne funkcioniraju, neovisno novinarstvo treba podržati.
+            </h2>
+            <h3 class="fancy-quote-author">Maja Sever</h3>
+            <div class="quotation-marks">“</div>
+          </div>
+          <div class="fancy-quote relative">
+            <div class="quotation-marks">„</div>
+            <img
+              class="quote-author-image"
+              src="https://telegram.hr/wp-content/themes/telegram2-desktop/templates/native/erste/tgneue/img/vukovic-vuk.png?ver=2.0"
+              alt="Vuk Vukoviić"
+            />
+            <h2 class="full">
+              Podržavam Telegram da bi nastavili otkrivati još veće koruptivne i
+              političke skandale te time činili društvo boljim. Kako bi
+              Amerikanci rekli, ‘put your money where your mouth is’.
+            </h2>
+            <h3 class="fancy-quote-author">Vuk Vuković</h3>
+            <div class="quotation-marks">“</div>
+          </div>
+          <div class="fancy-quote relative">
+            <div class="quotation-marks">„</div>
+            <img
+              class="quote-author-image"
+              src="@/assets/img/extras/people/miljenko-jergovic.png"
+              alt="Miljenko Jergović"
+            />
+            <h2 class="full">
+              U nedovršenim društvima, kakvo je hrvatsko, neovisno novinarstvo i
+              jest jedino novinarstvo. Telegram čitam svakodnevno, a to košta,
+              ustvari to mora koštati da bi išta vrijedilo.
+            </h2>
+            <h3 class="fancy-quote-author">Miljenko Jergović</h3>
+            <div class="quotation-marks">“</div>
+          </div>
+        </div>
+      </div>
       <div class="full flex pretplata-faq">
         <div
           class="
@@ -239,237 +303,10 @@
           </details>
         </div>
       </div>
-      <div class="full flex relative">
-        <div class="container relative flex">
-          <div
-            class="
-              pretplata-keypoint
-              fourth
-              flex-responsive
-              column-full-pad
-              mobile-side-pad
-            "
-          >
-            <a class="full flex relative" href="#keypoint-autori">
-              <img
-                src="@/assets/img/tg_pretplata_mini_vizual_autori.jpg"
-                aria-hidden="true"
-              />
-              <div class="keypoint-text full center">
-                <h3>Vrhunski autori</h3>
-              </div>
-            </a>
-          </div>
-          <div
-            class="
-              pretplata-keypoint
-              fourth
-              flex-responsive
-              column-full-pad
-              mobile-side-pad
-            "
-          >
-            <a class="full flex relative" href="#keypoint-korupcija">
-              <img
-                src="@/assets/img/tg_pretplata_mini_vizual_korupcija.jpg"
-                aria-hidden="true"
-              />
-              <div class="keypoint-text full center">
-                <h3>Otkrivanje korupcije</h3>
-              </div>
-            </a>
-          </div>
-          <div
-            class="
-              pretplata-keypoint
-              fourth
-              flex-responsive
-              column-full-pad
-              mobile-side-pad
-            "
-          >
-            <a class="full flex relative" href="#keypoint-istrazivacki">
-              <img
-                src="@/assets/img/tg_pretplata_mini_vizual_istrazivacki.jpg"
-                aria-hidden="true"
-              />
-              <div class="keypoint-text full center">
-                <h3>Istraživački specijali</h3>
-              </div>
-            </a>
-          </div>
-          <div
-            class="
-              pretplata-keypoint
-              fourth
-              flex-responsive
-              column-full-pad
-              mobile-side-pad
-            "
-          >
-            <a class="full flex relative" href="#keypoint-inspiracija">
-              <img
-                src="@/assets/img/tg_pretplata_mini_vizual_inspiracija.jpg"
-                aria-hidden="true"
-              />
-              <div class="keypoint-text full center">
-                <h3>Inspirativne reportaže</h3>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div id="keypoint-autori" class="full flex relative sub-point">
-        <div class="container relative flex mobile-side-pad stretch">
-          <div class="half flex-responsive column-full-pad">
-            <img
-              src="@/assets/img/tg_pretplata_keypoint_vizual_autori.jpg"
-              aria-hidden="true"
-              class="light-mode-only"
-            />
-            <img
-              src="@/assets/img/tg_pretplata_keypoint_vizual_autori_dark.jpg"
-              aria-hidden="true"
-              class="dark-mode-only"
-            />
-            <img
-              src="@/assets/img/tg_pretplata_keypoint_vizual_autori_white.jpg"
-              aria-hidden="true"
-              class="contrast-mode-only"
-            />
-          </div>
-          <div class="half center flex-responsive column-full-pad">
-            <div class="full flex">
-              <h2 class="full">
-                Autorski pristup i dublji uvid u ključne društvene teme
-              </h2>
-              <p>
-                Telegramovu ekipu čine renomirana imena i nagrađivani novinari
-                kao što su Drago Hedl, Sanja Modrić, Andrej Dimitrijević, Ana
-                Raić Knežević, Jasmin Klarić, Marko Repecki, Dora Kršul, Goranko
-                Fižulić, Aleksandar Holiga, Mladen Pleše, Vjekoslav Skledar,
-                Đivo Đurović i mnogi drugi. A želimo se, naravno, i pojačati.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        id="keypoint-korupcija"
-        class="full flex relative sub-point alt-sub-point"
-      >
-        <div class="container relative flex mobile-side-pad stretch">
-          <div class="half flex-responsive column-full-pad">
-            <img
-              src="@/assets/img/tg_pretplata_keypoint_vizual_korupcija.jpg"
-              aria-hidden="true"
-              class="light-mode-only"
-            />
-            <img
-              src="@/assets/img/tg_pretplata_keypoint_vizual_korupcija_dark.jpg"
-              aria-hidden="true"
-              class="dark-mode-only"
-            />
-            <img
-              src="@/assets/img/tg_pretplata_keypoint_vizual_korupcija_white.jpg"
-              aria-hidden="true"
-              class="contrast-mode-only"
-            />
-          </div>
-          <div class="half center flex-responsive column-full-pad">
-            <div class="full flex">
-              <h2 class="full">
-                Bespoštedne istrage koje moćnici ne mogu ignorirati.
-              </h2>
-              <p>
-                Telegramova otkrića zataškanih kvadrata, nesrazmjera primanja i
-                imovine i drugih sumnjivih radnji dovela su do smjene
-                potpredsjednika Vlade Tomislava Tolušića, ministra Kuščevića i
-                ministra Kujundžića, kao i velikog broja lokalnih moćnika. No,
-                ne mislimo stati.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="keypoint-istrazivacki" class="full flex relative sub-point">
-        <div class="container relative flex mobile-side-pad stretch">
-          <div class="half flex-responsive column-full-pad">
-            <img
-              src="@/assets/img/tg_pretplata_keypoint_vizual_istrazivacki.jpg"
-              aria-hidden="true"
-              class="light-mode-only"
-            />
-            <img
-              src="@/assets/img/tg_pretplata_keypoint_vizual_istrazivacki_dark.jpg"
-              aria-hidden="true"
-              class="dark-mode-only"
-            />
-            <img
-              src="@/assets/img/tg_pretplata_keypoint_vizual_istrazivacki_white.jpg"
-              aria-hidden="true"
-              class="contrast-mode-only"
-            />
-          </div>
-          <div class="half center flex-responsive column-full-pad">
-            <div class="full flex">
-              <h2 class="full">
-                Istraživački serijali i otvaranje tema o kojima se šuti.
-              </h2>
-              <p>
-                Otkrili smo i otvorili stotine priča i tema, a među najvažnijima
-                bio je istraživački serijal o zataškanom seksualnom
-                uznemiravanju na Sveučilištu u Zagrebu, nakon čega nas je rektor
-                Boras optužio da izmišljamo iskaze žrtava. A ima još puno tema
-                koje želimo otvoriti.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        id="keypoint-inspiracija"
-        class="full flex relative sub-point alt-sub-point"
-      >
-        <div class="container relative flex mobile-side-pad stretch">
-          <div class="half flex-responsive column-full-pad">
-            <img
-              src="@/assets/img/tg_pretplata_keypoint_vizual_inspiracija.jpg"
-              aria-hidden="true"
-              class="light-mode-only"
-            />
-            <img
-              src="@/assets/img/tg_pretplata_keypoint_vizual_inspiracija_dark.jpg"
-              aria-hidden="true"
-              class="dark-mode-only"
-            />
-            <img
-              src="@/assets/img/tg_pretplata_keypoint_vizual_inspiracija_white.jpg"
-              aria-hidden="true"
-              class="contrast-mode-only"
-            />
-          </div>
-          <div class="half center flex-responsive column-full-pad">
-            <div class="full flex">
-              <h2 class="full">
-                Inspirativne priče o ljudima koji guraju Hrvatsku naprijed.
-              </h2>
-              <p>
-                Pozitivne priče o nevjerojatnim postignućima marginaliziranih
-                pojedinca koji su nadvladali teške životne okolnosti i poslovnim
-                uspjesima domaćih genija koji marljivo prkose močvarnom tlu
-                hrvatske ekonomije. To su priče na kakve želimo stavljati sve
-                više fokusa.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
     <tfooter></tfooter>
   </div>
 </template>
-
 <script>
 export default {
   name: 'Pretplata',
