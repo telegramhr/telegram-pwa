@@ -413,7 +413,7 @@ export default {
           hid: 'og:image',
           name: 'og:image',
           property: 'og:image',
-          content: 'https://www.telegram.hr/pretplata_poklon.png',
+          content: 'https://www.telegram.hr/img/pretplata_poklon.png',
         },
         {
           hid: 'og:url',
