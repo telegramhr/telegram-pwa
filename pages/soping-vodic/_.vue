@@ -129,7 +129,7 @@
                 <img
                   src="https://www.telegram.hr/wp-content/uploads/2021/12/croatian-post-hrvatska-posta-logosvg.png"
                   alt="Hrvatska pošta logo"
-                  width="300"
+                  width="200"
                 />
               </p>
             </div>
