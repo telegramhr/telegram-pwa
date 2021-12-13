@@ -230,29 +230,23 @@
         <authors></authors>
       </div>
       <linker type="naslovnica"></linker>
-      <client-only>
-        <sport></sport>
-      </client-only>
+      <sport></sport>
       <partners></partners>
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v4"></ad-unit>
       </div>
-      <client-only>
-        <super1></super1>
-      </client-only>
-      <client-only>
-        <pitanje-zdravlja></pitanje-zdravlja>
-      </client-only>
+      <super1></super1>
+      <pitanje-zdravlja></pitanje-zdravlja>
       <os-homepage></os-homepage>
       <div class="full flex">
         <div class="container desktop-only flex relative column-full-pad"></div>
       </div>
       <div class="container flex relative block-5 standard-block">
+        <lazy-category slug="zivot"></lazy-category>
+        <lazy-category slug="biznis-tech"></lazy-category>
+        <lazy-category slug="kultura"></lazy-category>
+        <lazy-category slug="velike-price"></lazy-category>
         <client-only>
-          <lazy-category slug="zivot"></lazy-category>
-          <lazy-category slug="biznis-tech"></lazy-category>
-          <lazy-category slug="kultura"></lazy-category>
-          <lazy-category slug="velike-price"></lazy-category>
           <lazy-most-read v-show="$mobile"></lazy-most-read>
         </client-only>
       </div>
