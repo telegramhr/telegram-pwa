@@ -837,6 +837,15 @@ h2.section-title {
 .super1-block h2.section-title {
     border-bottom-color: #CC3366;
 }
+.pz-block .block-title, .pz-block .dynamic-overtitle-element, .pz-block .widget, .pz-block .widget::before, .pz-block .komentar .komentar-image, .pz-block .subtle-btn-parent:hover .subtle-btn, .pz-block .loader-square div {
+    background-color: #27a9e0;
+}
+.pz-block .meta-preporuke, .pz-block h3.overtitle, .pz-block .article-mini .meta-date, .pz-block .related-articles h5 {
+    color: #0a80c5;
+}
+.pz-block h2.section-title {
+    border-bottom-color: #27a9e0;
+}
 .weekday-title h2 {
     font-family: neuzeit-grotesk, sans-serif;
     font-weight: 900;
