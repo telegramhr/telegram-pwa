@@ -3,6 +3,9 @@ import { parse } from 'node-html-parser'
 
 export default () => {
   Vue.filter('parseTime', function (value) {
+    if (!value) {
+      return ''
+    }
     const now = Date.now()
     value = value * 1000
     if (value < now - 12 * 3600 * 1000) {
