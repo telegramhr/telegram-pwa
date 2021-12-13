@@ -557,7 +557,7 @@
         >
           <h2 class="full">Često postavljana pitanja</h2>
           <details class="full flex relative">
-            <summary class="full flex relative">
+            <summary class="full relative">
               Što je pretplata na Telegram?
             </summary>
             <p>
@@ -568,7 +568,7 @@
             </p>
           </details>
           <details class="full flex relative">
-            <summary class="full flex relative">
+            <summary class="full relative">
               Zašto postoji pretplata na Telegramu?
             </summary>
             <p>
@@ -584,7 +584,7 @@
             </p>
           </details>
           <details class="full flex relative">
-            <summary class="full flex relative">
+            <summary class="full relative">
               Kako da se pretplatim na Telegram?
             </summary>
             <p>
@@ -594,9 +594,7 @@
             </p>
           </details>
           <details class="full flex relative">
-            <summary class="full flex relative">
-              Koliko košta pretplata?
-            </summary>
+            <summary class="full relative">Koliko košta pretplata?</summary>
             <p>
               Cijena pretplate ovisi o paketu koji odaberete. Možete se
               pretplatiti na mjesečnoj ili godišnjoj bazi i to na samo jedan ili
@@ -606,7 +604,7 @@
             </p>
           </details>
           <details class="full flex relative">
-            <summary class="full flex relative">
+            <summary class="full relative">
               Koja mi se opcija pretplate najviše isplati?
             </summary>
             <p>
@@ -618,7 +616,7 @@
             </p>
           </details>
           <details id="knjige-disclaimer" class="full flex relative">
-            <summary class="full flex relative">
+            <summary class="full relative">
               Kako mogu besplatno dobiti knjigu u izdanju Telegrama?
             </summary>
             <p>
@@ -637,7 +635,7 @@
             </p>
           </details>
           <details class="full flex relative">
-            <summary class="full flex relative">
+            <summary class="full relative">
               Kako mogu platiti pretplatu?
             </summary>
             <p>
@@ -646,7 +644,7 @@
             </p>
           </details>
           <details class="full flex relative">
-            <summary class="full flex relative">
+            <summary class="full relative">
               Mogu li nekome pokloniti pretplatu?
             </summary>
             <p>
@@ -657,7 +655,7 @@
             </p>
           </details>
           <details class="full flex relative">
-            <summary class="full flex relative">
+            <summary class="full relative">
               Mogu li čitati Telegram sa svih uređaja jednom kad se pretplatim?
             </summary>
             <p>
@@ -666,7 +664,7 @@
             </p>
           </details>
           <details class="full flex relative">
-            <summary class="full flex relative">
+            <summary class="full relative">
               Mogu li dijeliti svoju pretplatu s drugima?
             </summary>
             <p>
@@ -675,7 +673,7 @@
             </p>
           </details>
           <details class="full flex relative">
-            <summary class="full flex relative">
+            <summary class="full relative">
               Mi smo tvrtka/škola/knjižnica/fakultet, postoji li opcija grupne
               pretplate?
             </summary>
@@ -685,7 +683,7 @@
             </p>
           </details>
           <details class="full flex relative">
-            <summary class="full flex relative">
+            <summary class="full relative">
               Hoću li moći čitati Telegram i ako se ne pretplatim?
             </summary>
             <p>
@@ -697,7 +695,7 @@
             </p>
           </details>
           <details class="full flex relative">
-            <summary class="full flex relative">
+            <summary class="full relative">
               Mogu li se pretplatiti samo na Telesport?
             </summary>
             <p>
@@ -706,7 +704,7 @@
             </p>
           </details>
           <details class="full flex relative">
-            <summary class="full flex relative">
+            <summary class="full relative">
               Mogu li otkazati pretplatu jednom kad se pretplatim?
             </summary>
             <p>
@@ -715,7 +713,7 @@
             </p>
           </details>
           <details class="full flex relative">
-            <summary class="full flex relative">
+            <summary class="full relative">
               Kako se obnavlja jednom kupljena pretplata?
             </summary>
             <p>
@@ -726,7 +724,7 @@
             </p>
           </details>
           <details class="full flex relative">
-            <summary class="full flex relative">
+            <summary class="full relative">
               Ne mogu pronaći odgovor na svoje pitanje.
             </summary>
             <p>

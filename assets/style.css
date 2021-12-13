@@ -2708,6 +2708,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     cursor: pointer;
     position: relative;
     list-style-image: none;
+    display: block;
 }
 .pretplata-faq summary::marker {
     display: none;
