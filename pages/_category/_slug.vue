@@ -327,6 +327,9 @@
             <linker type="category"></linker>
           </div>
         </div>
+        <div class="full center">
+          <shoping-guide></shoping-guide>
+        </div>
         <div class="container center">
           <div
             data-contentexchange-widget="k7dWfvWSYDqoSZvwu"
