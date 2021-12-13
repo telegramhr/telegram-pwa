@@ -123,6 +123,7 @@
           </div>
         </section>
       </div>
+      <!--
       <client-only>
         <big-featured></big-featured>
       </client-only>
@@ -223,15 +224,20 @@
           </div>
         </div>
       </div>
+
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
       </div>
       <div class="full center">
         <authors></authors>
       </div>
+
       <linker type="naslovnica"></linker>
+      -->
       <sport></sport>
-      <partners></partners>
+      <client-only>
+        <partners></partners>
+      </client-only>
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v4"></ad-unit>
       </div>

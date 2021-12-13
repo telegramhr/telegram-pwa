@@ -55,7 +55,11 @@
           class="full flex column-horizontal-pad column-top-pad mobile-side-pad"
         >
           <div class="full flex article-big column-bottom-border">
-            <featured :key="featured[0].id" :post="featured[0]"></featured>
+            <featured
+              v-for="post in featured.slice(0, 1)"
+              :key="post.id"
+              :post="post"
+            ></featured>
           </div>
         </div>
         <div class="full flex mobile-side-pad stretch">
@@ -153,7 +157,11 @@
               column-horizontal-pad column-right-border column-left-border
             "
           >
-            <featured :key="featured[4].id" :post="featured[4]"></featured>
+            <featured
+              v-for="post in featured.slice(4, 5)"
+              :key="post.id"
+              :post="post"
+            ></featured>
             <div class="full flex split-articles">
               <template v-for="post in featured.slice(5, 8)">
                 <medium :key="post.id" :post="post"></medium>
@@ -175,7 +183,9 @@
         </div>
       </div>
     </div>
-    <big-featured type="openspace"></big-featured>
+    <client-only>
+      <big-featured type="openspace"></big-featured>
+    </client-only>
     <div class="full flex">
       <div class="container flex relative native-block stretch mobile-side-pad">
         <div
@@ -185,7 +195,17 @@
         >
           <standard :post="post"></standard>
         </div>
-        <div class="full center subtle-btn-parent relative clickable">
+        <div
+          v-for="post in morePosts"
+          :key="post.id"
+          class="fourth flex-responsive column-full-pad"
+        >
+          <standard :post="post"></standard>
+        </div>
+        <div
+          class="full center subtle-btn-parent relative clickable"
+          @click="loadMore"
+        >
           <div class="subtle-btn animate">Vidi više</div>
           <div class="subtle-btn-line"></div>
         </div>
@@ -198,7 +218,9 @@
 <script>
 export default {
   async fetch() {
-    await this.$store.dispatch('openspace/pullPosts')
+    await this.$axios.get('/api/featured/openspace').then((res) => {
+      this.featured = res.data
+    })
     await this.$store.dispatch('category/pullPosts', {
       category: 'openspace',
     })
@@ -207,14 +229,15 @@ export default {
     return {
       loading: false,
       hasMore: true,
+      featured: [],
     }
   },
   computed: {
-    featured() {
-      return this.$store.state.openspace.posts
-    },
     posts() {
       return this.$store.state.category.categories.openspace.posts
+    },
+    morePosts() {
+      return this.$store.state.category.categories.openspace.morePosts
     },
     jsonld() {
       return {
@@ -225,6 +248,11 @@ export default {
         description:
           'Telegramova platforma za traženje idealnog posla, profesionalno napredovanje i karijernu inspiraciju.',
       }
+    },
+  },
+  methods: {
+    loadMore() {
+      this.$store.dispatch('category/loadMore', { category: 'openspace' })
     },
   },
   head() {
