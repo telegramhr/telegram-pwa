@@ -1531,6 +1531,14 @@ figure img {
     font-size: 0.7rem;
 }
 
+@media screen and (max-width: 767px) {
+    .single-article .single-article-body .big-quote p {
+        font-size: 20px;
+        font-size: 1rem;
+        line-height: 1.7rem;
+    }
+}
+
 /* In-article newsletter  */
 
 .in-article-newsletter {
@@ -6805,6 +6813,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .inarticle-form .slick-slider {
     max-width: 888px;
+    width: 100%;
 }
 .inarticle-form .consent-label {
     cursor: pointer;
