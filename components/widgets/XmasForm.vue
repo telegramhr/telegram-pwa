@@ -128,19 +128,37 @@ export default {
           message:
             "Moj idealni poklon je wellness escape za mene i sestru jer obje radimo jako puno i jako stresno 🙂 Osim toga, ljudima je to ideja kao nešto što si možeš priuštiti sam pa uvijek 'izvisiš'.",
           person: 'Barbara Buble',
-          date: '7.12',
+          date: '7.12.',
         },
         {
           message:
             'Maska za lice 🤭 da mi suprug lakše mijenja pelene našem dvomjesečnom bebaču,a ja da imam više vremena za sebe.',
           person: 'Tihana Vučić',
-          date: '8.12',
+          date: '8.12.',
         },
         {
           message:
             'Tečaj kuhanja za supruga kojem je u ovom trenu kulinarski domet jaje na oko. To bi bio prijenos obveza na finjaka, obzirom da sam godinama dežurna kuharica u obitelji.',
           person: 'Ljiljana Stanić',
-          date: '9.12',
+          date: '9.12.',
+        },
+        {
+          message:
+            'Kupio bi nam plesne cipele jer supruga već godina želi da naučimo latino plesove. Time bi joj pokazao da sam spreman za plesni tečaj, odmah prije nego se predomislim! 😄',
+          person: 'Marko Jertec',
+          date: '10.12.',
+        },
+        {
+          message:
+            'Diktafon za baku kojoj ide na živce u dućanu vaditi naočale da bi pročitala popis za kupovinu.',
+          person: 'Ljubica Baranašić',
+          date: '11.12',
+        },
+        {
+          message:
+            'Dioptrijske naočale za mog šefa da konačno vidi koliko radim i unaprijedi me što i zaslužujem\n',
+          person: 'Sanja Kruljac',
+          date: '12.12',
         },
       ],
     }
