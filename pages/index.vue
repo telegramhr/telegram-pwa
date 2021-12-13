@@ -240,6 +240,9 @@
       <client-only>
         <super1></super1>
       </client-only>
+      <client-only>
+        <pitanje-zdravlja></pitanje-zdravlja>
+      </client-only>
       <os-homepage></os-homepage>
       <div class="full flex">
         <div class="container desktop-only flex relative column-full-pad"></div>
@@ -262,7 +265,9 @@
 </template>
 
 <script>
+import PitanjeZdravlja from '@/components/Elements/PitanjeZdravlja'
 export default {
+  components: { PitanjeZdravlja },
   async fetch() {
     await this.$store.dispatch('featured/pullPosts')
   },
