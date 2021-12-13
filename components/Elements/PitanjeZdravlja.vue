@@ -3,7 +3,7 @@
     <a href="https://super1.telegram.hr" class="full flex pz-block">
       <div class="block-title full mobile-side-pad">
         <div class="container flex relative">
-          <h1 class="full column-left-pad">Pitanje Zdravlja</h1>
+          <h1 class="full column-left-pad">PitanjeZdravlja</h1>
         </div>
       </div>
     </a>
