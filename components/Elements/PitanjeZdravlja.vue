@@ -7,7 +7,7 @@
         </div>
       </div>
     </a>
-    <div class="container flex relative block-4 standard-block super1-block">
+    <div class="container flex relative block-4 standard-block pz-block">
       <section class="three-fourths flex-responsive flex elevate-over-section">
         <section
           class="
