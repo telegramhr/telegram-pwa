@@ -3206,6 +3206,17 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         margin-left: auto;
         margin-right: auto;
     }
+    .pretplata-page .mini-pretplata h2 {
+        font-size: 20px;
+        font-size: 1rem;
+    }
+    .pretplata-page .mini-pretplata {
+        padding-top: 16px;
+        border-top: 1px solid #c8c8c8;
+    }
+    .dark-mode .pretplata-page .mini-pretplata {
+        border-top-color: #333;
+    }
 }
 
 @media screen and (min-width: 767px) {

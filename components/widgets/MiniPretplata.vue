@@ -1,5 +1,8 @@
 <template>
-  <app-link to="/pretplata" class="full flex stretch relative mini-pretplata">
+  <app-link
+    to="/pretplata/poklon"
+    class="full flex stretch relative mini-pretplata"
+  >
     <h2 class="full center-text">Politika nas ne podržava, podržite nas Vi.</h2>
     <p>
       Zbog istrage Telegrama uhićena je Gabrijela Žalac. Neovisno istraživačko
