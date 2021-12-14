@@ -248,12 +248,12 @@
         <div class="container desktop-only flex relative column-full-pad"></div>
       </div>
       <div class="container flex relative block-5 standard-block">
-        <lazy-category slug="zivot"></lazy-category>
-        <lazy-category slug="biznis-tech"></lazy-category>
-        <lazy-category slug="kultura"></lazy-category>
-        <lazy-category slug="velike-price"></lazy-category>
+        <category slug="zivot"></category>
+        <category slug="biznis-tech"></category>
+        <category slug="kultura"></category>
+        <category slug="velike-price"></category>
         <client-only>
-          <lazy-most-read v-if="$mobile"></lazy-most-read>
+          <most-read v-if="$mobile"></most-read>
         </client-only>
       </div>
       <div class="container flex center">
