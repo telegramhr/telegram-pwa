@@ -223,16 +223,15 @@
           </div>
         </div>
       </div>
-
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
       </div>
-      <div class="full center">
-        <authors></authors>
-      </div>
-
+      <client-only>
+        <div class="full center">
+          <authors></authors>
+        </div>
+      </client-only>
       <linker type="naslovnica"></linker>
-
       <sport></sport>
       <client-only>
         <partners></partners>
@@ -241,6 +240,7 @@
         <ad-unit id="telegram_desktop_billboard_v4"></ad-unit>
       </div>
       <super1></super1>
+
       <pitanje-zdravlja></pitanje-zdravlja>
       <os-homepage></os-homepage>
       <div class="full flex">
@@ -264,9 +264,9 @@
 </template>
 
 <script>
-import PitanjeZdravlja from '@/components/Elements/PitanjeZdravlja'
+// import PitanjeZdravlja from '@/components/Elements/PitanjeZdravlja'
 export default {
-  components: { PitanjeZdravlja },
+  // components: { PitanjeZdravlja },
   async fetch() {
     await this.$store.dispatch('featured/pullPosts')
   },
