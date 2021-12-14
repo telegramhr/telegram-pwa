@@ -123,7 +123,6 @@
           </div>
         </section>
       </div>
-      <!--
       <client-only>
         <big-featured></big-featured>
       </client-only>
@@ -233,7 +232,7 @@
       </div>
 
       <linker type="naslovnica"></linker>
-      -->
+
       <sport></sport>
       <client-only>
         <partners></partners>
