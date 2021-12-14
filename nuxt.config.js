@@ -115,7 +115,6 @@ export default {
   plugins: [
     { src: '@/plugins/filters.js' },
     { src: '@/plugins/persisted.client.js' },
-    { src: '@/plugins/choices.client.js' },
     { src: '@/plugins/vue-slick-carousel.js' },
     { src: '@/plugins/piano-cxense.js', ssr: false },
     { src: '@/plugins/piano.js', ssr: false },

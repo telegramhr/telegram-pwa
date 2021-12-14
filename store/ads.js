@@ -892,23 +892,7 @@ export const actions = {
         window.googletag.display(slot.id)
       })
     })
-    dispatch('refreshSlots')
-  },
-  refreshSlots({ dispatch }) {
-    window.googlefc = window.googlefc || {}
-    window.googlefc.callbackQueue = window.googlefc.callbackQueue || []
-    window.googletag = window.googletag || {}
-    window.googletag.cmd = window.googletag.cmd || []
     dispatch('initPBJS')
-    /* global __tcfapi */
-    window.googlefc.callbackQueue.push({
-      CONSENT_DATA_READY: () =>
-        __tcfapi('getTCData', 0, (data, success) => {
-          if (data.purpose.consents[1]) {
-            dispatch('initPBJS')
-          }
-        }),
-    })
   },
   initPBJS({ dispatch }) {
     window.pbjs = window.pbjs || {}

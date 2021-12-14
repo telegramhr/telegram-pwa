@@ -78,19 +78,28 @@
               column-right-border column-top-pad
             "
           >
-            <featured :key="posts[1].id" :post="posts[1]"></featured>
+            <featured
+              v-for="post in posts.slice(1, 2)"
+              :key="post.id"
+              :post="post"
+            ></featured>
             <mini-pretplata-home
               v-show="!$store.state.user.access"
             ></mini-pretplata-home>
-            <featured :key="posts[2].id" :post="posts[2]"></featured>
-            <featured :key="posts[3].id" :post="posts[3]"></featured>
+            <featured
+              v-for="post in posts.slice(2, 4)"
+              :key="post.id"
+              :post="post"
+            ></featured>
           </div>
-          <div
-            v-show="$mobile"
-            class="full center header-billboard mobile-only"
-          >
-            <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
-          </div>
+          <client-only>
+            <div
+              v-if="$mobile"
+              class="full center header-billboard mobile-only"
+            >
+              <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
+            </div>
+          </client-only>
           <div
             class="
               third
@@ -100,10 +109,11 @@
               column-top-pad
             "
           >
-            <medium :key="posts[4].id" :post="posts[4]"></medium>
-            <medium :key="posts[5].id" :post="posts[5]"></medium>
-            <medium :key="posts[6].id" :post="posts[6]"></medium>
-            <medium :key="posts[7].id" :post="posts[7]"></medium>
+            <medium
+              v-for="post in posts.slice(4, 8)"
+              :key="post.id"
+              :post="post"
+            ></medium>
           </div>
         </section>
         <section
@@ -115,7 +125,9 @@
             column-horizontal-pad column-right-border
           "
         >
-          <latest v-show="!$mobile" :portal="1"></latest>
+          <client-only>
+            <latest v-show="!$mobile" :portal="1"></latest>
+          </client-only>
           <commentary></commentary>
           <div class="full flex desktop-only">
             <h2 class="full flex section-title">Newsletter</h2>
@@ -132,20 +144,14 @@
       <div class="full center">
         <shoping-guide></shoping-guide>
       </div>
-      <div
-        v-if="posts"
-        class="block-title news-block-title full mobile-side-pad"
-      >
+      <div class="block-title news-block-title full mobile-side-pad">
         <div class="full block-title-pattern relative"></div>
         <div class="container flex relative">
           <h1 class="column-left-pad full">Još vijesti</h1>
         </div>
       </div>
 
-      <div
-        v-if="posts.length"
-        class="container flex relative block-2 standard-block stretch"
-      >
+      <div class="container flex relative block-2 standard-block stretch">
         <section
           class="
             fourth
@@ -167,14 +173,14 @@
               column-horizontal-pad column-right-border
             "
           >
-            <featured :key="posts[8].id" :post="posts[8]"></featured>
+            <featured
+              v-for="post in posts.slice(8, 9)"
+              :key="post.id"
+              :post="post"
+            ></featured>
             <div class="full flex split-articles">
-              <template v-for="i in [9, 10, 11]">
-                <medium
-                  v-if="posts[i]"
-                  :key="posts[i].id"
-                  :post="posts[i]"
-                ></medium>
+              <template v-for="post in posts.slice(9, 12)">
+                <medium :key="post.id" :post="post"></medium>
               </template>
             </div>
           </section>
@@ -186,12 +192,8 @@
               column-horizontal-pad
             "
           >
-            <template v-for="i in [12, 13, 14]">
-              <standard
-                v-if="posts[i]"
-                :key="posts[i].id"
-                :post="posts[i]"
-              ></standard>
+            <template v-for="post in posts.slice(12, 15)">
+              <standard :key="post.id" :post="post"></standard>
             </template>
           </section>
         </div>
@@ -230,8 +232,8 @@
         <div class="full center">
           <authors></authors>
         </div>
+        <linker type="naslovnica"></linker>
       </client-only>
-      <linker type="naslovnica"></linker>
       <sport></sport>
       <client-only>
         <partners></partners>
@@ -240,7 +242,6 @@
         <ad-unit id="telegram_desktop_billboard_v4"></ad-unit>
       </div>
       <super1></super1>
-
       <pitanje-zdravlja></pitanje-zdravlja>
       <os-homepage></os-homepage>
       <div class="full flex">
@@ -252,7 +253,7 @@
         <lazy-category slug="kultura"></lazy-category>
         <lazy-category slug="velike-price"></lazy-category>
         <client-only>
-          <lazy-most-read v-show="$mobile"></lazy-most-read>
+          <lazy-most-read v-if="$mobile"></lazy-most-read>
         </client-only>
       </div>
       <div class="container flex center">
@@ -264,9 +265,9 @@
 </template>
 
 <script>
-// import PitanjeZdravlja from '@/components/Elements/PitanjeZdravlja'
+import PitanjeZdravlja from '@/components/Elements/PitanjeZdravlja'
 export default {
-  // components: { PitanjeZdravlja },
+  components: { PitanjeZdravlja },
   async fetch() {
     await this.$store.dispatch('featured/pullPosts')
   },
