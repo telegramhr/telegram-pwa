@@ -107,7 +107,7 @@ export default {
 }
 
 .sticky-right {
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .sticky-fade {
