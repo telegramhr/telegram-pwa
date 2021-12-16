@@ -11,17 +11,8 @@
       <app-link to="/stranica/pravila-privatnosti"
         >pravila privatnosti Telegram.hr</app-link
       >
-      <template v-if="data.terms_conditions">
-        i
-        <a
-          v-if="data.terms_conditions"
-          target="_blank"
-          :href="data.terms_conditions"
-        >
-          pravila natječaja
-        </a>
-      </template>
     </label>
+    <br />
     <label v-if="data.terms_conditions" class="clickable">
       <input v-model="consent2" type="checkbox" value="1" />
       Prihvaćam
