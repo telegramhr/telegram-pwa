@@ -160,6 +160,24 @@ export default {
           person: 'Sanja Kruljac',
           date: '12.12',
         },
+        {
+          message:
+            'Duuugački produženi kabel za mog muža koji nikad ne usisava auto jer kaže da mu je kabel od usisavača prekratki i ne može dosegnuti. E pa da mu ga produžim ;).',
+          person: 'Marina Pavlić',
+          date: '13.12',
+        },
+        {
+          message:
+            'Kupila bih suprugu knjigu "Sam svoj majstor". Možda , konačno, popravi vrata na ormaru.',
+          person: 'Dubravka Šarić',
+          date: '14.12',
+        },
+        {
+          message:
+            'Susjedi bih poklonila dalekozor jer joj se od mojih dostavljača učinilo da imam ljubavnika 🤣',
+          person: 'Marina Mršić',
+          date: '15.12',
+        },
       ],
     }
   },
