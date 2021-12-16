@@ -122,6 +122,7 @@ export default {
     { src: '@/plugins/cxtrack.js', ssr: false },
     { src: '@/plugins/fontawesome.js' },
     { src: '@/plugins/gemius.client.js' },
+    { src: '@/plugins/dotmetrics.client.js' },
   ],
 
   ngrok: {
