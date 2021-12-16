@@ -285,9 +285,9 @@
 export default {
   name: 'PitanjeZdravlja',
   async fetch() {
-    await this.$store.dispatch('zdravlje/pullPosts')
-    await this.$store.dispatch('category/pullPosts', {
-      category: 'pitanje-zdravlja',
+    this.featured = await this.$axios.$get('/api/featured/pitanje-zdravlja')
+    await this.$axios.get('/api/category/pitanje-zdravlja').then((res) => {
+      this.posts = res.data.posts
     })
   },
   data() {
@@ -296,18 +296,12 @@ export default {
       hasMore: true,
       sentsubmission: false,
       question: '',
+      featured: [],
+      posts: [],
+      page: 2,
     }
   },
   computed: {
-    featured() {
-      return this.$store.state.zdravlje.posts
-    },
-    posts() {
-      return [
-        ...this.$store.state.category.categories['pitanje-zdravlja'].posts,
-        ...this.$store.state.category.morePosts['pitanje-zdravlja'].posts,
-      ]
-    },
     jsonld() {
       return {
         '@context': 'https://schema.org',
@@ -322,11 +316,11 @@ export default {
   methods: {
     loadMore() {
       this.loading = true
-      this.$store
-        .dispatch('category/loadMore', {
-          category: 'pitanje-zdravlja',
-        })
+      this.$axios
+        .get(`/api/category/pitanje-zdravlja/page/${this.page}`)
         .then((res) => {
+          this.posts = [...this.posts, ...res.data.posts]
+          this.page++
           this.loading = false
         })
     },

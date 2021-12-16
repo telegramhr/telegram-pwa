@@ -83,6 +83,7 @@
           ></app-link>
         </div>
         <img
+          v-if="post.image.full"
           class="article-head-image"
           :src="post.image.full"
           :alt="post.image.alt"
@@ -149,7 +150,10 @@
                   <subscribe-link :author="post.authors[0]"></subscribe-link>
                 </client-only>
               </h5>
-              <div class="full flex article-head-image-parent relative">
+              <div
+                v-if="post.image.url || post.video"
+                class="full flex article-head-image-parent relative"
+              >
                 <template v-if="post.video">
                   <!-- eslint-disable-next-line -->
                   <div style="width: 100%" v-html="post.video" />

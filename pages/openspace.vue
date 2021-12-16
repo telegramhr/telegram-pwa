@@ -196,18 +196,17 @@
           <standard :post="post"></standard>
         </div>
         <div
-          v-for="post in morePosts"
-          :key="post.id"
-          class="fourth flex-responsive column-full-pad"
-        >
-          <standard :post="post"></standard>
-        </div>
-        <div
           class="full center subtle-btn-parent relative clickable"
           @click="loadMore"
         >
-          <div class="subtle-btn animate">Vidi više</div>
-          <div class="subtle-btn-line"></div>
+          <div v-show="!loading" class="subtle-btn animate">Vidi više</div>
+          <div v-show="loading" class="full center cool-loader">
+            <div class="loader-square">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -221,8 +220,9 @@ export default {
     await this.$axios.get('/api/featured/openspace').then((res) => {
       this.featured = res.data
     })
-    await this.$store.dispatch('category/pullPosts', {
-      category: 'openspace',
+    this.$axios.get('/api/category/openspace').then((res) => {
+      this.posts = res.data.posts
+      // dispatch('posts/setPosts', res.data.posts, { root: true })
     })
   },
   data() {
@@ -230,15 +230,11 @@ export default {
       loading: false,
       hasMore: true,
       featured: [],
+      posts: [],
+      page: 2,
     }
   },
   computed: {
-    posts() {
-      return this.$store.state.category.categories.openspace.posts
-    },
-    morePosts() {
-      return this.$store.state.category.categories.openspace.morePosts
-    },
     jsonld() {
       return {
         '@context': 'https://schema.org',
@@ -252,7 +248,15 @@ export default {
   },
   methods: {
     loadMore() {
-      this.$store.dispatch('category/loadMore', { category: 'openspace' })
+      this.loading = true
+      this.$axios
+        .get(`/api/category/openspace/page/${this.page}`)
+        .then((res) => {
+          this.posts = [...this.posts, ...res.data.posts]
+          // dispatch('posts/setPosts', res.data.posts, { root: true })
+          this.page++
+          this.loading = false
+        })
     },
   },
   head() {
