@@ -40,6 +40,6 @@ export default ({ route }) => {
       s=d.createElement('script');
     s.type='text/javascript';
     s.async=true;
-    s.src='https://dmscript.dotmetrics.net/door.js?id=' + dotmetricsId;
+    s.src='https://script.dotmetrics.net/door.js?id=' + dotmetricsId;
     h.appendChild(s);
 }

@@ -98,7 +98,7 @@ export default {
   },
 
   router: {
-    middleware: ['piano', 'gemius'],
+    middleware: ['piano', 'gemius', 'dotmetrics'],
   },
 
   loading: '~/components/loading.vue',
