@@ -178,6 +178,12 @@ export default {
           person: 'Marina Mršić',
           date: '15.12',
         },
+        {
+          message:
+            'Neki eliksir mladosti ili bar kremu za pomlađivanje jer su mi neki dan ponudili mjesto u tramvaju. Za šok bi dobro došla i čokolada',
+          person: 'Marina Babić',
+          date: '16.12',
+        },
       ],
     }
   },
