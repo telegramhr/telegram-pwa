@@ -6878,6 +6878,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .dark-mode .inarticle-form {
         border-color: #333;
     }
+    .inarticle-form > * {
+        max-width: 100%;
+    }
 }
 
 /* Fancy quotes */
