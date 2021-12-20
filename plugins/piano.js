@@ -15,6 +15,7 @@ export default ({ app, inject }) => {
     'init',
     function () {
       window.tp.experience.init()
+      window.tp.enableGACrossDomainLinking();
     },
   ])
 
