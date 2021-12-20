@@ -184,6 +184,24 @@ export default {
           person: 'Marina Babić',
           date: '16.12',
         },
+        {
+          message:
+            'Najdražem sinu komplet putnih kofera pod bor. Obzirom da još nije iselio iz roditeljskog gnijezda, poruka će biti i više nego jasna.',
+          person: 'Ruža Vrbanić',
+          date: '17.12',
+        },
+        {
+          message:
+            'Kupila bih susjedi nove čizme ili ove pođonila.Svako jutro kada ide na posao lupa s njima i budi cijelu zgradu.😂😂😂😂😂😂😂😂',
+          person: 'Dajana Gugo',
+          date: '18.12',
+        },
+        {
+          message:
+            'Ja bih za sebe poklon u vidu spreja protiv punice kad dođe zabadati nos u lonce sa hranom i komentirati šta i kako. Podatke imate pa ako nađete šta slično...',
+          person: 'Aljoša Krželj',
+          date: '19.12',
+        },
       ],
     }
   },
