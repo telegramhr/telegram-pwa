@@ -4,9 +4,8 @@
     <h2 class="full">
       {{ product.title }}
     </h2>
-    <p class="full">
-      {{ product.description }}
-    </p>
+    <!-- eslint-disable-next-line -->
+    <p class="full" v-html="product.description"></p>
     <p class="full bold">Cijena: {{ product.price | parseCurrency }}</p>
     <div v-if="product.link" class="full flex product-gallery-buttons">
       <a
