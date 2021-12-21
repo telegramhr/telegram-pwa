@@ -202,6 +202,11 @@ export default {
           person: 'Aljoša Krželj',
           date: '19.12',
         },
+        {
+          message: 'Mom sinu slušni aparat jer prečesto se pravi da ne čuje.',
+          person: 'Ingrid Udovič',
+          date: '20.12',
+        },
       ],
     }
   },
