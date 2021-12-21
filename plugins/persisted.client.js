@@ -8,7 +8,6 @@ export default ({ store }) => {
       'weather',
       'latest',
       'mostread',
-      'category.categories',
       'theme',
       'user',
       'partner',

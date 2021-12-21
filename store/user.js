@@ -62,7 +62,7 @@ export const actions = {
     })
   },
   checkAccess({ state, dispatch }) {
-    const that = this
+    const that = this._vm
     window.tp.push([
       'init',
       function () {
@@ -74,14 +74,14 @@ export const actions = {
           window.PianoESP &&
             typeof window.PianoESP.handleUserEmail === 'function' &&
             window.PianoESP.handleUserEmail(user.email)
-          that.$ga.set('dimension3', '1')
+          that.$gtag.set({ dimension3: 1 })
           window.tp.api.callApi('/access/list', {}, function (response) {
             if (response.data) {
               dispatch('setAccess', response)
             }
           })
         } else {
-          that.$ga.set('dimension3', 0)
+          that.$gtag.set({ dimension3: 0 })
           dispatch('logout')
         }
       },

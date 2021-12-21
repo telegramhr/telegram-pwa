@@ -763,11 +763,26 @@ export default {
   data() {
     return {
       terms: {
-        TM0FMYURHRA3: 49,
-        TMXKYJUN5YN5: 69,
-        TMVUCFM94OA7: 468,
-        TM8R9U7RK5B1: 588,
-        TMBXUSHKJZZ0: 49,
+        TM0FMYURHRA3: {
+          title: 'Telegram Mjesečna Pretplata',
+          price: 49,
+        },
+        TMXKYJUN5YN5: {
+          title: 'Telegram Premium Mjesečna Pretplata',
+          price: 69,
+        },
+        TMVUCFM94OA7: {
+          title: 'Telegram Godišnja Pretplata',
+          price: 468,
+        },
+        TM8R9U7RK5B1: {
+          title: 'Telegram Premium Godišnja Pretplata',
+          price: 588,
+        },
+        TMBXUSHKJZZ0: {
+          title: 'Telegram Mjesečna Pretplata - Božićna akcija',
+          price: 1,
+        },
       },
     }
   },
@@ -856,7 +871,7 @@ export default {
       window.fbq('track', 'InitiateCheckout', {
         content_ids: [termId],
         currency: 'HRK',
-        value: this.terms[termId],
+        value: this.terms[termId].price,
       })
       const promo = this.$route.query.promo_code
       window.tp.push([
@@ -869,16 +884,32 @@ export default {
             checkoutFlowId: window.tp.sandbox ? 'CF8Q59Z3RJ5G' : 'CF65KTMVQXXX',
             promoCode: promo,
             closeOnLogout: true,
-            complete: () => {
+            complete: (data) => {
               _that.$store.dispatch('user/checkAccess')
               window.fbq('track', 'Purchase', {
-                content_ids: [termId],
-                currency: 'HRK',
-                value: this.terms[termId],
+                content_ids: data.termId,
+                currency: data.chargeCurrency,
+                value: data.chargeAmount,
+              })
+              this._vm.$gtag.purchase({
+                transaction_id: data.termConversionId,
+                affiliation: 'Telegram.hr',
+                value: data.chargeAmount,
+                currency: data.chargeCurrency,
+                tax: data.chargeAmount - data.chargeAmount / 0.05,
+                shipping: 0,
+                items: [
+                  {
+                    id: data.termId,
+                    name: _that.terms[data.termId].title,
+                    quantity: 1,
+                    price: _that.terms[data.termId].price,
+                  },
+                ],
               })
               window.fbq('track', 'Subscribe', {
-                currency: 'HRK',
-                value: this.terms[termId],
+                currency: data.chargeCurrency,
+                value: data.chargeAmount,
               })
               window.PianoESP &&
                 typeof window.PianoESP.handleUserDataPromise === 'function' &&

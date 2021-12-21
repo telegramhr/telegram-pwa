@@ -1,5 +1,5 @@
 /* eslint-disable */
-export default ({ app, inject }) => {
+export default () => {
   window.PianoESPConfig = {
     id: 280
   }

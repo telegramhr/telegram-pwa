@@ -114,6 +114,7 @@ export default {
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
     { src: '@/plugins/filters.js' },
+    { src: '@/plugins/analytics.client.js' },
     { src: '@/plugins/persisted.client.js' },
     { src: '@/plugins/vue-slick-carousel.js' },
     { src: '@/plugins/piano-cxense.js', ssr: false },
@@ -125,38 +126,14 @@ export default {
     { src: '@/plugins/dotmetrics.client.js' },
   ],
 
-  ngrok: {
-    region: 'eu',
-    authtoken: process.env.NGROK_AUTHTOKEN,
-  },
-
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: [{ path: '~/components', pathPrefix: false }],
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
-  buildModules: [
-    // https://go.nuxtjs.dev/eslint
-    '@nuxtjs/eslint-module',
-    '@nuxtjs/google-analytics',
-    'nuxt-purgecss',
-    '@nuxtjs/dotenv',
-  ],
+  buildModules: ['@nuxtjs/eslint-module', 'nuxt-purgecss', '@nuxtjs/dotenv'],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: [
-    // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios',
-    // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa',
-    '@nuxtjs/gtm',
-    'cookie-universal-nuxt',
-  ],
-
-  gtm: {
-    id: 'GTM-TF4XJXD',
-    enabled: true,
-    pageTracking: true,
-  },
+  modules: ['@nuxtjs/axios', '@nuxtjs/pwa', 'cookie-universal-nuxt'],
 
   pwa: {
     onesignal: false,
@@ -191,10 +168,6 @@ export default {
       display: 'browser',
       start_url: '/',
     },
-  },
-
-  googleAnalytics: {
-    id: 'UA-60611577-1',
   },
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
