@@ -8,7 +8,7 @@ export default () => {
   window.tp.push(['setAid', 'QuTHmVhFpu'])
   window.tp.push(['setCxenseSiteId', '1128464677385494954']);
   window.tp.push(['setSandbox', false])
-  window.tp.push(['setDebug', true])
+  window.tp.push(['setDebug', false])
   window.tp.push(['setUsePianoIdUserProvider', true])
   window.tp.push(['setCloudflareWorkerUrl', 'https://auth.telegram.hr']);
   /*window.tp.push([
