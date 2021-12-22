@@ -39,6 +39,7 @@ export default function ({ route, store }) {
         'init',
         function () {
           window.tp.experience.execute()
+          window.tp.enableGACrossDomainLinking()
         },
       ])
     }

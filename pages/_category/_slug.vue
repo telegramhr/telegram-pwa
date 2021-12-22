@@ -374,14 +374,7 @@
         <div class="full header-filler filler-404"></div>
       </div>
       <div
-        class="
-          block-title
-          news-block-title
-          header-block-title
-          full
-          mobile-side-pad
-          desktop-only
-        "
+        class="block-title news-block-title header-block-title full mobile-side-pad desktop-only"
       >
         <div class="full block-title-pattern relative"></div>
         <div class="container flex relative">
@@ -724,6 +717,7 @@ export default {
         'init',
         function () {
           window.tp.experience.execute()
+          window.tp.enableGACrossDomainLinking()
         },
       ])
     },

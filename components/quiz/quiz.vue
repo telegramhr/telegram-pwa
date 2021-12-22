@@ -16,7 +16,7 @@
           @answer="getAnswer"
         ></component>
       </div>
-      <div>
+      <div v-if="result">
         <h2>{{ result.title }}</h2>
         <!-- eslint-disable vue/no-v-html -->
         <p v-html="result.description"></p>
