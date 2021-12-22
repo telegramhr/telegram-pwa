@@ -17,6 +17,9 @@ export default ({ route }) => {
   if (path.includes('/pitanje-zdravlja')) {
     dotmetricsId = '12607';
   }
+  if (path.includes('/velike-price')) {
+    dotmetricsId = '1177';
+  }
   if (path.includes('/openspace') || path.includes('/vjestine') || path.includes('/tvrtke-karijere') || path.includes('/vodici') || path.includes('/kvizovi-testovi')) {
     dotmetricsId = '12608';
   }

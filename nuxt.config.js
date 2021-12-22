@@ -187,7 +187,7 @@ export default {
     },
     '/gscripts/': {
       target: 'https://script.google.com/macros/s/',
-      pathRewrite: { '^/gscripts/': '' },
+      pathRewrite: { '^/gscripts/([^?]*)(.*)': '$1/exec$2' },
     },
   },
 

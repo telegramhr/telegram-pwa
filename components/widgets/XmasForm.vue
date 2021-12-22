@@ -207,6 +207,12 @@ export default {
           person: 'Ingrid Udovič',
           date: '20.12',
         },
+        {
+          message:
+            'Poklonila bi mužu jedno kuhalo za vodu. Sve mi je džezve izgorio.',
+          person: 'Danijela Kučina',
+          date: '21.12',
+        },
       ],
     }
   },
@@ -217,7 +223,7 @@ export default {
         this.xmasloading = true
         this.$axios
           .get(
-            '/gscripts/AKfycbz1N8o3ioCOzaz_nSdpg-goTrQd37AZtKkXB-5ePjmQFdaZfPev_KcWazsMRl0ATkvFbw/exec',
+            '/gscripts/AKfycbz1N8o3ioCOzaz_nSdpg-goTrQd37AZtKkXB-5ePjmQFdaZfPev_KcWazsMRl0ATkvFbw',
             {
               params: {
                 ime: this.ime,

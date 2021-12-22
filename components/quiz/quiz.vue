@@ -89,7 +89,7 @@ export default {
     },
     submit() {
       if (this.data.script) {
-        this.$axios.get('/gscripts/' + this.data.script + '/exec', {
+        this.$axios.get('/gscripts/' + this.data.script, {
           params: this.answers,
         })
       }
