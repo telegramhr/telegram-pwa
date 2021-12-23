@@ -752,9 +752,13 @@ export default {
             }
           })
         }
+        this.dotmetrics()
       } else {
         setTimeout(this.getPost, 500)
       }
+    },
+    dotmetrics() {
+      this.$dotmetrics.postLoad(this.post.category_slug)
     },
     fbShare() {
       /* global FB */

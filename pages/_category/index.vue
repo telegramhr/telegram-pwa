@@ -20,7 +20,7 @@
         <div class="full block-title-pattern relative"></div>
         <div class="container flex relative">
           <h1 class="fourth column-left-pad">
-            {{ cat }}
+            {{ cat | parseCat }}
           </h1>
         </div>
       </div>
@@ -29,22 +29,10 @@
         class="container flex relative standard-block block-1 stretch"
       >
         <section
-          class="
-            three-fourths
-            flex-responsive flex
-            relative
-            the-big-gs
-            stretch
-            elevate-over-section
-          "
+          class="three-fourths flex-responsive flex relative the-big-gs stretch elevate-over-section"
         >
           <div
-            class="
-              two-thirds
-              flex-responsive flex
-              column-horizontal-pad column-right-border
-              mobile-side-pad
-            "
+            class="two-thirds flex-responsive flex column-horizontal-pad column-right-border mobile-side-pad"
           >
             <featured
               v-for="post in posts.slice(0, 4)"
@@ -56,13 +44,7 @@
             <newsletter></newsletter>
           </div>
           <div
-            class="
-              third
-              flex-responsive
-              column-horizontal-pad
-              flex
-              mobile-side-pad
-            "
+            class="third flex-responsive column-horizontal-pad flex mobile-side-pad"
           >
             <standard
               v-for="post in posts.slice(4, 9)"
@@ -72,13 +54,7 @@
           </div>
         </section>
         <section
-          class="
-            fourth
-            flex-responsive flex
-            komentari
-            mobile-side-pad
-            column-horizontal-pad column-right-border
-          "
+          class="fourth flex-responsive flex komentari mobile-side-pad column-horizontal-pad column-right-border"
         >
           <div class="full flex desktop-only">
             <category-newsletters></category-newsletters>
@@ -171,7 +147,7 @@ export default {
   },
   head() {
     return {
-      title: this.cat,
+      title: this.$options.filters.parseCat(this.cat),
       titleTemplate: 'Kategorija %s | Telegram.hr',
       meta: [
         { hid: 'og:type', name: 'og:type', content: 'website' },
@@ -179,7 +155,7 @@ export default {
           hid: 'og:title',
           name: 'og:title',
           property: 'og:title',
-          content: this.cat,
+          content: this.$options.filters.parseCat(this.cat),
         },
         {
           hid: 'og:url',
