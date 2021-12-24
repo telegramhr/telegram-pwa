@@ -192,8 +192,8 @@ export default {
         },
         {
           message:
-            'Kupila bih susjedi nove čizme ili ove pođonila.Svako jutro kada ide na posao lupa s njima i budi cijelu zgradu.😂😂😂😂😂😂😂😂',
-          person: 'Dajana Gugo',
+            'Slušni aparat za supruga da napokon čuje što sve treba kupiti u dućanu',
+          person: 'Branka Vrkić',
           date: '18.12',
         },
         {
@@ -212,6 +212,18 @@ export default {
             'Poklonila bi mužu jedno kuhalo za vodu. Sve mi je džezve izgorio.',
           person: 'Danijela Kučina',
           date: '21.12',
+        },
+        {
+          message:
+            'Sebi bi poklonila čepiće za uši i/ili tablete za spavanje (ali neke hard core na recept) jer uz muža koji nenormalno hrče skoro svaku noć provedem spavajući na kauču. Dok on, naravno, spava snom pravednika i u dijagonalnom položaju zauzme cijeli krevet. Ili to ili bolji kauč - to bi onda bilo i za mene i za njega ;)',
+          person: 'Tena Dobranić',
+          date: '22.12',
+        },
+        {
+          message:
+            'Fensi štap za hodanje za moju baku koja je baš prava dama, uvijek dotjerana, dama u punom smislu riječi, ali ovaj štap što sad ima nije nikako za nju i njen modni izričaj.',
+          person: 'Andrea Stanić',
+          date: '23.12',
         },
       ],
     }
