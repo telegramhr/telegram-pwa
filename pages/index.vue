@@ -141,9 +141,6 @@
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
       </div>
-      <div class="full center">
-        <shoping-guide></shoping-guide>
-      </div>
       <div class="block-title news-block-title full mobile-side-pad">
         <div class="full block-title-pattern relative"></div>
         <div class="container flex relative">
