@@ -225,6 +225,12 @@ export default {
           person: 'Andrea Stanić',
           date: '23.12',
         },
+        {
+          message:
+            'Kupila bih mužu veliki apotekarski ormar. Obožava pospremati ladice. Jedini je problem što već sutradan ne zna gdje je što spremio 😂',
+          person: 'Snježana Aušperger',
+          date: '25.12',
+        },
       ],
     }
   },
