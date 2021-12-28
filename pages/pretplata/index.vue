@@ -809,21 +809,26 @@ export default {
                 currency: data.chargeCurrency,
                 value: data.chargeAmount,
               })
-              this.$store._vm.$gtag.purchase({
-                transaction_id: data.termConversionId,
-                affiliation: 'Telegram.hr',
-                value: data.chargeAmount,
-                currency: data.chargeCurrency,
-                tax: data.chargeAmount - data.chargeAmount / 0.05,
-                shipping: 0,
-                items: [
-                  {
-                    id: data.termId,
-                    name: _that.terms[data.termId].title,
-                    quantity: 1,
-                    price: _that.terms[data.termId].price,
+              _that.$gtm.push({ ecommerce: null })
+              _that.$gtm.push({
+                ecommerce: {
+                  purchase: {
+                    actionField: {
+                      id: data.termConversionId,
+                      affiliation: 'Telegram.hr',
+                      revenue: data.chargeAmount,
+                      tax: data.chargeAmount - data.chargeAmount / 1.05,
+                    },
+                    products: [
+                      {
+                        id: data.termId,
+                        name: _that.terms[data.termId].title,
+                        quantity: 1,
+                        price: _that.terms[data.termId].price,
+                      },
+                    ],
                   },
-                ],
+                },
               })
               window.fbq('track', 'Subscribe', {
                 currency: data.chargeCurrency,

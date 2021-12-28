@@ -98,7 +98,7 @@ export default {
   },
 
   router: {
-    middleware: ['piano', 'gemius', 'dotmetrics', 'gtag'],
+    middleware: ['piano', 'gemius', 'dotmetrics'],
   },
 
   loading: '~/components/loading.vue',
@@ -114,7 +114,6 @@ export default {
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
     { src: '@/plugins/filters.js' },
-    { src: '@/plugins/analytics.client.js' },
     { src: '@/plugins/persisted.client.js' },
     { src: '@/plugins/vue-slick-carousel.js' },
     { src: '@/plugins/piano-cxense.js', ssr: false },
@@ -133,7 +132,17 @@ export default {
   buildModules: ['@nuxtjs/eslint-module', 'nuxt-purgecss', '@nuxtjs/dotenv'],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: ['@nuxtjs/axios', '@nuxtjs/pwa', 'cookie-universal-nuxt'],
+  modules: [
+    '@nuxtjs/axios',
+    '@nuxtjs/pwa',
+    'cookie-universal-nuxt',
+    '@nuxtjs/gtm',
+  ],
+
+  gtm: {
+    id: 'GTM-TF4XJXD',
+    pageTracking: true,
+  },
 
   pwa: {
     onesignal: false,

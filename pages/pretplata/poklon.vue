@@ -362,6 +362,27 @@ export default {
                 currency: 'HRK',
                 value: this.terms[termId],
               })
+              _that.$gtm.push({ ecommerce: null })
+              _that.$gtm.push({
+                ecommerce: {
+                  purchase: {
+                    actionField: {
+                      id: data.termConversionId,
+                      affiliation: 'Telegram.hr',
+                      revenue: data.chargeAmount,
+                      tax: data.chargeAmount - data.chargeAmount / 1.05,
+                    },
+                    products: [
+                      {
+                        id: data.termId,
+                        name: _that.terms[data.termId].title,
+                        quantity: 1,
+                        price: _that.terms[data.termId].price,
+                      },
+                    ],
+                  },
+                },
+              })
               _that.$store._vm.$gtag.purchase({
                 transaction_id: data.termConversionId,
                 affiliation: 'Telegram.hr',
