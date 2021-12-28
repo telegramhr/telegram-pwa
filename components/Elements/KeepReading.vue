@@ -9,22 +9,12 @@
     <div class="container flex relative block-related standard-block stretch">
       <section
         v-show="!$mobile"
-        class="
-          fourth
-          flex
-          desktop-only
-          column-horizontal-pad column-right-border
-        "
+        class="fourth flex desktop-only column-horizontal-pad column-right-border"
       >
         <latest :portal="1" :desktop="false"></latest>
       </section>
       <div
-        class="
-          three-fourths
-          flex-responsive flex
-          elevate-over-section
-          mobile-side-pad
-        "
+        class="three-fourths flex-responsive flex elevate-over-section mobile-side-pad"
       >
         <template v-for="(post, index) in posts">
           <div
@@ -114,10 +104,12 @@ export default {
           this.$axios.get('/api/keep/' + items).then((r) => {
             this.posts = r.data
             this.posts.forEach((post, index) => {
-              post.trackerPermalink = res.data.items[index].click_url.replace(
-                'http://api.cxense.com/public/widget/click/',
-                ''
-              )
+              if (res.data.items[index]) {
+                post.trackerPermalink = res.data.items[index].click_url.replace(
+                  'http://api.cxense.com/public/widget/click/',
+                  ''
+                )
+              }
             })
           })
         })

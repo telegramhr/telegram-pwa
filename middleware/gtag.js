@@ -1,5 +1,8 @@
-export default function ({ app }) {
+export default function ({ app, store }) {
   app.router.afterEach((to) => {
-    app.$gtag.pageview({ page_title: document.title, page_path: to.path })
+    store._vm.$gtag.pageview({
+      page_title: document.title,
+      page_path: to.path,
+    })
   })
 }
