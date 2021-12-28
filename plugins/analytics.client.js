@@ -13,11 +13,12 @@ export default ({ app }, inject) => {
       config: {
         id: 'UA-60611577-1',
         params: {
-          send_page_view: false,
+          send_page_view: true,
           anonymize_ip: true,
           link_attribution: true,
         },
       },
+      pageTrackerEnabled: false,
     },
     app.router
   )

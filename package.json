@@ -22,8 +22,6 @@
     "@fortawesome/vue-fontawesome": "^2.0.2",
     "@nuxt/content": "^1.11.1",
     "@nuxtjs/axios": "^5.12.5",
-    "@nuxtjs/gtm": "^2.4.0",
-    "@nuxtjs/ngrok": "^2.0.0",
     "@nuxtjs/pwa": "^3.3.4",
     "aos": "^3.0.0-beta.6",
     "braintree-web": "^3.76.3",
