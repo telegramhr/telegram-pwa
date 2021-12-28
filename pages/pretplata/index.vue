@@ -10,14 +10,7 @@
     <div class="full flex pretplata-page-content">
       <div class="full flex relative">
         <div
-          class="
-            container
-            relative
-            flex
-            mobile-side-pad
-            stretch
-            column-full-pad
-          "
+          class="container relative flex mobile-side-pad stretch column-full-pad"
         >
           <h1 class="full center-text">Priče koje guraju društvo naprijed.</h1>
           <p class="full center-text pretplata-tagline">
@@ -27,23 +20,10 @@
       </div>
       <div class="full flex relative pretplata-sale">
         <div
-          class="
-            container
-            center
-            relative
-            mobile-side-pad
-            pretplata-packs pretplata-packboxes
-          "
+          class="container center relative mobile-side-pad pretplata-packs pretplata-packboxes"
         >
           <div
-            class="
-              full
-              flex-responsive flex
-              relative
-              pretplata-packbox
-              sale-packbox
-              stretch
-            "
+            class="full flex-responsive flex relative pretplata-packbox sale-packbox stretch"
           >
             <img
               class="ps-xmas1"
@@ -122,13 +102,7 @@
           </div>
           <div class="full flex center pretplata-packboxes">
             <div
-              class="
-                half
-                flex-responsive flex
-                relative
-                pretplata-packbox
-                stretch
-              "
+              class="half flex-responsive flex relative pretplata-packbox stretch"
             >
               <div class="full flex overtitle-parent">
                 <h3 class="overtitle">Standard</h3>
@@ -160,13 +134,7 @@
               </div>
             </div>
             <div
-              class="
-                half
-                flex-responsive flex
-                relative
-                pretplata-packbox
-                stretch
-              "
+              class="half flex-responsive flex relative pretplata-packbox stretch"
             >
               <div class="full flex overtitle-parent">
                 <h3 class="overtitle">Premium</h3>
@@ -214,13 +182,7 @@
               </div>
             </div>
             <div
-              class="
-                half
-                flex-responsive flex
-                relative
-                pretplata-packbox
-                stretch
-              "
+              class="half flex-responsive flex relative pretplata-packbox stretch"
             >
               <div class="full flex overtitle-parent">
                 <h3 class="overtitle">Standard</h3>
@@ -254,13 +216,7 @@
               </div>
             </div>
             <div
-              class="
-                half
-                flex-responsive flex
-                relative
-                pretplata-packbox
-                stretch
-              "
+              class="half flex-responsive flex relative pretplata-packbox stretch"
             >
               <div class="full flex overtitle-parent">
                 <h3 class="overtitle">Premium</h3>
@@ -317,14 +273,7 @@
             >
             <app-link
               to="/pretplata/poklon"
-              class="
-                full
-                flex
-                stretch
-                relative
-                mini-pretplata
-                column-top-pad column-top-border
-              "
+              class="full flex stretch relative mini-pretplata column-top-pad column-top-border"
             >
               <h2 class="full center-text">Poklonite pretplatu na Telegram.</h2>
               <div class="full center-text">
@@ -338,13 +287,7 @@
       <div class="full flex relative">
         <div class="container relative flex">
           <div
-            class="
-              pretplata-keypoint
-              fourth
-              flex-responsive
-              column-full-pad
-              mobile-side-pad
-            "
+            class="pretplata-keypoint fourth flex-responsive column-full-pad mobile-side-pad"
           >
             <a class="full flex relative" href="#keypoint-autori">
               <img
@@ -357,13 +300,7 @@
             </a>
           </div>
           <div
-            class="
-              pretplata-keypoint
-              fourth
-              flex-responsive
-              column-full-pad
-              mobile-side-pad
-            "
+            class="pretplata-keypoint fourth flex-responsive column-full-pad mobile-side-pad"
           >
             <a class="full flex relative" href="#keypoint-korupcija">
               <img
@@ -376,13 +313,7 @@
             </a>
           </div>
           <div
-            class="
-              pretplata-keypoint
-              fourth
-              flex-responsive
-              column-full-pad
-              mobile-side-pad
-            "
+            class="pretplata-keypoint fourth flex-responsive column-full-pad mobile-side-pad"
           >
             <a class="full flex relative" href="#keypoint-istrazivacki">
               <img
@@ -395,13 +326,7 @@
             </a>
           </div>
           <div
-            class="
-              pretplata-keypoint
-              fourth
-              flex-responsive
-              column-full-pad
-              mobile-side-pad
-            "
+            class="pretplata-keypoint fourth flex-responsive column-full-pad mobile-side-pad"
           >
             <a class="full flex relative" href="#keypoint-inspiracija">
               <img
@@ -563,14 +488,7 @@
       </div>
       <div class="full flex pretplata-faq">
         <div
-          class="
-            container
-            relative
-            flex
-            mobile-side-pad
-            column-full-pad
-            single-article-body
-          "
+          class="container relative flex mobile-side-pad column-full-pad single-article-body"
         >
           <h2 class="full">Često postavljana pitanja</h2>
           <details class="full flex relative">
@@ -891,7 +809,7 @@ export default {
                 currency: data.chargeCurrency,
                 value: data.chargeAmount,
               })
-              this._vm.$gtag.purchase({
+              this.$store._vm.$gtag.purchase({
                 transaction_id: data.termConversionId,
                 affiliation: 'Telegram.hr',
                 value: data.chargeAmount,

@@ -10,14 +10,7 @@
     <div class="full flex pretplata-page-content">
       <div class="full flex relative">
         <div
-          class="
-            container
-            relative
-            flex
-            mobile-side-pad
-            stretch
-            column-full-pad
-          "
+          class="container relative flex mobile-side-pad stretch column-full-pad"
         >
           <h1 class="full center-text">
             Ovog Božića, poklonite pretplatu na Telegram.
@@ -33,13 +26,7 @@
       </div>
       <div class="full flex relative pretplata-sale">
         <div
-          class="
-            container
-            center
-            relative
-            mobile-side-pad
-            pretplata-packs pretplata-packboxes
-          "
+          class="container center relative mobile-side-pad pretplata-packs pretplata-packboxes"
         >
           <div
             class="half flex-responsive flex relative pretplata-packbox stretch"
@@ -191,14 +178,7 @@
       </div>
       <div class="full flex pretplata-faq">
         <div
-          class="
-            container
-            relative
-            flex
-            mobile-side-pad
-            column-full-pad
-            single-article-body
-          "
+          class="container relative flex mobile-side-pad column-full-pad single-article-body"
         >
           <h2 class="full">Često postavljana pitanja</h2>
           <details class="full flex relative">
@@ -375,12 +355,28 @@ export default {
             templateId: 'OTXWXSOL0WWS',
             checkoutFlowId: 'CF65KTMVQXXX',
             closeOnLogout: true,
-            complete: () => {
+            complete: (data) => {
               _that.$store.dispatch('user/checkAccess')
               window.fbq('track', 'Purchase', {
                 content_ids: [termId],
                 currency: 'HRK',
                 value: this.terms[termId],
+              })
+              _that.$store._vm.$gtag.purchase({
+                transaction_id: data.termConversionId,
+                affiliation: 'Telegram.hr',
+                value: data.chargeAmount,
+                currency: data.chargeCurrency,
+                tax: data.chargeAmount - data.chargeAmount / 0.05,
+                shipping: 0,
+                items: [
+                  {
+                    id: data.termId,
+                    name: _that.terms[data.termId].title,
+                    quantity: 1,
+                    price: _that.terms[data.termId].price,
+                  },
+                ],
               })
             },
           })
