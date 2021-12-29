@@ -9,14 +9,12 @@ export const mutations = {
       value = 'regular'
     }
     state.theme = value
-    // this._vm.$gtag.set({ dimension4: value })
   },
   setFont(state, value) {
     if (!value) {
       value = 'normal'
     }
     state.font = value
-    // this._vm.$gtag.set({ dimension5: value })
   },
 }
 
