@@ -389,7 +389,7 @@ export default {
                   },
                 },
               })
-              _that.$store._vm.$gtag.purchase({
+              /* _that.$store._vm.$gtag.purchase({
                 transaction_id: data.termConversionId,
                 affiliation: 'Telegram.hr',
                 value: data.chargeAmount,
@@ -404,7 +404,7 @@ export default {
                     price: _that.terms[data.termId].price,
                   },
                 ],
-              })
+              }) */
             },
           })
         },

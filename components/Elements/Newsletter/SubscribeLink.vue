@@ -50,25 +50,20 @@ export default {
   },
   computed: {
     show() {
-      if (!this.author.newsletter_list) {
-        // if author has no newsletter show daily
-        if (this.$store.state.newsletters.lists[2128]) {
-          // but only if user not already on the list
-          return 0
-        }
-        return 2
-      } else {
-        // but if author has newsletter, show it if user has no subscription
-        if (this.$store.state.newsletters.lists[this.author.newsletter_list]) {
-          // if already subscribed check for daily
-          if (this.$store.state.newsletters.lists[2128]) {
-            // but only if user not already on the daily list
-            return 0
-          }
-        }
+      if (
+        this.author.newsletter_list &&
+        !this.$store.state.newsletters.lists[this.author.newsletter_list]
+      ) {
         return 1
       }
+      if (this.$store.state.newsletters.lists[2128]) {
+        return 0
+      }
+      return 2
     },
+  },
+  mounted() {
+    this.$store.dispatch('newsletters/checkAccess')
   },
   methods: {
     sub() {
