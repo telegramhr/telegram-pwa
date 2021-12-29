@@ -293,8 +293,14 @@ export default {
   data() {
     return {
       terms: {
-        TM6L5G5WJDIH: 468,
-        TMC2CGIYTVI0: 588,
+        TM6L5G5WJDIH: {
+          title: 'Telegram Standard Poklon',
+          price: 468,
+        },
+        TMC2CGIYTVI0: {
+          title: 'Telegram Premium Poklon',
+          price: 588,
+        },
       },
     }
   },
@@ -344,7 +350,7 @@ export default {
       window.fbq('track', 'InitiateCheckout', {
         content_ids: [termId],
         currency: 'HRK',
-        value: this.terms[termId],
+        value: this.terms[termId].price,
       })
       window.tp.push([
         'init',
@@ -360,7 +366,7 @@ export default {
               window.fbq('track', 'Purchase', {
                 content_ids: [termId],
                 currency: 'HRK',
-                value: this.terms[termId],
+                value: this.terms[termId].price,
               })
               _that.$gtm.push({ ecommerce: null })
               _that.$gtm.push({
