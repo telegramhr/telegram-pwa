@@ -5,16 +5,17 @@
       {{ product.title }}
     </h2>
     <!-- eslint-disable-next-line -->
-    <p class="full" v-html="product.description"></p>
+    <div class="full" v-html="product.description"></div>
     <p class="full bold">Cijena: {{ product.price | parseCurrency }}</p>
-    <div v-if="product.link" class="full flex product-gallery-buttons">
+    <div v-show="product.link" class="full flex product-gallery-buttons">
       <a
         :href="product.link"
         class="classic-btn"
         target="_blank"
         rel="sponsored"
-        >{{ product.shop }}</a
       >
+        {{ product.shop }}
+      </a>
     </div>
   </div>
 </template>
