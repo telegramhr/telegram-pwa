@@ -4,7 +4,7 @@
   >
     <div class="full flex tg-red">
       <theader
-        headline="Ovog Božića, poklonite pretplatu na Telegram."
+        headline="Poklonite Telegram pretplatu, poklon koji se otvara svaki dan"
       ></theader>
     </div>
     <div class="full flex pretplata-page-content">
@@ -13,14 +13,14 @@
           class="container relative flex mobile-side-pad stretch column-full-pad"
         >
           <h1 class="full center-text">
-            Ovog Božića, poklonite pretplatu na Telegram.
+            Poklonite Telegram pretplatu, poklon koji se otvara svaki dan
           </h1>
           <p class="full center-text smaller-pretplata-tagline">
-            Zamislite poklon kojeg će vama drage osobe otvarati svakog dana,
-            sljedećih 365 dana? Poklonite im pretplatu na Telegram i
-            neograničeno čitanje svih naših specijala, velikih priča, komentara
-            i analiza. Najbolji uvid u sve što je važno, za one koji su vama
-            važni.
+            Neovisno poklanjate li roditeljima, prijateljima ili poslovnim
+            partnerima, Telegram poklon pretplata omogućuje 365 dana
+            neograničenog pristupa svim našim specijalima, velikim pričama,
+            komentarima i analizama. Najbolji uvid u sve što je važno, za one
+            koji su vama važni.
           </p>
         </div>
       </div>
@@ -31,11 +31,6 @@
           <div
             class="half flex-responsive flex relative pretplata-packbox stretch"
           >
-            <img
-              class="ps-xmas4"
-              src="@/assets/img/tg_xmas_2.png"
-              aria-hidden="true"
-            />
             <div class="full flex overtitle-parent">
               <h3 class="overtitle">Standard</h3>
             </div>
@@ -44,7 +39,7 @@
             <div class="full pretplata-benefits">
               <p class="full animate">
                 <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-                najbolji poklon ove sezone
+                365 dana pristupa
               </p>
               <p class="full animate">
                 <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
@@ -66,11 +61,6 @@
           <div
             class="half flex-responsive flex relative pretplata-packbox stretch"
           >
-            <img
-              class="ps-xmas3"
-              src="@/assets/img/tg_xmas_1.png"
-              aria-hidden="true"
-            />
             <div class="full flex overtitle-parent">
               <h3 class="overtitle">Premium</h3>
             </div>
@@ -79,7 +69,7 @@
             <div class="full pretplata-benefits">
               <p class="full animate">
                 <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-                najbolji poklon ove sezone
+                365 dana pristupa
               </p>
               <p class="full animate">
                 <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
@@ -219,10 +209,10 @@
             </summary>
             <p>
               Možete, pri kupovini poklon pretplate bit će Vam ponuđeno želite
-              li da poklon stigne odmah ili neki drugi dan, naprimjer baš na
-              Božić. Slobodno odaberite opciju koja Vama više odgovara, 365 dana
-              pretplate počinje teći od dana kada ju osoba kojoj ste pretplatu
-              poklonili aktivira.
+              li da poklon stigne odmah ili neki drugi dan, naprimjer za
+              rođendan, imendan ili godišnjicu. Slobodno odaberite opciju koja
+              Vama više odgovara, 365 dana pretplate počet će teći od dana kada
+              ju osoba kojoj ste pretplatu poklonili aktivira.
             </p>
           </details>
           <details class="full flex relative">
@@ -435,7 +425,7 @@ export default {
           name: 'og:title',
           property: 'og:title',
           content:
-            'Ovog Božića poklonite poklon koji se otvara svaki dan, 365 dana',
+            'Poklonite Telegram pretplatu, poklon koji se otvara svaki dan',
         },
         {
           hid: 'og:image',

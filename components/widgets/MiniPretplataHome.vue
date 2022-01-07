@@ -1,12 +1,9 @@
 <template>
-  <app-link
-    to="/pretplata-poklon"
-    class="full flex stretch relative mini-pretplata"
-  >
-    <h2 class="full center-text">Poklonite pretplatu na Telegram.</h2>
+  <app-link to="/pretplata" class="full flex stretch relative mini-pretplata">
+    <h2 class="full center-text">Pretplatite se na Telegram.</h2>
     <div class="full center-text">
-      Poklon koji se otvara svaki dan, 365 dana
-      <div class="btn">Pokloni</div>
+      Neograničen pristup već za manje od 1,5 kn dnevno
+      <div class="btn">Saznaj više</div>
     </div>
   </app-link>
 </template>
