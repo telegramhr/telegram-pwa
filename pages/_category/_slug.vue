@@ -339,10 +339,6 @@
             data-contentexchange-widget="k7dWfvWSYDqoSZvwu"
             data-contentexchange-source="ughr"
           ></div>
-          <script
-            src="https://ughr.contentexchange.me/static/tracker.js"
-            async
-          ></script>
         </div>
         <div class="full flex">
           <linker type="footer"></linker>
@@ -829,6 +825,11 @@ export default {
         defer: true,
         crossorigin: 'anonymous',
         nonce: 'LFZOW4mi',
+      },
+      {
+        hid: 'contentexchange',
+        src: 'https://ughr.contentexchange.me/static/tracker.js',
+        async: true,
       },
     ]
     if (!this.$store.getters['user/hasPremium']) {
