@@ -198,6 +198,13 @@ export default {
       target: 'https://script.google.com/macros/s/',
       pathRewrite: { '^/gscripts/([^?]*)(.*)': '$1/exec$2' },
     },
+    '/esp_sub/': {
+      target: 'https://api-esp.piano.io/tracker/securesub/',
+      pathRewrite: {
+        '^/esp_sub/(.*)':
+          '$1?api_key=V2rR5WTQbQyHEqCMvFEaUGU3ZNVkt4s6hnvmCz9dXt9aUwzMaUmXAhVzmv83',
+      },
+    },
   },
 
   purgeCSS: {

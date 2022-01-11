@@ -23,6 +23,7 @@
           </p>
           <subscribe-button
             :mlid="category.mlid"
+            :title="category.title"
             :free="this.$route.params.category !== 'velike-price'"
           ></subscribe-button>
         </div>
@@ -49,7 +50,11 @@
             Hrvatskoj i svijetu, ekskluzivno otkrivaju afere zbog kojih odlaze
             ministri i objašnjavaju kontekst dnevnih događaja.
           </p>
-          <subscribe-button :mlid="2128" :free="true"></subscribe-button>
+          <subscribe-button
+            :mlid="2128"
+            title="Dnevni Telegram"
+            :free="true"
+          ></subscribe-button>
         </div>
       </div>
     </div>

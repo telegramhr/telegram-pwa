@@ -71,6 +71,8 @@ export default {
         .dispatch('newsletters/subscribe', {
           free: this.show === 2,
           mlid: this.show === 1 ? this.author.newsletter_list : 2128,
+          title: this.show === 1 ? this.author.name : 'Dnevni Telegram',
+          location: 'subscribe-link',
         })
         .then(() => {
           this.thankyou = true

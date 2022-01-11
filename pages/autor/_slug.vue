@@ -41,6 +41,7 @@
             <subscribe-button
               v-if="author.newsletter_list"
               :mlid="author.newsletter_list"
+              :title="author.name"
               :free="false"
             ></subscribe-button>
           </div>

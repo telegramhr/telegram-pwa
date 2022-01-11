@@ -44,7 +44,10 @@
                 Hrvatskoj i svijetu, ekskluzivno otkrivaju afere zbog kojih
                 odlaze ministri i objašnjavaju kontekst dnevnih događaja.
               </p>
-              <subscribe-button :mlid="2128"></subscribe-button>
+              <subscribe-button
+                :mlid="2128"
+                title="Dnevni Telegram"
+              ></subscribe-button>
             </div>
           </div>
         </div>
@@ -69,7 +72,10 @@
                 priče tjedna. Personaliziran prema vašim čitateljskim navikama,
                 kako ne biste propustili nešto važno.
               </p>
-              <subscribe-button :mlid="2554"></subscribe-button>
+              <subscribe-button
+                :mlid="2554"
+                title="Možda ste propustili"
+              ></subscribe-button>
             </div>
           </div>
         </div>
@@ -94,7 +100,10 @@
                 dovoljno vremena preko tjedna, ali bi vam mogli biti izvrsno
                 štivo tijekom vikenda.
               </p>
-              <subscribe-button :mlid="2555"></subscribe-button>
+              <subscribe-button
+                :mlid="2555"
+                title="Vikend na Telegramu"
+              ></subscribe-button>
             </div>
           </div>
         </div>
@@ -128,6 +137,7 @@
                   <subscribe-button
                     :mlid="2560"
                     :free="false"
+                    title="Sanja Modrić"
                   ></subscribe-button>
                 </div>
               </div>
@@ -156,6 +166,7 @@
                   <subscribe-button
                     :mlid="2596"
                     :free="false"
+                    title="Jasmin Klarić"
                   ></subscribe-button>
                 </div>
               </div>
@@ -184,6 +195,7 @@
                   <subscribe-button
                     :mlid="2562"
                     :free="false"
+                    title="Marko Repecki"
                   ></subscribe-button>
                 </div>
               </div>
@@ -212,6 +224,7 @@
                   <subscribe-button
                     :mlid="2559"
                     :free="false"
+                    title="Goranko Fižulić"
                   ></subscribe-button>
                 </div>
               </div>
@@ -241,6 +254,7 @@
                   <subscribe-button
                     :mlid="2561"
                     :free="false"
+                    title="Đivo Đurović"
                   ></subscribe-button>
                 </div>
               </div>
@@ -268,6 +282,7 @@
                   <subscribe-button
                     :mlid="2563"
                     :free="false"
+                    title="Dragan Markovina"
                   ></subscribe-button>
                 </div>
               </div>
@@ -301,6 +316,7 @@
                   <subscribe-button
                     :mlid="2564"
                     :free="false"
+                    title="Drago Hedl"
                   ></subscribe-button>
                 </div>
               </div>
@@ -329,6 +345,7 @@
                   <subscribe-button
                     :mlid="2565"
                     :free="false"
+                    title="Ana Raić Knežević"
                   ></subscribe-button>
                 </div>
               </div>
@@ -357,6 +374,7 @@
                   <subscribe-button
                     :mlid="2597"
                     :free="false"
+                    title="Andrej Dimitrijević"
                   ></subscribe-button>
                 </div>
               </div>
@@ -385,6 +403,7 @@
                   <subscribe-button
                     :mlid="2566"
                     :free="false"
+                    title="Dora Kršul"
                   ></subscribe-button>
                 </div>
               </div>
@@ -413,6 +432,7 @@
                   <subscribe-button
                     :mlid="2642"
                     :free="false"
+                    title="Rajko Grlić"
                   ></subscribe-button>
                 </div>
               </div>
@@ -441,6 +461,7 @@
                   <subscribe-button
                     :mlid="2599"
                     :free="false"
+                    title="Zrinka Paladino"
                   ></subscribe-button>
                 </div>
               </div>
@@ -469,6 +490,7 @@
                   <subscribe-button
                     :mlid="2567"
                     :free="false"
+                    title="Mladen Pleše"
                   ></subscribe-button>
                 </div>
               </div>
@@ -499,6 +521,7 @@
                   <subscribe-button
                     :mlid="2568"
                     :free="false"
+                    title="Irena Frlan Gašparović"
                   ></subscribe-button>
                 </div>
               </div>
@@ -527,6 +550,7 @@
                   <subscribe-button
                     :mlid="2600"
                     :free="false"
+                    title="Davor Špišić"
                   ></subscribe-button>
                 </div>
               </div>
@@ -557,7 +581,10 @@
                   Tjedni odabir najboljih Telegramovih priča iz rubrike Politika
                   & kriminal.
                 </p>
-                <subscribe-button :mlid="2626"></subscribe-button>
+                <subscribe-button
+                  :mlid="2626"
+                  title="Politika & Kriminal"
+                ></subscribe-button>
               </div>
             </div>
           </div>
@@ -581,7 +608,10 @@
                   Tjedni odabir najboljih Telegramovih komentara, analiza i
                   kolumni.
                 </p>
-                <subscribe-button :mlid="2627"></subscribe-button>
+                <subscribe-button
+                  :mlid="2627"
+                  title="Komentari"
+                ></subscribe-button>
               </div>
             </div>
           </div>
@@ -605,7 +635,10 @@
                   Tjedni odabir najboljih Telegramovih priča iz rubrike Biznis &
                   tech.
                 </p>
-                <subscribe-button :mlid="2628"></subscribe-button>
+                <subscribe-button
+                  :mlid="2628"
+                  title="Biznis & Tech"
+                ></subscribe-button>
               </div>
             </div>
           </div>
@@ -628,7 +661,7 @@
                 <p class="full newsletter-intro">
                   Tjedni odabir najboljih Telegramovih priča iz rubrike Život.
                 </p>
-                <subscribe-button :mlid="2629"></subscribe-button>
+                <subscribe-button :mlid="2629" title="Život"></subscribe-button>
               </div>
             </div>
           </div>
@@ -652,7 +685,11 @@
                   Primite svaki Telegramov longform članak iz rubrike Velike
                   priče.
                 </p>
-                <subscribe-button :mlid="2630" :free="false"></subscribe-button>
+                <subscribe-button
+                  :mlid="2630"
+                  :free="false"
+                  title="Velike priče"
+                ></subscribe-button>
               </div>
             </div>
           </div>

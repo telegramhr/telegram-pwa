@@ -15,14 +15,7 @@
       <div class="full header-filler"></div>
     </div>
     <div
-      class="
-        block-title
-        news-block-title
-        header-block-title
-        full
-        mobile-side-pad
-        desktop-only
-      "
+      class="block-title news-block-title header-block-title full mobile-side-pad desktop-only"
     >
       <div class="full block-title-pattern relative"></div>
       <div class="container flex relative">
@@ -37,33 +30,15 @@
     <div class="full relative">
       <div v-if="posts.length" class="container flex relative block-1 stretch">
         <section
-          class="
-            three-fourths
-            mobile-side-pad
-            flex-responsive flex
-            relative
-            the-big-gs
-            stretch
-            elevate-over-section
-          "
+          class="three-fourths mobile-side-pad flex-responsive flex relative the-big-gs stretch elevate-over-section"
         >
           <div
-            class="
-              five-sixths
-              column-horizontal-pad
-              flex-responsive flex
-              column-bottom-border column-right-border
-            "
+            class="five-sixths column-horizontal-pad flex-responsive flex column-bottom-border column-right-border"
           >
             <featured :key="posts[0].id" :post="posts[0]"></featured>
           </div>
           <aside
-            class="
-              sixth
-              desktop-only
-              flex
-              column-horizontal-pad column-bottom-pad column-bottom-border
-            "
+            class="sixth desktop-only flex column-horizontal-pad column-bottom-pad column-bottom-border"
           >
             <client-only>
               <weather></weather>
@@ -71,12 +46,7 @@
             </client-only>
           </aside>
           <div
-            class="
-              two-thirds
-              column-horizontal-pad
-              flex-responsive flex
-              column-right-border column-top-pad
-            "
+            class="two-thirds column-horizontal-pad flex-responsive flex column-right-border column-top-pad"
           >
             <featured
               v-for="post in posts.slice(1, 2)"
@@ -101,13 +71,7 @@
             </div>
           </client-only>
           <div
-            class="
-              third
-              flex-responsive
-              column-horizontal-pad
-              flex
-              column-top-pad
-            "
+            class="third flex-responsive column-horizontal-pad flex column-top-pad"
           >
             <medium
               v-for="post in posts.slice(4, 8)"
@@ -117,13 +81,7 @@
           </div>
         </section>
         <section
-          class="
-            fourth
-            flex-responsive flex
-            komentari
-            mobile-side-pad
-            column-horizontal-pad column-right-border
-          "
+          class="fourth flex-responsive flex komentari mobile-side-pad column-horizontal-pad column-right-border"
         >
           <client-only>
             <latest v-show="!$mobile" :portal="1"></latest>
@@ -150,12 +108,7 @@
 
       <div class="container flex relative block-2 standard-block stretch">
         <section
-          class="
-            fourth
-            flex
-            desktop-only
-            column-horizontal-pad column-right-border
-          "
+          class="fourth flex desktop-only column-horizontal-pad column-right-border"
         >
           <trending :id="1"></trending>
           <h2 class="full flex section-title">Dojave</h2>
@@ -163,12 +116,7 @@
         </section>
         <div class="three-fourths flex-responsive flex elevate-over-section">
           <section
-            class="
-              two-thirds
-              flex-responsive flex
-              mobile-side-pad
-              column-horizontal-pad column-right-border
-            "
+            class="two-thirds flex-responsive flex mobile-side-pad column-horizontal-pad column-right-border"
           >
             <featured
               v-for="post in posts.slice(8, 9)"
@@ -182,12 +130,7 @@
             </div>
           </section>
           <section
-            class="
-              third
-              flex-responsive flex
-              mobile-side-pad
-              column-horizontal-pad
-            "
+            class="third flex-responsive flex mobile-side-pad column-horizontal-pad"
           >
             <template v-for="post in posts.slice(12, 15)">
               <standard :key="post.id" :post="post"></standard>

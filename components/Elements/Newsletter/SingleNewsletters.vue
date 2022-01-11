@@ -27,7 +27,11 @@
               Hrvatskoj i svijetu, ekskluzivno otkrivaju afere zbog kojih odlaze
               ministri i objašnjavaju kontekst dnevnih događaja.
             </p>
-            <subscribe-button :mlid="2128" :free="true"></subscribe-button>
+            <subscribe-button
+              :mlid="2128"
+              title="Dnevni Telegram"
+              :free="true"
+            ></subscribe-button>
           </div>
         </div>
       </div>
@@ -52,6 +56,7 @@
             </p>
             <subscribe-button
               :mlid="author.newsletter_list"
+              :title="author.name"
               :free="false"
             ></subscribe-button>
           </div>
@@ -82,6 +87,7 @@
             </p>
             <subscribe-button
               :mlid="category.mlid"
+              :title="category.title"
               :free="true"
             ></subscribe-button>
           </div>
@@ -108,7 +114,11 @@
               vremena preko tjedna, ali bi vam mogli biti izvrsno štivo tijekom
               vikenda.
             </p>
-            <subscribe-button :mlid="2555" :free="true"></subscribe-button>
+            <subscribe-button
+              :mlid="2555"
+              title="Vikend na Telegramu"
+              :free="true"
+            ></subscribe-button>
           </div>
         </div>
       </div>
