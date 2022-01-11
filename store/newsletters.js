@@ -69,7 +69,7 @@ export const actions = {
     Object.keys(state.lists).forEach((key) => {
       if (email && key) {
         this.$axios
-          .get(`/esp_sub/email/${email}/ml/${key}`)
+          .get(`/subs/email/${email}/ml/${key}`)
           .then(() => {
             commit('hasSub', key)
           })
@@ -90,7 +90,7 @@ export const actions = {
       })
     } else if (payload.free || rootState.user.access) {
       this.$axios
-        .post('/esp_sub/', {
+        .post('/subs/', {
           email: rootState.user.email,
           mlids: [payload.mlid],
         })
@@ -116,7 +116,7 @@ export const actions = {
       return
     }
     this.$axios
-      .delete('/esp_sub/', {
+      .delete('/subs/', {
         data: {
           email,
           mlids: [payload.mlid],

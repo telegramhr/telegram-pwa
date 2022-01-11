@@ -186,22 +186,22 @@ export default {
   },
 
   proxy: {
-    '/api/': {
+    '/api': {
       target: 'https://www.telegram.hr/wp-json/telegram/pwa/v1/',
       pathRewrite: { '^/api/': '' },
     },
-    '/pretplate/': {
+    '/pretplate': {
       target: 'https://pretplate.telegram.hr',
       pathRewrite: { '^/pretplate/': '' },
     },
-    '/gscripts/': {
+    '/gscripts': {
       target: 'https://script.google.com/macros/s/',
       pathRewrite: { '^/gscripts/([^?]*)(.*)': '$1/exec$2' },
     },
-    '/esp_sub/': {
+    '/subs': {
       target: 'https://api-esp.piano.io/tracker/securesub/',
       pathRewrite: {
-        '^/esp_sub/(.*)':
+        '^/subs/(.*)':
           '$1?api_key=V2rR5WTQbQyHEqCMvFEaUGU3ZNVkt4s6hnvmCz9dXt9aUwzMaUmXAhVzmv83',
       },
     },
