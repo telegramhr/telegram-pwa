@@ -68,11 +68,11 @@ export const actions = {
         const user = window.tp.pianoId.getUser()
         if (user) {
           dispatch('setUser', user)
-          window.PianoESPConfig.email =
+          /* window.PianoESPConfig.email =
             window.PianoESPConfig.email || user.email
           window.PianoESP &&
             typeof window.PianoESP.handleUserEmail === 'function' &&
-            window.PianoESP.handleUserEmail(user.email)
+            window.PianoESP.handleUserEmail(user.email) */
           window.tp.api.callApi('/access/list', {}, function (response) {
             if (response.data) {
               dispatch('setAccess', response)

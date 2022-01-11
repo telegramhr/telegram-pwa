@@ -822,6 +822,14 @@ export default {
         type: 'application/ld+json',
         json: this.jsonld,
       },
+      {
+        hid: 'facebook',
+        src: 'https://connect.facebook.net/hr_HR/sdk.js#xfbml=1&version=v11.0&appId=1383786971938581',
+        async: true,
+        defer: true,
+        crossorigin: 'anonymous',
+        nonce: 'LFZOW4mi',
+      },
     ]
     if (!this.$store.getters['user/hasPremium']) {
       script = [

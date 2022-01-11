@@ -76,14 +76,6 @@ export default {
         async: true,
       },
       {
-        hid: 'facebook',
-        src: 'https://connect.facebook.net/hr_HR/sdk.js#xfbml=1&version=v11.0&appId=1383786971938581',
-        async: true,
-        defer: true,
-        crossorigin: 'anonymous',
-        nonce: 'LFZOW4mi',
-      },
-      {
         hid: 'cxense',
         src: 'https://cdn.cxense.com/cx.cce.js',
         async: true,
