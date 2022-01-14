@@ -1264,7 +1264,7 @@ figure img {
     padding-bottom: 64px;
     margin-top: 0px;
 }
-.single-article-body .banner-slot {
+.single-article-body .banner-slot > * {
     margin-bottom: 16px;
 }
 
@@ -3905,6 +3905,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         padding-bottom: 36px;
         margin-bottom: 0px;
     }
+    .project-cantha .block-title {
+        padding-bottom: 84px;
+    }
     header {
         margin-bottom: 0px;
         position: relative;
@@ -5546,6 +5549,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .block-title h1 {
         padding-left: 24px;
+    }
+    .project-cantha .block-title h1 {
+        padding-right: 24px;
+        text-align: center;
     }
     /*.openspace .standard-block .three-fourths {
         order: 1;
