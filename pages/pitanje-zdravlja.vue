@@ -274,6 +274,10 @@
             src="https://www.telegram.hr/wp-content/uploads/2021/11/nismo-same.png"
             alt="Nismo same logo"
           />
+          <img
+            src="https://www.telegram.hr/wp-content/uploads/2022/01/kohom-logo-standardni.png"
+            alt="KoHOM logo"
+          />
         </div>
       </div>
     </div>
