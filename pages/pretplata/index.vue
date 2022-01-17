@@ -605,6 +605,24 @@
           </details>
           <details class="full flex relative">
             <summary class="full relative">
+              Imam pretplatu, no i dalje ne mogu čitati tekstove?
+            </summary>
+            <p>
+              Najvjerojatnije niste prijavljeni u svoj korisnički račun. Kada
+              posjetite Telegram, u gornjem desnom kutu ekrana nalazi se gumb
+              "PRIJAVA", odnosno ikona čovječuljka ako ste na mobilnom uređaju.
+              Klikom na gumb otvorit će Vam se prozor u kojemu se možete
+              prijaviti sa svojom e-mail adresom i lozinkom koju ste postavili,
+              a prepručujemo da ostavite označenom opciju "ostanite prijavljeni"
+              kako se ne biste morali opet prijavljivati pri sljedećem čitanju u
+              istom internetskom pregledniku. Ukoliko ste se prijavljeni, no i
+              dalje ne možete čitati tekstove, javite nam se na
+              <a href="mailto:pretplata@telegram.hr">pretplata@telegram.hr</a>
+              kako bismo što brže riješili problem.
+            </p>
+          </details>
+          <details class="full flex relative">
+            <summary class="full relative">
               Ne mogu pronaći odgovor na svoje pitanje.
             </summary>
             <p>
