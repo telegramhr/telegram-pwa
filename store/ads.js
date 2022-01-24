@@ -74,6 +74,13 @@ export const state = () => ({
                 keyId: 'uid_telegramhr',
               },
             },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2218',
+                adFormat: 'banner',
+              },
+            },
           ],
         },
         mobile: {
@@ -94,6 +101,20 @@ export const state = () => ({
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
+              },
+            },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2217',
+                adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2215',
+                adFormat: 'banner',
               },
             },
           ],
@@ -148,6 +169,20 @@ export const state = () => ({
                 tagid: [929093],
               },
             },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2217',
+                adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2215',
+                adFormat: 'banner',
+              },
+            },
           ],
         },
       },
@@ -191,6 +226,13 @@ export const state = () => ({
                 keyId: 'uid_telegramhr',
               },
             },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2218',
+                adFormat: 'banner',
+              },
+            },
           ],
         },
         mobile: {
@@ -211,6 +253,20 @@ export const state = () => ({
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
+              },
+            },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2215',
+                adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2217',
+                adFormat: 'banner',
               },
             },
           ],
@@ -336,6 +392,13 @@ export const state = () => ({
                 keyId: 'uid_telegramhr',
               },
             },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2218',
+                adFormat: 'banner',
+              },
+            },
           ],
         },
         mobile: {
@@ -356,6 +419,20 @@ export const state = () => ({
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
+              },
+            },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2217',
+                adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2215',
+                adFormat: 'banner',
               },
             },
           ],
@@ -404,6 +481,13 @@ export const state = () => ({
                 keyId: 'uid_telegramhr',
               },
             },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2218',
+                adFormat: 'banner',
+              },
+            },
           ],
         },
         mobile: {
@@ -424,6 +508,20 @@ export const state = () => ({
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
+              },
+            },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2215',
+                adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2217',
+                adFormat: 'banner',
               },
             },
           ],
@@ -472,6 +570,13 @@ export const state = () => ({
                 keyId: 'uid_telegramhr',
               },
             },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2218',
+                adFormat: 'banner',
+              },
+            },
           ],
         },
         mobile: {
@@ -492,6 +597,20 @@ export const state = () => ({
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
+              },
+            },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2217',
+                adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2215',
+                adFormat: 'banner',
               },
             },
           ],
@@ -892,7 +1011,22 @@ export const actions = {
         window.googletag.display(slot.id)
       })
     })
-    dispatch('initPBJS')
+    dispatch('refreshSlots')
+  },
+  refreshSlots({ dispatch }) {
+    window.googlefc = window.googlefc || {}
+    window.googlefc.callbackQueue = window.googlefc.callbackQueue || []
+    window.googletag = window.googletag || {}
+    window.googletag.cmd = window.googletag.cmd || []
+    /* global __tcfapi */
+    window.googlefc.callbackQueue.push({
+      CONSENT_DATA_READY: () =>
+        __tcfapi('getTCData', 0, (data, success) => {
+          if (data.purpose.consents[1]) {
+            dispatch('initPBJS')
+          }
+        }),
+    })
   },
   initPBJS({ dispatch }) {
     window.pbjs = window.pbjs || {}
