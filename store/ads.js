@@ -67,13 +67,13 @@ export const state = () => ({
                 tagid: [929050],
               },
             },
-            {
+            /* {
               bidder: 'luponmedia',
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
               },
-            },
+            }, */
             {
               bidder: 'contentexchange',
               params: {
@@ -96,13 +96,13 @@ export const state = () => ({
                 tagid: [950915],
               },
             },
-            {
+            /* {
               bidder: 'luponmedia',
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
               },
-            },
+            }, */
             {
               bidder: 'contentexchange',
               params: {
@@ -148,12 +148,25 @@ export const state = () => ({
           sizes: [[970, 250]],
           bids: [
             {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2218',
+                adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [929050],
+              },
+            },
+            /* {
               bidder: 'iprom',
               params: {
                 id: '1ac5399de31649f8',
                 dimension: '970x250',
               },
-            },
+            }, */
           ],
         },
         mobile: {
@@ -219,13 +232,13 @@ export const state = () => ({
                 tagid: [929563],
               },
             },
-            {
+            /* {
               bidder: 'luponmedia',
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
               },
-            },
+            }, */
             {
               bidder: 'contentexchange',
               params: {
@@ -248,13 +261,13 @@ export const state = () => ({
                 tagid: [950916],
               },
             },
-            {
+            /* {
               bidder: 'luponmedia',
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
               },
-            },
+            }, */
             {
               bidder: 'contentexchange',
               params: {
@@ -385,13 +398,13 @@ export const state = () => ({
                 dimension: '970x250',
               },
             },
-            {
+            /* {
               bidder: 'luponmedia',
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
               },
-            },
+            }, */
             {
               bidder: 'contentexchange',
               params: {
@@ -414,13 +427,13 @@ export const state = () => ({
                 tagid: [929094],
               },
             },
-            {
+            /* {
               bidder: 'luponmedia',
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
               },
-            },
+            }, */
             {
               bidder: 'contentexchange',
               params: {
@@ -474,13 +487,13 @@ export const state = () => ({
                 tagid: [950917],
               },
             },
-            {
+            /* {
               bidder: 'luponmedia',
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
               },
-            },
+            }, */
             {
               bidder: 'contentexchange',
               params: {
@@ -503,13 +516,13 @@ export const state = () => ({
                 tagid: [950917],
               },
             },
-            {
+            /* {
               bidder: 'luponmedia',
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
               },
-            },
+            }, */
             {
               bidder: 'contentexchange',
               params: {
@@ -563,13 +576,13 @@ export const state = () => ({
                 tagid: [950918],
               },
             },
-            {
+            /* {
               bidder: 'luponmedia',
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
               },
-            },
+            }, */
             {
               bidder: 'contentexchange',
               params: {
@@ -592,13 +605,13 @@ export const state = () => ({
                 tagid: [950918],
               },
             },
-            {
+            /* {
               bidder: 'luponmedia',
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
               },
-            },
+            }, */
             {
               bidder: 'contentexchange',
               params: {
@@ -652,13 +665,13 @@ export const state = () => ({
                 tagid: [950919],
               },
             },
-            {
+            /* {
               bidder: 'luponmedia',
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
               },
-            },
+            }, */
           ],
         },
         mobile: {
@@ -674,13 +687,13 @@ export const state = () => ({
                 tagid: [950919],
               },
             },
-            {
+            /* {
               bidder: 'luponmedia',
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
               },
-            },
+            }, */
           ],
         },
       },
@@ -720,13 +733,13 @@ export const state = () => ({
                 tagid: [950920],
               },
             },
-            {
+            /* {
               bidder: 'luponmedia',
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
               },
-            },
+            }, */
           ],
         },
         mobile: {
@@ -742,13 +755,13 @@ export const state = () => ({
                 tagid: [950920],
               },
             },
-            {
+            /* {
               bidder: 'luponmedia',
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
               },
-            },
+            }, */
           ],
         },
       },
