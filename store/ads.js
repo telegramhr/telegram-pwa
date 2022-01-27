@@ -67,13 +67,13 @@ export const state = () => ({
                 tagid: [929050],
               },
             },
-            /* {
+            {
               bidder: 'luponmedia',
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
               },
-            }, */
+            },
             {
               bidder: 'contentexchange',
               params: {
@@ -96,13 +96,13 @@ export const state = () => ({
                 tagid: [950915],
               },
             },
-            /* {
+            {
               bidder: 'luponmedia',
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
               },
-            }, */
+            },
             {
               bidder: 'contentexchange',
               params: {
@@ -232,13 +232,13 @@ export const state = () => ({
                 tagid: [929563],
               },
             },
-            /* {
+            {
               bidder: 'luponmedia',
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
               },
-            }, */
+            },
             {
               bidder: 'contentexchange',
               params: {
@@ -261,13 +261,13 @@ export const state = () => ({
                 tagid: [950916],
               },
             },
-            /* {
+            {
               bidder: 'luponmedia',
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
               },
-            }, */
+            },
             {
               bidder: 'contentexchange',
               params: {
@@ -398,13 +398,13 @@ export const state = () => ({
                 dimension: '970x250',
               },
             },
-            /* {
+            {
               bidder: 'luponmedia',
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
               },
-            }, */
+            },
             {
               bidder: 'contentexchange',
               params: {
@@ -427,13 +427,13 @@ export const state = () => ({
                 tagid: [929094],
               },
             },
-            /* {
+            {
               bidder: 'luponmedia',
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
               },
-            }, */
+            },
             {
               bidder: 'contentexchange',
               params: {
@@ -487,13 +487,13 @@ export const state = () => ({
                 tagid: [950917],
               },
             },
-            /* {
+            {
               bidder: 'luponmedia',
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
               },
-            }, */
+            },
             {
               bidder: 'contentexchange',
               params: {
@@ -516,13 +516,13 @@ export const state = () => ({
                 tagid: [950917],
               },
             },
-            /* {
+            {
               bidder: 'luponmedia',
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
               },
-            }, */
+            },
             {
               bidder: 'contentexchange',
               params: {
@@ -576,13 +576,13 @@ export const state = () => ({
                 tagid: [950918],
               },
             },
-            /* {
+            {
               bidder: 'luponmedia',
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
               },
-            }, */
+            },
             {
               bidder: 'contentexchange',
               params: {
@@ -605,13 +605,13 @@ export const state = () => ({
                 tagid: [950918],
               },
             },
-            /* {
+            {
               bidder: 'luponmedia',
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
               },
-            }, */
+            },
             {
               bidder: 'contentexchange',
               params: {
@@ -665,13 +665,13 @@ export const state = () => ({
                 tagid: [950919],
               },
             },
-            /* {
+            {
               bidder: 'luponmedia',
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
               },
-            }, */
+            },
           ],
         },
         mobile: {
@@ -687,13 +687,13 @@ export const state = () => ({
                 tagid: [950919],
               },
             },
-            /* {
+            {
               bidder: 'luponmedia',
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
               },
-            }, */
+            },
           ],
         },
       },
@@ -733,13 +733,13 @@ export const state = () => ({
                 tagid: [950920],
               },
             },
-            /* {
+            {
               bidder: 'luponmedia',
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
               },
-            }, */
+            },
           ],
         },
         mobile: {
@@ -755,13 +755,13 @@ export const state = () => ({
                 tagid: [950920],
               },
             },
-            /* {
+            {
               bidder: 'luponmedia',
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
               },
-            }, */
+            },
           ],
         },
       },
@@ -966,6 +966,7 @@ export const actions = {
     window.pbjs.que = window.pbjs.que || []
     window.pbjs.que.push(() => {
       window.pbjs.setConfig({
+        enableSendAllBids: false,
         consentManagement: {
           gdpr: {
             cmpApi: 'iab',
@@ -1047,7 +1048,7 @@ export const actions = {
     window.pbjs.que.push(() => {
       window.pbjs.requestBids({
         bidsBackHandler: () => dispatch('initAdserver'),
-        timeout: 1000,
+        timeout: 500,
       })
     })
     setTimeout(() => {
