@@ -5,37 +5,37 @@
     role="article"
     :aria-labelledby="'komentar-' + post.id"
   >
-    <div v-if="post.authors.length" class="komentar-author relative flex">
-      <img
-        v-if="post.authors[0].image"
-        :src="post.authors[0].image"
-        :alt="post.authors[0].name"
-        loading="lazy"
-      />
-      <i class="full mobile-only">Piše</i>
-      <span class="full mobile-only">{{ post.authors[0].name }}</span>
-    </div>
     <div class="komentar-box relative">
-      <div class="komentar-quotation">“</div>
-      <div class="komentar-image">
-        <picture>
-          <source type="image/webp" :srcset="post.image.webp" />
-          <img
-            :srcset="srcset"
-            :src="post.image.url"
-            :alt="post.image.alt"
-            loading="lazy"
-          />
-        </picture>
-      </div>
-      <div class="komentar-content full">
+      <div class="full flex relative komentar-head">
+        <div class="komentar-quotation">“</div>
+        <div class="komentar-image">
+          <picture>
+            <source type="image/webp" :srcset="post.image.webp" />
+            <img
+              :srcset="srcset"
+              :src="post.image.url"
+              :alt="post.image.alt"
+              loading="lazy"
+            />
+          </picture>
+        </div>
         <div
           v-if="post.authors.length"
-          class="komentar-author relative flex desktop-only"
+          class="full komentar-author relative flex"
         >
-          <i class="full">Piše</i>
-          <span class="full">{{ post.authors[0].name }}</span>
+          <img
+            v-if="post.authors[0].image"
+            :src="post.authors[0].image"
+            :alt="post.authors[0].name"
+            loading="lazy"
+          />
+          <div class="flex">
+            <i class="full">Piše</i>
+            <span>{{ post.authors[0].name }}</span>
+          </div>
         </div>
+      </div>
+      <div class="komentar-content full">
         <h2 :id="'komentar-' + post.id" class="full animate">
           {{ post.portal_title }}
         </h2>

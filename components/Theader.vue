@@ -1,26 +1,5 @@
 <template>
   <div class="full">
-    <client-only>
-      <div
-        v-if="
-          !(
-            ($mobile && $route.name === 'index') ||
-            (!$mobile && $route.name === 'category-slug') ||
-            $route.name === 'openspace'
-          )
-        "
-        class="full center header-billboard"
-      >
-        <ad-unit
-          id="telegram_desktop_billboard_v1"
-          :disable="
-            post &&
-            (post.disable_ads.includes('all') ||
-              (post.category_slug && post.category_slug.includes('openspace')))
-          "
-        ></ad-unit>
-      </div>
-    </client-only>
     <div
       :class="{
         'side-menu': true,
@@ -447,67 +426,9 @@
           "
           role="navigation"
         >
-          <div class="two-thirds flex subheader-ow-fix" role="menu">
-            <a
-              :aria-expanded="$store.state.header.showSideMenu.toString()"
-              aria-label="Prikaži lijevi meni"
-              aria-controls="sidebar"
-              @click="$store.commit('header/updateMenu', 'side')"
-            >
-              <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon
-            ></a>
-            <div class="menu flex">
-              <app-link role="menuitem" to="/politika-kriminal"
-                >Politika & Kriminal</app-link
-              >
-              <app-link role="menuitem" to="/komentari">Komentari</app-link>
-              <app-link role="menuitem" to="/biznis-tech"
-                >Biznis & Tech</app-link
-              >
-              <app-link role="menuitem" to="/velike-price"
-                >Velike priče</app-link
-              >
-              <app-link role="menuitem" to="/zivot">Život</app-link>
-              <app-link role="menuitem" to="/kultura">Kultura</app-link>
-              <app-link role="menuitem" to="/openspace">Openspace</app-link>
-              <a href="https://super1.telegram.hr" role="menuitem">Super1</a>
-              <a href="https://telesport.telegram.hr" role="menuitem">
-                Telesport
-              </a>
-            </div>
-          </div>
-          <div class="flex third relative">
-            <client-only>
-              <app-link
-                v-show="!$store.state.user.access"
-                to="/pretplata"
-                class="signup-btn sub-btn"
-                >Pretplatite se</app-link
-              >
-              <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
-                >Prijava</a
-              >
-              <a v-show="!canLogIn" class="signup-btn" @click.prevent="logout"
-                >Odjava</a
-              >
-              <app-link
-                v-show="!canLogIn"
-                to="/moj-racun"
-                aria-label="Moj račun"
-              >
-                <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
-              ></app-link>
-            </client-only>
-            <a
-              href="#"
-              aria-label="Prikaži tražilicu"
-              :aria-expanded="$store.state.header.showSearchMenu.toString()"
-              aria-controls="search"
-              @click.prevent="$store.commit('header/updateMenu', 'search')"
-            >
-              <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon
-            ></a>
-          </div>
+          <client-only>
+            <stocks></stocks>
+          </client-only>
         </div>
         <client-only>
           <div

@@ -10,168 +10,224 @@
         </div>
       </div>
     </client-only>
-    <div class="full flex tg-red">
+    <div class="full flex">
       <theader></theader>
       <div class="full header-filler"></div>
     </div>
-    <div
-      class="block-title news-block-title header-block-title full mobile-side-pad desktop-only"
-    >
-      <div class="full block-title-pattern relative"></div>
-      <div class="container flex relative">
-        <nuxt-link to="/" class="logo column-left-pad" @click="$fetch"
-          ><img src="@/assets/img/telegram_logo_white.svg" alt="Telegram logo"
-        /></nuxt-link>
-        <h2 class="full column-horizontal-pad desktop-only site-subtitle">
+    <div class="full relative cantha-header desktop-only">
+      <div class="container flex relative column-top-pad column-horizontal-pad">
+        <div class="full center relative">
+          <a
+            class="cantha-menubtn"
+            aria-label="Prikaži lijevi meni"
+            :aria-expanded="$store.state.header.showSideMenu.toString()"
+            aria-controls="sidebar"
+            @click.prevent="$store.commit('header/updateMenu', 'side')"
+          >
+            <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon
+          ></a>
+          <nuxt-link to="/" class="logo" @click="$fetch"
+            ><img
+              src="@/assets/img/telegram_logo_black.svg"
+              alt="Telegram logo"
+          /></nuxt-link>
+          <a
+            aria-label="Prikaži tražilicu"
+            class="cantha-searchbtn"
+            :aria-expanded="$store.state.header.showSearchMenu.toString()"
+            aria-controls="search"
+            @click.prevent="$store.commit('header/updateMenu', 'search')"
+          >
+            <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon>
+          </a>
+        </div>
+        <h2
+          class="
+            full
+            column-horizontal-pad
+            center-text
+            desktop-only
+            site-subtitle
+          "
+        >
           Portal za društvena i kulturna pitanja
         </h2>
+        <div class="full">
+          <div class="full cantha-separator"></div>
+        </div>
+      </div>
+    </div>
+    <!--<client-only>
+      <div
+        v-if="
+          !(
+            ($mobile && $route.name === 'index') ||
+            (!$mobile && $route.name === 'category-slug') ||
+            $route.name === 'openspace'
+          )
+        "
+        class="full center header-billboard"
+      >
+        <ad-unit
+          id="telegram_desktop_billboard_v1"
+          :disable="
+            post &&
+            (post.disable_ads.includes('all') ||
+              (post.category_slug && post.category_slug.includes('openspace')))
+          "
+        ></ad-unit>
+      </div>
+    </client-only>-->
+    <div
+      class="block-title cantha-block-title desktop-only full mobile-side-pad"
+    >
+      <div class="container flex relative column-full-pad">
+        <div class="menu flex" role="menu">
+          <app-link role="menuitem" to="/politika-kriminal"
+            >Politika & Kriminal</app-link
+          >
+          <app-link role="menuitem" to="/komentari">Komentari</app-link>
+          <app-link role="menuitem" to="/biznis-tech">Biznis & Tech</app-link>
+          <app-link role="menuitem" to="/velike-price">Velike priče</app-link>
+          <app-link role="menuitem" to="/zivot">Život</app-link>
+          <app-link role="menuitem" to="/kultura">Kultura</app-link>
+          <app-link role="menuitem" to="/openspace">Openspace</app-link>
+          <a href="https://super1.telegram.hr" role="menuitem">Super1</a>
+          <a href="https://telesport.telegram.hr" role="menuitem">
+            Telesport
+          </a>
+        </div>
+        <div class="flex">
+          <client-only>
+            <a
+              v-show="canLogIn"
+              class="newbtn newbtn-empty"
+              @click.prevent="login"
+              >Prijava</a
+            >
+            <a
+              v-show="!canLogIn"
+              class="newbtn newbtn-empty"
+              @click.prevent="logout"
+              >Odjava</a
+            >
+            <app-link
+              v-show="!$store.state.user.access"
+              to="/pretplata"
+              class="newbtn"
+              >Pretplatite se</app-link
+            >
+          </client-only>
+        </div>
       </div>
     </div>
     <div class="full relative">
-      <div v-if="posts.length" class="container flex relative block-1 stretch">
+      <div
+        v-if="posts.length"
+        class="container flex relative block-1 elevate-over-section stretch"
+      >
         <section
-          class="three-fourths mobile-side-pad flex-responsive flex relative the-big-gs stretch elevate-over-section"
+          class="
+            full
+            mobile-side-pad
+            flex-responsive flex
+            relative
+            the-big-gs
+            stretch
+            column-bottom-pad
+          "
         >
-          <div
-            class="five-sixths column-horizontal-pad flex-responsive flex column-bottom-border column-right-border"
-          >
+          <div class="half column-horizontal-pad flex-responsive flex">
             <featured :key="posts[0].id" :post="posts[0]"></featured>
           </div>
-          <aside
-            class="sixth desktop-only flex column-horizontal-pad column-bottom-pad column-bottom-border"
-          >
-            <client-only>
-              <weather></weather>
-              <stocks></stocks>
-            </client-only>
-          </aside>
-          <div
-            class="two-thirds column-horizontal-pad flex-responsive flex column-right-border column-top-pad"
-          >
-            <featured
-              v-for="post in posts.slice(1, 2)"
-              :key="post.id"
-              :post="post"
-            ></featured>
-            <mini-pretplata-home
-              v-show="!$store.state.user.access"
-            ></mini-pretplata-home>
-            <featured
-              v-for="post in posts.slice(2, 4)"
-              :key="post.id"
-              :post="post"
-            ></featured>
-          </div>
-          <client-only>
+          <div class="half flex-responsive flex stretch">
             <div
-              v-if="$mobile"
-              class="full center header-billboard mobile-only"
+              class="
+                half
+                flex-responsive
+                column-horizontal-pad column-right-border column-left-border
+                flex
+                no-image-block
+              "
             >
-              <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
+              <standard
+                v-for="post in posts.slice(3, 5)"
+                :key="post.id"
+                :post="post"
+              ></standard>
             </div>
-          </client-only>
+            <div
+              class="
+                half
+                flex-responsive
+                column-horizontal-pad
+                no-subtitle-block
+                flex
+              "
+            >
+              <standard
+                v-for="post in posts.slice(5, 7)"
+                :key="post.id"
+                :post="post"
+              ></standard>
+            </div>
+          </div>
+          <div class="full column-full-pad">
+            <div class="full column-top-border"></div>
+          </div>
           <div
-            class="third flex-responsive column-horizontal-pad flex column-top-pad"
+            class="
+              two-thirds
+              flex-responsive
+              column-horizontal-pad
+              flex
+              split-articles
+              column-right-border
+              big-split
+            "
           >
             <medium
-              v-for="post in posts.slice(4, 8)"
+              v-for="post in posts.slice(1, 3)"
               :key="post.id"
               :post="post"
             ></medium>
           </div>
-        </section>
-        <section
-          class="fourth flex-responsive flex komentari mobile-side-pad column-horizontal-pad column-right-border"
-        >
-          <client-only>
-            <latest v-show="!$mobile" :portal="1"></latest>
-          </client-only>
-          <commentary></commentary>
-          <div class="full flex desktop-only">
-            <h2 class="full flex section-title">Newsletter</h2>
-            <newsletter></newsletter>
-          </div>
-        </section>
-      </div>
-      <client-only>
-        <big-featured></big-featured>
-      </client-only>
-      <div class="full center">
-        <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
-      </div>
-      <div class="block-title news-block-title full mobile-side-pad">
-        <div class="full block-title-pattern relative"></div>
-        <div class="container flex relative">
-          <h1 class="column-left-pad full">Još vijesti</h1>
-        </div>
-      </div>
-
-      <div class="container flex relative block-2 standard-block stretch">
-        <section
-          class="fourth flex desktop-only column-horizontal-pad column-right-border"
-        >
-          <trending :id="1"></trending>
-          <h2 class="full flex section-title">Dojave</h2>
-          <dojave />
-        </section>
-        <div class="three-fourths flex-responsive flex elevate-over-section">
-          <section
-            class="two-thirds flex-responsive flex mobile-side-pad column-horizontal-pad column-right-border"
-          >
-            <featured
-              v-for="post in posts.slice(8, 9)"
-              :key="post.id"
-              :post="post"
-            ></featured>
-            <div class="full flex split-articles">
-              <template v-for="post in posts.slice(9, 12)">
-                <medium :key="post.id" :post="post"></medium>
-              </template>
-            </div>
-          </section>
-          <section
-            class="third flex-responsive flex mobile-side-pad column-horizontal-pad"
-          >
-            <template v-for="post in posts.slice(12, 15)">
-              <standard :key="post.id" :post="post"></standard>
-            </template>
-          </section>
-        </div>
-        <div v-if="morePosts.length" class="full flex">
           <div
-            class="container flex relative native-block stretch mobile-side-pad"
+            class="
+              third
+              flex-responsive
+              column-horizontal-pad
+              flex
+              cantha-commentary
+            "
           >
-            <div
-              v-for="post in morePosts"
-              :key="post.id"
-              class="fourth flex-responsive column-full-pad"
-            >
-              <standard :post="post"></standard>
-            </div>
+            <h3 class="full center-text column-bottom-pad subsection-title">
+              Komentari & analize
+            </h3>
+            <commentary></commentary>
           </div>
-        </div>
-        <div
-          class="full center subtle-btn-parent mobile-only relative clickable"
-          @click="loadMore"
-        >
-          <div v-show="!loading" class="subtle-btn animate">Vidi više</div>
-          <div v-show="!loading" class="subtle-btn-line"></div>
-          <div v-show="loading" class="full center cool-loader">
-            <div class="loader-square">
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-          </div>
+        </section>
+      </div>
+    </div>
+    <div class="full relative">
+      <div v-if="posts.length" class="container flex relative">
+        <div class="full center">
+          <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
         </div>
       </div>
+    </div>
+    <div class="full relative">
+      <div class="container flex relative block-2 stretch">
+        <div class="full column-horizontal-pad column-top-pad">
+          <div class="full cantha-separator"></div>
+        </div>
+      </div>
+    </div>
+    <div class="full relative">
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
       </div>
       <client-only>
-        <div class="full center">
-          <authors></authors>
-        </div>
         <linker type="naslovnica"></linker>
       </client-only>
       <sport></sport>
