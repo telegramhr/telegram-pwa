@@ -160,13 +160,13 @@ export const state = () => ({
                 tagid: [929050],
               },
             },
-            /* {
+            {
               bidder: 'iprom',
               params: {
                 id: '1ac5399de31649f8',
                 dimension: '970x250',
               },
-            }, */
+            },
           ],
         },
         mobile: {
