@@ -221,42 +221,114 @@
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
+        <h3 class="full center-text column-full-pad subsection-title">
+          Još vijesti
+        </h3>
+        <div class="full flex stretch relative column-vertical-pad">
+          <div
+            v-for="post in posts.slice(7, 10)"
+            :key="post.id"
+            class="
+              fourth
+              flex-responsive
+              column-right-border column-horizontal-pad
+            "
+          >
+            <standard :post="post"></standard>
+          </div>
+          <div
+            class="
+              fourth
+              flex-responsive
+              column-horizontal-pad
+              mini-article-list
+            "
+          >
+            <trending :id="1"></trending>
+          </div>
+        </div>
       </div>
     </div>
     <div class="full relative">
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
       </div>
-      <client-only>
-        <linker type="naslovnica"></linker>
-      </client-only>
-      <sport></sport>
-      <client-only>
-        <partners></partners>
-      </client-only>
-      <div class="full center">
-        <ad-unit id="telegram_desktop_billboard_v4"></ad-unit>
+      <div class="full relative">
+        <div class="container flex relative block-2 stretch column-bottom-pad">
+          <div class="full column-horizontal-pad column-top-pad">
+            <div class="full cantha-separator"></div>
+          </div>
+          <h3 class="full center-text column-full-pad subsection-title">
+            <img
+              src="@/assets/img/telegram_logo_black.svg"
+              alt="Telegram logo"
+            />
+            preporuka
+          </h3>
+          <div
+            class="
+              three-fourths
+              flex-responsive
+              column-horizontal-pad
+              flex
+              split-articles
+              column-right-border
+              big-split
+              alt-big-break
+            "
+          >
+            <medium :key="posts[0].id" :post="posts[0]"></medium>
+          </div>
+          <div class="fourth flex-responsive column-horizontal-pad">
+            <standard :key="posts[11].id" :post="posts[11]"></standard>
+          </div>
+          <div class="full column-top-pad column-bottom-border"></div>
+        </div>
       </div>
-      <super1></super1>
-      <pitanje-zdravlja></pitanje-zdravlja>
-      <os-homepage></os-homepage>
-      <div class="full flex">
-        <div class="container desktop-only flex relative column-full-pad"></div>
-      </div>
-      <div class="container flex relative block-5 standard-block">
+      <div class="full relative">
         <client-only>
-          <category slug="zivot"></category>
-          <category slug="biznis-tech"></category>
-          <category slug="kultura"></category>
-          <category slug="velike-price"></category>
-          <most-read v-if="$mobile"></most-read>
+          <linker type="naslovnica"></linker>
         </client-only>
       </div>
-      <div class="container flex center">
-        <div id="linker-526" class="lwdgt" data-wid="526"></div>
+      <div class="full relative">
+        <sport></sport>
       </div>
+      <div class="full relative">
+        <client-only>
+          <partners></partners>
+        </client-only>
+        <div class="full center">
+          <ad-unit id="telegram_desktop_billboard_v4"></ad-unit>
+        </div>
+      </div>
+      <div class="full relative">
+        <super1></super1>
+      </div>
+      <div class="full relative">
+        <pitanje-zdravlja></pitanje-zdravlja>
+      </div>
+      <div class="full relative">
+        <os-homepage></os-homepage>
+      </div>
+      <div class="full relative">
+        <div class="container desktop-only flex relative column-full-pad"></div>
+      </div>
+      <div class="full relative">
+        <div class="container flex relative block-5 standard-block">
+          <client-only>
+            <category slug="zivot"></category>
+            <category slug="biznis-tech"></category>
+            <category slug="kultura"></category>
+            <category slug="velike-price"></category>
+            <most-read v-if="$mobile"></most-read>
+          </client-only>
+        </div>
+        <div class="container flex center">
+          <div id="linker-526" class="lwdgt" data-wid="526"></div>
+        </div>
+      </div>
+      <tfooter></tfooter>
     </div>
-    <tfooter></tfooter>
   </div>
 </template>
 

@@ -207,6 +207,10 @@ h5.article-meta i {
     top: -2px;
     margin-bottom: 4px;
 }
+.article h4 {
+    font-family: 'Barlow', sans-serif;
+    opacity: .7;
+}
 .article-standarrd h5.article-meta > span.meta-preporuke {
     margin-right: 0px;
 }
@@ -393,6 +397,14 @@ h3.subsection-title {
     font-family: 'Barlow', sans-serif;
     font-weight: 600;
     opacity: .8;
+}
+h3.subsection-title img {
+    height: 12px;
+    width: auto;
+    display: inline-block;
+    position: relative;
+    bottom: -0.5px;
+    margin-right: 2px;
 }
 
 /* Komentar */
@@ -3824,8 +3836,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 0.6rem;
     }
     .article h4 {
-        font-size: 14px;
-        font-size: 0.7rem;
+        font-size: 15px;
+        font-size: 0.75rem;
     }
     .article h2 {
         font-size: 34px;
@@ -7102,7 +7114,43 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .newbtn-empty {
     background: transparent;
 }
-
+.mini-article-list h3.overtitle {
+    font-weight: 700;
+    color: #333;
+}
+.mini-article-list .article-mini h5.article-meta {
+    display: none;
+}
+.mini-article-list .article-mini {
+    padding-left: 32px;
+}
+.mini-article-list .article-mini::before {
+    position: absolute;
+    top: -2px;
+    left: 0;
+    font-size: 24px;
+    font-size: 1.2rem;
+    color: #8d8d8d;
+    font-family: 'Lora', serif;
+}
+.mini-article-list .article-mini:nth-child(1)::before {
+    content: '1';
+}
+.mini-article-list .article-mini:nth-child(2)::before {
+    content: '2';
+}
+.mini-article-list .article-mini:nth-child(3)::before {
+    content: '3';
+}
+.mini-article-list .article-mini:nth-child(4)::before {
+    content: '4';
+}
+.mini-article-list .article-mini:nth-child(5)::before {
+    content: '5';
+}
+.alt-big-break .article h2 {
+    font-weight: 400;
+}
 
 @media screen and (min-width: 767px) {
     .article-standard {
@@ -7121,6 +7169,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .no-image-block .article-standard h2, .big-split .article h2 {
         font-size: 1.2rem;
     }
+    .alt-big-break .article h2 {
+        font-size: 30px;
+        font-size: 1.5rem;
+    }
     .no-image-block .article-standard .article-pad {
         padding-top: 0px; 
     }
@@ -7130,5 +7182,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .big-split .article-standard .article-pad {
         width: 33.33%
+    }
+    .mini-article-list .article-mini .article-pad {
+        padding-bottom: 16px;
     }
 }
