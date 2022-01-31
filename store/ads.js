@@ -81,6 +81,13 @@ export const state = () => ({
                 adFormat: 'banner',
               },
             },
+            {
+              bidder: 'connectad',
+              params: {
+                networkId: 10047,
+                siteId: 1056554,
+              },
+            },
           ],
         },
         mobile: {
@@ -115,6 +122,13 @@ export const state = () => ({
               params: {
                 placementId: '2215',
                 adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'connectad',
+              params: {
+                networkId: 10047,
+                siteId: 1056554,
               },
             },
           ],
@@ -167,6 +181,13 @@ export const state = () => ({
                 dimension: '970x250',
               },
             },
+            {
+              bidder: 'connectad',
+              params: {
+                networkId: 10047,
+                siteId: 1056554,
+              },
+            },
           ],
         },
         mobile: {
@@ -194,6 +215,13 @@ export const state = () => ({
               params: {
                 placementId: '2215',
                 adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'connectad',
+              params: {
+                networkId: 10047,
+                siteId: 1056554,
               },
             },
           ],
@@ -246,6 +274,13 @@ export const state = () => ({
                 adFormat: 'banner',
               },
             },
+            {
+              bidder: 'connectad',
+              params: {
+                networkId: 10047,
+                siteId: 1056554,
+              },
+            },
           ],
         },
         mobile: {
@@ -280,6 +315,13 @@ export const state = () => ({
               params: {
                 placementId: '2217',
                 adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'connectad',
+              params: {
+                networkId: 10047,
+                siteId: 1056554,
               },
             },
           ],
@@ -412,6 +454,13 @@ export const state = () => ({
                 adFormat: 'banner',
               },
             },
+            {
+              bidder: 'connectad',
+              params: {
+                networkId: 10047,
+                siteId: 1056554,
+              },
+            },
           ],
         },
         mobile: {
@@ -446,6 +495,13 @@ export const state = () => ({
               params: {
                 placementId: '2215',
                 adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'connectad',
+              params: {
+                networkId: 10047,
+                siteId: 1056554,
               },
             },
           ],
@@ -501,6 +557,13 @@ export const state = () => ({
                 adFormat: 'banner',
               },
             },
+            {
+              bidder: 'connectad',
+              params: {
+                networkId: 10047,
+                siteId: 1056554,
+              },
+            },
           ],
         },
         mobile: {
@@ -535,6 +598,13 @@ export const state = () => ({
               params: {
                 placementId: '2217',
                 adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'connectad',
+              params: {
+                networkId: 10047,
+                siteId: 1056554,
               },
             },
           ],
@@ -590,6 +660,13 @@ export const state = () => ({
                 adFormat: 'banner',
               },
             },
+            {
+              bidder: 'connectad',
+              params: {
+                networkId: 10047,
+                siteId: 1056554,
+              },
+            },
           ],
         },
         mobile: {
@@ -624,6 +701,13 @@ export const state = () => ({
               params: {
                 placementId: '2215',
                 adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'connectad',
+              params: {
+                networkId: 10047,
+                siteId: 1056554,
               },
             },
           ],
@@ -672,6 +756,13 @@ export const state = () => ({
                 keyId: 'uid_telegramhr',
               },
             },
+            {
+              bidder: 'connectad',
+              params: {
+                networkId: 10047,
+                siteId: 1056554,
+              },
+            },
           ],
         },
         mobile: {
@@ -692,6 +783,13 @@ export const state = () => ({
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
+              },
+            },
+            {
+              bidder: 'connectad',
+              params: {
+                networkId: 10047,
+                siteId: 1056554,
               },
             },
           ],
@@ -740,6 +838,13 @@ export const state = () => ({
                 keyId: 'uid_telegramhr',
               },
             },
+            {
+              bidder: 'connectad',
+              params: {
+                networkId: 10047,
+                siteId: 1056554,
+              },
+            },
           ],
         },
         mobile: {
@@ -760,6 +865,13 @@ export const state = () => ({
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
+              },
+            },
+            {
+              bidder: 'connectad',
+              params: {
+                networkId: 10047,
+                siteId: 1056554,
               },
             },
           ],
@@ -1048,7 +1160,7 @@ export const actions = {
     window.pbjs.que.push(() => {
       window.pbjs.requestBids({
         bidsBackHandler: () => dispatch('initAdserver'),
-        timeout: 500,
+        timeout: 1000,
       })
     })
     setTimeout(() => {

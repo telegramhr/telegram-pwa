@@ -29,12 +29,6 @@ export default {
       },
       { hid: 'canonical', rel: 'canonical', href: 'https:/www.telegram.hr' },
       {
-        hid: 'gf-preconnect',
-        rel: 'preconnect',
-        href: 'https://fonts.gstatic.com',
-        crossorigin: 'anonymous',
-      },
-      {
         hid: 'tk-preconnect',
         rel: 'preconnect',
         href: 'https://use.typekit.net',
@@ -42,10 +36,10 @@ export default {
       },
       { rel: 'stylesheet', href: 'https://use.typekit.net/yjw4lwh.css' },
       { rel: 'stylesheet', href: 'https://use.typekit.net/vrv6rlv.css' },
-      {
+      /* {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap',
-      },
+      }, */
       {
         rel: 'me',
         href: 'https://twitter.com/TelegramHR',
@@ -121,7 +115,12 @@ export default {
   components: [{ path: '~/components', pathPrefix: false }],
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
-  buildModules: ['@nuxtjs/eslint-module', 'nuxt-purgecss', '@nuxtjs/dotenv'],
+  buildModules: [
+    '@nuxtjs/eslint-module',
+    'nuxt-purgecss',
+    '@nuxtjs/dotenv',
+    '@nuxtjs/google-fonts',
+  ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
@@ -130,6 +129,21 @@ export default {
     'cookie-universal-nuxt',
     '@nuxtjs/gtm',
   ],
+
+  googleFonts: {
+    display: 'swap',
+    download: true,
+    families: {
+      Barlow: {
+        wght: [400, 600, 700],
+        ital: [400],
+      },
+      Merriweather: {
+        wght: [300, 400, 700],
+        ital: [300, 400],
+      },
+    },
+  },
 
   gtm: {
     id: 'GTM-TF4XJXD',
