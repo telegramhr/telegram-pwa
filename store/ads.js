@@ -1198,6 +1198,19 @@ export const actions = {
           },
         },
         userSync: {
+          userIds: [
+            {
+              name: 'pubCommonId',
+              storage: {
+                name: '_pubcid',
+                type: 'cookie',
+                expires: 365,
+              },
+              params: {
+                pixelUrl: '/wp-json/pubcid/v1/extend/',
+              },
+            },
+          ],
           filterSettings: {
             iframe: {
               bidders: '*',
