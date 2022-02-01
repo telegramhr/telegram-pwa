@@ -62,6 +62,13 @@ export const state = () => ({
           sizes: [[970, 250]],
           bids: [
             {
+              bidder: 'iprom',
+              params: {
+                id: 't30769k9tyez1my7',
+                dimension: '970x250',
+              },
+            },
+            {
               bidder: 'sovrn',
               params: {
                 tagid: [929050],
@@ -97,6 +104,13 @@ export const state = () => ({
             [300, 600],
           ],
           bids: [
+            {
+              bidder: 'iprom',
+              params: {
+                id: 't30769k9tyez1my7',
+                dimension: '300x250',
+              },
+            },
             {
               bidder: 'sovrn',
               params: {
@@ -162,6 +176,13 @@ export const state = () => ({
           sizes: [[970, 250]],
           bids: [
             {
+              bidder: 'iprom',
+              params: {
+                id: 't30769k9tyez1my7',
+                dimension: '970x250',
+              },
+            },
+            {
               bidder: 'contentexchange',
               params: {
                 placementId: '2218',
@@ -177,7 +198,7 @@ export const state = () => ({
             {
               bidder: 'iprom',
               params: {
-                id: '1ac5399de31649f8',
+                id: 't30769k9tyez1my7',
                 dimension: '970x250',
               },
             },
@@ -197,6 +218,13 @@ export const state = () => ({
             [300, 600],
           ],
           bids: [
+            {
+              bidder: 'iprom',
+              params: {
+                id: 't30769k9tyez1my7',
+                dimension: '300x250',
+              },
+            },
             {
               bidder: 'sovrn',
               params: {
@@ -255,6 +283,13 @@ export const state = () => ({
           sizes: [[970, 250]],
           bids: [
             {
+              bidder: 'iprom',
+              params: {
+                id: 't30769k9tyez1my7',
+                dimension: '970x250',
+              },
+            },
+            {
               bidder: 'sovrn',
               params: {
                 tagid: [929563],
@@ -290,6 +325,13 @@ export const state = () => ({
             [300, 600],
           ],
           bids: [
+            {
+              bidder: 'iprom',
+              params: {
+                id: 't30769k9tyez1my7',
+                dimension: '300x250',
+              },
+            },
             {
               bidder: 'sovrn',
               params: {
@@ -428,6 +470,13 @@ export const state = () => ({
           sizes: [[970, 250]],
           bids: [
             {
+              bidder: 'iprom',
+              params: {
+                id: 't30769k9tyez1my7',
+                dimension: '970x250',
+              },
+            },
+            {
               bidder: 'sovrn',
               params: {
                 tagid: [969220],
@@ -470,6 +519,13 @@ export const state = () => ({
             [300, 600],
           ],
           bids: [
+            {
+              bidder: 'iprom',
+              params: {
+                id: 't30769k9tyez1my7',
+                dimension: '300x250',
+              },
+            },
             {
               bidder: 'sovrn',
               params: {
@@ -538,6 +594,13 @@ export const state = () => ({
           ],
           bids: [
             {
+              bidder: 'iprom',
+              params: {
+                id: 't30769k9tyez1my7',
+                dimension: '970x250',
+              },
+            },
+            {
               bidder: 'sovrn',
               params: {
                 tagid: [950917],
@@ -573,6 +636,13 @@ export const state = () => ({
             [300, 600],
           ],
           bids: [
+            {
+              bidder: 'iprom',
+              params: {
+                id: 't30769k9tyez1my7',
+                dimension: '300x250',
+              },
+            },
             {
               bidder: 'sovrn',
               params: {
@@ -641,6 +711,13 @@ export const state = () => ({
           ],
           bids: [
             {
+              bidder: 'iprom',
+              params: {
+                id: 't30769k9tyez1my7',
+                dimension: '970x250',
+              },
+            },
+            {
               bidder: 'sovrn',
               params: {
                 tagid: [950918],
@@ -676,6 +753,13 @@ export const state = () => ({
             [300, 600],
           ],
           bids: [
+            {
+              bidder: 'iprom',
+              params: {
+                id: 't30769k9tyez1my7',
+                dimension: '300x250',
+              },
+            },
             {
               bidder: 'sovrn',
               params: {
@@ -744,6 +828,13 @@ export const state = () => ({
           ],
           bids: [
             {
+              bidder: 'iprom',
+              params: {
+                id: 't30769k9tyez1my7',
+                dimension: '970x250',
+              },
+            },
+            {
               bidder: 'sovrn',
               params: {
                 tagid: [950919],
@@ -772,6 +863,13 @@ export const state = () => ({
             [300, 600],
           ],
           bids: [
+            {
+              bidder: 'iprom',
+              params: {
+                id: 't30769k9tyez1my7',
+                dimension: '300x250',
+              },
+            },
             {
               bidder: 'sovrn',
               params: {
@@ -826,6 +924,13 @@ export const state = () => ({
           ],
           bids: [
             {
+              bidder: 'iprom',
+              params: {
+                id: 't30769k9tyez1my7',
+                dimension: '970x250',
+              },
+            },
+            {
               bidder: 'sovrn',
               params: {
                 tagid: [950920],
@@ -854,6 +959,13 @@ export const state = () => ({
             [300, 600],
           ],
           bids: [
+            {
+              bidder: 'iprom',
+              params: {
+                id: 't30769k9tyez1my7',
+                dimension: '300x250',
+              },
+            },
             {
               bidder: 'sovrn',
               params: {
