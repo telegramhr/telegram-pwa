@@ -478,10 +478,10 @@ h3.subsection-title img {
     padding-top: 8px;
     font-family: 'Lora', serif;
     font-weight: 400;
-    font-size: 20px;
-    font-size: 1rem;
+    font-size: 19px;
+    font-size: 0.95rem;
     margin-bottom: 10px;
-    line-height: 1.3em;
+    line-height: 1.2em;
 }
 .komentar-quotation {
     bottom: -31px;
@@ -4026,8 +4026,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .article-mini h2 {
         font-family: 'Merriweather', serif;
         font-weight: 700;
-        font-size: 15px;
-        font-size: 0.75rem;
+        font-size: 14px;
+        font-size: 0.7rem;
         line-height: 1.4em;
     }
     .weekday-title {
@@ -4584,9 +4584,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
 }
 @media screen and (min-width: 767px) {
-    .split-articles .article-medium {
-        padding-top: 4px;
-    }
     .split-articles .article-medium h3.overtitle {
         margin-top: 0px;
     }
@@ -6980,7 +6977,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 
 .article h2 {
     font-family: 'Lora', serif;
-    line-height: 1.15em;
+    line-height: 1.2em;
     font-weight: 700;
     letter-spacing: normal;
 }
@@ -6988,7 +6985,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-weight: 700;
     letter-spacing: normal;
     text-transform: none;
-    font-size: 0.75rem;
+    font-size: 0.73rem;
 }
 .commentary-widget-line > div {
     display: flex;
@@ -7023,10 +7020,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .no-subtitle-block .article h2 {
     margin-bottom: 8px;
 }
-.cantha-commentary .section-title{
-    display: none;
+.no-subtitle-block .article:last-child {
+    margin-bottom: 0px;
 }
-.the-big-gs .related-articles {
+.cantha-commentary .section-title{
     display: none;
 }
 .cantha-separator {
@@ -7110,6 +7107,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     padding-top: 5px;
     background-color: #333;
     border-radius: 2px;
+    color: white;
 }
 .newbtn-empty {
     background: transparent;
@@ -7151,39 +7149,79 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .alt-big-break .article h2 {
     font-weight: 400;
 }
+.cantha-break {
+    background-color: #e8dacd;
+}
+.cantha-break h5 {
+    opacity: .5;
+    font-weight: 400;
+    font-size: 16px;
+    font-size: 0.8rem;
+}
+.cantha-break .newbtn {
+    margin-bottom: 8px;
+}
+.hard-light-blend {
+    mix-blend-mode: hard-light;
+}
 
 @media screen and (min-width: 767px) {
     .article-standard {
-        padding-bottom: 16px;
+        padding-bottom: 24px;
+        margin-bottom: 24px;
+    }
+    .article-featured .article-pad {
+        padding-bottom: 0px;
+    }
+    .article-featured {
+        margin-bottom: 0px;
     }
     .article-featured h2 {
-        font-size: 1.6rem;
-    }
-    .article-featured h3.overtitle {
-        margin-bottom: 6px;
-        margin-top: 2px;
-    }
-    .article-standard h2 {
-        font-size: 1.05rem;
-    }
-    .no-image-block .article-standard h2, .big-split .article h2 {
-        font-size: 1.2rem;
-    }
-    .alt-big-break .article h2 {
         font-size: 30px;
         font-size: 1.5rem;
+    }
+    .article-featured h3.overtitle {
+        margin-bottom: 7px;
+        margin-top: 3px;
+    }
+    .article-standard h2 {
+        font-size: 19px;
+        font-size: 0.85rem;
+    }
+    .no-image-block .article-standard h2 {
+        font-size: 24px;
+        font-size: 1.2rem;
+    }
+    .big-split .article h2 {
+        font-size: 22px;
+        font-size: 1.1rem;
+    }
+    .cantha-break .article h2 {
+        font-size: 28px;
+        font-size: 1.4rem;
+    }
+    .alt-big-break .article h2 {
+        font-size: 28px;
+        font-size: 1.4rem;
     }
     .no-image-block .article-standard .article-pad {
         padding-top: 0px; 
     }
     .big-split .article-standard img {
         width: 66.66%;
-        margin-bottom: 4px;
+        margin-bottom: 0px;
     }
     .big-split .article-standard .article-pad {
         width: 33.33%
     }
     .mini-article-list .article-mini .article-pad {
         padding-bottom: 16px;
+    }
+    .mini-article-list .article-mini:last-child .article-pad {
+        padding-bottom: 16px;
+    }
+    .article:last-child, .komentar:last-child {
+        margin-bottom: 0px;
+        padding-bottom: 0px;
     }
 }

@@ -121,6 +121,9 @@ img {
 .stretch {
     align-items: stretch;
 }
+.stretchtwo {
+    align-content: stretch;
+}
 .no-wrap {
     flex-wrap: nowrap;
 }
@@ -150,6 +153,12 @@ img {
 }
 .three-fourths {
     width: 74.99%;
+}
+.forty {
+    width: 39.99%;
+}
+.sixty {
+    width: 59.99%;
 }
 .center {
     display: flex;

@@ -124,7 +124,7 @@
     <div class="full relative">
       <div
         v-if="posts.length"
-        class="container flex relative block-1 elevate-over-section stretch"
+        class="container flex relative elevate-over-section stretch"
       >
         <section
           class="
@@ -137,16 +137,23 @@
             column-bottom-pad
           "
         >
-          <div class="half column-horizontal-pad flex-responsive flex">
+          <div
+            class="
+              half
+              column-horizontal-pad column-right-border
+              flex-responsive flex
+            "
+          >
             <featured :key="posts[0].id" :post="posts[0]"></featured>
           </div>
-          <div class="half flex-responsive flex stretch">
+          <div class="half flex-responsive flex stretch stretchtwo">
             <div
               class="
                 half
                 flex-responsive
-                column-horizontal-pad column-right-border column-left-border
+                column-horizontal-pad
                 flex
+                stretch
                 no-image-block
               "
             >
@@ -162,7 +169,9 @@
                 flex-responsive
                 column-horizontal-pad
                 no-subtitle-block
+                column-left-border
                 flex
+                stretch
               "
             >
               <standard
@@ -210,14 +219,7 @@
       </div>
     </div>
     <div class="full relative">
-      <div v-if="posts.length" class="container flex relative">
-        <div class="full center">
-          <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
-        </div>
-      </div>
-    </div>
-    <div class="full relative">
-      <div class="container flex relative block-2 stretch">
+      <div class="container flex cantha-mini-block relative stretch">
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
@@ -250,85 +252,160 @@
       </div>
     </div>
     <div class="full relative">
-      <div class="full center">
-        <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
-      </div>
-      <div class="full relative">
-        <div class="container flex relative block-2 stretch column-bottom-pad">
-          <div class="full column-horizontal-pad column-top-pad">
-            <div class="full cantha-separator"></div>
-          </div>
-          <h3 class="full center-text column-full-pad subsection-title">
-            <img
-              src="@/assets/img/telegram_logo_black.svg"
-              alt="Telegram logo"
-            />
-            preporuka
-          </h3>
-          <div
-            class="
-              three-fourths
-              flex-responsive
-              column-horizontal-pad
-              flex
-              split-articles
-              column-right-border
-              big-split
-              alt-big-break
-            "
-          >
-            <medium :key="posts[0].id" :post="posts[0]"></medium>
-          </div>
-          <div class="fourth flex-responsive column-horizontal-pad">
-            <standard :key="posts[11].id" :post="posts[11]"></standard>
-          </div>
+      <div class="container flex relative stretch column-bottom-pad">
+        <div class="full column-horizontal-pad column-top-pad">
+          <div class="full cantha-separator"></div>
+        </div>
+        <h3 class="full center-text column-full-pad subsection-title">
+          <img src="@/assets/img/telegram_logo_black.svg" alt="Telegram logo" />
+          preporuka
+        </h3>
+        <div
+          class="
+            three-fourths
+            flex-responsive
+            column-horizontal-pad
+            flex
+            split-articles
+            column-right-border
+            big-split
+            alt-big-break
+          "
+        >
+          <medium :key="posts[0].id" :post="posts[0]"></medium>
+        </div>
+        <div class="fourth flex-responsive column-horizontal-pad">
+          <standard :key="posts[11].id" :post="posts[11]"></standard>
+        </div>
+        <div class="full column-horizontal-pad">
           <div class="full column-top-pad column-bottom-border"></div>
         </div>
       </div>
-      <div class="full relative">
-        <client-only>
-          <linker type="naslovnica"></linker>
-        </client-only>
-      </div>
-      <div class="full relative">
-        <sport></sport>
-      </div>
-      <div class="full relative">
-        <client-only>
-          <partners></partners>
-        </client-only>
-        <div class="full center">
-          <ad-unit id="telegram_desktop_billboard_v4"></ad-unit>
-        </div>
-      </div>
-      <div class="full relative">
-        <super1></super1>
-      </div>
-      <div class="full relative">
-        <pitanje-zdravlja></pitanje-zdravlja>
-      </div>
-      <div class="full relative">
-        <os-homepage></os-homepage>
-      </div>
-      <div class="full relative">
-        <div class="container desktop-only flex relative column-full-pad"></div>
-      </div>
-      <div class="full relative">
-        <div class="container flex relative block-5 standard-block">
-          <client-only>
-            <category slug="zivot"></category>
-            <category slug="biznis-tech"></category>
-            <category slug="kultura"></category>
-            <category slug="velike-price"></category>
-            <most-read v-if="$mobile"></most-read>
-          </client-only>
-        </div>
-        <div class="container flex center">
-          <div id="linker-526" class="lwdgt" data-wid="526"></div>
-        </div>
-      </div>
-      <tfooter></tfooter>
     </div>
+    <div class="full relative">
+      <div class="container flex relative column-full-pad">
+        <app-link
+          to="/newsletters"
+          class="full cantha-break flex relative stretch"
+        >
+          <div class="third column-full-pad center flex-responsive">
+            <div class="full flex article">
+              <h3 class="full overtitle">Posebne pogodnosti</h3>
+              <h2 class="full">
+                Specijalni newsletteri za Telegramove pretplatnike.
+              </h2>
+              <h5 class="full">
+                Najbolje od Telegrama, svaki dan u vašem inboxu.
+              </h5>
+            </div>
+          </div>
+          <div class="two-thirds stretch flex flex-responsive">
+            <div class="two-thirds column-full-pad center flex-responsive">
+              <img
+                src="@/assets/img/tg_newsletter_visual.png"
+                alt="Kolekcija Telegramovih newslettera"
+              />
+            </div>
+            <div class="third center flex-responsive">
+              <div class="full flex article">
+                <div class="full center">
+                  <div class="newbtn">Prijavite se</div>
+                </div>
+                <h5 class="full center-text">
+                  Odaberite tematske i autorske newslettere koje želite primati.
+                </h5>
+              </div>
+            </div>
+          </div>
+        </app-link>
+      </div>
+    </div>
+    <div class="full relative">
+      <div class="container flex relative">
+        <category slug="velike-price"></category>
+      </div>
+    </div>
+    <div class="full relative">
+      <div class="container flex relative">
+        <category slug="biznis-tech"></category>
+      </div>
+    </div>
+    <div class="full relative">
+      <client-only>
+        <linker type="naslovnica"></linker>
+      </client-only>
+    </div>
+    <div class="full relative">
+      <div class="container flex relative column-full-pad">
+        <app-link to="/dojave" class="full cantha-break flex relative stretch">
+          <div class="forty column-full-pad center flex-responsive">
+            <div class="full flex article">
+              <h3 class="full overtitle">Telegram dojave</h3>
+              <h2 class="full">
+                Imate saznanja o korupciji? Javite se našim novinarima.
+              </h2>
+              <h5 class="full">
+                Naši su članci otkrili brojne pljačke i nepravilnosti.
+              </h5>
+            </div>
+          </div>
+          <div class="sixty stretch flex flex-responsive">
+            <div class="sixty column-top-pad center flex-responsive">
+              <img
+                src="@/assets/img/tg_dojave_visual.png"
+                alt="Portreti ministara čiju korupciju je otkrio Telegram"
+                class="hard-light-blend"
+              />
+            </div>
+            <div class="forty center column-horizontal-pad flex-responsive">
+              <div class="full column-left-pad flex article">
+                <div class="full center">
+                  <div class="newbtn">Javite nam se</div>
+                </div>
+                <h5 class="full center-text">
+                  Imamo sigurne kanale putem kojih nas možete kontaktirati.
+                </h5>
+              </div>
+            </div>
+          </div>
+        </app-link>
+      </div>
+    </div>
+    <div class="full relative">
+      <sport></sport>
+    </div>
+    <div class="full relative">
+      <client-only>
+        <partners></partners>
+      </client-only>
+    </div>
+    <div class="full relative">
+      <super1></super1>
+    </div>
+    <div class="full relative">
+      <pitanje-zdravlja></pitanje-zdravlja>
+    </div>
+    <div class="full relative">
+      <os-homepage></os-homepage>
+    </div>
+    <div class="full relative">
+      <div class="container desktop-only flex relative column-full-pad"></div>
+    </div>
+    <div class="full relative">
+      <div class="full center">
+        <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
+      </div>
+      <div class="full center">
+        <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
+      </div>
+      <div class="full center">
+        <ad-unit id="telegram_desktop_billboard_v4"></ad-unit>
+      </div>
+      <div class="container flex center">
+        <div id="linker-526" class="lwdgt" data-wid="526"></div>
+      </div>
+    </div>
+    <tfooter></tfooter>
   </div>
 </template>
 
