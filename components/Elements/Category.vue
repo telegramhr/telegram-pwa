@@ -14,7 +14,6 @@
         relative
         the-big-gs
         stretch
-        column-vertical-pad
       "
     >
       <div class="half column-horizontal-pad flex-responsive flex">

@@ -134,7 +134,6 @@
             relative
             the-big-gs
             stretch
-            column-bottom-pad
           "
         >
           <div
@@ -226,7 +225,7 @@
         <h3 class="full center-text column-full-pad subsection-title">
           Još vijesti
         </h3>
-        <div class="full flex stretch relative column-vertical-pad">
+        <div class="full flex stretch relative">
           <div
             v-for="post in posts.slice(7, 10)"
             :key="post.id"
@@ -283,7 +282,7 @@
       </div>
     </div>
     <div class="full relative">
-      <div class="container flex relative column-full-pad">
+      <div class="container flex relative column-horizontal-pad">
         <app-link
           to="/newsletters"
           class="full cantha-break flex relative stretch"
@@ -332,8 +331,37 @@
     </div>
     <div class="full relative">
       <client-only>
+        <div class="full center">
+          <authors></authors>
+        </div>
         <linker type="naslovnica"></linker>
       </client-only>
+    </div>
+    <div class="full relative">
+      <div class="container flex relative stretch">
+        <div class="full column-horizontal-pad column-top-pad">
+          <div class="full cantha-separator"></div>
+        </div>
+        <h3 class="full center-text column-full-pad subsection-title">
+          Odabir urednika
+        </h3>
+        <div
+          class="
+            full
+            column-horizontal-pad
+            flex
+            split-articles
+            big-split
+            alt-big-break
+            center-text
+          "
+        >
+          <medium :key="posts[1].id" :post="posts[1]"></medium>
+        </div>
+        <div class="full column-horizontal-pad">
+          <div class="full column-top-pad column-bottom-border"></div>
+        </div>
+      </div>
     </div>
     <div class="full relative">
       <div class="container flex relative column-full-pad">
