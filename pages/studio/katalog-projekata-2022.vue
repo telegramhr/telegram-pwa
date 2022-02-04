@@ -52,7 +52,7 @@ export default {
           hid: 'og:image',
           name: 'og:image',
           property: 'og:image',
-          content: 'https://www.telegram.hr/tmg_projekti_thumb.jpg',
+          content: 'https://www.telegram.hr/img/tmg_projekti_thumb.jpg',
         },
         {
           hid: 'og:url',
