@@ -52,8 +52,7 @@ export default {
           hid: 'og:image',
           name: 'og:image',
           property: 'og:image',
-          content:
-            'https://www.telegram.hr/wp-content/uploads/2021/01/tg-background.jpg',
+          content: 'https://www.telegram.hr/tmg_projekti_thumb.jpg',
         },
         {
           hid: 'og:url',
