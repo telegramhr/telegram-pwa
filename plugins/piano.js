@@ -1,8 +1,8 @@
 /* eslint-disable */
 export default () => {
-  /* window.PianoESPConfig = {
+  window.PianoESPConfig = {
     id: 280
-  } */
+  }
   // Piano conf
   window.tp = window.tp || []
   window.tp.push(['setAid', 'QuTHmVhFpu'])

@@ -14,14 +14,14 @@
       :post="post"
     ></theader>
     <div class="full relative">
-      <div v-if="post.parent" class="full flex breaking-news xmas-breaking">
+      <!--<div v-if="post.parent" class="full flex breaking-news xmas-breaking">
         <div class="container column-full-pad">
           <app-link to="/soping-vodic/bozicni-pokloni-2021/"
             ><b>BOŽIĆNI POKLONI 2021:</b> Telegramov vodič kroz najbolje
             poklone</app-link
           >
         </div>
-      </div>
+      </div>-->
       <div class="full flex">
         <article
           class="container column-full-pad flex relative mobile-side-pad"
