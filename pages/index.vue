@@ -42,13 +42,7 @@
           </a>
         </div>
         <h2
-          class="
-            full
-            column-horizontal-pad
-            center-text
-            desktop-only
-            site-subtitle
-          "
+          class="full column-horizontal-pad center-text desktop-only site-subtitle"
         >
           Portal za društvena i kulturna pitanja
         </h2>
@@ -127,54 +121,28 @@
         class="container flex relative elevate-over-section stretch"
       >
         <section
-          class="
-            full
-            mobile-side-pad
-            flex-responsive flex
-            relative
-            the-big-gs
-            stretch
-          "
+          class="full mobile-side-pad flex-responsive flex relative the-big-gs stretch"
         >
           <div
-            class="
-              half
-              column-horizontal-pad column-right-border
-              flex-responsive flex
-            "
+            class="half column-horizontal-pad column-right-border flex-responsive flex"
           >
             <featured :key="posts[0].id" :post="posts[0]"></featured>
           </div>
           <div class="half flex-responsive flex stretch stretchtwo">
             <div
-              class="
-                half
-                flex-responsive
-                column-horizontal-pad
-                flex
-                stretch
-                no-image-block
-              "
+              class="half flex-responsive column-horizontal-pad flex stretch no-image-block"
             >
               <standard
-                v-for="post in posts.slice(3, 5)"
+                v-for="post in posts.slice(3, 6)"
                 :key="post.id"
                 :post="post"
               ></standard>
             </div>
             <div
-              class="
-                half
-                flex-responsive
-                column-horizontal-pad
-                no-subtitle-block
-                column-left-border
-                flex
-                stretch
-              "
+              class="half flex-responsive column-horizontal-pad no-subtitle-block column-left-border flex stretch"
             >
               <standard
-                v-for="post in posts.slice(5, 7)"
+                v-for="post in posts.slice(6, 8)"
                 :key="post.id"
                 :post="post"
               ></standard>
@@ -184,15 +152,7 @@
             <div class="full column-top-border"></div>
           </div>
           <div
-            class="
-              two-thirds
-              flex-responsive
-              column-horizontal-pad
-              flex
-              split-articles
-              column-right-border
-              big-split
-            "
+            class="two-thirds flex-responsive column-horizontal-pad flex split-articles column-right-border big-split"
           >
             <medium
               v-for="post in posts.slice(1, 3)"
@@ -201,13 +161,7 @@
             ></medium>
           </div>
           <div
-            class="
-              third
-              flex-responsive
-              column-horizontal-pad
-              flex
-              cantha-commentary
-            "
+            class="third flex-responsive column-horizontal-pad flex cantha-commentary"
           >
             <h3 class="full center-text column-bottom-pad subsection-title">
               Komentari & analize
@@ -218,7 +172,7 @@
       </div>
     </div>
     <div class="full relative">
-      <div class="container flex cantha-mini-block relative stretch">
+      <div class="container flex cantha-small-block relative stretch">
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
@@ -229,21 +183,12 @@
           <div
             v-for="post in posts.slice(7, 10)"
             :key="post.id"
-            class="
-              fourth
-              flex-responsive
-              column-right-border column-horizontal-pad
-            "
+            class="fourth flex-responsive column-right-border column-horizontal-pad"
           >
             <standard :post="post"></standard>
           </div>
           <div
-            class="
-              fourth
-              flex-responsive
-              column-horizontal-pad
-              mini-article-list
-            "
+            class="fourth flex-responsive column-horizontal-pad mini-article-list"
           >
             <trending :id="1"></trending>
           </div>
@@ -260,16 +205,7 @@
           preporuka
         </h3>
         <div
-          class="
-            three-fourths
-            flex-responsive
-            column-horizontal-pad
-            flex
-            split-articles
-            column-right-border
-            big-split
-            alt-big-break
-          "
+          class="three-fourths flex-responsive column-horizontal-pad flex split-articles column-right-border big-split alt-big-break"
         >
           <medium :key="posts[0].id" :post="posts[0]"></medium>
         </div>
@@ -326,7 +262,7 @@
     </div>
     <div class="full relative">
       <div class="container flex relative">
-        <category slug="biznis-tech"></category>
+        <category-alt slug="biznis-tech"></category-alt>
       </div>
     </div>
     <div class="full relative">
@@ -346,15 +282,7 @@
           Odabir urednika
         </h3>
         <div
-          class="
-            full
-            column-horizontal-pad
-            flex
-            split-articles
-            big-split
-            alt-big-break
-            center-text
-          "
+          class="full column-horizontal-pad flex split-articles big-split alt-big-break center-text"
         >
           <medium :key="posts[1].id" :post="posts[1]"></medium>
         </div>

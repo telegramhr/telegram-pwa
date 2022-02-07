@@ -7119,6 +7119,26 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .mini-article-list .article-mini h5.article-meta {
     display: none;
 }
+.cantha-mini-block .article-mini h5.article-meta {
+    display: none;
+}
+.cantha-mini-block .article-mini h2 {
+    margin-bottom: 0px;
+}
+.cantha-mini-block .article-mini .article-pad {
+    padding-bottom: 0px;
+}
+.cantha-mini-block .article-mini {
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #c8c8c8;
+}
+.dark-mode .cantha-mini-block .article-mini {
+    border-color: #555;
+}
+.cantha-mini-block .article-mini:last-child {
+    border-bottom: none;
+}
 .mini-article-list .article-mini {
     padding-left: 32px;
 }
@@ -7195,37 +7215,33 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .article-featured {
         margin-bottom: 0px;
     }
-    .article-featured h2 {
-        font-size: 30px;
-        font-size: 1.5rem;
-    }
     .article-featured h3.overtitle {
         margin-bottom: 7px;
         margin-top: 3px;
     }
     .article-standard h2 {
-        font-size: 19px;
-        font-size: 0.85rem;
-    }
-    .no-image-block .article-standard h2 {
-        font-size: 24px;
-        font-size: 1.2rem;
+        font-size: 18px;
+        font-size: 0.9rem;
     }
     .big-split .article h2 {
         font-size: 22px;
         font-size: 1.1rem;
     }
+    .no-image-block .article-standard h2 {
+        font-size: 20px;
+        font-size: 1rem;
+    }
+    .article-featured h2, .alt-big-break.center-text .article h2 {
+        font-size: 30px;
+        font-size: 1.5rem;
+    }
+    .article-mini h2 {
+        font-size: 15px;
+        font-size: 0.75rem;
+    }
     .cantha-break .article h2 {
         font-size: 28px;
         font-size: 1.4rem;
-    }
-    .alt-big-break .article h2 {
-        font-size: 28px;
-        font-size: 1.4rem;
-    }
-    .alt-big-break.center-text .article h2 {
-        font-size: 34px;
-        font-size: 1.7rem;
     }
     .no-image-block .article-standard .article-pad {
         padding-top: 0px; 
