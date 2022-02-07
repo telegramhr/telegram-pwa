@@ -22,7 +22,7 @@ export default {
   name: 'ShopingGuide',
   async fetch() {
     this.posts = await this.$axios
-      .get('/api/shop-guide/related/1153644')
+      .get('/api/shop-guide/related/1182196')
       .then((res) => {
         const shuffled = res.data.sort(() => 0.5 - Math.random())
         return shuffled.slice(0, 4)
