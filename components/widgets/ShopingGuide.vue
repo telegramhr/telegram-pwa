@@ -4,7 +4,7 @@
       <h2 class="full flex section-title">
         <app-link
           to="/soping-vodic/super1-vodic-75-najboljih-poklona-za-valentinovo-2022/"
-          >Najbolji božićni pokloni</app-link
+          >Najbolji pokloni za Valentinovo</app-link
         >
       </h2>
     </div>
