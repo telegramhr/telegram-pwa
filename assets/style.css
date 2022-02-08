@@ -7203,6 +7203,18 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     object-fit: contain;
     object-position: bottom center;
 }
+.cantha-big-block .article-featured .related-articles a {
+    display: none;
+}
+.cantha-big-block .article-featured .related-articles a:nth-child(-n+3) {
+    display: flex;
+}
+.cantha-big-block .no-image-block .article:last-child h4 {
+    display: none;
+}
+.cantha-big-block .no-image-block .article:last-child h2 {
+    margin-bottom: 8px;
+}
 
 @media screen and (min-width: 767px) {
     .article-standard {
@@ -7220,24 +7232,20 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         margin-top: 3px;
     }
     .article-standard h2 {
-        font-size: 18px;
-        font-size: 0.9rem;
+        font-size: 19px;
+        font-size: 0.95rem;
     }
     .big-split .article h2 {
-        font-size: 22px;
-        font-size: 1.1rem;
+        font-size: 23px;
+        font-size: 1.15rem;
     }
-    .no-image-block .article-standard h2 {
-        font-size: 20px;
-        font-size: 1rem;
+    .no-image-block .article-standard h2, .cantha-mini-block .split-articles .article h2 {
+        font-size: 21px;
+        font-size: 1.05rem;
     }
     .article-featured h2, .alt-big-break.center-text .article h2 {
         font-size: 30px;
         font-size: 1.5rem;
-    }
-    .article-mini h2 {
-        font-size: 15px;
-        font-size: 0.75rem;
     }
     .cantha-break .article h2 {
         font-size: 28px;

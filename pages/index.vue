@@ -118,7 +118,7 @@
     <div class="full relative">
       <div
         v-if="posts.length"
-        class="container flex relative elevate-over-section stretch"
+        class="container flex relative cantha-big-block elevate-over-section stretch"
       >
         <section
           class="full mobile-side-pad flex-responsive flex relative the-big-gs stretch"
