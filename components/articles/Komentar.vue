@@ -7,6 +7,15 @@
   >
     <div class="komentar-box relative">
       <div class="full flex relative komentar-head">
+        <picture>
+          <source type="image/webp" :srcset="post.image.webp" />
+          <img
+            :srcset="srcset"
+            :src="post.image.url"
+            :alt="post.image.alt"
+            loading="lazy"
+          />
+        </picture>
         <div class="komentar-quotation">“</div>
         <div class="komentar-image">
           <picture>
