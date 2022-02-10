@@ -97,7 +97,9 @@
               v-html="post.content"
             ></div>
             <!-- eslint-enable vue/no-v-html -->
-            <product-guide :products="post.products"></product-guide>
+            <portal selector="#guide-container">
+              <product-guide :products="post.products"></product-guide>
+            </portal>
             <!-- Article footer -->
             <div
               class="full relative single-article-footer flex column-top-pad"
@@ -139,10 +141,10 @@
 </template>
 
 <script>
-import XmasForm from '../../components/widgets/XmasForm.vue'
+import { Portal } from '@linusborg/vue-simple-portal'
 export default {
   name: 'Slug',
-  components: { XmasForm },
+  components: { Portal },
   scrollToTop: true,
   async fetch() {
     const path = this.$route.params.pathMatch.split('/')
