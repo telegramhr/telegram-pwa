@@ -4120,7 +4120,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         margin-left: auto;
         margin-right: auto;
     }
-    .single-article .single-article-body > #article-content, .single-article .single-article-body > #article-content > #piano-content, .single-article .single-article-body > #article-content > #guide-container {
+    .single-article .single-article-body > #article-content, .single-article .single-article-body > #article-content > #piano-content,
+    .single-article .single-article-body > #article-content > #piano-content > #guide-container,
+    .single-article .single-article-body > #article-content > #guide-container {
         max-width: 1200px;
     }
     .single-article .single-article-body > img, .single-article .single-article-body > figure.wp-block-image, .single-article .single-article-body > .extra-width,
