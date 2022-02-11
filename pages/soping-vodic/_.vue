@@ -97,7 +97,7 @@
               v-html="post.content"
             ></div>
             <!-- eslint-enable vue/no-v-html -->
-            <portal selector="#guide-container">
+            <portal v-if="show" selector="#guide-container">
               <product-guide :products="post.products"></product-guide>
             </portal>
             <!-- Article footer -->
@@ -173,6 +173,7 @@ export default {
   },
   data() {
     return {
+      show: false,
       showSideMenu: false,
       showSearchMenu: false,
       post: {
@@ -295,6 +296,7 @@ export default {
         if (process.client) {
           this.$telegram.$loading.finish()
         }
+        this.show = true
         if (document.getElementById('article-content')) {
           const images = [
             ...document
