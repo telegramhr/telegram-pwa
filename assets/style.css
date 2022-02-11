@@ -7252,20 +7252,24 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         margin-top: 3px;
     }
     .article-standard h2 {
-        font-size: 18px;
-        font-size: 0.9rem;
+        font-size: 16px;
+        font-size: 0.8rem;
     }
     .big-split .article h2 {
-        font-size: 23px;
-        font-size: 1.15rem;
+        font-size: 20px;
+        font-size: 1rem;
     }
     .no-image-block .article-standard h2, .cantha-mini-block .split-articles .article h2 {
-        font-size: 21px;
-        font-size: 1.05rem;
+        font-size: 20px;
+        font-size: 1rem;
+    }
+    .alt-big-break .article h2 {
+        font-size: 24px;
+        font-size: 1.2rem;
     }
     .article-featured h2, .alt-big-break.center-text .article h2 {
-        font-size: 30px;
-        font-size: 1.5rem;
+        font-size: 28px;
+        font-size: 1.4rem;
     }
     .cantha-break .article h2 {
         font-size: 28px;
