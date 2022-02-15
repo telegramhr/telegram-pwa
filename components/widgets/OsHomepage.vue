@@ -1,10 +1,9 @@
 <template>
   <div class="container flex relative native-block stretch mobile-side-pad">
-    <div class="full column-horizontal-pad flex">
-      <h2 class="full flex section-title">
-        <app-link to="/openspace">openspace</app-link>
-      </h2>
+    <div class="full column-horizontal-pad">
+      <div class="full cantha-separator"></div>
     </div>
+    <h3 class="full center-text column-full-pad subsection-title">openspace</h3>
     <div
       v-for="post in posts"
       :key="post.id"

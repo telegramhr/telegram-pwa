@@ -861,10 +861,16 @@ h3.subsection-title img {
     position: relative;
 }
 .block-title img {
-    height: 30px;
+    height: 48px;
     margin-bottom: 24px;
     z-index: 3;
     position: relative;
+}
+.super1-block .block-title img {
+    padding: 8px;
+}
+.pz-block .block-title img {
+    padding: 12px;
 }
 .sport-block .block-title, .sport-block .dynamic-overtitle-element, .sport-block .widget, .sport-block .widget::before, .sport-block .komentar .komentar-image, .sport-block .subtle-btn-parent:hover .subtle-btn, .sport-block .loader-square div {
     background-color: #376cae;
@@ -3947,9 +3953,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         padding-bottom: 24px;
     }
     .block-title {
-        margin-top: 64px;
-        padding-top: 36px;
-        padding-bottom: 36px;
+        padding-top: 8px;
+        padding-bottom: 56px;
         margin-bottom: 0px;
     }
     header {

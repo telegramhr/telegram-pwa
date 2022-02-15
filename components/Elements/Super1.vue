@@ -1,96 +1,90 @@
 <template>
   <div class="full flex">
-    <a href="https://super1.telegram.hr" class="full flex super1-block">
+    <a href="https://super1.telegram.hr" class="super1-block full flex">
       <div class="block-title full mobile-side-pad">
-        <div class="container flex relative">
-          <h1 class="full column-left-pad">Super1</h1>
+        <div class="container center column-horizontal-pad relative">
+          <img src="@/assets/img/super1_logo_white.svg" alt="Super1 logo" />
         </div>
       </div>
     </a>
-    <div class="container flex relative block-4 standard-block super1-block">
-      <section class="three-fourths flex-responsive flex elevate-over-section">
-        <section
-          class="
-            two-thirds
-            flex-responsive flex
-            mobile-side-pad
-            column-horizontal-pad column-right-border
-          "
+    <div
+      class="container flex relative cantha-big-block elevate-over-section stretch"
+    >
+      <section
+        class="full mobile-side-pad flex-responsive column-bottom-pad flex relative the-big-gs stretch"
+      >
+        <div
+          class="half column-horizontal-pad column-right-border flex-responsive flex"
         >
           <featured
             v-for="post in posts.slice(0, 1)"
-            :key="'super-' + post.id"
+            :key="'sport-' + post.id"
             :post="post"
           ></featured>
-          <div class="full flex split-articles">
-            <medium
+        </div>
+        <div class="half flex-responsive flex stretch stretchtwo">
+          <div
+            class="half flex-responsive column-horizontal-pad flex stretch no-image-block"
+          >
+            <standard
               v-for="post in posts.slice(1, 4)"
               :key="'super-' + post.id"
               :post="post"
-            ></medium>
+            ></standard>
           </div>
-        </section>
+          <div
+            class="half flex-responsive column-horizontal-pad no-subtitle-block column-left-border flex stretch"
+          >
+            <standard
+              v-for="post in posts.slice(4, 6)"
+              :key="'super-' + post.id"
+              :post="post"
+            ></standard>
+          </div>
+        </div>
+      </section>
+      <div class="full flex stretch column-vertical-pad relative">
+        <!--<div
+          v-for="post in posts.slice(1, 4)"
+          :key="'super-' + post.id"
+          class="fourth flex-responsive column-right-border column-horizontal-pad"
+        >
+          <standard :post="post"></standard>
+        </div>
+        <div
+          class="fourth flex-responsive column-horizontal-pad mini-article-list"
+        >
+          <h3 class="full overtitle column-bottom-pad">Upravo se čita</h3>
+          <div class="full flex">
+            <mini
+              v-for="post in reading.slice(0, 5)"
+              :key="'super-' + post.id"
+              :post="post"
+            ></mini>
+          </div>
+        </div>-->
         <section
-          class="
-            third
-            flex-responsive flex
-            column-horizontal-pad
-            flex
-            mobile-side-pad
-          "
+          v-if="posts.length > 7"
+          class="fourth flex-responsive flex mobile-only column-horizontal-pad flex mobile-side-pad"
         >
           <standard
-            v-for="post in posts.slice(4, 7)"
+            v-for="post in posts.slice(7)"
             :key="'super-' + post.id"
             :post="post"
           ></standard>
         </section>
-      </section>
-      <section
-        class="
-          fourth
-          flex
-          desktop-only
-          column-horizontal-pad column-right-border
-        "
-      >
-        <h2 class="full flex section-title">Upravo se čita</h2>
-        <div class="full flex">
-          <mini
-            v-for="post in reading"
-            :key="'reading-' + post.id"
-            :post="post"
-          ></mini>
-        </div>
-      </section>
-      <section
-        v-if="posts.length > 7"
-        class="
-          third
-          flex-responsive flex
-          mobile-only
-          column-horizontal-pad
-          flex
-          mobile-side-pad
-        "
-      >
-        <standard
-          v-for="post in posts.slice(7)"
-          :key="post.id"
-          :post="post"
-        ></standard>
-      </section>
-      <div
-        class="full center subtle-btn-parent mobile-only relative clickable"
-        @click="loadMore"
-      >
-        <div v-show="!loading" class="subtle-btn animate">Vidi više</div>
-        <div v-show="!loading" class="subtle-btn-line"></div>
-        <div v-show="loading" class="full center cool-loader hide">
-          <div class="loader-square">
-            <div></div>
-            <div></div>
-            <div></div>
+        <div
+          class="full center subtle-btn-parent mobile-only relative clickable"
+          @click="loadMore"
+        >
+          <div v-show="!loading" class="subtle-btn animate">Vidi više</div>
+          <div v-show="!loading" class="subtle-btn-line"></div>
+          <div v-show="loading" class="full center cool-loader hide">
+            <div class="loader-square">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
           </div>
         </div>
       </div>
