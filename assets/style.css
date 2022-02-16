@@ -7240,6 +7240,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .cantha-big-block .no-image-block .article:last-child h2 {
     margin-bottom: 8px;
 }
+.cantha-small-block .column-right-border:last-child {
+    border-right: none;
+}
 
 @media screen and (min-width: 767px) {
     .article-standard {

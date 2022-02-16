@@ -43,8 +43,11 @@
           </div>
         </div>
       </section>
-      <div class="full flex stretch column-vertical-pad relative">
-        <!--<div
+      <div class="full flex stretch column-bottom-pad relative">
+        <div class="full column-horizontal-pad">
+          <div class="full column-top-border column-top-pad"></div>
+        </div>
+        <div
           v-for="post in posts.slice(1, 4)"
           :key="'super-' + post.id"
           class="fourth flex-responsive column-right-border column-horizontal-pad"
@@ -62,7 +65,7 @@
               :post="post"
             ></mini>
           </div>
-        </div>-->
+        </div>
         <section
           v-if="posts.length > 7"
           class="fourth flex-responsive flex mobile-only column-horizontal-pad flex mobile-side-pad"

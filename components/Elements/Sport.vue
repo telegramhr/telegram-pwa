@@ -46,7 +46,10 @@
           </div>
         </div>
       </section>
-      <!--<div class="full flex stretch column-top-pad relative">
+      <div class="full flex stretch column-bottom-pad relative">
+        <div class="full column-horizontal-pad">
+          <div class="full column-top-border column-top-pad"></div>
+        </div>
         <div
           v-for="post in posts.slice(1, 4)"
           :key="'sport-' + post.id"
@@ -66,7 +69,7 @@
             ></mini>
           </div>
         </div>
-      </div>-->
+      </div>
       <section
         v-if="posts.length > 7"
         class="third flex-responsive flex mobile-only column-horizontal-pad flex mobile-side-pad"

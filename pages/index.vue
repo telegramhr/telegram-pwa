@@ -211,6 +211,18 @@
         <div class="fourth flex-responsive column-horizontal-pad">
           <standard :key="posts[11].id" :post="posts[11]"></standard>
         </div>
+        <div class="full column-full-pad">
+          <div class="full column-top-border"></div>
+        </div>
+        <div class="full flex cantha-small-block">
+          <div
+            v-for="post in posts.slice(7, 10)"
+            :key="post.id"
+            class="third flex-responsive column-right-border column-horizontal-pad"
+          >
+            <standard :post="post"></standard>
+          </div>
+        </div>
         <div class="full column-horizontal-pad">
           <div class="full column-top-pad column-bottom-border"></div>
         </div>
