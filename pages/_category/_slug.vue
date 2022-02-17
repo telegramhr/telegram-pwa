@@ -799,11 +799,6 @@ export default {
     },
   },
   head() {
-    const amp = {
-      hid: 'amphtml',
-      rel: 'amphtml',
-      href: this.post.social.path + 'amp',
-    }
     const link = [
       {
         hid: 'canonical',
@@ -850,9 +845,6 @@ export default {
           async: true,
         },
       ]
-    }
-    if (this.$route.params.category !== 'partneri') {
-      link.push(amp)
     }
     const fbPaywall = {
       none: 'metered',
