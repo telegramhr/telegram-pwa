@@ -53,12 +53,12 @@
         <div
           v-for="post in posts.slice(1, 4)"
           :key="'sport-' + post.id"
-          class="fourth flex-responsive column-right-border column-horizontal-pad"
+          class="fourth flex-responsive mobile-side-pad column-right-border column-horizontal-pad"
         >
           <standard :post="post"></standard>
         </div>
         <div
-          class="fourth flex-responsive column-horizontal-pad mini-article-list"
+          class="fourth flex-responsive mobile-side-pad column-horizontal-pad mini-article-list"
         >
           <h3 class="full overtitle column-bottom-pad">Upravo se čita</h3>
           <div class="full flex">

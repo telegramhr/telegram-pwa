@@ -135,8 +135,8 @@ header .logo {
     border-bottom: 1px solid #c8c8c8;
 }
 .article h2 {
-    font-size: 24px;
-    font-size: 1.2rem;
+    font-size: 20px;
+    font-size: 1rem;
     margin-bottom: 10px;
     line-height: 1em;
     letter-spacing: -0.05em;
@@ -201,8 +201,8 @@ h5.article-meta i {
     height: 82px;
 }
 .article-standard h2 {
-    font-size: 22px;
-    font-size: 1.1rem;
+    font-size: 16px;
+    font-size: 0.8rem;
     position: relative;
     top: -2px;
     margin-bottom: 4px;
@@ -228,9 +228,6 @@ h5.article-meta i {
 .featured-articles .article-featured h2 {
     font-size: 28px;
     font-size: 1.4rem;
-}
-.article-standard:last-child {
-    border-bottom: none;
 }
 .article-featured .article-pad:first-child h2 {
     margin-bottom: 0px;
@@ -3505,8 +3502,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         border-bottom: none;
     }
     .article-featured h2, .article-break h2 {
-        font-size: 28px;
-        font-size: 1.4rem;
+        font-size: 22px;
+        font-size: 1.1rem;
     }
     .widget h2 {
         font-family: neuzeit-grotesk, sans-serif;
@@ -7030,9 +7027,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     width: 70%;
     max-width: 480px;
 }
-.no-image-block .article img {
-    display: none;
-}
 .no-image-block .article .article-meta .meta-author, .no-image-block .article .article-meta .meta-preporuke {
     display: none;
 }
@@ -7243,11 +7237,55 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .cantha-small-block .column-right-border:last-child {
     border-right: none;
 }
-
+@media screen and (max-width: 767px) {
+    h3.subsection-title, .mini-article-list h3.overtitle {
+        padding-top: 4px;
+        padding-bottom: 4vw;
+    }
+    .mini-article-list .article h2 {
+        font-size: 16px;
+        font-size: 0.8rem;
+        margin-bottom: 0px;
+    }
+    .mini-article-list .article-pad {
+        padding-bottom: 0px;
+        border-bottom: none;
+    }
+    .mini-article-list .article {
+        padding-bottom: 4vw;
+        margin-bottom: 4vw;
+        border-bottom: 1px solid #c8c8c8;
+    }
+    .dark-mode .mini-article-list .article {
+        border-color: #555;
+    }
+    .mini-article-list .article:last-child {
+        border-bottom: none;
+    }
+    .article-medium h2 {
+        font-size: 18px;
+        font-size: 0.9rem;
+    }
+    .cantha-big-block .the-big-gs .half, .cantha-big-block .the-big-gs .third {
+        order: 3;
+    }
+    .cantha-big-block .the-big-gs .half:first-child {
+        order: 1;
+    }
+    .cantha-big-block .the-big-gs .two-thirds {
+        order: 2;
+    }
+}
 @media screen and (min-width: 767px) {
+    .no-image-block .article img {
+        display: none;
+    }
     .article-standard {
         padding-bottom: 24px;
         margin-bottom: 24px;
+    }
+    .article:last-child {
+        border-bottom: none;
     }
     .article-featured .article-pad {
         padding-bottom: 0px;
@@ -7263,11 +7301,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 16px;
         font-size: 0.8rem;
     }
-    .big-split .article h2 {
-        font-size: 20px;
-        font-size: 1rem;
-    }
-    .no-image-block .article-standard h2, .cantha-mini-block .split-articles .article h2 {
+    .big-split .article h2, .no-image-block .article-standard h2, .cantha-mini-block .split-articles .article h2, .cantha-small-block .third .article h2 {
         font-size: 20px;
         font-size: 1rem;
     }

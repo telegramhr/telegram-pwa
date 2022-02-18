@@ -10,7 +10,7 @@
         </div>
       </div>
     </client-only>
-    <div class="full flex">
+    <div class="full tg-red flex">
       <theader></theader>
       <div class="full header-filler"></div>
     </div>
@@ -171,7 +171,9 @@
       </div>
     </div>
     <div class="full relative">
-      <div class="container flex cantha-small-block relative stretch">
+      <div
+        class="container flex cantha-small-block mobile-side-pad relative stretch"
+      >
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
@@ -195,7 +197,9 @@
       </div>
     </div>
     <div class="full relative">
-      <div class="container flex relative stretch column-bottom-pad">
+      <div
+        class="container mobile-side-pad flex relative stretch column-bottom-pad"
+      >
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
@@ -211,18 +215,6 @@
         <div class="fourth flex-responsive column-horizontal-pad">
           <standard :key="posts[11].id" :post="posts[11]"></standard>
         </div>
-        <div class="full column-full-pad">
-          <div class="full column-top-border"></div>
-        </div>
-        <div class="full flex cantha-small-block">
-          <div
-            v-for="post in posts.slice(7, 10)"
-            :key="post.id"
-            class="third flex-responsive column-right-border column-horizontal-pad"
-          >
-            <standard :post="post"></standard>
-          </div>
-        </div>
         <div class="full column-horizontal-pad">
           <div class="full column-top-pad column-bottom-border"></div>
         </div>
@@ -232,7 +224,7 @@
       <div class="container flex relative column-horizontal-pad">
         <app-link
           to="/newsletters"
-          class="full cantha-break flex relative stretch"
+          class="full cantha-break mobile-side-pad flex relative stretch"
         >
           <div class="third column-full-pad center flex-responsive">
             <div class="full flex article">
@@ -276,7 +268,7 @@
         <category-alt slug="biznis-tech"></category-alt>
       </div>
     </div>
-    <div class="full relative">
+    <div class="full mobile-side-pad relative">
       <client-only>
         <div class="full center">
           <authors></authors>
@@ -285,7 +277,7 @@
       </client-only>
     </div>
     <div class="full relative">
-      <div class="container flex relative stretch">
+      <div class="container flex relative stretch mobile-side-pad">
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
@@ -297,6 +289,18 @@
         >
           <medium :key="posts[1].id" :post="posts[1]"></medium>
         </div>
+        <div class="full column-full-pad">
+          <div class="full column-top-border"></div>
+        </div>
+        <div class="full flex cantha-small-block stretch">
+          <div
+            v-for="post in posts.slice(7, 10)"
+            :key="post.id"
+            class="third flex-responsive column-right-border column-horizontal-pad"
+          >
+            <standard :post="post"></standard>
+          </div>
+        </div>
         <div class="full column-horizontal-pad">
           <div class="full column-top-pad column-bottom-border"></div>
         </div>
@@ -304,7 +308,10 @@
     </div>
     <div class="full relative">
       <div class="container flex relative column-full-pad">
-        <app-link to="/dojave" class="full cantha-break flex relative stretch">
+        <app-link
+          to="/dojave"
+          class="full cantha-break mobile-side-pad flex relative stretch"
+        >
           <div class="forty column-full-pad center flex-responsive">
             <div class="full flex article">
               <h3 class="full overtitle">Telegram dojave</h3>
