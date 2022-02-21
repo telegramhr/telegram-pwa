@@ -1809,13 +1809,12 @@ header {
     left: -1px;
 }
 .related-articles h5 {
-    font-family: 'Barlow', sans-serif;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    font-size: 12px;
-    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: normal;
+    text-transform: none;
+    font-size: 15px;
+    font-size: 0.73rem;
     margin-bottom: 6px;
-    text-transform: uppercase;
     color: #ae3737;
 }
 .special-element .article-pad:first-child {
@@ -4070,8 +4069,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         display: none;
     }
     .block-5 .article-featured h2 {
-        font-size: 22px;
-        font-size: 1.1rem;
+        font-size: 20px;
+        font-size: 1rem;
     }
     .block-5 .article-standard h4, .block-5 .article-featured .meta-date {
         display: none;
@@ -7207,11 +7206,17 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     margin-left: auto;
     margin-right: auto;
 }
+.alt-big-break.center-text .article {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
 .alt-big-break.center-text .article .article-meta {
     justify-content: center;
 }
 .alt-big-break.center-text .article h2 {
-    margin-bottom: 16px;
+    margin-bottom: 8px;
     margin-top: 8px;
 }
 .new-author-tile .article img {
@@ -7237,6 +7242,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .cantha-small-block .column-right-border:last-child {
     border-right: none;
 }
+
 @media screen and (max-width: 767px) {
     h3.subsection-title, .mini-article-list h3.overtitle {
         padding-top: 4px;
@@ -7339,5 +7345,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .new-author-tile.column-right-border:last-child {
         border-right: none;
+    }
+    .classic-category .article-featured .article-pad {
+        padding-bottom: 16px;
+        margin-bottom: 16px;
+    }
+    .alt-big-break.center-text .article .article-pad {
+        padding-top: 0px;
     }
 }

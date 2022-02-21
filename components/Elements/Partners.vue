@@ -6,7 +6,7 @@
       <div class="full cantha-separator"></div>
     </div>
     <h3 class="full center-text column-full-pad subsection-title">Partneri</h3>
-    <div class="full flex stretch column-vertical-pad">
+    <div class="full flex stretch column-bottom-pad">
       <div
         v-for="post in posts"
         :key="post.id"

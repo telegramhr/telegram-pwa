@@ -1,40 +1,21 @@
 <template>
-  <section class="full flex mobile-side-pad">
-    <div class="full column-horizontal-pad column-top-pad">
+  <section
+    class="fourth flex-responsive column-horizontal-pad classic-category flex mobile-side-pad"
+  >
+    <div class="full">
       <div class="full cantha-separator"></div>
     </div>
     <h3 class="full center-text column-full-pad subsection-title">
       <nuxt-link :to="'/' + slug">{{ category | parseCat }}</nuxt-link>
     </h3>
-    <div class="full flex-responsive flex relative the-big-gs stretch">
-      <div class="half column-horizontal-pad flex-responsive flex">
-        <featured
-          v-for="post in posts.slice(0, 1)"
-          :key="post.id"
-          :post="post"
-        ></featured>
-      </div>
-      <div class="half flex-responsive flex stretch stretchtwo">
-        <div
-          class="half flex-responsive column-horizontal-pad column-right-border column-left-border flex no-image-block"
-        >
-          <standard
-            v-for="post in posts.slice(1, 3)"
-            :key="post.id"
-            :post="post"
-          ></standard>
-        </div>
-        <div
-          class="half flex-responsive column-horizontal-pad no-subtitle-block flex"
-        >
-          <standard
-            v-for="post in posts.slice(4, 6)"
-            :key="post.id"
-            :post="post"
-          ></standard>
-        </div>
-      </div>
-    </div>
+    <featured
+      v-for="post in posts.slice(0, 1)"
+      :key="post.id"
+      :post="post"
+    ></featured>
+    <template v-for="post in posts.slice(1, 4)">
+      <medium :key="post.id" :post="post"></medium>
+    </template>
   </section>
 </template>
 

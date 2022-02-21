@@ -1,6 +1,6 @@
 <template>
-  <div class="full flex">
-    <a href="https://super1.telegram.hr" class="super1-block full flex">
+  <div class="full flex super1-block">
+    <a href="https://super1.telegram.hr" class="full flex">
       <div class="block-title full mobile-side-pad">
         <div class="container center column-horizontal-pad relative">
           <img src="@/assets/img/super1_logo_white.svg" alt="Super1 logo" />

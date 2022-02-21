@@ -182,16 +182,11 @@
         </h3>
         <div class="full flex stretch relative">
           <div
-            v-for="post in posts.slice(7, 10)"
+            v-for="post in posts.slice(7, 11)"
             :key="post.id"
             class="fourth flex-responsive column-right-border column-horizontal-pad"
           >
             <standard :post="post"></standard>
-          </div>
-          <div
-            class="fourth flex-responsive column-horizontal-pad mini-article-list"
-          >
-            <trending :id="1"></trending>
           </div>
         </div>
       </div>
@@ -212,8 +207,10 @@
         >
           <medium :key="posts[0].id" :post="posts[0]"></medium>
         </div>
-        <div class="fourth flex-responsive column-horizontal-pad">
-          <standard :key="posts[11].id" :post="posts[11]"></standard>
+        <div
+          class="fourth flex-responsive column-horizontal-pad mini-article-list"
+        >
+          <trending :id="1"></trending>
         </div>
         <div class="full column-horizontal-pad">
           <div class="full column-top-pad column-bottom-border"></div>
@@ -260,7 +257,7 @@
     </div>
     <div class="full relative">
       <div class="container flex relative">
-        <category slug="velike-price"></category>
+        <category-big slug="velike-price"></category-big>
       </div>
     </div>
     <div class="full relative">
@@ -287,7 +284,7 @@
         <div
           class="full column-horizontal-pad flex split-articles big-split alt-big-break center-text"
         >
-          <medium :key="posts[1].id" :post="posts[1]"></medium>
+          <standard :key="posts[1].id" :post="posts[1]"></standard>
         </div>
         <div class="full column-full-pad">
           <div class="full column-top-border"></div>
@@ -363,7 +360,15 @@
       <os-homepage></os-homepage>
     </div>
     <div class="full relative">
-      <div class="container desktop-only flex relative column-full-pad"></div>
+      <div class="container flex relative block-5 standard-block">
+        <client-only>
+          <category slug="zivot"></category>
+          <category slug="biznis-tech"></category>
+          <category slug="kultura"></category>
+          <category slug="velike-price"></category>
+          <most-read v-if="$mobile"></most-read>
+        </client-only>
+      </div>
     </div>
     <div class="full relative">
       <div class="full center">

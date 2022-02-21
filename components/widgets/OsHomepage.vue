@@ -6,13 +6,33 @@
       <div class="full cantha-separator"></div>
     </div>
     <h3 class="full center-text column-full-pad subsection-title">openspace</h3>
-    <div class="full flex stretch column-vertical-pad">
+    <div class="full column-bottom-pad flex relative the-big-gs stretch">
       <div
-        v-for="post in posts"
-        :key="post.id"
-        class="fourth column-right-border flex-responsive column-horizontal-pad"
+        class="half column-horizontal-pad split-articles flex-responsive flex"
       >
-        <standard :post="post"></standard>
+        <medium
+          v-for="post in posts.slice(0, 1)"
+          :key="post.id"
+          :post="post"
+        ></medium>
+      </div>
+      <div class="half flex-responsive flex stretch stretchtwo">
+        <div
+          class="half flex-responsive column-horizontal-pad column-right-border column-left-border flex no-image-block"
+        >
+          <standard
+            v-for="post in posts.slice(1, 2)"
+            :key="post.id"
+            :post="post"
+          ></standard>
+        </div>
+        <div class="half flex-responsive column-horizontal-pad flex">
+          <mini
+            v-for="post in posts.slice(2, 5)"
+            :key="post.id"
+            :post="post"
+          ></mini>
+        </div>
       </div>
     </div>
   </div>

@@ -1,6 +1,6 @@
 <template>
-  <div class="full flex">
-    <a href="https://telesport.telegram.hr" class="sport-block full flex">
+  <div class="full flex sport-block">
+    <a href="https://telesport.telegram.hr" class="full flex">
       <div class="block-title full mobile-side-pad">
         <div class="container center column-horizontal-pad relative">
           <img
