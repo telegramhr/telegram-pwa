@@ -81,9 +81,13 @@ header .logo {
     font-size: 12px;
     font-size: 0.6rem;
     padding: 7px 0px;
+    background-color: #fcf1e7;
+    border-bottom: 1px solid #c8c8c8;
+    box-shadow: 10px 0px 20px rgba(0, 0, 0, 0.25);
+}
+.homepage header .subheader, .dark-mode .subheader {
     background-color: #212121;
-    color: #c1b9b1;
-    /*border-bottom: 1px solid #c8c8c8;*/
+    color: #c1b9b1
 }
 .subheader img {
     position: relative;
@@ -805,12 +809,16 @@ h3.subsection-title img {
     font-feature-settings: "liga" 0, "clig" 0;
     margin-right: 12px;
 }
+.subheader .signup-btn {
+    background-color: #333;
+    color: white;
+}
 .side-menu .signup-btn {
     font-size: 10px;
     font-size: 0.5rem;
     text-align: center;
 }
-.sub-btn {
+.sub-btn, .subheader .sub-btn {
     background: #ae3737;
     color: white;
 }
@@ -1761,6 +1769,9 @@ header {
     position: absolute;
     top: 0;
     right: 0;
+    background: linear-gradient(to left, rgba(252,241,231,1), rgba(252,241,231,0));
+}
+.dark-mode .header-headline::before {
     background: linear-gradient(to left, rgba(31,31,31,1), rgba(31,31,31,0));
 }
 
@@ -7241,6 +7252,15 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .cantha-small-block .column-right-border:last-child {
     border-right: none;
+}
+.new-breaking {
+    font-family: 'Lora', serif;
+    letter-spacing: normal;
+    font-size: 18px;
+    font-size: 0.9rem;
+}
+.new-breaking b {
+    color: #ae3737;
 }
 
 @media screen and (max-width: 767px) {

@@ -251,7 +251,7 @@
         <div class="two-thirds flex subheader-ow-fix" role="navigation">
           <app-link to="/" class="logo"
             ><img
-              src="@/assets/img/telegram_logo_white.svg"
+              src="@/assets/img/telegram_logo_black.svg"
               alt="Telegram logo"
           /></app-link>
           <a
@@ -338,14 +338,7 @@
       <div class="full subheader mobile-side-pad center">
         <!-- Desktop Subheader -->
         <div
-          class="
-            container
-            desktop-only
-            flex
-            desktop-subheader
-            column-horizontal-pad
-            single-exclusive
-          "
+          class="container desktop-only flex desktop-subheader column-horizontal-pad single-exclusive"
         >
           <div class="third flex">
             <a
@@ -360,7 +353,7 @@
           <div class="third center relative">
             <app-link to="/" class="logo"
               ><img
-                src="@/assets/img/telegram_logo_white.svg"
+                src="@/assets/img/telegram_logo_black.svg"
                 alt="Telegram logo"
             /></app-link>
           </div>
@@ -416,14 +409,7 @@
         </client-only>
         <div
           id="sidebar"
-          class="
-            container
-            desktop-only
-            flex
-            desktop-subheader
-            column-horizontal-pad
-            homepage-exclusive
-          "
+          class="container desktop-only flex desktop-subheader column-horizontal-pad homepage-exclusive"
           role="navigation"
         >
           <client-only>
@@ -442,9 +428,6 @@
             ><span>{{ $store.state.weather.zagreb[0].temp }}&#176;c</span>
           </div>
         </client-only>
-      </div>
-      <div class="full desktop-only">
-        <breaking></breaking>
       </div>
       <nav class="full flex homepage-exclusive animate">
         <div class="container relative">
@@ -512,9 +495,6 @@
         </div>
       </div>-->
     </header>
-    <div class="full mobile-only">
-      <breaking></breaking>
-    </div>
   </div>
 </template>
 

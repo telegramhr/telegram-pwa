@@ -49,6 +49,7 @@
         <div class="full">
           <div class="full cantha-separator"></div>
         </div>
+        <breaking></breaking>
       </div>
     </div>
     <!--<client-only>
