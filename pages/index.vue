@@ -32,16 +32,15 @@
         <section
           class="three-fourths mobile-side-pad flex-responsive flex relative the-big-gs stretch elevate-over-section"
         >
-          <div class="full flex desktop-only column-horizontal-pad">
-            <h2
-              class="full ukraine-header column-vertical-pad center-text column-top-border"
-            >
-              Rat u Ukrajini
-            </h2>
-          </div>
+          <div class="full flex desktop-only column-horizontal-pad"></div>
           <div
             class="five-sixths column-horizontal-pad flex-responsive flex column-bottom-border column-right-border"
           >
+            <h2
+              class="full desktop-only ukraine-header column-bottom-pad center-text"
+            >
+              Rat u Ukrajini
+            </h2>
             <featured :key="posts[0].id" :post="posts[0]"></featured>
           </div>
           <aside
