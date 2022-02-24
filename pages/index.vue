@@ -151,6 +151,11 @@
           <div class="full column-full-pad">
             <div class="full column-top-border"></div>
           </div>
+          <div class="full column-horizontal-pad">
+            <mini-pretplata-home
+              v-show="!$store.state.user.access"
+            ></mini-pretplata-home>
+          </div>
           <div
             class="two-thirds flex-responsive column-horizontal-pad flex split-articles column-right-border big-split"
           >

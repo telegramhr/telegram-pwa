@@ -3188,8 +3188,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 /* Mini pretplata widget */
 
 .mini-pretplata {
-    padding-bottom: 18px;
-    margin-bottom: 16px;
+    padding-bottom: 20px;
+    margin-bottom: 24px;
     /*padding-right: 128px;*/
     border-bottom: 1px solid #c8c8c8;
 }
