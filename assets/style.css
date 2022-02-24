@@ -6994,3 +6994,19 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .project-cantha .commentary-widget-line > div > a:first-child {
     width: 100%;
 }
+
+
+/* Ukraine */
+
+.ukraine-mobile-header {
+    color: white;
+    font-size: 13vw;
+    text-transform: uppercase;
+    margin-bottom: 3vw;
+    margin-top: 2vw;
+}
+.ukraine-header {
+    font-size: 72px;
+    text-transform: uppercase;
+    line-height: 50px;
+}
