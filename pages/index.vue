@@ -186,7 +186,7 @@
         <h3 class="full center-text column-full-pad subsection-title">
           Još vijesti
         </h3>
-        <div class="full flex stretch relative">
+        <div class="full flex stretch relative no-last-border-mobile">
           <div
             v-for="post in posts.slice(7, 11)"
             :key="post.id"

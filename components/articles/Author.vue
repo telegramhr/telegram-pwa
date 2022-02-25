@@ -1,14 +1,6 @@
 <template>
   <div
-    class="
-      fourth
-      flex
-      column-horizontal-pad
-      mobile-side-pad
-      stretch
-      new-author-tile
-      column-right-border
-    "
+    class="fourth flex column-horizontal-pad stretch new-author-tile column-right-border"
   >
     <!--
       <app-link :to="post.permalink" class="full flex fancy-author-tile">

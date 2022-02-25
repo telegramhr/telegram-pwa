@@ -3254,6 +3254,11 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 @media screen and (max-width: 767px) {
     .mini-pretplata {
         order: 1;
+        font-size: 12px;
+        font-size: 0.6rem;
+        margin-bottom: 0vw;
+        padding-bottom: 5vw;
+        padding-top: 4vw;
     }
     .block-1 .article-featured {
         order: 2;
@@ -3265,6 +3270,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         max-width: 300px;
         margin-left: auto;
         margin-right: auto;
+        font-size: 18px;
+        font-size: 0.9rem;
     }
     .pretplata-page .mini-pretplata h2 {
         font-size: 20px;
@@ -5082,35 +5089,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .fancy-authors-widget .fourth:nth-child(n+5) {
     display: none;
-}
-
-@media screen and (max-width: 1248px) {
-    .fancy-authors-widget {
-        flex-wrap: nowrap;
-        overflow-x: scroll;
-        display: flex;
-        scroll-snap-type: x mandatory;
-    }
-    .fancy-authors-widget .fourth:nth-child(n+5) {
-        display: flex;
-    }
-    .fancy-authors-widget .fourth {
-        scroll-snap-align: start;
-        width: 320px;
-        min-width: 320px;
-    }
-    .fancy-author-tile img {
-        height: 320px;
-    }
-}
-@media screen and (max-width: 481px) {
-    .fancy-authors-widget .fourth {
-        width: 80vw;
-        min-width: 80vw;
-    }
-    .fancy-author-tile img {
-        height: 80vw;
-    }
 }
 
 /* Open Space and Fancy rubrika */
@@ -7268,38 +7246,99 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         padding-top: 4px;
         padding-bottom: 4vw;
     }
-    .mini-article-list .article h2 {
+    .article-mini h2 {
         font-size: 16px;
         font-size: 0.8rem;
         margin-bottom: 0px;
     }
-    .mini-article-list .article-pad {
+    .article-mini .article-pad {
         padding-bottom: 0px;
         border-bottom: none;
     }
-    .mini-article-list .article {
+    .article-mini {
         padding-bottom: 4vw;
         margin-bottom: 4vw;
         border-bottom: 1px solid #c8c8c8;
     }
-    .dark-mode .mini-article-list .article {
+    .dark-mode .article-mini {
         border-color: #555;
     }
-    .mini-article-list .article:last-child {
+    .article-mini:last-child {
         border-bottom: none;
     }
     .article-medium h2 {
         font-size: 18px;
         font-size: 0.9rem;
     }
-    .cantha-big-block .the-big-gs .half, .cantha-big-block .the-big-gs .third {
+    .cantha-big-block .the-big-gs > *{
+        order: 2;
+    }
+    .cantha-big-block .the-big-gs > .half, .cantha-big-block .the-big-gs > .third {
         order: 3;
     }
-    .cantha-big-block .the-big-gs .half:first-child {
+    .cantha-big-block .the-big-gs > .half:first-child {
         order: 1;
     }
-    .cantha-big-block .the-big-gs .two-thirds {
-        order: 2;
+    .cantha-break {
+        padding: 4vw;
+        margin-bottom: 4vw;
+    }
+    .cantha-break img {
+        margin: 4vw 0;
+    }
+    .cantha-mini-block .article-mini {
+        padding-bottom: 4vw;
+        margin-bottom: 4vw;
+    }
+    .cantha-mini-block .article-mini h2 {
+        font-size: 16px;
+        font-size: 0.8rem;
+    }
+    .cantha-mini-block .article-mini .article-pad {
+        border-bottom: none;
+    }
+    .cantha-mini-block .article-mini:first-child .article-pad {
+        padding-top: 4vw;
+    }
+    .fancy-authors-widget .fourth {
+        width: 100%;
+        min-width: 100%;
+    }
+    .new-author-tile .article h2 {
+        margin-bottom: 0px;
+    }
+    .new-author-tile .article img {
+        padding: 0px;
+    }
+    .new-author-tile .article h5 {
+        display: none;
+    }
+    .new-author-tile .article .desktop-only {
+        display: flex;
+    }
+    .alt-big-break .article-standard {
+        padding-left: 0px;
+        padding-top: 0px;
+    }
+    .alt-big-break .article-standard img {
+        width: 100%;
+        height: auto;
+        position: relative;
+        top: 0;
+        left: 0;
+        margin-left: 0px;
+        margin-bottom: 4vw;
+    }
+    .alt-big-break .article h2, .alt-big-break.center-text .article h2 {
+        font-size: 22px;
+        font-size: 1.1rem;
+        margin-top: 0px;
+    }
+    .alt-big-break.center-text .article .article-pad {
+        padding-top: 0px;
+    }
+    .no-last-border-mobile .flex-responsive:last-child .article:last-child {
+        border-bottom: none;
     }
 }
 @media screen and (min-width: 767px) {
