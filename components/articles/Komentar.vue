@@ -5,29 +5,20 @@
     role="article"
     :aria-labelledby="'komentar-' + post.id"
   >
-    <div class="komentar-box relative">
-      <div class="full flex relative komentar-head">
-        <picture>
-          <source type="image/webp" :srcset="post.image.webp" />
-          <img
-            :srcset="srcset"
-            :src="post.image.url"
-            :alt="post.image.alt"
-            loading="lazy"
-          />
-        </picture>
-        <div class="komentar-quotation">“</div>
-        <div class="komentar-image">
-          <picture>
-            <source type="image/webp" :srcset="post.image.webp" />
-            <img
-              :srcset="srcset"
-              :src="post.image.url"
-              :alt="post.image.alt"
-              loading="lazy"
-            />
-          </picture>
-        </div>
+    <div class="full komentar-box relative">
+      <div class="komentar-content full">
+        <h2 :id="'komentar-' + post.id" class="full animate">
+          <div class="komentar-quotation">“</div>
+          {{ post.portal_title }}
+        </h2>
+        <h5 class="full flex article-meta">
+          <span v-if="post.recommendations" class="meta-preporuke"
+            >{{ post.recommendations }} preporuka</span
+          >
+          <span class="meta-date">{{ post.time | parseTime }}</span>
+        </h5>
+      </div>
+      <div class="full flex relative">
         <div
           v-if="post.authors.length"
           class="full komentar-author relative flex"
@@ -43,17 +34,6 @@
             <span>{{ post.authors[0].name }}</span>
           </div>
         </div>
-      </div>
-      <div class="komentar-content full">
-        <h2 :id="'komentar-' + post.id" class="full animate">
-          {{ post.portal_title }}
-        </h2>
-        <h5 class="full flex article-meta">
-          <span v-if="post.recommendations" class="meta-preporuke"
-            >{{ post.recommendations }} preporuka</span
-          >
-          <span class="meta-date">{{ post.time | parseTime }}</span>
-        </h5>
       </div>
     </div>
   </app-link>

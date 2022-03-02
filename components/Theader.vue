@@ -252,7 +252,11 @@
           <app-link to="/" class="logo"
             ><img
               src="@/assets/img/telegram_logo_black.svg"
+              alt="Telegram logo" />
+            <img
+              src="@/assets/img/telegram_logo_white.svg"
               alt="Telegram logo"
+              class="dark-mode-only"
           /></app-link>
           <a
             :aria-expanded="$store.state.header.showSideMenu.toString()"

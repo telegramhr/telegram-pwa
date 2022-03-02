@@ -29,7 +29,11 @@
           <nuxt-link to="/" class="logo" @click="$fetch"
             ><img
               src="@/assets/img/telegram_logo_black.svg"
+              alt="Telegram logo" />
+            <img
+              src="@/assets/img/telegram_logo_white.svg"
               alt="Telegram logo"
+              class="dark-mode-only"
           /></nuxt-link>
           <a
             aria-label="Prikaži tražilicu"
@@ -168,6 +172,9 @@
           <div
             class="third flex-responsive column-horizontal-pad flex cantha-commentary"
           >
+            <div class="full mobile-only">
+              <div class="full cantha-separator"></div>
+            </div>
             <h3 class="full center-text column-bottom-pad subsection-title">
               Komentari & analize
             </h3>
@@ -206,6 +213,11 @@
         </div>
         <h3 class="full center-text column-full-pad subsection-title">
           <img src="@/assets/img/telegram_logo_black.svg" alt="Telegram logo" />
+          <img
+            src="@/assets/img/telegram_logo_white.svg"
+            class="dark-mode-only"
+            alt="Telegram logo"
+          />
           preporuka
         </h3>
         <div

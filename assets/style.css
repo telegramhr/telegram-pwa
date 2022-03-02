@@ -27,13 +27,15 @@ body {
     background-color: #ae3737;
 }
 h1 {
-    font-family: neuzeit-grotesk-extra-conden, sans-serif;
-    font-weight: 900;
+    font-family: 'Lora', serif;
+    line-height: 1.2em;
+    font-weight: 700;
     font-style: normal;
     letter-spacing: -0.05em;
 }
 h2 {
-    font-family: neuzeit-grotesk-extra-conden, sans-serif;
+    font-family: 'Lora', serif;
+    line-height: 1.2em;
     font-weight: 900;
     font-style: normal;
 }
@@ -87,12 +89,22 @@ header .logo {
 }
 .homepage header .subheader, .dark-mode .subheader {
     background-color: #212121;
-    color: #c1b9b1
+    color: #c1b9b1;
+    border-bottom: none;
 }
 .subheader img {
     position: relative;
     height: 12px;
     margin-right: 7px;
+    display: inline-block;
+}
+.subheader img.dark-mode-only {
+    display: none;
+}
+.dark-mode .subheader .logo img {
+    display: none;
+}
+.dark-mode .subheader .logo img.dark-mode-only {
     display: inline-block;
 }
 .subheader object {
@@ -407,6 +419,12 @@ h3.subsection-title img {
     bottom: -0.5px;
     margin-right: 2px;
 }
+h3.subsection-title img.dark-mode-only, .dark-mode h3.subsection-title img {
+    display: none;
+}
+.dark-mode h3.subsection-title img.dark-mode-only {
+    display: inline-block;
+}
 
 /* Komentar */
 
@@ -433,46 +451,34 @@ h3.subsection-title img {
     height: 100%;
 }
 .komentar-author {
-    height: 71px;
-    padding-left: 144px;
-    padding-right: 64px;
     font-size: 11px;
     font-size: 0.55rem;
     text-transform: uppercase;
     font-family: 'Barlow', sans-serif;
     font-weight: 600;
-    align-content: flex-end;
-    justify-content: flex-end;
-}
-.komentar-author div {
-    width: 90px; 
-    padding-bottom: 8px;
+    margin-top: 4px;
 }
 .komentar-author i {
     opacity: 0.5;
     margin-bottom: 3px;
 }
 .komentar-author span {
-    opacity: 0.7;
-    font-size: 20px;
-    font-size: 1rem;
-    letter-spacing: 2.5px;
-    z-index: 3;
-    word-spacing: 400px;
+    letter-spacing: 0;
+    word-spacing: 0;
+    font-size: 12px;
+    font-size: 0.6rem;
     position: relative;
-    text-shadow: 1px 1px #fcf1e7;
 }
 .komentar-author img {
-    width: 70px;
-    height: 70px;
+    width: 32px;
+    height: 32px;
     object-fit: contain;
     object-position: bottom center;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
-    position: absolute;
+    background-color: rgba(0, 0, 0, 0.15);
+    margin-right: 8px;
+    border-radius: 16px;
 }
-.komentar .meta-date {
+.komentar h5.article-meta {
     display: none;
 }
 .komentar h2 {
@@ -483,18 +489,20 @@ h3.subsection-title img {
     font-size: 0.95rem;
     margin-bottom: 10px;
     line-height: 1.2em;
+    text-indent: 1.5rem;
 }
 .komentar-quotation {
-    top: -4px;
-    left: 4px;
+    top: 0.95rem;
     position: absolute;
-    font-size: 36px;
-    font-size: 2.3rem;
+    font-size: 50px;
+    font-size: 2.5rem;
     color: #ae3737;
     font-family: 'Lora', serif;
     font-weight: 700;
     z-index: 5;
-    mix-blend-mode: hard-light;
+}
+.komentar h2 .komentar-quotation {
+    text-indent: 0px;
 }
 .komentar-head {
     overflow: hidden;
@@ -515,13 +523,27 @@ h3.subsection-title img {
     height: 100%;
 }
 .list-article {
-    margin-bottom: 4vw;
-    margin-top: 8vw;
+    margin-bottom: 5vw;
+    margin-top: 5vw;
+    padding-bottom: 4vw;
+}
+.list-article h2 {
+    text-indent: 0px;
 }
 .list-article .komentar-quotation {
     font-size: 20px;
     font-size: 1rem;
     display: none;
+}
+.list-article .komentar-image {
+    width: 140px;
+    height: 88px;
+    position: absolute;
+    top: -64px;
+    left: 0;
+}
+.list-article .komentar-author {
+    padding-left: 150px;
 }
 .list-article .komentar-author span {
     font-size: 10vw;
@@ -530,6 +552,12 @@ h3.subsection-title img {
     opacity: 1;
     mix-blend-mode: normal;
     object-fit: cover;
+}
+.list-article .komentar-content {
+    padding-top: 24px;
+}
+.list-article h5.article-meta {
+    display: flex;
 }
 
 .article-break {
@@ -857,8 +885,9 @@ h3.subsection-title img {
     display: none;
 }
 .block-title h1 {
-    font-family: neuzeit-grotesk, sans-serif;
-    letter-spacing: 0;
+    font-family: 'Lora', serif;
+    line-height: 1.2em;
+    font-weight: 700;
     font-size: 36px;
     font-size: 1.8rem;
     padding-bottom: 16px;
@@ -2324,7 +2353,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     border: 1px solid #555;
     border-top: none;
 }
-.dark-mode .komentar-content, .dark-mode .pretplata-intext {
+.dark-mode .pretplata-intext {
     border: 1px solid #333;
 }
 .dark-mode .midas-itw-header-text, .dark-mode .midas-itw-list-1-column .midas-itw-list-item, .dark-mode .midas-itw-footer-sb {
@@ -4133,10 +4162,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     footer .services, footer .social-links {
         margin-bottom: 32px;
-    }
-    .komentar-author img {
-        width: 60px;
-        height: 60px;
     }
     .komentar-author i {
         margin-bottom: 3px;
@@ -7015,6 +7040,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     width: 70%;
     max-width: 480px;
 }
+.dark-mode .cantha-header .logo img {
+    display: none;
+}
+.dark-mode .cantha-header .logo img.dark-mode-only {
+    display: block;
+}
 .no-image-block .article .article-meta .meta-author, .no-image-block .article .article-meta .meta-preporuke {
     display: none;
 }
@@ -7038,11 +7069,18 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     border-bottom: 3px solid #111;
     padding-top: 5px;
 }
+.dark-mode .cantha-separator {
+    border-top-color: #555;
+    border-bottom-color: #777;
+}
 .cantha-header {
     padding-top: 8px;
     padding-bottom: 16px;
     background-color: #fcf1e7;
     z-index: 100;
+}
+.dark-mode .cantha-header {
+    background-color: #212121;
 }
 .cantha-block-title {
     padding-top: 0px;
@@ -7121,7 +7159,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .mini-article-list h3.overtitle {
     font-weight: 700;
-    color: #333;
+    opacity: .8;
 }
 .mini-article-list .article-mini h5.article-meta {
     display: none;
@@ -7179,6 +7217,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .cantha-break {
     background-color: #e8dacd;
 }
+.dark-mode .cantha-break {
+    background-color:rgba(0, 0, 0, 0.3);
+}
 .cantha-break h5 {
     opacity: .5;
     font-weight: 400;
@@ -7187,6 +7228,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .cantha-break .newbtn {
     margin-bottom: 8px;
+}
+.dark-mode .cantha-break .hard-light-blend {
+    mix-blend-mode: normal;
+}
+.dark-mode .cantha-break .newbtn {
+    background-color: #ae3737;
 }
 .hard-light-blend {
     mix-blend-mode: hard-light;
