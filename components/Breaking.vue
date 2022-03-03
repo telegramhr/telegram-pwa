@@ -1,5 +1,8 @@
 <template>
-  <div v-show="$store.state.breaking.on" class="full flex new-breaking">
+  <div
+    v-show="$store.state.breaking.on"
+    class="full flex new-breaking mobile-side-pad"
+  >
     <div class="container column-vertical-pad column-bottom-border center-text">
       <nuxt-link
         :to="$store.state.breaking.link ? $store.state.breaking.link : '#'"

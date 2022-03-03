@@ -10,13 +10,12 @@
         </div>
       </div>
     </client-only>
-    <div class="full tg-red flex">
+    <div class="full flex">
       <theader></theader>
-      <div class="full header-filler"></div>
     </div>
-    <div class="full relative cantha-header desktop-only">
+    <div class="full relative cantha-header">
       <div class="container flex relative column-top-pad column-horizontal-pad">
-        <div class="full center relative">
+        <div class="full center relative desktop-only">
           <a
             class="cantha-menubtn"
             aria-label="Prikaži lijevi meni"
@@ -50,10 +49,11 @@
         >
           Portal za društvena i kulturna pitanja
         </h2>
-        <div class="full">
+        <div class="full mobile-side-pad">
           <div class="full cantha-separator"></div>
         </div>
         <breaking></breaking>
+        <div class="full header-filler"></div>
       </div>
     </div>
     <!--<client-only>

@@ -446,7 +446,7 @@
           ></a>
           <app-link to="/" class="logo"
             ><img
-              src="@/assets/img/telegram_logo_white.svg"
+              src="@/assets/img/telegram_logo_black.svg"
               alt="Telegram logo"
           /></app-link>
           <div class="desktop-only full center-text tagline">
