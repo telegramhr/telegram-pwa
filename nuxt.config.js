@@ -42,6 +42,7 @@ export default {
       },
       { rel: 'stylesheet', href: 'https://use.typekit.net/yjw4lwh.css' },
       { rel: 'stylesheet', href: 'https://use.typekit.net/vrv6rlv.css' },
+      { rel: 'stylesheet', href: 'https://use.typekit.net/vad7pag.css' },
       {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap',

@@ -7503,3 +7503,81 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         padding-top: 0px;
     }
 }
+
+/* Super2 */
+
+.fancy-rubrika .subheader {
+    background-color: white;
+}
+.dark-mode .fancy-rubrika .subheader {
+    background-color: #111;
+}
+.fancy-rubrika header .subheader {
+    display: none;
+}
+.superone .article-standard h2, .superone .article-featured h2 {
+    font-family: henriette-compressed,sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 20px;
+    font-size: 1rem;
+    line-height: 1.2em;
+    letter-spacing: normal;
+}
+.superone .article-featured h2 {
+    font-size: 26px;
+    font-size: 1.3rem;
+}
+.superone .container .third.column-right-border:last-child, .superone .container .fourth.column-right-border:last-child {
+    border-right: none;
+}
+.superone .intro-block .sixty .article-featured h2 {
+    font-size: 34px;
+    font-size: 1.7rem;
+}
+.superone .alt-big-break.center-text h2  {
+    font-size: 40px;
+    font-size: 2rem;
+}
+.superone .article h3.overtitle, .superone .article h5.article-meta {
+    font-style: normal;
+}
+.super-sidebar .article h4 {
+    display: none;
+}
+.super-sidebar.split-articles .article-medium img {
+    margin-bottom: 0px;
+}
+.super-sidebar .full:first-child {
+    padding-top: 0px;
+} 
+.super-sidebar .full:last-child {
+    border-bottom: none;
+    padding-bottom: 0px;
+} 
+.superone .page-header-nav a {
+    font-family: henriette-compressed,sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 20px;
+    font-size: 1rem;
+}
+.superone .intro-block .split-articles .article-standard img {
+    width: 39.99%;
+}
+.superone .intro-block .split-articles .article-standard .article-pad {
+    width: 59.99%;
+}
+.superone .fourth .article-mini .article-pad {
+    padding-bottom: 16px;
+    border-bottom: 1px solid #c8c8c8;
+    margin-bottom: 16px;
+}
+.dark-mode .superone .fourth .article-mini .article-pad {
+    border-bottom-color: #555;
+}
+.superone .fourth .article-mini:last-child .article-pad {
+    padding-bottom: 0px;
+    border-bottom: none;
+    margin-bottom: 0px;
+}
