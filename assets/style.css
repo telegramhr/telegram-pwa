@@ -5620,7 +5620,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .openspace .article-big img {
         margin-bottom: 8px;
     }
-    .openspace .widget .btn, .subtle-btn {
+    .openspace .widget .btn, .openspace .subtle-btn {
         font-family: ibm-plex-mono, sans-serif;
         font-weight: 700;
     }
@@ -7545,16 +7545,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .super-sidebar .article h4 {
     display: none;
 }
-.super-sidebar.split-articles .article-medium img {
-    margin-bottom: 0px;
-}
-.super-sidebar .full:first-child {
-    padding-top: 0px;
-} 
-.super-sidebar .full:last-child {
-    border-bottom: none;
-    padding-bottom: 0px;
-} 
 .superone .page-header-nav a {
     font-family: henriette-compressed,sans-serif;
     font-weight: 700;
@@ -7562,22 +7552,59 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 20px;
     font-size: 1rem;
 }
-.superone .intro-block .split-articles .article-standard img {
-    width: 39.99%;
-}
-.superone .intro-block .split-articles .article-standard .article-pad {
-    width: 59.99%;
-}
-.superone .fourth .article-mini .article-pad {
-    padding-bottom: 16px;
-    border-bottom: 1px solid #c8c8c8;
-    margin-bottom: 16px;
-}
+
 .dark-mode .superone .fourth .article-mini .article-pad {
     border-bottom-color: #555;
 }
-.superone .fourth .article-mini:last-child .article-pad {
-    padding-bottom: 0px;
-    border-bottom: none;
-    margin-bottom: 0px;
+.superone .cantha-header {
+    background-color: white;
+}
+.superone .cantha-header .logo {
+    width: auto;
+    max-width: 100%;
+}
+.superone .cantha-header .logo img {
+    max-width: 320px;
+}
+.superone .block-title, .superone .dynamic-overtitle-element, .superone .widget, .superone .widget::before, .superone .komentar .komentar-image, .superone .subtle-btn-parent:hover .subtle-btn, .superone .loader-square div {
+    background-color: #CC3366;
+}
+.superone .meta-preporuke, .superone h3.overtitle, .superone .article-mini .meta-date, .superone .related-articles h5 {
+    color: #CC3366;
+}
+@media screen and (min-width: 767px) {
+    .super-sidebar.split-articles .article-medium img {
+        margin-bottom: 0px;
+    }
+    .super-sidebar .full:first-child {
+        padding-top: 0px;
+    } 
+    .super-sidebar .full:last-child {
+        border-bottom: none;
+        padding-bottom: 0px;
+    } 
+    .superone .intro-block .split-articles .article-standard img {
+        width: 39.99%;
+    }
+    .superone .intro-block .split-articles .article-standard .article-pad {
+        width: 59.99%;
+    }
+    .superone .fourth .article-mini .article-pad {
+        padding-bottom: 16px;
+        border-bottom: 1px solid #c8c8c8;
+        margin-bottom: 16px;
+    }
+    .superone .fourth .article-mini:last-child .article-pad {
+        padding-bottom: 0px;
+        border-bottom: none;
+        margin-bottom: 0px;
+    }
+}
+@media screen and (max-width: 767px) {
+    .superone .fourth .article-mini .article-pad h2 {
+        padding-bottom: 4px;
+    }
+    .superone .fourth .article-mini:first-child {
+        margin-top: 4vw;
+    }
 }
