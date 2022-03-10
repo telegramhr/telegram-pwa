@@ -7177,13 +7177,13 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .cantha-menubtn {
     position: absolute;
     top: 16px;
-    left: 16px;
+    left: 0px;
     font-size: 20px;
 }
 .cantha-searchbtn {
     position: absolute;
     top: 16px;
-    right: 16px;
+    right: 0px;
     font-size: 20px;
 }
 .newbtn {
@@ -7332,6 +7332,15 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 
 @media screen and (max-width: 767px) {
+    .cantha-header {
+        z-index: 1;
+    }
+    .cantha-header .cantha-separator {
+        margin-bottom: 2vw;
+    }
+    .cantha-header .new-breaking {
+        margin-bottom: 2vw;
+    }
     h3.subsection-title, .mini-article-list h3.overtitle {
         padding-top: 4px;
         padding-bottom: 4vw;
@@ -7551,6 +7560,11 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-style: normal;
     font-size: 20px;
     font-size: 1rem;
+    margin: 0px 18px;
+    opacity: .5;
+}
+.superone .page-header-nav a:hover {
+    opacity: 1;
 }
 
 .dark-mode .superone .fourth .article-mini .article-pad {
@@ -7558,6 +7572,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .superone .cantha-header {
     background-color: white;
+    padding-bottom: 4px;
 }
 .dark-mode .superone .cantha-header {
     background-color: #212121;
@@ -7567,7 +7582,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     max-width: 100%;
 }
 .superone .cantha-header .logo img {
-    max-width: 320px;
+    width: 70vw;
+    max-width: 324px;
+    padding-left: 4px;
+}
+.superone .cantha-menubtn, .superone .cantha-searchbtn {
+    top: 30px;
 }
 .superone .block-title, .superone .dynamic-overtitle-element, .superone .widget, .superone .widget::before, .superone .komentar .komentar-image, .superone .subtle-btn-parent:hover .subtle-btn, .superone .loader-square div {
     background-color: #CC3366;
@@ -7575,6 +7595,11 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .superone .meta-preporuke, .superone h3.overtitle, .superone .article-mini .meta-date, .superone .related-articles h5 {
     color: #CC3366;
 }
+.superone .page-header-nav {
+    padding-top: 8px;
+    padding-bottom: 0px;
+}
+
 @media screen and (min-width: 767px) {
     .super-sidebar.split-articles .article-medium img {
         margin-bottom: 0px;
@@ -7609,5 +7634,27 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .superone .fourth .article-mini:first-child {
         margin-top: 4vw;
+    }
+    .superone header nav {
+        border-bottom: 1px solid #c8c8c8;
+    }
+    .dark-mode .superone header nav {
+        border-bottom-color: #555555;
+    }
+    .superone .cantha-searchbtn, .superone .cantha-menubtn {
+        display: none;
+    }
+    .superone .cantha-header {
+        padding-bottom: 16px;
+    }
+    .superone .cantha-header .logo {
+        margin-top: 4vw;
+    }
+    .superone .page-header-nav {
+        justify-content: center;
+        margin-bottom: 4vw;
+    }
+    .superone .header-filler {
+        background-color: #CC3366;
     }
 }

@@ -5,7 +5,7 @@
     </div>
     <div class="full relative cantha-header">
       <div class="container flex relative column-top-pad column-horizontal-pad">
-        <div class="full center relative desktop-only">
+        <div class="full center relative">
           <a
             class="cantha-menubtn"
             aria-label="Prikaži lijevi meni"
@@ -32,14 +32,21 @@
             <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon>
           </a>
         </div>
+        <nav class="full center page-header-nav">
+          <app-link class="animate" role="menuitem" to="/look">Look</app-link>
+          <app-link class="animate" role="menuitem" to="/look">Snaga</app-link>
+          <app-link class="animate" role="menuitem" to="/look">Relax</app-link>
+          <app-link class="animate" role="menuitem" to="/look"
+            >Emocije</app-link
+          >
+        </nav>
       </div>
+      <div class="full header-filler"></div>
     </div>
     <div class="full relative super1-block">
-      <div
-        class="block-title cantha-block-title desktop-only full mobile-side-pad"
-      >
+      <div class="block-title desktop-only full mobile-side-pad">
         <div class="container flex relative column-full-pad">
-          <div class="menu flex" role="menu">
+          <!--<div class="menu flex" role="menu">
             <app-link role="menuitem" to="/look">Look</app-link>
             <app-link role="menuitem" to="/snaga">Snaga</app-link>
             <app-link role="menuitem" to="/relax">Relax</app-link>
@@ -66,7 +73,7 @@
                 >Pretplatite se</app-link
               >
             </client-only>
-          </div>
+          </div>-->
         </div>
       </div>
     </div>
