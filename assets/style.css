@@ -7559,6 +7559,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .superone .cantha-header {
     background-color: white;
 }
+.dark-mode .superone .cantha-header {
+    background-color: #212121;
+}
 .superone .cantha-header .logo {
     width: auto;
     max-width: 100%;
