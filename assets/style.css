@@ -7533,20 +7533,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     line-height: 1.2em;
     letter-spacing: normal;
 }
-.superone .article-featured h2 {
+.superone .article-featured h2, .superone .alt-big-break h2, .superone .intro-block .two-thirds .article-featured h2 {
     font-size: 26px;
     font-size: 1.3rem;
 }
 .superone .container .third.column-right-border:last-child, .superone .container .fourth.column-right-border:last-child {
     border-right: none;
-}
-.superone .intro-block .two-thirds .article-featured h2 {
-    font-size: 34px;
-    font-size: 1.7rem;
-}
-.superone .alt-big-break.center-text h2  {
-    font-size: 40px;
-    font-size: 2rem;
 }
 .superone .article h3.overtitle, .superone .article h5.article-meta {
     font-style: normal;
@@ -7601,6 +7593,14 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 
 @media screen and (min-width: 767px) {
+    .superone .intro-block .two-thirds .article-featured h2 {
+        font-size: 34px;
+        font-size: 1.7rem;
+    }
+    .superone .alt-big-break.center-text h2  {
+        font-size: 40px;
+        font-size: 2rem;
+    }
     .super-sidebar.split-articles .article-medium img {
         margin-bottom: 0px;
     }
@@ -7623,6 +7623,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
 }
 @media screen and (max-width: 767px) {
+    .superone .alt-big-break .article-pad > .desktop-only {
+        display: flex;
+    }
     .superone .fourth .article-mini .article-pad h2 {
         padding-bottom: 4px;
     }
@@ -7650,5 +7653,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .superone .header-filler {
         background-color: #CC3366;
+    }
+    .superone .alt-big-break .article h2, .superone .alt-big-break.center-text .article h2 {
+        font-size: 26px;
+        font-size: 1.3rem;
     }
 }
