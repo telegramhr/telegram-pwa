@@ -81,12 +81,10 @@
       <div
         class="container elevate-over-section flex relative stretch standard-block intro-block"
       >
-        <div class="full flex column-horizontal-pad">
-          <div
-            class="full flex column-bottom-pad column-bottom-border mobile-side-pad stretch"
-          >
+        <div class="full flex">
+          <div class="full flex mobile-side-pad stretch">
             <div
-              class="sixty column-right-pad flex flex-responsive column-right-border"
+              class="two-thirds column-horizontal-pad flex flex-responsive column-right-border"
             >
               <featured
                 v-for="post in posts.slice(0, 1)"
@@ -95,10 +93,10 @@
               ></featured>
             </div>
             <div
-              class="forty column-left-pad flex flex-responsive split-articles super-sidebar"
+              class="third column-horizontal-pad flex flex-responsive split-articles super-sidebar"
             >
               <div
-                v-for="post in posts.slice(1, 5)"
+                v-for="post in posts.slice(1, 4)"
                 :key="'super-' + post.id"
                 class="full column-vertical-pad stretch column-bottom-border"
               >
@@ -107,7 +105,10 @@
             </div>
           </div>
         </div>
-        <div class="full flex column-top-pad mobile-side-pad stretch">
+        <div class="full flex mobile-side-pad stretch">
+          <div class="full flex column-full-pad">
+            <div class="full column-top-border"></div>
+          </div>
           <div
             v-for="post in posts.slice(4, 7)"
             :key="'super-' + post.id"

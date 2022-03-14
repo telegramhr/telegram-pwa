@@ -7540,7 +7540,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .superone .container .third.column-right-border:last-child, .superone .container .fourth.column-right-border:last-child {
     border-right: none;
 }
-.superone .intro-block .sixty .article-featured h2 {
+.superone .intro-block .two-thirds .article-featured h2 {
     font-size: 34px;
     font-size: 1.7rem;
 }
@@ -7611,12 +7611,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         border-bottom: none;
         padding-bottom: 0px;
     } 
-    .superone .intro-block .split-articles .article-standard img {
-        width: 39.99%;
-    }
-    .superone .intro-block .split-articles .article-standard .article-pad {
-        width: 59.99%;
-    }
     .superone .fourth .article-mini .article-pad {
         padding-bottom: 16px;
         border-bottom: 1px solid #c8c8c8;
