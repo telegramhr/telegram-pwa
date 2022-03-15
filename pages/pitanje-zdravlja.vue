@@ -12,18 +12,12 @@
           ><span data-aos="fade-down" data-aos-delay="1500">zdravlja</span>
         </h1>
         <nav class="full center page-header-nav">
-          <app-link role="menuitem" to="/specijal/sasvim-iskreno"
-            >Sasvim iskreno</app-link
-          >
-          <app-link role="menuitem" to="/specijal/zdrave-vijesti"
-            >Zdrave vijesti</app-link
-          >
-          <app-link role="menuitem" to="/specijal/leksikon-zdravlja"
+          <app-link role="menuitem" to="/leksikon-zdravlja"
             >Leksikon zdravlja</app-link
           >
-          <app-link role="menuitem" to="/specijal/rezultati-istrazivanja"
-            >Rezultati istraživanja</app-link
-          >
+          <app-link role="menuitem" to="/lifestyle">Lifestyle</app-link>
+          <app-link role="menuitem" to="/vijesti">Vijesti</app-link>
+          <app-link role="menuitem" to="/price">Priče</app-link>
         </nav>
       </div>
     </div>
@@ -62,12 +56,7 @@
         </h2>
         <div class="full flex relative">
           <div
-            class="
-              third
-              column-horizontal-pad
-              flex-responsive
-              column-right-border
-            "
+            class="third column-horizontal-pad flex-responsive column-right-border"
           >
             <h3 class="full os-about-subtitle">
               <span>Kritički progovaramo</span
@@ -79,12 +68,7 @@
             </p>
           </div>
           <div
-            class="
-              third
-              column-horizontal-pad
-              flex-responsive
-              column-right-border
-            "
+            class="third column-horizontal-pad flex-responsive column-right-border"
           >
             <h3 class="full os-about-subtitle">
               <span>Pomažemo u razvoju</span
@@ -151,12 +135,7 @@
     <div v-if="featured.length" class="full relative">
       <div class="container flex relative block-2 standard-block stretch">
         <section
-          class="
-            fourth
-            flex flex-responsive
-            column-horizontal-pad
-            mobile-side-pad
-          "
+          class="fourth flex flex-responsive column-horizontal-pad mobile-side-pad"
         >
           <latest
             v-show="!$mobile"
@@ -170,12 +149,7 @@
         </section>
         <div class="three-fourths flex-responsive flex">
           <section
-            class="
-              two-thirds
-              flex-responsive flex
-              mobile-side-pad
-              column-horizontal-pad column-right-border column-left-border
-            "
+            class="two-thirds flex-responsive flex mobile-side-pad column-horizontal-pad column-right-border column-left-border"
           >
             <featured :key="featured[4].id" :post="featured[4]"></featured>
             <div class="full flex split-articles">
@@ -185,12 +159,7 @@
             </div>
           </section>
           <section
-            class="
-              third
-              flex-responsive flex
-              mobile-side-pad
-              column-horizontal-pad
-            "
+            class="third flex-responsive flex mobile-side-pad column-horizontal-pad"
           >
             <template v-for="post in featured.slice(8, 11)">
               <medium :key="post.id" :post="post"></medium>

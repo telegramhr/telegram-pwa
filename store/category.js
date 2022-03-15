@@ -86,6 +86,30 @@ export const state = () => ({
       updated: null,
       extraClass: 'pitanje-zdravlja fancy-rubrika',
     },
+    'leksikon-zdravlja': {
+      name: 'Leksikon zdravlja',
+      posts: [],
+      updated: null,
+      extraClass: 'pitanje-zdravlja fancy-rubrika',
+    },
+    price: {
+      name: 'Priče',
+      posts: [],
+      updated: null,
+      extraClass: 'pitanje-zdravlja fancy-rubrika',
+    },
+    lifestyle: {
+      name: 'Lifestyle',
+      posts: [],
+      updated: null,
+      extraClass: 'pitanje-zdravlja fancy-rubrika',
+    },
+    vijesti: {
+      name: 'Vijesti',
+      posts: [],
+      updated: null,
+      extraClass: 'pitanje-zdravlja fancy-rubrika',
+    },
   },
   morePosts: {
     'politika-kriminal': {
