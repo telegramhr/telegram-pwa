@@ -94,12 +94,14 @@
         <h3 class="full center-text column-full-pad subsection-title">
           Shopping vodič
         </h3>
-        <div
-          v-for="post in posts.slice(3, 7)"
-          :key="post.id"
-          class="fourth flex-responsive column-horizontal-pad column-right-border"
-        >
-          <standard :post="post"></standard>
+        <div class="full flex relative">
+          <div
+            v-for="post in posts.slice(3, 7)"
+            :key="post.id"
+            class="fourth flex-responsive column-horizontal-pad column-right-border"
+          >
+            <standard :post="post"></standard>
+          </div>
         </div>
       </div>
     </div>
@@ -181,12 +183,14 @@
         <h3 class="full center-text column-full-pad subsection-title">
           Od naših partnera
         </h3>
-        <div
-          v-for="post in posts.slice(1, 5)"
-          :key="post.id"
-          class="fourth flex-responsive column-horizontal-pad column-right-border"
-        >
-          <standard :post="post"></standard>
+        <div class="full flex relative">
+          <div
+            v-for="post in posts.slice(3, 7)"
+            :key="post.id"
+            class="fourth flex-responsive column-horizontal-pad column-right-border"
+          >
+            <standard :post="post"></standard>
+          </div>
         </div>
       </div>
     </div>
@@ -271,12 +275,14 @@
         <h3 class="full center-text column-full-pad subsection-title">
           Trend vodič
         </h3>
-        <div
-          v-for="post in posts.slice(1, 5)"
-          :key="post.id"
-          class="fourth flex-responsive column-horizontal-pad column-right-border"
-        >
-          <standard :post="post"></standard>
+        <div class="full flex relative">
+          <div
+            v-for="post in posts.slice(3, 7)"
+            :key="post.id"
+            class="fourth flex-responsive column-horizontal-pad column-right-border"
+          >
+            <standard :post="post"></standard>
+          </div>
         </div>
       </div>
     </div>

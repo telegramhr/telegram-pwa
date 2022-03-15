@@ -199,8 +199,7 @@ h5.article-meta i {
     opacity: .5;
 }
 .article-standard {
-    padding-left: 100px;
-    padding-left: 106px;
+    padding-right: 106px;
     min-height: 121px;
 }
 .article-standard img {
@@ -210,7 +209,7 @@ h5.article-meta i {
     object-position: center center;
     position: absolute;
     top: 5vw;
-    left: 0px;
+    right: 0px;
     width: 90px;
     height: 82px;
 }
@@ -3892,7 +3891,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 0.9rem;
     }
     .article-standard {
-        padding-left: 0px;
+        padding-right: 0px;
     }
     .article-standard img {
         position: relative;
@@ -4256,7 +4255,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         padding-bottom: 0px;
         margin-bottom: 0px;
         min-height: 84px;
-        padding-left: 100px;
+        padding-right: 100px;
     }
     .related-header-widget .third:last-child {
         border-right: 0px;
@@ -4807,7 +4806,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         padding-top: 6px;
     }
     .article-standard {
-        padding-left: 122px;
+        padding-right: 122px;
         min-height: 165px;
     }
     .article-standard img {
@@ -4845,7 +4844,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         line-height: 1.55em;
     }
     .article-standard {
-        padding-left: 118px;
+        padding-right: 118px;
         min-height: 142px;
     }
     .article-standard img {
@@ -7416,7 +7415,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         display: flex;
     }
     .alt-big-break .article-standard {
-        padding-left: 0px;
+        padding-right: 0px;
         padding-top: 0px;
     }
     .alt-big-break .article-standard img {
@@ -7543,9 +7542,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .superone .article h3.overtitle, .superone .article h5.article-meta {
     font-style: normal;
 }
-.super-sidebar .article h4 {
-    display: none;
-}
 .superone .page-header-nav a {
     font-family: henriette-compressed,sans-serif;
     font-weight: 700;
@@ -7591,8 +7587,22 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     padding-top: 8px;
     padding-bottom: 0px;
 }
+.superone .article-mini h2 {
+    font-family: henriette-compressed,sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 16px;
+    font-size: 0.8rem;
+    margin-bottom: 6px;
+}
+.superone .mini-article-list .article-mini h2 {
+    margin-bottom: 0px;
+}
 
 @media screen and (min-width: 767px) {
+    .super-sidebar .article h4 {
+        display: none;
+    }
     .superone .intro-block .two-thirds .article-featured h2 {
         font-size: 34px;
         font-size: 1.7rem;
@@ -7657,5 +7667,50 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .superone .alt-big-break .article h2, .superone .alt-big-break.center-text .article h2 {
         font-size: 26px;
         font-size: 1.3rem;
+    }
+    .superone h3.subsection-title {
+        padding-bottom: 5vw;
+        padding-top: 5vw;
+    }
+    .superone .fourth .article-standard img {
+        width: 88px;
+        height: 88px;
+    }
+    .superone .fourth .article-standard h2 {
+        margin-bottom: 7px;
+    }
+    .superone .fourth .article-standard .article-pad {
+        position: relative;
+        top: -3px;
+        margin-bottom: -3px;
+    }
+    .superone .fourth:first-child .article-standard .article-pad {
+        padding-top: 1vw;
+    }
+    .superone .fourth:first-child .article-standard img {
+        top: 1vw;
+    }
+    .superone .article-featured h3.overtitle {
+        margin-bottom: 6px;
+    }
+    .superone .article-mini h2 {
+        font-size: 18px;
+        font-size: 0.9rem;
+    }
+    .superone .alt-big-break.center-text .article {
+        justify-content: flex-start;
+        align-items: flex-start;
+        align-content: flex-start;
+        text-align: left;
+    }
+    .superone .alt-big-break.center-text .article h4 {
+        display: block;
+    }
+    .superone .alt-big-break.center-text .article h3.overtitle {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .superone .alt-big-break.center-text .article .article-meta {
+        justify-content: flex-start;
     }
 }
