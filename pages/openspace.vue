@@ -6,17 +6,9 @@
     <div class="full flex relative fancy-rubrika-header">
       <div class="os-section-title-left-el"></div>
       <div class="os-section-title-right-el"></div>
-      <div class="container flex fancyr-section-parent">
+      <div class="container flex fancy-section-parent">
         <h1
-          class="
-            full
-            section-title
-            mobile-side-pad
-            center-text
-            column-full-pad
-            os-section-title
-            hide
-          "
+          class="full section-title mobile-side-pad center-text column-full-pad os-section-title hide"
         >
           openspace
         </h1>
@@ -88,12 +80,7 @@
         </h2>
         <div class="full flex relative">
           <div
-            class="
-              third
-              column-horizontal-pad
-              flex-responsive
-              column-right-border
-            "
+            class="third column-horizontal-pad flex-responsive column-right-border"
           >
             <h3 class="full os-about-subtitle">Alati za najbolji posao</h3>
             <p>
@@ -103,12 +90,7 @@
             </p>
           </div>
           <div
-            class="
-              third
-              column-horizontal-pad
-              flex-responsive
-              column-right-border
-            "
+            class="third column-horizontal-pad flex-responsive column-right-border"
           >
             <h3 class="full os-about-subtitle">Vodiči i savjeti</h3>
             <p>
@@ -131,14 +113,7 @@
     <div v-if="featured.length" class="full relative">
       <div class="container flex relative block-2 standard-block stretch">
         <section
-          class="
-            fourth
-            flex flex-responsive
-            column-horizontal-pad
-            mobile-side-pad
-            bypass-show-mobile
-            os-prilike-widget
-          "
+          class="fourth flex flex-responsive column-horizontal-pad mobile-side-pad bypass-show-mobile os-prilike-widget"
         >
           <!--<h3 class="full flex overtitle os-widget-overtitle">Newsletter</h3>
             <newsletter></newsletter>
@@ -150,12 +125,7 @@
         </section>
         <div class="three-fourths flex-responsive flex">
           <section
-            class="
-              two-thirds
-              flex-responsive flex
-              mobile-side-pad
-              column-horizontal-pad column-right-border column-left-border
-            "
+            class="two-thirds flex-responsive flex mobile-side-pad column-horizontal-pad column-right-border column-left-border"
           >
             <featured
               v-for="post in featured.slice(4, 5)"
@@ -169,12 +139,7 @@
             </div>
           </section>
           <section
-            class="
-              third
-              flex-responsive flex
-              mobile-side-pad
-              column-horizontal-pad
-            "
+            class="third flex-responsive flex mobile-side-pad column-horizontal-pad"
           >
             <template v-for="post in featured.slice(8, 11)">
               <medium :key="post.id" :post="post"></medium>

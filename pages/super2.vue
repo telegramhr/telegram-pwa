@@ -4,35 +4,7 @@
     <div class="full flex">
       <theader></theader>
     </div>
-    <div class="full flex relative fancy-rubrika-header">
-      <div class="os-section-title-left-el"></div>
-      <div class="os-section-title-right-el"></div>
-      <div class="container flex column-full-pad fancy-section-parent">
-        <h1
-          class="full section-title mobile-side-pad center-text column-full-pad os-section-title hide"
-        >
-          Super1
-        </h1>
-        <div class="full center relative">
-          <nuxt-link to="/" class="logo" @click="$fetch"
-            ><img src="@/assets/img/super1_logo_purple.svg" alt="Super1 logo" />
-            <img
-              src="@/assets/img/super1_logo_white.svg"
-              alt="Super1 logo"
-              class="dark-mode-only"
-          /></nuxt-link>
-        </div>
-        <nav class="full center page-header-nav">
-          <app-link class="animate" role="menuitem" to="/look">Look</app-link>
-          <app-link class="animate" role="menuitem" to="/look">Snaga</app-link>
-          <app-link class="animate" role="menuitem" to="/look">Relax</app-link>
-          <app-link class="animate" role="menuitem" to="/look"
-            >Emocije</app-link
-          >
-        </nav>
-      </div>
-    </div>
-    <!-- Portal header: logo i kategorije
+    <!-- Portal header: logo i kategorije -->
     <div class="full relative cantha-header">
       <div class="container flex relative column-top-pad column-horizontal-pad">
         <div class="full center relative">
@@ -62,30 +34,69 @@
             <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon>
           </a>
         </div>
-        <nav class="full center page-header-nav">
-          <app-link class="animate" role="menuitem" to="/look">Look</app-link>
-          <app-link class="animate" role="menuitem" to="/look">Snaga</app-link>
-          <app-link class="animate" role="menuitem" to="/look">Relax</app-link>
-          <app-link class="animate" role="menuitem" to="/look"
-            >Emocije</app-link
-          >
-        </nav>
+        <h2
+          class="full column-horizontal-pad center-text desktop-only site-subtitle"
+        >
+          Lifestyle pokret stvarnih žena
+        </h2>
+        <div class="full mobile-side-pad">
+          <div class="full cantha-separator"></div>
+        </div>
       </div>
       <div class="full header-filler"></div>
-    </div> -->
-    <!-- Koljeno S1
+    </div>
+    <!-- Koljeno S1 -->
     <div class="full relative super1-block">
-      <div class="block-title desktop-only full mobile-side-pad">
-        <div class="container flex relative column-full-pad"></div>
+      <div
+        class="block-title cantha-block-title desktop-only full mobile-side-pad"
+      >
+        <div class="container flex relative column-full-pad">
+          <div class="menu flex" role="menu">
+            <app-link class="animate" role="menuitem" to="/look">Look</app-link>
+            <app-link class="animate" role="menuitem" to="/look"
+              >Snaga</app-link
+            >
+            <app-link class="animate" role="menuitem" to="/look"
+              >Relax</app-link
+            >
+            <app-link class="animate" role="menuitem" to="/look"
+              >Emocije</app-link
+            >
+          </div>
+          <div class="flex">
+            <client-only>
+              <a
+                v-show="canLogIn"
+                class="newbtn newbtn-empty"
+                @click.prevent="login"
+                >Prijava</a
+              >
+              <a
+                v-show="!canLogIn"
+                class="newbtn newbtn-empty"
+                @click.prevent="logout"
+                >Odjava</a
+              >
+              <app-link
+                v-show="!$store.state.user.access"
+                to="/pretplata"
+                class="newbtn"
+                >Pretplatite se</app-link
+              >
+            </client-only>
+          </div>
+        </div>
       </div>
-    </div> -->
+    </div>
     <!-- Veliki blok - intro -->
     <div class="full relative">
-      <div class="container flex relative stretch standard-block intro-block">
+      <div
+        class="container elevate-over-section flex relative stretch standard-block intro-block"
+      >
         <div class="full flex">
           <div class="full flex mobile-side-pad stretch">
             <div
-              class="full column-horizontal-pad column-top-pad flex split-articles big-split alt-big-break center-text"
+              class="full column-horizontal-pad flex split-articles big-split alt-big-break center-text"
             >
               <standard
                 v-for="post in posts.slice(0, 1)"
@@ -385,7 +396,7 @@ export default {
   },
   head() {
     return {
-      title: 'Super1.hr',
+      title: 'Super2.hr',
       meta: [
         { hid: 'og:type', name: 'og:type', content: 'website' },
         {

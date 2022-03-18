@@ -7573,9 +7573,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     max-width: 324px;
     padding-left: 4px;
 }
-.superone .cantha-menubtn, .superone .cantha-searchbtn {
+/*.superone .cantha-menubtn, .superone .cantha-searchbtn {
     top: 30px;
-}
+}*/
 .superone .block-title, .superone .dynamic-overtitle-element, .superone .widget, .superone .widget::before, .superone .komentar .komentar-image, .superone .subtle-btn-parent:hover .subtle-btn, .superone .loader-square div {
     background-color: #CC3366;
 }
@@ -7597,6 +7597,21 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .superone .mini-article-list .article-mini h2 {
     margin-bottom: 0px;
 }
+.superone .fancy-section-parent .logo {
+    margin-top: 48px;
+    margin-bottom: 8px;
+    width: 70%;
+    max-width: 390px;
+}
+.superone .fancy-section-parent .logo img {
+    width: 100%;
+}
+.superone .fancy-section-parent .page-header-nav a {
+    font-size: 24px;
+    font-size: 1.2rem;
+    margin: 0px 24px;
+}
+
 
 @media screen and (min-width: 767px) {
     .super-sidebar .article h4 {
