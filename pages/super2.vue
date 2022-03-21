@@ -129,7 +129,7 @@
           <div class="full cantha-separator"></div>
         </div>
         <h3 class="full center-text column-full-pad subsection-title">
-          Shopping vodič
+          <span>Shopping vodič</span>
         </h3>
         <div class="full flex relative">
           <div
@@ -149,7 +149,7 @@
           <div class="full cantha-separator"></div>
         </div>
         <h3 class="full center-text column-full-pad subsection-title">
-          Još SUPER priča
+          <span>Još SUPER priča</span>
         </h3>
         <div class="three-fourths flex-responsive flex stretch">
           <div class="half flex-responsive flex column-horizontal-pad">
@@ -310,7 +310,7 @@
           <div class="full cantha-separator"></div>
         </div>
         <h3 class="full center-text column-full-pad subsection-title">
-          Trend vodič
+          <span>Trend vodič</span>
         </h3>
         <div class="full flex relative">
           <div

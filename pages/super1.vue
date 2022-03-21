@@ -15,12 +15,8 @@
         </h1>
         <div class="full center relative">
           <nuxt-link to="/" class="logo" @click="$fetch"
-            ><img src="@/assets/img/super1_logo_purple.svg" alt="Super1 logo" />
-            <img
-              src="@/assets/img/super1_logo_white.svg"
-              alt="Super1 logo"
-              class="dark-mode-only"
-          /></nuxt-link>
+            ><img src="@/assets/img/s1_logo_boldmodern.svg" alt="Super1 logo" />
+          </nuxt-link>
         </div>
         <nav class="full center page-header-nav">
           <app-link class="animate" role="menuitem" to="/look">Look</app-link>
@@ -138,7 +134,7 @@
           <div class="full cantha-separator"></div>
         </div>
         <h3 class="full center-text column-full-pad subsection-title">
-          Još SUPER priča
+          <span>Još SUPER priča</span>
         </h3>
         <div class="three-fourths flex-responsive flex stretch">
           <div class="half flex-responsive flex column-horizontal-pad">
@@ -207,7 +203,7 @@
           <div class="full cantha-separator"></div>
         </div>
         <h3 class="full center-text column-full-pad subsection-title">
-          Od naših partnera
+          <span>Od naših partnera</span>
         </h3>
         <div class="full flex relative">
           <div
