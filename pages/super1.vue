@@ -4,6 +4,7 @@
     <div class="full flex">
       <theader></theader>
     </div>
+    <!-- S1 Fancy rubrika header -->
     <div class="full flex relative fancy-rubrika-header">
       <div class="os-section-title-left-el"></div>
       <div class="os-section-title-right-el"></div>
@@ -28,53 +29,6 @@
         </nav>
       </div>
     </div>
-    <!-- Portal header: logo i kategorije
-    <div class="full relative cantha-header">
-      <div class="container flex relative column-top-pad column-horizontal-pad">
-        <div class="full center relative">
-          <a
-            class="cantha-menubtn"
-            aria-label="Prikaži lijevi meni"
-            :aria-expanded="$store.state.header.showSideMenu.toString()"
-            aria-controls="sidebar"
-            @click.prevent="$store.commit('header/updateMenu', 'side')"
-          >
-            <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon
-          ></a>
-          <nuxt-link to="/" class="logo" @click="$fetch"
-            ><img src="@/assets/img/super1_logo_purple.svg" alt="Super1 logo" />
-            <img
-              src="@/assets/img/super1_logo_white.svg"
-              alt="Super1 logo"
-              class="dark-mode-only"
-          /></nuxt-link>
-          <a
-            aria-label="Prikaži tražilicu"
-            class="cantha-searchbtn"
-            :aria-expanded="$store.state.header.showSearchMenu.toString()"
-            aria-controls="search"
-            @click.prevent="$store.commit('header/updateMenu', 'search')"
-          >
-            <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon>
-          </a>
-        </div>
-        <nav class="full center page-header-nav">
-          <app-link class="animate" role="menuitem" to="/look">Look</app-link>
-          <app-link class="animate" role="menuitem" to="/look">Snaga</app-link>
-          <app-link class="animate" role="menuitem" to="/look">Relax</app-link>
-          <app-link class="animate" role="menuitem" to="/look"
-            >Emocije</app-link
-          >
-        </nav>
-      </div>
-      <div class="full header-filler"></div>
-    </div> -->
-    <!-- Koljeno S1
-    <div class="full relative super1-block">
-      <div class="block-title desktop-only full mobile-side-pad">
-        <div class="container flex relative column-full-pad"></div>
-      </div>
-    </div> -->
     <!-- Veliki blok - intro -->
     <div class="full relative">
       <div class="container flex relative stretch standard-block intro-block">
@@ -109,13 +63,12 @@
     </div>
     <!-- Prekid #1: shopping -->
     <div class="full flex">
-      <div class="container flex relative stretch mobile-side-pad">
-        <div class="full column-horizontal-pad column-top-pad">
-          <div class="full cantha-separator"></div>
+      <div
+        class="container flex relative sblock-prekid stretch mobile-side-pad"
+      >
+        <div class="full column-full-pad">
+          <h3 class="full subsection-title"><span>Shopping vodič</span></h3>
         </div>
-        <h3 class="full center-text column-full-pad subsection-title">
-          Shopping vodič
-        </h3>
         <div class="full flex relative">
           <div
             v-for="post in posts.slice(3, 7)"
@@ -127,15 +80,47 @@
         </div>
       </div>
     </div>
+    <!-- In-house banner slot #1: newsletter -->
+    <div class="full relative">
+      <div class="container flex relative column-horizontal-pad column-top-pad">
+        <app-link
+          to="/newsletters"
+          class="full cantha-break mobile-side-pad flex relative stretch"
+        >
+          <div class="third column-full-pad center flex-responsive">
+            <div class="full flex article">
+              <h3 class="full overtitle">Posebne pogodnosti</h3>
+              <h2 class="full">
+                Shopping savjeti, fashion novosti i najbolji popusti, samo za
+                vas
+              </h2>
+              <h5 class="full">Super1, svaki dan u vašem inboxu</h5>
+            </div>
+          </div>
+          <div class="two-thirds stretch flex flex-responsive">
+            <div class="two-thirds column-full-pad center flex-responsive">
+              <img
+                src="@/assets/img/s1_newsletter_visual.png"
+                alt="Teme Super1 newslettera"
+              />
+            </div>
+            <div class="third center flex-responsive">
+              <div class="full flex article">
+                <div class="full center">
+                  <div class="newbtn">Prijavite se</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </app-link>
+      </div>
+    </div>
     <!-- Rubrika #1 -->
     <div class="full flex">
       <div class="container flex relative stretch mobile-side-pad">
-        <div class="full column-horizontal-pad column-top-pad">
-          <div class="full cantha-separator"></div>
+        <div class="full column-full-pad">
+          <h3 class="full subsection-title"><span>Još SUPER priča</span></h3>
         </div>
-        <h3 class="full center-text column-full-pad subsection-title">
-          <span>Još SUPER priča</span>
-        </h3>
         <div class="three-fourths flex-responsive flex stretch">
           <div class="half flex-responsive flex column-horizontal-pad">
             <featured
@@ -167,15 +152,10 @@
     </div>
     <!-- Specijal #1: super preporuka -->
     <div class="full relative">
-      <div
-        class="container mobile-side-pad flex relative stretch column-bottom-pad"
-      >
-        <div class="full column-horizontal-pad column-top-pad">
-          <div class="full cantha-separator"></div>
+      <div class="container mobile-side-pad flex relative stretch">
+        <div class="full column-full-pad">
+          <h3 class="full subsection-title"><span>SUPER preporuka</span></h3>
         </div>
-        <h3 class="full center-text column-full-pad subsection-title">
-          Super preporuka
-        </h3>
         <div
           class="three-fourths flex-responsive column-horizontal-pad flex split-articles column-right-border big-split alt-big-break"
         >
@@ -198,13 +178,12 @@
     </div>
     <!-- Prekid #2: native -->
     <div class="full flex">
-      <div class="container flex relative stretch mobile-side-pad">
-        <div class="full column-horizontal-pad column-top-pad">
-          <div class="full cantha-separator"></div>
+      <div
+        class="container flex sblock-prekid relative stretch mobile-side-pad"
+      >
+        <div class="full column-full-pad">
+          <h3 class="full subsection-title"><span>Od naših partnera</span></h3>
         </div>
-        <h3 class="full center-text column-full-pad subsection-title">
-          <span>Od naših partnera</span>
-        </h3>
         <div class="full flex relative">
           <div
             v-for="post in posts.slice(3, 7)"
@@ -219,12 +198,9 @@
     <!-- Rubrika #2 -->
     <div class="full flex">
       <div class="container flex relative stretch mobile-side-pad">
-        <div class="full column-horizontal-pad column-top-pad">
-          <div class="full cantha-separator"></div>
+        <div class="full column-full-pad">
+          <h3 class="full subsection-title"><span>Još SUPER priča</span></h3>
         </div>
-        <h3 class="full center-text column-full-pad subsection-title">
-          Još SUPER priča
-        </h3>
         <div class="three-fourths flex-responsive flex stretch">
           <div class="half flex-responsive flex column-horizontal-pad">
             <featured
@@ -256,13 +232,12 @@
     </div>
     <!-- Specijal #2: izbor urednika -->
     <div class="full flex">
-      <div class="container flex relative stretch mobile-side-pad">
-        <div class="full column-horizontal-pad column-top-pad">
-          <div class="full cantha-separator"></div>
+      <div
+        class="container flex sblock-special relative stretch mobile-side-pad"
+      >
+        <div class="full column-full-pad">
+          <h3 class="full subsection-title"><span>Izbor urednika</span></h3>
         </div>
-        <h3 class="full center-text column-full-pad subsection-title">
-          Izbor urednika
-        </h3>
         <div
           class="full column-horizontal-pad flex split-articles big-split alt-big-break center-text"
         >
@@ -290,13 +265,12 @@
     </div>
     <!-- Prekid #3: trend -->
     <div class="full flex">
-      <div class="container flex relative stretch mobile-side-pad">
-        <div class="full column-horizontal-pad column-top-pad">
-          <div class="full cantha-separator"></div>
+      <div
+        class="container flex relative sblock-prekid stretch mobile-side-pad"
+      >
+        <div class="full column-full-pad">
+          <h3 class="full subsection-title"><span>Trend vodič</span></h3>
         </div>
-        <h3 class="full center-text column-full-pad subsection-title">
-          Trend vodič
-        </h3>
         <div class="full flex relative">
           <div
             v-for="post in posts.slice(3, 7)"

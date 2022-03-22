@@ -7608,35 +7608,52 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     width: 100%;
 }
 .superone h3.subsection-title {
+    font-family: questa-grande, serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 64px;
+    font-size: 3.2rem;
+    position: relative;
+    z-index: 3;
+    padding-top: 24px;
+}
+.superone h3.subsection-title span {
+    background-color: white;
+    z-index: 3;
+    position: relative;
+}
+.dark-mode .superone h3.subsection-title span {
+    background-color: #212121;
+}
+.superone h3.subsection-title::before {
+    content: ' ';
+    opacity: 1;
+    position: absolute;
+    top: 64px;
+    left: -20%;
+    width: 140%;
+    border-bottom: 1px solid #111;
+    z-index: 1;
+}
+.dark-mode .superone h3.subsection-title::before {
+    border-color: #999;
+}
+/*.superone .os-section-title-left-el, .superone .os-section-title-right-el, .superone .fancy-rubrika-header .container, .superone .fancy-rubrika-header .container::before {
+    border-color: #111;
+}*/
+.superone .cantha-break {
+    background-color: #eee;
+}
+.dark-mode .cantha-break {
+    background-color:rgba(0, 0, 0, 0.3);
+}
+.superone .cantha-break h2 {
     font-family: henriette-compressed,sans-serif;
     font-weight: 700;
     font-style: normal;
-    font-size: 32px;
-    font-size: 1.6rem;
-    position: relative;
-    opacity: 1;
-    z-index: 3;
-    text-shadow: 1px 1px 0px white;
-    padding-top: 12px;
 }
-.superone .cantha-separator {
-    display: block;
-    position: relative;
-}
-.superone .cantha-separator::before {
-    content: ' ';
-    display: block;
-    opacity: .7;
-    position: absolute;
-    bottom: -35px;
-    left: 0;
-    width: 100%;
-    height: 32px;
-    background-image: url('assets/img/s1-pattern-line.svg');
-    background-repeat: repeat;
-}
-.superone .cantha-header .cantha-separator::before {
-    display: none;
+.superone .cantha-break .newbtn {
+    background-color: #cc3366;
 }
 
 @media screen and (min-width: 767px) {
@@ -7774,5 +7791,18 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .superone .cantha-header .cantha-separator {
         margin-top: 4vw;
+    }
+    .superone h3.subsection-title {
+        font-size: 48px;
+        font-size: 2.4rem;
+    }
+    .superone h3.subsection-title::before {
+        top: 48px;
+    }
+    .sblock-prekid .fourth:last-child .article-standard{
+        border-bottom: none;
+    }
+    .sblock-special .third:last-child .article-featured .article-pad, .superone .intro-block .third:last-child .article-featured .article-pad {
+        border-bottom: none;
     }
 }
