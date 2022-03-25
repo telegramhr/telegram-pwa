@@ -7356,6 +7356,20 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 64px;
     font-size: 3.2rem;
 }
+.block-echovald .article-featured .related-articles {
+    display: none;
+}
+.cantha-commentary .komentar h2 {
+    font-size: 17px;
+    font-size: 0.85rem;
+    padding-top: 0px;
+    text-indent: 1.3rem;
+}
+.cantha-commentary .komentar h2 .komentar-quotation {
+    top: 0.5rem;
+    font-size: 46px;
+    font-size: 2.3rem;
+}
 
 @media screen and (max-width: 767px) {
     .cantha-header {
@@ -7598,7 +7612,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .superone .page-header-nav a:hover {
     opacity: 1;
 }
-
 .dark-mode .superone .fourth .article-mini .article-pad {
     border-bottom-color: #555;
 }
@@ -7618,9 +7631,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     max-width: 324px;
     padding-left: 4px;
 }
-/*.superone .cantha-menubtn, .superone .cantha-searchbtn {
-    top: 30px;
-}*/
 .superone .block-title, .superone .dynamic-overtitle-element, .superone .widget, .superone .widget::before, .superone .komentar .komentar-image, .superone .subtle-btn-parent:hover .subtle-btn, .superone .loader-square div {
     background-color: #CC3366;
 }

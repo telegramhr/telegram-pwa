@@ -6,33 +6,31 @@
     <h3 class="full center-text column-full-pad subsection-title">
       <nuxt-link :to="'/' + slug">{{ category | parseCat }}</nuxt-link>
     </h3>
-    <div class="full flex-responsive flex relative the-big-gs stretch">
-      <div class="half column-horizontal-pad flex-responsive flex">
-        <featured
-          v-for="post in posts.slice(0, 1)"
+    <div class="full block-echovald flex relative">
+      <div class="three-fourths flex-responsive flex stretch">
+        <div class="half flex-responsive flex column-horizontal-pad">
+          <featured
+            v-for="post in posts.slice(0, 1)"
+            :key="post.id"
+            :post="post"
+          />
+        </div>
+        <div
+          class="half super-sidebar flex column-horizontal-pad column-left-border column-right-border flex-responsive split-articles"
+        >
+          <medium
+            v-for="post in posts.slice(1, 4)"
+            :key="post.id"
+            :post="post"
+          ></medium>
+        </div>
+      </div>
+      <div class="fourth flex-responsive column-horizontal-pad">
+        <mini
+          v-for="post in posts.slice(4, 8)"
           :key="post.id"
           :post="post"
-        ></featured>
-      </div>
-      <div class="half flex-responsive flex stretch stretchtwo">
-        <div
-          class="half flex-responsive column-horizontal-pad column-right-border column-left-border flex no-image-block"
-        >
-          <standard
-            v-for="post in posts.slice(1, 3)"
-            :key="post.id"
-            :post="post"
-          ></standard>
-        </div>
-        <div
-          class="half flex-responsive column-horizontal-pad no-subtitle-block flex"
-        >
-          <standard
-            v-for="post in posts.slice(4, 6)"
-            :key="post.id"
-            :post="post"
-          ></standard>
-        </div>
+        ></mini>
       </div>
     </div>
   </section>

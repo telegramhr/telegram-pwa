@@ -13,60 +13,35 @@
     <div
       class="container flex relative cantha-big-block elevate-over-section stretch"
     >
-      <section
-        class="full mobile-side-pad flex-responsive column-bottom-pad flex relative the-big-gs stretch"
+      <div
+        class="full block-echovald mobile-side-pad column-bottom-pad flex relative"
       >
-        <div
-          class="half column-horizontal-pad column-right-border flex-responsive flex"
-        >
-          <featured
-            v-for="post in posts.slice(0, 1)"
-            :key="'pz-' + post.id"
-            :post="post"
-          ></featured>
-        </div>
-        <div class="half flex-responsive flex stretch stretchtwo">
+        <div class="three-fourths flex-responsive flex stretch">
+          <div class="half flex-responsive flex column-horizontal-pad">
+            <featured
+              v-for="post in posts.slice(0, 1)"
+              :key="'pz-' + post.id"
+              :post="post"
+            />
+          </div>
           <div
-            class="half flex-responsive column-horizontal-pad flex stretch no-image-block"
+            class="half super-sidebar flex column-horizontal-pad column-left-border column-right-border flex-responsive split-articles"
           >
-            <standard
+            <medium
               v-for="post in posts.slice(1, 4)"
               :key="'pz-' + post.id"
               :post="post"
-            ></standard>
-          </div>
-          <div
-            class="half flex-responsive column-horizontal-pad no-subtitle-block column-left-border flex stretch"
-          >
-            <standard
-              v-for="post in posts.slice(4, 6)"
-              :key="'pz-' + post.id"
-              :post="post"
-            ></standard>
+            ></medium>
           </div>
         </div>
-      </section>
-      <!--<div class="full flex stretch column-top-pad relative">
-        <div
-          v-for="post in posts.slice(1, 4)"
-          :key="'pz-' + post.id"
-          class="fourth flex-responsive column-right-border column-horizontal-pad"
-        >
-          <standard :post="post"></standard>
+        <div class="fourth flex-responsive column-horizontal-pad">
+          <mini
+            v-for="post in posts.slice(2, 6)"
+            :key="'pz-' + post.id"
+            :post="post"
+          ></mini>
         </div>
-        <div
-          class="fourth flex-responsive column-horizontal-pad mini-article-list"
-        >
-          <h3 class="full overtitle column-bottom-pad">Upravo se čita</h3>
-          <div class="full flex">
-            <mini
-              v-for="post in reading.slice(0, 5)"
-              :key="'pz-' + post.id"
-              :post="post"
-            ></mini>
-          </div>
-        </div>
-      </div>-->
+      </div>
       <section
         v-if="showMore && morePosts.length"
         class="third flex-responsive flex mobile-only column-horizontal-pad flex mobile-side-pad"

@@ -121,68 +121,47 @@
       </div>
     </div>
     <div class="full relative">
-      <div
-        class="container flex relative cantha-big-block elevate-over-section stretch"
-      >
-        <section
-          class="full mobile-side-pad flex-responsive flex relative the-big-gs stretch"
-        >
-          <div
-            class="half column-horizontal-pad column-right-border flex-responsive flex"
-          >
-            <featured :key="posts[0].id" :post="posts[0]"></featured>
-          </div>
-          <div class="half flex-responsive flex stretch stretchtwo">
-            <div
-              class="half flex-responsive column-horizontal-pad flex stretch no-image-block"
-            >
-              <standard
-                v-for="post in posts.slice(3, 6)"
+      <div class="container flex relative elevate-over-section stretch">
+        <div class="full block-echovald mobile-side-pad flex relative">
+          <div class="three-fourths flex-responsive flex stretch">
+            <div class="half flex-responsive flex column-horizontal-pad">
+              <featured
+                v-for="post in posts.slice(0, 1)"
                 :key="post.id"
                 :post="post"
-              ></standard>
+              />
             </div>
             <div
-              class="half flex-responsive column-horizontal-pad no-subtitle-block column-left-border flex stretch"
+              class="half super-sidebar flex column-horizontal-pad column-left-border column-right-border flex-responsive split-articles"
             >
-              <standard
-                v-for="post in posts.slice(6, 8)"
+              <medium
+                v-for="post in posts.slice(4, 7)"
                 :key="post.id"
                 :post="post"
-              ></standard>
+              ></medium>
             </div>
           </div>
-          <div class="full column-full-pad">
-            <div class="full column-top-border"></div>
-          </div>
-          <div class="full column-horizontal-pad">
-            <mini-pretplata-home
-              v-show="!$store.state.user.access"
-            ></mini-pretplata-home>
-          </div>
           <div
-            class="two-thirds flex-responsive column-horizontal-pad flex split-articles column-right-border big-split"
+            class="fourth flex-responsive column-horizontal-pad cantha-commentary"
           >
-            <medium
-              v-for="post in posts.slice(1, 3)"
-              :key="post.id"
-              :post="post"
-            ></medium>
-          </div>
-          <div
-            class="third flex-responsive column-horizontal-pad flex cantha-commentary"
-          >
-            <div class="full mobile-only">
-              <div class="full cantha-separator"></div>
-            </div>
-            <h3 class="full center-text column-bottom-pad subsection-title">
-              Komentari & analize
-            </h3>
             <commentary></commentary>
           </div>
-        </section>
+        </div>
+        <div class="full column-full-pad">
+          <div class="full column-top-border"></div>
+        </div>
+        <div class="full flex cantha-small-block mobile-side-pad stretch">
+          <div
+            v-for="post in posts.slice(1, 4)"
+            :key="post.id"
+            class="third flex-responsive column-right-border column-horizontal-pad"
+          >
+            <standard :post="post"></standard>
+          </div>
+        </div>
       </div>
     </div>
+    <!-- Još vijesti -->
     <div class="full relative">
       <div
         class="container flex cantha-small-block mobile-side-pad relative stretch"
@@ -204,6 +183,7 @@
         </div>
       </div>
     </div>
+    <!-- TG preporuka -->
     <div class="full relative">
       <div
         class="container mobile-side-pad flex relative stretch column-bottom-pad"
@@ -235,6 +215,7 @@
         </div>
       </div>
     </div>
+    <!-- Prekid newsletteri -->
     <div class="full relative">
       <div class="container flex relative column-horizontal-pad">
         <app-link
@@ -273,11 +254,13 @@
         </app-link>
       </div>
     </div>
+    <!-- Velika rubrika: Politika i kriminal TODO, trenutno priče -->
     <div class="full relative">
       <div class="container flex relative">
         <category-big slug="velike-price"></category-big>
       </div>
     </div>
+    <!-- Mala rubrika: Biznis i tech -->
     <div class="full relative">
       <div class="container flex relative">
         <category-alt slug="biznis-tech"></category-alt>
