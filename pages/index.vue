@@ -122,24 +122,22 @@
     </div>
     <div class="full relative">
       <div class="container flex relative elevate-over-section stretch">
-        <div class="full block-echovald mobile-side-pad flex relative">
-          <div class="three-fourths flex-responsive flex stretch">
-            <div class="half flex-responsive flex column-horizontal-pad">
-              <featured
-                v-for="post in posts.slice(0, 1)"
-                :key="post.id"
-                :post="post"
-              />
-            </div>
-            <div
-              class="half super-sidebar flex column-horizontal-pad column-left-border column-right-border flex-responsive split-articles"
-            >
-              <medium
-                v-for="post in posts.slice(4, 7)"
-                :key="post.id"
-                :post="post"
-              ></medium>
-            </div>
+        <div class="full block-echovald mobile-side-pad stretch flex relative">
+          <div class="half flex-responsive flex column-horizontal-pad">
+            <featured
+              v-for="post in posts.slice(0, 1)"
+              :key="post.id"
+              :post="post"
+            />
+          </div>
+          <div
+            class="fourth super-sidebar flex column-horizontal-pad column-left-border column-right-border flex-responsive split-articles"
+          >
+            <medium
+              v-for="post in posts.slice(4, 7)"
+              :key="post.id"
+              :post="post"
+            ></medium>
           </div>
           <div
             class="fourth flex-responsive column-horizontal-pad cantha-commentary"

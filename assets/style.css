@@ -7359,13 +7359,21 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .block-echovald .article-featured .related-articles {
     display: none;
 }
+.block-echovald .super-sidebar.split-articles .article-medium img {
+    padding-left: 0px;
+}
 .cantha-commentary .komentar h2 {
-    font-size: 17px;
-    font-size: 0.85rem;
     padding-top: 0px;
-    text-indent: 1.3rem;
 }
 .cantha-commentary .komentar h2 .komentar-quotation {
+    top: 0.55rem;
+}
+.sport-block .cantha-commentary .komentar h2 {
+    font-size: 17px;
+    font-size: 0.85rem;
+    text-indent: 1.3rem;
+}
+.sport-block .cantha-commentary .komentar h2 .komentar-quotation {
     top: 0.5rem;
     font-size: 46px;
     font-size: 2.3rem;

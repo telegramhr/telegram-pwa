@@ -32,35 +32,23 @@
             ></medium>
           </div>
         </div>
-        <div class="fourth flex-responsive column-horizontal-pad">
-          <mini
-            v-for="post in posts.slice(2, 6)"
-            :key="'sport-' + post.id"
-            :post="post"
-          ></mini>
+        <div
+          class="fourth flex-responsive column-horizontal-pad cantha-commentary"
+        >
+          <commentary></commentary>
         </div>
       </div>
       <div class="full flex stretch column-bottom-pad relative">
         <div class="full column-full-pad">
           <div class="full column-top-border"></div>
         </div>
-        <div
-          v-for="post in posts.slice(1, 4)"
-          :key="'sport-' + post.id"
-          class="fourth flex-responsive mobile-side-pad column-right-border column-horizontal-pad"
-        >
-          <standard :post="post"></standard>
-        </div>
-        <div
-          class="fourth flex-responsive mobile-side-pad column-horizontal-pad mini-article-list"
-        >
-          <h3 class="full overtitle column-bottom-pad">Upravo se čita</h3>
-          <div class="full flex">
-            <mini
-              v-for="post in reading.slice(0, 4)"
-              :key="'sport-' + post.id"
-              :post="post"
-            ></mini>
+        <div class="full flex cantha-small-block">
+          <div
+            v-for="post in posts.slice(1, 5)"
+            :key="'sport-' + post.id"
+            class="fourth flex-responsive mobile-side-pad column-right-border column-horizontal-pad"
+          >
+            <standard :post="post"></standard>
           </div>
         </div>
       </div>
