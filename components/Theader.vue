@@ -508,7 +508,7 @@
           </div>
         </client-only>
       </div>
-      <div v-show="breaking" class="full desktop-only">
+      <div v-show="showBreaking" class="full desktop-only">
         <breaking></breaking>
       </div>
       <nav class="full flex homepage-exclusive animate">
