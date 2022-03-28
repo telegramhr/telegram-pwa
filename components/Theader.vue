@@ -508,7 +508,7 @@
           </div>
         </client-only>
       </div>
-      <div class="full desktop-only">
+      <div v-show="breaking" class="full desktop-only">
         <breaking></breaking>
       </div>
       <nav class="full flex homepage-exclusive animate">
@@ -577,7 +577,7 @@
         </div>
       </div>-->
     </header>
-    <div class="full mobile-only">
+    <div v-show="showBreaking" class="full mobile-only">
       <breaking></breaking>
       <h2
         class="full homepage-exclusive ukraine-mobile-header mobile-side-pad center-text"
@@ -609,6 +609,7 @@ export default {
         return {
           disable_ads: [],
           post_category: '',
+          category_slug: '',
         }
       },
     },
@@ -653,6 +654,14 @@ export default {
     stock_key() {
       const keys = Object.keys(this.$store.state.stocks.stocks)
       return keys[Math.floor(Math.random() * keys.length)]
+    },
+    showBreaking() {
+      return !(
+        this.post.category_slug.includes('openspace') ||
+        this.post.category_slug.includes('pitanje-zdravlja') ||
+        this.$route.path.includes('openspace') ||
+        this.$route.path.includes('pitanje-zdravlja')
+      )
     },
   },
   mounted() {
