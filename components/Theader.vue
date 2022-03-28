@@ -657,8 +657,9 @@ export default {
     },
     showBreaking() {
       return !(
-        this.post.category_slug.includes('openspace') ||
-        this.post.category_slug.includes('pitanje-zdravlja') ||
+        (this.post.category_slug &&
+          (this.post.category_slug.includes('openspace') ||
+            this.post.category_slug.includes('pitanje-zdravlja'))) ||
         this.$route.path.includes('openspace') ||
         this.$route.path.includes('pitanje-zdravlja')
       )
