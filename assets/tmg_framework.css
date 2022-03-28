@@ -160,6 +160,9 @@ img {
 .sixty {
     width: 59.99%;
 }
+.thirty { 
+    width: 29.99%;
+}
 .center {
     display: flex;
     justify-content: center;

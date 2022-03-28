@@ -7359,6 +7359,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .block-echovald .article-featured .related-articles {
     display: none;
 }
+/*.intro-echovald .article-featured .related-articles {
+    display: flex;
+}
+.intro-echovald .article-featured .related-articles a:nth-child(n+3) {
+    display: none;
+}*/
 .block-echovald .super-sidebar.split-articles .article-medium img {
     padding-left: 0px;
 }
@@ -7369,7 +7375,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     top: 0.55rem;
 }
 .sport-block .cantha-commentary .komentar h2 {
-    font-size: 17px;
+    font-size: 19px;
     font-size: 0.85rem;
     text-indent: 1.3rem;
 }
@@ -7377,6 +7383,34 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     top: 0.5rem;
     font-size: 46px;
     font-size: 2.3rem;
+}
+.block-echovald .cantha-commentary .komentar h2 {
+    font-size: 16px;
+    font-size: 0.8rem;
+}
+.block-echovald .forty.super-sidebar .article-standard h2  {
+    font-size: 17px;
+    font-size: 0.85rem;
+    padding-right: 10px;
+}
+.block-echovald .forty .article-featured h2 {
+    font-size: 25px;
+    font-size: 1.25rem;
+}
+.block-echovald .forty.split-articles .article-standard img {
+    width: 204px;
+}
+.block-echovald .fifth.cantha-commentary .komentar {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    margin-top: -3px;
+}
+.block-echovald .fifth.cantha-commentary .komentar:last-child {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+.block-echovald .fifth.cantha-commentary .komentar .komentar-author {
+    margin-top: -2px;
 }
 
 @media screen and (max-width: 767px) {

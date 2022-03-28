@@ -123,7 +123,7 @@
     <div class="full relative">
       <div class="container flex relative elevate-over-section stretch">
         <div class="full block-echovald mobile-side-pad stretch flex relative">
-          <div class="half flex-responsive flex column-horizontal-pad">
+          <div class="forty flex-responsive flex column-horizontal-pad">
             <featured
               v-for="post in posts.slice(0, 1)"
               :key="post.id"
@@ -131,7 +131,7 @@
             />
           </div>
           <div
-            class="fourth super-sidebar flex column-horizontal-pad column-left-border column-right-border flex-responsive split-articles"
+            class="forty super-sidebar flex column-horizontal-pad column-left-border column-right-border flex-responsive split-articles"
           >
             <medium
               v-for="post in posts.slice(4, 7)"
@@ -140,7 +140,7 @@
             ></medium>
           </div>
           <div
-            class="fourth flex-responsive column-horizontal-pad cantha-commentary"
+            class="fifth flex-responsive column-horizontal-pad cantha-commentary"
           >
             <commentary></commentary>
           </div>
