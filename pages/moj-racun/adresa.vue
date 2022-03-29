@@ -9,54 +9,132 @@
       class="full flex relative inarticle-form column-top-pad article-full-width"
     >
       <div class="container full relative">
-        <div v-show="submitted">Podaci su spremljeni</div>
-        <form class="full flex relative" @submit.prevent="submit">
-          <label class="full" for="xmas-ime">Ime:</label>
-          <input id="xmas-ime" v-model="first_name" class="full" type="text" />
-          <label class="full" for="xmas-prezime">Prezime:</label>
-          <input
-            id="xmas-prezime"
-            v-model="last_name"
-            class="full"
-            type="text"
-          />
-          <label class="full" for="xmas-adresa">Adresa:</label>
-          <input id="xmas-adresa" v-model="address" class="full" type="text" />
-          <label class="full" for="xmas-adresa2">Adresa druga linija:</label>
-          <input
-            id="xmas-adresa2"
-            v-model="address2"
-            class="full"
-            type="text"
-          />
-          <label class="full" for="xmas-city">Grad:</label>
-          <input id="xmas-city" v-model="city" class="full" type="text" />
-          <label class="full" for="xmas-adresa">Poštanski broj:</label>
-          <input
-            id="xmas-postal"
-            v-model="postal_code"
-            class="full"
-            type="text"
-          />
-          <label class="full" for="xmas-country">Država:</label>
-          <input id="xmas-country" v-model="country" class="full" type="text" />
-          <label class="full">Veličina majice:</label>
-          <select v-model="shirt_size">
-            <option value="ms">Muški S</option>
-            <option value="mm">Muški M</option>
-            <option value="ml">Muški L</option>
-            <option value="mxl">Muški XL</option>
-            <option value="fs">Ženski S</option>
-            <option value="fm">Ženski M</option>
-            <option value="lm">Ženski L</option>
-          </select>
-          <button type="submit" class="classic-btn">Spremi</button>
+        <form class="full flex relative cantha-form" @submit.prevent="submit">
+          <div class="half column-horizontal-pad flex-responsive flex">
+            <label class="full" for="xmas-ime">Ime</label>
+            <input
+              id="xmas-ime"
+              v-model="first_name"
+              class="full"
+              type="text"
+            />
+          </div>
+          <div class="half column-horizontal-pad flex-responsive flex">
+            <label class="full" for="xmas-prezime">Prezime</label>
+            <input
+              id="xmas-prezime"
+              v-model="last_name"
+              class="full"
+              type="text"
+            />
+          </div>
+          <div
+            class="full column-horizontal-pad column-top-pad flex-responsive flex"
+          >
+            <label class="full" for="xmas-adresa">Adresa</label>
+            <input
+              id="xmas-adresa"
+              v-model="address"
+              class="full"
+              type="text"
+            />
+          </div>
+          <div class="full column-horizontal-pad flex-responsive flex">
+            <label class="full" for="xmas-adresa2">Adresa druga linija</label>
+            <input
+              id="xmas-adresa2"
+              v-model="address2"
+              class="full"
+              type="text"
+            />
+          </div>
+          <div class="half column-horizontal-pad flex-responsive flex">
+            <label class="full" for="xmas-city">Grad</label>
+            <input id="xmas-city" v-model="city" class="full" type="text" />
+          </div>
+          <div class="half column-horizontal-pad flex-responsive flex">
+            <label class="full" for="xmas-adresa">Poštanski broj</label>
+            <input
+              id="xmas-postal"
+              v-model="postal_code"
+              class="full"
+              type="text"
+            />
+          </div>
+          <div class="full column-horizontal-pad flex-responsive flex">
+            <label class="full" for="xmas-country">Država</label>
+            <input
+              id="xmas-country"
+              v-model="country"
+              class="full"
+              type="text"
+            />
+          </div>
+          <div
+            class="full column-horizontal-pad column-top-pad flex-responsive flex"
+          >
+            <label class="full">Veličina majice:</label>
+            <select v-model="shirt_size">
+              <option value="" disabled selected>
+                Odaberite svoju veličinu
+              </option>
+              <option value="ms">Muški S</option>
+              <option value="mm">Muški M</option>
+              <option value="ml">Muški L</option>
+              <option value="mxl">Muški XL</option>
+              <option value="fs">Ženski S</option>
+              <option value="fm">Ženski M</option>
+              <option value="lm">Ženski L</option>
+            </select>
+          </div>
+          <div class="full column-horizontal-pad flex-responsive">
+            <button type="submit" class="classic-btn">Spremi</button>
+            <div v-show="submitted" class="full form-info-msg">
+              Podaci su spremljeni.
+            </div>
+          </div>
         </form>
       </div>
     </div>
     <tfooter></tfooter>
   </div>
 </template>
+
+<style scoped>
+.cantha-form input {
+  border: 1px solid #c8c8c8;
+}
+.cantha-form label {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  font-size: 0.8rem;
+}
+.cantha-form select {
+  margin-top: 8px;
+  background: none;
+  outline: none;
+  border: none;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 0.8rem;
+  padding: 4px;
+  margin-bottom: 16px;
+  border: 1px solid #c8c8c8;
+}
+.cantha-form .form-info-msg {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+.cantha-form .classic-btn {
+  outline: none;
+  border: none;
+}
+</style>
 
 <script>
 export default {
