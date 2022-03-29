@@ -73,11 +73,14 @@ export default {
       submitted: false,
     }
   },
+  mounted() {
+    this.getUser()
+  },
   methods: {
     getUser() {
       this.$axios
         .get(
-          `https://preplata.telegram.hr/api/customer/getBasic/${this.$store.state.user.uid}`
+          `https://pretplate.telegram.hr/api/customer/getBasic/${this.$store.state.user.uid}`
         )
         .then((res) => {
           this.first_name = res.data.first_name
@@ -92,7 +95,7 @@ export default {
     },
     submit() {
       this.$axios
-        .post('https://preplata.telegram.hr/api/customer/form', {
+        .post('https://pretplate.telegram.hr/api/customer/form', {
           first_name: this.first_name,
           last_name: this.last_name,
           shipping_address: this.address,
