@@ -93,6 +93,9 @@
             <div v-show="submitted" class="full form-info-msg">
               Podaci su spremljeni.
             </div>
+            <div v-show="error" class="full form-info-msg">
+              Podaci nisu spremljeni. Molimo provjerite unos i probajte ponovo.
+            </div>
           </div>
         </form>
       </div>
@@ -157,6 +160,7 @@ export default {
       country: '',
       shirt_size: '',
       submitted: false,
+      error: false,
     }
   },
   mounted() {
@@ -194,6 +198,9 @@ export default {
         })
         .then(() => {
           this.submitted = true
+        })
+        .catch(() => {
+          this.error = true
         })
     },
   },
