@@ -50,6 +50,7 @@
             <option value="fm">Ženski M</option>
             <option value="lm">Ženski L</option>
           </select>
+          <button type="submit" class="classic-btn">Spremi</button>
         </form>
       </div>
     </div>
