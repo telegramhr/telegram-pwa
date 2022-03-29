@@ -9,8 +9,10 @@
       class="full flex relative inarticle-form mobile-side-pad column-top-pad article-full-width"
     >
       <div class="container full relative">
-        <h2>Molimo da upišete podatke za dostavu</h2>
         <form class="full flex relative cantha-form" @submit.prevent="submit">
+          <div class="full flex column-horizontal-pad column-bottom-pad">
+            <h2 class="section-title">Molimo da upišete podatke za dostavu</h2>
+          </div>
           <div class="half column-horizontal-pad flex-responsive flex">
             <label class="full" for="xmas-ime">Ime</label>
             <input
