@@ -73,7 +73,7 @@
           <div
             class="full column-horizontal-pad column-top-pad flex-responsive flex"
           >
-            <label class="full">Veličina majice:</label>
+            <label class="full">Veličina majice</label>
             <select v-model="shirt_size">
               <option value="" disabled selected>
                 Odaberite svoju veličinu
@@ -82,6 +82,7 @@
               <option value="mm">Muški M</option>
               <option value="ml">Muški L</option>
               <option value="mxl">Muški XL</option>
+              <option value="mxl">Muški XXL</option>
               <option value="fs">Ženski S</option>
               <option value="fm">Ženski M</option>
               <option value="lm">Ženski L</option>
@@ -133,6 +134,12 @@
 .cantha-form .classic-btn {
   outline: none;
   border: none;
+}
+.dark-mode .cantha-form select {
+  color: white;
+}
+.dark-mode .cantha-form option {
+  color: #111;
 }
 </style>
 
