@@ -75,7 +75,7 @@ header .logo {
 }
 .subheader {
     height: 26px;
-    font-family: neuzeit-grotesk, sans-serif;
+    font-family: 'Barlow', sans-serif;
     font-weight: 300;
     font-style: normal;
     font-size: 12px;
@@ -277,7 +277,7 @@ h5.article-meta i {
 /* Table */
 
 .result-table {
-    font-family: neuzeit-grotesk, sans-serif;
+    font-family: 'Barlow', sans-serif;
     font-weight: 400;
     text-align: right;
     font-size: 16px;
@@ -391,7 +391,7 @@ h5.article-meta i {
 /* Section subtitle */
 
 h2.section-title {
-    font-family: neuzeit-grotesk, sans-serif;
+    font-family: 'Barlow', sans-serif;
     font-weight: 900;
     font-size: 32px;
     font-size: 1.6rem;
@@ -767,7 +767,7 @@ h3.subsection-title img.dark-mode-only, .dark-mode h3.subsection-title img {
     left: 0;
 }
 .weather-widget {
-    font-family: neuzeit-grotesk, sans-serif;
+    font-family: 'Barlow', sans-serif;
     font-weight: 300;
     text-transform: uppercase;
     font-size: 12px;
@@ -792,7 +792,7 @@ h3.subsection-title img.dark-mode-only, .dark-mode h3.subsection-title img {
     padding-top: 10px;
 }
 .stonk-widget {
-    font-family: neuzeit-grotesk, sans-serif;
+    font-family: 'Barlow', sans-serif;
     font-weight: 300;
     text-transform: uppercase;
     font-size: 14px;
@@ -931,7 +931,7 @@ h3.subsection-title img.dark-mode-only, .dark-mode h3.subsection-title img {
     border-bottom-color: #27a9e0;
 }
 .weekday-title h2 {
-    font-family: neuzeit-grotesk, sans-serif;
+    font-family: 'Barlow', sans-serif;
     font-weight: 900;
     font-size: 24px;
     font-size: 1.2rem;
@@ -939,7 +939,7 @@ h3.subsection-title img.dark-mode-only, .dark-mode h3.subsection-title img {
 }
 .weekday-title h5 {
     margin-top: 8px;
-    font-family: neuzeit-grotesk, sans-serif;
+    font-family: 'Barlow', sans-serif;
     font-weight: 300;
     font-size: 14px;
     font-size: 0.7rem;
@@ -958,7 +958,7 @@ h3.subsection-title img.dark-mode-only, .dark-mode h3.subsection-title img {
 footer {
     background-color: #212121;
     color: white;
-    font-family: neuzeit-grotesk, sans-serif;
+    font-family: 'Barlow', sans-serif;
     font-weight: 300;
     font-style: normal;
     padding-top: 20px;
@@ -1751,6 +1751,7 @@ header {
 }
 .sticky-subheader .logo img {
     height: 15px;
+    margin-bottom: -2px;
 }
 .single-article .sticky-subheader .menu {
     display: none;
@@ -4210,8 +4211,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         object-fit: cover;
     }
     .single-article h1 {
-        font-size: 40px;
-        font-size: 2rem;
+        font-size: 36px;
+        font-size: 1.8rem;
     }
     .single-article-commentary .article-head h1 {
         font-size: 54px;
@@ -4229,8 +4230,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-weight: 700;
     }
     .article-head h3.overtitle {
-        font-size: 15px;
-        font-size: 0.75rem;
+        font-size: 18px;
+        font-size: 0.9rem;
+        margin-bottom: 16px;
     }
     .single-article-body h2 {
         font-size: 30px;
@@ -4255,7 +4257,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         padding-bottom: 0px;
         margin-bottom: 0px;
         min-height: 84px;
-        padding-right: 100px;
+        padding-left: 100px;
     }
     .related-header-widget .third:last-child {
         border-right: 0px;
@@ -4272,9 +4274,13 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         top: 0px;
         left: 0px;
     }
+    .related-header-widget .article-standard h3.overtitle {
+        font-size: 123px;
+        font-size: 0.65rem;
+    }
     .related-header-widget .article-standard h2 {
-        font-size: 16px;
-        font-size: 0.8rem;
+        font-size: 15px;
+        font-size: 0.75rem;
         position: relative;
         top: -2px;
         margin-bottom: 4px;
@@ -7612,7 +7618,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
 }
 
-/* Super2 */
+/* Super2 home */
 
 .fancy-rubrika .subheader {
     background-color: white;
@@ -7752,6 +7758,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .superone .cantha-break .newbtn {
     background-color: #cc3366;
 }
+
+
 
 @media screen and (min-width: 767px) {
     .superone .fancy-section-parent .page-header-nav a {
@@ -7902,4 +7910,14 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .sblock-special .third:last-child .article-featured .article-pad, .superone .intro-block .third:last-child .article-featured .article-pad {
         border-bottom: none;
     }
+}
+
+/* Super2 single */
+
+.superone .single-article h1, .superone .single-article-body h2 {
+    font-family: henriette-compressed,sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 1.2em;
+    letter-spacing: normal;
 }

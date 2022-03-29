@@ -1,5 +1,14 @@
 <template>
-  <div :class="['main-container', 'flex', 'single-article', typeClass]">
+  <div
+    :class="[
+      'main-container',
+      'flex',
+      'fancy-rubrika',
+      'superone',
+      'single-article',
+      typeClass,
+    ]"
+  >
     <client-only>
       <theader
         :id="post.id"
@@ -8,7 +17,7 @@
         :search-menu-show="showSearchMenu"
       ></theader>
     </client-only>
-    <div v-if="related_posts" class="full related-header-widget">
+    <div v-if="related_posts" class="full related-header-widget hide">
       <div class="container flex desktop-only column-vertical-pad">
         <div v-for="rpost in related_posts" :key="rpost.id" class="third flex">
           <div class="full flex column-horizontal-pad">
@@ -22,7 +31,7 @@
         !mobile &&
         ($route.name === 'category-slug' || $route.name === 'nesto-slug')
       "
-      class="full center header-billboard"
+      class="full center header-billboard hide"
     >
       <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
       <div v-if="!mobile" class="container wallpaper-banners animate">
