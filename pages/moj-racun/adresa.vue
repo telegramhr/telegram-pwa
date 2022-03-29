@@ -6,7 +6,7 @@
       </client-only>
     </div>
     <div
-      class="full flex relative inarticle-form column-top-pad article-full-width"
+      class="full flex relative inarticle-form mobile-side-pad column-top-pad article-full-width"
     >
       <div class="container full relative">
         <form class="full flex relative cantha-form" @submit.prevent="submit">
