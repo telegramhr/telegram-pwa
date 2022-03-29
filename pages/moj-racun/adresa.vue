@@ -9,6 +9,7 @@
       class="full flex relative inarticle-form mobile-side-pad column-top-pad article-full-width"
     >
       <div class="container full relative">
+        <h2>Molimo da upišete podatke za dostavu</h2>
         <form class="full flex relative cantha-form" @submit.prevent="submit">
           <div class="half column-horizontal-pad flex-responsive flex">
             <label class="full" for="xmas-ime">Ime</label>
@@ -43,7 +44,7 @@
             />
           </div>
           <div class="full column-horizontal-pad flex-responsive flex">
-            <label class="full" for="xmas-adresa2">Adresa napomena (ako treba)</label>
+            <label class="full" for="xmas-adresa2">Adresa dodatno</label>
             <input
               id="xmas-adresa2"
               v-model="address2"
