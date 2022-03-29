@@ -17,6 +17,7 @@
               v-model="first_name"
               class="full"
               type="text"
+              required
             />
           </div>
           <div class="half column-horizontal-pad flex-responsive flex">
@@ -26,6 +27,7 @@
               v-model="last_name"
               class="full"
               type="text"
+              required
             />
           </div>
           <div
@@ -37,10 +39,11 @@
               v-model="address"
               class="full"
               type="text"
+              required
             />
           </div>
           <div class="full column-horizontal-pad flex-responsive flex">
-            <label class="full" for="xmas-adresa2">Adresa druga linija</label>
+            <label class="full" for="xmas-adresa2">Adresa napomena (ako treba)</label>
             <input
               id="xmas-adresa2"
               v-model="address2"
@@ -59,6 +62,7 @@
               v-model="postal_code"
               class="full"
               type="text"
+              required
             />
           </div>
           <div class="full column-horizontal-pad flex-responsive flex">
@@ -68,24 +72,23 @@
               v-model="country"
               class="full"
               type="text"
+              required
             />
           </div>
           <div
             class="full column-horizontal-pad column-top-pad flex-responsive flex"
           >
             <label class="full">Veličina majice</label>
-            <select v-model="shirt_size">
+            <select v-model="shirt_size" required>
               <option value="" disabled selected>
                 Odaberite svoju veličinu
               </option>
-              <option value="ms">Muški S</option>
-              <option value="mm">Muški M</option>
-              <option value="ml">Muški L</option>
-              <option value="mxl">Muški XL</option>
-              <option value="mxl">Muški XXL</option>
-              <option value="fs">Ženski S</option>
-              <option value="fm">Ženski M</option>
-              <option value="lm">Ženski L</option>
+              <option value="s">S</option>
+              <option value="m">M</option>
+              <option value="l">L</option>
+              <option value="xl">XL</option>
+              <option value="xxl">XXL</option>
+              <option value="xxxl">XXXL</option>
             </select>
           </div>
           <div class="full column-horizontal-pad flex-responsive">
@@ -157,7 +160,7 @@ export default {
       address2: '',
       city: '',
       postal_code: '',
-      country: '',
+      country: 'Hrvatska',
       shirt_size: '',
       submitted: false,
       error: false,
@@ -167,7 +170,26 @@ export default {
     this.getUser()
   },
   methods: {
+    login() {
+      const _that = this
+      window.tp.pianoId.show({
+        screen: 'login',
+        loggedIn(data) {
+          _that.$store.dispatch('user/setUser', data.user)
+          _that.$store.commit('user/setToken', data.token)
+          window.tp.api.callApi('/access/list', {}, function (response) {
+            _that.$store.dispatch('user/setAccess', response).then(() => {
+              this.getUser()
+            })
+          })
+        },
+      })
+    },
     getUser() {
+      if (!this.$store.state.user.uid) {
+        this.login()
+        return
+      }
       this.$axios
         .get(
           `https://pretplate.telegram.hr/api/customer/getBasic/${this.$store.state.user.uid}`
