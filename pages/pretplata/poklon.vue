@@ -291,6 +291,10 @@ export default {
           title: 'Telegram Premium Poklon',
           price: 588,
         },
+        TMF58Q2TEDY0: {
+          title: 'Telegram Standard Mjesec Poklon',
+          price: 49,
+        },
       },
     }
   },
@@ -301,11 +305,14 @@ export default {
     two() {
       return 'TMC2CGIYTVI0'
     },
+    three() {
+      return 'TMF58Q2TEDY0'
+    },
   },
   mounted() {
     window.fbq = window.fbq || function () {}
     window.fbq('track', 'ViewContent', {
-      content_ids: ['TM6L5G5WJDIH', 'TMC2CGIYTVI0'],
+      content_ids: ['TM6L5G5WJDIH', 'TMC2CGIYTVI0', 'TMF58Q2TEDY0'],
     })
     window.tp.push([
       'addHandler',
@@ -316,6 +323,13 @@ export default {
         }
       },
     ])
+
+    if (
+      this.$route.query.promo_code &&
+      this.$route.query.promo_code === 'TG2022-310H2R'
+    ) {
+      this.checkout('TMF58Q2TEDY0')
+    }
   },
   methods: {
     checkout(termId) {
@@ -342,6 +356,7 @@ export default {
         currency: 'HRK',
         value: this.terms[termId].price,
       })
+      const promo = this.$route.query.promo_code
       window.tp.push([
         'init',
         () => {
@@ -350,6 +365,7 @@ export default {
             termId,
             templateId: 'OTXWXSOL0WWS',
             checkoutFlowId: 'CF65KTMVQXXX',
+            promoCode: promo,
             closeOnLogout: true,
             complete: (data) => {
               _that.$store.dispatch('user/checkAccess')
