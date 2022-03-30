@@ -7365,12 +7365,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .block-echovald .article-featured .related-articles {
     display: none;
 }
-/*.intro-echovald .article-featured .related-articles {
+.show-one-related .article-featured .related-articles {
     display: flex;
 }
-.intro-echovald .article-featured .related-articles a:nth-child(n+3) {
+.show-one-related .article-featured .related-articles a:nth-child(n+3) {
     display: none;
-}*/
+}
 .block-echovald .super-sidebar.split-articles .article-medium img {
     padding-left: 0px;
 }
@@ -7417,6 +7417,31 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .block-echovald .fifth.cantha-commentary .komentar .komentar-author {
     margin-top: -2px;
+}
+.featured-split .article > a {
+    width: 59.99%;
+    order: 2;
+}
+.featured-split .article img {
+    margin-bottom: 0px;
+}
+.featured-split .article .article-pad {
+    width: 39.99%;
+    order: 1;
+    padding-right: 16px;
+}
+.featured-split .article .article-pad h2 {
+    font-weight: 700;
+    font-size: 24px;
+    font-size: 1.2rem;
+}
+.intro-commentary.cantha-commentary .komentar:nth-child(3) {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    border-bottom: none;
+}
+.intro-commentary.cantha-commentary .komentar:last-child {
+    display: none;
 }
 
 @media screen and (max-width: 767px) {

@@ -122,25 +122,14 @@
     </div>
     <div class="full relative">
       <div class="container flex relative elevate-over-section stretch">
-        <div class="full block-echovald mobile-side-pad stretch flex relative">
-          <div class="forty flex-responsive flex column-horizontal-pad">
-            <featured
-              v-for="post in posts.slice(0, 1)"
-              :key="post.id"
-              :post="post"
-            />
-          </div>
+        <div class="full mobile-side-pad stretch flex relative">
           <div
-            class="forty super-sidebar flex column-horizontal-pad column-left-border column-right-border flex-responsive split-articles"
+            class="three-fourths show-one-related featured-split flex-responsive column-horizontal-pad flex split-articles column-right-border"
           >
-            <medium
-              v-for="post in posts.slice(4, 7)"
-              :key="post.id"
-              :post="post"
-            ></medium>
+            <featured :key="posts[0].id" :post="posts[0]"></featured>
           </div>
           <div
-            class="fifth flex-responsive column-horizontal-pad cantha-commentary"
+            class="fourth flex-responsive column-horizontal-pad cantha-commentary intro-commentary"
           >
             <commentary></commentary>
           </div>
@@ -201,7 +190,7 @@
         <div
           class="three-fourths flex-responsive column-horizontal-pad flex split-articles column-right-border big-split alt-big-break"
         >
-          <medium :key="posts[0].id" :post="posts[0]"></medium>
+          <medium :key="posts[2].id" :post="posts[2]"></medium>
         </div>
         <div
           class="fourth flex-responsive column-horizontal-pad mini-article-list"
