@@ -326,7 +326,8 @@ export default {
 
     if (
       this.$route.query.promo_code &&
-      this.$route.query.promo_code === 'TG2022-310H2R'
+      (this.$route.query.promo_code === 'TG2022-310H2R' ||
+        this.$route.query.promo_code === 'TG2022-287H2R')
     ) {
       this.checkout('TMF58Q2TEDY0')
     }
