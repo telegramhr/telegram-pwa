@@ -124,12 +124,12 @@
       <div class="container flex relative elevate-over-section stretch">
         <div class="full mobile-side-pad stretch flex relative">
           <div
-            class="three-fourths show-one-related featured-split flex-responsive column-horizontal-pad flex split-articles column-right-border"
+            class="eighty show-one-related featured-split flex-responsive column-horizontal-pad flex split-articles column-right-border"
           >
             <featured :key="posts[0].id" :post="posts[0]"></featured>
           </div>
           <div
-            class="fourth flex-responsive column-horizontal-pad cantha-commentary intro-commentary"
+            class="fifth flex-responsive column-horizontal-pad cantha-commentary intro-commentary"
           >
             <commentary></commentary>
           </div>
