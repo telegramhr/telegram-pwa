@@ -124,12 +124,31 @@
       <div class="container flex relative elevate-over-section stretch">
         <div class="full mobile-side-pad stretch flex relative">
           <div
-            class="eighty show-one-related featured-split flex-responsive column-horizontal-pad flex split-articles column-right-border"
+            class="three-fourths show-one-related featured-split flex-responsive column-horizontal-pad flex split-articles column-right-border"
           >
             <featured :key="posts[0].id" :post="posts[0]"></featured>
+            <div class="full flex related-articles relative">
+              <h5 class="full">Još o temi</h5>
+              <a
+                href="/politika-kriminal/bomba-iz-uskok-a-kljucni-akter-afere-rimac-sve-sam-radio-po-nalogu-ministra-corica-imam-mailove/"
+                class="full flex"
+                >Bomba iz USKOK-a. Ključni akter afere Rimac: ‘Sve sam radio po
+                nalogu ministra Ćorića, imam mailove’</a
+              ><a
+                href="/politika-kriminal/nakon-telegramovog-otkrica-tomislav-coric-sazvao-presicu-pa-pobjegao-od-novinara/"
+                class="full flex"
+                >Nakon Telegramovog otkrića Tomislav Ćorić sazvao presicu pa
+                pobjegao od novinara</a
+              ><a
+                href="/politika-kriminal/afera-coric-prerasta-u-skandal-za-uskok-pravnici-zgrozeni-kako-je-moguce-da-ministra-nisu-ispitali/"
+                class="full flex"
+                >Afera Ćorić prerasta u skandal za Uskok. Pravni stručnjaci
+                zgroženi: kako je moguće da ministra još nisu ispitali</a
+              >
+            </div>
           </div>
           <div
-            class="fifth flex-responsive column-horizontal-pad cantha-commentary intro-commentary"
+            class="fourth flex-responsive column-horizontal-pad cantha-commentary"
           >
             <commentary></commentary>
           </div>

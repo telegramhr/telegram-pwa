@@ -7376,8 +7376,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .cantha-commentary .komentar h2 {
     padding-top: 0px;
-    font-size: 18px;
-    font-size: 0.9rem;
+    font-size: 17px;
+    font-size: 0.85rem;
 }
 .cantha-commentary .komentar h2 .komentar-quotation {
     top: 0.55rem;
@@ -7408,7 +7408,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .block-echovald .forty.split-articles .article-standard img {
     width: 204px;
 }
-.block-echovald .fifth.cantha-commentary .komentar {
+.cantha-commentary .komentar {
     padding-bottom: 20px;
     margin-bottom: 20px;
     margin-top: -3px;
@@ -7421,7 +7421,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     margin-top: -2px;
 }
 .featured-split .article > a {
-    width: 66.66%;
+    width: 59.99%;
     order: 2;
 }
 .featured-split .article img {
@@ -7429,17 +7429,20 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     padding-left: 0px;
 }
 .featured-split .article .article-pad {
-    width: 33.33%;
+    width: 39.99%;
     order: 1;
     padding-right: 16px;
 }
 .featured-split .article .article-pad h2 {
     font-weight: 700;
-    font-size: 30px;
-    font-size: 1.5rem;
+    font-size: 32px;
+    font-size: 1.6rem;
 }
 .featured-split .meta-date {
     display: none;
+}
+.featured-split .article-featured .article-pad:last-child {
+    border-bottom: none;
 }
 .intro-commentary.cantha-commentary .komentar:nth-child(3) {
     margin-bottom: 0px;
