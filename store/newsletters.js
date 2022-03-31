@@ -37,6 +37,9 @@ export const mutations = {
     Vue.set(state.lists, data, true)
     state.updated = new Date().getTime()
   },
+  updated(state) {
+    state.updated = new Date().getTime()
+  },
   unSub(state, mlid) {
     state.lists[mlid] = false
     state.updated = new Date().getTime()
@@ -61,13 +64,12 @@ export const actions = {
     if (!email) {
       return
     }
-    const a = this.$axios.create()
-    delete a.defaults.headers['X-Staging']
+    // const a = this.$axios.create()
+    commit('updated')
     Object.keys(state.lists).forEach((key) => {
       if (email && key) {
-        a.get(
-          `https://api-esp.piano.io/tracker/securesub/email/${email}/ml/${key}?api_key=${state.api_key}`
-        )
+        this.$axios
+          .get(`/subs/email/${email}/ml/${key}`)
           .then(() => {
             commit('hasSub', key)
           })
@@ -87,13 +89,21 @@ export const actions = {
         },
       })
     } else if (payload.free || rootState.user.access) {
-      window.PianoESP &&
-        typeof window.PianoESP.handleUserDataPromise === 'function' &&
-        window.PianoESP.handleUserDataPromise({
+      this.$axios
+        .post('/subs/', {
           email: rootState.user.email,
-          squads: [payload.mlid],
-        }).then(() => {
+          mlids: [payload.mlid],
+        })
+        .then(() => {
           commit('hasSub', payload.mlid)
+          this.$gtm.push({})
+          this.$gtm.push({
+            event: 'newsletterSubscribe',
+            location: payload.location,
+            href: this.$router.fullPath,
+            title: payload.title,
+            mlid: payload.mlid,
+          })
         })
     }
   },
@@ -106,17 +116,22 @@ export const actions = {
       return
     }
     this.$axios
-      .delete(
-        'https://api-esp.piano.io/tracker/securesub?api_key=' + state.api_key,
-        {
-          data: {
-            email,
-            mlids: [payload.mlid],
-          },
-        }
-      )
+      .delete('/subs/', {
+        data: {
+          email,
+          mlids: [payload.mlid],
+        },
+      })
       .then(() => {
         commit('unSub', payload.mlid)
+        this.$gtm.push({})
+        this.$gtm.push({
+          event: 'newsletterUnSubscribe',
+          location: payload.location,
+          href: this.$router.fullPath,
+          title: payload.title,
+          mlid: payload.mlid,
+        })
       })
   },
   clearAccess({ commit }) {

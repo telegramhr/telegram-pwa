@@ -1,5 +1,5 @@
 /* eslint-disable */
-export default ({ app, inject }) => {
+export default () => {
   window.PianoESPConfig = {
     id: 280
   }
@@ -11,15 +11,9 @@ export default ({ app, inject }) => {
   window.tp.push(['setDebug', false])
   window.tp.push(['setUsePianoIdUserProvider', true])
   window.tp.push(['setCloudflareWorkerUrl', 'https://auth.telegram.hr']);
-  window.tp.push([
-    'init',
-    function () {
-      window.tp.experience.init()
-    },
-  ])
 
   // Adblock
-  document.cookie =
+  /* document.cookie =
     '__adblocker=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/'
   window.setNptTechAdblockerCookie = function (adblocker) {
     const d = new Date()
@@ -35,5 +29,5 @@ export default ({ app, inject }) => {
   script.setAttribute('async', true)
   script.setAttribute('src', '//www.npttech.com/advertising.js')
   script.setAttribute('onerror', 'setNptTechAdblockerCookie(true);')
-  document.getElementsByTagName('head')[0].appendChild(script)
+  document.getElementsByTagName('head')[0].appendChild(script) */
 }

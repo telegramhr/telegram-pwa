@@ -11,24 +11,26 @@
         bannerClass === 'ticker-right' ? 'sticky-right' : '',
       ]"
     >
-      <div id="telegram_sticky" :class="bannerClass"></div>
-      <a
-        v-show="showClose"
-        href="#"
-        :style="{
-          position: 'relative',
-          marginLeft: '-22px',
-          left: bannerClass === 'ticker-right' ? '22px' : 0,
-          zIndex: 201,
-          top: -size[1] / 2 + 'px',
-        }"
-        @click.prevent="shouldHide = true"
-        ><font-awesome-icon
-          :icon="['fas', 'times-circle']"
-          size="3x"
-          style="color: #ae3736"
-        ></font-awesome-icon
-      ></a>
+      <div class="relative">
+        <div id="telegram_sticky" :class="bannerClass"></div>
+        <a
+          v-show="!noClose && showClose"
+          href="#"
+          :style="{
+            position: 'absolute',
+            right: bannerClass === 'ticker-right' ? 'auto' : '-23px',
+            left: bannerClass === 'ticker-right' ? '-23px' : 'auto',
+            top: '-23px',
+            zIndex: 201,
+          }"
+          @click.prevent="shouldHide = true"
+          ><font-awesome-icon
+            :icon="['fas', 'times-circle']"
+            size="3x"
+            style="color: #ae3736"
+          ></font-awesome-icon
+        ></a>
+      </div>
     </div>
   </client-only>
 </template>
@@ -53,11 +55,15 @@ export default {
       size: [900, 250],
       showClose: false,
       shouldHide: false,
+      noClose: false,
     }
   },
   computed: {
     bannerClass() {
-      if (this.size[0] === 900 && this.size[1] === 600) {
+      if (
+        (this.size[0] === 900 && this.size[1] === 600) ||
+        (this.size[0] === 320 && this.size[1] === 480)
+      ) {
         return 'takeover'
       }
       if (this.size[0] === 200 && this.size[1] === 250) {
@@ -81,6 +87,14 @@ export default {
           }
         })
     })
+    window.addEventListener('message', this.handleClose)
+  },
+  methods: {
+    handleClose(e) {
+      if (e.data === 'shouldHaveClose') {
+        this.noClose = true
+      }
+    },
   },
 }
 </script>
@@ -93,8 +107,7 @@ export default {
 }
 
 .sticky-right {
-  flex-direction: row-reverse;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .sticky-fade {

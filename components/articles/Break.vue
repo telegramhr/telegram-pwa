@@ -49,8 +49,18 @@
 <script>
 export default {
   name: 'Break',
+  props: {
+    type: {
+      type: String,
+      required: false,
+      default: 'homepage',
+    },
+  },
   computed: {
     post() {
+      if (this.type === 'openspace') {
+        return this.$store.state.openspace.break
+      }
       return this.$store.state.break.post
     },
     srcset() {
@@ -65,7 +75,12 @@ export default {
     },
   },
   mounted() {
-    this.$store.dispatch('break/pullPosts')
+    if (this.type === 'homepage') {
+      this.$store.dispatch('break/pullPosts')
+    }
+    if (this.type === 'openspace') {
+      this.$store.dispatch('openspace/pullBreak')
+    }
   },
 }
 </script>

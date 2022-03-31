@@ -44,35 +44,61 @@ export default {
     window.removeEventListener('piano_intext_paywall', this.paywall)
   },
   methods: {
-    paywall() {
-      this.title = 'Ovaj članak dostupan je samo pretplatnicima.'
-      this.subtitle =
-        'Za neograničeno čitanje Telegrama i podršku istraživačkim serijalima, pretplatite se na Telegram.'
-      if (this.$store.state.user.token) {
-        this.title = 'Vaš korisnički račun nema aktivnu pretplatu.'
+    paywall(e) {
+      if (e.detail) {
+        this.title = e.detail.title
+        this.subtitle = e.detail.subtitle
+        if (this.$store.state.user.token) {
+          this.title = e.detail.title_user
+          this.subtitle = e.detail.subtitle_user
+        }
+      } else {
+        this.title = 'Ovaj članak dostupan je samo pretplatnicima.'
         this.subtitle =
-          'Pretplatite se odmah kako biste imali neograničen pristup svim sadržajima.'
+          'Iskoristite božićnu akciju i čitajte prvi mjesec bez limita za samo 1 kunu.'
+        if (this.$store.state.user.token) {
+          this.title = 'Vaš korisnički račun nema aktivnu pretplatu.'
+          this.subtitle =
+            'Iskoristite božićnu akciju i čitajte prvi mjesec bez limita za samo 1 kunu.'
+        }
       }
-      this.triggerShow()
+      this.triggerShow('paywall')
     },
-    load() {
-      this.title = 'Pročitali ste sve besplatne članke u ovom mjesecu.'
-      this.subtitle =
-        'Za neograničeno čitanje Telegrama i podršku istraživačkim serijalima, pretplatite se na Telegram.'
-      if (this.$store.state.user.token) {
-        this.title = 'Vaš korisnički račun nema aktivnu pretplatu.'
+    load(e) {
+      if (e.detail) {
+        this.title = e.detail.title
+        this.subtitle = e.detail.subtitle
+        if (this.$store.state.user.token) {
+          this.title = e.detail.title_user
+          this.subtitle = e.detail.subtitle_user
+        }
+      } else {
+        this.title = 'Pročitali ste sve besplatne članke u ovom mjesecu.'
         this.subtitle =
-          'Pretplatite se odmah kako biste imali neograničen pristup svim sadržajima.'
+          'Iskoristite božićnu akciju i čitajte prvi mjesec bez limita za samo 1 kunu.'
+        if (this.$store.state.user.token) {
+          this.title = 'Vaš korisnički račun nema aktivnu pretplatu.'
+          this.subtitle =
+            'Iskoristite božićnu akciju i čitajte prvi mjesec bez limita za samo 1 kunu.'
+        }
       }
-      this.triggerShow()
+      this.triggerShow('load')
     },
-    triggerShow() {
+    triggerShow(type) {
+      if (this.show) {
+        return
+      }
       const el = document.getElementById('piano-content')
       if (el) {
         this.show = true
         el.parentNode.removeChild(el)
       } else {
-        setTimeout(this.load, 500)
+        if (this.type === 'load') {
+          setTimeout(this.load, 500)
+        }
+        if (this.type === 'paywall') {
+          setTimeout(this.paywall, 500)
+        }
       }
     },
     login() {

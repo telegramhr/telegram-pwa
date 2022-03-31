@@ -3,6 +3,9 @@ import { parse } from 'node-html-parser'
 
 export default () => {
   Vue.filter('parseTime', function (value) {
+    if (!value) {
+      return ''
+    }
     const now = Date.now()
     value = value * 1000
     if (value < now - 12 * 3600 * 1000) {
@@ -35,5 +38,14 @@ export default () => {
     }
     const root = parse(value)
     return root.text ? root.text : ''
+  })
+  Vue.filter('parseCurrency', function (value) {
+    const formatter = new Intl.NumberFormat('hr-HR', {
+      style: 'currency',
+      currency: 'HRK',
+      currencyDisplay: 'narrowSymbol',
+      minimumFractionDigits: (value * 100) % 100 ? 2 : 0,
+    })
+    return formatter.format(value)
   })
 }

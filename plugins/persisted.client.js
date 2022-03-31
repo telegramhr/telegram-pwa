@@ -6,11 +6,8 @@ export default ({ store }) => {
     paths: [
       'stocks',
       'weather',
-      'super',
-      'telesport',
       'latest',
       'mostread',
-      'category.categories',
       'theme',
       'user',
       'partner',

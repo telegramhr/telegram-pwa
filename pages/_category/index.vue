@@ -1,24 +1,26 @@
 <template>
-  <div class="main-container flex category-page">
+  <div :class="['main-container', 'flex', 'category-page', extraClass]">
     <div class="full flex relative single-article">
       <client-only>
         <theader></theader>
       </client-only>
     </div>
     <div class="full relative">
-      <div v-if="!$mobile" class="container wallpaper-banners">
-        <div class="wallpaper-left">
-          <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
+      <client-only>
+        <div v-if="!$mobile" class="container wallpaper-banners">
+          <div class="wallpaper-left">
+            <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
+          </div>
+          <div class="wallpaper-right">
+            <ad-unit id="telegram_dekstop_wallpaper_right"></ad-unit>
+          </div>
         </div>
-        <div class="wallpaper-right">
-          <ad-unit id="telegram_dekstop_wallpaper_right"></ad-unit>
-        </div>
-      </div>
+      </client-only>
       <div class="block-title news-block-title full mobile-side-pad">
         <div class="full block-title-pattern relative"></div>
         <div class="container flex relative">
-          <h1 class="full column-left-pad">
-            {{ cat }}
+          <h1 class="fourth column-left-pad">
+            {{ cat | parseCat }}
           </h1>
         </div>
       </div>
@@ -32,7 +34,11 @@
           <div
             class="two-thirds flex-responsive flex column-horizontal-pad column-right-border mobile-side-pad"
           >
-            <featured v-for="i in [0, 1, 2, 3]" :key="i" :post="posts[i]" />
+            <featured
+              v-for="post in posts.slice(0, 4)"
+              :key="post.id"
+              :post="post"
+            />
           </div>
           <div class="full flex mobile-only">
             <newsletter></newsletter>
@@ -40,7 +46,11 @@
           <div
             class="third flex-responsive column-horizontal-pad flex mobile-side-pad"
           >
-            <standard v-for="i in [4, 5, 6, 7, 8]" :key="i" :post="posts[i]" />
+            <standard
+              v-for="post in posts.slice(4, 9)"
+              :key="post.id"
+              :post="post"
+            />
           </div>
         </section>
         <section
@@ -54,12 +64,12 @@
             <!-- <most-read-desktop></most-read-desktop> -->
           </div>
         </section>
-        <div v-if="morePosts.length" class="full flex">
+        <div v-if="posts.length > 9" class="full flex">
           <div
             class="container flex relative native-block stretch mobile-side-pad"
           >
             <div
-              v-for="post in morePosts"
+              v-for="post in posts.slice(9)"
               :key="post.id"
               class="fourth flex-responsive column-full-pad"
             >
@@ -91,9 +101,11 @@
 export default {
   name: 'CategoryIndex',
   async fetch() {
-    await this.$store
-      .dispatch('category/pullPosts', {
-        category: this.$route.params.category,
+    await this.$axios
+      .get('/api/category/' + this.$route.params.category)
+      .then((res) => {
+        this.posts = res.data.posts
+        this.cat = res.data.category
       })
       .catch(() => {
         if (process.server) {
@@ -105,23 +117,16 @@ export default {
   data() {
     return {
       loading: false,
+      posts: [],
+      cat: '',
+      page: 2,
     }
   },
   computed: {
-    posts() {
+    extraClass() {
       return this.$store.state.category.categories[this.$route.params.category]
         ? this.$store.state.category.categories[this.$route.params.category]
-            .posts
-        : []
-    },
-    morePosts() {
-      return this.$store.state.category.morePosts[this.$route.params.category]
-        .posts
-    },
-    cat() {
-      return this.$store.state.category.categories[this.$route.params.category]
-        ? this.$store.state.category.categories[this.$route.params.category]
-            .name
+            .extraClass
         : ''
     },
   },
@@ -131,18 +136,18 @@ export default {
   methods: {
     loadMore() {
       this.loading = true
-      this.$store
-        .dispatch('category/loadMore', {
-          category: this.$route.params.category,
-        })
+      this.$axios
+        .get(`/api/category/${this.$route.params.category}/page/${this.page}`)
         .then((res) => {
+          this.posts = [...this.posts, ...res.data.posts]
           this.loading = false
+          this.page++
         })
     },
   },
   head() {
     return {
-      title: this.cat,
+      title: this.$options.filters.parseCat(this.cat),
       titleTemplate: 'Kategorija %s | Telegram.hr',
       meta: [
         { hid: 'og:type', name: 'og:type', content: 'website' },
@@ -150,7 +155,7 @@ export default {
           hid: 'og:title',
           name: 'og:title',
           property: 'og:title',
-          content: this.cat,
+          content: this.$options.filters.parseCat(this.cat),
         },
         {
           hid: 'og:url',

@@ -40,6 +40,13 @@ export default {
         return true
       },
     },
+    title: {
+      type: String,
+      required: true,
+      default() {
+        return ''
+      },
+    },
   },
   methods: {
     hasSub() {
@@ -49,12 +56,16 @@ export default {
       this.$store.dispatch('newsletters/subscribe', {
         free: this.free,
         mlid: this.mlid,
+        title: this.title,
+        location: 'subscribe-button',
       })
     },
     unsub() {
       this.$store.dispatch('newsletters/unsubscribe', {
         email: this.$route.query.email,
         mlid: this.mlid,
+        title: this.title,
+        location: 'subscribe-button',
       })
     },
   },

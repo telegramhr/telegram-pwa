@@ -1,5 +1,5 @@
 <template>
-  <div v-if="posts.length" class="full flex">
+  <div class="full flex">
     <a href="https://super1.telegram.hr" class="full flex super1-block">
       <div class="block-title full mobile-side-pad">
         <div class="container flex relative">
@@ -10,29 +10,49 @@
     <div class="container flex relative block-4 standard-block super1-block">
       <section class="three-fourths flex-responsive flex elevate-over-section">
         <section
-          class="two-thirds flex-responsive flex mobile-side-pad column-horizontal-pad column-right-border"
+          class="
+            two-thirds
+            flex-responsive flex
+            mobile-side-pad
+            column-horizontal-pad column-right-border
+          "
         >
-          <featured :key="'super-' + posts[0].id" :post="posts[0]"></featured>
+          <featured
+            v-for="post in posts.slice(0, 1)"
+            :key="'super-' + post.id"
+            :post="post"
+          ></featured>
           <div class="full flex split-articles">
             <medium
-              v-for="i in [1, 2, 3]"
-              :key="'super-' + posts[i].id"
-              :post="posts[i]"
+              v-for="post in posts.slice(1, 4)"
+              :key="'super-' + post.id"
+              :post="post"
             ></medium>
           </div>
         </section>
         <section
-          class="third flex-responsive flex column-horizontal-pad flex mobile-side-pad"
+          class="
+            third
+            flex-responsive flex
+            column-horizontal-pad
+            flex
+            mobile-side-pad
+          "
         >
           <standard
-            v-for="i in [4, 5, 6]"
-            :key="'super-' + posts[i].id"
-            :post="posts[i]"
+            v-for="post in posts.slice(4, 7)"
+            :key="'super-' + post.id"
+            :post="post"
           ></standard>
         </section>
       </section>
       <section
-        class="fourth flex desktop-only column-horizontal-pad column-right-border"
+        class="
+          fourth
+          flex
+          desktop-only
+          column-horizontal-pad column-right-border
+        "
       >
         <h2 class="full flex section-title">Upravo se čita</h2>
         <div class="full flex">
@@ -44,11 +64,18 @@
         </div>
       </section>
       <section
-        v-if="showMore && morePosts.length"
-        class="third flex-responsive flex mobile-only column-horizontal-pad flex mobile-side-pad"
+        v-if="posts.length > 7"
+        class="
+          third
+          flex-responsive flex
+          mobile-only
+          column-horizontal-pad
+          flex
+          mobile-side-pad
+        "
       >
         <standard
-          v-for="post in morePosts"
+          v-for="post in posts.slice(7)"
           :key="post.id"
           :post="post"
         ></standard>
@@ -75,34 +102,36 @@
 export default {
   name: 'Super1',
   async fetch() {
-    await this.$store.dispatch('super/pullPosts')
+    await this.$axios
+      .get('https://super1.telegram.hr/wp-json/telegram/pwa2/v1/portal/3')
+      .then((res) => {
+        this.posts = res.data.posts
+        this.reading = res.data.reading
+      })
   },
   data() {
     return {
       showMore: false,
       loading: false,
       page: 2,
+      posts: [],
+      reading: [],
     }
-  },
-  computed: {
-    posts() {
-      return this.$store.state.super.posts
-    },
-    reading() {
-      return this.$store.state.super.reading
-    },
-    morePosts() {
-      return this.$store.state.super.morePosts
-    },
   },
   methods: {
     loadMore() {
       this.loading = true
-      this.$store.dispatch('super/loadMore', this.page).then(() => {
-        this.loading = false
-        this.page++
-        this.showMore = true
-      })
+      this.$axios
+        .get(
+          'https://super1.telegram.hr/wp-json/telegram/pwa2/v1/portal/3/page/' +
+            this.page
+        )
+        .then((res) => {
+          this.posts = [...this.posts, ...res.data.posts]
+          this.loading = false
+          this.page++
+          this.showMore = true
+        })
     },
   },
 }

@@ -15,6 +15,9 @@ export default ({ app, req, store }, inject) => {
         .get(`https://linker.hr/widget/lw.php?&wid=${widgetId}`)
         .then((res) => {
           const el = document.getElementById(`linker-${widgetId}`)
+          if (!el) {
+            return
+          }
           el.innerHTML = res.data
           const arr = el.getElementsByTagName('script')
           for (let n = 0; n < arr.length; n++) {

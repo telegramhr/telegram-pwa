@@ -32,6 +32,13 @@
             </div>
           </div>
         </template>
+        <div
+          v-if="!$store.getters['user/hasPremium']"
+          class="lwdgt"
+          data-wid="542"
+          data-infinite="true"
+          data-cycles="20"
+        ></div>
       </div>
     </div>
   </div>
@@ -65,7 +72,9 @@ export default {
     }
   },
   mounted() {
-    this.loadPosts()
+    if (this.$store.getters['user/hasPremium']) {
+      this.loadPosts()
+    }
   },
   methods: {
     loadPosts() {
@@ -95,10 +104,12 @@ export default {
           this.$axios.get('/api/keep/' + items).then((r) => {
             this.posts = r.data
             this.posts.forEach((post, index) => {
-              post.trackerPermalink = res.data.items[index].click_url.replace(
-                'http://api.cxense.com/public/widget/click/',
-                ''
-              )
+              if (res.data.items[index]) {
+                post.trackerPermalink = res.data.items[index].click_url.replace(
+                  'http://api.cxense.com/public/widget/click/',
+                  ''
+                )
+              }
             })
           })
         })

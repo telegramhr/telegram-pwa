@@ -14,10 +14,15 @@ export default {
       required: true,
       default: 1,
     },
+    category: {
+      type: String,
+      required: false,
+      default: '',
+    },
   },
   async fetch() {
     await this.$axios
-      .$get('/api/latest/1')
+      .$get('/api/latest/1/' + this.category)
       .then((res) => {
         this.posts = res
       })

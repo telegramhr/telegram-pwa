@@ -29,12 +29,6 @@ export default {
       },
       { hid: 'canonical', rel: 'canonical', href: 'https:/www.telegram.hr' },
       {
-        hid: 'gf-preconnect',
-        rel: 'preconnect',
-        href: 'https://fonts.gstatic.com',
-        crossorigin: 'anonymous',
-      },
-      {
         hid: 'tk-preconnect',
         rel: 'preconnect',
         href: 'https://use.typekit.net',
@@ -42,11 +36,10 @@ export default {
       },
       { rel: 'stylesheet', href: 'https://use.typekit.net/yjw4lwh.css' },
       { rel: 'stylesheet', href: 'https://use.typekit.net/vrv6rlv.css' },
-      {
+      /* {
         rel: 'stylesheet',
-        href:
-          'https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap',
-      },
+        href: 'https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap',
+      }, */
       {
         rel: 'me',
         href: 'https://twitter.com/TelegramHR',
@@ -68,7 +61,7 @@ export default {
         async: true,
       },
       {
-        src: '/prebid4.43.4-1.js',
+        src: '/prebid-6.10.0.js',
         async: true,
       },
       {
@@ -77,23 +70,13 @@ export default {
         async: true,
       },
       {
-        hid: 'facebook',
-        src:
-          'https://connect.facebook.net/hr_HR/sdk.js#xfbml=1&version=v11.0&appId=1383786971938581',
-        async: true,
-        defer: true,
-        crossorigin: 'anonymous',
-        nonce: 'LFZOW4mi',
-      },
-      {
         hid: 'cxense',
         src: 'https://cdn.cxense.com/cx.cce.js',
         async: true,
       },
       {
         hid: 'sovrn',
-        src:
-          'https://get.s-onetag.com/71db7e62-a54b-43f0-98c7-ae8594228b02/tag.min.js',
+        src: 'https://get.s-onetag.com/71db7e62-a54b-43f0-98c7-ae8594228b02/tag.min.js',
         async: true,
         defer: true,
       },
@@ -101,7 +84,7 @@ export default {
   },
 
   router: {
-    middleware: ['piano'],
+    middleware: ['piano', 'gemius', 'dotmetrics'],
   },
 
   loading: '~/components/loading.vue',
@@ -118,45 +101,52 @@ export default {
   plugins: [
     { src: '@/plugins/filters.js' },
     { src: '@/plugins/persisted.client.js' },
-    { src: '@/plugins/choices.client.js' },
     { src: '@/plugins/vue-slick-carousel.js' },
     { src: '@/plugins/piano-cxense.js', ssr: false },
     { src: '@/plugins/piano.js', ssr: false },
     { src: '@/plugins/mobile.js' },
     { src: '@/plugins/cxtrack.js', ssr: false },
     { src: '@/plugins/fontawesome.js' },
+    { src: '@/plugins/gemius.client.js' },
+    { src: '@/plugins/dotmetrics.client.js' },
   ],
-
-  ngrok: {
-    region: 'eu',
-    authtoken: process.env.NGROK_AUTHTOKEN,
-  },
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: [{ path: '~/components', pathPrefix: false }],
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
-    // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
-    '@nuxtjs/google-analytics',
     'nuxt-purgecss',
     '@nuxtjs/dotenv',
+    '@nuxtjs/google-fonts',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
-    // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
-    '@nuxtjs/gtm',
     'cookie-universal-nuxt',
+    '@nuxtjs/gtm',
   ],
+
+  googleFonts: {
+    display: 'swap',
+    download: true,
+    families: {
+      Barlow: {
+        wght: [400, 600, 700],
+        ital: [400],
+      },
+      Merriweather: {
+        wght: [300, 400, 700],
+        ital: [300, 400],
+      },
+    },
+  },
 
   gtm: {
     id: 'GTM-TF4XJXD',
-    enabled: true,
     pageTracking: true,
   },
 
@@ -195,10 +185,6 @@ export default {
     },
   },
 
-  googleAnalytics: {
-    id: 'UA-60611577-1',
-  },
-
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
     credentials: true,
@@ -206,18 +192,29 @@ export default {
   },
 
   proxy: {
-    '/api/': {
+    '/api': {
       target: 'https://www.telegram.hr/wp-json/telegram/pwa/v1/',
       pathRewrite: { '^/api/': '' },
     },
-    '/pretplate/': {
+    '/pretplate': {
       target: 'https://pretplate.telegram.hr',
       pathRewrite: { '^/pretplate/': '' },
+    },
+    '/gscripts': {
+      target: 'https://script.google.com/macros/s/',
+      pathRewrite: { '^/gscripts/([^?]*)(.*)': '$1/exec$2' },
+    },
+    '/subs': {
+      target: 'https://api-esp.piano.io/tracker/securesub/',
+      pathRewrite: {
+        '^/subs/(.*)':
+          '$1?api_key=V2rR5WTQbQyHEqCMvFEaUGU3ZNVkt4s6hnvmCz9dXt9aUwzMaUmXAhVzmv83',
+      },
     },
   },
 
   purgeCSS: {
-    enabled: true,
+    enabled: false,
     whitelistPatterns: [
       /slick/,
       /banner/,
@@ -228,9 +225,6 @@ export default {
       /twitter.*/,
     ],
   },
-
-  // Content module configuration (https://go.nuxtjs.dev/config-content)
-  content: {},
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
@@ -244,6 +238,7 @@ export default {
       },
     },
     optimization: {
+      minimize: true,
       splitChunks: {
         maxSize: 0,
       },

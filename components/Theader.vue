@@ -1,16 +1,26 @@
 <template>
   <div class="full">
-    <div
-      v-if="
-        !(
-          ($mobile && $route.name === 'index') ||
-          (!$mobile && $route.name === 'category-slug')
-        )
-      "
-      class="full center header-billboard"
-    >
-      <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
-    </div>
+    <client-only>
+      <div
+        v-if="
+          !(
+            ($mobile && $route.name === 'index') ||
+            (!$mobile && $route.name === 'category-slug') ||
+            $route.name === 'openspace'
+          )
+        "
+        class="full center header-billboard"
+      >
+        <ad-unit
+          id="telegram_desktop_billboard_v1"
+          :disable="
+            post &&
+            (post.disable_ads.includes('all') ||
+              (post.category_slug && post.category_slug.includes('openspace')))
+          "
+        ></ad-unit>
+      </div>
+    </client-only>
     <div
       :class="{
         'side-menu': true,
@@ -92,7 +102,6 @@
               </button>
             </form>
           </div>
-          <!--<app-link to="/moj-racun">Moj račun</app-link>-->
           <h3>Rubrika</h3>
           <app-link
             role="menuitem"
@@ -124,7 +133,6 @@
           <app-link role="menuitem" to="/kultura" @click.native="maybeCloseSide"
             >Kultura</app-link
           >
-          <!--<app-link to="/fotogalerije">Fotogalerije</app-link>-->
         </div>
         <div class="half" role="menu">
           <h3>Postavke izgleda</h3>
@@ -219,6 +227,7 @@
           <h3>Kanali</h3>
           <a role="menuitem" href="https://super1.telegram.hr">Super1</a>
           <a role="menuitem" href="https://telesport.telegram.hr">Telesport</a>
+          <app-link role="menuitem" to="/openspace">Openspace</app-link>
         </div>
         <div class="half" role="menu">
           <h3>Social</h3>
@@ -260,7 +269,7 @@
     </div>
     <div class="full subheader sticky-subheader mobile-side-pad center">
       <div class="container flex desktop-subheader column-horizontal-pad">
-        <div class="two-thirds flex" role="navigation">
+        <div class="two-thirds flex subheader-ow-fix" role="navigation">
           <app-link to="/" class="logo"
             ><img
               src="@/assets/img/telegram_logo_white.svg"
@@ -283,7 +292,11 @@
             <app-link role="menuitem" to="/velike-price">Velike priče</app-link>
             <app-link role="menuitem" to="/zivot">Život</app-link>
             <app-link role="menuitem" to="/kultura">Kultura</app-link>
-            <!--<app-link to="/fotogalerije">Fotogalerije</app-link>-->
+            <app-link role="menuitem" to="/openspace">Openspace</app-link>
+            <a href="https://super1.telegram.hr" role="menuitem">Super1</a>
+            <a href="https://telesport.telegram.hr" role="menuitem">
+              Telesport
+            </a>
           </div>
           <div v-show="headline" class="header-headline single-exclusive">
             {{ headline }}
@@ -420,7 +433,7 @@
           class="container desktop-only flex desktop-subheader column-horizontal-pad homepage-exclusive"
           role="navigation"
         >
-          <div class="two-thirds flex" role="menu">
+          <div class="two-thirds flex subheader-ow-fix" role="menu">
             <a
               :aria-expanded="$store.state.header.showSideMenu.toString()"
               aria-label="Prikaži lijevi meni"
@@ -442,6 +455,11 @@
               >
               <app-link role="menuitem" to="/zivot">Život</app-link>
               <app-link role="menuitem" to="/kultura">Kultura</app-link>
+              <app-link role="menuitem" to="/openspace">Openspace</app-link>
+              <a href="https://super1.telegram.hr" role="menuitem">Super1</a>
+              <a href="https://telesport.telegram.hr" role="menuitem">
+                Telesport
+              </a>
             </div>
           </div>
           <div class="flex third relative">
@@ -490,7 +508,7 @@
           </div>
         </client-only>
       </div>
-      <div class="full desktop-only">
+      <div v-show="showBreaking" class="full desktop-only">
         <breaking></breaking>
       </div>
       <nav class="full flex homepage-exclusive animate">
@@ -559,8 +577,13 @@
         </div>
       </div>-->
     </header>
-    <div class="full mobile-only">
+    <div v-show="showBreaking" class="full mobile-only">
       <breaking></breaking>
+      <h2
+        class="full homepage-exclusive ukraine-mobile-header mobile-side-pad center-text"
+      >
+        Rat u Ukrajini
+      </h2>
     </div>
   </div>
 </template>
@@ -578,6 +601,17 @@ export default {
       type: String,
       required: false,
       default: '',
+    },
+    post: {
+      type: Object,
+      required: false,
+      default() {
+        return {
+          disable_ads: [],
+          post_category: '',
+          category_slug: '',
+        }
+      },
     },
   },
   data() {
@@ -620,6 +654,15 @@ export default {
     stock_key() {
       const keys = Object.keys(this.$store.state.stocks.stocks)
       return keys[Math.floor(Math.random() * keys.length)]
+    },
+    showBreaking() {
+      return !(
+        (this.post.category_slug &&
+          (this.post.category_slug.includes('openspace') ||
+            this.post.category_slug.includes('pitanje-zdravlja'))) ||
+        this.$route.path.includes('openspace') ||
+        this.$route.path.includes('pitanje-zdravlja')
+      )
     },
   },
   mounted() {

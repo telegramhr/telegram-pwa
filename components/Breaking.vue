@@ -3,7 +3,8 @@
     <div class="container column-full-pad">
       <nuxt-link
         :to="$store.state.breaking.link ? $store.state.breaking.link : '#'"
-        ><b>Breaking:</b> {{ $store.state.breaking.title }}</nuxt-link
+        ><b>{{ $store.state.breaking.prefix }}</b>
+        {{ $store.state.breaking.title }}</nuxt-link
       >
     </div>
   </div>

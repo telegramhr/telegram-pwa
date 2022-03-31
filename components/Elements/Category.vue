@@ -1,14 +1,17 @@
 <template>
   <section
-    v-if="posts.length"
     class="fourth flex-responsive column-horizontal-pad flex mobile-side-pad"
   >
     <h2 class="full flex section-title">
       <nuxt-link :to="'/' + slug">{{ category | parseCat }}</nuxt-link>
     </h2>
-    <featured :key="posts[0].id" :post="posts[0]"></featured>
-    <template v-for="i in [1, 2, 3]">
-      <medium v-if="posts[i]" :key="posts[i].id" :post="posts[i]"></medium>
+    <featured
+      v-for="post in posts.slice(0, 1)"
+      :key="post.id"
+      :post="post"
+    ></featured>
+    <template v-for="post in posts.slice(1, 4)">
+      <medium :key="post.id" :post="post"></medium>
     </template>
   </section>
 </template>
@@ -28,14 +31,14 @@ export default {
   },
   computed: {
     posts() {
-      return this.$store.state.category.categories[this.slug].posts
-        .filter((x) => {
+      return this.$store.state.category.categories[this.slug].posts.filter(
+        (x) => {
           const t = this.$store.state.featured.posts.filter((y) => {
             return y.id === x.id
           })
           return t.length === 0
-        })
-        .slice(0, 4)
+        }
+      )
     },
     category() {
       return this.$store.state.category.categories[this.slug].name

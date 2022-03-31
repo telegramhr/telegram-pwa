@@ -51,34 +51,34 @@ export const actions = {
           maxAge: 10 * 24 * 3600,
         })
         commit('setTerm', data.data[0].resource.rid)
-        window.fbq('trackCustom', 'HasSubscription', { value: 1 })
-      } else {
-        window.fbq('trackCustom', 'HasSubscription', { value: 0 })
+        if (window.fbq) {
+          window.fbq('trackCustom', 'HasSubscription', { value: 1 })
+        }
+        resolve()
+      } else if (window.fbq) {
+        window.fbq && window.fbq('trackCustom', 'HasSubscription', { value: 0 })
+        resolve()
       }
-      resolve()
     })
   },
   checkAccess({ state, dispatch }) {
-    const that = this
     window.tp.push([
       'init',
       function () {
         const user = window.tp.pianoId.getUser()
         if (user) {
           dispatch('setUser', user)
-          window.PianoESPConfig.email =
+          /* window.PianoESPConfig.email =
             window.PianoESPConfig.email || user.email
           window.PianoESP &&
             typeof window.PianoESP.handleUserEmail === 'function' &&
-            window.PianoESP.handleUserEmail(user.email)
-          that.$ga.set('dimension3', '1')
+            window.PianoESP.handleUserEmail(user.email) */
           window.tp.api.callApi('/access/list', {}, function (response) {
             if (response.data) {
               dispatch('setAccess', response)
             }
           })
         } else {
-          that.$ga.set('dimension3', 0)
           dispatch('logout')
         }
       },
@@ -89,13 +89,15 @@ export const actions = {
       commit('setAdmin')
     }
   },
-  logout({ commit, dispatch }) {
+  logout({ commit, dispatch, state }) {
     this.$cookies.remove('tmg_access', {
       path: '/',
       domain: '.telegram.hr',
     })
-    window.tp.pianoId.logout()
-    dispatch('newsletters/clearAccess', null, { root: true })
+    if (state.first_name) {
+      window.tp.pianoId.logout()
+      dispatch('newsletters/clearAccess', null, { root: true })
+    }
     commit('logout')
   },
 }

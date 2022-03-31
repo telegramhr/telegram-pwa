@@ -32,9 +32,15 @@
         <section
           class="three-fourths mobile-side-pad flex-responsive flex relative the-big-gs stretch elevate-over-section"
         >
+          <div class="full flex desktop-only column-horizontal-pad"></div>
           <div
             class="five-sixths column-horizontal-pad flex-responsive flex column-bottom-border column-right-border"
           >
+            <h2
+              class="full desktop-only ukraine-header column-bottom-pad center-text"
+            >
+              Rat u Ukrajini
+            </h2>
             <featured :key="posts[0].id" :post="posts[0]"></featured>
           </div>
           <aside
@@ -48,30 +54,44 @@
           <div
             class="two-thirds column-horizontal-pad flex-responsive flex column-right-border column-top-pad"
           >
-            <featured :key="posts[1].id" :post="posts[1]"></featured>
-            <mini-pretplata v-show="!$store.state.user.access"></mini-pretplata>
-            <featured :key="posts[2].id" :post="posts[2]"></featured>
-            <featured :key="posts[3].id" :post="posts[3]"></featured>
+            <featured
+              v-for="post in posts.slice(1, 2)"
+              :key="post.id"
+              :post="post"
+            ></featured>
+            <mini-pretplata-home
+              v-show="!$store.state.user.access"
+            ></mini-pretplata-home>
+            <featured
+              v-for="post in posts.slice(2, 4)"
+              :key="post.id"
+              :post="post"
+            ></featured>
           </div>
-          <div
-            v-show="$mobile"
-            class="full center header-billboard mobile-only"
-          >
-            <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
-          </div>
+          <client-only>
+            <div
+              v-if="$mobile"
+              class="full center header-billboard mobile-only"
+            >
+              <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
+            </div>
+          </client-only>
           <div
             class="third flex-responsive column-horizontal-pad flex column-top-pad"
           >
-            <medium :key="posts[4].id" :post="posts[4]"></medium>
-            <medium :key="posts[5].id" :post="posts[5]"></medium>
-            <medium :key="posts[6].id" :post="posts[6]"></medium>
-            <medium :key="posts[7].id" :post="posts[7]"></medium>
+            <medium
+              v-for="post in posts.slice(4, 8)"
+              :key="post.id"
+              :post="post"
+            ></medium>
           </div>
         </section>
         <section
           class="fourth flex-responsive flex komentari mobile-side-pad column-horizontal-pad column-right-border"
         >
-          <latest v-show="!$mobile" :portal="1"></latest>
+          <client-only>
+            <latest v-show="!$mobile" :portal="1"></latest>
+          </client-only>
           <commentary></commentary>
           <div class="full flex desktop-only">
             <h2 class="full flex section-title">Newsletter</h2>
@@ -79,29 +99,23 @@
           </div>
         </section>
       </div>
-      <div class="full flex mobile-only">
-        <newsletter></newsletter>
-      </div>
       <client-only>
         <big-featured></big-featured>
       </client-only>
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
       </div>
-      <div
-        v-if="posts"
-        class="block-title news-block-title full mobile-side-pad"
-      >
+      <!--<div class="full center">
+        <shoping-guide></shoping-guide>
+      </div>-->
+      <div class="block-title news-block-title full mobile-side-pad">
         <div class="full block-title-pattern relative"></div>
         <div class="container flex relative">
           <h1 class="column-left-pad full">Još vijesti</h1>
         </div>
       </div>
 
-      <div
-        v-if="posts.length"
-        class="container flex relative block-2 standard-block stretch"
-      >
+      <div class="container flex relative block-2 standard-block stretch">
         <section
           class="fourth flex desktop-only column-horizontal-pad column-right-border"
         >
@@ -113,26 +127,22 @@
           <section
             class="two-thirds flex-responsive flex mobile-side-pad column-horizontal-pad column-right-border"
           >
-            <featured :key="posts[8].id" :post="posts[8]"></featured>
+            <featured
+              v-for="post in posts.slice(8, 9)"
+              :key="post.id"
+              :post="post"
+            ></featured>
             <div class="full flex split-articles">
-              <template v-for="i in [9, 10, 11]">
-                <medium
-                  v-if="posts[i]"
-                  :key="posts[i].id"
-                  :post="posts[i]"
-                ></medium>
+              <template v-for="post in posts.slice(9, 12)">
+                <medium :key="post.id" :post="post"></medium>
               </template>
             </div>
           </section>
           <section
             class="third flex-responsive flex mobile-side-pad column-horizontal-pad"
           >
-            <template v-for="i in [12, 13, 14]">
-              <standard
-                v-if="posts[i]"
-                :key="posts[i].id"
-                :post="posts[i]"
-              ></standard>
+            <template v-for="post in posts.slice(12, 15)">
+              <standard :key="post.id" :post="post"></standard>
             </template>
           </section>
         </div>
@@ -167,31 +177,36 @@
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
       </div>
-      <div class="full center">
-        <authors></authors>
-      </div>
-      <linker type="naslovnica"></linker>
       <client-only>
-        <lazy-sport></lazy-sport>
+        <div class="full center">
+          <authors></authors>
+        </div>
+        <linker type="naslovnica"></linker>
       </client-only>
-      <lazy-partners></lazy-partners>
+      <sport></sport>
+      <client-only>
+        <partners></partners>
+      </client-only>
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v4"></ad-unit>
       </div>
-      <client-only>
-        <lazy-super1></lazy-super1>
-      </client-only>
+      <super1></super1>
+      <pitanje-zdravlja></pitanje-zdravlja>
+      <os-homepage></os-homepage>
       <div class="full flex">
         <div class="container desktop-only flex relative column-full-pad"></div>
       </div>
       <div class="container flex relative block-5 standard-block">
         <client-only>
-          <lazy-category slug="zivot"></lazy-category>
-          <lazy-category slug="biznis-tech"></lazy-category>
-          <lazy-category slug="kultura"></lazy-category>
-          <lazy-category slug="velike-price"></lazy-category>
-          <lazy-most-read v-show="$mobile"></lazy-most-read>
+          <category slug="zivot"></category>
+          <category slug="biznis-tech"></category>
+          <category slug="kultura"></category>
+          <category slug="velike-price"></category>
+          <most-read v-if="$mobile"></most-read>
         </client-only>
+      </div>
+      <div class="container flex center">
+        <div id="linker-526" class="lwdgt" data-wid="526"></div>
       </div>
     </div>
     <tfooter></tfooter>
@@ -199,7 +214,9 @@
 </template>
 
 <script>
+import PitanjeZdravlja from '@/components/Elements/PitanjeZdravlja'
 export default {
+  components: { PitanjeZdravlja },
   async fetch() {
     await this.$store.dispatch('featured/pullPosts')
   },
@@ -291,6 +308,13 @@ export default {
           hid: 'schema-ld',
           type: 'application/ld+json',
           json: this.jsonld,
+        },
+        {
+          vmid: 'linker-slider',
+          hid: 'linker-slider',
+          type: 'text/javascript',
+          src: 'https://linker.hr/widget/slider/splide.min.js',
+          async: true,
         },
       ],
     }

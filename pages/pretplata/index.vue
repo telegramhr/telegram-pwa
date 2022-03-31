@@ -13,25 +13,22 @@
           class="container relative flex mobile-side-pad stretch column-full-pad"
         >
           <h1 class="full center-text">Priče koje guraju društvo naprijed.</h1>
-          <p class="full clickable center-text pretplata-tagline">
+          <p class="full center-text pretplata-tagline">
             Pretplatite se i podržite naše bespoštedno novinarstvo.
           </p>
         </div>
       </div>
       <div class="full flex">
-        <div
-          id="pretplata-packs"
-          class="container relative flex pretplata-packs animate mobile-side-pad"
-        >
+        <div class="container relative flex pretplata-packs mobile-side-pad">
           <input
             id="yeartoggle"
-            class="yeartoggle"
             type="checkbox"
+            class="yeartoggle"
             name="yeartoggle"
           />
-          <div class="full center yeartoggle-parent animate">
+          <div class="full center yeartoggle-parent">
             <label class="relative">
-              <div class="best-price-sticker animate">
+              <div class="best-price-sticker animate hide">
                 Najbolja <br />vrijednost
               </div>
               <div
@@ -50,28 +47,14 @@
           </div>
           <div class="full flex center pretplata-packboxes">
             <div
-              :class="[
-                'half',
-                'flex-responsive',
-                'flex',
-                'relative',
-                'pretplata-packbox',
-                'animate',
-                'stretch',
-                one === selected_package ? 'selected-packbox' : '',
-              ]"
+              class="half flex-responsive flex relative pretplata-packbox stretch"
             >
-              <div class="deselect-packbox-btn animate">
-                <font-awesome-icon
-                  :icon="['fas', 'times-circle']"
-                ></font-awesome-icon>
-              </div>
               <div class="full flex overtitle-parent">
                 <h3 class="overtitle">Standard</h3>
               </div>
               <h2 class="full">49kn</h2>
               <h4 class="full center-text undertitle">Mjesečno</h4>
-              <div class="full pretplata-benefits animate">
+              <div class="full pretplata-benefits">
                 <p class="full animate">
                   <font-awesome-icon
                     :icon="['fas', 'check']"
@@ -92,40 +75,18 @@
                 </p>
               </div>
               <div class="full center btn-parent" @click="checkout(one)">
-                <div class="btn animate">
-                  <span class="unselected">Odaberi</span>
-                  <span class="selected"
-                    >Odabrano
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon
-                  ></span>
-                </div>
+                <div class="btn animate">Odaberi</div>
               </div>
             </div>
             <div
-              :class="[
-                'half',
-                'flex-responsive',
-                'flex',
-                'relative',
-                'pretplata-packbox',
-                'animate',
-                'stretch',
-                two === selected_package ? 'selected-packbox' : '',
-              ]"
+              class="half flex-responsive flex relative pretplata-packbox stretch"
             >
-              <div class="deselect-packbox-btn animate">
-                <font-awesome-icon
-                  :icon="['fas', 'times-circle']"
-                ></font-awesome-icon>
-              </div>
               <div class="full flex overtitle-parent">
                 <h3 class="overtitle">Premium</h3>
               </div>
               <h2 class="full">69kn</h2>
               <h4 class="full center-text undertitle">Mjesečno</h4>
-              <div class="full pretplata-benefits animate">
+              <div class="full pretplata-benefits">
                 <p class="full animate">
                   <font-awesome-icon
                     :icon="['fas', 'check']"
@@ -162,34 +123,12 @@
                 </p>
               </div>
               <div class="full center btn-parent" @click="checkout(two)">
-                <div class="btn animate">
-                  <span class="unselected">Odaberi</span>
-                  <span class="selected"
-                    >Odabrano
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon
-                  ></span>
-                </div>
+                <div class="btn animate">Odaberi</div>
               </div>
             </div>
             <div
-              :class="[
-                'half',
-                'flex-responsive',
-                'flex',
-                'relative',
-                'pretplata-packbox',
-                'animate',
-                'stretch',
-                three === selected_package ? 'selected-packbox' : '',
-              ]"
+              class="half flex-responsive flex relative pretplata-packbox stretch"
             >
-              <div class="deselect-packbox-btn animate">
-                <font-awesome-icon
-                  :icon="['fas', 'times-circle']"
-                ></font-awesome-icon>
-              </div>
               <div class="full flex overtitle-parent">
                 <h3 class="overtitle">Standard</h3>
               </div>
@@ -197,7 +136,7 @@
               <h4 class="full center-text undertitle">
                 mjesečno, za cijelu godinu 468kn
               </h4>
-              <div class="full pretplata-benefits animate">
+              <div class="full pretplata-benefits">
                 <p class="full animate">
                   <font-awesome-icon
                     :icon="['fas', 'check']"
@@ -218,34 +157,12 @@
                 </p>
               </div>
               <div class="full center btn-parent" @click="checkout(three)">
-                <div class="btn animate">
-                  <span class="unselected">Odaberi</span>
-                  <span class="selected"
-                    >Odabrano
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon
-                  ></span>
-                </div>
+                <div class="btn animate">Odaberi</div>
               </div>
             </div>
             <div
-              :class="[
-                'half',
-                'flex-responsive',
-                'flex',
-                'relative',
-                'pretplata-packbox',
-                'animate',
-                'stretch',
-                four === selected_package ? 'selected-packbox' : '',
-              ]"
+              class="half flex-responsive flex relative pretplata-packbox stretch"
             >
-              <div class="deselect-packbox-btn animate">
-                <font-awesome-icon
-                  :icon="['fas', 'times-circle']"
-                ></font-awesome-icon>
-              </div>
               <div class="full flex overtitle-parent">
                 <h3 class="overtitle">Premium</h3>
               </div>
@@ -253,7 +170,7 @@
               <h4 class="full center-text undertitle">
                 mjesečno, za cijelu godinu 588kn
               </h4>
-              <div class="full pretplata-benefits animate">
+              <div class="full pretplata-benefits">
                 <p class="full animate">
                   <font-awesome-icon
                     :icon="['fas', 'check']"
@@ -290,204 +207,28 @@
                 </p>
               </div>
               <div class="full center btn-parent" @click="checkout(four)">
-                <div class="btn animate">
-                  <span class="unselected">Odaberi</span>
-                  <span class="selected"
-                    >Odabrano
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon
-                  ></span>
-                </div>
+                <div class="btn animate">Odaberi</div>
               </div>
             </div>
             <a
               href="mailto:pretplata@telegram.hr"
               class="full center-text undertitle"
-              >Želite ponudu za pravne osobe? Javite nam se.</a
+              >Trebat će vam R1 račun ili želite ponudu za pravne osobe? Javite
+              nam se.</a
             >
+            <app-link
+              to="/pretplata/poklon"
+              class="full flex stretch relative mini-pretplata column-top-pad column-top-border"
+            >
+              <h2 class="full center-text">Poklonite pretplatu na Telegram.</h2>
+              <div class="full center-text">
+                Poklon koji se otvara svaki dan, 365 dana
+                <div class="btn">Pokloni</div>
+              </div>
+            </app-link>
           </div>
         </div>
       </div>
-      <transition name="reveal-block">
-        <div class="full center login-screen-wrapper">
-          <div
-            v-show="screen === 'login'"
-            id="login-screen"
-            class="full flex animate long-animate"
-            @click="screen = 'payment'"
-          ></div>
-        </div>
-      </transition>
-      <transition name="reveal-block">
-        <div
-          v-show="screen === 'payment'"
-          id="payment-options"
-          class="full flex animate long-animate"
-        >
-          <div class="container relative flex large-bottom-margin">
-            <h3
-              class="full overtitle mobile-side-pad center-text small-bottom-margin"
-            >
-              Prijavljeni ste kao:
-              {{ $store.state.user.email }}.
-            </h3>
-            <div class="full flex r1-toggle">
-              <h3
-                class="full overtitle mobile-side-pad center-text small-bottom-margin"
-              >
-                Trebate li R1 račun?
-              </h3>
-              <div class="full flex relative mobile-side-pad">
-                <div
-                  class="full center yeartoggle-parent billtoggle-parent large-bottom-margin"
-                >
-                  <label class="relative">
-                    <div
-                      :class="[
-                        'togglemonth',
-                        invoice === 'plain' ? 'invoice_selected' : '',
-                      ]"
-                      @click="invoice = 'plain'"
-                    >
-                      Obični račun
-                    </div>
-                    <div
-                      :class="[
-                        'toggleyear',
-                        invoice === 'r1' ? 'invoice_selected' : '',
-                      ]"
-                      @click="invoice = 'r1'"
-                    >
-                      R1 račun
-                    </div>
-                  </label>
-                </div>
-                <form
-                  v-show="invoice === 'r1'"
-                  class="full flex r1-bill-info large-bottom-margin"
-                >
-                  <label>Ime tvrtke</label>
-                  <input
-                    id="r1-tvrtka"
-                    v-model="invoice_data.company"
-                    type="text"
-                    class="full flex"
-                  />
-                  <label>Adresa</label>
-                  <input
-                    id="r1-adresa"
-                    v-model="invoice_data.address"
-                    type="text"
-                    class="full flex"
-                  />
-                  <label>Grad</label>
-                  <input
-                    id="r1-grad"
-                    v-model="invoice_data.city"
-                    type="text"
-                    class="full flex"
-                  />
-                  <label>Poštanski broj</label>
-                  <input
-                    id="r1-postanski"
-                    v-model="invoice_data.postal_code"
-                    type="text"
-                    class="full flex"
-                  />
-                  <label>OIB</label>
-                  <input
-                    id="r1-oib"
-                    v-model="invoice_data.vat"
-                    type="text"
-                    class="full flex"
-                  />
-                </form>
-              </div>
-            </div>
-            <h3
-              class="full overtitle mobile-side-pad center-text small-bottom-margin"
-            >
-              Odaberite način plaćanja za nastavak:
-            </h3>
-            <div class="full flex payment-methods large-bottom-margin">
-              <div class="fourth center">
-                <div
-                  class="full center payment-tile"
-                  @click="payment('credit')"
-                >
-                  <div class="full flex animate">
-                    <div class="full center">
-                      <font-awesome-icon
-                        :icon="['fad', 'credit-card']"
-                      ></font-awesome-icon>
-                    </div>
-                    <p class="full center-text">Kreditna kartica</p>
-                  </div>
-                </div>
-              </div>
-              <div class="fourth center">
-                <div class="full center payment-tile" @click="payment('bank')">
-                  <div class="full flex animate">
-                    <div class="full center">
-                      <font-awesome-icon
-                        :icon="['fad', 'university']"
-                      ></font-awesome-icon>
-                    </div>
-                    <p class="full center-text">Bankovna uplata</p>
-                  </div>
-                </div>
-              </div>
-              <div class="fourth center">
-                <div
-                  class="full center payment-tile payment-monopolist"
-                  @click="payment('apple')"
-                >
-                  <div class="full flex animate">
-                    <div class="full center">
-                      <font-awesome-icon
-                        :icon="['fab', 'apple-pay']"
-                      ></font-awesome-icon>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="fourth center">
-                <div
-                  class="full center payment-tile payment-monopolist"
-                  @click="payment('google')"
-                >
-                  <div class="full flex animate">
-                    <div class="full center">
-                      <font-awesome-icon
-                        :icon="['fab', 'google-pay']"
-                      ></font-awesome-icon>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </transition>
-      <transition name="reveal-block">
-        <div
-          v-show="screen === 'bank'"
-          id="payment-bank"
-          class="full flex animate long-animate"
-        >
-          <p>Molimo uplatite koristeći sljedeće podatke:</p>
-          <p>IBAN: HR73 23600001101437160</p>
-          <p>Iznos: {{ terms[selected_package] }}.00 kn</p>
-          <p>Model plaćanja: HR01</p>
-          <p>Poziv na broj: 104-2021-00000010</p>
-          <p>Plaćanje pretplate</p>
-          <p>
-            Ili skenirajte sljedeći kod:
-            <img :src="'data:image/png;base64, ' + code" />
-          </p>
-        </div>
-      </transition>
       <div class="full flex relative">
         <div class="container relative flex">
           <div
@@ -696,7 +437,7 @@
         >
           <h2 class="full">Često postavljana pitanja</h2>
           <details class="full flex relative">
-            <summary class="full flex relative">
+            <summary class="full relative">
               Što je pretplata na Telegram?
             </summary>
             <p>
@@ -707,7 +448,7 @@
             </p>
           </details>
           <details class="full flex relative">
-            <summary class="full flex relative">
+            <summary class="full relative">
               Zašto postoji pretplata na Telegramu?
             </summary>
             <p>
@@ -723,7 +464,7 @@
             </p>
           </details>
           <details class="full flex relative">
-            <summary class="full flex relative">
+            <summary class="full relative">
               Kako da se pretplatim na Telegram?
             </summary>
             <p>
@@ -733,9 +474,7 @@
             </p>
           </details>
           <details class="full flex relative">
-            <summary class="full flex relative">
-              Koliko košta pretplata?
-            </summary>
+            <summary class="full relative">Koliko košta pretplata?</summary>
             <p>
               Cijena pretplate ovisi o paketu koji odaberete. Možete se
               pretplatiti na mjesečnoj ili godišnjoj bazi i to na samo jedan ili
@@ -745,7 +484,7 @@
             </p>
           </details>
           <details class="full flex relative">
-            <summary class="full flex relative">
+            <summary class="full relative">
               Koja mi se opcija pretplate najviše isplati?
             </summary>
             <p>
@@ -757,7 +496,7 @@
             </p>
           </details>
           <details id="knjige-disclaimer" class="full flex relative">
-            <summary class="full flex relative">
+            <summary class="full relative">
               Kako mogu besplatno dobiti knjigu u izdanju Telegrama?
             </summary>
             <p>
@@ -776,7 +515,7 @@
             </p>
           </details>
           <details class="full flex relative">
-            <summary class="full flex relative">
+            <summary class="full relative">
               Kako mogu platiti pretplatu?
             </summary>
             <p>
@@ -785,16 +524,18 @@
             </p>
           </details>
           <details class="full flex relative">
-            <summary class="full flex relative">
+            <summary class="full relative">
               Mogu li nekome pokloniti pretplatu?
             </summary>
             <p>
-              Trenutno ne, ali radimo na tome i uskoro ćemo to uvesti kao
-              mogućnost.
+              Dapače, upravo je u tijeku Božićna akcija darivanja. Samo
+              posjetite
+              <app-link to="/pretplata/poklon">ovu stranicu</app-link> i pratite
+              korake za jedan od najoriginalnijih poklona ovog Božića.
             </p>
           </details>
           <details class="full flex relative">
-            <summary class="full flex relative">
+            <summary class="full relative">
               Mogu li čitati Telegram sa svih uređaja jednom kad se pretplatim?
             </summary>
             <p>
@@ -803,7 +544,7 @@
             </p>
           </details>
           <details class="full flex relative">
-            <summary class="full flex relative">
+            <summary class="full relative">
               Mogu li dijeliti svoju pretplatu s drugima?
             </summary>
             <p>
@@ -812,7 +553,7 @@
             </p>
           </details>
           <details class="full flex relative">
-            <summary class="full flex relative">
+            <summary class="full relative">
               Mi smo tvrtka/škola/knjižnica/fakultet, postoji li opcija grupne
               pretplate?
             </summary>
@@ -822,7 +563,7 @@
             </p>
           </details>
           <details class="full flex relative">
-            <summary class="full flex relative">
+            <summary class="full relative">
               Hoću li moći čitati Telegram i ako se ne pretplatim?
             </summary>
             <p>
@@ -834,7 +575,7 @@
             </p>
           </details>
           <details class="full flex relative">
-            <summary class="full flex relative">
+            <summary class="full relative">
               Mogu li se pretplatiti samo na Telesport?
             </summary>
             <p>
@@ -843,7 +584,7 @@
             </p>
           </details>
           <details class="full flex relative">
-            <summary class="full flex relative">
+            <summary class="full relative">
               Mogu li otkazati pretplatu jednom kad se pretplatim?
             </summary>
             <p>
@@ -852,7 +593,7 @@
             </p>
           </details>
           <details class="full flex relative">
-            <summary class="full flex relative">
+            <summary class="full relative">
               Kako se obnavlja jednom kupljena pretplata?
             </summary>
             <p>
@@ -863,7 +604,25 @@
             </p>
           </details>
           <details class="full flex relative">
-            <summary class="full flex relative">
+            <summary class="full relative">
+              Imam pretplatu, no i dalje ne mogu čitati tekstove?
+            </summary>
+            <p>
+              Najvjerojatnije niste prijavljeni u svoj korisnički račun. Kada
+              posjetite Telegram, u gornjem desnom kutu ekrana nalazi se gumb
+              "PRIJAVA", odnosno ikona čovječuljka ako ste na mobilnom uređaju.
+              Klikom na gumb otvorit će Vam se prozor u kojemu se možete
+              prijaviti sa svojom e-mail adresom i lozinkom koju ste postavili,
+              a prepručujemo da ostavite označenom opciju "ostanite prijavljeni"
+              kako se ne biste morali opet prijavljivati pri sljedećem čitanju u
+              istom internetskom pregledniku. Ukoliko ste se prijavljeni, no i
+              dalje ne možete čitati tekstove, javite nam se na
+              <a href="mailto:pretplata@telegram.hr">pretplata@telegram.hr</a>
+              kako bismo što brže riješili problem.
+            </p>
+          </details>
+          <details class="full flex relative">
+            <summary class="full relative">
               Ne mogu pronaći odgovor na svoje pitanje.
             </summary>
             <p>
@@ -885,50 +644,81 @@ export default {
   data() {
     return {
       terms: {
-        TM0FMYURHRA3: 49,
-        TMXKYJUN5YN5: 69,
-        TMVUCFM94OA7: 468,
-        TM8R9U7RK5B1: 588,
-      },
-      screen: 'packs',
-      selected_package: '',
-      invoice: 'plain',
-      payment_type: '',
-      invoice_data: {
-        company: '',
-        address: '',
-        city: '',
-        postal_code: '',
-        vat: '',
+        TM0FMYURHRA3: {
+          title: 'Telegram Mjesečna Pretplata',
+          price: 49,
+        },
+        TMXKYJUN5YN5: {
+          title: 'Telegram Premium Mjesečna Pretplata',
+          price: 69,
+        },
+        TMVUCFM94OA7: {
+          title: 'Telegram Godišnja Pretplata',
+          price: 468,
+        },
+        TM8R9U7RK5B1: {
+          title: 'Telegram Premium Godišnja Pretplata',
+          price: 588,
+        },
+        TMBXUSHKJZZ0: {
+          title: 'Telegram Mjesečna Pretplata - Božićna akcija',
+          price: 1,
+        },
       },
     }
   },
   computed: {
     one() {
-      return 'TM0FMYURHRA3'
+      if (process.client) {
+        if (window.tp.sandbox) {
+          return 'TMC561I3C1ZT'
+        }
+        return 'TM0FMYURHRA3'
+      }
+      return ''
     },
     two() {
-      return 'TMXKYJUN5YN5'
+      if (process.client) {
+        if (window.tp.sandbox) {
+          return 'TM68H8RUQ7VJ'
+        }
+        return 'TMXKYJUN5YN5'
+      }
+      return ''
     },
     three() {
-      return 'TMVUCFM94OA7'
+      if (process.client) {
+        if (window.tp.sandbox) {
+          return 'TMA44DJRTT2A'
+        }
+        return 'TMVUCFM94OA7'
+      }
+      return ''
     },
     four() {
-      return 'TM8R9U7RK5B1'
+      if (process.client) {
+        if (window.tp.sandbox) {
+          return 'TM6MUK1A0QU6'
+        }
+        return 'TM8R9U7RK5B1'
+      }
+      return ''
     },
-    code() {
-      return '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'
+    promo() {
+      return 'TMBXUSHKJZZ0'
     },
   },
   mounted() {
-    /* window.fbq('track', 'ViewContent', {
+    window.fbq = window.fbq || function () {}
+    window.fbq('track', 'ViewContent', {
       content_ids: [
         'TM0FMYURHRA3',
         'TMXKYJUN5YN5',
         'TMVUCFM94OA7',
         'TM8R9U7RK5B1',
+        'TMBXUSHKJZZ0',
       ],
-    }) */
+    })
     window.tp.push([
       'addHandler',
       'checkoutComplete',
@@ -940,35 +730,23 @@ export default {
     ])
   },
   methods: {
-    payment(type) {
-      this.payment_type = type
-      if (type === 'credit') {
-        this.checkout2(this.selected_package)
-      }
-      if (type === 'bank') {
-        this.screen = 'bank'
-      }
-    },
     checkout(termId) {
-      this.selected_package = termId
-      if (this.$store.state.user.email) {
-        this.screen = 'payment'
-      } else {
-        this.screen = 'login'
-        const _that = this
-        window.tp.pianoId.show({
-          screen: 'register',
-          displayMode: 'inline',
-          containerSelector: '#login-screen',
-          loggedIn(data) {
-            _that.$store.dispatch('user/setUser', data.user)
-            _that.screen = 'payment'
-            // window.location.reload()
-            // _that.checkout2(termId, -2)
+      this.$gtm.push({ ecommerce: null }) // Clear the previous ecommerce object.
+      this.$gtm.push({
+        event: 'productClick',
+        ecommerce: {
+          click: {
+            products: [
+              {
+                name: this.terms[termId].title,
+                id: termId,
+                price: this.terms[termId].price,
+              },
+            ],
           },
-        })
-      }
-      /* if (this.$store.state.user.token) {
+        },
+      })
+      if (this.$store.state.user.token) {
         this.checkout2(termId, -1)
       } else {
         const _that = this
@@ -981,15 +759,17 @@ export default {
             _that.checkout2(termId, -2)
           },
         })
-      } */
+      }
     },
     checkout2(termId, back) {
       const _that = this
-      /* window.fbq('track', 'InitiateCheckout', {
+      window.fbq = window.fbq || function () {}
+      window.fbq('track', 'InitiateCheckout', {
         content_ids: [termId],
         currency: 'HRK',
-        value: this.terms[termId],
-      }) */
+        value: this.terms[termId].price,
+      })
+      const promo = this.$route.query.promo_code
       window.tp.push([
         'init',
         () => {
@@ -998,35 +778,46 @@ export default {
             termId,
             templateId: window.tp.sandbox ? 'OTTXZFQ6FGFC' : 'OTXWXSOL0WWS',
             checkoutFlowId: window.tp.sandbox ? 'CF8Q59Z3RJ5G' : 'CF65KTMVQXXX',
-            promoCode: this.$route.query.promo_code,
+            promoCode: promo,
             closeOnLogout: true,
-            displayMode: 'inline',
-            containerSelector: '#payment-creditcard',
-            showCloseButton: false,
-            complete: () => {
+            complete: (data) => {
               _that.$store.dispatch('user/checkAccess')
               window.fbq('track', 'Purchase', {
-                content_ids: [termId],
-                currency: 'HRK',
-                value: this.terms[termId],
+                content_ids: data.termId,
+                currency: data.chargeCurrency,
+                value: data.chargeAmount,
+              })
+              _that.$gtm.push({ ecommerce: null })
+              _that.$gtm.push({
+                ecommerce: {
+                  purchase: {
+                    actionField: {
+                      id: data.termConversionId,
+                      affiliation: 'Telegram.hr',
+                      revenue: data.chargeAmount,
+                      tax: data.chargeAmount - data.chargeAmount / 1.05,
+                    },
+                    products: [
+                      {
+                        id: data.termId,
+                        name: _that.terms[data.termId].title,
+                        quantity: 1,
+                        price: _that.terms[data.termId].price,
+                      },
+                    ],
+                  },
+                },
               })
               window.fbq('track', 'Subscribe', {
-                currency: 'HRK',
-                value: this.terms[termId],
+                currency: data.chargeCurrency,
+                value: data.chargeAmount,
               })
               window.PianoESP &&
                 typeof window.PianoESP.handleUserDataPromise === 'function' &&
                 window.PianoESP.handleUserDataPromise({
                   email: _that.$store.state.user.email,
                   squads: [2128, 2555, 2554],
-                })
-              this.$axios
-                .post('/pretplate/order', {
-                  email: _that.$store.state.user.email,
-                  invoice_type: _that.invoice,
-                  payment: this.payment_type,
-                })
-                .then(() => {
+                }).then(() => {
                   _that.$router.go(back)
                 })
             },

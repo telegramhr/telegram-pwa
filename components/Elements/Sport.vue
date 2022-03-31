@@ -1,5 +1,5 @@
 <template>
-  <div v-if="posts.length" class="full flex">
+  <div class="full flex">
     <a href="https://telesport.telegram.hr" class="sport-block full flex">
       <div class="block-title full mobile-side-pad">
         <div class="container flex relative">
@@ -9,30 +9,48 @@
     </a>
     <div class="container flex relative block-3 standard-block sport-block">
       <section
-        class="three-fourths flex-responsive flex mobile-side-pad elevate-over-section"
+        class="
+          three-fourths
+          flex-responsive flex
+          mobile-side-pad
+          elevate-over-section
+        "
       >
         <div
-          class="two-thirds flex-responsive flex column-horizontal-pad column-right-border"
+          class="
+            two-thirds
+            flex-responsive flex
+            column-horizontal-pad column-right-border
+          "
         >
-          <featured :key="posts[0].id" :post="posts[0]"></featured>
+          <featured
+            v-for="post in posts.slice(0, 1)"
+            :key="'sport-' + post.id"
+            :post="post"
+          ></featured>
           <div class="full flex split-articles">
             <medium
-              v-for="i in [1, 2, 3]"
-              :key="posts[i].id"
-              :post="posts[i]"
+              v-for="post in posts.slice(1, 4)"
+              :key="'sport-' + post.id"
+              :post="post"
             ></medium>
           </div>
         </div>
         <div class="third flex-responsive column-horizontal-pad flex">
           <standard
-            v-for="i in [4, 5, 6]"
-            :key="posts[i].id"
-            :post="posts[i]"
+            v-for="post in posts.slice(4, 7)"
+            :key="'sport-' + post.id"
+            :post="post"
           ></standard>
         </div>
       </section>
       <section
-        class="fourth flex-responsive flex column-horizontal-pad column-right-border mobile-side-pad"
+        class="
+          fourth
+          flex-responsive flex
+          column-horizontal-pad column-right-border
+          mobile-side-pad
+        "
       >
         <h2 class="full flex desktop-only section-title">Upravo se čita</h2>
         <div class="full flex desktop-only">
@@ -48,11 +66,18 @@
         </div>
       </section>
       <section
-        v-if="showMore && morePosts.length"
-        class="third flex-responsive flex mobile-only column-horizontal-pad flex mobile-side-pad"
+        v-if="posts.length > 7"
+        class="
+          third
+          flex-responsive flex
+          mobile-only
+          column-horizontal-pad
+          flex
+          mobile-side-pad
+        "
       >
         <standard
-          v-for="post in morePosts"
+          v-for="post in posts.slice(7)"
           :key="post.id"
           :post="post"
         ></standard>
@@ -79,37 +104,38 @@
 export default {
   name: 'Sport',
   async fetch() {
-    await this.$store.dispatch('telesport/pullPosts')
+    await this.$axios
+      .get('https://telesport.telegram.hr/wp-json/telegram/pwa2/v1/portal/2')
+      .then((res) => {
+        this.posts = res.data.posts
+        this.reading = res.data.reading
+        this.comments = res.data.comments
+      })
   },
   data() {
     return {
       showMore: false,
       loading: false,
       page: 2,
+      posts: [],
+      reading: [],
+      comments: [],
     }
-  },
-  computed: {
-    comments() {
-      return this.$store.state.telesport.comments
-    },
-    posts() {
-      return this.$store.state.telesport.posts
-    },
-    reading() {
-      return this.$store.state.telesport.reading
-    },
-    morePosts() {
-      return this.$store.state.telesport.morePosts
-    },
   },
   methods: {
     loadMore() {
       this.loading = true
-      this.$store.dispatch('telesport/loadMore', this.page).then(() => {
-        this.loading = false
-        this.page++
-        this.showMore = true
-      })
+      this.$axios
+        .get(
+          'https://telesport.telegram.hr/wp-json/telegram/pwa2/v1/portal/2/page/' +
+            this.page
+        )
+        .then((res) => {
+          this.posts = [...this.posts, ...res.data.posts]
+          this.loading = false
+          this.page++
+          this.showMore = true
+        })
     },
   },
 }

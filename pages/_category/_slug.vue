@@ -9,7 +9,11 @@
     ]"
   >
     <template v-if="!($fetchState.error || post.title === 'Objava ne postoji')">
-      <theader :id="Number(post.id)" :headline="post.portal_title"></theader>
+      <theader
+        :id="Number(post.id)"
+        :headline="post.portal_title"
+        :post="post"
+      ></theader>
       <div v-show="related_posts" class="full related-header-widget">
         <div class="container flex desktop-only column-vertical-pad">
           <div
@@ -30,7 +34,10 @@
         >
           <ad-unit
             id="telegram_desktop_billboard_v1"
-            :disable="post.disable_ads.includes('all')"
+            :disable="
+              post.disable_ads.includes('all') ||
+              (post.category_slug && post.category_slug.includes('openspace'))
+            "
           ></ad-unit>
           <div v-if="!$mobile" class="container wallpaper-banners animate">
             <div class="wallpaper-left">
@@ -76,6 +83,7 @@
           ></app-link>
         </div>
         <img
+          v-if="post.image.full"
           class="article-head-image"
           :src="post.image.full"
           :alt="post.image.alt"
@@ -84,7 +92,7 @@
           <div class="full flex overtitle-parent">
             <h3 class="overtitle">{{ post.category }}</h3>
             <div v-if="post.promo.partner" class="collab-overtitle">
-              <h3 class="overtitle">U suradnji s</h3>
+              <h3 class="overtitle">{{ post.promo.prefix }}</h3>
               <img :src="post.promo.logo" :alt="post.promo.partner" />
             </div>
           </div>
@@ -101,7 +109,7 @@
               <div class="full flex overtitle-parent">
                 <h3 class="overtitle">{{ post.category | parseCat }}</h3>
                 <div v-if="post.promo.partner" class="collab-overtitle">
-                  <h3 class="overtitle">U suradnji s</h3>
+                  <h3 class="overtitle">{{ post.promo.prefix }}</h3>
                   <img :src="post.promo.logo" :alt="post.promo.partner" />
                 </div>
               </div>
@@ -116,7 +124,7 @@
                       v-if="!post.promo.signature_logo_off"
                       :src="post.promo.logo"
                     />
-                    <span>U suradnji s</span>
+                    <span>{{ post.promo.prefix }}</span>
                     <span>{{ post.promo.partner }}</span>
                   </a>
                 </template>
@@ -142,7 +150,10 @@
                   <subscribe-link :author="post.authors[0]"></subscribe-link>
                 </client-only>
               </h5>
-              <div class="full flex article-head-image-parent relative">
+              <div
+                v-if="post.image.url || post.video"
+                class="full flex article-head-image-parent relative"
+              >
                 <template v-if="post.video">
                   <!-- eslint-disable-next-line -->
                   <div style="width: 100%" v-html="post.video" />
@@ -169,7 +180,7 @@
                       v-if="!post.promo.signature_logo_off"
                       :src="post.promo.logo"
                     />
-                    <span>U suradnji s</span>
+                    <span>{{ post.promo.prefix }}</span>
                     <span>{{ post.promo.partner }}</span>
                   </a>
                 </template>
@@ -234,9 +245,13 @@
                 @click="handleClick"
                 v-html="post.content"
               ></div>
-              <!-- eslint-enable vue/no-v-html -->
-              <intext></intext>
+
+              <portal v-if="showQuiz" selector="#quiz-container">
+                <quiz v-if="post.quiz" :data="post.quiz"></quiz>
+              </portal>
+
               <client-only>
+                <intext></intext>
                 <linker type="mobile"></linker>
               </client-only>
               <!-- Article footer -->
@@ -310,19 +325,26 @@
           </article>
         </div>
         <div class="full flex">
-          <client-only>
-            <native></native>
-          </client-only>
-        </div>
-        <div class="full flex">
-          <single-newsletters :author="post.authors[0]"></single-newsletters>
-        </div>
-        <div class="full flex">
           <div
             class="container flex relative native-block stretch mobile-side-pad"
           >
             <linker type="category"></linker>
           </div>
+        </div>
+        <div class="full center">
+          <native></native>
+        </div>
+        <div class="container center">
+          <div
+            data-contentexchange-widget="k7dWfvWSYDqoSZvwu"
+            data-contentexchange-source="ughr"
+          ></div>
+        </div>
+        <div class="full flex">
+          <linker type="footer"></linker>
+        </div>
+        <div class="container flex center">
+          <div id="linker-526" class="lwdgt" data-wid="526"></div>
         </div>
         <client-only>
           <keep-reading
@@ -331,9 +353,6 @@
             :p="Number(post.id)"
             :permalink="post.permalink"
           ></keep-reading>
-          <div class="full flex">
-            <linker type="footer"></linker>
-          </div>
         </client-only>
         <ticker></ticker>
       </div>
@@ -401,9 +420,11 @@
 </template>
 
 <script>
+import { Portal } from '@linusborg/vue-simple-portal'
 export default {
   name: 'Slug',
   scrollToTop: true,
+  components: { Portal },
   async fetch() {
     if (!this.$route.params.slug) {
       return
@@ -458,6 +479,7 @@ export default {
   },
   data() {
     return {
+      showQuiz: false,
       comments: false,
       showSideMenu: false,
       showSearchMenu: false,
@@ -495,17 +517,21 @@ export default {
           width: '',
           height: '',
         },
-        disable_ads: true,
+        disable_ads: [],
         promo: {
           signature_logo_off: false,
           partner: '',
         },
+        quiz: null,
       },
       related_posts: [],
       midas: false,
     }
   },
   computed: {
+    canLogIn() {
+      return this.$store.state.user.exp * 1000 < new Date().getTime()
+    },
     jsonld() {
       const images = [this.post.image.url]
       if (this.post.image.url2) {
@@ -563,7 +589,10 @@ export default {
     },
     categoryClass() {
       if (this.post.category_slug) {
-        if (this.post.category_slug === 'openspace') {
+        if (
+          this.post.category_slug.includes('openspace') ||
+          this.post.category_slug.includes('pitanje-zdravlja')
+        ) {
           return this.post.category_slug + ' fancy-rubrika'
         }
         return this.post.category_slug
@@ -608,7 +637,10 @@ export default {
       }
     },
     loadAds() {
-      if (this.post.category_slug === 'openspace') {
+      if (
+        this.post.category_slug &&
+        this.post.category_slug.includes('openspace')
+      ) {
         return
       }
       this.$store.dispatch('ads/initAds', {
@@ -617,7 +649,6 @@ export default {
         tags: this.post.tags,
       })
       if (
-        !this.post.disable_ads &&
         !this.post.disable_ads.includes('all') &&
         !this.post.disable_ads.includes('nepromo')
       ) {
@@ -682,6 +713,7 @@ export default {
         'init',
         function () {
           window.tp.experience.execute()
+          window.tp.enableGACrossDomainLinking()
         },
       ])
     },
@@ -690,32 +722,39 @@ export default {
         if (process.client) {
           this.$telegram.$loading.finish()
         }
+        if (this.post.quiz) {
+          this.showQuiz = true
+        }
         this.loadPiano()
         this.loadAds()
         if (typeof FB !== 'undefined') {
           FB.XFBML.parse()
         }
-        if (typeof twttr !== 'undefined') {
-          /* global twttr */
-          twttr.widgets.load(document.getElementById('article-content'))
+        if (document.getElementsByClassName('twitter-tweet')) {
+          const head = document.getElementsByTagName('head')[0]
+          const scriptTag = document.createElement('script')
+          scriptTag.src = 'https://platform.twitter.com/widgets.js'
+          head.append(scriptTag)
         }
-        if (typeof instgrm !== 'undefined') {
-          /* global instgrm */
-          instgrm.Embeds.process()
+        if (document.getElementById('article-content')) {
+          const images = [
+            ...document
+              .getElementById('article-content')
+              .getElementsByTagName('img'),
+          ]
+          images.forEach((image) => {
+            if (image.width < image.height) {
+              image.classList.remove('size-full')
+            }
+          })
         }
-        const images = [
-          ...document
-            .getElementById('article-content')
-            .getElementsByTagName('img'),
-        ]
-        images.forEach((image) => {
-          if (image.width < image.height) {
-            image.classList.remove('size-full')
-          }
-        })
+        this.dotmetrics()
       } else {
         setTimeout(this.getPost, 500)
       }
+    },
+    dotmetrics() {
+      this.$dotmetrics.postLoad(this.post.category_slug)
     },
     fbShare() {
       /* global FB */
@@ -736,14 +775,8 @@ export default {
       ) {
         // some sanity checks taken from vue-router:
         // https://github.com/vuejs/vue-router/blob/dev/src/components/link.js#L106
-        const {
-          altKey,
-          ctrlKey,
-          metaKey,
-          shiftKey,
-          button,
-          defaultPrevented,
-        } = event
+        const { altKey, ctrlKey, metaKey, shiftKey, button, defaultPrevented } =
+          event
         // don't handle with control keys
         if (metaKey || altKey || ctrlKey || shiftKey) return
         // don't handle when preventDefault called
@@ -766,11 +799,6 @@ export default {
     },
   },
   head() {
-    const amp = {
-      hid: 'amphtml',
-      rel: 'amphtml',
-      href: this.post.social.path + 'amp',
-    }
     const link = [
       {
         hid: 'canonical',
@@ -778,8 +806,45 @@ export default {
         href: this.post.social.path,
       },
     ]
-    if (this.$route.params.category !== 'partneri') {
-      link.push(amp)
+    let script = [
+      {
+        vmid: 'schema-ld',
+        hid: 'schema-ld',
+        type: 'application/ld+json',
+        json: this.jsonld,
+      },
+      {
+        hid: 'facebook',
+        src: 'https://connect.facebook.net/hr_HR/sdk.js#xfbml=1&version=v11.0&appId=1383786971938581',
+        async: true,
+        defer: true,
+        crossorigin: 'anonymous',
+        nonce: 'LFZOW4mi',
+      },
+      {
+        hid: 'contentexchange',
+        src: 'https://ughr.contentexchange.me/static/tracker.js',
+        async: true,
+      },
+    ]
+    if (!this.$store.getters['user/hasPremium']) {
+      script = [
+        ...script,
+        {
+          vmid: 'linker-slider',
+          hid: 'linker-slider',
+          type: 'text/javascript',
+          src: 'https://linker.hr/widget/slider/splide.min.js',
+          async: true,
+        },
+        {
+          vmid: 'linker-infinite',
+          hid: 'linker-infinite',
+          type: 'text/javascript',
+          src: 'https://linker.hr/lw-inf.js',
+          async: true,
+        },
+      ]
     }
     const fbPaywall = {
       none: 'metered',
@@ -885,27 +950,7 @@ export default {
               : 'index, follow',
         },
       ],
-      script: [
-        {
-          vmid: 'instagram',
-          hid: 'instagram',
-          src:
-            'https://www.instagram.com/static/bundles/metro/EmbedSDK.js/33cd2c5d5d59.js',
-        },
-        {
-          vmid: 'twitter',
-          hid: 'twitter',
-          src: 'https://platform.twitter.com/widgets.js',
-          async: true,
-          defer: true,
-        },
-        {
-          vmid: 'schema-ld',
-          hid: 'schema-ld',
-          type: 'application/ld+json',
-          json: this.jsonld,
-        },
-      ],
+      script,
       link,
     }
   },

@@ -50,6 +50,66 @@ export const state = () => ({
       posts: [],
       updated: null,
     },
+    openspace: {
+      name: 'Openspace',
+      posts: [],
+      updated: null,
+      extraClass: 'openspace',
+    },
+    'kvizovi-testovi': {
+      name: 'Kvizovi i testovi',
+      posts: [],
+      updated: null,
+      extraClass: 'openspace fancy-rubrika',
+    },
+    'tvrtke-karijere': {
+      name: 'Tvrtke i karijere',
+      posts: [],
+      updated: null,
+      extraClass: 'openspace fancy-rubrika',
+    },
+    vjestine: {
+      name: 'Vještine',
+      posts: [],
+      updated: null,
+      extraClass: 'openspace fancy-rubrika',
+    },
+    vodici: {
+      name: 'Vodiči',
+      posts: [],
+      updated: null,
+      extraClass: 'openspace fancy-rubrika',
+    },
+    'pitanje-zdravlja': {
+      name: 'Pitanje zdravlja',
+      posts: [],
+      updated: null,
+      extraClass: 'pitanje-zdravlja fancy-rubrika',
+    },
+    'leksikon-zdravlja': {
+      name: 'Leksikon zdravlja',
+      posts: [],
+      updated: null,
+      extraClass: 'pitanje-zdravlja fancy-rubrika',
+    },
+    price: {
+      name: 'Priče',
+      posts: [],
+      updated: null,
+      extraClass: 'pitanje-zdravlja fancy-rubrika',
+    },
+    lifestyle: {
+      name: 'Lifestyle',
+      posts: [],
+      updated: null,
+      extraClass: 'pitanje-zdravlja fancy-rubrika',
+    },
+    vijesti: {
+      name: 'Vijesti',
+      posts: [],
+      updated: null,
+      extraClass: 'pitanje-zdravlja fancy-rubrika',
+    },
   },
   morePosts: {
     'politika-kriminal': {
@@ -85,6 +145,30 @@ export const state = () => ({
       page: 2,
     },
     sport: {
+      posts: [],
+      page: 2,
+    },
+    'kvizovi-testovi': {
+      posts: [],
+      page: 2,
+    },
+    'tvrtke-karijere': {
+      posts: [],
+      page: 2,
+    },
+    vjestine: {
+      posts: [],
+      page: 2,
+    },
+    vodici: {
+      posts: [],
+      page: 2,
+    },
+    openspace: {
+      posts: [],
+      page: 2,
+    },
+    'pitanje-zdravlja': {
       posts: [],
       page: 2,
     },

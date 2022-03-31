@@ -1,4 +1,5 @@
 export const state = () => ({
+  prefix: 'Breaking:',
   title: '',
   link: '',
   on: false,
@@ -10,6 +11,7 @@ export const mutations = {
     state.title = data.title
     state.on = !!data.title
     state.link = data.link
+    state.prefix = data.prefix
     state.updated = new Date().getTime()
   },
 }

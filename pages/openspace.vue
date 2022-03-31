@@ -30,150 +30,38 @@
           />
         </div>
         <nav class="full center page-header-nav">
-          <app-link role="menuitem" to="/politika-kriminal">Vještine</app-link>
-          <app-link role="menuitem" to="/komentari">Tvrtke i karijere</app-link>
-          <app-link role="menuitem" to="/biznis-tech"
+          <app-link role="menuitem" to="/vjestine">Vještine</app-link>
+          <app-link role="menuitem" to="/tvrtke-karijere"
+            >Tvrtke i karijere</app-link
+          >
+          <app-link role="menuitem" to="/kvizovi-testovi"
             >Kvizovi i testovi</app-link
           >
-          <app-link role="menuitem" to="/velike-price">Vodiči</app-link>
+          <app-link role="menuitem" to="/vodici">Vodiči</app-link>
         </nav>
       </div>
     </div>
-    <div class="full relative">
+    <div v-if="featured.length" class="full relative">
       <div class="container flex relative stretch standard-block intro-block">
         <div
           class="full flex column-horizontal-pad column-top-pad mobile-side-pad"
         >
           <div class="full flex article-big column-bottom-border">
-            <!--<featured :key="posts[0].id" :post="posts[0]"></featured>-->
-            <div class="full flex article-featured article" role="article">
-              <a
-                href="https://www.telegram.hr/biznis-tech/kako-je-ht-nagradio-napore-svojih-zaposlenika-ovog-bozica-usred-pandemije-koronavirusa/"
-              >
-                <img
-                  src="https://images.telegram.hr/nJ4pWuHi0fEcQfzBfxRlJfN_79KCZyj6WmUMN05CVYc/preset:single2/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjAvMTIvYmFydHVsb3ZpYy1pdmFuMi5qcGc.jpg"
-                />
-              </a>
-              <div class="full flex article-pad">
-                <div class="full flex">
-                  <h3 class="overtitle">Tvrtke i karijere</h3>
-                </div>
-                <h2 class="full animate">
-                  Kako je HT nagradio napore svojih zaposlenika ovog Božića
-                  usred pandemije koronavirusa
-                </h2>
-                <h4 class="full">
-                  Član Uprave za ljudske potencijale HT-a nam je pojasnio kako
-                  nagrađuju svoje zaposlenike
-                </h4>
-                <h5 class="full flex article-meta">
-                  <span class="meta-author"><i>Piše</i> Ivan Luzar</span>
-                  <span class="meta-preporuke">0 preporuka</span>
-                  <span class="meta-date">22. 12. 2020.</span>
-                </h5>
-              </div>
-            </div>
+            <featured
+              v-for="post in featured.slice(0, 1)"
+              :key="post.id"
+              :post="post"
+            ></featured>
           </div>
         </div>
         <div class="full flex mobile-side-pad stretch">
-          <div class="third flex-responsive column-vertical-pad stretch">
+          <div
+            v-for="post in featured.slice(1, 4)"
+            :key="post.id"
+            class="third flex-responsive column-vertical-pad stretch"
+          >
             <div class="full flex column-horizontal-pad">
-              <!--<featured :key="posts[1].id" :post="posts[1]"></featured>-->
-              <div class="full flex article-featured article" role="article">
-                <a
-                  href="https://www.telegram.hr/velike-price/ovo-je-tvrtka-zbog-koje-u-nasim-ducanima-mozete-platiti-mobitelom-bili-smo-u-njezinim-uredima-u-zagrebu/"
-                >
-                  <img
-                    src="https://www.telegram.hr/wp-content/uploads/2019/10/mercury-otvorna.jpg"
-                  />
-                </a>
-                <div class="full flex article-pad">
-                  <div class="full flex">
-                    <h3 class="overtitle">Tvrtke i karijere</h3>
-                  </div>
-                  <h2 class="full animate">
-                    Ovo je tvrtka zbog koje u našim dućanima možete platiti
-                    mobitelom. Bili smo u njezinim uredima u Zagrebu
-                  </h2>
-                  <h4 class="full">
-                    Reportaža iz zagrebačkog sjedišta Mercury Processing
-                    Services Internationala u kojem radi 300 ljudi
-                  </h4>
-                  <h5 class="full flex article-meta">
-                    <span class="meta-author"><i>Piše</i> Petra Smoljak</span>
-                    <span class="meta-preporuke">0 preporuka</span>
-                    <span class="meta-date">22. 12. 2020.</span>
-                  </h5>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="third flex-responsive column-vertical-pad stretch">
-            <div
-              class="full flex column-horizontal-pad column-left-border column-right-border"
-            >
-              <!--<featured :key="posts[2].id" :post="posts[2]"></featured>-->
-              <div class="full flex article-featured article" role="article">
-                <a
-                  href="https://www.telegram.hr/zivot/hoce-li-posao-od-8-sati-u-komadu-uskoro-nestati-ova-generacija-zbilja-bi-mogla-dokrajciti-radno-vrijeme-od-9-do-17/"
-                >
-                  <img
-                    src="https://www.telegram.hr/wp-content/uploads/2019/04/glavna-2.jpg"
-                  />
-                </a>
-                <div class="full flex article-pad">
-                  <div class="full flex">
-                    <h3 class="overtitle">Tvrtke i karijere</h3>
-                  </div>
-                  <h2 class="full animate">
-                    Hoće li posao od 8 sati u komadu uskoro nestati? Ova
-                    generacija zbilja bi mogla dokrajčiti radno vrijeme od 9 do
-                    17
-                  </h2>
-                  <h4 class="full">
-                    O zakon poslu razgovarali smo sa 100 milenijalaca iz cijele
-                    Hrvatske. Ovaj put otkrivaju što su za njih zakon radno
-                    vrijeme i zakon godišnji
-                  </h4>
-                  <h5 class="full flex article-meta">
-                    <span class="meta-author"><i>Piše</i> Telegram</span>
-                    <span class="meta-preporuke">0 preporuka</span>
-                    <span class="meta-date">22. 12. 2020.</span>
-                  </h5>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="third flex-responsive column-vertical-pad stretch">
-            <div class="full flex column-horizontal-pad">
-              <!--<featured :key="posts[3].id" :post="posts[3]"></featured>-->
-              <div class="full flex article-featured article" role="article">
-                <a
-                  href="https://www.telegram.hr/zivot/cim-dobijete-prvi-posao-i-placu-dosta-je-vazno-ne-propustiti-jednu-stvar-za-koju-imate-rok-od-samo-30-dana/"
-                >
-                  <img
-                    src="https://images.telegram.hr/7aWHdBY3ZjJ8-iADicNP_Dub8FPDYWrCdkeIqk0icxA/preset:single2/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjAvMTAvbmlrYV91dm9kbmEtZm90b190ZWxlZ3JhbS5qcGc.jpg"
-                  />
-                </a>
-                <div class="full flex article-pad">
-                  <div class="full flex">
-                    <h3 class="overtitle">Vještine</h3>
-                  </div>
-                  <h2 class="full animate">
-                    Čim dobijete prvi posao i plaću, dosta je važno ne
-                    propustiti jednu stvar za koju imate rok od samo 30 dana
-                  </h2>
-                  <h4 class="full">
-                    Korak po korak kako odabrati i promijeniti mirovinski fond
-                    te upravljati svojom mirovinskom štednjom
-                  </h4>
-                  <h5 class="full flex article-meta">
-                    <span class="meta-author"><i>Piše</i> Telegram</span>
-                    <span class="meta-preporuke">0 preporuka</span>
-                    <span class="meta-date">22. 12. 2020.</span>
-                  </h5>
-                </div>
-              </div>
+              <featured :post="post"></featured>
             </div>
           </div>
         </div>
@@ -188,236 +76,102 @@
     <div class="full flex relative os-about-section">
       <div class="container column-vertical-pad mobile-side-pad flex">
         <h2 class="full flex column-horizontal-pad os-elevate-title">
-          Što je Open Space?
+          Što je Openspace?
         </h2>
         <div class="full flex relative">
           <div
             class="third column-horizontal-pad flex-responsive column-right-border"
           >
-            <h3 class="full os-about-subtitle">Mjesto za radnike</h3>
+            <h3 class="full os-about-subtitle">Alati za najbolji posao</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-              malesuada dignissim sapien, ut commodo lorem gravida eu. Vivamus
-              scelerisque tellus iaculis elit ultrices, eget semper risus
-              ullamcorper.
+              Platforma Openspace pruža vam sve potrebne alate za ostvarivanje
+              punog profesionalnog potencijala, od pronalaska idealnog radnog
+              mjesta do promjene karijere ili pregovora o povišici.
             </p>
           </div>
           <div
             class="third column-horizontal-pad flex-responsive column-right-border"
           >
-            <h3 class="full os-about-subtitle">Izvor za poduzetnike</h3>
+            <h3 class="full os-about-subtitle">Vodiči i savjeti</h3>
             <p>
-              Integer ullamcorper molestie sapien a ultricies. Duis consequat,
-              metus ut faucibus iaculis, risus magna auctor nunc, ut posuere
-              lectus elit at lacus. Phasellus a velit sem. Nunc vel leo aliquet,
-              egestas dui in, eleifend nulla.
+              Kroz životne priče i inspirativne primjere pojedinaca i kompanija,
+              dajemo vam insajderski uvid u najkorisnije vještine i savjete za
+              vaš profesionalni put, kao i motivaciju za daljnji napredak.
             </p>
           </div>
           <div class="third column-horizontal-pad flex-responsive">
-            <h3 class="full os-about-subtitle">Riječ za drugu riječ</h3>
+            <h3 class="full os-about-subtitle">Top ljudi za tim</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-              malesuada dignissim sapien, ut commodo lorem gravida eu. Vivamus
-              scelerisque tellus iaculis elit ultrices, eget semper risus
-              ullamcorper.
+              Mjesto za poslodavce koji žele ispričati svoju priču, predstaviti
+              kulturu i objasniti vrijednosti, te tako pronaći potencijalne
+              zaposlenike koji bi se najbolje mogli uklopiti u vaše planove.
             </p>
           </div>
         </div>
       </div>
     </div>
-    <div class="full relative">
+    <div v-if="featured.length" class="full relative">
       <div class="container flex relative block-2 standard-block stretch">
         <section
-          class="fourth flex flex-responsive column-horizontal-pad mobile-side-pad"
+          class="fourth flex flex-responsive column-horizontal-pad mobile-side-pad bypass-show-mobile os-prilike-widget"
         >
-          <div class="full flex desktop-only">
-            <h3 class="full flex overtitle os-widget-overtitle">Newsletter</h3>
+          <!--<h3 class="full flex overtitle os-widget-overtitle">Newsletter</h3>
             <newsletter></newsletter>
             <h3 class="full flex overtitle os-widget-overtitle">
               Open Space Test
             </h3>
-            <ostest></ostest>
-            <h3 class="full flex overtitle os-widget-overtitle">
-              Pregled prilika
-            </h3>
-            <app-link
-              to="komentari"
-              class="full flex komentar os-prilika relative"
-            >
-              <div class="komentar-author relative flex">
-                <img
-                  src="@/assets/img/extras/partner_logos/rimac_automobili.png"
-                  loading="lazy"
-                />
-                <i class="full mobile-only">Donosi</i>
-                <span class="full mobile-only">Rimac Automobili</span>
-              </div>
-              <div class="komentar-box relative">
-                <div class="komentar-quotation">
-                  <font-awesome-icon
-                    :icon="['fas', 'briefcase']"
-                  ></font-awesome-icon>
-                </div>
-                <div class="komentar-image">
-                  <picture>
-                    <img
-                      src="https://images.telegram.hr/MHh6tv8Sf5-PdPpF_vCdav5LWN_mIW8kIUUAetmZ1gI/preset:single2/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjEvMDgvMjAyMDEyMjItMDEtMjguanBn.jpg"
-                      loading="lazy"
-                    />
-                  </picture>
-                </div>
-                <div class="komentar-content full">
-                  <div class="komentar-author relative flex desktop-only">
-                    <i class="full">Donosi</i>
-                    <span class="full">Rimac Automobili</span>
-                  </div>
-                  <h2 class="full animate">
-                    Sensor Fusion & Scene Understanding Research Engineer
-                  </h2>
-                  <h5 class="full flex article-meta">
-                    <span class="meta-author"><i>Prijave do</i></span>
-                    <span class="meta-date">22.09.2021.</span>
-                  </h5>
-                </div>
-              </div>
-            </app-link>
-            <app-link
-              to="komentari"
-              class="full flex komentar os-prilika relative"
-            >
-              <div class="komentar-author relative flex">
-                <img
-                  src="@/assets/img/extras/partner_logos/ht.png"
-                  loading="lazy"
-                />
-                <i class="full mobile-only">Donosi</i>
-                <span class="full mobile-only">Hrvatski Telekom</span>
-              </div>
-              <div class="komentar-box relative">
-                <div class="komentar-quotation">
-                  <font-awesome-icon
-                    :icon="['fas', 'briefcase']"
-                  ></font-awesome-icon>
-                </div>
-                <div class="komentar-image">
-                  <picture>
-                    <img
-                      src="https://www.telegram.hr/wp-content/uploads/2021/08/5g-unboxing-smart-city-2-11-screenshot.png"
-                      loading="lazy"
-                    />
-                  </picture>
-                </div>
-                <div class="komentar-content full">
-                  <div class="komentar-author relative flex desktop-only">
-                    <i class="full">Donosi</i>
-                    <span class="full">Hrvatski Telekom</span>
-                  </div>
-                  <h2 class="full animate">
-                    Operater za tehničku podršku poslovnim korisnicima
-                  </h2>
-                  <h5 class="full flex article-meta">
-                    <span class="meta-author"><i>Prijave do</i></span>
-                    <span class="meta-date">25.09.2021.</span>
-                  </h5>
-                </div>
-              </div>
-            </app-link>
-            <app-link
-              to="komentari"
-              class="full flex komentar os-prilika relative"
-            >
-              <div class="komentar-author relative flex">
-                <img
-                  src="@/assets/img/extras/partner_logos/rimac_automobili.png"
-                  loading="lazy"
-                />
-                <i class="full mobile-only">Donosi</i>
-                <span class="full mobile-only">Rimac Automobili</span>
-              </div>
-              <div class="komentar-box relative">
-                <div class="komentar-quotation">
-                  <font-awesome-icon
-                    :icon="['fas', 'briefcase']"
-                  ></font-awesome-icon>
-                </div>
-                <div class="komentar-image">
-                  <picture>
-                    <img
-                      src="https://images.telegram.hr/MHh6tv8Sf5-PdPpF_vCdav5LWN_mIW8kIUUAetmZ1gI/preset:single2/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjEvMDgvMjAyMDEyMjItMDEtMjguanBn.jpg"
-                      loading="lazy"
-                    />
-                  </picture>
-                </div>
-                <div class="komentar-content full">
-                  <div class="komentar-author relative flex desktop-only">
-                    <i class="full">Donosi</i>
-                    <span class="full">Rimac Automobili</span>
-                  </div>
-                  <h2 class="full animate">
-                    Sensor Fusion & Scene Understanding Research Engineer
-                  </h2>
-                  <h5 class="full flex article-meta">
-                    <span class="meta-author"><i>Prijave do</i></span>
-                    <span class="meta-date">22.09.2021.</span>
-                  </h5>
-                </div>
-              </div>
-            </app-link>
-          </div>
+            <ostest></ostest>-->
+          <opportunities></opportunities>
         </section>
         <div class="three-fourths flex-responsive flex">
           <section
             class="two-thirds flex-responsive flex mobile-side-pad column-horizontal-pad column-right-border column-left-border"
           >
-            <featured :key="posts[1].id" :post="posts[1]"></featured>
+            <featured
+              v-for="post in featured.slice(4, 5)"
+              :key="post.id"
+              :post="post"
+            ></featured>
             <div class="full flex split-articles">
-              <medium :key="posts[2].id" :post="posts[2]"></medium>
-              <medium :key="posts[3].id" :post="posts[3]"></medium>
-              <medium :key="posts[4].id" :post="posts[4]"></medium>
+              <template v-for="post in featured.slice(5, 8)">
+                <medium :key="post.id" :post="post"></medium>
+              </template>
             </div>
           </section>
           <section
             class="third flex-responsive flex mobile-side-pad column-horizontal-pad"
           >
-            <standard :key="posts[5].id" :post="posts[5]"></standard>
-            <standard :key="posts[6].id" :post="posts[6]"></standard>
-            <standard :key="posts[7].id" :post="posts[7]"></standard>
+            <template v-for="post in featured.slice(8, 11)">
+              <medium :key="post.id" :post="post"></medium>
+            </template>
           </section>
         </div>
       </div>
     </div>
     <client-only>
-      <big-featured></big-featured>
+      <big-featured type="openspace"></big-featured>
     </client-only>
     <div class="full flex">
       <div class="container flex relative native-block stretch mobile-side-pad">
-        <div class="fourth flex-responsive column-full-pad">
-          <standard :key="posts[8].id" :post="posts[8]"></standard>
+        <div
+          v-for="post in posts"
+          :key="post.id"
+          class="fourth flex-responsive column-full-pad"
+        >
+          <standard :post="post"></standard>
         </div>
-        <div class="fourth flex-responsive column-full-pad">
-          <standard :key="posts[9].id" :post="posts[9]"></standard>
-        </div>
-        <div class="fourth flex-responsive column-full-pad">
-          <standard :key="posts[1].id" :post="posts[1]"></standard>
-        </div>
-        <div class="fourth flex-responsive column-full-pad">
-          <standard :key="posts[2].id" :post="posts[2]"></standard>
-        </div>
-        <div class="fourth flex-responsive column-full-pad">
-          <standard :key="posts[3].id" :post="posts[3]"></standard>
-        </div>
-        <div class="fourth flex-responsive column-full-pad">
-          <standard :key="posts[4].id" :post="posts[4]"></standard>
-        </div>
-        <div class="fourth flex-responsive column-full-pad">
-          <standard :key="posts[5].id" :post="posts[5]"></standard>
-        </div>
-        <div class="fourth flex-responsive column-full-pad">
-          <standard :key="posts[6].id" :post="posts[6]"></standard>
-        </div>
-        <div class="full center subtle-btn-parent relative clickable">
-          <div class="subtle-btn animate">Vidi više</div>
-          <div class="subtle-btn-line"></div>
+        <div
+          class="full center subtle-btn-parent relative clickable"
+          @click="loadMore"
+        >
+          <div v-show="!loading" class="subtle-btn animate">Vidi više</div>
+          <div v-show="loading" class="full center cool-loader">
+            <div class="loader-square">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -428,32 +182,91 @@
 <script>
 export default {
   async fetch() {
-    await this.$axios
-      .get('/api/author/ivan-luzar')
-      .then((res) => {
-        this.posts = res.data.posts
-      })
-      .catch(() => {
-        // set status code on server and
-        if (process.server) {
-          this.$telegram.context.res.statusCode = 404
-        }
-        // use throw new Error()
-        throw new Error('User not found')
-      })
+    await this.$axios.get('/api/featured/openspace').then((res) => {
+      this.featured = res.data
+    })
+    this.$axios.get('/api/category/openspace').then((res) => {
+      this.posts = res.data.posts
+      // dispatch('posts/setPosts', res.data.posts, { root: true })
+    })
   },
   data() {
     return {
       loading: false,
+      hasMore: true,
+      featured: [],
       posts: [],
       page: 2,
-      hasMore: true,
     }
+  },
+  computed: {
+    jsonld() {
+      return {
+        '@context': 'https://schema.org',
+        '@type': 'Website',
+        url: 'https://www.telegram.hr/openspace',
+        name: 'Openspace.hr',
+        description:
+          'Telegramova platforma za traženje idealnog posla, profesionalno napredovanje i karijernu inspiraciju.',
+      }
+    },
+  },
+  methods: {
+    loadMore() {
+      this.loading = true
+      this.$axios
+        .get(`/api/category/openspace/page/${this.page}`)
+        .then((res) => {
+          this.posts = [...this.posts, ...res.data.posts]
+          // dispatch('posts/setPosts', res.data.posts, { root: true })
+          this.page++
+          this.loading = false
+        })
+    },
   },
   head() {
     return {
-      title:
-        'openspace - platforma za poslovne vijesti, prilike i usavršavanje',
+      title: 'Openspace.hr',
+      meta: [
+        { hid: 'og:type', name: 'og:type', content: 'website' },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          property: 'og:title',
+          content: 'Openspace.hr',
+        },
+        {
+          hid: 'og:url',
+          name: 'og:url',
+          property: 'og:url',
+          content: 'https://www.telegram.hr/openspace',
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: 'https://www.telegram.hr/img/os_share_home.jpg',
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'Telegramova platforma za traženje idealnog posla, profesionalno napredovanje i karijernu inspiraciju.',
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content:
+            'Telegramova platforma za traženje idealnog posla, profesionalno napredovanje i karijernu inspiraciju.',
+        },
+      ],
+      script: [
+        {
+          vmid: 'schema-ld',
+          hid: 'schema-ld',
+          type: 'application/ld+json',
+          json: this.jsonld,
+        },
+      ],
     }
   },
 }

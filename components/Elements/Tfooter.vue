@@ -32,16 +32,45 @@
         </div>
         <div class="full flex center">
           <div class="full logo-line flex">
-            <img src="@/assets/img/super1_logo_white.svg" alt="Super1 logo" />
-            <img
-              src="@/assets/img/telesport_logo_white.svg"
-              alt="Telesport logo"
-            />
-            <img
-              src="@/assets/img/openspace_logo_negative.svg"
-              alt="openspace logo"
-            />
-            <img src="@/assets/img/tg_studio_white.svg" alt="TG Studio logo" />
+            <a
+              href="https://super1.telegram.hr"
+              target="_blank"
+              class="center animate"
+            >
+              <img src="@/assets/img/super1_logo_white.svg" alt="Super1 logo" />
+            </a>
+            <a
+              href="https://telesport.telegram.hr"
+              target="_blank"
+              class="center animate"
+            >
+              <img
+                src="@/assets/img/telesport_logo_white.svg"
+                alt="Telesport logo"
+              />
+            </a>
+            <app-link to="/openspace" class="center animate">
+              <img
+                src="@/assets/img/openspace_logo_negative.svg"
+                alt="openspace logo"
+              />
+            </app-link>
+            <app-link to="/pitanje-zdravlja" class="center animate">
+              <img
+                src="@/assets/img/pz_logo_negative.svg"
+                alt="openspace logo"
+              />
+            </app-link>
+            <a
+              href="https://www.telegramgrupa.hr#studio"
+              target="_blank"
+              class="center animate"
+            >
+              <img
+                src="@/assets/img/tg_studio_white.svg"
+                alt="TG Studio logo"
+              />
+            </a>
           </div>
         </div>
         <div class="full flex social-links center">
@@ -85,15 +114,19 @@
           <app-link to="/stranica/kontaktirajte-nas" class="animate"
             >Kontakt</app-link
           >
-          <app-link to="https://www.telegramgrupa.hr/jobs.php" class="animate"
-            >Karijere</app-link
-          >
           <app-link to="/stranica/uvjeti-koristenja" class="animate"
             >Uvjeti korištenja</app-link
           >
           <app-link to="/stranica/pravila-privatnosti" class="animate"
             >Pravila o privatnosti</app-link
           >
+          <a
+            v-if="$route.name === 'openspace'"
+            href="https://hr.jooble.org/"
+            target="_blank"
+          >
+            Jooble oglasi
+          </a>
         </div>
         <div class="copyright full center-text">
           Sva prava pridržana &copy; {{ new Date().getFullYear() }} Telegram

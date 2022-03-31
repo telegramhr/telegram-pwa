@@ -13,7 +13,9 @@
         <span class="meta-author">
           {{ post.authors.length ? 'Piše ' + post.authors[0].name : '' }}</span
         >
-        <span class="meta-date">{{ post.time | parseTime }}</span>
+        <span v-if="post.time" class="meta-date">{{
+          post.time | parseTime
+        }}</span>
       </h5>
     </div>
   </app-link>
