@@ -124,9 +124,11 @@
       <div class="container flex relative elevate-over-section stretch">
         <div class="full mobile-side-pad stretch flex relative">
           <div
-            class="three-fourths show-one-related featured-split flex-responsive column-horizontal-pad flex split-articles column-right-border"
+            class="three-fourths featured-split flex-responsive column-horizontal-pad flex split-articles column-right-border"
           >
-            <featured :key="posts[0].id" :post="posts[0]"></featured>
+            <div class="full flex show-no-related">
+              <featured :key="posts[0].id" :post="posts[0]"></featured>
+            </div>
             <div class="full flex related-articles relative">
               <h5 class="full">Još o temi</h5>
               <a
@@ -158,11 +160,39 @@
         </div>
         <div class="full flex cantha-small-block mobile-side-pad stretch">
           <div
-            v-for="post in posts.slice(1, 4)"
+            v-for="post in posts.slice(3, 6)"
             :key="post.id"
             class="third flex-responsive column-right-border column-horizontal-pad"
           >
             <standard :post="post"></standard>
+          </div>
+        </div>
+        <div class="full column-full-pad">
+          <div class="full column-top-border"></div>
+        </div>
+        <div class="full flex mobile-side-pad stretch">
+          <div
+            class="three-fourths flex-responsive column-horizontal-pad column-right-border flex relative featured-split smaller-featured-split show-one-related"
+          >
+            <featured
+              v-for="post in posts.slice(1, 3)"
+              :key="post.id"
+              :post="post"
+            ></featured>
+          </div>
+          <div
+            class="fourth flex-responsive column-horizontal-pad flex relative"
+          >
+            <standard
+              v-for="post in posts.slice(6, 7)"
+              :key="post.id"
+              :post="post"
+            ></standard>
+            <mini
+              v-for="post in posts.slice(7, 9)"
+              :key="post.id"
+              :post="post"
+            ></mini>
           </div>
         </div>
       </div>
