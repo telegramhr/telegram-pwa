@@ -661,7 +661,9 @@ export default {
           (this.post.category_slug.includes('openspace') ||
             this.post.category_slug.includes('pitanje-zdravlja'))) ||
         this.$route.path.includes('openspace') ||
-        this.$route.path.includes('pitanje-zdravlja')
+        this.$route.path.includes('pitanje-zdravlja') ||
+        this.$route.path.includes('moj-racun') ||
+        this.$route.path.includes('pretplata')
       )
     },
   },
