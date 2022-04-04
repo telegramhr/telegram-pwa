@@ -7458,7 +7458,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 24px;
     font-size: 1.2rem;
 }
-.smaller-featured-split .article > a {
+/*.smaller-featured-split .article > a {
     width: 49.99%;
     order: 2;
 }
@@ -7466,7 +7466,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     width: 49.99%;
     order: 1;
     padding-right: 24px;
-}
+}*/
 .intro-commentary.cantha-commentary .komentar:nth-child(3) {
     margin-bottom: 0px;
     padding-bottom: 0px;

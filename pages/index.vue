@@ -168,7 +168,7 @@
           </div>
         </div>
         <div class="full column-full-pad">
-          <div class="full column-top-border"></div>
+          <div class="full cantha-separator"></div>
         </div>
         <div class="full flex mobile-side-pad stretch">
           <div
@@ -184,15 +184,10 @@
             class="fourth flex-responsive column-horizontal-pad flex relative"
           >
             <standard
-              v-for="post in posts.slice(6, 7)"
+              v-for="post in posts.slice(6, 8)"
               :key="post.id"
               :post="post"
             ></standard>
-            <mini
-              v-for="post in posts.slice(7, 9)"
-              :key="post.id"
-              :post="post"
-            ></mini>
           </div>
         </div>
       </div>
