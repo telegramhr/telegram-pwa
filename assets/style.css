@@ -6349,6 +6349,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     display: none;
 }
 
+#my-account, #my-account iframe {
+  min-height: 1000px;
+}
+
 
 @media screen and (min-width: 767px) {
     .single-article.pitanje-zdravlja h1 {
