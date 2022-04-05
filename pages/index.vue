@@ -1,5 +1,6 @@
 <template>
   <div class="main-container flex homepage">
+    <!-- Wallpapers -->
     <client-only>
       <div v-if="!$mobile" class="container wallpaper-banners animate">
         <div class="wallpaper-left">
@@ -10,9 +11,11 @@
         </div>
       </div>
     </client-only>
+    <!-- TG Multiverse Header -->
     <div class="full flex">
       <theader></theader>
     </div>
+    <!-- Cantha header -->
     <div class="full relative cantha-header">
       <div class="container flex relative column-top-pad column-horizontal-pad">
         <div class="full center relative desktop-only">
@@ -56,6 +59,7 @@
         <div class="full header-filler"></div>
       </div>
     </div>
+    <!-- Billboard -->
     <!--<client-only>
       <div
         v-if="
@@ -77,6 +81,7 @@
         ></ad-unit>
       </div>
     </client-only>-->
+    <!-- Red block title with nav -->
     <div
       class="block-title cantha-block-title desktop-only full mobile-side-pad"
     >
@@ -98,6 +103,8 @@
         </div>
         <div class="flex">
           <client-only>
+            <!-- Can log in button versions -->
+            <!--
             <a
               v-show="canLogIn"
               class="newbtn newbtn-empty"
@@ -109,53 +116,29 @@
               class="newbtn newbtn-empty"
               @click.prevent="logout"
               >Odjava</a
-            >
-            <app-link
-              v-show="!$store.state.user.access"
-              to="/pretplata"
-              class="newbtn"
-              >Pretplatite se</app-link
-            >
+            >-->
+            <a class="newbtn newbtn-empty">Prijava</a>
+            <app-link to="/pretplata" class="newbtn">Pretplatite se</app-link>
           </client-only>
         </div>
       </div>
     </div>
+    <!-- Intro block: The big Gs + comments -->
     <div class="full relative">
-      <div class="container flex relative elevate-over-section stretch">
-        <div class="full mobile-side-pad stretch flex relative">
-          <div
-            class="three-fourths featured-split flex-responsive column-horizontal-pad flex split-articles column-right-border"
-          >
-            <div class="full flex show-no-related">
-              <featured :key="posts[0].id" :post="posts[0]"></featured>
-            </div>
-            <div class="full flex related-articles relative">
-              <h5 class="full">Još o temi</h5>
-              <a
-                href="/politika-kriminal/bomba-iz-uskok-a-kljucni-akter-afere-rimac-sve-sam-radio-po-nalogu-ministra-corica-imam-mailove/"
-                class="full flex"
-                >Bomba iz USKOK-a. Ključni akter afere Rimac: ‘Sve sam radio po
-                nalogu ministra Ćorića, imam mailove’</a
-              ><a
-                href="/politika-kriminal/nakon-telegramovog-otkrica-tomislav-coric-sazvao-presicu-pa-pobjegao-od-novinara/"
-                class="full flex"
-                >Nakon Telegramovog otkrića Tomislav Ćorić sazvao presicu pa
-                pobjegao od novinara</a
-              ><a
-                href="/politika-kriminal/afera-coric-prerasta-u-skandal-za-uskok-pravnici-zgrozeni-kako-je-moguce-da-ministra-nisu-ispitali/"
-                class="full flex"
-                >Afera Ćorić prerasta u skandal za Uskok. Pravni stručnjaci
-                zgroženi: kako je moguće da ministra još nisu ispitali</a
-              >
-            </div>
-          </div>
-          <div
-            class="fourth flex-responsive column-horizontal-pad cantha-commentary"
-          >
-            <commentary></commentary>
-          </div>
+      <div
+        class="container flex relative elevate-over-section stretch cantha-intro-block"
+      >
+        <div
+          class="three-fourths featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad column-right-border"
+        >
+          <featured-alt :key="posts[0].id" :post="posts[0]"></featured-alt>
         </div>
-        <div class="full column-full-pad">
+        <div
+          class="fourth flex-responsive column-horizontal-pad mobile-side-pad cantha-commentary"
+        >
+          <commentary></commentary>
+        </div>
+        <div class="full column-full-pad desktop-only">
           <div class="full column-top-border"></div>
         </div>
         <div class="full flex cantha-small-block mobile-side-pad stretch">
@@ -167,7 +150,7 @@
             <standard :post="post"></standard>
           </div>
         </div>
-        <div class="full column-full-pad">
+        <div class="full column-full-pad desktop-only">
           <div class="full cantha-separator"></div>
         </div>
         <div class="full flex mobile-side-pad stretch">
