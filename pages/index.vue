@@ -400,11 +400,16 @@
     </div>
     <div class="full relative">
       <div class="container flex relative block-5 standard-block">
+        <div class="full column-horizontal-pad column-bottom-pad">
+          <div class="full cantha-separator"></div>
+        </div>
         <client-only>
-          <category slug="zivot"></category>
-          <category slug="biznis-tech"></category>
-          <category slug="kultura"></category>
-          <category slug="velike-price"></category>
+          <div class="full flex">
+            <category slug="zivot"></category>
+            <category slug="biznis-tech"></category>
+            <category slug="kultura"></category>
+            <category slug="velike-price"></category>
+          </div>
           <most-read v-if="$mobile"></most-read>
         </client-only>
       </div>

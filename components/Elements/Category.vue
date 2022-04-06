@@ -1,11 +1,8 @@
 <template>
   <section
-    class="fourth flex-responsive column-horizontal-pad classic-category flex mobile-side-pad"
+    class="fourth flex-responsive column-horizontal-pad column-right-border classic-category flex mobile-side-pad"
   >
-    <div class="full">
-      <div class="full cantha-separator"></div>
-    </div>
-    <h3 class="full center-text column-full-pad subsection-title">
+    <h3 class="full center-text column-bottom-pad subsection-title">
       <nuxt-link :to="'/' + slug">{{ category | parseCat }}</nuxt-link>
     </h3>
     <featured

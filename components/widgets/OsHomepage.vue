@@ -5,7 +5,16 @@
     <div class="full column-horizontal-pad">
       <div class="full cantha-separator"></div>
     </div>
-    <h3 class="full center-text column-full-pad subsection-title">openspace</h3>
+    <h3
+      class="full center-text column-full-pad subsection-title os-subsection-logo"
+    >
+      <img src="@/assets/img/openspace_logo_normal.svg" alt="openspace logo" />
+      <img
+        src="@/assets/img/openspace_logo_negative.svg"
+        class="dark-mode-only"
+        alt="openspace logo"
+      />
+    </h3>
     <div class="full column-bottom-pad flex relative the-big-gs stretch">
       <div
         class="half column-horizontal-pad split-articles flex-responsive flex"
