@@ -7557,6 +7557,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 16px;
         font-size: 0.8rem;
     }
+    .cantha-header {
+        padding-top: 0px;
+    }
 }
 @media screen and (min-width: 767px) {
     .no-image-block .article img {

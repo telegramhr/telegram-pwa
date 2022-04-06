@@ -155,7 +155,7 @@
             <standard :post="post"></standard>
           </div>
         </div>
-        <div class="full column-horizontal-pad column-top-pad">
+        <div class="full column-horizontal-pad mobile-side-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
         <h3 class="full center-text column-full-pad subsection-title">
