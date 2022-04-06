@@ -127,7 +127,7 @@ header .logo {
 .subheader-ow-fix {
     flex-wrap: nowrap;
     overflow: hidden;
-    height: 16px;
+    height: 18px;
 }
 
 /* Homepage articles */
@@ -825,9 +825,8 @@ h3.subsection-title img.dark-mode-only, .dark-mode h3.subsection-title img {
     display: block;
     font-family: 'Barlow', sans-serif;
     font-weight: 600;
-    text-transform: uppercase;
-    font-size: 10px;
-    font-size: 0.5rem;
+    font-size: 12px;
+    font-size: 0.6rem;
     margin-bottom: -4px;
     position: relative;
     top: -2.5px;
@@ -1750,8 +1749,8 @@ header {
     margin-right: 16px;
 }
 .sticky-subheader .logo img {
-    height: 15px;
-    margin-bottom: -2px;
+    height: 18px;
+    margin-bottom: -1px;
 }
 .single-article .sticky-subheader .menu {
     display: none;
@@ -3967,7 +3966,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         justify-content: flex-end;
     }
     .subheader {
-        height: 32px;
+        height: 40px;
         font-size: 14px;
         font-size: 0.7rem;
     }
@@ -7410,6 +7409,20 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .block-echovald .fifth.cantha-commentary .komentar .komentar-author {
     margin-top: -2px;
+}
+.ukraine-header {
+    font-family: neuzeit-grotesk-extra-conden,sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 101px;
+    text-transform: uppercase;
+    line-height: 71px;
+}
+.temp-related-limit .related-articles a:nth-child(n+4) {
+    display: none;
+}
+.temp-preview-category .cantha-separator, .temp-preview-category h3.subsection-title {
+    display: none;
 }
 
 @media screen and (max-width: 767px) {

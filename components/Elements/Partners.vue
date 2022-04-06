@@ -10,14 +10,7 @@
       <div
         v-for="post in posts"
         :key="post.id"
-        class="fifth column-right-border flex-responsive column-horizontal-pad"
-      >
-        <standard :post="post"></standard>
-      </div>
-      <div
-        v-for="post in posts.slice(0, 1)"
-        :key="post.id"
-        class="fifth column-right-border flex-responsive column-horizontal-pad"
+        class="fourth column-right-border flex-responsive column-horizontal-pad"
       >
         <standard :post="post"></standard>
       </div>

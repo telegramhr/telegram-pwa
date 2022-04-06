@@ -36,7 +36,7 @@
         </div>
         <div class="fourth flex-responsive column-horizontal-pad">
           <mini
-            v-for="post in posts.slice(2, 6)"
+            v-for="post in posts.slice(2, 7)"
             :key="'pz-' + post.id"
             :post="post"
           ></mini>

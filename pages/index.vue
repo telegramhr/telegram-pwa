@@ -129,8 +129,13 @@
         class="container flex relative elevate-over-section stretch cantha-intro-block"
       >
         <div
-          class="three-fourths featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad column-right-border"
+          class="three-fourths temp-related-limit featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad column-right-border"
         >
+          <h2
+            class="full desktop-only ukraine-header column-bottom-pad center-text"
+          >
+            Rat u Ukrajini
+          </h2>
           <featured-alt :key="posts[0].id" :post="posts[0]"></featured-alt>
         </div>
         <div
@@ -150,9 +155,18 @@
             <standard :post="post"></standard>
           </div>
         </div>
-        <div class="full column-full-pad desktop-only">
+        <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
+        <h3 class="full center-text column-full-pad subsection-title">
+          <img src="@/assets/img/telegram_logo_black.svg" alt="Telegram logo" />
+          <img
+            src="@/assets/img/telegram_logo_white.svg"
+            class="dark-mode-only"
+            alt="Telegram logo"
+          />
+          teme
+        </h3>
         <div class="full flex mobile-side-pad stretch">
           <div
             class="three-fourths flex-responsive column-horizontal-pad column-right-border flex relative featured-split smaller-featured-split show-one-related"
@@ -271,7 +285,17 @@
     <!-- Velika rubrika: Politika i kriminal TODO, trenutno priče -->
     <div class="full relative">
       <div class="container flex relative">
-        <category-big slug="velike-price"></category-big>
+        <div class="full column-horizontal-pad column-top-pad">
+          <div class="full cantha-separator"></div>
+        </div>
+        <h3
+          class="full center-text column-horizontal-pad column-top-pad subsection-title"
+        >
+          Politika i kriminal
+        </h3>
+        <div class="full flex temp-preview-category">
+          <category-big slug="velike-price"></category-big>
+        </div>
       </div>
     </div>
     <!-- Mala rubrika: Biznis i tech -->
