@@ -1,32 +1,26 @@
 <template>
   <div class="full">
-    <div class="block-title news-block-title full">
-      <div class="full block-title-pattern relative"></div>
-      <div class="container flex relative">
-        <h1 class="column-left-pad mobile-side-pad full">Nastavite čitati</h1>
+    <div
+      class="container flex relative block-related cantha-related standard-block stretch"
+    >
+      <div class="full column-horizontal-pad column-top-pad">
+        <div class="full cantha-separator"></div>
       </div>
-    </div>
-    <div class="container flex relative block-related standard-block stretch">
-      <section
-        v-show="!$mobile"
-        class="fourth flex desktop-only column-horizontal-pad column-right-border"
-      >
-        <latest :portal="1" :desktop="false"></latest>
-      </section>
-      <div
-        class="three-fourths flex-responsive flex elevate-over-section mobile-side-pad"
-      >
+      <h3 class="full center-text column-full-pad subsection-title">
+        Nastavite čitati
+      </h3>
+      <div class="full flex mobile-side-pad">
         <template v-for="(post, index) in posts">
           <div
             v-if="index === 0"
             :key="post.id"
-            class="third flex-responsive flex"
+            class="fourth flex-responsive flex"
           >
             <div class="full flex column-horizontal-pad">
               <featured :post="post"></featured>
             </div>
           </div>
-          <div v-else :key="post.id" class="third flex-responsive flex">
+          <div v-else :key="post.id" class="fourth flex-responsive flex">
             <div class="full flex column-horizontal-pad">
               <standard :post="post"></standard>
             </div>

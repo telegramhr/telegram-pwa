@@ -326,13 +326,15 @@
         </div>
         <div class="full flex">
           <div
-            class="container flex relative native-block stretch mobile-side-pad"
+            class="container column-horizontal-pad flex relative native-block stretch mobile-side-pad"
           >
             <linker type="category"></linker>
           </div>
         </div>
-        <div class="full center">
-          <native></native>
+        <div class="full flex relative">
+          <div class="container column-horizontal-pad center">
+            <native></native>
+          </div>
         </div>
         <div class="container center">
           <div
