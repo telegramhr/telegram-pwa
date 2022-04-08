@@ -3550,8 +3550,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         border-bottom: none;
     }
     .article-featured h2, .article-break h2 {
-        font-size: 22px;
-        font-size: 1.1rem;
+        font-size: 23px;
+        font-size: 1.15rem;
     }
     .widget h2 {
         font-family: neuzeit-grotesk, sans-serif;
@@ -4279,7 +4279,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 0.75rem;
         position: relative;
         top: -2px;
-        margin-bottom: 4px;
+        margin-bottom: 0px;
     }
     .related-header-widget .article-standard h4, .related-header-widget .article-standard h5 {
         display: none;
@@ -7409,12 +7409,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     margin-top: -2px;
 }
 .ukraine-header {
-    font-family: neuzeit-grotesk-extra-conden,sans-serif;
-    font-weight: 900;
     font-style: normal;
-    font-size: 101px;
-    text-transform: uppercase;
-    line-height: 71px;
+    font-size: 48px;
+    font-size: 2.4rem;
 }
 .temp-related-limit .related-articles a:nth-child(n+4) {
     display: none;
@@ -7442,14 +7439,22 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 0.8rem;
         margin-bottom: 0px;
     }
+    .article-mini .article-meta {
+        margin-top: 6px;
+    }
     .article-mini .article-pad {
         padding-bottom: 0px;
         border-bottom: none;
     }
     .article-mini {
         padding-bottom: 4vw;
-        margin-bottom: 4vw;
+        padding-top: 4vw;
         border-bottom: 1px solid #c8c8c8;
+    }
+    .block-echovald .fourth .article-mini .article-pad {
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+        border-bottom: none;
     }
     .dark-mode .article-mini {
         border-color: #555;
@@ -7479,7 +7484,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .cantha-mini-block .article-mini {
         padding-bottom: 4vw;
-        margin-bottom: 4vw;
+        margin-bottom: 0px;
     }
     .cantha-mini-block .article-mini h2 {
         font-size: 16px;
@@ -7487,9 +7492,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .cantha-mini-block .article-mini .article-pad {
         border-bottom: none;
-    }
-    .cantha-mini-block .article-mini:first-child .article-pad {
-        padding-top: 4vw;
     }
     .fancy-authors-widget .fourth {
         width: 100%;
@@ -7557,6 +7559,26 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .cantha-header {
         padding-top: 0px;
+    }
+    .mobile-articles-noimage .article-standard img {
+        display: none;
+    }
+    .mobile-articles-noimage .article-standard {
+        padding-right: 0px;
+        min-height: auto;
+    }
+    .cantha-commentary .komentar h2, .block-echovald .cantha-commentary .komentar h2 {
+        font-size: 19px;
+        font-size: 0.95rem;
+    }
+    .block-echovald > .fourth  {
+        border-bottom: 1px solid #c8c8c8;
+    }
+    .dark-mode .block-echovald > .fourth {
+        border-color: #555;
+    }
+    .classic-category .article-medium:last-child {
+        border-bottom: none;
     }
 }
 @media screen and (min-width: 767px) {

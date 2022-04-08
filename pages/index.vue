@@ -128,25 +128,35 @@
       <div
         class="container flex relative elevate-over-section stretch cantha-intro-block"
       >
-        <div
-          class="three-fourths temp-related-limit featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad column-right-border"
+        <h2
+          class="full desktop-only ukraine-header column-bottom-pad center-text"
         >
-          <h2
-            class="full desktop-only ukraine-header column-bottom-pad center-text"
-          >
-            Rat u Ukrajini
-          </h2>
+          Rusi napadaju istok Ukrajine
+        </h2>
+        <div
+          class="three-fourths featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad column-right-border"
+        >
           <featured-alt :key="posts[0].id" :post="posts[0]"></featured-alt>
         </div>
         <div
           class="fourth flex-responsive column-horizontal-pad mobile-side-pad cantha-commentary"
         >
+          <div class="full mobile-only flex relative">
+            <div class="full column-horizontal-pad column-top-pad">
+              <div class="full cantha-separator"></div>
+            </div>
+            <h3 class="full center-text column-full-pad subsection-title">
+              Komentari
+            </h3>
+          </div>
           <commentary></commentary>
         </div>
         <div class="full column-full-pad desktop-only">
           <div class="full column-top-border"></div>
         </div>
-        <div class="full flex cantha-small-block mobile-side-pad stretch">
+        <div
+          class="full flex cantha-small-block mobile-articles-noimage mobile-side-pad stretch"
+        >
           <div
             v-for="post in posts.slice(3, 6)"
             :key="post.id"
@@ -180,11 +190,11 @@
           <div
             class="fourth flex-responsive column-horizontal-pad flex relative"
           >
-            <standard
+            <medium
               v-for="post in posts.slice(6, 8)"
               :key="post.id"
               :post="post"
-            ></standard>
+            ></medium>
           </div>
         </div>
       </div>
@@ -285,17 +295,7 @@
     <!-- Velika rubrika: Politika i kriminal TODO, trenutno priče -->
     <div class="full relative">
       <div class="container flex relative">
-        <div class="full column-horizontal-pad column-top-pad">
-          <div class="full cantha-separator"></div>
-        </div>
-        <h3
-          class="full center-text column-horizontal-pad column-top-pad subsection-title"
-        >
-          Politika i kriminal
-        </h3>
-        <div class="full flex temp-preview-category">
-          <category-big slug="velike-price"></category-big>
-        </div>
+        <category-big slug="velike-price"></category-big>
       </div>
     </div>
     <!-- Mala rubrika: Biznis i tech -->
@@ -400,7 +400,7 @@
     </div>
     <div class="full relative">
       <div class="container flex relative block-5 standard-block">
-        <div class="full column-horizontal-pad column-bottom-pad">
+        <div class="full desktop-only column-horizontal-pad column-bottom-pad">
           <div class="full cantha-separator"></div>
         </div>
         <client-only>
