@@ -56,7 +56,6 @@
           <div class="full cantha-separator"></div>
         </div>
         <breaking></breaking>
-        <div class="full header-filler"></div>
       </div>
     </div>
     <!-- Billboard -->
@@ -81,11 +80,37 @@
         ></ad-unit>
       </div>
     </client-only>-->
-    <!-- Red block title with nav -->
+    <!-- Red block title with nav
     <div
       class="block-title cantha-block-title desktop-only full mobile-side-pad"
     >
       <div class="container flex relative column-full-pad">
+        <div class="menu flex" role="menu">
+          <app-link role="menuitem" to="/politika-kriminal"
+            >Politika & Kriminal</app-link
+          >
+          <app-link role="menuitem" to="/komentari">Komentari</app-link>
+          <app-link role="menuitem" to="/biznis-tech">Biznis & Tech</app-link>
+          <app-link role="menuitem" to="/velike-price">Velike priče</app-link>
+          <app-link role="menuitem" to="/zivot">Život</app-link>
+          <app-link role="menuitem" to="/kultura">Kultura</app-link>
+          <app-link role="menuitem" to="/openspace">Openspace</app-link>
+          <a href="https://super1.telegram.hr" role="menuitem">Super1</a>
+          <a href="https://telesport.telegram.hr" role="menuitem">
+            Telesport
+          </a>
+        </div>
+        <div class="flex">
+          <client-only>
+            <a class="newbtn newbtn-empty">Prijava</a>
+            <app-link to="/pretplata" class="newbtn">Pretplatite se</app-link>
+          </client-only>
+        </div>
+      </div>
+    </div> -->
+    <!-- New subnav no red -->
+    <div class="full desktop-only cantha-block-title relative flex">
+      <div class="container flex relative column-horizontal-pad">
         <div class="menu flex" role="menu">
           <app-link role="menuitem" to="/politika-kriminal"
             >Politika & Kriminal</app-link
@@ -125,11 +150,13 @@
     </div>
     <!-- Intro block: The big Gs + comments -->
     <div class="full relative">
-      <div
-        class="container flex relative elevate-over-section stretch cantha-intro-block"
-      >
+      <div class="cantha-intro-line"></div>
+      <div class="container flex relative stretch cantha-intro-block">
+        <div class="full flex column-horizontal-pad">
+          <div class="full flex relative column-bottom-border"></div>
+        </div>
         <h2
-          class="full desktop-only ukraine-header column-bottom-pad center-text"
+          class="full desktop-only ukraine-header column-horizontal-pad column-bottom-pad center-text"
         >
           Rusi napadaju istok Ukrajine
         </h2>
@@ -182,7 +209,7 @@
             class="three-fourths flex-responsive column-horizontal-pad column-right-border flex relative featured-split smaller-featured-split show-one-related"
           >
             <featured
-              v-for="post in posts.slice(1, 3)"
+              v-for="post in posts.slice(1, 2)"
               :key="post.id"
               :post="post"
             ></featured>
@@ -191,7 +218,28 @@
             class="fourth flex-responsive column-horizontal-pad flex relative"
           >
             <medium
-              v-for="post in posts.slice(6, 8)"
+              v-for="post in posts.slice(6, 7)"
+              :key="post.id"
+              :post="post"
+            ></medium>
+          </div>
+          <div class="full column-full-pad flex">
+            <div class="full column-bottom-border"></div>
+          </div>
+          <div
+            class="three-fourths flex-responsive column-horizontal-pad column-right-border flex relative featured-split smaller-featured-split show-one-related"
+          >
+            <featured
+              v-for="post in posts.slice(2, 3)"
+              :key="post.id"
+              :post="post"
+            ></featured>
+          </div>
+          <div
+            class="fourth flex-responsive column-horizontal-pad flex relative"
+          >
+            <medium
+              v-for="post in posts.slice(7, 8)"
               :key="post.id"
               :post="post"
             ></medium>

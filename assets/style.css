@@ -156,8 +156,8 @@ header .logo {
     letter-spacing: -0.05em;
 }
 .article h4 {
-    font-size: 13px;
-    font-size: 0.65rem;
+    font-size: 14px;
+    font-size: 0.7rem;
     margin-bottom: 10px;
     line-height: 1.37em;
 }
@@ -7119,7 +7119,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .cantha-header {
     padding-top: 8px;
-    padding-bottom: 16px;
     background-color: #fcf1e7;
     z-index: 100;
 }
@@ -7128,8 +7127,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .cantha-block-title {
     padding-top: 0px;
-    padding-bottom: 72px;
-    margin-top: 16px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+}
+.cantha-block-title > .container {
+    padding-top: 8px;
+    padding-bottom: 8px; 
 }
 .cantha-header .site-subtitle {
     padding-bottom: 8px;
@@ -7140,14 +7143,17 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .cantha-block-title .menu {
     font-family: 'Barlow', sans-serif;
-    font-weight: 600;
-    text-transform: uppercase;
+    font-weight: 400;
     font-size: 13px;
     font-size: 0.65rem;
-    padding-top: 6px;
+    padding-top: 5px;
 }
 .cantha-block-title .menu a {
     margin-right: 16px;
+    opacity: .7;
+}
+.cantha-block-title .menu a:hover {
+    opacity: 1;
 }
 .cantha-block-title .container {
     justify-content: space-between;
@@ -7190,16 +7196,21 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .newbtn {
     font-family: 'Barlow', sans-serif;
     font-weight: 600;
-    font-size: 14px;
-    font-size: 0.7rem;
+    font-size: 12px;
+    font-size: 0.6rem;
     padding: 6px 10px;
     padding-top: 5px;
-    background-color: #333;
+    background-color: #ae3737;
     border-radius: 2px;
     color: white;
 }
 .newbtn-empty {
     background: transparent;
+    color: inherit;
+}
+.cantha-break .newbtn {
+    font-size: 14px;
+    font-size: 0.7rem;
 }
 .mini-article-list h3.overtitle {
     font-weight: 700;
@@ -7412,6 +7423,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-style: normal;
     font-size: 48px;
     font-size: 2.4rem;
+    padding-top: 16px;
 }
 .temp-related-limit .related-articles a:nth-child(n+4) {
     display: none;
@@ -7567,6 +7579,13 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         padding-right: 0px;
         min-height: auto;
     }
+    .mobile-articles-noimage .article-standard h2 {
+        font-size: 18px;
+        font-size: 0.9rem;
+    }
+    .mobile-articles-noimage .article-standard h4, .mobile-articles-noimage .article-standard .desktop-only {
+        display: flex;
+    }
     .cantha-commentary .komentar h2, .block-echovald .cantha-commentary .komentar h2 {
         font-size: 19px;
         font-size: 0.95rem;
@@ -7579,6 +7598,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .classic-category .article-medium:last-child {
         border-bottom: none;
+    }
+    .mini-article-list .article-mini::before {
+        top: 3vw;
+    }
+    .mini-article-list .article-mini .mobile-only {
+        display: none;
     }
 }
 @media screen and (min-width: 767px) {
@@ -7732,6 +7757,33 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .cantha-related .third {
         width: 24.99%;
+    }
+    .cantha-intro-block {
+        background-color: #fcf1e7;
+    }
+    .contrast-mode .cantha-intro-block {
+        background-color: white;
+    }
+    .dark-mode .cantha-intro-block {
+        background-color: #212121;
+    }
+    .cantha-intro-block::before {
+        content: ' ';
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: 1px solid #c8c8c8;
+        width: 100%;
+        height: 75px;
+        border-bottom: none;
+    }
+    .cantha-intro-line {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 75px;
+        height: 1px;
+        border-bottom: 1px solid #c8c8c8;
     }
 }
 

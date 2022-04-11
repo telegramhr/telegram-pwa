@@ -287,14 +287,14 @@
         </div>
         <div class="flex third relative">
           <client-only>
+            <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
+              >Prijava</a
+            >
             <app-link
               v-show="!$store.state.user.access"
               to="/pretplata"
               class="signup-btn sub-btn"
               >Pretplatite se</app-link
-            >
-            <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
-              >Prijava</a
             >
             <a v-show="!canLogIn" class="signup-btn" @click.prevent="logout"
               >Odjava</a

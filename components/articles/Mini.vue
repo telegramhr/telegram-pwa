@@ -6,9 +6,13 @@
     :aria-labelledby="'mini-' + post.id"
   >
     <div class="full flex article-pad">
+      <div class="full flex mobile-only">
+        <h3 class="overtitle">{{ post.category | parseCat }}</h3>
+      </div>
       <h2 :id="'mini-' + post.id" class="full animate">
         {{ post.portal_title }}
       </h2>
+      <h4 class="full mobile-only">{{ post.subtitle }}</h4>
       <h5 class="full flex article-meta">
         <span class="meta-author">
           {{ post.authors.length ? 'Piše ' + post.authors[0].name : '' }}</span
