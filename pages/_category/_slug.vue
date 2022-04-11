@@ -821,11 +821,6 @@ export default {
         crossorigin: 'anonymous',
         nonce: 'LFZOW4mi',
       },
-      {
-        hid: 'contentexchange',
-        src: 'https://ughr.contentexchange.me/static/tracker.js',
-        async: true,
-      },
     ]
     if (!this.$store.getters['user/hasPremium']) {
       script = [
@@ -842,6 +837,11 @@ export default {
           hid: 'linker-infinite',
           type: 'text/javascript',
           src: 'https://linker.hr/lw-inf.js',
+          async: true,
+        },
+        {
+          hid: 'contentexchange',
+          src: 'https://ughr.contentexchange.me/static/tracker.js',
           async: true,
         },
       ]
