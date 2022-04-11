@@ -331,9 +331,9 @@
             <linker type="category"></linker>
           </div>
         </div>
-        <div class="full center">
+        <!--<div class="full center">
           <native></native>
-        </div>
+        </div>-->
         <div class="container center">
           <div
             data-contentexchange-widget="k7dWfvWSYDqoSZvwu"
