@@ -6,9 +6,6 @@
     :aria-labelledby="'mini-' + post.id"
   >
     <div class="full flex article-pad">
-      <div class="full flex mobile-only">
-        <h3 class="overtitle">{{ post.category | parseCat }}</h3>
-      </div>
       <h2 :id="'mini-' + post.id" class="full animate">
         {{ post.portal_title }}
       </h2>

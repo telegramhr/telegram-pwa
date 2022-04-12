@@ -150,13 +150,12 @@
     </div>
     <!-- Intro block: The big Gs + comments -->
     <div class="full relative">
-      <div class="cantha-intro-line"></div>
       <div class="container flex relative stretch cantha-intro-block">
         <div class="full flex column-horizontal-pad">
           <div class="full flex relative column-bottom-border"></div>
         </div>
         <h2
-          class="full desktop-only ukraine-header column-horizontal-pad column-bottom-pad center-text"
+          class="full ukraine-header mobile-side-pad column-horizontal-pad column-bottom-pad center-text"
         >
           Rusi napadaju istok Ukrajine
         </h2>
@@ -458,7 +457,6 @@
             <category slug="kultura"></category>
             <category slug="velike-price"></category>
           </div>
-          <most-read v-if="$mobile"></most-read>
         </client-only>
       </div>
     </div>

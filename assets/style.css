@@ -115,7 +115,6 @@ header .logo {
     padding-left: 24px;
 }
 .desktop-subheader .menu a {
-    text-transform: uppercase;
     margin-right: 10px;
 }
 .desktop-subheader svg {
@@ -252,7 +251,7 @@ h5.article-meta i {
     margin-bottom: 0px;
 }
 .article-featured {
-    padding-top: 1vw;
+    padding-top: 0px;
 }
 .article-featured .article-pad {
     padding-bottom: 5vw;
@@ -3975,9 +3974,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 0.7rem;
     }
     .subheader .menu {
-        font-size: 12px;
-        font-size: 0.6rem;
-        padding-top: 1.5px;
+        font-size: 13px;
+        font-size: 0.65rem;
+        padding-top: 0.5px;
     }
     .subheader img {
         margin-right: 0px;
@@ -7131,8 +7130,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     margin-top: 0px;
 }
 .cantha-block-title > .container {
-    padding-top: 8px;
-    padding-bottom: 8px; 
+    padding-top: 10px;
+    padding-bottom: 10px; 
 }
 .cantha-header .site-subtitle {
     padding-bottom: 8px;
@@ -7144,8 +7143,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .cantha-block-title .menu {
     font-family: 'Barlow', sans-serif;
     font-weight: 400;
-    font-size: 13px;
-    font-size: 0.65rem;
+    font-size: 14px;
+    font-size: 0.7rem;
     padding-top: 5px;
 }
 .cantha-block-title .menu a {
@@ -7167,6 +7166,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .stock-market {
     width: auto;
     margin: 0px 4px;
+    padding-bottom: 1.5px;
     color: white;
     font-weight: 600;
 }
@@ -7196,8 +7196,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .newbtn {
     font-family: 'Barlow', sans-serif;
     font-weight: 600;
-    font-size: 12px;
-    font-size: 0.6rem;
+    font-size: 14px;
+    font-size: 0.7rem;
     padding: 6px 10px;
     padding-top: 5px;
     background-color: #ae3737;
@@ -7548,6 +7548,24 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .article-featured .related-articles {
         display: none;
     }
+    .related-articles a {
+        font-size: 12px;
+        font-size: 0.6rem;
+    }
+    .featured-split.biggest-font .article-featured .related-articles {
+        display: flex; 
+    }
+    .featured-split.biggest-font .article-featured {
+        padding-bottom: 4vw;
+        border-bottom: 1px solid #c8c8c8;
+    }
+    .dark-mode .featured-split.biggest-font .article-featured {
+        border-color: #555555;
+    }
+    .featured-split.biggest-font .article-featured .article-pad {
+        border-bottom: none;
+        padding-bottom: 0px;
+    }
     .dark-mode .article-featured-alt {
         border-color: #555;
     }
@@ -7559,6 +7577,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .cantha-intro-block > .full {
         order: 2;
+    }
+    .cantha-intro-block > .ukraine-header {
+        order: 1;
     }
     .cantha-commentary .komentar {
         margin-bottom: 0px;
@@ -7583,7 +7604,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 18px;
         font-size: 0.9rem;
     }
-    .mobile-articles-noimage .article-standard h4, .mobile-articles-noimage .article-standard .desktop-only {
+    .mobile-articles-noimage .article-standard .desktop-only {
         display: flex;
     }
     .cantha-commentary .komentar h2, .block-echovald .cantha-commentary .komentar h2 {
@@ -7604,6 +7625,37 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .mini-article-list .article-mini .mobile-only {
         display: none;
+    }
+    .ukraine-header {
+        font-size: 40px;
+        font-size: 2rem;
+        padding-top: 0px;
+    }
+    .article-mini h4 {
+        margin-bottom: 2px;
+        margin-top: 4px;
+    }
+    .article h3.overtitle, .related-articles h5 {
+        font-size: 14px;
+        font-size: 0.7rem;
+        margin-bottom: 6px;
+    }
+    .three-fourths:not(:first-child) .article-featured {
+        padding-top: 4vw;
+    }
+    .komentar > img.mobile-only {
+        display: none;
+    }
+    .cantha-commentary .komentar:first-child {
+        padding-top: 0px;
+    }
+    .cantha-commentary .komentar:first-child h2 {
+        font-size: 21px;
+        font-size: 1.05rem;
+    }
+    .cantha-commentary .komentar:first-child > img.mobile-only {
+        display: block;
+        margin-bottom: 16px;
     }
 }
 @media screen and (min-width: 767px) {
@@ -7757,33 +7809,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .cantha-related .third {
         width: 24.99%;
-    }
-    .cantha-intro-block {
-        background-color: #fcf1e7;
-    }
-    .contrast-mode .cantha-intro-block {
-        background-color: white;
-    }
-    .dark-mode .cantha-intro-block {
-        background-color: #212121;
-    }
-    .cantha-intro-block::before {
-        content: ' ';
-        position: absolute;
-        top: 0;
-        left: 0;
-        border: 1px solid #c8c8c8;
-        width: 100%;
-        height: 75px;
-        border-bottom: none;
-    }
-    .cantha-intro-line {
-        width: 100%;
-        position: absolute;
-        left: 0;
-        top: 75px;
-        height: 1px;
-        border-bottom: 1px solid #c8c8c8;
     }
 }
 

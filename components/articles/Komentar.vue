@@ -5,6 +5,13 @@
     role="article"
     :aria-labelledby="'komentar-' + post.id"
   >
+    <img
+      :srcset="srcset"
+      :src="post.image.url"
+      :alt="post.image.alt"
+      loading="lazy"
+      class="mobile-only"
+    />
     <div class="full komentar-box relative">
       <div class="komentar-content full">
         <h2 :id="'komentar-' + post.id" class="full animate">
