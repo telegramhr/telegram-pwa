@@ -1,7 +1,7 @@
 <template>
   <div class="main-container flex homepage">
     <!-- Wallpapers -->
-    <client-only>
+    <!--<client-only>
       <div v-if="!$mobile" class="container wallpaper-banners animate">
         <div class="wallpaper-left">
           <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
@@ -10,7 +10,7 @@
           <ad-unit id="telegram_dekstop_wallpaper_right"></ad-unit>
         </div>
       </div>
-    </client-only>
+    </client-only>-->
     <!-- TG Multiverse Header -->
     <div class="full flex">
       <theader></theader>

@@ -23,7 +23,7 @@
       </app-link>
     -->
     <app-link
-      class="full flex article-standard article relative"
+      class="full flex article-featured article relative"
       :to="post.permalink"
       :tracker="post.trackerPermalink"
       role="article"

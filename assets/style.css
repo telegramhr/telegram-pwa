@@ -7431,6 +7431,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .temp-preview-category .cantha-separator, .temp-preview-category h3.subsection-title {
     display: none;
 }
+.fancy-authors-widget .article-featured h2 {
+    font-size: 16px;
+    font-size: 0.8rem;
+}
 
 @media screen and (max-width: 767px) {
     .cantha-header {
@@ -7505,18 +7509,33 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .cantha-mini-block .article-mini .article-pad {
         border-bottom: none;
     }
+    .fancy-authors-widget {
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        display: flex;
+        -ms-scroll-snap-type: x mandatory;
+        scroll-snap-type: x mandatory;
+        margin-bottom: 3vw;
+    }
     .fancy-authors-widget .fourth {
-        width: 100%;
-        min-width: 100%;
+        width: 70vw;
+        min-width: 70vw;
+        scroll-snap-align: start;
+        margin-right: 5vw;
+    }
+    .fancy-authors-widget .fourth:last-child {
+        margin-right: 0px;
+    }
+    .fancy-authors-widget .fourth .article-pad {
+        border-bottom: none;
+        padding-bottom: 2vw;
     }
     .new-author-tile .article h2 {
-        margin-bottom: 0px;
+        margin-bottom: 4px;
     }
     .new-author-tile .article img {
         padding: 0px;
-    }
-    .new-author-tile .article h5 {
-        display: none;
+        height: 50vw;
     }
     .new-author-tile .article .desktop-only {
         display: flex;
