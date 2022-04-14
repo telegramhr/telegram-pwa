@@ -252,7 +252,7 @@
 
               <client-only>
                 <intext></intext>
-                <linker type="mobile"></linker>
+                <linker v-if="!hasPremium" type="mobile"></linker>
               </client-only>
               <!-- Article footer -->
               <div
@@ -324,29 +324,26 @@
             </div>
           </article>
         </div>
-        <div class="full flex">
-          <div
-            class="container flex relative native-block stretch mobile-side-pad"
-          >
-            <linker type="category"></linker>
-          </div>
-        </div>
-        <!--<div class="full center">
-          <native></native>
-        </div>-->
-        <div class="container center">
-          <div
-            data-contentexchange-widget="k7dWfvWSYDqoSZvwu"
-            data-contentexchange-source="ughr"
-          ></div>
-        </div>
-        <div class="full flex">
-          <linker type="footer"></linker>
-        </div>
-        <div class="container flex center">
-          <div id="linker-526" class="lwdgt" data-wid="526"></div>
-        </div>
         <client-only>
+          <div v-if="!hasPremium" class="full flex">
+            <div
+              class="container flex relative native-block stretch mobile-side-pad"
+            >
+              <linker type="category"></linker>
+            </div>
+          </div>
+          <div v-if="!hasPremium" class="container center">
+            <div
+              data-contentexchange-widget="k7dWfvWSYDqoSZvwu"
+              data-contentexchange-source="ughr"
+            ></div>
+          </div>
+          <div v-if="hasPremium" class="full flex">
+            <linker type="footer"></linker>
+          </div>
+          <div v-if="hasPremium" class="container flex center">
+            <div id="linker-526" class="lwdgt" data-wid="526"></div>
+          </div>
           <keep-reading
             v-if="post.category_slug && post.category_slug !== 'promo'"
             :category="post.category_slug"
@@ -529,6 +526,9 @@ export default {
     }
   },
   computed: {
+    hasPremium() {
+      return this.$store.getters['user/hasPremium']
+    },
     canLogIn() {
       return this.$store.state.user.exp * 1000 < new Date().getTime()
     },
