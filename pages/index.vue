@@ -1,7 +1,7 @@
 <template>
   <div class="main-container flex homepage">
     <!-- Wallpapers -->
-    <!--<client-only>
+    <client-only>
       <div v-if="!$mobile" class="container wallpaper-banners animate">
         <div class="wallpaper-left">
           <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
@@ -10,7 +10,7 @@
           <ad-unit id="telegram_dekstop_wallpaper_right"></ad-unit>
         </div>
       </div>
-    </client-only>-->
+    </client-only>
     <!-- TG Multiverse Header -->
     <div class="full flex">
       <theader></theader>
@@ -58,30 +58,8 @@
         <breaking></breaking>
       </div>
     </div>
-    <!-- Billboard -->
-    <!--<client-only>
-      <div
-        v-if="
-          !(
-            ($mobile && $route.name === 'index') ||
-            (!$mobile && $route.name === 'category-slug') ||
-            $route.name === 'openspace'
-          )
-        "
-        class="full center header-billboard"
-      >
-        <ad-unit
-          id="telegram_desktop_billboard_v1"
-          :disable="
-            post &&
-            (post.disable_ads.includes('all') ||
-              (post.category_slug && post.category_slug.includes('openspace')))
-          "
-        ></ad-unit>
-      </div>
-    </client-only>-->
-    <!-- Red block title with nav
-    <div
+    <!-- Red block title with nav -->
+    <!-- <div
       class="block-title cantha-block-title desktop-only full mobile-side-pad"
     >
       <div class="container flex relative column-full-pad">
@@ -148,7 +126,35 @@
         </div>
       </div>
     </div>
-    <!-- Intro block: The big Gs + comments -->
+    <!-- Billboard 1 -->
+    <client-only>
+      <div
+        v-if="
+          !(
+            ($mobile && $route.name === 'index') ||
+            (!$mobile && $route.name === 'category-slug') ||
+            $route.name === 'openspace'
+          )
+        "
+        class="full relative"
+      >
+        <div class="container flex column-horizontal-pad">
+          <div class="full flex relative column-bottom-border"></div>
+        </div>
+        <div class="full center relative header-billboard">
+          <ad-unit
+            id="telegram_desktop_billboard_v1"
+            :disable="
+              post &&
+              (post.disable_ads.includes('all') ||
+                (post.category_slug &&
+                  post.category_slug.includes('openspace')))
+            "
+          ></ad-unit>
+        </div>
+      </div>
+    </client-only>
+    <!-- Intro block: G1 + comments -->
     <div class="full relative">
       <div class="container flex relative stretch cantha-intro-block">
         <div class="full flex column-horizontal-pad">
@@ -191,6 +197,17 @@
             <standard :post="post"></standard>
           </div>
         </div>
+      </div>
+    </div>
+    <!-- Billboard 2 -->
+    <div class="full relative">
+      <div class="full center">
+        <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
+      </div>
+    </div>
+    <!-- G2 i G3 -->
+    <div class="full relative">
+      <div class="container flex relative stretch">
         <div class="full column-horizontal-pad mobile-side-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
@@ -351,6 +368,13 @@
         <category-alt slug="biznis-tech"></category-alt>
       </div>
     </div>
+    <!-- Billboard 3 -->
+    <div class="full relative">
+      <div class="full center">
+        <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
+      </div>
+    </div>
+    <!-- Widget autori -->
     <div class="full mobile-side-pad relative">
       <client-only>
         <div class="full center">
@@ -359,6 +383,7 @@
         <linker type="naslovnica"></linker>
       </client-only>
     </div>
+    <!-- Odabir urednika -->
     <div class="full relative">
       <div class="container flex relative stretch mobile-side-pad">
         <div class="full column-horizontal-pad column-top-pad">
@@ -372,14 +397,17 @@
         >
           <standard :key="posts[1].id" :post="posts[1]"></standard>
         </div>
-        <div class="full column-full-pad">
-          <div class="full column-top-border"></div>
+        <div class="full column-horizontal-pad column-top-pad">
+          <div class="full cantha-separator"></div>
         </div>
+        <h3 class="full center-text column-full-pad subsection-title">
+          Pretplatnici čitaju
+        </h3>
         <div class="full flex cantha-small-block stretch">
           <div
-            v-for="post in posts.slice(7, 10)"
+            v-for="post in posts.slice(3, 7)"
             :key="post.id"
-            class="third flex-responsive column-right-border column-horizontal-pad"
+            class="fourth flex-responsive column-right-border column-horizontal-pad"
           >
             <standard :post="post"></standard>
           </div>
@@ -389,6 +417,7 @@
         </div>
       </div>
     </div>
+    <!-- Break dojave -->
     <div class="full relative">
       <div class="container flex relative column-full-pad">
         <app-link
@@ -428,23 +457,35 @@
         </app-link>
       </div>
     </div>
+    <!-- Sport -->
     <div class="full relative">
       <sport></sport>
     </div>
+    <!-- Widget partneri -->
     <div class="full relative">
       <client-only>
         <partners></partners>
       </client-only>
     </div>
+    <!-- Super1 -->
     <div class="full relative">
       <super1></super1>
     </div>
+    <!-- PitanjeZdravlja -->
     <div class="full relative">
       <pitanje-zdravlja></pitanje-zdravlja>
     </div>
+    <!-- Billboard 4 -->
+    <div class="full relative">
+      <div class="full center">
+        <ad-unit id="telegram_desktop_billboard_v4"></ad-unit>
+      </div>
+    </div>
+    <!-- Openspace -->
     <div class="full relative">
       <os-homepage></os-homepage>
     </div>
+    <!-- Rubrike -->
     <div class="full relative">
       <div class="container flex relative block-5 standard-block">
         <div class="full desktop-only column-horizontal-pad column-bottom-pad">
@@ -461,15 +502,6 @@
       </div>
     </div>
     <div class="full relative">
-      <div class="full center">
-        <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
-      </div>
-      <div class="full center">
-        <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
-      </div>
-      <div class="full center">
-        <ad-unit id="telegram_desktop_billboard_v4"></ad-unit>
-      </div>
       <div class="container flex center">
         <div id="linker-526" class="lwdgt" data-wid="526"></div>
       </div>

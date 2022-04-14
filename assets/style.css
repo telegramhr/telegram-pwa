@@ -7435,6 +7435,15 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 16px;
     font-size: 0.8rem;
 }
+.banner-slot {
+    margin-top: 24px;
+}
+.header-billboard .banner-slot {
+    margin-bottom: 24px;
+}
+.wallpaper-banners .banner-slot {
+    margin-top: 64px;
+}
 
 @media screen and (max-width: 767px) {
     .cantha-header {
