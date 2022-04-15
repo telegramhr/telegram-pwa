@@ -74,13 +74,13 @@ header .logo {
     margin: 0 auto;
 }
 .subheader {
-    height: 26px;
+    height: 30px;
     font-family: 'Barlow', sans-serif;
     font-weight: 300;
     font-style: normal;
     font-size: 12px;
     font-size: 0.6rem;
-    padding: 7px 0px;
+    padding: 9px 0px;
     background-color: #fcf1e7;
     border-bottom: 1px solid #c8c8c8;
     box-shadow: 10px 0px 20px rgba(0, 0, 0, 0.25);
@@ -3218,7 +3218,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 /* Mini pretplata widget */
 
 .mini-pretplata {
-    padding-bottom: 20px;
+    padding-bottom: 24px;
     margin-bottom: 24px;
     /*padding-right: 128px;*/
     border-bottom: 1px solid #c8c8c8;
@@ -3251,7 +3251,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     display: inline-block;
     font-family: 'Barlow', sans-serif;
     font-weight: 600;
-    text-transform: uppercase;
     background-color: white;
     position: relative;
     z-index: 5;
@@ -3280,14 +3279,13 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     margin-bottom: 4px;
 }
 
-
 @media screen and (max-width: 767px) {
     .mini-pretplata {
         order: 1;
         font-size: 12px;
         font-size: 0.6rem;
         margin-bottom: 0vw;
-        padding-bottom: 5vw;
+        padding-bottom: 4vw;
         padding-top: 4vw;
     }
     .block-1 .article-featured {
@@ -7444,6 +7442,20 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .wallpaper-banners .banner-slot {
     margin-top: 64px;
 }
+.header-pretplata {
+    font-size: 14px;
+    font-size: 0.7rem;
+    /*font-family: 'Barlow', sans-serif;
+    font-weight: 400;*/
+    padding-bottom: 2vw;
+    border-bottom: 1px solid #c8c8c8;
+    margin-bottom: 2vw;
+    justify-content: space-between;
+}
+.header-pretplata .newbtn {
+    font-size: 13px;
+    font-size: 0.65rem;
+}
 
 @media screen and (max-width: 767px) {
     .cantha-header {
@@ -7628,12 +7640,15 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         padding-right: 0px;
         min-height: auto;
     }
+    .mobile-articles-noimage .third:last-child .article-standard {
+        border-bottom: none;
+    }
+    .mobile-articles-noimage .third:last-child .article-pad {
+        padding-bottom: 0px;
+    }
     .mobile-articles-noimage .article-standard h2 {
         font-size: 18px;
         font-size: 0.9rem;
-    }
-    .mobile-articles-noimage .article-standard .desktop-only {
-        display: flex;
     }
     .cantha-commentary .komentar h2, .block-echovald .cantha-commentary .komentar h2 {
         font-size: 19px;
@@ -7674,7 +7689,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .komentar > img.mobile-only {
         display: none;
     }
-    .cantha-commentary .komentar:first-child {
+    .cantha-intro-block .cantha-commentary .komentar:first-child {
         padding-top: 0px;
     }
     .cantha-commentary .komentar:first-child h2 {
@@ -7684,6 +7699,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .cantha-commentary .komentar:first-child > img.mobile-only {
         display: block;
         margin-bottom: 16px;
+    }
+    .block-echovald .cantha-commentary, .super1-block .block-echovald > .fourth {
+        order: 2;
+    }
+    .cantha-small-block .subsection-title, .cantha-mini-block .subsection-title, .subsection-title.manual-subsection-adjust {
+        padding-bottom: 1vw;
     }
 }
 @media screen and (min-width: 767px) {

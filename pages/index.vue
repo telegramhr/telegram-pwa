@@ -56,6 +56,15 @@
           <div class="full cantha-separator"></div>
         </div>
         <breaking></breaking>
+        <div class="full flex relative mobile-side-pad mobile-only">
+          <app-link
+            to="/pretplata"
+            class="full center relative header-pretplata"
+          >
+            <div>Podržite neovisno novinarstvo.</div>
+            <div class="newbtn">Pretplatite se</div>
+          </app-link>
+        </div>
       </div>
     </div>
     <!-- Red block title with nav -->
@@ -127,7 +136,7 @@
       </div>
     </div>
     <!-- Billboard 1 -->
-    <client-only>
+    <!--<client-only>
       <div
         v-if="
           !(
@@ -153,7 +162,7 @@
           ></ad-unit>
         </div>
       </div>
-    </client-only>
+    </client-only>-->
     <!-- Intro block: G1 + comments -->
     <div class="full relative">
       <div class="container flex relative stretch cantha-intro-block">
@@ -197,17 +206,9 @@
             <standard :post="post"></standard>
           </div>
         </div>
-      </div>
-    </div>
-    <!-- Billboard 2 -->
-    <div class="full relative">
-      <div class="full center">
-        <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
-      </div>
-    </div>
-    <!-- G2 i G3 -->
-    <div class="full relative">
-      <div class="container flex relative stretch">
+        <div class="full center">
+          <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
+        </div>
         <div class="full column-horizontal-pad mobile-side-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
@@ -220,7 +221,7 @@
           />
           teme
         </h3>
-        <div class="full flex mobile-side-pad stretch">
+        <div class="full flex mobile-side-pad stretch secondary-gs-block">
           <div
             class="three-fourths flex-responsive column-horizontal-pad column-right-border flex relative featured-split smaller-featured-split show-one-related"
           >
@@ -239,8 +240,11 @@
               :post="post"
             ></medium>
           </div>
-          <div class="full column-full-pad flex">
-            <div class="full column-bottom-border"></div>
+          <div class="full column-horizontal-pad column-top-pad flex">
+            <div class="full column-top-border column-bottom-pad"></div>
+            <mini-pretplata-home
+              v-show="!$store.state.user.access"
+            ></mini-pretplata-home>
           </div>
           <div
             class="three-fourths flex-responsive column-horizontal-pad column-right-border flex relative featured-split smaller-featured-split show-one-related"
@@ -400,7 +404,9 @@
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
-        <h3 class="full center-text column-full-pad subsection-title">
+        <h3
+          class="full center-text column-full-pad subsection-title manual-subsection-adjust"
+        >
           Pretplatnici čitaju
         </h3>
         <div class="full flex cantha-small-block stretch">

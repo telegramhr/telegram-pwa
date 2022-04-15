@@ -37,16 +37,14 @@
         >
           <commentary></commentary>
         </div>
-      </div>
-      <div class="full flex stretch column-bottom-pad relative">
-        <div class="full column-full-pad">
+        <div class="full column-full-pad desktop-only">
           <div class="full column-top-border"></div>
         </div>
         <div class="full flex cantha-small-block">
           <div
             v-for="post in posts.slice(1, 5)"
             :key="'sport-' + post.id"
-            class="fourth flex-responsive mobile-side-pad column-right-border column-horizontal-pad"
+            class="fourth flex-responsive column-right-border column-horizontal-pad"
           >
             <standard :post="post"></standard>
           </div>

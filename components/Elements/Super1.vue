@@ -36,8 +36,6 @@
             :post="post"
           ></mini>
         </div>
-      </div>
-      <div class="full flex stretch column-bottom-pad relative">
         <div class="full column-full-pad">
           <div class="full column-top-border"></div>
         </div>
@@ -45,33 +43,33 @@
           <div
             v-for="post in posts.slice(1, 5)"
             :key="'super-' + post.id"
-            class="fourth flex-responsive mobile-side-pad column-right-border column-horizontal-pad"
+            class="fourth flex-responsive column-right-border column-horizontal-pad"
           >
             <standard :post="post"></standard>
           </div>
         </div>
-        <section
-          v-if="posts.length > 7"
-          class="fourth flex-responsive flex mobile-only column-horizontal-pad flex mobile-side-pad"
-        >
-          <standard
-            v-for="post in posts.slice(7)"
-            :key="'super-' + post.id"
-            :post="post"
-          ></standard>
-        </section>
-        <div
-          class="full center subtle-btn-parent mobile-only relative clickable"
-          @click="loadMore"
-        >
-          <div v-show="!loading" class="subtle-btn animate">Vidi više</div>
-          <div v-show="!loading" class="subtle-btn-line"></div>
-          <div v-show="loading" class="full center cool-loader hide">
-            <div class="loader-square">
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
+      </div>
+      <section
+        v-if="posts.length > 7"
+        class="fourth flex-responsive flex mobile-only column-horizontal-pad flex"
+      >
+        <standard
+          v-for="post in posts.slice(7)"
+          :key="'super-' + post.id"
+          :post="post"
+        ></standard>
+      </section>
+      <div
+        class="full center subtle-btn-parent mobile-only relative clickable"
+        @click="loadMore"
+      >
+        <div v-show="!loading" class="subtle-btn animate">Vidi više</div>
+        <div v-show="!loading" class="subtle-btn-line"></div>
+        <div v-show="loading" class="full center cool-loader hide">
+          <div class="loader-square">
+            <div></div>
+            <div></div>
+            <div></div>
           </div>
         </div>
       </div>

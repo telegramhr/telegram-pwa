@@ -395,7 +395,6 @@
           </div>
         </div>
         <!-- Mobile Subheader -->
-        <div class="flex mobile-only">{{ date }}</div>
         <client-only>
           <div
             v-if="$store.state.stocks.stocks[stock_key]"
