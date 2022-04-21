@@ -3446,13 +3446,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         padding-bottom: 4vw;
         border-bottom: 1px solid #c8c8c8;
     }
-    .subheader > .flex {
+    .subheader .stock-market {
         padding-right: 10px;
         margin-right: 10px;
         border-right: 1px solid #444444;
-    }
-    .subheader > .flex:last-child {
-        border-right: none;
     }
     .subheader .half:last-child {
         justify-content: flex-end;
@@ -7456,13 +7453,24 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 13px;
     font-size: 0.65rem;
 }
+.cantha-red-break {
+    background-color: #ae3737;
+    color: white;
+    z-index: 5;
+    position: relative;
+    top: -1px;
+    text-align: center;
+}
+.cantha-red-break .newbtn {
+    background-color: white;
+    color: #ae3737;
+    margin-top: 2vw;
+    margin-bottom: 0px;
+}
 
 @media screen and (max-width: 767px) {
     .cantha-header {
         z-index: 1;
-    }
-    .cantha-header .cantha-separator {
-        margin-bottom: 2vw;
     }
     .cantha-header .new-breaking {
         margin-bottom: 3vw;
@@ -7516,8 +7524,18 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         padding: 4vw;
         margin-bottom: 4vw;
     }
+    .cantha-red-break {
+        margin-bottom: 2vw;
+    }
     .cantha-break img {
         margin: 4vw 0;
+    }
+    .cantha-red-break h2 {
+        margin-bottom: 6px;
+    }
+    .cantha-break h5 {
+        font-size: 14px;
+        font-size: 0.7rem;
     }
     .cantha-mini-block .article-mini {
         padding-bottom: 4vw;
@@ -7646,9 +7664,15 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .mobile-articles-noimage .third:last-child .article-pad {
         padding-bottom: 0px;
     }
+    .mobile-articles-noimage .article-standard .article-pad {
+        padding-bottom: 4vw;
+        padding-top: 4vw;
+    }
     .mobile-articles-noimage .article-standard h2 {
-        font-size: 18px;
-        font-size: 0.9rem;
+        margin-bottom: 0px;
+    }
+    .mobile-articles-noimage .article-standard h5.article-meta {
+        display: none;
     }
     .cantha-commentary .komentar h2, .block-echovald .cantha-commentary .komentar h2 {
         font-size: 19px;
@@ -7705,6 +7729,41 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .cantha-small-block .subsection-title, .cantha-mini-block .subsection-title, .subsection-title.manual-subsection-adjust {
         padding-bottom: 1vw;
+    }
+    .cantha-block-title > .container {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+    .cantha-block-title .menu {
+        padding-top: 3vw;
+        padding-bottom: 3vw;
+        border-bottom: 1px solid #c8c8c8;
+    }
+    .dark-mode .cantha-block-title .menu {
+        border-color: #555555;
+    }
+    .cantha-block-title .menu a:last-child {
+        margin-right: 0px;
+    }
+    .cantha-block-title .menu a {
+        border-bottom: 2px solid transparent;
+    }
+    .cantha-block-title .menu a.current-menu {
+        border-color: #ae3737;
+    }
+    .stonk-widget {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        white-space: nowrap;
+        justify-content: flex-start;
+    }
+    .stock-market {
+        display: flex;
+        font-size: 11px;
+        font-size: 0.55rem;
+        padding-top: 4px;
+        padding-bottom: 4px;
     }
 }
 @media screen and (min-width: 767px) {

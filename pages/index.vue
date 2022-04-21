@@ -56,15 +56,6 @@
           <div class="full cantha-separator"></div>
         </div>
         <breaking></breaking>
-        <div class="full flex relative mobile-side-pad mobile-only">
-          <app-link
-            to="/pretplata"
-            class="full center relative header-pretplata"
-          >
-            <div>Podržite neovisno novinarstvo.</div>
-            <div class="newbtn">Pretplatite se</div>
-          </app-link>
-        </div>
       </div>
     </div>
     <!-- Red block title with nav -->
@@ -96,9 +87,11 @@
       </div>
     </div> -->
     <!-- New subnav no red -->
-    <div class="full desktop-only cantha-block-title relative flex">
-      <div class="container flex relative column-horizontal-pad">
-        <div class="menu flex" role="menu">
+    <div class="full cantha-block-title relative flex">
+      <div
+        class="container mobile-side-pad flex relative column-horizontal-pad"
+      >
+        <nav class="menu desktop-only flex" role="menu">
           <app-link role="menuitem" to="/politika-kriminal"
             >Politika & Kriminal</app-link
           >
@@ -112,8 +105,15 @@
           <a href="https://telesport.telegram.hr" role="menuitem">
             Telesport
           </a>
-        </div>
-        <div class="flex">
+        </nav>
+        <nav class="full menu mobile-only center" role="menu">
+          <app-link role="menuitem" class="current-menu" to="/"
+            >Naslovnica</app-link
+          >
+          <app-link role="menuitem" to="/najnovije">Najnovije</app-link>
+          <app-link role="menuitem" to="/upravo">Upravo se čita</app-link>
+        </nav>
+        <div class="flex desktop-only">
           <client-only>
             <!-- Can log in button versions -->
             <!--
@@ -133,6 +133,31 @@
             <app-link to="/pretplata" class="newbtn">Pretplatite se</app-link>
           </client-only>
         </div>
+      </div>
+    </div>
+    <!-- Prekid pretplata -->
+    <div class="full relative">
+      <div class="container flex relative column-horizontal-pad">
+        <app-link
+          to="/pretplata"
+          class="full cantha-break cantha-red-break mobile-side-pad flex relative stretch"
+        >
+          <div class="two-thirds column-full-pad center flex-responsive">
+            <div class="full flex article">
+              <h2 class="full">Podržite nezavisno novinarstvo</h2>
+              <h5 class="full">
+                Neograničen pristup već za manje od 1,5 kn dnevno
+              </h5>
+            </div>
+          </div>
+          <div class="third stretch flex flex-responsive">
+            <div class="full flex article">
+              <div class="full center">
+                <div class="newbtn">Pretplatite se</div>
+              </div>
+            </div>
+          </div>
+        </app-link>
       </div>
     </div>
     <!-- Billboard 1 -->

@@ -300,7 +300,7 @@
               >Odjava</a
             >
             <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun">
-              <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
+              <font-awesome-icon :icon="['fas', 'user']"></font-awesome-icon>
             </app-link>
           </client-only>
           <a
@@ -340,7 +340,7 @@
       }"
     >
       <div class="full subheader mobile-side-pad center">
-        <!-- Desktop Subheader -->
+        <!-- Single Subheader -->
         <div
           class="container desktop-only flex desktop-subheader column-horizontal-pad single-exclusive"
         >
@@ -380,7 +380,7 @@
                 to="/moj-racun"
                 aria-label="Moj račun"
               >
-                <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
+                <font-awesome-icon :icon="['fas', 'user']"></font-awesome-icon
               ></app-link>
             </client-only>
             <a
@@ -394,43 +394,16 @@
             ></a>
           </div>
         </div>
-        <!-- Mobile Subheader -->
-        <client-only>
-          <div
-            v-if="$store.state.stocks.stocks[stock_key]"
-            class="flex mobile-only"
-          >
-            <img
-              :src="
-                '/stocks/tg_stonks_' +
-                ($store.state.stocks.stocks[stock_key].up ? 'up' : 'down') +
-                '.png'
-              "
-              aria-hidden="true"
-            />{{ $store.state.stocks.stocks[stock_key].name }}
-          </div>
-        </client-only>
+        <!-- Stock Subheader -->
         <div
           id="sidebar"
-          class="container desktop-only flex desktop-subheader column-horizontal-pad homepage-exclusive"
+          class="container flex desktop-subheader column-horizontal-pad homepage-exclusive"
           role="navigation"
         >
           <client-only>
             <stocks></stocks>
           </client-only>
         </div>
-        <client-only>
-          <div
-            v-if="$store.state.weather.zagreb[0].type"
-            class="flex relative weather mobile-only"
-          >
-            <object
-              type="image/svg+xml"
-              :data="`/weather/${$store.state.weather.zagreb[0].type}.svg`"
-            ></object
-            ><span>{{ $store.state.weather.zagreb[0].temp }}&#176;c</span>
-          </div>
-        </client-only>
       </div>
       <nav class="full flex homepage-exclusive animate">
         <div class="container relative">
@@ -456,7 +429,7 @@
             class="mob-nav-otherbtn mobile-only"
             @click.prevent="login"
           >
-            <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
+            <font-awesome-icon :icon="['fas', 'user']"></font-awesome-icon
           ></a>
           <app-link
             v-show="!canLogIn"
@@ -464,7 +437,7 @@
             to="/moj-racun"
             aria-label="Moj račun"
           >
-            <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
+            <font-awesome-icon :icon="['fas', 'user']"></font-awesome-icon
           ></app-link>
         </div>
       </nav>
