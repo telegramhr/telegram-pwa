@@ -12,7 +12,6 @@ import {
   faCheck,
   faTimesCircle,
   faBriefcase,
-  faUser,
 } from '@fortawesome/free-solid-svg-icons'
 import {
   faUserLock,
@@ -35,6 +34,7 @@ import {
 import {
   faSearch,
   faBars,
+  faUser,
   faAngleRight as farAngleRight,
   faAngleLeft,
 } from '@fortawesome/pro-regular-svg-icons'

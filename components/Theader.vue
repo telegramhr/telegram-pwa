@@ -300,7 +300,7 @@
               >Odjava</a
             >
             <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun">
-              <font-awesome-icon :icon="['fas', 'user']"></font-awesome-icon>
+              <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
             </app-link>
           </client-only>
           <a
@@ -380,7 +380,7 @@
                 to="/moj-racun"
                 aria-label="Moj račun"
               >
-                <font-awesome-icon :icon="['fas', 'user']"></font-awesome-icon
+                <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
               ></app-link>
             </client-only>
             <a
@@ -429,7 +429,7 @@
             class="mob-nav-otherbtn mobile-only"
             @click.prevent="login"
           >
-            <font-awesome-icon :icon="['fas', 'user']"></font-awesome-icon
+            <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
           ></a>
           <app-link
             v-show="!canLogIn"
@@ -437,7 +437,7 @@
             to="/moj-racun"
             aria-label="Moj račun"
           >
-            <font-awesome-icon :icon="['fas', 'user']"></font-awesome-icon
+            <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
           ></app-link>
         </div>
       </nav>

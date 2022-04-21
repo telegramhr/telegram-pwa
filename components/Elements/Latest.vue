@@ -1,7 +1,13 @@
 <template>
-  <div class="full flex desktop-only">
-    <h2 class="full flex section-title">Najnovije</h2>
-    <mini v-for="post in posts" :key="post.id" :post="post"></mini>
+  <div class="full flex relative latest-articles">
+    <h3 class="full overtitle column-bottom-pad">Najnovije</h3>
+    <div class="full flex relative mini-article-list">
+      <mini
+        v-for="post in posts.slice(0, 4)"
+        :key="post.id"
+        :post="post"
+      ></mini>
+    </div>
   </div>
 </template>
 

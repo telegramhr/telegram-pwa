@@ -135,31 +135,6 @@
         </div>
       </div>
     </div>
-    <!-- Prekid pretplata -->
-    <div class="full relative">
-      <div class="container flex relative column-horizontal-pad">
-        <app-link
-          to="/pretplata"
-          class="full cantha-break cantha-red-break mobile-side-pad flex relative stretch"
-        >
-          <div class="two-thirds column-full-pad center flex-responsive">
-            <div class="full flex article">
-              <h2 class="full">Podržite nezavisno novinarstvo</h2>
-              <h5 class="full">
-                Neograničen pristup već za manje od 1,5 kn dnevno
-              </h5>
-            </div>
-          </div>
-          <div class="third stretch flex flex-responsive">
-            <div class="full flex article">
-              <div class="full center">
-                <div class="newbtn">Pretplatite se</div>
-              </div>
-            </div>
-          </div>
-        </app-link>
-      </div>
-    </div>
     <!-- Billboard 1 -->
     <!--<client-only>
       <div
@@ -220,15 +195,16 @@
         <div class="full column-full-pad desktop-only">
           <div class="full column-top-border"></div>
         </div>
-        <div
-          class="full flex cantha-small-block mobile-articles-noimage mobile-side-pad stretch"
-        >
+        <div class="full flex relative mobile-only mobile-side-pad">
+          <latest :portal="1"></latest>
+        </div>
+        <div class="full flex cantha-small-block mobile-side-pad stretch">
           <div
             v-for="post in posts.slice(3, 6)"
             :key="post.id"
             class="third flex-responsive column-right-border column-horizontal-pad"
           >
-            <standard :post="post"></standard>
+            <medium :post="post"></medium>
           </div>
         </div>
         <div class="full center">
@@ -542,9 +518,10 @@
 </template>
 
 <script>
-import PitanjeZdravlja from '@/components/Elements/PitanjeZdravlja'
+// import PitanjeZdravlja from '@/components/Elements/PitanjeZdravlja'
+// import Latest from '../components/Elements/Latest.vue'
 export default {
-  components: { PitanjeZdravlja },
+  // components: { PitanjeZdravljaLatest },
   async fetch() {
     await this.$store.dispatch('featured/pullPosts')
   },
