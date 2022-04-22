@@ -34,12 +34,14 @@
             ></medium>
           </div>
         </div>
-        <div class="fourth flex-responsive column-horizontal-pad">
-          <mini
+        <div
+          class="fourth desktop-mini-force flex-responsive column-horizontal-pad"
+        >
+          <standard
             v-for="post in posts.slice(2, 7)"
             :key="'pz-' + post.id"
             :post="post"
-          ></mini>
+          ></standard>
         </div>
       </div>
       <section
@@ -71,8 +73,10 @@
 </template>
 
 <script>
+import Standard from '../articles/Standard.vue'
 export default {
   name: 'Super1',
+  components: { Standard },
   async fetch() {
     await this.$store.dispatch('pz/pullPosts')
   },

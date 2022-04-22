@@ -198,7 +198,7 @@ h5.article-meta i {
     opacity: .5;
 }
 .article-standard {
-    padding-right: 106px;
+    padding-right: 98px;
     min-height: 118px;
 }
 .article-standard img {
@@ -209,7 +209,7 @@ h5.article-meta i {
     position: absolute;
     top: 5vw;
     right: 0px;
-    width: 90px;
+    width: 82px;
     height: 82px;
 }
 .article-standard h2 {
@@ -7632,10 +7632,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .featured-split.biggest-font .article-featured {
         padding-bottom: 4vw;
-        border-bottom: 1px solid #c8c8c8;
-    }
-    .dark-mode .featured-split.biggest-font .article-featured {
-        border-color: #555555;
     }
     .featured-split.biggest-font .article-featured .article-pad {
         border-bottom: none;
@@ -7711,7 +7707,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 20px;
         font-size: 1rem;
         text-align: center;
-        width: 14px;
+        width: 20px;
     }
     .latest-articles .mini-article-list .article-mini::before {
         top: 10vw;
@@ -7735,6 +7731,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .three-fourths:not(:first-child) .article-featured {
         padding-top: 4vw;
+    }
+    .featured-split.biggest-font .article-featured {
+        padding-top: 2vw;
     }
     .komentar > img.mobile-only {
         display: none;
@@ -7800,6 +7799,23 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .dark-mode .latest-articles {
         border-color: #555;
+    }
+    .featured-split.biggest-font .article img, .big-split .article img {
+        width: 100vw;
+        max-width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        float: none;
+        height: auto;
+    }
+    .alt-big-break.center-text .article {
+        display: block;
+    }
+    .cantha-mini-block .desktop-mini-force .article:last-child {
+        border-bottom: none;
     }
 }
 @media screen and (min-width: 767px) {
@@ -7954,6 +7970,34 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .cantha-related .third {
         width: 24.99%;
     }
+    .desktop-mini-force .article img, .desktop-mini-force .article h3.overtitle, .desktop-mini-force .article h4 {
+        display: none;
+    }
+    .desktop-mini-force .article h2 {
+        font-family: 'Lora', serif;
+        line-height: 1.2em;
+        font-size: 14px;
+        font-size: 0.7rem;
+    }
+    .desktop-mini-force .article {
+        padding: 0px;
+        margin: 0px;
+        border: none;
+        min-height: auto;
+    }
+    .desktop-mini-force .article .article-pad {
+        padding-top: 0px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid #c8c8c8;
+        margin-bottom: 16px;
+    }
+    .dark-mode .desktop-mini-force .article .article-pad {
+        border-color: #555;
+    }
+    .desktop-mini-force .article:last-child .article-pad {
+        border-bottom: none;
+    }
+    
 }
 
 /* Super2 home */
