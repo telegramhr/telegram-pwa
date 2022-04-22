@@ -18,6 +18,7 @@
         }}</span>
       </h5>
     </div>
+    <span class="mini-big-time">{{ post.time | parseRecentTime }}</span>
   </app-link>
 </template>
 

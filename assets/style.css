@@ -1745,7 +1745,7 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 6;
+    z-index: 11;
 }
 .sticky-subheader .logo {
     margin-right: 16px;
@@ -7237,7 +7237,11 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .mini-article-list .article-mini {
     padding-left: 32px;
 }
-.mini-article-list .article-mini::before {
+.article-mini .mini-big-time {
+    display: none;
+}
+.mini-article-list .article-mini::before, .latest-articles .mini-article-list .article-mini .mini-big-time {
+    display: block;
     position: absolute;
     top: -2px;
     left: 0;
@@ -7260,6 +7264,15 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .mini-article-list .article-mini:nth-child(5)::before {
     content: '5';
+}
+.latest-articles .mini-article-list .article-mini::before {
+    content: 'min' !important;
+    top: 24px;
+    font-size: 12px;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
 }
 .alt-big-break .article h2 {
     font-weight: 400;
@@ -7691,8 +7704,17 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .classic-category .article-medium:last-child {
         border-bottom: none;
     }
-    .mini-article-list .article-mini::before {
+    .mini-article-list .article-mini::before, .latest-articles .mini-article-list .article-mini .mini-big-time {
         top: 3vw;
+    }
+    .latest-articles .mini-article-list .article-mini .mini-big-time {
+        font-size: 20px;
+        font-size: 1rem;
+        text-align: center;
+        width: 14px;
+    }
+    .latest-articles .mini-article-list .article-mini::before {
+        top: 10vw;
     }
     .mini-article-list .article-mini .mobile-only {
         display: none;
@@ -7772,6 +7794,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .latest-articles {
         padding-top: 2vw;
         border-bottom: 1px solid #c8c8c8;
+    }
+    .latest-articles h3.subsection-title {
+        padding-bottom: 0px;
     }
     .dark-mode .latest-articles {
         border-color: #555;

@@ -1,6 +1,9 @@
 <template>
   <div class="full flex relative latest-articles">
-    <h3 class="full overtitle column-bottom-pad">Najnovije</h3>
+    <div class="full column-horizontal-pad column-top-pad">
+      <div class="full cantha-separator"></div>
+    </div>
+    <h3 class="full center-text column-full-pad subsection-title">Najnovije</h3>
     <div class="full flex relative mini-article-list">
       <mini
         v-for="post in posts.slice(0, 4)"
