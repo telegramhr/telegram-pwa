@@ -579,11 +579,11 @@
     </header>
     <div v-show="showBreaking" class="full mobile-only">
       <breaking></breaking>
-      <h2
+      <!--<h2
         class="full homepage-exclusive ukraine-mobile-header mobile-side-pad center-text"
       >
         Rat u Ukrajini
-      </h2>
+      </h2>-->
     </div>
   </div>
 </template>

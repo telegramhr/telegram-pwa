@@ -36,11 +36,11 @@
           <div
             class="five-sixths column-horizontal-pad flex-responsive flex column-bottom-border column-right-border"
           >
-            <h2
+            <!--<h2
               class="full desktop-only ukraine-header column-bottom-pad center-text"
             >
               Rat u Ukrajini
-            </h2>
+            </h2>-->
             <featured :key="posts[0].id" :post="posts[0]"></featured>
           </div>
           <aside
