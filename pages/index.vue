@@ -195,6 +195,38 @@
         <div class="full column-full-pad desktop-only">
           <div class="full column-top-border"></div>
         </div>
+        <!-- Prekid pretplata -->
+        <div class="full relative mobile-only">
+          <div class="container flex relative column-horizontal-pad">
+            <app-link
+              to="/pretplata"
+              class="full cantha-break cantha-mini-break mobile-side-pad flex relative stretch"
+            >
+              <div class="two-thirds column-full-pad center flex-responsive">
+                <div class="full flex article">
+                  <!--<h2 class="full">Podržite nezavisno novinarstvo</h2>
+                  <h5 class="full">
+                    Neograničen pristup već za manje od 1,5 kn dnevno
+                  </h5>-->
+                  <h2 class="full">
+                    Bespoštedno novinarstvo <br />koje gura društvo naprijed.
+                  </h2>
+                  <h5 class="full">
+                    Za neograničeno čitanje Telegrama i podršku istraživačkim
+                    serijalima, odaberite jedan od paketa.
+                  </h5>
+                </div>
+              </div>
+              <div class="third stretch flex flex-responsive">
+                <div class="full flex article">
+                  <div class="full center">
+                    <div class="newbtn">Pretplatite se</div>
+                  </div>
+                </div>
+              </div>
+            </app-link>
+          </div>
+        </div>
         <div class="full flex relative mobile-only mobile-side-pad">
           <latest :portal="1"></latest>
         </div>

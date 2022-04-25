@@ -33,7 +33,7 @@
           class="fourth flex-responsive desktop-mini-force column-horizontal-pad"
         >
           <standard
-            v-for="post in posts.slice(2, 6)"
+            v-for="post in posts.slice(2, 7)"
             :key="'super-' + post.id"
             :post="post"
           ></standard>

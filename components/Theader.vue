@@ -358,31 +358,13 @@
             <app-link to="/" class="logo"
               ><img
                 src="@/assets/img/telegram_logo_black.svg"
+                alt="Telegram logo" /><img
+                src="@/assets/img/telegram_logo_white.svg"
                 alt="Telegram logo"
+                class="dark-mode-only"
             /></app-link>
           </div>
           <div class="flex third relative">
-            <client-only>
-              <app-link
-                v-show="!$store.state.user.access"
-                to="/pretplata"
-                class="signup-btn sub-btn"
-                >Pretplatite se</app-link
-              >
-              <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
-                >Prijava</a
-              >
-              <a v-show="!canLogIn" class="signup-btn" @click.prevent="logout"
-                >Odjava</a
-              >
-              <app-link
-                v-show="!canLogIn"
-                to="/moj-racun"
-                aria-label="Moj račun"
-              >
-                <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
-              ></app-link>
-            </client-only>
             <a
               href="#"
               aria-label="Prikaži tražilicu"

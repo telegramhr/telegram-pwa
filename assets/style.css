@@ -3254,7 +3254,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     background-color: white;
     position: relative;
     z-index: 5;
-    border: 1px solid #c1b9b1;
     color: white;
     background-color: #ae3737;
     font-size: 12px;
@@ -3262,6 +3261,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 0.6rem;
     padding: 4px 16px;
     line-height: normal;
+    border-radius: 1px;
 }
 .mini-pretplata p {
     font-style: italic;
@@ -7250,6 +7250,13 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     color: #8d8d8d;
     font-family: 'Lora', serif;
 }
+.latest-articles .mini-article-list .article-mini .mini-big-time {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    font-size: 1.1rem;
+    left: -0.5px;
+}
 .mini-article-list .article-mini:nth-child(1)::before {
     content: '1';
 }
@@ -7268,8 +7275,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .latest-articles .mini-article-list .article-mini::before {
     content: 'min' !important;
     top: 24px;
-    font-size: 12px;
-    font-size: 0.6rem;
+    font-size: 11px;
+    font-size: 0.55rem;
     text-transform: uppercase;
     font-family: 'Barlow', sans-serif;
     font-weight: 400;
@@ -7469,14 +7476,21 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .cantha-red-break {
     background-color: #ae3737;
     color: white;
+}
+.cantha-mini-break {
     z-index: 5;
     position: relative;
     top: -1px;
     text-align: center;
 }
+.cantha-mini-break h2 {
+    margin-bottom: 4px;
+}
 .cantha-red-break .newbtn {
     background-color: white;
     color: #ae3737;
+}
+.cantha-mini-break .newbtn {
     margin-top: 2vw;
     margin-bottom: 0px;
 }
@@ -7627,9 +7641,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 12px;
         font-size: 0.6rem;
     }
-    .featured-split.biggest-font .article-featured .related-articles {
-        display: flex; 
-    }
     .featured-split.biggest-font .article-featured {
         padding-bottom: 4vw;
     }
@@ -7701,16 +7712,16 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         border-bottom: none;
     }
     .mini-article-list .article-mini::before, .latest-articles .mini-article-list .article-mini .mini-big-time {
-        top: 3vw;
+        top: 3.5vw;
     }
     .latest-articles .mini-article-list .article-mini .mini-big-time {
-        font-size: 20px;
-        font-size: 1rem;
+        font-size: 18px;
+        font-size: 0.9rem;
         text-align: center;
-        width: 20px;
+        width: 18px;
     }
     .latest-articles .mini-article-list .article-mini::before {
-        top: 10vw;
+        top: 9vw;
     }
     .mini-article-list .article-mini .mobile-only {
         display: none;
