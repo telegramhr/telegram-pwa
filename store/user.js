@@ -54,10 +54,29 @@ export const actions = {
         if (window.fbq) {
           window.fbq('trackCustom', 'HasSubscription', { value: 1 })
         }
+        if (window.marfeel) {
+          window.marfeel.cmd.push([
+            'compass',
+            function (compass) {
+              compass.setUserType('paid')
+            },
+          ])
+        }
         resolve()
-      } else if (window.fbq) {
-        window.fbq && window.fbq('trackCustom', 'HasSubscription', { value: 0 })
-        resolve()
+      } else {
+        if (window.fbq) {
+          window.fbq &&
+            window.fbq('trackCustom', 'HasSubscription', { value: 0 })
+          resolve()
+        }
+        if (window.marfeel) {
+          window.marfeel.cmd.push([
+            'compass',
+            function (compass) {
+              compass.setUserType('free')
+            },
+          ])
+        }
       }
     })
   },
