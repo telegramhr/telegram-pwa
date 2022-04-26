@@ -60,14 +60,23 @@ header nav {
     top: 0;
     left: 0;
 }
-header nav .container {
+.mobile-sticky-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 15;
+    background-color: #fcf1e7;
+    border-bottom: 1px solid #c8c8c8;
+    box-shadow: 10px 0px 20px rgba(0, 0, 0, 0.25);
+}
+header nav .container, .mobile-sticky-nav {
     padding: 15px 4vw;
     height: 50px;
 }
-header .logo img {
+header .logo img, .mobile-sticky-nav .logo img {
     height: 20px;
 }
-header .logo {
+header .logo, .mobile-sticky-nav .logo {
     width: 165px;
     display: block;
     opacity: 1;
@@ -904,7 +913,7 @@ h3.subsection-title img.dark-mode-only, .dark-mode h3.subsection-title img {
 .pz-block .block-title img {
     padding: 12px;
 }
-.sport-block .block-title, .sport-block .dynamic-overtitle-element, .sport-block .widget, .sport-block .widget::before, .sport-block .komentar .komentar-image, .sport-block .subtle-btn-parent:hover .subtle-btn, .sport-block .loader-square div {
+.sport-block .block-title, .sport-block .dynamic-overtitle-element, .sport-block .widget, .sport-block .widget::before, .sport-block .komentar .komentar-image, .sport-block .subtle-btn-parent:hover .subtle-btn, .sport-block .loader-square div, .sport-block .newbtn {
     background-color: #376cae;
 }
 .sport-block .meta-preporuke, .sport-block h3.overtitle, .sport-block .article-mini .meta-date, .sport-block .related-articles h5, .sport-block .komentar-quotation {
@@ -913,7 +922,7 @@ h3.subsection-title img.dark-mode-only, .dark-mode h3.subsection-title img {
 .sport-block h2.section-title {
     border-bottom-color: #376cae;
 }
-.super1-block .block-title, .super1-block .dynamic-overtitle-element, .super1-block .widget, .super1-block .widget::before, .super1-block .komentar .komentar-image, .super1-block .subtle-btn-parent:hover .subtle-btn, .super1-block .loader-square div {
+.super1-block .block-title, .super1-block .dynamic-overtitle-element, .super1-block .widget, .super1-block .widget::before, .super1-block .komentar .komentar-image, .super1-block .subtle-btn-parent:hover .subtle-btn, .super1-block .loader-square div, .super1-block .newbtn {
     background-color: #CC3366;
 }
 .super1-block .meta-preporuke, .super1-block h3.overtitle, .super1-block .article-mini .meta-date, .super1-block .related-articles h5 {
@@ -922,7 +931,7 @@ h3.subsection-title img.dark-mode-only, .dark-mode h3.subsection-title img {
 .super1-block h2.section-title {
     border-bottom-color: #CC3366;
 }
-.pz-block .block-title, .pz-block .dynamic-overtitle-element, .pz-block .widget, .pz-block .widget::before, .pz-block .komentar .komentar-image, .pz-block .subtle-btn-parent:hover .subtle-btn, .pz-block .loader-square div {
+.pz-block .block-title, .pz-block .dynamic-overtitle-element, .pz-block .widget, .pz-block .widget::before, .pz-block .komentar .komentar-image, .pz-block .subtle-btn-parent:hover .subtle-btn, .pz-block .loader-square div, .pz-block .newbtn {
     background-color: #27a9e0;
 }
 .pz-block .meta-preporuke, .pz-block h3.overtitle, .pz-block .article-mini .meta-date, .pz-block .related-articles h5 {
@@ -3420,6 +3429,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 
 @media screen and (max-width: 767px) {
+    .mobile-top-pad {
+        padding-top: 4vw;
+    }
     .single-article {
         font-size: 17px;
         font-size: 0.85rem;
@@ -3454,17 +3466,27 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .subheader .half:last-child {
         justify-content: flex-end;
     }
-    header a:first-child, header a.mob-nav-otherbtn {
+    header, .cantha-header {
+        background-color: #fcf1e7;
+        z-index: 16;
+    }
+    .dark-mode header {
+        background-color: #212121;
+    }
+    .light-mode header {
+        background-color: white;
+    }
+    header a:first-child, header a.mob-nav-otherbtn, .mobile-sticky-nav a:first-child, .mobile-sticky-nav a.mob-nav-otherbtn {
         opacity: 0.5;
         font-size: 15px;
         font-size: 0.75rem;
         position: absolute;
         top: 16px;
     }
-    header a:first-child {
+    header a:first-child, .mobile-sticky-nav a:first-child {
         left: 4vw;
     }
-    header a.mob-nav-otherbtn {
+    header a.mob-nav-otherbtn, .mobile-sticky-nav a.mob-nav-otherbtn {
         right: 4vw;
     }
     .article-standard h4 {
@@ -3511,9 +3533,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .single-article-commentary .article-head {
         padding-top: 32px;
-    }
-    .single-article header nav.homepage-exclusive {
-        display: flex;
     }
     .single-article-premium header nav.homepage-exclusive {
         display: none;
@@ -7495,11 +7514,16 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     margin-bottom: 0px;
 }
 .cantha-small-block .third:last-child .article-medium {
-    padding-bottom: 0px;
     border-bottom: none;
 }
 
 @media screen and (max-width: 767px) {
+    .main-container {
+        padding-top: 50px;
+    }
+    .homepage {
+        padding-top: 0px;
+    }
     .cantha-header {
         z-index: 1;
     }
@@ -7651,14 +7675,14 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .dark-mode .article-featured-alt {
         border-color: #555;
     }
-    .cantha-intro-block > .three-fourths {
-        order: 1;
-    }
     .cantha-intro-block > .fourth {
         order: 3;
     }
     .cantha-intro-block > .full {
         order: 2;
+    }
+    .cantha-intro-block > .three-fourths, .cantha-intro-block > .mobile-order-1 {
+        order: 1;
     }
     .cantha-intro-block > .ukraine-header {
         order: 1;

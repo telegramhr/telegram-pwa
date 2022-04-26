@@ -166,14 +166,16 @@
     <!-- Intro block: G1 + comments -->
     <div class="full relative">
       <div class="container flex relative stretch cantha-intro-block">
-        <div class="full flex column-horizontal-pad">
+        <div
+          class="full flex column-horizontal-pad column-bottom-pad desktop-only"
+        >
           <div class="full flex relative column-bottom-border"></div>
         </div>
-        <h2
+        <!--<h2
           class="full ukraine-header mobile-side-pad column-horizontal-pad column-bottom-pad center-text"
         >
           Rusi napadaju istok Ukrajine
-        </h2>
+        </h2>-->
         <div
           class="three-fourths featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad column-right-border"
         >
@@ -196,7 +198,7 @@
           <div class="full column-top-border"></div>
         </div>
         <!-- Prekid pretplata -->
-        <div class="full relative mobile-only">
+        <div class="full relative mobile-only mobile-order-1">
           <div class="container flex relative column-horizontal-pad">
             <app-link
               to="/pretplata"
@@ -239,7 +241,8 @@
             <medium :post="post"></medium>
           </div>
         </div>
-        <div class="full center">
+        <!-- Billboard 2 -->
+        <div class="full center mobile-order-1">
           <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
         </div>
         <div class="full column-horizontal-pad mobile-side-pad column-top-pad">
@@ -501,7 +504,7 @@
       <sport></sport>
     </div>
     <!-- Widget partneri -->
-    <div class="full relative">
+    <div class="full relative mobile-top-pad">
       <client-only>
         <partners></partners>
       </client-only>
@@ -521,7 +524,7 @@
       </div>
     </div>
     <!-- Openspace -->
-    <div class="full relative">
+    <div class="full relative mobile-top-pad">
       <os-homepage></os-homepage>
     </div>
     <!-- Rubrike -->

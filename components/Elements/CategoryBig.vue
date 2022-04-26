@@ -29,7 +29,7 @@
         class="fourth desktop-mini-force flex-responsive column-horizontal-pad"
       >
         <standard
-          v-for="post in posts.slice(4, 9)"
+          v-for="post in posts.slice(4, 8)"
           :key="post.id"
           :post="post"
         ></standard>

@@ -50,7 +50,12 @@
           </div>
         </div>
       </div>
-      <section
+      <div
+        class="full mobile-only mobile-side-pad flex relative mobile-top-pad center"
+      >
+        <a href="https://telesport.telegram.hr" class="newbtn">Vidi više</a>
+      </div>
+      <!--<section
         v-if="posts.length > 7"
         class="third flex-responsive flex mobile-only column-horizontal-pad flex mobile-side-pad"
       >
@@ -73,7 +78,7 @@
             <div></div>
           </div>
         </div>
-      </div>
+      </div>-->
     </div>
   </div>
 </template>

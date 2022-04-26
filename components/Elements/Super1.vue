@@ -33,7 +33,7 @@
           class="fourth flex-responsive desktop-mini-force column-horizontal-pad"
         >
           <standard
-            v-for="post in posts.slice(2, 7)"
+            v-for="post in posts.slice(2, 6)"
             :key="'super-' + post.id"
             :post="post"
           ></standard>
@@ -51,7 +51,12 @@
           </div>
         </div>
       </div>
-      <section
+      <div
+        class="full mobile-only mobile-side-pad flex relative mobile-top-pad center"
+      >
+        <a href="https://super1.telegram.hr" class="newbtn">Vidi više</a>
+      </div>
+      <!--<section
         v-if="posts.length > 7"
         class="fourth flex-responsive flex mobile-only column-horizontal-pad flex"
       >
@@ -74,7 +79,7 @@
             <div></div>
           </div>
         </div>
-      </div>
+      </div>-->
     </div>
   </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <div class="full flex pz-block">
-    <a href="https://telesport.telegram.hr" class="full flex">
+    <app-link to="/pitanje-zdravlja" class="full flex">
       <div class="block-title full mobile-side-pad">
         <div class="container center column-horizontal-pad relative">
           <img
@@ -9,7 +9,7 @@
           />
         </div>
       </div>
-    </a>
+    </app-link>
     <div
       class="container flex relative cantha-big-block elevate-over-section stretch"
     >
@@ -44,7 +44,12 @@
           ></standard>
         </div>
       </div>
-      <section
+      <div
+        class="full mobile-only mobile-side-pad flex relative mobile-top-pad center"
+      >
+        <app-link to="/pitanje-zdravlja" class="newbtn">Vidi više</app-link>
+      </div>
+      <!--<section
         v-if="showMore && morePosts.length"
         class="third flex-responsive flex mobile-only column-horizontal-pad flex mobile-side-pad"
       >
@@ -67,7 +72,7 @@
             <div></div>
           </div>
         </div>
-      </div>
+      </div>-->
     </div>
   </div>
 </template>
