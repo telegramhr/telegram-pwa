@@ -58,7 +58,7 @@ export const actions = {
           window.marfeel.cmd.push([
             'compass',
             function (compass) {
-              compass.setUserType('paid')
+              compass.setUserType(3)
             },
           ])
         }
@@ -73,7 +73,7 @@ export const actions = {
           window.marfeel.cmd.push([
             'compass',
             function (compass) {
-              compass.setUserType('free')
+              compass.setUserType(2)
             },
           ])
         }
