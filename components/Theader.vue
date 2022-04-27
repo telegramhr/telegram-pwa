@@ -326,7 +326,11 @@
         <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon
       ></a>
       <app-link to="/" class="logo"
-        ><img src="@/assets/img/telegram_logo_black.svg" alt="Telegram logo"
+        ><img src="@/assets/img/telegram_logo_black.svg" alt="Telegram logo" />
+        <img
+          src="@/assets/img/telegram_logo_white.svg"
+          alt="Telegram logo"
+          class="dark-mode-only"
       /></app-link>
       <div class="desktop-only full center-text tagline">
         Portal za društvena i kulturna pitanja. I svijet koji dolazi.
@@ -434,7 +438,10 @@
           <app-link to="/" class="logo"
             ><img
               src="@/assets/img/telegram_logo_black.svg"
+              alt="Telegram logo" /><img
+              src="@/assets/img/telegram_logo_white.svg"
               alt="Telegram logo"
+              class="dark-mode-only"
           /></app-link>
           <div class="desktop-only full center-text tagline">
             Portal za društvena i kulturna pitanja. I svijet koji dolazi.

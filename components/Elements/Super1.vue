@@ -29,14 +29,12 @@
             ></medium>
           </div>
         </div>
-        <div
-          class="fourth flex-responsive desktop-mini-force column-horizontal-pad"
-        >
-          <standard
+        <div class="fourth flex-responsive desktop-only column-horizontal-pad">
+          <mini
             v-for="post in posts.slice(2, 6)"
             :key="'super-' + post.id"
             :post="post"
-          ></standard>
+          ></mini>
         </div>
         <div class="full column-full-pad">
           <div class="full column-top-border"></div>

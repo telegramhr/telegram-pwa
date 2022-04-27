@@ -336,7 +336,7 @@
             <native></native>
           </div>
         </div>
-        <div class="container center">
+        <div class="container center column-horizontal-pad mobile-side-pad">
           <div
             data-contentexchange-widget="k7dWfvWSYDqoSZvwu"
             data-contentexchange-source="ughr"
@@ -345,7 +345,9 @@
         <div class="full flex">
           <linker type="footer"></linker>
         </div>
-        <div class="container flex center">
+        <div
+          class="container flex center column-horizontal-pad mobile-side-pad"
+        >
           <div id="linker-526" class="lwdgt" data-wid="526"></div>
         </div>
         <client-only>

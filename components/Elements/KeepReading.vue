@@ -3,10 +3,12 @@
     <div
       class="container flex relative block-related cantha-related standard-block stretch"
     >
-      <div class="full column-horizontal-pad column-top-pad">
+      <div class="full column-horizontal-pad column-top-pad mobile-side-pad">
         <div class="full cantha-separator"></div>
       </div>
-      <h3 class="full center-text column-full-pad subsection-title">
+      <h3
+        class="full center-text column-full-pad subsection-title mobile-side-pad"
+      >
         Nastavite čitati
       </h3>
       <div class="full flex mobile-side-pad">

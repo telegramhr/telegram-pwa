@@ -34,7 +34,7 @@
     </div>
     <!-- Veliki blok - intro -->
     <div class="full relative">
-      <div class="container flex relative stretch block-kaineng">
+      <div class="container flex relative stretch block-kaineng mobile-top-pad">
         <div class="full flex">
           <div class="full flex mobile-side-pad stretch">
             <div
@@ -136,12 +136,14 @@
             ></medium>
           </div>
         </div>
-        <div class="fourth flex-responsive column-horizontal-pad">
-          <mini
+        <div
+          class="fourth flex-responsive column-horizontal-pad desktop-mini-force"
+        >
+          <standard
             v-for="post in posts.slice(1, 5)"
             :key="post.id"
             :post="post"
-          ></mini>
+          ></standard>
         </div>
       </div>
     </div>
@@ -176,12 +178,10 @@
     <!-- Read more widget -->
     <div class="full flex relative">
       <div class="container flex relative column-full-pad">
-        <div
-          class="full center subtle-btn-parent relative clickable"
-          @click="loadMore"
-        >
-          <div v-show="!loading" class="subtle-btn animate">Vidi više</div>
-          <div v-show="!loading" class="subtle-btn-line"></div>
+        <div class="full center relative clickable" @click="loadMore">
+          <div v-show="!loading" class="newbtn huge-newbtn animate">
+            Učitaj još članaka
+          </div>
           <div v-show="loading" class="full center cool-loader">
             <div class="loader-square">
               <div></div>
@@ -197,8 +197,10 @@
 </template>
 
 <script>
+import Standard from '../../components/articles/Standard.vue'
 export default {
   name: 'CategoryIndex',
+  components: { Standard },
   async fetch() {
     await this.$axios
       .get('/api/category/' + this.$route.params.category)
