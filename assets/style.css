@@ -68,7 +68,7 @@ header nav {
     border-bottom: 1px solid #c8c8c8;
     box-shadow: 10px 0px 20px rgba(0, 0, 0, 0.25);
 }
-.contrast-mode .mobile-sticky-nav {
+.contrast-mode .mobile-sticky-nav, .fancy-rubrika .mobile-sticky-nav {
     background-color: white;
 }
 .dark-mode .mobile-sticky-nav {
@@ -2629,11 +2629,11 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .openspace .single-article-body #article-content > p.premium-fade-out::before {
     background: linear-gradient(to top, rgba(255,255,255, 1), rgba(255,255,255, 0));
 }
+.contrast-mode .single-article .single-article-body #article-content > p.premium-fade-out::before, .fancy-rubrika.single-article .single-article-body #article-content > p.premium-fade-out::before {
+    background: linear-gradient(to top, rgba(255,255,255, 1), rgba(255,255,255, 0));
+}
 .dark-mode .single-article .single-article-body #article-content > p.premium-fade-out::before {
     background: linear-gradient(to top, rgba(33,33,33, 1), rgba(33,33,33, 0));
-}
-.contrast-mode .single-article .single-article-body #article-content > p.premium-fade-out::before {
-    background: linear-gradient(to top, rgba(255,255,255, 1), rgba(255,255,255, 0));
 }
 .pretplata-ticker {
     background-color: #212121;
@@ -5430,7 +5430,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .openspace .os-prilika .komentar-image {
     background-color: #2c2e41;
 }
-.openspace .classic-btn {
+.openspace .os-prilika .komentar-image img {
+    mix-blend-mode: luminosity;
+}
+.openspace .classic-btn, .openspace .newbtn, .openspace .loader-square > div {
     background-color: #464b7a;
 }
 .dark-mode .openspace .classic-btn {
@@ -5443,6 +5446,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .dark-mode .openspace .os-prilika .meta-date {
     color: #7077b7;
 }
+.os-prilika .komentar-author img {
+    background-color: transparent;
+    border-radius: 0px;
+}
 .openspace .os-prilika .meta-preporuke {
     display: none;
 }
@@ -5452,6 +5459,19 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .openspace .os-prilika .komentar-quotation {
     font-size: 0.75rem;
     bottom: -2px;
+}
+.os-prilika .komentar-author {
+    padding-left: 118px;
+}
+.os-prilika .komentar-quotation {
+    top: 83px; 
+}
+.os-prilika .komentar-head {
+    overflow: visible;
+}
+.os-prilika.komentar h2 {
+    text-indent: 1.2rem;
+    margin-bottom: 0px;
 }
 .openspace .banner-separator > div {
     background-color: white;
@@ -5518,6 +5538,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .single-article .single-article-body .inarticle-table h2 {
         padding-left: 2px;
     }
+    .fancy-rubrika-header .container::before {
+        border-right: none;
+    }
 }
 
 /* Generic fancy rubrika */
@@ -5542,10 +5565,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .openspace.single-article h1 {
         font-size: 1.4rem;
-    }
-    .openspace nav.homepage-exclusive {
-        display: flex;
-        background-color: #222;
     }
     .os-header-logo {
         margin-top: 48px;
@@ -5591,6 +5610,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .openspace .standard-block .third:last-child .article-featured:first-child .article-pad {
         border-bottom: none;
+    }
+    .os-about-section {
+        margin-bottom: 4vw;
     }
     .os-about-subtitle {
         margin-top: 36px;
@@ -5638,7 +5660,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         margin-bottom: 16px;
     }
     .openspace .article-big img {
-        margin-bottom: 8px;
+        margin-bottom: 0px;
+    }
+    .openspace .intro-block .third:last-child .column-right-border {
+        border-right: none;
     }
     .openspace .widget .btn, .openspace .subtle-btn {
         font-family: ibm-plex-mono, sans-serif;
@@ -5665,6 +5690,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .openspace .os-prilika .komentar-author img {
         height: 40px;
+        width: 60px;
         bottom: 6px;
     }
     .tg-biznis .article-featured h2 {
@@ -5678,6 +5704,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .fancy-rubrika .article-big h2 {
         font-size: 36px;
         font-size: 1.8rem;
+    }
+    .openspace .block-2 .three-fourths .article-featured .article-pad{
+        padding-bottom: 24px;
     }
 }
 @media screen and (max-width: 1180px) and (min-width: 767px) {
@@ -5791,20 +5820,37 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .openspace .article-break {
         margin-top: 0px;
     }
+    .os-prilike-widget {
+        padding-bottom: 4vw;
+    }
+    .os-prilika .komentar-quotation {
+        display: none;
+    }
     .os-prilika {
-        padding-top: 54px;
+        padding-top: 0px;
         width: 80vw;
+        min-width: 200px;
         margin-right: 6vw;  
+        padding-bottom: 0px;
+        border-bottom: none;
+        border-right: 1px solid #c8c8c8;
+    }
+    .dark-mode .os-prilika {
+        border-color: #555;
+    }
+    .os-prilika:last-child {
+        border-right: none;
     }
     .os-prilika .komentar-image {
-        top: -44px;
+        top: auto;
+        position: relative;
     }
     .os-prilika .komentar-author {
-        padding-left: 110px;
-        padding-bottom: 16px;
+        padding-left: 0px;
+        padding-bottom: 0px;
     }
     .os-prilika .komentar-content {
-        padding-top: 10px;
+        padding-top: 4px;
     }
     .os-prilika .komentar-author img {
         width: 44px;
@@ -5828,9 +5874,13 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .mobile-native-slider > * {
         scroll-snap-align: start;
     }
-    .os-prilika h2 {
+    .os-prilika.komentar h2 {
         font-size: 18px;
         font-size: 0.9rem;
+        text-indent: 0px;
+    }
+    .dark-mode .openspace .standard-block > .os-prilike-widget {
+        background-color: rgba(0,0,0,0.1);
     }
 }
 @media screen and (max-width: 1180px) and (min-width: 767px) {
@@ -6230,6 +6280,15 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 0.9rem;
     padding-bottom: 10px;
 }
+.pitanje-zdravlja .block-2 .three-fourths .article-featured .article-pad {
+    padding-bottom: 24px;
+}
+.pitanje-zdravlja .article h4 {
+    margin-bottom: 0px;
+}
+.pitanje-zdravlja .article h5.article-meta {
+    margin-top: 10px;
+}
 .pitanje-zdravlja .page-header-nav a {
     margin: 18px;
     margin-top: 8px;
@@ -6265,7 +6324,13 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     margin-bottom: 16px;
 }
 .pitanje-zdravlja .article-big img {
-    margin-bottom: 8px;
+    margin-bottom: 0px;
+}
+.pitanje-zdravlja .intro-block .third:last-child .column-right-border {
+    border-right: none;
+}
+.pitanje-zdravlja .os-about-section {
+    margin-top: 64px;
 }
 .pz-dynamic {
     font-weight: 300;
@@ -6279,6 +6344,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     margin-bottom: 48px;
     padding-bottom: 32px;
     background-color: #f4f5f6;
+}
+.dark-mode .pz-fancy-slide {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.dark-mode .pz-logos {
+    background-color: white;
 }
 .pz-fancy-slide, .pitanje-zdravlja .native-signature {
     font-family: 'Barlow', sans-serif;
@@ -6397,7 +6468,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .pitanje-zdravlja .intro-block .third .article-featured .article-pad {
     padding-bottom: 0px;
 }
-.pitanje-zdravlja .widget .btn, .pitanje-zdravlja .subtle-btn-parent:hover .subtle-btn, .pitanje-zdravlja .subtle-btn:hover {
+.pitanje-zdravlja .widget .btn, .pitanje-zdravlja .subtle-btn-parent:hover .subtle-btn, .pitanje-zdravlja .subtle-btn:hover, .pitanje-zdravlja .newbtn {
     background-color: #0a80c5;
 }
 .pitanje-zdravlja .native-block .subtle-btn-parent {
@@ -6485,7 +6556,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         padding: 12px;
     }
     .pz-hero h1 {
-        font-size: 9.6vw;
+        font-size: 8.6vw;
     }
     .pz-fancy-slide h2,
     .pz-fancy-title {
@@ -6571,10 +6642,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 16px;
         font-size: 0.8rem;
         opacity: .6;
-    }
-    .pitanje-zdravlja nav.homepage-exclusive {
-        display: flex;
-        background-color: #222;
     }
     .pitanje-zdravlja .intro-block .third .article-featured .article-pad {
         padding-bottom: 4vw;
@@ -7321,7 +7388,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .cantha-break {
     background-color: #e8dacd;
 }
-.contrast-mode .cantha-break {
+.contrast-mode .cantha-break, .fancy-rubrika .cantha-break {
     background-color: #eeeeee;
 }
 .dark-mode .cantha-break {
@@ -7533,6 +7600,11 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .cantha-small-block .third:last-child .article-medium {
     border-bottom: none;
+}
+.pitanje-zdravlja .article-mini h2 {
+    margin-bottom: 0px;
+    font-size: 15px;
+    font-size: 0.75rem;
 }
 
 @media screen and (max-width: 767px) {

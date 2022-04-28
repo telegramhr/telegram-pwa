@@ -105,6 +105,9 @@
           <a href="https://telesport.telegram.hr" role="menuitem">
             Telesport
           </a>
+          <app-link role="menuitem" to="/pitanje-zdravlja"
+            >PitanjeZdravlja</app-link
+          >
         </nav>
         <nav class="full menu mobile-only center" role="menu">
           <app-link role="menuitem" class="current-menu" to="/"
