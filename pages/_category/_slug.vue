@@ -955,6 +955,12 @@ export default {
               ? 'noindex, noarchive, nocache, nosnippet'
               : 'index, follow',
         },
+        {
+          hid: 'nrbi:sections',
+          name: 'nrbi:sections',
+          property: 'nrbi:sections',
+          content: this.post.category,
+        },
       ],
       script,
       link,
