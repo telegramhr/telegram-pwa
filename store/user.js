@@ -56,7 +56,7 @@ export const actions = {
         }
         if (window.marfeel) {
           let id = 3
-          if (state.email.contains('@telegram')) {
+          if (state.email.includes('@telegram')) {
             id = 4
           }
           window.marfeel.cmd.push([
