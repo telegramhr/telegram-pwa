@@ -1,5 +1,5 @@
 <template>
-  <section class="full mobile-only flex mobile-side-pad">
+  <section class="full mobile-only flex mobile-side-pad" data-mrf-recirculation="most-read-widget">
     <h2 class="full flex section-title">Najčitanije</h2>
     <top
       v-for="(post, index) in posts"

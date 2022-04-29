@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div data-mrf-recirculation="trending-widget">
     <h2 class="full flex section-title">Upravo se čita</h2>
     <div class="full flex">
       <mini v-for="post in posts" :key="post.id" :post="post"></mini>

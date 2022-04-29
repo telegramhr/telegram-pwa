@@ -808,6 +808,12 @@ export default {
                   },
                 },
               })
+              window.marfeel.cmd.push([
+                'compass',
+                function (compass) {
+                  compass.trackConversion('subscribe')
+                },
+              ])
               window.fbq('track', 'Subscribe', {
                 currency: data.chargeCurrency,
                 value: data.chargeAmount,
