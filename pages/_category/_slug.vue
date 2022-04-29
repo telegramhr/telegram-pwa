@@ -504,6 +504,7 @@ export default {
         recommendations: 0,
         comments: 0,
         time: 0,
+        timem: 0,
         tags: [],
         category: '',
         category_slug: '',
@@ -540,6 +541,9 @@ export default {
       if (this.post.image.url3) {
         images.push(this.post.image.url3)
       }
+      if (this.post.image.full) {
+        images.push(this.post.image.full)
+      }
       return [
         {
           '@context': 'https://schema.org',
@@ -547,6 +551,7 @@ export default {
           headline: this.post.title,
           mainEntityOfPage: this.post.social.path,
           datePublished: new Date(this.post.time * 1000).toISOString(),
+          dateModified: new Date(this.post.timem * 1000).toISOString(),
           image: images,
           publisher: {
             '@type': 'Organization',
@@ -556,6 +561,7 @@ export default {
               url: 'https://www.telegram.hr/tg_neue_favicon.png',
             },
           },
+          author: this.post.authors,
         },
         {
           '@context': 'https://schema.org',
