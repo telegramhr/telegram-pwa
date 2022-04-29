@@ -241,7 +241,7 @@
               <!-- eslint-disable vue/no-v-html -->
               <div
                 id="article-content"
-                class="cXenseParse"
+                class="cXenseParse mrf-article-body"
                 @click="handleClick"
                 v-html="post.content"
               ></div>

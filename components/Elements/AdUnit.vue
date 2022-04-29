@@ -33,6 +33,7 @@ export default {
   mounted() {
     window.googletag = window.googletag || {}
     window.googletag.cmd = window.googletag.cmd || []
+    window.marfeel = window.marfeel || { cmd: [] }
     window.googletag.cmd.push(() => {
       window.googletag
         .pubads()
@@ -48,6 +49,24 @@ export default {
               event.slot.getSlotElementId()
             ).style.minHeight = 0
           }
+          if (!event.isEmpty) {
+            window.marfeel.cmd.push([
+              'compass',
+              function (compass) {
+                compass.trackAdEvent('slotRenderEnded', event.slot)
+              },
+            ])
+          }
+        })
+      window.googletag
+        .pubads()
+        .addEventListener('slotVisibilityChanged', function (event) {
+          window.marfeel.cmd.push([
+            'compass',
+            function (compass) {
+              compass.trackAdEvent('slotVisibilityChanged', event.slot)
+            },
+          ])
         })
     })
   },
