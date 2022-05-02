@@ -1,18 +1,23 @@
 <template>
-  <div class="full flex sport-block">
-    <a href="https://telesport.telegram.hr" class="full flex">
-      <div class="block-title full mobile-side-pad">
-        <div class="container center column-horizontal-pad relative">
-          <img
-            src="@/assets/img/telesport_logo_white.svg"
-            alt="Telesport logo"
-          />
-        </div>
-      </div>
-    </a>
+  <div class="full flex">
     <div
       class="container flex relative cantha-big-block elevate-over-section stretch"
     >
+      <div class="full mobile-side-pad column-horizontal-pad">
+        <div class="full cantha-separator"></div>
+      </div>
+      <a href="https://telesport.telegram.hr" class="full flex relative">
+        <h3
+          class="full center-text column-full-pad subsection-title ts-subsection-logo"
+        >
+          <img src="@/assets/img/telesport_logo.svg" alt="Telesport logo" />
+          <img
+            src="@/assets/img/telesport_logo_white.svg"
+            class="dark-mode-only"
+            alt="Telesport logo"
+          />
+        </h3>
+      </a>
       <div class="full block-echovald mobile-side-pad flex relative">
         <div class="three-fourths flex-responsive flex stretch">
           <div class="half flex-responsive flex column-horizontal-pad">
@@ -31,6 +36,9 @@
               :post="post"
             ></medium>
           </div>
+        </div>
+        <div class="full column-full-pad tablet-only">
+          <div class="full column-bottom-border"></div>
         </div>
         <div
           class="fourth flex-responsive column-horizontal-pad cantha-commentary"

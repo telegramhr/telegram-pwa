@@ -1,5 +1,10 @@
 <template>
-  <div v-if="id" :id="'linker-' + id" class="lwdgt" :data-wid="id"></div>
+  <div
+    v-if="id"
+    :id="'linker-' + id"
+    class="lwdgt column-full-pad"
+    :data-wid="id"
+  ></div>
 </template>
 
 <script>

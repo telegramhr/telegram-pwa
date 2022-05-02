@@ -1,18 +1,26 @@
 <template>
-  <div class="full flex pz-block">
-    <app-link to="/pitanje-zdravlja" class="full flex">
-      <div class="block-title full mobile-side-pad">
-        <div class="container center column-horizontal-pad relative">
-          <img
-            src="@/assets/img/pz_logo_negative.svg"
-            alt="PitanjeZdravlja logo"
-          />
-        </div>
-      </div>
-    </app-link>
+  <div class="full flex">
     <div
       class="container flex relative cantha-big-block elevate-over-section stretch"
     >
+      <div class="full mobile-side-pad mobile-top-pad column-horizontal-pad">
+        <div class="full cantha-separator"></div>
+      </div>
+      <app-link to="/pitanje-zdravlja" class="full flex">
+        <h3
+          class="full center-text column-full-pad subsection-title pz-subsection-logo"
+        >
+          <img
+            src="@/assets/img/pz_logo_normal.svg"
+            alt="PitanjeZdravlja logo"
+          />
+          <img
+            src="@/assets/img/pz_logo_negative.svg"
+            class="dark-mode-only"
+            alt="PitanjeZdravlja logo"
+          />
+        </h3>
+      </app-link>
       <div
         class="full block-echovald mobile-side-pad column-bottom-pad flex relative"
       >
@@ -34,11 +42,14 @@
             ></medium>
           </div>
         </div>
+        <div class="full column-full-pad tablet-only">
+          <div class="full column-bottom-border"></div>
+        </div>
         <div
           class="fourth desktop-mini-force flex-responsive column-horizontal-pad"
         >
           <standard
-            v-for="post in posts.slice(2, 7)"
+            v-for="post in posts.slice(2, 6)"
             :key="'pz-' + post.id"
             :post="post"
           ></standard>

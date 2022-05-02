@@ -73,7 +73,7 @@ header nav {
 }
 .dark-mode .mobile-sticky-nav {
     background-color: #121212;
-    border-color: #555;
+    border-color: #333;
 }
 header nav .container, .mobile-sticky-nav {
     padding: 15px 4vw;
@@ -432,7 +432,19 @@ h3.subsection-title img {
     margin-right: 2px;
 }
 h3.os-subsection-logo img {
-    height: 20px;
+    height: 24px;
+}
+h3.s1-subsection-logo img {
+    height: 28px;
+}
+h3.ts-subsection-logo {
+    padding: 10px 24px;
+}
+h3.ts-subsection-logo img {
+    height: 50px;
+}
+h3.pz-subsection-logo img {
+    height: 18px;
 }
 h3.subsection-title img.dark-mode-only, .dark-mode h3.subsection-title img {
     display: none;
@@ -449,7 +461,7 @@ h3.subsection-title img.dark-mode-only, .dark-mode h3.subsection-title img {
     border-bottom: 1px solid #c8c8c8;
 }
 .dark-mode .komentar {
-    border-color: #555;
+    border-color: #333;
 }
 .komentar:last-child {
     border-bottom: none;
@@ -1192,6 +1204,7 @@ figure img {
 
 .single-article-commentary .article-head h1 {
     font-family: 'Lora', serif;
+    font-weight: 400;
     font-size: 26px;
     font-size: 1.3rem;
     letter-spacing: initial;
@@ -4795,7 +4808,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         border-right: 1px solid #c8c8c8;
     }
     .dark-mode .cantha-big-block .no-subtitle-block .article:first-child {
-        border-color: #555;
+        border-color: #333;
     }
     .no-image-block .article-standard h2 {
         font-size: 16px !important;
@@ -5836,7 +5849,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         border-right: 1px solid #c8c8c8;
     }
     .dark-mode .os-prilika {
-        border-color: #555;
+        border-color: #333;
     }
     .os-prilika:last-child {
         border-right: none;
@@ -7330,7 +7343,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     border-bottom: 1px solid #c8c8c8;
 }
 .dark-mode .cantha-mini-block .article-mini {
-    border-color: #555;
+    border-color: #333;
 }
 .cantha-mini-block .article-mini:last-child {
     border-bottom: none;
@@ -7606,6 +7619,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 15px;
     font-size: 0.75rem;
 }
+.tablet-only {
+    display: none;
+}
 
 @media screen and (max-width: 767px) {
     .main-container {
@@ -7623,6 +7639,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     h3.subsection-title, .mini-article-list h3.overtitle {
         padding-top: 4vw;
         padding-bottom: 5vw;
+    }
+    h3.pz-subsection-logo, h3.s1-subsection-logo  {
+        padding-top: 5vw;
     }
     .article-mini h2 {
         font-size: 16px;
@@ -7647,7 +7666,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         border-bottom: none;
     }
     .dark-mode .article-mini {
-        border-color: #555;
+        border-color: #333;
     }
     .article-mini:last-child {
         border-bottom: none;
@@ -7763,7 +7782,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         padding-bottom: 0px;
     }
     .dark-mode .article-featured-alt {
-        border-color: #555;
+        border-color: #333;
     }
     .cantha-intro-block > .fourth {
         order: 3;
@@ -7820,7 +7839,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         border-bottom: 1px solid #c8c8c8;
     }
     .dark-mode .block-echovald > .fourth {
-        border-color: #555;
+        border-color: #333;
     }
     .classic-category .article-medium:last-child {
         border-bottom: none;
@@ -7923,7 +7942,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         padding-bottom: 0px;
     }
     .dark-mode .latest-articles {
-        border-color: #555;
+        border-color: #333;
     }
     .featured-split.biggest-font .article img, .big-split .article img {
         width: 100vw;
@@ -8122,12 +8141,89 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         margin-bottom: 16px;
     }
     .dark-mode .desktop-mini-force .article .article-pad {
-        border-color: #555;
+        border-color: #333;
     }
     .desktop-mini-force .article:last-child .article-pad {
         border-bottom: none;
     }
     
+}
+@media screen and (max-width: 1180px) and (min-width: 767px) {
+    .tablet-only {
+        display: flex;
+    }
+    .featured-split .article-featured > a, .featured-split .article-featured > .article-pad {
+        width: 100%;
+        order: 1;
+    }
+    .alt-big-break {
+        width: 100%;
+    }
+    .mini-article-list {
+        width: 100%;
+    }
+    .mini-article-list .article-mini {
+        width: 24.99%;
+        padding-right: 32px;
+    }
+    .mini-article-list .article-mini .article-pad {
+        padding-bottom: 0px;
+    }
+    .secondary-gs-block > .three-fourths {
+        width: 66.66%;
+    }
+    .secondary-gs-block > .fourth {
+        width: 33.33%;
+    }
+    .block-echovald > .three-fourths, .block-echovald > .fourth {
+        width: 100%;
+    }
+    .block-echovald > .fourth {
+        padding: 0px;
+        display: flex;
+    }
+    .block-echovald > .fourth .article-standard, .tablet-fix .article  {
+        width: 24.99%;
+        padding-left: 24px;
+        padding-right: 24px;
+        border-right: 1px solid #c8c8c8;
+    }
+    .dark-mode .block-echovald > .fourth .article-standard, .dark-mode  .tablet-fix .article {
+        border-color: #333;
+    }
+    .block-echovald > .fourth .article-standard:last-child, .tablet-fix .article:last-child {
+        border-right: none;
+    }
+    .block-echovald .tablet-fix .article-mini .article-pad {
+        margin-bottom: 0px;
+        margin-top: 0px;
+        padding-bottom: 0px;
+        border-bottom: none;
+    }
+    .block-echovald > .fourth.desktop-mini-force .article .article-pad {
+        border-bottom: none;
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+    }
+    .block-echovald > .fourth.cantha-commentary > div {
+        display: flex;
+    }
+    .block-echovald > .fourth.cantha-commentary .komentar {
+        width: 33.333%;
+        padding-left: 24px;
+        padding-right: 24px;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+        margin-top: 0px;
+        border-bottom: none;
+        border-right: 1px solid #c8c8c8;
+    }
+    .dark-mode .block-echovald > .fourth.cantha-commentary .komentar {
+        border-color: #333;
+    }
+    .block-echovald > .fourth.cantha-commentary .komentar:last-child {
+        border-right: none;
+    }
 }
 
 /* Super2 home */

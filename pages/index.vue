@@ -350,6 +350,9 @@
         >
           <medium :key="posts[2].id" :post="posts[2]"></medium>
         </div>
+        <div class="full column-full-pad tablet-only">
+          <div class="full column-bottom-border"></div>
+        </div>
         <div
           class="fourth flex-responsive column-horizontal-pad mini-article-list"
         >

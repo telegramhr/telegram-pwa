@@ -1,15 +1,23 @@
 <template>
-  <div class="full flex super1-block">
-    <a href="https://super1.telegram.hr" class="full flex">
-      <div class="block-title full mobile-side-pad">
-        <div class="container center column-horizontal-pad relative">
-          <img src="@/assets/img/super1_logo_white.svg" alt="Super1 logo" />
-        </div>
-      </div>
-    </a>
+  <div class="full flex">
     <div
       class="container flex relative cantha-big-block elevate-over-section stretch"
     >
+      <div class="full mobile-side-pad column-horizontal-pad">
+        <div class="full cantha-separator"></div>
+      </div>
+      <a href="https://super1.telegram.hr" class="full flex relative">
+        <h3
+          class="full center-text column-full-pad subsection-title s1-subsection-logo"
+        >
+          <img src="@/assets/img/super1_logo.svg" alt="Super1 logo" />
+          <img
+            src="@/assets/img/super1_logo_white.svg"
+            class="dark-mode-only"
+            alt="Super1 logo"
+          />
+        </h3>
+      </a>
       <div class="full block-echovald mobile-side-pad flex relative">
         <div class="three-fourths flex-responsive flex stretch">
           <div class="half flex-responsive flex column-horizontal-pad">
@@ -29,7 +37,12 @@
             ></medium>
           </div>
         </div>
-        <div class="fourth flex-responsive desktop-only column-horizontal-pad">
+        <div class="full column-full-pad tablet-only">
+          <div class="full column-bottom-border"></div>
+        </div>
+        <div
+          class="fourth flex-responsive desktop-only column-horizontal-pad tablet-fix"
+        >
           <mini
             v-for="post in posts.slice(2, 6)"
             :key="'super-' + post.id"

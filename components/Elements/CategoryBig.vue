@@ -25,6 +25,9 @@
           ></medium>
         </div>
       </div>
+      <div class="full column-full-pad tablet-only">
+        <div class="full column-bottom-border"></div>
+      </div>
       <div
         class="fourth desktop-mini-force flex-responsive column-horizontal-pad"
       >
