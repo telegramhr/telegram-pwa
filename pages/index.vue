@@ -380,7 +380,6 @@
         <div class="full center">
           <authors></authors>
         </div>
-        <linker type="naslovnica"></linker>
       </client-only>
     </div>
     <!-- Odabir urednika -->
@@ -472,6 +471,12 @@
     <!-- Super1 -->
     <div class="full relative">
       <super1></super1>
+    </div>
+    <!-- Linker -->
+    <div class="full mobile-side-pad mobile-top-pad relative">
+      <client-only>
+        <linker type="naslovnica"></linker>
+      </client-only>
     </div>
     <!-- PitanjeZdravlja -->
     <div class="full relative">

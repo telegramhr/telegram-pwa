@@ -2565,10 +2565,13 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .pretplata-intext {
     margin-top: 48px;
     padding: 20px;
-    margin-bottom: 72px;
+    margin-bottom: 48px;
     border: 1px solid #c1b9b1;
     position: relative;
     z-index: 10;
+}
+.single-article-body > .pretplata-intext {
+    margin-bottom: 48px;
 }
 .single-article-body .pretplata-intext h2, .pretplata-intext h2 {
     text-align: center;
@@ -8163,6 +8166,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .desktop-mini-force .article:last-child .article-pad {
         border-bottom: none;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
     }
     
 }

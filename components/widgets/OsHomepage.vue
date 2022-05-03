@@ -35,12 +35,14 @@
             :post="post"
           ></standard>
         </div>
-        <div class="half flex-responsive column-horizontal-pad flex">
-          <mini
-            v-for="post in posts.slice(2, 5)"
+        <div
+          class="half flex-responsive desktop-mini-force column-horizontal-pad flex"
+        >
+          <standard
+            v-for="post in posts.slice(2, 4)"
             :key="post.id"
             :post="post"
-          ></mini>
+          ></standard>
         </div>
       </div>
     </div>

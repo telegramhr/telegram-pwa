@@ -339,11 +339,6 @@
             <linker type="category"></linker>
           </div>
         </div>
-        <div class="full flex relative">
-          <div class="container column-horizontal-pad center">
-            <native></native>
-          </div>
-        </div>
         <div class="container center column-horizontal-pad mobile-side-pad">
           <div
             data-contentexchange-widget="k7dWfvWSYDqoSZvwu"
