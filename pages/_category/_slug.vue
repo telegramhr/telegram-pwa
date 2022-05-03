@@ -90,7 +90,7 @@
         />
         <div class="full flex article-head">
           <div class="full flex overtitle-parent">
-            <h3 class="overtitle">{{ post.category }}</h3>
+            <h3 class="overtitle">{{ post.category | parseCat }}</h3>
             <div v-if="post.promo.partner" class="collab-overtitle">
               <h3 class="overtitle">{{ post.promo.prefix }}</h3>
               <img :src="post.promo.logo" :alt="post.promo.partner" />
@@ -959,7 +959,7 @@ export default {
           hid: 'nrbi:sections',
           name: 'nrbi:sections',
           property: 'nrbi:sections',
-          content: this.post.category,
+          content: this.$options.filters.parseCat(this.post.category),
         },
       ],
       script,
