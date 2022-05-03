@@ -58,34 +58,6 @@
         <breaking></breaking>
       </div>
     </div>
-    <!-- Red block title with nav -->
-    <!-- <div
-      class="block-title cantha-block-title desktop-only full mobile-side-pad"
-    >
-      <div class="container flex relative column-full-pad">
-        <div class="menu flex" role="menu">
-          <app-link role="menuitem" to="/politika-kriminal"
-            >Politika & Kriminal</app-link
-          >
-          <app-link role="menuitem" to="/komentari">Komentari</app-link>
-          <app-link role="menuitem" to="/biznis-tech">Biznis & Tech</app-link>
-          <app-link role="menuitem" to="/velike-price">Velike priče</app-link>
-          <app-link role="menuitem" to="/zivot">Život</app-link>
-          <app-link role="menuitem" to="/kultura">Kultura</app-link>
-          <app-link role="menuitem" to="/openspace">Openspace</app-link>
-          <a href="https://super1.telegram.hr" role="menuitem">Super1</a>
-          <a href="https://telesport.telegram.hr" role="menuitem">
-            Telesport
-          </a>
-        </div>
-        <div class="flex">
-          <client-only>
-            <a class="newbtn newbtn-empty">Prijava</a>
-            <app-link to="/pretplata" class="newbtn">Pretplatite se</app-link>
-          </client-only>
-        </div>
-      </div>
-    </div> -->
     <!-- New subnav no red -->
     <div class="full cantha-block-title relative flex">
       <div
@@ -138,49 +110,35 @@
         </div>
       </div>
     </div>
-    <!-- Billboard 1 -->
-    <!--<client-only>
-      <div
-        v-if="
-          !(
-            ($mobile && $route.name === 'index') ||
-            (!$mobile && $route.name === 'category-slug') ||
-            $route.name === 'openspace'
-          )
-        "
-        class="full relative"
-      >
-        <div class="container flex column-horizontal-pad">
-          <div class="full flex relative column-bottom-border"></div>
-        </div>
-        <div class="full center relative header-billboard">
-          <ad-unit
-            id="telegram_desktop_billboard_v1"
-            :disable="
-              post &&
-              (post.disable_ads.includes('all') ||
-                (post.category_slug &&
-                  post.category_slug.includes('openspace')))
-            "
-          ></ad-unit>
-        </div>
-      </div>
-    </client-only>-->
     <!-- Intro block: G1 + comments -->
     <div class="full relative">
       <div class="container flex relative stretch cantha-intro-block">
+        <!-- Billboard 1 -->
+        <client-only>
+          <div class="full relative">
+            <div class="full flex column-horizontal-pad desktop-only">
+              <div class="full flex relative column-bottom-border"></div>
+            </div>
+            <div class="full center relative">
+              <ad-unit
+                id="telegram_desktop_billboard_v1"
+                :disable="
+                  post &&
+                  (post.disable_ads.includes('all') ||
+                    (post.category_slug &&
+                      post.category_slug.includes('openspace')))
+                "
+              ></ad-unit>
+            </div>
+          </div>
+        </client-only>
         <div
           class="full flex column-horizontal-pad column-bottom-pad desktop-only"
         >
           <div class="full flex relative column-bottom-border"></div>
         </div>
-        <!--<h2
-          class="full ukraine-header mobile-side-pad column-horizontal-pad column-bottom-pad center-text"
-        >
-          Rusi napadaju istok Ukrajine
-        </h2>-->
         <div
-          class="three-fourths featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad column-right-border"
+          class="three-fourths featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad column-right-border mobile-order-1"
         >
           <featured-alt :key="posts[0].id" :post="posts[0]"></featured-alt>
         </div>
@@ -201,7 +159,7 @@
           <div class="full column-top-border"></div>
         </div>
         <!-- Prekid pretplata -->
-        <div class="full relative mobile-only mobile-order-1">
+        <!--<div class="full relative mobile-only">
           <div class="container flex relative column-horizontal-pad">
             <app-link
               to="/pretplata"
@@ -209,10 +167,6 @@
             >
               <div class="two-thirds column-full-pad center flex-responsive">
                 <div class="full flex article">
-                  <!--<h2 class="full">Podržite nezavisno novinarstvo</h2>
-                  <h5 class="full">
-                    Neograničen pristup već za manje od 1,5 kn dnevno
-                  </h5>-->
                   <h2 class="full">
                     Bespoštedno novinarstvo <br />koje gura društvo naprijed.
                   </h2>
@@ -231,7 +185,7 @@
               </div>
             </app-link>
           </div>
-        </div>
+        </div>-->
         <div class="full flex relative mobile-only mobile-side-pad">
           <latest :portal="1"></latest>
         </div>
@@ -245,7 +199,7 @@
           </div>
         </div>
         <!-- Billboard 2 -->
-        <div class="full center mobile-order-1">
+        <div class="full center">
           <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
         </div>
         <div class="full column-horizontal-pad mobile-side-pad column-top-pad">
@@ -326,6 +280,12 @@
             <standard :post="post"></standard>
           </div>
         </div>
+      </div>
+    </div>
+    <!-- Billboard 3 -->
+    <div class="full relative">
+      <div class="full center">
+        <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
       </div>
     </div>
     <!-- TG preporuka -->
@@ -414,12 +374,6 @@
         <category-alt slug="biznis-tech"></category-alt>
       </div>
     </div>
-    <!-- Billboard 3 -->
-    <div class="full relative">
-      <div class="full center">
-        <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
-      </div>
-    </div>
     <!-- Widget autori -->
     <div class="full mobile-side-pad relative">
       <client-only>
@@ -453,11 +407,11 @@
         </h3>
         <div class="full flex cantha-small-block stretch">
           <div
-            v-for="post in posts.slice(3, 7)"
+            v-for="post in posts.slice(3, 6)"
             :key="post.id"
-            class="fourth flex-responsive column-right-border column-horizontal-pad"
+            class="third flex-responsive column-right-border column-horizontal-pad"
           >
-            <standard :post="post"></standard>
+            <medium :post="post"></medium>
           </div>
         </div>
         <div class="full column-horizontal-pad">

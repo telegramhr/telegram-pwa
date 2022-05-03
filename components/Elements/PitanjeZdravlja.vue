@@ -1,9 +1,9 @@
 <template>
   <div class="full flex">
-    <div
-      class="container flex relative cantha-big-block elevate-over-section stretch"
-    >
-      <div class="full mobile-side-pad mobile-top-pad column-horizontal-pad">
+    <div class="container flex relative cantha-big-block stretch">
+      <div
+        class="full mobile-side-pad mobile-top-pad column-horizontal-pad column-top-pad"
+      >
         <div class="full cantha-separator"></div>
       </div>
       <app-link to="/pitanje-zdravlja" class="full flex">
@@ -11,7 +11,7 @@
           class="full center-text column-full-pad subsection-title pz-subsection-logo"
         >
           <img
-            src="@/assets/img/pz_logo_normal.svg"
+            src="@/assets/img/pz_logo_black.svg"
             alt="PitanjeZdravlja logo"
           />
           <img

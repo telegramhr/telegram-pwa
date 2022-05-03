@@ -32,13 +32,6 @@
           v-if="!$mobile && $route.name === 'category-slug'"
           class="full center header-billboard"
         >
-          <ad-unit
-            id="telegram_desktop_billboard_v1"
-            :disable="
-              post.disable_ads.includes('all') ||
-              (post.category_slug && post.category_slug.includes('openspace'))
-            "
-          ></ad-unit>
           <div v-if="!$mobile" class="container wallpaper-banners animate">
             <div class="wallpaper-left">
               <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
@@ -57,7 +50,12 @@
           FOTO: {{ post.image.author }}
         </div>
         <div class="mobile-only full center mobile-pa-nav relative flex">
-          <a @click.prevent="showSideMenu = !showSideMenu">
+          <a
+            :aria-expanded="$store.state.header.showSideMenu.toString()"
+            aria-label="Prikaži lijevi meni"
+            aria-controls="sidebar"
+            @click.prevent="$store.commit('header/updateMenu', 'side')"
+          >
             <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon
           ></a>
           <nuxt-link to="/" class="logo">
@@ -230,6 +228,16 @@
                   ></a>
                 </div>
               </h5>
+            </div>
+            <div class="full relative center">
+              <ad-unit
+                id="telegram_desktop_billboard_v1"
+                :disable="
+                  post.disable_ads.includes('all') ||
+                  (post.category_slug &&
+                    post.category_slug.includes('openspace'))
+                "
+              ></ad-unit>
             </div>
             <div class="full relative single-article-body">
               <client-only>

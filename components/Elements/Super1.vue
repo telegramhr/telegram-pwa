@@ -10,7 +10,7 @@
         <h3
           class="full center-text column-full-pad subsection-title s1-subsection-logo"
         >
-          <img src="@/assets/img/super1_logo.svg" alt="Super1 logo" />
+          <img src="@/assets/img/super1_logo_black.svg" alt="Super1 logo" />
           <img
             src="@/assets/img/super1_logo_white.svg"
             class="dark-mode-only"

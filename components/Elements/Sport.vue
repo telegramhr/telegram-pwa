@@ -1,8 +1,6 @@
 <template>
   <div class="full flex">
-    <div
-      class="container flex relative cantha-big-block elevate-over-section stretch"
-    >
+    <div class="container flex relative cantha-big-block stretch">
       <div class="full mobile-side-pad column-horizontal-pad">
         <div class="full cantha-separator"></div>
       </div>
@@ -10,7 +8,10 @@
         <h3
           class="full center-text column-full-pad subsection-title ts-subsection-logo"
         >
-          <img src="@/assets/img/telesport_logo.svg" alt="Telesport logo" />
+          <img
+            src="@/assets/img/telesport_logo_black.svg"
+            alt="Telesport logo"
+          />
           <img
             src="@/assets/img/telesport_logo_white.svg"
             class="dark-mode-only"

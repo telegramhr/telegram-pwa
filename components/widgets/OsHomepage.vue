@@ -8,7 +8,7 @@
     <h3
       class="full center-text column-full-pad subsection-title os-subsection-logo"
     >
-      <img src="@/assets/img/openspace_logo_normal.svg" alt="openspace logo" />
+      <img src="@/assets/img/openspace_logo_black.svg" alt="openspace logo" />
       <img
         src="@/assets/img/openspace_logo_negative.svg"
         class="dark-mode-only"
