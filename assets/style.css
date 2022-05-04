@@ -7798,6 +7798,13 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 22px;
         font-size: 1.1rem;
         margin-top: 0px;
+        text-align: center;
+    }
+    .alt-big-break .article .article-meta {
+        justify-content: center;
+    }
+    .alt-big-break h4, .alt-big-break h3.overtitle {
+        display: none;
     }
     .alt-big-break.center-text .article .article-pad {
         padding-top: 0px;
