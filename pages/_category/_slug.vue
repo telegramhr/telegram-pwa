@@ -229,7 +229,7 @@
                 </div>
               </h5>
             </div>
-            <div class="full relative center">
+            <div class="full relative center single-top-banner">
               <ad-unit
                 id="telegram_desktop_billboard_v1"
                 :disable="

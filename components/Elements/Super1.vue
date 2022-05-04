@@ -65,7 +65,7 @@
       <div
         class="full mobile-only mobile-side-pad flex relative mobile-top-pad center"
       >
-        <a href="https://super1.telegram.hr" class="newbtn">Vidi više</a>
+        <a href="https://super1.telegram.hr" class="newbtn altbtn">Vidi više</a>
       </div>
       <!--<section
         v-if="posts.length > 7"

@@ -145,6 +145,9 @@
             :post="post"
           ></standard>
         </div>
+        <div class="full relative center">
+          <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
+        </div>
       </div>
     </div>
     <!-- Standard 1/4 block -->
@@ -163,11 +166,20 @@
           >
             <standard :post="post"></standard>
           </div>
-          <div v-if="posts.length > 9" class="full flex">
+          <div class="full flex column-top-pad">
+            <div
+              v-for="post in posts.slice(1, 5)"
+              :key="post.id"
+              class="fourth flex-responsive column-right-border column-horizontal-pad"
+            >
+              <standard :post="post"></standard>
+            </div>
+          </div>
+          <div v-if="posts.length > 9" class="full flex column-vertical-pad">
             <div
               v-for="post in posts.slice(9)"
               :key="post.id"
-              class="fourth flex-responsive column-horizontal-pad"
+              class="fourth flex-responsive column-horizontal-pad column-bottom-pad"
             >
               <standard :post="post"></standard>
             </div>
@@ -179,7 +191,7 @@
     <div class="full flex relative">
       <div class="container flex relative column-full-pad">
         <div class="full center relative clickable" @click="loadMore">
-          <div v-show="!loading" class="newbtn huge-newbtn animate">
+          <div v-show="!loading" class="newbtn altbtn animate">
             Učitaj još članaka
           </div>
           <div v-show="loading" class="full center cool-loader">

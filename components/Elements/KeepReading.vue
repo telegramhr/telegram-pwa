@@ -9,7 +9,7 @@
       <h3
         class="full center-text column-full-pad subsection-title mobile-side-pad"
       >
-        Nastavite čitati
+        Ostanite uz Telegram
       </h3>
       <div class="full flex mobile-side-pad">
         <template v-for="(post, index) in posts">

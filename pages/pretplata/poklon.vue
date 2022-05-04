@@ -13,7 +13,7 @@
           class="container relative flex mobile-side-pad stretch column-full-pad"
         >
           <h1 class="full center-text">
-            Poklonite Telegram pretplatu, poklon koji se otvara svaki dan
+            Poklonite Telegram pretplatu, <br />poklon koji se otvara svaki dan
           </h1>
           <p class="full center-text smaller-pretplata-tagline">
             Neovisno poklanjate li roditeljima, prijateljima ili poslovnim

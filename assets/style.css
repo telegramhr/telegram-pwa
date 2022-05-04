@@ -2714,15 +2714,18 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .pretplata-page h1 {
     margin-top: 0px;
-    line-height: 1em;
     margin-bottom: 12px;
 }
 .pretplata-page p.pretplata-tagline {
-    font-size: 28px;
-    font-size: 1.4rem;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+    opacity: .7;
+    font-size: 24px;
+    font-size: 1.2rem;
+    margin-top: 8px;
 }
 .pretplata-page p.smaller-pretplata-tagline {
-    max-width: 990px;
+    max-width: 880px;
     margin-left: auto;
     margin-right: auto;
     font-size: 22px;
@@ -2737,6 +2740,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .pretplata-page p {
     font-size: 20px;
     font-size: 1rem;
+    font-family: 'Barlow', sans-serif;
 }
 .pretplata-keypoint {
     position: relative;
@@ -2766,7 +2770,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     text-transform: uppercase;
     text-align: center;
     font-family: 'Barlow', sans-serif;
-    font-weight: 900;
+    font-weight: 400;
     font-style: normal;
     letter-spacing: -0.05em;
 }
@@ -2778,7 +2782,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     text-shadow: 0px 0px 5px #fcf1e7;
 }
 .pretplata-page-content {
-    padding-top: 36px;
+    padding-top: 48px;
 }
 .pretplata-page .header-block-title {
     padding-bottom: 36px;
@@ -2904,6 +2908,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     color: #444;
     text-align: left;
     position: relative;
+    font-family: 'Barlow', sans-serif;
+}
+.pretplata-benefits p svg {
+    position: relative;
+    margin-right: 2px;
+    bottom: -1px;
 }
 .pretplata-benefits p i.fas {
     color: #35a843;
@@ -7332,6 +7342,15 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     padding: 8px 12px;
     padding-top: 7px;
 }
+.altbtn {
+    background: transparent;
+    color: #111;
+    border: 1px solid #111;
+}
+.dark-mode .altbtn {
+    color: white;
+    border-color: white;
+}
 .newbtn-empty {
     background: transparent;
     color: inherit;
@@ -7589,7 +7608,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .banner-slot {
     margin-top: 24px;
 }
-.header-billboard .banner-slot {
+.cantha-intro-block .banner-slot {
     margin-bottom: 24px;
 }
 .wallpaper-banners .banner-slot {
@@ -7926,6 +7945,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         padding-top: 3vw;
         padding-bottom: 3vw;
         border-bottom: 1px solid #c8c8c8;
+        border-top: 1px solid #c8c8c8;
     }
     .dark-mode .cantha-block-title .menu {
         border-color: #555555;
@@ -7984,6 +8004,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         margin-top: 24px;
         font-size: 40px;
         font-size: 2rem;
+    }
+    #telegram_desktop_billboard_v3 {
+        margin-top: 0px;
+        margin-bottom: 4vw;
     }
 }
 @media screen and (min-width: 767px) {
@@ -8168,6 +8192,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         border-bottom: none;
         padding-bottom: 0px;
         margin-bottom: 0px;
+    }
+    .single-article .single-top-banner {
+        order: 1;
+    }
+    .single-article .article-head, .single-article .single-article-body {
+        order: 2;
     }
     
 }

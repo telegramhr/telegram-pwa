@@ -58,7 +58,9 @@
       <div
         class="full mobile-only mobile-side-pad flex relative mobile-top-pad center"
       >
-        <app-link to="/pitanje-zdravlja" class="newbtn">Vidi više</app-link>
+        <app-link to="/pitanje-zdravlja" class="newbtn altbtn"
+          >Vidi više</app-link
+        >
       </div>
       <!--<section
         v-if="showMore && morePosts.length"

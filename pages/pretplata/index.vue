@@ -216,16 +216,20 @@
               >Trebat će vam R1 račun ili želite ponudu za pravne osobe? Javite
               nam se.</a
             >
-            <app-link
-              to="/pretplata/poklon"
-              class="full flex stretch relative mini-pretplata column-top-pad column-top-border"
-            >
-              <h2 class="full center-text">Poklonite pretplatu na Telegram.</h2>
-              <div class="full center-text">
-                Poklon koji se otvara svaki dan, 365 dana
-                <div class="btn">Pokloni</div>
-              </div>
-            </app-link>
+            <div class="full column-horizontal-pad">
+              <app-link
+                to="/pretplata/poklon"
+                class="full flex stretch relative mini-pretplata column-top-pad column-top-border"
+              >
+                <h2 class="full center-text">
+                  Poklonite pretplatu na Telegram.
+                </h2>
+                <div class="full center-text">
+                  Poklon koji se otvara svaki dan, 365 dana
+                  <div class="btn">Pokloni</div>
+                </div>
+              </app-link>
+            </div>
           </div>
         </div>
       </div>

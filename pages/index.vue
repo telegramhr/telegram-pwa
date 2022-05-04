@@ -53,7 +53,7 @@
           Portal za društvena i kulturna pitanja
         </h2>
         <div class="full mobile-side-pad">
-          <div class="full cantha-separator"></div>
+          <div class="full desktop-only cantha-separator"></div>
         </div>
         <breaking></breaking>
       </div>
@@ -116,6 +116,7 @@
         <!-- Billboard 1 -->
         <client-only>
           <div class="full relative">
+            <!-- TODO: make border hidden if there is no billboard -->
             <div class="full flex column-horizontal-pad desktop-only">
               <div class="full flex relative column-bottom-border"></div>
             </div>
@@ -158,34 +159,6 @@
         <div class="full column-full-pad desktop-only">
           <div class="full column-top-border"></div>
         </div>
-        <!-- Prekid pretplata -->
-        <!--<div class="full relative mobile-only">
-          <div class="container flex relative column-horizontal-pad">
-            <app-link
-              to="/pretplata"
-              class="full cantha-break cantha-mini-break mobile-side-pad flex relative stretch"
-            >
-              <div class="two-thirds column-full-pad center flex-responsive">
-                <div class="full flex article">
-                  <h2 class="full">
-                    Bespoštedno novinarstvo <br />koje gura društvo naprijed.
-                  </h2>
-                  <h5 class="full">
-                    Za neograničeno čitanje Telegrama i podršku istraživačkim
-                    serijalima, odaberite jedan od paketa.
-                  </h5>
-                </div>
-              </div>
-              <div class="third stretch flex flex-responsive">
-                <div class="full flex article">
-                  <div class="full center">
-                    <div class="newbtn">Pretplatite se</div>
-                  </div>
-                </div>
-              </div>
-            </app-link>
-          </div>
-        </div>-->
         <div class="full flex relative mobile-only mobile-side-pad">
           <latest :portal="1"></latest>
         </div>
@@ -235,9 +208,6 @@
           </div>
           <div class="full column-horizontal-pad column-top-pad flex">
             <div class="full column-top-border column-bottom-pad"></div>
-            <mini-pretplata-home
-              v-show="!$store.state.user.access"
-            ></mini-pretplata-home>
           </div>
           <div
             class="three-fourths flex-responsive column-horizontal-pad column-right-border flex relative featured-split smaller-featured-split show-one-related"
@@ -258,6 +228,34 @@
             ></medium>
           </div>
         </div>
+      </div>
+    </div>
+    <!-- Prekid pretplata -->
+    <div class="full relative mobile-only">
+      <div class="container flex relative column-horizontal-pad">
+        <app-link
+          to="/pretplata"
+          class="full cantha-break cantha-mini-break mobile-side-pad flex relative stretch"
+        >
+          <div class="two-thirds column-full-pad center flex-responsive">
+            <div class="full flex article">
+              <h2 class="full">
+                Bespoštedno novinarstvo <br />koje gura društvo naprijed.
+              </h2>
+              <h5 class="full">
+                Za neograničeno čitanje Telegrama i podršku istraživačkim
+                serijalima, odaberite jedan od paketa.
+              </h5>
+            </div>
+          </div>
+          <div class="third stretch flex flex-responsive">
+            <div class="full flex article">
+              <div class="full center">
+                <div class="newbtn">Pretplatite se</div>
+              </div>
+            </div>
+          </div>
+        </app-link>
       </div>
     </div>
     <!-- Još vijesti -->
@@ -472,12 +470,6 @@
     <div class="full relative">
       <super1></super1>
     </div>
-    <!-- Linker -->
-    <div class="full mobile-side-pad mobile-top-pad relative">
-      <client-only>
-        <linker type="naslovnica"></linker>
-      </client-only>
-    </div>
     <!-- PitanjeZdravlja -->
     <div class="full relative">
       <pitanje-zdravlja></pitanje-zdravlja>
@@ -491,6 +483,12 @@
     <!-- Openspace -->
     <div class="full relative mobile-top-pad">
       <os-homepage></os-homepage>
+    </div>
+    <!-- Linker -->
+    <div class="full mobile-side-pad mobile-top-pad relative">
+      <client-only>
+        <linker type="naslovnica"></linker>
+      </client-only>
     </div>
     <!-- Rubrike -->
     <div class="full relative">
