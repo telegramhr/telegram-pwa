@@ -7799,6 +7799,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 1.1rem;
         margin-top: 0px;
         text-align: center;
+        margin-bottom: 8px;
     }
     .alt-big-break .article .article-meta {
         justify-content: center;
