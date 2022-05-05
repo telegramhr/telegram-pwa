@@ -1,9 +1,7 @@
 <template>
   <div class="full flex">
     <div class="container flex relative cantha-big-block stretch">
-      <div
-        class="full mobile-side-pad mobile-top-pad column-horizontal-pad column-top-pad"
-      >
+      <div class="full mobile-side-pad column-horizontal-pad column-top-pad">
         <div class="full cantha-separator"></div>
       </div>
       <app-link to="/pitanje-zdravlja" class="full flex">
@@ -46,7 +44,7 @@
           <div class="full column-bottom-border"></div>
         </div>
         <div
-          class="fourth desktop-mini-force flex-responsive column-horizontal-pad"
+          class="fourth desktop-mini-force flex-responsive column-horizontal-pad remove-last-mobile-border"
         >
           <standard
             v-for="post in posts.slice(2, 6)"
@@ -55,37 +53,6 @@
           ></standard>
         </div>
       </div>
-      <div
-        class="full mobile-only mobile-side-pad flex relative mobile-top-pad center"
-      >
-        <app-link to="/pitanje-zdravlja" class="newbtn altbtn"
-          >Vidi više</app-link
-        >
-      </div>
-      <!--<section
-        v-if="showMore && morePosts.length"
-        class="third flex-responsive flex mobile-only column-horizontal-pad flex mobile-side-pad"
-      >
-        <standard
-          v-for="post in morePosts"
-          :key="'pz-' + post.id"
-          :post="post"
-        ></standard>
-      </section>
-      <div
-        class="full center subtle-btn-parent mobile-only relative clickable"
-        @click="loadMore"
-      >
-        <div v-show="!loading" class="subtle-btn animate">Vidi više</div>
-        <div v-show="!loading" class="subtle-btn-line"></div>
-        <div v-show="loading" class="full center cool-loader hide">
-          <div class="loader-square">
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        </div>
-      </div>-->
     </div>
   </div>
 </template>

@@ -461,7 +461,7 @@
       <sport></sport>
     </div>
     <!-- Widget partneri -->
-    <div class="full relative mobile-top-pad">
+    <div class="full relative">
       <client-only>
         <partners></partners>
       </client-only>
@@ -481,11 +481,11 @@
       </div>
     </div>
     <!-- Openspace -->
-    <div class="full relative mobile-top-pad">
+    <div class="full relative">
       <os-homepage></os-homepage>
     </div>
     <!-- Linker -->
-    <div class="full mobile-side-pad mobile-top-pad relative">
+    <div class="full mobile-side-pad relative">
       <client-only>
         <linker type="naslovnica"></linker>
       </client-only>

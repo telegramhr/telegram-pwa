@@ -52,7 +52,7 @@
         <div class="full column-full-pad">
           <div class="full column-top-border"></div>
         </div>
-        <div class="full flex cantha-small-block">
+        <div class="full flex cantha-small-block remove-last-mobile-border">
           <div
             v-for="post in posts.slice(1, 5)"
             :key="'super-' + post.id"
@@ -62,35 +62,6 @@
           </div>
         </div>
       </div>
-      <div
-        class="full mobile-only mobile-side-pad flex relative mobile-top-pad center"
-      >
-        <a href="https://super1.telegram.hr" class="newbtn altbtn">Vidi više</a>
-      </div>
-      <!--<section
-        v-if="posts.length > 7"
-        class="fourth flex-responsive flex mobile-only column-horizontal-pad flex"
-      >
-        <standard
-          v-for="post in posts.slice(7)"
-          :key="'super-' + post.id"
-          :post="post"
-        ></standard>
-      </section>
-      <div
-        class="full center subtle-btn-parent mobile-only relative clickable"
-        @click="loadMore"
-      >
-        <div v-show="!loading" class="subtle-btn animate">Vidi više</div>
-        <div v-show="!loading" class="subtle-btn-line"></div>
-        <div v-show="loading" class="full center cool-loader hide">
-          <div class="loader-square">
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        </div>
-      </div>-->
     </div>
   </div>
 </template>

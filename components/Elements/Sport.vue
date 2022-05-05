@@ -59,37 +59,6 @@
           </div>
         </div>
       </div>
-      <div
-        class="full mobile-only mobile-side-pad flex relative mobile-top-pad center"
-      >
-        <a href="https://telesport.telegram.hr" class="newbtn altbtn"
-          >Vidi više</a
-        >
-      </div>
-      <!--<section
-        v-if="posts.length > 7"
-        class="third flex-responsive flex mobile-only column-horizontal-pad flex mobile-side-pad"
-      >
-        <standard
-          v-for="post in posts.slice(7)"
-          :key="'sport-' + post.id"
-          :post="post"
-        ></standard>
-      </section>
-      <div
-        class="full center subtle-btn-parent mobile-only relative clickable"
-        @click="loadMore"
-      >
-        <div v-show="!loading" class="subtle-btn animate">Vidi više</div>
-        <div v-show="!loading" class="subtle-btn-line"></div>
-        <div v-show="loading" class="full center cool-loader hide">
-          <div class="loader-square">
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        </div>
-      </div>-->
     </div>
   </div>
 </template>

@@ -7678,6 +7678,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         padding-top: 4vw;
         padding-bottom: 5vw;
     }
+    .mini-article-list h3.overtitle {
+        padding-bottom: 1vw;
+    }
     h3.pz-subsection-logo, h3.s1-subsection-logo, h3.os-subsection-logo, h3.ts-subsection-logo {
         padding-top: 5vw;
     }
@@ -7813,9 +7816,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .no-last-border-mobile .flex-responsive:last-child .article:last-child {
         border-bottom: none;
     }
-    .article-featured .related-articles {
-        display: none;
-    }
     .related-articles a {
         font-size: 12px;
         font-size: 0.6rem;
@@ -7880,12 +7880,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .cantha-commentary .komentar h2, .block-echovald .cantha-commentary .komentar h2 {
         font-size: 19px;
         font-size: 0.95rem;
-    }
-    .block-echovald > .fourth  {
-        border-bottom: 1px solid #c8c8c8;
-    }
-    .dark-mode .block-echovald > .fourth {
-        border-color: #333;
     }
     .classic-category .article-medium:last-child {
         border-bottom: none;
@@ -8016,6 +8010,16 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     #telegram_desktop_billboard_v3 {
         margin-top: 0px;
         margin-bottom: 4vw;
+    }
+    .desktop-mini-force .article-standard:last-child, .remove-last-mobile-border .fourth:last-child .article-standard, .remove-last-mobile-border > .article-standard:last-child, .secondary-gs-block .fourth:last-child .article-standard {
+        border-bottom: none;
+    }
+    #linker-519 {
+        padding-top: 5vw;
+        border-top: 1px solid #c8c8c8;
+    }
+    .dark-mode #linker-519 {
+        border-color: #333;
     }
 }
 @media screen and (min-width: 767px) {
