@@ -85,8 +85,8 @@
           <app-link role="menuitem" class="current-menu" to="/"
             >Naslovnica</app-link
           >
-          <app-link role="menuitem" to="/najnovije">Najnovije</app-link>
           <app-link role="menuitem" to="/upravo">Upravo se čita</app-link>
+          <app-link role="menuitem" to="/pretplata">Pretplata</app-link>
         </nav>
         <div class="flex desktop-only">
           <client-only>

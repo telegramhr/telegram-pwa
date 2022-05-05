@@ -4853,7 +4853,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 
 /* Big chungus smartphone adjustments */
 
-@media screen and (max-width: 767px) and (min-width: 481px) {
+@media screen and (max-width: 767px) and (min-width: 441px) {
     html {
         font-size: 25px;
     }
@@ -4891,7 +4891,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         bottom: -18px;
     }
 }
-@media screen and (max-width: 480px) and (min-width: 411px) {
+@media screen and (max-width: 440px) and (min-width: 379px) {
     html {
         font-size: 23px;
     }
@@ -7282,6 +7282,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .cantha-block-title .menu a {
     margin-right: 16px;
     opacity: .7;
+    font-size: 13px;
+    font-size: 0.65rem;
 }
 .cantha-block-title .menu a:hover {
     opacity: 1;
@@ -7944,8 +7946,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         padding-bottom: 0px;
     }
     .cantha-block-title .menu {
-        padding-top: 3vw;
-        padding-bottom: 3vw;
+        padding-top: 2vw;
+        padding-bottom: 2vw;
         border-bottom: 1px solid #c8c8c8;
         border-top: 1px solid #c8c8c8;
     }
