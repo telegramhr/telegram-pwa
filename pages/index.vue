@@ -304,9 +304,9 @@
           preporuka
         </h3>
         <div
-          class="three-fourths flex-responsive column-horizontal-pad flex split-articles column-right-border big-split alt-big-break"
+          class="three-fourths flex-responsive column-horizontal-pad flex split-articles big-split alt-big-break center-text column-right-border"
         >
-          <medium :key="posts[2].id" :post="posts[2]"></medium>
+          <standard :key="posts[3].id" :post="posts[3]"></standard>
         </div>
         <div class="full column-full-pad tablet-only">
           <div class="full column-bottom-border"></div>

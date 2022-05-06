@@ -172,8 +172,8 @@ header .logo, .mobile-sticky-nav .logo {
     line-height: 1em;
 }
 .article h4 {
-    font-size: 14px;
-    font-size: 0.7rem;
+    font-size: 15px;
+    font-size: 0.75rem;
     margin-bottom: 10px;
     line-height: 1.37em;
 }
@@ -229,8 +229,8 @@ h5.article-meta i {
     height: 82px;
 }
 .article-standard h2 {
-    font-size: 16px;
-    font-size: 0.8rem;
+    font-size: 18px;
+    font-size: 0.9rem;
     position: relative;
     top: -2px;
     margin-bottom: 4px;
@@ -3366,7 +3366,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
       margin-bottom: 16px;
     }
     .pretplata-keypoint h3 {
-      font-size: 30px;
+      font-size: 24px;
+      font-size: 1.2rem;
     }
     .pretplata-page .flex-responsive img {
       margin-top: 16px;
@@ -3423,8 +3424,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         margin-bottom: 0px;
     }
     .pretplata-page h2, .pretplata-page .single-article-body h2 {
-        font-size: 48px;
-        font-size: 2.4rem;
+        font-size: 36px;
+        font-size: 1.8rem;
     }
     .pretplata-faq summary, .pretplata-page p.pretplata-tagline {
         font-size: 20px;
@@ -3597,8 +3598,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         border-bottom: none;
     }
     .article-featured h2, .article-break h2 {
-        font-size: 23px;
-        font-size: 1.15rem;
+        font-size: 25px;
+        font-size: 1.25rem;
+        margin-bottom: 5px;
     }
     .widget h2 {
         font-family: 'Barlow', sans-serif;
@@ -4853,7 +4855,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 
 /* Big chungus smartphone adjustments */
 
-@media screen and (max-width: 767px) and (min-width: 441px) {
+@media screen and (max-width: 767px) and (min-width: 481px) {
     html {
         font-size: 25px;
     }
@@ -4891,7 +4893,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         bottom: -18px;
     }
 }
-@media screen and (max-width: 440px) and (min-width: 379px) {
+@media screen and (max-width: 480px) and (min-width: 411px) {
     html {
         font-size: 23px;
     }
@@ -7282,8 +7284,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .cantha-block-title .menu a {
     margin-right: 16px;
     opacity: .7;
-    font-size: 13px;
-    font-size: 0.65rem;
 }
 .cantha-block-title .menu a:hover {
     opacity: 1;
@@ -7687,8 +7687,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         padding-top: 5vw;
     }
     .article-mini h2 {
-        font-size: 16px;
-        font-size: 0.8rem;
+        font-size: 18px;
+        font-size: 0.9rem;
         margin-bottom: 0px;
     }
     .article-mini .article-meta {
@@ -7715,8 +7715,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         border-bottom: none;
     }
     .article-medium h2 {
-        font-size: 18px;
-        font-size: 0.9rem;
+        font-size: 20px;
+        font-size: 1rem;
     }
     .cantha-big-block .the-big-gs > *{
         order: 2;
@@ -7740,9 +7740,13 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .cantha-red-break h2 {
         margin-bottom: 6px;
     }
+    .cantha-break h2 {
+        font-size: 24px;
+        font-size: 1.2rem;
+    }
     .cantha-break h5 {
-        font-size: 14px;
-        font-size: 0.7rem;
+        font-size: 16px;
+        font-size: 0.8rem;
     }
     .cantha-mini-block .article-mini {
         padding-bottom: 4vw;
@@ -7819,8 +7823,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         border-bottom: none;
     }
     .related-articles a {
-        font-size: 12px;
-        font-size: 0.6rem;
+        font-size: 13px;
+        font-size: 0.65rem;
     }
     .featured-split.biggest-font .article-featured {
         padding-bottom: 4vw;
@@ -7880,14 +7884,17 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         display: none;
     }
     .cantha-commentary .komentar h2, .block-echovald .cantha-commentary .komentar h2 {
-        font-size: 19px;
-        font-size: 0.95rem;
+        font-size: 22px;
+        font-size: 1.1rem;
     }
     .classic-category .article-medium:last-child {
         border-bottom: none;
     }
     .mini-article-list .article-mini::before, .latest-articles .mini-article-list .article-mini .mini-big-time {
         top: 3.5vw;
+    }
+    .latest-articles .mini-article-list .article-mini .mini-big-time {
+        top: 3.75vw;
     }
     .latest-articles .mini-article-list .article-mini .mini-big-time {
         font-size: 18px;
@@ -7928,8 +7935,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         padding-top: 0px;
     }
     .cantha-commentary .komentar:first-child h2 {
-        font-size: 21px;
-        font-size: 1.05rem;
+        font-size: 22px;
+        font-size: 1.1rem;
     }
     .cantha-commentary .komentar:first-child > img.mobile-only {
         display: block;
@@ -8022,6 +8029,14 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .dark-mode #linker-519 {
         border-color: #333;
+    }
+    .cantha-block-title .menu a {
+        font-size: 13px;
+        font-size: 0.65rem;
+    }
+    .fancy-authors-widget .article-featured h2 {
+        font-size: 18px;
+        font-size: 0.9rem;
     }
 }
 @media screen and (min-width: 767px) {
@@ -8213,7 +8228,25 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .single-article .article-head, .single-article .single-article-body {
         order: 2;
     }
-    
+    .featured-split.biggest-font .related-articles {
+        border-left: none;
+        border-top: 1px solid #c8c8c8;
+        padding-left: 0px;
+        padding-top: 8px;
+    }
+    .featured-split.biggest-font .related-articles a {
+        width: 49.99%;
+        border-left: 1px solid #c8c8c8;
+        padding-left: 16px;
+        padding-right: 16px;
+        position: relative;
+    }
+    .featured-split.biggest-font .related-articles a:nth-child(n+4){
+        display: none;
+    }
+    .featured-split.biggest-font .related-articles a::before {
+        top: 15px;
+    }
 }
 @media screen and (max-width: 1180px) and (min-width: 767px) {
     .tablet-only {
