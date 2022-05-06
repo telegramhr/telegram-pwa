@@ -103,6 +103,7 @@
       <div class="full relative">
         <div class="full flex">
           <article
+            id="article-body"
             class="container column-full-pad flex relative mobile-side-pad"
           >
             <div class="full column article-head column-top-pad flex">
@@ -755,9 +756,22 @@ export default {
           })
         }
         this.dotmetrics()
+        this.upscore()
       } else {
         setTimeout(this.getPost, 500)
       }
+    },
+    upscore() {
+      window.upScore({
+        data: {
+          article: '#article-body',
+          section: this.$options.filters.parseCat(this.post.category),
+          object_id: this.post.id,
+          pubdate: new Date(this.post.time * 1000).toISOString(),
+          object_type: 'article',
+          author: this.post.authors.map((item) => item.name).concat(','),
+        },
+      })
     },
     dotmetrics() {
       this.$dotmetrics.postLoad(this.post.category_slug)

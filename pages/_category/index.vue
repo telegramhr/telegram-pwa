@@ -132,6 +132,19 @@ export default {
   },
   mounted() {
     this.$store.dispatch('ads/initAds', { route: this.$route })
+    this.$nextTick(function () {
+      window.upScore({
+        data: {
+          article: '',
+          track_positions: true,
+          section: this.$options.filters.parseCat(this.cat),
+          object_id: '',
+          pubdate: '',
+          object_type: 'landingpage',
+          author: '',
+        },
+      })
+    })
   },
   methods: {
     loadMore() {
