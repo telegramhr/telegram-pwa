@@ -111,16 +111,6 @@
                   ></font-awesome-icon>
                   surfanje bez oglasa
                 </p>
-                <p class="full animate">
-                  <font-awesome-icon
-                    :icon="['fas', 'check']"
-                  ></font-awesome-icon>
-                  nakon 3 mjeseca gratis knjiga u izdanju Telegrama<a
-                    href="#knjige-disclaimer"
-                    onclick="document.getElementById('knjige-disclaimer').open = true;"
-                    >*</a
-                  >
-                </p>
               </div>
               <div class="full center btn-parent" @click="checkout(two)">
                 <div class="btn animate">Odaberi</div>
@@ -194,16 +184,6 @@
                     :icon="['fas', 'check']"
                   ></font-awesome-icon>
                   surfanje bez oglasa
-                </p>
-                <p class="full animate">
-                  <font-awesome-icon
-                    :icon="['fas', 'check']"
-                  ></font-awesome-icon>
-                  gratis knjiga u izdanju Telegrama<a
-                    href="#knjige-disclaimer"
-                    onclick="document.getElementById('knjige-disclaimer').open = true;"
-                    >*</a
-                  >
                 </p>
               </div>
               <div class="full center btn-parent" @click="checkout(four)">
@@ -493,25 +473,6 @@
               dobivate godinu dana neograničenog čitanja Telegrama i Telesporta
               bez oglasa, nove funkcionalnosti koje ćemo uvoditi i popust na
               knjigu jednog od naših autora.
-            </p>
-          </details>
-          <details id="knjige-disclaimer" class="full flex relative">
-            <summary class="full relative">
-              Kako mogu besplatno dobiti knjigu u izdanju Telegrama?
-            </summary>
-            <p>
-              Plan nam je redovito izdavati knjige koje pišu naši najpoznatiji i
-              najnagrađivaniji autori, a prvu knjigu već smo izdali - "O Zagrebu
-              i..." naše Zrinke Paladino. Sve fizičke osobe s godišnjom Premium
-              pretplatom prvu knjigu dobivaju gratis, potrebno je samo posjetiti
-              <a
-                href="https://www.telegram.hr/knjiga/zrinka-paladino-o-zagrebu"
-                target="_blank"
-                >ovu stranicu</a
-              >, prijaviti se i ispuniti tražene podatke. Također, pravo na
-              besplatnu prvu knjigu ostvaruju i svi mjesečni premium
-              pretplatnici nakon najmanje tri mjeseca pretplate, a da bi došli
-              do knjige potrebno je samo javiti nam se na pretplata@telegram.hr.
             </p>
           </details>
           <details class="full flex relative">
