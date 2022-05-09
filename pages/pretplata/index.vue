@@ -424,7 +424,7 @@
               Pretplata na Telegram omogućuje Vam, ovisno o paketu, neograničeno
               čitanje Telegrama i Telesporta, ali i brojne druge benefite i
               funkcionalnosti poput surfanja bez oglasa, popust na knjige i
-              ekskluzivnih newslettera koje ćemo uskoro pokrenuti.
+              ekskluzivnih <nuxt-link to="/newsletters">newslettera</nuxt-link>.
             </p>
           </details>
           <details class="full flex relative">
@@ -447,7 +447,7 @@
             <summary class="full relative">
               Kako da se pretplatim na Telegram?
             </summary>
-            <p>
+            <p hidden="until-found">
               Vrlo jednostavno, samo odaberite jedan od gore ponuđenih mjesečnih
               ili godišnjih paketa, a sustav će Vas dalje sam voditi kroz vrlo
               kratak i jednostavan proces registracije i kupnje.
@@ -455,7 +455,7 @@
           </details>
           <details class="full flex relative">
             <summary class="full relative">Koliko košta pretplata?</summary>
-            <p>
+            <p hidden="until-found">
               Cijena pretplate ovisi o paketu koji odaberete. Možete se
               pretplatiti na mjesečnoj ili godišnjoj bazi i to na samo jedan ili
               više naših portala. Kako bismo Vam izašli u susret, pripremili smo
@@ -467,7 +467,7 @@
             <summary class="full relative">
               Koja mi se opcija pretplate najviše isplati?
             </summary>
-            <p>
+            <p hidden="until-found">
               Najisplativija opcija je godišnja premium pretplata: u njoj za
               samo 49 kuna mjesečno (godišnji iznos naplaćuje se jednokratno)
               dobivate godinu dana neograničenog čitanja Telegrama i Telesporta
@@ -479,16 +479,16 @@
             <summary class="full relative">
               Kako mogu platiti pretplatu?
             </summary>
-            <p>
-              Pretplatu možete sigurno platiti svim Maestro, Mastercard i Visa
-              karticama.
+            <p hidden="until-found">
+              Pretplatu možete sigurno platiti svim Maestro, Mastercard, Visa i
+              Diners karticama.
             </p>
           </details>
           <details class="full flex relative">
             <summary class="full relative">
               Mogu li nekome pokloniti pretplatu?
             </summary>
-            <p>
+            <p hidden="until-found">
               Dapače, upravo je u tijeku Božićna akcija darivanja. Samo
               posjetite
               <app-link to="/pretplata/poklon">ovu stranicu</app-link> i pratite
@@ -499,7 +499,7 @@
             <summary class="full relative">
               Mogu li čitati Telegram sa svih uređaja jednom kad se pretplatim?
             </summary>
-            <p>
+            <p hidden="until-found">
               Da, svaki pretplatnik može čitati Telegram na svakom uređaju, bio
               to mobitel, računalo ili tablet.
             </p>
@@ -508,7 +508,7 @@
             <summary class="full relative">
               Mogu li dijeliti svoju pretplatu s drugima?
             </summary>
-            <p>
+            <p hidden="until-found">
               Ne, dijeljenje pretplate nije dopušteno, a u slučaju sumnje u
               dijeljenje pretplate zadržavamo pravo zatvoriti korisnički račun.
             </p>
@@ -518,16 +518,16 @@
               Mi smo tvrtka/škola/knjižnica/fakultet, postoji li opcija grupne
               pretplate?
             </summary>
-            <p>
+            <p hidden="until-found">
               Za opcije grupne pretplate pravnim osobama javite se na
-              pretplata@telegram.hr.
+              <a href="mailto:pretplata@telegram.hr">pretplata@telegram.hr</a>.
             </p>
           </details>
           <details class="full flex relative">
             <summary class="full relative">
               Hoću li moći čitati Telegram i ako se ne pretplatim?
             </summary>
-            <p>
+            <p hidden="until-found">
               Sve naše članke, pa i najbolje kolumne i istraživačke serijale, i
               dalje ćete moći nesmetano i besplatno čitati, ali do određene
               količine mjesečno. Nakon što potrošite svoju količinu besplatnih
@@ -539,7 +539,7 @@
             <summary class="full relative">
               Mogu li se pretplatiti samo na Telesport?
             </summary>
-            <p>
+            <p hidden="until-found">
               Naravno, možete se pretplatiti samo na Telegram, samo na Telesport
               ili na oba portala zajedno, kako Vama najbolje odgovara.
             </p>
@@ -548,7 +548,7 @@
             <summary class="full relative">
               Mogu li otkazati pretplatu jednom kad se pretplatim?
             </summary>
-            <p>
+            <p hidden="until-found">
               Naravno, pretplatu možete samostalno i jednostavno otkazati u bilo
               kojem trenutku kroz korisničko sučelje.
             </p>
@@ -557,7 +557,7 @@
             <summary class="full relative">
               Kako se obnavlja jednom kupljena pretplata?
             </summary>
-            <p>
+            <p hidden="until-found">
               Sve mjesečne i godišnje pretplate automatski se obnavljaju po svom
               isteku na isti vremenski period kako Vi ne biste morali brinuti o
               tome. Ukoliko želite isključiti automatsku obnovu, to možete
@@ -568,7 +568,7 @@
             <summary class="full relative">
               Imam pretplatu, no i dalje ne mogu čitati tekstove?
             </summary>
-            <p>
+            <p hidden="until-found">
               Najvjerojatnije niste prijavljeni u svoj korisnički račun. Kada
               posjetite Telegram, u gornjem desnom kutu ekrana nalazi se gumb
               "PRIJAVA", odnosno ikona čovječuljka ako ste na mobilnom uređaju.
@@ -586,7 +586,7 @@
             <summary class="full relative">
               Ne mogu pronaći odgovor na svoje pitanje.
             </summary>
-            <p>
+            <p hidden="until-found">
               Javite nam se na
               <a href="mailto:pretplata@telegram.hr">pretplata@telegram.hr</a> i
               odgovorit ćemo vam u najkraćem roku.
