@@ -62,6 +62,13 @@ export const state = () => ({
           sizes: [[970, 250]],
           bids: [
             {
+              bidder: 'iprom',
+              params: {
+                id: 't30769k9tyez1my7',
+                dimension: '970x250',
+              },
+            },
+            {
               bidder: 'sovrn',
               params: {
                 tagid: [929050],
@@ -74,6 +81,20 @@ export const state = () => ({
                 keyId: 'uid_telegramhr',
               },
             },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2218',
+                adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'connectad',
+              params: {
+                networkId: 10047,
+                siteId: 1056554,
+              },
+            },
           ],
         },
         mobile: {
@@ -83,6 +104,13 @@ export const state = () => ({
             [300, 600],
           ],
           bids: [
+            {
+              bidder: 'iprom',
+              params: {
+                id: 't30769k9tyez1my7',
+                dimension: '300x250',
+              },
+            },
             {
               bidder: 'sovrn',
               params: {
@@ -94,6 +122,27 @@ export const state = () => ({
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
+              },
+            },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2217',
+                adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2215',
+                adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'connectad',
+              params: {
+                networkId: 10047,
+                siteId: 1056554,
               },
             },
           ],
@@ -129,8 +178,35 @@ export const state = () => ({
             {
               bidder: 'iprom',
               params: {
-                id: '1ac5399de31649f8',
+                id: 't30769k9tyez1my7',
                 dimension: '970x250',
+              },
+            },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2218',
+                adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [929050],
+              },
+            },
+            {
+              bidder: 'iprom',
+              params: {
+                id: 't30769k9tyez1my7',
+                dimension: '970x250',
+              },
+            },
+            {
+              bidder: 'connectad',
+              params: {
+                networkId: 10047,
+                siteId: 1056554,
               },
             },
           ],
@@ -143,9 +219,37 @@ export const state = () => ({
           ],
           bids: [
             {
+              bidder: 'iprom',
+              params: {
+                id: 't30769k9tyez1my7',
+                dimension: '300x250',
+              },
+            },
+            {
               bidder: 'sovrn',
               params: {
                 tagid: [929093],
+              },
+            },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2217',
+                adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2215',
+                adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'connectad',
+              params: {
+                networkId: 10047,
+                siteId: 1056554,
               },
             },
           ],
@@ -179,6 +283,13 @@ export const state = () => ({
           sizes: [[970, 250]],
           bids: [
             {
+              bidder: 'iprom',
+              params: {
+                id: 't30769k9tyez1my7',
+                dimension: '970x250',
+              },
+            },
+            {
               bidder: 'sovrn',
               params: {
                 tagid: [929563],
@@ -191,6 +302,20 @@ export const state = () => ({
                 keyId: 'uid_telegramhr',
               },
             },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2218',
+                adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'connectad',
+              params: {
+                networkId: 10047,
+                siteId: 1056554,
+              },
+            },
           ],
         },
         mobile: {
@@ -200,6 +325,13 @@ export const state = () => ({
             [300, 600],
           ],
           bids: [
+            {
+              bidder: 'iprom',
+              params: {
+                id: 't30769k9tyez1my7',
+                dimension: '300x250',
+              },
+            },
             {
               bidder: 'sovrn',
               params: {
@@ -211,6 +343,27 @@ export const state = () => ({
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
+              },
+            },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2215',
+                adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2217',
+                adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'connectad',
+              params: {
+                networkId: 10047,
+                siteId: 1056554,
               },
             },
           ],
@@ -317,6 +470,13 @@ export const state = () => ({
           sizes: [[970, 250]],
           bids: [
             {
+              bidder: 'iprom',
+              params: {
+                id: 't30769k9tyez1my7',
+                dimension: '970x250',
+              },
+            },
+            {
               bidder: 'sovrn',
               params: {
                 tagid: [969220],
@@ -336,6 +496,20 @@ export const state = () => ({
                 keyId: 'uid_telegramhr',
               },
             },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2218',
+                adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'connectad',
+              params: {
+                networkId: 10047,
+                siteId: 1056554,
+              },
+            },
           ],
         },
         mobile: {
@@ -345,6 +519,13 @@ export const state = () => ({
             [300, 600],
           ],
           bids: [
+            {
+              bidder: 'iprom',
+              params: {
+                id: 't30769k9tyez1my7',
+                dimension: '300x250',
+              },
+            },
             {
               bidder: 'sovrn',
               params: {
@@ -356,6 +537,27 @@ export const state = () => ({
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
+              },
+            },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2217',
+                adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2215',
+                adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'connectad',
+              params: {
+                networkId: 10047,
+                siteId: 1056554,
               },
             },
           ],
@@ -392,6 +594,13 @@ export const state = () => ({
           ],
           bids: [
             {
+              bidder: 'iprom',
+              params: {
+                id: 't30769k9tyez1my7',
+                dimension: '970x250',
+              },
+            },
+            {
               bidder: 'sovrn',
               params: {
                 tagid: [950917],
@@ -402,6 +611,20 @@ export const state = () => ({
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
+              },
+            },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2218',
+                adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'connectad',
+              params: {
+                networkId: 10047,
+                siteId: 1056554,
               },
             },
           ],
@@ -414,6 +637,13 @@ export const state = () => ({
           ],
           bids: [
             {
+              bidder: 'iprom',
+              params: {
+                id: 't30769k9tyez1my7',
+                dimension: '300x250',
+              },
+            },
+            {
               bidder: 'sovrn',
               params: {
                 tagid: [950917],
@@ -424,6 +654,27 @@ export const state = () => ({
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
+              },
+            },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2215',
+                adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2217',
+                adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'connectad',
+              params: {
+                networkId: 10047,
+                siteId: 1056554,
               },
             },
           ],
@@ -460,6 +711,13 @@ export const state = () => ({
           ],
           bids: [
             {
+              bidder: 'iprom',
+              params: {
+                id: 't30769k9tyez1my7',
+                dimension: '970x250',
+              },
+            },
+            {
               bidder: 'sovrn',
               params: {
                 tagid: [950918],
@@ -470,6 +728,20 @@ export const state = () => ({
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
+              },
+            },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2218',
+                adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'connectad',
+              params: {
+                networkId: 10047,
+                siteId: 1056554,
               },
             },
           ],
@@ -482,6 +754,13 @@ export const state = () => ({
           ],
           bids: [
             {
+              bidder: 'iprom',
+              params: {
+                id: 't30769k9tyez1my7',
+                dimension: '300x250',
+              },
+            },
+            {
               bidder: 'sovrn',
               params: {
                 tagid: [950918],
@@ -492,6 +771,27 @@ export const state = () => ({
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
+              },
+            },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2217',
+                adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2215',
+                adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'connectad',
+              params: {
+                networkId: 10047,
+                siteId: 1056554,
               },
             },
           ],
@@ -528,6 +828,13 @@ export const state = () => ({
           ],
           bids: [
             {
+              bidder: 'iprom',
+              params: {
+                id: 't30769k9tyez1my7',
+                dimension: '970x250',
+              },
+            },
+            {
               bidder: 'sovrn',
               params: {
                 tagid: [950919],
@@ -538,6 +845,13 @@ export const state = () => ({
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
+              },
+            },
+            {
+              bidder: 'connectad',
+              params: {
+                networkId: 10047,
+                siteId: 1056554,
               },
             },
           ],
@@ -550,6 +864,13 @@ export const state = () => ({
           ],
           bids: [
             {
+              bidder: 'iprom',
+              params: {
+                id: 't30769k9tyez1my7',
+                dimension: '300x250',
+              },
+            },
+            {
               bidder: 'sovrn',
               params: {
                 tagid: [950919],
@@ -560,6 +881,13 @@ export const state = () => ({
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
+              },
+            },
+            {
+              bidder: 'connectad',
+              params: {
+                networkId: 10047,
+                siteId: 1056554,
               },
             },
           ],
@@ -596,6 +924,13 @@ export const state = () => ({
           ],
           bids: [
             {
+              bidder: 'iprom',
+              params: {
+                id: 't30769k9tyez1my7',
+                dimension: '970x250',
+              },
+            },
+            {
               bidder: 'sovrn',
               params: {
                 tagid: [950920],
@@ -606,6 +941,13 @@ export const state = () => ({
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
+              },
+            },
+            {
+              bidder: 'connectad',
+              params: {
+                networkId: 10047,
+                siteId: 1056554,
               },
             },
           ],
@@ -618,6 +960,13 @@ export const state = () => ({
           ],
           bids: [
             {
+              bidder: 'iprom',
+              params: {
+                id: 't30769k9tyez1my7',
+                dimension: '300x250',
+              },
+            },
+            {
               bidder: 'sovrn',
               params: {
                 tagid: [950920],
@@ -628,6 +977,13 @@ export const state = () => ({
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
+              },
+            },
+            {
+              bidder: 'connectad',
+              params: {
+                networkId: 10047,
+                siteId: 1056554,
               },
             },
           ],
@@ -834,6 +1190,7 @@ export const actions = {
     window.pbjs.que = window.pbjs.que || []
     window.pbjs.que.push(() => {
       window.pbjs.setConfig({
+        enableSendAllBids: false,
         consentManagement: {
           gdpr: {
             cmpApi: 'iab',
@@ -841,6 +1198,19 @@ export const actions = {
           },
         },
         userSync: {
+          userIds: [
+            {
+              name: 'pubCommonId',
+              storage: {
+                name: '_pubcid',
+                type: 'cookie',
+                expires: 365,
+              },
+              params: {
+                pixelUrl: '/wp-json/pubcid/v1/extend/',
+              },
+            },
+          ],
           filterSettings: {
             iframe: {
               bidders: '*',
@@ -892,7 +1262,22 @@ export const actions = {
         window.googletag.display(slot.id)
       })
     })
-    dispatch('initPBJS')
+    dispatch('refreshSlots')
+  },
+  refreshSlots({ dispatch }) {
+    window.googlefc = window.googlefc || {}
+    window.googlefc.callbackQueue = window.googlefc.callbackQueue || []
+    window.googletag = window.googletag || {}
+    window.googletag.cmd = window.googletag.cmd || []
+    /* global __tcfapi */
+    window.googlefc.callbackQueue.push({
+      CONSENT_DATA_READY: () =>
+        __tcfapi('getTCData', 0, (data, success) => {
+          if (data.purpose.consents[1]) {
+            dispatch('initPBJS')
+          }
+        }),
+    })
   },
   initPBJS({ dispatch }) {
     window.pbjs = window.pbjs || {}

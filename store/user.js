@@ -42,7 +42,7 @@ export const actions = {
   setUser({ commit }, data) {
     commit('setUser', data)
   },
-  setAccess({ commit, dispatch }, data) {
+  setAccess({ commit, dispatch, state }, data) {
     return new Promise((resolve) => {
       if (data.data.length) {
         this.$cookies.set('tmg_access', data.data[0].resource.rid, {
@@ -54,10 +54,33 @@ export const actions = {
         if (window.fbq) {
           window.fbq('trackCustom', 'HasSubscription', { value: 1 })
         }
+        if (window.marfeel) {
+          let id = 3
+          if (state.email.includes('@telegram')) {
+            id = 4
+          }
+          window.marfeel.cmd.push([
+            'compass',
+            function (compass) {
+              compass.setUserType(id)
+            },
+          ])
+        }
         resolve()
-      } else if (window.fbq) {
-        window.fbq && window.fbq('trackCustom', 'HasSubscription', { value: 0 })
-        resolve()
+      } else {
+        if (window.fbq) {
+          window.fbq &&
+            window.fbq('trackCustom', 'HasSubscription', { value: 0 })
+          resolve()
+        }
+        if (window.marfeel) {
+          window.marfeel.cmd.push([
+            'compass',
+            function (compass) {
+              compass.setUserType(2)
+            },
+          ])
+        }
       }
     })
   },
@@ -68,11 +91,6 @@ export const actions = {
         const user = window.tp.pianoId.getUser()
         if (user) {
           dispatch('setUser', user)
-          /* window.PianoESPConfig.email =
-            window.PianoESPConfig.email || user.email
-          window.PianoESP &&
-            typeof window.PianoESP.handleUserEmail === 'function' &&
-            window.PianoESP.handleUserEmail(user.email) */
           window.tp.api.callApi('/access/list', {}, function (response) {
             if (response.data) {
               dispatch('setAccess', response)

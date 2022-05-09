@@ -34,9 +34,9 @@
           <app-link role="menuitem" to="/tvrtke-karijere"
             >Tvrtke i karijere</app-link
           >
-          <!--<app-link role="menuitem" to="/kvizovi-testovi"
+          <app-link role="menuitem" to="/kvizovi-testovi"
             >Kvizovi i testovi</app-link
-          >-->
+          >
           <app-link role="menuitem" to="/vodici">Vodiči</app-link>
         </nav>
       </div>

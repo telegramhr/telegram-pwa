@@ -4229,7 +4229,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         margin-left: auto;
         margin-right: auto;
     }
-    .single-article .single-article-body > #article-content, .single-article .single-article-body > #article-content > #piano-content {
+    .single-article .single-article-body > #article-content, .single-article .single-article-body > #article-content > #piano-content,
+    .single-article .single-article-body > #article-content > #piano-content > #guide-container,
+    .single-article .single-article-body > #article-content > #guide-container {
         max-width: 1200px;
     }
     .single-article .single-article-body > img, .single-article .single-article-body > figure.wp-block-image, .single-article .single-article-body > .extra-width,
@@ -5508,7 +5510,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     padding-left: 118px;
 }
 .os-prilika .komentar-quotation {
-    top: 83px; 
+    top: 83px;
 }
 .os-prilika .komentar-head {
     overflow: visible;
@@ -5874,7 +5876,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         padding-top: 0px;
         width: 80vw;
         min-width: 200px;
-        margin-right: 6vw;  
+        margin-right: 6vw;
         padding-bottom: 0px;
         border-bottom: none;
         border-right: 1px solid #c8c8c8;
@@ -5884,6 +5886,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .os-prilika:last-child {
         border-right: none;
+        margin-right: 6vw;
     }
     .os-prilika .komentar-image {
         top: auto;
@@ -6553,6 +6556,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .pitanje-zdravlja.single-article .meta-date {
     display: none;
+}
+
+#my-account, #my-account iframe {
+  min-height: 1000px;
 }
 
 
@@ -7265,7 +7272,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .cantha-block-title > .container {
     padding-top: 10px;
-    padding-bottom: 10px; 
+    padding-bottom: 10px;
 }
 .cantha-header .site-subtitle {
     padding-bottom: 8px;
@@ -8081,7 +8088,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 1.4rem;
     }
     .no-image-block .article-standard .article-pad {
-        padding-top: 0px; 
+        padding-top: 0px;
     }
     .big-split .article-standard img {
         width: 66.66%;
@@ -8491,11 +8498,11 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .super-sidebar .full:first-child {
         padding-top: 0px;
-    } 
+    }
     .super-sidebar .full:last-child {
         border-bottom: none;
         padding-bottom: 0px;
-    } 
+    }
     .superone .fourth .article-mini .article-pad {
         padding-bottom: 16px;
         border-bottom: 1px solid #c8c8c8;
@@ -8628,4 +8635,18 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-style: normal;
     line-height: 1.2em;
     letter-spacing: normal;
+}
+/* Ukraine */
+
+.ukraine-mobile-header {
+    color: white;
+    font-size: 13vw;
+    text-transform: uppercase;
+    margin-bottom: 3vw;
+    margin-top: 2vw;
+}
+.ukraine-header {
+    font-size: 101px;
+    text-transform: uppercase;
+    line-height: 71px;
 }

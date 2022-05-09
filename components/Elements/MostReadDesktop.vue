@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div data-mrf-recirculation="most-read-widget">
     <h2 class="full flex section-title">Najčitanije</h2>
     <mini v-for="post in posts" :key="post.id" :post="post"></mini>
   </div>

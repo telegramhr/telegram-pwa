@@ -17,12 +17,18 @@
             v-if="index === 0"
             :key="post.id"
             class="fourth flex-responsive flex"
+            data-mrf-recirculation="keep-reading"
           >
             <div class="full flex column-horizontal-pad">
               <featured :post="post"></featured>
             </div>
           </div>
-          <div v-else :key="post.id" class="fourth flex-responsive flex">
+          <div
+            v-else
+            :key="post.id"
+            class="fourth flex-responsive flex"
+            data-mrf-recirculation="keep-reading"
+          >
             <div class="full flex column-horizontal-pad">
               <standard :post="post"></standard>
             </div>
@@ -34,6 +40,7 @@
           data-wid="542"
           data-infinite="true"
           data-cycles="20"
+          data-mrf-recirculation="linker-keep-reading"
         ></div>
       </div>
     </div>

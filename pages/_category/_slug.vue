@@ -88,7 +88,7 @@
         />
         <div class="full flex article-head">
           <div class="full flex overtitle-parent">
-            <h3 class="overtitle">{{ post.category }}</h3>
+            <h3 class="overtitle">{{ post.category | parseCat }}</h3>
             <div v-if="post.promo.partner" class="collab-overtitle">
               <h3 class="overtitle">{{ post.promo.prefix }}</h3>
               <img :src="post.promo.logo" :alt="post.promo.partner" />
@@ -101,6 +101,7 @@
       <div class="full relative">
         <div class="full flex">
           <article
+            id="article-body"
             class="container column-full-pad flex relative mobile-side-pad"
           >
             <div class="full column article-head column-top-pad flex">
@@ -249,7 +250,7 @@
               <!-- eslint-disable vue/no-v-html -->
               <div
                 id="article-content"
-                class="cXenseParse"
+                class="cXenseParse mrf-article-body"
                 @click="handleClick"
                 v-html="post.content"
               ></div>
@@ -260,7 +261,7 @@
 
               <client-only>
                 <intext></intext>
-                <linker type="mobile"></linker>
+                <linker v-if="!hasPremium" type="mobile"></linker>
               </client-only>
               <!-- Article footer -->
               <div
@@ -354,6 +355,25 @@
           <div id="linker-526" class="lwdgt" data-wid="526"></div>
         </div>
         <client-only>
+          <div v-if="!hasPremium" class="full flex">
+            <div
+              class="container flex relative native-block stretch mobile-side-pad"
+            >
+              <linker type="category"></linker>
+            </div>
+          </div>
+          <div v-if="!hasPremium" class="container center">
+            <div
+              data-contentexchange-widget="k7dWfvWSYDqoSZvwu"
+              data-contentexchange-source="ughr"
+            ></div>
+          </div>
+          <div v-if="hasPremium" class="full flex">
+            <linker type="footer"></linker>
+          </div>
+          <div v-if="hasPremium" class="container flex center">
+            <div id="linker-526" class="lwdgt" data-wid="526"></div>
+          </div>
           <keep-reading
             v-if="post.category_slug && post.category_slug !== 'promo'"
             :category="post.category_slug"
@@ -514,6 +534,7 @@ export default {
         recommendations: 0,
         comments: 0,
         time: 0,
+        timem: 0,
         tags: [],
         category: '',
         category_slug: '',
@@ -536,6 +557,9 @@ export default {
     }
   },
   computed: {
+    hasPremium() {
+      return this.$store.getters['user/hasPremium']
+    },
     canLogIn() {
       return this.$store.state.user.exp * 1000 < new Date().getTime()
     },
@@ -547,6 +571,9 @@ export default {
       if (this.post.image.url3) {
         images.push(this.post.image.url3)
       }
+      if (this.post.image.full) {
+        images.push(this.post.image.full)
+      }
       return [
         {
           '@context': 'https://schema.org',
@@ -554,6 +581,7 @@ export default {
           headline: this.post.title,
           mainEntityOfPage: this.post.social.path,
           datePublished: new Date(this.post.time * 1000).toISOString(),
+          dateModified: new Date(this.post.timem * 1000).toISOString(),
           image: images,
           publisher: {
             '@type': 'Organization',
@@ -563,6 +591,7 @@ export default {
               url: 'https://www.telegram.hr/tg_neue_favicon.png',
             },
           },
+          author: this.post.authors,
         },
         {
           '@context': 'https://schema.org',
@@ -756,9 +785,22 @@ export default {
           })
         }
         this.dotmetrics()
+        this.upscore()
       } else {
         setTimeout(this.getPost, 500)
       }
+    },
+    upscore() {
+      window.upScore({
+        data: {
+          article: '#article-body',
+          section: this.$options.filters.parseCat(this.post.category),
+          object_id: this.post.id.toString(),
+          pubdate: new Date(this.post.time * 1000).toISOString(),
+          object_type: 'article',
+          author: this.post.authors.map((item) => item.name).join(','),
+        },
+      })
     },
     dotmetrics() {
       this.$dotmetrics.postLoad(this.post.category_slug)
@@ -806,11 +848,6 @@ export default {
     },
   },
   head() {
-    const amp = {
-      hid: 'amphtml',
-      rel: 'amphtml',
-      href: this.post.social.path + 'amp',
-    }
     const link = [
       {
         hid: 'canonical',
@@ -833,11 +870,6 @@ export default {
         crossorigin: 'anonymous',
         nonce: 'LFZOW4mi',
       },
-      {
-        hid: 'contentexchange',
-        src: 'https://ughr.contentexchange.me/static/tracker.js',
-        async: true,
-      },
     ]
     if (!this.$store.getters['user/hasPremium']) {
       script = [
@@ -856,10 +888,12 @@ export default {
           src: 'https://linker.hr/lw-inf.js',
           async: true,
         },
+        {
+          hid: 'contentexchange',
+          src: 'https://ughr.contentexchange.me/static/tracker.js',
+          async: true,
+        },
       ]
-    }
-    if (this.$route.params.category !== 'partneri') {
-      link.push(amp)
     }
     const fbPaywall = {
       none: 'metered',
@@ -963,6 +997,12 @@ export default {
             this.post.status !== 'publish'
               ? 'noindex, noarchive, nocache, nosnippet'
               : 'index, follow',
+        },
+        {
+          hid: 'nrbi:sections',
+          name: 'nrbi:sections',
+          property: 'nrbi:sections',
+          content: this.$options.filters.parseCat(this.post.category),
         },
       ],
       script,

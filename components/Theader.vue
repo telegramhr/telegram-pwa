@@ -517,6 +517,7 @@ export default {
         return {
           disable_ads: [],
           post_category: '',
+          category_slug: '',
         }
       },
     },
@@ -561,6 +562,17 @@ export default {
     stock_key() {
       const keys = Object.keys(this.$store.state.stocks.stocks)
       return keys[Math.floor(Math.random() * keys.length)]
+    },
+    showBreaking() {
+      return !(
+        (this.post.category_slug &&
+          (this.post.category_slug.includes('openspace') ||
+            this.post.category_slug.includes('pitanje-zdravlja'))) ||
+        this.$route.path.includes('openspace') ||
+        this.$route.path.includes('pitanje-zdravlja') ||
+        this.$route.path.includes('moj-racun') ||
+        this.$route.path.includes('pretplata')
+      )
     },
   },
   mounted() {

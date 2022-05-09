@@ -14,14 +14,14 @@
       :post="post"
     ></theader>
     <div class="full relative">
-      <div v-if="post.parent" class="full flex breaking-news xmas-breaking">
+      <!--<div v-if="post.parent" class="full flex breaking-news xmas-breaking">
         <div class="container column-full-pad">
           <app-link to="/soping-vodic/bozicni-pokloni-2021/"
             ><b>BOŽIĆNI POKLONI 2021:</b> Telegramov vodič kroz najbolje
             poklone</app-link
           >
         </div>
-      </div>
+      </div>-->
       <div class="full flex">
         <article
           class="container column-full-pad flex relative mobile-side-pad"
@@ -97,42 +97,10 @@
               v-html="post.content"
             ></div>
             <!-- eslint-enable vue/no-v-html -->
-            <product-guide :products="post.products"></product-guide>
-            <xmas-form></xmas-form>
+            <portal v-if="show" selector="#guide-container">
+              <product-guide :products="post.products"></product-guide>
+            </portal>
             <!-- Article footer -->
-            <div v-if="!post.parent" class="full relative single-article-body">
-              <p>
-                Ako ove genijalne poklone želite poslati dragoj osobi koja nije
-                blizu,
-                <a
-                  href="https://www.posta.hr/paket24/5286"
-                  target="_blank"
-                  rel="sponsored"
-                  >Paket24</a
-                >
-                i Paketomat u tome će pomoći. Paket24 Hrvatske pošte, jedina je
-                usluga koja preuzima i isporučuje pošiljke ravnomjerno na
-                području cijele Hrvatske. Preuzimaju se na vašoj adresi i
-                garantira se njihovo uručenje u dogovorenom roku, a u više od
-                200 mjesta jamči se uručenje idući dan. Druga opcija je
-                inovativni
-                <a
-                  href="https://www.posta.hr/paketomat/8672"
-                  target="_blank"
-                  rel="sponsored"
-                  >Paketomat</a
-                >
-                kojim primate i šaljete pakete 24 sata dnevno, sedam dana u
-                tjednu.
-              </p>
-              <p class="center">
-                <img
-                  src="https://www.telegram.hr/wp-content/uploads/2021/12/croatian-post-hrvatska-posta-logosvg.png"
-                  alt="Hrvatska pošta logo"
-                  width="200"
-                />
-              </p>
-            </div>
             <div
               class="full relative single-article-footer flex column-top-pad"
             >
@@ -173,10 +141,10 @@
 </template>
 
 <script>
-import XmasForm from '../../components/widgets/XmasForm.vue'
+import { Portal } from '@linusborg/vue-simple-portal'
 export default {
   name: 'Slug',
-  components: { XmasForm },
+  components: { Portal },
   scrollToTop: true,
   async fetch() {
     const path = this.$route.params.pathMatch.split('/')
@@ -205,6 +173,7 @@ export default {
   },
   data() {
     return {
+      show: false,
       showSideMenu: false,
       showSearchMenu: false,
       post: {
@@ -327,6 +296,7 @@ export default {
         if (process.client) {
           this.$telegram.$loading.finish()
         }
+        this.show = true
         if (document.getElementById('article-content')) {
           const images = [
             ...document

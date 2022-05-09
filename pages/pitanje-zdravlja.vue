@@ -12,18 +12,12 @@
           ><span data-aos="fade-down" data-aos-delay="1500">zdravlja</span>
         </h1>
         <nav class="full center page-header-nav">
-          <app-link role="menuitem" to="/specijal/sasvim-iskreno"
-            >Sasvim iskreno</app-link
-          >
-          <app-link role="menuitem" to="/specijal/zdrave-vijesti"
-            >Zdrave vijesti</app-link
-          >
-          <app-link role="menuitem" to="/specijal/leksikon-zdravlja"
+          <app-link role="menuitem" to="/leksikon-zdravlja"
             >Leksikon zdravlja</app-link
           >
-          <app-link role="menuitem" to="/specijal/rezultati-istrazivanja"
-            >Rezultati istraživanja</app-link
-          >
+          <app-link role="menuitem" to="/lifestyle">Lifestyle</app-link>
+          <app-link role="menuitem" to="/vijesti">Vijesti</app-link>
+          <app-link role="menuitem" to="/price">Priče</app-link>
         </nav>
       </div>
     </div>

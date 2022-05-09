@@ -1,11 +1,11 @@
 <template>
   <app-link
-    to="/pretplata/poklon"
+    to="/pretplata"
     class="full flex stretch relative mini-pretplata"
   >
     <h2 class="full center-text">Politika nas ne podržava, podržite nas Vi.</h2>
     <p>
-      Zbog istrage Telegrama uhićena je Gabrijela Žalac. Neovisno istraživačko
+      Neovisno istraživačko
       novinarstvo najteže je novinarstvo, a kako bismo nastavili s našim
       istraživačkim specijalima, britkim komentarima, analizama i velikim
       pričama, potrebna nam je i vaša podrška. Kupnjom pretplate

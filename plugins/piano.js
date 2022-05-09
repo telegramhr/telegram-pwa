@@ -1,8 +1,8 @@
 /* eslint-disable */
 export default () => {
-  /* window.PianoESPConfig = {
+  window.PianoESPConfig = {
     id: 280
-  } */
+  }
   // Piano conf
   window.tp = window.tp || []
   window.tp.push(['setAid', 'QuTHmVhFpu'])
@@ -11,6 +11,7 @@ export default () => {
   window.tp.push(['setDebug', false])
   window.tp.push(['setUsePianoIdUserProvider', true])
   window.tp.push(['setCloudflareWorkerUrl', 'https://auth.telegram.hr']);
+  window.tp.push(["setMaxCookieExpirationInDays", 365]);
 
   // Adblock
   /* document.cookie =
