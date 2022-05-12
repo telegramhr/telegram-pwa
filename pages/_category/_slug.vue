@@ -921,7 +921,10 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: this.post.social.image,
+          content:
+            this.$route.params.category === 'preview'
+              ? '/img/tg_preview_placeholder.jpg'
+              : this.post.social.image,
         },
         {
           hid: 'og:image:width',
