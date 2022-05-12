@@ -1,5 +1,10 @@
 export const state = () => ({
   categories: {
+    'more-news': {
+      name: 'Politika & Kriminal',
+      posts: [],
+      updated: null,
+    },
     'politika-kriminal': {
       name: 'Politika & Kriminal',
       posts: [],

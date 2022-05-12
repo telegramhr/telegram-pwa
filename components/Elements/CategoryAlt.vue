@@ -57,8 +57,10 @@ export default {
     posts() {
       return this.$store.state.category.categories[this.slug].posts.filter(
         (x) => {
-          const t = this.$store.state.featured.posts.filter((y) => {
-            return y.id === x.id
+          const t = this.$store.state.featured.posts.filter((y, i) => {
+            if (i < 12) {
+              return y.id === x.id
+            }
           })
           return t.length === 0
         }

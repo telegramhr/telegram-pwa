@@ -44,7 +44,7 @@
         <div
           class="fourth flex-responsive column-horizontal-pad cantha-commentary"
         >
-          <commentary></commentary>
+          <commentary :comments="comments"></commentary>
         </div>
         <div class="full column-full-pad desktop-only">
           <div class="full column-top-border"></div>

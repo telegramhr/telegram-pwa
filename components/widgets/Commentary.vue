@@ -6,6 +6,14 @@
 <script>
 export default {
   name: 'Commentary',
+  props: {
+    comments: {
+      type: Array,
+      default() {
+        return []
+      },
+    },
+  },
   data() {
     return {
       posts: [],
@@ -13,6 +21,10 @@ export default {
   },
   mounted() {
     if (!this.$storageAvailable) {
+      return
+    }
+    if (this.comments) {
+      this.posts = this.comments
       return
     }
     this.$axios

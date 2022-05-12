@@ -90,21 +90,9 @@
         </nav>
         <div class="flex desktop-only">
           <client-only>
-            <!-- Can log in button versions -->
-            <!--
-            <a
-              v-show="canLogIn"
-              class="newbtn newbtn-empty"
-              @click.prevent="login"
-              >Prijava</a
-            >
-            <a
-              v-show="!canLogIn"
-              class="newbtn newbtn-empty"
-              @click.prevent="logout"
-              >Odjava</a
-            >-->
-            <a class="newbtn newbtn-empty">Prijava</a>
+            <a class="newbtn newbtn-empty" @click.prevent="manageLogin">{{
+              canLogIn ? 'Prijava' : 'Odjava'
+            }}</a>
             <app-link to="/pretplata" class="newbtn">Pretplatite se</app-link>
           </client-only>
         </div>
@@ -121,15 +109,7 @@
               <div class="full flex relative column-bottom-border"></div>
             </div>
             <div class="full center relative">
-              <ad-unit
-                id="telegram_desktop_billboard_v1"
-                :disable="
-                  post &&
-                  (post.disable_ads.includes('all') ||
-                    (post.category_slug &&
-                      post.category_slug.includes('openspace')))
-                "
-              ></ad-unit>
+              <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
             </div>
           </div>
         </client-only>
@@ -141,8 +121,12 @@
         <div
           class="three-fourths featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad column-right-border mobile-order-1"
         >
-          <featured-alt :key="posts[0].id" :post="posts[0]"></featured-alt>
+          <featured-alt
+            :key="`featured-${posts[0].id}`"
+            :post="posts[0]"
+          ></featured-alt>
         </div>
+        <!-- komentari -->
         <div
           class="fourth flex-responsive column-horizontal-pad mobile-side-pad cantha-commentary"
         >
@@ -159,13 +143,18 @@
         <div class="full column-full-pad desktop-only">
           <div class="full column-top-border"></div>
         </div>
-        <div class="full flex relative mobile-only mobile-side-pad">
-          <latest :portal="1"></latest>
-        </div>
+        <client-only>
+          <div
+            v-if="$mobile"
+            class="full flex relative mobile-only mobile-side-pad"
+          >
+            <latest :portal="1"></latest>
+          </div>
+        </client-only>
         <div class="full flex cantha-small-block mobile-side-pad stretch">
           <div
-            v-for="post in posts.slice(3, 6)"
-            :key="post.id"
+            v-for="post in posts.slice(1, 4)"
+            :key="`featured${post.id}`"
             class="third flex-responsive column-right-border column-horizontal-pad"
           >
             <medium :post="post"></medium>
@@ -192,7 +181,7 @@
             class="three-fourths flex-responsive column-horizontal-pad column-right-border flex relative featured-split smaller-featured-split show-one-related"
           >
             <featured
-              v-for="post in posts.slice(1, 2)"
+              v-for="post in posts.slice(4, 5)"
               :key="post.id"
               :post="post"
             ></featured>
@@ -201,7 +190,7 @@
             class="fourth flex-responsive column-horizontal-pad flex relative"
           >
             <medium
-              v-for="post in posts.slice(6, 7)"
+              v-for="post in posts.slice(5, 6)"
               :key="post.id"
               :post="post"
             ></medium>
@@ -213,7 +202,7 @@
             class="three-fourths flex-responsive column-horizontal-pad column-right-border flex relative featured-split smaller-featured-split show-one-related"
           >
             <featured
-              v-for="post in posts.slice(2, 3)"
+              v-for="post in posts.slice(6, 7)"
               :key="post.id"
               :post="post"
             ></featured>
@@ -230,7 +219,7 @@
         </div>
       </div>
     </div>
-    <!-- Prekid pretplata -->
+    <!-- Prekid pretplata TODO: hasSub-->
     <div class="full relative mobile-only">
       <div class="container flex relative column-horizontal-pad">
         <app-link
@@ -271,7 +260,7 @@
         </h3>
         <div class="full flex stretch relative no-last-border-mobile">
           <div
-            v-for="post in posts.slice(7, 11)"
+            v-for="post in posts.slice(8, 12)"
             :key="post.id"
             class="fourth flex-responsive column-right-border column-horizontal-pad"
           >
@@ -304,9 +293,10 @@
           preporuka
         </h3>
         <div
+          v-if="breaks[0]"
           class="three-fourths flex-responsive column-horizontal-pad flex split-articles big-split alt-big-break center-text column-right-border"
         >
-          <standard :key="posts[3].id" :post="posts[3]"></standard>
+          <standard :key="breaks[0].id" :post="breaks[0]"></standard>
         </div>
         <div class="full column-full-pad tablet-only">
           <div class="full column-bottom-border"></div>
@@ -363,7 +353,7 @@
     <!-- Velika rubrika: Politika i kriminal TODO, trenutno priče -->
     <div class="full relative">
       <div class="container flex relative">
-        <category-big slug="velike-price"></category-big>
+        <category-big slug="more-news"></category-big>
       </div>
     </div>
     <!-- Mala rubrika: Biznis i tech -->
@@ -390,9 +380,10 @@
           Odabir urednika
         </h3>
         <div
+          v-if="breaks[1]"
           class="full column-horizontal-pad flex split-articles big-split alt-big-break center-text"
         >
-          <standard :key="posts[1].id" :post="posts[1]"></standard>
+          <standard :key="breaks[1].id" :post="breaks[1]"></standard>
         </div>
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
@@ -404,7 +395,7 @@
         </h3>
         <div class="full flex cantha-small-block stretch">
           <div
-            v-for="post in posts.slice(3, 6)"
+            v-for="post in breaks.slice(2, 5)"
             :key="post.id"
             class="third flex-responsive column-right-border column-horizontal-pad"
           >
@@ -516,10 +507,7 @@
 </template>
 
 <script>
-// import PitanjeZdravlja from '@/components/Elements/PitanjeZdravlja'
-// import Latest from '../components/Elements/Latest.vue'
 export default {
-  // components: { PitanjeZdravljaLatest },
   async fetch() {
     await this.$store.dispatch('featured/pullPosts')
   },
@@ -529,8 +517,14 @@ export default {
     }
   },
   computed: {
+    canLogIn() {
+      return !this.$store.state.user.id
+    },
     posts() {
       return this.$store.state.featured.posts
+    },
+    breaks() {
+      return this.$store.state.featured.breaks
     },
     morePosts() {
       return this.$store.state.featured.morePosts
@@ -574,20 +568,18 @@ export default {
     window.removeEventListener('scroll', this.handleScroll)
   },
   methods: {
+    manageLogin() {
+      if (this.canLogIn) {
+        this.$store.dispatch('user/login')
+      } else {
+        this.$store.dispatch('user/logout')
+      }
+    },
     handleScroll() {
       const walls = document.getElementsByClassName('wallpaper-banners')
-      const title = document
-        .getElementsByClassName('header-block-title')[0]
-        .getBoundingClientRect().top
-      if (title < 0) {
-        walls.forEach((item) => {
-          item.classList.add('sticky-homepage-wallpaper')
-        })
-      } else {
-        walls.forEach((item) => {
-          item.classList.remove('sticky-homepage-wallpaper')
-        })
-      }
+      walls.forEach((item) => {
+        item.classList.add('sticky-homepage-wallpaper')
+      })
     },
     loadAds() {
       if (this.$route.query.reset_token) {

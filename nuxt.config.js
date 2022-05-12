@@ -47,6 +47,10 @@ export default {
         href: 'https://linker.hr/widget/lw.css',
       },
       {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap',
+      },
+      {
         rel: 'preload',
         href: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js',
         as: 'script',
@@ -118,7 +122,7 @@ export default {
     '@nuxtjs/eslint-module',
     'nuxt-purgecss',
     '@nuxtjs/dotenv',
-    '@nuxtjs/google-fonts',
+    // '@nuxtjs/google-fonts',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -131,7 +135,8 @@ export default {
 
   googleFonts: {
     display: 'swap',
-    download: true,
+    download: false,
+    overwriting: false,
     families: {
       Barlow: {
         wght: [300, 400, 600, 700],
