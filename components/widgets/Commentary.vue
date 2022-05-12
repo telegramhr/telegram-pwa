@@ -10,7 +10,7 @@ export default {
     comments: {
       type: Array,
       default() {
-        return []
+        return false
       },
     },
   },
