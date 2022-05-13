@@ -31,6 +31,7 @@ export default {
     },
   },
   mounted() {
+    const _that = this
     window.googletag = window.googletag || {}
     window.googletag.cmd = window.googletag.cmd || []
     window.marfeel = window.marfeel || { cmd: [] }
@@ -56,7 +57,7 @@ export default {
                 compass.trackAdEvent('slotRenderEnded', event.slot)
               },
             ])
-            this.$emit('hasAd', true)
+            _that.$emit('hasAd', true)
           }
         })
       window.googletag
