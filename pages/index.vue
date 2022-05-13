@@ -105,11 +105,17 @@
         <client-only>
           <div class="full relative">
             <!-- TODO: make border hidden if there is no billboard -->
-            <div class="full flex column-horizontal-pad desktop-only">
+            <div
+              v-show="hasAd"
+              class="full flex column-horizontal-pad desktop-only"
+            >
               <div class="full flex relative column-bottom-border"></div>
             </div>
             <div class="full center relative">
-              <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
+              <ad-unit
+                id="telegram_desktop_billboard_v1"
+                @hasAd="hasAd = $event"
+              ></ad-unit>
             </div>
           </div>
         </client-only>
@@ -138,7 +144,7 @@
               Komentari
             </h3>
           </div>
-          <commentary></commentary>
+          <commentary type="tg"></commentary>
         </div>
         <div class="full column-full-pad desktop-only">
           <div class="full column-top-border"></div>
@@ -220,33 +226,35 @@
       </div>
     </div>
     <!-- Prekid pretplata TODO: hasSub-->
-    <div class="full relative mobile-only">
-      <div class="container flex relative column-horizontal-pad">
-        <app-link
-          to="/pretplata"
-          class="full cantha-break cantha-mini-break mobile-side-pad flex relative stretch"
-        >
-          <div class="two-thirds column-full-pad center flex-responsive">
-            <div class="full flex article">
-              <h2 class="full">
-                Bespoštedno novinarstvo <br />koje gura društvo naprijed.
-              </h2>
-              <h5 class="full">
-                Za neograničeno čitanje Telegrama i podršku istraživačkim
-                serijalima, odaberite jedan od paketa.
-              </h5>
-            </div>
-          </div>
-          <div class="third stretch flex flex-responsive">
-            <div class="full flex article">
-              <div class="full center">
-                <div class="newbtn">Pretplatite se</div>
+    <client-only>
+      <div v-if="!$store.state.user.access" class="full relative mobile-only">
+        <div class="container flex relative column-horizontal-pad">
+          <app-link
+            to="/pretplata"
+            class="full cantha-break cantha-mini-break mobile-side-pad flex relative stretch"
+          >
+            <div class="two-thirds column-full-pad center flex-responsive">
+              <div class="full flex article">
+                <h2 class="full">
+                  Bespoštedno novinarstvo <br />koje gura društvo naprijed.
+                </h2>
+                <h5 class="full">
+                  Za neograničeno čitanje Telegrama i podršku istraživačkim
+                  serijalima, odaberite jedan od paketa.
+                </h5>
               </div>
             </div>
-          </div>
-        </app-link>
+            <div class="third stretch flex flex-responsive">
+              <div class="full flex article">
+                <div class="full center">
+                  <div class="newbtn">Pretplatite se</div>
+                </div>
+              </div>
+            </div>
+          </app-link>
+        </div>
       </div>
-    </div>
+    </client-only>
     <!-- Još vijesti -->
     <div class="full relative">
       <div
@@ -350,7 +358,7 @@
         </app-link>
       </div>
     </div>
-    <!-- Velika rubrika: Politika i kriminal TODO, trenutno priče -->
+    <!-- Velika rubrika: Politika i kriminal -->
     <div class="full relative">
       <div class="container flex relative">
         <category-big slug="more-news"></category-big>
@@ -487,14 +495,12 @@
         <div class="full desktop-only column-horizontal-pad column-bottom-pad">
           <div class="full cantha-separator"></div>
         </div>
-        <client-only>
-          <div class="full flex">
-            <category slug="zivot"></category>
-            <category slug="biznis-tech"></category>
-            <category slug="kultura"></category>
-            <category slug="velike-price"></category>
-          </div>
-        </client-only>
+        <div class="full flex">
+          <category slug="zivot"></category>
+          <category slug="biznis-tech"></category>
+          <category slug="kultura"></category>
+          <category slug="velike-price"></category>
+        </div>
       </div>
     </div>
     <div class="full relative">
@@ -514,6 +520,7 @@ export default {
   data() {
     return {
       loading: false,
+      hasAd: false,
     }
   },
   computed: {

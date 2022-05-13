@@ -7,38 +7,29 @@
 export default {
   name: 'Commentary',
   props: {
-    comments: {
-      type: Array,
+    type: {
+      type: String,
       default() {
-        return false
+        return 'tg'
       },
     },
+  },
+  async fetch() {
+    if (this.type === 'tg') {
+      this.posts = await this.$axios.$get('/api/commentary')
+    }
+    if (this.type === 'ts') {
+      this.$axios
+        .get('https://telesport.telegram.hr/wp-json/telegram/pwa2/v1/portal/2')
+        .then((res) => {
+          this.posts = res.data.comments
+        })
+    }
   },
   data() {
     return {
       posts: [],
     }
-  },
-  mounted() {
-    if (!this.$storageAvailable) {
-      return
-    }
-    if (this.comments) {
-      this.posts = this.comments
-      return
-    }
-    this.$axios
-      .get('/api/commentary')
-      .then((res) => {
-        this.posts = res.data
-        this.$store.commit('category/setPosts', {
-          slug: 'commentary',
-          posts: res.data,
-        })
-      })
-      .catch(() => {
-        // TODO: error logging
-      })
   },
 }
 </script>

@@ -56,6 +56,7 @@ export default {
                 compass.trackAdEvent('slotRenderEnded', event.slot)
               },
             ])
+            this.$emit('hasAd', true)
           }
         })
       window.googletag

@@ -44,7 +44,7 @@
         <div
           class="fourth flex-responsive column-horizontal-pad cantha-commentary"
         >
-          <commentary :comments="comments"></commentary>
+          <commentary type="ts"></commentary>
         </div>
         <div class="full column-full-pad desktop-only">
           <div class="full column-top-border"></div>
@@ -71,8 +71,6 @@ export default {
       .get('https://telesport.telegram.hr/wp-json/telegram/pwa2/v1/portal/2')
       .then((res) => {
         this.posts = res.data.posts
-        this.reading = res.data.reading
-        this.comments = res.data.comments
       })
   },
   data() {
@@ -81,8 +79,6 @@ export default {
       loading: false,
       page: 2,
       posts: [],
-      reading: [],
-      comments: [],
     }
   },
   methods: {
