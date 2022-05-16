@@ -81,13 +81,6 @@
             >PitanjeZdravlja</app-link
           >
         </nav>
-        <nav class="full menu mobile-only center" role="menu">
-          <app-link role="menuitem" class="current-menu" to="/"
-            >Naslovnica</app-link
-          >
-          <app-link role="menuitem" to="/upravo">Upravo se čita</app-link>
-          <app-link role="menuitem" to="/pretplata">Pretplata</app-link>
-        </nav>
         <div class="flex desktop-only">
           <client-only>
             <a class="newbtn newbtn-empty" @click.prevent="manageLogin">{{

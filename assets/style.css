@@ -3319,8 +3319,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 @media screen and (max-width: 767px) {
     .mini-pretplata {
         order: 1;
-        font-size: 12px;
-        font-size: 0.6rem;
+        font-size: 14px;
+        font-size: 0.7rem;
         margin-bottom: 0vw;
         padding-bottom: 4vw;
         padding-top: 4vw;
@@ -7674,8 +7674,14 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .main-container {
         padding-top: 50px;
     }
-    .homepage, .single-article-premium {
+    .single-article-premium {
         padding-top: 0px;
+    }
+    .homepage {
+        padding-top: 42px;
+    }
+    header .subheader, header nav.homepage-exclusive {
+        display: none;
     }
     .cantha-header {
         z-index: 1;
