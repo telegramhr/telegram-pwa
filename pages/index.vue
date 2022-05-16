@@ -97,7 +97,6 @@
         <!-- Billboard 1 -->
         <client-only>
           <div v-show="hasAd" class="full relative">
-            <!-- TODO: make border hidden if there is no billboard -->
             <div class="full flex column-horizontal-pad desktop-only">
               <div class="full flex relative column-bottom-border"></div>
             </div>
@@ -215,7 +214,7 @@
         </div>
       </div>
     </div>
-    <!-- Prekid pretplata TODO: hasSub-->
+    <!-- Prekid pretplata -->
     <client-only>
       <div v-if="!$store.state.user.access" class="full relative mobile-only">
         <div class="container flex relative column-horizontal-pad">
@@ -547,7 +546,7 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.loadAds()
-      window.addEventListener('scroll', this.handleScroll)
+      // window.addEventListener('scroll', this.handleScroll)
       window.upScore({
         data: {
           article: '',
@@ -561,9 +560,9 @@ export default {
       })
     })
   },
-  beforeDestroy() {
+  /* beforeDestroy() {
     window.removeEventListener('scroll', this.handleScroll)
-  },
+  }, */
   methods: {
     manageLogin() {
       if (this.canLogIn) {

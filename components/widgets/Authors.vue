@@ -23,7 +23,7 @@ export default {
   computed: {
     posts() {
       const array = this.$store.state.authors.posts
-      if (this.$mobile) {
+      /* if (this.$mobile) {
         let currentIndex = array.length
         let randomIndex
 
@@ -41,24 +41,24 @@ export default {
         }
 
         return array
-      } else {
-        return [...array]
-          .sort((a, b) => {
-            return b.time - a.time
-          })
-          .filter((item) => {
-            let keep = true
-            this.$store.state.category.categories.commentary.posts.forEach(
-              (i) => {
-                if (i.id === item.id) {
-                  keep = false
-                }
+      } else { */
+      return [...array]
+        .sort((a, b) => {
+          return b.time - a.time
+        })
+        .filter((item) => {
+          let keep = true
+          this.$store.state.category.categories.commentary.posts.forEach(
+            (i) => {
+              if (i.id === item.id) {
+                keep = false
               }
-            )
-            return keep
-          })
-          .slice(0, 4)
-      }
+            }
+          )
+          return keep
+        })
+        .slice(0, 4)
+      // }
     },
   },
   mounted() {
