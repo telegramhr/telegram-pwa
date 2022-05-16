@@ -505,6 +505,7 @@
 export default {
   async fetch() {
     await this.$store.dispatch('featured/pullPosts')
+    await this.$store.dispatch('featured/pullBreaks')
   },
   data() {
     return {
