@@ -1,7 +1,16 @@
 <template>
-  <div class="full flex desktop-only" data-mrf-recirculation="latest-widget">
-    <h2 class="full flex section-title">Najnovije</h2>
-    <mini v-for="post in posts" :key="post.id" :post="post"></mini>
+  <div class="full flex relative latest-articles">
+    <div class="full column-horizontal-pad column-top-pad">
+      <div class="full cantha-separator"></div>
+    </div>
+    <h3 class="full center-text column-full-pad subsection-title">Najnovije</h3>
+    <div class="full flex relative mini-article-list">
+      <mini
+        v-for="post in posts.slice(0, 4)"
+        :key="post.id"
+        :post="post"
+      ></mini>
+    </div>
   </div>
 </template>
 

@@ -36,10 +36,7 @@ export default {
       },
       { rel: 'stylesheet', href: 'https://use.typekit.net/yjw4lwh.css' },
       { rel: 'stylesheet', href: 'https://use.typekit.net/vrv6rlv.css' },
-      /* {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap',
-      }, */
+      { rel: 'stylesheet', href: 'https://use.typekit.net/vad7pag.css' },
       {
         rel: 'me',
         href: 'https://twitter.com/TelegramHR',
@@ -48,6 +45,10 @@ export default {
         rel: 'stylesheet',
         type: 'text/css',
         href: 'https://linker.hr/widget/lw.css',
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap',
       },
       {
         rel: 'preload',
@@ -121,7 +122,7 @@ export default {
     '@nuxtjs/eslint-module',
     'nuxt-purgecss',
     '@nuxtjs/dotenv',
-    '@nuxtjs/google-fonts',
+    // '@nuxtjs/google-fonts',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -134,15 +135,20 @@ export default {
 
   googleFonts: {
     display: 'swap',
-    download: true,
+    download: false,
+    overwriting: false,
     families: {
       Barlow: {
-        wght: [400, 600, 700],
+        wght: [300, 400, 600, 700],
+        ital: [400],
+      },
+      Lora: {
+        wgth: [400, 700],
         ital: [400],
       },
       Merriweather: {
         wght: [300, 400, 700],
-        ital: [300, 400],
+        ital: [300, 400, 700],
       },
     },
   },

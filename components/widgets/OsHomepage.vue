@@ -1,16 +1,50 @@
 <template>
-  <div class="container flex relative native-block stretch mobile-side-pad">
-    <div class="full column-horizontal-pad flex">
-      <h2 class="full flex section-title">
-        <app-link to="/openspace">openspace</app-link>
-      </h2>
+  <div
+    class="container cantha-small-block flex relative native-block stretch mobile-side-pad column-top-pad"
+  >
+    <div class="full column-horizontal-pad">
+      <div class="full cantha-separator"></div>
     </div>
-    <div
-      v-for="post in posts"
-      :key="post.id"
-      class="fourth flex-responsive column-full-pad"
+    <h3
+      class="full center-text column-full-pad subsection-title os-subsection-logo"
     >
-      <standard :post="post"></standard>
+      <img src="@/assets/img/openspace_logo_black.svg" alt="openspace logo" />
+      <img
+        src="@/assets/img/openspace_logo_negative.svg"
+        class="dark-mode-only"
+        alt="openspace logo"
+      />
+    </h3>
+    <div class="full column-bottom-pad flex relative the-big-gs stretch">
+      <div
+        class="half column-horizontal-pad split-articles flex-responsive flex"
+      >
+        <medium
+          v-for="post in posts.slice(0, 1)"
+          :key="post.id"
+          :post="post"
+        ></medium>
+      </div>
+      <div class="half flex-responsive flex stretch stretchtwo">
+        <div
+          class="half flex-responsive column-horizontal-pad column-right-border column-left-border flex no-image-block"
+        >
+          <standard
+            v-for="post in posts.slice(1, 2)"
+            :key="post.id"
+            :post="post"
+          ></standard>
+        </div>
+        <div
+          class="half flex-responsive desktop-mini-force column-horizontal-pad flex"
+        >
+          <standard
+            v-for="post in posts.slice(2, 4)"
+            :key="post.id"
+            :post="post"
+          ></standard>
+        </div>
+      </div>
     </div>
   </div>
 </template>

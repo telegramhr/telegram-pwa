@@ -5,38 +5,17 @@
     role="article"
     :aria-labelledby="'komentar-' + post.id"
   >
-    <div v-if="post.authors.length" class="komentar-author relative flex">
-      <img
-        v-if="post.authors[0].image"
-        :src="post.authors[0].image"
-        :alt="post.authors[0].name"
-        loading="lazy"
-      />
-      <i class="full mobile-only">Piše</i>
-      <span class="full mobile-only">{{ post.authors[0].name }}</span>
-    </div>
-    <div class="komentar-box relative">
-      <div class="komentar-quotation">“</div>
-      <div class="komentar-image">
-        <picture>
-          <source type="image/webp" :srcset="post.image.webp" />
-          <img
-            :srcset="srcset"
-            :src="post.image.url"
-            :alt="post.image.alt"
-            loading="lazy"
-          />
-        </picture>
-      </div>
+    <img
+      :srcset="srcset"
+      :src="post.image.url"
+      :alt="post.image.alt"
+      loading="lazy"
+      class="mobile-only"
+    />
+    <div class="full komentar-box relative">
       <div class="komentar-content full">
-        <div
-          v-if="post.authors.length"
-          class="komentar-author relative flex desktop-only"
-        >
-          <i class="full">Piše</i>
-          <span class="full">{{ post.authors[0].name }}</span>
-        </div>
         <h2 :id="'komentar-' + post.id" class="full animate">
+          <div class="komentar-quotation">“</div>
           {{ post.portal_title }}
         </h2>
         <h5 class="full flex article-meta">
@@ -45,6 +24,23 @@
           >
           <span class="meta-date">{{ post.time | parseTime }}</span>
         </h5>
+      </div>
+      <div class="full flex relative">
+        <div
+          v-if="post.authors.length"
+          class="full komentar-author relative flex"
+        >
+          <img
+            v-if="post.authors[0].image"
+            :src="post.authors[0].image"
+            :alt="post.authors[0].name"
+            loading="lazy"
+          />
+          <div class="flex">
+            <i class="full">Piše</i>
+            <span>{{ post.authors[0].name }}</span>
+          </div>
+        </div>
       </div>
     </div>
   </app-link>

@@ -1,6 +1,11 @@
 <template>
-  <section class="full mobile-only flex mobile-side-pad" data-mrf-recirculation="most-read-widget">
-    <h2 class="full flex section-title">Najčitanije</h2>
+  <section class="full mobile-only flex mobile-side-pad">
+    <div class="full">
+      <div class="full cantha-separator"></div>
+    </div>
+    <h3 class="full center-text column-full-pad subsection-title">
+      Najčitanije
+    </h3>
     <top
       v-for="(post, index) in posts"
       :key="post.id"

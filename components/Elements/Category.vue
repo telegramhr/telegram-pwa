@@ -1,10 +1,13 @@
 <template>
   <section
-    class="fourth flex-responsive column-horizontal-pad flex mobile-side-pad"
+    class="fourth flex-responsive column-horizontal-pad column-right-border classic-category flex mobile-side-pad"
   >
-    <h2 class="full flex section-title">
+    <div class="full mobile-only">
+      <div class="full cantha-separator"></div>
+    </div>
+    <h3 class="full center-text column-bottom-pad subsection-title">
       <nuxt-link :to="'/' + slug">{{ category | parseCat }}</nuxt-link>
-    </h2>
+    </h3>
     <featured
       v-for="post in posts.slice(0, 1)"
       :key="post.id"

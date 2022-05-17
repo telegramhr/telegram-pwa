@@ -1,26 +1,5 @@
 <template>
   <div class="full">
-    <client-only>
-      <div
-        v-if="
-          !(
-            ($mobile && $route.name === 'index') ||
-            (!$mobile && $route.name === 'category-slug') ||
-            $route.name === 'openspace'
-          )
-        "
-        class="full center header-billboard"
-      >
-        <ad-unit
-          id="telegram_desktop_billboard_v1"
-          :disable="
-            post &&
-            (post.disable_ads.includes('all') ||
-              (post.category_slug && post.category_slug.includes('openspace')))
-          "
-        ></ad-unit>
-      </div>
-    </client-only>
     <div
       :class="{
         'side-menu': true,
@@ -228,6 +207,9 @@
           <a role="menuitem" href="https://super1.telegram.hr">Super1</a>
           <a role="menuitem" href="https://telesport.telegram.hr">Telesport</a>
           <app-link role="menuitem" to="/openspace">Openspace</app-link>
+          <app-link role="menuitem" to="/pitanje-zdravlja"
+            >PitanjeZdravlja</app-link
+          >
         </div>
         <div class="half" role="menu">
           <h3>Social</h3>
@@ -272,8 +254,12 @@
         <div class="two-thirds flex subheader-ow-fix" role="navigation">
           <app-link to="/" class="logo"
             ><img
+              src="@/assets/img/telegram_logo_black.svg"
+              alt="Telegram logo" />
+            <img
               src="@/assets/img/telegram_logo_white.svg"
               alt="Telegram logo"
+              class="dark-mode-only"
           /></app-link>
           <a
             :aria-expanded="$store.state.header.showSideMenu.toString()"
@@ -304,14 +290,14 @@
         </div>
         <div class="flex third relative">
           <client-only>
+            <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
+              >Prijava</a
+            >
             <app-link
               v-show="!$store.state.user.access"
               to="/pretplata"
               class="signup-btn sub-btn"
               >Pretplatite se</app-link
-            >
-            <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
-              >Prijava</a
             >
             <a v-show="!canLogIn" class="signup-btn" @click.prevent="logout"
               >Odjava</a
@@ -330,6 +316,43 @@
           </a>
         </div>
       </div>
+    </div>
+    <!-- Mobile only sticky nav -->
+    <div class="container mobile-only mobile-sticky-nav flex mobile-side-pad">
+      <a
+        class="mobile-only"
+        aria-label="Prikaži lijevi meni"
+        :aria-expanded="$store.state.header.showSideMenu.toString()"
+        aria-controls="sidebar"
+        @click.prevent="$store.commit('header/updateMenu', 'side')"
+      >
+        <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon
+      ></a>
+      <app-link to="/" class="logo"
+        ><img src="@/assets/img/telegram_logo_black.svg" alt="Telegram logo" />
+        <img
+          src="@/assets/img/telegram_logo_white.svg"
+          alt="Telegram logo"
+          class="dark-mode-only"
+      /></app-link>
+      <div class="desktop-only full center-text tagline">
+        Portal za društvena i kulturna pitanja. I svijet koji dolazi.
+      </div>
+      <a
+        v-show="canLogIn"
+        class="mob-nav-otherbtn mobile-only"
+        @click.prevent="login"
+      >
+        <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
+      ></a>
+      <app-link
+        v-show="!canLogIn"
+        class="mobile-only mob-nav-otherbtn"
+        to="/moj-racun"
+        aria-label="Moj račun"
+      >
+        <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
+      ></app-link>
     </div>
     <!--<div
       :v-show="false"
@@ -357,7 +380,7 @@
       }"
     >
       <div class="full subheader mobile-side-pad center">
-        <!-- Desktop Subheader -->
+        <!-- Single Subheader -->
         <div
           class="container desktop-only flex desktop-subheader column-horizontal-pad single-exclusive"
         >
@@ -374,32 +397,14 @@
           <div class="third center relative">
             <app-link to="/" class="logo"
               ><img
+                src="@/assets/img/telegram_logo_black.svg"
+                alt="Telegram logo" /><img
                 src="@/assets/img/telegram_logo_white.svg"
                 alt="Telegram logo"
+                class="dark-mode-only"
             /></app-link>
           </div>
           <div class="flex third relative">
-            <client-only>
-              <app-link
-                v-show="!$store.state.user.access"
-                to="/pretplata"
-                class="signup-btn sub-btn"
-                >Pretplatite se</app-link
-              >
-              <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
-                >Prijava</a
-              >
-              <a v-show="!canLogIn" class="signup-btn" @click.prevent="logout"
-                >Odjava</a
-              >
-              <app-link
-                v-show="!canLogIn"
-                to="/moj-racun"
-                aria-label="Moj račun"
-              >
-                <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
-              ></app-link>
-            </client-only>
             <a
               href="#"
               aria-label="Prikaži tražilicu"
@@ -411,105 +416,16 @@
             ></a>
           </div>
         </div>
-        <!-- Mobile Subheader -->
-        <div class="flex mobile-only">{{ date }}</div>
-        <client-only>
-          <div
-            v-if="$store.state.stocks.stocks[stock_key]"
-            class="flex mobile-only"
-          >
-            <img
-              :src="
-                '/stocks/tg_stonks_' +
-                ($store.state.stocks.stocks[stock_key].up ? 'up' : 'down') +
-                '.png'
-              "
-              aria-hidden="true"
-            />{{ $store.state.stocks.stocks[stock_key].name }}
-          </div>
-        </client-only>
+        <!-- Stock Subheader -->
         <div
           id="sidebar"
-          class="container desktop-only flex desktop-subheader column-horizontal-pad homepage-exclusive"
+          class="container flex desktop-subheader column-horizontal-pad homepage-exclusive"
           role="navigation"
         >
-          <div class="two-thirds flex subheader-ow-fix" role="menu">
-            <a
-              :aria-expanded="$store.state.header.showSideMenu.toString()"
-              aria-label="Prikaži lijevi meni"
-              aria-controls="sidebar"
-              @click="$store.commit('header/updateMenu', 'side')"
-            >
-              <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon
-            ></a>
-            <div class="menu flex">
-              <app-link role="menuitem" to="/politika-kriminal"
-                >Politika & Kriminal</app-link
-              >
-              <app-link role="menuitem" to="/komentari">Komentari</app-link>
-              <app-link role="menuitem" to="/biznis-tech"
-                >Biznis & Tech</app-link
-              >
-              <app-link role="menuitem" to="/velike-price"
-                >Velike priče</app-link
-              >
-              <app-link role="menuitem" to="/zivot">Život</app-link>
-              <app-link role="menuitem" to="/kultura">Kultura</app-link>
-              <app-link role="menuitem" to="/openspace">Openspace</app-link>
-              <a href="https://super1.telegram.hr" role="menuitem">Super1</a>
-              <a href="https://telesport.telegram.hr" role="menuitem">
-                Telesport
-              </a>
-            </div>
-          </div>
-          <div class="flex third relative">
-            <client-only>
-              <app-link
-                v-show="!$store.state.user.access"
-                to="/pretplata"
-                class="signup-btn sub-btn"
-                >Pretplatite se</app-link
-              >
-              <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
-                >Prijava</a
-              >
-              <a v-show="!canLogIn" class="signup-btn" @click.prevent="logout"
-                >Odjava</a
-              >
-              <app-link
-                v-show="!canLogIn"
-                to="/moj-racun"
-                aria-label="Moj račun"
-              >
-                <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
-              ></app-link>
-            </client-only>
-            <a
-              href="#"
-              aria-label="Prikaži tražilicu"
-              :aria-expanded="$store.state.header.showSearchMenu.toString()"
-              aria-controls="search"
-              @click.prevent="$store.commit('header/updateMenu', 'search')"
-            >
-              <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon
-            ></a>
-          </div>
+          <client-only>
+            <stocks></stocks>
+          </client-only>
         </div>
-        <client-only>
-          <div
-            v-if="$store.state.weather.zagreb[0].type"
-            class="flex relative weather mobile-only"
-          >
-            <object
-              type="image/svg+xml"
-              :data="`/weather/${$store.state.weather.zagreb[0].type}.svg`"
-            ></object
-            ><span>{{ $store.state.weather.zagreb[0].temp }}&#176;c</span>
-          </div>
-        </client-only>
-      </div>
-      <div v-show="showBreaking" class="full desktop-only">
-        <breaking></breaking>
       </div>
       <nav class="full flex homepage-exclusive animate">
         <div class="container relative">
@@ -524,8 +440,11 @@
           ></a>
           <app-link to="/" class="logo"
             ><img
+              src="@/assets/img/telegram_logo_black.svg"
+              alt="Telegram logo" /><img
               src="@/assets/img/telegram_logo_white.svg"
               alt="Telegram logo"
+              class="dark-mode-only"
           /></app-link>
           <div class="desktop-only full center-text tagline">
             Portal za društvena i kulturna pitanja. I svijet koji dolazi.
@@ -577,14 +496,6 @@
         </div>
       </div>-->
     </header>
-    <div v-show="showBreaking" class="full mobile-only">
-      <breaking></breaking>
-      <!--<h2
-        class="full homepage-exclusive ukraine-mobile-header mobile-side-pad center-text"
-      >
-        Rat u Ukrajini
-      </h2>-->
-    </div>
   </div>
 </template>
 

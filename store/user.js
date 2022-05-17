@@ -118,6 +118,20 @@ export const actions = {
     }
     commit('logout')
   },
+  login({ commit, dispatch }) {
+    window.tp.pianoId.show({
+      screen: 'login',
+      loggedIn(data) {
+        dispatch('setUser', data.user)
+        commit('setToken', data.token)
+        window.tp.api.callApi('/access/list', {}, function (response) {
+          dispatch('setAccess', response).then(() => {
+            window.location.reload()
+          })
+        })
+      },
+    })
+  },
 }
 
 export const getters = {

@@ -6,7 +6,7 @@
     <div class="full flex relative fancy-rubrika-header">
       <div class="os-section-title-left-el"></div>
       <div class="os-section-title-right-el"></div>
-      <div class="container flex fancyr-section-parent">
+      <div class="container flex fancy-section-parent">
         <h1
           class="full section-title mobile-side-pad center-text column-full-pad os-section-title hide"
         >
@@ -46,7 +46,9 @@
         <div
           class="full flex column-horizontal-pad column-top-pad mobile-side-pad"
         >
-          <div class="full flex article-big column-bottom-border">
+          <div
+            class="full flex article-big column-bottom-border column-bottom-pad"
+          >
             <featured
               v-for="post in featured.slice(0, 1)"
               :key="post.id"
@@ -60,7 +62,7 @@
             :key="post.id"
             class="third flex-responsive column-vertical-pad stretch"
           >
-            <div class="full flex column-horizontal-pad">
+            <div class="full flex column-horizontal-pad column-right-border">
               <featured :post="post"></featured>
             </div>
           </div>
@@ -132,7 +134,7 @@
               :key="post.id"
               :post="post"
             ></featured>
-            <div class="full flex split-articles">
+            <div class="full flex split-articles column-top-pad">
               <template v-for="post in featured.slice(5, 8)">
                 <medium :key="post.id" :post="post"></medium>
               </template>
@@ -160,11 +162,10 @@
         >
           <standard :post="post"></standard>
         </div>
-        <div
-          class="full center subtle-btn-parent relative clickable"
-          @click="loadMore"
-        >
-          <div v-show="!loading" class="subtle-btn animate">Vidi više</div>
+        <div class="full center relative clickable" @click="loadMore">
+          <div v-show="!loading" class="newbtn huge-newbtn animate">
+            Vidi više
+          </div>
           <div v-show="loading" class="full center cool-loader">
             <div class="loader-square">
               <div></div>

@@ -32,6 +32,21 @@ export default () => {
       return 'prije ' + m + ' minuta'
     }
   })
+  Vue.filter('parseRecentTime', function (value) {
+    if (!value) {
+      return ''
+    }
+    const now = Date.now()
+    value = value * 1000
+    const diff = (now - value) / 1000
+    let m = diff % 3600
+    m = Math.round(m / 60)
+    if (m < 60) {
+      return m
+    } else {
+      return '60+'
+    }
+  })
   Vue.filter('parseCat', function (value) {
     if (!value || value === 'null') {
       return ''

@@ -1,14 +1,19 @@
 <template>
-  <div class="container flex relative native-block stretch mobile-side-pad">
-    <div class="full column-horizontal-pad flex">
-      <h2 class="full flex section-title">Partneri</h2>
+  <div
+    class="container cantha-small-block flex relative native-block column-top-pad stretch mobile-side-pad"
+  >
+    <div class="full column-horizontal-pad">
+      <div class="full cantha-separator"></div>
     </div>
-    <div
-      v-for="post in posts"
-      :key="post.id"
-      class="fourth flex-responsive column-full-pad"
-    >
-      <standard :post="post"></standard>
+    <h3 class="full center-text column-full-pad subsection-title">Partneri</h3>
+    <div class="full flex stretch column-bottom-pad">
+      <div
+        v-for="post in posts"
+        :key="post.id"
+        class="fourth column-right-border flex-responsive column-horizontal-pad"
+      >
+        <standard :post="post"></standard>
+      </div>
     </div>
   </div>
 </template>

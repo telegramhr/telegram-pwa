@@ -1,8 +1,12 @@
 <template>
   <div class="container flex relative stretch">
-    <div class="full column-full-pad mobile-side-pad">
-      <h2 class="full section-title">Autori</h2>
+    <div class="full column-horizontal-pad column-top-pad">
+      <div class="full cantha-separator"></div>
     </div>
+    <h3 class="full center-text column-full-pad subsection-title">
+      <img src="@/assets/img/telegram_logo_black.svg" alt="Telegram logo" />
+      autori
+    </h3>
     <div class="full flex fancy-authors-widget stretch">
       <author
         v-for="post in posts"
@@ -19,7 +23,7 @@ export default {
   computed: {
     posts() {
       const array = this.$store.state.authors.posts
-      if (this.$mobile) {
+      /* if (this.$mobile) {
         let currentIndex = array.length
         let randomIndex
 
@@ -37,24 +41,24 @@ export default {
         }
 
         return array
-      } else {
-        return [...array]
-          .sort((a, b) => {
-            return b.time - a.time
-          })
-          .filter((item) => {
-            let keep = true
-            this.$store.state.category.categories.commentary.posts.forEach(
-              (i) => {
-                if (i.id === item.id) {
-                  keep = false
-                }
+      } else { */
+      return [...array]
+        .sort((a, b) => {
+          return b.time - a.time
+        })
+        .filter((item) => {
+          let keep = true
+          this.$store.state.category.categories.commentary.posts.forEach(
+            (i) => {
+              if (i.id === item.id) {
+                keep = false
               }
-            )
-            return keep
-          })
-          .slice(0, 4)
-      }
+            }
+          )
+          return keep
+        })
+        .slice(0, 4)
+      // }
     },
   },
   mounted() {

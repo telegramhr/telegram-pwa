@@ -32,13 +32,6 @@
           v-if="!$mobile && $route.name === 'category-slug'"
           class="full center header-billboard"
         >
-          <ad-unit
-            id="telegram_desktop_billboard_v1"
-            :disable="
-              post.disable_ads.includes('all') ||
-              (post.category_slug && post.category_slug.includes('openspace'))
-            "
-          ></ad-unit>
           <div v-if="!$mobile" class="container wallpaper-banners animate">
             <div class="wallpaper-left">
               <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
@@ -57,7 +50,12 @@
           FOTO: {{ post.image.author }}
         </div>
         <div class="mobile-only full center mobile-pa-nav relative flex">
-          <a @click.prevent="showSideMenu = !showSideMenu">
+          <a
+            :aria-expanded="$store.state.header.showSideMenu.toString()"
+            aria-label="Prikaži lijevi meni"
+            aria-controls="sidebar"
+            @click.prevent="$store.commit('header/updateMenu', 'side')"
+          >
             <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon
           ></a>
           <nuxt-link to="/" class="logo">
@@ -232,6 +230,16 @@
                 </div>
               </h5>
             </div>
+            <div class="full relative center single-top-banner">
+              <ad-unit
+                id="telegram_desktop_billboard_v1"
+                :disable="
+                  post.disable_ads.includes('all') ||
+                  (post.category_slug &&
+                    post.category_slug.includes('openspace'))
+                "
+              ></ad-unit>
+            </div>
             <div class="full relative single-article-body">
               <client-only>
                 <subscribe-link
@@ -291,9 +299,6 @@
                         :icon="['fab', 'twitter']"
                       ></font-awesome-icon
                     ></a>
-                    <!-- <a href="#" class="animate center"
-                    ><i class="fab fa-instagram"></i
-                  ></a>-->
                     <div
                       v-if="!post.comments_off"
                       class="classic-btn clickable animate"
@@ -326,11 +331,23 @@
           </article>
         </div>
         <client-only>
-          <div v-if="!hasPremium" class="full flex">
+          <div v-if="!hasPremium" class="full">
             <div
-              class="container flex relative native-block stretch mobile-side-pad"
+              class="container flex relative block-related cantha-related standard-block stretch"
             >
-              <linker type="category"></linker>
+              <div
+                class="full column-horizontal-pad column-top-pad mobile-side-pad"
+              >
+                <div class="full cantha-separator"></div>
+              </div>
+              <h3
+                class="full center-text column-full-pad subsection-title mobile-side-pad"
+              >
+                Više s weba
+              </h3>
+              <div class="full flex mobile-side-pad">
+                <linker type="category"></linker>
+              </div>
             </div>
           </div>
           <div v-if="!hasPremium" class="container center">
@@ -339,10 +356,10 @@
               data-contentexchange-source="ughr"
             ></div>
           </div>
-          <div v-if="hasPremium" class="full flex">
+          <div v-if="!hasPremium" class="full flex">
             <linker type="footer"></linker>
           </div>
-          <div v-if="hasPremium" class="container flex center">
+          <div v-if="!hasPremium" class="container flex center">
             <div id="linker-526" class="lwdgt" data-wid="526"></div>
           </div>
           <keep-reading
@@ -913,7 +930,10 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: this.post.social.image,
+          content:
+            this.$route.params.category === 'preview'
+              ? '/img/tg_preview_placeholder.jpg'
+              : this.post.social.image,
         },
         {
           hid: 'og:image:width',

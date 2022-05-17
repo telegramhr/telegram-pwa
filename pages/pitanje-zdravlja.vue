@@ -26,7 +26,9 @@
         <div
           class="full flex column-horizontal-pad column-top-pad mobile-side-pad"
         >
-          <div class="full flex article-big column-bottom-border">
+          <div
+            class="full flex article-big column-bottom-border column-bottom-pad"
+          >
             <featured :key="featured[0].id" :post="featured[0]"></featured>
           </div>
         </div>
@@ -36,7 +38,7 @@
             :key="post.id"
             class="third flex-responsive column-top-pad stretch"
           >
-            <div class="full flex column-horizontal-pad">
+            <div class="full flex column-horizontal-pad column-right-border">
               <featured :post="post"></featured>
             </div>
           </div>
@@ -137,11 +139,12 @@
         <section
           class="fourth flex flex-responsive column-horizontal-pad mobile-side-pad"
         >
-          <latest
+          <h2 class="full flex section-title">Najnovije</h2>
+          <latest-alt
             v-show="!$mobile"
             :portal="1"
             category="pitanje-zdravlja"
-          ></latest>
+          ></latest-alt>
           <div class="full flex desktop-only">
             <h2 class="full flex section-title">Newsletter</h2>
             <newsletter></newsletter>
@@ -152,7 +155,7 @@
             class="two-thirds flex-responsive flex mobile-side-pad column-horizontal-pad column-right-border column-left-border"
           >
             <featured :key="featured[4].id" :post="featured[4]"></featured>
-            <div class="full flex split-articles">
+            <div class="full flex split-articles column-top-pad">
               <template v-for="post in featured.slice(5, 8)">
                 <medium :key="post.id" :post="post"></medium>
               </template>
@@ -218,7 +221,9 @@
           class="full center subtle-btn-parent relative clickable"
           @click="loadMore"
         >
-          <div v-show="!loading" class="subtle-btn animate">Vidi više</div>
+          <div v-show="!loading" class="newbtn huge-newbtn animate">
+            Vidi više
+          </div>
           <div v-show="loading" class="full center cool-loader">
             <div class="loader-square">
               <div></div>

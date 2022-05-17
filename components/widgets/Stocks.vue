@@ -1,11 +1,8 @@
 <template>
   <div
     v-if="$store.state.stocks.stocks"
-    class="full flex article stonk-widget stretch column-top-border"
+    class="full flex article stonk-widget stretch"
   >
-    <div class="full flex">
-      <h3 class="overtitle">Tržište</h3>
-    </div>
     <template v-for="(stock, key) in stocks">
       <div v-if="stock.name" :key="key" class="full stock-market">
         <img
@@ -15,7 +12,6 @@
           {{ stock.percent }}%</span
         >
       </div>
-      <div v-else :key="key" class="full column-top-pad"></div>
     </template>
   </div>
 </template>

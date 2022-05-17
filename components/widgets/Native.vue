@@ -1,7 +1,7 @@
 <template>
   <div
     v-show="$store.state.native.posts.length"
-    class="container flex relative stretch special-partner-widget"
+    class="full flex relative stretch special-partner-widget"
   >
     <div class="line-decoration-box animate">
       <div class="line-1 animate"></div>
@@ -91,7 +91,7 @@
   color: inherit;
 }
 .special-partner-widget .fourth:nth-child(2) .article h2 {
-  font-size: 2.4rem;
+  font-size: 2rem;
   position: relative;
   z-index: 5;
 }
