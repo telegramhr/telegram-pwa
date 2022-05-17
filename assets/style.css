@@ -5727,14 +5727,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         width: 60px;
         bottom: 6px;
     }
-    .tg-biznis .article-featured h2 {
-        font-size: 26px;
-        font-size: 1.3rem;
-    }
-    .tg-biznis .article-standard h2 {
-        font-size: 20px;
-        font-size: 1rem;
-    }
     .fancy-rubrika .article-big h2 {
         font-size: 36px;
         font-size: 1.8rem;
@@ -5767,68 +5759,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
 }
 
-/* TG Biznis homepage */
-
-.tg-biznis .fancy-rubrika-header .stonk-widget {
-    border-top: none;
-}
-.tg-biznis .fancy-rubrika-header .two-thirds {
-    align-content: flex-end;
-    padding-bottom: 38px;
-}
-.tg-biznis .fancy-rubrika-header .stock-market {
-    width: 49.99%;
-    padding-left: 80px;
-}
-.tg-biznis .fancy-rubrika-header .column-top-pad {
-    display: none;
-}
-.tg-biznis .fancy-rubrika-header .stonk-widget h3.overtitle {
-    display: none;
-}
-.tg-biznis .article .overtitle, .tg-biznis .single-article-body p a, .tg-biznis .single-article-body ul a, .tg-biznis .os-widget-overtitle, .tg-biznis .block-related h2.section-title, .tg-biznis .meta-preporuke, .tg-biznis .article-mini .meta-date  {
-    color: #328143;
-    text-decoration-color: #328143;
-}
-.tg-biznis h2.section-title {
-    border-color: #328143;
-}
-.tg-biznis .classic-btn {
-    background-color: #328143;
-}
-.tg-biznis .fancy-rubrika-header .stonk-widget {
-    padding-top: 0px;
-    justify-content: flex-end;
-}
-.tg-biznis .article-standard h2, .tg-biznis .article-featured h2 {
-    font-family: orpheuspro, serif;
-    font-weight: 700;
-    font-style: normal;
-    letter-spacing: -0.02em;
-    line-height: 1.1em;
-    margin-bottom: 4px;
-}
-.tg-biznis .article-standard h2 {
-    letter-spacing: -0.01em;
-    line-height: 1.15em;
-}
-.tg-biznis .article-featured h3.overtitle {
-    margin-top: 6px;
-    margin-bottom: 12px;
-}
 @media screen and (max-width: 1180px) {
-    .tg-biznis .fancy-rubrika-header .stock-market {
-        width: 100%;
-        padding-left: 4vw;
-        padding-right: 4vw;
-    }
-    .tg-biznis .fancy-rubrika-header .third {
-        width: 49.99%;
-    }
-    .tg-biznis .fancy-rubrika-header .two-thirds {
-        width: 49.99%;
-        padding-top: 4vw;
-    }
     .fancy-rubrika .standard-block > .fourth {
         display: none;
     }
@@ -5837,9 +5768,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .fancy-rubrika .standard-block > .three-fourths {
         width: 100%;
-    }
-    .tg-biznis .article-featured h2 {
-        font-size: 1.1rem;
     }
     .fancy-rubrika .article-big h2 {
         font-size: 1.3rem;
@@ -5935,41 +5863,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
 }
 
-/* TG Biznis single */
-
-.single-tg-biznis .article-head h3.overtitle, .single-tg-biznis .related-header-widget h3.overtitle, .single-tg-biznis .meta-preporuke {
-    color: #328143;
-}
-.single-tg-biznis .article-head h1, .single-tg-biznis .related-header-widget h2, .single-tg-biznis .single-article-body h2 {
-    font-family: orpheuspro, serif;
-    font-weight: 700;
-    font-style: normal;
-    letter-spacing: -0.02em;
-    line-height: 1em;
-}
-.single-tg-biznis .single-article-body h2 {
-    letter-spacing: -0.01em;
-}
-.single-tg-biznis .single-article-body h2 {
-    font-size: 26px;
-    font-size: 1.3rem;
-    margin-bottom: 20px;
-    margin-top: 36px;
-}
-.single-tg-biznis .related-header-widget .article-standard h2 {
-    font-size: 17px;
-    font-size: 0.85rem;
-}
-.single-tg-biznis h1 {
-    font-size: 44px;
-    font-size: 2.2rem;
-}
-.single-tg-biznis .single-article-body .inarticle-table h2 {
-  font-family: orpheuspro, serif;
-  font-weight: 700;
-  font-style: normal;
-  letter-spacing: normal;
-}
 /* Embed tweaks */
 .fb_iframe_widget {
     display: block !important;
