@@ -36,7 +36,6 @@ export default {
       },
       { rel: 'stylesheet', href: 'https://use.typekit.net/yjw4lwh.css' },
       { rel: 'stylesheet', href: 'https://use.typekit.net/vrv6rlv.css' },
-      { rel: 'stylesheet', href: 'https://use.typekit.net/vad7pag.css' },
       {
         rel: 'me',
         href: 'https://twitter.com/TelegramHR',
