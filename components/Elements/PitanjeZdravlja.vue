@@ -19,9 +19,7 @@
           />
         </h3>
       </app-link>
-      <div
-        class="full block-echovald mobile-side-pad column-bottom-pad flex relative"
-      >
+      <div class="full block-echovald mobile-side-pad flex relative">
         <div class="three-fourths flex-responsive flex stretch">
           <div class="half flex-responsive flex column-horizontal-pad">
             <featured
