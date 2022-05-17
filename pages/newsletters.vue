@@ -107,9 +107,14 @@
             </div>
           </div>
         </div>
-        <div class="full column-horizontal-pad">
-          <h2 class="full flex section-title">Komentari i analize</h2>
+        <div class="full column-horizontal-pad column-top-pad">
+          <div class="full cantha-separator"></div>
         </div>
+        <h3
+          class="full center-text column-horizontal-pad column-top-pad subsection-title"
+        >
+          Komentari i analize
+        </h3>
         <div class="full flex newsletter-komentari relative stretch">
           <div class="full flex newsletter-komentari relative stretch">
             <div class="third flex-responsive column-full-pad flex stretch">
@@ -288,9 +293,14 @@
               </div>
             </div>
           </div>
-          <div class="full column-horizontal-pad">
-            <h2 class="full flex section-title">Telegram autori</h2>
+          <div class="full column-horizontal-pad column-top-pad">
+            <div class="full cantha-separator"></div>
           </div>
+          <h3
+            class="full center-text column-horizontal-pad column-top-pad subsection-title"
+          >
+            Telegram autori
+          </h3>
           <div class="full flex newsletter-komentari relative stretch">
             <div class="third flex-responsive column-full-pad flex stretch">
               <div class="full newsletter-listing flex relative stretch">
@@ -558,9 +568,14 @@
           </div>
         </div>
         <div class="full flex relative stretch">
-          <div class="full column-horizontal-pad">
-            <h2 class="full flex section-title">Rubrike</h2>
+          <div class="full column-horizontal-pad column-top-pad">
+            <div class="full cantha-separator"></div>
           </div>
+          <h3
+            class="full center-text column-horizontal-pad column-top-pad subsection-title"
+          >
+            Rubrike
+          </h3>
           <div class="third flex-responsive column-full-pad flex stretch">
             <div class="full newsletter-listing flex relative stretch">
               <div class="full flex newsletter-header">

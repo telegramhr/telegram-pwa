@@ -2498,7 +2498,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .dojava-creative h1 {
     line-height: 1em;
     margin-top: 30px;
-    font-size: 64px;
 }
 .contact-tile {
     border: 1px solid #c1b9b1;
@@ -3357,6 +3356,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .alt-sub-point .half:first-child {
       order: 2;
+    }
+    .single-article .dojava-creative h1 {
+        font-size: 52px;
+        font-size: 2.6rem;
     }
 }
 @media screen and (max-width: 767px) {
@@ -4981,6 +4984,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .newsletter-avatar {
     padding: 0px;
     width: 100px;
+    min-width: 100px;
     height: 100px;
     z-index: 5;
     background-image: url('@/assets/img/yellow_paper.jpg');
@@ -5007,46 +5011,32 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .newsletter-tjedni {
     background-color: #c4ded8;
 }
-.newsletter-header .overtitle,
-.newsletter-header .subtitle {
-    font-size: 11px;
-    padding-left: 1px;
-    font-size: 0.55rem;
-    text-transform: uppercase;
-}
 .newsletter-header .overtitle {
     color: #ae3737;
     margin-bottom: 4px;
+    font-size: 15px;
+    font-size: 0.75rem;
 }
 .newsletter-header .subtitle {
+    font-size: 13px;
+    font-size: 0.65rem;
     padding-top: 16px;
     opacity: 0.5;
     padding-bottom: 8px;
+    text-transform: uppercase;
 }
 .newsletter-tag {
     background-color: #c4decf;
 }
 .newsletter-title {
-    font-size: 1.6rem;
+    font-size: 24px;
+    font-size: 1.2rem;
     letter-spacing: -0.05em;
-    height: 37px;
     width: 150%;
     overflow-x: visible;
 }
-.newsletter-btn {
-    margin-top: 16px;
-    cursor: pointer;
-    background-color: #ae3737;
-    color: white;
-    font-family: 'Barlow', sans-serif;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 13px;
-    font-size: 0.65rem;
-    padding: 5px 20px;
-}
-.newsletter-btn svg {
-    margin-left: 8px;
+.newsletter-listing .newbtn svg {
+    margin-left: 4px;
 }
 .newsletter-btn-unsub {
     border: 1px solid #111;
@@ -5119,6 +5109,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .standard-block .fourth .newsletter-avatar {
         width: 69px;
+        min-width: 69px;
         height: 69px;
         margin-right: 12px;
     }
@@ -5140,9 +5131,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
 }
 @media screen and (max-width: 1025px) {
-    .newsletter-title {
-        font-size: 1.6rem;
-    }
     .newsletter-box {
         margin-bottom: 24px;
     }

@@ -1,8 +1,10 @@
 <template>
-  <div class="main-container flex red-header-page">
-    <div class="full flex tg-red">
+  <div class="main-container flex single-article">
+    <div class="full flex">
       <client-only>
-        <theader></theader>
+        <theader
+          headline="Podijelite s nama informacije koje javnost zaslužuje znati"
+        ></theader>
       </client-only>
     </div>
     <div class="full flex dojava-creative tg-red">
@@ -86,11 +88,18 @@
     </div>
     <div class="full flex">
       <div class="container flex relative native-block stretch mobile-side-pad">
-        <div class="full column-horizontal-pad flex">
-          <h2 class="full flex section-title">Možda će vas zanimati</h2>
+        <div class="full flex relative">
+          <div class="full column-horizontal-pad column-top-pad">
+            <div class="full cantha-separator"></div>
+          </div>
+          <h3
+            class="full center-text column-horizontal-pad column-top-pad subsection-title"
+          >
+            Možda će vas zanimati
+          </h3>
         </div>
         <div
-          v-for="post in posts"
+          v-for="post in posts.slice(0, 12)"
           :key="post.id"
           class="fourth flex-responsive column-full-pad"
         >

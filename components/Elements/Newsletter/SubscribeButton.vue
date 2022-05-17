@@ -2,7 +2,7 @@
   <client-only>
     <div
       v-if="hasSub()"
-      class="btn newsletter-btn animate newsletter-btn-unsub"
+      class="btn newbtn animate newsletter-btn-unsub"
       @click="unsub()"
     >
       Odjavi me
@@ -11,11 +11,11 @@
     <app-link
       v-else-if="!$store.state.user.access && !free"
       to="/pretplata"
-      class="btn newsletter-btn newsletter-not-available animate"
+      class="btn newbtn newsletter-not-available animate"
     >
       Dostupno samo za pretplatnike
     </app-link>
-    <div v-else class="btn newsletter-btn animate" @click="sub(free)">
+    <div v-else class="btn newbtn animate" @click="sub(free)">
       Prijavi me
       <font-awesome-icon :icon="['fal', 'plus-square']"></font-awesome-icon>
     </div>
