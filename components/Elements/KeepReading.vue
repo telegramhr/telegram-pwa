@@ -12,7 +12,7 @@
         Ostanite uz Telegram
       </h3>
       <div class="full flex mobile-side-pad">
-        <template v-for="(post, index) in posts">
+        <template v-for="(post, index) in posts.slice(0, 8)">
           <div
             v-if="index === 0"
             :key="post.id"

@@ -299,9 +299,6 @@
                         :icon="['fab', 'twitter']"
                       ></font-awesome-icon
                     ></a>
-                    <!-- <a href="#" class="animate center"
-                    ><i class="fab fa-instagram"></i
-                  ></a>-->
                     <div
                       v-if="!post.comments_off"
                       class="classic-btn clickable animate"
@@ -334,11 +331,23 @@
           </article>
         </div>
         <client-only>
-          <div v-if="!hasPremium" class="full flex">
+          <div v-if="!hasPremium" class="full">
             <div
-              class="container flex relative native-block stretch mobile-side-pad"
+              class="container flex relative block-related cantha-related standard-block stretch"
             >
-              <linker type="category"></linker>
+              <div
+                class="full column-horizontal-pad column-top-pad mobile-side-pad"
+              >
+                <div class="full cantha-separator"></div>
+              </div>
+              <h3
+                class="full center-text column-full-pad subsection-title mobile-side-pad"
+              >
+                Više s weba
+              </h3>
+              <div class="full flex mobile-side-pad">
+                <linker type="category"></linker>
+              </div>
             </div>
           </div>
           <div v-if="!hasPremium" class="container center">
