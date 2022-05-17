@@ -51,7 +51,7 @@
         </div>
         <div class="full flex cantha-small-block">
           <div
-            v-for="post in posts.slice(1, 5)"
+            v-for="post in posts.slice(4, 8)"
             :key="'sport-' + post.id"
             class="fourth flex-responsive column-right-border column-horizontal-pad"
           >
