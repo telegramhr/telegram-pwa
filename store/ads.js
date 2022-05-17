@@ -1175,9 +1175,6 @@ export const actions = {
             continue
           }
           ds = window.googletag.defineSlot(prefix + i, unit[sizes], i)
-          if (typeof unit.sizeMapping !== 'undefined') {
-            ds.defineSizeMapping(unit.sizeMapping)
-          }
           if (ds) {
             ds.addService(window.googletag.pubads())
             ds.setTargeting('upc', upc)
