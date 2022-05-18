@@ -1008,12 +1008,8 @@ footer .logo-line img {
     height: 34px;
 }
 footer .main-footer-logo {
-    background-color: #ae3737;
-    height: 48px;
     padding: 8px;
     position: relative;
-    top: -44px;
-    margin-bottom: -32px;
     z-index: 5;
 }
 footer .logo {
@@ -4180,18 +4176,14 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         margin-top: 0px;
     }
     footer {
-        padding-top: 64px;
         margin-top: 64px;
     }
     footer .main-footer-logo {
-        top: -92px;
-        height: 64px;
         padding: 10px 20px;
-        margin-bottom: -64px;
         width: auto;
     }
     footer .main-footer-logo img {
-        height: 30px;
+        height: 40px;
         width: auto;
     }
     footer .logo-line img {

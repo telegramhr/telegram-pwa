@@ -23,7 +23,7 @@
     <footer class="full flex mobile-side-pad">
       <div class="container">
         <div class="full flex center">
-          <div class="half main-footer-logo center">
+          <div class="two-thirds main-footer-logo center">
             <img
               src="@/assets/img/telegram_logo_white.svg"
               alt="Telegram logo"
