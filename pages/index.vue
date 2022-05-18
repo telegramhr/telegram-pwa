@@ -86,7 +86,12 @@
             <a class="newbtn newbtn-empty" @click.prevent="manageLogin">{{
               canLogIn ? 'Prijava' : 'Odjava'
             }}</a>
-            <app-link to="/pretplata" class="newbtn">Pretplatite se</app-link>
+            <app-link
+              v-show="!$store.state.user.access"
+              to="/pretplata"
+              class="newbtn"
+              >Pretplatite se</app-link
+            >
           </client-only>
         </div>
       </div>
@@ -515,7 +520,7 @@ export default {
   },
   computed: {
     canLogIn() {
-      return !this.$store.state.user.id
+      return this.$store.state.user.exp * 1000 < new Date().getTime()
     },
     posts() {
       return this.$store.state.featured.posts
