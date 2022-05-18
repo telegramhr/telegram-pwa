@@ -5232,8 +5232,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 1rem;
 }
 .openspace .article .overtitle {
-    font-family: ibm-plex-mono, sans-serif;
-    font-weight: 700;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
     margin-bottom: 6px;
     color: #464b7a;
 }
@@ -5249,8 +5249,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     text-decoration-color: #7077b7;
 }
 .openspace .article h5.article-meta {
-    font-family: ibm-plex-mono, sans-serif;
-    font-weight: 700;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
 }
 .openspace .article h5.article-meta > span {
   display: none;
@@ -5268,8 +5268,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     margin-bottom: 24px;
 }
 .openspace .block-title h1 {
-    font-family: ibm-plex-mono, sans-serif;
-    font-weight: 700;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
     font-style: normal;
 }
 .openspace .block-title {
@@ -5279,9 +5279,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     margin-top: 0px;
 }
 .openspace .os-widget-overtitle, .openspace .block-related h2.section-title {
-    font-family: ibm-plex-mono, sans-serif;
+    font-family: 'IBM Plex Mono', monospace;
     color: #464b7a;
-    font-weight: 400;
+    font-weight: 500;
     padding-left: 0;
     font-size: 24px;
     margin-bottom: 12px;
@@ -5294,8 +5294,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     color: #7077b7;
 }
 .openspace .immersive-break .article-meta {
-    font-family: ibm-plex-mono, sans-serif;
-    font-weight: 400;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
 }
 .openspace .immersive-break h3.overtitle img {
     bottom: -1px;
@@ -5366,7 +5366,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     opacity: .7;
 }
 .openspace .page-header-nav a {
-    font-family: ibm-plex-mono, sans-serif;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
 }
 .page-header-nav {
     padding-bottom: 7px;
@@ -5395,7 +5396,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 2rem;
 }
 .openspace.single-article article .article-meta {
-    font-family: ibm-plex-mono, sans-serif;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
     line-height: 0.8em;
 }
 .openspace.single-article .article-head .meta-author img {
@@ -5405,8 +5407,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     display: none;
 }
 .openspace .article-head h3.overtitle {
-    font-family: ibm-plex-mono, sans-serif;
-    font-weight: 400;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
     color: #464b7a;
 }
 .dark-mode .openspace .article-head h3.overtitle {
@@ -5437,8 +5439,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     margin-bottom: 32px;
 }
 .os-about-subtitle {
-    font-family: ibm-plex-mono, sans-serif;
-    font-weight: 400;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
     color: #464b7a;
     font-size: 24px;
     font-size: 1.2rem;
@@ -5692,8 +5694,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         border-right: none;
     }
     .openspace .widget .btn, .openspace .subtle-btn {
-        font-family: ibm-plex-mono, sans-serif;
-        font-weight: 700;
+        font-family: 'IBM Plex Mono', monospace;
+        font-weight: 600;
     }
     .openspace .widget .btn, .openspace .subtle-btn-parent:hover .subtle-btn, .openspace .subtle-btn:hover {
         background-color: #2c2e41;
@@ -5900,7 +5902,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     width: 100%;
     height: auto;
     color: white;
-    font-family: neuzeit-grotesk,sans-serif;
+    font-family: 'Barlow', sans-serif;
     font-weight: 700;
     font-size: 92px;
     z-index: 3;
@@ -5915,7 +5917,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .specijal-patron .overtitle {
     font-size: .75rem;
-    font-family: neuzeit-grotesk,sans-serif;
+    font-family: 'Barlow', sans-serif;
     font-weight: 300;
     letter-spacing: .2px;
     opacity: .7;

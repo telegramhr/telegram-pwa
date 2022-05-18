@@ -29,14 +29,6 @@ export default {
       },
       { hid: 'canonical', rel: 'canonical', href: 'https:/www.telegram.hr' },
       {
-        hid: 'tk-preconnect',
-        rel: 'preconnect',
-        href: 'https://use.typekit.net',
-        crossorigin: 'anonymous',
-      },
-      { rel: 'stylesheet', href: 'https://use.typekit.net/yjw4lwh.css' },
-      { rel: 'stylesheet', href: 'https://use.typekit.net/vrv6rlv.css' },
-      {
         rel: 'me',
         href: 'https://twitter.com/TelegramHR',
       },
@@ -47,7 +39,7 @@ export default {
       },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=IBM+Plex+Mono:wght@500;600&display=swap',
       },
       {
         rel: 'preload',
