@@ -38,9 +38,7 @@ export default () => {
     }
     const now = Date.now()
     value = value * 1000
-    const diff = (now - value) / 1000
-    let m = diff % 3600
-    m = Math.round(m / 60)
+    const m = Math.round((now - value) / 60000)
     if (m < 60) {
       return m
     } else {
