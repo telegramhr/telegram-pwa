@@ -221,7 +221,7 @@ export default {
   },
 
   purgeCSS: {
-    enabled: false,
+    enabled: true,
     whitelistPatterns: [
       /slick/,
       /banner/,
