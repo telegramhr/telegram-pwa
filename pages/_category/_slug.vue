@@ -324,7 +324,9 @@
                   ></div>
                 </div>
                 <mini-pretplata
-                  v-show="!$store.state.user.access"
+                  v-show="
+                    !$store.state.user.access && post.type === 'commentary'
+                  "
                 ></mini-pretplata>
               </div>
             </div>
