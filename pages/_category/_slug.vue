@@ -146,7 +146,10 @@
                   >
                 </template>
                 <client-only>
-                  <subscribe-link :author="post.authors[0]"></subscribe-link>
+                  <subscribe-link
+                    v-if="post.type === 'commentary'"
+                    :author="post.authors[0]"
+                  ></subscribe-link>
                 </client-only>
               </h5>
               <div
@@ -241,12 +244,6 @@
               ></ad-unit>
             </div>
             <div class="full relative single-article-body">
-              <client-only>
-                <subscribe-link
-                  v-show="!$mobile && post.type !== 'commentary'"
-                  :author="post.authors[0]"
-                ></subscribe-link>
-              </client-only>
               <!-- eslint-disable vue/no-v-html -->
               <div
                 id="article-content"
@@ -324,9 +321,7 @@
                   ></div>
                 </div>
                 <mini-pretplata
-                  v-show="
-                    !$store.state.user.access && post.type === 'commentary'
-                  "
+                  v-show="!$store.state.user.access"
                 ></mini-pretplata>
               </div>
             </div>
