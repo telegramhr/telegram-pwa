@@ -83,6 +83,7 @@
         </nav>
         <div class="flex desktop-only">
           <client-only>
+            <!-- TODO: Maknuti odjavu iz ove prve tipke, treba biti samo prijava. Kada je korisnik prijavljen da se prikazuje samo link na "Moj račun" -->
             <a class="newbtn newbtn-empty" @click.prevent="manageLogin">{{
               canLogIn ? 'Prijava' : 'Odjava'
             }}</a>
@@ -92,6 +93,16 @@
               class="newbtn"
               >Pretplatite se</app-link
             >
+            <!-- TODO: uncomment this one 
+            <app-link
+              v-show="!canLogIn"
+              to="/moj-racun"
+              class="newbtn newbtn-empty"
+              aria-label="Moj račun"
+            >
+              Moj račun
+            </app-link>
+            -->
           </client-only>
         </div>
       </div>
@@ -118,6 +129,12 @@
         >
           <div class="full flex relative column-bottom-border"></div>
         </div>
+        <!-- TODO: link to wordpress field, same as breaking
+          <h2
+          class="full major-event-header mobile-order-1 mobile-side-pad column-horizontal-pad column-bottom-pad center-text"
+        >
+          Rusi napadaju istok Ukrajine
+        </h2>-->
         <div
           class="three-fourths featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad column-right-border mobile-order-1"
         >

@@ -299,9 +299,6 @@
               class="signup-btn sub-btn"
               >Pretplatite se</app-link
             >
-            <a v-show="!canLogIn" class="signup-btn" @click.prevent="logout"
-              >Odjava</a
-            >
             <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun">
               <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
             </app-link>

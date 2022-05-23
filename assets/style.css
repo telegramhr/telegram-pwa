@@ -7547,6 +7547,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .tablet-only {
     display: none;
 }
+.cantha-block-title .newbtn-empty:last-child {
+    padding-right: 0px;
+}
+.major-event-header {
+    font-size: 3rem;
+}
 
 @media screen and (max-width: 767px) {
     .main-container {
@@ -7928,6 +7934,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .fancy-authors-widget .article-featured h2 {
         font-size: 18px;
         font-size: 0.9rem;
+    }
+    .major-event-header {
+        font-size: 2rem;
+        margin-top: 4vw;
     }
 }
 @media screen and (min-width: 767px) {
@@ -8519,18 +8529,4 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-style: normal;
     line-height: 1.2em;
     letter-spacing: normal;
-}
-/* Ukraine */
-
-.ukraine-mobile-header {
-    color: white;
-    font-size: 13vw;
-    text-transform: uppercase;
-    margin-bottom: 3vw;
-    margin-top: 2vw;
-}
-.ukraine-header {
-    font-size: 101px;
-    text-transform: uppercase;
-    line-height: 71px;
 }
