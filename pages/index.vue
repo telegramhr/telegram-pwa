@@ -84,16 +84,18 @@
         <div class="flex desktop-only">
           <client-only>
             <!-- TODO: Maknuti odjavu iz ove prve tipke, treba biti samo prijava. Kada je korisnik prijavljen da se prikazuje samo link na "Moj račun" -->
-            <a class="newbtn newbtn-empty" @click.prevent="manageLogin">{{
-              canLogIn ? 'Prijava' : 'Odjava'
-            }}</a>
+            <a
+              v-show="canLogIn"
+              class="newbtn newbtn-empty"
+              @click.prevent="manageLogin"
+              >Prijava</a
+            >
             <app-link
               v-show="!$store.state.user.access"
               to="/pretplata"
               class="newbtn"
               >Pretplatite se</app-link
             >
-            <!-- TODO: uncomment this one 
             <app-link
               v-show="!canLogIn"
               to="/moj-racun"
@@ -102,7 +104,6 @@
             >
               Moj račun
             </app-link>
-            -->
           </client-only>
         </div>
       </div>
