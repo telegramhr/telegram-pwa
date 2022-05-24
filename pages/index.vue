@@ -130,12 +130,18 @@
         >
           <div class="full flex relative column-bottom-border"></div>
         </div>
-        <!-- TODO: link to wordpress field, same as breaking
-          <h2
+        <h2
+          v-show="$store.state.breaking.on2"
           class="full major-event-header mobile-order-1 mobile-side-pad column-horizontal-pad column-bottom-pad center-text"
         >
-          Rusi napadaju istok Ukrajine
-        </h2>-->
+          <app-link
+            :to="
+              $store.state.breaking.link2 ? $store.state.breaking.link2 : '#'
+            "
+          >
+            {{ $store.state.breaking.title2 }}</app-link
+          >
+        </h2>
         <div
           class="three-fourths featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad column-right-border mobile-order-1"
         >

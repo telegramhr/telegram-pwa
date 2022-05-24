@@ -3,14 +3,20 @@ export const state = () => ({
   title: '',
   link: '',
   on: false,
+  on2: false,
   updated: null,
+  title2: '',
+  link2: '',
 })
 
 export const mutations = {
   setPosts(state, data) {
     state.title = data.title
+    state.title2 = data.title2
     state.on = !!data.title
     state.link = data.link
+    state.link2 = data.link2
+    state.on2 = !!data.title2
     state.prefix = data.prefix
     state.updated = new Date().getTime()
   },
