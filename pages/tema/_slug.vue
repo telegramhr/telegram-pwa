@@ -224,9 +224,13 @@ export default {
   },
   mounted() {
     this.$store.dispatch('ads/initAds', { route: this.$route })
+    this.loadMore()
   },
   methods: {
     loadMore() {
+      if (!this.hasMore) {
+        return
+      }
       this.loading = true
       this.$axios
         .get('/api/tag/' + this.$route.params.slug + '/page/' + this.page)
