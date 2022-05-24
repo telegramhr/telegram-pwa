@@ -231,7 +231,7 @@ export default {
       this.$axios
         .get('/api/tag/' + this.$route.params.slug + '/page/' + this.page)
         .then((res) => {
-          this.morePosts = [...this.morePosts, ...res.data.posts]
+          this.posts = [...this.posts, ...res.data.posts]
           this.page++
           this.loading = false
           if (res.data.posts < 12) {
