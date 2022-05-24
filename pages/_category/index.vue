@@ -55,7 +55,6 @@
           <div
             v-for="post in posts.slice(1, 4)"
             :key="post.id"
-            :post="post"
             class="third flex-responsive column-right-border stretch"
           >
             <div class="full flex column-horizontal-pad">
@@ -141,7 +140,7 @@
         >
           <!-- TODO: add more posts in initial load and add them from here onward -->
           <standard
-            v-for="post in posts.slice(1, 5)"
+            v-for="post in posts.slice(8, 12)"
             :key="post.id"
             :post="post"
           ></standard>
@@ -161,29 +160,11 @@
         </div>
         <div class="full flex stretch relative no-last-border-mobile">
           <div
-            v-for="post in posts.slice(5, 9)"
+            v-for="post in posts.slice(12)"
             :key="post.id"
             class="fourth flex-responsive column-right-border column-horizontal-pad"
           >
             <standard :post="post"></standard>
-          </div>
-          <div class="full flex column-top-pad">
-            <div
-              v-for="post in posts.slice(1, 5)"
-              :key="post.id"
-              class="fourth flex-responsive column-right-border column-horizontal-pad"
-            >
-              <standard :post="post"></standard>
-            </div>
-          </div>
-          <div v-if="posts.length > 9" class="full flex column-vertical-pad">
-            <div
-              v-for="post in posts.slice(9)"
-              :key="post.id"
-              class="fourth flex-responsive column-horizontal-pad column-bottom-pad"
-            >
-              <standard :post="post"></standard>
-            </div>
           </div>
         </div>
       </div>
@@ -258,6 +239,7 @@ export default {
           author: '',
         },
       })
+      this.loadMore()
     })
   },
   methods: {

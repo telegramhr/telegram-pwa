@@ -1,10 +1,10 @@
 <template>
-  <div :class="['main-container', 'flex', 'category-page', extraClass]">
+  <div class="main-container flex category-page">
     <!-- TG Multiverse header -->
     <div class="full flex relative single-article">
       <client-only>
         <!-- TODO: staviti da bude "Članci na temu X" kao što je u section titleu. -->
-        <theader :headline="cat | parseCat"></theader>
+        <theader :headline="`Članci na temu ${cat}` | parseCat"></theader>
       </client-only>
     </div>
     <!-- Wallpapers -->
@@ -56,7 +56,6 @@
           <div
             v-for="post in posts.slice(1, 4)"
             :key="post.id"
-            :post="post"
             class="third flex-responsive column-right-border stretch"
           >
             <div class="full flex column-horizontal-pad">
@@ -140,9 +139,8 @@
         <div
           class="fourth flex-responsive column-horizontal-pad desktop-mini-force"
         >
-          <!-- TODO: add more posts in initial load and add them from here onward -->
           <standard
-            v-for="post in posts.slice(1, 5)"
+            v-for="post in posts.slice(8, 12)"
             :key="post.id"
             :post="post"
           ></standard>
@@ -162,29 +160,11 @@
         </div>
         <div class="full flex stretch relative no-last-border-mobile">
           <div
-            v-for="post in posts.slice(5, 9)"
+            v-for="post in posts.slice(12)"
             :key="post.id"
             class="fourth flex-responsive column-right-border column-horizontal-pad"
           >
             <standard :post="post"></standard>
-          </div>
-          <div class="full flex column-top-pad">
-            <div
-              v-for="post in posts.slice(1, 5)"
-              :key="post.id"
-              class="fourth flex-responsive column-right-border column-horizontal-pad"
-            >
-              <standard :post="post"></standard>
-            </div>
-          </div>
-          <div v-if="posts.length > 9" class="full flex column-vertical-pad">
-            <div
-              v-for="post in posts.slice(9)"
-              :key="post.id"
-              class="fourth flex-responsive column-horizontal-pad column-bottom-pad"
-            >
-              <standard :post="post"></standard>
-            </div>
           </div>
         </div>
       </div>
@@ -208,89 +188,6 @@
     </div>
     <tfooter></tfooter>
   </div>
-  <!--<div class="main-container flex category-page">
-    <div class="full flex relative single-article">
-      <client-only>
-        <theader></theader>
-      </client-only>
-    </div>
-
-    <div class="block-title news-block-title full mobile-side-pad">
-      <div class="full block-title-pattern relative"></div>
-      <div class="container flex relative">
-        <h1 class="full column-left-pad">{{ category }}</h1>
-      </div>
-    </div>
-    <div
-      v-if="posts.length"
-      class="container flex relative standard-block block-1 stretch"
-    >
-      <section
-        class="three-fourths flex-responsive flex relative the-big-gs stretch elevate-over-section"
-      >
-        <div
-          class="two-thirds flex-responsive flex column-horizontal-pad column-right-border mobile-side-pad"
-        >
-          <template v-for="i in [0, 1, 2, 3]">
-            <featured v-if="posts[i]" :key="i" :post="posts[i]" />
-          </template>
-        </div>
-        <div class="full flex mobile-only">
-          <newsletter></newsletter>
-        </div>
-        <div
-          class="third flex-responsive column-horizontal-pad flex mobile-side-pad"
-        >
-          <template v-for="i in [4, 5, 6, 7, 8]">
-            <standard v-if="posts[i]" :key="i" :post="posts[i]" />
-          </template>
-        </div>
-      </section>
-      <section
-        class="fourth flex-responsive flex komentari mobile-side-pad column-horizontal-pad column-right-border"
-      >
-        <div class="full flex desktop-only">
-          <latest :portal="1"></latest>
-          <div class="full column-horizontal-pad column-top-pad">
-            <div class="full cantha-separator"></div>
-          </div>
-          <h3 class="full center-text column-full-pad subsection-title">
-            Newsletter
-          </h3>
-          <newsletter></newsletter>
-        </div>
-      </section>
-      <div v-if="morePosts.length" class="full flex">
-        <div
-          class="container flex relative native-block stretch mobile-side-pad"
-        >
-          <div
-            v-for="post in morePosts"
-            :key="post.id"
-            class="fourth flex-responsive column-full-pad"
-          >
-            <standard :post="post"></standard>
-          </div>
-        </div>
-      </div>
-      <div
-        v-if="hasMore"
-        class="full center subtle-btn-parent relative clickable"
-        @click="loadMore"
-      >
-        <div class="subtle-btn animate">Vidi više</div>
-        <div class="subtle-btn-line"></div>
-        <div class="full center cool-loader hide">
-          <div class="loader-square">
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <tfooter></tfooter>
-  </div>-->
 </template>
 
 <script>
@@ -302,7 +199,7 @@ export default {
       .then((res) => {
         this.posts = res.data.posts
         this.category = res.data.tag
-        if (res.data.posts.length < 9) {
+        if (res.data.posts.length < 12) {
           this.hasMore = false
         }
       })
@@ -317,6 +214,7 @@ export default {
       morePosts: [],
       page: 2,
       hasMore: true,
+      loading: false,
     }
   },
   computed: {
@@ -336,7 +234,7 @@ export default {
           this.morePosts = [...this.morePosts, ...res.data.posts]
           this.page++
           this.loading = false
-          if (res.data.posts < 9) {
+          if (res.data.posts < 12) {
             this.hasMore = false
           }
         })
