@@ -29,21 +29,10 @@ export default ({ route }) => {
         x[x.length] = arguments
       }
   }
-  window.googlefc = window.googlefc || {}
-  window.googlefc.callbackQueue = window.googlefc.callbackQueue || []
-  window.googletag = window.googletag || {}
-  window.googletag.cmd = window.googletag.cmd || []
-  /* global __tcfapi */
-  window.googlefc.callbackQueue.push({
-    CONSENT_DATA_READY: () =>
-      __tcfapi('getTCData', 0, (data, success) => {
-        console.log('works')
-        gemius_pending('gemius_hit')
-        gemius_pending('gemius_event')
-        gemius_pending('pp_gemius_hit')
-        gemius_pending('pp_gemius_event')
-      }),
-  })
+  gemius_pending('gemius_hit')
+  gemius_pending('gemius_event')
+  gemius_pending('pp_gemius_hit')
+  gemius_pending('pp_gemius_event')
 
   ;(function (d, t) {
     try {
