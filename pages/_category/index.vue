@@ -139,6 +139,7 @@
         <div
           class="fourth flex-responsive column-horizontal-pad desktop-mini-force"
         >
+          <!-- TODO: add more posts in initial load and add them from here onward -->
           <standard
             v-for="post in posts.slice(1, 5)"
             :key="post.id"
