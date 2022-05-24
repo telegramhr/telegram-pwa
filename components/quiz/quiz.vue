@@ -94,7 +94,6 @@ export default {
             params: this.answers,
           })
           .catch(() => {
-            console.log('catch')
             this.$refs.carousel.next()
           })
       }

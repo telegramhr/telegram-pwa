@@ -37,6 +37,7 @@ export default ({ route }) => {
   window.googlefc.callbackQueue.push({
     CONSENT_DATA_READY: () =>
       __tcfapi('getTCData', 0, (data, success) => {
+        console.log('works')
         gemius_pending('gemius_hit')
         gemius_pending('gemius_event')
         gemius_pending('pp_gemius_hit')

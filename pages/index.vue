@@ -146,6 +146,7 @@
           class="three-fourths featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad column-right-border mobile-order-1"
         >
           <featured-alt
+            v-if="posts[0]"
             :key="`featured-${posts[0].id}`"
             :post="posts[0]"
           ></featured-alt>
