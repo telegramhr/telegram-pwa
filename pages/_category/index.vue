@@ -161,7 +161,7 @@
           <div
             v-for="post in posts.slice(12)"
             :key="post.id"
-            class="fourth flex-responsive column-right-border column-horizontal-pad"
+            class="fourth flex-responsive column-right-border column-horizontal-pad column-botton-margin"
           >
             <standard :post="post"></standard>
           </div>

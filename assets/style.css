@@ -3935,6 +3935,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .column-bottom-pad {
         padding-bottom: 24px;
     }
+    .column-botton-margin {
+        margin-bottom: 24px;
+    }
     .article-featured img {
         margin-bottom: 10px;
     }
