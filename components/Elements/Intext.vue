@@ -92,6 +92,9 @@ export default {
       if (el) {
         this.show = true
         el.parentNode.removeChild(el)
+        document
+          .querySelector('#article-content p:last-child')
+          .classList.add('premium-fade-out')
       } else {
         if (this.type === 'load') {
           setTimeout(this.load, 500)
