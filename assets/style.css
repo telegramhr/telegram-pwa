@@ -2937,11 +2937,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     display: block;
     font-family: 'Barlow', sans-serif;
     font-weight: 600;
-    text-transform: uppercase;
     background-color: white;
     position: relative;
     z-index: 5;
-    border: 1px solid #c1b9b1;
+    border-radius: 2px;
     color: white;
     background-color: #ae3737;
     margin-bottom: -40px;
@@ -8532,4 +8531,153 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-style: normal;
     line-height: 1.2em;
     letter-spacing: normal;
+}
+
+/* Knjige */
+
+.knjiga-header {
+    padding-top: 48px;
+}
+.knjiga-header h3.overtitle,
+.exclusive-msg {
+    font-size: 14px;
+    margin-top: 0px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+}
+.knjiga-hero {
+    margin-top: 45vw;
+    max-width: 100%;
+    padding-bottom: 48px;
+}
+.exclusive-msg span {
+    padding-top: 3px;
+    margin-top: 24px;
+    padding-bottom: 4px;
+    display: inline-block;
+    border-top: 2px solid #ae3737;
+    border-bottom: 2px solid #ae3737;
+}
+.knjiga-header h1 {
+    font-size: 64px;
+    font-size: 3.2rem;
+    margin-bottom: 16px;
+}
+.knjiga-cover {
+    padding: 0px 15vw;
+    margin-top: -40vw;
+}
+.knjiga-cover img {
+    margin: 0 auto;
+    width: 100%;
+}
+.book-quote {
+    margin-top: 32px;
+    padding-top: 24px;
+    margin-bottom: 24px;
+    background-color: #212121;
+    color: white;
+    overflow: hidden;
+    font-family: 'Lora', serif;
+}
+.book-quote p {
+    font-size: 18px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    line-height: 1.3em;
+    margin-top: 24px;
+    position: relative;
+    z-index: 5;
+}
+.quote-author {
+    margin-top: 16px;
+    font-style: italic;
+    font-size: 14px;
+    font-size: 0.7rem;
+    position: relative;
+    z-index: 5;
+}
+.knjiga-hero {
+    border: 1px solid #c8c8c8;
+    margin-bottom: 24px;
+}
+.knjiga-hero .btn {
+    font-size: 20px;
+    font-size: 1rem;
+    padding: 6px 16px;
+    padding-top: 5px;
+}
+.knjiga-features h1 {
+    margin-top: 32px;
+    font-size: 28px;
+    font-size: 2.4rem;
+    line-height: 1em;
+}
+.knjiga-features h2 {
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+.book-quote img {
+    width: 200vw;
+    max-width: 200vw;
+    position: relative;
+    left: -50vw;
+}
+.special-sub-cta {
+    font-size: 16px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    margin-bottom: 24px;
+    line-height: 1rem;
+    opacity: 0.7;
+}
+.single-article .single-article-body .knjiga-keypoints p {
+    opacity: 0.7;
+    font-size: 14px;
+    font-size: 0.7rem;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0px;
+    text-transform: uppercase;
+}
+.knjiga-page .gallery-content {
+    padding: 0px;
+}
+.knjiga-page .pretplata-packboxes a.undertitle {
+    margin-bottom: 0px;
+}
+@media screen and (min-width: 1025px) {
+    .knjiga-cover {
+        padding: 0px;
+        margin-top: -200px;
+    }
+    .knjiga-hero {
+        margin-top: 170px;
+    }
+    .knjiga-cover img {
+        max-width: 300px;
+    }
+    .knjiga-header h1 {
+        font-size: 74px;
+        font-size: 3.7rem;
+    }
+    .knjiga-header {
+        padding-top: 5vw;
+    }
+    .knjiga-header h3.overtitle {
+        font-size: 18px;
+        font-size: 0.9rem;
+    }
+    .book-quote p {
+        font-size: 36px;
+        font-size: 1.8rem;
+    }
+    .book-quote img {
+        width: 100%;
+        max-width: 100%;
+        margin-top: -48px;
+        left: auto;
+    }
 }
