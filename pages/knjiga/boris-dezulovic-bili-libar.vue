@@ -69,18 +69,13 @@
       </div>
       <div class="full flex relative single-article-body mobile-side-pad">
         <p class="full">
-          Autor ove knjige reći će vam da je “rođen iza sjeverne branke Starog
-          placa, na tribini za trudnice i novorođenčad”, kao i otkriti kako će
-          glasiti njegov epitaf: “Boro Dežulović, strijelac povijesnog prvog
-          gola na poljudskom stadionu”. S te će dvije crtice omeđiti čitav svoj
-          život u kojem je samo želio biti umirovljena legenda Hajduka, ali ga
-          je on odveo putem piskaranja i podrivanja ustavnih poredaka. U ovoj
-          knjizi reći će vam Dežulović mnogo toga o sebi, mnogo više nego što
-          ste mogli saznati čitajući njegove kolumne o poslovično teškim do-
-          maćim društveno-političkim temama, ali neće vam dati da se za to
+          U ovoj knjizi reći će vam Dežulović mnogo toga o sebi, mnogo više nego
+          što ste mogli saznati čitajući njegove kolumne o poslovično teškim
+          domaćim društveno-političkim temama, ali neće vam dati da se za to
           uhvatite čak i ako zaigrate bunker protiv njega. Koristit će Hajduk
           kao medij razotkrivajući sebe, a sebe da bi razotkrio Hajduk na način
-          na koji nitko nikad nije.
+          na koji nitko nikad nije. Bili libar knjiga je o ljubavi i vječnom
+          životu.
         </p>
       </div>
     </div>
@@ -196,19 +191,21 @@ export default {
   },
   head() {
     return {
-      title: 'Bili libar - nova knjiga Borisa Dežulovića',
+      title: 'Boris Dežulović: Bili libar',
       titleTemplate: '%s | Telegram.hr',
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: 'Bili libar - nova knjiga Borisa Dežulovića',
+          content:
+            'Nova knjiga priča Borisa Dežulovića, o nogometu, Hajduku, ljubavi i životu',
         },
         {
           hid: 'og:description',
           name: 'og:description',
           property: 'og:description',
-          content: 'Bili libar - nova knjiga Borisa Dežulovića',
+          content:
+            'Nova knjiga priča Borisa Dežulovića, o nogometu, Hajduku, ljubavi i životu',
         },
         {
           hid: 'og:type',
@@ -220,14 +217,14 @@ export default {
           hid: 'og:title',
           name: 'og:title',
           property: 'og:title',
-          content: 'Bili libar - nova knjiga Borisa Dežulovića',
+          content: 'Boris Dežulović: Bili libar',
         },
         {
           hid: 'og:image',
           name: 'og:image',
           property: 'og:image',
           content:
-            'https://www.telegram.hr/_nuxt/img/paladino_cover.8a4431d.jpg',
+            'https://www.telegram.hr/wp-content/uploads/2022/05/dezulovic-knjiga-share.jpg',
         },
         {
           hid: 'og:url',
