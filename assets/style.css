@@ -8652,7 +8652,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 20px;
     font-size: 2rem;
     font-family: 'Barlow', sans-serif;
-    margin-top: 8px;
+    margin-top: -10px;
 }
 @media screen and (max-width: 767px) {
     .knjiga-features h1 {

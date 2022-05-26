@@ -33,7 +33,7 @@
             <div class="full flex knjiga-features">
               <h1 class="full relative center-text">Cijena: 149 kn</h1>
               <h2 class="full relative center-text">
-                Za Telegram pretplatnike: 99kn
+                Cijena za pretplatnike: 99kn
               </h2>
               <app-link
                 v-show="!$store.state.user.uid"
