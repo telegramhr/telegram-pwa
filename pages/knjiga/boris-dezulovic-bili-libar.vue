@@ -11,23 +11,10 @@
       >
         <div class="container relative flex single-article-body">
           <h3 class="full center-text overtitle">
-            Nova knjiga Borisa Dežulovića
+            Telegram ponosno predstavlja
           </h3>
           <h1 class="full center-text">Bili libar</h1>
-          <p class="full">
-            Autor ove knjige reći će vam da je “rođen iza sjeverne branke Starog
-            placa, na tribini za trudnice i novorođenčad”, kao i otkriti kako će
-            glasiti njegov epitaf: “Boro Dežulović, strijelac povijesnog prvog
-            gola na poljudskom stadionu”. S te će dvije crtice omeđiti čitav
-            svoj život u kojem je samo želio biti umirovljena legenda Hajduka,
-            ali ga je on odveo putem piskaranja i podrivanja ustavnih poredaka.
-            U ovoj knjizi reći će vam Dežulović mnogo toga o sebi, mnogo više
-            nego što ste mogli saznati čitajući njegove kolumne o poslovično
-            teškim do- maćim društveno-političkim temama, ali neće vam dati da
-            se za to uhvatite čak i ako zaigrate bunker protiv njega. Koristit
-            će Hajduk kao medij razotkrivajući sebe, a sebe da bi razotkrio
-            Hajduk na način na koji nitko nikad nije.
-          </p>
+          <h4 class="full center-text">Boris Dežulović</h4>
         </div>
       </div>
       <div class="full flex relative single-article-body">
@@ -79,6 +66,22 @@
             Ako knjigu Bili Libar želite platiti virmanom, javite nam se.
           </a>
         </div>
+      </div>
+      <div class="full flex relative single-article-body mobile-side-pad">
+        <p class="full">
+          Autor ove knjige reći će vam da je “rođen iza sjeverne branke Starog
+          placa, na tribini za trudnice i novorođenčad”, kao i otkriti kako će
+          glasiti njegov epitaf: “Boro Dežulović, strijelac povijesnog prvog
+          gola na poljudskom stadionu”. S te će dvije crtice omeđiti čitav svoj
+          život u kojem je samo želio biti umirovljena legenda Hajduka, ali ga
+          je on odveo putem piskaranja i podrivanja ustavnih poredaka. U ovoj
+          knjizi reći će vam Dežulović mnogo toga o sebi, mnogo više nego što
+          ste mogli saznati čitajući njegove kolumne o poslovično teškim do-
+          maćim društveno-političkim temama, ali neće vam dati da se za to
+          uhvatite čak i ako zaigrate bunker protiv njega. Koristit će Hajduk
+          kao medij razotkrivajući sebe, a sebe da bi razotkrio Hajduk na način
+          na koji nitko nikad nije.
+        </p>
       </div>
     </div>
     <div class="full flex relative book-quote">

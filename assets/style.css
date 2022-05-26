@@ -8648,6 +8648,22 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .knjiga-page .pretplata-packboxes a.undertitle {
     margin-bottom: 0px;
 }
+.knjiga-header h4 {
+    font-size: 20px;
+    font-size: 2rem;
+    font-family: 'Barlow', sans-serif;
+    margin-top: 8px;
+}
+@media screen and (max-width: 767px) {
+    .knjiga-features h1 {
+        font-size: 40px;
+        font-size: 2rem;
+    }
+    .knjiga-features h2 {
+        font-size: 18px;
+        font-size: 0.9rem;
+    }
+}
 @media screen and (min-width: 1025px) {
     .knjiga-cover {
         padding: 0px;
@@ -8662,6 +8678,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .knjiga-header h1 {
         font-size: 74px;
         font-size: 3.7rem;
+    }
+    .knjiga-header h4 {
+        font-size: 47px;
+        font-size: 2.35rem;
     }
     .knjiga-header {
         padding-top: 5vw;
