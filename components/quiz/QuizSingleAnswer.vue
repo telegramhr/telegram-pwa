@@ -11,12 +11,14 @@
       <span>
         {{ answer.text }}
         <font-awesome-icon
-          v-if="answer.correct && answered"
+          v-if="!data.disable_answer && answer.correct && answered"
           :icon="['fas', 'check']"
           style="color: lightgreen; margin-left: 20px"
         ></font-awesome-icon>
         <font-awesome-icon
-          v-if="answer.id === answered && !answer.correct"
+          v-if="
+            !data.disable_answer && answer.id === answered && !answer.correct
+          "
           :icon="['fas', 'times']"
           style="color: lightcoral; margin-left: 20px"
         ></font-awesome-icon
@@ -37,6 +39,7 @@ export default {
         return {
           id: 0,
           type: '',
+          disable_answer: false,
           question: '',
           answers: [
             {
