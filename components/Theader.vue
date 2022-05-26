@@ -21,6 +21,7 @@
         <div class="half" role="menu">
           <client-only>
             <app-link
+              id="pretplatite se - burger menu"
               v-show="!$store.state.user.access"
               to="/pretplata"
               class="signup-btn sub-btn"
@@ -294,6 +295,7 @@
               >Prijava</a
             >
             <app-link
+              id="pretplatite se - header"
               v-show="!$store.state.user.access"
               to="/pretplata"
               class="signup-btn sub-btn"

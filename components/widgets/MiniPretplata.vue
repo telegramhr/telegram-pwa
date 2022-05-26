@@ -1,5 +1,9 @@
 <template>
-  <app-link to="/pretplata" class="full flex stretch relative mini-pretplata">
+  <app-link
+    id="pretplatite se - politicki mocnici"
+    to="/pretplata"
+    class="full flex stretch relative mini-pretplata"
+  >
     <h2 class="full center-text">
       Politički moćnici žele ugasiti Telegram. Podržite nas
     </h2>

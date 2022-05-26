@@ -83,7 +83,6 @@
         </nav>
         <div class="flex desktop-only">
           <client-only>
-            <!-- TODO: Maknuti odjavu iz ove prve tipke, treba biti samo prijava. Kada je korisnik prijavljen da se prikazuje samo link na "Moj račun" -->
             <a
               v-show="canLogIn"
               class="newbtn newbtn-empty"
@@ -91,6 +90,7 @@
               >Prijava</a
             >
             <app-link
+              id="pretplatite se - header"
               v-show="!$store.state.user.access"
               to="/pretplata"
               class="newbtn"

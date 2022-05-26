@@ -13,7 +13,10 @@
           odaberite jedan od paketa.
         </p>
         <div class="full center">
-          <app-link to="/pretplata" class="btn animate"
+          <app-link
+            id="pretplatite se - footer"
+            to="/pretplata"
+            class="btn animate"
             >Pretplatite se</app-link
           >
           <div class="btn animate" @click="login">Već imam pretplatu</div>

@@ -9,7 +9,9 @@
         {{ subtitle }}
       </p>
       <div class="full center">
-        <app-link to="/pretplata" class="btn animate">Pretplatite se</app-link>
+        <app-link :id="id" to="/pretplata" class="btn animate"
+          >Pretplatite se</app-link
+        >
         <div
           v-show="$store.state.user.access"
           class="btn animate"
@@ -29,6 +31,7 @@ export default {
     return {
       shown: false,
       page: 1,
+      id: '',
       title: 'Bespoštedno novinarstvo koje gura društvo naprijed.',
       subtitle:
         'Za neograničeno čitanje Telegrama i podršku istraživačkim serijalima, pretplatite se na Telegram.',
@@ -43,6 +46,7 @@ export default {
   methods: {
     load(e) {
       if (e.detail) {
+        this.id = e.detail.id
         this.title = e.detail.title
         this.subtitle = e.detail.subtitle
       }
