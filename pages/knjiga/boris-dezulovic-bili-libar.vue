@@ -146,12 +146,12 @@
 
 <script>
 export default {
-  name: 'Paladino',
+  name: 'Dezulovic',
   data() {
     return {
       access: {},
       showModal: false,
-      price: 179,
+      price: 149,
     }
   },
   mounted() {
