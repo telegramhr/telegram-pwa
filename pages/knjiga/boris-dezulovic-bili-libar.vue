@@ -160,7 +160,7 @@ export default {
   methods: {
     getPrice() {
       this.$axios
-        .get('/pretplate/get_price/', {
+        .get('/pretplate/get_price/?book=boro', {
           withCredentials: true,
         })
         .then((res) => {
