@@ -90,8 +90,8 @@
               >Prijava</a
             >
             <app-link
-              id="pretplatite se - header"
               v-show="!$store.state.user.access"
+              id="pretplatite se - header"
               to="/pretplata"
               class="newbtn"
               >Pretplatite se</app-link

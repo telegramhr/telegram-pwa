@@ -12,7 +12,7 @@
       {{ subtitle }}
     </p>
     <div class="full center">
-      <app-link to="/pretplata" :id="id" class="btn">Pretplatite se</app-link>
+      <app-link :id="id" to="/pretplata" class="btn">Pretplatite se</app-link>
       <div
         v-if="!$store.state.user.token"
         class="btn altbtn"

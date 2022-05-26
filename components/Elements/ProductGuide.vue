@@ -1,12 +1,6 @@
 <template>
   <div
-    class="
-      full
-      product-gallery
-      flex
-      article-full-width
-      column-top-border column-bottom-border
-    "
+    class="full product-gallery flex article-full-width column-top-border column-bottom-border"
   >
     <div class="full flex product-gallery-filters">
       <span>Poredaj proizvode:</span>

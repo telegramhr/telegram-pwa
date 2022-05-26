@@ -21,8 +21,8 @@
         <div class="half" role="menu">
           <client-only>
             <app-link
-              id="pretplatite se - burger menu"
               v-show="!$store.state.user.access"
+              id="pretplatite se - burger menu"
               to="/pretplata"
               class="signup-btn sub-btn"
               @click.native="maybeCloseSide"
@@ -295,8 +295,8 @@
               >Prijava</a
             >
             <app-link
-              id="pretplatite se - header"
               v-show="!$store.state.user.access"
+              id="pretplatite se - header"
               to="/pretplata"
               class="signup-btn sub-btn"
               >Pretplatite se</app-link
