@@ -12,7 +12,7 @@
       {{ subtitle }}
     </p>
     <div class="full center">
-      <app-link to="/pretplata" class="btn">Pretplatite se</app-link>
+      <app-link to="/pretplata" :id="id" class="btn">Pretplatite se</app-link>
       <div
         v-if="!$store.state.user.token"
         class="btn altbtn"
@@ -29,6 +29,7 @@ export default {
   name: 'Intext',
   data() {
     return {
+      id: 'pretplatite se - article - svi besplatni članci',
       show: false,
       title: 'Pročitali ste sve besplatne članke u ovom mjesecu.',
       subtitle:
@@ -51,8 +52,10 @@ export default {
         if (this.$store.state.user.token) {
           this.title = e.detail.title_user
           this.subtitle = e.detail.subtitle_user
+          this.id = e.detail.id
         }
       } else {
+        this.id = 'pretplatite se - article - samo za pretplatnike'
         this.title = 'Ovaj članak dostupan je samo pretplatnicima.'
         this.subtitle =
           'Iskoristite božićnu akciju i čitajte prvi mjesec bez limita za samo 1 kunu.'
@@ -71,8 +74,10 @@ export default {
         if (this.$store.state.user.token) {
           this.title = e.detail.title_user
           this.subtitle = e.detail.subtitle_user
+          this.id = e.detail.id
         }
       } else {
+        this.id = 'pretplatite se - article - svi besplatni članci'
         this.title = 'Pročitali ste sve besplatne članke u ovom mjesecu.'
         this.subtitle =
           'Iskoristite božićnu akciju i čitajte prvi mjesec bez limita za samo 1 kunu.'
