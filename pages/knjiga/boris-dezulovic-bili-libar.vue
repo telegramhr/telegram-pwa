@@ -260,3 +260,12 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+@media screen and (max-width: 767px) {
+  .knjiga-cover {
+    padding: 0px;
+    margin-bottom: -10vw;
+  }
+}
+</style>
