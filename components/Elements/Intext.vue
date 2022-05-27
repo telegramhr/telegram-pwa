@@ -71,10 +71,12 @@ export default {
       if (e.detail) {
         this.title = e.detail.title
         this.subtitle = e.detail.subtitle
+        this.id = e.detail.id
         if (this.$store.state.user.token) {
           this.title = e.detail.title_user
           this.subtitle = e.detail.subtitle_user
           this.id = e.detail.id
+          this.id = e.detail.user_id
         }
       } else {
         this.id = 'pretplatite se - article - svi besplatni članci'
@@ -82,6 +84,7 @@ export default {
         this.subtitle =
           'Iskoristite božićnu akciju i čitajte prvi mjesec bez limita za samo 1 kunu.'
         if (this.$store.state.user.token) {
+          this.id = 'pretplatite se - article - nema aktivnu pretplatu'
           this.title = 'Vaš korisnički račun nema aktivnu pretplatu.'
           this.subtitle =
             'Iskoristite božićnu akciju i čitajte prvi mjesec bez limita za samo 1 kunu.'
