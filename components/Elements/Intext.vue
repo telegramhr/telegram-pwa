@@ -49,10 +49,11 @@ export default {
       if (e.detail) {
         this.title = e.detail.title
         this.subtitle = e.detail.subtitle
+        this.id = e.detail.id
         if (this.$store.state.user.token) {
           this.title = e.detail.title_user
           this.subtitle = e.detail.subtitle_user
-          this.id = e.detail.id
+          this.id = e.detail.id_user
         }
       } else {
         this.id = 'pretplatite se - article - samo za pretplatnike'
@@ -76,7 +77,7 @@ export default {
           this.title = e.detail.title_user
           this.subtitle = e.detail.subtitle_user
           this.id = e.detail.id
-          this.id = e.detail.user_id
+          this.id = e.detail.id_user
         }
       } else {
         this.id = 'pretplatite se - article - svi besplatni članci'
