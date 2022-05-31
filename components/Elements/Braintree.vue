@@ -65,7 +65,7 @@
             placeholder="Poštanski broj"
           />
           <small
-            >Ako želite naručite van Hrvatske, molimo javite nam se na
+            >Ako želite naručiti van Hrvatske, molimo javite nam se na
             <a href="mailto:pretplata@telegram.hr"
               >pretplata@telegram.hr</a
             ></small
