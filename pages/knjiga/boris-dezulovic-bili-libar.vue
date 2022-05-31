@@ -320,6 +320,9 @@ export default {
   .knjiga-cover img {
     max-width: 450px;
   }
+  .book-quote img {
+    margin-top: -144px;
+  }
 }
 @media screen and (max-width: 767px) {
   .knjiga-cover {
@@ -329,6 +332,9 @@ export default {
   .knjiga-hero h1:nth-child(2) {
     font-size: 32px;
     font-size: 1.6rem;
+  }
+  .book-quote img {
+    margin-top: -8vw;
   }
 }
 </style>
