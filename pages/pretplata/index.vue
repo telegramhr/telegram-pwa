@@ -7,9 +7,51 @@
         headline="Pretplatite se i podržite naše bespoštedno novinarstvo."
       ></theader>
     </div>
-    <div class="full flex pretplata-page-content">
+    <a
+      href="#pretplata-selector"
+      class="full dark-element book-pretplata-promo relative"
+    >
+      <div class="container relative flex mobile-side-pad">
+        <div class="half column-full-pad center flex-responsive">
+          <div class="full flex article">
+            <h3 class="full overtitle">Specijalna ponuda</h3>
+            <h1 class="full">Telegram <br />+ Bili libar</h1>
+            <h4 class="full">
+              Nova knjiga Borisa Dežulovića,<br />
+              po posebnoj cijeni uz pretplatu
+            </h4>
+          </div>
+        </div>
+        <div class="half stretch flex flex-responsive">
+          <div class="half column-top-pad center flex-responsive">
+            <img
+              src="@/assets/img/tg_knjiga_vizual_dezulovic_pretplata.png"
+              alt="Portret Borisa Dežulovića i naslovnica njegove knjige 'Bili Libar'"
+            />
+          </div>
+          <div class="half center column-horizontal-pad flex-responsive">
+            <div class="full column-left-pad flex article">
+              <h2 class="full relative center-text">
+                <span class="faded strikethrough">149 kn</span> 99 kn
+              </h2>
+              <h2 class="full relative center-text">
+                ekskluzivna prednarudžba za pretplatnike
+              </h2>
+              <div class="full center">
+                <div class="newbtn huge-newbtn">Pretplatite se</div>
+              </div>
+              <h5 class="full center-text">
+                Odaberite jednu od opcija pretplate na Telegram, nakon čega
+                novog Dežulovića možete kupiti po specijalnoj cijeni.
+              </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+    <div id="pretplata-selector" class="full flex pretplata-page-content">
       <div class="full flex relative">
-        <div
+        <!--<div
           class="container relative flex mobile-side-pad stretch column-full-pad"
         >
           <h1 class="full center-text">Priče koje guraju društvo naprijed.</h1>
@@ -17,589 +59,598 @@
             Pretplatite se i podržite naše bespoštedno novinarstvo.
           </p>
         </div>
-      </div>
-      <div class="full flex">
-        <div class="container relative flex pretplata-packs mobile-side-pad">
-          <input
-            id="yeartoggle"
-            type="checkbox"
-            class="yeartoggle"
-            name="yeartoggle"
-          />
-          <div class="full center yeartoggle-parent">
-            <label class="relative">
-              <div class="best-price-sticker animate hide">
-                Najbolja <br />vrijednost
-              </div>
-              <div
-                class="togglemonth"
-                onclick="document.getElementById('yeartoggle').checked = false;"
-              >
-                Mjesečno
-              </div>
-              <div
-                class="toggleyear"
-                onclick="document.getElementById('yeartoggle').checked = true;"
-              >
-                Godišnje
-              </div>
-            </label>
-          </div>
-          <div class="full flex center pretplata-packboxes">
-            <div
-              class="half flex-responsive flex relative pretplata-packbox stretch"
-            >
-              <div class="full flex overtitle-parent">
-                <h3 class="overtitle">Standard</h3>
-              </div>
-              <h2 class="full">49kn</h2>
-              <h4 class="full center-text undertitle">Mjesečno</h4>
-              <div class="full pretplata-benefits">
-                <p class="full animate">
-                  <font-awesome-icon
-                    :icon="['fas', 'check']"
-                  ></font-awesome-icon>
-                  neograničeno čitanje Telegrama
-                </p>
-                <p class="full animate">
-                  <font-awesome-icon
-                    :icon="['fas', 'check']"
-                  ></font-awesome-icon>
-                  specijalni newsletteri
-                </p>
-                <p class="full animate">
-                  <font-awesome-icon
-                    :icon="['fas', 'check']"
-                  ></font-awesome-icon>
-                  surfanje s manje oglasa
-                </p>
-              </div>
-              <div class="full center btn-parent" @click="checkout(one)">
-                <div class="btn animate">Odaberi</div>
-              </div>
-            </div>
-            <div
-              class="half flex-responsive flex relative pretplata-packbox stretch"
-            >
-              <div class="full flex overtitle-parent">
-                <h3 class="overtitle">Premium</h3>
-              </div>
-              <h2 class="full">69kn</h2>
-              <h4 class="full center-text undertitle">Mjesečno</h4>
-              <div class="full pretplata-benefits">
-                <p class="full animate">
-                  <font-awesome-icon
-                    :icon="['fas', 'check']"
-                  ></font-awesome-icon>
-                  neograničeno čitanje Telegrama
-                </p>
-                <p class="full animate">
-                  <font-awesome-icon
-                    :icon="['fas', 'check']"
-                  ></font-awesome-icon>
-                  neograničeno čitanje Telesporta
-                </p>
-                <p class="full animate">
-                  <font-awesome-icon
-                    :icon="['fas', 'check']"
-                  ></font-awesome-icon>
-                  specijalni newsletteri
-                </p>
-                <p class="full animate">
-                  <font-awesome-icon
-                    :icon="['fas', 'check']"
-                  ></font-awesome-icon>
-                  surfanje bez oglasa
-                </p>
-              </div>
-              <div class="full center btn-parent" @click="checkout(two)">
-                <div class="btn animate">Odaberi</div>
-              </div>
-            </div>
-            <div
-              class="half flex-responsive flex relative pretplata-packbox stretch"
-            >
-              <div class="full flex overtitle-parent">
-                <h3 class="overtitle">Standard</h3>
-              </div>
-              <h2 class="full">39kn</h2>
-              <h4 class="full center-text undertitle">
-                mjesečno, za cijelu godinu 468kn
-              </h4>
-              <div class="full pretplata-benefits">
-                <p class="full animate">
-                  <font-awesome-icon
-                    :icon="['fas', 'check']"
-                  ></font-awesome-icon>
-                  neograničeno čitanje Telegrama
-                </p>
-                <p class="full animate">
-                  <font-awesome-icon
-                    :icon="['fas', 'check']"
-                  ></font-awesome-icon>
-                  specijalni newsletteri
-                </p>
-                <p class="full animate">
-                  <font-awesome-icon
-                    :icon="['fas', 'check']"
-                  ></font-awesome-icon>
-                  surfanje s manje oglasa
-                </p>
-              </div>
-              <div class="full center btn-parent" @click="checkout(three)">
-                <div class="btn animate">Odaberi</div>
-              </div>
-            </div>
-            <div
-              class="half flex-responsive flex relative pretplata-packbox stretch"
-            >
-              <div class="full flex overtitle-parent">
-                <h3 class="overtitle">Premium</h3>
-              </div>
-              <h2 class="full">49kn</h2>
-              <h4 class="full center-text undertitle">
-                mjesečno, za cijelu godinu 588kn
-              </h4>
-              <div class="full pretplata-benefits">
-                <p class="full animate">
-                  <font-awesome-icon
-                    :icon="['fas', 'check']"
-                  ></font-awesome-icon>
-                  neograničeno čitanje Telegrama
-                </p>
-                <p class="full animate">
-                  <font-awesome-icon
-                    :icon="['fas', 'check']"
-                  ></font-awesome-icon>
-                  neograničeno čitanje Telesporta
-                </p>
-                <p class="full animate">
-                  <font-awesome-icon
-                    :icon="['fas', 'check']"
-                  ></font-awesome-icon>
-                  specijalni newsletteri
-                </p>
-                <p class="full animate">
-                  <font-awesome-icon
-                    :icon="['fas', 'check']"
-                  ></font-awesome-icon>
-                  surfanje bez oglasa
-                </p>
-              </div>
-              <div class="full center btn-parent" @click="checkout(four)">
-                <div class="btn animate">Odaberi</div>
-              </div>
-            </div>
-            <a
-              href="mailto:pretplata@telegram.hr"
-              class="full center-text undertitle"
-              >Trebat će vam R1 račun ili želite ponudu za pravne osobe? Javite
-              nam se.</a
-            >
-            <div class="full column-horizontal-pad">
-              <app-link
-                to="/pretplata/poklon"
-                class="full flex stretch relative mini-pretplata column-top-pad column-top-border"
-              >
-                <h2 class="full center-text">
-                  Poklonite pretplatu na Telegram.
-                </h2>
-                <div class="full center-text">
-                  Poklon koji se otvara svaki dan, 365 dana
-                  <div class="btn">Pokloni</div>
+      </div>-->
+        <div class="full flex">
+          <div class="container relative flex pretplata-packs mobile-side-pad">
+            <input
+              id="yeartoggle"
+              type="checkbox"
+              class="yeartoggle"
+              name="yeartoggle"
+            />
+            <div class="full center yeartoggle-parent">
+              <label class="relative">
+                <div class="best-price-sticker animate hide">
+                  Najbolja <br />vrijednost
                 </div>
-              </app-link>
+                <div
+                  class="togglemonth"
+                  onclick="document.getElementById('yeartoggle').checked = false;"
+                >
+                  Mjesečno
+                </div>
+                <div
+                  class="toggleyear"
+                  onclick="document.getElementById('yeartoggle').checked = true;"
+                >
+                  Godišnje
+                </div>
+              </label>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="full flex relative">
-        <div class="container relative flex">
-          <div
-            class="pretplata-keypoint fourth flex-responsive column-full-pad mobile-side-pad"
-          >
-            <a class="full flex relative" href="#keypoint-autori">
-              <img
-                src="@/assets/img/tg_pretplata_mini_vizual_autori.jpg"
-                aria-hidden="true"
-              />
-              <div class="keypoint-text full center">
-                <h3>Vrhunski autori</h3>
+            <div class="full flex center pretplata-packboxes">
+              <div
+                class="half flex-responsive flex relative pretplata-packbox stretch"
+              >
+                <div class="full flex overtitle-parent">
+                  <h3 class="overtitle">Standard</h3>
+                </div>
+                <h2 class="full">49kn</h2>
+                <h4 class="full center-text undertitle">Mjesečno</h4>
+                <div class="full pretplata-benefits">
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    neograničeno čitanje Telegrama
+                  </p>
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    specijalni newsletteri
+                  </p>
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    surfanje s manje oglasa
+                  </p>
+                </div>
+                <div class="full center btn-parent" @click="checkout(one)">
+                  <div class="btn animate">Odaberi</div>
+                </div>
               </div>
-            </a>
-          </div>
-          <div
-            class="pretplata-keypoint fourth flex-responsive column-full-pad mobile-side-pad"
-          >
-            <a class="full flex relative" href="#keypoint-korupcija">
-              <img
-                src="@/assets/img/tg_pretplata_mini_vizual_korupcija.jpg"
-                aria-hidden="true"
-              />
-              <div class="keypoint-text full center">
-                <h3>Otkrivanje korupcije</h3>
+              <div
+                class="half flex-responsive flex relative pretplata-packbox stretch"
+              >
+                <div class="full flex overtitle-parent">
+                  <h3 class="overtitle">Premium</h3>
+                </div>
+                <h2 class="full">69kn</h2>
+                <h4 class="full center-text undertitle">Mjesečno</h4>
+                <div class="full pretplata-benefits">
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    neograničeno čitanje Telegrama
+                  </p>
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    neograničeno čitanje Telesporta
+                  </p>
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    specijalni newsletteri
+                  </p>
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    surfanje bez oglasa
+                  </p>
+                </div>
+                <div class="full center btn-parent" @click="checkout(two)">
+                  <div class="btn animate">Odaberi</div>
+                </div>
               </div>
-            </a>
-          </div>
-          <div
-            class="pretplata-keypoint fourth flex-responsive column-full-pad mobile-side-pad"
-          >
-            <a class="full flex relative" href="#keypoint-istrazivacki">
-              <img
-                src="@/assets/img/tg_pretplata_mini_vizual_istrazivacki.jpg"
-                aria-hidden="true"
-              />
-              <div class="keypoint-text full center">
-                <h3>Istraživački specijali</h3>
+              <div
+                class="half flex-responsive flex relative pretplata-packbox stretch"
+              >
+                <div class="full flex overtitle-parent">
+                  <h3 class="overtitle">Standard</h3>
+                </div>
+                <h2 class="full">39kn</h2>
+                <h4 class="full center-text undertitle">
+                  mjesečno, za cijelu godinu 468kn
+                </h4>
+                <div class="full pretplata-benefits">
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    neograničeno čitanje Telegrama
+                  </p>
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    specijalni newsletteri
+                  </p>
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    surfanje s manje oglasa
+                  </p>
+                </div>
+                <div class="full center btn-parent" @click="checkout(three)">
+                  <div class="btn animate">Odaberi</div>
+                </div>
               </div>
-            </a>
-          </div>
-          <div
-            class="pretplata-keypoint fourth flex-responsive column-full-pad mobile-side-pad"
-          >
-            <a class="full flex relative" href="#keypoint-inspiracija">
-              <img
-                src="@/assets/img/tg_pretplata_mini_vizual_inspiracija.jpg"
-                aria-hidden="true"
-              />
-              <div class="keypoint-text full center">
-                <h3>Inspirativne reportaže</h3>
+              <div
+                class="half flex-responsive flex relative pretplata-packbox stretch"
+              >
+                <div class="full flex overtitle-parent">
+                  <h3 class="overtitle">Premium</h3>
+                </div>
+                <h2 class="full">49kn</h2>
+                <h4 class="full center-text undertitle">
+                  mjesečno, za cijelu godinu 588kn
+                </h4>
+                <div class="full pretplata-benefits">
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    neograničeno čitanje Telegrama
+                  </p>
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    neograničeno čitanje Telesporta
+                  </p>
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    specijalni newsletteri
+                  </p>
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    surfanje bez oglasa
+                  </p>
+                </div>
+                <div class="full center btn-parent" @click="checkout(four)">
+                  <div class="btn animate">Odaberi</div>
+                </div>
               </div>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div id="keypoint-autori" class="full flex relative sub-point">
-        <div class="container relative flex mobile-side-pad stretch">
-          <div class="half flex-responsive column-full-pad">
-            <img
-              src="@/assets/img/tg_pretplata_keypoint_vizual_autori.jpg"
-              aria-hidden="true"
-              class="light-mode-only"
-            />
-            <img
-              src="@/assets/img/tg_pretplata_keypoint_vizual_autori_dark.jpg"
-              aria-hidden="true"
-              class="dark-mode-only"
-            />
-            <img
-              src="@/assets/img/tg_pretplata_keypoint_vizual_autori_white.jpg"
-              aria-hidden="true"
-              class="contrast-mode-only"
-            />
-          </div>
-          <div class="half center flex-responsive column-full-pad">
-            <div class="full flex">
-              <h2 class="full">
-                Autorski pristup i dublji uvid u ključne društvene teme
-              </h2>
-              <p>
-                Telegramovu ekipu čine renomirana imena i nagrađivani novinari
-                kao što su Drago Hedl, Sanja Modrić, Andrej Dimitrijević, Ana
-                Raić Knežević, Jasmin Klarić, Marko Repecki, Dora Kršul, Goranko
-                Fižulić, Aleksandar Holiga, Mladen Pleše, Vjekoslav Skledar,
-                Đivo Đurović i mnogi drugi. A želimo se, naravno, i pojačati.
-              </p>
+              <a
+                href="mailto:pretplata@telegram.hr"
+                class="full center-text undertitle"
+                >Trebat će vam R1 račun ili želite ponudu za pravne osobe?
+                Javite nam se.</a
+              >
+              <div class="full column-horizontal-pad">
+                <app-link
+                  to="/pretplata/poklon"
+                  class="full flex stretch relative mini-pretplata column-top-pad column-top-border"
+                >
+                  <h2 class="full center-text">
+                    Poklonite pretplatu na Telegram.
+                  </h2>
+                  <div class="full center-text">
+                    Poklon koji se otvara svaki dan, 365 dana
+                    <div class="btn">Pokloni</div>
+                  </div>
+                </app-link>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div
-        id="keypoint-korupcija"
-        class="full flex relative sub-point alt-sub-point"
-      >
-        <div class="container relative flex mobile-side-pad stretch">
-          <div class="half flex-responsive column-full-pad">
-            <img
-              src="@/assets/img/tg_pretplata_keypoint_vizual_korupcija.jpg"
-              aria-hidden="true"
-              class="light-mode-only"
-            />
-            <img
-              src="@/assets/img/tg_pretplata_keypoint_vizual_korupcija_dark.jpg"
-              aria-hidden="true"
-              class="dark-mode-only"
-            />
-            <img
-              src="@/assets/img/tg_pretplata_keypoint_vizual_korupcija_white.jpg"
-              aria-hidden="true"
-              class="contrast-mode-only"
-            />
-          </div>
-          <div class="half center flex-responsive column-full-pad">
-            <div class="full flex">
-              <h2 class="full">
-                Bespoštedne istrage koje moćnici ne mogu ignorirati.
-              </h2>
-              <p>
-                Telegramova otkrića zataškanih kvadrata, nesrazmjera primanja i
-                imovine i drugih sumnjivih radnji dovela su do smjene
-                potpredsjednika Vlade Tomislava Tolušića, ministra Kuščevića i
-                ministra Kujundžića, kao i velikog broja lokalnih moćnika. No,
-                ne mislimo stati.
-              </p>
+        <div class="full flex relative">
+          <div class="container relative flex">
+            <div
+              class="pretplata-keypoint fourth flex-responsive column-full-pad mobile-side-pad"
+            >
+              <a class="full flex relative" href="#keypoint-autori">
+                <img
+                  src="@/assets/img/tg_pretplata_mini_vizual_autori.jpg"
+                  aria-hidden="true"
+                />
+                <div class="keypoint-text full center">
+                  <h3>Vrhunski autori</h3>
+                </div>
+              </a>
+            </div>
+            <div
+              class="pretplata-keypoint fourth flex-responsive column-full-pad mobile-side-pad"
+            >
+              <a class="full flex relative" href="#keypoint-korupcija">
+                <img
+                  src="@/assets/img/tg_pretplata_mini_vizual_korupcija.jpg"
+                  aria-hidden="true"
+                />
+                <div class="keypoint-text full center">
+                  <h3>Otkrivanje korupcije</h3>
+                </div>
+              </a>
+            </div>
+            <div
+              class="pretplata-keypoint fourth flex-responsive column-full-pad mobile-side-pad"
+            >
+              <a class="full flex relative" href="#keypoint-istrazivacki">
+                <img
+                  src="@/assets/img/tg_pretplata_mini_vizual_istrazivacki.jpg"
+                  aria-hidden="true"
+                />
+                <div class="keypoint-text full center">
+                  <h3>Istraživački specijali</h3>
+                </div>
+              </a>
+            </div>
+            <div
+              class="pretplata-keypoint fourth flex-responsive column-full-pad mobile-side-pad"
+            >
+              <a class="full flex relative" href="#keypoint-inspiracija">
+                <img
+                  src="@/assets/img/tg_pretplata_mini_vizual_inspiracija.jpg"
+                  aria-hidden="true"
+                />
+                <div class="keypoint-text full center">
+                  <h3>Inspirativne reportaže</h3>
+                </div>
+              </a>
             </div>
           </div>
         </div>
-      </div>
-      <div id="keypoint-istrazivacki" class="full flex relative sub-point">
-        <div class="container relative flex mobile-side-pad stretch">
-          <div class="half flex-responsive column-full-pad">
-            <img
-              src="@/assets/img/tg_pretplata_keypoint_vizual_istrazivacki.jpg"
-              aria-hidden="true"
-              class="light-mode-only"
-            />
-            <img
-              src="@/assets/img/tg_pretplata_keypoint_vizual_istrazivacki_dark.jpg"
-              aria-hidden="true"
-              class="dark-mode-only"
-            />
-            <img
-              src="@/assets/img/tg_pretplata_keypoint_vizual_istrazivacki_white.jpg"
-              aria-hidden="true"
-              class="contrast-mode-only"
-            />
-          </div>
-          <div class="half center flex-responsive column-full-pad">
-            <div class="full flex">
-              <h2 class="full">
-                Istraživački serijali i otvaranje tema o kojima se šuti.
-              </h2>
-              <p>
-                Otkrili smo i otvorili stotine priča i tema, a među najvažnijima
-                bio je istraživački serijal o zataškanom seksualnom
-                uznemiravanju na Sveučilištu u Zagrebu, nakon čega nas je rektor
-                Boras optužio da izmišljamo iskaze žrtava. A ima još puno tema
-                koje želimo otvoriti.
-              </p>
+        <div id="keypoint-autori" class="full flex relative sub-point">
+          <div class="container relative flex mobile-side-pad stretch">
+            <div class="half flex-responsive column-full-pad">
+              <img
+                src="@/assets/img/tg_pretplata_keypoint_vizual_autori.jpg"
+                aria-hidden="true"
+                class="light-mode-only"
+              />
+              <img
+                src="@/assets/img/tg_pretplata_keypoint_vizual_autori_dark.jpg"
+                aria-hidden="true"
+                class="dark-mode-only"
+              />
+              <img
+                src="@/assets/img/tg_pretplata_keypoint_vizual_autori_white.jpg"
+                aria-hidden="true"
+                class="contrast-mode-only"
+              />
+            </div>
+            <div class="half center flex-responsive column-full-pad">
+              <div class="full flex">
+                <h2 class="full">
+                  Autorski pristup i dublji uvid u ključne društvene teme
+                </h2>
+                <p>
+                  Telegramovu ekipu čine renomirana imena i nagrađivani novinari
+                  kao što su Drago Hedl, Sanja Modrić, Andrej Dimitrijević, Ana
+                  Raić Knežević, Jasmin Klarić, Marko Repecki, Dora Kršul,
+                  Goranko Fižulić, Aleksandar Holiga, Mladen Pleše, Vjekoslav
+                  Skledar, Đivo Đurović i mnogi drugi. A želimo se, naravno, i
+                  pojačati.
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div
-        id="keypoint-inspiracija"
-        class="full flex relative sub-point alt-sub-point"
-      >
-        <div class="container relative flex mobile-side-pad stretch">
-          <div class="half flex-responsive column-full-pad">
-            <img
-              src="@/assets/img/tg_pretplata_keypoint_vizual_inspiracija.jpg"
-              aria-hidden="true"
-              class="light-mode-only"
-            />
-            <img
-              src="@/assets/img/tg_pretplata_keypoint_vizual_inspiracija_dark.jpg"
-              aria-hidden="true"
-              class="dark-mode-only"
-            />
-            <img
-              src="@/assets/img/tg_pretplata_keypoint_vizual_inspiracija_white.jpg"
-              aria-hidden="true"
-              class="contrast-mode-only"
-            />
-          </div>
-          <div class="half center flex-responsive column-full-pad">
-            <div class="full flex">
-              <h2 class="full">
-                Inspirativne priče o ljudima koji guraju Hrvatsku naprijed.
-              </h2>
-              <p>
-                Pozitivne priče o nevjerojatnim postignućima marginaliziranih
-                pojedinca koji su nadvladali teške životne okolnosti i poslovnim
-                uspjesima domaćih genija koji marljivo prkose močvarnom tlu
-                hrvatske ekonomije. To su priče na kakve želimo stavljati sve
-                više fokusa.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="full flex pretplata-faq">
         <div
-          class="container relative flex mobile-side-pad column-full-pad single-article-body"
+          id="keypoint-korupcija"
+          class="full flex relative sub-point alt-sub-point"
         >
-          <h2 class="full">Često postavljana pitanja</h2>
-          <details class="full flex relative">
-            <summary class="full relative">
-              Što je pretplata na Telegram?
-            </summary>
-            <p>
-              Pretplata na Telegram omogućuje Vam, ovisno o paketu, neograničeno
-              čitanje Telegrama i Telesporta, ali i brojne druge benefite i
-              funkcionalnosti poput surfanja bez oglasa, popust na knjige i
-              ekskluzivnih <nuxt-link to="/newsletters">newslettera</nuxt-link>.
-            </p>
-          </details>
-          <details class="full flex relative">
-            <summary class="full relative">
-              Zašto postoji pretplata na Telegramu?
-            </summary>
-            <p>
-              Bespoštedno i neovisno novinarstvo, istraživački specijali i
-              velike priče nisu jeftini. Svake godine stotine tisuća kuna odlaze
-              nam na sudske borbe protiv moćnika koji, nakon što smo ih uhvatili
-              u nedjelima, pokušavaju takvim pritiskom financijski devastirati
-              Telegram. Nerijetko za tužbe i odmazde koriste javni novac,
-              odnosno neograničena sredstva institucija na čijem su čelu, a
-              protiv neograničenih sredstava nije se lako boriti. Upravo zato
-              odlučili smo pitati vas, naše čitatelje, za podršku u ovome što
-              radimo.
-            </p>
-          </details>
-          <details class="full flex relative">
-            <summary class="full relative">
-              Kako da se pretplatim na Telegram?
-            </summary>
-            <p>
-              Vrlo jednostavno, samo odaberite jedan od gore ponuđenih mjesečnih
-              ili godišnjih paketa, a sustav će Vas dalje sam voditi kroz vrlo
-              kratak i jednostavan proces registracije i kupnje.
-            </p>
-          </details>
-          <details class="full flex relative">
-            <summary class="full relative">Koliko košta pretplata?</summary>
-            <p>
-              Cijena pretplate ovisi o paketu koji odaberete. Možete se
-              pretplatiti na mjesečnoj ili godišnjoj bazi i to na samo jedan ili
-              više naših portala. Kako bismo Vam izašli u susret, pripremili smo
-              povoljnu premium opciju mjesečne pretplate, kao i još povoljnije
-              godišnje pretplate.
-            </p>
-          </details>
-          <details class="full flex relative">
-            <summary class="full relative">
-              Koja mi se opcija pretplate najviše isplati?
-            </summary>
-            <p>
-              Najisplativija opcija je godišnja premium pretplata: u njoj za
-              samo 49 kuna mjesečno (godišnji iznos naplaćuje se jednokratno)
-              dobivate godinu dana neograničenog čitanja Telegrama i Telesporta
-              bez oglasa, nove funkcionalnosti koje ćemo uvoditi i popust na
-              knjigu jednog od naših autora.
-            </p>
-          </details>
-          <details class="full flex relative">
-            <summary class="full relative">
-              Kako mogu platiti pretplatu?
-            </summary>
-            <p>
-              Pretplatu možete sigurno platiti svim Maestro, Mastercard, Visa i
-              Diners karticama.
-            </p>
-          </details>
-          <details class="full flex relative">
-            <summary class="full relative">
-              Mogu li nekome pokloniti pretplatu?
-            </summary>
-            <p>
-              Dapače, upravo je u tijeku Božićna akcija darivanja. Samo
-              posjetite
-              <app-link to="/pretplata/poklon">ovu stranicu</app-link> i pratite
-              korake za jedan od najoriginalnijih poklona ovog Božića.
-            </p>
-          </details>
-          <details class="full flex relative">
-            <summary class="full relative">
-              Mogu li čitati Telegram sa svih uređaja jednom kad se pretplatim?
-            </summary>
-            <p>
-              Da, svaki pretplatnik može čitati Telegram na svakom uređaju, bio
-              to mobitel, računalo ili tablet.
-            </p>
-          </details>
-          <details class="full flex relative">
-            <summary class="full relative">
-              Mogu li dijeliti svoju pretplatu s drugima?
-            </summary>
-            <p>
-              Ne, dijeljenje pretplate nije dopušteno, a u slučaju sumnje u
-              dijeljenje pretplate zadržavamo pravo zatvoriti korisnički račun.
-            </p>
-          </details>
-          <details class="full flex relative">
-            <summary class="full relative">
-              Mi smo tvrtka/škola/knjižnica/fakultet, postoji li opcija grupne
-              pretplate?
-            </summary>
-            <p>
-              Za opcije grupne pretplate pravnim osobama javite se na
-              <a href="mailto:pretplata@telegram.hr">pretplata@telegram.hr</a>.
-            </p>
-          </details>
-          <details class="full flex relative">
-            <summary class="full relative">
-              Hoću li moći čitati Telegram i ako se ne pretplatim?
-            </summary>
-            <p>
-              Sve naše članke, pa i najbolje kolumne i istraživačke serijale, i
-              dalje ćete moći nesmetano i besplatno čitati, ali do određene
-              količine mjesečno. Nakon što potrošite svoju količinu besplatnih
-              članaka u mjesecu, da bi ste nastavili čitati bit će Vam potrebna
-              pretplata.
-            </p>
-          </details>
-          <details class="full flex relative">
-            <summary class="full relative">
-              Mogu li se pretplatiti samo na Telesport?
-            </summary>
-            <p>
-              Naravno, možete se pretplatiti samo na Telegram, samo na Telesport
-              ili na oba portala zajedno, kako Vama najbolje odgovara.
-            </p>
-          </details>
-          <details class="full flex relative">
-            <summary class="full relative">
-              Mogu li otkazati pretplatu jednom kad se pretplatim?
-            </summary>
-            <p>
-              Naravno, pretplatu možete samostalno i jednostavno otkazati u bilo
-              kojem trenutku kroz korisničko sučelje.
-            </p>
-          </details>
-          <details class="full flex relative">
-            <summary class="full relative">
-              Kako se obnavlja jednom kupljena pretplata?
-            </summary>
-            <p>
-              Sve mjesečne i godišnje pretplate automatski se obnavljaju po svom
-              isteku na isti vremenski period kako Vi ne biste morali brinuti o
-              tome. Ukoliko želite isključiti automatsku obnovu, to možete
-              jednostavno napraviti jednim klikom u korisničkom sučelju.
-            </p>
-          </details>
-          <details class="full flex relative">
-            <summary class="full relative">
-              Imam pretplatu, no i dalje ne mogu čitati tekstove?
-            </summary>
-            <p>
-              Najvjerojatnije niste prijavljeni u svoj korisnički račun. Kada
-              posjetite Telegram, u gornjem desnom kutu ekrana nalazi se gumb
-              "PRIJAVA", odnosno ikona čovječuljka ako ste na mobilnom uređaju.
-              Klikom na gumb otvorit će Vam se prozor u kojemu se možete
-              prijaviti sa svojom e-mail adresom i lozinkom koju ste postavili,
-              a prepručujemo da ostavite označenom opciju "ostanite prijavljeni"
-              kako se ne biste morali opet prijavljivati pri sljedećem čitanju u
-              istom internetskom pregledniku. Ukoliko ste se prijavljeni, no i
-              dalje ne možete čitati tekstove, javite nam se na
-              <a href="mailto:pretplata@telegram.hr">pretplata@telegram.hr</a>
-              kako bismo što brže riješili problem.
-            </p>
-          </details>
-          <details class="full flex relative">
-            <summary class="full relative">
-              Ne mogu pronaći odgovor na svoje pitanje.
-            </summary>
-            <p>
-              Javite nam se na
-              <a href="mailto:pretplata@telegram.hr">pretplata@telegram.hr</a> i
-              odgovorit ćemo vam u najkraćem roku.
-            </p>
-          </details>
+          <div class="container relative flex mobile-side-pad stretch">
+            <div class="half flex-responsive column-full-pad">
+              <img
+                src="@/assets/img/tg_pretplata_keypoint_vizual_korupcija.jpg"
+                aria-hidden="true"
+                class="light-mode-only"
+              />
+              <img
+                src="@/assets/img/tg_pretplata_keypoint_vizual_korupcija_dark.jpg"
+                aria-hidden="true"
+                class="dark-mode-only"
+              />
+              <img
+                src="@/assets/img/tg_pretplata_keypoint_vizual_korupcija_white.jpg"
+                aria-hidden="true"
+                class="contrast-mode-only"
+              />
+            </div>
+            <div class="half center flex-responsive column-full-pad">
+              <div class="full flex">
+                <h2 class="full">
+                  Bespoštedne istrage koje moćnici ne mogu ignorirati.
+                </h2>
+                <p>
+                  Telegramova otkrića zataškanih kvadrata, nesrazmjera primanja
+                  i imovine i drugih sumnjivih radnji dovela su do smjene
+                  potpredsjednika Vlade Tomislava Tolušića, ministra Kuščevića i
+                  ministra Kujundžića, kao i velikog broja lokalnih moćnika. No,
+                  ne mislimo stati.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="keypoint-istrazivacki" class="full flex relative sub-point">
+          <div class="container relative flex mobile-side-pad stretch">
+            <div class="half flex-responsive column-full-pad">
+              <img
+                src="@/assets/img/tg_pretplata_keypoint_vizual_istrazivacki.jpg"
+                aria-hidden="true"
+                class="light-mode-only"
+              />
+              <img
+                src="@/assets/img/tg_pretplata_keypoint_vizual_istrazivacki_dark.jpg"
+                aria-hidden="true"
+                class="dark-mode-only"
+              />
+              <img
+                src="@/assets/img/tg_pretplata_keypoint_vizual_istrazivacki_white.jpg"
+                aria-hidden="true"
+                class="contrast-mode-only"
+              />
+            </div>
+            <div class="half center flex-responsive column-full-pad">
+              <div class="full flex">
+                <h2 class="full">
+                  Istraživački serijali i otvaranje tema o kojima se šuti.
+                </h2>
+                <p>
+                  Otkrili smo i otvorili stotine priča i tema, a među
+                  najvažnijima bio je istraživački serijal o zataškanom
+                  seksualnom uznemiravanju na Sveučilištu u Zagrebu, nakon čega
+                  nas je rektor Boras optužio da izmišljamo iskaze žrtava. A ima
+                  još puno tema koje želimo otvoriti.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          id="keypoint-inspiracija"
+          class="full flex relative sub-point alt-sub-point"
+        >
+          <div class="container relative flex mobile-side-pad stretch">
+            <div class="half flex-responsive column-full-pad">
+              <img
+                src="@/assets/img/tg_pretplata_keypoint_vizual_inspiracija.jpg"
+                aria-hidden="true"
+                class="light-mode-only"
+              />
+              <img
+                src="@/assets/img/tg_pretplata_keypoint_vizual_inspiracija_dark.jpg"
+                aria-hidden="true"
+                class="dark-mode-only"
+              />
+              <img
+                src="@/assets/img/tg_pretplata_keypoint_vizual_inspiracija_white.jpg"
+                aria-hidden="true"
+                class="contrast-mode-only"
+              />
+            </div>
+            <div class="half center flex-responsive column-full-pad">
+              <div class="full flex">
+                <h2 class="full">
+                  Inspirativne priče o ljudima koji guraju Hrvatsku naprijed.
+                </h2>
+                <p>
+                  Pozitivne priče o nevjerojatnim postignućima marginaliziranih
+                  pojedinca koji su nadvladali teške životne okolnosti i
+                  poslovnim uspjesima domaćih genija koji marljivo prkose
+                  močvarnom tlu hrvatske ekonomije. To su priče na kakve želimo
+                  stavljati sve više fokusa.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="full flex pretplata-faq">
+          <div
+            class="container relative flex mobile-side-pad column-full-pad single-article-body"
+          >
+            <h2 class="full">Često postavljana pitanja</h2>
+            <details class="full flex relative">
+              <summary class="full relative">
+                Što je pretplata na Telegram?
+              </summary>
+              <p>
+                Pretplata na Telegram omogućuje Vam, ovisno o paketu,
+                neograničeno čitanje Telegrama i Telesporta, ali i brojne druge
+                benefite i funkcionalnosti poput surfanja bez oglasa, popust na
+                knjige i ekskluzivnih
+                <nuxt-link to="/newsletters">newslettera</nuxt-link>.
+              </p>
+            </details>
+            <details class="full flex relative">
+              <summary class="full relative">
+                Zašto postoji pretplata na Telegramu?
+              </summary>
+              <p>
+                Bespoštedno i neovisno novinarstvo, istraživački specijali i
+                velike priče nisu jeftini. Svake godine stotine tisuća kuna
+                odlaze nam na sudske borbe protiv moćnika koji, nakon što smo ih
+                uhvatili u nedjelima, pokušavaju takvim pritiskom financijski
+                devastirati Telegram. Nerijetko za tužbe i odmazde koriste javni
+                novac, odnosno neograničena sredstva institucija na čijem su
+                čelu, a protiv neograničenih sredstava nije se lako boriti.
+                Upravo zato odlučili smo pitati vas, naše čitatelje, za podršku
+                u ovome što radimo.
+              </p>
+            </details>
+            <details class="full flex relative">
+              <summary class="full relative">
+                Kako da se pretplatim na Telegram?
+              </summary>
+              <p>
+                Vrlo jednostavno, samo odaberite jedan od gore ponuđenih
+                mjesečnih ili godišnjih paketa, a sustav će Vas dalje sam voditi
+                kroz vrlo kratak i jednostavan proces registracije i kupnje.
+              </p>
+            </details>
+            <details class="full flex relative">
+              <summary class="full relative">Koliko košta pretplata?</summary>
+              <p>
+                Cijena pretplate ovisi o paketu koji odaberete. Možete se
+                pretplatiti na mjesečnoj ili godišnjoj bazi i to na samo jedan
+                ili više naših portala. Kako bismo Vam izašli u susret,
+                pripremili smo povoljnu premium opciju mjesečne pretplate, kao i
+                još povoljnije godišnje pretplate.
+              </p>
+            </details>
+            <details class="full flex relative">
+              <summary class="full relative">
+                Koja mi se opcija pretplate najviše isplati?
+              </summary>
+              <p>
+                Najisplativija opcija je godišnja premium pretplata: u njoj za
+                samo 49 kuna mjesečno (godišnji iznos naplaćuje se jednokratno)
+                dobivate godinu dana neograničenog čitanja Telegrama i
+                Telesporta bez oglasa, nove funkcionalnosti koje ćemo uvoditi i
+                popust na knjigu jednog od naših autora.
+              </p>
+            </details>
+            <details class="full flex relative">
+              <summary class="full relative">
+                Kako mogu platiti pretplatu?
+              </summary>
+              <p>
+                Pretplatu možete sigurno platiti svim Maestro, Mastercard, Visa
+                i Diners karticama.
+              </p>
+            </details>
+            <details class="full flex relative">
+              <summary class="full relative">
+                Mogu li nekome pokloniti pretplatu?
+              </summary>
+              <p>
+                Dapače, upravo je u tijeku Božićna akcija darivanja. Samo
+                posjetite
+                <app-link to="/pretplata/poklon">ovu stranicu</app-link> i
+                pratite korake za jedan od najoriginalnijih poklona ovog Božića.
+              </p>
+            </details>
+            <details class="full flex relative">
+              <summary class="full relative">
+                Mogu li čitati Telegram sa svih uređaja jednom kad se
+                pretplatim?
+              </summary>
+              <p>
+                Da, svaki pretplatnik može čitati Telegram na svakom uređaju,
+                bio to mobitel, računalo ili tablet.
+              </p>
+            </details>
+            <details class="full flex relative">
+              <summary class="full relative">
+                Mogu li dijeliti svoju pretplatu s drugima?
+              </summary>
+              <p>
+                Ne, dijeljenje pretplate nije dopušteno, a u slučaju sumnje u
+                dijeljenje pretplate zadržavamo pravo zatvoriti korisnički
+                račun.
+              </p>
+            </details>
+            <details class="full flex relative">
+              <summary class="full relative">
+                Mi smo tvrtka/škola/knjižnica/fakultet, postoji li opcija grupne
+                pretplate?
+              </summary>
+              <p>
+                Za opcije grupne pretplate pravnim osobama javite se na
+                <a href="mailto:pretplata@telegram.hr">pretplata@telegram.hr</a
+                >.
+              </p>
+            </details>
+            <details class="full flex relative">
+              <summary class="full relative">
+                Hoću li moći čitati Telegram i ako se ne pretplatim?
+              </summary>
+              <p>
+                Sve naše članke, pa i najbolje kolumne i istraživačke serijale,
+                i dalje ćete moći nesmetano i besplatno čitati, ali do određene
+                količine mjesečno. Nakon što potrošite svoju količinu besplatnih
+                članaka u mjesecu, da bi ste nastavili čitati bit će Vam
+                potrebna pretplata.
+              </p>
+            </details>
+            <details class="full flex relative">
+              <summary class="full relative">
+                Mogu li se pretplatiti samo na Telesport?
+              </summary>
+              <p>
+                Naravno, možete se pretplatiti samo na Telegram, samo na
+                Telesport ili na oba portala zajedno, kako Vama najbolje
+                odgovara.
+              </p>
+            </details>
+            <details class="full flex relative">
+              <summary class="full relative">
+                Mogu li otkazati pretplatu jednom kad se pretplatim?
+              </summary>
+              <p>
+                Naravno, pretplatu možete samostalno i jednostavno otkazati u
+                bilo kojem trenutku kroz korisničko sučelje.
+              </p>
+            </details>
+            <details class="full flex relative">
+              <summary class="full relative">
+                Kako se obnavlja jednom kupljena pretplata?
+              </summary>
+              <p>
+                Sve mjesečne i godišnje pretplate automatski se obnavljaju po
+                svom isteku na isti vremenski period kako Vi ne biste morali
+                brinuti o tome. Ukoliko želite isključiti automatsku obnovu, to
+                možete jednostavno napraviti jednim klikom u korisničkom
+                sučelju.
+              </p>
+            </details>
+            <details class="full flex relative">
+              <summary class="full relative">
+                Imam pretplatu, no i dalje ne mogu čitati tekstove?
+              </summary>
+              <p>
+                Najvjerojatnije niste prijavljeni u svoj korisnički račun. Kada
+                posjetite Telegram, u gornjem desnom kutu ekrana nalazi se gumb
+                "PRIJAVA", odnosno ikona čovječuljka ako ste na mobilnom
+                uređaju. Klikom na gumb otvorit će Vam se prozor u kojemu se
+                možete prijaviti sa svojom e-mail adresom i lozinkom koju ste
+                postavili, a prepručujemo da ostavite označenom opciju "ostanite
+                prijavljeni" kako se ne biste morali opet prijavljivati pri
+                sljedećem čitanju u istom internetskom pregledniku. Ukoliko ste
+                se prijavljeni, no i dalje ne možete čitati tekstove, javite nam
+                se na
+                <a href="mailto:pretplata@telegram.hr">pretplata@telegram.hr</a>
+                kako bismo što brže riješili problem.
+              </p>
+            </details>
+            <details class="full flex relative">
+              <summary class="full relative">
+                Ne mogu pronaći odgovor na svoje pitanje.
+              </summary>
+              <p>
+                Javite nam se na
+                <a href="mailto:pretplata@telegram.hr">pretplata@telegram.hr</a>
+                i odgovorit ćemo vam u najkraćem roku.
+              </p>
+            </details>
+          </div>
         </div>
       </div>
+      <tfooter></tfooter>
     </div>
-    <tfooter></tfooter>
   </div>
 </template>
 
