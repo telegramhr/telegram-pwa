@@ -36,8 +36,8 @@
                 posebna cijena za sve pretplatnike Telegrama
               </h1>
               <h4 class="full relative center-text">
-                Naručite već danas i budite među prvima koji će dobiti svoj
-                primjerak, s besplatnom dostavom na adresu.
+                Prednaručite danas i budite među prvima koji će sredinom lipnja
+                dobiti Bili libar, s besplatnom dostavom na adresu.
               </h4>
               <h4 class="full relative bold center-text">
                 Izdavač: Telegram Media Grupa
@@ -242,7 +242,7 @@ export default {
           name: 'og:image',
           property: 'og:image',
           content:
-            'https://www.telegram.hr/wp-content/uploads/2022/05/dezulovic-knjiga-share.jpg',
+            'https://www.telegram.hr/wp-content/uploads/2022/05/dezulovic-image-article-tg2.png',
         },
         {
           hid: 'og:url',
