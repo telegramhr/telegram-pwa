@@ -23,6 +23,7 @@
           class="full flex column-full-pad mobile-side-pad"
         >
           <h2 class="full center-text">Unesite podatke za dostavu</h2>
+          <h4 class="full center-text">Dostava ove knjige je besplatna.</h4>
           <label for="name">Ime i prezime</label>
           <input
             id="name"

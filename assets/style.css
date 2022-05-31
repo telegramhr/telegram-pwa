@@ -8654,6 +8654,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-family: 'Barlow', sans-serif;
     margin-top: -10px;
 }
+.book-popup-content h4 {
+    margin-top: 8px;
+}
 @media screen and (max-width: 767px) {
     .knjiga-features h1 {
         font-size: 40px;
