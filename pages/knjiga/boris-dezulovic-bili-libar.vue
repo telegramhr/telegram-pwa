@@ -10,9 +10,7 @@
         class="full flex relative center knjiga-header article-head mobile-side-pad column-full-pad"
       >
         <div class="container relative flex single-article-body">
-          <h3 class="full center-text overtitle">
-            Telegram ponosno predstavlja
-          </h3>
+          <h3 class="full center-text overtitle">Ekskluzivna prednarudžba</h3>
           <h1 class="full center-text">Bili libar</h1>
           <h4 class="full center-text">Boris Dežulović</h4>
         </div>
@@ -314,6 +312,9 @@ export default {
   opacity: 0.5;
   font-size: 14px;
   font-size: 0.7rem;
+}
+.knjiga-header h3.overtitle {
+  text-transform: none;
 }
 @media screen and (min-width: 1025px) {
   .knjiga-cover img {
