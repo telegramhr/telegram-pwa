@@ -105,6 +105,11 @@ export default {
       type: Number,
       default: 179,
     },
+    book: {
+      required: true,
+      type: String,
+      default: 'zrinka',
+    },
   },
   data() {
     return {
@@ -256,6 +261,7 @@ export default {
             .post(
               '/pretplate/order',
               {
+                book: this.book,
                 name: this.name,
                 email: this.$store.state.user.email,
                 uid: this.$store.state.user.uid,

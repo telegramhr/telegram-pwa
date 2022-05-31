@@ -139,7 +139,12 @@
       </div>
     </div>
 
-    <braintree v-if="showModal" :price="price" @close="close"></braintree>
+    <braintree
+      v-if="showModal"
+      :price="price"
+      book="boro"
+      @close="close"
+    ></braintree>
     <tfooter></tfooter>
   </div>
 </template>
