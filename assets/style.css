@@ -7573,7 +7573,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         z-index: 1;
     }
     .cantha-header .new-breaking {
-        margin-bottom: 3vw;
+        margin-bottom: 1vw;
+        margin-top: 5vw;
     }
     h3.subsection-title, .mini-article-list h3.overtitle {
         padding-top: 4vw;
