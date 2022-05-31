@@ -63,8 +63,6 @@
             name="postal_code"
             placeholder="Poštanski broj"
           />
-          <label>Država</label>
-          <input v-model="country" type="text" name="country" disabled />
           <small
             >Ako želite naručite van Hrvatske, molimo javite nam se na
             <a href="mailto:pretplata@telegram.hr"
@@ -79,7 +77,7 @@
           <template v-if="price">
             <label>Broj kartice</label>
             <div id="credit-card" class="hosted-field"></div>
-            <label>CVV</label>
+            <label>CVV (kontrolni broj)</label>
             <div id="cvv" class="hosted-field"></div>
             <label>Datum isteka</label>
             <div id="expiration-date" class="hosted-field"></div>
