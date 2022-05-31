@@ -612,18 +612,22 @@ export default {
         TM0FMYURHRA3: {
           title: 'Telegram Mjesečna Pretplata',
           price: 49,
+          gtm: 'standard-monthly',
         },
         TMXKYJUN5YN5: {
           title: 'Telegram Premium Mjesečna Pretplata',
           price: 69,
+          gtm: 'premium-monthly',
         },
         TMVUCFM94OA7: {
           title: 'Telegram Godišnja Pretplata',
           price: 468,
+          gtm: 'standard-annual',
         },
         TM8R9U7RK5B1: {
           title: 'Telegram Premium Godišnja Pretplata',
           price: 588,
+          gtm: 'premium-annual',
         },
         TMBXUSHKJZZ0: {
           title: 'Telegram Mjesečna Pretplata - Božićna akcija',
@@ -693,6 +697,11 @@ export default {
         }
       },
     ])
+    this.$gtm.push({
+      event: 'subscription-funnel',
+      'subscription-category': 'new',
+      'subscription-action': 'viewed',
+    })
   },
   methods: {
     checkout(termId) {
@@ -710,6 +719,13 @@ export default {
             ],
           },
         },
+      })
+      this.$gtm.push({
+        event: 'subscription-funnel',
+        'subscription-category': 'new',
+        'subscription-action': 'selected',
+        'subscription-type': this.terms[termId].gtm,
+        'subscription-value': this.terms[termId].price,
       })
       if (this.$store.state.user.token) {
         this.checkout2(termId, -1)
