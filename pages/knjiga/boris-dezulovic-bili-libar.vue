@@ -26,15 +26,24 @@
           >
             <div class="full flex knjiga-cover">
               <img
-                src="@/assets/img/dezulovic_knjiga.png"
+                src="@/assets/img/tg_book_mockup_wsticker.png"
                 alt="Naslovnica nove knjige Borisa Dežulovića 'Bili libar'"
               />
             </div>
             <div class="full flex knjiga-features">
-              <h1 class="full relative center-text">Cijena: 149 kn</h1>
-              <h2 class="full relative center-text">
-                Cijena za pretplatnike: 99kn
-              </h2>
+              <h1 class="full relative center-text">
+                <span class="faded strikethrough">149 kn</span> 99 kn
+              </h1>
+              <h1 class="full relative center-text">
+                posebna cijena za sve pretplatnike Telegrama
+              </h1>
+              <h4 class="full relative center-text">
+                Naručite već danas i budite među prvima koji će dobiti svoj
+                primjerak, s besplatnom dostavom na adresu.
+              </h4>
+              <h4 class="full relative bold center-text">
+                Izdavač: Telegram Media Grupa
+              </h4>
               <app-link
                 v-show="!$store.state.user.uid"
                 to="/pretplata"
@@ -43,10 +52,6 @@
                 Za pristup sniženoj cijeni, <br />
                 <u>prijavite se ili pretplatite</u>
               </app-link>
-              <div class="full knjiga-keypoints">
-                <p class="full center-text">Godina izdavanja: 2022.</p>
-                <p class="full center-text">Izdavač: Telegram Media Grupa</p>
-              </div>
               <div class="full center btn-parent">
                 <div
                   v-if="$store.state.user.email"
@@ -63,12 +68,12 @@
             href="mailto:pretplata@telegram.hr"
             class="full center-text undertitle"
           >
-            Ako knjigu Bili Libar želite platiti virmanom, javite nam se.
+            Želite platiti virmanom? Javite nam se
           </a>
         </div>
       </div>
       <div class="full flex relative single-article-body mobile-side-pad">
-        <p class="full">
+        <p class="full center-text">
           U ovoj knjizi reći će vam Dežulović mnogo toga o sebi, mnogo više nego
           što ste mogli saznati čitajući njegove kolumne o poslovično teškim
           domaćim društveno-političkim temama, ali neće vam dati da se za to
@@ -136,6 +141,16 @@
         <h3 class="full center-text overtitle exclusive-msg">
           <span>Knjiga dostupna samo na Telegramu</span>
         </h3>
+        <p></p>
+        <p class="center-text bold">
+          Izdavač: Telegram Media Grupa<br />
+          Uvez: Tvrdi<br />
+          Broj stranica: 300<br />
+          Godina izdanja: 2022.<br />
+          Dimenzije: 145 x 205 mm<br />
+          Urednik: Aleksandar Holiga<br />
+          ISBN: 978-953-49501-1-1
+        </p>
       </div>
     </div>
 
@@ -267,10 +282,52 @@ export default {
 </script>
 
 <style scoped>
+.knjiga-cover {
+  margin-bottom: -32px;
+}
+.knjiga-hero h1 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  max-width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.knjiga-hero h1:nth-child(2) {
+  font-weight: 400;
+  font-size: 40px;
+  font-size: 2rem;
+  line-height: 1.2em;
+}
+.knjiga-hero h4 {
+  font-family: 'Barlow', sans-serif;
+  opacity: 0.7;
+  line-height: 1.1em;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  max-width: 440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.pretplata-packboxes a.undertitle {
+  text-transform: none;
+  font-weight: 400;
+  opacity: 0.5;
+  font-size: 14px;
+  font-size: 0.7rem;
+}
+@media screen and (min-width: 1025px) {
+  .knjiga-cover img {
+    max-width: 450px;
+  }
+}
 @media screen and (max-width: 767px) {
   .knjiga-cover {
     padding: 0px;
-    margin-bottom: -10vw;
+    margin-bottom: -5vw;
+  }
+  .knjiga-hero h1:nth-child(2) {
+    font-size: 32px;
+    font-size: 1.6rem;
   }
 }
 </style>

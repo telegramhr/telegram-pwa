@@ -83,6 +83,9 @@ i, em, .italic {
 .clickable {
     cursor: pointer;
 }
+.strikethrough {
+    text-decoration: line-through;
+}
 .animate, svg {
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
