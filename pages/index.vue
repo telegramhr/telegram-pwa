@@ -338,7 +338,50 @@
         </div>
       </div>
     </div>
-    <!-- Prekid newsletteri -->
+    <!-- Prekid knjiga -->
+    <div class="full relative">
+      <div class="container flex relative column-horizontal-pad">
+        <app-link
+          to="/knjiga/boris-dezulovic-bili-libar"
+          class="full cantha-break break-dezulovic mobile-side-pad flex relative stretch"
+        >
+          <div class="forty column-full-pad center flex-responsive">
+            <div class="full flex article">
+              <h3 class="full overtitle">Ekskluzivna prednarudžba</h3>
+              <h2 class="full">
+                Telegram predstavlja: Bili libar, nova knjiga Borisa Dežulovića
+              </h2>
+              <h5 class="full">
+                Naručite još danas i osigurajte svoj primjerak prije nego se
+                pojavi u knjižarama, uz posebnu cijenu za pretplatnike
+              </h5>
+            </div>
+          </div>
+          <div class="sixty stretch flex flex-responsive">
+            <div class="two-thirds column-top-pad center flex-responsive">
+              <img
+                src="@/assets/img/tg_knjiga_vizual_dezulovic.png"
+                alt="Portret Borisa Dežulovića i naslovnica njegove knjige 'Bili Libar'"
+              />
+            </div>
+            <div class="third center column-horizontal-pad flex-responsive">
+              <div class="full column-left-pad flex article">
+                <h2 class="full relative center-text">
+                  <span class="faded strikethrough">149 kn</span> 99 kn
+                </h2>
+                <h5 class="full center-text">
+                  posebna cijena za Telegramove pretplatnike!
+                </h5>
+                <div class="full center">
+                  <div class="newbtn">Kupite</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </app-link>
+      </div>
+    </div>
+    <!-- Prekid newsletteri 
     <div class="full relative">
       <div class="container flex relative column-horizontal-pad">
         <app-link
@@ -376,7 +419,7 @@
           </div>
         </app-link>
       </div>
-    </div>
+    </div> -->
     <!-- Velika rubrika: Politika i kriminal -->
     <div class="full relative">
       <div class="container flex relative">
@@ -434,7 +477,7 @@
         </div>
       </div>
     </div>
-    <!-- Break dojave -->
+    <!-- Prekid dojave -->
     <div class="full relative">
       <div class="container flex relative column-full-pad">
         <app-link

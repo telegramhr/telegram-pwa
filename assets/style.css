@@ -8657,6 +8657,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .book-popup-content h4 {
     margin-top: 8px;
 }
+.break-dezulovic .newbtn {
+    margin-top: 16px;
+}
+.break-dezulovic .sixty .third h2 {
+    margin-bottom: 0px;
+}
 @media screen and (max-width: 767px) {
     .knjiga-features h1 {
         font-size: 40px;
@@ -8665,6 +8671,23 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .knjiga-features h2 {
         font-size: 18px;
         font-size: 0.9rem;
+    }
+    .break-dezulovic {
+        padding-bottom: 0px;
+    }
+    .break-dezulovic img {
+        margin: 0px;
+    }
+    .break-dezulovic .sixty .third h2 {
+        font-size: 40px;
+        font-size: 2rem;
+        margin-top: 5vw;
+    }
+    .break-dezulovic .sixty .third {
+        order: 1;
+    }
+    .break-dezulovic .sixty .two-thirds {
+        order: 2;
     }
 }
 @media screen and (min-width: 1025px) {
