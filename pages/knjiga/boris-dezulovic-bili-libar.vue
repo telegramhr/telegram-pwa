@@ -248,7 +248,7 @@ export default {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegra.hr/knjiga/boris-dezulovic-bili-libar',
+          content: 'https://www.telegram.hr/knjiga/boris-dezulovic-bili-libar',
         },
         {
           hid: 'fb:app_id',
@@ -271,7 +271,7 @@ export default {
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: 'https://www.telegra.hr/knjiga/boris-dezulovic-bili-libar',
+          href: 'https://www.telegram.hr/knjiga/boris-dezulovic-bili-libar',
         },
       ],
     }
