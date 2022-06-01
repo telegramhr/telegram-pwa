@@ -2777,7 +2777,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     text-shadow: 0px 0px 5px #fcf1e7;
 }
 .pretplata-page-content {
-    padding-top: 48px;
+    padding-top: 0px;
 }
 .pretplata-page .header-block-title {
     padding-bottom: 36px;
@@ -8664,6 +8664,41 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .break-dezulovic .sixty .third h2 {
     margin-bottom: 0px;
 }
+.book-pretplata-promo h1 {
+    font-size: 92px;
+    font-size: 4.6rem;
+}
+.book-pretplata-promo h4 {
+    font-weight: 400;
+    font-size: 32px;
+    font-size: 1.6rem;
+    opacity: 1;
+    line-height: 1.1em;
+}
+.book-pretplata-promo h5 {
+    font-weight: 400;
+    font-size: 16px;
+    font-size: 0.8rem;
+    opacity: .5;
+    margin-top: 16px;
+}
+.book-pretplata-promo h2 {
+    margin-bottom: 0px;
+}
+.book-pretplata-promo h2:nth-child(2) {
+    font-weight: 400;
+    font-size: 25px;
+    font-size: 1.25rem;
+    line-height: 1.1em;
+    margin-bottom: 24px;
+}
+.dark-element {
+    background-color: #333333;
+    color: #efefef;
+}
+.dark-element .article:hover h2 {
+    color: #efefef;
+}
 @media screen and (max-width: 767px) {
     .knjiga-features h1 {
         font-size: 40px;
@@ -8689,6 +8724,22 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .break-dezulovic .sixty .two-thirds {
         order: 2;
+    }
+    .book-pretplata-promo {
+        padding-top: 5vw;
+        padding-bottom: 5vw;
+    }
+    .book-pretplata-promo h1 {
+        font-size: 17vw;
+    }
+    .book-pretplata-promo h4 {
+        font-size: 20px;
+        font-size: 1rem;
+    }
+    .book-pretplata-promo .half .half:first-child {
+        border-bottom: 1px solid #555;
+        margin-bottom: 5vw;
+        padding: 0px 10vw;
     }
 }
 @media screen and (min-width: 1025px) {
