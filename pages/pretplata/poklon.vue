@@ -286,14 +286,17 @@ export default {
         TM6L5G5WJDIH: {
           title: 'Telegram Standard Poklon',
           price: 468,
+          gtm: 'standard-annual-gift',
         },
         TMC2CGIYTVI0: {
           title: 'Telegram Premium Poklon',
           price: 588,
+          gtm: 'premium-annual-gift',
         },
         TMF58Q2TEDY0: {
           title: 'Telegram Standard Mjesec Poklon',
           price: 49,
+          gtm: 'standard-monthly-gift',
         },
       },
     }
@@ -323,6 +326,11 @@ export default {
         }
       },
     ])
+    this.$gtm.push({
+      event: 'subscription-funnel',
+      'subscription-category': 'gift',
+      'subscription-action': 'viewed',
+    })
 
     if (
       this.$route.query.promo_code &&
@@ -334,6 +342,13 @@ export default {
   },
   methods: {
     checkout(termId) {
+      this.$gtm.push({
+        event: 'subscription-funnel',
+        'subscription-category': 'gift',
+        'subscription-action': 'selected',
+        'subscription-type': this.terms[termId].gtm,
+        'subscription-value': this.terms[termId].price,
+      })
       if (this.$store.state.user.token) {
         this.checkout2(termId, -1)
       } else {
@@ -374,6 +389,13 @@ export default {
                 content_ids: [termId],
                 currency: 'HRK',
                 value: this.terms[termId].price,
+              })
+              _that.$gtm.push({
+                event: 'subscription-funnel',
+                'subscription-category': 'subscription-gift',
+                'subscription-action': 'purchased',
+                'subscription-type': _that.terms[data.termId].gtm,
+                'subscription-value': _that.terms[data.termId].price,
               })
               _that.$gtm.push({ ecommerce: null })
               _that.$gtm.push({

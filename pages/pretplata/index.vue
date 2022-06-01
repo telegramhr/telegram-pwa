@@ -768,6 +768,13 @@ export default {
                 currency: data.chargeCurrency,
                 value: data.chargeAmount,
               })
+              _that.$gtm.push({
+                event: 'subscription-funnel',
+                'subscription-category': 'subscription-new',
+                'subscription-action': 'purchased',
+                'subscription-type': _that.terms[data.termId].gtm,
+                'subscription-value': _that.terms[data.termId].price,
+              })
               _that.$gtm.push({ ecommerce: null })
               _that.$gtm.push({
                 ecommerce: {
