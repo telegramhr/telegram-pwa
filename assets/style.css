@@ -992,7 +992,7 @@ footer {
     font-style: normal;
     padding-top: 20px;
     padding-bottom: 20px;
-    margin-top: 60px;
+    margin-top: 0px;
 }
 footer .logo-line a {
     width: 19.99%;
@@ -4179,9 +4179,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .standard-block .article-featured:not(:first-child) {
         margin-top: 0px;
-    }
-    footer {
-        margin-top: 64px;
     }
     footer .main-footer-logo {
         padding: 10px 20px;
