@@ -1,6 +1,6 @@
 <template>
   <div class="full flex relative">
-    <div
+    <!--<div
       v-show="!$store.state.user.access"
       class="full pretplata-ticker pretplata-prefooter relative"
     >
@@ -22,7 +22,50 @@
           <div class="btn animate" @click="login">Već imam pretplatu</div>
         </div>
       </div>
-    </div>
+    </div>-->
+    <app-link
+      v-show="!$store.state.user.access"
+      to="/pretplata"
+      class="full dark-element book-pretplata-promo relative"
+    >
+      <div class="container relative flex mobile-side-pad">
+        <div class="half column-full-pad center flex-responsive">
+          <div class="full flex article">
+            <h3 class="full overtitle">Specijalna ponuda</h3>
+            <h1 class="full">Telegram <br />+ Bili libar</h1>
+            <h4 class="full">
+              Nova knjiga Borisa Dežulovića,<br />
+              po posebnoj cijeni uz pretplatu
+            </h4>
+          </div>
+        </div>
+        <div class="half stretch flex flex-responsive">
+          <div class="half column-top-pad center flex-responsive">
+            <img
+              src="@/assets/img/tg_knjiga_vizual_dezulovic_pretplata.png"
+              alt="Portret Borisa Dežulovića i naslovnica njegove knjige 'Bili Libar'"
+            />
+          </div>
+          <div class="half center column-horizontal-pad flex-responsive">
+            <div class="full column-left-pad flex article">
+              <h2 class="full relative center-text">
+                <span class="faded strikethrough">149 kn</span> 99 kn
+              </h2>
+              <h2 class="full relative center-text">
+                ekskluzivna prednarudžba za pretplatnike
+              </h2>
+              <div class="full center">
+                <div class="newbtn huge-newbtn">Pretplatite se</div>
+              </div>
+              <h5 class="full center-text">
+                Odaberite jednu od opcija pretplate na Telegram, nakon čega
+                novog Dežulovića možete kupiti po specijalnoj cijeni.
+              </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </app-link>
     <footer class="full flex mobile-side-pad">
       <div class="container">
         <div class="full flex center">
