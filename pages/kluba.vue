@@ -531,7 +531,7 @@
         </h3>
         <div class="full flex relative gallery-content">
           <VueSlickCarousel
-            ref="carousel"
+            ref="carousel2"
             v-bind="vue_settings"
             style="display: block; width: 100%"
           >
