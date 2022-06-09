@@ -8894,6 +8894,14 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     color: #ae3737;
     font-weight: 700;
 }
+.klub-expanded .newbtn {
+    margin-top: 4px;
+}
+.fake-inpage-anchor {
+    position: relative;
+    top: -50px;
+    z-index: -1;
+}
 
 @media screen and (max-width: 767px) {
     .klub-ponuda {

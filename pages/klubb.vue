@@ -73,7 +73,7 @@
             <h3 class="full overtitle">Kazalište Kerempuh</h3>
             <h2 class="full">Popust na ulaznice za Kerempuhove predstave</h2>
             <a
-              href="#kerempuh"
+              href="#kazalista"
               class="newbtn clickable"
               @click="selected_kazaliste = 'kerempuh'"
             >
@@ -100,7 +100,7 @@
             <h3 class="full overtitle">Zagrebačko kazalište mladih</h3>
             <h2 class="full">Popust na ulaznice za ZKM-ove predstave</h2>
             <a
-              href="#zkm"
+              href="#kazalista"
               class="newbtn clickable"
               @click="selected_kazaliste = 'zkm'"
             >
@@ -127,7 +127,7 @@
               Popust na ulaznice za predstave Kazališta Komedije
             </h2>
             <a
-              href="#komedija"
+              href="#kazalista"
               class="newbtn clickable"
               @click="selected_kazaliste = 'komedija'"
             >
@@ -154,7 +154,7 @@
               Popust na ulaznice za predstave kazališta Marin Držić u Dubrovniku
             </h2>
             <a
-              href="#kmd"
+              href="#kazalista"
               class="newbtn clickable"
               @click="selected_kazaliste = 'kmd'"
             >
@@ -181,7 +181,7 @@
               Popust na ulaznice za predstave kazališta HNK Varaždin
             </h2>
             <a
-              href="#hnkvz"
+              href="#kazalista"
               class="newbtn clickable"
               @click="selected_kazaliste = 'hnkvz'"
             >
@@ -208,7 +208,7 @@
               Popust na ulaznice za predstave kazališta Gavella
             </h2>
             <a
-              href="#gavella"
+              href="#kazalista"
               class="newbtn clickable"
               @click="selected_kazaliste = 'gavella'"
             >
@@ -235,7 +235,7 @@
               Popust na ulaznice za pojedinačne koncerte u Dvorani Lisinski
             </h2>
             <a
-              href="#lisinski"
+              href="#kazalista"
               class="newbtn clickable"
               @click="selected_kazaliste = 'lisinski'"
             >
@@ -246,6 +246,7 @@
       </div>
     </div>
     <!-- Kazalista expandables -->
+    <div id="kazalista" class="full flex fake-inpage-anchor"></div>
     <div
       v-if="selected_kazaliste === 'kerempuh'"
       id="kerempuh"
@@ -266,13 +267,23 @@
             Telegramovi pretplatnici ostvaruju 30% popusta na ulaznice za sve
             predstave u Kerempuhu.
           </h4>
-          <p class="full bold">Kako do popusta?</p>
-          <p class="full">
-            Kako biste ostvarili svoj popust, posjetite web stranicu za online
-            kupnju ulaznica i upišite kod ___________. Ili posjetite blagajnu
-            kazališta i pokažite svoju digitalnu pretplatničku iskaznicu, koju
-            možete preuzeti ovdje.
-          </p>
+          <div v-show="!canLogIn" class="full flex">
+            <p class="full bold">Kako do popusta?</p>
+            <p class="full">
+              Kako biste ostvarili svoj popust, posjetite web stranicu za online
+              kupnju ulaznica i upišite kod ___________. Ili posjetite blagajnu
+              kazališta i pokažite svoju digitalnu pretplatničku iskaznicu, koju
+              možete preuzeti ovdje.
+            </p>
+          </div>
+          <div v-show="canLogIn" class="full flex">
+            <p class="full bold">
+              Telegram Klub pogodnosti dostupne su ekskluzivno pretplatnicima.
+            </p>
+            <app-link to="/pretplata" class="newbtn huge-newbtn"
+              >Pretplatite se</app-link
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -296,13 +307,23 @@
             Telegramovi pretplatnici ostvaruju 20 kuna popusta na ulaznice za
             sve predstave u ZKM-u.
           </h4>
-          <p class="full bold">Kako do popusta?</p>
-          <p class="full">
-            Kako biste ostvarili svoj popust, posjetite web stranicu za online
-            kupnju ulaznica i upišite kod ZKM+TELEGRAM. Ili posjetite blagajnu
-            kazališta i pokažite svoju digitalnu pretplatničku iskaznicu, koju
-            možete preuzeti ovdje.
-          </p>
+          <div v-show="!canLogIn" class="full flex">
+            <p class="full bold">Kako do popusta?</p>
+            <p class="full">
+              Kako biste ostvarili svoj popust, posjetite web stranicu za online
+              kupnju ulaznica i upišite kod ZKM+TELEGRAM. Ili posjetite blagajnu
+              kazališta i pokažite svoju digitalnu pretplatničku iskaznicu, koju
+              možete preuzeti ovdje.
+            </p>
+          </div>
+          <div v-show="canLogIn" class="full flex">
+            <p class="full bold">
+              Telegram Klub pogodnosti dostupne su ekskluzivno pretplatnicima.
+            </p>
+            <app-link to="/pretplata" class="newbtn huge-newbtn"
+              >Pretplatite se</app-link
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -328,13 +349,23 @@
             Telegramovi pretplatnici ostvaruju 10 % popusta na ulaznice za sve
             predstave u Kazalištu Komedija.
           </h4>
-          <p class="full bold">Kako do popusta?</p>
-          <p class="full">
-            Kako biste ostvarili svoj popust, posjetite web stranicu za online
-            kupnju ulaznica i upišite kod ______________. Ili posjetite blagajnu
-            kazališta i pokažite svoju digitalnu pretplatničku iskaznicu, koju
-            možete preuzeti ovdje.
-          </p>
+          <div v-show="!canLogIn" class="full flex">
+            <p class="full bold">Kako do popusta?</p>
+            <p class="full">
+              Kako biste ostvarili svoj popust, posjetite web stranicu za online
+              kupnju ulaznica i upišite kod ______________. Ili posjetite
+              blagajnu kazališta i pokažite svoju digitalnu pretplatničku
+              iskaznicu, koju možete preuzeti ovdje.
+            </p>
+          </div>
+          <div v-show="canLogIn" class="full flex">
+            <p class="full bold">
+              Telegram Klub pogodnosti dostupne su ekskluzivno pretplatnicima.
+            </p>
+            <app-link to="/pretplata" class="newbtn huge-newbtn"
+              >Pretplatite se</app-link
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -360,13 +391,23 @@
             Telegramovi pretplatnici ostvaruju 50 % popusta na ulaznice za sve
             predstave u Kazalištu Marina Držića u Dubrovniku.
           </h4>
-          <p class="full bold">Kako do popusta?</p>
-          <p class="full">
-            Kako biste ostvarili svoj popust, posjetite web stranicu za online
-            kupnju ulaznica i upišite kod ______________. Ili posjetite blagajnu
-            kazališta i pokažite svoju digitalnu pretplatničku iskaznicu, koju
-            možete preuzeti ovdje.
-          </p>
+          <div v-show="!canLogIn" class="full flex">
+            <p class="full bold">Kako do popusta?</p>
+            <p class="full">
+              Kako biste ostvarili svoj popust, posjetite web stranicu za online
+              kupnju ulaznica i upišite kod ______________. Ili posjetite
+              blagajnu kazališta i pokažite svoju digitalnu pretplatničku
+              iskaznicu, koju možete preuzeti ovdje.
+            </p>
+          </div>
+          <div v-show="canLogIn" class="full flex">
+            <p class="full bold">
+              Telegram Klub pogodnosti dostupne su ekskluzivno pretplatnicima.
+            </p>
+            <app-link to="/pretplata" class="newbtn huge-newbtn"
+              >Pretplatite se</app-link
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -392,13 +433,23 @@
             Telegramovi pretplatnici ostvaruju 20 % popusta na ulaznice za sve
             predstave u HNK Varaždin.
           </h4>
-          <p class="full bold">Kako do popusta?</p>
-          <p class="full">
-            Kako biste ostvarili svoj popust, posjetite web stranicu za online
-            kupnju ulaznica i upišite kod tmghnkvz. Ili posjetite blagajnu
-            kazališta i pokažite svoju digitalnu pretplatničku iskaznicu, koju
-            možete preuzeti ovdje.
-          </p>
+          <div v-show="!canLogIn" class="full flex">
+            <p class="full bold">Kako do popusta?</p>
+            <p class="full">
+              Kako biste ostvarili svoj popust, posjetite web stranicu za online
+              kupnju ulaznica i upišite kod tmghnkvz. Ili posjetite blagajnu
+              kazališta i pokažite svoju digitalnu pretplatničku iskaznicu, koju
+              možete preuzeti ovdje.
+            </p>
+          </div>
+          <div v-show="canLogIn" class="full flex">
+            <p class="full bold">
+              Telegram Klub pogodnosti dostupne su ekskluzivno pretplatnicima.
+            </p>
+            <app-link to="/pretplata" class="newbtn huge-newbtn"
+              >Pretplatite se</app-link
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -424,13 +475,23 @@
             Telegramovi pretplatnici ostvaruju 30 % popusta na ulaznice za sve
             predstave u Kazalištu Gavella.
           </h4>
-          <p class="full bold">Kako do popusta?</p>
-          <p class="full">
-            Kako biste ostvarili svoj popust, posjetite web stranicu za online
-            kupnju ulaznica i upišite kod ____________. Ili posjetite blagajnu
-            kazališta i pokažite svoju digitalnu pretplatničku iskaznicu, koju
-            možete preuzeti ovdje.
-          </p>
+          <div v-show="!canLogIn" class="full flex">
+            <p class="full bold">Kako do popusta?</p>
+            <p class="full">
+              Kako biste ostvarili svoj popust, posjetite web stranicu za online
+              kupnju ulaznica i upišite kod ____________. Ili posjetite blagajnu
+              kazališta i pokažite svoju digitalnu pretplatničku iskaznicu, koju
+              možete preuzeti ovdje.
+            </p>
+          </div>
+          <div v-show="canLogIn" class="full flex">
+            <p class="full bold">
+              Telegram Klub pogodnosti dostupne su ekskluzivno pretplatnicima.
+            </p>
+            <app-link to="/pretplata" class="newbtn huge-newbtn"
+              >Pretplatite se</app-link
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -456,12 +517,22 @@
             Telegramovi pretplatnici ostvaruju 20 % popusta na ulaznice za
             pojedinačne događaje u organizaciji dvorane Lisinski.
           </h4>
-          <p class="full bold">Kako do popusta?</p>
-          <p class="full">
-            Kako biste ostvarili svoj popust,posjetite blagajnu dvorane Lisinski
-            i pokažite svoju digitalnu pretplatničku iskaznicu, koju možete
-            preuzeti ovdje.
-          </p>
+          <div v-show="!canLogIn" class="full flex">
+            <p class="full bold">Kako do popusta?</p>
+            <p class="full">
+              Kako biste ostvarili svoj popust,posjetite blagajnu dvorane
+              Lisinski i pokažite svoju digitalnu pretplatničku iskaznicu, koju
+              možete preuzeti ovdje.
+            </p>
+          </div>
+          <div v-show="canLogIn" class="full flex">
+            <p class="full bold">
+              Telegram Klub pogodnosti dostupne su ekskluzivno pretplatnicima.
+            </p>
+            <app-link to="/pretplata" class="newbtn huge-newbtn"
+              >Pretplatite se</app-link
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -493,7 +564,7 @@
             <h3 class="full overtitle">Fraktura</h3>
             <h2 class="full">Popust na odabrane naslove knjižare Fraktura</h2>
             <a
-              href="#fraktura"
+              href="#knjizare"
               class="newbtn clickable"
               @click="selected_knjizara = 'fraktura'"
             >
@@ -518,7 +589,7 @@
             <h3 class="full overtitle">Školska knjiga</h3>
             <h2 class="full">Popust na naslove izdavača Školska knjiga</h2>
             <a
-              href="#sk"
+              href="#knjizare"
               class="newbtn clickable"
               @click="selected_knjizara = 'sk'"
             >
@@ -543,7 +614,7 @@
             <h3 class="full overtitle">Hoću knjigu</h3>
             <h2 class="full">Popust na naslove u knjižari Hoću knjigu</h2>
             <a
-              href="#hocuknjigu"
+              href="#knjizare"
               class="newbtn clickable"
               @click="selected_knjizara = 'hocuknjigu'"
             >
@@ -568,7 +639,7 @@
             <h3 class="full overtitle">Knjižara Ljevak</h3>
             <h2 class="full">Popust na odabrane naslove knjižare Ljevak</h2>
             <a
-              href="#ljevak"
+              href="#knjizare"
               class="newbtn clickable"
               @click="selected_knjizara = 'ljevak'"
             >
@@ -579,6 +650,7 @@
       </div>
     </div>
     <!-- Knjizare expandables -->
+    <div id="knjizare" class="full flex fake-inpage-anchor"></div>
     <div
       v-if="selected_knjizara === 'fraktura'"
       id="fraktura"
@@ -635,13 +707,23 @@
               >
             </li>
           </ul>
-          <p class="full bold">Kako do popusta?</p>
-          <p class="full">
-            Kako biste ostvarili svoj popust, posjetite link knjige koju želite
-            kupiti i pri odabiru načina plaćanja upišite kod TELEGRAM22. Ili
-            posjetite knjižaru Fraktura i pokažite svoju digitalnu pretplatničku
-            iskaznicu, koju možete preuzeti ovdje.
-          </p>
+          <div v-show="!canLogIn" class="full flex">
+            <p class="full bold">Kako do popusta?</p>
+            <p class="full">
+              Kako biste ostvarili svoj popust, posjetite link knjige koju
+              želite kupiti i pri odabiru načina plaćanja upišite kod
+              TELEGRAM22. Ili posjetite knjižaru Fraktura i pokažite svoju
+              digitalnu pretplatničku iskaznicu, koju možete preuzeti ovdje.
+            </p>
+          </div>
+          <div v-show="canLogIn" class="full flex">
+            <p class="full bold">
+              Telegram Klub pogodnosti dostupne su ekskluzivno pretplatnicima.
+            </p>
+            <app-link to="/pretplata" class="newbtn huge-newbtn"
+              >Pretplatite se</app-link
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -665,13 +747,23 @@
             Telegramovi pretplatnici ostvaruju dodatnih 10% popusta na naslove u
             ponudi Školske knjige.
           </h4>
-          <p class="full bold">Kako do popusta?</p>
-          <p class="full">
-            Kako biste ostvarili svoj popust, posjetite link knjige koju želite
-            kupiti i pri odabiru načina plaćanja upišite kod ________. Ili
-            posjetite jednu od knjižara Školske knjige i pokažite svoju
-            digitalnu pretplatničku iskaznicu, koju možete preuzeti ovdje.
-          </p>
+          <div v-show="!canLogIn" class="full flex">
+            <p class="full bold">Kako do popusta?</p>
+            <p class="full">
+              Kako biste ostvarili svoj popust, posjetite link knjige koju
+              želite kupiti i pri odabiru načina plaćanja upišite kod ________.
+              Ili posjetite jednu od knjižara Školske knjige i pokažite svoju
+              digitalnu pretplatničku iskaznicu, koju možete preuzeti ovdje.
+            </p>
+          </div>
+          <div v-show="canLogIn" class="full flex">
+            <p class="full bold">
+              Telegram Klub pogodnosti dostupne su ekskluzivno pretplatnicima.
+            </p>
+            <app-link to="/pretplata" class="newbtn huge-newbtn"
+              >Pretplatite se</app-link
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -695,13 +787,23 @@
             Telegramovi pretplatnici ostvaruju dodatnih 10% popusta na naslove u
             ponudi Hoću knjigu.
           </h4>
-          <p class="full bold">Kako do popusta?</p>
-          <p class="full">
-            Kako biste ostvarili svoj popust, posjetite link knjige koju želite
-            kupiti i pri odabiru načina plaćanja upišite kod ________. Ili
-            posjetite jednu od knjižara Hoću knjigu i pokažite svoju digitalnu
-            pretplatničku iskaznicu, koju možete preuzeti ovdje.
-          </p>
+          <div v-show="!canLogIn" class="full flex">
+            <p class="full bold">Kako do popusta?</p>
+            <p class="full">
+              Kako biste ostvarili svoj popust, posjetite link knjige koju
+              želite kupiti i pri odabiru načina plaćanja upišite kod ________.
+              Ili posjetite jednu od knjižara Hoću knjigu i pokažite svoju
+              digitalnu pretplatničku iskaznicu, koju možete preuzeti ovdje.
+            </p>
+          </div>
+          <div v-show="canLogIn" class="full flex">
+            <p class="full bold">
+              Telegram Klub pogodnosti dostupne su ekskluzivno pretplatnicima.
+            </p>
+            <app-link to="/pretplata" class="newbtn huge-newbtn"
+              >Pretplatite se</app-link
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -723,15 +825,26 @@
           <h2 class="full">Popust na odabrane naslove knjižare Ljevak</h2>
           <h4 class="full">
             Telegramovi pretplatnici ostvaruju dodatnih 10% popusta na naslove
-            knjižare Ljevak.
+            knjižare Ljevak uz minimalnu narudžbu od 100 kuna.
           </h4>
-          <p class="full bold">Kako do popusta?</p>
-          <p class="full">
-            Kako biste ostvarili svoj popust, posjetite link knjige koju želite
-            kupiti i pri odabiru načina plaćanja upišite kod _______. Ili
-            posjetite jednu od knjižara Ljevak i pokažite svoju digitalnu
-            pretplatničku iskaznicu, koju možete preuzeti ovdje.
-          </p>
+          <div v-show="!canLogIn" class="full flex">
+            <p class="full bold">Kako do popusta?</p>
+            <p class="full">
+              Kako biste ostvarili svoj popust, posjetite link knjige koju
+              želite kupiti i pri odabiru načina plaćanja upišite kod
+              TELEGRAM10. Ili posjetite jednu od knjižara Ljevak i pokažite
+              svoju digitalnu pretplatničku iskaznicu, koju možete preuzeti
+              ovdje.
+            </p>
+          </div>
+          <div v-show="canLogIn" class="full flex">
+            <p class="full bold">
+              Telegram Klub pogodnosti dostupne su ekskluzivno pretplatnicima.
+            </p>
+            <app-link to="/pretplata" class="newbtn huge-newbtn"
+              >Pretplatite se</app-link
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -763,7 +876,7 @@
             <h3 class="full overtitle">Muzej Suvremene Umjetnosti</h3>
             <h2 class="full">Popust na ulaznice za MSU izložbe i događaje</h2>
             <a
-              href="#msu"
+              href="#muzeji"
               class="newbtn clickable"
               @click="selected_muzej = 'msu'"
             >
@@ -792,7 +905,7 @@
               Popust na ulaznice za park Arheološkog muzeja u Zagrebu
             </h2>
             <a
-              href="#amz"
+              href="#muzeji"
               class="newbtn clickable"
               @click="selected_muzej = 'amz'"
             >
@@ -821,7 +934,7 @@
               Popust na ulaznice za izložbe Muzeja prekinutih veza
             </h2>
             <a
-              href="#veza"
+              href="#muzeji"
               class="newbtn clickable"
               @click="selected_muzej = 'veza'"
             >
@@ -850,7 +963,7 @@
               Popust na ulaznice za izložbe Muzeja Vučedolske kulture
             </h2>
             <a
-              href="#mvk"
+              href="#muzeji"
               class="newbtn clickable"
               @click="selected_muzej = 'mvk'"
             >
@@ -877,7 +990,7 @@
             <h3 class="full overtitle">Muzej iluzija</h3>
             <h2 class="full">Popust na ulaznice za izložbu Muzeja iluzija</h2>
             <a
-              href="#iluzija"
+              href="#muzeji"
               class="newbtn clickable"
               @click="selected_muzej = 'iluzija'"
             >
@@ -887,6 +1000,8 @@
         </div>
       </div>
     </div>
+    <!-- Muzeji expendables -->
+    <div id="muzeji" class="full flex fake-inpage-anchor"></div>
     <div
       v-if="selected_muzej === 'msu'"
       id="msu"
@@ -907,12 +1022,22 @@
             Telegramovi pretplatnici ostvaruju 30% popusta na izložbe i događaje
             MSU-a.
           </h4>
-          <p class="full bold">Kako do popusta?</p>
-          <p class="full">
-            Kako biste ostvarili svoj popust, posjetite blagajnu MSU-a i
-            pokažite svoju digitalnu pretplatničku iskaznicu, koju možete
-            preuzeti ovdje.
-          </p>
+          <div v-show="!canLogIn" class="full flex">
+            <p class="full bold">Kako do popusta?</p>
+            <p class="full">
+              Kako biste ostvarili svoj popust, posjetite blagajnu MSU-a i
+              pokažite svoju digitalnu pretplatničku iskaznicu, koju možete
+              preuzeti ovdje.
+            </p>
+          </div>
+          <div v-show="canLogIn" class="full flex">
+            <p class="full bold">
+              Telegram Klub pogodnosti dostupne su ekskluzivno pretplatnicima.
+            </p>
+            <app-link to="/pretplata" class="newbtn huge-newbtn"
+              >Pretplatite se</app-link
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -938,12 +1063,22 @@
             Telegramovi pretplatnici ostvaruju 10 kuna popusta na ulaznice
             Arheološkog Parka.
           </h4>
-          <p class="full bold">Kako do popusta?</p>
-          <p class="full">
-            Kako biste ostvarili svoj popust, posjetite blagajnu Arheološkog
-            muzeja i pokažite svoju digitalnu pretplatničku iskaznicu, koju
-            možete preuzeti ovdje.
-          </p>
+          <div v-show="!canLogIn" class="full flex">
+            <p class="full bold">Kako do popusta?</p>
+            <p class="full">
+              Kako biste ostvarili svoj popust, posjetite blagajnu Arheološkog
+              muzeja i pokažite svoju digitalnu pretplatničku iskaznicu, koju
+              možete preuzeti ovdje.
+            </p>
+          </div>
+          <div v-show="canLogIn" class="full flex">
+            <p class="full bold">
+              Telegram Klub pogodnosti dostupne su ekskluzivno pretplatnicima.
+            </p>
+            <app-link to="/pretplata" class="newbtn huge-newbtn"
+              >Pretplatite se</app-link
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -969,12 +1104,22 @@
             Telegramovi pretplatnici ostvaruju 10 kuna popusta na izložbe Muzeja
             prekinutih veza.
           </h4>
-          <p class="full bold">Kako do popusta?</p>
-          <p class="full">
-            Kako biste ostvarili svoj popust, posjetite blagajnu Muzeja
-            prekinutih veza i pokažite svoju digitalnu pretplatničku iskaznicu,
-            koju možete preuzeti ovdje.
-          </p>
+          <div v-show="!canLogIn" class="full flex">
+            <p class="full bold">Kako do popusta?</p>
+            <p class="full">
+              Kako biste ostvarili svoj popust, posjetite blagajnu Muzeja
+              prekinutih veza i pokažite svoju digitalnu pretplatničku
+              iskaznicu, koju možete preuzeti ovdje.
+            </p>
+          </div>
+          <div v-show="canLogIn" class="full flex">
+            <p class="full bold">
+              Telegram Klub pogodnosti dostupne su ekskluzivno pretplatnicima.
+            </p>
+            <app-link to="/pretplata" class="newbtn huge-newbtn"
+              >Pretplatite se</app-link
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -1000,12 +1145,22 @@
             Telegramovi pretplatnici ostvaruju 10 kuna popusta na izložbe Muzeja
             Vučedolske kulture.
           </h4>
-          <p class="full bold">Kako do popusta?</p>
-          <p class="full">
-            Kako biste ostvarili svoj popust, posjetite blagajnu Muzeja
-            Vučedolske kulture i pokažite svoju digitalnu pretplatničku
-            iskaznicu, koju možete preuzeti ovdje.
-          </p>
+          <div v-show="!canLogIn" class="full flex">
+            <p class="full bold">Kako do popusta?</p>
+            <p class="full">
+              Kako biste ostvarili svoj popust, posjetite blagajnu Muzeja
+              Vučedolske kulture i pokažite svoju digitalnu pretplatničku
+              iskaznicu, koju možete preuzeti ovdje.
+            </p>
+          </div>
+          <div v-show="canLogIn" class="full flex">
+            <p class="full bold">
+              Telegram Klub pogodnosti dostupne su ekskluzivno pretplatnicima.
+            </p>
+            <app-link to="/pretplata" class="newbtn huge-newbtn"
+              >Pretplatite se</app-link
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -1029,12 +1184,22 @@
             Telegramovi pretplatnici ostvaruju 10 kuna popusta na izložbe Muzeja
             iluzija.
           </h4>
-          <p class="full bold">Kako do popusta?</p>
-          <p class="full">
-            Kako biste ostvarili svoj popust, posjetite blagajnu Muzeja iluzija
-            i pokažite svoju digitalnu pretplatničku iskaznicu, koju možete
-            preuzeti ovdje.
-          </p>
+          <div v-show="!canLogIn" class="full flex">
+            <p class="full bold">Kako do popusta?</p>
+            <p class="full">
+              Kako biste ostvarili svoj popust, posjetite blagajnu Muzeja
+              iluzija i pokažite svoju digitalnu pretplatničku iskaznicu, koju
+              možete preuzeti ovdje.
+            </p>
+          </div>
+          <div v-show="canLogIn" class="full flex">
+            <p class="full bold">
+              Telegram Klub pogodnosti dostupne su ekskluzivno pretplatnicima.
+            </p>
+            <app-link to="/pretplata" class="newbtn huge-newbtn"
+              >Pretplatite se</app-link
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -1053,6 +1218,11 @@ export default {
       selected_knjizara: '',
       selected_muzej: '',
     }
+  },
+  computed: {
+    canLogIn() {
+      return this.$store.state.user.exp * 1000 < new Date().getTime()
+    },
   },
   mounted() {
     this.$store.dispatch('newsletters/checkAccess', this.$route.query.email)
