@@ -381,7 +381,7 @@
         </app-link>
       </div>
     </div>
-    <!-- Prekid newsletteri 
+    <!-- Prekid newsletteri
     <div class="full relative">
       <div class="container flex relative column-horizontal-pad">
         <app-link
@@ -478,9 +478,17 @@
       </div>
     </div>
     <!-- Prekid dojave -->
-    <div class="full relative">
+    <div class="full relative desktop-only">
       <div class="container flex relative column-full-pad">
-        <app-link
+        <a
+          href="https://www.telegram.hr/native/uhvati-sunce/"
+          class="full cantha-break mobile-side-pad flex relative stretch"
+        >
+          <img
+            src="https://www.telegram.hr/wp-content/uploads/2022/06/tg-banner-uhvatisunce-1200x250-2.png"
+          />
+        </a>
+        <!--<app-link
           to="/dojave"
           class="full cantha-break mobile-side-pad flex relative stretch"
         >
@@ -514,7 +522,7 @@
               </div>
             </div>
           </div>
-        </app-link>
+        </app-link>-->
       </div>
     </div>
     <!-- Sport -->
