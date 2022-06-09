@@ -8647,7 +8647,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     margin-bottom: 0px;
 }
 .knjiga-header h4 {
-    font-size: 20px;
+    font-size: 40px;
     font-size: 2rem;
     font-family: 'Barlow', sans-serif;
     margin-top: -10px;
@@ -8774,5 +8774,144 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         max-width: 100%;
         margin-top: -48px;
         left: auto;
+    }
+}
+
+/* TG Klub */
+
+.klub-ponuda {
+    scroll-snap-align: start;
+    margin-bottom: 32px;
+}
+.klub-ponuda:last-child {
+    margin-right: 0px;
+}
+.klub-ponuda h3.overtitle {
+    margin-bottom: 4px;
+    margin-top: 8px;
+}
+.klub-ponuda-tile {
+    width: 100%;
+    padding-bottom: 100%;
+    background-color: #333;
+}
+.klub-expanded {
+    background-color: #333;
+    color: white;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+.klub-expanded .article:hover h2 {
+    color: white;
+}
+.klub-expanded .article:last-child {
+    flex-wrap: wrap;
+    padding: 24px;
+}
+.klub-expanded .article h4 {
+    font-size: 1rem;
+    font-size: 20px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #555;
+    margin-bottom: 24px;
+}
+.klub-expanded .article p {
+    line-height: 1.3em;
+}
+.klub-expanded .article p.bold {
+    margin-bottom: 8px;
+}
+.klub-ponuda-tile > .center {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.klub-ponuda h2 {
+    font-size: 1.1rem;
+}
+.small-top-margin {
+    margin-top: 16px;
+}
+.klub-header {
+    font-size: 28px;
+    font-size: 1.4rem;
+    font-family: 'Barlow', sans-serif;
+}
+.klub-ponuda-tile > .klub-sticker {
+    position: absolute;
+    flex-wrap: wrap;
+    top: 8%;
+    right: 8%;
+    left: auto;
+    bottom: auto;
+    z-index: 7;
+    background-color: #ae3737;
+    width: 70px;
+    height: 70px;
+    color: #fcf1e7;
+    font-family: 'Barlow', sans-serif;
+    border-radius: 35px;
+}
+.klub-sticker-amount {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 22px;
+    position: relative;
+    top: -1px;
+}
+.klub-sticker-smaller {
+    font-size: 14px;
+    margin-left: 2px;
+    margin-bottom: -4px;
+    line-height: 16px;
+}
+.klub-sticker-text {
+    font-size: 14px;
+    line-height: 14px;
+    position: relative;
+    top: -3px;
+}
+.close-klub-expand {
+    position: absolute;
+    cursor: pointer;
+    display: block;
+    top: 0;
+    right: 24px;
+    font-size: 40px;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+}
+.klub-expanded .article ul {
+    padding-left: 15px;
+}
+.klub-expanded .article li {
+    padding-bottom: 8px;
+    list-style-type: disc;
+}
+.klub-expanded .article li a {
+    color: #ae3737;
+    font-weight: 700;
+}
+
+@media screen and (max-width: 767px) {
+    .klub-ponuda {
+        width: 60vw;
+        min-width: 60vw;
+        margin-right: 4vw;
+    }
+    .klub-ponuda-tile {
+        height: 60vw;
+    }
+    .close-klub-expand {
+        position: absolute;
+        cursor: pointer;
+        display: block;
+        top: 0;
+        right: 4vw;
+        font-size: 40px;
+        font-family: 'Barlow', sans-serif;
+        font-weight: 700;
     }
 }
