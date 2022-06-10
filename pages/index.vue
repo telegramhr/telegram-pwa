@@ -482,6 +482,7 @@
       <div class="container flex relative column-full-pad">
         <a
           href="https://www.telegram.hr/native/uhvati-sunce/"
+          target="_blank"
           class="full cantha-break mobile-side-pad flex relative stretch"
         >
           <img
