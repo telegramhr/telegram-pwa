@@ -23,7 +23,7 @@
         class="full flex relative stretch elevate-over-section mobile-side-pad"
       >
         <div v-if="posts.length" class="full flex relative">
-          <standard v-for="p in posts.slice(0, 5)" :key="p.id" :post="p" />
+          <standard v-for="p in posts" :key="p.id" :post="p" />
         </div>
       </section>
     </div>
