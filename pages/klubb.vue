@@ -278,7 +278,8 @@
           </div>
           <div v-show="canLogIn" class="full flex">
             <p class="full bold">
-              Telegram Klub pogodnosti dostupne su ekskluzivno pretplatnicima.
+              Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
+              pretplatnicima.
             </p>
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
@@ -318,7 +319,8 @@
           </div>
           <div v-show="canLogIn" class="full flex">
             <p class="full bold">
-              Telegram Klub pogodnosti dostupne su ekskluzivno pretplatnicima.
+              Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
+              pretplatnicima.
             </p>
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
@@ -360,7 +362,8 @@
           </div>
           <div v-show="canLogIn" class="full flex">
             <p class="full bold">
-              Telegram Klub pogodnosti dostupne su ekskluzivno pretplatnicima.
+              Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
+              pretplatnicima.
             </p>
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
@@ -402,7 +405,8 @@
           </div>
           <div v-show="canLogIn" class="full flex">
             <p class="full bold">
-              Telegram Klub pogodnosti dostupne su ekskluzivno pretplatnicima.
+              Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
+              pretplatnicima.
             </p>
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
@@ -444,7 +448,8 @@
           </div>
           <div v-show="canLogIn" class="full flex">
             <p class="full bold">
-              Telegram Klub pogodnosti dostupne su ekskluzivno pretplatnicima.
+              Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
+              pretplatnicima.
             </p>
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
@@ -486,7 +491,8 @@
           </div>
           <div v-show="canLogIn" class="full flex">
             <p class="full bold">
-              Telegram Klub pogodnosti dostupne su ekskluzivno pretplatnicima.
+              Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
+              pretplatnicima.
             </p>
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
@@ -527,7 +533,8 @@
           </div>
           <div v-show="canLogIn" class="full flex">
             <p class="full bold">
-              Telegram Klub pogodnosti dostupne su ekskluzivno pretplatnicima.
+              Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
+              pretplatnicima.
             </p>
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
@@ -718,7 +725,8 @@
           </div>
           <div v-show="canLogIn" class="full flex">
             <p class="full bold">
-              Telegram Klub pogodnosti dostupne su ekskluzivno pretplatnicima.
+              Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
+              pretplatnicima.
             </p>
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
@@ -758,7 +766,8 @@
           </div>
           <div v-show="canLogIn" class="full flex">
             <p class="full bold">
-              Telegram Klub pogodnosti dostupne su ekskluzivno pretplatnicima.
+              Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
+              pretplatnicima.
             </p>
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
@@ -798,7 +807,8 @@
           </div>
           <div v-show="canLogIn" class="full flex">
             <p class="full bold">
-              Telegram Klub pogodnosti dostupne su ekskluzivno pretplatnicima.
+              Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
+              pretplatnicima.
             </p>
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
@@ -839,7 +849,8 @@
           </div>
           <div v-show="canLogIn" class="full flex">
             <p class="full bold">
-              Telegram Klub pogodnosti dostupne su ekskluzivno pretplatnicima.
+              Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
+              pretplatnicima.
             </p>
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
@@ -1032,7 +1043,8 @@
           </div>
           <div v-show="canLogIn" class="full flex">
             <p class="full bold">
-              Telegram Klub pogodnosti dostupne su ekskluzivno pretplatnicima.
+              Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
+              pretplatnicima.
             </p>
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
@@ -1073,7 +1085,8 @@
           </div>
           <div v-show="canLogIn" class="full flex">
             <p class="full bold">
-              Telegram Klub pogodnosti dostupne su ekskluzivno pretplatnicima.
+              Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
+              pretplatnicima.
             </p>
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
@@ -1114,7 +1127,8 @@
           </div>
           <div v-show="canLogIn" class="full flex">
             <p class="full bold">
-              Telegram Klub pogodnosti dostupne su ekskluzivno pretplatnicima.
+              Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
+              pretplatnicima.
             </p>
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
@@ -1155,7 +1169,8 @@
           </div>
           <div v-show="canLogIn" class="full flex">
             <p class="full bold">
-              Telegram Klub pogodnosti dostupne su ekskluzivno pretplatnicima.
+              Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
+              pretplatnicima.
             </p>
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
@@ -1194,7 +1209,8 @@
           </div>
           <div v-show="canLogIn" class="full flex">
             <p class="full bold">
-              Telegram Klub pogodnosti dostupne su ekskluzivno pretplatnicima.
+              Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
+              pretplatnicima.
             </p>
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link

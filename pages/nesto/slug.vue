@@ -1,14 +1,5 @@
 <template>
-  <div
-    :class="[
-      'main-container',
-      'flex',
-      'fancy-rubrika',
-      'superone',
-      'single-article',
-      typeClass,
-    ]"
-  >
+  <div :class="['main-container', 'flex', 'single-article', typeClass]">
     <client-only>
       <theader
         :id="post.id"
@@ -357,9 +348,9 @@
           </div>
         </article>
       </div>
-      <!--<div class="full flex">
-          <partner></partner>
-        </div>-->
+      <div class="full flex">
+        <offers></offers>
+      </div>
       <div class="full flex">
         <div
           class="container flex relative native-block stretch mobile-side-pad"

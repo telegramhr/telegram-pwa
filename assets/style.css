@@ -8902,8 +8902,48 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     top: -50px;
     z-index: -1;
 }
+.strikethrough-price {
+    color: #111;
+    text-decoration: line-through;
+    opacity: .5;
+    font-weight: 400;
+}
+.offer-slide h2 {
+    font-size: 20px;
+    font-size: 1rem;
+    margin-top: 8px;
+}
+.offers-widget .gallery-content {
+    max-width: 100%;
+    padding-top: 0px;
+}
+.offer-slide {
+    padding: 0px 24px;
+}
+.offer-slide img {
+    height: auto;
+}
+.offer-slide h3.overtitle {
+    margin-bottom: 4px;
+    font-size: 17px;
+    font-size: 0.85rem;
+}
+.offer-slide h3.overtitle .strikethrough-price {
+    font-size: 16px;
+    font-size: 0.8rem;
+}
 
 @media screen and (max-width: 767px) {
+    .offers-widget .gallery-content {
+        padding-top: 4vw;
+    }
+    .offer-slide {
+        padding: 0px 4vw;
+    }
+    .offer-slide .article-pad {
+        padding-bottom: 0px;
+        border-bottom: none;
+    }
     .klub-ponuda {
         width: 60vw;
         min-width: 60vw;
