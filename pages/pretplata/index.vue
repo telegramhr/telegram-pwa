@@ -749,16 +749,6 @@ export default {
     },
   },
   mounted() {
-    window.fbq = window.fbq || function () {}
-    window.fbq('track', 'ViewContent', {
-      content_ids: [
-        'TM0FMYURHRA3',
-        'TMXKYJUN5YN5',
-        'TMVUCFM94OA7',
-        'TM8R9U7RK5B1',
-        'TMBXUSHKJZZ0',
-      ],
-    })
     window.tp.push([
       'addHandler',
       'checkoutComplete',
@@ -815,12 +805,6 @@ export default {
     },
     checkout2(termId, back) {
       const _that = this
-      window.fbq = window.fbq || function () {}
-      window.fbq('track', 'InitiateCheckout', {
-        content_ids: [termId],
-        currency: 'HRK',
-        value: this.terms[termId].price,
-      })
       const promo = this.$route.query.promo_code
       window.tp.push([
         'init',
@@ -834,11 +818,6 @@ export default {
             closeOnLogout: true,
             complete: (data) => {
               _that.$store.dispatch('user/checkAccess')
-              window.fbq('track', 'Purchase', {
-                content_ids: data.termId,
-                currency: data.chargeCurrency,
-                value: data.chargeAmount,
-              })
               _that.$gtm.push({
                 event: 'subscription-funnel',
                 'subscription-category': 'subscription-new',
@@ -873,10 +852,6 @@ export default {
                   compass.trackConversion('subscribe')
                 },
               ])
-              window.fbq('track', 'Subscribe', {
-                currency: data.chargeCurrency,
-                value: data.chargeAmount,
-              })
               window.PianoESP &&
                 typeof window.PianoESP.handleUserDataPromise === 'function' &&
                 window.PianoESP.handleUserDataPromise({
