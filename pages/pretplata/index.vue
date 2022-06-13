@@ -684,6 +684,26 @@ export default {
           title: 'Telegram Mjesečna Pretplata - Božićna akcija',
           price: 1,
         },
+        TMC561I3C1ZT: {
+          title: 'Telegram Mjesečna Pretplata',
+          price: 49,
+          gtm: 'standard-monthly',
+        },
+        TM68H8RUQ7VJ: {
+          title: 'Telegram Premium Mjesečna Pretplata',
+          price: 69,
+          gtm: 'premium-monthly',
+        },
+        TMA44DJRTT2A: {
+          title: 'Telegram Godišnja Pretplata',
+          price: 468,
+          gtm: 'standard-annual',
+        },
+        TM6MUK1A0QU6: {
+          title: 'Telegram Premium Godišnja Pretplata',
+          price: 588,
+          gtm: 'premium-annual',
+        },
       },
     }
   },

@@ -5,10 +5,10 @@ export default () => {
   }
   // Piano conf
   window.tp = window.tp || []
-  window.tp.push(['setAid', 'QuTHmVhFpu'])
+  window.tp.push(['setAid', 'NSqJ3UJWsu'])
   window.tp.push(['setCxenseSiteId', '1128464677385494954']);
-  window.tp.push(['setSandbox', false])
-  window.tp.push(['setDebug', false])
+  window.tp.push(['setSandbox', true])
+  window.tp.push(['setDebug', true])
   window.tp.push(['setUsePianoIdUserProvider', true])
   window.tp.push(['setCloudflareWorkerUrl', 'https://auth.telegram.hr']);
   window.tp.push(["setMaxCookieExpirationInDays", 365]);
