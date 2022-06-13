@@ -810,7 +810,7 @@ export default {
         'init',
         () => {
           window.tp.offer.show({
-            offerId: window.tp.sandbox ? 'OFVZ3BQ00JLQ' : 'OF5JVPQYFLE1',
+            offerId: window.tp.sandbox ? 'OFO942FEQZ5P' : 'OF5JVPQYFLE1',
             termId,
             templateId: window.tp.sandbox ? 'OTTXZFQ6FGFC' : 'OTXWXSOL0WWS',
             checkoutFlowId: window.tp.sandbox ? 'CF8Q59Z3RJ5G' : 'CF65KTMVQXXX',
@@ -846,20 +846,6 @@ export default {
                   },
                 },
               })
-              window.marfeel.cmd.push([
-                'compass',
-                function (compass) {
-                  compass.trackConversion('subscribe')
-                },
-              ])
-              window.PianoESP &&
-                typeof window.PianoESP.handleUserDataPromise === 'function' &&
-                window.PianoESP.handleUserDataPromise({
-                  email: _that.$store.state.user.email,
-                  squads: [2128, 2555, 2554],
-                }).then(() => {
-                  _that.$router.go(back)
-                })
             },
           })
         },

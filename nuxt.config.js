@@ -61,22 +61,11 @@ export default {
         src: 'https://cdn.tinypass.com/api/tinypass.min.js',
         async: true,
       },
-      {
-        hid: 'cxense',
-        src: 'https://cdn.cxense.com/cx.cce.js',
-        async: true,
-      },
-      {
-        hid: 'sovrn',
-        src: 'https://get.s-onetag.com/71db7e62-a54b-43f0-98c7-ae8594228b02/tag.min.js',
-        async: true,
-        defer: true,
-      },
     ],
   },
 
   router: {
-    middleware: ['piano', 'gemius', 'dotmetrics'],
+    middleware: ['piano'],
   },
 
   loading: '~/components/loading.vue',
@@ -94,15 +83,15 @@ export default {
     { src: '@/plugins/filters.js' },
     { src: '@/plugins/persisted.client.js' },
     { src: '@/plugins/vue-slick-carousel.js' },
-    { src: '@/plugins/piano-cxense.js', ssr: false },
+    // { src: '@/plugins/piano-cxense.js', ssr: false },
     { src: '@/plugins/piano.js', ssr: false },
     { src: '@/plugins/mobile.js' },
-    { src: '@/plugins/cxtrack.js', ssr: false },
+    // { src: '@/plugins/cxtrack.js', ssr: false },
     { src: '@/plugins/fontawesome.js' },
-    { src: '@/plugins/gemius.client.js' },
-    { src: '@/plugins/dotmetrics.client.js' },
-    { src: '@/plugins/marfeel.client.js' },
-    { src: '@/plugins/upscore.client.js' },
+    // { src: '@/plugins/gemius.client.js' },
+    // { src: '@/plugins/dotmetrics.client.js' },
+    // { src: '@/plugins/marfeel.client.js' },
+    // { src: '@/plugins/upscore.client.js' },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
