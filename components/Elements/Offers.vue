@@ -6,16 +6,28 @@
       <div class="full cantha-separator"></div>
     </div>
     <h3 class="full center-text column-full-pad subsection-title">
-      <img
-        src="@/assets/img/extras/partner_logos/spar.svg"
-        alt="Telegram logo"
-      />
-      <img
-        src="@/assets/img/extras/partner_logos/spar.svg"
-        class="dark-mode-only"
-        alt="Telegram logo"
-      />
-      posebne ponude
+      <div class="full center spar-line">
+        <div class="flex">
+          <img
+            src="@/assets/img/extras/partner_logos/spar.svg"
+            alt="Spar logo"
+          />
+          <img
+            src="@/assets/img/extras/partner_logos/spar.svg"
+            class="dark-mode-only"
+            alt="Spar logo"
+          />
+          <img
+            src="@/assets/img/extras/partner_logos/interspar.svg"
+            alt="Interspar logo"
+          />
+          <img
+            src="@/assets/img/extras/partner_logos/interspar.svg"
+            class="dark-mode-only"
+            alt="Interspar logo"
+          />
+        </div>
+      </div>
     </h3>
     <div class="full flex stretch column-bottom-pad gallery-content">
       <VueSlickCarousel
