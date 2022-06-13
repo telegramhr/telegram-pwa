@@ -8938,6 +8938,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .spar-line > div {
     padding-left: 7px;
     background-color: #fcf1e7;
+    width: 226px;
 }
 .contrast-mode .spar-line > div {
     background-color: white;
