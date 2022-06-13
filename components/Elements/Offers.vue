@@ -37,7 +37,10 @@
       >
         <div class="offer-slide">
           <a class="full flex article relative" role="article">
-            <img src="@/assets/img/grey_placeholder.png" loading="lazy" />
+            <img
+              src="@/assets/img/grey_placeholder_square.png"
+              loading="lazy"
+            />
             <div class="full flex article-pad">
               <h2 class="full">Ime proizvoda</h2>
               <h3 class="overtitle">
@@ -54,7 +57,10 @@
         </div>
         <div class="offer-slide">
           <a class="full flex article relative" role="article">
-            <img src="@/assets/img/grey_placeholder.png" loading="lazy" />
+            <img
+              src="@/assets/img/grey_placeholder_square.png"
+              loading="lazy"
+            />
             <div class="full flex article-pad">
               <h2 class="full">Ime proizvoda</h2>
               <h3 class="overtitle">
@@ -71,7 +77,10 @@
         </div>
         <div class="offer-slide">
           <a class="full flex article relative" role="article">
-            <img src="@/assets/img/grey_placeholder.png" loading="lazy" />
+            <img
+              src="@/assets/img/grey_placeholder_square.png"
+              loading="lazy"
+            />
             <div class="full flex article-pad">
               <h2 class="full">Ime proizvoda</h2>
               <h3 class="overtitle">
@@ -88,7 +97,10 @@
         </div>
         <div class="offer-slide">
           <a class="full flex article relative" role="article">
-            <img src="@/assets/img/grey_placeholder.png" loading="lazy" />
+            <img
+              src="@/assets/img/grey_placeholder_square.png"
+              loading="lazy"
+            />
             <div class="full flex article-pad">
               <h2 class="full">Ime proizvoda</h2>
               <h3 class="overtitle">
@@ -105,7 +117,10 @@
         </div>
         <div class="offer-slide">
           <a class="full flex article relative" role="article">
-            <img src="@/assets/img/grey_placeholder.png" loading="lazy" />
+            <img
+              src="@/assets/img/grey_placeholder_square.png"
+              loading="lazy"
+            />
             <div class="full flex article-pad">
               <h2 class="full">Ime proizvoda</h2>
               <h3 class="overtitle">
@@ -122,7 +137,10 @@
         </div>
         <div class="offer-slide">
           <a class="full flex article relative" role="article">
-            <img src="@/assets/img/grey_placeholder.png" loading="lazy" />
+            <img
+              src="@/assets/img/grey_placeholder_square.png"
+              loading="lazy"
+            />
             <div class="full flex article-pad">
               <h2 class="full">Ime proizvoda</h2>
               <h3 class="overtitle">
