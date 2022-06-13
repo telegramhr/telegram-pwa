@@ -35,28 +35,123 @@
         v-bind="slider_settings"
         style="display: block; width: 100%"
       >
-        <div v-for="post in posts" class="offer-slide">
+        <div class="offer-slide">
           <a class="full flex article relative" role="article">
-            <img :src="post.slika" loading="lazy" />
+            <img
+              src="@/assets/img/grey_placeholder_square.png"
+              loading="lazy"
+            />
             <div class="full flex article-pad">
-              <h2 class="full">{{ post.naslov }}</h2>
+              <h2 class="full">Ime proizvoda</h2>
               <h3 class="overtitle">
-                {{ post.cijena }} kn
-                <span v-if="post.stara_cijena" class="strikethrough-price">{{
-                  post.stara_cijena
-                }}</span>
+                100,00 kn
+                <span class="strikethrough-price">150,00 kn</span>
               </h3>
 
               <h4 class="full">
-                {{ post.opis }}
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               </h4>
-              <a
-                :href="post.link"
-                target="_blank"
-                rel="sponsored"
-                class="newbtn"
-                >Pogledaj ponudu</a
-              >
+              <div class="newbtn">Pogledaj ponudu</div>
+            </div>
+          </a>
+        </div>
+        <div class="offer-slide">
+          <a class="full flex article relative" role="article">
+            <img
+              src="@/assets/img/grey_placeholder_square.png"
+              loading="lazy"
+            />
+            <div class="full flex article-pad">
+              <h2 class="full">Ime proizvoda</h2>
+              <h3 class="overtitle">
+                100,00 kn
+                <span class="strikethrough-price">150,00 kn</span>
+              </h3>
+
+              <h4 class="full">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </h4>
+              <div class="newbtn">Pogledaj ponudu</div>
+            </div>
+          </a>
+        </div>
+        <div class="offer-slide">
+          <a class="full flex article relative" role="article">
+            <img
+              src="@/assets/img/grey_placeholder_square.png"
+              loading="lazy"
+            />
+            <div class="full flex article-pad">
+              <h2 class="full">Ime proizvoda</h2>
+              <h3 class="overtitle">
+                100,00 kn
+                <span class="strikethrough-price">150,00 kn</span>
+              </h3>
+
+              <h4 class="full">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </h4>
+              <div class="newbtn">Pogledaj ponudu</div>
+            </div>
+          </a>
+        </div>
+        <div class="offer-slide">
+          <a class="full flex article relative" role="article">
+            <img
+              src="@/assets/img/grey_placeholder_square.png"
+              loading="lazy"
+            />
+            <div class="full flex article-pad">
+              <h2 class="full">Ime proizvoda</h2>
+              <h3 class="overtitle">
+                100,00 kn
+                <span class="strikethrough-price">150,00 kn</span>
+              </h3>
+
+              <h4 class="full">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </h4>
+              <div class="newbtn">Pogledaj ponudu</div>
+            </div>
+          </a>
+        </div>
+        <div class="offer-slide">
+          <a class="full flex article relative" role="article">
+            <img
+              src="@/assets/img/grey_placeholder_square.png"
+              loading="lazy"
+            />
+            <div class="full flex article-pad">
+              <h2 class="full">Ime proizvoda</h2>
+              <h3 class="overtitle">
+                100,00 kn
+                <span class="strikethrough-price">150,00 kn</span>
+              </h3>
+
+              <h4 class="full">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </h4>
+              <div class="newbtn">Pogledaj ponudu</div>
+            </div>
+          </a>
+        </div>
+        <div class="offer-slide">
+          <a class="full flex article relative" role="article">
+            <img
+              src="@/assets/img/grey_placeholder_square.png"
+              loading="lazy"
+            />
+            <div class="full flex article-pad">
+              <h2 class="full">Ime proizvoda</h2>
+              <h3 class="overtitle">
+                100,00 kn
+                <span class="strikethrough-price">150,00 kn</span>
+              </h3>
+
+              <h4 class="full">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </h4>
+              <div class="newbtn">Pogledaj ponudu</div>
             </div>
           </a>
         </div>
@@ -125,7 +220,7 @@ export default {
   methods: {
     getPosts() {
       this.$axios
-        .get('/api/promos/webshop')
+        .get('/api/promos')
         .then((res) => {
           this.posts = res.data
         })
