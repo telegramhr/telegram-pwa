@@ -60,33 +60,6 @@
           >
             <div class="klub-ponuda-tile relative">
               <div class="klub-sticker center">
-                <div class="full center-text klub-sticker-amount">20%</div>
-                <div class="full center-text klub-sticker-text">popust</div>
-              </div>
-              <div class="full center">
-                <img
-                  src="@/assets/img/extras/klub/tg_visual_klub_hnkvz.jpg"
-                  aria-hidden="true"
-                />
-              </div>
-            </div>
-            <h3 class="full overtitle">Kazalište HNK Varaždin</h3>
-            <h2 class="full">
-              Popust na ulaznice za predstave kazališta HNK Varaždin
-            </h2>
-            <a
-              href="#kazalista"
-              class="newbtn clickable"
-              @click="selected_kazaliste = 'hnkvz'"
-            >
-              Iskoristite ponudu
-            </a>
-          </div>
-          <div
-            class="fourth flex article klub-ponuda relative column-horizontal-pad"
-          >
-            <div class="klub-ponuda-tile relative">
-              <div class="klub-sticker center">
                 <div class="full center-text klub-sticker-amount">30%</div>
                 <div class="full center-text klub-sticker-text">popust</div>
               </div>
@@ -193,6 +166,33 @@
           >
             <div class="klub-ponuda-tile relative">
               <div class="klub-sticker center">
+                <div class="full center-text klub-sticker-amount">20%</div>
+                <div class="full center-text klub-sticker-text">popust</div>
+              </div>
+              <div class="full center">
+                <img
+                  src="@/assets/img/extras/klub/tg_visual_klub_hnkvz.jpg"
+                  aria-hidden="true"
+                />
+              </div>
+            </div>
+            <h3 class="full overtitle">Kazalište HNK Varaždin</h3>
+            <h2 class="full">
+              Popust na ulaznice za predstave kazališta HNK Varaždin
+            </h2>
+            <a
+              href="#kazalista"
+              class="newbtn clickable"
+              @click="selected_kazaliste = 'hnkvz'"
+            >
+              Iskoristite ponudu
+            </a>
+          </div>
+          <div
+            class="fourth flex article klub-ponuda relative column-horizontal-pad"
+          >
+            <div class="klub-ponuda-tile relative">
+              <div class="klub-sticker center">
                 <div class="full center-text klub-sticker-amount">50%</div>
                 <div class="full center-text klub-sticker-text">popust</div>
               </div>
@@ -273,7 +273,7 @@
               Kako biste ostvarili svoj popust, posjetite web stranicu za online
               kupnju ulaznica i upišite kod ___________. Ili posjetite blagajnu
               kazališta i pokažite svoju digitalnu pretplatničku iskaznicu, koju
-              možete preuzeti ovdje.
+              možete preuzeti <a href="#iskaznica">ovdje.</a>
             </p>
           </div>
           <div v-show="canLogIn" class="full flex">
@@ -314,7 +314,7 @@
               Kako biste ostvarili svoj popust, posjetite web stranicu za online
               kupnju ulaznica i upišite kod ZKM+TELEGRAM. Ili posjetite blagajnu
               kazališta i pokažite svoju digitalnu pretplatničku iskaznicu, koju
-              možete preuzeti ovdje.
+              možete preuzeti <a href="#iskaznica">ovdje.</a>
             </p>
             <a
               href="https://www.zekaem.hr/raspored/"
@@ -363,7 +363,7 @@
               Kako biste ostvarili svoj popust, posjetite web stranicu za online
               kupnju ulaznica i upišite kod TELEGRAM10. Ili posjetite blagajnu
               kazališta i pokažite svoju digitalnu pretplatničku iskaznicu, koju
-              možete preuzeti ovdje.
+              možete preuzeti <a href="#iskaznica">ovdje.</a>
             </p>
             <a
               href="https://ulaznice.hr/r/Kazaliste_Komedija"
@@ -411,7 +411,7 @@
             <p class="full">
               Kako biste ostvarili svoj popust, posjetite blagajnu kazališta i
               pokažite svoju digitalnu pretplatničku iskaznicu, koju možete
-              preuzeti ovdje.
+              preuzeti <a href="#iskaznica">ovdje.</a>
             </p>
           </div>
           <div v-show="canLogIn" class="full flex">
@@ -454,7 +454,7 @@
               Kako biste ostvarili svoj popust, posjetite web stranicu za online
               kupnju ulaznica i upišite kod tmghnkvz. Ili posjetite blagajnu
               kazališta i pokažite svoju digitalnu pretplatničku iskaznicu, koju
-              možete preuzeti ovdje.
+              možete preuzeti <a href="#iskaznica">ovdje.</a>
             </p>
             <a
               href="https://hnkvz.mojekarte.hr/hr/all.html"
@@ -502,7 +502,7 @@
             <p class="full">
               Kako biste ostvarili svoj popust, posjetite blagajnu kazališta i
               pokažite svoju digitalnu pretplatničku iskaznicu, koju možete
-              preuzeti ovdje.
+              preuzeti <a href="#iskaznica">ovdje.</a>
             </p>
           </div>
           <div v-show="canLogIn" class="full flex">
@@ -544,7 +544,7 @@
             <p class="full">
               Kako biste ostvarili svoj popust, posjetite blagajnu dvorane
               Lisinski i pokažite svoju digitalnu pretplatničku iskaznicu, koju
-              možete preuzeti ovdje.
+              možete preuzeti <a href="#iskaznica">ovdje.</a>
             </p>
           </div>
           <div v-show="canLogIn" class="full flex">
@@ -691,7 +691,7 @@
             <a
               href="#knjizare"
               class="newbtn clickable"
-              @click="selected_knjizara = 'sk'"
+              @click="selected_knjizara = 'telegram'"
             >
               Iskoristite ponudu
             </a>
@@ -763,7 +763,8 @@
               Kako biste ostvarili svoj popust, posjetite link knjige koju
               želite kupiti i pri odabiru načina plaćanja upišite kod
               TELEGRAM22. Ili posjetite knjižaru Fraktura i pokažite svoju
-              digitalnu pretplatničku iskaznicu, koju možete preuzeti ovdje.
+              digitalnu pretplatničku iskaznicu, koju možete preuzeti
+              <a href="#iskaznica">ovdje.</a>
             </p>
           </div>
           <div v-show="canLogIn" class="full flex">
@@ -803,7 +804,7 @@
             <p class="full">
               Kako biste ostvarili svoj popust, posjetite jednu od knjižara
               Školske knjige i pokažite svoju digitalnu pretplatničku iskaznicu,
-              koju možete preuzeti ovdje.
+              koju možete preuzeti <a href="#iskaznica">ovdje.</a>
             </p>
           </div>
           <div v-show="canLogIn" class="full flex">
@@ -844,7 +845,8 @@
               Kako biste ostvarili svoj popust, posjetite link knjige koju
               želite kupiti i pri odabiru načina plaćanja upišite kod HKTG10.
               Ili posjetite jednu od knjižara Hoću knjigu i pokažite svoju
-              digitalnu pretplatničku iskaznicu, koju možete preuzeti ovdje.
+              digitalnu pretplatničku iskaznicu, koju možete preuzeti
+              <a href="#iskaznica">ovdje.</a>
             </p>
             <a
               href="https://www.hocuknjigu.hr/?gclid=CjwKCAjw14uVBhBEEiwAaufYxyafX-1BrWomTMdFgs2kQP0hcVMYFg6-uUc1dSNltjvadgPSnFRAKxoCpmAQAvD_BwE"
@@ -892,7 +894,7 @@
               želite kupiti i pri odabiru načina plaćanja upišite kod
               TELEGRAM10. Ili posjetite jednu od knjižara Ljevak i pokažite
               svoju digitalnu pretplatničku iskaznicu, koju možete preuzeti
-              ovdje.
+              <a href="#iskaznica">ovdje.</a>
             </p>
             <a
               href="https://www.ljevak.hr/"
@@ -1140,7 +1142,7 @@
             <p class="full">
               Kako biste ostvarili svoj popust, posjetite blagajnu MSU-a i
               pokažite svoju digitalnu pretplatničku iskaznicu, koju možete
-              preuzeti ovdje.
+              preuzeti <a href="#iskaznica">ovdje.</a>
             </p>
           </div>
           <div v-show="canLogIn" class="full flex">
@@ -1182,7 +1184,7 @@
             <p class="full">
               Kako biste ostvarili svoj popust, posjetite blagajnu Arheološkog
               muzeja i pokažite svoju digitalnu pretplatničku iskaznicu, koju
-              možete preuzeti ovdje.
+              možete preuzeti <a href="#iskaznica">ovdje.</a>
             </p>
           </div>
           <div v-show="canLogIn" class="full flex">
@@ -1224,7 +1226,7 @@
             <p class="full">
               Kako biste ostvarili svoj popust, posjetite blagajnu Muzeja
               prekinutih veza i pokažite svoju digitalnu pretplatničku
-              iskaznicu, koju možete preuzeti ovdje.
+              iskaznicu, koju možete preuzeti <a href="#iskaznica">ovdje.</a>
             </p>
           </div>
           <div v-show="canLogIn" class="full flex">
@@ -1266,7 +1268,7 @@
             <p class="full">
               Kako biste ostvarili svoj popust, posjetite blagajnu Muzeja
               Vučedolske kulture i pokažite svoju digitalnu pretplatničku
-              iskaznicu, koju možete preuzeti ovdje.
+              iskaznicu, koju možete preuzeti <a href="#iskaznica">ovdje.</a>
             </p>
           </div>
           <div v-show="canLogIn" class="full flex">
@@ -1306,7 +1308,7 @@
             <p class="full">
               Kako biste ostvarili svoj popust, posjetite blagajnu Muzeja
               iluzija i pokažite svoju digitalnu pretplatničku iskaznicu, koju
-              možete preuzeti ovdje.
+              možete preuzeti <a href="#iskaznica">ovdje.</a>
             </p>
           </div>
           <div v-show="canLogIn" class="full flex">
@@ -1321,7 +1323,42 @@
         </div>
       </div>
     </div>
-    <div class="full flex column-full-pad"></div>
+    <div id="iskaznica" class="full flex fake-inpage-anchor"></div>
+    <div v-show="!canLogIn" class="full flex relative mobile-side-pad">
+      <div class="container flex relative column-bottom-pad">
+        <div class="full column-horizontal-pad column-top-pad">
+          <div class="full cantha-separator"></div>
+        </div>
+        <h3 class="full center-text column-full-pad subsection-title">
+          Vaša klub iskaznica
+        </h3>
+        <div class="full center relative">
+          <div class="klub-card flex stretch relative">
+            <img
+              src="@/assets/img/tg_bg_fancyarc.jpg"
+              aria-hidden="true"
+              class="img-as-bg"
+            />
+            <div class="half flex flex-responsive center">
+              <img
+                src="@/assets/img/tg_klub_logo_negative.svg"
+                alt="Telegram Grupa logo"
+              />
+              <div class="full flex">
+                <p class="full">ID: {{ subscriber_klub_id }}</p>
+                <p class="full">
+                  Datum isteka: {{ subscriber_klub_expiration }}
+                </p>
+              </div>
+            </div>
+
+            <div class="half flex flex-responsive center klub-qr">
+              <img src="@/assets/img/extras/klub/tg_qr_klub.png" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Footer -->
     <tfooter></tfooter>
   </div>
@@ -1335,6 +1372,8 @@ export default {
       selected_kazaliste: '',
       selected_knjizara: '',
       selected_muzej: '',
+      subscriber_klub_id: '42069',
+      subscriber_klub_expiration: '01.01.2023.',
     }
   },
   computed: {

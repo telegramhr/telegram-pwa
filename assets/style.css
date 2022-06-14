@@ -8895,7 +8895,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-weight: 700;
 }
 .klub-expanded .newbtn {
-    margin-top: 4px;
+    margin-top: 16px;
 }
 .fake-inpage-anchor {
     position: relative;
@@ -8935,6 +8935,11 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .spar-line {
     background-color: #006431;
 }
+.klub-expanded p a {
+    color: #ae3737;
+    font-weight: bold;
+    text-decoration: underline;
+}
 .spar-line > div {
     padding-left: 7px;
     background-color: #fcf1e7;
@@ -8949,6 +8954,26 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 h3.subsection-title .spar-line img {
     height: 14px;
     bottom: 0px;
+}
+.klub-card {
+    background-color: #333;
+    color: white;
+    max-width: 520px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+    font-family: 'Barlow', sans-serif;
+}
+.klub-card > .center {
+    padding: 24px;
+    flex-wrap: wrap;
+    align-content: space-between;
+    z-index: 5;
+    position: relative;
+}
+.klub-qr {
+    justify-content: flex-end;
+}
+.klub-card .klub-qr img {
+    mix-blend-mode: difference;
 }
 
 @media screen and (max-width: 767px) {
@@ -8979,5 +9004,8 @@ h3.subsection-title .spar-line img {
         font-size: 40px;
         font-family: 'Barlow', sans-serif;
         font-weight: 700;
+    }
+    .klub-card {
+        max-width: 70vw;
     }
 }
