@@ -57,7 +57,7 @@
               <h4 class="full">
                 {{ post.opis }}
               </h4>
-              <div class="newbtn">Pogledaj ponudu</div>
+              <div class="newbtn">Pogledaj letak</div>
             </div>
           </a>
         </div>
