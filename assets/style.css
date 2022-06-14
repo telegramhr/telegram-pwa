@@ -9027,4 +9027,8 @@ h3.subsection-title .spar-line img {
         font-size: 13px;
         font-size: 0.65rem;
     }
+    .klub-header {
+        padding-top: 8vw;
+        padding-bottom: 4vw;
+    }
 }
