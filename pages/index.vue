@@ -629,23 +629,8 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.loadAds()
-      // window.addEventListener('scroll', this.handleScroll)
-      window.upScore({
-        data: {
-          article: '',
-          track_positions: true,
-          section: this.$options.filters.parseCat(this.cat),
-          object_id: '',
-          pubdate: '',
-          object_type: 'landingpage',
-          author: '',
-        },
-      })
     })
   },
-  /* beforeDestroy() {
-    window.removeEventListener('scroll', this.handleScroll)
-  }, */
   methods: {
     manageLogin() {
       if (this.canLogIn) {
