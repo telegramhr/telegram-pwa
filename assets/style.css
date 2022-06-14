@@ -8972,8 +8972,17 @@ h3.subsection-title .spar-line img {
 .klub-qr {
     justify-content: flex-end;
 }
-.klub-card .klub-qr img {
-    mix-blend-mode: difference;
+
+@media screen and (max-width: 1360px) and (min-width: 767px) {
+    .offers-widget .gallery-content {
+        padding: 0px 36px;
+    }
+    .offers-widget .gallery-content .gallery-left {
+        left: 0px;
+    }
+    .offers-widget .gallery-content .gallery-right {
+        right: 0px;
+    }
 }
 
 @media screen and (max-width: 767px) {
