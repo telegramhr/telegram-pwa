@@ -9005,7 +9005,17 @@ h3.subsection-title .spar-line img {
         font-family: 'Barlow', sans-serif;
         font-weight: 700;
     }
+    .klub-card .half:nth-child(2) {
+        width: 39.99%;
+    }
+    .klub-card .half:first-child {
+        width: 59.99%;
+    }
     .klub-card {
-        max-width: 70vw;
+        margin-bottom: 8vw;
+    }
+    .klub-card p {
+        font-size: 13px;
+        font-size: 0.65rem;
     }
 }

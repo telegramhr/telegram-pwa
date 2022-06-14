@@ -1334,12 +1334,7 @@
         </h3>
         <div class="full center relative">
           <div class="klub-card flex stretch relative">
-            <img
-              src="@/assets/img/tg_bg_fancyarc.jpg"
-              aria-hidden="true"
-              class="img-as-bg"
-            />
-            <div class="half flex flex-responsive center">
+            <div class="half flex center">
               <img
                 src="@/assets/img/tg_klub_logo_negative.svg"
                 alt="Telegram Grupa logo"
@@ -1351,10 +1346,14 @@
                 </p>
               </div>
             </div>
-
-            <div class="half flex flex-responsive center klub-qr">
+            <div class="half flex center klub-qr">
               <img src="@/assets/img/extras/klub/tg_qr_klub.png" />
             </div>
+            <img
+              src="@/assets/img/tg_bg_fancyarc.jpg"
+              aria-hidden="true"
+              class="img-as-bg"
+            />
           </div>
         </div>
       </div>
