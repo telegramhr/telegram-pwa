@@ -80,28 +80,14 @@ i, em, .italic {
 .white-text {
     color: white;
 }
-.clickable {
-    cursor: pointer;
+.white-bg {
+    background-color: white;
 }
 .strikethrough {
     text-decoration: line-through;
 }
-.animate, svg {
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    -ms-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    transition: all 0.3s;
-    -webkit-transform: translateZ(0);
-    -moz-transform: translateZ(0);
-    -ms-transform: translateZ(0);
-    -o-transform: translateZ(0);
-    transform: translateZ(0);
-}
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
+.center-text {
+    text-align: center;
 }
 
 /* Media */
@@ -111,9 +97,17 @@ img {
     max-width: 100%;
     height: auto;
 }
+.yt-embed {
+    width: 100%;
+    max-width: 710px;
+    height: 400px;
+}
 
 /* Layout */
 
+.relative {
+    position: relative;
+}
 .flex {
     display: flex;
     flex-flow: row;
@@ -175,9 +169,40 @@ img {
     align-items: center;
     align-content: center;
 }
-/* Functions */
+.hide {
+    display: none !important;
+}
+.mobile-only {
+    display: none;
+}
+.align-end {
+    align-self: flex-end;
+}
+.reset-flex-order > * {
+    order: initial !important;
+}
 
-.animate {
+/* Style */
+
+.img-as-bg {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.faded-50, .faded {
+    opacity: 0.5
+}
+.faded-70 {
+    opacity: 0.7;
+}
+.clickable {
+    cursor: pointer;
+}
+.animate, svg {
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     -ms-transition: all 0.3s;
@@ -189,34 +214,10 @@ img {
     -o-transform: translateZ(0);
     transform: translateZ(0);
 }
-.hide {
-    display: none !important;
-}
-.mobile-only {
-    display: none;
-}
-.faded-50, .faded {
-    opacity: 0.5
-}
-.faded-70 {
-    opacity: 0.7;
-}
-.yt-embed {
-    width: 100%;
-    max-width: 710px;
-    height: 400px;
-}
-.relative {
-    position: relative;
-}
-.center-text {
-    text-align: center;
-}
-.align-end {
-    align-self: flex-end;
-}
-.reset-flex-order > * {
-    order: initial !important;
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* Media Queries */

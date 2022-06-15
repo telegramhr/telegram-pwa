@@ -629,12 +629,8 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.loadAds()
-      // window.addEventListener('scroll', this.handleScroll)
     })
   },
-  /* beforeDestroy() {
-    window.removeEventListener('scroll', this.handleScroll)
-  }, */
   methods: {
     manageLogin() {
       if (this.canLogIn) {

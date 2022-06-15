@@ -828,22 +828,9 @@ export default {
           })
         }
         this.dotmetrics()
-        this.upscore()
       } else {
         setTimeout(this.getPost, 500)
       }
-    },
-    upscore() {
-      window.upScore({
-        data: {
-          article: '#article-body',
-          section: this.$options.filters.parseCat(this.post.category),
-          object_id: this.post.id.toString(),
-          pubdate: new Date(this.post.time * 1000).toISOString(),
-          object_type: 'article',
-          author: this.post.authors.map((item) => item.name).join(','),
-        },
-      })
     },
     dotmetrics() {
       this.$dotmetrics.postLoad(this.post.category_slug)
