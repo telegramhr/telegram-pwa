@@ -8973,7 +8973,7 @@ h3.subsection-title .spar-line img {
     justify-content: flex-end;
 }
 
-@media screen and (max-width: 1360px) and (min-width: 767px) {
+@media screen and (min-width: 767px) {
     .offers-widget .gallery-content {
         padding: 0px 36px;
     }
