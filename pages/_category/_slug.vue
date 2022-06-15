@@ -323,7 +323,7 @@
               </div>
             </div>
             <client-only>
-              <div v-if="hasPremium" class="full relative" style="order: 3">
+              <div v-if="!hasPremium" class="full relative" style="order: 3">
                 <offers></offers>
               </div>
             </client-only>
