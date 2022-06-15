@@ -43,6 +43,7 @@
             rel="sponsored"
             class="full flex article relative"
             role="article"
+            @click="trackClick"
           >
             <img :src="post.slika" loading="lazy" />
             <div class="full flex article-pad">
@@ -122,8 +123,24 @@ export default {
   },
   mounted() {
     this.getPosts()
+    this.$gtm.push({
+      event: 'webshop-widget',
+      'webshop-category': 'interspar',
+      'webshop-action': 'view',
+      'webshop-label': 'impression',
+      'webshop-value': 1,
+    })
   },
   methods: {
+    trackClick() {
+      this.$gtm.push({
+        event: 'webshop-widget',
+        'webshop-category': 'interspar',
+        'webshop-action': 'click',
+        'webshop-label': 'click',
+        'webshop-value': 1,
+      })
+    },
     getPosts() {
       this.$axios
         .get('/api/promos/webshop')
