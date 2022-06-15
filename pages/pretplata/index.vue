@@ -760,7 +760,7 @@ export default {
     ])
     this.$gtm.push({
       event: 'subscription-funnel',
-      'subscription-category': 'new',
+      'subscription-category': 'subscription-new',
       'subscription-action': 'viewed',
     })
   },
@@ -783,7 +783,7 @@ export default {
       })
       this.$gtm.push({
         event: 'subscription-funnel',
-        'subscription-category': 'new',
+        'subscription-category': 'subscription-new',
         'subscription-action': 'selected',
         'subscription-type': this.terms[termId].gtm,
         'subscription-value': this.terms[termId].price,

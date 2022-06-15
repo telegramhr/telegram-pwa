@@ -328,7 +328,7 @@ export default {
     ])
     this.$gtm.push({
       event: 'subscription-funnel',
-      'subscription-category': 'gift',
+      'subscription-category': 'subscription-gift',
       'subscription-action': 'viewed',
     })
 
@@ -344,7 +344,7 @@ export default {
     checkout(termId) {
       this.$gtm.push({
         event: 'subscription-funnel',
-        'subscription-category': 'gift',
+        'subscription-category': 'subscription-gift',
         'subscription-action': 'selected',
         'subscription-type': this.terms[termId].gtm,
         'subscription-value': this.terms[termId].price,
