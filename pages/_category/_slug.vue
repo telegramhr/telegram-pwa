@@ -322,9 +322,11 @@
                 </div>
               </div>
             </div>
-            <div class="full relative" style="order: 3">
-              <offers></offers>
-            </div>
+            <client-only>
+              <div v-if="hasPremium" class="full relative" style="order: 3">
+                <offers></offers>
+              </div>
+            </client-only>
             <div class="full relative single-article-body" style="order: 4">
               <div
                 class="full relative single-article-footer flex column-top-pad"
