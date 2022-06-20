@@ -8,6 +8,7 @@ export const state = () => ({
   access: null,
   updated: null,
   admin: false,
+  type: 'not-registered',
 })
 
 export const mutations = {
@@ -17,6 +18,7 @@ export const mutations = {
     state.email = data.email
     state.exp = data.exp
     state.uid = data.uid
+    state.type = 'registered'
   },
   logout(state) {
     state.first_name = ''
@@ -28,6 +30,7 @@ export const mutations = {
   },
   setTerm(state, data) {
     state.access = data
+    state.type = 'subscribed'
     state.updated = new Date().getTime()
   },
   setToken(state, token) {

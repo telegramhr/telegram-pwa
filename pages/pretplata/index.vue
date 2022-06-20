@@ -762,6 +762,10 @@ export default {
       event: 'subscription-funnel',
       'subscription-category': 'subscription-new',
       'subscription-action': 'viewed',
+      'article-title': this.$store.state.history.title,
+      'article-category': this.$store.state.history.category,
+      'article-author': this.$store.state.history.author,
+      'user-type': this.$store.state.user.type,
     })
   },
   methods: {
@@ -787,6 +791,10 @@ export default {
         'subscription-action': 'selected',
         'subscription-type': this.terms[termId].gtm,
         'subscription-value': this.terms[termId].price,
+        'article-title': this.$store.state.history.title,
+        'article-category': this.$store.state.history.category,
+        'article-author': this.$store.state.history.author,
+        'user-type': this.$store.state.user.type,
       })
       if (this.$store.state.user.token) {
         this.checkout2(termId, -1)
@@ -826,6 +834,10 @@ export default {
                   : 'purchased',
                 'subscription-type': _that.terms[data.termId].gtm,
                 'subscription-value': data.chargeAmount,
+                'article-title': this.$store.state.history.title,
+                'article-category': this.$store.state.history.category,
+                'article-author': this.$store.state.history.author,
+                'user-type': this.$store.state.user.type,
               })
               _that.$gtm.push({ ecommerce: null })
               _that.$gtm.push({
