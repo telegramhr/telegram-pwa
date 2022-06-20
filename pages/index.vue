@@ -601,6 +601,9 @@ export default {
     }
   },
   computed: {
+    hasPremium() {
+      return this.$store.getters['user/hasPremium']
+    },
     canLogIn() {
       return this.$store.state.user.exp * 1000 < new Date().getTime()
     },
