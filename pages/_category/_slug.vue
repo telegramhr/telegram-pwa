@@ -773,6 +773,7 @@ export default {
         if (this.post.quiz) {
           this.showQuiz = true
         }
+        this.$store.commit('history/setData', this.post)
         this.loadPiano()
         this.loadAds()
         if (typeof FB !== 'undefined') {
