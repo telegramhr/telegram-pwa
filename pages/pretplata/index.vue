@@ -750,7 +750,7 @@ export default {
     ])
     this.$gtm.push({
       event: 'subscription-funnel',
-      'subscription-category': 'new',
+      'subscription-category': 'subscription-new',
       'subscription-action': 'viewed',
     })
   },
@@ -773,7 +773,7 @@ export default {
       })
       this.$gtm.push({
         event: 'subscription-funnel',
-        'subscription-category': 'new',
+        'subscription-category': 'subscription-new',
         'subscription-action': 'selected',
         'subscription-type': this.terms[termId].gtm,
         'subscription-value': this.terms[termId].price,
@@ -822,9 +822,11 @@ export default {
               _that.$gtm.push({
                 event: 'subscription-funnel',
                 'subscription-category': 'subscription-new',
-                'subscription-action': 'purchased',
+                'subscription-action': data.promotionId
+                  ? 'purchased-with-coupon'
+                  : 'purchased',
                 'subscription-type': _that.terms[data.termId].gtm,
-                'subscription-value': _that.terms[data.termId].price,
+                'subscription-value': data.chargeAmount,
               })
               _that.$gtm.push({ ecommerce: null })
               _that.$gtm.push({
