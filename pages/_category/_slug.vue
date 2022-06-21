@@ -323,7 +323,11 @@
               </div>
             </div>
             <client-only>
-              <div v-if="!hasPremium" class="full relative" style="order: 3">
+              <div
+                v-if="!hasPremium || exclude"
+                class="full relative"
+                style="order: 3"
+              >
                 <offers></offers>
               </div>
             </client-only>
@@ -569,6 +573,13 @@ export default {
     }
   },
   computed: {
+    exclude() {
+      const terms = ['lidl']
+      const filtered = this.post.tags.filter((tag) => {
+        return terms.includes(tag.slug)
+      })
+      return !filtered.length
+    },
     hasPremium() {
       return this.$store.getters['user/hasPremium']
     },
