@@ -324,7 +324,7 @@
             </div>
             <client-only>
               <div
-                v-if="!hasPremium || exclude"
+                v-if="!hasPremium && !exclude"
                 class="full relative"
                 style="order: 3"
               >
@@ -578,7 +578,7 @@ export default {
       const filtered = this.post.tags.filter((tag) => {
         return terms.includes(tag.slug)
       })
-      return !filtered.length
+      return !!filtered.length
     },
     hasPremium() {
       return this.$store.getters['user/hasPremium']
