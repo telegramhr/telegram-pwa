@@ -1334,19 +1334,20 @@
         </h3>
         <div class="full center relative">
           <div class="klub-card flex stretch relative">
-            <div class="half flex center">
+            <div class="full flex center">
               <img
-                src="@/assets/img/tg_klub_logo_negative.svg"
-                alt="Telegram Grupa logo"
+                src="@/assets/img/telegram_logo_white.svg"
+                alt="Telegram logo"
               />
-              <div class="full flex">
-                <p class="full">ID: {{ subscriber_klub_id }}</p>
-                <p class="full">
+              <div class="full flex klub-card-content">
+                <p class="full center-text">{{ subscriber_klub_ime }}</p>
+                <p class="full center-text">ID {{ subscriber_klub_id }}</p>
+                <p class="full center-text">
                   Datum isteka: {{ subscriber_klub_expiration }}
                 </p>
               </div>
             </div>
-            <div class="half flex center klub-qr">
+            <div class="full flex center klub-qr">
               <img src="@/assets/img/extras/klub/tg_qr_klub.png" />
             </div>
             <img
@@ -1371,6 +1372,7 @@ export default {
       selected_kazaliste: '',
       selected_knjizara: '',
       selected_muzej: '',
+      subscriber_klub_ime: 'Pero Perić',
       subscriber_klub_id: '42069',
       subscriber_klub_expiration: '01.01.2023.',
     }
