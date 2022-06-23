@@ -76,7 +76,7 @@ export default {
   },
 
   router: {
-    middleware: ['piano', 'gemius', 'dotmetrics'],
+    middleware: ['gtm', 'piano', 'gemius', 'dotmetrics'],
   },
 
   loading: '~/components/loading.vue',
@@ -145,7 +145,7 @@ export default {
 
   gtm: {
     id: 'GTM-TF4XJXD',
-    pageTracking: true,
+    pageTracking: false,
   },
 
   pwa: {
