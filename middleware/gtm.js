@@ -8,6 +8,7 @@ export default function (ctx) {
           pageUrl: to.fullPath,
           pageTitle: (typeof document !== 'undefined' && document.title) || '',
           event: 'nuxtRoute',
+          'user-type': ctx.$store.state.user.type,
         }
       )
     }, 250)
