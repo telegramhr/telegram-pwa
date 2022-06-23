@@ -36,7 +36,7 @@
                 posebna cijena za sve pretplatnike Telegrama
               </h1>
               <h4 class="full relative center-text">
-                Prednaručite danas i budite među prvima koji će sredinom lipnja
+                Prednaručite danas i budite među prvima koji će krajem lipnja
                 dobiti Bili libar, s besplatnom dostavom na adresu.
               </h4>
               <h4 class="full relative bold center-text">
