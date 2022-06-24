@@ -580,7 +580,7 @@ export default {
   computed: {
     parsedOvertitle() {
       return this.$options.filters.parseCat(
-        this.post.overtitle ?? this.post.category
+        this.post.overtitle ? this.post.overtitle : this.post.category
       )
     },
     exclude() {
