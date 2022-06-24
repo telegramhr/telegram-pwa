@@ -27,7 +27,7 @@
             <span v-if="post.overtitle_tag" class="dynamic-overtitle-element">{{
               post.overtitle_tag
             }}</span>
-            <span>{{ post.category | parseCat }}</span>
+            <span>{{ parsedOvertitle }}</span>
           </h3>
         </div>
         <h2 :id="'featured-' + post.id" class="full animate">
@@ -98,6 +98,11 @@ export default {
     }
   },
   computed: {
+    parsedOvertitle() {
+      return this.$options.filters.parseCat(
+        this.post.overtitle ? this.post.overtitle : this.post.category
+      )
+    },
     srcset() {
       let set = `${this.post.image.url}`
       if (this.post.image.url2) {

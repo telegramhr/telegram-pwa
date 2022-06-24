@@ -14,7 +14,7 @@
     />
     <div class="full flex article-pad">
       <div class="full flex desktop-only">
-        <h3 class="overtitle">{{ post.category | parseCat }}</h3>
+        <h3 class="overtitle">{{ parsedOvertitle }}</h3>
       </div>
       <h2 :id="'standard-' + post.id" class="full">{{ post.portal_title }}</h2>
       <h4 class="full">{{ post.subtitle }}</h4>
@@ -70,6 +70,11 @@ export default {
     }
   },
   computed: {
+    parsedOvertitle() {
+      return this.$options.filters.parseCat(
+        this.post.overtitle ? this.post.overtitle : this.post.category
+      )
+    },
     srcset() {
       let set = `${this.post.image.url}`
       if (this.post.image.url2) {

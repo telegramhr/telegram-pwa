@@ -28,7 +28,7 @@
         >
           <div class="full column article-head column-top-pad flex">
             <div class="full flex overtitle-parent">
-              <h3 class="overtitle">{{ post.category | parseCat }}</h3>
+              <h3 class="overtitle">{{ parsedOvertitle }}</h3>
               <div v-if="post.promo.partner" class="collab-overtitle">
                 <h3 class="overtitle">{{ post.promo.prefix }}</h3>
                 <img :src="post.promo.logo" :alt="post.promo.partner" />
@@ -214,6 +214,11 @@ export default {
     }
   },
   computed: {
+    parsedOvertitle() {
+      return this.$options.filters.parseCat(
+        this.post.overtitle ? this.post.overtitle : this.post.category
+      )
+    },
     canLogIn() {
       return this.$store.state.user.exp * 1000 < new Date().getTime()
     },

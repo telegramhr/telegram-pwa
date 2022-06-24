@@ -7,7 +7,7 @@
       <div class="container flex relative mobile-side-pad">
         <div class="full flex article-head">
           <div class="full flex">
-            <h3 class="overtitle">{{ post.category | parseCat }}</h3>
+            <h3 class="overtitle">{{ parsedOvertitle }}</h3>
           </div>
           <h1 class="full">{{ post.title }}</h1>
           <h2 class="full">{{ post.subtitle }}</h2>
@@ -144,6 +144,13 @@ export default {
         gallery: [],
       },
     }
+  },
+  computed: {
+    parsedOvertitle() {
+      return this.$options.filters.parseCat(
+        this.post.overtitle ? this.post.overtitle : this.post.category
+      )
+    },
   },
   mounted() {
     this.$store.dispatch('ads/initAds', { route: this.$route })
