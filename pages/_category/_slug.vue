@@ -88,7 +88,9 @@
         />
         <div class="full flex article-head">
           <div class="full flex overtitle-parent">
-            <h3 class="overtitle">{{ post.category | parseCat }}</h3>
+            <h3 class="overtitle">
+              {{ post.overtitle ?? post.category | parseCat }}
+            </h3>
             <div v-if="post.promo.partner" class="collab-overtitle">
               <h3 class="overtitle">{{ post.promo.prefix }}</h3>
               <img :src="post.promo.logo" :alt="post.promo.partner" />
@@ -106,7 +108,7 @@
           >
             <div class="full column article-head column-top-pad flex">
               <div class="full flex overtitle-parent">
-                <h3 class="overtitle">{{ post.category | parseCat }}</h3>
+                <h3 class="overtitle">{{ post.overtitle??post.category | parseCat }}</h3>
                 <div v-if="post.promo.partner" class="collab-overtitle">
                   <h3 class="overtitle">{{ post.promo.prefix }}</h3>
                   <img :src="post.promo.logo" :alt="post.promo.partner" />
@@ -544,6 +546,7 @@ export default {
           },
         ],
         overtitle: '',
+        overtitle_tag: '',
         title: '',
         subtitle: '',
         content: '',

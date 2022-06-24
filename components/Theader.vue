@@ -214,7 +214,7 @@
         </div>
         <div class="half" role="menu">
           <h3>Social</h3>
-          <a role="menuitem" href="https://www.facebook.com/www.telegram.hr/"
+          <a role="menuitem" href="https://www.facebook.com/Telegram.hr/"
             >Facebook</a
           >
           <a role="menuitem" href="https://twitter.com/telegramhr/">Twitter</a>

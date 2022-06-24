@@ -121,7 +121,7 @@
         </div>
         <div class="full flex social-links center">
           <app-link
-            to="https://www.facebook.com/www.telegram.hr/"
+            to="https://www.facebook.com/Telegram.hr/"
             class="center animate"
             aria-label="Facebook"
           >
