@@ -319,7 +319,7 @@
             <p class="full bold">Kako do popusta?</p>
             <p class="full">
               Kako biste ostvarili svoj popust, posjetite web stranicu za online
-              kupnju ulaznica i upišite kod ZKM+TELEGRAM.
+              kupnju ulaznica i upišite kod <b>ZKM+TELEGRAM</b>.
             </p>
             <p class="full">
               Možete posjetiti i jednu od blagajni kazališta i pokazati svoju
@@ -371,7 +371,7 @@
             <p class="full bold">Kako do popusta?</p>
             <p class="full">
               Kako biste ostvarili svoj popust, posjetite web stranicu za online
-              kupnju ulaznica i upišite kod TELEGRAM10.
+              kupnju ulaznica i upišite kod <b>TELEGRAM10</b>.
             </p>
             <p class="full">
               Možete posjetiti i jednu od blagajni kazališta i pokazati svoju
@@ -465,7 +465,7 @@
             <p class="full bold">Kako do popusta?</p>
             <p class="full">
               Kako biste ostvarili svoj popust, posjetite web stranicu za online
-              kupnju ulaznica i upišite kod tmghnkvz.
+              kupnju ulaznica i upišite kod <b>tmghnkvz</b>.
             </p>
             <p class="full">
               Možete posjetiti i jednu od blagajni kazališta i pokazati svoju
@@ -778,7 +778,7 @@
             <p class="full">
               Kako biste ostvarili svoj popust, posjetite link knjige koju
               želite kupiti i pri odabiru načina plaćanja upišite kod
-              TELEGRAM22.
+              <b>TELEGRAM22</b>.
             </p>
             <p class="full">
               Možete posjetiti i knjižaru Fraktura i pokazati svoju digitalnu
@@ -862,7 +862,8 @@
             <p class="full bold">Kako do popusta?</p>
             <p class="full">
               Kako biste ostvarili svoj popust, posjetite link knjige koju
-              želite kupiti i pri odabiru načina plaćanja upišite kod HKTG10.
+              želite kupiti i pri odabiru načina plaćanja upišite kod
+              <b>HKTG10</b>.
             </p>
             <p class="full">
               Možete posjetiti i jednu od knjižara Hoću knjigu i pokazati svoju
@@ -912,7 +913,7 @@
             <p class="full bold">Kako do popusta?</p>
             <p class="full">
               Kako biste ostvarili svoj popust, posjetite link knjige koju
-              želite kupiti i pri odabiru načina plaćanja upišite kod
+              želite kupiti i pri odabiru načina plaćanja <b>upišite kod</b>
               TELEGRAM10.
             </p>
             <p class="full">
