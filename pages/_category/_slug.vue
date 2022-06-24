@@ -89,7 +89,7 @@
         <div class="full flex article-head">
           <div class="full flex overtitle-parent">
             <h3 class="overtitle">
-              {{ post.overtitle ?? post.category | parseCat }}
+              {{ parsedOvertitle }}
             </h3>
             <div v-if="post.promo.partner" class="collab-overtitle">
               <h3 class="overtitle">{{ post.promo.prefix }}</h3>
@@ -108,7 +108,9 @@
           >
             <div class="full column article-head column-top-pad flex">
               <div class="full flex overtitle-parent">
-                <h3 class="overtitle">{{ post.overtitle??post.category | parseCat }}</h3>
+                <h3 class="overtitle">
+                  {{ parsedOvertitle }}
+                </h3>
                 <div v-if="post.promo.partner" class="collab-overtitle">
                   <h3 class="overtitle">{{ post.promo.prefix }}</h3>
                   <img :src="post.promo.logo" :alt="post.promo.partner" />
@@ -576,6 +578,11 @@ export default {
     }
   },
   computed: {
+    parsedOvertitle() {
+      return this.$options.filters.parseCat(
+        this.post.overtitle ?? this.post.category
+      )
+    },
     exclude() {
       const terms = ['lidl']
       const filtered = this.post.tags.filter((tag) => {
