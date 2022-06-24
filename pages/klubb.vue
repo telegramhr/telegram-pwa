@@ -17,6 +17,12 @@
         <div class="full flex column-horizontal-pad">
           <img
             src="@/assets/img/tg_visual_klub_header.jpg"
+            class="desktop-only"
+            alt="Telegram Klub kolaž"
+          />
+          <img
+            src="@/assets/img/tg_visual_klub_header_mobile.jpg"
+            class="mobile-only"
             alt="Telegram Klub kolaž"
           />
           <h2 class="full center-text fancy-klub-intro">
@@ -269,9 +275,12 @@
             <p class="full bold">Kako do popusta?</p>
             <p class="full">
               Kako biste ostvarili svoj popust, posjetite web stranicu za online
-              kupnju ulaznica i upišite kod ___________. Ili posjetite blagajnu
-              kazališta i pokažite svoju digitalnu pretplatničku iskaznicu, koju
-              možete preuzeti <a href="#iskaznica">ovdje.</a>
+              kupnju ulaznica i upišite kod ___________.
+            </p>
+            <p class="full">
+              Možete posjetiti i jednu od blagajni kazališta i pokazati svoju
+              digitalnu pretplatničku iskaznicu, koju možete preuzeti
+              <a href="#iskaznica">ovdje.</a>
             </p>
           </div>
           <div v-show="canLogIn" class="full flex">
@@ -310,9 +319,12 @@
             <p class="full bold">Kako do popusta?</p>
             <p class="full">
               Kako biste ostvarili svoj popust, posjetite web stranicu za online
-              kupnju ulaznica i upišite kod ZKM+TELEGRAM. Ili posjetite blagajnu
-              kazališta i pokažite svoju digitalnu pretplatničku iskaznicu, koju
-              možete preuzeti <a href="#iskaznica">ovdje.</a>
+              kupnju ulaznica i upišite kod ZKM+TELEGRAM.
+            </p>
+            <p class="full">
+              Možete posjetiti i jednu od blagajni kazališta i pokazati svoju
+              digitalnu pretplatničku iskaznicu, koju možete preuzeti
+              <a href="#iskaznica">ovdje.</a>
             </p>
             <a
               href="https://www.zekaem.hr/raspored/"
@@ -359,9 +371,12 @@
             <p class="full bold">Kako do popusta?</p>
             <p class="full">
               Kako biste ostvarili svoj popust, posjetite web stranicu za online
-              kupnju ulaznica i upišite kod TELEGRAM10. Ili posjetite blagajnu
-              kazališta i pokažite svoju digitalnu pretplatničku iskaznicu, koju
-              možete preuzeti <a href="#iskaznica">ovdje.</a>
+              kupnju ulaznica i upišite kod TELEGRAM10.
+            </p>
+            <p class="full">
+              Možete posjetiti i jednu od blagajni kazališta i pokazati svoju
+              digitalnu pretplatničku iskaznicu, koju možete preuzeti
+              <a href="#iskaznica">ovdje.</a>
             </p>
             <a
               href="https://ulaznice.hr/r/Kazaliste_Komedija"
@@ -450,9 +465,12 @@
             <p class="full bold">Kako do popusta?</p>
             <p class="full">
               Kako biste ostvarili svoj popust, posjetite web stranicu za online
-              kupnju ulaznica i upišite kod tmghnkvz. Ili posjetite blagajnu
-              kazališta i pokažite svoju digitalnu pretplatničku iskaznicu, koju
-              možete preuzeti <a href="#iskaznica">ovdje.</a>
+              kupnju ulaznica i upišite kod tmghnkvz.
+            </p>
+            <p class="full">
+              Možete posjetiti i jednu od blagajni kazališta i pokazati svoju
+              digitalnu pretplatničku iskaznicu, koju možete preuzeti
+              <a href="#iskaznica">ovdje.</a>
             </p>
             <a
               href="https://hnkvz.mojekarte.hr/hr/all.html"
@@ -760,8 +778,11 @@
             <p class="full">
               Kako biste ostvarili svoj popust, posjetite link knjige koju
               želite kupiti i pri odabiru načina plaćanja upišite kod
-              TELEGRAM22. Ili posjetite knjižaru Fraktura i pokažite svoju
-              digitalnu pretplatničku iskaznicu, koju možete preuzeti
+              TELEGRAM22.
+            </p>
+            <p class="full">
+              Možete posjetiti i knjižaru Fraktura i pokazati svoju digitalnu
+              pretplatničku iskaznicu, koju možete preuzeti
               <a href="#iskaznica">ovdje.</a>
             </p>
           </div>
@@ -842,7 +863,9 @@
             <p class="full">
               Kako biste ostvarili svoj popust, posjetite link knjige koju
               želite kupiti i pri odabiru načina plaćanja upišite kod HKTG10.
-              Ili posjetite jednu od knjižara Hoću knjigu i pokažite svoju
+            </p>
+            <p class="full">
+              Možete posjetiti i jednu od knjižara Hoću knjigu i pokazati svoju
               digitalnu pretplatničku iskaznicu, koju možete preuzeti
               <a href="#iskaznica">ovdje.</a>
             </p>
@@ -890,8 +913,11 @@
             <p class="full">
               Kako biste ostvarili svoj popust, posjetite link knjige koju
               želite kupiti i pri odabiru načina plaćanja upišite kod
-              TELEGRAM10. Ili posjetite jednu od knjižara Ljevak i pokažite
-              svoju digitalnu pretplatničku iskaznicu, koju možete preuzeti
+              TELEGRAM10.
+            </p>
+            <p class="full">
+              Možete posjetiti i jednu od knjižara Ljevak i pokazati svoju
+              digitalnu pretplatničku iskaznicu, koju možete preuzeti
               <a href="#iskaznica">ovdje.</a>
             </p>
             <a
@@ -942,12 +968,23 @@
               račun s aktivnom pretplatom te posjetite link knjige koju želite
               kupiti. Popust će biti automatski aktiviran.
             </p>
-            <a
-              href="https://www.telegram.hr/knjiga/boris-dezulovic-bili-libar"
-              target="_blank"
-              class="newbtn huge-newbtn"
-              >Kupite ovdje</a
-            >
+            <p class="full bold small-top-margin">Dostupni naslovi su:</p>
+            <ul class="full">
+              <li>
+                <a
+                  href="https://www.telegram.hr/knjiga/zrinka-paladino-o-zagrebu"
+                  target="_blank"
+                  >Zrinka Paladino - O Zagrebu i... Telegramovih 48</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.telegram.hr/knjiga/boris-dezulovic-bili-libar"
+                  target="_blank"
+                  >Boris Dežulović: Bili libar</a
+                >
+              </li>
+            </ul>
           </div>
           <div v-show="canLogIn" class="full flex">
             <p class="full bold">
@@ -1354,6 +1391,12 @@
               class="img-as-bg"
             />
           </div>
+        </div>
+        <div class="full center">
+          <p class="full faded center-text klub-disclaimer">
+            Ovo je digitalna iskaznica koja vas identificira kao pretplatnika
+            Telegrama. Nije prenosiva i vrijedi samo dok vam traje pretplata.
+          </p>
         </div>
       </div>
     </div>
