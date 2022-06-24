@@ -45,10 +45,11 @@
           class="fourth desktop-mini-force flex-responsive column-horizontal-pad remove-last-mobile-border"
         >
           <standard
-            v-for="post in posts.slice(2, 6)"
+            v-for="post in posts.slice(4, 8)"
             :key="'pz-' + post.id"
             :post="post"
           ></standard>
+          <!-- TO DO: pull more posts from db, currenltly only 6 -->
         </div>
       </div>
     </div>
