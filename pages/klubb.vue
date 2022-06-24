@@ -14,31 +14,29 @@
       <div
         class="container relative flex mobile-side-pad stretch column-vertical-pad klub-header"
       >
-        <div class="half flex-responsive center column-full-pad">
-          <div class="full flex">
-            <img src="@/assets/img/tg_klub_logo.svg" alt="Telegram Klub logo" />
-            <h4 class="full flex small-top-margin">
-              Klub ekskluzivnih ponuda, pogodnosti i popusta, samo za
-              pretplatnike Telegrama.
-            </h4>
-          </div>
+        <div class="full flex column-horizontal-pad">
+          <img
+            src="@/assets/img/tg_visual_klub_header.jpg"
+            alt="Telegram Klub kolaž"
+          />
+          <h2 class="full center-text fancy-klub-intro">
+            Postoje klubovi koji nisu za sve. Ali su zato sve onima, koji im
+            pripadaju. Telegram predstavlja:
+          </h2>
         </div>
-        <div class="half flex-responsive center column-full-pad">
-          <img
-            src="@/assets/img/tg_pretplata_keypoint_vizual_klub.jpg"
-            aria-hidden="true"
-            class="light-mode-only"
-          />
-          <img
-            src="@/assets/img/tg_pretplata_keypoint_vizual_klub_dark.jpg"
-            aria-hidden="true"
-            class="dark-mode-only"
-          />
-          <img
-            src="@/assets/img/tg_pretplata_keypoint_vizual_klub_white.jpg"
-            aria-hidden="true"
-            class="contrast-mode-only"
-          />
+        <div class="full center relative">
+          <div class="half flex-responsive center column-full-pad">
+            <div class="full flex">
+              <img
+                src="@/assets/img/tg_klub_logo.svg"
+                alt="Telegram Klub logo"
+              />
+              <h4 class="full flex small-top-margin">
+                Klub ekskluzivnih ponuda, pogodnosti i popusta, samo za
+                pretplatnike Telegrama.
+              </h4>
+            </div>
+          </div>
         </div>
       </div>
     </div>
