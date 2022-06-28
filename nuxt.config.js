@@ -76,7 +76,7 @@ export default {
   },
 
   router: {
-    middleware: ['gtm', 'piano', 'gemius', 'dotmetrics'],
+    middleware: [ 'piano', 'gemius', 'dotmetrics'],
   },
 
   loading: '~/components/loading.vue',
@@ -102,7 +102,6 @@ export default {
     { src: '@/plugins/gemius.client.js' },
     { src: '@/plugins/dotmetrics.client.js' },
     { src: '@/plugins/marfeel.client.js' },
-    { src: '@/plugins/gtm.client.js' },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -142,6 +141,11 @@ export default {
         ital: [300, 400, 700],
       },
     },
+  },
+
+  gtm: {
+    id: 'GTM-TF4XJXD',
+    pageTracking: true,
   },
 
   pwa: {
