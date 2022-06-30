@@ -210,6 +210,13 @@ export default {
           content: '@TelegramHR',
         },
       ],
+      link: [
+        {
+          hid: 'canonical',
+          rel: 'canonical',
+          href: this.post.social.path,
+        },
+      ],
     }
   },
 }

@@ -154,6 +154,69 @@ export default {
         })
     },
   },
+  head() {
+    const link = [
+      {
+        hid: 'canonical',
+        rel: 'canonical',
+        href: 'https://www.telegram.hr/dojave',
+      },
+    ]
+    return {
+      title: 'Telegram Dojave',
+      titleTemplate: '%s | Telegram.hr',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'Podijelite s nama informacije koje javnost zaslužuje znati.',
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content:
+            'Podijelite s nama informacije koje javnost zaslužuje znati.',
+        },
+        {
+          hid: 'og:type',
+          property: 'og:type',
+          content: 'article',
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'Telegram Dojave',
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: 'https://www.telegram.hr/dojave',
+        },
+        {
+          hid: 'fb:app_id',
+          property: 'fb:app_id',
+          content: '1383786971938581',
+        },
+        {
+          hid: 'twitter:card',
+          name: 'twitter:card',
+          content: 'summary_large_image',
+        },
+        {
+          hid: 'twitter:site',
+          name: 'twitter:site',
+          content: '@TelegramHR',
+        },
+        {
+          hid: 'robots',
+          name: 'robots',
+          content: 'index, follow',
+        },
+      ],
+      link,
+    }
+  },
 }
 </script>
 

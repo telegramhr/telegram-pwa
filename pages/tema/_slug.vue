@@ -291,7 +291,7 @@ export default {
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: this.$route.fullPath,
+          href: 'https://www.telegram.hr' + this.$route.fullPath,
         },
       ],
     }

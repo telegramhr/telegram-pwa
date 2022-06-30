@@ -356,6 +356,13 @@ export default {
             'Provjerene i ekskluzivne zdravstvene vijesti, analize i priče',
         },
       ],
+      link: [
+        {
+          hid: 'canonical',
+          rel: 'canonical',
+          href: 'https://www.telegram.hr/pitanje-zdravlja',
+        },
+      ],
       script: [
         {
           vmid: 'schema-ld',

@@ -260,6 +260,13 @@ export default {
             'Telegramova platforma za traženje idealnog posla, profesionalno napredovanje i karijernu inspiraciju.',
         },
       ],
+      link: [
+        {
+          hid: 'canonical',
+          rel: 'canonical',
+          href: 'https://www.telegram.hr/openspace',
+        },
+      ],
       script: [
         {
           vmid: 'schema-ld',
