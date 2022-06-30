@@ -27,7 +27,7 @@ export default {
         type: 'image/x-icon',
         href: '/favicon.ico',
       },
-      { hid: 'canonical', rel: 'canonical', href: 'https:/www.telegram.hr' },
+      { hid: 'canonical', rel: 'canonical', href: 'https://www.telegram.hr' },
       {
         rel: 'me',
         href: 'https://twitter.com/TelegramHR',

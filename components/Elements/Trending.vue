@@ -1,5 +1,5 @@
 <template>
-  <div data-mrf-recirculation="trending-widget">
+  <div>
     <h3 class="full overtitle column-bottom-pad">Upravo se čita</h3>
     <div class="full flex">
       <mini

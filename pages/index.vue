@@ -533,7 +533,9 @@
     </div>
     <!-- Sport -->
     <div class="full relative">
-      <sport></sport>
+      <LazyHydrate when-visible>
+        <sport></sport>
+      </LazyHydrate>
     </div>
     <!-- Widget partneri -->
     <div class="full relative">
@@ -543,11 +545,15 @@
     </div>
     <!-- Super1 -->
     <div class="full relative">
-      <super1></super1>
+      <LazyHydrate when-visible>
+        <super1></super1>
+      </LazyHydrate>
     </div>
     <!-- PitanjeZdravlja -->
     <div class="full relative">
-      <pitanje-zdravlja></pitanje-zdravlja>
+      <LazyHydrate when-visible>
+        <pitanje-zdravlja></pitanje-zdravlja>
+      </LazyHydrate>
     </div>
     <!-- Billboard 4 -->
     <div class="full relative">
@@ -557,7 +563,9 @@
     </div>
     <!-- Openspace -->
     <div class="full relative">
-      <os-homepage></os-homepage>
+      <LazyHydrate when-visible>
+        <os-homepage></os-homepage>
+      </LazyHydrate>
     </div>
     <!-- Linker -->
     <div class="full mobile-side-pad relative">
@@ -571,12 +579,14 @@
         <div class="full desktop-only column-horizontal-pad column-bottom-pad">
           <div class="full cantha-separator"></div>
         </div>
-        <div class="full flex">
-          <category slug="zivot"></category>
-          <category slug="biznis-tech"></category>
-          <category slug="kultura"></category>
-          <category slug="velike-price"></category>
-        </div>
+        <LazyHydrate when-visible>
+          <div class="full flex">
+            <category slug="zivot"></category>
+            <category slug="biznis-tech"></category>
+            <category slug="kultura"></category>
+            <category slug="velike-price"></category>
+          </div>
+        </LazyHydrate>
       </div>
     </div>
     <div class="full relative">
@@ -589,7 +599,9 @@
 </template>
 
 <script>
+import LazyHydrate from 'vue-lazy-hydration'
 export default {
+  components: { LazyHydrate },
   async fetch() {
     await this.$store.dispatch('featured/pullPosts')
     await this.$store.dispatch('featured/pullBreaks')
