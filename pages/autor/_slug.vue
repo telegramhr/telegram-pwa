@@ -178,7 +178,7 @@ export default {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: this.$route.fullPath,
+          content: 'https://www.telegram.hr/autor/' + this.author.name,
         },
         {
           hid: 'fb:app_id',
@@ -201,7 +201,7 @@ export default {
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: this.$route.fullPath,
+          href: 'https://www.telegram.hr/autor/' + this.author.name,
         },
       ],
     }
