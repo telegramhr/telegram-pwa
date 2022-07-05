@@ -321,17 +321,17 @@
               Kako biste ostvarili svoj popust, posjetite web stranicu za online
               kupnju ulaznica i upišite kod <b>ZKM+TELEGRAM</b>.
             </p>
-            <p class="full">
-              Možete posjetiti i jednu od blagajni kazališta i pokazati svoju
-              digitalnu pretplatničku iskaznicu, koju možete preuzeti
-              <a href="#iskaznica">ovdje.</a>
-            </p>
             <a
               href="https://www.zekaem.hr/raspored/"
               target="_blank"
               class="newbtn huge-newbtn"
               >Kupite ovdje</a
             >
+            <p class="full small-top-margin">
+              Možete posjetiti i jednu od blagajni kazališta i pokazati svoju
+              digitalnu pretplatničku iskaznicu, koju možete preuzeti
+              <a href="#iskaznica">ovdje.</a>
+            </p>
           </div>
           <div v-show="canLogIn" class="full flex">
             <p class="full bold">
@@ -467,17 +467,17 @@
               Kako biste ostvarili svoj popust, posjetite web stranicu za online
               kupnju ulaznica i upišite kod <b>tmghnkvz</b>.
             </p>
-            <p class="full">
-              Možete posjetiti i jednu od blagajni kazališta i pokazati svoju
-              digitalnu pretplatničku iskaznicu, koju možete preuzeti
-              <a href="#iskaznica">ovdje.</a>
-            </p>
             <a
               href="https://hnkvz.mojekarte.hr/hr/all.html"
               target="_blank"
               class="newbtn huge-newbtn"
               >Kupite ovdje</a
             >
+            <p class="full small-top-margin">
+              Možete posjetiti i jednu od blagajni kazališta i pokazati svoju
+              digitalnu pretplatničku iskaznicu, koju možete preuzeti
+              <a href="#iskaznica">ovdje.</a>
+            </p>
           </div>
           <div v-show="canLogIn" class="full flex">
             <p class="full bold">
@@ -865,17 +865,17 @@
               želite kupiti i pri odabiru načina plaćanja upišite kod
               <b>HKTG10</b>.
             </p>
-            <p class="full">
-              Možete posjetiti i jednu od knjižara Hoću knjigu i pokazati svoju
-              digitalnu pretplatničku iskaznicu, koju možete preuzeti
-              <a href="#iskaznica">ovdje.</a>
-            </p>
             <a
               href="https://www.hocuknjigu.hr/?gclid=CjwKCAjw14uVBhBEEiwAaufYxyafX-1BrWomTMdFgs2kQP0hcVMYFg6-uUc1dSNltjvadgPSnFRAKxoCpmAQAvD_BwE"
               target="_blank"
               class="newbtn huge-newbtn"
               >Kupite ovdje</a
             >
+            <p class="full small-top-margin">
+              Možete posjetiti i jednu od knjižara Hoću knjigu i pokazati svoju
+              digitalnu pretplatničku iskaznicu, koju možete preuzeti
+              <a href="#iskaznica">ovdje.</a>
+            </p>
           </div>
           <div v-show="canLogIn" class="full flex">
             <p class="full bold">
@@ -913,13 +913,8 @@
             <p class="full bold">Kako do popusta?</p>
             <p class="full">
               Kako biste ostvarili svoj popust, posjetite link knjige koju
-              želite kupiti i pri odabiru načina plaćanja <b>upišite kod</b>
-              TELEGRAM10.
-            </p>
-            <p class="full">
-              Možete posjetiti i jednu od knjižara Ljevak i pokazati svoju
-              digitalnu pretplatničku iskaznicu, koju možete preuzeti
-              <a href="#iskaznica">ovdje.</a>
+              želite kupiti i pri odabiru načina plaćanja upišite kod
+              <b>TELEGRAM10</b>.
             </p>
             <a
               href="https://www.ljevak.hr/"
@@ -927,6 +922,11 @@
               class="newbtn huge-newbtn"
               >Kupite ovdje</a
             >
+            <p class="full small-top-margin">
+              Možete posjetiti i jednu od knjižara Ljevak i pokazati svoju
+              digitalnu pretplatničku iskaznicu, koju možete preuzeti
+              <a href="#iskaznica">ovdje.</a>
+            </p>
           </div>
           <div v-show="canLogIn" class="full flex">
             <p class="full bold">
