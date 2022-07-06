@@ -10,7 +10,7 @@
         class="full flex relative center knjiga-header article-head mobile-side-pad column-full-pad"
       >
         <div class="container relative flex single-article-body">
-          <h3 class="full center-text overtitle">Ekskluzivna prednarudžba</h3>
+          <h3 class="full center-text overtitle">Telegram naklada</h3>
           <h1 class="full center-text">Bili libar</h1>
           <h4 class="full center-text">Boris Dežulović</h4>
         </div>
@@ -36,8 +36,8 @@
                 posebna cijena za sve pretplatnike Telegrama
               </h1>
               <h4 class="full relative center-text">
-                Prednaručite danas i budite među prvima koji će krajem lipnja
-                dobiti Bili libar, s besplatnom dostavom na adresu.
+                Naručite Bili Libar danas, s besplatnom dostavom na kućnu adresu
+                unutar Hrvatske.
               </h4>
               <h4 class="full relative bold center-text">
                 Izdavač: Telegram Media Grupa
@@ -136,9 +136,6 @@
           Božja ruka.
         </p>
         <p><i>Ante Tomić</i></p>
-        <h3 class="full center-text overtitle exclusive-msg">
-          <span>Knjiga dostupna samo na Telegramu</span>
-        </h3>
         <p></p>
         <p class="center-text bold">
           Izdavač: Telegram Media Grupa<br />
