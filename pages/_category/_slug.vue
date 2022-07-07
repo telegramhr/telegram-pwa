@@ -357,6 +357,7 @@
                 <div class="full cantha-separator"></div>
               </div>
               <h3
+                v-if="hasLinker"
                 class="full center-text column-full-pad subsection-title mobile-side-pad"
               >
                 Više s weba
@@ -366,7 +367,7 @@
               </div>
             </div>
           </div>
-          <div v-if="!hasPremium" class="container center">
+          <div v-if="!hasPremium && hasLinker" class="container center">
             <div
               data-contentexchange-widget="k7dWfvWSYDqoSZvwu"
               data-contentexchange-source="ughr"
@@ -574,7 +575,7 @@ export default {
         quiz: null,
       },
       related_posts: [],
-      midas: false,
+      hasLinker: false,
     }
   },
   computed: {
@@ -729,6 +730,7 @@ export default {
         !this.post.disable_ads.includes('nepromo')
       ) {
         this.$linker.reloadLinker()
+        this.hasLinker = true
       }
     },
     loadMox() {
