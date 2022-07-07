@@ -4320,9 +4320,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         position: absolute;
         top: 0px;
         left: 0px;
+        overflow: hidden;
+        font-size: 13px;
+        font-size: 0.65rem;
     }
     .related-header-widget .article-standard h3.overtitle {
-        font-size: 123px;
+        font-size: 13px;
         font-size: 0.65rem;
     }
     .related-header-widget .article-standard h2 {
@@ -6155,6 +6158,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     z-index: 5;
     position: relative;
     background: -webkit-linear-gradient(#27a9e0, #0a80c5);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-transform: uppercase;
@@ -9058,4 +9062,228 @@ h3.subsection-title .spar-line img {
         margin-top: 5vw;
         margin-bottom: 10vw;
     }
+}
+
+/* TG Studio Naslovne tool */
+
+.trebam-hitno {
+    font-family: 'Barlow', sans-serif;
+}
+.trebam-hitno h1 {
+    margin-top: 48px;
+    font-weight: 700;
+    font-size: 72px;
+    margin-bottom: 48px;
+}
+.trebam-hitno h2 {
+    font-family: 'Barlow', sans-serif;
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+#generator-img-render {
+    width: 2664px;
+    height: 1680px;
+    background-size: cover;
+    background-position: center;
+}
+#generator-img-deliver {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    z-index: 3;
+}
+.generator-img-overlay {
+    position: relative;
+    z-index: 5;
+}
+#generator-img-render img {
+    max-width: 2664px;
+    width: 2664px;
+}
+#generator-krug {
+    width: 800px;
+    height: 800px;
+    position: absolute;
+    z-index: 7;
+    border-radius: 400px;
+    padding: 100px;
+    overflow: hidden;
+}
+#generator-krug .krug-bg {
+    width: 800px;
+    height: 800px;
+    background-color: white;
+    mix-blend-mode: overlay;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#generator-krug img {
+    position: relative;
+    z-index: 8;
+    width: 600px;
+    height: 600px;
+    border-radius: 300px;
+    object-fit: cover;
+    object-position: center center;
+}
+#generator-krug.gorelijevo {
+    top: 150px;
+    left: 150px;
+}
+#generator-krug.goredesno {
+    top: 150px;
+    right: 150px;
+}
+#generator-krug.doljelijevo {
+    bottom: 150px;
+    left: 150px;
+}
+#generator-krug.doljedesno {
+    bottom: 150px;
+    right: 150px;
+}
+.trebam-hitno .third {
+    padding: 24px;
+}
+.generator-submenu .half {
+    padding-right: 12px;
+}
+.generator-submenu .half:nth-child(3), .generator-submenu .half:nth-child(5) {
+    padding-right: 0px;
+    padding-left: 12px;
+}
+.trebam-hitno input[type=radio] {
+    display: none;
+}
+.trebam-hitno label {
+    width: 100%;
+    padding: 8px;
+    text-align: center;
+    border: 2px solid #ccc;
+    color: #555;
+    margin-bottom: 16px;
+}
+.trebam-hitno input[type=radio]:checked+label {
+    border: 2px solid #34495e;
+    color: #34495e;
+    font-weight: bold;
+}
+.trebam-hitno .btn {
+    background-color: #dce4ec;
+    padding: 11px;
+    height: 40px;
+    text-align: center;
+    outline: none;
+    border: none;
+    font-weight: 700;
+}
+.trebam-hitno .btn:hover {
+    background-color: #34495e;
+    color: white;
+}
+.generator-file-upload{
+    display:block;
+    text-align:center;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px;
+}
+.generator-file-upload .file-select{
+    display: block;
+    border: 2px solid #dce4ec;
+    color: #34495e;
+    cursor: pointer;
+    height: 40px;
+    line-height: 40px;
+    text-align: left;
+    background: #FFFFFF;
+    overflow: hidden;
+    position: relative;
+}
+.generator-file-upload .file-select .file-select-button{
+    background: #dce4ec;
+    padding: 0 10px;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+}
+.generator-file-upload .file-select .file-select-name{
+    line-height: 40px;
+    display: inline-block;
+    padding: 0 10px;
+}
+.generator-file-upload .file-select:hover{
+    border-color: #34495e;
+    transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+}
+.generator-file-upload .file-select:hover .file-select-button{
+    background: #34495e;
+    color: #FFFFFF;
+    transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+}
+.generator-file-upload.active .file-select{
+    border-color: #3fa46a;
+    transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+}
+.generator-file-upload.active .file-select .file-select-button{
+    background: #3fa46a;
+    color: #FFFFFF;
+    transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+}
+.generator-file-upload .file-select input[type=file]{
+    z-index: 100;
+    cursor: pointer;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+.generator-file-upload .file-select.file-select-disabled{
+    opacity: 0.65;
+}
+.generator-file-upload .file-select.file-select-disabled:hover{
+    cursor: default;
+    display: block;
+    border: 2px solid #dce4ec;
+    color: #34495e;
+    cursor: pointer;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 5px;
+    text-align: left;
+    background: #FFFFFF;
+    overflow: hidden;
+    position: relative;
+}
+.generator-file-upload .file-select.file-select-disabled:hover .file-select-button{
+    background: #dce4ec;
+    color: #666666;
+    padding: 0 10px;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+}
+.generator-file-upload .file-select.file-select-disabled:hover .file-select-name{
+    line-height: 40px;
+    display: inline-block;
+    padding: 0 10px;
 }
