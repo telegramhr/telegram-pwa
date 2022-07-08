@@ -163,6 +163,7 @@
 </template>
 
 <script>
+import html2canvas from 'html2canvas'
 export default {
   name: 'TelegramKlub',
   data() {
@@ -172,7 +173,6 @@ export default {
     }
   },
   mounted() {
-    const html2canvas = require('@/assets/img/extras/naslovne/html2canvas.js')
     let imgData
     const saveimagebutton = document.querySelector('#saveimagebutton')
     let counter = 1
