@@ -9083,8 +9083,8 @@ h3.subsection-title .spar-line img {
 #generator-img-render {
     width: 2664px;
     height: 1680px;
-    background-size: cover;
-    background-position: center;
+    min-width: 2664px;
+    position: relative;
 }
 #generator-img-deliver {
     position: absolute;
@@ -9105,19 +9105,19 @@ h3.subsection-title .spar-line img {
     width: 2664px;
 }
 #generator-krug {
-    width: 800px;
-    height: 800px;
+    width: 900px;
+    height: 900px;
     position: absolute;
     z-index: 7;
-    border-radius: 400px;
-    padding: 100px;
+    border-radius: 450px;
+    padding: 50px;
     overflow: hidden;
 }
 #generator-krug .krug-bg {
-    width: 800px;
-    height: 800px;
+    width: 900px;
+    height: 900px;
     background-color: white;
-    mix-blend-mode: overlay;
+    opacity: .5;
     position: absolute;
     top: 0;
     left: 0;
@@ -9125,27 +9125,26 @@ h3.subsection-title .spar-line img {
 #generator-krug img {
     position: relative;
     z-index: 8;
-    width: 600px;
-    height: 600px;
-    border-radius: 300px;
+    width: 800px;
+    height: 800px;
+    border-radius: 400px;
     object-fit: cover;
-    object-position: center center;
 }
 #generator-krug.gorelijevo {
-    top: 150px;
-    left: 150px;
+    top: 100px;
+    left: 100px;
 }
 #generator-krug.goredesno {
-    top: 150px;
-    right: 150px;
+    top: 100px;
+    right: 100px;
 }
 #generator-krug.doljelijevo {
-    bottom: 150px;
-    left: 150px;
+    bottom: 100px;
+    left: 100px;
 }
 #generator-krug.doljedesno {
-    bottom: 150px;
-    right: 150px;
+    bottom: 100px;
+    right: 100px;
 }
 .trebam-hitno .third {
     padding: 24px;
