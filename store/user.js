@@ -130,9 +130,11 @@ export const actions = {
         dispatch('setUser', data.user)
         commit('setToken', data.token)
         window.tp.api.callApi('/access/list', {}, function (response) {
-          dispatch('setAccess', response).then(() => {
-            window.location.reload()
-          })
+          dispatch('setAccess', { data: response.data, user: data.user }).then(
+            () => {
+              window.location.reload()
+            }
+          )
         })
       },
     })
