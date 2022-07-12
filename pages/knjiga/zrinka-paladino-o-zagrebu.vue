@@ -207,19 +207,7 @@ export default {
       this.showModal = false
     },
     login() {
-      const _that = this
-      window.tp.pianoId.show({
-        screen: 'register',
-        loggedIn(data) {
-          _that.$store.dispatch('user/setUser', data.user)
-          _that.$store.commit('user/setToken', data.token)
-          window.tp.api.callApi('/access/list', {}, function (response) {
-            _that.$store.dispatch('user/setAccess', response).then(() => {
-              window.location.reload()
-            })
-          })
-        },
-      })
+      this.$store.dispatch('user/login')
     },
   },
   head() {
@@ -231,14 +219,14 @@ export default {
           hid: 'description',
           name: 'description',
           content:
-            ' Čuvena arhitektica, konzervatorica i kolumnistica donosi veliku kroniku Zagreba, njegove arhitekture, devastacije, i društva. Sve kolumne prvi put na jednom mjestu, obogaćene novim zapisima, ilustracijama i fotografijama. ',
+            'Čuvena arhitektica, konzervatorica i kolumnistica donosi veliku kroniku Zagreba, njegove arhitekture, devastacije, i društva. Sve kolumne prvi put na jednom mjestu, obogaćene novim zapisima, ilustracijama i fotografijama. ',
         },
         {
           hid: 'og:description',
           name: 'og:description',
           property: 'og:description',
           content:
-            ' Čuvena arhitektica, konzervatorica i kolumnistica donosi veliku kroniku Zagreba, njegove arhitekture, devastacije, i društva. Sve kolumne prvi put na jednom mjestu, obogaćene novim zapisima, ilustracijama i fotografijama. ',
+            'Čuvena arhitektica, konzervatorica i kolumnistica donosi veliku kroniku Zagreba, njegove arhitekture, devastacije, i društva. Sve kolumne prvi put na jednom mjestu, obogaćene novim zapisima, ilustracijama i fotografijama. ',
         },
         {
           hid: 'og:type',

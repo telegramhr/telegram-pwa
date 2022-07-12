@@ -44,7 +44,7 @@
         <a
           v-show="canLogIn"
           class="mob-nav-otherbtn mobile-only"
-          @click.prevent="login"
+          @click.prevent="$store.dispatch('user/login')"
         >
           <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
         ></a>
