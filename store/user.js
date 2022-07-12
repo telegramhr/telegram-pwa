@@ -66,6 +66,7 @@ export const actions = {
             'compass',
             function (compass) {
               compass.setUserType(id)
+              compass.setSiteUserId(data.user.uid)
             },
           ])
         }
@@ -81,6 +82,7 @@ export const actions = {
             'compass',
             function (compass) {
               compass.setUserType(2)
+              compass.setSiteUserId(data.user.uid)
             },
           ])
         }
@@ -96,7 +98,7 @@ export const actions = {
           dispatch('setUser', user)
           window.tp.api.callApi('/access/list', {}, function (response) {
             if (response.data) {
-              dispatch('setAccess', response)
+              dispatch('setAccess', { data: response.data, user })
             }
           })
         } else {

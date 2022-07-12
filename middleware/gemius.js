@@ -21,7 +21,7 @@ export default function ({ route }) {
     window.marfeel.cmd.push([
       'compass',
       function (compass) {
-        compass.trackNewPage()
+        compass.trackNewPage({ url: `https://www.telegram.hr${route.path}` })
       },
     ])
   }
