@@ -9,7 +9,7 @@
     </div>
     <div id="pretplata-selector" class="full flex pretplata-page-content">
       <div class="full flex relative">
-        <!--<div
+        <div
           class="container relative flex mobile-side-pad stretch column-full-pad"
         >
           <h1 class="full center-text">Priče koje guraju društvo naprijed.</h1>
@@ -17,7 +17,6 @@
             Pretplatite se i podržite naše bespoštedno novinarstvo.
           </p>
         </div>
-      </div>-->
         <div class="full flex">
           <div class="container relative flex pretplata-packs mobile-side-pad">
             <input
