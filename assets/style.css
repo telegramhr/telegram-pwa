@@ -9292,3 +9292,83 @@ h3.subsection-title .spar-line img {
     display: inline-block;
     padding: 0 10px;
 }
+
+/* New user pretplata promo */
+
+.pretplata-new-promo .article {
+    z-index: 5;
+}
+.pretplata-new-promo h1 {
+    font-size: 72px;
+    font-size: 3.6rem;
+    margin-bottom: 8px;
+}
+.pretplata-new-promo h4 {
+    font-size: 26px;
+    font-size: 1.3rem;
+}
+.pretplata-new-promo h5 {
+    max-width: 270px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.pretplata-new-promo h2:nth-child(2) {
+    max-width: 270px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (max-width: 1180px) {
+    .pretplata-new-promo h1 {
+        font-size: 40px;
+        font-size: 2rem;
+    }
+    .pretplata-new-promo h4, .pretplata-new-promo h2:nth-child(2) {
+        font-size: 18px;
+        font-size: 0.9rem;
+    }
+    .pretplata-new-promo h5 {
+        font-size: 12px;
+        font-size: 0.6rem;
+    }
+}
+@media screen and (max-width: 767px) {
+    .pretplata-new-promo h1 {
+        font-size: 10vw;
+    }
+    .pretplata-new-promo h4 {
+        font-size: 18px;
+        font-size: 0.9rem;
+    }
+    .pretplata-new-promo h2 {
+        font-size: 24px;
+        font-size: 1.2rem;
+    }
+    .pretplata-new-promo h5 {
+        margin-top: 8px;
+    }
+    .pretplata-new-promo h2:nth-child(2) {
+        font-size: 14px;
+        font-size: 0.7rem;
+        margin-bottom: 16px;
+    }
+    .pretplata-new-promo h2:nth-child(2), .pretplata-new-promo h5 {
+        max-width: 100%;
+    }
+    .pretplata-new-promo {
+        padding-bottom: 0px;
+        margin-bottom: 2vw;
+    }
+    .pretplata-new-promo .two-thirds .half:first-child {
+        align-items: flex-end;
+    }
+    .pretplata-new-promo .two-thirds .half:nth-child(2) {
+        padding-bottom: 5vw;
+    }
+    .column-bottom-border-mobile {
+        border-bottom: 1px solid #c8c8c8;
+    }
+    .dark-mode .column-bottom-border-mobile {
+        border-bottom-color: #555;
+    }
+}

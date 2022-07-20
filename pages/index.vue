@@ -15,6 +15,13 @@
     <div class="full flex">
       <theader></theader>
     </div>
+    <!-- Pretplata first timers -->
+    <div v-show="canLogIn" class="full flex">
+      <pretplata-first-time></pretplata-first-time>
+      <div class="full mobile-side-pad mobile-only">
+        <div class="full column-bottom-border-mobile"></div>
+      </div>
+    </div>
     <!-- Cantha header -->
     <div class="full relative cantha-header">
       <div class="container flex relative column-top-pad column-horizontal-pad">
@@ -533,7 +540,7 @@
     </div>
     <!-- Sport -->
     <div class="full relative">
-        <sport></sport>
+      <sport></sport>
     </div>
     <!-- Widget partneri -->
     <div class="full relative">
@@ -543,11 +550,11 @@
     </div>
     <!-- Super1 -->
     <div class="full relative">
-        <super1></super1>
+      <super1></super1>
     </div>
     <!-- PitanjeZdravlja -->
     <div class="full relative">
-        <pitanje-zdravlja></pitanje-zdravlja>
+      <pitanje-zdravlja></pitanje-zdravlja>
     </div>
     <!-- Billboard 4 -->
     <div class="full relative">
@@ -557,7 +564,7 @@
     </div>
     <!-- Openspace -->
     <div class="full relative">
-        <os-homepage></os-homepage>
+      <os-homepage></os-homepage>
     </div>
     <!-- Linker -->
     <div class="full mobile-side-pad relative">
@@ -571,12 +578,12 @@
         <div class="full desktop-only column-horizontal-pad column-bottom-pad">
           <div class="full cantha-separator"></div>
         </div>
-          <div class="full flex">
-            <category slug="zivot"></category>
-            <category slug="biznis-tech"></category>
-            <category slug="kultura"></category>
-            <category slug="velike-price"></category>
-          </div>
+        <div class="full flex">
+          <category slug="zivot"></category>
+          <category slug="biznis-tech"></category>
+          <category slug="kultura"></category>
+          <category slug="velike-price"></category>
+        </div>
       </div>
     </div>
     <div class="full relative">
