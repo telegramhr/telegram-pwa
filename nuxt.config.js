@@ -76,7 +76,7 @@ export default {
   },
 
   router: {
-    middleware: [ 'piano', 'gemius', 'dotmetrics'],
+    middleware: ['piano', 'gemius', 'dotmetrics'],
   },
 
   loading: '~/components/loading.vue',
@@ -183,10 +183,14 @@ export default {
     },
   },
 
+  publicRuntimeConfig: {
+    baseURL: 'https://www.telegram.hr/wp-json/telegram/pwa/v1/',
+  },
+
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
     credentials: true,
-    proxy: true,
+    // proxy: true,
   },
 
   proxy: {

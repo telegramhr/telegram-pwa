@@ -31,7 +31,7 @@ export default {
   },
   async fetch() {
     await this.$axios
-      .$get('/api/latest/1/' + this.category)
+      .$get(`${this.$config.baseURL}latest/1/${this.category}`)
       .then((res) => {
         this.posts = res
       })

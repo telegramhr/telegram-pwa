@@ -22,11 +22,7 @@
               <featured :post="post"></featured>
             </div>
           </div>
-          <div
-            v-else
-            :key="post.id"
-            class="fourth flex-responsive flex"
-          >
+          <div v-else :key="post.id" class="fourth flex-responsive flex">
             <div class="full flex column-horizontal-pad">
               <standard :post="post"></standard>
             </div>
@@ -101,7 +97,7 @@ export default {
           const items = res.data.items.map((item) => {
             return item['recs-articleid']
           })
-          this.$axios.get('/api/keep/' + items).then((r) => {
+          this.$axios.get(`${this.$config.baseURL}keep/${items}`).then((r) => {
             this.posts = r.data
             this.posts.forEach((post, index) => {
               if (res.data.items[index]) {

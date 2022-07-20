@@ -183,10 +183,12 @@
 <script>
 export default {
   async fetch() {
-    await this.$axios.get('/api/featured/openspace').then((res) => {
-      this.featured = res.data
-    })
-    this.$axios.get('/api/category/openspace').then((res) => {
+    await this.$axios
+      .get(`${this.$config.baseURL}featured/openspace`)
+      .then((res) => {
+        this.featured = res.data
+      })
+    this.$axios.get(`${this.$config.baseURL}category/openspace`).then((res) => {
       this.posts = res.data.posts
       // dispatch('posts/setPosts', res.data.posts, { root: true })
     })
@@ -216,7 +218,7 @@ export default {
     loadMore() {
       this.loading = true
       this.$axios
-        .get(`/api/category/openspace/page/${this.page}`)
+        .get(`${this.$config.baseURL}category/openspace/page/${this.page}`)
         .then((res) => {
           this.posts = [...this.posts, ...res.data.posts]
           // dispatch('posts/setPosts', res.data.posts, { root: true })

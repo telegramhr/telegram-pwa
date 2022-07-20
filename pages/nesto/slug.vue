@@ -647,13 +647,15 @@ export default {
             image.classList.remove('size-full')
           }
         })
-        this.$axios.get('/api/related/' + this.post.id).then((res) => {
-          this.related_posts = res.data
-            .filter((item) => {
-              return item.id !== this.post.id
-            })
-            .splice(0, 3)
-        })
+        this.$axios
+          .get(`${this.$config.baseURL}related/${this.post.id}`)
+          .then((res) => {
+            this.related_posts = res.data
+              .filter((item) => {
+                return item.id !== this.post.id
+              })
+              .splice(0, 3)
+          })
       } else {
         setTimeout(this.getPost, 500)
       }

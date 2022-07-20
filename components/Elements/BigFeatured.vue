@@ -108,7 +108,9 @@ export default {
     },
   },
   async fetch() {
-    this.post = await this.$axios.$get('/api/big-break/' + this.type)
+    this.post = await this.$axios.$get(
+      `${this.$config.baseURL}big-break/${this.type}`
+    )
   },
   data() {
     return {

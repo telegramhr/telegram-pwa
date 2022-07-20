@@ -487,13 +487,15 @@ export default {
     if (!post) {
       if (this.$route.params.category === 'preview') {
         post = await this.$axios
-          .$get(encodeURI('/api/preview/' + this.$route.params.slug))
+          .$get(`${this.$config.baseURL}/preview/${this.$route.params.slug}`)
           .catch(() => {
             // TODO: error logging
           })
       } else {
         post = await this.$axios
-          .$get(encodeURI('/api/single/' + this.$route.params.slug) + '?pwa=1')
+          .$get(
+            `${this.$config.baseURL}/single/${this.$route.params.slug}?pwa=1`
+          )
           .catch(() => {
             // TODO: error logging
           })
@@ -502,7 +504,7 @@ export default {
     if (post && post.id) {
       this.post = post
       await this.$axios
-        .get('/api/related/' + post.id)
+        .get(`${this.$config.baseURL}/related/${post.id}`)
         .then((res) => {
           if (Array.isArray(res.data)) {
             this.$store.dispatch('posts/setPosts', res.data, { root: true })
@@ -797,8 +799,8 @@ export default {
           this.showQuiz = true
         }
         this.$store.commit('history/setData', this.post)
-        this.loadPiano()
-        this.loadAds()
+        // this.loadPiano()
+        // this.loadAds()
         if (typeof FB !== 'undefined') {
           FB.XFBML.parse()
         }

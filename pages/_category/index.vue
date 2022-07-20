@@ -196,7 +196,7 @@ export default {
   components: { Standard },
   async fetch() {
     await this.$axios
-      .get('/api/category/' + this.$route.params.category)
+      .get(`${this.config.baseURL}category/${this.$route.params.category}`)
       .then((res) => {
         this.posts = res.data.posts
         this.cat = res.data.category
@@ -234,7 +234,9 @@ export default {
     loadMore() {
       this.loading = true
       this.$axios
-        .get(`/api/category/${this.$route.params.category}/page/${this.page}`)
+        .get(
+          `${this.$config.baseURL}category/${this.$route.params.category}/page/${this.page}`
+        )
         .then((res) => {
           this.posts = [...this.posts, ...res.data.posts]
           this.loading = false

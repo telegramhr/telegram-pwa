@@ -26,7 +26,9 @@ export default {
     },
   },
   async fetch() {
-    this.posts = await this.$axios.$get('/api/shop-guide/related/' + this.post)
+    this.posts = await this.$axios.$get(
+      `${this.$config.baseURL}shop-guide/related/${this.post}`
+    )
   },
   data() {
     return {

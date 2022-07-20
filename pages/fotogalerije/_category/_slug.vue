@@ -88,13 +88,13 @@ export default {
     let post
     if (this.$route.params.category === 'preview') {
       post = await this.$axios
-        .$get('/api/preview/' + this.$route.params.slug)
+        .$get(`${this.$config.baseURL}preview/${this.$route.params.slug}`)
         .catch(() => {
           // TODO: error logging
         })
     } else {
       post = await this.$axios
-        .$get('/api/single/' + this.$route.params.slug)
+        .$get(`${this.$config.baseURL}single/${this.$route.params.slug}`)
         .catch(() => {
           // TODO: error logging
         })

@@ -367,7 +367,7 @@ export default {
   scrollToTop: true,
   components: { Portal },
   async fetch() {
-    this.post = await this.$axios.$get('/api/preview/1239184')
+    this.post = await this.$axios.$get(`${this.$config.baseURL}preview/1239184`)
   },
   data() {
     return {

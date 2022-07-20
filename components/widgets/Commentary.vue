@@ -16,7 +16,7 @@ export default {
   },
   async fetch() {
     if (this.type === 'tg') {
-      this.posts = await this.$axios.$get('/api/commentary')
+      this.posts = await this.$axios.$get(`${this.$config.baseURL}commentary`)
     }
     if (this.type === 'ts') {
       this.$axios

@@ -1,0 +1,10 @@
+{
+	"appId": "hr.telegram.app",
+	"appName": "Telegram.hr",
+	"webDir": "dist",
+	"bundledWebRuntime": false,
+	"ios": {
+		"contentInset": "always",
+		"scheme": "Telegram.hr"
+	}
+}

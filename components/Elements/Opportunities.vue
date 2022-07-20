@@ -45,7 +45,9 @@
 export default {
   name: 'Opportunities',
   async fetch() {
-    this.opportunities = await this.$axios.$get('/api/widgets/opportunities')
+    this.opportunities = await this.$axios.$get(
+      `${this.$config.baseURL}widgets/opportunities`
+    )
   },
   data() {
     return {

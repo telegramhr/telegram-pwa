@@ -155,7 +155,7 @@ export default {
     let post
     if (!post) {
       post = await this.$axios
-        .$get(encodeURI('/api/shop-guide/' + slug))
+        .$get(encodeURI(`${this.$config.baseURL}shop-guide/${slug}`))
         .catch(() => {
           // TODO: error logging
         })

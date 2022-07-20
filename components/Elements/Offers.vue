@@ -144,7 +144,7 @@ export default {
     },
     getPosts() {
       this.$axios
-        .get('/api/promos/webshop')
+        .get(`${this.$config.baseURL}promos/webshop`)
         .then((res) => {
           this.posts = res.data
         })

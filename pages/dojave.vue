@@ -145,7 +145,7 @@ export default {
   methods: {
     loadMore() {
       this.$axios
-        .get('/api/featured')
+        .get(`${this.$config.baseURL}featured`)
         .then((res) => {
           this.posts = res.data
         })

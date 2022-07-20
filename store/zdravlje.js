@@ -36,11 +36,13 @@ export const actions = {
   pullPosts({ commit, dispatch, state }) {
     return new Promise((resolve) => {
       if (state.updated + 2 * 60 * 1000 < new Date().getTime()) {
-        this.$axios.get('/api/featured/pitanje-zdravlja').then((res) => {
-          commit('setPosts', res.data)
-          dispatch('posts/setPosts', res.data, { root: true })
-          resolve()
-        })
+        this.$axios
+          .get(`${this.config.baseURL}featured/pitanje-zdravlja`)
+          .then((res) => {
+            commit('setPosts', res.data)
+            dispatch('posts/setPosts', res.data, { root: true })
+            resolve()
+          })
       } else {
         resolve()
       }
@@ -48,18 +50,22 @@ export const actions = {
   },
   loadMore({ commit, dispatch, state }) {
     return new Promise((resolve) => {
-      this.$axios.get('/api/featured/page/' + state.page).then((res) => {
-        commit('setMore', res.data)
-        dispatch('posts/setPosts', res.data, { root: true })
-        resolve()
-      })
+      this.$axios
+        .get(`${this.config.baseURL}featured/page/${state.page}`)
+        .then((res) => {
+          commit('setMore', res.data)
+          dispatch('posts/setPosts', res.data, { root: true })
+          resolve()
+        })
     })
   },
   pullBreak({ commit, dispatch, state }) {
     if (state.break_updated + 10 * 60 * 1000 < new Date().getTime()) {
-      this.$axios.get('/api/big-break/openspace').then((res) => {
-        commit('setBreak', res.data)
-      })
+      this.$axios
+        .get(`${this.config.baseURL}big-break/openspace`)
+        .then((res) => {
+          commit('setBreak', res.data)
+        })
     }
   },
 }

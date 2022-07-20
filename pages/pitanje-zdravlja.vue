@@ -263,10 +263,14 @@
 export default {
   name: 'PitanjeZdravlja',
   async fetch() {
-    this.featured = await this.$axios.$get('/api/featured/pitanje-zdravlja')
-    await this.$axios.get('/api/category/pitanje-zdravlja').then((res) => {
-      this.posts = res.data.posts
-    })
+    this.featured = await this.$axios.$get(
+      `${this.$config.baseURL}featured/pitanje-zdravlja`
+    )
+    await this.$axios
+      .get(`${this.$config.baseURL}category/pitanje-zdravlja`)
+      .then((res) => {
+        this.posts = res.data.posts
+      })
   },
   data() {
     return {
@@ -295,7 +299,9 @@ export default {
     loadMore() {
       this.loading = true
       this.$axios
-        .get(`/api/category/pitanje-zdravlja/page/${this.page}`)
+        .get(
+          `${this.$config.baseURL}category/pitanje-zdravlja/page/${this.page}`
+        )
         .then((res) => {
           this.posts = [...this.posts, ...res.data.posts]
           this.page++

@@ -58,21 +58,25 @@ export default {
     }
   },
   mounted() {
-    this.$axios.get('/api/special/' + this.$route.params.slug).then((res) => {
-      this.post = res.data
-      this.$axios.get('/api/tag/' + res.data.tag + '/special').then((r) => {
-        this.posts = r.data.posts
-        if (r.data.posts.length < 9) {
-          this.hasMore = false
-        }
+    this.$axios
+      .get(`${this.$config.baseURL}special/${this.$route.params.slug}`)
+      .then((res) => {
+        this.post = res.data
+        this.$axios
+          .get(`${this.$config.baseURL}tag/${res.data.tag}/special`)
+          .then((r) => {
+            this.posts = r.data.posts
+            if (r.data.posts.length < 9) {
+              this.hasMore = false
+            }
+          })
       })
-    })
   },
   methods: {
     loadMore() {
       this.loading = true
       this.$axios
-        .get('/api/tag/' + this.post.tag + '/page/' + this.page)
+        .get(`${this.$config.baseURL}tag/${this.post.tag}/page/${this.page}`)
         .then((res) => {
           this.morePosts = [...this.morePosts, ...res.data.posts]
           this.page++

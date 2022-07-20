@@ -55,7 +55,7 @@
         <div class="full mobile-side-pad">
           <div class="full desktop-only cantha-separator"></div>
         </div>
-        <breaking></breaking>
+        <!--<breaking></breaking>-->
       </div>
     </div>
     <!-- New subnav no red -->
@@ -112,7 +112,7 @@
     <div class="full relative">
       <div class="container flex relative stretch cantha-intro-block">
         <!-- Billboard 1 -->
-        <client-only>
+        <!--<client-only>
           <div v-show="hasAd" class="full relative">
             <div class="full flex column-horizontal-pad desktop-only">
               <div class="full flex relative column-bottom-border"></div>
@@ -124,13 +124,13 @@
               ></ad-unit>
             </div>
           </div>
-        </client-only>
+        </client-only>-->
         <div
           class="full flex column-horizontal-pad column-bottom-pad desktop-only"
         >
           <div class="full flex relative column-bottom-border"></div>
         </div>
-        <h2
+        <!--<h2
           v-show="$store.state.breaking.on2"
           class="full major-event-header mobile-order-1 mobile-side-pad column-horizontal-pad column-bottom-pad center-text"
         >
@@ -141,7 +141,7 @@
           >
             {{ $store.state.breaking.title2 }}</app-link
           >
-        </h2>
+        </h2>-->
         <div
           class="three-fourths featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad column-right-border mobile-order-1"
         >
@@ -152,7 +152,7 @@
           ></featured-alt>
         </div>
         <!-- komentari -->
-        <div
+        <!--<div
           class="fourth flex-responsive column-horizontal-pad mobile-side-pad cantha-commentary"
         >
           <div class="full mobile-only flex relative">
@@ -164,18 +164,18 @@
             </h3>
           </div>
           <commentary type="tg"></commentary>
-        </div>
+        </div>-->
         <div class="full column-full-pad desktop-only">
           <div class="full column-top-border"></div>
         </div>
-        <client-only>
+        <!--<client-only>
           <div
             v-if="$mobile"
             class="full flex relative mobile-only mobile-side-pad"
           >
             <latest :portal="1"></latest>
           </div>
-        </client-only>
+        </client-only>-->
         <div class="full flex cantha-small-block mobile-side-pad stretch">
           <div
             v-for="post in posts.slice(1, 4)"
@@ -533,7 +533,7 @@
     </div>
     <!-- Sport -->
     <div class="full relative">
-        <sport></sport>
+      <sport></sport>
     </div>
     <!-- Widget partneri -->
     <div class="full relative">
@@ -543,11 +543,11 @@
     </div>
     <!-- Super1 -->
     <div class="full relative">
-        <super1></super1>
+      <super1></super1>
     </div>
     <!-- PitanjeZdravlja -->
     <div class="full relative">
-        <pitanje-zdravlja></pitanje-zdravlja>
+      <pitanje-zdravlja></pitanje-zdravlja>
     </div>
     <!-- Billboard 4 -->
     <div class="full relative">
@@ -557,7 +557,7 @@
     </div>
     <!-- Openspace -->
     <div class="full relative">
-        <os-homepage></os-homepage>
+      <os-homepage></os-homepage>
     </div>
     <!-- Linker -->
     <div class="full mobile-side-pad relative">
@@ -571,12 +571,12 @@
         <div class="full desktop-only column-horizontal-pad column-bottom-pad">
           <div class="full cantha-separator"></div>
         </div>
-          <div class="full flex">
-            <category slug="zivot"></category>
-            <category slug="biznis-tech"></category>
-            <category slug="kultura"></category>
-            <category slug="velike-price"></category>
-          </div>
+        <div class="full flex">
+          <category slug="zivot"></category>
+          <category slug="biznis-tech"></category>
+          <category slug="kultura"></category>
+          <category slug="velike-price"></category>
+        </div>
       </div>
     </div>
     <div class="full relative">
@@ -636,7 +636,7 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      this.loadAds()
+      // this.loadAds()
     })
   },
   methods: {

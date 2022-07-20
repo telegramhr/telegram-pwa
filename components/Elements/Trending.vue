@@ -31,7 +31,7 @@ export default {
   methods: {
     getPosts() {
       this.$axios
-        .get('/api/trending/' + this.id)
+        .get(`${this.$config.baseURL}trending/${this.id}`)
         .then((res) => {
           this.posts = res.data
         })

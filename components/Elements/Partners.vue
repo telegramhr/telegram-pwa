@@ -32,7 +32,7 @@ export default {
   methods: {
     getPosts() {
       this.$axios
-        .get('/api/promos')
+        .get(`${this.$config.baseURL}promos`)
         .then((res) => {
           this.posts = res.data
         })

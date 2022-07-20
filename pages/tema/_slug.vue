@@ -195,7 +195,7 @@ export default {
   name: 'TemaIndex',
   async fetch() {
     await this.$axios
-      .get('/api/tag/' + this.$route.params.slug)
+      .get(`${this.$config.baseURL}tag/${this.$route.params.slug}`)
       .then((res) => {
         this.posts = res.data.posts
         this.category = res.data.tag
@@ -233,7 +233,9 @@ export default {
       }
       this.loading = true
       this.$axios
-        .get('/api/tag/' + this.$route.params.slug + '/page/' + this.page)
+        .get(
+          `${this.$config.baseURL}tag/${this.$route.params.slug}/page/${this.page}`
+        )
         .then((res) => {
           this.posts = [...this.posts, ...res.data.posts]
           this.page++
