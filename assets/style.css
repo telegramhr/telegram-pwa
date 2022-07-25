@@ -8841,6 +8841,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 28px;
     font-size: 1.4rem;
     font-family: 'Barlow', sans-serif;
+    background-color: #333;
+    color: white;
 }
 .klub-ponuda-tile > .klub-sticker {
     position: absolute;
@@ -8982,7 +8984,7 @@ h3.subsection-title .spar-line img {
     font-size: 2.5rem;
     margin-top: 24px;
     margin-bottom: 24px;
-    opacity: .7;
+    opacity: .85;
     font-weight: normal;
 }
 .klub-disclaimer {
@@ -8991,6 +8993,12 @@ h3.subsection-title .spar-line img {
     font-size: 14px;
     font-size: 0.7rem;
     padding-top: 8px;
+}
+.klub-header .container .forty {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
 }
 
 @media screen and (min-width: 767px) {
@@ -9003,8 +9011,25 @@ h3.subsection-title .spar-line img {
     .offers-widget .gallery-content .gallery-right {
         right: 0px;
     }
+    .klub-header .container {
+        justify-content: flex-end;
+    }
+    .klub-header h4 {
+        font-size: 24px;
+        font-size: 1.2rem;
+    }
 }
-
+@media screen and (max-width: 1180px) {
+    .klub-ponuda {
+        width: 40vw;
+        min-width: 40vw;
+        margin-right: 4vw;
+    }
+    .klub-header h4 {
+        font-size: 18px;
+        font-size: 0.9rem;
+    }
+}
 @media screen and (max-width: 767px) {
     .offers-widget .gallery-content {
         padding-top: 4vw;
@@ -9016,13 +9041,13 @@ h3.subsection-title .spar-line img {
         padding-bottom: 0px;
         border-bottom: none;
     }
+    .klub-ponuda-tile {
+        height: 60vw;
+    }
     .klub-ponuda {
         width: 60vw;
         min-width: 60vw;
         margin-right: 4vw;
-    }
-    .klub-ponuda-tile {
-        height: 60vw;
     }
     .close-klub-expand {
         position: absolute;
@@ -9048,18 +9073,25 @@ h3.subsection-title .spar-line img {
         font-size: 0.9rem;
     }
     .klub-header {
-        padding-top: 8vw;
         padding-bottom: 4vw;
-    }
-    .klub-header h4 {
-        font-size: 18px;
-        font-size: 0.9rem;
+        margin-bottom: 4vw;
     }
     .fancy-klub-intro {
         font-size: 24px;
         font-size: 1.2rem;
         margin-top: 5vw;
         margin-bottom: 10vw;
+    }
+    .klub-header .container .forty {
+        position: relative;
+        order: 2;
+    }
+    .klub-header .container .forty img {
+        width: 69.99%;
+    }
+    .klub-header .container .three-fourths {
+        order: 1;
+        margin-bottom: -12vw;
     }
 }
 

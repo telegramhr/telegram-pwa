@@ -2,7 +2,7 @@
   <div
     class="main-container flex red-header-page single-article hide-billboard newsletter-page"
   >
-    <div class="full flex tg-red">
+    <div class="full flex tg-red dark-mode">
       <client-only>
         <theader
           headline="Telegram Klub - ekskluzivne ponude za pretplatnike"
@@ -10,44 +10,39 @@
       </client-only>
     </div>
     <!-- Header -->
-    <div class="full flex relative">
-      <div
-        class="container relative flex mobile-side-pad stretch column-vertical-pad klub-header"
-      >
-        <div class="full flex column-horizontal-pad">
+    <div class="full flex relative klub-header">
+      <div class="container relative flex stretch">
+        <div
+          class="forty flex-responsive center column-full-pad mobile-side-pad"
+        >
+          <div class="full flex">
+            <img
+              src="@/assets/img/tg_klub_logo_negative.svg"
+              alt="Telegram Klub logo"
+            />
+            <h4 class="full flex small-top-margin">
+              Postoje klubovi koji nisu za sve. <br />Ali su zato sve onima,
+              koji im pripadaju.
+            </h4>
+            <h4 class="full flex small-top-margin">
+              Klub ekskluzivnih ponuda, pogodnosti i popusta, samo za
+              pretplatnike Telegrama.
+            </h4>
+          </div>
+        </div>
+        <div class="three-fourths flex-responsive">
           <img
-            src="@/assets/img/tg_visual_klub_header.jpg"
+            src="@/assets/img/tg_klub_header_vizual.jpg"
             class="desktop-only"
             alt="Telegram Klub kolaž"
           />
           <img
-            src="@/assets/img/tg_visual_klub_header_mobile.jpg"
+            src="@/assets/img/tg_klub_header_vizual_mobile.jpg"
             class="mobile-only"
             alt="Telegram Klub kolaž"
           />
-          <h2 class="full center-text fancy-klub-intro">
-            Postoje klubovi koji nisu za sve. Ali su zato sve onima, koji im
-            pripadaju. Telegram predstavlja:
-          </h2>
-        </div>
-        <div class="full center relative">
-          <div class="half flex-responsive center column-full-pad">
-            <div class="full flex">
-              <img
-                src="@/assets/img/tg_klub_logo.svg"
-                alt="Telegram Klub logo"
-              />
-              <h4 class="full flex small-top-margin">
-                Klub ekskluzivnih ponuda, pogodnosti i popusta, samo za
-                pretplatnike Telegrama.
-              </h4>
-            </div>
-          </div>
         </div>
       </div>
-    </div>
-    <div class="full flex relative">
-      <div class="container relative flex mobile-side-pad stretch"></div>
     </div>
     <!-- Kazalista -->
     <div class="full flex relative mobile-side-pad">
@@ -1401,6 +1396,7 @@
         </div>
       </div>
     </div>
+    <div class="full flex column-full-pad"></div>
     <!-- Footer -->
     <tfooter></tfooter>
   </div>
