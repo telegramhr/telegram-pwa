@@ -29,7 +29,7 @@ export const actions = {
     return new Promise((resolve) => {
       if (state.updated + 10 * 60 * 1000 < new Date().getTime()) {
         this.$axios
-          .get(`${this.config.baseURL}homepage/pitanje-zdravlja`)
+          .get(`${this.$config.baseURL}homepage/pitanje-zdravlja`)
           .then((res) => {
             commit('setPosts', res.data)
             resolve()
@@ -46,7 +46,7 @@ export const actions = {
       }
       if (state.morePosts.length < page * 7) {
         this.$axios
-          .get(`${this.config.baseURL}homepage/pitanje-zdravlja/page/${page}`)
+          .get(`${this.$config.baseURL}homepage/pitanje-zdravlja/page/${page}`)
           .then((res) => {
             commit('setMore', res.data.posts)
             resolve()

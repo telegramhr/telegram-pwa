@@ -88,7 +88,7 @@ export default {
   components: { Standard },
   async fetch() {
     await this.$axios
-      .get(`${this.config.baseURL}author/${this.$route.params.slug}`)
+      .get(`${this.$config.baseURL}author/${this.$route.params.slug}`)
       .then((res) => {
         this.author = res.data.author
         this.posts = res.data.posts
@@ -128,7 +128,7 @@ export default {
     loadMore() {
       this.$axios
         .get(
-          `${this.config.baseURL}author/${this.$route.params.slug}/page/${this.page}`
+          `${this.$config.baseURL}author/${this.$route.params.slug}/page/${this.page}`
         )
         .then((res) => {
           this.posts = [...this.posts, ...res.data.posts]

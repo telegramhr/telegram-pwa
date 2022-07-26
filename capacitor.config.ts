@@ -6,7 +6,6 @@ const config: CapacitorConfig = {
   webDir: 'dist',
   bundledWebRuntime: false,
   ios: {
-    contentInset: 'always',
     scheme: 'Telegram.hr',
   },
   server: {

@@ -196,7 +196,7 @@ export default {
   components: { Standard },
   async fetch() {
     await this.$axios
-      .get(`${this.config.baseURL}category/${this.$route.params.category}`)
+      .get(`${this.$config.baseURL}category/${this.$route.params.category}`)
       .then((res) => {
         this.posts = res.data.posts
         this.cat = res.data.category

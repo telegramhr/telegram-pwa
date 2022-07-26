@@ -634,11 +634,6 @@ export default {
       }
     },
   },
-  mounted() {
-    this.$nextTick(() => {
-      // this.loadAds()
-    })
-  },
   methods: {
     manageLogin() {
       if (this.canLogIn) {

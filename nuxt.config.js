@@ -3,13 +3,18 @@ export default {
   globalName: 'telegram',
   modern: 'client',
   telemetry: false,
+  server: {
+    host: '0',
+  },
+  ssr: false,
   head: {
     title: 'Telegram.hr',
     meta: [
       { charset: 'utf-8' },
       {
         name: 'viewport',
-        content: 'width=device-width, initial-scale=1, maximum-scale=1',
+        content:
+          'width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover',
       },
       {
         hid: 'description',
@@ -216,7 +221,7 @@ export default {
   },
 
   purgeCSS: {
-    enabled: true,
+    enabled: false,
     whitelistPatterns: [
       /slick/,
       /banner/,

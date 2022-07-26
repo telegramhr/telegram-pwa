@@ -204,7 +204,7 @@ export const actions = {
         new Date().getTime()
       ) {
         this.$axios
-          .get(`${this.config.baseURL}category/${payload.category}`)
+          .get(`${this.$config.baseURL}category/${payload.category}`)
           .then((res) => {
             commit('setPosts', {
               posts: res.data.posts,
@@ -222,7 +222,7 @@ export const actions = {
     return new Promise((resolve) => {
       this.$axios
         .get(
-          `${this.config.baseURL}category/${payload.category}/page/${
+          `${this.$config.baseURL}category/${payload.category}/page/${
             state.morePosts[payload.category].page
           }`
         )

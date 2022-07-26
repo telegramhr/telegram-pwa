@@ -8,6 +8,10 @@
 html {
     font-size: 20px;
     scroll-behavior: smooth;
+  --ion-safe-area-top: env(safe-area-inset-top);
+  --ion-safe-area-bottom: env(safe-area-inset-bottom);
+  --ion-safe-area-left: env(safe-area-inset-left);
+  --ion-safe-area-right: env(safe-area-inset-right);
 }
 body {
     font-family: 'Merriweather', serif;
@@ -67,6 +71,7 @@ header nav {
     background-color: #fcf1e7;
     border-bottom: 1px solid #c8c8c8;
     box-shadow: 10px 0px 20px rgba(0, 0, 0, 0.25);
+  height: 100px;
 }
 .contrast-mode .mobile-sticky-nav, .fancy-rubrika .mobile-sticky-nav {
     background-color: white;
@@ -7558,13 +7563,13 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 
 @media screen and (max-width: 767px) {
     .main-container {
-        padding-top: 50px;
+        padding-top: calc(42px + var(--ion-safe-area-top));
     }
     .single-article-premium {
-        padding-top: 0px;
+        padding-top: var(--ion-safe-area-top);
     }
     .homepage {
-        padding-top: 42px;
+        padding-top: calc(42px + var(--ion-safe-area-top));
     }
     header .subheader, header nav.homepage-exclusive {
         display: none;
@@ -9293,22 +9298,22 @@ h3.subsection-title .spar-line img {
     padding: 0 10px;
 }
 
-/* App notch adjustments (added a fixed 50 to everything) */ 
+/* App notch adjustments (added a fixed 50 to everything) */
 @media screen and (max-width: 767px) {
     .main-container {
-        padding-top: 100px;
+        padding-top: calc(var(--ion-safe-area-top) + 50px);
     }
     .single-article-premium {
-        padding-top: 50px;
+        padding-top: var(--ion-safe-area-top);
     }
     .homepage {
-        padding-top: 92px;
+        padding-top: calc(var(--ion-safe-area-top) + 42px);
     }
     .mobile-sticky-nav, header nav .container {
-        height: 100px;
-        padding-top: 65px;
+        height: calc(var(--ion-safe-area-top) + 50px);
+        padding-top: calc(var(--ion-safe-area-top) + 15px);
     }
     .mobile-sticky-nav a.mob-nav-otherbtn, .mobile-sticky-nav a:first-child, header a.mob-nav-otherbtn, header a:first-child {
-        top: 66px;
+        top: calc(var(--ion-safe-area-top) + 16px);
     }
 }
