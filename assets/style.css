@@ -9292,3 +9292,23 @@ h3.subsection-title .spar-line img {
     display: inline-block;
     padding: 0 10px;
 }
+
+/* App notch adjustments (added a fixed 50 to everything) */ 
+@media screen and (max-width: 767px) {
+    .main-container {
+        padding-top: 100px;
+    }
+    .single-article-premium {
+        padding-top: 50px;
+    }
+    .homepage {
+        padding-top: 92px;
+    }
+    .mobile-sticky-nav, header nav .container {
+        height: 100px;
+        padding-top: 65px;
+    }
+    .mobile-sticky-nav a.mob-nav-otherbtn, .mobile-sticky-nav a:first-child, header a.mob-nav-otherbtn, header a:first-child {
+        top: 66px;
+    }
+}
