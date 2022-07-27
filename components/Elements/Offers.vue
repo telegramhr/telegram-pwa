@@ -142,15 +142,11 @@ export default {
         'webshop-value': 1,
       })
     },
-    getPosts() {
-      this.$axios
-        .get('/api/promos/webshop')
-        .then((res) => {
-          this.posts = res.data
-        })
-        .catch(() => {
-          // TODO: error logging
-        })
+    async getPosts() {
+      const preview = this.$route.query.webshop ? this.$route.query.webshop : ''
+      this.posts = await this.$axios.$get(
+        `/api/promos/webshop?preview=${preview}`
+      )
     },
   },
 }
