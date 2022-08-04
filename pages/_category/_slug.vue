@@ -608,6 +608,9 @@ export default {
       if (this.post.image.full) {
         images.push(this.post.image.full)
       }
+      if (this.post.image.facebook) {
+        images.push(this.post.image.facebook)
+      }
       return [
         {
           '@context': 'https://schema.org',
