@@ -9,7 +9,8 @@
           <h3 class="full overtitle">Bespoštedno novinarstvo</h3>
           <h1 class="full">Podržite Telegram</h1>
           <h4 class="full">
-            Da raskrinkamo još moćnika koji vaš novac troše u bordelima
+            Najkvalitetniji hrvatski portal, po velikom međunarodnom
+            istraživanju navika čitatelja
           </h4>
         </div>
       </div>
