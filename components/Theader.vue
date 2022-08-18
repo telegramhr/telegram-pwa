@@ -618,15 +618,6 @@ export default {
     clearFC() {
       if (process.client) {
         this.$store.dispatch('user/checkAdmin')
-        if (!this.$cookies.get('FC_reset')) {
-          this.$cookies.remove('FCCDCF')
-          this.$cookies.set('FC_reset', 'true', {
-            value: 'true',
-            maxAge: 30 * 60 * 60 * 24,
-            path: '/',
-            domain: '.telegram.hr',
-          })
-        }
       }
     },
     handleScroll() {
