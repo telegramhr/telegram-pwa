@@ -492,7 +492,7 @@
     <!-- Prekid dojave -->
     <div class="full relative desktop-only">
       <div class="container flex relative column-full-pad">
-        <a
+        <!--<a
           href="https://www.telegram.hr/native/uhvati-sunce/"
           target="_blank"
           class="full cantha-break mobile-side-pad flex relative stretch"
@@ -500,8 +500,8 @@
           <img
             src="https://www.telegram.hr/wp-content/uploads/2022/06/tg-banner-uhvatisunce-1200x250-2.png"
           />
-        </a>
-        <!--<app-link
+        </a>-->
+        <app-link
           to="/dojave"
           class="full cantha-break mobile-side-pad flex relative stretch"
         >
@@ -535,7 +535,7 @@
               </div>
             </div>
           </div>
-        </app-link>-->
+        </app-link>
       </div>
     </div>
     <!-- Sport -->
