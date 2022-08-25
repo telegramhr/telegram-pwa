@@ -93,7 +93,15 @@
             </h3>
             <div v-if="post.promo.partner" class="collab-overtitle">
               <h3 class="overtitle">{{ post.promo.prefix }}</h3>
-              <img :src="post.promo.logo" :alt="post.promo.partner" />
+              <a
+                v-if="post.promo.link"
+                :href="post.promo.link"
+                target="_blank"
+                rel="sponsored"
+              >
+                <img :src="post.promo.logo" :alt="post.promo.partner" />
+              </a>
+              <img v-else :src="post.promo.logo" :alt="post.promo.partner" />
             </div>
           </div>
           <h1 class="full">{{ post.portal_title }}</h1>
