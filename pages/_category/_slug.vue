@@ -93,15 +93,7 @@
             </h3>
             <div v-if="post.promo.partner" class="collab-overtitle">
               <h3 class="overtitle">{{ post.promo.prefix }}</h3>
-              <a
-                v-if="post.promo.link"
-                :href="post.promo.link"
-                target="_blank"
-                rel="sponsored"
-              >
-                <img :src="post.promo.logo" :alt="post.promo.partner" />
-              </a>
-              <img v-else :src="post.promo.logo" :alt="post.promo.partner" />
+              <img :src="post.promo.logo" :alt="post.promo.partner" />
             </div>
           </div>
           <h1 class="full">{{ post.portal_title }}</h1>
@@ -121,7 +113,19 @@
                 </h3>
                 <div v-if="post.promo.partner" class="collab-overtitle">
                   <h3 class="overtitle">{{ post.promo.prefix }}</h3>
-                  <img :src="post.promo.logo" :alt="post.promo.partner" />
+                  <a
+                    v-if="post.promo.link"
+                    :href="post.promo.link"
+                    target="_blank"
+                    rel="sponsored"
+                  >
+                    <img :src="post.promo.logo" :alt="post.promo.partner" />
+                  </a>
+                  <img
+                    v-else
+                    :src="post.promo.logo"
+                    :alt="post.promo.partner"
+                  />
                 </div>
               </div>
               <h1 class="full">{{ post.title }}</h1>
@@ -130,7 +134,7 @@
               </h2>
               <h5 class="full flex relative article-meta mobile-only">
                 <template v-if="post.promo.partner">
-                  <a href="#" class="meta-author flex">
+                  <a href="#" class="meta-author flex" @click.prevent>
                     <img
                       v-if="!post.promo.signature_logo_off"
                       :src="post.promo.logo"
