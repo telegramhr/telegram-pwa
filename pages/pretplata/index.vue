@@ -52,7 +52,7 @@
                   <h3 class="overtitle">Standard</h3>
                 </div>
                 <h2 class="full">49kn</h2>
-                <h4 class="full center-text undertitle">Mjesečno</h4>
+                <h4 class="full center-text undertitle">Mjesečno (6,50€)</h4>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
                     <font-awesome-icon
@@ -84,7 +84,7 @@
                   <h3 class="overtitle">Premium</h3>
                 </div>
                 <h2 class="full">69kn</h2>
-                <h4 class="full center-text undertitle">Mjesečno</h4>
+                <h4 class="full center-text undertitle">Mjesečno (9,16€)</h4>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
                     <font-awesome-icon
@@ -123,7 +123,7 @@
                 </div>
                 <h2 class="full">39kn</h2>
                 <h4 class="full center-text undertitle">
-                  mjesečno, za cijelu godinu 468kn
+                  mjesečno (5,18€), za cijelu godinu 468kn (62,11€)
                 </h4>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
@@ -157,7 +157,7 @@
                 </div>
                 <h2 class="full">49kn</h2>
                 <h4 class="full center-text undertitle">
-                  mjesečno, za cijelu godinu 588kn
+                  mjesečno (6,50€), za cijelu godinu 588kn (78,04€)
                 </h4>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
@@ -240,7 +240,9 @@
                     <span class="faded strikethrough">149 kn</span> 99 kn
                   </h2>
                   <h2 class="full relative center-text">
-                    ekskluzivna prednarudžba za pretplatnike
+                    (<span class="faded strikethrough">19,78€</span> 13,14€)
+                    <br />
+                    posebna cijena za Telegram pretplatnike
                   </h2>
                   <div class="full center">
                     <div class="newbtn huge-newbtn">Pretplatite se</div>

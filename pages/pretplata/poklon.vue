@@ -35,7 +35,9 @@
               <h3 class="overtitle">Standard</h3>
             </div>
             <h2 class="full">468kn</h2>
-            <h4 class="full center-text undertitle">godišnja pretplata</h4>
+            <h4 class="full center-text undertitle">
+              godišnja pretplata (62,11€)
+            </h4>
             <div class="full pretplata-benefits">
               <p class="full animate">
                 <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
@@ -65,7 +67,9 @@
               <h3 class="overtitle">Premium</h3>
             </div>
             <h2 class="full">588kn</h2>
-            <h4 class="full center-text undertitle">godišnja pretplata</h4>
+            <h4 class="full center-text undertitle">
+              godišnja pretplata (78,04€)
+            </h4>
             <div class="full pretplata-benefits">
               <p class="full animate">
                 <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>

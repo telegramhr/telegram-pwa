@@ -21,12 +21,12 @@
         </div>
         <h2 class="full"><span>49kn</span>1kn</h2>
         <h4 class="full center-text undertitle">
-          Prvi mjesec, poslije 49kn mjesečno
+          Prvi mjesec (0,13€), poslije 49kn mjesečno (6,50€)
         </h4>
         <div class="full pretplata-benefits">
           <p class="full animate">
             <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-            prvi mjesec za samo 1 kunu
+            prvi mjesec za samo 1 kunu (0,13€)
           </p>
           <p class="full animate">
             <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>

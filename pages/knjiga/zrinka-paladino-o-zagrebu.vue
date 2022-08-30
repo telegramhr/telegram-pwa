@@ -32,9 +32,9 @@
               />
             </div>
             <div class="full flex knjiga-features">
-              <h1 class="full relative center-text">Cijena: 179 kn</h1>
+              <h1 class="full relative center-text">Cijena: 179 kn (23,76€)</h1>
               <h2 class="full relative center-text">
-                Za Standard pretplatnike: 149kn
+                Za Standard pretplatnike: 149kn (19,78€)
               </h2>
               <app-link
                 v-show="!$store.state.user.uid"

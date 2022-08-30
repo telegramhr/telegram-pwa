@@ -695,10 +695,8 @@
                 />
               </div>
             </div>
-            <h3 class="full overtitle">Telegram Media Grupa</h3>
-            <h2 class="full">
-              Popust na naslove izdavača Telegram Media Grupa
-            </h2>
+            <h3 class="full overtitle">Telegram</h3>
+            <h2 class="full">Popust na naslove izdavača Telegram</h2>
             <a
               href="#knjizare"
               class="newbtn clickable"

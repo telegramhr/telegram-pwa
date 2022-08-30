@@ -377,6 +377,8 @@
                   <span class="faded strikethrough">149 kn</span> 99 kn
                 </h2>
                 <h5 class="full center-text">
+                  (<span class="faded strikethrough">19,78€</span> 13,14€)
+                  <br />
                   posebna cijena za Telegramove pretplatnike!
                 </h5>
                 <div class="full center">
