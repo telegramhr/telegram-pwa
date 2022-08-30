@@ -102,6 +102,11 @@ img {
     max-width: 710px;
     height: 400px;
 }
+.vertical-yt-embed {
+    width: 100%;
+    max-width: 710px;
+    height: 1262px;
+}
 
 /* Layout */
 
@@ -234,5 +239,8 @@ img {
     }
     .yt-embed {
         height: 51.5vw;
+    }
+    .vertical-yt-embed {
+        height: 163.5vw;
     }
 }
