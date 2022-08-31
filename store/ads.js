@@ -42,6 +42,7 @@ export const state = () => ({
       },
       routes: ['index'],
       mobile: [
+        [1, 1],
         [300, 50],
         [300, 100],
         [300, 250],
@@ -50,6 +51,7 @@ export const state = () => ({
         [300, 600],
       ],
       desktop: [
+        [1, 1],
         [970, 250],
         [970, 500],
         [1000, 250],
@@ -156,6 +158,7 @@ export const state = () => ({
       },
       routes: ['index'],
       mobile: [
+        [1, 1],
         [300, 50],
         [300, 100],
         [300, 250],
@@ -164,6 +167,7 @@ export const state = () => ({
         [300, 600],
       ],
       desktop: [
+        [1, 1],
         [970, 250],
         [970, 500],
         [1000, 250],
@@ -263,6 +267,7 @@ export const state = () => ({
       },
       routes: ['index'],
       mobile: [
+        [1, 1],
         [300, 50],
         [300, 100],
         [300, 250],
@@ -271,6 +276,7 @@ export const state = () => ({
         [300, 600],
       ],
       desktop: [
+        [1, 1],
         [970, 250],
         [970, 500],
         [1000, 250],
@@ -376,6 +382,7 @@ export const state = () => ({
         mobile: 36,
       },
       desktop: [
+        [1, 1],
         [300, 900],
         [200, 900],
         [340, 1050],
@@ -400,6 +407,7 @@ export const state = () => ({
         mobile: 36,
       },
       desktop: [
+        [1, 1],
         [301, 901],
         [201, 901],
         [341, 1051],
@@ -426,6 +434,7 @@ export const state = () => ({
       },
       routes: ['category-slug', 'nesto-slug'],
       desktop: [
+        [1, 1],
         [660, 350],
         [300, 250],
         [300, 600],
@@ -435,6 +444,7 @@ export const state = () => ({
         [1200, 250],
       ],
       mobile: [
+        [1, 1],
         [300, 250],
         [320, 480],
         [336, 280],
@@ -451,6 +461,7 @@ export const state = () => ({
       },
       routes: ['category-slug', 'nesto-slug'],
       desktop: [
+        [1, 1],
         [660, 350],
         [300, 250],
         [300, 600],
@@ -459,6 +470,7 @@ export const state = () => ({
         [970, 500],
       ],
       mobile: [
+        [1, 1],
         [300, 250],
         [320, 480],
         [336, 280],
@@ -573,6 +585,7 @@ export const state = () => ({
       },
       routes: ['category-slug', 'nesto-slug'],
       desktop: [
+        [1, 1],
         [660, 350],
         [300, 250],
         [300, 600],
@@ -581,6 +594,7 @@ export const state = () => ({
         [970, 500],
       ],
       mobile: [
+        [1, 1],
         [300, 250],
         [320, 480],
         [336, 280],
@@ -691,6 +705,7 @@ export const state = () => ({
       },
       routes: ['category-slug', 'nesto-slug'],
       desktop: [
+        [1, 1],
         [660, 350],
         [300, 250],
         [300, 600],
@@ -699,6 +714,7 @@ export const state = () => ({
         [970, 500],
       ],
       mobile: [
+        [1, 1],
         [300, 250],
         [320, 480],
         [336, 280],
@@ -809,6 +825,7 @@ export const state = () => ({
       },
       routes: ['category-slug', 'nesto-slug'],
       desktop: [
+        [1, 1],
         [660, 350],
         [300, 250],
         [300, 600],
@@ -817,6 +834,7 @@ export const state = () => ({
         [970, 500],
       ],
       mobile: [
+        [1, 1],
         [300, 250],
         [320, 480],
         [336, 280],
@@ -906,6 +924,7 @@ export const state = () => ({
       },
       routes: ['category-slug', 'nesto-slug'],
       desktop: [
+        [1, 1],
         [660, 350],
         [300, 250],
         [300, 600],
@@ -914,6 +933,7 @@ export const state = () => ({
         [970, 500],
       ],
       mobile: [
+        [1, 1],
         [300, 250],
         [320, 480],
         [336, 280],
