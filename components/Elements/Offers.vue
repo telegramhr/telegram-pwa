@@ -49,10 +49,10 @@
             <div class="full flex article-pad">
               <h2 class="full">{{ post.naslov }}</h2>
               <h3 class="full overtitle">
-                {{ post.cijena }}
-                <span v-if="post.stara_cijena" class="strikethrough-price">{{
-                  post.stara_cijena
-                }}</span>
+                {{ post.cijena }} ({{ post.cijena_euro }})
+                <span v-if="post.stara_cijena" class="strikethrough-price">
+                  {{ post.stara_cijena }} ({{ post.stara_cijena_euro }})
+                </span>
               </h3>
 
               <h4 class="full">
