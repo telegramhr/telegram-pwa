@@ -48,7 +48,7 @@
             <img :src="post.slika" loading="lazy" />
             <div class="full flex article-pad">
               <h2 class="full">{{ post.naslov }}</h2>
-              <h3 class="full overtitle">
+              <h3 v-if="post.cijena" class="full overtitle">
                 {{ post.cijena }} ({{ post.cijena_euro }})
                 <span v-if="post.stara_cijena" class="strikethrough-price">
                   {{ post.stara_cijena }} ({{ post.stara_cijena_euro }})

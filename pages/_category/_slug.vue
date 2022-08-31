@@ -597,6 +597,9 @@ export default {
       )
     },
     exclude() {
+      if (this.post.disable_ads && this.post.disable_ads.includes('spar')) {
+        return false
+      }
       const terms = ['lidl']
       const filtered = this.post.tags.filter((tag) => {
         return terms.includes(tag.slug)
