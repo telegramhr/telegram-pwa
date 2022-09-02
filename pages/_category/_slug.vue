@@ -133,34 +133,22 @@
                 {{ post.subtitle }}
               </h2>
               <h5 class="full flex relative article-meta mobile-only">
-                <template v-if="post.promo.partner">
-                  <a href="#" class="meta-author flex" @click.prevent>
-                    <img
-                      v-if="!post.promo.signature_logo_off"
-                      :src="post.promo.logo"
-                    />
-                    <span>{{ post.promo.prefix }}</span>
-                    <span>{{ post.promo.partner }}</span>
-                  </a>
-                </template>
-                <template v-else>
-                  <nuxt-link
-                    v-for="author in post.authors"
-                    :key="author.name"
-                    :to="author.url"
-                    class="meta-author flex"
-                    rel="author"
-                    ><img
-                      v-if="author.image"
-                      :src="author.image"
-                      :alt="author.name"
-                    />
-                    <span>Piše</span
-                    ><span class="vcard author">{{
-                      author.name
-                    }}</span></nuxt-link
-                  >
-                </template>
+                <nuxt-link
+                  v-for="author in post.authors"
+                  :key="author.name"
+                  :to="author.url"
+                  class="meta-author flex"
+                  rel="author"
+                  ><img
+                    v-if="author.image"
+                    :src="author.image"
+                    :alt="author.name"
+                  />
+                  <span>Piše</span
+                  ><span class="vcard author">{{
+                    author.name
+                  }}</span></nuxt-link
+                >
                 <client-only>
                   <subscribe-link
                     v-if="post.type === 'commentary'"
@@ -192,33 +180,21 @@
                 {{ post.perex }}
               </p>
               <h5 class="full flex relative article-meta">
-                <template v-if="post.promo.partner">
-                  <a href="#" class="meta-author flex desktop-only">
-                    <img
-                      v-if="!post.promo.signature_logo_off"
-                      :src="post.promo.logo"
-                    />
-                    <span>{{ post.promo.prefix }}</span>
-                    <span>{{ post.promo.partner }}</span>
-                  </a>
-                </template>
-                <template v-else>
-                  <nuxt-link
-                    v-for="author in post.authors"
-                    :key="author.name"
-                    :to="author.url"
-                    class="meta-author flex desktop-only"
-                    rel="author"
-                    ><img
-                      v-if="author.image"
-                      :src="author.image"
-                      :alt="author.name"
-                    /><span>Piše</span
-                    ><span class="vcard author">{{
-                      author.name
-                    }}</span></nuxt-link
-                  >
-                </template>
+                <nuxt-link
+                  v-for="author in post.authors"
+                  :key="author.name"
+                  :to="author.url"
+                  class="meta-author flex desktop-only"
+                  rel="author"
+                  ><img
+                    v-if="author.image"
+                    :src="author.image"
+                    :alt="author.name"
+                  /><span>Piše</span
+                  ><span class="vcard author">{{
+                    author.name
+                  }}</span></nuxt-link
+                >
                 <span class="meta-date">{{ post.time | parseTime }}</span>
                 <span v-if="post.recommendations" class="meta-preporuke"
                   >{{ post.recommendations }} preporuka</span
