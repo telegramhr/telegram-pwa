@@ -1992,6 +1992,14 @@ header {
     padding-bottom: 32px;
     order: 3;
 }
+.offer-disclaimer {
+    font-size: 12px;
+    font-size: 0.6rem;
+    padding: 0px 24px;
+    opacity: .7;
+    font-style: italic;
+    order: 4;
+}
 .gallery figcaption {
     padding-top: 4px;
 }
@@ -7941,6 +7949,11 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .major-event-header {
         font-size: 2rem;
         margin-top: 4vw;
+    }
+    .offer-disclaimer {
+        font-size: 11px;
+        font-size: 0.55rem;
+        margin-bottom: 4vw;
     }
 }
 @media screen and (min-width: 767px) {
