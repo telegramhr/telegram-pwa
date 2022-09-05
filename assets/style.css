@@ -9018,6 +9018,11 @@ h3.subsection-title .spar-line img {
     top: 0;
     left: 0;
 }
+.klub-qr img {
+    padding: 8px;
+    background-color: white;
+    width: 70%;
+}
 
 @media screen and (min-width: 767px) {
     .offers-widget .gallery-content {
