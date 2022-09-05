@@ -1373,9 +1373,16 @@
                   {{ user.first_name }} {{ user.last_name }}
                 </p>
                 <p class="full center-text">ID {{ user.uid }}</p>
-                <!--<p class="full center-text">
-                  Datum isteka: {{ subscriber_klub_expiration }}
-                </p>-->
+                <p class="full center-text">
+                  Datum isteka:
+                  {{
+                    user.expiry_date
+                      ? new Date(user.expiry_date * 1000).toLocaleDateString(
+                          'hr-hr'
+                        )
+                      : 'Neograničeno'
+                  }}
+                </p>
               </div>
             </div>
             <div class="full flex center klub-qr">

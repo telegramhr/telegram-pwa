@@ -29,7 +29,8 @@ export const mutations = {
     state.access = false
   },
   setTerm(state, data) {
-    state.access = data
+    state.access = data.rid
+    state.expiry_date = data.expiry_date
     state.type = 'subscribed'
     state.updated = new Date().getTime()
   },
@@ -53,7 +54,10 @@ export const actions = {
           domain: '.telegram.hr',
           maxAge: 10 * 24 * 3600,
         })
-        commit('setTerm', data.data[0].resource.rid)
+        commit('setTerm', {
+          rid: data.data[0].resource.rid,
+          expiry_date: data.data[0].expire_date,
+        })
         if (window.fbq) {
           window.fbq('trackCustom', 'HasSubscription', { value: 1 })
         }
