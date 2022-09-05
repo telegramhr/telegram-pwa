@@ -1353,7 +1353,7 @@
       </div>
     </div>
     <div id="iskaznica" class="full flex fake-inpage-anchor"></div>
-    <div v-show="!canLogIn" class="full flex relative mobile-side-pad">
+    <div v-show="user.access" class="full flex relative mobile-side-pad">
       <div class="container flex relative column-bottom-pad">
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
@@ -1369,15 +1369,20 @@
                 alt="Telegram logo"
               />
               <div class="full flex klub-card-content">
-                <p class="full center-text">{{ subscriber_klub_ime }}</p>
-                <p class="full center-text">ID {{ subscriber_klub_id }}</p>
                 <p class="full center-text">
-                  Datum isteka: {{ subscriber_klub_expiration }}
+                  {{ user.first_name }} {{ user.last_name }}
                 </p>
+                <p class="full center-text">ID {{ user.uid }}</p>
+                <!--<p class="full center-text">
+                  Datum isteka: {{ subscriber_klub_expiration }}
+                </p>-->
               </div>
             </div>
             <div class="full flex center klub-qr">
-              <img src="@/assets/img/extras/klub/tg_qr_klub.png" />
+              <img
+                v-if="user.uid"
+                :src="`https://pretplate.telegram.hr/qrcode/${user.uid}`"
+              />
             </div>
             <img
               src="@/assets/img/tg_bg_fancyarc.jpg"
@@ -1408,14 +1413,19 @@ export default {
       selected_kazaliste: '',
       selected_knjizara: '',
       selected_muzej: '',
-      subscriber_klub_ime: 'Pero Perić',
-      subscriber_klub_id: '42069',
-      subscriber_klub_expiration: '01.01.2023.',
     }
   },
   computed: {
     canLogIn() {
       return this.$store.state.user.exp * 1000 < new Date().getTime()
+    },
+    user() {
+      return this.$store.state.user
+    },
+    qr() {
+      const img = this.$axios.$get(`/pretplate/qrcode/${this.user.uid}`)
+      console.log(img)
+      return img.img
     },
   },
   mounted() {
