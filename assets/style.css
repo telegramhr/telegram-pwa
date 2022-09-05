@@ -9023,6 +9023,39 @@ h3.subsection-title .spar-line img {
     background-color: white;
     width: 70%;
 }
+.klub-expanded .newbtn {
+    border: 1px solid #ae3737;
+    padding: 7px 11px;
+}
+.klub-expanded .newbtn-empty {
+    margin-left: 8px;
+    border: 1px solid #aaa;
+}
+.klub-intro {
+    padding-top: 36px;
+    padding-bottom: 48px;
+}
+.klub-intro h2 {
+    font-size: 40px;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 36px;
+}
+.klub-intro h4 {
+    font-size: 24px;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+.klub-intro p {
+    font-family: 'Barlow', sans-serif;
+    opacity: .7;
+    font-size: 18px;
+    font-size: 0.9rem;
+    line-height: 1.37em;
+}
+.klub-intro a {
+    text-decoration: underline;
+}
 
 @media screen and (min-width: 767px) {
     .offers-widget .gallery-content {
@@ -9096,7 +9129,7 @@ h3.subsection-title .spar-line img {
         font-size: 0.9rem;
     }
     .klub-header {
-        padding-bottom: 4vw;
+        padding-bottom: 8vw;
         margin-bottom: 4vw;
     }
     .fancy-klub-intro {
@@ -9115,6 +9148,25 @@ h3.subsection-title .spar-line img {
     .klub-header .container .three-fourths {
         order: 1;
         margin-bottom: -12vw;
+    }
+    .klub-intro {
+        padding-top: 4vw;
+        padding-bottom: 8vw;
+    }
+    .klub-intro h2 {
+        font-size: 22px;
+        font-size: 1.1rem;
+        margin-bottom: 2vw;
+    }
+    .klub-intro h4 {
+        font-size: 18px;
+        font-size: 0.9rem;
+        margin-bottom: 2vw;
+        margin-top: 4vw;
+    }
+    .klub-intro p {
+        font-size: 15px;
+        font-size: 0.75rem;
     }
 }
 

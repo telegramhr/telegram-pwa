@@ -44,6 +44,54 @@
         </div>
       </div>
     </div>
+    <!-- Intro -->
+    <div class="full flex relative mobile-side-pad klub-intro">
+      <div class="container flex relative">
+        <h2 class="full flex column-horizontal-pad">
+          Kako iskoristiti ponude Kluba?
+        </h2>
+        <div class="full flex relative stretch">
+          <div
+            v-show="canLogIn"
+            class="third flex flex-responsive column-horizontal-pad column-right-border"
+          >
+            <h4 class="full bold">1. Pretplatite se.</h4>
+            <p>
+              Posebne ponude Telegram Kluba dostupne su našim pretplatnicima.
+              Pretplatite se ili, ako već imate račun, prijavite se.
+            </p>
+          </div>
+          <div
+            v-show="!canLogIn"
+            class="third flex flex-responsive column-horizontal-pad column-right-border"
+          >
+            <h4 class="full bold">1. Aktivna pretplata.</h4>
+            <p>
+              Posebne ponude dostupne su isključivo našim pretplatnicima poput
+              Vas. Ponude možete koristiti dokle god imate pretplatu na
+              Telegram.
+            </p>
+          </div>
+          <div
+            class="third flex flex-responsive column-horizontal-pad column-right-border"
+          >
+            <h4 class="full bold">2. Odaberite ponudu.</h4>
+            <p>
+              Odaberite neke od predstava, izložbi, knjiga ili koncerata naših
+              partnera na ovoj stranici, te slijedite upute za daljnje korake.
+            </p>
+          </div>
+          <div class="third flex flex-responsive column-horizontal-pad">
+            <h4 class="full bold">3. Kupite uz popust.</h4>
+            <p>
+              Za kupnju na prodajnom mjestu, pokažite
+              <a href="#iskaznica">digitalnu iskaznicu.</a> Za kupnju na webu,
+              iskoristite promo-kod naveden uz ponudu.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Kazalista -->
     <div class="full flex relative mobile-side-pad">
       <div class="container flex relative">
@@ -214,33 +262,6 @@
               Iskoristite ponudu
             </a>
           </div>
-          <div
-            class="fourth flex article klub-ponuda relative column-horizontal-pad"
-          >
-            <div class="klub-ponuda-tile relative">
-              <div class="klub-sticker center">
-                <div class="full center-text klub-sticker-amount">20%</div>
-                <div class="full center-text klub-sticker-text">popust</div>
-              </div>
-              <div class="full center">
-                <img
-                  src="@/assets/img/extras/klub/tg_visual_klub_lisinski.jpg"
-                  aria-hidden="true"
-                />
-              </div>
-            </div>
-            <h3 class="full overtitle">Koncertna dvorana Vatroslav Lisinski</h3>
-            <h2 class="full">
-              Popust na ulaznice za pojedinačne koncerte u Dvorani Lisinski
-            </h2>
-            <a
-              href="#kazalista"
-              class="newbtn clickable"
-              @click="selected_kazaliste = 'lisinski'"
-            >
-              Iskoristite ponudu
-            </a>
-          </div>
         </div>
       </div>
     </div>
@@ -285,6 +306,9 @@
             </p>
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
+            >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
             >
           </div>
         </div>
@@ -335,6 +359,9 @@
             </p>
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
+            >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
             >
           </div>
         </div>
@@ -388,6 +415,9 @@
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
             >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
+            >
           </div>
         </div>
       </div>
@@ -429,6 +459,9 @@
             </p>
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
+            >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
             >
           </div>
         </div>
@@ -482,6 +515,9 @@
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
             >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
+            >
           </div>
         </div>
       </div>
@@ -524,47 +560,8 @@
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
             >
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      v-if="selected_kazaliste === 'lisinski'"
-      id="lisinski"
-      class="full flex relative klub-expanded"
-    >
-      <div class="container flex relative stretch mobile-side-pad">
-        <div class="close-klub-expand" @click="selected_kazaliste = ''">x</div>
-        <div class="third center flex-responsive column-left-pad">
-          <img
-            src="@/assets/img/extras/klub/tg_visual_klub_lisinski.jpg"
-            aria-hidden="true"
-          />
-        </div>
-        <div class="two-thirds center flex-responsive article">
-          <h3 class="full overtitle">Koncertna dvorana Vatroslav Lisinski</h3>
-          <h2 class="full">
-            Popust na ulaznice za pojedinačne koncerte u Dvorani Lisinski
-          </h2>
-          <h4 class="full">
-            Telegramovi pretplatnici ostvaruju 20 % popusta na ulaznice za
-            pojedinačne događaje u organizaciji dvorane Lisinski.
-          </h4>
-          <div v-show="!canLogIn" class="full flex">
-            <p class="full bold">Kako do popusta?</p>
-            <p class="full">
-              Kako biste ostvarili svoj popust, posjetite blagajnu dvorane
-              Lisinski i pokažite svoju digitalnu pretplatničku iskaznicu, koju
-              možete preuzeti <a href="#iskaznica">ovdje.</a>
-            </p>
-          </div>
-          <div v-show="canLogIn" class="full flex">
-            <p class="full bold">
-              Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
-              pretplatnicima.
-            </p>
-            <app-link to="/pretplata" class="newbtn huge-newbtn"
-              >Pretplatite se</app-link
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
             >
           </div>
         </div>
@@ -787,6 +784,9 @@
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
             >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
+            >
           </div>
         </div>
       </div>
@@ -826,6 +826,9 @@
             </p>
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
+            >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
             >
           </div>
         </div>
@@ -878,6 +881,9 @@
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
             >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
+            >
           </div>
         </div>
       </div>
@@ -928,6 +934,9 @@
             </p>
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
+            >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
             >
           </div>
         </div>
@@ -987,6 +996,9 @@
             </p>
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
+            >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
             >
           </div>
         </div>
@@ -1182,6 +1194,9 @@
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
             >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
+            >
           </div>
         </div>
       </div>
@@ -1223,6 +1238,9 @@
             </p>
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
+            >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
             >
           </div>
         </div>
@@ -1266,6 +1284,9 @@
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
             >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
+            >
           </div>
         </div>
       </div>
@@ -1308,6 +1329,9 @@
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
             >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
+            >
           </div>
         </div>
       </div>
@@ -1348,10 +1372,101 @@
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
             >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
+            >
           </div>
         </div>
       </div>
     </div>
+    <!-- Koncerti -->
+    <div class="full flex relative mobile-side-pad">
+      <div class="container flex relative">
+        <div class="full column-horizontal-pad column-top-pad">
+          <div class="full cantha-separator"></div>
+        </div>
+        <h3 class="full center-text column-full-pad subsection-title">
+          Koncerti
+        </h3>
+        <div class="full flex relative stretch mobile-native-slider">
+          <div
+            class="fourth flex article klub-ponuda relative column-horizontal-pad"
+          >
+            <div class="klub-ponuda-tile relative">
+              <div class="klub-sticker center">
+                <div class="full center-text klub-sticker-amount">20%</div>
+                <div class="full center-text klub-sticker-text">popust</div>
+              </div>
+              <div class="full center">
+                <img
+                  src="@/assets/img/extras/klub/tg_visual_klub_lisinski.jpg"
+                  aria-hidden="true"
+                />
+              </div>
+            </div>
+            <h3 class="full overtitle">Koncertna dvorana Vatroslav Lisinski</h3>
+            <h2 class="full">
+              Popust na ulaznice za pojedinačne koncerte u Dvorani Lisinski
+            </h2>
+            <a
+              href="#koncerti"
+              class="newbtn clickable"
+              @click="selected_koncert = 'lisinski'"
+            >
+              Iskoristite ponudu
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Koncerti expandable -->
+    <div id="koncerti" class="full flex fake-inpage-anchor"></div>
+    <div
+      v-if="selected_koncert === 'lisinski'"
+      id="lisinski"
+      class="full flex relative klub-expanded"
+    >
+      <div class="container flex relative stretch mobile-side-pad">
+        <div class="close-klub-expand" @click="selected_koncert = ''">x</div>
+        <div class="third center flex-responsive column-left-pad">
+          <img
+            src="@/assets/img/extras/klub/tg_visual_klub_lisinski.jpg"
+            aria-hidden="true"
+          />
+        </div>
+        <div class="two-thirds center flex-responsive article">
+          <h3 class="full overtitle">Koncertna dvorana Vatroslav Lisinski</h3>
+          <h2 class="full">
+            Popust na ulaznice za pojedinačne koncerte u Dvorani Lisinski
+          </h2>
+          <h4 class="full">
+            Telegramovi pretplatnici ostvaruju 20 % popusta na ulaznice za
+            pojedinačne događaje u organizaciji dvorane Lisinski.
+          </h4>
+          <div v-show="!canLogIn" class="full flex">
+            <p class="full bold">Kako do popusta?</p>
+            <p class="full">
+              Kako biste ostvarili svoj popust, posjetite blagajnu dvorane
+              Lisinski i pokažite svoju digitalnu pretplatničku iskaznicu, koju
+              možete preuzeti <a href="#iskaznica">ovdje.</a>
+            </p>
+          </div>
+          <div v-show="canLogIn" class="full flex">
+            <p class="full bold">
+              Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
+              pretplatnicima.
+            </p>
+            <app-link to="/pretplata" class="newbtn huge-newbtn"
+              >Pretplatite se</app-link
+            >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Iskaznica -->
     <div id="iskaznica" class="full flex fake-inpage-anchor"></div>
     <div v-show="user.access" class="full flex relative mobile-side-pad">
       <div class="container flex relative column-bottom-pad">
@@ -1420,6 +1535,7 @@ export default {
       selected_kazaliste: '',
       selected_knjizara: '',
       selected_muzej: '',
+      selected_koncert: '',
     }
   },
   computed: {
@@ -1431,7 +1547,6 @@ export default {
     },
     qr() {
       const img = this.$axios.$get(`/pretplate/qrcode/${this.user.uid}`)
-      console.log(img)
       return img.img
     },
   },
