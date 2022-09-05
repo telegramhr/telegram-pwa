@@ -175,6 +175,11 @@
             Jooble oglasi
           </a>
         </div>
+        <div class="full center-text conversion-notice">
+          Stopa konverzije kune u euro određena je na Vijeću za ekonomske i
+          financijske poslove EU-a, 12.srpnja 2022., po središnjem paritetu, te
+          iznosi 1 euro = 7,53450 kuna.
+        </div>
         <div class="copyright full center-text">
           Sva prava pridržana &copy; {{ new Date().getFullYear() }} Telegram
           Media Grupa d.o.o.
