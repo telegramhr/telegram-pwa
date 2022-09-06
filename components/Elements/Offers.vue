@@ -146,7 +146,7 @@ export default {
     async getPosts() {
       const preview = this.$route.query.webshop ? this.$route.query.webshop : ''
       this.posts = await this.$axios.$get(
-        `/api/promos/webshop?preview=${preview}`
+        `/api/promos/webshop?webshop=${preview}`
       )
     },
   },
