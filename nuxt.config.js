@@ -19,6 +19,7 @@ export default {
       },
       { name: 'twitter:dnt', content: 'on' },
       { name: 'twitter:widgets:csp', content: 'on' },
+      { property: 'fb:pages', content: '688325737947866' },
     ],
     link: [
       {
