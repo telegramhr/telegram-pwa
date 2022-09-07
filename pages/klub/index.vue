@@ -1689,6 +1689,11 @@ export default {
       return img.img
     },
   },
+  methods: {
+    login() {
+      this.$store.dispatch('user/login')
+    },
+  },
   mounted() {
     this.$store.dispatch('newsletters/checkAccess', this.$route.query.email)
   },
