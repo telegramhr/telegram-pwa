@@ -345,7 +345,7 @@
         </div>
       </div>
     </div>
-    <!-- Prekid klub
+    <!-- Prekid klub -->
     <div class="full relative">
       <div class="container flex relative column-horizontal-pad">
         <app-link
@@ -388,7 +388,7 @@
           </div>
         </app-link>
       </div>
-    </div> -->
+    </div>
     <!-- Prekid knjiga 
     <div class="full relative">
       <div class="container flex relative column-horizontal-pad">
@@ -434,7 +434,7 @@
         </app-link>
       </div>
     </div> -->
-    <!-- Prekid newsletteri -->
+    <!-- Prekid newsletteri
     <div class="full relative">
       <div class="container flex relative column-horizontal-pad">
         <app-link
@@ -472,7 +472,7 @@
           </div>
         </app-link>
       </div>
-    </div>
+    </div> -->
     <!-- Velika rubrika: Politika i kriminal -->
     <div class="full relative">
       <div class="container flex relative">

@@ -231,6 +231,15 @@
           <h3>Info</h3>
           <app-link
             role="menuitem"
+            to="/pretplata"
+            @click.native="maybeCloseSide"
+            >Pretplata</app-link
+          >
+          <app-link role="menuitem" to="/klub" @click.native="maybeCloseSide"
+            >Klub</app-link
+          >
+          <app-link
+            role="menuitem"
             to="/stranica/impressum"
             @click.native="maybeCloseSide"
             >Impressum</app-link
