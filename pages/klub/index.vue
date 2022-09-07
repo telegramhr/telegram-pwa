@@ -328,7 +328,7 @@
           <h3 class="full overtitle">Kazalište Kerempuh</h3>
           <h2 class="full">Popust na ulaznice za Kerempuhove predstave</h2>
           <h4 class="full">
-            Telegramovi pretplatnici ostvaruju 30% popusta na ulaznice za sve
+            Telegramovi pretplatnici ostvaruju 30kn popusta na ulaznice za sve
             predstave u Kerempuhu.
           </h4>
           <div v-show="!canLogIn" class="full flex">
