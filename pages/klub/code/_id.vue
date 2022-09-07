@@ -9,16 +9,16 @@
               {{ user.first_name }} {{ user.last_name }}
             </p>-->
             <p class="full center-text">ID {{ id }}</p>
-            <!--<p class="full center-text">
+            <p class="full center-text">
               Datum isteka:
               {{
                 user.expiry_date
                   ? new Date(user.expiry_date * 1000).toLocaleDateString(
-                    'hr-hr'
-                  )
-                  : 'Neograničeno'
+                      'hr-hr'
+                    )
+                  : 'Nevažeći kod'
               }}
-            </p>-->
+            </p>
           </div>
         </div>
         <div class="full flex center klub-qr">
@@ -37,5 +37,16 @@
 <script>
 export default {
   name: 'Id',
+  async fetch() {
+    this.user = await this.$axios.$get(`/pretplate/check/${this.id}`)
+  },
+  data() {
+    return {
+      id: this.$route.params.id,
+      user: {
+        expiry_date: '',
+      },
+    }
+  },
 }
 </script>
