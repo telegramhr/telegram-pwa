@@ -165,7 +165,7 @@
           >
             <div class="klub-ponuda-tile relative">
               <div class="klub-sticker center">
-                <div class="full center-text klub-sticker-amount">30%</div>
+                <div class="full center-text klub-sticker-amount">30kn</div>
                 <div class="full center-text klub-sticker-text">popust</div>
               </div>
               <div class="full center">
