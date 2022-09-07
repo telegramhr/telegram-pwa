@@ -5,7 +5,7 @@
     <div class="full flex tg-red dark-mode">
       <client-only>
         <theader
-          headline="Telegram Klub - ekskluzivne ponude za pretplatnike"
+          headline="Telegram Klub - popusti i ponude za pretplatnike"
         ></theader>
       </client-only>
     </div>
@@ -58,7 +58,8 @@
             <h4 class="full bold">1. Pretplatite se.</h4>
             <p>
               Posebne ponude Telegram Kluba dostupne su našim pretplatnicima.
-              Pretplatite se ili, ako već imate račun, prijavite se.
+              <app-link to="/pretplata">Pretplatite se</app-link> ili, ako već
+              imate račun, <a @click.prevent="login">prijavite se.</a>
             </p>
           </div>
           <div
@@ -67,9 +68,8 @@
           >
             <h4 class="full bold">1. Aktivna pretplata.</h4>
             <p>
-              Posebne ponude dostupne su isključivo našim pretplatnicima poput
-              Vas. Ponude možete koristiti dokle god imate pretplatu na
-              Telegram.
+              Posebne ponude dostupne su samo pretplatnicima poput Vas. Možete
+              ih koristiti sve dok imate pretplatu na Telegram.
             </p>
           </div>
           <div
@@ -149,7 +149,9 @@
               </div>
             </div>
             <h3 class="full overtitle">Zagrebačko kazalište mladih</h3>
-            <h2 class="full">Popust na ulaznice za ZKM-ove predstave</h2>
+            <a href="#kazalista" @click="selected_kazaliste = 'zkm'">
+              <h2 class="full">Popust na ulaznice za ZKM-ove predstave</h2></a
+            >
             <a
               href="#kazalista"
               class="newbtn clickable"
@@ -174,7 +176,11 @@
               </div>
             </div>
             <h3 class="full overtitle">Kazalište Kerempuh</h3>
-            <h2 class="full">Popust na ulaznice za Kerempuhove predstave</h2>
+            <a href="#kazalista" @click="selected_kazaliste = 'kerempuh'">
+              <h2 class="full">
+                Popust na ulaznice za Kerempuhove predstave
+              </h2></a
+            >
             <a
               href="#kazalista"
               class="newbtn clickable"
@@ -199,9 +205,11 @@
               </div>
             </div>
             <h3 class="full overtitle">Kazalište Komedija</h3>
-            <h2 class="full">
-              Popust na ulaznice za predstave Kazališta Komedije
-            </h2>
+            <a href="#kazalista" @click="selected_kazaliste = 'komedija'">
+              <h2 class="full">
+                Popust na ulaznice za predstave Kazališta Komedije
+              </h2></a
+            >
             <a
               href="#kazalista"
               class="newbtn clickable"
@@ -226,9 +234,11 @@
               </div>
             </div>
             <h3 class="full overtitle">Kazalište HNK Varaždin</h3>
-            <h2 class="full">
-              Popust na ulaznice za predstave kazališta HNK Varaždin
-            </h2>
+            <a href="#kazalista" @click="selected_kazaliste = 'hnkvz'">
+              <h2 class="full">
+                Popust na ulaznice za predstave kazališta HNK Varaždin
+              </h2></a
+            >
             <a
               href="#kazalista"
               class="newbtn clickable"
@@ -253,9 +263,12 @@
               </div>
             </div>
             <h3 class="full overtitle">Kazalište Marina Držića Dubrovnik</h3>
-            <h2 class="full">
-              Popust na ulaznice za predstave kazališta Marin Držić u Dubrovniku
-            </h2>
+            <a href="#kazalista" @click="selected_kazaliste = 'kmd'">
+              <h2 class="full">
+                Popust na ulaznice za predstave kazališta Marin Držić u
+                Dubrovniku
+              </h2></a
+            >
             <a
               href="#kazalista"
               class="newbtn clickable"
@@ -280,9 +293,11 @@
               </div>
             </div>
             <h3 class="full overtitle">HNK Osijek</h3>
-            <h2 class="full">
-              Popust na ulaznice za predstave kazališta HNK Osijek
-            </h2>
+            <a href="#kazalista" @click="selected_kazaliste = 'hnko'">
+              <h2 class="full">
+                Popust na ulaznice za predstave kazališta HNK Osijek
+              </h2></a
+            >
             <a
               href="#kazalista"
               class="newbtn clickable"
@@ -322,6 +337,12 @@
               Kako biste ostvarili svoj popust, posjetite web stranicu za online
               kupnju ulaznica i upišite kod <b>GSKK1964</b>.
             </p>
+            <a
+              href="https://kazalistekerempuh.hr/raspored-predstava/"
+              target="_blank"
+              class="newbtn huge-newbtn"
+              >Kupite ovdje</a
+            >
             <p class="full small-top-margin">
               Možete posjetiti i jednu od blagajni kazališta i pokazati svoju
               digitalnu pretplatničku iskaznicu, koju možete preuzeti
@@ -679,7 +700,11 @@
               </div>
             </div>
             <h3 class="full overtitle">Fraktura</h3>
-            <h2 class="full">Popust na odabrane naslove knjižare Fraktura</h2>
+            <a href="#knjizare" @click="selected_knjizara = 'fraktura'">
+              <h2 class="full">
+                Popust na odabrane naslove knjižare Fraktura
+              </h2></a
+            >
             <a
               href="#knjizare"
               class="newbtn clickable"
@@ -704,7 +729,11 @@
               </div>
             </div>
             <h3 class="full overtitle">Knjižara Ljevak</h3>
-            <h2 class="full">Popust na odabrane naslove knjižare Ljevak</h2>
+            <a href="#knjizare" @click="selected_knjizara = 'ljevak'">
+              <h2 class="full">
+                Popust na odabrane naslove knjižare Ljevak
+              </h2></a
+            >
             <a
               href="#knjizare"
               class="newbtn clickable"
@@ -729,7 +758,9 @@
               </div>
             </div>
             <h3 class="full overtitle">Hoću knjigu</h3>
-            <h2 class="full">Popust na naslove u knjižari Hoću knjigu</h2>
+            <a href="#knjizare" @click="selected_knjizara = 'hocuknjigu'">
+              <h2 class="full">Popust na naslove u knjižari Hoću knjigu</h2></a
+            >
             <a
               href="#knjizare"
               class="newbtn clickable"
@@ -754,7 +785,9 @@
               </div>
             </div>
             <h3 class="full overtitle">Školska knjiga</h3>
-            <h2 class="full">Popust na naslove izdavača Školska knjiga</h2>
+            <a href="#knjizare" @click="selected_knjizara = 'sk'">
+              <h2 class="full">Popust na naslove izdavača Školska knjiga</h2></a
+            >
             <a
               href="#knjizare"
               class="newbtn clickable"
@@ -779,7 +812,9 @@
               </div>
             </div>
             <h3 class="full overtitle">Telegram</h3>
-            <h2 class="full">Popust na naslove izdavača Telegram</h2>
+            <a href="#knjizare" @click="selected_knjizara = 'telegram'">
+              <h2 class="full">Popust na naslove izdavača Telegram</h2></a
+            >
             <a
               href="#knjizare"
               class="newbtn clickable"
@@ -1118,7 +1153,11 @@
               </div>
             </div>
             <h3 class="full overtitle">Muzej Suvremene Umjetnosti</h3>
-            <h2 class="full">Popust na ulaznice za MSU izložbe i događaje</h2>
+            <a href="#muzeji" @click="selected_muzej = 'msu'">
+              <h2 class="full">
+                Popust na ulaznice za MSU izložbe i događaje
+              </h2></a
+            >
             <a
               href="#muzeji"
               class="newbtn clickable"
@@ -1145,9 +1184,11 @@
               </div>
             </div>
             <h3 class="full overtitle">Muzej prekinutih veza</h3>
-            <h2 class="full">
-              Popust na ulaznice za izložbe Muzeja prekinutih veza
-            </h2>
+            <a href="#muzeji" @click="selected_muzej = 'veza'">
+              <h2 class="full">
+                Popust na ulaznice za izložbe Muzeja prekinutih veza
+              </h2></a
+            >
             <a
               href="#muzeji"
               class="newbtn clickable"
@@ -1174,9 +1215,11 @@
               </div>
             </div>
             <h3 class="full overtitle">Arheološki muzej</h3>
-            <h2 class="full">
-              Popust na ulaznice za park Arheološkog muzeja u Zagrebu
-            </h2>
+            <a href="#muzeji" @click="selected_muzej = 'amz'">
+              <h2 class="full">
+                Popust na ulaznice za park Arheološkog muzeja u Zagrebu
+              </h2></a
+            >
             <a
               href="#muzeji"
               class="newbtn clickable"
@@ -1201,7 +1244,11 @@
               </div>
             </div>
             <h3 class="full overtitle">Muzej iluzija</h3>
-            <h2 class="full">Popust na ulaznice za izložbu Muzeja iluzija</h2>
+            <a href="#muzeji" @click="selected_muzej = 'iluzija'">
+              <h2 class="full">
+                Popust na ulaznice za izložbu Muzeja iluzija
+              </h2></a
+            >
             <a
               href="#muzeji"
               class="newbtn clickable"
@@ -1228,9 +1275,11 @@
               </div>
             </div>
             <h3 class="full overtitle">Muzej Vučedolske kulture</h3>
-            <h2 class="full">
-              Popust na ulaznice za izložbe Muzeja Vučedolske kulture
-            </h2>
+            <a href="#muzeji" @click="selected_muzej = 'mvk'">
+              <h2 class="full">
+                Popust na ulaznice za izložbe Muzeja Vučedolske kulture
+              </h2></a
+            >
             <a
               href="#muzeji"
               class="newbtn clickable"
@@ -1440,7 +1489,7 @@
           <h2 class="full">Popust na ulaznice za izložbu Muzeja iluzija</h2>
           <h4 class="full">
             Telegramovi pretplatnici ostvaruju 20% popusta na izložbe Muzeja
-            iluzija.'
+            iluzija.
           </h4>
           <div v-show="!canLogIn" class="full flex">
             <p class="full bold">Kako do popusta?</p>
@@ -1491,9 +1540,11 @@
               </div>
             </div>
             <h3 class="full overtitle">Koncertna dvorana Vatroslav Lisinski</h3>
-            <h2 class="full">
-              Popust na ulaznice za pojedinačne koncerte u Dvorani Lisinski
-            </h2>
+            <a href="#koncerti" @click="selected_koncert = 'lisinski'">
+              <h2 class="full">
+                Popust na ulaznice za pojedinačne koncerte u Dvorani Lisinski
+              </h2></a
+            >
             <a
               href="#koncerti"
               class="newbtn clickable"
@@ -1609,6 +1660,7 @@
         </div>
       </div>
     </div>
+    <div class="full flex small-top-margin"></div>
     <!-- Footer -->
     <tfooter></tfooter>
   </div>
@@ -1649,7 +1701,7 @@ export default {
       },
     ]
     return {
-      title: 'Telegram Klub - ekskluzivne ponude za pretplatnike',
+      title: 'Telegram Klub - popusti i ponude za pretplatnike',
       titleTemplate: '%s | Telegram.hr',
       meta: [
         {
@@ -1660,7 +1712,7 @@ export default {
         {
           hid: 'cXenseParse:title',
           name: 'cXenseParse:title',
-          content: 'Telegram Klub - ekskluzivne ponude za pretplatnike',
+          content: 'Telegram Klub - popusti i ponude za pretplatnike',
         },
         {
           hid: 'description',
@@ -1682,7 +1734,7 @@ export default {
         {
           hid: 'og:title',
           property: 'og:title',
-          content: 'Telegram, svaki dan u vašem inboxu',
+          content: 'Telegram Klub - popusti i ponude za pretplatnike',
         },
         {
           hid: 'og:image',
@@ -1702,7 +1754,7 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/newsletters',
+          content: 'https://www.telegram.hr/klub',
         },
         {
           hid: 'fb:app_id',
