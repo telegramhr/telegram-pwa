@@ -180,6 +180,9 @@ img {
 .mobile-only {
     display: none;
 }
+.align-children-end {
+    justify-content: flex-end;
+}
 .align-end {
     align-self: flex-end;
 }

@@ -345,7 +345,51 @@
         </div>
       </div>
     </div>
-    <!-- Prekid knjiga -->
+    <!-- Prekid klub
+    <div class="full relative">
+      <div class="container flex relative column-horizontal-pad">
+        <app-link
+          to="/klub"
+          class="full cantha-break mobile-side-pad flex relative stretch klub-cantha-break"
+        >
+          <div class="third column-full-pad center flex-responsive">
+            <div class="full flex">
+              <img
+                src="@/assets/img/tg_klub_logo_negative.svg"
+                alt="Telegram Klub logo"
+                class="klub-break-logo"
+              />
+              <h5 class="full">
+                Klub ekskluzivnih ponuda, pogodnosti i popusta, samo za
+                pretplatnike Telegrama.
+              </h5>
+            </div>
+          </div>
+          <div class="two-thirds stretch flex flex-responsive">
+            <div class="two-thirds stretch center flex-responsive">
+              <img
+                src="@/assets/img/tg_klub_vizual_widget.jpg"
+                alt="Neki od popusta u kazalištima i muzejima koje se nalaze u Telegram Klubu"
+              />
+            </div>
+            <div
+              class="third center stretch column-horizontal-pad flex-responsive"
+            >
+              <div class="full column-left-pad flex article">
+                <h5 class="full center-text">
+                  Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
+                  pretplatnicima.
+                </h5>
+                <div class="full center">
+                  <div class="newbtn">Saznajte više</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </app-link>
+      </div>
+    </div> -->
+    <!-- Prekid knjiga 
     <div class="full relative">
       <div class="container flex relative column-horizontal-pad">
         <app-link
@@ -389,8 +433,8 @@
           </div>
         </app-link>
       </div>
-    </div>
-    <!-- Prekid newsletteri
+    </div> -->
+    <!-- Prekid newsletteri -->
     <div class="full relative">
       <div class="container flex relative column-horizontal-pad">
         <app-link
@@ -428,7 +472,7 @@
           </div>
         </app-link>
       </div>
-    </div> -->
+    </div>
     <!-- Velika rubrika: Politika i kriminal -->
     <div class="full relative">
       <div class="container flex relative">

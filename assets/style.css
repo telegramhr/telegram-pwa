@@ -7347,6 +7347,13 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .dark-mode .cantha-break {
     background-color:rgba(0, 0, 0, 0.3);
 }
+.klub-cantha-break {
+    background-color: #333;
+    color: white;
+}
+.dark-mode .cantha-break.klub-cantha-break, .contrast-mode .cantha-break.klub-cantha-break {
+    background-color: #333;
+}
 .cantha-break h5 {
     opacity: .5;
     font-weight: 400;
@@ -7361,6 +7368,15 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .dark-mode .cantha-break .newbtn {
     background-color: #ae3737;
+}
+.klub-cantha-break .newbtn {
+    margin-top: 16px;
+    margin-bottom: 0px;
+}
+.klub-cantha-break .klub-break-logo {
+    width: 70%;
+    max-width: 320px;
+    margin-bottom: 8px;
 }
 .hard-light-blend {
     mix-blend-mode: hard-light;
@@ -8584,7 +8600,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .knjiga-cover {
     padding: 0px 15vw;
+    padding-top: 15px;
     margin-top: -40vw;
+}
+.knjiga-cover .klub-sticker {
+    top: -35px;
+    right: -35px;
 }
 .knjiga-cover img {
     margin: 0 auto;
@@ -8648,9 +8669,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     text-transform: uppercase;
     font-family: 'Barlow', sans-serif;
     font-weight: 600;
-    margin-bottom: 24px;
+    margin-bottom: 0px;
     line-height: 1rem;
     opacity: 0.7;
+    margin-top: 16px;
 }
 .single-article .single-article-body .knjiga-keypoints p {
     opacity: 0.7;
@@ -8676,34 +8698,73 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .book-popup-content h4 {
     margin-top: 8px;
 }
+.knjiga-cover-3d {
+    margin-bottom: -32px;
+}
+.knjiga-cover-2d {
+    margin-bottom: 32px;
+}
+.knjiga-hero h1 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.knjiga-hero h1:nth-child(2) {
+    font-weight: 400;
+    font-size: 40px;
+    font-size: 2rem;
+    line-height: 1.2em;
+}
+.knjiga-hero h4 {
+    font-family: 'Barlow', sans-serif;
+    opacity: 0.7;
+    line-height: 1.1em;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.pretplata-packboxes a.undertitle {
+    text-transform: none;
+    font-weight: 400;
+    opacity: 0.5;
+    font-size: 14px;
+    font-size: 0.7rem;
+}
+.knjiga-header h3.overtitle {
+    text-transform: none;
+}
 .break-dezulovic .newbtn {
     margin-top: 16px;
 }
 .break-dezulovic .sixty .third h2 {
     margin-bottom: 0px;
 }
-.book-pretplata-promo h1 {
+.bottom-pretplata-promo h1 {
     font-size: 92px;
     font-size: 4.6rem;
 }
-.book-pretplata-promo h4 {
+.bottom-pretplata-promo h4 {
     font-weight: 400;
     font-size: 32px;
     font-size: 1.6rem;
     opacity: 1;
     line-height: 1.1em;
 }
-.book-pretplata-promo h5 {
+.bottom-pretplata-promo h5 {
     font-weight: 400;
     font-size: 16px;
     font-size: 0.8rem;
     opacity: .5;
     margin-top: 16px;
 }
-.book-pretplata-promo h2 {
+.bottom-pretplata-promo h2 {
     margin-bottom: 0px;
 }
-.book-pretplata-promo h2:nth-child(2) {
+.bottom-pretplata-promo h2:nth-child(2) {
     font-weight: 400;
     font-size: 25px;
     font-size: 1.25rem;
@@ -8716,6 +8777,25 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .dark-element .article:hover h2 {
     color: #efefef;
+}
+.bottom-pretplata-promo .klub-header {
+    background-color: transparent;
+}
+.bottom-pretplata-promo .klub-header img {
+    width: 69%;
+    max-width: 400px;
+}
+.hide-bottom-pretplata .bottom-pretplata-promo {
+    display: none;
+}
+
+@media screen and (min-width: 767px) {
+    .bottom-pretplata-promo .klub-header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+    }
 }
 @media screen and (max-width: 767px) {
     .knjiga-features h1 {
@@ -8743,21 +8823,35 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .break-dezulovic .sixty .two-thirds {
         order: 2;
     }
-    .book-pretplata-promo {
-        padding-top: 5vw;
-        padding-bottom: 5vw;
-    }
-    .book-pretplata-promo h1 {
+    .bottom-pretplata-promo h1 {
         font-size: 17vw;
     }
-    .book-pretplata-promo h4 {
+    .bottom-pretplata-promo h4 {
         font-size: 20px;
         font-size: 1rem;
     }
-    .book-pretplata-promo .half .half:first-child {
+    .bottom-pretplata-promo .klub-header h4 {
+        font-size: 15px;
+        font-size: 0.75rem;
+    }
+    .bottom-pretplata-promo .half .half:first-child {
         border-bottom: 1px solid #555;
         margin-bottom: 5vw;
         padding: 0px 10vw;
+    }
+    .bottom-pretplata-promo .klub-header {
+        margin-top: -15vw;
+    }
+    .knjiga-cover-3d {
+        padding: 0px;
+        margin-bottom: -5vw;
+    }
+    .knjiga-hero h1:nth-child(2) {
+        font-size: 32px;
+        font-size: 1.6rem;
+    }
+    .book-quote img {
+        margin-top: -8vw;
     }
 }
 @media screen and (min-width: 1025px) {
@@ -8767,9 +8861,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .knjiga-hero {
         margin-top: 170px;
-    }
-    .knjiga-cover img {
-        max-width: 300px;
     }
     .knjiga-header h1 {
         font-size: 74px;
@@ -8795,6 +8886,15 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         max-width: 100%;
         margin-top: -48px;
         left: auto;
+    }
+    .knjiga-cover img {
+        max-width: 450px;
+    }
+    .knjiga-cover-2d img {
+        max-width: 300px;
+    }
+    .book-quote img {
+        margin-top: -144px;
     }
 }
 
@@ -8842,7 +8942,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .klub-expanded .article p.bold {
     margin-bottom: 8px;
 }
-.klub-ponuda-tile > .center {
+.klub-ponuda-tile > .full.center {
     position: absolute;
     top: 0;
     left: 0;
@@ -8862,7 +8962,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     background-color: #333;
     color: white;
 }
-.klub-ponuda-tile > .klub-sticker {
+.klub-sticker {
     position: absolute;
     flex-wrap: wrap;
     top: 8%;
@@ -9011,6 +9111,7 @@ h3.subsection-title .spar-line img {
     font-size: 14px;
     font-size: 0.7rem;
     padding-top: 8px;
+    margin-bottom: 48px;
 }
 .klub-header .container .forty {
     position: absolute;
@@ -9122,15 +9223,15 @@ h3.subsection-title .spar-line img {
         width: 59.99%;
     }
     .klub-card {
-        margin-bottom: 8vw;
+        margin-bottom: 2vw;
     }
     .klub-card p {
         font-size: 18px;
         font-size: 0.9rem;
     }
     .klub-header {
-        padding-bottom: 8vw;
-        margin-bottom: 4vw;
+        padding-bottom: 12vw;
+        margin-bottom: 8vw;
     }
     .fancy-klub-intro {
         font-size: 24px;
@@ -9143,11 +9244,17 @@ h3.subsection-title .spar-line img {
         order: 2;
     }
     .klub-header .container .forty img {
-        width: 69.99%;
+        width: 79.99%;
+        left: -2px;
+        position: relative;
+    }
+    .klub-header .small-top-margin {
+        margin-top: 8vw;
+        opacity: .7;
     }
     .klub-header .container .three-fourths {
         order: 1;
-        margin-bottom: -12vw;
+        margin-bottom: -8vw;
     }
     .klub-intro {
         padding-top: 4vw;

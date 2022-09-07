@@ -25,42 +25,43 @@
           <div
             class="full flex knjiga-hero pretplata-packbox relative column-full-pad"
           >
-            <div class="full flex knjiga-cover">
-              <img
-                src="@/assets/img/paladino_cover.jpg"
-                alt="Naslovnica nove knjige Zrinke Paladino 'O Zagrebu i... Telegramovih 48 (+2)'"
-              />
+            <div class="full center knjiga-cover knjiga-cover-2d relative">
+              <div class="flex relative">
+                <div class="klub-sticker center">
+                  <div class="full center-text klub-sticker-amount">44%</div>
+                  <div class="full center-text klub-sticker-text">popusta</div>
+                </div>
+                <img
+                  src="@/assets/img/paladino_cover.jpg"
+                  alt="Naslovnica nove knjige Zrinke Paladino 'O Zagrebu i... Telegramovih 48 (+2)'"
+                />
+              </div>
             </div>
             <div class="full flex knjiga-features">
-              <h1 class="full relative center-text">Cijena: 179 kn (23,76€)</h1>
-              <h2 class="full relative center-text">
-                Za Standard pretplatnike: 149kn (19,78€)
-              </h2>
-              <app-link
-                v-show="!$store.state.user.uid"
-                to="/pretplata"
-                class="special-sub-cta full relative center-text"
-              >
-                Za premium pretplatnike posebne ponude, <br />
-                <u>prijavite se ili pretplatite</u>
-              </app-link>
-              <div
-                v-show="$store.state.user.uid && price"
-                class="special-sub-cta full relative center-text"
-              >
-                Cijena knjige za vaš pretplatnički paket iznosi {{ price }}kn
-              </div>
-              <div
-                v-show="$store.state.user.uid && !price"
-                class="special-sub-cta full relative center-text"
-              >
-                Knjiga je besplatna za vaš pretplatnički paket
-              </div>
+              <h1 class="full relative center-text">
+                <span class="faded strikethrough">179 kn</span> 99 kn
+              </h1>
+              <h1 class="full relative center-text">
+                (<span class="faded strikethrough">23,76€</span> 13,14€) <br />
+                posebna cijena za sve pretplatnike Telegrama
+              </h1>
+              <h4 class="full relative center-text">
+                Naručite 'O Zagrebu i... Telegramovih 48' danas, s besplatnom
+                dostavom na kućnu adresu unutar Hrvatske.
+              </h4>
               <div class="full knjiga-keypoints">
                 <p class="full center-text">Broj stranica: 378</p>
                 <p class="full center-text">Godina izdavanja: 2021.</p>
                 <p class="full center-text">Izdavač: Telegram Media Grupa</p>
               </div>
+              <app-link
+                v-show="!$store.state.user.uid"
+                to="/pretplata"
+                class="special-sub-cta full relative center-text"
+              >
+                Za pristup sniženoj cijeni, <br />
+                <u>prijavite se ili pretplatite</u>
+              </app-link>
               <div class="full center btn-parent">
                 <div
                   v-if="$store.state.user.email"

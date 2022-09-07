@@ -1,6 +1,6 @@
 <template>
   <div
-    class="main-container flex red-header-page single-article hide-billboard newsletter-page"
+    class="main-container flex red-header-page single-article hide-billboard newsletter-page hide-bottom-pretplata"
   >
     <div class="full flex tg-red dark-mode">
       <client-only>
@@ -21,8 +21,8 @@
               alt="Telegram Klub logo"
             />
             <h4 class="full flex small-top-margin">
-              Postoje klubovi koji nisu za sve. <br />Ali su zato sve onima,
-              koji im pripadaju.
+              Postoje klubovi koji nisu za sve. <br />Ali su sve onima, koji im
+              pripadaju.
             </h4>
             <h4 class="full flex small-top-margin">
               Klub ekskluzivnih ponuda, pogodnosti i popusta, samo za
@@ -118,9 +118,11 @@
               </div>
             </div>
             <h3 class="full overtitle">Kazalište Gavella</h3>
-            <h2 class="full">
-              Popust na ulaznice za predstave kazališta Gavella
-            </h2>
+            <a href="#kazalista" @click="selected_kazaliste = 'gavella'">
+              <h2 class="full">
+                Popust na ulaznice za predstave kazališta Gavella
+              </h2>
+            </a>
             <a
               href="#kazalista"
               class="newbtn clickable"
@@ -262,6 +264,33 @@
               Iskoristite ponudu
             </a>
           </div>
+          <div
+            class="fourth flex article klub-ponuda relative column-horizontal-pad"
+          >
+            <div class="klub-ponuda-tile relative">
+              <div class="klub-sticker center">
+                <div class="full center-text klub-sticker-amount">20%</div>
+                <div class="full center-text klub-sticker-text">popust</div>
+              </div>
+              <div class="full center">
+                <img
+                  src="@/assets/img/extras/klub/tg_visual_klub_hnko.jpg"
+                  aria-hidden="true"
+                />
+              </div>
+            </div>
+            <h3 class="full overtitle">HNK Osijek</h3>
+            <h2 class="full">
+              Popust na ulaznice za predstave kazališta HNK Osijek
+            </h2>
+            <a
+              href="#kazalista"
+              class="newbtn clickable"
+              @click="selected_kazaliste = 'hnko'"
+            >
+              Iskoristite ponudu
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -291,9 +320,9 @@
             <p class="full bold">Kako do popusta?</p>
             <p class="full">
               Kako biste ostvarili svoj popust, posjetite web stranicu za online
-              kupnju ulaznica i upišite kod ___________.
+              kupnju ulaznica i upišite kod <b>GSKK1964</b>.
             </p>
-            <p class="full">
+            <p class="full small-top-margin">
               Možete posjetiti i jednu od blagajni kazališta i pokazati svoju
               digitalnu pretplatničku iskaznicu, koju možete preuzeti
               <a href="#iskaznica">ovdje.</a>
@@ -395,17 +424,17 @@
               Kako biste ostvarili svoj popust, posjetite web stranicu za online
               kupnju ulaznica i upišite kod <b>TELEGRAM10</b>.
             </p>
-            <p class="full">
-              Možete posjetiti i jednu od blagajni kazališta i pokazati svoju
-              digitalnu pretplatničku iskaznicu, koju možete preuzeti
-              <a href="#iskaznica">ovdje.</a>
-            </p>
             <a
               href="https://ulaznice.hr/r/Kazaliste_Komedija"
               target="_blank"
               class="newbtn huge-newbtn"
               >Kupite ovdje</a
             >
+            <p class="full small-top-margin">
+              Možete posjetiti i jednu od blagajni kazališta i pokazati svoju
+              digitalnu pretplatničku iskaznicu, koju možete preuzeti
+              <a href="#iskaznica">ovdje.</a>
+            </p>
           </div>
           <div v-show="canLogIn" class="full flex">
             <p class="full bold">
@@ -442,14 +471,25 @@
           </h2>
           <h4 class="full">
             Telegramovi pretplatnici ostvaruju 50 % popusta na ulaznice za sve
-            predstave u Kazalištu Marina Držića u Dubrovniku.
+            predstave u Kazalištu Marina Držića u Dubrovniku. (popust ne vrijedi
+            za premijere predstava)
           </h4>
           <div v-show="!canLogIn" class="full flex">
             <p class="full bold">Kako do popusta?</p>
             <p class="full">
-              Kako biste ostvarili svoj popust, posjetite blagajnu kazališta i
-              pokažite svoju digitalnu pretplatničku iskaznicu, koju možete
-              preuzeti <a href="#iskaznica">ovdje.</a>
+              Kako biste ostvarili svoj popust, posjetite web stranicu za online
+              kupnju ulaznica i upišite kod <b>KMDXTELEGRAM50</b>.
+            </p>
+            <a
+              href="https://www.ulaznice.hr/web/regular/16874417"
+              target="_blank"
+              class="newbtn huge-newbtn"
+              >Kupite ovdje</a
+            >
+            <p class="full small-top-margin">
+              Možete posjetiti i jednu od blagajni kazališta i pokazati svoju
+              digitalnu pretplatničku iskaznicu, koju možete preuzeti
+              <a href="#iskaznica">ovdje.</a>
             </p>
           </div>
           <div v-show="canLogIn" class="full flex">
@@ -543,6 +583,52 @@
           <h4 class="full">
             Telegramovi pretplatnici ostvaruju 30 % popusta na ulaznice za sve
             predstave u Kazalištu Gavella.
+          </h4>
+          <div v-show="!canLogIn" class="full flex">
+            <p class="full bold">Kako do popusta?</p>
+            <p class="full">
+              Kako biste ostvarili svoj popust, posjetite blagajnu kazališta i
+              pokažite svoju digitalnu pretplatničku iskaznicu, koju možete
+              preuzeti <a href="#iskaznica">ovdje.</a>
+            </p>
+          </div>
+          <div v-show="canLogIn" class="full flex">
+            <p class="full bold">
+              Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
+              pretplatnicima.
+            </p>
+            <app-link to="/pretplata" class="newbtn huge-newbtn"
+              >Pretplatite se</app-link
+            >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      v-if="selected_kazaliste === 'hnko'"
+      id="gavella"
+      class="full flex relative klub-expanded"
+    >
+      <div class="container flex relative stretch mobile-side-pad">
+        <div class="close-klub-expand" @click="selected_kazaliste = ''">x</div>
+        <div class="third center flex-responsive column-left-pad">
+          <img
+            src="@/assets/img/extras/klub/tg_visual_klub_hnko.jpg"
+            aria-hidden="true"
+          />
+        </div>
+        <div class="two-thirds center flex-responsive article">
+          <h3 class="full overtitle">HNK Osijek</h3>
+          <h2 class="full">
+            Popust na ulaznice za predstave kazališta HNK Osijek
+          </h2>
+          <h4 class="full">
+            Telegramovi pretplatnici ostvaruju kupnju ulaznica po cijeni od 50
+            kuna za predstave u HNK Osijek (popust se ne odnosi na premijere i
+            gostujuće predstave te na Novogodišnji koncert)
           </h4>
           <div v-show="!canLogIn" class="full flex">
             <p class="full bold">Kako do popusta?</p>
@@ -770,7 +856,7 @@
               želite kupiti i pri odabiru načina plaćanja upišite kod
               <b>TELEGRAM22</b>.
             </p>
-            <p class="full">
+            <p class="full small-top-margin">
               Možete posjetiti i knjižaru Fraktura i pokazati svoju digitalnu
               pretplatničku iskaznicu, koju možete preuzeti
               <a href="#iskaznica">ovdje.</a>
@@ -808,8 +894,9 @@
           <h3 class="full overtitle">Školska knjiga</h3>
           <h2 class="full">Popust na naslove izdavača Školska knjiga</h2>
           <h4 class="full">
-            Telegramovi pretplatnici ostvaruju dodatnih 10% popusta na naslove u
-            ponudi Školske knjige.
+            Telegramovi pretplatnici ostvaruju 10% popusta na naslove Školske
+            knjige i Lumen izdavaštva (popust se ne odnosi na udžbenike,
+            didaktiku i već sniženi asortiman.)
           </h4>
           <div v-show="!canLogIn" class="full flex">
             <p class="full bold">Kako do popusta?</p>
@@ -851,8 +938,9 @@
           <h3 class="full overtitle">Hoću knjigu</h3>
           <h2 class="full">Popust na naslove u knjižari Hoću knjigu</h2>
           <h4 class="full">
-            Telegramovi pretplatnici ostvaruju dodatnih 10% popusta na naslove u
-            ponudi Hoću knjigu.
+            Telegramovi pretplatnici ostvaruju 10% popusta na naslove u ponudi
+            Hoću knjigu (popust se ne odnosi na udžbenike, stručnu literaturu i
+            već sniženi asortiman).
           </h4>
           <div v-show="!canLogIn" class="full flex">
             <p class="full bold">Kako do popusta?</p>
@@ -1102,9 +1190,7 @@
           >
             <div class="klub-ponuda-tile relative">
               <div class="klub-sticker center">
-                <div class="full center-text klub-sticker-amount">
-                  10<span class="klub-sticker-smaller">kn</span>
-                </div>
+                <div class="full center-text klub-sticker-amount">20%</div>
                 <div class="full center-text klub-sticker-text">popust</div>
               </div>
               <div class="full center">
@@ -1353,8 +1439,8 @@
           <h3 class="full overtitle">Muzej iluzija</h3>
           <h2 class="full">Popust na ulaznice za izložbu Muzeja iluzija</h2>
           <h4 class="full">
-            Telegramovi pretplatnici ostvaruju 10 kuna popusta na izložbe Muzeja
-            iluzija.
+            Telegramovi pretplatnici ostvaruju 20% popusta na izložbe Muzeja
+            iluzija.'
           </h4>
           <div v-show="!canLogIn" class="full flex">
             <p class="full bold">Kako do popusta?</p>
@@ -1523,7 +1609,6 @@
         </div>
       </div>
     </div>
-    <div class="full flex column-full-pad"></div>
     <!-- Footer -->
     <tfooter></tfooter>
   </div>
@@ -1570,7 +1655,7 @@ export default {
         {
           hid: 'cXenseParse:image',
           name: 'cXenseParse:image',
-          content: require('~/assets/img/tg_share_newsletter.jpg'),
+          content: require('~/assets/img/tg_klub_share.jpg'),
         },
         {
           hid: 'cXenseParse:title',
@@ -1602,7 +1687,7 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: require('~/assets/img/tg_share_newsletter.jpg'),
+          content: require('~/assets/img/tg_klub_share.jpg'),
         },
         {
           hid: 'og:image:width',
