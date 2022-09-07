@@ -23,7 +23,7 @@
         </div>
       </div>
     </div>-->
-    <!--<app-link
+    <app-link
       v-show="!$store.state.user.access"
       to="/klub"
       class="full dark-element bottom-pretplata-promo relative"
@@ -59,7 +59,7 @@
           </div>
         </div>
       </div>
-    </app-link>-->
+    </app-link>
     <footer class="full flex mobile-side-pad">
       <div class="container">
         <div class="full flex center">

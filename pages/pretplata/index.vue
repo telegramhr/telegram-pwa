@@ -212,7 +212,7 @@
             </div>
           </div>
         </div>
-        <!--<app-link
+        <app-link
           to="/klub"
           class="full dark-element bottom-pretplata-promo relative"
         >
@@ -247,8 +247,8 @@
               </div>
             </div>
           </div>
-        </app-link>-->
-        <div class="full flex relative">
+        </app-link>
+        <div class="full flex relative small-top-margin">
           <div class="container relative flex">
             <div
               class="pretplata-keypoint fourth flex-responsive column-full-pad mobile-side-pad"

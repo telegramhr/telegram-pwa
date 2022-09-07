@@ -1507,6 +1507,7 @@ figure img {
     background-color: #333;
     color: white;
     font-family: 'Barlow', sans-serif;
+    overflow-y: scroll;
 }
 .side-menu-exit {
     position: absolute;
@@ -2310,7 +2311,7 @@ header .fa-sliders-h {
     right: 4vw;
 }
 .side-menu .half h3 {
-    padding-top: 20px;
+    padding-top: 14px;
 }
 .side-menu .half h3:first-child {
     padding-top: 0px;
@@ -4395,7 +4396,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .side-menu {
         padding: 24px;
-        padding-top: 58px;
+        padding-top: 38px;
         width: 220px;
         height: 100%;
         left: -301px;
@@ -4404,7 +4405,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .side-menu .half {
         width: 100%;
-        padding: 16px 0px;
+        padding: 12px 0px;
     }
     .side-menu-exit {
         top: 10px;
