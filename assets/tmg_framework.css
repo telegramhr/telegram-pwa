@@ -189,6 +189,9 @@ img {
 .reset-flex-order > * {
     order: initial !important;
 }
+.stretch-height {
+    min-height: 90vh;
+}
 
 /* Style */
 
