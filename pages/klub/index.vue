@@ -433,11 +433,11 @@
         <div class="two-thirds center flex-responsive article">
           <h3 class="full overtitle">Kazalište Komedija</h3>
           <h2 class="full">
-            Popust na ulaznice za predstave Kazališta Komedije
+            Popust na ulaznice za predstave kazališta Komedije
           </h2>
           <h4 class="full">
-            Telegramovi pretplatnici ostvaruju 10 % popusta na ulaznice za sve
-            predstave u Kazalištu Komedija.
+            Telegramovi pretplatnici ostvaruju 10% popusta na ulaznice za sve
+            predstave u kazalištu Komedija.
           </h4>
           <div v-show="!canLogIn" class="full flex">
             <p class="full bold">Kako do popusta?</p>
