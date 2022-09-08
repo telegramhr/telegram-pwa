@@ -1310,8 +1310,8 @@
           <h3 class="full overtitle">Muzej Suvremene Umjetnosti</h3>
           <h2 class="full">Popust na ulaznice za MSU izložbe i događaje</h2>
           <h4 class="full">
-            Telegramovi pretplatnici ostvaruju 30% popusta na izložbe i događaje
-            MSU-a.
+            Telegramovi pretplatnici od listopada ostvaruju 30% popusta na
+            izložbe i događaje MSU-a.
           </h4>
           <div v-show="!canLogIn" class="full flex">
             <p class="full bold">Kako do popusta?</p>
@@ -1689,13 +1689,13 @@ export default {
       return img.img
     },
   },
+  mounted() {
+    this.$store.dispatch('newsletters/checkAccess', this.$route.query.email)
+  },
   methods: {
     login() {
       this.$store.dispatch('user/login')
     },
-  },
-  mounted() {
-    this.$store.dispatch('newsletters/checkAccess', this.$route.query.email)
   },
   head() {
     const link = [
