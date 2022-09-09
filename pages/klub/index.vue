@@ -437,7 +437,8 @@
           </h2>
           <h4 class="full">
             Telegramovi pretplatnici ostvaruju 10% popusta na ulaznice za sve
-            predstave u kazalištu Komedija.
+            predstave u kazalištu Komedija (popust ne vrijedi za Klub Kazališta
+            Komedija - Kontesa).
           </h4>
           <div v-show="!canLogIn" class="full flex">
             <p class="full bold">Kako do popusta?</p>
