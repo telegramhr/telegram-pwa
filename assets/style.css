@@ -9580,6 +9580,9 @@ h3.subsection-title .spar-line img {
     .pretplata-new-promo .two-thirds .half:nth-child(2) {
         padding-bottom: 5vw;
     }
+    .pretplata-new-promo {
+        padding-top: 5vw;
+    }
     .column-bottom-border-mobile {
         border-bottom: 1px solid #c8c8c8;
     }
