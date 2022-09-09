@@ -1542,7 +1542,8 @@
             <h3 class="full overtitle">Koncertna dvorana Vatroslav Lisinski</h3>
             <a href="#koncerti" @click="selected_koncert = 'lisinski'">
               <h2 class="full">
-                Popust na ulaznice za pojedinačne koncerte u Dvorani Lisinski
+                Popust na ulaznice za koncerte u Koncertnoj dvorani Vatroslava
+                Lisinskog
               </h2></a
             >
             <a
@@ -1574,11 +1575,12 @@
         <div class="two-thirds center flex-responsive article">
           <h3 class="full overtitle">Koncertna dvorana Vatroslav Lisinski</h3>
           <h2 class="full">
-            Popust na ulaznice za pojedinačne koncerte u Dvorani Lisinski
+            Popust na ulaznice za koncerte u Koncertnoj dvorani Vatroslava
+            Lisinskog
           </h2>
           <h4 class="full">
             Telegramovi pretplatnici ostvaruju 20 % popusta na ulaznice za
-            pojedinačne događaje u organizaciji dvorane Lisinski.
+            događaje u organizaciji Koncertne dvorane Vatroslava Lisinskog.
           </h4>
           <div v-show="!canLogIn" class="full flex">
             <p class="full bold">Kako do popusta?</p>
