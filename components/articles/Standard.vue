@@ -1,7 +1,7 @@
 <template>
   <app-link
     class="full flex article-standard article relative"
-    :to="post.permalink"
+    :to="permalink"
     :tracker="post.trackerPermalink"
     role="article"
     :aria-labelledby="'standard-' + post.id"
@@ -54,22 +54,25 @@ export default {
         }
       },
     },
-  },
-  data() {
-    return {
-      id: '',
-      image: '',
-      permalink: '',
-      title: '',
-      overtitle: '',
-      subtitle: '',
-      category: '',
-      author: '',
-      recommendations: 1,
-      alt: '',
-    }
+    utm: {
+      type: Object,
+      required: false,
+      default() {
+        return {
+          source: '',
+          campaign: '',
+        }
+      },
+    },
   },
   computed: {
+    permalink() {
+      console.log(this.utm)
+      if (this.utm.source || this.utm.campaign) {
+        return `${this.post.permalink}?utm_medium=Internal&utm_source=${this.utm.source}&utm_campaign=${this.utm.campaign}`
+      }
+      return this.post.permalink
+    },
     parsedOvertitle() {
       return this.$options.filters.parseCat(
         this.post.overtitle ? this.post.overtitle : this.post.category
