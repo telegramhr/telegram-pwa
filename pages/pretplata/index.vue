@@ -64,6 +64,12 @@
                     <font-awesome-icon
                       :icon="['fas', 'check']"
                     ></font-awesome-icon>
+                    posebni popusti i pogodnosti
+                  </p>
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
                     specijalni newsletteri
                   </p>
                   <p class="full animate">
@@ -102,6 +108,12 @@
                     <font-awesome-icon
                       :icon="['fas', 'check']"
                     ></font-awesome-icon>
+                    posebni popusti i pogodnosti
+                  </p>
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
                     specijalni newsletteri
                   </p>
                   <p class="full animate">
@@ -131,6 +143,12 @@
                       :icon="['fas', 'check']"
                     ></font-awesome-icon>
                     neograničeno čitanje Telegrama
+                  </p>
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    posebni popusti i pogodnosti
                   </p>
                   <p class="full animate">
                     <font-awesome-icon
@@ -171,6 +189,12 @@
                       :icon="['fas', 'check']"
                     ></font-awesome-icon>
                     neograničeno čitanje Telesporta
+                  </p>
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    posebni popusti i pogodnosti
                   </p>
                   <p class="full animate">
                     <font-awesome-icon
