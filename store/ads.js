@@ -1326,5 +1326,50 @@ export const actions = {
         window.pbjs.setTargetingForGPTAsync()
       window.googletag.pubads().refresh()
     })
+
+    window.googletag.cmd.push(() => {
+      window.googletag
+        .pubads()
+        .addEventListener('slotRenderEnded', function (event) {
+          const name = event.slot.getAdUnitPath().split('/').pop()
+          if (!event.isEmpty && name.includes('intext')) {
+            document
+              .getElementById(event.slot.getSlotElementId() + '-info')
+              .classList.remove('hide')
+          }
+          if (event.isEmpty && name.includes('billboard_v1')) {
+            document.getElementById(
+              event.slot.getSlotElementId()
+            ).style.minHeight = 0
+            document
+              .getElementById(event.slot.getSlotElementId())
+              .parentElement.parentElement.classList.add('hide')
+          }
+          if (event.isEmpty && name.includes('intext')) {
+            console.log(event.slot.getSlotElementId())
+            document
+              .getElementById(event.slot.getSlotElementId())
+              .parentElement.classList.add('hide')
+          }
+          if (!event.isEmpty) {
+            window.marfeel.cmd.push([
+              'compass',
+              function (compass) {
+                compass.trackAdEvent('slotRenderEnded', event.slot)
+              },
+            ])
+          }
+        })
+      window.googletag
+        .pubads()
+        .addEventListener('slotVisibilityChanged', function (event) {
+          window.marfeel.cmd.push([
+            'compass',
+            function (compass) {
+              compass.trackAdEvent('slotVisibilityChanged', event.slot)
+            },
+          ])
+        })
+    })
   },
 }

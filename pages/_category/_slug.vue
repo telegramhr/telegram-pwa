@@ -243,6 +243,16 @@
                 @click="handleClick"
                 v-html="post.content"
               ></div>
+              <div v-show="!$store.state.user.access">
+                <p>
+                  <i>
+                    Pretplatite se na Telegram i podržite beskompromisno
+                    novinarstvo koje politički moćnici pokušavaju ušutkati. Već
+                    od 39 kuna mjesečno za sve naše autore, istrage, vijesti i
+                    analize.
+                  </i>
+                </p>
+              </div>
 
               <portal v-if="showQuiz" selector="#quiz-container">
                 <quiz v-if="post.quiz" :data="post.quiz"></quiz>
@@ -323,7 +333,7 @@
                 <offers></offers>
               </div>
             </client-only>
-            <div class="full relative single-article-body" style="order: 4">
+            <!--<div class="full relative single-article-body" style="order: 4">
               <div
                 class="full relative single-article-footer flex column-top-pad"
               >
@@ -331,7 +341,7 @@
                   v-show="!$store.state.user.access"
                 ></mini-pretplata>
               </div>
-            </div>
+            </div>-->
           </article>
         </div>
         <client-only>

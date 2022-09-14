@@ -67,7 +67,6 @@ export default {
   },
   computed: {
     permalink() {
-      console.log(this.utm)
       if (this.utm.source || this.utm.campaign) {
         return `${this.post.permalink}?utm_medium=Internal&utm_source=${this.utm.source}&utm_campaign=${this.utm.campaign}`
       }

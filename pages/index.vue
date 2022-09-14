@@ -120,15 +120,12 @@
       <div class="container flex relative stretch cantha-intro-block">
         <!-- Billboard 1 -->
         <client-only>
-          <div v-show="hasAd" class="full relative">
+          <div class="full relative">
             <div class="full flex column-horizontal-pad desktop-only">
               <div class="full flex relative column-bottom-border"></div>
             </div>
             <div class="full center relative">
-              <ad-unit
-                id="telegram_desktop_billboard_v1"
-                @hasAd="hasAd = $event"
-              ></ad-unit>
+              <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
             </div>
           </div>
         </client-only>
@@ -389,7 +386,7 @@
         </app-link>
       </div>
     </div>
-    <!-- Prekid knjiga 
+    <!-- Prekid knjiga
     <div class="full relative">
       <div class="container flex relative column-horizontal-pad">
         <app-link
@@ -650,7 +647,6 @@ export default {
   data() {
     return {
       loading: false,
-      hasAd: false,
     }
   },
   computed: {
