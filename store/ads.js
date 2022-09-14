@@ -1097,6 +1097,11 @@ export const actions = {
       return
     }
     if (rootState.user.access === 'BR92VTWM') {
+      // remove intext banners
+      const b = document.getElementsByClassName('banner-slot')
+      for (const box in b) {
+        box.parentElement.parentElement.classList.add('hide')
+      }
       return
     }
     // load the up to date floor data
@@ -1346,7 +1351,6 @@ export const actions = {
               .parentElement.parentElement.classList.add('hide')
           }
           if (event.isEmpty && name.includes('intext')) {
-            console.log(event.slot.getSlotElementId())
             document
               .getElementById(event.slot.getSlotElementId())
               .parentElement.classList.add('hide')
