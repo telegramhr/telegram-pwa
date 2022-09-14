@@ -19,6 +19,9 @@ export default {
   },
   computed: {
     id() {
+      if (this.$store.getters['user/hasPremium']) {
+        return 0
+      }
       if (!this.$mobile && this.type === 'mobile') {
         return 0
       }
