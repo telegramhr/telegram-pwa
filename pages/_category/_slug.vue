@@ -207,15 +207,11 @@
                     ></font-awesome-icon>
                   </a>
                   <a
-                    :href="
-                      'https://twitter.com/intent/tweet?counturl=' +
-                      encodeURI(post.social.path) +
-                      '&text=' +
-                      encodeURI(post.portal_title) +
-                      '&url=' +
-                      encodeURI(post.social.path) +
-                      '&via=TelegramHR'
-                    "
+                    :href="`https://twitter.com/intent/tweet?counturl=${encodeURI(
+                      post.social.path
+                    )}&text=${encodeURI(post.portal_title)}&url=${encodeURI(
+                      post.social.path
+                    )}&via=TelegramHR`"
                     target="_blank"
                     ><font-awesome-icon
                       :icon="['fab', 'twitter']"
@@ -246,10 +242,10 @@
               <div v-show="!$store.state.user.access" id="new_pretplata">
                 <p>
                   <i>
-                    Pretplatite se na Telegram i podržite beskompromisno
-                    novinarstvo koje politički moćnici pokušavaju ušutkati. Već
-                    od 39 kuna mjesečno za sve naše autore, istrage, vijesti i
-                    analize.
+                    <app-link to="/pretplata">Pretplatite se</app-link> na
+                    Telegram i podržite beskompromisno novinarstvo koje
+                    politički moćnici pokušavaju ušutkati. Već od 39 kuna
+                    mjesečno za sve naše autore, istrage, vijesti i analize.
                   </i>
                 </p>
               </div>
@@ -282,15 +278,11 @@
                       ></font-awesome-icon
                     ></a>
                     <a
-                      :href="
-                        'https://twitter.com/intent/tweet?counturl=' +
-                        encodeURI(post.social.path) +
-                        '&text=' +
-                        encodeURI(post.portal_title) +
-                        '&url=' +
-                        encodeURI(post.social.path) +
-                        '&via=TelegramHR'
-                      "
+                      :href="`https://twitter.com/intent/tweet?counturl=${encodeURI(
+                        post.social.path
+                      )}&text=${encodeURI(post.portal_title)}&url=${encodeURI(
+                        post.social.path
+                      )}&via=TelegramHR`"
                       target="_blank"
                       class="animate center"
                     >
