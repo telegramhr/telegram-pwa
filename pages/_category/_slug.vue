@@ -243,7 +243,7 @@
                 @click="handleClick"
                 v-html="post.content"
               ></div>
-              <div id="new_pretplata" v-show="!$store.state.user.access">
+              <div v-show="!$store.state.user.access" id="new_pretplata">
                 <p>
                   <i>
                     Pretplatite se na Telegram i podržite beskompromisno
