@@ -11,14 +11,12 @@
       <span>
         {{ answer.text }}
         <font-awesome-icon
-          v-if="!data.show_correct && answer.correct && answered"
+          v-if="data.show_correct && answer.correct && answered"
           :icon="['fas', 'check']"
           style="color: lightgreen; margin-left: 20px"
         ></font-awesome-icon>
         <font-awesome-icon
-          v-if="
-            !data.show_correct && answer.id === answered && !answer.correct
-          "
+          v-if="data.show_correct && answer.id === answered && !answer.correct"
           :icon="['fas', 'times']"
           style="color: lightcoral; margin-left: 20px"
         ></font-awesome-icon
