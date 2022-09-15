@@ -1029,15 +1029,15 @@
           <h3 class="full overtitle">Knjižara Ljevak</h3>
           <h2 class="full">Popust na odabrane naslove knjižare Ljevak</h2>
           <h4 class="full">
-            Telegramovi pretplatnici ostvaruju dodatnih 10% popusta na naslove
-            knjižare Ljevak uz minimalnu narudžbu od 100 kuna.
+            Telegramovi pretplatnici ostvaruju 10% popusta na knjige Naklade
+            Ljevak uz minimalnu narudžbu od 100 kuna.
           </h4>
           <div v-show="!canLogIn" class="full flex">
             <p class="full bold">Kako do popusta?</p>
             <p class="full">
               Kako biste ostvarili svoj popust, posjetite link knjige koju
               želite kupiti i pri odabiru načina plaćanja upišite kod
-              <b>TELEGRAM10</b>.
+              <b>TELEGRAM</b>.
             </p>
             <a
               href="https://www.ljevak.hr/"
