@@ -19,7 +19,7 @@
       <div v-if="result">
         <h2>{{ result.title }}</h2>
         <!-- eslint-disable vue/no-v-html -->
-        <p v-html="result.description"></p>
+        <p v-html="parsedResultsDescription"></p>
         <!-- eslint-enable vue/no-v-html -->
       </div>
     </VueSlickCarousel>
@@ -63,6 +63,9 @@ export default {
           return true
         }
       })[0]
+    },
+    parsedResultsDescription() {
+      return this.result.description.replace('{answered}', this.totalScore)
     },
   },
   methods: {
