@@ -8,6 +8,7 @@
       :adaptive-height="true"
       :infinite="false"
       style="display: block; width: 100%"
+      @beforeChange="beforeChange"
     >
       <div v-for="question in data.questions" :key="question.id">
         <component
@@ -46,6 +47,7 @@ export default {
     return {
       scores: [],
       answers: {},
+      submitted: false,
     }
   },
   computed: {
@@ -72,6 +74,16 @@ export default {
     },
   },
   methods: {
+    beforeChange(oldSlide, newSlide) {
+      let noSlides = this.data.questions.length
+      if (this.result) {
+        noSlides++
+      }
+      noSlides--
+      if (newSlide === noSlides && !this.submitted) {
+        this.submit()
+      }
+    },
     getAnswer(question, val) {
       const q = parseInt(question) - 1
       if (this.data.questions[q].type === 'QuizSingleAnswer') {
@@ -94,7 +106,8 @@ export default {
       this.$refs.carousel.next()
     },
     submit() {
-      if (this.data.script) {
+      if (this.data.script && !this.submitted) {
+        this.submitted = true
         this.$axios
           .get('/gscripts/' + this.data.script, {
             params: this.answers,
