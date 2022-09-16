@@ -249,11 +249,11 @@
                   </i>
                 </p>
               </div>
-
-              <portal v-if="showQuiz" selector="#quiz-container">
-                <quiz v-if="post.quiz" :data="post.quiz"></quiz>
-              </portal>
-
+              <client-only>
+                <portal v-if="showQuiz" selector="#quiz-container">
+                  <quiz v-if="post.quiz" :data="post.quiz"></quiz>
+                </portal>
+              </client-only>
               <client-only>
                 <intext></intext>
                 <linker v-if="!hasPremium" type="mobile"></linker>
