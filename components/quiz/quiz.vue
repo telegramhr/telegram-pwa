@@ -65,7 +65,10 @@ export default {
       })[0]
     },
     parsedResultsDescription() {
-      return this.result.description.replace('{answered}', this.totalScore)
+      if (this.result) {
+        return this.result.description.replace('{answered}', this.totalScore)
+      }
+      return ''
     },
   },
   methods: {
