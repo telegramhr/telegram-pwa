@@ -1339,23 +1339,20 @@ export const actions = {
         .pubads()
         .addEventListener('slotRenderEnded', function (event) {
           const name = event.slot.getAdUnitPath().split('/').pop()
+          const el = document.getElementById(event.slot.getSlotElementId())
           if (!event.isEmpty && name.includes('intext')) {
             document
               .getElementById(event.slot.getSlotElementId() + '-info')
               .classList.remove('hide')
           }
           if (event.isEmpty && name.includes('billboard_v1')) {
-            document.getElementById(
-              event.slot.getSlotElementId()
-            ).style.minHeight = 0
-            document
-              .getElementById(event.slot.getSlotElementId())
-              .parentElement.parentElement.classList.add('hide')
+            el.style.minHeight = 0
+            if (!this.$mobile) {
+              el.parentElement.parentElement.classList.add('hide')
+            }
           }
           if (event.isEmpty && name.includes('intext')) {
-            document
-              .getElementById(event.slot.getSlotElementId())
-              .parentElement.classList.add('hide')
+            el.parentElement.classList.add('hide')
           }
           if (!event.isEmpty) {
             window.marfeel.cmd.push([
