@@ -120,7 +120,7 @@
       <div class="container flex relative stretch cantha-intro-block">
         <!-- Billboard 1 -->
         <client-only>
-          <div class="full relative">
+          <div v-show="!hasPremium" class="full relative">
             <div class="full flex column-horizontal-pad desktop-only">
               <div class="full flex relative column-bottom-border"></div>
             </div>
