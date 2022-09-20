@@ -9791,3 +9791,23 @@ h3.subsection-title .spar-line img {
         margin-bottom: 4vw;
     }
 }
+.sticky-banner .takeover-exit {
+    position: absolute;
+    right: -23px;
+    left: auto;
+    top: -23px;
+    z-index: 201;
+}
+.sticky-banner .ticker-exit {
+    position: absolute;
+    left: -23px;
+    right: auto;
+    top: -23px;
+    z-index: 201;
+}
+@media screen and (max-height: 767px) {
+    .sticky-banner .takeover-exit {
+        right: 8px;
+        top: 8px;
+    }
+}

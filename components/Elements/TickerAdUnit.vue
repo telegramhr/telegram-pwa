@@ -16,13 +16,10 @@
         <a
           v-show="!noClose && showClose"
           href="#"
-          :style="{
-            position: 'absolute',
-            right: bannerClass === 'ticker-right' ? 'auto' : '-23px',
-            left: bannerClass === 'ticker-right' ? '-23px' : 'auto',
-            top: '-23px',
-            zIndex: 201,
-          }"
+          :class="[
+            bannerClass === 'takeover' ? 'takeover-exit' : '',
+            bannerClass === 'ticker-right' ? 'ticker-exit' : '',
+          ]"
           @click.prevent="shouldHide = true"
           ><font-awesome-icon
             :icon="['fas', 'times-circle']"
