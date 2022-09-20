@@ -232,7 +232,9 @@
               ></ad-unit>
             </div>
             <div class="full relative single-article-body">
-              <mini-pretplata-new></mini-pretplata-new>
+              <client-only>
+                <mini-pretplata-new v-if="canLogIn"></mini-pretplata-new>
+              </client-only>
               <!-- eslint-disable vue/no-v-html -->
               <div
                 id="article-content"
