@@ -233,7 +233,9 @@
             </div>
             <div class="full relative single-article-body">
               <client-only>
-                <mini-pretplata-new v-if="canLogIn"></mini-pretplata-new>
+                <mini-pretplata-new
+                  v-if="canLogIn && post.category_slug !== 'promo'"
+                ></mini-pretplata-new>
               </client-only>
               <!-- eslint-disable vue/no-v-html -->
               <div
