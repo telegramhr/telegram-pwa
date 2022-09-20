@@ -232,6 +232,7 @@
               ></ad-unit>
             </div>
             <div class="full relative single-article-body">
+              <mini-pretplata-new></mini-pretplata-new>
               <!-- eslint-disable vue/no-v-html -->
               <div
                 id="article-content"
@@ -239,16 +240,6 @@
                 @click="handleClick"
                 v-html="post.content"
               ></div>
-              <div v-show="!$store.state.user.access" id="new_pretplata">
-                <p>
-                  <i>
-                    <app-link to="/pretplata">Pretplatite se</app-link> na
-                    Telegram i podržite beskompromisno novinarstvo koje
-                    politički moćnici pokušavaju ušutkati. Već od 39 kuna
-                    mjesečno za sve naše autore, istrage, vijesti i analize.
-                  </i>
-                </p>
-              </div>
               <client-only>
                 <portal v-if="showQuiz" selector="#quiz-container">
                   <quiz v-if="post.quiz" :data="post.quiz"></quiz>
