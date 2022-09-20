@@ -17,8 +17,9 @@
           v-show="!noClose && showClose"
           href="#"
           :class="[
+            bannerClass === 'ticker' ? 'ticker-exit' : '',
             bannerClass === 'takeover' ? 'takeover-exit' : '',
-            bannerClass === 'ticker-right' ? 'ticker-exit' : '',
+            bannerClass === 'ticker-right' ? 'ticker-right-exit' : '',
           ]"
           @click.prevent="shouldHide = true"
           ><font-awesome-icon
