@@ -5,7 +5,7 @@
   >
     <p>
       Bespoštedno novinarstvo ne finaniraju vlasti, bespoštedno novinarstvo
-      financiraju čitatelji. Podržite Telegram. Saznajte više o pretplati
+      financiraju čitatelji. Podržite Telegram. Više o pretplati saznajte
       <span class="link-look-alike">ovdje.</span>
     </p>
   </app-link>
