@@ -9,7 +9,7 @@
         :value="answer.id"
       />
       <span>
-        {{ answer.text }}
+        {{ answer.text | parseCat }}
         <font-awesome-icon
           v-if="data.show_correct && answer.correct && answered"
           :icon="['fas', 'check']"
