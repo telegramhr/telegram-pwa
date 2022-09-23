@@ -20,6 +20,10 @@ import {
   faCreditCard,
   faUniversity,
   faMapMarkerQuestion,
+  faHouse,
+  faMessageQuote,
+  faNewspaper,
+  faLightbulb,
 } from '@fortawesome/pro-duotone-svg-icons'
 
 import {
@@ -80,7 +84,11 @@ library.add(
   faUniversity,
   faMapMarkerQuestion,
   faBriefcase,
-  faArrowRight
+  faArrowRight,
+  faHouse,
+  faMessageQuote,
+  faNewspaper,
+  faLightbulb
 )
 
 // Register the component globally
