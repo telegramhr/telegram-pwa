@@ -1,5 +1,18 @@
 <template>
+<<<<<<< Updated upstream
   <div :class="['main-container', 'flex', 'category-page', extraClass]">
+=======
+  <div
+    :class="[
+      'main-container',
+      'flex',
+      'category-page',
+      extraClass,
+      categoryClass,
+    ]"
+  >
+    <!-- TG Multiverse header -->
+>>>>>>> Stashed changes
     <div class="full flex relative single-article">
       <client-only>
         <theader></theader>
@@ -99,12 +112,26 @@
             </div>
           </div>
         </div>
+<<<<<<< Updated upstream
         <div
           class="full center subtle-btn-parent relative clickable"
           @click="loadMore"
         >
           <div v-show="!loading" class="subtle-btn animate">Vidi više</div>
           <div v-show="!loading" class="subtle-btn-line"></div>
+=======
+      </div>
+    </div>
+    <!-- Read more widget -->
+    <div class="full flex relative">
+      <div
+        class="container flex relative column-full-pad column-bottom-pad-mobile"
+      >
+        <div class="full center relative clickable" @click="loadMore">
+          <div v-show="!loading" class="newbtn altbtn animate">
+            Učitaj još članaka
+          </div>
+>>>>>>> Stashed changes
           <div v-show="loading" class="full center cool-loader">
             <div class="loader-square">
               <div></div>
@@ -146,6 +173,7 @@ export default {
             .extraClass
         : ''
     },
+<<<<<<< Updated upstream
     posts() {
       return this.$store.state.category.categories[this.$route.params.category]
         ? this.$store.state.category.categories[this.$route.params.category]
@@ -161,6 +189,10 @@ export default {
         ? this.$store.state.category.categories[this.$route.params.category]
             .name
         : ''
+=======
+    categoryClass() {
+      return this.$route.params.category + '-catpage'
+>>>>>>> Stashed changes
     },
   },
   mounted() {

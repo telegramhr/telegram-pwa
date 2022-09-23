@@ -310,6 +310,90 @@
         </div>
       </div>
     </div>
+<<<<<<< Updated upstream
+=======
+    <!-- Mobile only sticky nav -->
+    <div class="container mobile-only mobile-sticky-nav flex mobile-side-pad">
+      <a
+        class="mobile-only"
+        aria-label="Prikaži lijevi meni"
+        :aria-expanded="$store.state.header.showSideMenu.toString()"
+        aria-controls="sidebar"
+        @click.prevent="$store.commit('header/updateMenu', 'side')"
+      >
+        <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon
+      ></a>
+      <app-link to="/" class="logo"
+        ><img src="@/assets/img/telegram_logo_black.svg" alt="Telegram logo" />
+        <img
+          src="@/assets/img/telegram_logo_white.svg"
+          alt="Telegram logo"
+          class="dark-mode-only"
+      /></app-link>
+      <div class="desktop-only full center-text tagline">
+        Portal za društvena i kulturna pitanja. I svijet koji dolazi.
+      </div>
+      <a
+        v-show="canLogIn"
+        class="mob-nav-otherbtn mobile-only"
+        @click.prevent="login"
+      >
+        <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
+      ></a>
+      <app-link
+        v-show="!canLogIn"
+        class="mobile-only mob-nav-otherbtn"
+        to="/moj-racun"
+        aria-label="Moj račun"
+      >
+        <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
+      ></app-link>
+    </div>
+    <div class="full mobile-app-stickynav flex">
+      <app-link to="/" class="fourth center homepage-appnav">
+        <div class="full center">
+          <font-awesome-icon :icon="['fad', 'house']"></font-awesome-icon>
+        </div>
+        <span>Naslovnica</span>
+      </app-link>
+      <app-link to="/najnovije" class="fourth center najnovije-appnav">
+        <div class="full center">
+          <font-awesome-icon :icon="['fad', 'newspaper']"></font-awesome-icon>
+        </div>
+        <span>Najnovije</span>
+      </app-link>
+      <app-link to="/komentari" class="fourth center komentari-appnav">
+        <div class="full center">
+          <font-awesome-icon
+            :icon="['fad', 'message-quote']"
+          ></font-awesome-icon>
+        </div>
+        <span>Komentari</span>
+      </app-link>
+      <app-link to="/velike-price" class="fourth center velike-price-appnav">
+        <div class="full center">
+          <font-awesome-icon :icon="['fad', 'lightbulb']"></font-awesome-icon>
+        </div>
+        <span>Velike priče</span>
+      </app-link>
+    </div>
+    <!--<div
+      :v-show="false"
+      class="sticky-search-menu search-menu animate full center"
+    >
+      <form class="relative" action="" method="get" @submit.prevent="search">
+        <input
+          v-model="search_term"
+          type="text"
+          placeholder="Pretražite Telegram..."
+          aria-label="Pretražite Telegram"
+        />
+        <button type="submit" class="animate" @click.prevent="search">
+          <i class="far fa-search"></i>
+        </button>
+      </form>
+    </div>-->
+>>>>>>> Stashed changes
     <header
       :class="{
         full: true,
