@@ -2214,7 +2214,7 @@ header {
     left: -300px;
     top: 0px;
     width: 300px;
-    height: 900px;
+    height: auto;
     overflow: hidden;
 }
 .wallpaper-left {
@@ -10062,7 +10062,7 @@ label.payment-tile svg {
     }
     .donation-select label.mobile-only {
         display: flex;
-    }    
+    }
     .donation-page .sub-point h2 {
         font-size: 36px;
         font-size: 1.8rem;
