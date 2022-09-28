@@ -1,5 +1,13 @@
 <template>
-  <div :class="['main-container', 'flex', 'category-page', extraClass]">
+  <div
+    :class="[
+      'main-container',
+      'flex',
+      'category-page',
+      extraClass,
+      categoryClass,
+    ]"
+  >
     <!-- TG Multiverse header -->
     <div class="full flex relative single-article">
       <client-only>
@@ -222,6 +230,9 @@ export default {
         ? this.$store.state.category.categories[this.$route.params.category]
             .extraClass
         : ''
+    },
+    categoryClass() {
+      return this.$route.params.category + '-catpage'
     },
   },
   mounted() {

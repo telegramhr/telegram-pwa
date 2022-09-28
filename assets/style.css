@@ -10106,3 +10106,72 @@ label.payment-tile svg {
     margin-top: 4vw;
   }
 }
+
+/* Mobile app sticky nav */
+
+.mobile-app-stickynav {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #212121;
+    color: white;
+    box-shadow: 10px 0px -20px rgba(0, 0, 0, 0.25);
+    z-index: 300;
+    font-size: 12px;
+    font-size: 0.6rem;
+    border-top: 1px solid #c8c8c8;
+}
+.dark-mode .mobile-app-stickynav {
+    background-color: #121212;
+    border-top: 1px solid #333;
+}
+.mobile-app-stickynav .fourth {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    padding: 8px;
+    padding-top: 10px;
+    flex-wrap: wrap;
+    opacity: .8;
+}
+.mobile-app-stickynav .fourth svg {
+    height: 2em;
+    margin: 0 auto;
+    margin-bottom: 8px;
+    --fa-primary-color: #ae3737;
+    --fa-secondary-color: white;
+    --fa-primary-opacity: 0.5;
+    --fa-secondary-opacity: 0.5;
+}
+.mobile-app-stickynav .fourth span {
+    opacity: .8;
+}
+.homepage .mobile-app-stickynav .homepage-appnav span {
+    opacity: 1;
+}
+.homepage .mobile-app-stickynav .homepage-appnav svg {
+    --fa-primary-opacity: 1;
+    --fa-secondary-opacity: 1;
+}
+.komentari-catpage .mobile-app-stickynav .komentari-appnav span {
+    opacity: 1;
+}
+.komentari-catpage .mobile-app-stickynav .komentari-appnav svg {
+    --fa-primary-opacity: 1;
+    --fa-secondary-opacity: 1;
+}
+.najnovije-catpage .mobile-app-stickynav .najnovije-appnav span {
+    opacity: 1;
+}
+.najnovije-catpage .mobile-app-stickynav .najnovije-appnav svg {
+    --fa-primary-opacity: 1;
+    --fa-secondary-opacity: 1;
+}
+.velike-price-catpage .mobile-app-stickynav .velike-price-appnav span {
+    opacity: 1;
+}
+.velike-price-catpage .mobile-app-stickynav .velike-price-appnav svg {
+    --fa-primary-opacity: 1;
+    --fa-secondary-opacity: 1;
+}

@@ -392,6 +392,34 @@
         <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
       ></app-link>
     </div>
+    <div class="full mobile-app-stickynav flex">
+      <app-link to="/" class="fourth center homepage-appnav">
+        <div class="full center">
+          <font-awesome-icon :icon="['fad', 'house']"></font-awesome-icon>
+        </div>
+        <span>Naslovnica</span>
+      </app-link>
+      <app-link to="/najnovije" class="fourth center najnovije-appnav">
+        <div class="full center">
+          <font-awesome-icon :icon="['fad', 'newspaper']"></font-awesome-icon>
+        </div>
+        <span>Najnovije</span>
+      </app-link>
+      <app-link to="/komentari" class="fourth center komentari-appnav">
+        <div class="full center">
+          <font-awesome-icon
+            :icon="['fad', 'message-quote']"
+          ></font-awesome-icon>
+        </div>
+        <span>Komentari</span>
+      </app-link>
+      <app-link to="/velike-price" class="fourth center velike-price-appnav">
+        <div class="full center">
+          <font-awesome-icon :icon="['fad', 'lightbulb']"></font-awesome-icon>
+        </div>
+        <span>Velike priče</span>
+      </app-link>
+    </div>
     <!--<div
       :v-show="false"
       class="sticky-search-menu search-menu animate full center"
