@@ -12,7 +12,10 @@
         :key="post.id"
         class="fourth column-right-border flex-responsive column-horizontal-pad"
       >
-        <standard :post="post"></standard>
+        <standard
+          :post="post"
+          :utm="{ source: 'Telegram.hr', campaign: 'Partneri' }"
+        ></standard>
       </div>
     </div>
   </div>

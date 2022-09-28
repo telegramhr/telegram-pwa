@@ -31,6 +31,14 @@
             />
             <label class="clickable animate" for="divo">Đivu</label>
             <input
+              id="jurican"
+              v-model="selected"
+              :value="'jurican'"
+              type="radio"
+              name="overlay"
+            />
+            <label class="clickable animate" for="jurican">Juričana</label>
+            <input
               id="krug"
               v-model="selected"
               :value="'krug'"
@@ -154,6 +162,14 @@
           id="redzepovic-overlay"
           class="generator-img-overlay"
           src="@/assets/img/extras/naslovne/tg_dajmi_overlay_redzepovic.png"
+          width="2664"
+          height="1680"
+        />
+        <img
+          v-if="selected === 'jurican'"
+          id="jurican-overlay"
+          class="generator-img-overlay"
+          src="@/assets/img/extras/naslovne/tg_dajmi_overlay_jurican.png"
           width="2664"
           height="1680"
         />

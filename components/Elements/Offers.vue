@@ -48,11 +48,11 @@
             <img :src="post.slika" loading="lazy" />
             <div class="full flex article-pad">
               <h2 class="full">{{ post.naslov }}</h2>
-              <h3 class="full overtitle">
-                {{ post.cijena }}
-                <span v-if="post.stara_cijena" class="strikethrough-price">{{
-                  post.stara_cijena
-                }}</span>
+              <h3 v-if="post.cijena" class="full overtitle">
+                {{ post.cijena }} ({{ post.cijena_euro }})
+                <span v-if="post.stara_cijena" class="strikethrough-price">
+                  {{ post.stara_cijena }} ({{ post.stara_cijena_euro }})
+                </span>
               </h3>
 
               <h4 class="full">
@@ -82,6 +82,7 @@
         ></font-awesome-icon>
       </div>
     </div>
+    <p class="full offer-disclaimer center-text">1 euro = 7,53450 kuna</p>
   </div>
 </template>
 
@@ -142,15 +143,11 @@ export default {
         'webshop-value': 1,
       })
     },
-    getPosts() {
-      this.$axios
-        .get(`${this.$config.baseURL}promos/webshop`)
-        .then((res) => {
-          this.posts = res.data
-        })
-        .catch(() => {
-          // TODO: error logging
-        })
+    async getPosts() {
+      const preview = this.$route.query.webshop ? this.$route.query.webshop : ''
+      this.posts = await this.$axios.$get(
+        `/api/promos/webshop?webshop=${preview}`
+      )
     },
   },
 }

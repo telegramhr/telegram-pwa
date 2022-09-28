@@ -20,6 +20,10 @@ import {
   faCreditCard,
   faUniversity,
   faMapMarkerQuestion,
+  faHouse,
+  faMessageQuote,
+  faNewspaper,
+  faLightbulb,
 } from '@fortawesome/pro-duotone-svg-icons'
 
 import {
@@ -39,7 +43,11 @@ import {
   faAngleLeft,
 } from '@fortawesome/pro-regular-svg-icons'
 
-import { faMinusSquare, faPlusSquare } from '@fortawesome/pro-light-svg-icons'
+import {
+  faMinusSquare,
+  faPlusSquare,
+  faArrowRight,
+} from '@fortawesome/pro-light-svg-icons'
 
 // This is important, we are going to let Nuxt.js worry about the CSS
 config.autoAddCss = false
@@ -75,7 +83,12 @@ library.add(
   faCreditCard,
   faUniversity,
   faMapMarkerQuestion,
-  faBriefcase
+  faBriefcase,
+  faArrowRight,
+  faHouse,
+  faMessageQuote,
+  faNewspaper,
+  faLightbulb
 )
 
 // Register the component globally

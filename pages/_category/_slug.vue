@@ -113,7 +113,19 @@
                 </h3>
                 <div v-if="post.promo.partner" class="collab-overtitle">
                   <h3 class="overtitle">{{ post.promo.prefix }}</h3>
-                  <img :src="post.promo.logo" :alt="post.promo.partner" />
+                  <a
+                    v-if="post.promo.link"
+                    :href="post.promo.link"
+                    target="_blank"
+                    rel="sponsored"
+                  >
+                    <img :src="post.promo.logo" :alt="post.promo.partner" />
+                  </a>
+                  <img
+                    v-else
+                    :src="post.promo.logo"
+                    :alt="post.promo.partner"
+                  />
                 </div>
               </div>
               <h1 class="full">{{ post.title }}</h1>
@@ -121,34 +133,22 @@
                 {{ post.subtitle }}
               </h2>
               <h5 class="full flex relative article-meta mobile-only">
-                <template v-if="post.promo.partner">
-                  <a href="#" class="meta-author flex">
-                    <img
-                      v-if="!post.promo.signature_logo_off"
-                      :src="post.promo.logo"
-                    />
-                    <span>{{ post.promo.prefix }}</span>
-                    <span>{{ post.promo.partner }}</span>
-                  </a>
-                </template>
-                <template v-else>
-                  <nuxt-link
-                    v-for="author in post.authors"
-                    :key="author.name"
-                    :to="author.url"
-                    class="meta-author flex"
-                    rel="author"
-                    ><img
-                      v-if="author.image"
-                      :src="author.image"
-                      :alt="author.name"
-                    />
-                    <span>Piše</span
-                    ><span class="vcard author">{{
-                      author.name
-                    }}</span></nuxt-link
-                  >
-                </template>
+                <nuxt-link
+                  v-for="author in post.authors"
+                  :key="author.name"
+                  :to="author.url"
+                  class="meta-author flex"
+                  rel="author"
+                  ><img
+                    v-if="author.image"
+                    :src="author.image"
+                    :alt="author.name"
+                  />
+                  <span>Piše</span
+                  ><span class="vcard author">{{
+                    author.name
+                  }}</span></nuxt-link
+                >
                 <client-only>
                   <subscribe-link
                     v-if="post.type === 'commentary'"
@@ -180,33 +180,21 @@
                 {{ post.perex }}
               </p>
               <h5 class="full flex relative article-meta">
-                <template v-if="post.promo.partner">
-                  <a href="#" class="meta-author flex desktop-only">
-                    <img
-                      v-if="!post.promo.signature_logo_off"
-                      :src="post.promo.logo"
-                    />
-                    <span>{{ post.promo.prefix }}</span>
-                    <span>{{ post.promo.partner }}</span>
-                  </a>
-                </template>
-                <template v-else>
-                  <nuxt-link
-                    v-for="author in post.authors"
-                    :key="author.name"
-                    :to="author.url"
-                    class="meta-author flex desktop-only"
-                    rel="author"
-                    ><img
-                      v-if="author.image"
-                      :src="author.image"
-                      :alt="author.name"
-                    /><span>Piše</span
-                    ><span class="vcard author">{{
-                      author.name
-                    }}</span></nuxt-link
-                  >
-                </template>
+                <nuxt-link
+                  v-for="author in post.authors"
+                  :key="author.name"
+                  :to="author.url"
+                  class="meta-author flex desktop-only"
+                  rel="author"
+                  ><img
+                    v-if="author.image"
+                    :src="author.image"
+                    :alt="author.name"
+                  /><span>Piše</span
+                  ><span class="vcard author">{{
+                    author.name
+                  }}</span></nuxt-link
+                >
                 <span class="meta-date">{{ post.time | parseTime }}</span>
                 <span v-if="post.recommendations" class="meta-preporuke"
                   >{{ post.recommendations }} preporuka</span
@@ -219,15 +207,11 @@
                     ></font-awesome-icon>
                   </a>
                   <a
-                    :href="
-                      'https://twitter.com/intent/tweet?counturl=' +
-                      encodeURI(post.social.path) +
-                      '&text=' +
-                      encodeURI(post.portal_title) +
-                      '&url=' +
-                      encodeURI(post.social.path) +
-                      '&via=TelegramHR'
-                    "
+                    :href="`https://twitter.com/intent/tweet?counturl=${encodeURI(
+                      post.social.path
+                    )}&text=${encodeURI(post.portal_title)}&url=${encodeURI(
+                      post.social.path
+                    )}&via=TelegramHR`"
                     target="_blank"
                     ><font-awesome-icon
                       :icon="['fab', 'twitter']"
@@ -248,6 +232,11 @@
               ></ad-unit>
             </div>
             <div class="full relative single-article-body">
+              <client-only>
+                <mini-pretplata-new
+                  v-if="canLogIn && post.category_slug !== 'promo'"
+                ></mini-pretplata-new>
+              </client-only>
               <!-- eslint-disable vue/no-v-html -->
               <div
                 id="article-content"
@@ -255,11 +244,11 @@
                 @click="handleClick"
                 v-html="post.content"
               ></div>
-
-              <portal v-if="showQuiz" selector="#quiz-container">
-                <quiz v-if="post.quiz" :data="post.quiz"></quiz>
-              </portal>
-
+              <client-only>
+                <portal v-if="showQuiz" selector="#quiz-container">
+                  <quiz v-if="post.quiz" :data="post.quiz"></quiz>
+                </portal>
+              </client-only>
               <client-only>
                 <intext></intext>
                 <linker v-if="!hasPremium" type="mobile"></linker>
@@ -284,15 +273,11 @@
                       ></font-awesome-icon
                     ></a>
                     <a
-                      :href="
-                        'https://twitter.com/intent/tweet?counturl=' +
-                        encodeURI(post.social.path) +
-                        '&text=' +
-                        encodeURI(post.portal_title) +
-                        '&url=' +
-                        encodeURI(post.social.path) +
-                        '&via=TelegramHR'
-                      "
+                      :href="`https://twitter.com/intent/tweet?counturl=${encodeURI(
+                        post.social.path
+                      )}&text=${encodeURI(post.portal_title)}&url=${encodeURI(
+                        post.social.path
+                      )}&via=TelegramHR`"
                       target="_blank"
                       class="animate center"
                     >
@@ -335,7 +320,7 @@
                 <offers></offers>
               </div>
             </client-only>
-            <div class="full relative single-article-body" style="order: 4">
+            <!--<div class="full relative single-article-body" style="order: 4">
               <div
                 class="full relative single-article-footer flex column-top-pad"
               >
@@ -343,7 +328,7 @@
                   v-show="!$store.state.user.access"
                 ></mini-pretplata>
               </div>
-            </div>
+            </div>-->
           </article>
         </div>
         <client-only>
@@ -587,7 +572,10 @@ export default {
       )
     },
     exclude() {
-      const terms = ['lidl']
+      if (this.post.disable_ads && this.post.disable_ads.includes('spar')) {
+        return true
+      }
+      const terms = 'lidl'
       const filtered = this.post.tags.filter((tag) => {
         return terms.includes(tag.slug)
       })
@@ -609,6 +597,9 @@ export default {
       }
       if (this.post.image.full) {
         images.push(this.post.image.full)
+      }
+      if (this.post.image.facebook) {
+        images.push(this.post.image.facebook)
       }
       return [
         {

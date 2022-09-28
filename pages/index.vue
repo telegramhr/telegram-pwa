@@ -15,6 +15,13 @@
     <div class="full flex">
       <theader></theader>
     </div>
+    <!-- Pretplata first timers -->
+    <div v-show="canLogIn" class="full flex">
+      <pretplata-first-time></pretplata-first-time>
+      <div class="full mobile-side-pad mobile-only">
+        <div class="full column-bottom-border-mobile"></div>
+      </div>
+    </div>
     <!-- Cantha header -->
     <div class="full relative cantha-header">
       <div class="container flex relative column-top-pad column-horizontal-pad">
@@ -113,15 +120,12 @@
       <div class="container flex relative stretch cantha-intro-block">
         <!-- Billboard 1 -->
         <!--<client-only>
-          <div v-show="hasAd" class="full relative">
+          <div v-show="!hasPremium" class="full relative">
             <div class="full flex column-horizontal-pad desktop-only">
               <div class="full flex relative column-bottom-border"></div>
             </div>
             <div class="full center relative">
-              <ad-unit
-                id="telegram_desktop_billboard_v1"
-                @hasAd="hasAd = $event"
-              ></ad-unit>
+              <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
             </div>
           </div>
         </client-only>-->
@@ -338,7 +342,51 @@
         </div>
       </div>
     </div>
-    <!-- Prekid knjiga -->
+    <!-- Prekid klub -->
+    <div class="full relative">
+      <div class="container flex relative column-horizontal-pad">
+        <app-link
+          to="/klub"
+          class="full cantha-break mobile-side-pad flex relative stretch klub-cantha-break"
+        >
+          <div class="third column-full-pad center flex-responsive">
+            <div class="full flex">
+              <img
+                src="@/assets/img/tg_klub_logo_negative.svg"
+                alt="Telegram Klub logo"
+                class="klub-break-logo"
+              />
+              <h5 class="full">
+                Klub ekskluzivnih ponuda, pogodnosti i popusta, samo za
+                pretplatnike Telegrama.
+              </h5>
+            </div>
+          </div>
+          <div class="two-thirds stretch flex flex-responsive">
+            <div class="two-thirds stretch center flex-responsive">
+              <img
+                src="@/assets/img/tg_klub_vizual_widget.jpg"
+                alt="Neki od popusta u kazalištima i muzejima koje se nalaze u Telegram Klubu"
+              />
+            </div>
+            <div
+              class="third center stretch column-horizontal-pad flex-responsive"
+            >
+              <div class="full column-left-pad flex article">
+                <h5 class="full center-text">
+                  Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
+                  pretplatnicima.
+                </h5>
+                <div class="full center">
+                  <div class="newbtn">Saznajte više</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </app-link>
+      </div>
+    </div>
+    <!-- Prekid knjiga
     <div class="full relative">
       <div class="container flex relative column-horizontal-pad">
         <app-link
@@ -370,6 +418,8 @@
                   <span class="faded strikethrough">149 kn</span> 99 kn
                 </h2>
                 <h5 class="full center-text">
+                  (<span class="faded strikethrough">19,78€</span> 13,14€)
+                  <br />
                   posebna cijena za Telegramove pretplatnike!
                 </h5>
                 <div class="full center">
@@ -380,7 +430,7 @@
           </div>
         </app-link>
       </div>
-    </div>
+    </div> -->
     <!-- Prekid newsletteri
     <div class="full relative">
       <div class="container flex relative column-horizontal-pad">
@@ -485,7 +535,7 @@
     <!-- Prekid dojave -->
     <div class="full relative desktop-only">
       <div class="container flex relative column-full-pad">
-        <a
+        <!--<a
           href="https://www.telegram.hr/native/uhvati-sunce/"
           target="_blank"
           class="full cantha-break mobile-side-pad flex relative stretch"
@@ -493,8 +543,8 @@
           <img
             src="https://www.telegram.hr/wp-content/uploads/2022/06/tg-banner-uhvatisunce-1200x250-2.png"
           />
-        </a>
-        <!--<app-link
+        </a>-->
+        <app-link
           to="/dojave"
           class="full cantha-break mobile-side-pad flex relative stretch"
         >
@@ -528,7 +578,7 @@
               </div>
             </div>
           </div>
-        </app-link>-->
+        </app-link>
       </div>
     </div>
     <!-- Sport -->
@@ -597,7 +647,6 @@ export default {
   data() {
     return {
       loading: false,
-      hasAd: false,
     }
   },
   computed: {

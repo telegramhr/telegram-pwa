@@ -7,51 +7,9 @@
         headline="Pretplatite se i podržite naše bespoštedno novinarstvo."
       ></theader>
     </div>
-    <a
-      href="#pretplata-selector"
-      class="full dark-element book-pretplata-promo relative"
-    >
-      <div class="container relative flex mobile-side-pad">
-        <div class="half column-full-pad center flex-responsive">
-          <div class="full flex article">
-            <h3 class="full overtitle">Specijalna ponuda</h3>
-            <h1 class="full">Telegram <br />+ Bili libar</h1>
-            <h4 class="full">
-              Nova knjiga Borisa Dežulovića,<br />
-              po posebnoj cijeni uz pretplatu
-            </h4>
-          </div>
-        </div>
-        <div class="half stretch flex flex-responsive">
-          <div class="half column-top-pad center flex-responsive">
-            <img
-              src="@/assets/img/tg_knjiga_vizual_dezulovic_pretplata.png"
-              alt="Portret Borisa Dežulovića i naslovnica njegove knjige 'Bili Libar'"
-            />
-          </div>
-          <div class="half center column-horizontal-pad flex-responsive">
-            <div class="full column-left-pad flex article">
-              <h2 class="full relative center-text">
-                <span class="faded strikethrough">149 kn</span> 99 kn
-              </h2>
-              <h2 class="full relative center-text">
-                ekskluzivna prednarudžba za pretplatnike
-              </h2>
-              <div class="full center">
-                <div class="newbtn huge-newbtn">Pretplatite se</div>
-              </div>
-              <h5 class="full center-text">
-                Odaberite jednu od opcija pretplate na Telegram, nakon čega
-                novog Dežulovića možete kupiti po specijalnoj cijeni.
-              </h5>
-            </div>
-          </div>
-        </div>
-      </div>
-    </a>
     <div id="pretplata-selector" class="full flex pretplata-page-content">
       <div class="full flex relative">
-        <!--<div
+        <div
           class="container relative flex mobile-side-pad stretch column-full-pad"
         >
           <h1 class="full center-text">Priče koje guraju društvo naprijed.</h1>
@@ -59,7 +17,6 @@
             Pretplatite se i podržite naše bespoštedno novinarstvo.
           </p>
         </div>
-      </div>-->
         <div class="full flex">
           <div class="container relative flex pretplata-packs mobile-side-pad">
             <input
@@ -95,13 +52,19 @@
                   <h3 class="overtitle">Standard</h3>
                 </div>
                 <h2 class="full">49kn</h2>
-                <h4 class="full center-text undertitle">Mjesečno</h4>
+                <h4 class="full center-text undertitle">Mjesečno (6,50€)</h4>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
                     <font-awesome-icon
                       :icon="['fas', 'check']"
                     ></font-awesome-icon>
                     neograničeno čitanje Telegrama
+                  </p>
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    posebni popusti i pogodnosti
                   </p>
                   <p class="full animate">
                     <font-awesome-icon
@@ -127,7 +90,7 @@
                   <h3 class="overtitle">Premium</h3>
                 </div>
                 <h2 class="full">69kn</h2>
-                <h4 class="full center-text undertitle">Mjesečno</h4>
+                <h4 class="full center-text undertitle">Mjesečno (9,16€)</h4>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
                     <font-awesome-icon
@@ -140,6 +103,12 @@
                       :icon="['fas', 'check']"
                     ></font-awesome-icon>
                     neograničeno čitanje Telesporta
+                  </p>
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    posebni popusti i pogodnosti
                   </p>
                   <p class="full animate">
                     <font-awesome-icon
@@ -166,7 +135,7 @@
                 </div>
                 <h2 class="full">39kn</h2>
                 <h4 class="full center-text undertitle">
-                  mjesečno, za cijelu godinu 468kn
+                  mjesečno (5,18€), za cijelu godinu 468kn (62,11€)
                 </h4>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
@@ -174,6 +143,12 @@
                       :icon="['fas', 'check']"
                     ></font-awesome-icon>
                     neograničeno čitanje Telegrama
+                  </p>
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    posebni popusti i pogodnosti
                   </p>
                   <p class="full animate">
                     <font-awesome-icon
@@ -200,7 +175,7 @@
                 </div>
                 <h2 class="full">49kn</h2>
                 <h4 class="full center-text undertitle">
-                  mjesečno, za cijelu godinu 588kn
+                  mjesečno (6,50€), za cijelu godinu 588kn (78,04€)
                 </h4>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
@@ -214,6 +189,12 @@
                       :icon="['fas', 'check']"
                     ></font-awesome-icon>
                     neograničeno čitanje Telesporta
+                  </p>
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    posebni popusti i pogodnosti
                   </p>
                   <p class="full animate">
                     <font-awesome-icon
@@ -255,7 +236,43 @@
             </div>
           </div>
         </div>
-        <div class="full flex relative">
+        <app-link
+          to="/klub"
+          class="full dark-element bottom-pretplata-promo relative"
+        >
+          <div class="container relative flex align-children-end">
+            <div class="three-fourths flex-responsive">
+              <img
+                src="@/assets/img/tg_vizual_klub_mini.jpg"
+                class="desktop-only"
+                alt="Telegram Klub kolaž"
+              />
+              <img
+                src="@/assets/img/tg_klub_header_vizual_mobile.jpg"
+                class="mobile-only"
+                alt="Telegram Klub kolaž"
+              />
+            </div>
+            <div
+              class="half klub-header mobile-side-pad column-full-pad center flex-responsive"
+            >
+              <div class="full flex">
+                <img
+                  src="@/assets/img/tg_klub_logo_negative.svg"
+                  alt="Telegram Klub logo"
+                />
+                <h4 class="full small-top-margin">
+                  Klub ekskluzivnih ponuda, pogodnosti i popusta, <br />
+                  samo za pretplatnike Telegrama.
+                </h4>
+                <div class="full flex small-top-margin">
+                  <div class="newbtn huge-newbtn">Saznajte više</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </app-link>
+        <div class="full flex relative small-top-margin">
           <div class="container relative flex">
             <div
               class="pretplata-keypoint fourth flex-responsive column-full-pad mobile-side-pad"

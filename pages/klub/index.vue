@@ -1,53 +1,96 @@
 <template>
   <div
-    class="main-container flex red-header-page single-article hide-billboard newsletter-page"
+    class="main-container flex red-header-page single-article hide-billboard newsletter-page hide-bottom-pretplata"
   >
-    <div class="full flex tg-red">
+    <div class="full flex tg-red dark-mode">
       <client-only>
         <theader
-          headline="Telegram Klub - ekskluzivne ponude za pretplatnike"
+          headline="Telegram Klub - popusti i ponude za pretplatnike"
         ></theader>
       </client-only>
     </div>
     <!-- Header -->
-    <div class="full flex relative">
-      <div
-        class="container relative flex mobile-side-pad stretch column-vertical-pad klub-header"
-      >
-        <div class="full flex column-horizontal-pad">
+    <div class="full flex relative klub-header">
+      <div class="container relative flex stretch">
+        <div
+          class="forty flex-responsive center column-full-pad mobile-side-pad"
+        >
+          <div class="full flex">
+            <img
+              src="@/assets/img/tg_klub_logo_negative.svg"
+              alt="Telegram Klub logo"
+            />
+            <h4 class="full flex small-top-margin">
+              Postoje klubovi koji nisu za sve. <br />Ali su sve onima, koji im
+              pripadaju.
+            </h4>
+            <h4 class="full flex small-top-margin">
+              Klub ekskluzivnih ponuda, pogodnosti i popusta, samo za
+              pretplatnike Telegrama.
+            </h4>
+          </div>
+        </div>
+        <div class="three-fourths flex-responsive">
           <img
-            src="@/assets/img/tg_visual_klub_header.jpg"
+            src="@/assets/img/tg_klub_header_vizual.jpg"
             class="desktop-only"
             alt="Telegram Klub kolaž"
           />
           <img
-            src="@/assets/img/tg_visual_klub_header_mobile.jpg"
+            src="@/assets/img/tg_klub_header_vizual_mobile.jpg"
             class="mobile-only"
             alt="Telegram Klub kolaž"
           />
-          <h2 class="full center-text fancy-klub-intro">
-            Postoje klubovi koji nisu za sve. Ali su zato sve onima, koji im
-            pripadaju. Telegram predstavlja:
-          </h2>
-        </div>
-        <div class="full center relative">
-          <div class="half flex-responsive center column-full-pad">
-            <div class="full flex">
-              <img
-                src="@/assets/img/tg_klub_logo.svg"
-                alt="Telegram Klub logo"
-              />
-              <h4 class="full flex small-top-margin">
-                Klub ekskluzivnih ponuda, pogodnosti i popusta, samo za
-                pretplatnike Telegrama.
-              </h4>
-            </div>
-          </div>
         </div>
       </div>
     </div>
-    <div class="full flex relative">
-      <div class="container relative flex mobile-side-pad stretch"></div>
+    <!-- Intro -->
+    <div class="full flex relative mobile-side-pad klub-intro">
+      <div class="container flex relative">
+        <h2 class="full flex column-horizontal-pad">
+          Kako iskoristiti ponude Kluba?
+        </h2>
+        <div class="full flex relative stretch">
+          <div
+            v-show="canLogIn"
+            class="third flex flex-responsive column-horizontal-pad column-right-border"
+          >
+            <h4 class="full bold">1. Pretplatite se.</h4>
+            <p>
+              Posebne ponude Telegram Kluba dostupne su našim pretplatnicima.
+              <app-link to="/pretplata">Pretplatite se</app-link> ili, ako već
+              imate račun, <a @click.prevent="login">prijavite se.</a>
+            </p>
+          </div>
+          <div
+            v-show="!canLogIn"
+            class="third flex flex-responsive column-horizontal-pad column-right-border"
+          >
+            <h4 class="full bold">1. Aktivna pretplata.</h4>
+            <p>
+              Posebne ponude dostupne su samo pretplatnicima poput Vas. Možete
+              ih koristiti sve dok imate pretplatu na Telegram.
+            </p>
+          </div>
+          <div
+            class="third flex flex-responsive column-horizontal-pad column-right-border"
+          >
+            <h4 class="full bold">2. Odaberite ponudu.</h4>
+            <p>
+              Odaberite neke od predstava, izložbi, knjiga ili koncerata naših
+              partnera na ovoj stranici, te slijedite upute za daljnje korake.
+            </p>
+          </div>
+          <div class="third flex flex-responsive column-horizontal-pad">
+            <h4 class="full bold">3. Kupite uz popust.</h4>
+            <p>
+              Za kupnju na prodajnom mjestu, pokažite
+              <a href="#iskaznica">digitalnu iskaznicu.</a> Za kupnju na webu,
+              iskoristite promo-kod naveden uz ponudu.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- Kazalista -->
     <div class="full flex relative mobile-side-pad">
@@ -64,6 +107,35 @@
           >
             <div class="klub-ponuda-tile relative">
               <div class="klub-sticker center">
+                <div class="full center-text klub-sticker-amount">20%</div>
+                <div class="full center-text klub-sticker-text">popust</div>
+              </div>
+              <div class="full center">
+                <img
+                  src="@/assets/img/extras/klub/tg_visual_klub_hnkzg.jpg"
+                  aria-hidden="true"
+                />
+              </div>
+            </div>
+            <h3 class="full overtitle">HNK Zagreb</h3>
+            <a href="#kazalista" @click="selected_kazaliste = 'hnkzg'">
+              <h2 class="full">
+                Popust na ulaznice za predstave kazališta HNK Zagreb
+              </h2>
+            </a>
+            <a
+              href="#kazalista"
+              class="newbtn clickable"
+              @click="selected_kazaliste = 'hnkzg'"
+            >
+              Iskoristite ponudu
+            </a>
+          </div>
+          <div
+            class="fourth flex article klub-ponuda relative column-horizontal-pad"
+          >
+            <div class="klub-ponuda-tile relative">
+              <div class="klub-sticker center">
                 <div class="full center-text klub-sticker-amount">30%</div>
                 <div class="full center-text klub-sticker-text">popust</div>
               </div>
@@ -75,9 +147,11 @@
               </div>
             </div>
             <h3 class="full overtitle">Kazalište Gavella</h3>
-            <h2 class="full">
-              Popust na ulaznice za predstave kazališta Gavella
-            </h2>
+            <a href="#kazalista" @click="selected_kazaliste = 'gavella'">
+              <h2 class="full">
+                Popust na ulaznice za predstave kazališta Gavella
+              </h2>
+            </a>
             <a
               href="#kazalista"
               class="newbtn clickable"
@@ -104,7 +178,9 @@
               </div>
             </div>
             <h3 class="full overtitle">Zagrebačko kazalište mladih</h3>
-            <h2 class="full">Popust na ulaznice za ZKM-ove predstave</h2>
+            <a href="#kazalista" @click="selected_kazaliste = 'zkm'">
+              <h2 class="full">Popust na ulaznice za ZKM-ove predstave</h2></a
+            >
             <a
               href="#kazalista"
               class="newbtn clickable"
@@ -118,7 +194,7 @@
           >
             <div class="klub-ponuda-tile relative">
               <div class="klub-sticker center">
-                <div class="full center-text klub-sticker-amount">30%</div>
+                <div class="full center-text klub-sticker-amount">30kn</div>
                 <div class="full center-text klub-sticker-text">popust</div>
               </div>
               <div class="full center">
@@ -129,7 +205,11 @@
               </div>
             </div>
             <h3 class="full overtitle">Kazalište Kerempuh</h3>
-            <h2 class="full">Popust na ulaznice za Kerempuhove predstave</h2>
+            <a href="#kazalista" @click="selected_kazaliste = 'kerempuh'">
+              <h2 class="full">
+                Popust na ulaznice za Kerempuhove predstave
+              </h2></a
+            >
             <a
               href="#kazalista"
               class="newbtn clickable"
@@ -154,9 +234,11 @@
               </div>
             </div>
             <h3 class="full overtitle">Kazalište Komedija</h3>
-            <h2 class="full">
-              Popust na ulaznice za predstave Kazališta Komedije
-            </h2>
+            <a href="#kazalista" @click="selected_kazaliste = 'komedija'">
+              <h2 class="full">
+                Popust na ulaznice za predstave Kazališta Komedije
+              </h2></a
+            >
             <a
               href="#kazalista"
               class="newbtn clickable"
@@ -181,9 +263,11 @@
               </div>
             </div>
             <h3 class="full overtitle">Kazalište HNK Varaždin</h3>
-            <h2 class="full">
-              Popust na ulaznice za predstave kazališta HNK Varaždin
-            </h2>
+            <a href="#kazalista" @click="selected_kazaliste = 'hnkvz'">
+              <h2 class="full">
+                Popust na ulaznice za predstave kazališta HNK Varaždin
+              </h2></a
+            >
             <a
               href="#kazalista"
               class="newbtn clickable"
@@ -208,9 +292,12 @@
               </div>
             </div>
             <h3 class="full overtitle">Kazalište Marina Držića Dubrovnik</h3>
-            <h2 class="full">
-              Popust na ulaznice za predstave kazališta Marin Držić u Dubrovniku
-            </h2>
+            <a href="#kazalista" @click="selected_kazaliste = 'kmd'">
+              <h2 class="full">
+                Popust na ulaznice za predstave kazališta Marin Držić u
+                Dubrovniku
+              </h2></a
+            >
             <a
               href="#kazalista"
               class="newbtn clickable"
@@ -229,19 +316,21 @@
               </div>
               <div class="full center">
                 <img
-                  src="@/assets/img/extras/klub/tg_visual_klub_lisinski.jpg"
+                  src="@/assets/img/extras/klub/tg_visual_klub_hnko.jpg"
                   aria-hidden="true"
                 />
               </div>
             </div>
-            <h3 class="full overtitle">Koncertna dvorana Vatroslav Lisinski</h3>
-            <h2 class="full">
-              Popust na ulaznice za pojedinačne koncerte u Dvorani Lisinski
-            </h2>
+            <h3 class="full overtitle">HNK Osijek</h3>
+            <a href="#kazalista" @click="selected_kazaliste = 'hnko'">
+              <h2 class="full">
+                Popust na ulaznice za predstave kazališta HNK Osijek
+              </h2></a
+            >
             <a
               href="#kazalista"
               class="newbtn clickable"
-              @click="selected_kazaliste = 'lisinski'"
+              @click="selected_kazaliste = 'hnko'"
             >
               Iskoristite ponudu
             </a>
@@ -251,6 +340,53 @@
     </div>
     <!-- Kazalista expandables -->
     <div id="kazalista" class="full flex fake-inpage-anchor"></div>
+    <div
+      v-if="selected_kazaliste === 'hnkzg'"
+      id="hnkzg"
+      class="full flex relative klub-expanded"
+    >
+      <div class="container flex relative stretch mobile-side-pad">
+        <div class="close-klub-expand" @click="selected_kazaliste = ''">x</div>
+        <div class="third center flex-responsive column-left-pad">
+          <img
+            src="@/assets/img/extras/klub/tg_visual_klub_hnkzg.jpg"
+            aria-hidden="true"
+          />
+        </div>
+        <div class="two-thirds center flex-responsive article">
+          <h3 class="full overtitle">HNK Zagreb</h3>
+          <h2 class="full">
+            Popust na ulaznice za predstave kazališta HNK Zagreb
+          </h2>
+          <h4 class="full">
+            Telegramovi pretplatnici ostvaruju kupnju ulaznica uz 20% popusta na
+            reprizne predstave (osim predstava Orašar i posebnih programa
+            kazališta)
+          </h4>
+          <div v-show="!canLogIn" class="full flex">
+            <p class="full bold">Kako do popusta?</p>
+            <p class="full small-top-margin">
+              Kako biste ostvarili svoj popust, posjetite blagajnu kazališta i
+              pokažite svoju digitalnu pretplatničku iskaznicu, koju možete
+              preuzeti.
+              <a href="#iskaznica">ovdje.</a>
+            </p>
+          </div>
+          <div v-show="canLogIn" class="full flex">
+            <p class="full bold">
+              Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
+              pretplatnicima.
+            </p>
+            <app-link to="/pretplata" class="newbtn huge-newbtn"
+              >Pretplatite se</app-link
+            >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
     <div
       v-if="selected_kazaliste === 'kerempuh'"
       id="kerempuh"
@@ -268,16 +404,22 @@
           <h3 class="full overtitle">Kazalište Kerempuh</h3>
           <h2 class="full">Popust na ulaznice za Kerempuhove predstave</h2>
           <h4 class="full">
-            Telegramovi pretplatnici ostvaruju 30% popusta na ulaznice za sve
+            Telegramovi pretplatnici ostvaruju 30kn popusta na ulaznice za sve
             predstave u Kerempuhu.
           </h4>
           <div v-show="!canLogIn" class="full flex">
             <p class="full bold">Kako do popusta?</p>
             <p class="full">
               Kako biste ostvarili svoj popust, posjetite web stranicu za online
-              kupnju ulaznica i upišite kod ___________.
+              kupnju ulaznica i upišite kod <b>GSKK1964</b>.
             </p>
-            <p class="full">
+            <a
+              href="https://kazalistekerempuh.hr/raspored-predstava/"
+              target="_blank"
+              class="newbtn huge-newbtn"
+              >Kupite ovdje</a
+            >
+            <p class="full small-top-margin">
               Možete posjetiti i jednu od blagajni kazališta i pokazati svoju
               digitalnu pretplatničku iskaznicu, koju možete preuzeti
               <a href="#iskaznica">ovdje.</a>
@@ -290,6 +432,9 @@
             </p>
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
+            >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
             >
           </div>
         </div>
@@ -341,6 +486,9 @@
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
             >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
+            >
           </div>
         </div>
       </div>
@@ -361,11 +509,12 @@
         <div class="two-thirds center flex-responsive article">
           <h3 class="full overtitle">Kazalište Komedija</h3>
           <h2 class="full">
-            Popust na ulaznice za predstave Kazališta Komedije
+            Popust na ulaznice za predstave kazališta Komedije
           </h2>
           <h4 class="full">
-            Telegramovi pretplatnici ostvaruju 10 % popusta na ulaznice za sve
-            predstave u Kazalištu Komedija.
+            Telegramovi pretplatnici ostvaruju 10% popusta na ulaznice za sve
+            predstave u kazalištu Komedija (popust ne vrijedi za Klub Kazališta
+            Komedija - Kontesa).
           </h4>
           <div v-show="!canLogIn" class="full flex">
             <p class="full bold">Kako do popusta?</p>
@@ -373,17 +522,17 @@
               Kako biste ostvarili svoj popust, posjetite web stranicu za online
               kupnju ulaznica i upišite kod <b>TELEGRAM10</b>.
             </p>
-            <p class="full">
-              Možete posjetiti i jednu od blagajni kazališta i pokazati svoju
-              digitalnu pretplatničku iskaznicu, koju možete preuzeti
-              <a href="#iskaznica">ovdje.</a>
-            </p>
             <a
               href="https://ulaznice.hr/r/Kazaliste_Komedija"
               target="_blank"
               class="newbtn huge-newbtn"
               >Kupite ovdje</a
             >
+            <p class="full small-top-margin">
+              Možete posjetiti i jednu od blagajni kazališta i pokazati svoju
+              digitalnu pretplatničku iskaznicu, koju možete preuzeti
+              <a href="#iskaznica">ovdje.</a>
+            </p>
           </div>
           <div v-show="canLogIn" class="full flex">
             <p class="full bold">
@@ -392,6 +541,9 @@
             </p>
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
+            >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
             >
           </div>
         </div>
@@ -417,14 +569,25 @@
           </h2>
           <h4 class="full">
             Telegramovi pretplatnici ostvaruju 50 % popusta na ulaznice za sve
-            predstave u Kazalištu Marina Držića u Dubrovniku.
+            predstave u Kazalištu Marina Držića u Dubrovniku. (popust ne vrijedi
+            za premijere predstava)
           </h4>
           <div v-show="!canLogIn" class="full flex">
             <p class="full bold">Kako do popusta?</p>
             <p class="full">
-              Kako biste ostvarili svoj popust, posjetite blagajnu kazališta i
-              pokažite svoju digitalnu pretplatničku iskaznicu, koju možete
-              preuzeti <a href="#iskaznica">ovdje.</a>
+              Kako biste ostvarili svoj popust, posjetite web stranicu za online
+              kupnju ulaznica i upišite kod <b>KMDXTELEGRAM50</b>.
+            </p>
+            <a
+              href="https://www.ulaznice.hr/web/regular/16874417"
+              target="_blank"
+              class="newbtn huge-newbtn"
+              >Kupite ovdje</a
+            >
+            <p class="full small-top-margin">
+              Možete posjetiti i jednu od blagajni kazališta i pokazati svoju
+              digitalnu pretplatničku iskaznicu, koju možete preuzeti
+              <a href="#iskaznica">ovdje.</a>
             </p>
           </div>
           <div v-show="canLogIn" class="full flex">
@@ -434,6 +597,9 @@
             </p>
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
+            >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
             >
           </div>
         </div>
@@ -487,6 +653,9 @@
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
             >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
+            >
           </div>
         </div>
       </div>
@@ -529,38 +698,42 @@
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
             >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
+            >
           </div>
         </div>
       </div>
     </div>
     <div
-      v-if="selected_kazaliste === 'lisinski'"
-      id="lisinski"
+      v-if="selected_kazaliste === 'hnko'"
+      id="gavella"
       class="full flex relative klub-expanded"
     >
       <div class="container flex relative stretch mobile-side-pad">
         <div class="close-klub-expand" @click="selected_kazaliste = ''">x</div>
         <div class="third center flex-responsive column-left-pad">
           <img
-            src="@/assets/img/extras/klub/tg_visual_klub_lisinski.jpg"
+            src="@/assets/img/extras/klub/tg_visual_klub_hnko.jpg"
             aria-hidden="true"
           />
         </div>
         <div class="two-thirds center flex-responsive article">
-          <h3 class="full overtitle">Koncertna dvorana Vatroslav Lisinski</h3>
+          <h3 class="full overtitle">HNK Osijek</h3>
           <h2 class="full">
-            Popust na ulaznice za pojedinačne koncerte u Dvorani Lisinski
+            Popust na ulaznice za predstave kazališta HNK Osijek
           </h2>
           <h4 class="full">
-            Telegramovi pretplatnici ostvaruju 20 % popusta na ulaznice za
-            pojedinačne događaje u organizaciji dvorane Lisinski.
+            Telegramovi pretplatnici ostvaruju kupnju ulaznica po cijeni od 50
+            kuna za predstave u HNK Osijek (popust se ne odnosi na premijere i
+            gostujuće predstave te na Novogodišnji koncert)
           </h4>
           <div v-show="!canLogIn" class="full flex">
             <p class="full bold">Kako do popusta?</p>
             <p class="full">
-              Kako biste ostvarili svoj popust, posjetite blagajnu dvorane
-              Lisinski i pokažite svoju digitalnu pretplatničku iskaznicu, koju
-              možete preuzeti <a href="#iskaznica">ovdje.</a>
+              Kako biste ostvarili svoj popust, posjetite blagajnu kazališta i
+              pokažite svoju digitalnu pretplatničku iskaznicu, koju možete
+              preuzeti <a href="#iskaznica">ovdje.</a>
             </p>
           </div>
           <div v-show="canLogIn" class="full flex">
@@ -570,6 +743,9 @@
             </p>
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
+            >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
             >
           </div>
         </div>
@@ -601,7 +777,11 @@
               </div>
             </div>
             <h3 class="full overtitle">Fraktura</h3>
-            <h2 class="full">Popust na odabrane naslove knjižare Fraktura</h2>
+            <a href="#knjizare" @click="selected_knjizara = 'fraktura'">
+              <h2 class="full">
+                Popust na odabrane naslove knjižare Fraktura
+              </h2></a
+            >
             <a
               href="#knjizare"
               class="newbtn clickable"
@@ -626,7 +806,11 @@
               </div>
             </div>
             <h3 class="full overtitle">Knjižara Ljevak</h3>
-            <h2 class="full">Popust na odabrane naslove knjižare Ljevak</h2>
+            <a href="#knjizare" @click="selected_knjizara = 'ljevak'">
+              <h2 class="full">
+                Popust na odabrane naslove knjižare Ljevak
+              </h2></a
+            >
             <a
               href="#knjizare"
               class="newbtn clickable"
@@ -651,7 +835,9 @@
               </div>
             </div>
             <h3 class="full overtitle">Hoću knjigu</h3>
-            <h2 class="full">Popust na naslove u knjižari Hoću knjigu</h2>
+            <a href="#knjizare" @click="selected_knjizara = 'hocuknjigu'">
+              <h2 class="full">Popust na naslove u knjižari Hoću knjigu</h2></a
+            >
             <a
               href="#knjizare"
               class="newbtn clickable"
@@ -676,7 +862,9 @@
               </div>
             </div>
             <h3 class="full overtitle">Školska knjiga</h3>
-            <h2 class="full">Popust na naslove izdavača Školska knjiga</h2>
+            <a href="#knjizare" @click="selected_knjizara = 'sk'">
+              <h2 class="full">Popust na naslove izdavača Školska knjiga</h2></a
+            >
             <a
               href="#knjizare"
               class="newbtn clickable"
@@ -700,10 +888,10 @@
                 />
               </div>
             </div>
-            <h3 class="full overtitle">Telegram Media Grupa</h3>
-            <h2 class="full">
-              Popust na naslove izdavača Telegram Media Grupa
-            </h2>
+            <h3 class="full overtitle">Telegram</h3>
+            <a href="#knjizare" @click="selected_knjizara = 'telegram'">
+              <h2 class="full">Popust na naslove izdavača Telegram</h2></a
+            >
             <a
               href="#knjizare"
               class="newbtn clickable"
@@ -780,7 +968,7 @@
               želite kupiti i pri odabiru načina plaćanja upišite kod
               <b>TELEGRAM22</b>.
             </p>
-            <p class="full">
+            <p class="full small-top-margin">
               Možete posjetiti i knjižaru Fraktura i pokazati svoju digitalnu
               pretplatničku iskaznicu, koju možete preuzeti
               <a href="#iskaznica">ovdje.</a>
@@ -793,6 +981,9 @@
             </p>
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
+            >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
             >
           </div>
         </div>
@@ -815,8 +1006,9 @@
           <h3 class="full overtitle">Školska knjiga</h3>
           <h2 class="full">Popust na naslove izdavača Školska knjiga</h2>
           <h4 class="full">
-            Telegramovi pretplatnici ostvaruju dodatnih 10% popusta na naslove u
-            ponudi Školske knjige.
+            Telegramovi pretplatnici ostvaruju 10% popusta na naslove Školske
+            knjige i Lumen izdavaštva (popust se ne odnosi na udžbenike,
+            didaktiku i već sniženi asortiman.)
           </h4>
           <div v-show="!canLogIn" class="full flex">
             <p class="full bold">Kako do popusta?</p>
@@ -833,6 +1025,9 @@
             </p>
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
+            >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
             >
           </div>
         </div>
@@ -855,8 +1050,9 @@
           <h3 class="full overtitle">Hoću knjigu</h3>
           <h2 class="full">Popust na naslove u knjižari Hoću knjigu</h2>
           <h4 class="full">
-            Telegramovi pretplatnici ostvaruju dodatnih 10% popusta na naslove u
-            ponudi Hoću knjigu.
+            Telegramovi pretplatnici ostvaruju 10% popusta na naslove u ponudi
+            Hoću knjigu (popust se ne odnosi na udžbenike, stručnu literaturu i
+            već sniženi asortiman).
           </h4>
           <div v-show="!canLogIn" class="full flex">
             <p class="full bold">Kako do popusta?</p>
@@ -885,6 +1081,9 @@
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
             >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
+            >
           </div>
         </div>
       </div>
@@ -906,15 +1105,15 @@
           <h3 class="full overtitle">Knjižara Ljevak</h3>
           <h2 class="full">Popust na odabrane naslove knjižare Ljevak</h2>
           <h4 class="full">
-            Telegramovi pretplatnici ostvaruju dodatnih 10% popusta na naslove
-            knjižare Ljevak uz minimalnu narudžbu od 100 kuna.
+            Telegramovi pretplatnici ostvaruju 10% popusta na knjige Naklade
+            Ljevak uz minimalnu narudžbu od 100 kuna.
           </h4>
           <div v-show="!canLogIn" class="full flex">
             <p class="full bold">Kako do popusta?</p>
             <p class="full">
               Kako biste ostvarili svoj popust, posjetite link knjige koju
               želite kupiti i pri odabiru načina plaćanja upišite kod
-              <b>TELEGRAM10</b>.
+              <b>TELEGRAM</b>.
             </p>
             <a
               href="https://www.ljevak.hr/"
@@ -935,6 +1134,9 @@
             </p>
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
+            >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
             >
           </div>
         </div>
@@ -995,6 +1197,100 @@
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
             >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Koncerti -->
+    <div class="full flex relative mobile-side-pad">
+      <div class="container flex relative">
+        <div class="full column-horizontal-pad column-top-pad">
+          <div class="full cantha-separator"></div>
+        </div>
+        <h3 class="full center-text column-full-pad subsection-title">
+          Koncerti
+        </h3>
+        <div class="full flex relative stretch mobile-native-slider">
+          <div
+            class="fourth flex article klub-ponuda relative column-horizontal-pad"
+          >
+            <div class="klub-ponuda-tile relative">
+              <div class="klub-sticker center">
+                <div class="full center-text klub-sticker-amount">20%</div>
+                <div class="full center-text klub-sticker-text">popust</div>
+              </div>
+              <div class="full center">
+                <img
+                  src="@/assets/img/extras/klub/tg_visual_klub_lisinski.jpg"
+                  aria-hidden="true"
+                />
+              </div>
+            </div>
+            <h3 class="full overtitle">Koncertna dvorana Vatroslav Lisinski</h3>
+            <a href="#koncerti" @click="selected_koncert = 'lisinski'">
+              <h2 class="full">
+                Popust na ulaznice za koncerte u Koncertnoj dvorani Vatroslava
+                Lisinskog
+              </h2></a
+            >
+            <a
+              href="#koncerti"
+              class="newbtn clickable"
+              @click="selected_koncert = 'lisinski'"
+            >
+              Iskoristite ponudu
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Koncerti expandable -->
+    <div id="koncerti" class="full flex fake-inpage-anchor"></div>
+    <div
+      v-if="selected_koncert === 'lisinski'"
+      id="lisinski"
+      class="full flex relative klub-expanded"
+    >
+      <div class="container flex relative stretch mobile-side-pad">
+        <div class="close-klub-expand" @click="selected_koncert = ''">x</div>
+        <div class="third center flex-responsive column-left-pad">
+          <img
+            src="@/assets/img/extras/klub/tg_visual_klub_lisinski.jpg"
+            aria-hidden="true"
+          />
+        </div>
+        <div class="two-thirds center flex-responsive article">
+          <h3 class="full overtitle">Koncertna dvorana Vatroslav Lisinski</h3>
+          <h2 class="full">
+            Popust na ulaznice za koncerte u Koncertnoj dvorani Vatroslava
+            Lisinskog
+          </h2>
+          <h4 class="full">
+            Telegramovi pretplatnici ostvaruju 20 % popusta na ulaznice za
+            događaje u organizaciji Koncertne dvorane Vatroslava Lisinskog.
+          </h4>
+          <div v-show="!canLogIn" class="full flex">
+            <p class="full bold">Kako do popusta?</p>
+            <p class="full">
+              Kako biste ostvarili svoj popust, posjetite blagajnu dvorane
+              Lisinski i pokažite svoju digitalnu pretplatničku iskaznicu, koju
+              možete preuzeti <a href="#iskaznica">ovdje.</a>
+            </p>
+          </div>
+          <div v-show="canLogIn" class="full flex">
+            <p class="full bold">
+              Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
+              pretplatnicima.
+            </p>
+            <app-link to="/pretplata" class="newbtn huge-newbtn"
+              >Pretplatite se</app-link
+            >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
+            >
           </div>
         </div>
       </div>
@@ -1025,7 +1321,11 @@
               </div>
             </div>
             <h3 class="full overtitle">Muzej Suvremene Umjetnosti</h3>
-            <h2 class="full">Popust na ulaznice za MSU izložbe i događaje</h2>
+            <a href="#muzeji" @click="selected_muzej = 'msu'">
+              <h2 class="full">
+                Popust na ulaznice za MSU izložbe i događaje
+              </h2></a
+            >
             <a
               href="#muzeji"
               class="newbtn clickable"
@@ -1052,9 +1352,11 @@
               </div>
             </div>
             <h3 class="full overtitle">Muzej prekinutih veza</h3>
-            <h2 class="full">
-              Popust na ulaznice za izložbe Muzeja prekinutih veza
-            </h2>
+            <a href="#muzeji" @click="selected_muzej = 'veza'">
+              <h2 class="full">
+                Popust na ulaznice za izložbe Muzeja prekinutih veza
+              </h2></a
+            >
             <a
               href="#muzeji"
               class="newbtn clickable"
@@ -1081,9 +1383,11 @@
               </div>
             </div>
             <h3 class="full overtitle">Arheološki muzej</h3>
-            <h2 class="full">
-              Popust na ulaznice za park Arheološkog muzeja u Zagrebu
-            </h2>
+            <a href="#muzeji" @click="selected_muzej = 'amz'">
+              <h2 class="full">
+                Popust na ulaznice za park Arheološkog muzeja u Zagrebu
+              </h2></a
+            >
             <a
               href="#muzeji"
               class="newbtn clickable"
@@ -1097,9 +1401,7 @@
           >
             <div class="klub-ponuda-tile relative">
               <div class="klub-sticker center">
-                <div class="full center-text klub-sticker-amount">
-                  10<span class="klub-sticker-smaller">kn</span>
-                </div>
+                <div class="full center-text klub-sticker-amount">20%</div>
                 <div class="full center-text klub-sticker-text">popust</div>
               </div>
               <div class="full center">
@@ -1110,7 +1412,11 @@
               </div>
             </div>
             <h3 class="full overtitle">Muzej iluzija</h3>
-            <h2 class="full">Popust na ulaznice za izložbu Muzeja iluzija</h2>
+            <a href="#muzeji" @click="selected_muzej = 'iluzija'">
+              <h2 class="full">
+                Popust na ulaznice za izložbu Muzeja iluzija
+              </h2></a
+            >
             <a
               href="#muzeji"
               class="newbtn clickable"
@@ -1137,9 +1443,11 @@
               </div>
             </div>
             <h3 class="full overtitle">Muzej Vučedolske kulture</h3>
-            <h2 class="full">
-              Popust na ulaznice za izložbe Muzeja Vučedolske kulture
-            </h2>
+            <a href="#muzeji" @click="selected_muzej = 'mvk'">
+              <h2 class="full">
+                Popust na ulaznice za izložbe Muzeja Vučedolske kulture
+              </h2></a
+            >
             <a
               href="#muzeji"
               class="newbtn clickable"
@@ -1170,8 +1478,8 @@
           <h3 class="full overtitle">Muzej Suvremene Umjetnosti</h3>
           <h2 class="full">Popust na ulaznice za MSU izložbe i događaje</h2>
           <h4 class="full">
-            Telegramovi pretplatnici ostvaruju 30% popusta na izložbe i događaje
-            MSU-a.
+            Telegramovi pretplatnici od listopada ostvaruju 30% popusta na
+            izložbe i događaje MSU-a.
           </h4>
           <div v-show="!canLogIn" class="full flex">
             <p class="full bold">Kako do popusta?</p>
@@ -1188,6 +1496,9 @@
             </p>
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
+            >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
             >
           </div>
         </div>
@@ -1231,6 +1542,9 @@
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
             >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
+            >
           </div>
         </div>
       </div>
@@ -1272,6 +1586,9 @@
             </p>
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
+            >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
             >
           </div>
         </div>
@@ -1315,6 +1632,9 @@
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
             >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
+            >
           </div>
         </div>
       </div>
@@ -1336,7 +1656,7 @@
           <h3 class="full overtitle">Muzej iluzija</h3>
           <h2 class="full">Popust na ulaznice za izložbu Muzeja iluzija</h2>
           <h4 class="full">
-            Telegramovi pretplatnici ostvaruju 10 kuna popusta na izložbe Muzeja
+            Telegramovi pretplatnici ostvaruju 20% popusta na izložbe Muzeja
             iluzija.
           </h4>
           <div v-show="!canLogIn" class="full flex">
@@ -1355,12 +1675,16 @@
             <app-link to="/pretplata" class="newbtn huge-newbtn"
               >Pretplatite se</app-link
             >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
+            >
           </div>
         </div>
       </div>
     </div>
+    <!-- Iskaznica -->
     <div id="iskaznica" class="full flex fake-inpage-anchor"></div>
-    <div v-show="!canLogIn" class="full flex relative mobile-side-pad">
+    <div v-show="user.access" class="full flex relative mobile-side-pad">
       <div class="container flex relative column-bottom-pad">
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
@@ -1369,29 +1693,43 @@
           Vaša klub iskaznica
         </h3>
         <div class="full center relative">
-          <div class="klub-card flex stretch relative">
-            <div class="full flex center">
-              <img
-                src="@/assets/img/telegram_logo_white.svg"
-                alt="Telegram logo"
-              />
-              <div class="full flex klub-card-content">
-                <p class="full center-text">{{ subscriber_klub_ime }}</p>
-                <p class="full center-text">ID {{ subscriber_klub_id }}</p>
-                <p class="full center-text">
-                  Datum isteka: {{ subscriber_klub_expiration }}
-                </p>
+          <client-only>
+            <div class="klub-card flex stretch relative">
+              <div class="full flex center">
+                <img
+                  src="@/assets/img/telegram_logo_white.svg"
+                  alt="Telegram logo"
+                />
+                <div class="full flex klub-card-content">
+                  <p class="full center-text">
+                    {{ user.first_name }} {{ user.last_name }}
+                  </p>
+                  <p class="full center-text">ID {{ user.uid }}</p>
+                  <p class="full center-text">
+                    Datum isteka:
+                    {{
+                      user.expiry_date
+                        ? new Date(user.expiry_date * 1000).toLocaleDateString(
+                            'hr-hr'
+                          )
+                        : 'Neograničeno'
+                    }}
+                  </p>
+                </div>
               </div>
+              <div class="full flex center klub-qr">
+                <img
+                  v-if="user.uid"
+                  :src="`https://pretplate.telegram.hr/qrcode/${user.uid}`"
+                />
+              </div>
+              <img
+                src="@/assets/img/tg_bg_fancyarc.jpg"
+                aria-hidden="true"
+                class="img-as-bg"
+              />
             </div>
-            <div class="full flex center klub-qr">
-              <img src="@/assets/img/extras/klub/tg_qr_klub.png" />
-            </div>
-            <img
-              src="@/assets/img/tg_bg_fancyarc.jpg"
-              aria-hidden="true"
-              class="img-as-bg"
-            />
-          </div>
+          </client-only>
         </div>
         <div class="full center">
           <p class="full faded center-text klub-disclaimer">
@@ -1401,6 +1739,7 @@
         </div>
       </div>
     </div>
+    <div class="full flex small-top-margin"></div>
     <!-- Footer -->
     <tfooter></tfooter>
   </div>
@@ -1414,18 +1753,28 @@ export default {
       selected_kazaliste: '',
       selected_knjizara: '',
       selected_muzej: '',
-      subscriber_klub_ime: 'Pero Perić',
-      subscriber_klub_id: '42069',
-      subscriber_klub_expiration: '01.01.2023.',
+      selected_koncert: '',
     }
   },
   computed: {
     canLogIn() {
       return this.$store.state.user.exp * 1000 < new Date().getTime()
     },
+    user() {
+      return this.$store.state.user
+    },
+    qr() {
+      const img = this.$axios.$get(`/pretplate/qrcode/${this.user.uid}`)
+      return img.img
+    },
   },
   mounted() {
     this.$store.dispatch('newsletters/checkAccess', this.$route.query.email)
+  },
+  methods: {
+    login() {
+      this.$store.dispatch('user/login')
+    },
   },
   head() {
     const link = [
@@ -1436,18 +1785,18 @@ export default {
       },
     ]
     return {
-      title: 'Telegram Klub - ekskluzivne ponude za pretplatnike',
+      title: 'Telegram Klub - popusti i ponude za pretplatnike',
       titleTemplate: '%s | Telegram.hr',
       meta: [
         {
           hid: 'cXenseParse:image',
           name: 'cXenseParse:image',
-          content: require('~/assets/img/tg_share_newsletter.jpg'),
+          content: require('~/assets/img/tg_klub_share.jpg'),
         },
         {
           hid: 'cXenseParse:title',
           name: 'cXenseParse:title',
-          content: 'Telegram Klub - ekskluzivne ponude za pretplatnike',
+          content: 'Telegram Klub - popusti i ponude za pretplatnike',
         },
         {
           hid: 'description',
@@ -1469,12 +1818,12 @@ export default {
         {
           hid: 'og:title',
           property: 'og:title',
-          content: 'Telegram, svaki dan u vašem inboxu',
+          content: 'Telegram Klub - popusti i ponude za pretplatnike',
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: require('~/assets/img/tg_share_newsletter.jpg'),
+          content: require('~/assets/img/tg_klub_share.jpg'),
         },
         {
           hid: 'og:image:width',
@@ -1489,7 +1838,7 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/newsletters',
+          content: 'https://www.telegram.hr/klub',
         },
         {
           hid: 'fb:app_id',

@@ -231,6 +231,15 @@
           <h3>Info</h3>
           <app-link
             role="menuitem"
+            to="/pretplata"
+            @click.native="maybeCloseSide"
+            >Pretplata</app-link
+          >
+          <app-link role="menuitem" to="/klub" @click.native="maybeCloseSide"
+            >Klub</app-link
+          >
+          <app-link
+            role="menuitem"
             to="/stranica/impressum"
             @click.native="maybeCloseSide"
             >Impressum</app-link
@@ -271,15 +280,45 @@
             <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon>
           </a>
           <div class="menu flex" role="menu">
-            <app-link role="menuitem" to="/politika-kriminal"
+            <app-link
+              role="menuitem"
+              to="/politika-kriminal"
+              @click.native="maybeCloseSide"
               >Politika & Kriminal</app-link
             >
-            <app-link role="menuitem" to="/komentari">Komentari</app-link>
-            <app-link role="menuitem" to="/biznis-tech">Biznis & Tech</app-link>
-            <app-link role="menuitem" to="/velike-price">Velike priče</app-link>
-            <app-link role="menuitem" to="/zivot">Život</app-link>
-            <app-link role="menuitem" to="/kultura">Kultura</app-link>
-            <app-link role="menuitem" to="/openspace">Openspace</app-link>
+            <app-link
+              role="menuitem"
+              to="/komentari"
+              @click.native="maybeCloseSide"
+              >Komentari</app-link
+            >
+            <app-link
+              role="menuitem"
+              to="/biznis-tech"
+              @click.native="maybeCloseSide"
+              >Biznis & Tech</app-link
+            >
+            <app-link
+              role="menuitem"
+              to="/velike-price"
+              @click.native="maybeCloseSide"
+              >Velike priče</app-link
+            >
+            <app-link role="menuitem" to="/zivot" @click.native="maybeCloseSide"
+              >Život</app-link
+            >
+            <app-link
+              role="menuitem"
+              to="/kultura"
+              @click.native="maybeCloseSide"
+              >Kultura</app-link
+            >
+            <app-link
+              role="menuitem"
+              to="/openspace"
+              @click.native="maybeCloseSide"
+              >Openspace</app-link
+            >
             <a href="https://super1.telegram.hr" role="menuitem">Super1</a>
             <a href="https://telesport.telegram.hr" role="menuitem">
               Telesport
@@ -588,15 +627,6 @@ export default {
     clearFC() {
       if (process.client) {
         this.$store.dispatch('user/checkAdmin')
-        if (!this.$cookies.get('FC_reset')) {
-          this.$cookies.remove('FCCDCF')
-          this.$cookies.set('FC_reset', 'true', {
-            value: 'true',
-            maxAge: 30 * 60 * 60 * 24,
-            path: '/',
-            domain: '.telegram.hr',
-          })
-        }
       }
     },
     handleScroll() {
