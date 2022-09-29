@@ -9538,6 +9538,10 @@ h3.subsection-title .spar-line img {
   .mobile-sticky-nav a.mob-nav-otherbtn, .mobile-sticky-nav a:first-child, header a.mob-nav-otherbtn, header a:first-child {
     top: calc(var(--ion-safe-area-top) + 16px);
   }
+
+  .mobile-app-stickynav {
+    min-height: calc(var(--ion-safe-area-bottom) + 72px);
+  }
 }
 
 /* New user pretplata promo */
