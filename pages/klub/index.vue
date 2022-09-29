@@ -900,6 +900,33 @@
               Iskoristite ponudu
             </a>
           </div>
+          <div
+            class="fourth flex article klub-ponuda relative column-horizontal-pad"
+          >
+            <div class="klub-ponuda-tile relative">
+              <div class="klub-sticker center">
+                <div class="full center-text klub-sticker-amount">10%</div>
+                <div class="full center-text klub-sticker-text">popust</div>
+              </div>
+              <div class="full center">
+                <img
+                  src="@/assets/img/extras/klub/tg_visual_klub_eknjiga.jpg"
+                  aria-hidden="true"
+                />
+              </div>
+            </div>
+            <h3 class="full overtitle">eknjiga.hr</h3>
+            <a href="#knjizare" @click="selected_knjizara = 'eknjiga'">
+              <h2 class="full">Popust na e-knjige</h2></a
+            >
+            <a
+              href="#knjizare"
+              class="newbtn clickable"
+              @click="selected_knjizara = 'eknjiga'"
+            >
+              Iskoristite ponudu
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -1188,6 +1215,49 @@
                 >
               </li>
             </ul>
+          </div>
+          <div v-show="canLogIn" class="full flex">
+            <p class="full bold">
+              Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
+              pretplatnicima.
+            </p>
+            <app-link to="/pretplata" class="newbtn huge-newbtn"
+              >Pretplatite se</app-link
+            >
+            <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+              >Prijava</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      v-if="selected_knjizara === 'eknjiga'"
+      id="eknjiga"
+      class="full flex relative klub-expanded"
+    >
+      <div class="container flex relative stretch mobile-side-pad">
+        <div class="close-klub-expand" @click="selected_knjizara = ''">x</div>
+        <div class="third center flex-responsive column-left-pad">
+          <img
+            src="@/assets/img/extras/klub/tg_visual_klub_eknjiga.jpg"
+            aria-hidden="true"
+          />
+        </div>
+        <div class="two-thirds center flex-responsive article">
+          <h3 class="full overtitle">eknjiga.hr</h3>
+          <h2 class="full">Popust na e-knjige</h2>
+          <h4 class="full">
+            Telegramovi pretplatnici ostvaruju 10% popusta za kupnju u
+            vrijednosti od najmanje 100kn.
+          </h4>
+          <div v-show="!canLogIn" class="full flex">
+            <p class="full bold">Kako do popusta?</p>
+            <p class="full">
+              Kako biste ostvarili svoj popust, posjetite link knjige koju
+              želite kupiti i pri odabiru načina plaćanja upišite kod
+              <b>telegram22</b>
+            </p>
           </div>
           <div v-show="canLogIn" class="full flex">
             <p class="full bold">

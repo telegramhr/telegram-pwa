@@ -9675,6 +9675,12 @@ h3.subsection-title .spar-line img {
     margin-top: -54px;
     margin-bottom: 24px;
 }
+.os-calculator-subtitle {
+    font-size: 22px;
+    font-size: 1.1rem;
+    font-family: 'Barlow', sans-serif;
+    margin-bottom: 4px;
+}
 .os-calculator-description {
     opacity: .7;
     font-size: 16px;
