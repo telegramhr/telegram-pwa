@@ -9542,6 +9542,14 @@ h3.subsection-title .spar-line img {
   .mobile-app-stickynav {
     min-height: calc(var(--ion-safe-area-bottom) + 72px);
   }
+
+  .side-menu-exit {
+    top: calc(var(--ion-safe-area-top) + 16px);
+  }
+
+  .side-menu .menu {
+    margin-top: calc(var(--ion-safe-area-top) + 100px);
+  }
 }
 
 /* New user pretplata promo */
