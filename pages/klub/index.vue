@@ -1258,6 +1258,12 @@
               želite kupiti i pri odabiru načina plaćanja upišite kod
               <b>telegram22</b>
             </p>
+            <a
+              href="https://eknjiga.hr/"
+              target="_blank"
+              class="newbtn huge-newbtn"
+              >Kupite ovdje</a
+            >
           </div>
           <div v-show="canLogIn" class="full flex">
             <p class="full bold">
