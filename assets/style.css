@@ -10052,6 +10052,13 @@ label.payment-tile svg {
     border-color: #111;
     background-color: #ffffff;
 }
+.contains-code-image img {
+    object-fit: contain;
+    padding: 8px;
+    background-color: white;
+    margin-top: 16px;
+}
+
 
 @media screen and (max-width: 1024px) {
     .donation-form .third {

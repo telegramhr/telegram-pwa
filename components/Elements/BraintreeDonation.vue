@@ -150,7 +150,7 @@
       </div>
       <div
         v-show="nacinPlacanja === 'bankovna-uplata'"
-        class="third flex-responsive column-horizontal-pad"
+        class="third flex-responsive column-horizontal-pad contains-code-image"
       >
         <h4 class="full">Izvršite donaciju</h4>
         <p class="small-top-margin">IBAN: HR7323600001101437160</p>
