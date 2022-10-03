@@ -9753,6 +9753,11 @@ h3.subsection-title .spar-line img {
 .os-calculator-table .column-bottom-border:last-child {
     border-bottom: none;
 }
+.os-calculator-section .underline {
+    text-decoration: underline;
+    text-decoration-color: #888;
+}
+
 @media screen and (max-width: 767px) {
     .mini-os-header img.os-header-logo {
         margin-top: 30px;
