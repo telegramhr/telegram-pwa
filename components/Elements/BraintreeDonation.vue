@@ -156,8 +156,8 @@
         <p class="small-top-margin">IBAN: HR7323600001101437160</p>
         <p>Telegram Media Grupa d.o.o.</p>
         <p>Iznos: {{ price }},00 kn</p>
-        <p>Model plaćanja: 00</p>
-        <p v-if="number">Poziv na broj</p>
+        <p v-if="number">Model plaćanja: 00</p>
+        <p v-if="number">Poziv na broj: {{ number }}</p>
         <p>Opis plaćanja: Donacija - {{ name }}</p>
         <p v-if="code"><img :src="'data:image/png;base64,' + code" /></p>
         <button @click="submitBank">Generiraj kod za plaćanje</button>
