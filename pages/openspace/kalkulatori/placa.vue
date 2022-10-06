@@ -578,7 +578,7 @@
               <div
                 class="full bold flex relative column-bottom-border column-bottom-border-mobile"
               >
-                <div class="third flex-responsive">Bruto 1</div>
+                <div class="third flex-responsive">Bruto iznos</div>
                 <div class="two-thirds flex-responsive flex">
                   <div class="third"></div>
                   <div class="third right-text">{{ brutoPlaca }} HRK</div>
@@ -695,7 +695,132 @@
                   <div class="third right-text">{{ ukupanPorezEur }} EUR</div>
                 </div>
               </div>
+              <div
+                class="full bold flex relative column-bottom-border column-bottom-border-mobile"
+              >
+                <div class="third flex-responsive">Neto iznos</div>
+                <div class="two-thirds flex-responsive flex">
+                  <div class="third"></div>
+                  <div class="third right-text">{{ netoPlaca }} HRK</div>
+                  <div class="third right-text">{{ netoPlacaEur }} EUR</div>
+                </div>
+              </div>
             </div>
+          </div>
+          <div
+            class="full column-full-pad flex-responsive flex os-calculator-section"
+          >
+            <label class="full os-calculator-title">Trošak plaće</label>
+            <div
+              class="half flex flex-responsive column-right-pad column-right-border"
+            >
+              <h4 class="full overtitle">Bruto plaća</h4>
+              <p class="full os-calculator-result">{{ brutoPlaca }} kn</p>
+              <h4 class="full overtitle">{{ brutoPlacaEur }} EUR</h4>
+            </div>
+            <div
+              class="full flex mobile-only column-bottom-border-mobile os-calculator-mobile-space"
+            ></div>
+            <div class="half flex flex-responsive column-left-pad">
+              <h4 class="full overtitle">Trošak plaće (Bruto 2)</h4>
+              <p class="full os-calculator-result">{{ brutoDva }} kn</p>
+              <h4 class="full overtitle">{{ brutoDvaEur }} EUR</h4>
+            </div>
+            <p class="full os-calculator-description">
+              Na bruto plaću poslodavac još plaća doprinos za zdravstveno
+              osiguranje, s kojim nastaje trošak plaće, ili tzv. "bruto 2"
+              iznos.
+              <a
+                href="https://gov.hr/hr/pravo-na-oslobodjenje-od-placanja-doprinosa-na-osnovicu-za-mladu-osobu/1388"
+                target="_blank"
+                class="underline"
+                >Postoji iznimka za mlade ispod 30 godina u svom prvom ugovornom
+                odnosu na neodređeno vrijeme.</a
+              >
+            </p>
+            <div class="full flex os-calculator-table column-top-border">
+              <div
+                class="full bold flex relative column-bottom-border column-bottom-border-mobile"
+              >
+                <div class="third flex-responsive">Bruto 1</div>
+                <div class="two-thirds flex-responsive flex">
+                  <div class="third"></div>
+                  <div class="third right-text">{{ brutoPlaca }} HRK</div>
+                  <div class="third right-text">{{ brutoPlacaEur }} EUR</div>
+                </div>
+              </div>
+              <div
+                class="full flex relative column-bottom-border column-bottom-border-mobile"
+              >
+                <div class="third flex-responsive">
+                  Doprinos za zdravstveno osiguranje
+                </div>
+                <div class="two-thirds flex-responsive flex">
+                  <div class="third">16.5%</div>
+                  <div class="third right-text">{{ zdravstvo }} HRK</div>
+                  <div class="third right-text">{{ zdravstvoEur }} EUR</div>
+                </div>
+              </div>
+              <div
+                class="full bold flex relative column-bottom-border column-bottom-border-mobile"
+              >
+                <div class="third flex-responsive">Bruto 2</div>
+                <div class="two-thirds flex-responsive flex">
+                  <div class="third"></div>
+                  <div class="third right-text">{{ brutoDva }} HRK</div>
+                  <div class="third right-text">{{ brutoDvaEur }} EUR</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="full column-full-pad flex-responsive flex os-calculator-section"
+          >
+            <label class="full os-calculator-title">Izvori informacija</label>
+            <a
+              class="full flex underline"
+              target="blank"
+              href="https://www.hnb.hr/-/hrvatska-uvodi-euro-1-sijecnja-2023"
+              >Tečaj: HNB</a
+            >
+            <a
+              class="full flex small-top-margin underline"
+              target="blank"
+              href="https://www.consilium.europa.eu/hr/press/press-releases/2022/07/12/croatia-set-to-join-the-euro-area-on-1-january-2023-council-adopts-final-required-legal-acts/"
+              >Tečaj: Europsko vijeće - Vijeće Europske unije</a
+            >
+            <a
+              class="full flex small-top-margin underline"
+              target="blank"
+              href="Ministarstvo financija (Porezna uprava)"
+              >Tečaj: Europska središnja banka</a
+            >
+            <a
+              class="full flex small-top-margin underline"
+              target="blank"
+              href="https://www.porezna-uprava.hr/HR_porezni_sustav/Stranice/Popisi/Stope.aspx"
+              >Prirez: Ministarstvo financija (Porezna uprava)</a
+            >
+            <a
+              class="full flex small-top-margin underline"
+              target="blank"
+              href="https://www.zakon.hr/z/365/Zakon-o-doprinosima"
+              >Zakon o doprinosima: Doprinosi za obvezno zdravstveno osiguranje
+              (članak 14.)</a
+            >
+            <a
+              class="full flex small-top-margin underline"
+              target="blank"
+              href="https://www.porezna-uprava.hr/baza_znanja/Stranice/OsobniOdbitak.aspx"
+              >Osobni odbitak: Ministarstvo financija (Porezna uprava)</a
+            >
+            <a
+              class="full flex small-top-margin underline"
+              target="blank"
+              href="https://www.porezna-uprava.hr/HR_porezni_sustav/Stranice/porez_na_dohodak.aspx"
+              >Porez na dohodak: Ministarstvo financija (Porezna uprava)</a
+            >
           </div>
         </form>
       </div>
@@ -709,7 +834,7 @@ export default {
   name: 'KalkulatorPlaca',
   data() {
     return {
-      iznos: 7056,
+      iznos: 7690,
       uzdrzavani: 0,
       djeca: 0,
       prebivaliste: 'zagreb',
@@ -1046,7 +1171,7 @@ export default {
   computed: {
     mirovinskoJedan() {
       if (this.smjerKonverzije === 'neto-u-bruto') {
-        return Number(this.iznos / 0.85 - this.iznos).toFixed(2)
+        return Number(this.dohodak * 0.1875).toFixed(2)
       } else {
         return Number(this.iznos * 0.15).toFixed(2)
       }
@@ -1056,7 +1181,7 @@ export default {
     },
     mirovinskoDva() {
       if (this.smjerKonverzije === 'neto-u-bruto') {
-        return Number(this.iznos / 0.95 - this.iznos).toFixed(2)
+        return Number(this.dohodak * 0.0625).toFixed(2)
       } else {
         return Number(this.iznos * 0.05).toFixed(2)
       }
@@ -1076,7 +1201,31 @@ export default {
     },
     dohodak() {
       if (this.smjerKonverzije === 'neto-u-bruto') {
-        return Number(Number(this.iznos) + Number(this.doprinosi)).toFixed(2)
+        if (this.poreznaOsnovicaReverse < 30001) {
+          return Number(
+            Number(this.poreznaOsnovicaReverse) /
+              Number(
+                1 -
+                  Number(
+                    Number(
+                      Number(Number(this.prirez[this.prebivaliste]) / 100) * 0.2
+                    ) + 0.2
+                  )
+              ) +
+              Number(this.osobniOdbitak)
+          ).toFixed(2)
+        } else {
+          return Number(
+            Number(
+              Number(
+                (Number(this.poreznaOsnovicaReverse) -
+                  3000 -
+                  3000 * Number(this.prirezKn)) /
+                  Number(0.7 - Number(0.3 * Number(this.prirezKn)))
+              )
+            ) + Number(this.osobniOdbitak)
+          ).toFixed(2)
+        }
       } else {
         return Number(Number(this.iznos) - Number(this.doprinosi)).toFixed(2)
       }
@@ -1189,6 +1338,17 @@ export default {
         return Number(0).toFixed(2)
       }
     },
+    poreznaOsnovicaReverse() {
+      if (this.smjerKonverzije === 'neto-u-bruto') {
+        if (Number(this.iznos) > Number(this.osobniOdbitak)) {
+          return Number(this.iznos - this.osobniOdbitak).toFixed(2)
+        } else {
+          return Number(0).toFixed(2)
+        }
+      } else {
+        return Number(0).toFixed(2)
+      }
+    },
     poreznaOsnovicaEur() {
       return Number(this.poreznaOsnovica / this.eurTecaj).toFixed(2)
     },
@@ -1239,13 +1399,6 @@ export default {
         return Number(this.dohodak - this.ukupanPorez).toFixed(2)
       }
     },
-    netoCalc() {
-      if (this.smjerKonverzije === 'neto-u-bruto') {
-        return Number(this.iznos)
-      } else {
-        return 0
-      }
-    },
     netoPlacaEur() {
       return Number(this.netoPlaca / this.eurTecaj).toFixed(2)
     },
@@ -1258,6 +1411,18 @@ export default {
     },
     brutoPlacaEur() {
       return Number(this.brutoPlaca / this.eurTecaj).toFixed(2)
+    },
+    zdravstvo() {
+      return Number(Number(Number(this.brutoPlaca) * 0.165)).toFixed(2)
+    },
+    zdravstvoEur() {
+      return Number(this.zdravstvo / this.eurTecaj).toFixed(2)
+    },
+    brutoDva() {
+      return Number(Number(this.zdravstvo) + Number(this.brutoPlaca)).toFixed(2)
+    },
+    brutoDvaEur() {
+      return Number(this.brutoDva / this.eurTecaj).toFixed(2)
     },
   },
   head() {
