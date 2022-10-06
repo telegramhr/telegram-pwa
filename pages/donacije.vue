@@ -54,10 +54,8 @@
   </div>
 </template>
 <script>
-import BraintreeDonation from '~components/Elements/BraintreeDonation.vue'
 export default {
   name: 'Pretplata',
-  components: { BraintreeDonation },
   head() {
     return {
       title: 'Telegram donacije - Zajedno možemo više. Puno više.',
@@ -82,7 +80,8 @@ export default {
           hid: 'og:image',
           name: 'og:image',
           property: 'og:image',
-          content: 'https://www.telegram.hr/wp-content/uploads/2022/10/tg-share-donacije.jpg',
+          content:
+            'https://www.telegram.hr/wp-content/uploads/2022/10/tg-share-donacije.jpg',
         },
         {
           hid: 'og:url',
