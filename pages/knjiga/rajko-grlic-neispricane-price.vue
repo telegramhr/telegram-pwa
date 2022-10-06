@@ -12,7 +12,7 @@
         class="full flex relative center knjiga-header article-head mobile-side-pad column-full-pad"
       >
         <div class="container relative flex single-article-body">
-          <h3 class="full center-text overtitle">Telegram predarudžba</h3>
+          <h3 class="full center-text overtitle">Telegram prednarudžba</h3>
           <h1 class="full center-text">Neispričane priče</h1>
           <h4 class="full center-text">
             (novo i nadopunjeno izdanje)<br />Rajko Grlić
