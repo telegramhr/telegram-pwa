@@ -8270,6 +8270,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 
 /* Super2 home */
 
+.superone {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+}
 .fancy-rubrika .subheader {
     background-color: white;
 }
@@ -8279,154 +8283,126 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .fancy-rubrika header .subheader {
     display: none;
 }
-.superone .article-standard h2, .superone .article-featured h2 {
-    font-family: henriette-compressed,sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 20px;
-    font-size: 1rem;
-    line-height: 1.2em;
-    letter-spacing: normal;
+.superone-home-header {
+    padding-top: 100px;
+    padding-bottom: 48px;
+    flex-wrap: wrap;
 }
-.superone .article-featured h2, .superone .alt-big-break h2, .superone .intro-block .two-thirds .article-featured h2 {
-    font-size: 26px;
-    font-size: 1.3rem;
+.superone-home-header .logo {
+    width: 70%;
+    height: auto;
+    max-width: 420px;
+    margin: 0 auto;
+    margin-bottom: 8px;
 }
-.superone .container .third.column-right-border:last-child, .superone .container .fourth.column-right-border:last-child {
-    border-right: none;
+.superone-home-header nav {
+    max-width: 420px;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: space-between;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 24px;
+    font-size: 1.2rem;
 }
-.superone .article h3.overtitle, .superone .article h5.article-meta {
-    font-style: normal;
-}
-.superone .page-header-nav a {
-    font-family: henriette-compressed,sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 20px;
-    font-size: 1rem;
-    margin: 0px 18px;
+.superone-home-header nav a {
     opacity: .5;
 }
-.superone .page-header-nav a:hover {
+.superone-home-header nav a:hover {
     opacity: 1;
 }
-.dark-mode .superone .fourth .article-mini .article-pad {
-    border-bottom-color: #555;
+.superone .article h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
 }
-.superone .cantha-header {
-    background-color: white;
-    padding-bottom: 4px;
-}
-.dark-mode .superone .cantha-header {
-    background-color: #212121;
-}
-.superone .cantha-header .logo {
-    width: auto;
-    max-width: 100%;
-}
-.superone .cantha-header .logo img {
-    width: 70vw;
-    max-width: 324px;
-    padding-left: 4px;
-}
-.superone .block-title, .superone .dynamic-overtitle-element, .superone .widget, .superone .widget::before, .superone .komentar .komentar-image, .superone .subtle-btn-parent:hover .subtle-btn, .superone .loader-square div {
-    background-color: #CC3366;
-}
-.superone .meta-preporuke, .superone h3.overtitle, .superone .article-mini .meta-date, .superone .related-articles h5 {
-    color: #CC3366;
-}
-.superone .page-header-nav {
-    padding-top: 8px;
-    padding-bottom: 0px;
-}
-.superone .article-mini h2 {
-    font-family: henriette-compressed,sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 16px;
-    font-size: 0.8rem;
-    margin-bottom: 6px;
-}
-.superone .mini-article-list .article-mini h2 {
+.superone .article-superfeat h2 {
+    font-size: 20px;
+    font-size: 1rem;
     margin-bottom: 0px;
 }
-.superone .fancy-section-parent .logo {
-    margin-top: 48px;
+.superone .three-fourths .article-superfeat h2 {
+    font-size: 36px;
+    font-size: 1.8rem;
     margin-bottom: 8px;
-    width: 70%;
-    max-width: 390px;
-    padding-right: 3px;
 }
-.superone .fancy-section-parent .logo img {
+.article .square-img {
+    padding-top: 100%;
     width: 100%;
-}
-.superone h3.subsection-title {
-    font-family: questa-grande, serif;
-    font-weight: 300;
-    font-style: italic;
-    font-size: 64px;
-    font-size: 3.2rem;
-    position: relative;
-    z-index: 3;
-    padding-top: 24px;
-}
-.superone h3.subsection-title span {
-    background-color: white;
-    z-index: 3;
     position: relative;
 }
-.dark-mode .superone h3.subsection-title span {
-    background-color: #212121;
-}
-.superone h3.subsection-title::before {
-    content: ' ';
-    opacity: 1;
+.article .square-img img {
     position: absolute;
-    top: 64px;
-    left: -20%;
-    width: 140%;
-    border-bottom: 1px solid #111;
-    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;  
 }
-.dark-mode .superone h3.subsection-title::before {
-    border-color: #999;
-}
-/*.superone .os-section-title-left-el, .superone .os-section-title-right-el, .superone .fancy-rubrika-header .container, .superone .fancy-rubrika-header .container::before {
-    border-color: #111;
-}*/
-.superone .cantha-break {
-    background-color: #eee;
-}
-.dark-mode .cantha-break {
-    background-color:rgba(0, 0, 0, 0.3);
-}
-.superone .cantha-break h2 {
-    font-family: henriette-compressed,sans-serif;
-    font-weight: 700;
+.superone .article-superfeat .article-meta i {
     font-style: normal;
 }
-.superone .cantha-break .newbtn {
-    background-color: #cc3366;
+.superone .article-superfeat .article-meta {
+    display: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    font-size: 14px;
+    font-size: 0.7rem;
+}
+.superone .three-fourths .article-superfeat .article-meta {
+    display: flex;
+}
+.superone .three-fourths .article-superfeat {
+    justify-content: flex-end;
+}
+.superone .three-fourths .article-superfeat .square-img {
+    width: 72.99%;
+    padding-top: 54.99%;
+}
+.superone .three-fourths .article-superfeat .article-pad {
+    width: 34.99%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.superone .article-superfeat .article-pad a {
+    padding: 24px;
+    border: 1px solid black;
+    background-color: white;
+    z-index: 5;
+}
+.superone .third .article-superfeat .article-pad {
+    padding: 0px 24px;
+    margin-top: -64px;
+    z-index: 5;
+}
+.superone .three-fourths .article-superfeat .article-pad a {
+    border-bottom: 5px solid black;
+}
+.superone .mini-article-list .article-mini::before {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+.super-minititle {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+.superone .mini-article-list h3.super-minititle {
+    opacity: 1;
+    margin-bottom: 16px;
 }
 
-
-
 @media screen and (min-width: 767px) {
-    .superone .fancy-section-parent .page-header-nav a {
-        font-size: 24px;
-        font-size: 1.2rem;
-        margin: 0px 24px;
-    }
     .super-sidebar .article h4 {
         display: none;
-    }
-    .superone .intro-block .two-thirds .article-featured h2 {
-        font-size: 34px;
-        font-size: 1.7rem;
-    }
-    .superone .alt-big-break.center-text h2  {
-        font-size: 40px;
-        font-size: 2rem;
     }
     .super-sidebar.split-articles .article-medium img {
         margin-bottom: 0px;
@@ -8438,138 +8414,14 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         border-bottom: none;
         padding-bottom: 0px;
     }
-    .superone .fourth .article-mini .article-pad {
-        padding-bottom: 16px;
-        border-bottom: 1px solid #c8c8c8;
-        margin-bottom: 16px;
-    }
-    .superone .fourth .article-mini:last-child .article-pad {
-        padding-bottom: 0px;
-        border-bottom: none;
-        margin-bottom: 0px;
-    }
 }
 @media screen and (max-width: 767px) {
-    .superone .alt-big-break .article-pad > .desktop-only {
-        display: flex;
-    }
-    .superone .fourth .article-mini .article-pad h2 {
-        padding-bottom: 4px;
-    }
-    .superone .fourth .article-mini:first-child {
-        margin-top: 4vw;
-    }
-    .superone header nav {
-        border-bottom: 1px solid #c8c8c8;
-    }
-    .dark-mode .superone header nav {
-        border-bottom-color: #555555;
-    }
-    .superone .cantha-searchbtn, .superone .cantha-menubtn {
-        display: none;
-    }
-    .superone .cantha-header {
-        padding-bottom: 16px;
-    }
-    .superone .cantha-header .logo {
-        margin-top: 4vw;
-    }
-    .superone .page-header-nav {
-        justify-content: center;
-        margin-bottom: 4vw;
-    }
-    .superone .header-filler {
-        background-color: #CC3366;
-    }
-    .superone .alt-big-break .article h2, .superone .alt-big-break.center-text .article h2 {
-        font-size: 26px;
-        font-size: 1.3rem;
-    }
-    .superone h3.subsection-title {
-        padding-bottom: 5vw;
-        padding-top: 5vw;
-    }
-    .superone .fourth .article-standard img {
-        width: 88px;
-        height: 88px;
-    }
-    .superone .fourth .article-standard h2 {
-        margin-bottom: 7px;
-    }
-    .superone .fourth .article-standard .article-pad {
-        position: relative;
-        top: -3px;
-        margin-bottom: -3px;
-    }
-    .superone .fourth:first-child .article-standard .article-pad {
-        padding-top: 1vw;
-    }
-    .superone .fourth:first-child .article-standard img {
-        top: 1vw;
-    }
-    .superone .article-featured h3.overtitle {
-        margin-bottom: 6px;
-    }
-    .superone .article-mini h2 {
-        font-size: 18px;
-        font-size: 0.9rem;
-    }
-    .superone .alt-big-break.center-text .article {
-        justify-content: flex-start;
-        align-items: flex-start;
-        align-content: flex-start;
-        text-align: left;
-    }
-    .superone .alt-big-break.center-text .article h4 {
-        display: block;
-    }
-    .superone .alt-big-break.center-text .article h3.overtitle {
-        margin-left: 0px;
-        margin-right: 0px;
-    }
-    .superone .alt-big-break.center-text .article .article-meta {
-        justify-content: flex-start;
-    }
-    .superone .fancy-rubrika-header {
-        margin-bottom: 4vw;
-    }
-    .superone .fancy-section-parent .logo {
-        margin-top: 6vw;
-        margin-bottom: 2vw;
-    }
-    .superone .cantha-separator {
-        border-bottom-width: 1vw;
-    }
-    .superone .cantha-separator::before {
-        height: 10.5vw;
-        bottom: -11.5vw;
-    }
-    .superone .cantha-header .cantha-separator {
-        margin-top: 4vw;
-    }
-    .superone h3.subsection-title {
-        font-size: 48px;
-        font-size: 2.4rem;
-    }
-    .superone h3.subsection-title::before {
-        top: 48px;
-    }
-    .sblock-prekid .fourth:last-child .article-standard{
-        border-bottom: none;
-    }
-    .sblock-special .third:last-child .article-featured .article-pad, .superone .intro-block .third:last-child .article-featured .article-pad {
-        border-bottom: none;
-    }
 }
 
 /* Super2 single */
 
 .superone .single-article h1, .superone .single-article-body h2 {
-    font-family: henriette-compressed,sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    line-height: 1.2em;
-    letter-spacing: normal;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* Knjige */
@@ -8698,6 +8550,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 2rem;
     font-family: 'Barlow', sans-serif;
     margin-top: -10px;
+    line-height: normal;
 }
 .book-popup-content h4 {
     margin-top: 8px;

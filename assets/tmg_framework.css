@@ -183,6 +183,9 @@ img {
 .align-children-end {
     justify-content: flex-end;
 }
+.align-children-bottom {
+    align-content: flex-end;
+}
 .align-end {
     align-self: flex-end;
 }
