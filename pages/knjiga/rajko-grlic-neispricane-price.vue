@@ -4,7 +4,7 @@
   >
     <div class="full flex tg-red">
       <theader
-        headline="Neispričane priče - novo i nadopunjeno izdanje knjige Rajka Grlića"
+        headline="Rajko Grlić: Neispričane priče, novo izdanje, novo izdanje"
       ></theader>
     </div>
     <div class="full flex relative reset-flex-order">
@@ -201,7 +201,7 @@ export default {
   },
   head() {
     return {
-      title: 'Rajko Grlić: Neispričane priče',
+      title: 'Rajko Grlić: Neispričane priče, novo izdanje',
       titleTemplate: '%s | Telegram.hr',
       meta: [
         {
@@ -227,14 +227,14 @@ export default {
           hid: 'og:title',
           name: 'og:title',
           property: 'og:title',
-          content: 'Rajko Grlić: Neispričane priče',
+          content: 'Rajko Grlić: Neispričane priče, novo izdanje',
         },
         {
           hid: 'og:image',
           name: 'og:image',
           property: 'og:image',
           content:
-            'https://www.telegram.hr/wp-content/uploads/2022/05/dezulovic-image-article-tg2.png',
+            'https://www.telegram.hr/wp-content/uploads/2022/10/tg-share-grlic.jpg',
         },
         {
           hid: 'og:url',
