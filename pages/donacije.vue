@@ -54,7 +54,7 @@
   </div>
 </template>
 <script>
-import BraintreeDonation from '../../components/Elements/BraintreeDonation.vue'
+import BraintreeDonation from '~components/Elements/BraintreeDonation.vue'
 export default {
   name: 'Pretplata',
   components: { BraintreeDonation },
@@ -82,20 +82,20 @@ export default {
           hid: 'og:image',
           name: 'og:image',
           property: 'og:image',
-          content: 'https://www.telegram.hr/img/pretplata_poklon.png',
+          content: 'https://www.telegram.hr/wp-content/uploads/2022/10/tg-share-donacije.jpg',
         },
         {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/pretplata/donacije',
+          content: 'https://www.telegram.hr/donacije',
         },
       ],
       link: [
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: 'https://www.telegram.hr/pretplata/donacije',
+          href: 'https://www.telegram.hr/donacije',
         },
       ],
     }
