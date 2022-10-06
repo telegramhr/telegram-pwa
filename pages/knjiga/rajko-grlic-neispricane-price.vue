@@ -78,7 +78,7 @@
       <div class="full flex relative single-article-body mobile-side-pad">
         <p class="full center-text">
           Novo, dopunjeno izdanje hit-knjige čuvenog redatelja Rajka Grlića,
-          koja se rasprodala odmah nakon što se pojavila u hrvatskm knjižarama.
+          koja se rasprodala odmah nakon što se pojavila u hrvatskim knjižarama.
           U ovom golemom izdanju od 436 stranica, koje izlazi u Telegramovoj
           nakladi, Grlić je pripremio još dvadeset i jednu novu, nikad
           objavljenu priču. Kako kaže urednica Marina Vujčić: „na sreću svih nas
