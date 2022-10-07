@@ -909,6 +909,54 @@ export default {
         },
       ]
     }
+    // charts and tables
+    /* const wdtStyles = [
+      'bootstrap/wpdatatables-bootstrap.min.css',
+      'bootstrap/bootstrap-select/bootstrap-select.min.css',
+      'bootstrap/bootstrap-tagsinput/bootstrap-tagsinput.css',
+      'bootstrap/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css',
+      'bootstrap/bootstrap-nouislider/bootstrap-nouislider.min.css',
+      'bootstrap/bootstrap-datetimepicker/wdt-bootstrap-datetimepicker.min.css',
+      'bootstrap/bootstrap-colorpicker/bootstrap-colorpicker.min.css',
+      'style.min.css',
+      'animate/animate.min.css',
+      'uikit/uikit.css',
+      'wdt.frontend.min.css',
+      'wdt-skins/light.css',
+      'wdt.simpleTable.min.css',
+      'wpdatatables.min.css',
+    ]
+    wdtStyles.forEach((item) => {
+      link.push({
+        hid: item,
+        rel: 'stylesheet',
+        type: 'text/css',
+        href:
+          'https://www.telegram.hr/wp-content/plugins/wpdatatables/assets/css/' +
+          item,
+      })
+    }) */
+    const fbPaywall = {
+      none: 'metered',
+      always: 'locked',
+      never: 'free',
+    }
+    const wdtScripts = [
+      // 'wpdatatables/admin/common.js',
+      // 'wpdatatables/wdt.frontend.min.js',
+      'wpdatatables/wdt.chartsRender.min.js',
+      'wpdatatables/wdt.apexcharts.min.js',
+      /* 'bootstrap/bootstrap.min.js',
+      'bootstrap/bootstrap-select/bootstrap-select.min.js',
+      'bootstrap/bootstrap-select/ajax-bootstrap-select.min.js',
+      'bootstrap/bootstrap-tagsinput/bootstrap-tagsinput.js',
+      'moment/moment.js',
+      'bootstrap/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js',
+      'bootstrap/bootstrap-nouislider/bootstrap-nouislider.min.js',
+      'bootstrap/bootstrap-nouislider/wNumb.min.js',
+      'bootstrap/bootstrap-colorpicker/bootstrap-colorpicker.min.js',
+      'bootstrap/bootstrap-growl/bootstrap-growl.min.js', */
+    ]
     script = [
       ...script,
       {
@@ -916,23 +964,22 @@ export default {
         src: 'https://code.jquery.com/jquery-3.6.1.min.js',
       },
       {
-        hid: 'wpdatatables-render-chart',
-        src: 'https://www.telegram.hr/wp-content/plugins/wpdatatables/assets/js/wpdatatables/wdt.chartsRender.min.js',
-      },
-      {
         hid: 'wdt-apexcharts',
         src: 'https://cdn.jsdelivr.net/npm/apexcharts',
       },
       {
-        hid: 'wpdatatables-apexcharts',
-        src: 'https://www.telegram.hr/wp-content/plugins/wpdatatables/assets/js/wpdatatables/wdt.apexcharts.min.js',
+        hid: 'wdt_frontend_strings',
+        innerHTML: 'var wpdatatables_frontend_strings = [];',
       },
     ]
-    const fbPaywall = {
-      none: 'metered',
-      always: 'locked',
-      never: 'free',
-    }
+    wdtScripts.forEach((item) => {
+      script.push({
+        hid: item,
+        src:
+          'https://www.telegram.hr/wp-content/plugins/wpdatatables/assets/js/' +
+          item,
+      })
+    })
     return {
       title: this.post.title,
       titleTemplate: '%s | Telegram.hr',
@@ -1043,6 +1090,49 @@ export default {
       ],
       script,
       link,
+    }
+  },
+  bodyAppend() {
+    const wdtScripts = [
+      // 'wpdatatables/admin/common.js',
+      // 'wpdatatables/wdt.frontend.min.js',
+      'wpdatatables/wdt.chartsRender.min.js',
+      'wpdatatables/wdt.apexcharts.min.js',
+      /* 'bootstrap/bootstrap.min.js',
+      'bootstrap/bootstrap-select/bootstrap-select.min.js',
+      'bootstrap/bootstrap-select/ajax-bootstrap-select.min.js',
+      'bootstrap/bootstrap-tagsinput/bootstrap-tagsinput.js',
+      'moment/moment.js',
+      'bootstrap/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js',
+      'bootstrap/bootstrap-nouislider/bootstrap-nouislider.min.js',
+      'bootstrap/bootstrap-nouislider/wNumb.min.js',
+      'bootstrap/bootstrap-colorpicker/bootstrap-colorpicker.min.js',
+      'bootstrap/bootstrap-growl/bootstrap-growl.min.js', */
+    ]
+    const script = [
+      {
+        hid: 'jquery',
+        src: 'https://code.jquery.com/jquery-3.6.1.min.js',
+      },
+      {
+        hid: 'wdt-apexcharts',
+        src: 'https://cdn.jsdelivr.net/npm/apexcharts',
+      },
+      {
+        hid: 'wdt_frontend_strings',
+        innerHTML: 'var wpdatatables_frontend_strings = [];',
+      },
+    ]
+    wdtScripts.forEach((item) => {
+      script.push({
+        hid: item,
+        src:
+          'https://www.telegram.hr/wp-content/plugins/wpdatatables/assets/js/' +
+          item,
+      })
+    })
+    return {
+      script,
     }
   },
 }
