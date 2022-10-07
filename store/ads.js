@@ -386,6 +386,7 @@ export const state = () => ({
         [300, 900],
         [200, 900],
         [340, 1050],
+        [350, 1080],
       ],
       mobile: false,
       routes: [
@@ -411,6 +412,7 @@ export const state = () => ({
         [301, 901],
         [201, 901],
         [341, 1051],
+        [351, 1081],
       ],
       mobile: false,
       routes: [
