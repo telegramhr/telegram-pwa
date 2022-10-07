@@ -909,6 +909,25 @@ export default {
         },
       ]
     }
+    script = [
+      ...script,
+      {
+        hid: 'jquery',
+        src: 'https://code.jquery.com/jquery-3.6.1.min.js',
+      },
+      {
+        hid: 'wpdatatables-render-chart',
+        src: 'https://www.telegram.hr/wp-content/plugins/wpdatatables/assets/js/wpdatatables/wdt.chartsRender.min.js',
+      },
+      {
+        hid: 'wdt-apexcharts',
+        src: 'https://cdn.jsdelivr.net/npm/apexcharts',
+      },
+      {
+        hid: 'wpdatatables-apexcharts',
+        src: 'https://www.telegram.hr/wp-content/plugins/wpdatatables/assets/js/wpdatatables/wdt.apexcharts.min.js',
+      },
+    ]
     const fbPaywall = {
       none: 'metered',
       always: 'locked',
