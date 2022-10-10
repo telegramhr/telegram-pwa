@@ -159,7 +159,7 @@
     <braintree
       v-if="showModal"
       :price="price"
-      book="boro"
+      book="rajko"
       @close="close"
     ></braintree>
     <tfooter></tfooter>
