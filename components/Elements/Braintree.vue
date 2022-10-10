@@ -165,9 +165,6 @@ export default {
                     number: {
                       selector: '#credit-card',
                       placeholder: '1111 1111 1111 1111',
-                      supportedCardBrands: {
-                        'diners-club': false,
-                      },
                     },
                     cvv: {
                       selector: '#cvv',
