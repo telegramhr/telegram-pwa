@@ -8450,8 +8450,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     border-bottom: 2px solid #ae3737;
 }
 .knjiga-header h1 {
-    font-size: 64px;
-    font-size: 3.2rem;
+    font-size: 40px;
+    font-size: 2rem;
     margin-bottom: 16px;
 }
 .knjiga-cover {
@@ -8546,8 +8546,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     margin-bottom: 0px;
 }
 .knjiga-header h4 {
-    font-size: 40px;
-    font-size: 2rem;
+    font-size: 24px;
+    font-size: 1.2rem;
     font-family: 'Barlow', sans-serif;
     margin-top: -10px;
     line-height: normal;
