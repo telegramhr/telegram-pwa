@@ -1102,7 +1102,7 @@ export const actions = {
       // remove intext banners
       const b = document.getElementsByClassName('banner-slot')
       for (const box in b) {
-        if (box.id.includes('intext')) {
+        if (box.id && box.id.includes('intext')) {
           box.parentElement.parentElement.classList.add('hide')
         }
       }
