@@ -941,12 +941,13 @@ export default {
       always: 'locked',
       never: 'free',
     }
-    const wdtScripts = [
-      // 'wpdatatables/admin/common.js',
-      // 'wpdatatables/wdt.frontend.min.js',
-      'wpdatatables/wdt.chartsRender.min.js',
-      'wpdatatables/wdt.apexcharts.min.js',
-      /* 'bootstrap/bootstrap.min.js',
+    if (this.post.tables) {
+      const wdtScripts = [
+        // 'wpdatatables/admin/common.js',
+        // 'wpdatatables/wdt.frontend.min.js',
+        'wpdatatables/wdt.chartsRender.min.js',
+        'wpdatatables/wdt.apexcharts.min.js',
+        /* 'bootstrap/bootstrap.min.js',
       'bootstrap/bootstrap-select/bootstrap-select.min.js',
       'bootstrap/bootstrap-select/ajax-bootstrap-select.min.js',
       'bootstrap/bootstrap-tagsinput/bootstrap-tagsinput.js',
@@ -956,30 +957,31 @@ export default {
       'bootstrap/bootstrap-nouislider/wNumb.min.js',
       'bootstrap/bootstrap-colorpicker/bootstrap-colorpicker.min.js',
       'bootstrap/bootstrap-growl/bootstrap-growl.min.js', */
-    ]
-    script = [
-      ...script,
-      {
-        hid: 'jquery',
-        src: 'https://code.jquery.com/jquery-3.6.1.min.js',
-      },
-      {
-        hid: 'wdt-apexcharts',
-        src: 'https://cdn.jsdelivr.net/npm/apexcharts',
-      },
-      {
-        hid: 'wdt_frontend_strings',
-        innerHTML: 'var wpdatatables_frontend_strings = [];',
-      },
-    ]
-    wdtScripts.forEach((item) => {
-      script.push({
-        hid: item,
-        src:
-          'https://www.telegram.hr/wp-content/plugins/wpdatatables/assets/js/' +
-          item,
+      ]
+      script = [
+        ...script,
+        {
+          hid: 'jquery',
+          src: 'https://code.jquery.com/jquery-3.6.1.min.js',
+        },
+        {
+          hid: 'wdt-apexcharts',
+          src: 'https://cdn.jsdelivr.net/npm/apexcharts',
+        },
+        {
+          hid: 'wdt_frontend_strings',
+          innerHTML: 'var wpdatatables_frontend_strings = [];',
+        },
+      ]
+      wdtScripts.forEach((item) => {
+        script.push({
+          hid: item,
+          src:
+            'https://www.telegram.hr/wp-content/plugins/wpdatatables/assets/js/' +
+            item,
+        })
       })
-    })
+    }
     return {
       title: this.post.title,
       titleTemplate: '%s | Telegram.hr',
