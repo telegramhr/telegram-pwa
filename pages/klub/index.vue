@@ -1338,7 +1338,7 @@
                   <a
                     href="https://www.telegram.hr/knjiga/rajko-grlic-neispricane-price"
                     target="_blank"
-                    >Boris Dežulović: Neispričane priče</a
+                    >Rajko Grlić: Neispričane priče</a
                   >
                 </li>
                 <li>
