@@ -1336,9 +1336,9 @@
               <ul class="full">
                 <li>
                   <a
-                    href="https://www.telegram.hr/knjiga/zrinka-paladino-o-zagrebu"
+                    href="https://www.telegram.hr/knjiga/rajko-grlic-neispricane-price"
                     target="_blank"
-                    >Zrinka Paladino - O Zagrebu i... Telegramovih 48</a
+                    >Boris Dežulović: Neispričane priče</a
                   >
                 </li>
                 <li>
@@ -1346,6 +1346,13 @@
                     href="https://www.telegram.hr/knjiga/boris-dezulovic-bili-libar"
                     target="_blank"
                     >Boris Dežulović: Bili libar</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.telegram.hr/knjiga/zrinka-paladino-o-zagrebu"
+                    target="_blank"
+                    >Zrinka Paladino: O Zagrebu</a
                   >
                 </li>
               </ul>

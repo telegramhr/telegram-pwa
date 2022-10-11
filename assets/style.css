@@ -4252,9 +4252,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .single-article .single-article-body > #article-content > #piano-content > img, .single-article .single-article-body > #article-content > #piano-content > figure.wp-block-image, .single-article .single-article-body > #article-content > #piano-content > .extra-width {
         max-width: 888px;
     }
-    .single-article .single-article-body > .apexcharts_stacked_bar_chart, .single-article .single-article-body > #article-content > .apexcharts_stacked_bar_chart, .single-article .single-article-body > #article-content > #piano-content > .apexcharts_stacked_bar_chart {
-        max-width: 888px;
-    }
     .single-article .single-article-body > .article-full-width, .single-article .single-article-body > #article-content > .article-full-width, .single-article .single-article-body > #article-content > #piano-content > .article-full-width {
         max-width: 1200px;
     }
@@ -9950,12 +9947,20 @@ label.payment-tile svg {
 
 /* Charts */
 
-.apexcharts-text {
+.apexcharts-text, .apexcharts-legend-text {
     font-family: 'Barlow', sans-serif !important;
 }
-.apexcharts_stacked_bar_chart {
+.apexcharts-canvas {
     border: 1px solid #c8c8c8;
 }
-.dark-mode .apexcharts_stacked_bar_chart {
+.dark-mode .apexcharts-canvas {
     border: 1px solid #555;
+}
+@media screen and (min-width: 767px) {
+    .single-article .single-article-body > .apexcharts_stacked_bar_chart, .single-article .single-article-body > #article-content > .apexcharts_stacked_bar_chart, .single-article .single-article-body > #article-content > #piano-content > .apexcharts_stacked_bar_chart {
+        max-width: 888px;
+    }
+    .single-article .single-article-body > .apexcharts_straight_line_chart, .single-article .single-article-body > #article-content > .apexcharts_straight_line_chart, .single-article .single-article-body > #article-content > #piano-content > .apexcharts_straight_line_chart {
+        max-width: 888px;
+    }
 }
