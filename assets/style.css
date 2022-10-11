@@ -8019,8 +8019,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 1.4rem;
     }
     .cantha-break .article h2 {
-        font-size: 28px;
-        font-size: 1.4rem;
+        font-size: 26px;
+        font-size: 1.3rem;
     }
     .no-image-block .article-standard .article-pad {
         padding-top: 0px;
@@ -9950,13 +9950,14 @@ label.payment-tile svg {
 .apexcharts-text, .apexcharts-legend-text {
     font-family: 'Barlow', sans-serif !important;
 }
+.apexcharts_stacked_bar_chart, .apexcharts_straight_line_chart {
+    background: url("https://www.telegram.hr/wp-content/uploads/2022/10/tg-chartbg-darkpaper.jpg") center center / cover no-repeat;
+    padding: 24px;
+}
+#wpDataChart_1 {
+    background: url("https://www.telegram.hr/wp-content/uploads/2022/10/tg-chartbg-brightpaper.jpg") center center / cover no-repeat;
+}
 @media screen and (min-width: 767px) {
-    .apexcharts-canvas {
-        border: 1px solid #c8c8c8;
-    }
-    .dark-mode .apexcharts-canvas {
-        border: 1px solid #555;
-    }
     .single-article .single-article-body > .apexcharts_stacked_bar_chart, .single-article .single-article-body > #article-content > .apexcharts_stacked_bar_chart, .single-article .single-article-body > #article-content > #piano-content > .apexcharts_stacked_bar_chart {
         max-width: 888px;
     }

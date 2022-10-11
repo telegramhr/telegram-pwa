@@ -342,83 +342,39 @@
         </div>
       </div>
     </div>
-    <!-- Prekid klub -->
+    <!-- Prekid knjiga -->
     <div class="full relative">
       <div class="container flex relative column-horizontal-pad">
         <app-link
-          to="/klub"
-          class="full cantha-break mobile-side-pad flex relative stretch klub-cantha-break"
-        >
-          <div class="third column-full-pad center flex-responsive">
-            <div class="full flex">
-              <img
-                src="@/assets/img/tg_klub_logo_negative.svg"
-                alt="Telegram Klub logo"
-                class="klub-break-logo"
-              />
-              <h5 class="full">
-                Klub ekskluzivnih ponuda, pogodnosti i popusta, samo za
-                pretplatnike Telegrama.
-              </h5>
-            </div>
-          </div>
-          <div class="two-thirds stretch flex flex-responsive">
-            <div class="two-thirds stretch center flex-responsive">
-              <img
-                src="@/assets/img/tg_klub_vizual_widget.jpg"
-                alt="Neki od popusta u kazalištima i muzejima koje se nalaze u Telegram Klubu"
-              />
-            </div>
-            <div
-              class="third center stretch column-horizontal-pad flex-responsive"
-            >
-              <div class="full column-left-pad flex article">
-                <h5 class="full center-text">
-                  Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
-                  pretplatnicima.
-                </h5>
-                <div class="full center">
-                  <div class="newbtn">Saznajte više</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </app-link>
-      </div>
-    </div>
-    <!-- Prekid knjiga
-    <div class="full relative">
-      <div class="container flex relative column-horizontal-pad">
-        <app-link
-          to="/knjiga/boris-dezulovic-bili-libar"
+          to="/knjiga/rajko-grlic-neispricane-price"
           class="full cantha-break break-dezulovic mobile-side-pad flex relative stretch"
         >
           <div class="forty column-full-pad center flex-responsive">
             <div class="full flex article">
               <h3 class="full overtitle">Ekskluzivna prednarudžba</h3>
               <h2 class="full">
-                Telegram predstavlja: Bili libar, nova knjiga Borisa Dežulovića
+                Telegram donosi novu knjigu: Neispričane priče Rajka Grlića
               </h2>
               <h5 class="full">
-                Naručite još danas i osigurajte svoj primjerak prije nego se
-                pojavi u knjižarama, uz posebnu cijenu za pretplatnike
+                Novo i dopunjeno izdanje hit knjige čuvenog redatelja, <br />
+                na 435 stranica s 21 novom, nikad objavljenom pričom
               </h5>
             </div>
           </div>
           <div class="sixty stretch flex flex-responsive">
             <div class="two-thirds column-top-pad center flex-responsive">
               <img
-                src="@/assets/img/tg_knjiga_vizual_dezulovic.png"
-                alt="Portret Borisa Dežulovića i naslovnica njegove knjige 'Bili Libar'"
+                src="@/assets/img/tg_knjiga_vizual_grlic.png"
+                alt="Portret Rajka Grlića i naslovnica njegove knjige 'Neispričane priče'"
               />
             </div>
             <div class="third center column-horizontal-pad flex-responsive">
-              <div class="full column-left-pad flex article">
+              <div class="full flex article">
                 <h2 class="full relative center-text">
-                  <span class="faded strikethrough">149 kn</span> 99 kn
+                  <span class="faded strikethrough">179 kn</span> 119 kn
                 </h2>
                 <h5 class="full center-text">
-                  (<span class="faded strikethrough">19,78€</span> 13,14€)
+                  (<span class="faded strikethrough">23,76€</span> 15,79€)
                   <br />
                   posebna cijena za Telegramove pretplatnike!
                 </h5>
@@ -430,7 +386,7 @@
           </div>
         </app-link>
       </div>
-    </div> -->
+    </div>
     <!-- Prekid newsletteri
     <div class="full relative">
       <div class="container flex relative column-horizontal-pad">
@@ -532,18 +488,55 @@
         </div>
       </div>
     </div>
-    <!-- Prekid dojave -->
-    <div class="full relative desktop-only">
-      <div class="container flex relative column-full-pad">
-        <!--<a
-          href="https://www.telegram.hr/native/uhvati-sunce/"
-          target="_blank"
-          class="full cantha-break mobile-side-pad flex relative stretch"
+    <!-- Prekid klub -->
+    <div class="full relative">
+      <div
+        class="container flex relative column-horizontal-pad column-bottom-pad"
+      >
+        <app-link
+          to="/klub"
+          class="full cantha-break mobile-side-pad flex relative stretch klub-cantha-break"
         >
-          <img
-            src="https://www.telegram.hr/wp-content/uploads/2022/06/tg-banner-uhvatisunce-1200x250-2.png"
-          />
-        </a>-->
+          <div class="third column-full-pad center flex-responsive">
+            <div class="full flex">
+              <img
+                src="@/assets/img/tg_klub_logo_negative.svg"
+                alt="Telegram Klub logo"
+                class="klub-break-logo"
+              />
+              <h5 class="full">
+                Klub ekskluzivnih ponuda, pogodnosti i popusta, samo za
+                pretplatnike Telegrama.
+              </h5>
+            </div>
+          </div>
+          <div class="two-thirds stretch flex flex-responsive">
+            <div class="two-thirds stretch center flex-responsive">
+              <img
+                src="@/assets/img/tg_klub_vizual_widget.jpg"
+                alt="Neki od popusta u kazalištima i muzejima koje se nalaze u Telegram Klubu"
+              />
+            </div>
+            <div
+              class="third center stretch column-horizontal-pad flex-responsive"
+            >
+              <div class="full column-left-pad flex article">
+                <h5 class="full center-text">
+                  Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
+                  pretplatnicima.
+                </h5>
+                <div class="full center">
+                  <div class="newbtn">Saznajte više</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </app-link>
+      </div>
+    </div>
+    <!-- Prekid dojave
+    <div class="full relative desktop-only">
+      <div class="container flex relative column-full-pad"
         <app-link
           to="/dojave"
           class="full cantha-break mobile-side-pad flex relative stretch"
@@ -580,7 +573,7 @@
           </div>
         </app-link>
       </div>
-    </div>
+    </div> -->
     <!-- Sport -->
     <div class="full relative">
       <sport></sport>
