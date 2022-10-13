@@ -9953,6 +9953,7 @@ label.payment-tile svg {
 .apexcharts_stacked_bar_chart, .apexcharts_straight_line_chart {
     background: url("https://www.telegram.hr/wp-content/uploads/2022/10/tg-chartbg-darkpaper.jpg") center center / cover no-repeat;
     padding: 24px;
+    margin-bottom: 15px;
 }
 #wpDataChart_1 {
     background: url("https://www.telegram.hr/wp-content/uploads/2022/10/tg-chartbg-brightpaper.jpg") center center / cover no-repeat;
@@ -9967,7 +9968,7 @@ label.payment-tile svg {
 }
 @media screen and (max-width: 1024px) {
     .apexcharts_stacked_bar_chart, .apexcharts_straight_line_chart {
-        width: 100vw;
+        width: 100vw !important;
         max-width: 100vw;
         position: relative;
         left: 50%;
