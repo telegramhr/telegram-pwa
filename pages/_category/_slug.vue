@@ -617,6 +617,8 @@ export default {
             },
           },
           author: this.post.authors,
+          keywords: this.post.tags.map((tag) => tag.slug),
+          sections: this.$options.filters.parseCat(this.post.category),
         },
         {
           '@context': 'https://schema.org',
@@ -776,6 +778,18 @@ export default {
         function () {
           window.tp.experience.execute()
           window.tp.enableGACrossDomainLinking()
+        },
+      ])
+
+      window.marfeel.cmd.push([
+        'compass',
+        function (compass) {
+          if (this.post.paywall === 'always') {
+            compass.setPageVar('closed', 'hard-paywall')
+          }
+          if (this.post.paywall === 'none') {
+            compass.setPageVar('closed', 'dynamic-paywall')
+          }
         },
       ])
     },
@@ -1088,6 +1102,12 @@ export default {
           name: 'nrbi:sections',
           property: 'nrbi:sections',
           content: this.$options.filters.parseCat(this.post.category),
+        },
+        {
+          hid: 'mrf:tags',
+          name: 'mrf:tags',
+          property: 'mrf:tags',
+          content: this.post.tags.map((tag) => `keyword:${tag};`),
         },
       ],
       script,

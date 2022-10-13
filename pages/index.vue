@@ -440,7 +440,9 @@
     <!-- Mala rubrika: Biznis i tech -->
     <div class="full relative">
       <div class="container flex relative">
-        <category-alt slug="biznis-tech"></category-alt>
+        <client-only>
+          <category-alt slug="biznis-tech"></category-alt>
+        </client-only>
       </div>
     </div>
     <!-- Widget autori -->
@@ -576,7 +578,9 @@
     </div> -->
     <!-- Sport -->
     <div class="full relative">
-      <sport></sport>
+      <client-only>
+        <sport></sport>
+      </client-only>
     </div>
     <!-- Widget partneri -->
     <div class="full relative">
@@ -586,11 +590,15 @@
     </div>
     <!-- Super1 -->
     <div class="full relative">
-      <super1></super1>
+      <client-only>
+        <super1></super1>
+      </client-only>
     </div>
     <!-- PitanjeZdravlja -->
     <div class="full relative">
-      <pitanje-zdravlja></pitanje-zdravlja>
+      <client-only>
+        <pitanje-zdravlja></pitanje-zdravlja>
+      </client-only>
     </div>
     <!-- Billboard 4 -->
     <div class="full relative">
@@ -600,7 +608,9 @@
     </div>
     <!-- Openspace -->
     <div class="full relative">
-      <os-homepage></os-homepage>
+      <client-only>
+        <os-homepage></os-homepage>
+      </client-only>
     </div>
     <!-- Linker -->
     <div class="full mobile-side-pad relative">
@@ -615,10 +625,12 @@
           <div class="full cantha-separator"></div>
         </div>
         <div class="full flex">
-          <category slug="zivot"></category>
-          <category slug="biznis-tech"></category>
-          <category slug="kultura"></category>
-          <category slug="velike-price"></category>
+          <client-only>
+            <category slug="zivot"></category>
+            <category slug="biznis-tech"></category>
+            <category slug="kultura"></category>
+            <category slug="velike-price"></category>
+          </client-only>
         </div>
       </div>
     </div>
