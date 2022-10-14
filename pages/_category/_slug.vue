@@ -1107,7 +1107,7 @@ export default {
           hid: 'mrf:tags',
           name: 'mrf:tags',
           property: 'mrf:tags',
-          content: this.post.tags.map((tag) => `keyword:${tag.slug};`),
+          content: this.post.tags.map((tag) => `keyword:${tag.slug}`).join(';'),
         },
       ],
       script,
