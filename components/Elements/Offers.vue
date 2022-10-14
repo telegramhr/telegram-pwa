@@ -36,8 +36,9 @@
         v-bind="slider_settings"
         style="display: block; width: 100%"
       >
-        <div v-for="post in posts" :key="post.title" class="offer-slide">
+        <div v-for="(post, index) in posts" :key="post.naslov" class="offer-slide">
           <a
+            :id="index === 0 ? 'letak' : 'slide-' + index"
             :href="post.link"
             target="_blank"
             rel="sponsored"
