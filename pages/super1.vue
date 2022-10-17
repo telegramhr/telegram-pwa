@@ -9,7 +9,14 @@
       <div class="container flex relative superone-home-header column-full-pad">
         <div class="full center">
           <nuxt-link to="/super1" class="logo"
-            ><img src="@/assets/img/s1_logo_clean.svg" alt="Super1 logo" />
+            ><img
+              src="@/assets/img/s1_logo_clean.svg"
+              class="light-mode-only"
+              alt="Super1 logo" />
+            <img
+              src="@/assets/img/s1_logo_clean.svg"
+              class="contrast-mode-only"
+              alt="Super1 logo" />
             <img
               src="@/assets/img/s1_logo_clean_negative.svg"
               alt="Super1 logo"
