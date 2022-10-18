@@ -5,12 +5,11 @@
         <div class="full flex center">
           <img src="@/assets/img/telegram_logo_white.svg" alt="Telegram logo" />
           <div class="full flex klub-card-content">
-            <!--<p class="full center-text">
-              {{ user.first_name }} {{ user.last_name }}
-            </p>-->
+            <p class="full center-text">
+              {{ user.name }}
+            </p>
             <p class="full center-text">ID {{ id }}</p>
             <p class="full center-text">
-              Ime: {{ user.name }}
               Datum isteka:
               {{
                 user.expiry_date
