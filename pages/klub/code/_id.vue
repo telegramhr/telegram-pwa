@@ -10,6 +10,7 @@
             </p>-->
             <p class="full center-text">ID {{ id }}</p>
             <p class="full center-text">
+              Ime: {{ user.name }}
               Datum isteka:
               {{
                 user.expiry_date
@@ -45,6 +46,7 @@ export default {
       id: this.$route.params.id,
       user: {
         expiry_date: '',
+        name: '',
       },
     }
   },
