@@ -104,7 +104,9 @@ export default {
         document
           .querySelector('#article-content p:last-child')
           .classList.add('premium-fade-out')
-        document.getElementById('new_pretplata').classList.add('hide')
+        if (document.getElementById('new_pretplata')) {
+          document.getElementById('new_pretplata').classList.add('hide')
+        }
       } else {
         if (this.type === 'load') {
           setTimeout(this.load, 500)
