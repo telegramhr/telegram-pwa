@@ -294,20 +294,8 @@
                     </div>
                   </div>
                 </div>
-                <div
-                  v-if="!post.comments_off"
-                  v-show="comments"
-                  class="full fb-parent"
-                >
-                  <div
-                    v-show="comments"
-                    class="fb-comments"
-                    :data-href="post.social.path"
-                    data-width="100%"
-                    data-numposts="5"
-                    data-lazy="true"
-                    data-colorscheme="dark"
-                  ></div>
+                <div v-if="!post.comments_off" class="full fb-parent">
+                  <div id="coral_thread"></div>
                 </div>
               </div>
             </div>
@@ -780,14 +768,14 @@ export default {
           window.tp.enableGACrossDomainLinking()
         },
       ])
-
+      const _that = this
       window.marfeel.cmd.push([
         'compass',
         function (compass) {
-          if (this.post.paywall === 'always') {
+          if (_that.post.paywall === 'always') {
             compass.setPageVar('closed', 'hard-paywall')
           }
-          if (this.post.paywall === 'none') {
+          if (_that.post.paywall === 'none') {
             compass.setPageVar('closed', 'dynamic-paywall')
           }
         },
@@ -826,9 +814,26 @@ export default {
           })
         }
         this.dotmetrics()
+        this.loadComments()
       } else {
         setTimeout(this.getPost, 500)
       }
+    },
+    loadComments() {
+      if (!this.$store.state.user.uid) {
+        return
+      }
+      this.$store.dispatch('user/getCoralToken').then((token) => {
+        /* global Coral */
+        Coral.createStreamEmbed({
+          id: 'coral_thread',
+          containerClass: this.$store.state.theme.theme,
+          autoRender: true,
+          rootURL: 'https://coral.telegram.hr',
+          storyID: this.post.id,
+          accessToken: token,
+        })
+      })
     },
     dotmetrics() {
       this.$dotmetrics.postLoad(this.post.category_slug)
@@ -897,6 +902,10 @@ export default {
         defer: true,
         crossorigin: 'anonymous',
         nonce: 'LFZOW4mi',
+      },
+      {
+        hid: 'coral',
+        src: 'https://coral.telegram.hr/assets/js/embed.js',
       },
     ]
     if (!this.$store.getters['user/hasPremium']) {
