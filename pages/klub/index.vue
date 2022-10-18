@@ -1977,9 +1977,9 @@
                     Datum isteka:
                     {{
                       user.expiry_date
-                        ? new Date(user.expiry_date * 1000).toLocaleDateString(
-                            'hr-hr'
-                          )
+                        ? new Date(
+                            user.expiry_date * 1000 + 24 * 3600000
+                          ).toLocaleDateString('hr-hr')
                         : 'Neograničeno'
                     }}
                   </p>
