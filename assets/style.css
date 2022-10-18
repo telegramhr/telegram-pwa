@@ -8337,7 +8337,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center center;  
+    object-position: center center;
 }
 .superone .article-superfeat .article-meta i {
     font-style: normal;
@@ -9977,4 +9977,8 @@ label.payment-tile svg {
         margin-left: -50vw;
         min-height: auto !important;
     }
+}
+
+.lwdgt:empty {
+  display: none !important;
 }

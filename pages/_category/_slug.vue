@@ -251,6 +251,7 @@
               </client-only>
               <client-only>
                 <intext></intext>
+                <linker v-if="!hasPremium" type="intext"></linker>
                 <linker v-if="!hasPremium" type="mobile"></linker>
               </client-only>
               <!-- Article footer -->

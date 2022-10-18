@@ -25,6 +25,9 @@ export default {
       if (!this.$mobile && this.type === 'mobile') {
         return 0
       }
+      if (this.type === 'intext') {
+        return 476
+      }
       if (this.type === 'footer') {
         return 503
       }
