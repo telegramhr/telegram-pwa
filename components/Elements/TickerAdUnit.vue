@@ -81,9 +81,11 @@ export default {
           if (!event.isEmpty) {
             _that.showClose = true
             _that.size = event.size
-            setTimeout(() => {
-              _that.shouldHide = true
-            }, 30000)
+            if (_that.bannerClass === 'takeover') {
+              setTimeout(() => {
+                _that.shouldHide = true
+              }, 30000)
+            }
           }
         })
     })
