@@ -82,7 +82,7 @@ export default {
             _that.showClose = true
             _that.size = event.size
             setTimeout(() => {
-              this.shouldHide = true
+              _that.shouldHide = true
             }, 30000)
           }
         })
