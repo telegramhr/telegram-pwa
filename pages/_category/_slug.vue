@@ -781,14 +781,14 @@ export default {
           window.tp.enableGACrossDomainLinking()
         },
       ])
-
+      const _that = this
       window.marfeel.cmd.push([
         'compass',
         function (compass) {
-          if (this.post.paywall === 'always') {
+          if (_that.post.paywall === 'always') {
             compass.setPageVar('closed', 'hard-paywall')
           }
-          if (this.post.paywall === 'none') {
+          if (_that.post.paywall === 'none') {
             compass.setPageVar('closed', 'dynamic-paywall')
           }
         },
