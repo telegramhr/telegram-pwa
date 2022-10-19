@@ -9,7 +9,12 @@
       :tracker="post.trackerPermalink"
       :aria-labelledby="'featured-' + post.id"
     >
-      <img :srcset="srcset" :src="post.image.url" :alt="post.image.alt" />
+      <img
+        :srcset="srcset"
+        :src="post.image.url"
+        :alt="post.image.alt"
+        fetchpriority="high"
+      />
     </app-link>
     <div class="full flex article-pad">
       <app-link

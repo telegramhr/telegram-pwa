@@ -170,6 +170,7 @@
                     :srcset="srcset"
                     :src="post.image.url"
                     :alt="post.image.alt"
+                    fetchpriority="high"
                   />
                   <div v-if="post.image.author" class="meta-foto">
                     FOTO: {{ post.image.author }}
@@ -586,18 +587,40 @@ export default {
       return this.$store.state.user.exp * 1000 < new Date().getTime()
     },
     jsonld() {
-      const images = [this.post.image.url]
+      const images = [
+        {
+          '@type': 'ImageObject',
+          contentUrl: this.post.image.url,
+          creditText: this.post.image.author,
+        },
+      ]
       if (this.post.image.url2) {
-        images.push(this.post.image.url2)
+        images.push({
+          '@type': 'ImageObject',
+          contentUrl: this.post.image.url2,
+          creditText: this.post.image.author,
+        })
       }
       if (this.post.image.url3) {
-        images.push(this.post.image.url3)
+        images.push({
+          '@type': 'ImageObject',
+          contentUrl: this.post.image.url3,
+          creditText: this.post.image.author,
+        })
       }
       if (this.post.image.full) {
-        images.push(this.post.image.full)
+        images.push({
+          '@type': 'ImageObject',
+          contentUrl: this.post.image.full,
+          creditText: this.post.image.author,
+        })
       }
       if (this.post.image.facebook) {
-        images.push(this.post.image.facebook)
+        images.push({
+          '@type': 'ImageObject',
+          contentUrl: this.post.image.facebook,
+          creditText: this.post.image.author,
+        })
       }
       return [
         {
@@ -611,14 +634,26 @@ export default {
           publisher: {
             '@type': 'Organization',
             name: 'Telegram.hr',
+            url: 'https://www.telegram.hr',
             logo: {
               '@type': 'ImageObject',
               url: 'https://www.telegram.hr/tg_neue_favicon.png',
+              width: 512,
+              height: 512,
             },
           },
           author: this.post.authors,
           keywords: this.post.tags.map((tag) => tag.slug),
           sections: this.$options.filters.parseCat(this.post.category),
+          isAccessibleForFree: this.post.paywall === 'never' ? 'True' : 'False',
+          hasPart:
+            this.post.paywall === 'never'
+              ? ''
+              : {
+                  '@type': 'WebPageElement',
+                  isAccessibleForFree: 'False',
+                  cssSelector: '.piano-content',
+                },
         },
         {
           '@context': 'https://schema.org',
