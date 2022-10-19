@@ -23,7 +23,7 @@
         </div>
       </div>
     </div>
-    <linker v-if="show" type="mobile"></linker>
+    <linker v-if="show" type="intext"></linker>
   </div>
 </template>
 
@@ -118,6 +118,7 @@ export default {
           setTimeout(this.paywall, 500)
         }
       }
+      this.$linker.processLinker(476)
     },
   },
 }
