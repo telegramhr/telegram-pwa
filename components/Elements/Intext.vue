@@ -1,26 +1,29 @@
 <template>
-  <div v-show="show" class="full flex relative pretplata-intext">
-    <div class="full center">
-      <img
-        src="@/assets/img/tg_neue_favicon.png"
-        aria-hidden="true"
-        class="pretplata-avatar"
-      />
-    </div>
-    <h2 class="full">{{ title }}</h2>
-    <p class="full center-text">
-      {{ subtitle }}
-    </p>
-    <div class="full center">
-      <app-link :id="id" to="/pretplata" class="btn">Pretplatite se</app-link>
-      <div
-        v-if="!$store.state.user.token"
-        class="btn altbtn"
-        @click.prevent="$store.dispatch('user/login')"
-      >
-        Već imam pretplatu
+  <div>
+    <div v-show="show" class="full flex relative pretplata-intext">
+      <div class="full center">
+        <img
+          src="@/assets/img/tg_neue_favicon.png"
+          aria-hidden="true"
+          class="pretplata-avatar"
+        />
+      </div>
+      <h2 class="full">{{ title }}</h2>
+      <p class="full center-text">
+        {{ subtitle }}
+      </p>
+      <div class="full center">
+        <app-link :id="id" to="/pretplata" class="btn">Pretplatite se</app-link>
+        <div
+          v-if="!$store.state.user.token"
+          class="btn altbtn"
+          @click.prevent="$store.dispatch('user/login')"
+        >
+          Već imam pretplatu
+        </div>
       </div>
     </div>
+    <linker v-if="show" type="mobile"></linker>
   </div>
 </template>
 
