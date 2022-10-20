@@ -78,6 +78,7 @@ export default {
       window.googletag
         .pubads()
         .addEventListener('slotRenderEnded', function (event) {
+          const name = event.slot.getAdUnitPath().split('/').pop()
           if (name.includes('sticky') && !event.isEmpty) {
             _that.showClose = true
             _that.size = event.size
