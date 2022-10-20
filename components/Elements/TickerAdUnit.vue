@@ -78,7 +78,7 @@ export default {
       window.googletag
         .pubads()
         .addEventListener('slotRenderEnded', function (event) {
-          if (!event.isEmpty) {
+          if (name.includes('sticky') && !event.isEmpty) {
             _that.showClose = true
             _that.size = event.size
             if (_that.bannerClass === 'takeover') {
