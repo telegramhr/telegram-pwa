@@ -214,16 +214,28 @@
         </div>
         <div class="half" role="menu">
           <h3>Social</h3>
-          <a role="menuitem" href="https://www.facebook.com/Telegram.hr/"
+          <a
+            role="menuitem"
+            href="https://www.facebook.com/Telegram.hr/"
+            rel="noreferrer nofollow"
             >Facebook</a
           >
-          <a role="menuitem" href="https://twitter.com/telegramhr/">Twitter</a>
-          <a role="menuitem" href="https://www.instagram.com/telegram.hr/"
+          <a
+            role="menuitem"
+            href="https://twitter.com/telegramhr/"
+            rel="noreferrer nofollow"
+            >Twitter</a
+          >
+          <a
+            role="menuitem"
+            href="https://www.instagram.com/telegram.hr/"
+            rel="noreferrer nofollow"
             >Instagram</a
           >
           <a
             role="menuitem"
             href="https://www.youtube.com/channel/UCV_gCZEP2ikrjZVTRulR7sw"
+            rel="noreferrer nofollow"
             >Youtube</a
           >
         </div>

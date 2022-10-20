@@ -114,27 +114,30 @@
           </div>
         </div>
         <div class="full flex social-links center">
-          <app-link
-            to="https://www.facebook.com/Telegram.hr/"
+          <a
+            href="https://www.facebook.com/Telegram.hr/"
             class="center animate"
             aria-label="Facebook"
+            rel="noreferrer nofollow"
           >
             <font-awesome-icon :icon="['fab', 'facebook-f']"></font-awesome-icon
-          ></app-link>
-          <app-link
+          ></a>
+          <a
             to="https://twitter.com/telegramhr/"
             class="center animate"
             aria-label="Twitter"
+            rel="noreferrer nofollow"
           >
             <font-awesome-icon :icon="['fab', 'twitter']"></font-awesome-icon
-          ></app-link>
-          <app-link
+          ></a>
+          <a
             to="https://www.instagram.com/telegram.hr/"
             class="center animate"
             aria-label="Instagram"
+            rel="noreferrer nofollow"
           >
             <font-awesome-icon :icon="['fab', 'instagram']"></font-awesome-icon
-          ></app-link>
+          ></a>
           <app-link
             to="https://www.telegram.hr/feed"
             class="center animate"
