@@ -591,6 +591,7 @@ export default {
         {
           '@type': 'ImageObject',
           contentUrl: this.post.image.url,
+          url: this.post.image.url,
           creditText: this.post.image.author,
           caption: this.post.image.alt,
           acquireLicensePage:
@@ -603,6 +604,7 @@ export default {
         images.push({
           '@type': 'ImageObject',
           contentUrl: this.post.image.url2,
+          url: this.post.image.url2,
           creditText: this.post.image.author,
           caption: this.post.image.alt,
           acquireLicensePage:
@@ -615,6 +617,7 @@ export default {
         images.push({
           '@type': 'ImageObject',
           contentUrl: this.post.image.url3,
+          url: this.post.image.url3,
           creditText: this.post.image.author,
           caption: this.post.image.alt,
           acquireLicensePage:
@@ -627,6 +630,7 @@ export default {
         images.push({
           '@type': 'ImageObject',
           contentUrl: this.post.image.full,
+          url: this.post.image.full,
           creditText: this.post.image.author,
           caption: this.post.image.alt,
           acquireLicensePage:
@@ -639,6 +643,7 @@ export default {
         images.push({
           '@type': 'ImageObject',
           contentUrl: this.post.image.facebook,
+          url: this.post.image.facebook,
           creditText: this.post.image.author,
           caption: this.post.image.alt,
           acquireLicensePage:
