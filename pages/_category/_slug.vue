@@ -592,6 +592,11 @@ export default {
           '@type': 'ImageObject',
           contentUrl: this.post.image.url,
           creditText: this.post.image.author,
+          caption: this.post.image.alt,
+          acquireLicensePage:
+            'https://www.telegram.hr/stranica/uvjeti-koristenja',
+          license: 'https://www.telegram.hr/stranica/uvjeti-koristenja',
+          copyrightNotice: this.post.image.author,
         },
       ]
       if (this.post.image.url2) {
@@ -599,6 +604,11 @@ export default {
           '@type': 'ImageObject',
           contentUrl: this.post.image.url2,
           creditText: this.post.image.author,
+          caption: this.post.image.alt,
+          acquireLicensePage:
+            'https://www.telegram.hr/stranica/uvjeti-koristenja',
+          license: 'https://www.telegram.hr/stranica/uvjeti-koristenja',
+          copyrightNotice: this.post.image.author,
         })
       }
       if (this.post.image.url3) {
@@ -606,6 +616,11 @@ export default {
           '@type': 'ImageObject',
           contentUrl: this.post.image.url3,
           creditText: this.post.image.author,
+          caption: this.post.image.alt,
+          acquireLicensePage:
+            'https://www.telegram.hr/stranica/uvjeti-koristenja',
+          license: 'https://www.telegram.hr/stranica/uvjeti-koristenja',
+          copyrightNotice: this.post.image.author,
         })
       }
       if (this.post.image.full) {
@@ -613,6 +628,11 @@ export default {
           '@type': 'ImageObject',
           contentUrl: this.post.image.full,
           creditText: this.post.image.author,
+          caption: this.post.image.alt,
+          acquireLicensePage:
+            'https://www.telegram.hr/stranica/uvjeti-koristenja',
+          license: 'https://www.telegram.hr/stranica/uvjeti-koristenja',
+          copyrightNotice: this.post.image.author,
         })
       }
       if (this.post.image.facebook) {
@@ -620,6 +640,11 @@ export default {
           '@type': 'ImageObject',
           contentUrl: this.post.image.facebook,
           creditText: this.post.image.author,
+          caption: this.post.image.alt,
+          acquireLicensePage:
+            'https://www.telegram.hr/stranica/uvjeti-koristenja',
+          license: 'https://www.telegram.hr/stranica/uvjeti-koristenja',
+          copyrightNotice: this.post.image.author,
         })
       }
       return [
