@@ -675,13 +675,13 @@ export default {
           author: this.post.authors,
           keywords: this.post.tags.map((tag) => tag.slug),
           sections: this.$options.filters.parseCat(this.post.category),
-          isAccessibleForFree: this.post.paywall === 'never' ? 'True' : 'False',
+          isAccessibleForFree: this.post.paywall === 'never',
           hasPart:
             this.post.paywall === 'never'
               ? ''
               : {
                   '@type': 'WebPageElement',
-                  isAccessibleForFree: 'False',
+                  isAccessibleForFree: false,
                   cssSelector: '.piano-content',
                 },
         },
