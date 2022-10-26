@@ -9158,12 +9158,13 @@ h3.subsection-title .spar-line img {
 }
 #generator-img-deliver {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
+    top: -0.5%;
+    left: -0.5%;
+    width: 101%;
+    height: 101%;
+    background-size: cover;
+    background-position: top center;
+    background-color: #aaa;
     z-index: 3;
 }
 .generator-img-overlay {

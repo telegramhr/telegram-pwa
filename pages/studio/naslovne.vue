@@ -6,6 +6,14 @@
         <div class="full flex relative">
           <div class="third flex-responsive flex relative">
             <input
+              id="empty"
+              v-model="selected"
+              :value="'empty'"
+              type="radio"
+              name="overlay"
+            />
+            <label class="clickable animate" for="empty">Sredi veličinu</label>
+            <input
               id="modric"
               v-model="selected"
               :value="'modric'"
@@ -118,7 +126,12 @@
               </div>
               <div class="full flex small-top-margin"></div>
             </div>
-            <h2 class="full center-text">Na ovo:</h2>
+            <h2 v-show="selected === 'empty'" class="full center-text">
+              Ove fotke:
+            </h2>
+            <h2 v-show="selected != 'empty'" class="full center-text">
+              Na ovo:
+            </h2>
             <div class="full center">
               <div class="full generator-file-upload clickable">
                 <div class="file-select">
@@ -143,12 +156,7 @@
     </div>
     <div class="full flex relative">
       <div id="generator-img-render">
-        <img
-          id="generator-img-deliver"
-          src="@/assets/img/grey_placeholder.png"
-          width="2664"
-          height="1680"
-        />
+        <div id="generator-img-deliver" />
         <img
           v-if="selected === 'modric'"
           id="modric-overlay"
@@ -200,7 +208,7 @@ export default {
   name: 'TelegramKlub',
   data() {
     return {
-      selected: '',
+      selected: 'modric',
       krugType: 'gorelijevo',
     }
   },
@@ -276,7 +284,8 @@ export default {
       const file = document.getElementById('chooseFile').files[0]
       const reader = new FileReader()
       reader.onloadend = function () {
-        document.getElementById('generator-img-deliver').src = reader.result
+        document.getElementById('generator-img-deliver').style.backgroundImage =
+          "url('" + reader.result + "')"
       }
       if (file) {
         reader.readAsDataURL(file)
