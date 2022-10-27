@@ -4,10 +4,7 @@ export const state = () => ({
   prefix: '/1092744/telegram/',
   units: {
     telegram_desktop_billboard_v1: {
-      upc: {
-        desktop: 12,
-        mobile: 12,
-      },
+      upc: false,
       mobile: [
         [1, 1],
         [300, 50],
@@ -38,10 +35,7 @@ export const state = () => ({
       ],
     },
     telegram_desktop_billboard_v2: {
-      upc: {
-        desktop: 12,
-        mobile: 12,
-      },
+      upc: false,
       routes: ['index'],
       mobile: [
         [1, 1],
@@ -154,10 +148,7 @@ export const state = () => ({
       },
     },
     telegram_desktop_billboard_v3: {
-      upc: {
-        desktop: 12,
-        mobile: 12,
-      },
+      upc: false,
       routes: ['index'],
       mobile: [
         [1, 1],
@@ -263,10 +254,7 @@ export const state = () => ({
       },
     },
     telegram_desktop_billboard_v4: {
-      upc: {
-        desktop: 12,
-        mobile: 12,
-      },
+      upc: false,
       routes: ['index'],
       mobile: [
         [1, 1],
@@ -379,10 +367,7 @@ export const state = () => ({
       },
     },
     telegram_desktop_wallpaper_left: {
-      upc: {
-        desktop: 2,
-        mobile: 36,
-      },
+      upc: 36,
       desktop: [
         [1, 1],
         [300, 900],
@@ -405,10 +390,7 @@ export const state = () => ({
       ],
     },
     telegram_dekstop_wallpaper_right: {
-      upc: {
-        desktop: 36,
-        mobile: 36,
-      },
+      upc: 36,
       desktop: [
         [1, 1],
         [301, 901],
@@ -432,10 +414,7 @@ export const state = () => ({
       ],
     },
     telegram_desktop_intext_v1: {
-      upc: {
-        desktop: 14,
-        mobile: 14,
-      },
+      upc: false,
       routes: ['category-slug', 'nesto-slug'],
       desktop: [
         [1, 1],
@@ -459,10 +438,7 @@ export const state = () => ({
       ],
     },
     telegram_desktop_intext_v2: {
-      upc: {
-        desktop: 10,
-        mobile: 10,
-      },
+      upc: false,
       routes: ['category-slug', 'nesto-slug'],
       desktop: [
         [1, 1],
@@ -583,10 +559,7 @@ export const state = () => ({
       },
     },
     telegram_desktop_intext_v3: {
-      upc: {
-        desktop: 10,
-        mobile: 10,
-      },
+      upc: false,
       routes: ['category-slug', 'nesto-slug'],
       desktop: [
         [1, 1],
@@ -703,10 +676,7 @@ export const state = () => ({
       },
     },
     telegram_desktop_intext_v4: {
-      upc: {
-        desktop: 13,
-        mobile: 13,
-      },
+      upc: false,
       routes: ['category-slug', 'nesto-slug'],
       desktop: [
         [1, 1],
@@ -823,10 +793,7 @@ export const state = () => ({
       },
     },
     telegram_desktop_intext_v5: {
-      upc: {
-        desktop: 13,
-        mobile: 13,
-      },
+      upc: false,
       routes: ['category-slug', 'nesto-slug'],
       desktop: [
         [1, 1],
@@ -922,10 +889,7 @@ export const state = () => ({
       },
     },
     telegram_desktop_intext_v6: {
-      upc: {
-        desktop: 13,
-        mobile: 13,
-      },
+      upc: false,
       routes: ['category-slug', 'nesto-slug'],
       desktop: [
         [1, 1],
@@ -1021,10 +985,7 @@ export const state = () => ({
       },
     },
     telegram_sticky: {
-      upc: {
-        desktop: 36,
-        mobile: 36,
-      },
+      upc: 36,
       routes: [
         'index',
         'category',
@@ -1111,7 +1072,7 @@ export const actions = {
       return
     }
     // load the up to date floor data
-    if (state.upc_updated + 60 * 60 * 1000 < new Date().getTime()) {
+    /* if (state.upc_updated + 60 * 60 * 1000 < new Date().getTime()) {
       this.$axios
         .get('/api/upc')
         .then((res) => {
@@ -1120,9 +1081,9 @@ export const actions = {
         .then(() => {
           dispatch('setupTargeting', payload)
         })
-    } else {
-      dispatch('setupTargeting', payload)
-    }
+    } else { */
+    dispatch('setupTargeting', payload)
+    // }
   },
   setupTargeting({ state, commit, dispatch, rootState }, payload) {
     window.googletag = window.googletag || {}
@@ -1196,11 +1157,9 @@ export const actions = {
       for (const i of Object.keys(state.units)) {
         if (i in state.units) {
           unit = state.units[i]
-          let upc = sizes === 'desktop' ? 14 : 12
-          if (state.upc[i]) {
-            upc = state.upc[i][sizes]
-          } else {
-            upc = state.upc_b
+          let upc = 4
+          if (unit.upc) {
+            upc = unit.upc
           }
           if (!unit[sizes]) {
             continue
