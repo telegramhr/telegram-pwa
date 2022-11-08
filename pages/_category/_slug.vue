@@ -1083,7 +1083,7 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: this.post.social.description,
+          content: this.post.description,
         },
         {
           hid: 'og:description',
