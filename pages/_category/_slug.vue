@@ -4,6 +4,7 @@
       'main-container',
       'flex',
       'single-article',
+      'superone-single',
       typeClass,
       categoryClass,
     ]"

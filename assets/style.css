@@ -8419,7 +8419,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     border-bottom: 1px solid black;
     margin-bottom: 48px;
 }
-.dark-mode .superone-toppicks, .superone-story {
+.dark-mode .superone-toppicks, .dark-mode .superone-story {
     border-color: white;
 }
 .superone .fourth .article-superfeat .article-pad a {
@@ -8435,6 +8435,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
     line-height: 1.2em;
+}
+.superone-single h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
 }
 
 @media screen and (min-width: 767px) {
@@ -10092,5 +10096,144 @@ label.payment-tile svg {
         margin-right: -50vw;
         margin-left: -50vw;
         min-height: auto !important;
+    }
+}
+
+/* Multiverse sticky menus */
+
+.telesport-sticky {
+    display: none;
+}
+.telesport .telegram-sticky {
+    display: none;
+}
+.telesport .telesport-sticky {
+    display: flex;
+}
+.sticky-subheader .telesport-sticky .logo img {
+    height: 30px;
+    bottom: 6px;
+}
+.telesport-sticky .subheader-ow-fix {
+    overflow: visible;
+}
+
+/* Telesport */
+
+.telesport, .dark-mode.telesport {
+    background: #171d21;
+    color: white;
+}
+.telesport .article h2 {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+}
+.telesport .dark-mode-only {
+    display: inherit;
+}
+.telesport .light-mode-only {
+    display: none;
+}
+.telesport .subheader .logo img, .telesport header nav .logo img {
+    display: none;
+}
+.telesport .subheader .logo img.dark-mode-only, .telesport header nav .logo img.dark-mode-only {
+    display: inline-block;
+}
+.sport-slash {
+    color: #069eff;
+    font-weight: 900;
+}
+.contrast-mode .sport-slash {
+    color: #223344;
+}
+.telesport .block-title, .telesport .dynamic-overtitle-element, .telesport .widget, .telesport .widget::before, .telesport .komentar .komentar-image, .telesport .subtle-btn-parent:hover .subtle-btn, .telesport .loader-square div, .telesport .newbtn {
+    background-color: #069eff;
+}
+.telesport .meta-preporuke, .telesport h3.overtitle, .telesport .article-mini .meta-date, .telesport .related-articles h5, .telesport .komentar-quotation {
+    color: #069eff;
+}
+.telesport h2.section-title {
+    border-bottom-color: #069eff;
+}
+.ts-home-header {
+    padding-bottom: 24px;
+    flex-wrap: wrap;
+}
+.ts-home-header .logo {
+    width: 80%;
+    height: auto;
+    max-width: 360px;
+    margin: 0 auto;
+    margin-top: 70px;
+}
+.ts-home-darkbg {
+    padding-top: 50px;
+    background-image: url('https://telesport.telegram.hr/wp-content/themes/telesport-desktop/assets/img/bg-pattern.gif');
+}
+.ts-home-header nav {
+    max-width: 360px;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: space-between;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    font-size: 1rem;
+}
+.ts-home-header nav a {
+    opacity: .5;
+}
+.ts-home-header nav a:hover {
+    opacity: 1;
+    color: #069eff;
+}
+.telesport.fancy-rubrika .subheader {
+    background-color: #111;
+    color: white;
+    border-bottom-color: #223344;
+}
+.telesport .article-standard {
+    border-bottom-color: #223344;
+}
+.telesport .cantha-separator {
+    border-top-color: #223344;
+    border-bottom-color: #069eff;
+}
+.telesport .cantha-break, .telesport .cantha-break {
+    background-color: #111;
+}
+
+@media screen and (max-width: 767px) {
+    .ts-home-header {
+        padding-top: 8vw;
+        padding-bottom: 4vw;
+    }
+    .ts-home-header nav {
+        width: 80%;
+        font-size: 4.5vw;
+    }
+    .ts-home-header .logo {
+        margin-bottom: 2vw;
+    }
+}
+
+@media screen and (min-width: 767px) {
+    .telesport .column-right-border, .telesport .column-bottom-border, .telesport .column-top-border, .telesport .column-left-border {
+        border-color: #223344;
+    }
+    .telesport .article:hover h2, .telesport .komentar:hover h2 {
+        color: #ccc;
+    }
+    .telesport .article-featured h2, .telesport .alt-big-break.center-text .telesport .article h2 {
+        font-size: 24px;
+        font-size: 1.2rem;
+    }
+    .telesport .article-featured-alt .article-pad h2 {
+        font-size: 36px;
+        font-size: 1.8rem;
+    }
+    .telesport .featured-split .article-featured {
+        border-color: #223344;
     }
 }
