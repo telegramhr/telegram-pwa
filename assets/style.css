@@ -8912,29 +8912,13 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 16px;
     font-size: 0.8rem;
 }
-.spar-line {
-    background-color: #006431;
-}
+
 .klub-expanded p a {
     color: #ae3737;
     font-weight: bold;
     text-decoration: underline;
 }
-.spar-line > div {
-    padding-left: 7px;
-    background-color: #fcf1e7;
-    width: 226px;
-}
-.contrast-mode .spar-line > div {
-    background-color: white;
-}
-.dark-mode .spar-line > div {
-    background-color: #212121;
-}
-h3.subsection-title .spar-line img {
-    height: 14px;
-    bottom: 0px;
-}
+
 .klub-card {
     background-color: #333;
     color: white;

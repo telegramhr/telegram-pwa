@@ -342,6 +342,11 @@
         </div>
       </div>
     </div>
+    <client-only>
+      <div v-if="!hasPremium" class="full relative">
+        <offers shop="pevex"></offers>
+      </div>
+    </client-only>
     <!-- Prekid knjiga -->
     <div class="full relative">
       <div class="container flex relative column-horizontal-pad">
