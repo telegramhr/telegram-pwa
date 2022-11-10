@@ -128,7 +128,7 @@
                   />
                 </div>
               </div>
-              <h1 class="full">{{ post.title }}</h1>
+              <h1 class="full">{{ post.portal_title }}</h1>
               <h2 class="full">
                 {{ post.subtitle }}
               </h2>
