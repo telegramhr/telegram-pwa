@@ -249,6 +249,9 @@
                 <portal v-if="showQuiz" selector="#quiz-container">
                   <quiz v-if="post.quiz" :data="post.quiz"></quiz>
                 </portal>
+                <portal v-if="!hasPremium" selector="#intext_pevex">
+                  <offers shop="pevex"></offers>
+                </portal>
               </client-only>
               <client-only>
                 <intext></intext>
