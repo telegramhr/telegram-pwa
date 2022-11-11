@@ -123,7 +123,7 @@
             <font-awesome-icon :icon="['fab', 'facebook-f']"></font-awesome-icon
           ></a>
           <a
-            to="https://twitter.com/telegramhr/"
+            href="https://twitter.com/telegramhr/"
             class="center animate"
             aria-label="Twitter"
             rel="noreferrer nofollow"
@@ -131,7 +131,7 @@
             <font-awesome-icon :icon="['fab', 'twitter']"></font-awesome-icon
           ></a>
           <a
-            to="https://www.instagram.com/telegram.hr/"
+            href="https://www.instagram.com/telegram.hr/"
             class="center animate"
             aria-label="Instagram"
             rel="noreferrer nofollow"
