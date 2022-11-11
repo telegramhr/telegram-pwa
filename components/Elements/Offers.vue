@@ -63,7 +63,7 @@
             <div class="full flex article-pad">
               <h2 class="full">{{ post.naslov }}</h2>
               <h3 v-if="post.cijena" class="full overtitle">
-                {{ post.cijena }} ({{ post.cijena_euro }})
+                {{ post.cijena }} ({{ post.cijena_euro }})<br />
                 <span v-if="post.stara_cijena" class="strikethrough-price">
                   {{ post.stara_cijena }} ({{ post.stara_cijena_euro }})
                 </span>
@@ -180,7 +180,7 @@ export default {
 }
 
 .pevex-line {
-  background-color: rgba(0, 141, 64, 0.8);
+  background-color: #00ab4e;
 }
 
 .spar-line > div {
