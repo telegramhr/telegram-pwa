@@ -199,7 +199,7 @@ export default {
 .pevex-line > div {
   padding: 10px;
 }
-.contrast-mode .pevex-line > div,
+
 .contrast-mode .spar-line > div {
   background-color: white;
 }
