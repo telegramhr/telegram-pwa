@@ -35,6 +35,11 @@
             src="@/assets/img/extras/partner_logos/pevex.webp"
             alt="Pevex logo"
           />
+          <img
+            src="@/assets/img/extras/partner_logos/pevex.webp"
+            class="dark-mode-only"
+            alt="Pevex logo"
+          />
         </div>
       </div>
     </h3>
@@ -198,8 +203,7 @@ export default {
 .contrast-mode .spar-line > div {
   background-color: white;
 }
-.dark-mode .spar-line > div,
-.dark-mode .pevex-line > div {
+.dark-mode .spar-line > div {
   background-color: #212121;
 }
 
