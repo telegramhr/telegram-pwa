@@ -774,6 +774,9 @@ export default {
       'article-author': this.$store.state.history.author,
       'user-type': this.$store.state.user.type,
     })
+    if (this.$route.query.black_friday === '2022') {
+      this.checkout(this.four)
+    }
   },
   methods: {
     checkout(termId) {
