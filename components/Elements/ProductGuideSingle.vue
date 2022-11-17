@@ -16,7 +16,7 @@
         target="_blank"
         rel="sponsored"
       >
-        {{ product.shop }}
+        {{ product.shop | parseCat }}
       </a>
     </div>
   </div>

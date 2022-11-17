@@ -193,7 +193,7 @@ export default {
 .spar-line > div {
   padding-left: 7px;
   background-color: #fcf1e7;
-  width: 226px;
+  width: 468px;
 }
 
 .pevex-line > div {
@@ -213,7 +213,7 @@ h3.subsection-title .pevex-line img {
 }
 
 h3.subsection-title .spar-line img {
-  height: 14px;
+  height: 30px;
   bottom: 0px;
 }
 </style>
