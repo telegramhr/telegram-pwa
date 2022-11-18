@@ -115,6 +115,11 @@ export const state = () => ({
       updated: null,
       extraClass: 'pitanje-zdravlja fancy-rubrika',
     },
+    qatar: {
+      name: 'Katar 2022',
+      posts: [],
+      updated: null,
+    },
   },
   morePosts: {
     'politika-kriminal': {
@@ -174,6 +179,10 @@ export const state = () => ({
       page: 2,
     },
     'pitanje-zdravlja': {
+      posts: [],
+      page: 2,
+    },
+    qatar: {
       posts: [],
       page: 2,
     },

@@ -306,6 +306,11 @@
         <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
       </div>
     </div>
+    <div class="full relative">
+      <div class="container flex relative">
+        <category-big slug="qatar"></category-big>
+      </div>
+    </div>
     <!-- TG preporuka -->
     <div class="full relative">
       <div
