@@ -278,37 +278,39 @@
         </div>
       </div>
     </client-only>
-    <!-- Još vijesti -->
-    <div class="full relative">
-      <div
-        class="container flex cantha-small-block mobile-side-pad relative stretch"
-      >
-        <div class="full column-horizontal-pad column-top-pad">
-          <div class="full cantha-separator"></div>
-        </div>
-        <h3 class="full center-text column-full-pad subsection-title">
-          Još vijesti
-        </h3>
-        <div class="full flex stretch relative no-last-border-mobile">
-          <div
-            v-for="post in posts.slice(8, 12)"
-            :key="post.id"
-            class="fourth flex-responsive column-right-border column-horizontal-pad"
-          >
-            <standard :post="post"></standard>
+    <div class="full relative flex">
+      <!-- Još vijesti -->
+      <div class="full relative cantha-more-news">
+        <div
+          class="container flex cantha-small-block mobile-side-pad relative stretch"
+        >
+          <div class="full column-horizontal-pad column-top-pad">
+            <div class="full cantha-separator"></div>
+          </div>
+          <h3 class="full center-text column-full-pad subsection-title">
+            Još vijesti
+          </h3>
+          <div class="full flex stretch relative no-last-border-mobile">
+            <div
+              v-for="post in posts.slice(8, 12)"
+              :key="post.id"
+              class="fourth flex-responsive column-right-border column-horizontal-pad"
+            >
+              <standard :post="post"></standard>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- Billboard 3 -->
-    <div class="full relative">
-      <div class="full center">
-        <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
+      <!-- Billboard 3 -->
+      <div class="full relative cantha-billboard3">
+        <div class="full center">
+          <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
+        </div>
       </div>
-    </div>
-    <div class="full relative">
-      <div class="container flex relative">
-        <category-big slug="qatar"></category-big>
+      <div class="full relative cantha-qatar">
+        <div class="container flex relative">
+          <category-big slug="qatar"></category-big>
+        </div>
       </div>
     </div>
     <!-- TG preporuka -->

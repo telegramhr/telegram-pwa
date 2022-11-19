@@ -7980,6 +7980,15 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 0.55rem;
         margin-bottom: 4vw;
     }
+    .cantha-more-news {
+      order: 2;
+    }
+    .cantha-billboard3 {
+      order: 3;
+    }
+    .cantha-qatar {
+      order: 1;
+    }
 }
 @media screen and (min-width: 767px) {
     .no-image-block .article img {
