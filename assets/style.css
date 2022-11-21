@@ -9363,6 +9363,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .pretplata-new-promo .article {
     z-index: 5;
 }
+.pretplata-new-promo .container {
+    z-index: 5;
+}
 .pretplata-new-promo h1 {
     font-size: 72px;
     font-size: 3.6rem;
@@ -9975,4 +9978,47 @@ label.payment-tile svg {
 
 .lwdgt:empty {
   display: none !important;
+}
+
+/* Pretplata BF */
+
+.pretplata-bf .container {
+    z-index: 10;
+    flex-wrap: wrap;
+}
+.best-price-sticker {
+    font-family: 'Barlow', sans-serif;
+    justify-content: center;
+    padding-right: 6px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.pretplata-page .bf-packbox h2 {
+    line-height: 0.9em;
+    margin-bottom: 24px;
+    margin-top: 6px;
+}
+.bf-logo {
+    width: 100%;
+    max-width: 640px;
+    margin-bottom: 24px;
+}
+.sitetop-bf {
+    padding: 24px;
+}
+.sitetop-bf .bflogo {
+    margin-bottom: 48px;
+    margin-top: 24px;
+}
+.sitetop-bf h1 {
+    margin-bottom: 24px;
+}
+.sitetop-bf h4 {
+    margin-bottom: 16px;
+}
+
+@media screen and (max-width: 1024px) {
+    .best-price-sticker {
+        right: -16px;
+    }
 }
