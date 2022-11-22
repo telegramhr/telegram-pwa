@@ -17,7 +17,7 @@
     </div>
     <!-- Pretplata first timers -->
     <div v-show="canLogIn" class="full flex">
-      <pretplata-first-time></pretplata-first-time>
+      <pretplata-black-friday></pretplata-black-friday>
       <div class="full mobile-side-pad mobile-only">
         <div class="full column-bottom-border-mobile"></div>
       </div>

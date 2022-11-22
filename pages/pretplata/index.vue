@@ -7,6 +7,68 @@
         headline="Pretplatite se i podržite naše bespoštedno novinarstvo."
       ></theader>
     </div>
+    <div class="full flex relative dark-mode pretplata-bf">
+      <img
+        src="@/assets/img/tg_black_friday_bg.jpg"
+        alt="Kolaž naslovnih fotografija raznih istraživačkih specijala Telegrama"
+        class="img-as-bg"
+      />
+      <div
+        class="container center relative mobile-side-pad pretplata-packs pretplata-packboxes"
+      >
+        <div class="full center relative">
+          <img
+            src="@/assets/img/tg_blackfriday_logo.png"
+            class="bf-logo"
+            alt="Kolaž naslovnih fotografija raznih istraživačkih specijala Telegrama"
+          />
+        </div>
+        <div
+          class="full flex-responsive flex relative pretplata-packbox bf-packbox stretch"
+        >
+          <div class="best-price-sticker animate">Najbolja <br />cijena</div>
+          <div class="full flex overtitle-parent">
+            <h3 class="overtitle">Premium</h3>
+          </div>
+          <h2 class="full">1+1 gratis</h2>
+          <h4 class="full center-text undertitle">
+            platite samo 588 kn za 24 mjeseca čitanja (78,04€)
+          </h4>
+          <div class="full pretplata-benefits">
+            <p class="full animate">
+              <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+              dvije godine za cijenu jedne
+            </p>
+            <p class="full animate">
+              <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+              neograničeno čitanje Telegrama
+            </p>
+            <p class="full animate">
+              <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+              neograničeno čitanje Telesporta
+            </p>
+            <p class="full animate">
+              <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+              posebni popusti i pogodnosti
+            </p>
+            <p class="full animate">
+              <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+              specijalni newsletteri
+            </p>
+            <p class="full animate">
+              <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+              surfanje bez oglasa
+            </p>
+            <h4 class="full center-text undertitle">
+              *ponuda vrijedi samo za nove korisnike
+            </h4>
+          </div>
+          <div class="full center btn-parent" @click="checkout(four)">
+            <div class="btn animate">Odaberi</div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div id="pretplata-selector" class="full flex pretplata-page-content">
       <div class="full flex relative">
         <div
