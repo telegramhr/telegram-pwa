@@ -12,6 +12,9 @@
       <h2 class="full">
         {{ category.title }}
       </h2>
+      <div class="full flex product-gallery-buttons">
+        <div class="classic-btn" rel="sponsored">Pogledaj više</div>
+      </div>
     </app-link>
   </div>
 </template>
