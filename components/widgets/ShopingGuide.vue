@@ -2,8 +2,7 @@
   <div class="container flex relative native-block stretch mobile-side-pad">
     <div class="full column-horizontal-pad flex">
       <h2 class="full flex section-title">
-        <app-link
-          to="/soping-vodic/pokloni-za-bozic-2022-vodic-za-najbolje-poklone-kojim-ces-usreciti-svoje-bliznje/"
+        <app-link to="/soping-vodic/pokloni-za-bozic-2022-vodic/"
           >Pokloni za Božić</app-link
         >
       </h2>
