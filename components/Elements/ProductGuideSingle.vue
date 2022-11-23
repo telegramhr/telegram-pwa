@@ -15,6 +15,7 @@
         class="classic-btn"
         target="_blank"
         rel="sponsored"
+        @click="trackClick"
       >
         {{ product.shop | parseCat }}
       </a>
@@ -39,6 +40,22 @@ export default {
           shop: '',
         }
       },
+    },
+    category: {
+      type: String,
+      required: true,
+      default: '',
+    },
+  },
+  methods: {
+    trackClick() {
+      this.$gtm.push({
+        event: 'shop-guide',
+        'guide-category': this.category,
+        'guide-action': 'click',
+        'guide-label': this.product.link,
+        'guide-value': 1,
+      })
     },
   },
 }

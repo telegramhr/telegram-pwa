@@ -21,6 +21,7 @@
       v-for="product in list"
       :key="product.id"
       :product="product"
+      :category="category"
     ></product-guide-single>
     <div
       v-if="showMore"
@@ -43,6 +44,11 @@ export default {
         return []
       },
     },
+    category: {
+      type: String,
+      required: true,
+      default: '',
+    }
   },
   data() {
     return {

@@ -156,7 +156,10 @@
               v-html="post.content"
             ></div>
             <portal v-if="!post.parent" selector="#guide-category-container">
-              <product-category-guide :post="post"></product-category-guide>
+              <product-category-guide
+                :post="post"
+                :category="post.title"
+              ></product-category-guide>
             </portal>
             <!-- eslint-enable vue/no-v-html -->
             <portal v-if="show" selector="#guide-container">
