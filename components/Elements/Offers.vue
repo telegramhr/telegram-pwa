@@ -8,7 +8,7 @@
     </div>
     <h3 class="full center-text column-full-pad subsection-title">
       <div v-if="shop === 'interspar'" class="full center spar-line">
-        <div class="flex">
+        <div class="flex center">
           <img
             src="@/assets/img/extras/partner_logos/spar.svg"
             alt="Spar logo"
