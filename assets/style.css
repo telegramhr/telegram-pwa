@@ -7989,6 +7989,43 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .cantha-qatar {
       order: 1;
     }
+
+    .m-order-1 {
+      order: 1 !important;
+    }
+  .m-order-2 {
+    order: 2 !important;
+  }
+  .m-order-3 {
+    order: 3 !important;
+  }
+  .m-order-4 {
+    order: 4 !important;
+  }
+  .m-order-5 {
+    order: 5 !important;
+  }
+  .m-order-6 {
+    order: 6 !important;
+  }
+  .m-order-7 {
+    order: 7 !important;
+  }
+  .m-order-8 {
+    order: 8 !important;
+  }
+  .m-order-9 {
+    order: 9 !important;
+  }
+  .m-order-10 {
+    order: 10 !important;
+  }
+  .m-order-11 {
+    order: 11 !important;
+  }
+  .m-order-12 {
+    order: 12 !important;
+  }
 }
 @media screen and (min-width: 767px) {
     .no-image-block .article img {

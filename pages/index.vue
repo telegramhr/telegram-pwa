@@ -120,7 +120,7 @@
       <div class="container flex relative stretch cantha-intro-block">
         <!-- Billboard 1 -->
         <client-only>
-          <div v-show="!hasPremium" class="full relative">
+          <div v-show="!hasPremium" class="full relative m-order-2">
             <div class="full flex column-horizontal-pad desktop-only">
               <div class="full flex relative column-bottom-border"></div>
             </div>
@@ -134,9 +134,10 @@
         >
           <div class="full flex relative column-bottom-border"></div>
         </div>
+        <!-- breaking -->
         <h2
           v-show="$store.state.breaking.on2"
-          class="full major-event-header mobile-order-1 mobile-side-pad column-horizontal-pad column-bottom-pad center-text"
+          class="full major-event-header mobile-order-1 mobile-side-pad column-horizontal-pad column-bottom-pad center-text m-order-1"
         >
           <app-link
             :to="
@@ -146,8 +147,9 @@
             {{ $store.state.breaking.title2 }}</app-link
           >
         </h2>
+        <!-- G1 -->
         <div
-          class="three-fourths featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad column-right-border mobile-order-1"
+          class="three-fourths featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad column-right-border mobile-order-1 m-order-1"
         >
           <featured-alt
             v-if="posts[0]"
@@ -157,7 +159,7 @@
         </div>
         <!-- komentari -->
         <div
-          class="fourth flex-responsive column-horizontal-pad mobile-side-pad cantha-commentary"
+          class="fourth flex-responsive column-horizontal-pad mobile-side-pad cantha-commentary m-order-10"
         >
           <div class="full mobile-only flex relative">
             <div class="full column-horizontal-pad column-top-pad">
@@ -172,15 +174,19 @@
         <div class="full column-full-pad desktop-only">
           <div class="full column-top-border"></div>
         </div>
+        <!-- latest -->
         <client-only>
           <div
             v-if="$mobile"
-            class="full flex relative mobile-only mobile-side-pad"
+            class="full flex relative mobile-only mobile-side-pad m-order-4"
           >
             <latest :portal="1"></latest>
           </div>
         </client-only>
-        <div class="full flex cantha-small-block mobile-side-pad stretch">
+        <!-- rest of Gs -->
+        <div
+          class="full flex cantha-small-block mobile-side-pad stretch m-order-5"
+        >
           <div
             v-for="post in posts.slice(1, 4)"
             :key="`featured${post.id}`"
@@ -190,16 +196,22 @@
           </div>
         </div>
         <!-- Billboard 2 -->
-        <div class="full center">
+        <div class="full center m-order-6">
           <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
         </div>
-        <div class="full center">
-          <shoping-guide></shoping-guide>
+        <!-- qatar -->
+        <div class="full relative m-order-7">
+          <div class="container flex relative">
+            <category-big slug="qatar"></category-big>
+          </div>
         </div>
-        <div class="full column-horizontal-pad mobile-side-pad column-top-pad">
+        <div
+          class="full column-horizontal-pad mobile-side-pad column-top-pad m-order-7"
+        >
           <div class="full cantha-separator"></div>
         </div>
-        <h3 class="full center-text column-full-pad subsection-title">
+        <!-- Teme -->
+        <h3 class="full center-text column-full-pad subsection-title m-order-8">
           <img src="@/assets/img/telegram_logo_black.svg" alt="Telegram logo" />
           <img
             src="@/assets/img/telegram_logo_white.svg"
@@ -208,7 +220,9 @@
           />
           teme
         </h3>
-        <div class="full flex mobile-side-pad stretch secondary-gs-block">
+        <div
+          class="full flex mobile-side-pad stretch secondary-gs-block m-order-8"
+        >
           <div
             class="three-fourths flex-responsive column-horizontal-pad column-right-border flex relative featured-split smaller-featured-split show-one-related"
           >
@@ -249,70 +263,70 @@
             ></medium>
           </div>
         </div>
-      </div>
-    </div>
-    <!-- Prekid pretplata -->
-    <client-only>
-      <div v-if="!$store.state.user.access" class="full relative mobile-only">
-        <div class="container flex relative column-horizontal-pad">
-          <app-link
-            to="/pretplata"
-            class="full cantha-break cantha-mini-break mobile-side-pad flex relative stretch"
+        <!-- Prekid pretplata -->
+        <client-only>
+          <div
+            v-if="!$store.state.user.access"
+            class="full relative mobile-only m-order-8"
           >
-            <div class="two-thirds column-full-pad center flex-responsive">
-              <div class="full flex article">
-                <h2 class="full">
-                  Bespoštedno novinarstvo <br />koje gura društvo naprijed.
-                </h2>
-                <h5 class="full">
-                  Za neograničeno čitanje Telegrama i podršku istraživačkim
-                  serijalima, odaberite jedan od paketa.
-                </h5>
-              </div>
-            </div>
-            <div class="third stretch flex flex-responsive">
-              <div class="full flex article">
-                <div class="full center">
-                  <div class="newbtn">Pretplatite se</div>
+            <div class="container flex relative column-horizontal-pad">
+              <app-link
+                to="/pretplata"
+                class="full cantha-break cantha-mini-break mobile-side-pad flex relative stretch"
+              >
+                <div class="two-thirds column-full-pad center flex-responsive">
+                  <div class="full flex article">
+                    <h2 class="full">
+                      Bespoštedno novinarstvo <br />koje gura društvo naprijed.
+                    </h2>
+                    <h5 class="full">
+                      Za neograničeno čitanje Telegrama i podršku istraživačkim
+                      serijalima, odaberite jedan od paketa.
+                    </h5>
+                  </div>
                 </div>
+                <div class="third stretch flex flex-responsive">
+                  <div class="full flex article">
+                    <div class="full center">
+                      <div class="newbtn">Pretplatite se</div>
+                    </div>
+                  </div>
+                </div>
+              </app-link>
+            </div>
+          </div>
+        </client-only>
+        <!-- Još vijesti -->
+        <div class="full relative cantha-more-news m-order-11">
+          <div
+            class="container flex cantha-small-block mobile-side-pad relative stretch"
+          >
+            <div class="full column-horizontal-pad column-top-pad">
+              <div class="full cantha-separator"></div>
+            </div>
+            <h3 class="full center-text column-full-pad subsection-title">
+              Još vijesti
+            </h3>
+            <div class="full flex stretch relative no-last-border-mobile">
+              <div
+                v-for="post in posts.slice(8, 12)"
+                :key="post.id"
+                class="fourth flex-responsive column-right-border column-horizontal-pad"
+              >
+                <standard :post="post"></standard>
               </div>
             </div>
-          </app-link>
-        </div>
-      </div>
-    </client-only>
-    <div class="full relative flex">
-      <!-- Još vijesti -->
-      <div class="full relative cantha-more-news">
-        <div
-          class="container flex cantha-small-block mobile-side-pad relative stretch"
-        >
-          <div class="full column-horizontal-pad column-top-pad">
-            <div class="full cantha-separator"></div>
-          </div>
-          <h3 class="full center-text column-full-pad subsection-title">
-            Još vijesti
-          </h3>
-          <div class="full flex stretch relative no-last-border-mobile">
-            <div
-              v-for="post in posts.slice(8, 12)"
-              :key="post.id"
-              class="fourth flex-responsive column-right-border column-horizontal-pad"
-            >
-              <standard :post="post"></standard>
-            </div>
           </div>
         </div>
-      </div>
-      <!-- Billboard 3 -->
-      <div class="full relative cantha-billboard3">
-        <div class="full center">
-          <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
+        <!-- Billboard 3 -->
+        <div class="full relative cantha-billboard3 m-order-10">
+          <div class="full center">
+            <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
+          </div>
         </div>
-      </div>
-      <div class="full relative cantha-qatar">
-        <div class="container flex relative">
-          <category-big slug="qatar"></category-big>
+        <!-- shopping guide -->
+        <div class="full center m-order-9">
+          <shoping-guide></shoping-guide>
         </div>
       </div>
     </div>
