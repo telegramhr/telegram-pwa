@@ -155,16 +155,21 @@
               @click="handleClick"
               v-html="post.content"
             ></div>
-            <portal v-if="!post.parent" selector="#guide-category-container">
-              <product-category-guide
-                :post="post"
-                :category="post.title"
-              ></product-category-guide>
-            </portal>
             <!-- eslint-enable vue/no-v-html -->
-            <portal v-if="show" selector="#guide-container">
-              <product-guide :products="post.products"></product-guide>
-            </portal>
+            <client-only>
+              <portal
+                v-if="show && !post.parent"
+                selector="#guide-category-container"
+              >
+                <product-category-guide :post="post"></product-category-guide>
+              </portal>
+              <portal v-if="show" selector="#guide-container">
+                <product-guide
+                  :products="post.products"
+                  :category="post.title"
+                ></product-guide>
+              </portal>
+            </client-only>
             <!-- Article footer -->
             <div
               class="full relative single-article-footer flex column-top-pad"

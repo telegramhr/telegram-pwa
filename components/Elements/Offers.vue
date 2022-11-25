@@ -78,7 +78,7 @@
                 {{ post.opis }}
               </h4>
               <div class="newbtn">
-                {{ $shop === 'interspar' ? 'Pogledaj letak' : 'Saznaj više' }}
+                {{ shop === 'interspar' ? 'Pogledaj letak' : 'Saznaj više' }}
               </div>
             </div>
           </a>
