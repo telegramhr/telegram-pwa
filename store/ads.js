@@ -1308,9 +1308,9 @@ export const actions = {
               .getElementById(event.slot.getSlotElementId() + '-info')
               .classList.remove('hide')
           }
-          if (event.isEmpty && name.includes('billboard_v1')) {
+          if (name.includes('billboard_v1')) {
             el.style.minHeight = 0
-            if (!this.$mobile) {
+            if (event.isEmpty && !this.$mobile) {
               el.parentElement.parentElement.classList.add('hide')
             }
           }

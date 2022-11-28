@@ -4,12 +4,7 @@
       :id="id"
       class="banner-slot"
       :style="{
-        minHeight:
-          !disable &&
-          id === 'telegram_desktop_billboard_v1' &&
-          !$store.getters['user/hasPremium']
-            ? '500px'
-            : 0,
+        minHeight: minHeight,
       }"
     ></div>
   </client-only>
@@ -28,6 +23,19 @@ export default {
       type: Boolean,
       required: false,
       default: false,
+    },
+  },
+  computed: {
+    minHeight() {
+      let h = 500
+      if (this.$mobile) {
+        h = 250
+      }
+      return !this.disable &&
+        this.id === 'telegram_desktop_billboard_v1' &&
+        !this.$store.getters['user/hasPremium']
+        ? h
+        : 0
     },
   },
 }
