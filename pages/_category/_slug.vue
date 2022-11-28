@@ -85,6 +85,8 @@
           class="article-head-image"
           :src="post.image.full"
           :alt="post.image.alt"
+          :width="post.image.width"
+          :height="post.image.height"
         />
         <div class="full flex article-head">
           <div class="full flex overtitle-parent">
@@ -171,6 +173,8 @@
                     :src="post.image.url"
                     :alt="post.image.alt"
                     fetchpriority="high"
+                    width="888"
+                    height="560"
                   />
                   <div v-if="post.image.author" class="meta-foto">
                     FOTO: {{ post.image.author }}
