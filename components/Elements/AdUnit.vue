@@ -8,7 +8,7 @@
           !disable &&
           id === 'telegram_desktop_billboard_v1' &&
           !$store.getters['user/hasPremium']
-            ? '250px'
+            ? '500px'
             : 0,
       }"
     ></div>
