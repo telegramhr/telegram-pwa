@@ -13,7 +13,7 @@
         alt="Kolaž naslovnih fotografija raznih istraživačkih specijala Telegrama"
         class="img-as-bg"
       />
-      <div
+      <!--<div
         class="container center relative mobile-side-pad pretplata-packs pretplata-packboxes"
       >
         <div class="full center relative">
@@ -67,7 +67,7 @@
             <div class="btn animate">Odaberi</div>
           </div>
         </div>
-      </div>
+      </div>-->
     </div>
     <div id="pretplata-selector" class="full flex pretplata-page-content">
       <div class="full flex relative">
