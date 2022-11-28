@@ -1309,9 +1309,11 @@ export const actions = {
               .classList.remove('hide')
           }
           if (name.includes('billboard_v1')) {
-            el.style.minHeight = 0
             if (event.isEmpty && !this.$mobile) {
+              el.style.minHeight = 0
               el.parentElement.parentElement.classList.add('hide')
+            } else {
+              el.style.minHeight = event.size[1]
             }
           }
           if (event.isEmpty && name.includes('intext')) {
