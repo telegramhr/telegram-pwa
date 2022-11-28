@@ -1310,22 +1310,22 @@ export const actions = {
           }
           if (name.includes('billboard_v1')) {
             if (event.isEmpty && !this.$mobile) {
-              el.style.minHeight = 0
               el.parentElement.parentElement.classList.add('hide')
-            } else {
-              el.style.minHeight = event.size[1]
             }
           }
           if (event.isEmpty && name.includes('intext')) {
             el.parentElement.classList.add('hide')
           }
           if (!event.isEmpty) {
+            el.style.minHeight = event.size[1]
             window.marfeel.cmd.push([
               'compass',
               function (compass) {
                 compass.trackAdEvent('slotRenderEnded', event.slot)
               },
             ])
+          } else {
+            el.style.minHeight = 0
           }
         })
       window.googletag
