@@ -27,15 +27,13 @@ export default {
   },
   computed: {
     minHeight() {
-      let h = 500
-      if (this.$mobile) {
-        h = 250
+      if (this.disable || this.id !== 'telegram_desktop_billboard_v1') {
+        return 0
       }
-      return !this.disable &&
-        this.id === 'telegram_desktop_billboard_v1' &&
-        !this.$store.getters['user/hasPremium']
-        ? h
-        : 0
+      if (this.$store.getters['user/hasPremium']) {
+        return 0
+      }
+      return this.$mobile ? '250px' : '500px'
     },
   },
 }
