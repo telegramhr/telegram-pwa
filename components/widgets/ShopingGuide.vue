@@ -1,16 +1,15 @@
 <template>
   <div class="container flex relative native-block stretch mobile-side-pad">
-    <div class="full column-horizontal-pad flex">
-      <h2 class="full flex section-title">
-        <app-link to="/soping-vodic/pokloni-za-bozic-2022-vodic/"
-          >Pokloni za Božić</app-link
-        >
-      </h2>
+    <div class="full column-horizontal-pad column-top-pad">
+      <div class="full cantha-separator"></div>
     </div>
+    <h3 class="full center-text column-full-pad subsection-title">
+      Pokloni za Božić
+    </h3>
     <div
       v-for="post in posts"
       :key="post.id"
-      class="fourth flex-responsive column-full-pad"
+      class="fourth flex-responsive column-horizontal-pad"
     >
       <standard :post="post"></standard>
     </div>
