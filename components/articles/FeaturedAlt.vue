@@ -14,6 +14,8 @@
         :src="post.image.url"
         :alt="post.image.alt"
         fetchpriority="high"
+        width="800"
+        height="505"
       />
     </app-link>
     <div class="full flex article-pad">

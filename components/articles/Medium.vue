@@ -10,6 +10,8 @@
       :src="post.image.url"
       :alt="post.image.alt"
       loading="lazy"
+      width="800"
+      height="505"
     />
     <div class="full flex desktop-only">
       <h3 class="overtitle">{{ parsedOvertitle }}</h3>

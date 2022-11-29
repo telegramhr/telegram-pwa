@@ -64,7 +64,13 @@
             role="article"
             @click="trackClick"
           >
-            <img :src="post.slika" loading="lazy" />
+            <img
+              :src="post.slika"
+              loading="lazy"
+              :alt="post.naslov"
+              width="400"
+              height="400"
+            />
             <div class="full flex article-pad">
               <h2 class="full">{{ post.naslov }}</h2>
               <h3 v-if="post.cijena" class="full overtitle">

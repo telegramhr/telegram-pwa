@@ -11,6 +11,8 @@
       :alt="post.image.alt"
       loading="lazy"
       class="mobile-only"
+      width="800"
+      height="505"
     />
     <div class="full komentar-box relative">
       <div class="komentar-content full">

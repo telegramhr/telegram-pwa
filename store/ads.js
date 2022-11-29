@@ -1255,7 +1255,8 @@ export const actions = {
         window.googletag.display(slot.id)
       })
     })
-    dispatch('refreshSlots')
+    // dispatch('refreshSlots')
+    dispatch('initAdserver')
   },
   refreshSlots({ dispatch }) {
     window.googlefc = window.googlefc || {}
@@ -1283,21 +1284,16 @@ export const actions = {
     })
     setTimeout(() => {
       dispatch('initAdserver')
-    }, 1500)
+    }, 500)
   },
   initAdserver({ state }) {
-    if (window.pbjs.initAdserverSet) return
-    window.pbjs.initAdserverSet = true
+    // if (window.pbjs.initAdserverSet) return
+    // window.pbjs.initAdserverSet = true
     if (state.route === 'nesto-slug') {
       return
     }
     window.googletag.cmd.push(function () {
-      window.pbjs.setTargetingForGPTAsync &&
-        window.pbjs.setTargetingForGPTAsync()
       window.googletag.pubads().refresh()
-    })
-
-    window.googletag.cmd.push(() => {
       window.googletag
         .pubads()
         .addEventListener('slotRenderEnded', function (event) {
@@ -1317,7 +1313,7 @@ export const actions = {
             el.parentElement.classList.add('hide')
           }
           if (!event.isEmpty) {
-            el.style.minHeight = event.size[1]
+            el.style.minHeight = event.size[1] + 'px'
             window.marfeel.cmd.push([
               'compass',
               function (compass) {
@@ -1325,7 +1321,7 @@ export const actions = {
               },
             ])
           } else {
-            el.style.minHeight = 0
+            el.style.minHeight = 0 + 'px'
           }
         })
       window.googletag

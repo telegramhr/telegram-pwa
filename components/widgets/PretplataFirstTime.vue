@@ -19,6 +19,8 @@
           <img
             src="@/assets/img/tg_pretplata_keypoint_vizual_korupcija_header.jpg"
             alt="Kolaž naslovnih fotografija raznih istraživačkih specijala Telegrama"
+            width="1200"
+            height="1000"
           />
         </div>
         <div class="half center column-horizontal-pad mobile-side-pad">

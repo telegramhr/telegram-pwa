@@ -18,6 +18,8 @@
           :src="post.image.url"
           alt="post.image.alt"
           loading="lazy"
+          width="800"
+          height="505"
         />
       </div>
       <div class="komentar-content full">

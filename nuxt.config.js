@@ -53,10 +53,10 @@ export default {
         src: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js',
         async: true,
       },
-      {
+      /* {
         src: '/prebid-6.10.0.js',
         async: true,
-      },
+      }, */
       {
         hid: 'piano',
         src: 'https://cdn.tinypass.com/api/tinypass.min.js',
@@ -77,7 +77,7 @@ export default {
   },
 
   router: {
-    middleware: [ 'piano', 'gemius', 'dotmetrics'],
+    middleware: ['piano', 'gemius', 'dotmetrics'],
   },
 
   loading: '~/components/loading.vue',
