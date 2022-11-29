@@ -10,15 +10,15 @@
         <div class="full center">
           <nuxt-link to="/super1" class="logo"
             ><img
-              src="@/assets/img/s1_logo_clean.svg"
+              src="@/assets/img/s1_logo_clean_alt.svg"
               class="light-mode-only"
               alt="Super1 logo" />
             <img
-              src="@/assets/img/s1_logo_clean.svg"
+              src="@/assets/img/s1_logo_clean_alt.svg"
               class="contrast-mode-only"
               alt="Super1 logo" />
             <img
-              src="@/assets/img/s1_logo_clean_negative.svg"
+              src="@/assets/img/s1_logo_clean_negative_alt.svg"
               alt="Super1 logo"
               class="dark-mode-only"
           /></nuxt-link>
@@ -86,8 +86,16 @@
     <section class="full flex relative">
       <div class="container flex relative">
         <div class="full center relative">
-          <h3 class="superone-section-title">
-            <span class="bold superone-logotext">Super1</span>Top picks
+          <h3 class="flex superone-section-title">
+            <img
+              src="@/assets/img/s1_logo_clean_noline.svg"
+              alt="Super1 logo"
+            />
+            <img
+              src="@/assets/img/s1_logo_clean_noline_white.svg"
+              alt="Super1 logo"
+              class="dark-mode-only"
+            />Top picks
           </h3>
         </div>
         <div class="full flex column-horizontal-pad">
@@ -251,8 +259,16 @@
     <section class="full flex relative">
       <div class="container flex relative">
         <div class="full center relative">
-          <h3 class="superone-section-title">
-            <span class="bold superone-logotext">Super1</span>story
+          <h3 class="flex superone-section-title">
+            <img
+              src="@/assets/img/s1_logo_clean_noline.svg"
+              alt="Super1 logo"
+            />
+            <img
+              src="@/assets/img/s1_logo_clean_noline_white.svg"
+              alt="Super1 logo"
+              class="dark-mode-only"
+            />story
           </h3>
         </div>
         <div class="full flex column-horizontal-pad">
@@ -273,11 +289,19 @@
     <section class="full flex relative">
       <div class="container flex relative">
         <div class="full center relative superone-st-bottompad">
-          <h3 class="superone-section-title">
-            <span class="bold superone-logotext">Super1</span>Look
+          <h3 class="flex superone-section-title">
+            <img
+              src="@/assets/img/s1_logo_clean_noline.svg"
+              alt="Super1 logo"
+            />
+            <img
+              src="@/assets/img/s1_logo_clean_noline_white.svg"
+              alt="Super1 logo"
+              class="dark-mode-only"
+            />Look
           </h3>
         </div>
-        <div class="full flex relative stretch">
+        <div class="full flex relative stretch column-bottom-pad">
           <div class="three-fourths flex flex-responsive relative">
             <div class="full flex column-horizontal-pad">
               <superfeat
@@ -315,8 +339,16 @@
     <section class="full flex relative">
       <div class="container flex relative">
         <div class="full center relative">
-          <h3 class="superone-section-title superone-st-bottompad">
-            <span class="bold superone-logotext">Super1</span>Partneri
+          <h3 class="flex superone-section-title superone-st-bottompad">
+            <img
+              src="@/assets/img/s1_logo_clean_noline.svg"
+              alt="Super1 logo"
+            />
+            <img
+              src="@/assets/img/s1_logo_clean_noline_white.svg"
+              alt="Super1 logo"
+              class="dark-mode-only"
+            />Partneri
           </h3>
         </div>
         <div class="full flex relative superone-st-bottompad mobile-side-pad">

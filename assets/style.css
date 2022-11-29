@@ -8284,8 +8284,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     display: none;
 }
 .superone-home-header {
-    padding-top: 100px;
-    padding-bottom: 48px;
+    padding-top: 72px;
+    padding-bottom: 10px;
     flex-wrap: wrap;
 }
 .superone-home-header .logo {
@@ -8391,14 +8391,30 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .superone-section-title {
     font-size: 30px;
     font-size: 1.5rem;
+    line-height: 23px;
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
-    border-bottom: 3px solid black;
+    border-bottom: 4px solid black;
     text-transform: uppercase;
     margin-top: 24px;
+    padding-bottom: 6px;
+}
+.superone-section-title img {
+    display: inline-flex;
+    height: 23px;
+    margin-right: 16px;
+}
+.superone-section-title img.dark-mode-only {
+    display: none;
 }
 .dark-mode .superone-section-title {
     border-color: white;
+}
+.dark-mode .superone-section-title img {
+    display: none;
+}
+.dark-mode .superone-section-title img.dark-mode-only {
+    display: inline-flex;
 }
 .superone-st-bottompad {
     margin-bottom: 48px;
@@ -8414,9 +8430,13 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .superone-toppicks .offer-slide .article .article-pad {
     padding-bottom: 0px;
 }
-.superone-toppicks, .superone-story {
+.superone-toppicks {
     border-top: 1px solid black;
     border-bottom: 1px solid black;
+    margin-bottom: 48px;
+}
+ .superone-story {
+    border: 1px solid black;
     margin-bottom: 48px;
 }
 .dark-mode .superone-toppicks, .dark-mode .superone-story {
@@ -8467,7 +8487,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         height: 100%;
         position: absolute;
         top: 0;
-        left: 0;
+        left: 24px;
         justify-content: center;
         align-items: center;
         align-content: center;
