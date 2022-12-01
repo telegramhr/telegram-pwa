@@ -1857,6 +1857,95 @@
         </div>
       </div>
     </div>
+    <!-- Streaming -->
+    <div class="full flex relative mobile-side-pad">
+      <div class="container flex relative">
+        <div class="full column-horizontal-pad column-top-pad">
+          <div class="full cantha-separator"></div>
+        </div>
+        <h3 class="full center-text column-full-pad subsection-title">
+          Streaming
+        </h3>
+        <div class="full flex relative stretch mobile-native-slider">
+          <div
+            class="fourth flex article klub-ponuda relative column-horizontal-pad"
+          >
+            <div class="klub-ponuda-tile relative">
+              <div class="klub-sticker center">
+                <div class="full center-text klub-sticker-amount">10%</div>
+                <div class="full center-text klub-sticker-text">popust</div>
+              </div>
+              <div class="full center">
+                <img
+                  src="@/assets/img/extras/klub/tg_visual_klub_pickbox.jpg"
+                  aria-hidden="true"
+                />
+              </div>
+            </div>
+            <h3 class="full overtitle">Pickbox TV</h3>
+            <a href="#muzeji" @click="selected_streaming = 'pickbox'">
+              <h2 class="full">Popust na pakete Pickbox TV-a</h2></a
+            >
+            <a
+              href="#muzeji"
+              class="newbtn clickable"
+              @click="selected_streaming = 'pickbox'"
+            >
+              Iskoristite ponudu
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Muzeji expendables -->
+    <div id="streaming" class="full flex fake-inpage-anchor"></div>
+    <div class="full flex relative">
+      <div
+        v-if="selected_streaming === 'pickbox'"
+        id="msu"
+        class="full flex relative klub-expanded"
+      >
+        <div class="container flex relative stretch mobile-side-pad">
+          <div class="close-klub-expand" @click="selected_streaming = ''">
+            x
+          </div>
+          <div class="third center flex-responsive column-left-pad">
+            <img
+              src="@/assets/img/extras/klub/tg_visual_klub_pickbox.jpg"
+              aria-hidden="true"
+            />
+          </div>
+          <div class="two-thirds center flex-responsive article">
+            <h3 class="full overtitle">Pickbox TV</h3>
+            <h2 class="full">Popust na pakete Pickbox TV-a</h2>
+            <h4 class="full">
+              Telegramovi pretplatnici ostvaruju kupnju jednog od Pickbox paketa
+              uz 10% popusta.
+            </h4>
+            <div v-show="!canLogIn" class="full flex">
+              <p class="full bold">Kako do popusta?</p>
+              <p class="full">
+                Kako biste ostvarili svoj popust, posjetite web stranicu,
+                registrirajte se i upišite kod <b>TELEGRAM10</b>. Kupite
+                <a target="_blank" href="https://www.pickboxnow.com">ovdje.</a>
+              </p>
+            </div>
+            <div v-show="canLogIn" class="full flex">
+              <p class="full bold">
+                Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
+                pretplatnicima.
+              </p>
+              <app-link to="/pretplata" class="newbtn huge-newbtn"
+                >Pretplatite se</app-link
+              >
+              <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+                >Prijava</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Iskaznica -->
     <div id="iskaznica" class="full flex fake-inpage-anchor"></div>
     <div v-show="user.access" class="full flex relative mobile-side-pad">
@@ -1929,6 +2018,7 @@ export default {
       selected_knjizara: '',
       selected_muzej: '',
       selected_koncert: '',
+      selected_streaming: '',
     }
   },
   computed: {
