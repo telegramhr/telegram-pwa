@@ -153,7 +153,7 @@ export default {
     return {
       access: {},
       showModal: false,
-      price: 149,
+      price: 799,
     }
   },
   mounted() {
@@ -162,7 +162,7 @@ export default {
   methods: {
     getPrice() {
       this.$axios
-        .get('/pretplate/get_price/?book=boro', {
+        .get('/pretplate/get_price/?book=bozic2022megapaket', {
           withCredentials: true,
         })
         .then((res) => {
