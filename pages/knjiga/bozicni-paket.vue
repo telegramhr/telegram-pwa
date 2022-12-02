@@ -12,7 +12,7 @@
         <div class="container relative flex single-article-body">
           <h3 class="full center-text overtitle">Najbolji božićni poklon</h3>
           <h1 class="full center-text">Telegram <br />božićni paket</h1>
-          <h4 class="full center-text">Hit knjige iz naše bibioloteke</h4>
+          <h4 class="full center-text">Hit knjige iz naše biblioloteke</h4>
         </div>
       </div>
       <div class="full flex relative single-article-body">
@@ -75,6 +75,7 @@
     </div>
     <div class="full flex relative single-article-body">
       <div class="container relative mobile-side-pad column-full-pad">
+        <h2 class="full relative">Paket sadrži:</h2>
         <h2 class="full relative">1. Bili libar, Boris Dežulović</h2>
         <p>
           <app-link to="/knjiga/boris-dezulovic-bili-libar"
@@ -170,13 +171,13 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: 'Hit knjige iz naše bibioloteke',
+          content: 'Hit knjige iz naše biblioloteke',
         },
         {
           hid: 'og:description',
           name: 'og:description',
           property: 'og:description',
-          content: 'Hit knjige iz naše bibioloteke',
+          content: 'Hit knjige iz naše biblioloteke',
         },
         {
           hid: 'og:type',

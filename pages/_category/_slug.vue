@@ -663,7 +663,7 @@ export default {
         {
           '@context': 'https://schema.org',
           '@type': 'NewsArticle',
-          headline: this.post.title,
+          headline: this.$options.filters.parseCat(this.post.title),
           mainEntityOfPage: this.post.social.path,
           datePublished: new Date(this.post.time * 1000).toISOString(),
           dateModified: new Date(this.post.timem * 1000).toISOString(),
@@ -1069,7 +1069,7 @@ export default {
       })
     }
     return {
-      title: this.post.title,
+      title: this.$options.filters.parseCat(this.post.title),
       titleTemplate: '%s | Telegram.hr',
       meta: [
         {
@@ -1085,7 +1085,7 @@ export default {
         {
           hid: 'cXenseParse:title',
           name: 'cXenseParse:title',
-          content: this.post.portal_title,
+          content: this.$options.filters.parseCat(this.post.portal_title),
         },
         {
           hid: 'description',
@@ -1105,7 +1105,7 @@ export default {
         {
           hid: 'og:title',
           property: 'og:title',
-          content: this.post.social.title,
+          content: this.$options.filters.parseCat(this.post.social.title),
         },
         {
           hid: 'og:image',

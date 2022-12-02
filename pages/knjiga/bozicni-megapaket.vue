@@ -13,7 +13,7 @@
           <h3 class="full center-text overtitle">Najbolji božićni poklon</h3>
           <h1 class="full center-text">Telegram božićni megapaket</h1>
           <h4 class="full center-text">
-            Hit knjige iz naše bibioloteke i premium godišnja pretplata
+            Hit knjige iz naše biblioloteke i premium godišnja pretplata
           </h4>
         </div>
       </div>
@@ -78,6 +78,7 @@
     </div>
     <div class="full flex relative single-article-body">
       <div class="container relative mobile-side-pad column-full-pad">
+        <h2 class="full relative">Paket sadrži:</h2>
         <h2 class="full relative">1. Godišnja premium pretplata na Telegram</h2>
         <p>
           <app-link to="/pretplata"
@@ -188,14 +189,14 @@ export default {
           hid: 'description',
           name: 'description',
           content:
-            'Hit knjige iz naše bibioloteke i premium godišnja pretplata',
+            'Hit knjige iz naše biblioloteke i premium godišnja pretplata',
         },
         {
           hid: 'og:description',
           name: 'og:description',
           property: 'og:description',
           content:
-            'Hit knjige iz naše bibioloteke i premium godišnja pretplata',
+            'Hit knjige iz naše biblioloteke i premium godišnja pretplata',
         },
         {
           hid: 'og:type',
