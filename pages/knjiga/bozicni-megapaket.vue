@@ -181,7 +181,7 @@ export default {
   },
   head() {
     return {
-      title: 'Telegram božićni megapaket,
+      title: 'Telegram božićni megapaket',
       titleTemplate: '%s | Telegram.hr',
       meta: [
         {
