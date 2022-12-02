@@ -140,7 +140,7 @@
     <braintree
       v-if="showModal"
       :price="price"
-      book="boro"
+      book="bozic2022megapaket"
       @close="close"
     ></braintree>
     <tfooter></tfooter>
