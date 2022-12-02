@@ -31,13 +31,30 @@
               />
             </div>
             <div class="full flex knjiga-features">
-              <h1 class="full relative center-text">
-                <span class="faded strikethrough">799 kn</span> 599 kn
-              </h1>
-              <h1 class="full relative center-text">
-                (<span class="faded strikethrough">106,05€</span> 79,50€) <br />
-                posebna cijena za sve pretplatnike Telegrama
-              </h1>
+              <client-only>
+                <h1
+                  v-if="$store.state.user.access"
+                  class="full relative center-text"
+                >
+                  <span class="faded strikethrough">1095 kn</span> 599 kn
+                </h1>
+                <h1 v-else class="full relative center-text">
+                  <span class="faded strikethrough">1095 kn</span> 799 kn
+                </h1>
+                <h1
+                  v-if="$store.state.user.access"
+                  class="full relative center-text"
+                >
+                  (<span class="faded strikethrough">145,33€</span> 79,50€)
+                  <br />
+                  posebna cijena za sve pretplatnike Telegrama
+                </h1>
+                <h1 v-else class="full relative center-text">
+                  (<span class="faded strikethrough">145,33€</span> 106,05€)
+                  <br />
+                  posebna cijena za Božić
+                </h1>
+              </client-only>
               <h4 class="full relative center-text">
                 Paket sadrži Bili libar Borisa Dežulovića, O Zagrebu Zrinke
                 Paladino, Neispričane priče Rajka Grlića i godišnju premium
