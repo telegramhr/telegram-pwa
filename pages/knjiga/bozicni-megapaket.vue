@@ -13,7 +13,7 @@
           <h3 class="full center-text overtitle">Najbolji božićni poklon</h3>
           <h1 class="full center-text">Telegram božićni megapaket</h1>
           <h4 class="full center-text">
-            Hit knjige iz naše biblioloteke i premium godišnja pretplata
+            Hit knjige iz naše biblioteke i premium godišnja pretplata
           </h4>
         </div>
       </div>
@@ -206,14 +206,14 @@ export default {
           hid: 'description',
           name: 'description',
           content:
-            'Hit knjige iz naše biblioloteke i premium godišnja pretplata',
+            'Hit knjige iz naše biblioteke i premium godišnja pretplata',
         },
         {
           hid: 'og:description',
           name: 'og:description',
           property: 'og:description',
           content:
-            'Hit knjige iz naše biblioloteke i premium godišnja pretplata',
+            'Hit knjige iz naše biblioteke i premium godišnja pretplata',
         },
         {
           hid: 'og:type',

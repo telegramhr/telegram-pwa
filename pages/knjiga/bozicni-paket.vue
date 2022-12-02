@@ -12,7 +12,7 @@
         <div class="container relative flex single-article-body">
           <h3 class="full center-text overtitle">Najbolji božićni poklon</h3>
           <h1 class="full center-text">Telegram <br />božićni paket</h1>
-          <h4 class="full center-text">Hit knjige iz naše biblioloteke</h4>
+          <h4 class="full center-text">Hit knjige iz naše biblioteke</h4>
         </div>
       </div>
       <div class="full flex relative single-article-body">
@@ -188,13 +188,13 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: 'Hit knjige iz naše biblioloteke',
+          content: 'Hit knjige iz naše biblioteke',
         },
         {
           hid: 'og:description',
           name: 'og:description',
           property: 'og:description',
-          content: 'Hit knjige iz naše biblioloteke',
+          content: 'Hit knjige iz naše biblioteke',
         },
         {
           hid: 'og:type',
