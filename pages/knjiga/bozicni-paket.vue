@@ -24,7 +24,7 @@
           >
             <div class="full flex knjiga-cover knjiga-cover-3d">
               <img
-                src="@/assets/img/tg_knjiga_vizual_pack.png"
+                src="/img/tg_knjiga_vizual_pack.png"
                 alt="Telegram božićni megapaket"
               />
             </div>
@@ -164,21 +164,21 @@ export default {
   },
   head() {
     return {
-      title: 'Boris Dežulović: Bili libar',
+      title: 'Telegram božićni paket',
       titleTemplate: '%s | Telegram.hr',
       meta: [
         {
           hid: 'description',
           name: 'description',
           content:
-            'Nova knjiga priča Borisa Dežulovića, o nogometu, Hajduku, ljubavi i životu',
+            'Hit knjige iz naše bibioloteke',
         },
         {
           hid: 'og:description',
           name: 'og:description',
           property: 'og:description',
           content:
-            'Nova knjiga priča Borisa Dežulovića, o nogometu, Hajduku, ljubavi i životu',
+            'Hit knjige iz naše bibioloteke',
         },
         {
           hid: 'og:type',
@@ -190,20 +190,20 @@ export default {
           hid: 'og:title',
           name: 'og:title',
           property: 'og:title',
-          content: 'Boris Dežulović: Bili libar',
+          content: 'Telegram božićni paket,
         },
         {
           hid: 'og:image',
           name: 'og:image',
           property: 'og:image',
           content:
-            'https://www.telegram.hr/wp-content/uploads/2022/05/dezulovic-image-article-tg2.png',
+            'https://www.telegram.hr/img/tg_knjiga_vizual_pack.png',
         },
         {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/knjiga/boris-dezulovic-bili-libar',
+          content: 'https://www.telegram.hr/knjiga/bozicni-paket',
         },
         {
           hid: 'fb:app_id',
@@ -226,7 +226,7 @@ export default {
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: 'https://www.telegram.hr/knjiga/boris-dezulovic-bili-libar',
+          href: 'https://www.telegram.hr/knjiga/bozicni-paket',
         },
       ],
     }
