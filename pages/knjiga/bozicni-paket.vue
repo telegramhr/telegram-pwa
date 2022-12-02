@@ -47,7 +47,7 @@
                   <br />
                   posebna cijena za sve pretplatnike Telegrama
                 </h1>
-                <h1 class="full relative center-text">
+                <h1 v-else class="full relative center-text">
                   (<span class="faded strikethrough">67,29€</span> 46,32€)
                   <br />
                   posebna cijena za Božić
