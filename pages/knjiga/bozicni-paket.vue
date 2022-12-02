@@ -3,7 +3,7 @@
     class="main-container flex red-header-page single-article knjiga-page reset-flex-order"
   >
     <div class="full flex tg-red">
-      <theader headline="Bili libar - nova knjiga Borisa Dežulovića"></theader>
+      <theader headline="Telegram božićni paket"></theader>
     </div>
     <div class="full flex relative reset-flex-order">
       <div
@@ -194,7 +194,8 @@ export default {
           hid: 'og:image',
           name: 'og:image',
           property: 'og:image',
-          content: 'https://www.telegram.hr/img/tg_knjiga_vizual_pack.png',
+          content:
+            'https://www.telegram.hr/wp-content/uploads/2022/12/tg-book-share-paket.jpg',
         },
         {
           hid: 'og:url',
