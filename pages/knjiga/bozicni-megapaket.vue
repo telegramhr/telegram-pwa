@@ -213,8 +213,7 @@ export default {
           hid: 'og:image',
           name: 'og:image',
           property: 'og:image',
-          content:
-            'https://www.telegram.hr/img/tg_knjiga_vizual_megapack.png',
+          content: 'https://www.telegram.hr/img/tg_knjiga_vizual_megapack.png',
         },
         {
           hid: 'og:url',
