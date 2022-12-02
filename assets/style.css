@@ -8289,7 +8289,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     flex-wrap: wrap;
 }
 .superone-home-header .logo {
-    width: 80%;
+    width: 60%;
     height: auto;
     max-width: 420px;
     margin: 0 auto;
@@ -8316,8 +8316,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-weight: 300;
 }
 .superone .article-superfeat h2 {
-    font-size: 20px;
-    font-size: 1rem;
+    font-size: 24px;
+    font-size: 1.2rem;
     margin-bottom: 0px;
 }
 .superone .three-fourths .article-superfeat h2 {
@@ -8436,7 +8436,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     margin-bottom: 48px;
 }
  .superone-story {
-    border: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
     margin-bottom: 48px;
 }
 .dark-mode .superone-toppicks, .dark-mode .superone-story {
@@ -8459,6 +8460,16 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .superone-single h1 {
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
+}
+.superone .superone-preporuka {
+    width: 100%;
+}
+.superone .superone-preporuka > .full {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.dark-mode .superone .superone-preporuka > .full {
+    border-color: white;
 }
 
 @media screen and (min-width: 767px) {
@@ -8498,6 +8509,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         border: none;
         background-color: transparent;
         z-index: 5;
+    }
+    .superone .superone-preporuka .article-superfeat .article-pad {
+        left: 0px;
     }
 }
 @media screen and (max-width: 767px) {
@@ -8554,6 +8568,15 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .superone-home-header .logo {
         margin-bottom: 2vw;
+    }
+    .superone .gallery-content .gallery-left {
+        left: -2vw;
+    }
+    .superone .gallery-content .gallery-right {
+        right: -2vw;
+    }
+    .superone-st-bottompad {
+        margin-bottom: 24px;
     }
 }
 
@@ -10125,7 +10148,8 @@ label.payment-tile svg {
     display: none;
 }
 .telesport .telegram-sticky {
-    display: none;
+    position: relative;
+    z-index: 15;
 }
 .telesport .telesport-sticky {
     display: flex;
@@ -10136,6 +10160,16 @@ label.payment-tile svg {
 }
 .telesport-sticky .subheader-ow-fix {
     overflow: visible;
+}
+.super1-sticky {
+    display: none;
+}
+.superone .telegram-sticky {
+    position: relative;
+    z-index: 15;
+}
+.superone .super1-sticky {
+    display: flex;
 }
 
 /* Telesport */

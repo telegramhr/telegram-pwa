@@ -259,10 +259,10 @@
         </div>
       </div>
     </div>
-    <div class="full subheader sticky-subheader mobile-side-pad center">
-      <div
-        class="container flex desktop-subheader column-horizontal-pad telegram-sticky"
-      >
+    <div
+      class="full subheader sticky-subheader mobile-side-pad center telegram-sticky"
+    >
+      <div class="container flex desktop-subheader column-horizontal-pad">
         <div class="two-thirds flex subheader-ow-fix" role="navigation">
           <app-link to="/" class="logo"
             ><img
@@ -356,9 +356,11 @@
           </a>
         </div>
       </div>
-      <div
-        class="container flex desktop-subheader column-horizontal-pad telesport-sticky"
-      >
+    </div>
+    <div
+      class="full subheader sticky-subheader mobile-side-pad center telesport-sticky"
+    >
+      <div class="container flex desktop-subheader column-horizontal-pad">
         <div class="two-thirds flex subheader-ow-fix" role="navigation">
           <app-link to="/" class="logo"
             ><img
@@ -389,6 +391,76 @@
             >
             <app-link role="menuitem" to="/" @click.native="maybeCloseSide"
               >Kolumne</app-link
+            >
+          </div>
+          <div v-show="headline" class="header-headline single-exclusive">
+            {{ headline }}
+          </div>
+        </div>
+        <div class="flex third relative">
+          <client-only>
+            <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
+              >Prijava</a
+            >
+            <app-link
+              v-show="!$store.state.user.access"
+              id="pretplatite se - header"
+              to="/pretplata"
+              class="signup-btn sub-btn"
+              >Pretplatite se</app-link
+            >
+            <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun">
+              <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
+            </app-link>
+          </client-only>
+          <a
+            aria-label="Prikaži tražilicu"
+            :aria-expanded="$store.state.header.showSearchMenu.toString()"
+            aria-controls="search"
+            @click.prevent="$store.commit('header/updateMenu', 'search')"
+          >
+            <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="full subheader sticky-subheader mobile-side-pad center super1-sticky"
+    >
+      <div class="container flex desktop-subheader column-horizontal-pad">
+        <div class="two-thirds flex subheader-ow-fix" role="navigation">
+          <app-link to="/" class="logo"
+            ><img
+              src="@/assets/img/s1_logo_clean_noline.svg"
+              alt="Super1 logo" />
+            <img
+              src="@/assets/img/s1_logo_clean_noline_white.svg"
+              alt="Super1 logo"
+              class="dark-mode-only"
+          /></app-link>
+          <a
+            :aria-expanded="$store.state.header.showSideMenu.toString()"
+            aria-label="Prikaži lijevi meni"
+            aria-controls="sidebar"
+            @click.prevent="$store.commit('header/updateMenu', 'side')"
+          >
+            <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon>
+          </a>
+          <div class="menu flex" role="menu">
+            <app-link role="menuitem" to="/" @click.native="maybeCloseSide"
+              >Look</app-link
+            >
+            <app-link role="menuitem" to="/" @click.native="maybeCloseSide"
+              >Style</app-link
+            >
+            <app-link role="menuitem" to="/" @click.native="maybeCloseSide"
+              >Relax</app-link
+            >
+            <app-link role="menuitem" to="/" @click.native="maybeCloseSide"
+              >Dizajn</app-link
+            >
+            <app-link role="menuitem" to="/" @click.native="maybeCloseSide"
+              >Power</app-link
             >
           </div>
           <div v-show="headline" class="header-headline single-exclusive">
