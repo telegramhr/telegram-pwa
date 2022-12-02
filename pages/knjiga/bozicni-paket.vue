@@ -170,15 +170,13 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content:
-            'Hit knjige iz naše bibioloteke',
+          content: 'Hit knjige iz naše bibioloteke',
         },
         {
           hid: 'og:description',
           name: 'og:description',
           property: 'og:description',
-          content:
-            'Hit knjige iz naše bibioloteke',
+          content: 'Hit knjige iz naše bibioloteke',
         },
         {
           hid: 'og:type',
@@ -190,14 +188,13 @@ export default {
           hid: 'og:title',
           name: 'og:title',
           property: 'og:title',
-          content: 'Telegram božićni paket,
+          content: 'Telegram božićni paket',
         },
         {
           hid: 'og:image',
           name: 'og:image',
           property: 'og:image',
-          content:
-            'https://www.telegram.hr/img/tg_knjiga_vizual_pack.png',
+          content: 'https://www.telegram.hr/img/tg_knjiga_vizual_pack.png',
         },
         {
           hid: 'og:url',
