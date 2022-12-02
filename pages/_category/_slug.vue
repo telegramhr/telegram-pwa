@@ -98,8 +98,8 @@
               <img :src="post.promo.logo" :alt="post.promo.partner" />
             </div>
           </div>
-          <h1 class="full">{{ post.portal_title }}</h1>
-          <h2 class="full">{{ post.subtitle }}</h2>
+          <h1 class="full">{{ post.portal_title | parseCat }}</h1>
+          <h2 class="full">{{ post.subtitle | parseCat }}</h2>
         </div>
       </div>
       <div class="full relative">
@@ -130,9 +130,9 @@
                   />
                 </div>
               </div>
-              <h1 class="full">{{ post.portal_title }}</h1>
+              <h1 class="full">{{ post.portal_title | parseCat }}</h1>
               <h2 class="full">
-                {{ post.subtitle }}
+                {{ post.subtitle | parseCat }}
               </h2>
               <h5 class="full flex relative article-meta mobile-only">
                 <nuxt-link

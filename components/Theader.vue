@@ -337,7 +337,7 @@
             </a>
           </div>
           <div v-show="headline" class="header-headline single-exclusive">
-            {{ headline }}
+            {{ headline | parseCat }}
           </div>
         </div>
         <div class="flex third relative">
