@@ -2363,7 +2363,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .contrast-mode, .contrast-mode .author-segment, .contrast-mode .banner-separator > div {
     background-color: white;
 }
-.contrast-mode .meta-foto, .contrast-mode .header-billboard {
+.contrast-mode .meta-foto, .contrast-mode .header-billboard, .fancy-rubrika .meta-foto {
     background-color: white;
 }
 .dark-mode, .dark-mode .author-segment, .dark-mode .banner-separator > div  {
@@ -4241,6 +4241,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         max-width: 710px;
         margin-left: auto;
         margin-right: auto;
+    }
+    .superone .article-head > *, .superone .single-article-body > *, .superone .single-article-body > #article-content > *, .superone .single-article-body > #article-content > #piano-content > * {
+        max-width: 605px;
     }
     .single-article .single-article-body > #article-content, .single-article .single-article-body > #article-content > #piano-content,
     .single-article .single-article-body > #article-content > #piano-content > #guide-container,
@@ -8435,7 +8438,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     border-bottom: 1px solid black;
     margin-bottom: 48px;
 }
- .superone-story {
+.superone-story {
     border-top: 1px solid black;
     border-bottom: 1px solid black;
     margin-bottom: 48px;
@@ -8457,10 +8460,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-weight: 300;
     line-height: 1.2em;
 }
-.superone-single h1 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 300;
-}
 .superone .superone-preporuka {
     width: 100%;
 }
@@ -8470,6 +8469,49 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .dark-mode .superone .superone-preporuka > .full {
     border-color: white;
+}
+
+/* Superone single and category */
+
+.single-article h1 b {
+    display: none;
+}
+.superone.single-article h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+}
+.superone.single-article h1 b {
+    display: inline;
+}
+.superone.single-article .article-head h3.overtitle {
+    display: none;
+}
+.superone.single-article .single-article-body {
+    font-family: 'Merriweather', serif;
+    line-height: 1.65em;
+}
+.superone.single-article .single-article-body h2 {
+    font-family: 'Poppins', sans-serif;
+}
+.superone.single-article .article-head h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+}
+.superone.single-article .related-header-widget {
+    display: none;
+}
+.superone.category-page h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+.superone.category-page .article .overtitle-parent {
+    display: none;
+}
+.superone.category-page .block-kaineng .alt-big-break .article h2 {
+    font-weight: 300;
+}
+.superone.category-page .block-kaineng .third .article-featured h2 {
+    margin-bottom: 4px;
 }
 
 @media screen and (min-width: 767px) {

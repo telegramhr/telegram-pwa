@@ -429,7 +429,7 @@
     >
       <div class="container flex desktop-subheader column-horizontal-pad">
         <div class="two-thirds flex subheader-ow-fix" role="navigation">
-          <app-link to="/" class="logo"
+          <app-link to="/super1" class="logo"
             ><img
               src="@/assets/img/s1_logo_clean_noline.svg"
               alt="Super1 logo" />

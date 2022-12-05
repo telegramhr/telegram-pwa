@@ -1,5 +1,7 @@
 <template>
-  <div :class="['main-container', 'flex', 'category-page', extraClass]">
+  <div
+    :class="['main-container', 'flex', 'category-page', 'superone', extraClass]"
+  >
     <!-- TG Multiverse header -->
     <div class="full flex relative single-article">
       <client-only>
