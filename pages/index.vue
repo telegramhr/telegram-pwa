@@ -129,6 +129,12 @@
             </div>
           </div>
         </client-only>
+        <!-- qatar -->
+        <div class="full relative">
+          <div class="container flex relative">
+            <category-big slug="qatar"></category-big>
+          </div>
+        </div>
         <div
           class="full flex column-horizontal-pad column-bottom-pad desktop-only"
         >
@@ -198,17 +204,6 @@
         <!-- Billboard 2 -->
         <div class="full center m-order-6">
           <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
-        </div>
-        <!-- qatar -->
-        <div class="full relative m-order-7">
-          <div class="container flex relative">
-            <category-big slug="qatar"></category-big>
-          </div>
-        </div>
-        <div
-          class="full column-horizontal-pad mobile-side-pad column-top-pad m-order-7"
-        >
-          <div class="full cantha-separator"></div>
         </div>
         <!-- Teme -->
         <h3 class="full center-text column-full-pad subsection-title m-order-8">
