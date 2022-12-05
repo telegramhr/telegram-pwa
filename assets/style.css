@@ -8483,7 +8483,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .superone.single-article h1 b {
     display: inline;
 }
-.superone.single-article .article-head h3.overtitle {
+.superone.single-article .article-head .overtitle-parent, .superone.category-page .article .overtitle-parent {
     display: none;
 }
 .superone.single-article .single-article-body {
@@ -8503,9 +8503,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .superone.category-page h1 {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
-}
-.superone.category-page .article .overtitle-parent {
-    display: none;
 }
 .superone.category-page .block-kaineng .alt-big-break .article h2 {
     font-weight: 300;
@@ -8619,6 +8616,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .superone-st-bottompad {
         margin-bottom: 24px;
+    }
+    .superone.single-article h1 {
+        margin-top: 32px;
     }
 }
 
