@@ -130,7 +130,7 @@
           </div>
         </client-only>
         <!-- qatar -->
-        <div class="full relative">
+        <div class="full relative m-order-1">
           <div class="container flex relative">
             <category-big slug="qatar"></category-big>
           </div>
