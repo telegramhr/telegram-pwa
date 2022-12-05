@@ -129,17 +129,6 @@
             </div>
           </div>
         </client-only>
-        <!-- qatar -->
-        <div class="full relative m-order-1">
-          <div class="container flex relative">
-            <category-big slug="qatar"></category-big>
-          </div>
-        </div>
-        <div
-          class="full flex column-horizontal-pad column-bottom-pad desktop-only"
-        >
-          <div class="full flex relative column-bottom-border"></div>
-        </div>
         <!-- breaking -->
         <h2
           v-show="$store.state.breaking.on2"
@@ -153,6 +142,17 @@
             {{ $store.state.breaking.title2 }}</app-link
           >
         </h2>
+        <!-- qatar -->
+        <div class="full relative m-order-1">
+          <div class="container flex relative">
+            <category-big slug="qatar"></category-big>
+          </div>
+        </div>
+        <div
+          class="full flex column-horizontal-pad column-bottom-pad desktop-only"
+        >
+          <div class="full flex relative column-bottom-border"></div>
+        </div>
         <!-- G1 -->
         <div
           class="three-fourths featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad column-right-border mobile-order-1 m-order-1"
