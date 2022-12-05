@@ -18,7 +18,7 @@
       <div class="komentar-content full">
         <h2 :id="'komentar-' + post.id" class="full animate">
           <div class="komentar-quotation">“</div>
-          {{ post.portal_title }}
+          {{ post.portal_title | parseCat }}
         </h2>
         <h5 class="full flex article-meta">
           <span v-if="post.recommendations" class="meta-preporuke"

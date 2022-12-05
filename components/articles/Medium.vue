@@ -16,7 +16,7 @@
     <div class="full flex desktop-only">
       <h3 class="overtitle">{{ parsedOvertitle }}</h3>
     </div>
-    <h2 :id="'standard-' + post.id" class="full">{{ post.portal_title }}</h2>
+    <h2 :id="'standard-' + post.id" class="full">{{ post.portal_title | parseCat }}</h2>
     <h4 class="full">{{ post.subtitle }}</h4>
     <h5 class="full flex article-meta">
       <span v-if="post.authors.length" class="meta-author"

@@ -37,7 +37,7 @@
           </h3>
         </div>
         <h2 :id="'featured-' + post.id" class="full animate">
-          {{ post.portal_title }}
+          {{ post.portal_title | parseCat }}
         </h2>
         <h4 class="full">{{ post.subtitle }}</h4>
         <h5 class="full flex article-meta">
