@@ -143,11 +143,11 @@
           >
         </h2>
         <!-- qatar -->
-        <!--<div class="full relative m-order-1">
+        <div class="full relative m-order-1">
           <div class="container flex relative">
             <category-big slug="qatar"></category-big>
           </div>
-        </div>-->
+        </div>
         <div
           class="full flex column-horizontal-pad column-bottom-pad desktop-only"
         >
@@ -204,12 +204,6 @@
         <!-- Billboard 2 -->
         <div class="full center m-order-6">
           <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
-        </div>
-        <!-- qatar -->
-        <div class="full relative m-order-7">
-          <div class="container flex relative">
-            <category-big slug="qatar"></category-big>
-          </div>
         </div>
         <!-- Teme -->
         <h3 class="full center-text column-full-pad subsection-title m-order-8">
