@@ -8476,9 +8476,13 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .superone.single-article h1 {
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
+    margin-top: 64px;
 }
 .superone.single-article h1 b {
     display: inline;
+}
+.superone.single-article-premium-alt article .article-head > h1 {
+    display: block;
 }
 .superone.single-article .article-head .overtitle-parent, .superone.category-page .article .overtitle-parent {
     display: none;
@@ -8488,6 +8492,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .superone.single-article .single-article-body h2 {
     font-family: 'Poppins', sans-serif;
+    line-height: 1.4em;
 }
 .superone.single-article .article-head h2 {
     font-family: 'Poppins', sans-serif;
@@ -8547,6 +8552,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .superone .superone-preporuka .article-superfeat .article-pad {
         left: 0px;
+    }
+    .fancy-rubrika.single-article-premium-alt .subheader {
+        display: flex;
     }
 }
 @media screen and (max-width: 767px) {
@@ -10238,8 +10246,10 @@ label.payment-tile svg {
     display: none;
 }
 .superone .telegram-sticky {
-    position: relative;
-    z-index: 15;
+    display: none;
+}
+.superone.single-article-premium-alt .telegram-sticky {
+    display: none;
 }
 .superone .super1-sticky {
     display: flex;
@@ -10259,6 +10269,27 @@ header .logo img, .mobile-sticky-nav .super1-mobnav-logo img {
 .multiverse-mobile-nav {
     display: none;
 }
+.superone-subheader-logo, .single-article header .desktop-subheader .logo img.superone-subheader-logo {
+    display: none;
+}
+.superone-mobilepanav-logo {
+    display: none;
+}
+.superone.single-article-premium header .subheader .logo img.dark-mode-only {
+    display: none;
+}
+.superone.single-article-premium header .subheader .logo img.superone-subheader-logo {
+    display: inline-block;
+    height: 18px;
+}
+
+@media screen and (min-width: 767px) {
+    .s1-home .telegram-sticky {
+        display: flex;
+        position: relative;
+        z-index: 15;
+    }
+}
 @media screen and (max-width: 767px) {
     .main-container.s1-home {
         padding-top: 0px;
@@ -10274,6 +10305,13 @@ header .logo img, .mobile-sticky-nav .super1-mobnav-logo img {
     }
     .dark-mode .superone-home-header {
         background-color: #212121;
+    }
+    .superone .mobile-pa-nav .logo img {
+        display: none;
+    }
+    .superone .mobile-pa-nav .logo img.superone-mobilepanav-logo {
+        display: block;
+        margin: 0 auto;
     }
 }
 

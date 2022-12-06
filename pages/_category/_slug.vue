@@ -65,6 +65,11 @@
               src="@/assets/img/telegram_logo_white.svg"
               alt="Telegram logo"
             />
+            <img
+              src="@/assets/img/s1_logo_clean_noline_white.svg"
+              alt="Super1 logo"
+              class="superone-mobilepanav-logo"
+            />
           </nuxt-link>
           <a
             v-show="canLogIn"
