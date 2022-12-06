@@ -212,15 +212,23 @@
           </div>
         </div>
         <!-- Teme -->
-        <h3 class="full center-text column-full-pad subsection-title m-order-8">
-          <img src="@/assets/img/telegram_logo_black.svg" alt="Telegram logo" />
-          <img
-            src="@/assets/img/telegram_logo_white.svg"
-            class="dark-mode-only"
-            alt="Telegram logo"
-          />
-          teme
-        </h3>
+        <div class="full relative m-order-8 mobile-side-pad">
+          <div class="full column-horizontal-pad column-top-pad">
+            <div class="full cantha-separator"></div>
+          </div>
+          <h3 class="full center-text column-full-pad subsection-title">
+            <img
+              src="@/assets/img/telegram_logo_black.svg"
+              alt="Telegram logo"
+            />
+            <img
+              src="@/assets/img/telegram_logo_white.svg"
+              class="dark-mode-only"
+              alt="Telegram logo"
+            />
+            teme
+          </h3>
+        </div>
         <div
           class="full flex mobile-side-pad stretch secondary-gs-block m-order-8"
         >
