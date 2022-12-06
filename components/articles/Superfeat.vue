@@ -1,6 +1,6 @@
 <template>
   <div
-    class="full flex article-featured article-superfeat article"
+    class="full flex article-featured article-superfeat article relative"
     role="article"
   >
     <app-link

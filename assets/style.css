@@ -4242,9 +4242,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         margin-left: auto;
         margin-right: auto;
     }
-    .superone .article-head > *, .superone .single-article-body > *, .superone .single-article-body > #article-content > *, .superone .single-article-body > #article-content > #piano-content > * {
-        max-width: 605px;
-    }
     .single-article .single-article-body > #article-content, .single-article .single-article-body > #article-content > #piano-content,
     .single-article .single-article-body > #article-content > #piano-content > #guide-container,
     .single-article .single-article-body > #article-content > #guide-container {
@@ -8488,7 +8485,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .superone.single-article .single-article-body {
     font-family: 'Merriweather', serif;
-    line-height: 1.65em;
 }
 .superone.single-article .single-article-body h2 {
     font-family: 'Poppins', sans-serif;
@@ -8619,6 +8615,41 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .superone.single-article h1 {
         margin-top: 32px;
+    }
+    .superone-mini-articles .article-superfeat .square-img {
+        position: absolute;
+        position: absolute;
+        top: 0vw;
+        right: 0px;
+        width: 82px;
+        height: 82px;
+        padding-top: 0px;
+    }
+    .superone-mini-articles .article-superfeat .square-img img {
+        width: 82px;
+        height: 82px;
+    }
+    .superone .superone-mini-articles .fourth .article-superfeat .article-pad {
+        padding-right: 98px;
+        min-height: 82px;
+    }
+    .superone .superone-mini-articles .article-superfeat {
+        border-bottom: 1px solid #c8c8c8;
+        padding-bottom: 5vw;
+        margin-bottom: 5vw;
+    }
+    .superone .superone-mini-articles .fourth:last-child .article-superfeat {
+        border-bottom: none;
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+    }
+    .superone .superone-mini-articles .fourth .article-superfeat .article-pad a {
+        padding-top: 0px;
+    }
+    .superone .superone-mini-articles .article-superfeat h2 {
+        font-size: 22px;
+        font-size: 1.1rem;
+        line-height: 1.25em;
     }
 }
 
@@ -10212,6 +10243,38 @@ label.payment-tile svg {
 }
 .superone .super1-sticky {
     display: flex;
+}
+header .logo, .mobile-sticky-nav .super1-mobnav-logo {
+    display: none;
+}
+.superone header .logo, .mobile-sticky-nav .telegram-mobnav-logo {
+    display: none;
+}
+.superone header .logo, .mobile-sticky-nav .super1-mobnav-logo {
+    display: block;
+}
+header .logo img, .mobile-sticky-nav .super1-mobnav-logo img {
+    margin: 0 auto;
+}
+.multiverse-mobile-nav {
+    display: none;
+}
+@media screen and (max-width: 767px) {
+    .main-container.s1-home {
+        padding-top: 0px;
+    }
+    .superone-home-header {
+        z-index: 200;
+        background-color: white;
+    }
+    .s1-home .multiverse-mobile-nav {
+        display: flex;
+        position: relative;
+        z-index: 200;
+    }
+    .dark-mode .superone-home-header {
+        background-color: #212121;
+    }
 }
 
 /* Telesport */

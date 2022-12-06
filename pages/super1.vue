@@ -1,5 +1,5 @@
 <template>
-  <div class="main-container flex fancy-rubrika superone">
+  <div class="main-container flex fancy-rubrika superone s1-home">
     <!-- TG Multiverse header -->
     <div class="full flex">
       <theader></theader>
@@ -351,7 +351,9 @@
             />Partneri
           </h3>
         </div>
-        <div class="full flex relative superone-st-bottompad mobile-side-pad">
+        <div
+          class="full flex relative superone-st-bottompad mobile-side-pad superone-mini-articles"
+        >
           <div
             v-for="post in posts.slice(4, 8)"
             :key="post.id"

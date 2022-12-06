@@ -505,6 +505,52 @@
       >
         <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon
       ></a>
+      <app-link to="/" class="logo telegram-mobnav-logo"
+        ><img src="@/assets/img/telegram_logo_black.svg" alt="Telegram logo" />
+        <img
+          src="@/assets/img/telegram_logo_white.svg"
+          alt="Telegram logo"
+          class="dark-mode-only"
+      /></app-link>
+      <app-link to="/" class="logo super1-mobnav-logo"
+        ><img src="@/assets/img/s1_logo_clean_noline.svg" alt="Telegram logo" />
+        <img
+          src="@/assets/img/s1_logo_clean_noline_white.svg"
+          alt="Telegram logo"
+          class="dark-mode-only"
+      /></app-link>
+      <div class="desktop-only full center-text tagline">
+        Portal za društvena i kulturna pitanja. I svijet koji dolazi.
+      </div>
+      <a
+        v-show="canLogIn"
+        class="mob-nav-otherbtn mobile-only"
+        @click.prevent="login"
+      >
+        <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
+      ></a>
+      <app-link
+        v-show="!canLogIn"
+        class="mobile-only mob-nav-otherbtn"
+        to="/moj-racun"
+        aria-label="Moj račun"
+      >
+        <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
+      ></app-link>
+    </div>
+    <!-- Mobile only sticky nav -->
+    <div
+      class="container mobile-only mobile-sticky-nav multiverse-mobile-nav flex mobile-side-pad"
+    >
+      <a
+        class="mobile-only"
+        aria-label="Prikaži lijevi meni"
+        :aria-expanded="$store.state.header.showSideMenu.toString()"
+        aria-controls="sidebar"
+        @click.prevent="$store.commit('header/updateMenu', 'side')"
+      >
+        <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon
+      ></a>
       <app-link to="/" class="logo"
         ><img src="@/assets/img/telegram_logo_black.svg" alt="Telegram logo" />
         <img
@@ -512,9 +558,6 @@
           alt="Telegram logo"
           class="dark-mode-only"
       /></app-link>
-      <div class="desktop-only full center-text tagline">
-        Portal za društvena i kulturna pitanja. I svijet koji dolazi.
-      </div>
       <a
         v-show="canLogIn"
         class="mob-nav-otherbtn mobile-only"
