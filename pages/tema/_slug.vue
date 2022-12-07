@@ -253,6 +253,10 @@ export default {
       titleTemplate: 'Više o temi %s | Telegram.hr',
       meta: [
         {
+          name: 'robots',
+          content: 'noarchive, nositelinkssearchbox, nosnippet',
+        },
+        {
           hid: 'og:type',
           name: 'og:type',
           property: 'og:type',
