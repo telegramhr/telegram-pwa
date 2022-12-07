@@ -3080,6 +3080,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .small-bottom-margin {
     margin-bottom: 16px;
 }
+.medium-bottom-margin {
+    margin-bottom: 24px;
+}
 .large-bottom-margin {
     margin-bottom: 32px;
 }
@@ -7330,6 +7333,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .mini-article-list .article-mini:nth-child(5)::before {
     content: '5';
 }
+.mini-article-list .article-mini:nth-child(6)::before {
+    content: '6';
+}
 .latest-articles .mini-article-list .article-mini::before {
     content: 'min' !important;
     top: 24px;
@@ -8403,6 +8409,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     display: inline-flex;
     height: 23px;
     margin-right: 16px;
+    width: 144px;
+    object-fit: contain;
 }
 .superone-section-title img.dark-mode-only {
     display: none;
@@ -8429,6 +8437,31 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .superone-toppicks .offer-slide .article .article-pad {
     padding-bottom: 0px;
+}
+.s1-toppick-price {
+    padding: 4px 16px;
+    border: 1px solid black;
+    background-color: white;
+    margin-top: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    font-size: 0.9rem;
+}
+.s1-toppick-img::before {
+    content: ' ';
+    width: 50%;
+    height: 50%;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 50%;
+    position: absolute;
+    left: 25%;
+    top: 25%;
+    z-index: 1;
+}
+.s1-toppick-img img {
+    z-index: 5;
+    position: relative;
 }
 .superone-toppicks {
     border-top: 1px solid black;
@@ -8489,6 +8522,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .superone.single-article .single-article-body {
     font-family: 'Merriweather', serif;
+    font-weight: 400;
+}
+@-moz-document url-prefix() {
+    .superone.single-article .single-article-body {
+        font-weight: 300;
+    }
 }
 .superone.single-article .single-article-body h2 {
     font-family: 'Poppins', sans-serif;
@@ -8606,8 +8645,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 1.3rem;
     }
     .superone-home-header nav {
-        width: 80%;
-        font-size: 4.5vw;
+        width: 60%;
+        font-size: 3.5vw;
     }
     .superone-home-header .logo {
         margin-bottom: 2vw;
@@ -8637,7 +8676,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         width: 82px;
         height: 82px;
     }
-    .superone .superone-mini-articles .fourth .article-superfeat .article-pad {
+    .superone .superone-mini-articles .article-superfeat .article-pad {
         padding-right: 98px;
         min-height: 82px;
     }
@@ -8660,9 +8699,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         line-height: 1.25em;
     }
 }
-
-
-/* Super2 single */
 
 .superone .single-article h1, .superone .single-article-body h2 {
     font-family: 'Poppins', sans-serif;

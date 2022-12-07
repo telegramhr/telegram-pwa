@@ -62,7 +62,7 @@
           <h3 class="full overtitle super-minititle">Super se čita</h3>
           <div class="full flex">
             <mini
-              v-for="post in posts.slice(4, 9)"
+              v-for="post in posts.slice(2, 8)"
               :key="post.id"
               :post="post"
             ></mini>
@@ -112,14 +112,18 @@
                   class="full flex article relative"
                   role="article"
                 >
-                  <img
-                    src="https://super1.telegram.hr/wp-content/uploads/sites/3/2022/10/jahacke-cizme-shopping-aspect-ratio-150-120.jpg"
-                    aria-hidden="true"
-                    loading="lazy"
-                  />
+                  <div class="full flex relative s1-toppick-img">
+                    <img
+                      src="https://super1.telegram.hr/wp-content/uploads/sites/3/2022/10/massimo-dutti-159900-kuna.png"
+                      aria-hidden="true"
+                      loading="lazy"
+                    />
+                  </div>
                   <div class="full flex article-pad">
-                    <p class="full bold center-text">Jahačke čizme za zimu</p>
-                    <p class="full center-text">1890 kn</p>
+                    <p class="full center-text">Čizme Massimo Duti</p>
+                    <div class="full center">
+                      <div class="s1-toppick-price">1599 kn</div>
+                    </div>
                   </div>
                 </a>
               </div>
@@ -130,14 +134,18 @@
                   class="full flex article relative"
                   role="article"
                 >
-                  <img
-                    src="https://super1.telegram.hr/wp-content/uploads/sites/3/2022/10/garnier-7290-kuna-dm-aspect-ratio-150-120.png"
-                    aria-hidden="true"
-                    loading="lazy"
-                  />
+                  <div class="full flex relative s1-toppick-img">
+                    <img
+                      src="https://super1.telegram.hr/wp-content/uploads/sites/3/2022/10/massimo-dutti-159900-kuna.png"
+                      aria-hidden="true"
+                      loading="lazy"
+                    />
+                  </div>
                   <div class="full flex article-pad">
-                    <p class="full bold center-text">Super glow serum</p>
-                    <p class="full center-text">7290 kn</p>
+                    <p class="full center-text">Čizme Massimo Duti</p>
+                    <div class="full center">
+                      <div class="s1-toppick-price">1599 kn</div>
+                    </div>
                   </div>
                 </a>
               </div>
@@ -148,14 +156,18 @@
                   class="full flex article relative"
                   role="article"
                 >
-                  <img
-                    src="https://super1.telegram.hr/wp-content/uploads/sites/3/2022/10/arket-pulover-shopping-aspect-ratio-150-120.jpg"
-                    aria-hidden="true"
-                    loading="lazy"
-                  />
+                  <div class="full flex relative s1-toppick-img">
+                    <img
+                      src="https://super1.telegram.hr/wp-content/uploads/sites/3/2022/10/massimo-dutti-159900-kuna.png"
+                      aria-hidden="true"
+                      loading="lazy"
+                    />
+                  </div>
                   <div class="full flex article-pad">
-                    <p class="full bold center-text">Striped pulover</p>
-                    <p class="full center-text">842 kn</p>
+                    <p class="full center-text">Čizme Massimo Duti</p>
+                    <div class="full center">
+                      <div class="s1-toppick-price">1599 kn</div>
+                    </div>
                   </div>
                 </a>
               </div>
@@ -166,14 +178,18 @@
                   class="full flex article relative"
                   role="article"
                 >
-                  <img
-                    src="https://super1.telegram.hr/wp-content/uploads/sites/3/2022/10/za-shopping-aspect-ratio-150-120.jpg"
-                    aria-hidden="true"
-                    loading="lazy"
-                  />
+                  <div class="full flex relative s1-toppick-img">
+                    <img
+                      src="https://super1.telegram.hr/wp-content/uploads/sites/3/2022/10/massimo-dutti-159900-kuna.png"
+                      aria-hidden="true"
+                      loading="lazy"
+                    />
+                  </div>
                   <div class="full flex article-pad">
-                    <p class="full bold center-text">Orah</p>
-                    <p class="full center-text">10 kn</p>
+                    <p class="full center-text">Čizme Massimo Duti</p>
+                    <div class="full center">
+                      <div class="s1-toppick-price">1599 kn</div>
+                    </div>
                   </div>
                 </a>
               </div>
@@ -184,14 +200,18 @@
                   class="full flex article relative"
                   role="article"
                 >
-                  <img
-                    src="https://super1.telegram.hr/wp-content/uploads/sites/3/2022/10/massimo-dutti-159900-kuna.png"
-                    aria-hidden="true"
-                    loading="lazy"
-                  />
+                  <div class="full flex relative s1-toppick-img">
+                    <img
+                      src="https://super1.telegram.hr/wp-content/uploads/sites/3/2022/10/massimo-dutti-159900-kuna.png"
+                      aria-hidden="true"
+                      loading="lazy"
+                    />
+                  </div>
                   <div class="full flex article-pad">
-                    <p class="full bold center-text">Čizme Massimo Duti</p>
-                    <p class="full center-text">1599 kn</p>
+                    <p class="full center-text">Čizme Massimo Duti</p>
+                    <div class="full center">
+                      <div class="s1-toppick-price">1599 kn</div>
+                    </div>
                   </div>
                 </a>
               </div>
@@ -231,7 +251,7 @@
           </div>
         </div>
         <div
-          class="fourth flex mobile-side-pad flex-responsive column-horizontal-pad align-children-bottom"
+          class="fourth flex mobile-side-pad flex-responsive column-horizontal-pad align-children-bottom superone-mini-articles"
         >
           <div class="full flex">
             <superfeat
@@ -396,7 +416,7 @@
             <h3 class="full overtitle super-minititle">Super se čita</h3>
             <div class="full flex">
               <mini
-                v-for="post in posts.slice(3, 8)"
+                v-for="post in posts.slice(3, 9)"
                 :key="post.id"
                 :post="post"
               ></mini>

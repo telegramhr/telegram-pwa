@@ -259,6 +259,7 @@
         </div>
       </div>
     </div>
+    <!-- Telegram desktop sticky -->
     <div
       class="full subheader sticky-subheader mobile-side-pad center telegram-sticky"
     >
@@ -357,6 +358,7 @@
         </div>
       </div>
     </div>
+    <!-- Telesport desktop sticky -->
     <div
       class="full subheader sticky-subheader mobile-side-pad center telesport-sticky"
     >
@@ -424,6 +426,7 @@
         </div>
       </div>
     </div>
+    <!-- S1 desktop sticky -->
     <div
       class="full subheader sticky-subheader mobile-side-pad center super1-sticky"
     >
@@ -468,21 +471,6 @@
           </div>
         </div>
         <div class="flex third relative">
-          <client-only>
-            <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
-              >Prijava</a
-            >
-            <app-link
-              v-show="!$store.state.user.access"
-              id="pretplatite se - header"
-              to="/pretplata"
-              class="signup-btn sub-btn"
-              >Pretplatite se</app-link
-            >
-            <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun">
-              <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
-            </app-link>
-          </client-only>
           <a
             aria-label="Prikaži tražilicu"
             :aria-expanded="$store.state.header.showSearchMenu.toString()"
