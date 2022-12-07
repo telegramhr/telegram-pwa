@@ -334,10 +334,10 @@
           <div
             class="fourth flex mini-article-list mobile-side-pad flex-responsive column-horizontal-pad align-children-bottom"
           >
-            <h3 class="full overtitle super-minititle">Super se čita</h3>
+            <h3 class="full overtitle super-minititle">Look najčitanije</h3>
             <div class="full flex">
               <mini
-                v-for="post in posts.slice(4, 9)"
+                v-for="post in posts.slice(2, 8)"
                 :key="post.id"
                 :post="post"
               ></mini>
@@ -413,10 +413,10 @@
           <div
             class="fourth flex mini-article-list mobile-side-pad flex-responsive column-horizontal-pad align-children-bottom"
           >
-            <h3 class="full overtitle super-minititle">Super se čita</h3>
+            <h3 class="full overtitle super-minititle">Style najčitanije</h3>
             <div class="full flex">
               <mini
-                v-for="post in posts.slice(3, 9)"
+                v-for="post in posts.slice(2, 8)"
                 :key="post.id"
                 :post="post"
               ></mini>
@@ -494,10 +494,10 @@
           <div
             class="fourth flex mini-article-list mobile-side-pad flex-responsive column-horizontal-pad align-children-bottom"
           >
-            <h3 class="full overtitle super-minititle">Super se čita</h3>
+            <h3 class="full overtitle super-minititle">Relax najčitanije</h3>
             <div class="full flex">
               <mini
-                v-for="post in posts.slice(2, 7)"
+                v-for="post in posts.slice(2, 8)"
                 :key="post.id"
                 :post="post"
               ></mini>
