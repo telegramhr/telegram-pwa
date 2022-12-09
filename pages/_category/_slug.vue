@@ -675,7 +675,7 @@ export default {
     },
     srcset() {
       let set
-      if (this.categoryClass.contains('superone')) {
+      if (this.categoryClass.includes('superone')) {
         set = `${this.post.image.s1url}`
         if (this.post.image.s1url2) {
           set += `, ${this.post.image.s1url2} 2x`
