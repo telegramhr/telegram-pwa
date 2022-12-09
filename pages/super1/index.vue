@@ -521,7 +521,7 @@
 </template>
 
 <script>
-import Superfeat from '../components/articles/Superfeat.vue'
+import Superfeat from '~/components/articles/Superfeat.vue'
 export default {
   components: { Superfeat },
   async fetch() {

@@ -115,6 +115,42 @@ export const state = () => ({
       updated: null,
       extraClass: 'pitanje-zdravlja fancy-rubrika',
     },
+    beauty: {
+      name: 'Beauty',
+      posts: [],
+      updated: null,
+      extraClass: 'superone beauty fancy-rubrika',
+    },
+    design: {
+      name: 'Design',
+      posts: [],
+      updated: null,
+      extraClass: 'superone design fancy-rubrika',
+    },
+    life: {
+      name: 'Life',
+      posts: [],
+      updated: null,
+      extraClass: 'superone life fancy-rubrika',
+    },
+    look: {
+      name: 'Look',
+      posts: [],
+      updated: null,
+      extraClass: 'superone look fancy-rubrika',
+    },
+    power: {
+      name: 'Power',
+      posts: [],
+      updated: null,
+      extraClass: 'superone power fancy-rubrika',
+    },
+    'shopping-vodic': {
+      name: 'Shopping vodič',
+      posts: [],
+      updated: null,
+      extraClass: 'superone shopping-vodic fancy-rubrika',
+    },
   },
   morePosts: {
     'politika-kriminal': {

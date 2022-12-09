@@ -4,8 +4,6 @@
       'main-container',
       'flex',
       'single-article',
-      'superone',
-      'fancy-rubrika',
       typeClass,
       categoryClass,
     ]"
@@ -666,6 +664,10 @@ export default {
           this.post.category_slug.includes('pitanje-zdravlja')
         ) {
           return this.post.category_slug + ' fancy-rubrika'
+        }
+        if (this.$store.state.category.categories[this.post.category_slug]) {
+          return this.$store.state.category.categories[this.post.category_slug]
+            .extraClass
         }
         return this.post.category_slug
       }
