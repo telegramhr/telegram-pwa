@@ -10377,16 +10377,16 @@ label.payment-tile svg {
 .superone .super1-sticky {
     display: flex;
 }
-header .logo, .mobile-sticky-nav .super1-mobnav-logo {
+.mobile-sticky-nav .super1-mobnav-logo {
     display: none;
 }
-.superone header .logo, .mobile-sticky-nav .telegram-mobnav-logo {
+.superone .mobile-sticky-nav .telegram-mobnav-logo {
     display: none;
 }
-.superone header .logo, .mobile-sticky-nav .super1-mobnav-logo {
+.superone .mobile-sticky-nav .super1-mobnav-logo {
     display: block;
 }
-header .logo img, .mobile-sticky-nav .super1-mobnav-logo img {
+.mobile-sticky-nav .super1-mobnav-logo img {
     margin: 0 auto;
 }
 .multiverse-mobile-nav {
