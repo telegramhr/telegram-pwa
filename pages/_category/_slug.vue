@@ -980,6 +980,11 @@ export default {
         rel: 'canonical',
         href: this.post.social.path,
       },
+      {
+        hid: 'aos-css',
+        rel: 'stylesheet',
+        href: 'https://www.telegram.hr/wp-content/plugins/animate-blocks/dist/aos-3.0.0-beta.6/aos.css',
+      },
     ]
     let script = [
       {
@@ -995,6 +1000,16 @@ export default {
         defer: true,
         crossorigin: 'anonymous',
         nonce: 'LFZOW4mi',
+      },
+      {
+        hid: 'aos-script',
+        src: 'https://www.telegram.hr/wp-content/plugins/animate-blocks/dist/aos-3.0.0-beta.6/aos.js',
+        async: true,
+      },
+      {
+        hid: 'aos-init',
+        src: 'https://www.telegram.hr/wp-content/plugins/animate-blocks/dist/aos-init.js',
+        async: true,
       },
     ]
     if (!this.$store.getters['user/hasPremium']) {
