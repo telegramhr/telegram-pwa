@@ -2252,7 +2252,9 @@ header {
     margin-left: auto;
     margin-right: auto;
 }
-.single-article-premium article img.size-full, .single-article article img.force-size-full {
+.single-article-premium article img.size-full,
+.single-article-premium article .size-full img,
+.single-article article img.force-size-full {
     width: 100vw;
     max-width: 100vw;
     position: relative;
