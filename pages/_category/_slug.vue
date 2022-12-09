@@ -674,12 +674,23 @@ export default {
       return ''
     },
     srcset() {
-      let set = `${this.post.image.url}`
-      if (this.post.image.url2) {
-        set += `, ${this.post.image.url2} 2x`
-      }
-      if (this.post.image.url3) {
-        set += `, ${this.post.image.url3} 3x`
+      let set
+      if (this.categoryClass.contains('superone')) {
+        set = `${this.post.image.s1url}`
+        if (this.post.image.s1url2) {
+          set += `, ${this.post.image.s1url2} 2x`
+        }
+        if (this.post.image.s1url3) {
+          set += `, ${this.post.image.s1url3} 3x`
+        }
+      } else {
+        set = `${this.post.image.url}`
+        if (this.post.image.url2) {
+          set += `, ${this.post.image.url2} 2x`
+        }
+        if (this.post.image.url3) {
+          set += `, ${this.post.image.url3} 3x`
+        }
       }
       return set
     },
