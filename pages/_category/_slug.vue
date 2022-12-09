@@ -136,9 +136,10 @@
                 </div>
               </div>
               <h1 class="full">
-                <b v-if="categoryClass.includes('superone')">{{
-                  parsedOvertitle
-                }}</b>
+                <b
+                  v-show="categoryClass && categoryClass.includes('superone')"
+                  >{{ parsedOvertitle }}</b
+                >
                 {{ post.portal_title | parseCat }}
               </h1>
               <h2 class="full">
@@ -750,7 +751,7 @@ export default {
     },
     srcset() {
       let set
-      if (this.categoryClass.includes('superone')) {
+      if (this.categoryClass && this.categoryClass.includes('superone')) {
         set = `${this.post.image.s1url}`
         if (this.post.image.s1url2) {
           set += `, ${this.post.image.s1url2} 2x`
