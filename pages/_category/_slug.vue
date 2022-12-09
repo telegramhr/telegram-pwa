@@ -63,6 +63,11 @@
               src="@/assets/img/telegram_logo_white.svg"
               alt="Telegram logo"
             />
+            <img
+              src="@/assets/img/s1_logo_clean_noline_white.svg"
+              alt="Super1 logo"
+              class="superone-mobilepanav-logo"
+            />
           </nuxt-link>
           <a
             v-show="canLogIn"
@@ -130,7 +135,12 @@
                   />
                 </div>
               </div>
-              <h1 class="full">{{ post.portal_title | parseCat }}</h1>
+              <h1 class="full">
+                <b v-if="categoryClass.includes('superone')">{{
+                  parsedOvertitle
+                }}</b>
+                {{ post.portal_title | parseCat }}
+              </h1>
               <h2 class="full">
                 {{ post.subtitle | parseCat }}
               </h2>
@@ -730,17 +740,32 @@ export default {
         ) {
           return this.post.category_slug + ' fancy-rubrika'
         }
+        if (this.$store.state.category.categories[this.post.category_slug]) {
+          return this.$store.state.category.categories[this.post.category_slug]
+            .extraClass
+        }
         return this.post.category_slug
       }
       return ''
     },
     srcset() {
-      let set = `${this.post.image.url}`
-      if (this.post.image.url2) {
-        set += `, ${this.post.image.url2} 2x`
-      }
-      if (this.post.image.url3) {
-        set += `, ${this.post.image.url3} 3x`
+      let set
+      if (this.categoryClass.includes('superone')) {
+        set = `${this.post.image.s1url}`
+        if (this.post.image.s1url2) {
+          set += `, ${this.post.image.s1url2} 2x`
+        }
+        if (this.post.image.s1url3) {
+          set += `, ${this.post.image.s1url3} 3x`
+        }
+      } else {
+        set = `${this.post.image.url}`
+        if (this.post.image.url2) {
+          set += `, ${this.post.image.url2} 2x`
+        }
+        if (this.post.image.url3) {
+          set += `, ${this.post.image.url3} 3x`
+        }
       }
       return set
     },
