@@ -25,19 +25,19 @@
         </div>
         <div class="full center">
           <nav class="menu flex" role="menu">
-            <app-link role="menuitem" to="/super1" class="animate"
+            <app-link role="menuitem" to="/super1/look" class="animate"
               >Look</app-link
             >
-            <app-link role="menuitem" to="/super1" class="animate"
-              >Style</app-link
+            <app-link role="menuitem" to="/super1/beauty" class="animate"
+              >Beauty</app-link
             >
-            <app-link role="menuitem" to="/super1" class="animate"
-              >Relax</app-link
+            <app-link role="menuitem" to="/super1/life" class="animate"
+              >Life</app-link
             >
-            <app-link role="menuitem" to="/super1" class="animate"
+            <app-link role="menuitem" to="/super1/design" class="animate"
               >Design</app-link
             >
-            <app-link role="menuitem" to="/super1" class="animate"
+            <app-link role="menuitem" to="/super1/power" class="animate"
               >Power</app-link
             >
           </nav>

@@ -466,10 +466,10 @@
               >Look</app-link
             >
             <app-link role="menuitem" to="/" @click.native="maybeCloseSide"
-              >Style</app-link
+              >Beauty</app-link
             >
             <app-link role="menuitem" to="/" @click.native="maybeCloseSide"
-              >Relax</app-link
+              >Life</app-link
             >
             <app-link role="menuitem" to="/" @click.native="maybeCloseSide"
               >Dizajn</app-link
