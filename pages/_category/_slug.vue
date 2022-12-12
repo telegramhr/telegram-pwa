@@ -250,7 +250,13 @@
             <div class="full relative single-article-body">
               <client-only>
                 <mini-pretplata-new
-                  v-if="canLogIn && post.category_slug !== 'promo'"
+                  v-if="
+                    canLogIn &&
+                    !(
+                      post.category_slug.includes('promo') ||
+                      post.category_slug.includes('superone')
+                    )
+                  "
                 ></mini-pretplata-new>
               </client-only>
               <!-- eslint-disable vue/no-v-html -->
@@ -265,7 +271,9 @@
                   <quiz v-if="post.quiz" :data="post.quiz"></quiz>
                 </portal>
                 <portal v-if="!hasPremium" selector="#intext_pevex">
-                  <offers shop="pevex"></offers>
+                  <div>
+                    <offers shop="pevex"></offers>
+                  </div>
                 </portal>
               </client-only>
               <client-only>
@@ -371,7 +379,14 @@
               </div>
             </div>
           </div>
-          <div v-if="!hasPremium && hasLinker" class="container center">
+          <div
+            v-if="
+              !hasPremium &&
+              hasLinker &&
+              !post.category_slug.includes('superone')
+            "
+            class="container center"
+          >
             <div
               data-contentexchange-widget="k7dWfvWSYDqoSZvwu"
               data-contentexchange-source="ughr"
