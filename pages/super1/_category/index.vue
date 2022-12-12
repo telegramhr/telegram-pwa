@@ -1,10 +1,10 @@
 <template>
-  <category></category>
+  <tcategory></tcategory>
 </template>
 
 <script>
-import category from '~/pages/_category/index.vue'
+import tcategory from '~/pages/_category/index.vue'
 export default {
-  components: [category],
+  components: { tcategory },
 }
 </script>
