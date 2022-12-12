@@ -282,7 +282,7 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: 'https://www.telegram.hr/img/super1_share.jpg',
+          content: 'https://www.telegram.hr/img/super1_share_2.jpg',
         },
         {
           hid: 'description',
