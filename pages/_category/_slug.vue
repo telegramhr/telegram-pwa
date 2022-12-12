@@ -604,7 +604,10 @@ export default {
       )
     },
     exclude() {
-      if (this.post.disable_ads && this.post.disable_ads.includes('spar')) {
+      if (
+        (this.post.disable_ads && this.post.disable_ads.includes('spar')) ||
+        this.post.category_slug.includes('superone')
+      ) {
         return true
       }
       const terms = 'lidl'
