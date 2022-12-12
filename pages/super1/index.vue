@@ -264,14 +264,14 @@ export default {
   },
   head() {
     return {
-      title: 'Super1.hr',
+      title: 'Super1 │ Lifestyle portal na kojem si #SuperSvoja',
       meta: [
         { hid: 'og:type', name: 'og:type', content: 'website' },
         {
           hid: 'og:title',
           name: 'og:title',
           property: 'og:title',
-          content: 'Super1.hr',
+          content: 'Super1 │ Lifestyle portal na kojem si #SuperSvoja',
         },
         {
           hid: 'og:url',
@@ -282,17 +282,19 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: 'https://www.pwa.telegram.hr/img/s1_share_home.jpg',
+          content: 'https://www.telegram.hr/img/super1_share.jpg',
         },
         {
           hid: 'description',
           name: 'description',
-          content: 'Lifestyle pokret stvarnih žena.',
+          content:
+            'Najbolje mjesto za modu, šoping, stil, beauty, recepte i savjete.',
         },
         {
           hid: 'og:description',
           property: 'og:description',
-          content: 'Lifestyle pokret stvarnih žena.',
+          content:
+            'Najbolje mjesto za modu, šoping, stil, beauty, recepte i savjetea.',
         },
       ],
       script: [
