@@ -24,7 +24,7 @@
       </div>
     </div>-->
     <app-link
-      v-show="!$store.state.user.access"
+      v-show="!$store.state.user.access && !$route.name.includes('super1')"
       to="/klub"
       class="full dark-element bottom-pretplata-promo relative"
     >

@@ -29,9 +29,7 @@
           </div>
         </template>
         <div
-          v-if="
-            !$store.getters['user/hasPremium'] && !category.includes('superone')
-          "
+          v-if="!$store.getters['user/hasPremium']"
           class="lwdgt"
           data-wid="542"
           data-infinite="true"
@@ -70,10 +68,7 @@ export default {
     }
   },
   mounted() {
-    if (
-      this.$store.getters['user/hasPremium'] ||
-      this.category.includes('superone')
-    ) {
+    if (this.$store.getters['user/hasPremium']) {
       this.loadPosts()
     }
   },

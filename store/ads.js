@@ -1120,7 +1120,11 @@ export const actions = {
         case 'super1-category':
         case 'fotogalerije-category':
           targeting.wp_post_type = ['category']
-          targeting.post_category = [route.params.category]
+          if (route.name.includes('super1')) {
+            targeting.post_category = [route.params.category, 'super1']
+          } else {
+            targeting.post_category = [route.params.category]
+          }
           break
         case 'tema':
           targeting.wp_post_type = ['archive']
@@ -1132,7 +1136,11 @@ export const actions = {
         case 'fotogalerije-category-slug':
           targeting.wp_post_type = ['single']
           targeting.post_slug = [route.params.slug]
-          targeting.post_category = [route.params.category]
+          if (route.name.includes('super1')) {
+            targeting.post_category = [route.params.category, 'super1']
+          } else {
+            targeting.post_category = [route.params.category]
+          }
           if (payload.tags) {
             targeting.post_tag = payload.tags.map((tag) => tag.slug)
           }

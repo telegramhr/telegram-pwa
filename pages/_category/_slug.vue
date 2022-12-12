@@ -415,7 +415,11 @@
             <div id="linker-526" class="lwdgt" data-wid="526"></div>
           </div>
           <keep-reading
-            v-if="post.category_slug && post.category_slug !== 'promo'"
+            v-if="
+              post.category_slug &&
+              (post.category_slug !== 'promo' ||
+                post.category_slug.includes('superone'))
+            "
             :category="post.category_slug"
             :p="Number(post.id)"
             :permalink="post.permalink"
