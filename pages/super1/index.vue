@@ -144,14 +144,17 @@
           </h3>
         </div>
         <div class="full flex column-horizontal-pad">
-          <a class="full flex superone-story column-vertical-pad center-text">
+          <app-link
+            :to="breaks[0].link"
+            class="full flex superone-story column-vertical-pad center-text"
+          >
             <h2 class="full animate">
               <b>{{ breaks[0].overtitle }}</b> {{ breaks[0].title }}
             </h2>
             <h2 class="full animate faded">
               {{ breaks[0].subtitle }}
             </h2>
-          </a>
+          </app-link>
         </div>
       </div>
     </section>
@@ -282,7 +285,13 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: 'https://www.telegram.hr/img/super1_share_2.jpg',
+          content:
+            'https://www.telegram.hr/wp-content/uploads/2022/12/super1-share-2.jpg',
+        },
+        {
+          hid: 'og:image:type',
+          property: 'og:image:type',
+          content: 'image/jpg',
         },
         {
           hid: 'description',
