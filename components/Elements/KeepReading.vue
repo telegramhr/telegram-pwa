@@ -22,18 +22,16 @@
               <featured :post="post"></featured>
             </div>
           </div>
-          <div
-            v-else
-            :key="post.id"
-            class="fourth flex-responsive flex"
-          >
+          <div v-else :key="post.id" class="fourth flex-responsive flex">
             <div class="full flex column-horizontal-pad">
               <standard :post="post"></standard>
             </div>
           </div>
         </template>
         <div
-          v-if="!$store.getters['user/hasPremium']"
+          v-if="
+            !$store.getters['user/hasPremium'] && !category.includes('superone')
+          "
           class="lwdgt"
           data-wid="542"
           data-infinite="true"
@@ -72,7 +70,7 @@ export default {
     }
   },
   mounted() {
-    if (this.$store.getters['user/hasPremium']) {
+    if (this.$store.getters['user/hasPremium'] || this.category.includes('superone')) {
       this.loadPosts()
     }
   },
