@@ -421,8 +421,8 @@
           <keep-reading
             v-if="
               post.category_slug &&
-              (post.category_slug !== 'promo' ||
-                !post.category_slug.includes('superone'))
+              post.category_slug !== 'promo' &&
+              !post.category_slug.includes('superone')
             "
             :category="post.category_slug"
             :p="Number(post.id)"

@@ -68,36 +68,17 @@
 export default {
   name: 'Super1',
   async fetch() {
-    await this.$axios
-      .get('https://super1.telegram.hr/wp-json/telegram/pwa2/v1/portal/3')
-      .then((res) => {
-        this.posts = res.data.posts
-        this.reading = res.data.reading
-      })
+    await this.$store.dispatch('s1/pullPosts')
   },
   data() {
     return {
       showMore: false,
       loading: false,
-      page: 2,
-      posts: [],
-      reading: [],
     }
   },
-  methods: {
-    loadMore() {
-      this.loading = true
-      this.$axios
-        .get(
-          'https://super1.telegram.hr/wp-json/telegram/pwa2/v1/portal/3/page/' +
-            this.page
-        )
-        .then((res) => {
-          this.posts = [...this.posts, ...res.data.posts]
-          this.loading = false
-          this.page++
-          this.showMore = true
-        })
+  computed: {
+    posts() {
+      return this.$store.state.s1.posts
     },
   },
 }

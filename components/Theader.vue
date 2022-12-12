@@ -205,7 +205,7 @@
             >
           </div>
           <h3>Kanali</h3>
-          <a role="menuitem" href="https://super1.telegram.hr">Super1</a>
+          <app-link role="menuitem" to="/super1">Super1</app-link>
           <a role="menuitem" href="https://telesport.telegram.hr">Telesport</a>
           <app-link role="menuitem" to="/openspace">Openspace</app-link>
           <app-link role="menuitem" to="/pitanje-zdravlja"
@@ -334,7 +334,7 @@
               @click.native="maybeCloseSide"
               >Openspace</app-link
             >
-            <a href="https://super1.telegram.hr" role="menuitem">Super1</a>
+            <app-link to="/super1" role="menuitem">Super1</app-link>
             <a href="https://telesport.telegram.hr" role="menuitem">
               Telesport
             </a>
