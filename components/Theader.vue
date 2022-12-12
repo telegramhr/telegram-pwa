@@ -462,19 +462,34 @@
             <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon>
           </a>
           <div class="menu flex" role="menu">
-            <app-link role="menuitem" to="/" @click.native="maybeCloseSide"
+            <app-link
+              role="menuitem"
+              to="/super1/look"
+              @click.native="maybeCloseSide"
               >Look</app-link
             >
-            <app-link role="menuitem" to="/" @click.native="maybeCloseSide"
+            <app-link
+              role="menuitem"
+              to="/super1/beauty"
+              @click.native="maybeCloseSide"
               >Beauty</app-link
             >
-            <app-link role="menuitem" to="/" @click.native="maybeCloseSide"
+            <app-link
+              role="menuitem"
+              to="/super1/life"
+              @click.native="maybeCloseSide"
               >Life</app-link
             >
-            <app-link role="menuitem" to="/" @click.native="maybeCloseSide"
-              >Dizajn</app-link
+            <app-link
+              role="menuitem"
+              to="/super1/design"
+              @click.native="maybeCloseSide"
+              >Design</app-link
             >
-            <app-link role="menuitem" to="/" @click.native="maybeCloseSide"
+            <app-link
+              role="menuitem"
+              to="/super1/power"
+              @click.native="maybeCloseSide"
               >Power</app-link
             >
           </div>
