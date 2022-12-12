@@ -14,6 +14,7 @@
       <div class="full flex column-horizontal-pad">
         <div class="full flex stretch gallery-content superone-toppicks">
           <VueSlickCarousel
+            v-if="posts.length"
             ref="s1_toppicks_carousel"
             v-bind="slider_settings"
             style="display: block; width: 100%"
@@ -26,16 +27,12 @@
                 role="article"
               >
                 <div class="full flex relative s1-toppick-img">
-                  <img
-                    :src="post.image.url"
-                    aria-hidden="true"
-                    loading="lazy"
-                  />
+                  <img :src="post.image" aria-hidden="true" loading="lazy" />
                 </div>
                 <div class="full flex article-pad">
-                  <p class="full center-text">{{ post.title }}}</p>
-                  <div class="full center">
-                    <div class="s1-toppick-price">1599 kn</div>
+                  <p class="full center-text">{{ post.title }}</p>
+                  <div v-if="post.price" class="full center">
+                    <div class="s1-toppick-price">{{ post.price }}</div>
                   </div>
                 </div>
               </AppLink>
@@ -68,6 +65,9 @@
 <script>
 export default {
   name: 'SuperShopping',
+  async fetch() {
+    this.posts = await this.$axios.$get('/api/s1/shopping')
+  },
   data() {
     return {
       slider_settings: {
@@ -104,5 +104,3 @@ export default {
   },
 }
 </script>
-
-<style scoped></style>

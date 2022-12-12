@@ -84,7 +84,7 @@
       </div>
     </section>
     <!-- S1 Top picks -->
-    <!--<super-shopping></super-shopping>-->
+    <super-shopping></super-shopping>
     <!-- Block 1: 75-25 -->
     <section class="full flex relative">
       <div class="container flex relative stretch column-bottom-pad">
