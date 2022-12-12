@@ -70,7 +70,10 @@ export default {
     }
   },
   mounted() {
-    if (this.$store.getters['user/hasPremium'] || this.category.includes('superone')) {
+    if (
+      this.$store.getters['user/hasPremium'] ||
+      this.category.includes('superone')
+    ) {
       this.loadPosts()
     }
   },
