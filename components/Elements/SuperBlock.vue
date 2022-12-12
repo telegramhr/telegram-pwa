@@ -71,8 +71,9 @@ export default {
     posts() {
       return this.$store.state.category.categories[this.category].posts.filter(
         (post) => {
-          return !this.$store.state.s1.posts.filter((p) => p.id === post.id)
-            .length
+          return !this.$store.state.s1.posts
+            .slice(0, 9)
+            .filter((p) => p.id === post.id).length
         }
       )
     },
