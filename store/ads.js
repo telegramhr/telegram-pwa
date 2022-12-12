@@ -32,6 +32,7 @@ export const state = () => ({
         'search',
         'author-slug',
         'tema-slug',
+        'super1-category-slug',
       ],
     },
     telegram_desktop_billboard_v2: {
@@ -380,6 +381,7 @@ export const state = () => ({
         'index',
         'category',
         'category-slug',
+        'super1-category-slug',
         'nesto-slug',
         'fotogalerije-category',
         'fotogalerije-category-slug',
@@ -403,6 +405,7 @@ export const state = () => ({
         'index',
         'category',
         'category-slug',
+        'super1-category-slug',
         'nesto-slug',
         'nesto-slug',
         'fotogalerije-category',
@@ -415,7 +418,7 @@ export const state = () => ({
     },
     telegram_desktop_intext_v1: {
       upc: false,
-      routes: ['category-slug', 'nesto-slug'],
+      routes: ['category-slug', 'nesto-slug', 'super1-category-slug'],
       desktop: [
         [1, 1],
         [660, 350],
@@ -439,7 +442,7 @@ export const state = () => ({
     },
     telegram_desktop_intext_v2: {
       upc: false,
-      routes: ['category-slug', 'nesto-slug'],
+      routes: ['category-slug', 'nesto-slug', 'super1-category-slug'],
       desktop: [
         [1, 1],
         [660, 350],
@@ -560,7 +563,7 @@ export const state = () => ({
     },
     telegram_desktop_intext_v3: {
       upc: false,
-      routes: ['category-slug', 'nesto-slug'],
+      routes: ['category-slug', 'nesto-slug', 'super1-category-slug'],
       desktop: [
         [1, 1],
         [660, 350],
@@ -677,7 +680,7 @@ export const state = () => ({
     },
     telegram_desktop_intext_v4: {
       upc: false,
-      routes: ['category-slug', 'nesto-slug'],
+      routes: ['category-slug', 'nesto-slug', 'super1-category-slug'],
       desktop: [
         [1, 1],
         [660, 350],
@@ -794,7 +797,7 @@ export const state = () => ({
     },
     telegram_desktop_intext_v5: {
       upc: false,
-      routes: ['category-slug', 'nesto-slug'],
+      routes: ['category-slug', 'nesto-slug', 'super1-category-slug'],
       desktop: [
         [1, 1],
         [660, 350],
@@ -890,7 +893,7 @@ export const state = () => ({
     },
     telegram_desktop_intext_v6: {
       upc: false,
-      routes: ['category-slug', 'nesto-slug'],
+      routes: ['category-slug', 'nesto-slug', 'super1-category-slug'],
       desktop: [
         [1, 1],
         [660, 350],
@@ -990,6 +993,7 @@ export const state = () => ({
         'index',
         'category',
         'category-slug',
+        'super1-category-slug',
         'nesto-slug',
         'fotogalerije-category',
         'fotogalerije-category-slug',
@@ -1113,6 +1117,7 @@ export const actions = {
           targeting.post_category = [route.params.slug]
           break
         case 'category-slug':
+        case 'super1-category-slug':
         case 'nesto-slug':
         case 'fotogalerije-category-slug':
           targeting.wp_post_type = ['single']
