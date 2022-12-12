@@ -85,6 +85,11 @@
     </section>
     <!-- S1 Top picks -->
     <super-shopping></super-shopping>
+    <div class="full relative">
+      <div class="full center">
+        <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
+      </div>
+    </div>
     <!-- Block 1: 75-25 -->
     <section class="full flex relative">
       <div class="container flex relative stretch column-bottom-pad">
@@ -150,6 +155,11 @@
         </div>
       </div>
     </section>
+    <div class="full relative">
+      <div class="full center">
+        <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
+      </div>
+    </div>
     <!-- Block 3: Look (75-25 + 33-33-33) -->
     <super-block category="look"></super-block>
     <!-- Block 4: Partneri -->
@@ -186,6 +196,11 @@
         </div>
       </div>
     </section>
+    <div class="full relative">
+      <div class="full center">
+        <ad-unit id="telegram_desktop_billboard_v4"></ad-unit>
+      </div>
+    </div>
     <!-- Block 6: Relax (75-25 + 33-33-33) -->
     <super-block category="life"></super-block>
     <super-block category="design"></super-block>

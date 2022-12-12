@@ -25,6 +25,8 @@ export const state = () => ({
         'index',
         'category',
         'category-slug',
+        'super1',
+        'super1-category',
         'nesto-slug',
         'fotogalerije-category',
         'fotogalerije-category-slug',
@@ -37,7 +39,7 @@ export const state = () => ({
     },
     telegram_desktop_billboard_v2: {
       upc: false,
-      routes: ['index'],
+      routes: ['index', 'category', 'super1', 'super1-category'],
       mobile: [
         [1, 1],
         [300, 50],
@@ -150,7 +152,7 @@ export const state = () => ({
     },
     telegram_desktop_billboard_v3: {
       upc: false,
-      routes: ['index'],
+      routes: ['index', 'category', 'super1', 'super1-category'],
       mobile: [
         [1, 1],
         [300, 50],
@@ -256,7 +258,7 @@ export const state = () => ({
     },
     telegram_desktop_billboard_v4: {
       upc: false,
-      routes: ['index'],
+      routes: ['index', 'super1', 'category', 'super1-category'],
       mobile: [
         [1, 1],
         [300, 50],
@@ -381,6 +383,8 @@ export const state = () => ({
         'index',
         'category',
         'category-slug',
+        'super1',
+        'super1-category',
         'super1-category-slug',
         'nesto-slug',
         'fotogalerije-category',
@@ -405,6 +409,8 @@ export const state = () => ({
         'index',
         'category',
         'category-slug',
+        'super1',
+        'super1-category',
         'super1-category-slug',
         'nesto-slug',
         'nesto-slug',
@@ -992,6 +998,8 @@ export const state = () => ({
       routes: [
         'index',
         'category',
+        'super1',
+        'super1-category',
         'category-slug',
         'super1-category-slug',
         'nesto-slug',
@@ -1108,6 +1116,8 @@ export const actions = {
           targeting.wp_post_type = ['home']
           break
         case 'category':
+        case 'super1':
+        case 'super1-category':
         case 'fotogalerije-category':
           targeting.wp_post_type = ['category']
           targeting.post_category = [route.params.category]
