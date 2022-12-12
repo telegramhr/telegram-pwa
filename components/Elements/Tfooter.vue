@@ -72,13 +72,12 @@
         </div>
         <div class="full flex center">
           <div class="full logo-line flex">
-            <a
-              href="https://super1.telegram.hr"
-              target="_blank"
-              class="center animate"
-            >
-              <img src="@/assets/img/super1_logo_white.svg" alt="Super1 logo" />
-            </a>
+            <app-link to="/super1" class="center animate">
+              <img
+                src="@/assets/img/s1_logo_clean_noline_white.svg"
+                alt="Super1 logo"
+              />
+            </app-link>
             <a
               href="https://telesport.telegram.hr"
               target="_blank"

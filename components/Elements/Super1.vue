@@ -4,18 +4,18 @@
       <div class="full mobile-side-pad column-horizontal-pad">
         <div class="full cantha-separator"></div>
       </div>
-      <a href="https://super1.telegram.hr" class="full flex relative">
+      <app-link to="/super1" class="full flex relative">
         <h3
           class="full center-text column-full-pad subsection-title s1-subsection-logo"
         >
-          <img src="@/assets/img/super1_logo_black.svg" alt="Super1 logo" />
+          <img src="@/assets/img/s1_logo_clean_noline.svg" alt="Super1 logo" />
           <img
-            src="@/assets/img/super1_logo_white.svg"
-            class="dark-mode-only"
+            src="@/assets/img/s1_logo_clean_noline_white.svg"
             alt="Super1 logo"
+            class="dark-mode-only"
           />
         </h3>
-      </a>
+      </app-link>
       <div class="full block-echovald mobile-side-pad flex relative">
         <div class="three-fourths flex-responsive flex stretch">
           <div class="half flex-responsive flex column-horizontal-pad">
