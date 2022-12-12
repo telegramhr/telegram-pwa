@@ -8343,11 +8343,18 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .fancy-rubrika .subheader {
     background-color: white;
 }
+.fancy-rubrika header .subheader {
+    display: none;
+}
 .dark-mode .fancy-rubrika .subheader {
     background-color: #111;
 }
-.fancy-rubrika header .subheader {
-    display: none;
+.dark-mode .superone.fancy-rubrika .subheader {
+    background-color: transparent;
+}
+.s1-home .banner-slot {
+    margin-top: 0px;
+    margin-bottom: 48px;
 }
 .superone-home-header {
     padding-top: 72px;
@@ -10420,16 +10427,19 @@ label.payment-tile svg {
 .multiverse-mobile-nav {
     display: none;
 }
-.superone-subheader-logo, .single-article header .desktop-subheader .logo img.superone-subheader-logo {
+.superone-subheader-logo, .single-article header .desktop-subheader .logo.superone-subheader-logo {
     display: none;
 }
 .superone-mobilepanav-logo {
     display: none;
 }
-.superone.single-article-premium header .subheader .logo img.dark-mode-only {
+.superone.single-article-premium header .subheader .logo {
     display: none;
 }
-.superone.single-article-premium header .subheader .logo img.superone-subheader-logo {
+.superone.single-article-premium header .subheader .logo.superone-subheader-logo {
+    display: inline-block;
+}
+.superone.single-article-premium header .subheader .logo.superone-subheader-logo img {
     display: inline-block;
     height: 18px;
 }
@@ -10457,11 +10467,13 @@ label.payment-tile svg {
     .dark-mode .superone-home-header {
         background-color: #212121;
     }
-    .superone .mobile-pa-nav .logo img {
+    .superone .mobile-pa-nav .logo {
         display: none;
     }
-    .superone .mobile-pa-nav .logo img.superone-mobilepanav-logo {
+    .superone .mobile-pa-nav .logo.superone-mobilepanav-logo {
         display: block;
+    }
+    .superone .mobile-pa-nav .logo.superone-mobilepanav-logo img {
         margin: 0 auto;
     }
 }

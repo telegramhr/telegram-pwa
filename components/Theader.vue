@@ -621,11 +621,12 @@
                 alt="Telegram logo" /><img
                 src="@/assets/img/telegram_logo_white.svg"
                 alt="Telegram logo"
-                class="dark-mode-only" />
+                class="dark-mode-only"
+            /></app-link>
+            <app-link to="/super1" class="logo superone-subheader-logo">
               <img
                 src="@/assets/img/s1_logo_clean_noline_white.svg"
                 alt="Super1 logo"
-                class="superone-subheader-logo"
             /></app-link>
           </div>
           <div class="flex third relative">

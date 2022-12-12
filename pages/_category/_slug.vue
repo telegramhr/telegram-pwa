@@ -63,10 +63,11 @@
               src="@/assets/img/telegram_logo_white.svg"
               alt="Telegram logo"
             />
+          </nuxt-link>
+          <nuxt-link to="/super1" class="logo superone-mobilepanav-logo">
             <img
               src="@/assets/img/s1_logo_clean_noline_white.svg"
               alt="Super1 logo"
-              class="superone-mobilepanav-logo"
             />
           </nuxt-link>
           <a
