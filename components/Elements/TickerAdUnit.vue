@@ -35,7 +35,7 @@
 
 <script>
 export default {
-  name: 'AdUnit',
+  name: 'TickerAdUnit',
   props: {
     id: {
       type: String,

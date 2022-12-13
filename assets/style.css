@@ -8359,6 +8359,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     margin-top: 0px;
     margin-bottom: 48px;
 }
+.s1-home .wallpaper-banners {
+  top: 40px;
+}
 .superone-home-header {
     padding-top: 72px;
     padding-bottom: 10px;

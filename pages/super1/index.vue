@@ -102,7 +102,9 @@
       </div>
     </section>
     <!-- S1 Top picks -->
-    <super-shopping></super-shopping>
+    <client-only>
+      <super-shopping></super-shopping>
+    </client-only>
     <div class="full relative">
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
@@ -181,12 +183,14 @@
         <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
       </div>
     </div>
-    <!-- Block 3: Look (75-25 + 33-33-33) -->
-    <super-block category="look"></super-block>
-    <!-- Block 4: Partneri -->
-    <super-partneri></super-partneri>
-    <!-- Block 5: Style (75-25 + 33-33-33) -->
-    <super-block category="beauty"></super-block>
+    <client-only>
+      <!-- Block 3: Look (75-25 + 33-33-33) -->
+      <super-block category="look"></super-block>
+      <!-- Block 4: Partneri -->
+      <super-partneri></super-partneri>
+      <!-- Block 5: Style (75-25 + 33-33-33) -->
+      <super-block category="beauty"></super-block>
+    </client-only>
     <!-- S1 preporuka -->
     <section v-if="breaks[1]" class="full flex relative">
       <div
@@ -222,10 +226,12 @@
         <ad-unit id="telegram_desktop_billboard_v4"></ad-unit>
       </div>
     </div>
-    <!-- Block 6: Relax (75-25 + 33-33-33) -->
-    <super-block category="life"></super-block>
-    <super-block category="design"></super-block>
-    <super-block category="power"></super-block>
+    <client-only>
+      <!-- Block 6: Relax (75-25 + 33-33-33) -->
+      <super-block category="life"></super-block>
+      <super-block category="design"></super-block>
+      <super-block category="power"></super-block>
+    </client-only>
     <!-- Footer -->
     <tfooter></tfooter>
   </div>
