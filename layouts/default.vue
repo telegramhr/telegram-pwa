@@ -23,10 +23,6 @@ export default {
         class: [
           font === 'small' ? 'small-fontsize' : '',
           font === 'large' ? 'large-fontsize' : '',
-        ],
-      },
-      bodyAttrs: {
-        class: [
           theme === 'contrast' ? 'contrast-mode' : '',
           theme === 'dark' ? 'dark-mode' : '',
         ],
