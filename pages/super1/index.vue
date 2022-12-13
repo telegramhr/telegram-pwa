@@ -1,5 +1,5 @@
 <template>
-  <div class="main-container flex fancy-rubrika superone s1-home">
+  <div class="main-container flex s1-home">
     <client-only>
       <div v-if="!$mobile" class="container wallpaper-banners animate">
         <div class="wallpaper-left">
@@ -294,6 +294,9 @@ export default {
   },
   head() {
     return {
+      bodyAttrs: {
+        class: ['superone', 'fancy-rubrika'],
+      },
       title: 'Super1 │ Lifestyle portal na kojem si #SuperSvoja',
       link: [
         {

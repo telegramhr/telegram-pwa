@@ -1,5 +1,5 @@
 <template>
-  <div :class="['main-container', 'flex', 'category-page', extraClass]">
+  <div :class="['main-container', 'flex', 'category-page']">
     <!-- TG Multiverse header -->
     <div class="full flex relative single-article">
       <client-only>
@@ -244,6 +244,9 @@ export default {
   },
   head() {
     return {
+      bodyAttrs: {
+        class: [this.extraClass],
+      },
       title: this.$options.filters.parseCat(this.cat),
       titleTemplate: 'Kategorija %s | Telegram.hr',
       meta: [

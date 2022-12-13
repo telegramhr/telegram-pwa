@@ -1117,6 +1117,9 @@ export default {
       })
     }
     return {
+      bodyAttrs: {
+        class: this.post.category_slug,
+      },
       title: this.$options.filters.parseCat(this.post.title),
       titleTemplate: '%s | Telegram.hr',
       meta: [
