@@ -271,14 +271,6 @@
                 <portal v-if="showQuiz" selector="#quiz-container">
                   <quiz v-if="post.quiz" :data="post.quiz"></quiz>
                 </portal>
-                <portal
-                  v-if="!hasPremium && !post.category_slug.includes('superone')"
-                  selector="#intext_pevex"
-                >
-                  <div>
-                    <offers shop="pevex"></offers>
-                  </div>
-                </portal>
               </client-only>
               <client-only>
                 <intext></intext>
