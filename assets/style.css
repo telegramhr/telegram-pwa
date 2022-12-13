@@ -10470,7 +10470,7 @@ label.payment-tile svg {
         position: relative;
         z-index: 200;
     }
-    .dark-mode.superone-home-header {
+    .dark-mode .superone-home-header {
         background-color: #212121;
     }
     .superone .mobile-pa-nav .logo {
