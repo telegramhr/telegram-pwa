@@ -8352,7 +8352,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .dark-mode .fancy-rubrika .subheader {
     background-color: #111;
 }
-.dark-mode .superone.fancy-rubrika .subheader {
+.dark-mode .superone.fancy-rubrika.single-article-premium-alt header .subheader {
     background-color: transparent;
 }
 .s1-home .banner-slot {
@@ -10602,4 +10602,11 @@ label.payment-tile svg {
     .telesport .featured-split .article-featured {
         border-color: #223344;
     }
+}
+
+.top-qatar-section .block-echovald {
+    padding-bottom: 24px;
+}
+.top-qatar-section section > .column-horizontal-pad {
+    display: none;
 }

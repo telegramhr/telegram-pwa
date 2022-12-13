@@ -132,7 +132,7 @@
         <!-- breaking -->
         <h2
           v-show="$store.state.breaking.on2"
-          class="full major-event-header mobile-order-1 mobile-side-pad column-horizontal-pad column-bottom-pad center-text m-order-1"
+          class="full major-event-header mobile-order-1 mobile-side-pad column-horizontal-pad center-text m-order-1"
         >
           <app-link
             :to="
@@ -143,7 +143,7 @@
           >
         </h2>
         <!-- qatar -->
-        <div class="full relative m-order-1">
+        <div class="full relative m-order-1 top-qatar-section">
           <div class="container flex relative">
             <category-big slug="qatar"></category-big>
           </div>
