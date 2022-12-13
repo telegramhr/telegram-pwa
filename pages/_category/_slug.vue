@@ -1118,7 +1118,10 @@ export default {
     }
     return {
       bodyAttrs: {
-        class: [this.$store.state.theme.theme, this.post.category_slug],
+        class: [
+          this.$store.state.theme.theme,
+          this.post.category_slug.includes('superone') ? 'superone' : '',
+        ],
       },
       title: this.$options.filters.parseCat(this.post.title),
       titleTemplate: '%s | Telegram.hr',

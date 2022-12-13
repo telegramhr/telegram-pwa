@@ -8352,7 +8352,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .dark-mode .fancy-rubrika .subheader {
     background-color: #111;
 }
-.dark-mode .superone.fancy-rubrika.single-article-premium-alt header .subheader {
+.dark-mode.superone .fancy-rubrika .single-article-premium-alt header .subheader {
     background-color: transparent;
 }
 .s1-home .banner-slot {
@@ -8438,7 +8438,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     background-color: white;
     z-index: 5;
 }
-.dark-mode .superone .article-superfeat .article-pad a {
+.dark-mode.superone .article-superfeat .article-pad a {
     padding: 24px;
     border-color: white;
     background-color: #212121;
@@ -8574,7 +8574,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     border-top: 1px solid black;
     border-bottom: 1px solid black;
 }
-.dark-mode .superone .superone-preporuka > .full {
+.dark-mode.superone .superone-preporuka > .full {
     border-color: white;
 }
 
@@ -10470,7 +10470,7 @@ label.payment-tile svg {
         position: relative;
         z-index: 200;
     }
-    .dark-mode .superone-home-header {
+    .dark-mode.superone-home-header {
         background-color: #212121;
     }
     .superone .mobile-pa-nav .logo {
