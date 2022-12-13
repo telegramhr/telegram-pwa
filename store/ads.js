@@ -1124,7 +1124,7 @@ export const actions = {
         case 'super1':
           targeting.wp_post_type = ['category']
           targeting.post_category = ['super1']
-          break;
+          break
         case 'tema':
           targeting.wp_post_type = ['archive']
           targeting.post_category = [route.params.slug]
