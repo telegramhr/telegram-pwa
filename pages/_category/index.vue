@@ -245,7 +245,7 @@ export default {
   head() {
     return {
       bodyAttrs: {
-        class: [this.extraClass],
+        class: [this.$store.state.theme.theme, this.extraClass],
       },
       title: this.$options.filters.parseCat(this.cat),
       titleTemplate: 'Kategorija %s | Telegram.hr',

@@ -295,7 +295,7 @@ export default {
   head() {
     return {
       bodyAttrs: {
-        class: ['superone', 'fancy-rubrika'],
+        class: [this.$store.state.theme.theme, 'superone', 'fancy-rubrika'],
       },
       title: 'Super1 │ Lifestyle portal na kojem si #SuperSvoja',
       link: [
