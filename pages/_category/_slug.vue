@@ -888,7 +888,11 @@ export default {
         }
       }
       tp.push(['setContentIsNative', this.post.post_type === 'partneri'])
-      tp.push(['setCustomVariable', 'isPaywall', this.post.paywall])
+      if (this.post.category_slug.includes('superone')) {
+        tp.push(['setCustomVariable', 'isPaywall', 'never'])
+      } else {
+        tp.push(['setCustomVariable', 'isPaywall', this.post.paywall])
+      }
       tp.push([
         'init',
         function () {
