@@ -1,5 +1,15 @@
 <template>
   <div class="main-container flex fancy-rubrika superone s1-home">
+    <client-only>
+      <div v-if="!$mobile" class="container wallpaper-banners animate">
+        <div class="wallpaper-left">
+          <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
+        </div>
+        <div class="wallpaper-right">
+          <ad-unit id="telegram_dekstop_wallpaper_right"></ad-unit>
+        </div>
+      </div>
+    </client-only>
     <!-- TG Multiverse header -->
     <div class="full flex">
       <theader></theader>
@@ -42,6 +52,14 @@
             >
           </nav>
         </div>
+        <!-- Billboard 1 -->
+        <client-only>
+          <div v-show="!hasPremium" class="full relative">
+            <div class="full center relative">
+              <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
+            </div>
+          </div>
+        </client-only>
       </div>
     </section>
     <!-- G1 + super se čita -->
@@ -230,6 +248,9 @@ export default {
     }
   },
   computed: {
+    hasPremium() {
+      return this.$store.getters['user/hasPremium']
+    },
     posts() {
       return this.$store.state.s1.posts
     },
