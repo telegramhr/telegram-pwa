@@ -527,11 +527,11 @@
           alt="Telegram logo"
           class="dark-mode-only"
       /></app-link>
-      <app-link to="/" class="logo super1-mobnav-logo"
-        ><img src="@/assets/img/s1_logo_clean_noline.svg" alt="Telegram logo" />
+      <app-link to="/super1" class="logo super1-mobnav-logo"
+        ><img src="@/assets/img/s1_logo_clean_noline.svg" alt="Super1 logo" />
         <img
           src="@/assets/img/s1_logo_clean_noline_white.svg"
-          alt="Telegram logo"
+          alt="Super1 logo"
           class="dark-mode-only"
       /></app-link>
       <div class="desktop-only full center-text tagline">
