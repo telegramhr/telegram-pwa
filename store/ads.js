@@ -1116,16 +1116,15 @@ export const actions = {
           targeting.wp_post_type = ['home']
           break
         case 'category':
-        case 'super1':
         case 'super1-category':
         case 'fotogalerije-category':
           targeting.wp_post_type = ['category']
-          if (route.name.includes('super1')) {
-            targeting.post_category = [route.params.category, 'super1']
-          } else {
-            targeting.post_category = [route.params.category]
-          }
+          targeting.post_category = [route.params.category]
           break
+        case 'super1':
+          targeting.wp_post_type = ['category']
+          targeting.post_category = ['super1']
+          break;
         case 'tema':
           targeting.wp_post_type = ['archive']
           targeting.post_category = [route.params.slug]
