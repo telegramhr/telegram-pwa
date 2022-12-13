@@ -2283,6 +2283,9 @@ header {
     padding-bottom: 3px;
     z-index: 5;
 }
+.superone .banner-separator > div {
+  background-color: white;
+}
 .banner-separator > div > span {
     font-family: 'Barlow', sans-serif;
     font-weight: 600;
