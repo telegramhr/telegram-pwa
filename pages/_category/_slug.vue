@@ -490,7 +490,7 @@
       </div>
       </div>-->
     </template>
-    <tfooter v-if="post.id || $fetchState.error"></tfooter>
+    <tfooter v-if="post.id || $fetchState.error" :post="post"></tfooter>
   </div>
 </template>
 

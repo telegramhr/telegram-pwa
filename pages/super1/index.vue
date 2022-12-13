@@ -145,7 +145,7 @@
         </div>
         <div class="full flex column-horizontal-pad">
           <app-link
-            :to="breaks[0].link"
+            :to="breaks[0].permalink"
             class="full flex superone-story column-vertical-pad center-text"
           >
             <h2 class="full animate">
@@ -268,6 +268,13 @@ export default {
   head() {
     return {
       title: 'Super1 │ Lifestyle portal na kojem si #SuperSvoja',
+      link: [
+        {
+          hid: 'canonical',
+          rel: 'canonical',
+          href: 'https://www.telegram.hr/super1',
+        },
+      ],
       meta: [
         { hid: 'og:type', name: 'og:type', content: 'website' },
         {

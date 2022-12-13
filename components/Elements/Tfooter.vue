@@ -24,7 +24,9 @@
       </div>
     </div>-->
     <app-link
-      v-show="!$store.state.user.access && !$route.name.includes('super1')"
+      v-show="
+        !$store.state.user.access && !post.category_slug.includes('superone')
+      "
       to="/klub"
       class="full dark-element bottom-pretplata-promo relative"
     >
@@ -187,5 +189,17 @@
 <script>
 export default {
   name: 'Footer',
+  props: {
+    post: {
+      type: Object,
+      required: false,
+      default() {
+        return {
+          id: 0,
+          category_slug: '',
+        }
+      },
+    },
+  },
 }
 </script>
