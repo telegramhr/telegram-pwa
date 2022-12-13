@@ -25,7 +25,9 @@
     </div>-->
     <app-link
       v-show="
-        !$store.state.user.access && !post.category_slug.includes('superone')
+        !$store.state.user.access &&
+        (!post.category_slug.includes('superone') ||
+          !$route.name.includes('super1'))
       "
       to="/klub"
       class="full dark-element bottom-pretplata-promo relative"
