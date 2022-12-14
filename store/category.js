@@ -120,6 +120,14 @@ export const state = () => ({
       posts: [],
       updated: null,
     },
+    super1: {
+      name: 'Super1',
+      posts: [],
+      mostRead: [],
+      updated: null,
+      updated_most: null,
+      extraClass: 'superone fancy-rubrika',
+    },
     beauty: {
       name: 'Beauty',
       posts: [],

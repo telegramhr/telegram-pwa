@@ -78,13 +78,8 @@
           class="fourth flex mini-article-list mobile-side-pad flex-responsive column-horizontal-pad align-children-bottom"
         >
           <h3 class="full overtitle super-minititle">Super se čita</h3>
-          <!-- TODO: -->
           <div class="full flex">
-            <mini
-              v-for="post in posts.slice(2, 8)"
-              :key="post.id"
-              :post="post"
-            ></mini>
+            <mini v-for="post in mostRead" :key="post.id" :post="post"></mini>
           </div>
         </div>
       </div>
@@ -244,6 +239,7 @@ export default {
   async fetch() {
     await this.$store.dispatch('s1/pullPosts')
     await this.$store.dispatch('s1/pullBreaks')
+    await this.$store.dispatch('category/mostRead', { category: 'super1' })
   },
   data() {
     return {
@@ -262,6 +258,9 @@ export default {
     },
     breaks() {
       return this.$store.state.s1.breaks
+    },
+    mostRead() {
+      return this.$store.state.category.categories.super1.mostRead
     },
     jsonld() {
       return {
