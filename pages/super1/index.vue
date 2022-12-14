@@ -278,22 +278,6 @@ export default {
       this.$store.dispatch('ads/initAds', { route: this.$route })
     })
   },
-  methods: {
-    loadMore() {
-      this.loading = true
-      this.$axios
-        .get(
-          'https://super1.telegram.hr/wp-json/telegram/pwa2/v1/portal/3/page/' +
-            this.page
-        )
-        .then((res) => {
-          this.posts = [...this.posts, ...res.data.posts]
-          this.loading = false
-          this.page++
-          this.showMore = true
-        })
-    },
-  },
   head() {
     return {
       bodyAttrs: {

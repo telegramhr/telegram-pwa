@@ -63,6 +63,9 @@ export default {
     await this.$store.dispatch('category/pullPosts', {
       category: this.category,
     })
+    await this.$store.dispatch('category/mostRead', {
+      category: this.category,
+    })
   },
   computed: {
     title() {
@@ -81,7 +84,7 @@ export default {
       )
     },
     mostRead() {
-      return this.$store.state.category.categories[this.category].posts
+      return this.$store.state.category.categories[this.category].mostRead
     },
   },
 }

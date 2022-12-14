@@ -1179,10 +1179,10 @@ export const actions = {
       for (const i of Object.keys(state.units)) {
         if (i in state.units) {
           unit = state.units[i]
-          /* let upc = 4
+          let upc = 4
           if (unit.upc) {
             upc = unit.upc
-          } */
+          }
           if (!unit[sizes]) {
             continue
           }
@@ -1195,7 +1195,7 @@ export const actions = {
           ds = window.googletag.defineSlot(prefix + i, unit[sizes], i)
           if (ds) {
             ds.addService(window.googletag.pubads())
-            ds.setTargeting('upc', 4)
+            ds.setTargeting('upc', upc)
           }
         }
       }

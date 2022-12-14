@@ -125,6 +125,7 @@ export const state = () => ({
       posts: [],
       mostRead: [],
       updated: null,
+      updated_most: null,
       extraClass: 'superone beauty fancy-rubrika',
     },
     design: {
@@ -132,6 +133,7 @@ export const state = () => ({
       posts: [],
       mostRead: [],
       updated: null,
+      updated_most: null,
       extraClass: 'superone design fancy-rubrika',
     },
     life: {
@@ -139,6 +141,7 @@ export const state = () => ({
       posts: [],
       mostRead: [],
       updated: null,
+      updated_most: null,
       extraClass: 'superone life fancy-rubrika',
     },
     look: {
@@ -146,6 +149,7 @@ export const state = () => ({
       posts: [],
       mostRead: [],
       updated: null,
+      updated_most: null,
       extraClass: 'superone look fancy-rubrika',
     },
     power: {
@@ -153,6 +157,7 @@ export const state = () => ({
       posts: [],
       mostRead: [],
       updated: null,
+      updated_most: null,
       extraClass: 'superone power fancy-rubrika',
     },
     'shopping-vodic': {
@@ -244,6 +249,10 @@ export const mutations = {
     ]
     state.morePosts[data.slug].page = state.morePosts[data.slug].page + 1
   },
+  setMostRead(state, data) {
+    state.categories[data.slug].mostRead = data.posts
+    state.categories[data.slug].updated_most = new Date().getTime()
+  },
 }
 
 export const actions = {
@@ -276,6 +285,25 @@ export const actions = {
           dispatch('posts/setPosts', res.data.posts, { root: true })
           resolve()
         })
+    })
+  },
+  mostRead({ commit, dispatch, state }, payload) {
+    return new Promise((resolve) => {
+      if (
+        state.categories[payload.category].updated_most + 10 * 60 * 1000 <
+        new Date().getTime()
+      ) {
+        this.$axios.get('/api/most-read/' + payload.category).then((res) => {
+          commit('setMostRead', {
+            posts: res.data,
+            slug: payload.category,
+          })
+          dispatch('posts/setPosts', res.data.posts, { root: true })
+          resolve()
+        })
+      } else {
+        resolve()
+      }
     })
   },
 }
