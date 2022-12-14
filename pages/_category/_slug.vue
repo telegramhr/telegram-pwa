@@ -85,6 +85,16 @@
           >
             <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
           ></app-link>
+          <a
+            href="#"
+            aria-label="Prikaži tražilicu"
+            :aria-expanded="$store.state.header.showSearchMenu.toString()"
+            aria-controls="search"
+            class="mobile-only mob-nav-otherbtn mob-nav-search"
+            @click.prevent="$store.commit('header/updateMenu', 'search')"
+          >
+            <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon
+          ></a>
         </div>
         <img
           v-if="post.image.full"

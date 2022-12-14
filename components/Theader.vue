@@ -510,7 +510,9 @@
       </div>
     </div>
     <!-- Mobile only sticky nav -->
-    <div class="container mobile-only mobile-sticky-nav flex mobile-side-pad">
+    <div
+      class="container mobile-only mobile-sticky-nav real-mobile-sticky-nav flex mobile-side-pad"
+    >
       <a
         class="mobile-only"
         aria-label="Prikaži lijevi meni"
@@ -552,8 +554,18 @@
       >
         <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
       ></app-link>
+      <a
+        href="#"
+        aria-label="Prikaži tražilicu"
+        :aria-expanded="$store.state.header.showSearchMenu.toString()"
+        aria-controls="search"
+        class="mobile-only mob-nav-otherbtn mob-nav-search"
+        @click.prevent="$store.commit('header/updateMenu', 'search')"
+      >
+        <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon
+      ></a>
     </div>
-    <!-- Mobile only sticky nav -->
+    <!-- Mobile only fixed TG multiverse nav -->
     <div
       class="container mobile-only mobile-sticky-nav multiverse-mobile-nav flex mobile-side-pad"
     >
@@ -589,9 +601,10 @@
         <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
       ></app-link>
     </div>
-    <!--<div
-      :v-show="false"
-      class="sticky-search-menu search-menu animate full center"
+    <div
+      v-show="$store.state.header.showSearchMenu"
+      id="search"
+      class="search-menu-activate sticky-search-menu search-menu animate full center"
     >
       <form class="relative" action="" method="get" @submit.prevent="search">
         <input
@@ -601,10 +614,10 @@
           aria-label="Pretražite Telegram"
         />
         <button type="submit" class="animate" @click.prevent="search">
-          <i class="far fa-search"></i>
+          <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon>
         </button>
       </form>
-    </div>-->
+    </div>
     <header
       :class="{
         full: true,
@@ -645,11 +658,18 @@
             /></app-link>
           </div>
           <div class="flex third relative">
+            <a v-show="canLogIn" @click.prevent="login">
+              <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
+            ></a>
+            <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun">
+              <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
+            ></app-link>
             <a
               href="#"
               aria-label="Prikaži tražilicu"
               :aria-expanded="$store.state.header.showSearchMenu.toString()"
               aria-controls="search"
+              class="single-nav-search"
               @click.prevent="$store.commit('header/updateMenu', 'search')"
             >
               <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon

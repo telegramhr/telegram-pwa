@@ -138,7 +138,7 @@ header .logo, .mobile-sticky-nav .logo {
 .desktop-subheader svg {
     margin-right: 16px;
 }
-.desktop-subheader svg.fa-search {
+.desktop-subheader svg.fa-magnifying-glass {
     margin-right: 0px;
 }
 .subheader-ow-fix {
@@ -1716,7 +1716,7 @@ figure img {
     padding: 24px;
     color: white;
     display: flex;
-    z-index: 150;
+    z-index: 10;
 }
 .side-menu .search-menu  {
     margin-top: 16px;
@@ -1724,7 +1724,7 @@ figure img {
 }
 .search-menu form {
     width: 80%;
-    max-width: 320px;
+    max-width: 1200px;
     border-bottom: 1px solid white;
     padding-right: 64px;
     background: none;
@@ -1765,7 +1765,11 @@ figure img {
 .sticky-search-menu {
     display: flex;
     position: fixed;
-    top: 32px;
+    top: 40px;
+    padding-top: 18px;
+}
+.homepage .sticky-search-menu {
+    z-index: 101;
 }
 header {
     z-index: 9;
@@ -1807,6 +1811,9 @@ header {
     color: white;
     font-size: 4vw;
     opacity: .5;
+}
+.mobile-pa-nav > a.mob-nav-otherbtn {
+    top: 18px;
 }
 .mobile-pa-nav > a:first-child {
     left: 4vw;
@@ -5251,7 +5258,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .fancy-rubrika, .fancy-rubrika .intro-block, .fancy-article, .fancy-rubrika .header-billboard, .fancy-article .header-billboard {
   background-color: white;
 }
-.dark-mode .fancy-rubrika, .dark-mode.fancy-rubrika .intro-block, .dark-mode .fancy-article {
+.dark-mode .fancy-rubrika, .dark-mode.fancy-rubrika, .dark-mode.fancy-rubrika .intro-block, .dark-mode .fancy-article {
   background-color: #212121;
   color: #efefef;
 }
@@ -8349,10 +8356,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .fancy-rubrika header .subheader {
     display: none;
 }
-.dark-mode .fancy-rubrika .subheader {
+.dark-mode .fancy-rubrika .subheader, .dark-mode.fancy-rubrika .subheader {
     background-color: #111;
 }
-.dark-mode.superone.fancy-rubrika .single-article-premium-alt header .subheader {
+.dark-mode .fancy-rubrika.single-article-premium-alt header .subheader {
     background-color: transparent;
 }
 .s1-home .banner-slot {
@@ -8683,7 +8690,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .superone .superone-preporuka .article-superfeat .article-pad {
         left: 0px;
     }
-    .fancy-rubrika .single-article-premium-alt .subheader {
+    .fancy-rubrika .single-article-premium-alt header .subheader {
         display: flex;
     }
 }
@@ -8789,10 +8796,34 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 1.1rem;
         line-height: 1.25em;
     }
+    .superone .real-mobile-sticky-nav .svg-inline--fa {
+        vertical-align: initial;
+    }
+    .superone .real-mobile-sticky-nav a:first-child, .superone .real-mobile-sticky-nav a.mob-nav-otherbtn {
+        top: 15px;
+    }
 }
 
 .superone .single-article h1, .superone .single-article-body h2 {
     font-family: 'Poppins', sans-serif;
+}
+.mob-nav-search, .single-nav-search {
+    display: none;
+}
+.desktop-subheader.single-exclusive .third:last-child a svg {
+    margin-right: 0px;
+}
+.superone .real-mobile-sticky-nav .mob-nav-otherbtn, .superone .mobile-pa-nav .mob-nav-otherbtn {
+    display: none;
+}
+.superone header .subheader .single-exclusive .third:last-child a {
+    display: none;
+}
+.superone header .subheader .single-exclusive .third:last-child a.single-nav-search {
+    display: inline-block;
+}
+.superone .real-mobile-sticky-nav .mob-nav-search, .superone .mobile-pa-nav .mob-nav-search {
+    display: inline;
 }
 
 /* Knjige */
@@ -10387,7 +10418,8 @@ label.payment-tile svg {
 #guide-category-container {
   max-width: 1200px !important;
 }
-/* Multiverse sticky menus */
+
+/* Multiverse interface */
 
 .telesport-sticky {
     display: none;
@@ -10449,6 +10481,15 @@ label.payment-tile svg {
     display: inline-block;
     height: 18px;
 }
+header .search-menu {
+    display: none;
+}
+.single-article-premium-alt header .search-menu {
+    display: flex;
+}
+.superone .mobile-pa-nav > a:first-child, .superone .mobile-pa-nav > a.mob-nav-otherbtn  {
+    top: 14px;
+}
 
 @media screen and (min-width: 767px) {
     .s1-home .telegram-sticky {
@@ -10481,6 +10522,9 @@ label.payment-tile svg {
     }
     .superone .mobile-pa-nav .logo.superone-mobilepanav-logo img {
         margin: 0 auto;
+    }
+    .sticky-search-menu {
+        top: 43px;
     }
 }
 
