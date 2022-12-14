@@ -1179,10 +1179,10 @@ export const actions = {
       for (const i of Object.keys(state.units)) {
         if (i in state.units) {
           unit = state.units[i]
-          let upc = 4
+          /* let upc = 4
           if (unit.upc) {
             upc = unit.upc
-          }
+          } */
           if (!unit[sizes]) {
             continue
           }
@@ -1195,13 +1195,13 @@ export const actions = {
           ds = window.googletag.defineSlot(prefix + i, unit[sizes], i)
           if (ds) {
             ds.addService(window.googletag.pubads())
-            ds.setTargeting('upc', upc)
+            ds.setTargeting('upc', 4)
           }
         }
       }
       commit('setSlots')
     })
-    window.pbjs = window.pbjs || {}
+    /* window.pbjs = window.pbjs || {}
     window.pbjs.que = window.pbjs.que || []
     window.pbjs.que.push(() => {
       window.pbjs.setConfig({
@@ -1264,7 +1264,7 @@ export const actions = {
           })
         }
       }
-    })
+    }) */
     dispatch('displaySlots')
   },
   displaySlots({ dispatch }) {

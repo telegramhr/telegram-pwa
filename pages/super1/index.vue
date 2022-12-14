@@ -1,5 +1,5 @@
 <template>
-  <div class="main-container flex fancy-rubrika s1-home">
+  <div class="main-container flex s1-home">
     <client-only>
       <div v-if="!$mobile" class="container wallpaper-banners animate">
         <div class="wallpaper-left">
@@ -274,7 +274,9 @@ export default {
     },
   },
   mounted() {
-    this.$store.dispatch('ads/initAds', { route: this.$route })
+    this.$nextTick(() => {
+      this.$store.dispatch('ads/initAds', { route: this.$route })
+    })
   },
   methods: {
     loadMore() {
@@ -295,7 +297,7 @@ export default {
   head() {
     return {
       bodyAttrs: {
-        class: [this.$store.state.theme.theme, 'superone'],
+        class: [this.$store.state.theme.theme, 'superone fancy-rubrika'],
       },
       title: 'Super1 │ Lifestyle portal na kojem si #SuperSvoja',
       link: [

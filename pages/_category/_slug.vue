@@ -752,20 +752,7 @@ export default {
       }
     },
     categoryClass() {
-      if (this.post.category_slug) {
-        if (
-          this.post.category_slug.includes('openspace') ||
-          this.post.category_slug.includes('pitanje-zdravlja')
-        ) {
-          return this.post.category_slug + ' fancy-rubrika'
-        }
-        if (this.$store.state.category.categories[this.post.category_slug]) {
-          return this.$store.state.category.categories[this.post.category_slug]
-            .extraClass
-        }
-        return this.post.category_slug
-      }
-      return ''
+      return this.post.category_slug
     },
     srcset() {
       let set
@@ -1030,18 +1017,23 @@ export default {
           async: true,
         },
         {
-          vmid: 'linker-infinite',
-          hid: 'linker-infinite',
-          type: 'text/javascript',
-          src: 'https://linker.hr/lw-inf.js',
-          async: true,
-        },
-        {
           hid: 'contentexchange',
           src: 'https://ughr.contentexchange.me/static/tracker.js',
           async: true,
         },
       ]
+      if (!this.post.category_slug.includes('superone')) {
+        script = [
+          ...script,
+          {
+            vmid: 'linker-infinite',
+            hid: 'linker-infinite',
+            type: 'text/javascript',
+            src: 'https://linker.hr/lw-inf.js',
+            async: true,
+          },
+        ]
+      }
     }
     // charts and tables
     /* const wdtStyles = [
@@ -1118,10 +1110,7 @@ export default {
     }
     return {
       bodyAttrs: {
-        class: [
-          this.$store.state.theme.theme,
-          this.post.category_slug.includes('superone') ? 'superone' : '',
-        ],
+        class: [this.$store.state.theme.theme, this.post.category_slug],
       },
       title: this.$options.filters.parseCat(this.post.title),
       titleTemplate: '%s | Telegram.hr',

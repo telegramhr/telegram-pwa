@@ -225,8 +225,8 @@ export default {
     },
   },
   mounted() {
-    this.$store.dispatch('ads/initAds', { route: this.$route })
     this.$nextTick(function () {
+      this.$store.dispatch('ads/initAds', { route: this.$route })
       this.loadMore()
     })
   },
@@ -245,10 +245,7 @@ export default {
   head() {
     return {
       bodyAttrs: {
-        class: [
-          this.$store.state.theme.theme,
-          this.extraClass.includes('superone') ? 'superone' : '',
-        ],
+        class: [this.$store.state.theme.theme, this.extraClass],
       },
       title: this.$options.filters.parseCat(this.cat),
       titleTemplate: 'Kategorija %s | Telegram.hr',
