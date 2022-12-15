@@ -993,7 +993,7 @@ export default {
     },
   },
   head() {
-    const link = [
+    let link = [
       {
         hid: 'canonical',
         rel: 'canonical',
@@ -1118,123 +1118,154 @@ export default {
         })
       })
     }
+    let meta = [
+      {
+        hid: 'cXenseParse:articleid',
+        name: 'cXenseParse:articleid',
+        content: this.post.id,
+      },
+      {
+        hid: 'cXenseParse:image',
+        name: 'cXenseParse:image',
+        content: this.post.image.url,
+      },
+      {
+        hid: 'cXenseParse:title',
+        name: 'cXenseParse:title',
+        content: this.$options.filters.parseCat(this.post.portal_title),
+      },
+      {
+        hid: 'description',
+        name: 'description',
+        content: this.post.description,
+      },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content: this.post.social.description,
+      },
+      {
+        hid: 'og:type',
+        property: 'og:type',
+        content: 'article',
+      },
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content: this.$options.filters.parseCat(this.post.social.title),
+      },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content:
+          this.$route.params.category === 'preview'
+            ? '/img/tg_preview_placeholder.jpg'
+            : this.post.social.image,
+      },
+      {
+        hid: 'og:image:width',
+        property: 'og:image:width',
+        content: this.post.social.width,
+      },
+      {
+        hid: 'og:image:height',
+        property: 'og:image:height',
+        content: this.post.social.height,
+      },
+      {
+        hid: 'og:url',
+        property: 'og:url',
+        content: this.post.social.path,
+      },
+      {
+        hid: 'fb:app_id',
+        property: 'fb:app_id',
+        content: '1383786971938581',
+      },
+      {
+        hid: 'article:opinion',
+        property: 'article:opinion',
+        content: this.post.category === 'Komentari',
+      },
+      {
+        hid: 'article:content_tier',
+        property: 'article:content_tier',
+        content: fbPaywall[this.post.paywall],
+      },
+      {
+        hid: 'twitter:card',
+        name: 'twitter:card',
+        content: 'summary_large_image',
+      },
+      {
+        hid: 'twitter:site',
+        name: 'twitter:site',
+        content: '@TelegramHR',
+      },
+      {
+        hid: 'twitter:widgets:theme',
+        name: 'twitter:widgets:theme',
+        content: this.$store.state.theme.theme === 'dark' ? 'dark' : 'light',
+      },
+      {
+        hid: 'robots',
+        name: 'robots',
+        content:
+          this.$route.params.category === 'preview' ||
+          this.post.status !== 'publish'
+            ? 'noindex, noarchive, nocache, nosnippet'
+            : 'index, follow',
+      },
+      {
+        hid: 'nrbi:sections',
+        name: 'nrbi:sections',
+        property: 'nrbi:sections',
+        content: this.$options.filters.parseCat(this.post.category),
+      },
+      {
+        hid: 'mrf:tags',
+        name: 'mrf:tags',
+        property: 'mrf:tags',
+        content: this.post.tags.map((tag) => `keyword:${tag.slug}`).join(';'),
+      },
+    ]
+    let siteName = 'Telegram.hr'
+    if (this.post.category_slug.includes('superone')) {
+      link = [
+        ...link,
+        {
+          hid: 'favicon',
+          rel: 'icon',
+          href: '/s1_fav/favicon.ico',
+        },
+        {
+          hid: 'apple-touch-icon',
+          rel: 'apple-touch-icon',
+          href: '/s1_fav/apple-touch-icon.png',
+        },
+        {
+          hid: 'manifest',
+          rel: 'manifest',
+          href: '/s1_fav/site.webmanifest',
+        },
+      ]
+      meta = [
+        ...meta,
+        {
+          hid: 'apple-mobile-web-app-title',
+          name: 'apple-mobile-web-app-title',
+          content: 'Super1.hr',
+        },
+      ]
+      siteName = 'Super1.hr'
+    }
     return {
       bodyAttrs: {
         class: [this.$store.state.theme.theme, this.post.category_slug],
       },
       title: this.$options.filters.parseCat(this.post.title),
-      titleTemplate: '%s | Telegram.hr',
-      meta: [
-        {
-          hid: 'cXenseParse:articleid',
-          name: 'cXenseParse:articleid',
-          content: this.post.id,
-        },
-        {
-          hid: 'cXenseParse:image',
-          name: 'cXenseParse:image',
-          content: this.post.image.url,
-        },
-        {
-          hid: 'cXenseParse:title',
-          name: 'cXenseParse:title',
-          content: this.$options.filters.parseCat(this.post.portal_title),
-        },
-        {
-          hid: 'description',
-          name: 'description',
-          content: this.post.description,
-        },
-        {
-          hid: 'og:description',
-          property: 'og:description',
-          content: this.post.social.description,
-        },
-        {
-          hid: 'og:type',
-          property: 'og:type',
-          content: 'article',
-        },
-        {
-          hid: 'og:title',
-          property: 'og:title',
-          content: this.$options.filters.parseCat(this.post.social.title),
-        },
-        {
-          hid: 'og:image',
-          property: 'og:image',
-          content:
-            this.$route.params.category === 'preview'
-              ? '/img/tg_preview_placeholder.jpg'
-              : this.post.social.image,
-        },
-        {
-          hid: 'og:image:width',
-          property: 'og:image:width',
-          content: this.post.social.width,
-        },
-        {
-          hid: 'og:image:height',
-          property: 'og:image:height',
-          content: this.post.social.height,
-        },
-        {
-          hid: 'og:url',
-          property: 'og:url',
-          content: this.post.social.path,
-        },
-        {
-          hid: 'fb:app_id',
-          property: 'fb:app_id',
-          content: '1383786971938581',
-        },
-        {
-          hid: 'article:opinion',
-          property: 'article:opinion',
-          content: this.post.category === 'Komentari',
-        },
-        {
-          hid: 'article:content_tier',
-          property: 'article:content_tier',
-          content: fbPaywall[this.post.paywall],
-        },
-        {
-          hid: 'twitter:card',
-          name: 'twitter:card',
-          content: 'summary_large_image',
-        },
-        {
-          hid: 'twitter:site',
-          name: 'twitter:site',
-          content: '@TelegramHR',
-        },
-        {
-          hid: 'twitter:widgets:theme',
-          name: 'twitter:widgets:theme',
-          content: this.$store.state.theme.theme === 'dark' ? 'dark' : 'light',
-        },
-        {
-          hid: 'robots',
-          name: 'robots',
-          content:
-            this.$route.params.category === 'preview' ||
-            this.post.status !== 'publish'
-              ? 'noindex, noarchive, nocache, nosnippet'
-              : 'index, follow',
-        },
-        {
-          hid: 'nrbi:sections',
-          name: 'nrbi:sections',
-          property: 'nrbi:sections',
-          content: this.$options.filters.parseCat(this.post.category),
-        },
-        {
-          hid: 'mrf:tags',
-          name: 'mrf:tags',
-          property: 'mrf:tags',
-          content: this.post.tags.map((tag) => `keyword:${tag.slug}`).join(';'),
-        },
-      ],
+      titleTemplate: `%s | ${siteName}`,
+      meta,
       script,
       link,
     }

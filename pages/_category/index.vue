@@ -243,50 +243,82 @@ export default {
     },
   },
   head() {
+    let link = [
+      {
+        hid: 'canonical',
+        rel: 'canonical',
+        href: 'https://www.telegram.hr' + this.$route.fullPath,
+      },
+    ]
+    let meta = [
+      { hid: 'og:type', name: 'og:type', content: 'website' },
+      {
+        hid: 'og:title',
+        name: 'og:title',
+        property: 'og:title',
+        content: this.$options.filters.parseCat(this.cat),
+      },
+      {
+        hid: 'og:url',
+        name: 'og:url',
+        property: 'og:url',
+        content: this.$route.fullPath,
+      },
+      {
+        hid: 'fb:app_id',
+        name: 'fb:app_id',
+        property: 'fb:app_id',
+        content: '1383786971938581',
+      },
+      {
+        hid: 'twitter:card',
+        name: 'twitter:card',
+        content: 'summary_large_image',
+      },
+      {
+        hid: 'twitter:site',
+        name: 'twitter:site',
+        content: '@TelegramHR',
+      },
+    ]
+    let siteName = 'Telegram.hr'
+    if (this.extraClass.includes('superone')) {
+      link = [
+        ...link,
+        {
+          hid: 'favicon',
+          rel: 'icon',
+          href: '/s1_fav/favicon.ico',
+        },
+        {
+          hid: 'apple-touch-icon',
+          rel: 'apple-touch-icon',
+          href: '/s1_fav/apple-touch-icon.png',
+        },
+        {
+          hid: 'manifest',
+          rel: 'manifest',
+          href: '/s1_fav/site.webmanifest',
+        },
+      ]
+      meta = [
+        ...meta,
+        {
+          hid: 'apple-mobile-web-app-title',
+          name: 'apple-mobile-web-app-title',
+          content: 'Super1.hr',
+        },
+      ]
+      siteName = 'Super1.hr'
+    }
     return {
       bodyAttrs: {
         class: [this.$store.state.theme.theme, this.extraClass],
       },
       title: this.$options.filters.parseCat(this.cat),
-      titleTemplate: 'Kategorija %s | Telegram.hr',
-      meta: [
-        { hid: 'og:type', name: 'og:type', content: 'website' },
-        {
-          hid: 'og:title',
-          name: 'og:title',
-          property: 'og:title',
-          content: this.$options.filters.parseCat(this.cat),
-        },
-        {
-          hid: 'og:url',
-          name: 'og:url',
-          property: 'og:url',
-          content: this.$route.fullPath,
-        },
-        {
-          hid: 'fb:app_id',
-          name: 'fb:app_id',
-          property: 'fb:app_id',
-          content: '1383786971938581',
-        },
-        {
-          hid: 'twitter:card',
-          name: 'twitter:card',
-          content: 'summary_large_image',
-        },
-        {
-          hid: 'twitter:site',
-          name: 'twitter:site',
-          content: '@TelegramHR',
-        },
-      ],
-      link: [
-        {
-          hid: 'canonical',
-          rel: 'canonical',
-          href: 'https://www.telegram.hr' + this.$route.fullPath,
-        },
-      ],
+      titleTemplate: `Kategorija %s | ${siteName}`,
+      meta,
+      link,
     }
   },
 }
