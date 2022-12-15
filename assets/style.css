@@ -8604,6 +8604,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .superone.single-article .article-head {
     padding-top: 24px;
 }
+.superone.single-article .article-head .overtitle-parent .collab-overtitle {
+    margin-top: 16px;
+}
 .superone.single-article .article-head .overtitle-parent .collab-overtitle img {
     margin-left: 8px;
 }
@@ -8612,6 +8615,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .superone.single-article .article-head .overtitle-parent > h3.overtitle {
     display: none;
+}
+.superone.single-article .article-head .overtitle-parent {
+    justify-content: flex-end;
 }
 .superone.single-article .single-article-body {
     font-family: 'Merriweather', serif;
