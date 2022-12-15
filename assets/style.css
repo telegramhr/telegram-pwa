@@ -8601,20 +8601,23 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .superone.single-article-premium-alt article .article-head > h1 {
     display: block;
 }
-.superone.single-article .article-head .overtitle-parent, .superone.category-page .article .overtitle-parent {
-    display: none;
+.superone.single-article .article-head {
+    padding-top: 24px;
 }
-.superone.single-article-premium .article-head .overtitle-parent {
-    display: flex;
+.superone.single-article .article-head .overtitle-parent .collab-overtitle {
+    margin-top: 16px;
 }
-.superone.single-article-premium .article-head .overtitle-parent .collab-overtitle img {
+.superone.single-article .article-head .overtitle-parent .collab-overtitle img {
     margin-left: 8px;
 }
-.superone.single-article-premium h1 {
+.superone.single-article h1 {
     margin-top: 24px;
 }
-.superone.single-article-premium .article-head .overtitle-parent > h3.overtitle {
+.superone.single-article .article-head .overtitle-parent > h3.overtitle {
     display: none;
+}
+.superone.single-article .article-head .overtitle-parent {
+    justify-content: flex-end;
 }
 .superone.single-article .single-article-body {
     font-family: 'Merriweather', serif;
