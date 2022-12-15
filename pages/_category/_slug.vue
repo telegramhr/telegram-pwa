@@ -281,6 +281,13 @@
                 <portal v-if="showQuiz" selector="#quiz-container">
                   <quiz v-if="post.quiz" :data="post.quiz"></quiz>
                 </portal>
+                <portal
+                  v-for="gallery in post.galleries"
+                  :key="gallery.id"
+                  :selector="`#gallery-${gallery.id}`"
+                >
+                  <gallery :gallery="gallery"></gallery>
+                </portal>
               </client-only>
               <client-only>
                 <intext></intext>
