@@ -289,6 +289,21 @@ export default {
           rel: 'canonical',
           href: 'https://www.telegram.hr/super1',
         },
+        {
+          hid: 'favicon',
+          rel: 'icon',
+          href: '/s1_fav/favicon.ico',
+        },
+        {
+          hid: 'apple-touch-icon',
+          rel: 'apple-touch-icon',
+          href: '/s1_fav/apple-touch-icon.png',
+        },
+        {
+          hid: 'manifest',
+          rel: 'manifest',
+          href: '/s1_fav/site.webmanifest',
+        },
       ],
       meta: [
         { hid: 'og:type', name: 'og:type', content: 'website' },
@@ -326,6 +341,11 @@ export default {
           property: 'og:description',
           content:
             'Najbolje mjesto za modu, šoping, stil, beauty, recepte i savjetea.',
+        },
+        {
+          hid: 'apple-mobile-web-app-title',
+          name: 'apple-mobile-web-app-title',
+          content: 'Super1.hr',
         },
       ],
       script: [
