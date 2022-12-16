@@ -213,7 +213,7 @@ export default {
   },
 
   purgeCSS: {
-    enabled: false,
+    enabled: true,
     whitelistPatterns: [
       /slick/,
       /banner/,
@@ -222,6 +222,7 @@ export default {
       /svg.*/,
       /fb_.*/,
       /twitter.*/,
+      /ol/,
     ],
   },
 
