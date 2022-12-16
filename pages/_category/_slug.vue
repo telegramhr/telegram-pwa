@@ -281,6 +281,13 @@
                 <portal v-if="showQuiz" selector="#quiz-container">
                   <quiz v-if="post.quiz" :data="post.quiz"></quiz>
                 </portal>
+                <portal
+                  v-for="gallery in post.galleries"
+                  :key="gallery.id"
+                  :selector="`#gallery-${gallery.id}`"
+                >
+                  <gallery :gallery="gallery"></gallery>
+                </portal>
               </client-only>
               <client-only>
                 <intext></intext>
@@ -515,36 +522,27 @@ export default {
     }
     if (!post) {
       if (this.$route.params.category === 'preview') {
-        post = await this.$axios
-          .$get(encodeURI('/api/preview/' + this.$route.params.slug))
-          .catch(() => {
-            // TODO: error logging
-          })
+        post = await this.$axios.$get(
+          encodeURI('/api/preview/' + this.$route.params.slug)
+        )
       } else {
-        post = await this.$axios
-          .$get(encodeURI('/api/single/' + this.$route.params.slug) + '?pwa=1')
-          .catch(() => {
-            // TODO: error logging
-          })
+        post = await this.$axios.$get(
+          encodeURI('/api/single/' + this.$route.params.slug) + '?pwa=1'
+        )
       }
     }
     if (post && post.id) {
       this.post = post
-      await this.$axios
-        .get('/api/related/' + post.id)
-        .then((res) => {
-          if (Array.isArray(res.data)) {
-            this.$store.dispatch('posts/setPosts', res.data, { root: true })
-            this.related_posts = res.data
-              .filter((item) => {
-                return item.id !== post.id
-              })
-              .splice(0, 3)
-          }
-        })
-        .catch(() => {
-          // TODO: error logging
-        })
+      await this.$axios.get('/api/related/' + post.id).then((res) => {
+        if (Array.isArray(res.data)) {
+          this.$store.dispatch('posts/setPosts', res.data, { root: true })
+          this.related_posts = res.data
+            .filter((item) => {
+              return item.id !== post.id
+            })
+            .splice(0, 3)
+        }
+      })
     } else {
       this.post.title = 'Objava ne postoji'
       this.post.portal_title = 'Objava ne postoji'
@@ -910,6 +908,10 @@ export default {
         },
       ])
     },
+    triggerAnalytics() {
+      this.$dotmetrics.postLoad(this.post.category_slug)
+      this.$gemius.postLoad(this.$route.path, this.post.category_slug)
+    },
     getPost() {
       if (this.post && this.post.id) {
         if (process.client) {
@@ -919,6 +921,7 @@ export default {
           this.showQuiz = true
         }
         this.$store.commit('history/setData', this.post)
+        this.triggerAnalytics()
         this.loadPiano()
         this.loadAds()
         if (typeof FB !== 'undefined') {
@@ -942,13 +945,10 @@ export default {
             }
           })
         }
-        this.dotmetrics()
+
       } else {
         setTimeout(this.getPost, 500)
       }
-    },
-    dotmetrics() {
-      this.$dotmetrics.postLoad(this.post.category_slug)
     },
     fbShare() {
       /* global FB */
@@ -993,7 +993,7 @@ export default {
     },
   },
   head() {
-    const link = [
+    let link = [
       {
         hid: 'canonical',
         rel: 'canonical',
@@ -1118,123 +1118,154 @@ export default {
         })
       })
     }
+    let meta = [
+      {
+        hid: 'cXenseParse:articleid',
+        name: 'cXenseParse:articleid',
+        content: this.post.id,
+      },
+      {
+        hid: 'cXenseParse:image',
+        name: 'cXenseParse:image',
+        content: this.post.image.url,
+      },
+      {
+        hid: 'cXenseParse:title',
+        name: 'cXenseParse:title',
+        content: this.$options.filters.parseCat(this.post.portal_title),
+      },
+      {
+        hid: 'description',
+        name: 'description',
+        content: this.post.description,
+      },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content: this.post.social.description,
+      },
+      {
+        hid: 'og:type',
+        property: 'og:type',
+        content: 'article',
+      },
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content: this.$options.filters.parseCat(this.post.social.title),
+      },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content:
+          this.$route.params.category === 'preview'
+            ? '/img/tg_preview_placeholder.jpg'
+            : this.post.social.image,
+      },
+      {
+        hid: 'og:image:width',
+        property: 'og:image:width',
+        content: this.post.social.width,
+      },
+      {
+        hid: 'og:image:height',
+        property: 'og:image:height',
+        content: this.post.social.height,
+      },
+      {
+        hid: 'og:url',
+        property: 'og:url',
+        content: this.post.social.path,
+      },
+      {
+        hid: 'fb:app_id',
+        property: 'fb:app_id',
+        content: '1383786971938581',
+      },
+      {
+        hid: 'article:opinion',
+        property: 'article:opinion',
+        content: this.post.category === 'Komentari',
+      },
+      {
+        hid: 'article:content_tier',
+        property: 'article:content_tier',
+        content: fbPaywall[this.post.paywall],
+      },
+      {
+        hid: 'twitter:card',
+        name: 'twitter:card',
+        content: 'summary_large_image',
+      },
+      {
+        hid: 'twitter:site',
+        name: 'twitter:site',
+        content: '@TelegramHR',
+      },
+      {
+        hid: 'twitter:widgets:theme',
+        name: 'twitter:widgets:theme',
+        content: this.$store.state.theme.theme === 'dark' ? 'dark' : 'light',
+      },
+      {
+        hid: 'robots',
+        name: 'robots',
+        content:
+          this.$route.params.category === 'preview' ||
+          this.post.status !== 'publish'
+            ? 'noindex, noarchive, nocache, nosnippet'
+            : 'index, follow',
+      },
+      {
+        hid: 'nrbi:sections',
+        name: 'nrbi:sections',
+        property: 'nrbi:sections',
+        content: this.$options.filters.parseCat(this.post.category),
+      },
+      {
+        hid: 'mrf:tags',
+        name: 'mrf:tags',
+        property: 'mrf:tags',
+        content: this.post.tags.map((tag) => `keyword:${tag.slug}`).join(';'),
+      },
+    ]
+    let siteName = 'Telegram.hr'
+    if (this.post.category_slug.includes('superone')) {
+      link = [
+        ...link,
+        {
+          hid: 'favicon',
+          rel: 'icon',
+          href: '/s1_fav/favicon.ico',
+        },
+        {
+          hid: 'apple-touch-icon',
+          rel: 'apple-touch-icon',
+          href: '/s1_fav/apple-touch-icon.png',
+        },
+        {
+          hid: 'manifest',
+          rel: 'manifest',
+          href: '/s1_fav/site.webmanifest',
+        },
+      ]
+      meta = [
+        ...meta,
+        {
+          hid: 'apple-mobile-web-app-title',
+          name: 'apple-mobile-web-app-title',
+          content: 'Super1.hr',
+        },
+      ]
+      siteName = 'Super1.hr'
+    }
     return {
       bodyAttrs: {
         class: [this.$store.state.theme.theme, this.post.category_slug],
       },
       title: this.$options.filters.parseCat(this.post.title),
-      titleTemplate: '%s | Telegram.hr',
-      meta: [
-        {
-          hid: 'cXenseParse:articleid',
-          name: 'cXenseParse:articleid',
-          content: this.post.id,
-        },
-        {
-          hid: 'cXenseParse:image',
-          name: 'cXenseParse:image',
-          content: this.post.image.url,
-        },
-        {
-          hid: 'cXenseParse:title',
-          name: 'cXenseParse:title',
-          content: this.$options.filters.parseCat(this.post.portal_title),
-        },
-        {
-          hid: 'description',
-          name: 'description',
-          content: this.post.description,
-        },
-        {
-          hid: 'og:description',
-          property: 'og:description',
-          content: this.post.social.description,
-        },
-        {
-          hid: 'og:type',
-          property: 'og:type',
-          content: 'article',
-        },
-        {
-          hid: 'og:title',
-          property: 'og:title',
-          content: this.$options.filters.parseCat(this.post.social.title),
-        },
-        {
-          hid: 'og:image',
-          property: 'og:image',
-          content:
-            this.$route.params.category === 'preview'
-              ? '/img/tg_preview_placeholder.jpg'
-              : this.post.social.image,
-        },
-        {
-          hid: 'og:image:width',
-          property: 'og:image:width',
-          content: this.post.social.width,
-        },
-        {
-          hid: 'og:image:height',
-          property: 'og:image:height',
-          content: this.post.social.height,
-        },
-        {
-          hid: 'og:url',
-          property: 'og:url',
-          content: this.post.social.path,
-        },
-        {
-          hid: 'fb:app_id',
-          property: 'fb:app_id',
-          content: '1383786971938581',
-        },
-        {
-          hid: 'article:opinion',
-          property: 'article:opinion',
-          content: this.post.category === 'Komentari',
-        },
-        {
-          hid: 'article:content_tier',
-          property: 'article:content_tier',
-          content: fbPaywall[this.post.paywall],
-        },
-        {
-          hid: 'twitter:card',
-          name: 'twitter:card',
-          content: 'summary_large_image',
-        },
-        {
-          hid: 'twitter:site',
-          name: 'twitter:site',
-          content: '@TelegramHR',
-        },
-        {
-          hid: 'twitter:widgets:theme',
-          name: 'twitter:widgets:theme',
-          content: this.$store.state.theme.theme === 'dark' ? 'dark' : 'light',
-        },
-        {
-          hid: 'robots',
-          name: 'robots',
-          content:
-            this.$route.params.category === 'preview' ||
-            this.post.status !== 'publish'
-              ? 'noindex, noarchive, nocache, nosnippet'
-              : 'index, follow',
-        },
-        {
-          hid: 'nrbi:sections',
-          name: 'nrbi:sections',
-          property: 'nrbi:sections',
-          content: this.$options.filters.parseCat(this.post.category),
-        },
-        {
-          hid: 'mrf:tags',
-          name: 'mrf:tags',
-          property: 'mrf:tags',
-          content: this.post.tags.map((tag) => `keyword:${tag.slug}`).join(';'),
-        },
-      ],
+      titleTemplate: `%s | ${siteName}`,
+      meta,
       script,
       link,
     }

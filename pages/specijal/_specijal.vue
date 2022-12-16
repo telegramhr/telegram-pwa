@@ -58,15 +58,17 @@ export default {
     }
   },
   mounted() {
-    this.$axios.get('/api/special/' + this.$route.params.slug).then((res) => {
-      this.post = res.data
-      this.$axios.get('/api/tag/' + res.data.tag + '/special').then((r) => {
-        this.posts = r.data.posts
-        if (r.data.posts.length < 9) {
-          this.hasMore = false
-        }
+    this.$axios
+      .get('/api/special/' + this.$route.params.specijal)
+      .then((res) => {
+        this.post = res.data
+        this.$axios.get('/api/tag/' + res.data.tag + '/special').then((r) => {
+          this.posts = r.data.posts
+          if (r.data.posts.length < 9) {
+            this.hasMore = false
+          }
+        })
       })
-    })
   },
   methods: {
     loadMore() {

@@ -6,6 +6,7 @@
       :style="{
         minHeight: minHeight,
       }"
+      data-nosnippet
     ></div>
   </client-only>
 </template>

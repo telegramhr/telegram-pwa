@@ -4,6 +4,7 @@
     :id="'linker-' + id"
     class="lwdgt column-full-pad"
     :data-wid="id"
+    data-nosnippet
   ></div>
 </template>
 

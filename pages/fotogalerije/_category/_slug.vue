@@ -153,7 +153,11 @@ export default {
     },
   },
   mounted() {
-    this.$store.dispatch('ads/initAds', { route: this.$route })
+    this.$nextTick(() => {
+      this.$store.dispatch('ads/initAds', { route: this.$route })
+      this.$gemius.postLoad(this.$route.path, this.post.category_slug)
+      this.$dotmetrics.postLoad(this.post.category_slug)
+    })
   },
   methods: {
     updateCurrent(slide) {
