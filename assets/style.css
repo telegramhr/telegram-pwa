@@ -3340,6 +3340,14 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     list-style-type: circle;
     margin-bottom: 4px;
 }
+.single-article-body ol {
+    padding-left: 0px;
+}
+.single-article-body ol li {
+    list-style-position: inside;
+    list-style-type: decimal;
+    margin-bottom: 4px;
+}
 
 @media screen and (max-width: 767px) {
     .mini-pretplata {
