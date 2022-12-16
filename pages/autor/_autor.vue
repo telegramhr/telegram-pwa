@@ -88,7 +88,7 @@ export default {
   components: { Standard },
   async fetch() {
     await this.$axios
-      .get('/api/author/' + this.$route.params.slug)
+      .get('/api/author/' + this.$route.params.autor)
       .then((res) => {
         this.author = res.data.author
         this.posts = res.data.posts
@@ -122,12 +122,14 @@ export default {
     }
   },
   mounted() {
-    this.$store.dispatch('ads/initAds', { route: this.$route })
+    this.$nextTick(() => {
+      this.$store.dispatch('ads/initAds', { route: this.$route })
+    })
   },
   methods: {
     loadMore() {
       this.$axios
-        .get('/api/author/' + this.$route.params.slug + '/page/' + this.page)
+        .get('/api/author/' + this.$route.params.autor + '/page/' + this.page)
         .then((res) => {
           this.posts = [...this.posts, ...res.data.posts]
           this.page++

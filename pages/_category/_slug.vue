@@ -522,36 +522,27 @@ export default {
     }
     if (!post) {
       if (this.$route.params.category === 'preview') {
-        post = await this.$axios
-          .$get(encodeURI('/api/preview/' + this.$route.params.slug))
-          .catch(() => {
-            // TODO: error logging
-          })
+        post = await this.$axios.$get(
+          encodeURI('/api/preview/' + this.$route.params.slug)
+        )
       } else {
-        post = await this.$axios
-          .$get(encodeURI('/api/single/' + this.$route.params.slug) + '?pwa=1')
-          .catch(() => {
-            // TODO: error logging
-          })
+        post = await this.$axios.$get(
+          encodeURI('/api/single/' + this.$route.params.slug) + '?pwa=1'
+        )
       }
     }
     if (post && post.id) {
       this.post = post
-      await this.$axios
-        .get('/api/related/' + post.id)
-        .then((res) => {
-          if (Array.isArray(res.data)) {
-            this.$store.dispatch('posts/setPosts', res.data, { root: true })
-            this.related_posts = res.data
-              .filter((item) => {
-                return item.id !== post.id
-              })
-              .splice(0, 3)
-          }
-        })
-        .catch(() => {
-          // TODO: error logging
-        })
+      await this.$axios.get('/api/related/' + post.id).then((res) => {
+        if (Array.isArray(res.data)) {
+          this.$store.dispatch('posts/setPosts', res.data, { root: true })
+          this.related_posts = res.data
+            .filter((item) => {
+              return item.id !== post.id
+            })
+            .splice(0, 3)
+        }
+      })
     } else {
       this.post.title = 'Objava ne postoji'
       this.post.portal_title = 'Objava ne postoji'
@@ -917,6 +908,10 @@ export default {
         },
       ])
     },
+    triggerAnalytics() {
+      this.$dotmetrics.postLoad(this.post.category_slug)
+      this.$gemius.postLoad(this.$route.path, this.post.category_slug)
+    },
     getPost() {
       if (this.post && this.post.id) {
         if (process.client) {
@@ -926,6 +921,7 @@ export default {
           this.showQuiz = true
         }
         this.$store.commit('history/setData', this.post)
+        this.triggerAnalytics()
         this.loadPiano()
         this.loadAds()
         if (typeof FB !== 'undefined') {
@@ -949,13 +945,10 @@ export default {
             }
           })
         }
-        this.dotmetrics()
+
       } else {
         setTimeout(this.getPost, 500)
       }
-    },
-    dotmetrics() {
-      this.$dotmetrics.postLoad(this.post.category_slug)
     },
     fbShare() {
       /* global FB */
