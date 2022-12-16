@@ -3,6 +3,7 @@
     id="pretplatite se - politicki mocnici"
     to="/pretplata"
     class="full flex stretch relative mini-pretplata"
+    data-nosnippet
   >
     <h2 class="full center-text">
       Politički moćnici žele ugasiti Telegram. Podržite nas

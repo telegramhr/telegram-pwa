@@ -10,6 +10,7 @@
         bannerClass === 'takeover' ? 'sticky-fade' : '',
         bannerClass === 'ticker-right' ? 'sticky-right' : '',
       ]"
+      data-nosnippet
     >
       <div class="relative">
         <div id="telegram_sticky" :class="bannerClass"></div>

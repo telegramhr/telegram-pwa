@@ -2,6 +2,7 @@
   <app-link
     to="/pretplata"
     class="full flex stretch relative mini-pretplata mini-pretplata-new"
+    data-nosnippet
   >
     <p>
       Bespoštedno novinarstvo ne financiraju vlasti, bespoštedno novinarstvo

@@ -2,6 +2,7 @@
   <div
     v-if="$store.state.stocks.stocks"
     class="full flex article stonk-widget stretch"
+    data-nosnippet
   >
     <template v-for="(stock, key) in stocks">
       <div v-if="stock.name" :key="key" class="full stock-market">

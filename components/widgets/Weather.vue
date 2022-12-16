@@ -1,5 +1,5 @@
 <template>
-  <div class="full article flex weather-widget stretch column-top-border">
+  <div class="full article flex weather-widget stretch column-top-border" data-nosnippet>
     <template v-if="weather.zagreb[0].type">
       <div class="full flex">
         <h3 class="overtitle">Vrijeme</h3>

@@ -1,5 +1,5 @@
 export default ({ route }, inject) => {
-  function check(path) {
+  function check(path, category_slug) {
     let dotmetricsId = '1182'
     if (path.includes('politika-kriminal')) {
       dotmetricsId = '1174'
@@ -39,7 +39,7 @@ export default ({ route }, inject) => {
     }
     return dotmetricsId
   }
-  function load(path) {
+  function load(path, category_slug) {
     window.dm = window.dm || { AjaxData: [] }
     window.dm.AjaxEvent = function (et, d, ssid, ad) {
       window.dm.AjaxData.push({
