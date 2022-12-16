@@ -2,7 +2,6 @@
   <app-link
     to="pretplata"
     class="full dark-element bottom-pretplata-promo pretplata-new-promo sitetop-bf relative"
-    data-nosnippet
   >
     <img
       src="@/assets/img/tg_black_friday_bg.jpg"

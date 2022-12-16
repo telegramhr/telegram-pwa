@@ -281,7 +281,7 @@
                 >Trebat će vam R1 račun ili želite ponudu za pravne osobe?
                 Javite nam se.</a
               >
-              <div class="full column-horizontal-pad">
+              <div class="full column-horizontal-pad" data-nosnippet>
                 <app-link
                   to="/pretplata/poklon"
                   class="full flex stretch relative mini-pretplata column-top-pad column-top-border"

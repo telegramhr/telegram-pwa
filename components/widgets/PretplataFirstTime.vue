@@ -2,9 +2,8 @@
   <app-link
     to="pretplata"
     class="full dark-element bottom-pretplata-promo pretplata-new-promo relative"
-    data-nosnippet
   >
-    <div class="container stretch relative flex">
+    <div class="container stretch relative flex" data-nosnippet>
       <div class="third column-full-pad center flex-responsive mobile-side-pad">
         <div class="full flex article">
           <h3 class="full overtitle">Bespoštedno novinarstvo</h3>
