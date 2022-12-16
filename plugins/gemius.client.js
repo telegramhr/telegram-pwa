@@ -20,6 +20,9 @@ export default ({ route }) => {
   if (path.includes('zivot')) {
     window.pp_gemius_identifier = 'nSdLyvtwW.A9i9jJKh9.c_UTHZEdEXuOnL7hjdYBhsX.h7'
   }
+  if (path.includes('super1')) {
+    window.pp_gemius_identifier = 'zD3q8PgBo_V9omhMQ2MA95dSXhYgui8o54R37RQllmv.J7'
+  }
   window.pp_gemius_use_cmp = true
   function gemius_pending(i) {
     window[i] =
