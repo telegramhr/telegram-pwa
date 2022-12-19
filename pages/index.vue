@@ -199,12 +199,6 @@
         <div class="full center m-order-6">
           <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
         </div>
-        <!-- qatar -->
-        <div class="full relative m-order-7">
-          <div class="container flex relative">
-            <category-big slug="qatar"></category-big>
-          </div>
-        </div>
         <!-- Teme -->
         <div class="full relative m-order-8 mobile-side-pad">
           <div class="full column-horizontal-pad column-top-pad">
