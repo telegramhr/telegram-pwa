@@ -2,8 +2,8 @@
   <div class="full flex gallery-content relative">
     <VueSlickCarousel
       :ref="`carousel-${gallery.id}`"
-      :arrows="false"
       style="display: block; width: 100%"
+      v-bind="settings"
     >
       <figure
         v-for="image in gallery.images"
@@ -55,6 +55,21 @@ export default {
         }
       },
     },
+  },
+  data() {
+    return {
+      settings: {
+        arrows: false,
+        dots: false,
+        infinite: true,
+        responsive: [
+          {
+            breakpoint: 480,
+            settings: 'unslick',
+          },
+        ],
+      },
+    }
   },
 }
 </script>
