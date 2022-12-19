@@ -282,7 +282,7 @@ export default {
       },
     ]
     let siteName = 'Telegram.hr'
-    if (this.extraClass.includes('superone')) {
+    if (this.extraClass && this.extraClass.includes('superone')) {
       link = [
         ...link,
         {
@@ -313,7 +313,7 @@ export default {
     }
     return {
       bodyAttrs: {
-        class: [this.$store.state.theme.theme, this.extraClass],
+        class: [this.$store.state.theme.theme],
       },
       title: this.$options.filters.parseCat(this.cat),
       titleTemplate: `Kategorija %s | ${siteName}`,
