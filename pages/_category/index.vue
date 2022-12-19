@@ -200,6 +200,7 @@ export default {
       .then((res) => {
         this.posts = res.data.posts
         this.cat = res.data.category
+        this.description = res.data.description
       })
       .catch(() => {
         if (process.server) {
@@ -213,6 +214,7 @@ export default {
       loading: false,
       posts: [],
       cat: '',
+      description: '',
       page: 2,
     }
   },
@@ -317,6 +319,7 @@ export default {
       },
       title: this.$options.filters.parseCat(this.cat),
       titleTemplate: `Kategorija %s | ${siteName}`,
+      description: this.description,
       meta,
       link,
     }

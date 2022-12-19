@@ -2,126 +2,147 @@ export const state = () => ({
   categories: {
     'more-news': {
       name: 'Politika & Kriminal',
+      description: '',
       posts: [],
       updated: null,
       extraClass: 'more-news',
     },
     'politika-kriminal': {
       name: 'Politika & Kriminal',
+      description: '',
       posts: [],
       updated: null,
       extraClass: 'politika-kriminal',
     },
     najnovije: {
       name: 'Najnovije',
+      description: '',
       posts: [],
       updated: null,
       extraClass: 'najnovije',
     },
     kultura: {
       name: 'Kultura',
+      description: '',
       posts: [],
       updated: null,
       extraClass: 'kultura',
     },
     'biznis-tech': {
       name: 'Biznis & Tech',
+      description: '',
       posts: [],
       updated: null,
       extraClass: 'biznis-tech',
     },
     'velike-price': {
       name: 'Velike Priče',
+      description: '',
       posts: [],
       updated: null,
       extraClass: 'velike-price',
     },
     zivot: {
       name: 'Život',
+      description: '',
       posts: [],
       updated: null,
       extraClass: 'zivot',
     },
     komentari: {
       name: 'Komentari',
+      description: '',
       posts: [],
       updated: null,
       extraClass: 'komentari',
     },
     promo: {
       name: 'Partneri',
+      description: '',
       posts: [],
       updated: null,
       extraClass: 'partneri',
     },
     sport: {
       name: 'Sport',
+      description: '',
       posts: [],
       updated: null,
       extraClass: 'sport',
     },
     commentary: {
       name: '',
+      description: '',
       posts: [],
       updated: null,
       extraClass: 'commentary',
     },
     openspace: {
       name: 'Openspace',
+      description: '',
       posts: [],
       updated: null,
       extraClass: 'openspace',
     },
     'kvizovi-testovi': {
       name: 'Kvizovi i testovi',
+      description: '',
       posts: [],
       updated: null,
       extraClass: 'openspace fancy-rubrika',
     },
     'tvrtke-karijere': {
       name: 'Tvrtke i karijere',
+      description: '',
       posts: [],
       updated: null,
       extraClass: 'openspace fancy-rubrika',
     },
     vjestine: {
       name: 'Vještine',
+      description: '',
       posts: [],
       updated: null,
       extraClass: 'openspace fancy-rubrika',
     },
     vodici: {
       name: 'Vodiči',
+      description: '',
       posts: [],
       updated: null,
       extraClass: 'openspace fancy-rubrika',
     },
     'pitanje-zdravlja': {
       name: 'Pitanje zdravlja',
+      description: '',
       posts: [],
       updated: null,
       extraClass: 'pitanje-zdravlja fancy-rubrika',
     },
     'leksikon-zdravlja': {
       name: 'Leksikon zdravlja',
+      description: '',
       posts: [],
       updated: null,
       extraClass: 'pitanje-zdravlja fancy-rubrika',
     },
     price: {
       name: 'Priče',
+      description: '',
       posts: [],
       updated: null,
       extraClass: 'pitanje-zdravlja fancy-rubrika',
     },
     lifestyle: {
       name: 'Lifestyle',
+      description: '',
       posts: [],
       updated: null,
       extraClass: 'pitanje-zdravlja fancy-rubrika',
     },
     vijesti: {
       name: 'Vijesti',
+      description: '',
       posts: [],
       updated: null,
       extraClass: 'pitanje-zdravlja fancy-rubrika',
@@ -133,6 +154,7 @@ export const state = () => ({
     },
     super1: {
       name: 'Super1',
+      description: '',
       posts: [],
       mostRead: [],
       updated: null,
@@ -141,6 +163,7 @@ export const state = () => ({
     },
     beauty: {
       name: 'Beauty',
+      description: '',
       posts: [],
       mostRead: [],
       updated: null,
@@ -149,6 +172,7 @@ export const state = () => ({
     },
     design: {
       name: 'Design',
+      description: '',
       posts: [],
       mostRead: [],
       updated: null,
@@ -157,6 +181,7 @@ export const state = () => ({
     },
     life: {
       name: 'Life',
+      description: '',
       posts: [],
       mostRead: [],
       updated: null,
@@ -165,6 +190,7 @@ export const state = () => ({
     },
     look: {
       name: 'Look',
+      description: '',
       posts: [],
       mostRead: [],
       updated: null,
@@ -173,6 +199,7 @@ export const state = () => ({
     },
     power: {
       name: 'Power',
+      description: '',
       posts: [],
       mostRead: [],
       updated: null,
@@ -180,6 +207,7 @@ export const state = () => ({
       extraClass: 'superone power fancy-rubrika',
     },
     'shopping-vodic': {
+      description: '',
       name: 'Shopping vodič',
       posts: [],
       updated: null,
@@ -259,6 +287,7 @@ export const state = () => ({
 export const mutations = {
   setPosts(state, data) {
     state.categories[data.slug].posts = data.posts
+    state.categories[data.slug].description = data.description
     state.categories[data.slug].updated = new Date().getTime()
   },
   setMore(state, data) {
@@ -282,7 +311,7 @@ export const actions = {
         new Date().getTime()
       ) {
         this.$axios.get('/api/category/' + payload.category).then((res) => {
-          commit('setPosts', { posts: res.data.posts, slug: payload.category })
+          commit('setPosts', { posts: res.data.posts, slug: payload.category, description: res.data.description })
           dispatch('posts/setPosts', res.data.posts, { root: true })
           resolve()
         })
