@@ -836,8 +836,8 @@ export default {
       'article-author': this.$store.state.history.author,
       'user-type': this.$store.state.user.type,
     })
-    if (this.$route.query.black_friday === '2022') {
-      this.checkout(this.four)
+    if (this.$route.query.promo_code === 'KHD6THX') {
+      this.checkout(this.one)
     }
   },
   methods: {
