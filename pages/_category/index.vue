@@ -315,7 +315,7 @@ export default {
     }
     return {
       bodyAttrs: {
-        class: [this.$store.state.theme.theme],
+        class: [this.$store.state.theme.theme, this.extraClass],
       },
       title: this.$options.filters.parseCat(this.cat),
       titleTemplate: `Kategorija %s | ${siteName}`,
