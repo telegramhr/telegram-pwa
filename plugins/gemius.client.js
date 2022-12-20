@@ -44,7 +44,6 @@ export default ({ route }, inject) => {
   }
 
   function init(path, category_slug) {
-    console.log('gemius: init')
     window.pp_gemius_use_cmp = true
     window.pp_gemius_identifier = parse(path, category_slug)
 

@@ -1,14 +1,15 @@
 <template>
-  <app-link
-    to="/pretplata?promo_code=KHD6THX"
+  <a
+    href="#"
     class="full dark-element bottom-pretplata-promo pretplata-new-promo sitetop-xmas relative"
+    @click.prevent="handleClick($event)"
   >
     <img
       src="@/assets/img/tg_bg_xmas.svg"
       alt="Kolaž naslovnih fotografija raznih istraživačkih specijala Telegrama"
       class="img-as-bg"
     />
-    <div class="container stretch relative flex">
+    <div class="container stretch relative flex" data-nosnippet>
       <div class="full center flex-responsive mobile-side-pad">
         <div class="full flex article">
           <div class="full center">
@@ -29,11 +30,20 @@
         </div>
       </div>
     </div>
-  </app-link>
+  </a>
 </template>
 
 <script>
 export default {
   name: 'PretplataXmas',
+  methods: {
+    handleClick($event) {
+      if (this.$route.name === 'pretplata') {
+        this.$emit('trigger')
+      } else {
+        this.$router.push('/pretplata?promo_code=KHD6THX')
+      }
+    },
+  },
 }
 </script>

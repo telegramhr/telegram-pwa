@@ -7,7 +7,7 @@
         headline="Pretplatite se i podržite naše bespoštedno novinarstvo."
       ></theader>
     </div>
-    <pretplata-xmas></pretplata-xmas>
+    <pretplata-xmas @trigger="setPromo"></pretplata-xmas>
     <!--<div class="full flex relative dark-mode pretplata-bf">
       <img
         src="@/assets/img/tg_black_friday_bg.jpg"
@@ -739,6 +739,7 @@ export default {
   name: 'Pretplata',
   data() {
     return {
+      promo_code: '',
       terms: {
         TM0FMYURHRA3: {
           title: 'Telegram Mjesečna Pretplata',
@@ -809,6 +810,7 @@ export default {
     },
   },
   mounted() {
+    this.promo_code = this.$route.query.promo_code
     window.fbq = window.fbq || function () {}
     window.fbq('track', 'ViewContent', {
       content_ids: [
@@ -842,6 +844,10 @@ export default {
     }
   },
   methods: {
+    setPromo() {
+      this.promo_code = 'KHD6THX'
+      this.checkout(this.one)
+    },
     checkout(termId) {
       this.$gtm.push({ ecommerce: null }) // Clear the previous ecommerce object.
       this.$gtm.push({
@@ -892,7 +898,6 @@ export default {
         currency: 'HRK',
         value: this.terms[termId].price,
       })
-      const promo = this.$route.query.promo_code
       window.tp.push([
         'init',
         () => {
@@ -901,7 +906,7 @@ export default {
             termId,
             templateId: window.tp.sandbox ? 'OTTXZFQ6FGFC' : 'OTXWXSOL0WWS',
             checkoutFlowId: window.tp.sandbox ? 'CF8Q59Z3RJ5G' : 'CF65KTMVQXXX',
-            promoCode: promo,
+            promoCode: this.promo_code,
             closeOnLogout: true,
             complete: (data) => {
               _that.$store.dispatch('user/checkAccess')

@@ -1314,6 +1314,7 @@ export const actions = {
     if (state.route === 'nesto-slug') {
       return
     }
+    const _that = this
     window.googletag.cmd.push(function () {
       window.googletag.pubads().refresh()
       window.googletag
@@ -1327,7 +1328,7 @@ export const actions = {
               .classList.remove('hide')
           }
           if (name.includes('billboard_v1')) {
-            if (event.isEmpty && !this.$mobile) {
+            if (event.isEmpty && !_that.$mobile) {
               el.parentElement.parentElement.classList.add('hide')
             }
           }
