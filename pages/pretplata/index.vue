@@ -7,13 +7,14 @@
         headline="Pretplatite se i podržite naše bespoštedno novinarstvo."
       ></theader>
     </div>
-    <div class="full flex relative dark-mode pretplata-bf">
+    <pretplata-xmas></pretplata-xmas>
+    <!--<div class="full flex relative dark-mode pretplata-bf">
       <img
         src="@/assets/img/tg_black_friday_bg.jpg"
         alt="Kolaž naslovnih fotografija raznih istraživačkih specijala Telegrama"
         class="img-as-bg"
       />
-      <!--<div
+      <div
         class="container center relative mobile-side-pad pretplata-packs pretplata-packboxes"
       >
         <div class="full center relative">
@@ -67,8 +68,8 @@
             <div class="btn animate">Odaberi</div>
           </div>
         </div>
-      </div>-->
-    </div>
+      </div>
+    </div>-->
     <div id="pretplata-selector" class="full flex pretplata-page-content">
       <div class="full flex relative">
         <div
