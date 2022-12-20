@@ -24,7 +24,7 @@ export default {
         return 0
       }
       if (!this.$mobile && this.type === 'mobile') {
-        return 0
+        return 660
       }
       if (this.type === 'intext') {
         return 476
