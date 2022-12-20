@@ -60,6 +60,10 @@
                 Paladino, Neispričane priče Rajka Grlića i godišnju premium
                 pretplatu koja omogućuje neograničeno čitanje Telegrama i
                 Telesporta. Besplatna dostava unutar Hrvatske.
+                <b
+                  >Napomena: za dostavu van Zagreba potrebno je 2-3 radna
+                  dana.</b
+                >
               </h4>
               <div class="full knjiga-keypoints">
                 <p class="full center-text">Izdavač: Telegram Media Grupa</p>
@@ -205,15 +209,13 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content:
-            'Hit knjige iz naše biblioteke i premium godišnja pretplata',
+          content: 'Hit knjige iz naše biblioteke i premium godišnja pretplata',
         },
         {
           hid: 'og:description',
           name: 'og:description',
           property: 'og:description',
-          content:
-            'Hit knjige iz naše biblioteke i premium godišnja pretplata',
+          content: 'Hit knjige iz naše biblioteke i premium godišnja pretplata',
         },
         {
           hid: 'og:type',

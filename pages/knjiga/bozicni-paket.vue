@@ -57,6 +57,10 @@
                 Paket sadrži Bili libar Borisa Dežulovića, O Zagrebu Zrinke
                 Paladino i Neispričane priče Rajka Grlića. Besplatna dostava
                 unutar Hrvatske.
+                <b
+                  >Napomena: za dostavu van Zagreba potrebno je 2-3 radna
+                  dana.</b
+                >
               </h4>
               <div class="full knjiga-keypoints">
                 <p class="full center-text">Izdavač: Telegram Media Grupa</p>
