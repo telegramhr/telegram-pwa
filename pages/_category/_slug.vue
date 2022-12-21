@@ -373,24 +373,7 @@
         </div>
         <client-only>
           <div v-if="!hasPremium" class="full">
-            <div
-              class="container flex relative block-related cantha-related standard-block stretch"
-            >
-              <div
-                class="full column-horizontal-pad column-top-pad mobile-side-pad"
-              >
-                <div class="full cantha-separator"></div>
-              </div>
-              <h3
-                v-if="hasLinker"
-                class="full center-text column-full-pad subsection-title mobile-side-pad"
-              >
-                Više s weba
-              </h3>
-              <div class="full flex mobile-side-pad">
-                <linker type="category"></linker>
-              </div>
-            </div>
+            <linker type="category"></linker>
           </div>
           <div
             v-if="
@@ -406,33 +389,13 @@
             ></div>
           </div>
           <div v-if="!hasPremium" class="full mobile-only">
-            <div
-              class="container flex relative block-related cantha-related standard-block stretch"
-            >
-              <div
-                class="full column-horizontal-pad column-top-pad mobile-side-pad"
-              >
-                <div class="full cantha-separator"></div>
-              </div>
-              <h3
-                class="full center-text column-full-pad subsection-title mobile-side-pad"
-              >
-                Oglasi
-              </h3>
-              <div class="full flex mobile-side-pad">
-                <linker type="footer"></linker>
-              </div>
-            </div>
+            <linker type="footer"></linker>
           </div>
           <div v-if="!hasPremium" class="container flex center">
-            <div id="linker-526" class="lwdgt" data-wid="526"></div>
+            <linker type="shop"></linker>
           </div>
           <keep-reading
-            v-if="
-              post.category_slug &&
-              post.category_slug !== 'promo' &&
-              !post.category_slug.includes('superone')
-            "
+            v-if="post.category_slug && post.category_slug !== 'promo'"
             :category="post.category_slug"
             :p="Number(post.id)"
             :permalink="post.permalink"
@@ -945,7 +908,6 @@ export default {
             }
           })
         }
-
       } else {
         setTimeout(this.getPost, 500)
       }
