@@ -1329,7 +1329,7 @@ export const actions = {
           }
           if (name.includes('billboard_v1')) {
             if (event.isEmpty && !_that.$mobile) {
-              el.parentElement.parentElement.classList.add('hide')
+              el.parentElement.classList.add('hide')
             }
           }
           if (event.isEmpty && name.includes('intext')) {
