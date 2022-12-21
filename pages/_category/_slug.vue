@@ -1176,7 +1176,7 @@ export default {
           this.$route.params.category === 'preview' ||
           this.post.status !== 'publish'
             ? 'noindex, noarchive, nocache, nosnippet'
-            : 'index, follow',
+            : 'index, follow, max-image-preview:large, max-snippet:-1',
       },
       {
         hid: 'nrbi:sections',

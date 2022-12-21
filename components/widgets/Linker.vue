@@ -32,6 +32,7 @@
             :id="'linker-' + id"
             class="lwdgt column-full-pad"
           >
+            <!-- eslint-disable-next-line -->
             <div v-html="body"></div>
           </div>
           <div :id="`linker-scripts-${id}`"></div>
