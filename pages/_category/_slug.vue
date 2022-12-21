@@ -873,7 +873,6 @@ export default {
     },
     triggerAnalytics() {
       this.$dotmetrics.postLoad(this.post.category_slug)
-      this.$gemius.postLoad(this.$route.path, this.post.category_slug)
     },
     getPost() {
       if (this.post && this.post.id) {
