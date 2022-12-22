@@ -74,7 +74,7 @@ export default {
     posts() {
       return this.$store.state.category.categories[this.category].posts.filter(
         (post) => {
-          if (post.permalink.includes('partneri')) {
+          if (post.category_slug.includes('partneri')) {
             return false
           }
           return !this.$store.state.s1.posts
