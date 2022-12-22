@@ -34,6 +34,11 @@
 <script>
 export default {
   name: 'SpecijalIndex',
+  async fetch() {
+    this.post = await this.$axios.$get(
+      '/api/special/' + this.$route.params.specijal
+    )
+  },
   data() {
     return {
       post: {
@@ -49,6 +54,12 @@ export default {
           logo: '',
         },
         class: '',
+        social: {
+          title: '',
+          image: '',
+          description: '',
+          path: '',
+        },
       },
       posts: [],
       category: '',
@@ -58,17 +69,18 @@ export default {
     }
   },
   mounted() {
-    this.$axios
-      .get('/api/special/' + this.$route.params.specijal)
-      .then((res) => {
-        this.post = res.data
-        this.$axios.get('/api/tag/' + res.data.tag + '/special').then((r) => {
-          this.posts = r.data.posts
-          if (r.data.posts.length < 9) {
-            this.hasMore = false
-          }
-        })
-      })
+    this.$nextTick(() => {
+      if (this.post.tag) {
+        this.$axios
+          .get('/api/tag/' + this.post.tag + '/special')
+          .then((res) => {
+            this.posts = res.data.posts
+            if (this.posts.length < 9) {
+              this.hasMore = false
+            }
+          })
+      }
+    })
   },
   methods: {
     loadMore() {
@@ -90,26 +102,36 @@ export default {
   },
   head() {
     return {
-      title: this.cat,
+      title: this.post.title,
       titleTemplate: '%s | Telegram.hr',
       meta: [
         {
           hid: 'og:type',
           name: 'og:type',
           property: 'og:type',
-          content: 'website',
+          content: 'article',
         },
         {
           hid: 'og:title',
           name: 'og:title',
           property: 'og:title',
-          content: this.cat,
+          content: this.post.social.title,
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.post.social.description,
         },
         {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: this.$route.fullPath,
+          content: this.post.social.path,
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: this.post.social.image,
         },
         {
           hid: 'fb:app_id',
