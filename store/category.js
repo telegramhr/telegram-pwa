@@ -6,6 +6,7 @@ export const state = () => ({
       posts: [],
       updated: null,
       extraClass: 'more-news',
+      canonical: '/more-news',
     },
     'politika-kriminal': {
       name: 'Politika & Kriminal',
@@ -13,6 +14,7 @@ export const state = () => ({
       posts: [],
       updated: null,
       extraClass: 'politika-kriminal',
+      canonical: '/politika-kriminal',
     },
     najnovije: {
       name: 'Najnovije',
@@ -20,6 +22,7 @@ export const state = () => ({
       posts: [],
       updated: null,
       extraClass: 'najnovije',
+      canonical: '/najnovije',
     },
     kultura: {
       name: 'Kultura',
@@ -27,6 +30,7 @@ export const state = () => ({
       posts: [],
       updated: null,
       extraClass: 'kultura',
+      canonical: '/kultura',
     },
     'biznis-tech': {
       name: 'Biznis & Tech',
@@ -34,6 +38,7 @@ export const state = () => ({
       posts: [],
       updated: null,
       extraClass: 'biznis-tech',
+      canonical: 'biznis-tech',
     },
     'velike-price': {
       name: 'Velike Priče',
@@ -41,6 +46,7 @@ export const state = () => ({
       posts: [],
       updated: null,
       extraClass: 'velike-price',
+      canonical: '/velike-price',
     },
     zivot: {
       name: 'Život',
@@ -48,6 +54,7 @@ export const state = () => ({
       posts: [],
       updated: null,
       extraClass: 'zivot',
+      canonical: '/zivot',
     },
     komentari: {
       name: 'Komentari',
@@ -55,6 +62,7 @@ export const state = () => ({
       posts: [],
       updated: null,
       extraClass: 'komentari',
+      canonical: '/komentari',
     },
     promo: {
       name: 'Partneri',
@@ -62,6 +70,7 @@ export const state = () => ({
       posts: [],
       updated: null,
       extraClass: 'partneri',
+      canonical: '/partneri',
     },
     sport: {
       name: 'Sport',
@@ -69,6 +78,7 @@ export const state = () => ({
       posts: [],
       updated: null,
       extraClass: 'sport',
+      canonical: '/sport',
     },
     commentary: {
       name: '',
@@ -76,6 +86,7 @@ export const state = () => ({
       posts: [],
       updated: null,
       extraClass: 'commentary',
+      canonical: '',
     },
     openspace: {
       name: 'Openspace',
@@ -83,6 +94,7 @@ export const state = () => ({
       posts: [],
       updated: null,
       extraClass: 'openspace',
+      canonical: '/openspace',
     },
     'kvizovi-testovi': {
       name: 'Kvizovi i testovi',
@@ -90,6 +102,7 @@ export const state = () => ({
       posts: [],
       updated: null,
       extraClass: 'openspace fancy-rubrika',
+      canonical: '/openspace/kvizovi-testovi',
     },
     'tvrtke-karijere': {
       name: 'Tvrtke i karijere',
@@ -97,6 +110,7 @@ export const state = () => ({
       posts: [],
       updated: null,
       extraClass: 'openspace fancy-rubrika',
+      canonical: '/openspace/tvrtke-karijere',
     },
     vjestine: {
       name: 'Vještine',
@@ -104,6 +118,7 @@ export const state = () => ({
       posts: [],
       updated: null,
       extraClass: 'openspace fancy-rubrika',
+      canonical: '/openspace/vjestine',
     },
     vodici: {
       name: 'Vodiči',
@@ -111,6 +126,7 @@ export const state = () => ({
       posts: [],
       updated: null,
       extraClass: 'openspace fancy-rubrika',
+      canonical: '/openspace/vodici',
     },
     'pitanje-zdravlja': {
       name: 'Pitanje zdravlja',
@@ -118,6 +134,7 @@ export const state = () => ({
       posts: [],
       updated: null,
       extraClass: 'pitanje-zdravlja fancy-rubrika',
+      canonical: '/pitanje-zdravlja',
     },
     'leksikon-zdravlja': {
       name: 'Leksikon zdravlja',
@@ -125,6 +142,7 @@ export const state = () => ({
       posts: [],
       updated: null,
       extraClass: 'pitanje-zdravlja fancy-rubrika',
+      canonical: '/pitanje-zdravlja/leksikon-zdravlja',
     },
     price: {
       name: 'Priče',
@@ -132,6 +150,7 @@ export const state = () => ({
       posts: [],
       updated: null,
       extraClass: 'pitanje-zdravlja fancy-rubrika',
+      canonical: '/pitanje-zdravlja/price',
     },
     lifestyle: {
       name: 'Lifestyle',
@@ -139,6 +158,7 @@ export const state = () => ({
       posts: [],
       updated: null,
       extraClass: 'pitanje-zdravlja fancy-rubrika',
+      canonical: '/pitanje-zdravlja/lifestyle',
     },
     vijesti: {
       name: 'Vijesti',
@@ -146,11 +166,7 @@ export const state = () => ({
       posts: [],
       updated: null,
       extraClass: 'pitanje-zdravlja fancy-rubrika',
-    },
-    qatar: {
-      name: 'Katar 2022',
-      posts: [],
-      updated: null,
+      canonical: '/pitanje-zdravlja/vijesti',
     },
     super1: {
       name: 'Super1',
@@ -160,6 +176,7 @@ export const state = () => ({
       updated: null,
       updated_most: null,
       extraClass: 'superone fancy-rubrika',
+      canonical: '/super1',
     },
     beauty: {
       name: 'Beauty',
@@ -169,6 +186,7 @@ export const state = () => ({
       updated: null,
       updated_most: null,
       extraClass: 'superone beauty fancy-rubrika',
+      canonical: '/super1/beauty',
     },
     design: {
       name: 'Design',
@@ -178,6 +196,7 @@ export const state = () => ({
       updated: null,
       updated_most: null,
       extraClass: 'superone design fancy-rubrika',
+      canonical: '/super1/design',
     },
     life: {
       name: 'Life',
@@ -187,6 +206,7 @@ export const state = () => ({
       updated: null,
       updated_most: null,
       extraClass: 'superone life fancy-rubrika',
+      canonical: '/super1/life',
     },
     look: {
       name: 'Look',
@@ -196,6 +216,7 @@ export const state = () => ({
       updated: null,
       updated_most: null,
       extraClass: 'superone look fancy-rubrika',
+      canonical: '/super1/look',
     },
     power: {
       name: 'Power',
@@ -205,6 +226,7 @@ export const state = () => ({
       updated: null,
       updated_most: null,
       extraClass: 'superone power fancy-rubrika',
+      canonical: '/super1/power',
     },
     'shopping-vodic': {
       description: '',
@@ -212,6 +234,7 @@ export const state = () => ({
       posts: [],
       updated: null,
       extraClass: 'superone shopping-vodic fancy-rubrika',
+      canonical: '/super1/shopping-vodic',
     },
   },
   morePosts: {
@@ -311,7 +334,11 @@ export const actions = {
         new Date().getTime()
       ) {
         this.$axios.get('/api/category/' + payload.category).then((res) => {
-          commit('setPosts', { posts: res.data.posts, slug: payload.category, description: res.data.description })
+          commit('setPosts', {
+            posts: res.data.posts,
+            slug: payload.category,
+            description: res.data.description,
+          })
           dispatch('posts/setPosts', res.data.posts, { root: true })
           resolve()
         })

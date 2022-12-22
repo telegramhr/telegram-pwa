@@ -249,7 +249,10 @@ export default {
       {
         hid: 'canonical',
         rel: 'canonical',
-        href: 'https://www.telegram.hr' + this.$route.fullPath,
+        href:
+          'https://www.telegram.hr' +
+          this.$store.state.category.categories[this.$route.params.category]
+            .canonical,
       },
     ]
     let meta = [

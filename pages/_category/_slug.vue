@@ -473,24 +473,23 @@ export default {
   scrollToTop: true,
   components: { Portal },
   async fetch() {
-    if (!this.$route.params.slug) {
+    if (!this.$route.params.slug && !this.$route.params.category) {
       return
     }
+    const slug = this.$route.params.slug || this.$route.params.category
     let post
     if (process.client) {
       this.$nextTick(() => {
         this.$telegram.$loading.start()
       })
-      post = this.$store.state.posts.posts[this.$route.params.slug]
+      post = this.$store.state.posts.posts[slug]
     }
     if (!post) {
       if (this.$route.params.category === 'preview') {
-        post = await this.$axios.$get(
-          encodeURI('/api/preview/' + this.$route.params.slug)
-        )
+        post = await this.$axios.$get(encodeURI('/api/preview/' + slug))
       } else {
         post = await this.$axios.$get(
-          encodeURI('/api/single/' + this.$route.params.slug) + '?pwa=1'
+          encodeURI('/api/single/' + slug) + '?pwa=1'
         )
       }
     }
@@ -863,9 +862,11 @@ export default {
         'compass',
         function (compass) {
           if (_that.post.paywall === 'always') {
+            console.log('paywall', 'hard')
             compass.setPageVar('closed', 'hard-paywall')
           }
           if (_that.post.paywall === 'none') {
+            console.log('paywall', 'dynamic')
             compass.setPageVar('closed', 'dynamic-paywall')
           }
         },
