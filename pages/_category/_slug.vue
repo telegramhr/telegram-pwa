@@ -681,6 +681,7 @@ export default {
           author: this.post.authors,
           keywords: this.post.tags.map((tag) => tag.slug),
           sections: this.$options.filters.parseCat(this.post.category),
+          articleSection: this.$options.filters.parseCat(this.post.category),
           isAccessibleForFree: this.post.paywall === 'never',
           hasPart:
             this.post.paywall === 'never'
