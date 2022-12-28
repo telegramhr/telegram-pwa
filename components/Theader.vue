@@ -25,17 +25,12 @@
               id="pretplatite se - burger menu"
               to="/pretplata"
               class="signup-btn sub-btn"
-              @click.native="maybeCloseSide"
               >Pretplatite se</app-link
             >
             <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
               >Prijava</a
             >
-            <app-link
-              v-show="!canLogIn"
-              to="/moj-racun"
-              class="signup-btn"
-              @click.native="maybeCloseSide"
+            <app-link v-show="!canLogIn" to="/moj-racun" class="signup-btn"
               >Moj račun</app-link
             >
             <a v-show="!canLogIn" class="signup-btn" @click.prevent="logout"
@@ -83,36 +78,14 @@
             </form>
           </div>
           <h3>Rubrika</h3>
-          <app-link
-            role="menuitem"
-            to="/politika-kriminal"
-            @click.native="maybeCloseSide"
+          <app-link role="menuitem" to="/politika-kriminal"
             >Politika & Kriminal</app-link
           >
-          <app-link
-            role="menuitem"
-            to="/komentari"
-            @click.native="maybeCloseSide"
-            >Komentari</app-link
-          >
-          <app-link
-            role="menuitem"
-            to="/biznis-tech"
-            @click.native="maybeCloseSide"
-            >Biznis & Tech</app-link
-          >
-          <app-link
-            role="menuitem"
-            to="/velike-price"
-            @click.native="maybeCloseSide"
-            >Velike priče</app-link
-          >
-          <app-link role="menuitem" to="/zivot" @click.native="maybeCloseSide"
-            >Život</app-link
-          >
-          <app-link role="menuitem" to="/kultura" @click.native="maybeCloseSide"
-            >Kultura</app-link
-          >
+          <app-link role="menuitem" to="/komentari">Komentari</app-link>
+          <app-link role="menuitem" to="/biznis-tech">Biznis & Tech</app-link>
+          <app-link role="menuitem" to="/velike-price">Velike priče</app-link>
+          <app-link role="menuitem" to="/zivot">Život</app-link>
+          <app-link role="menuitem" to="/kultura">Kultura</app-link>
         </div>
         <div class="half" role="menu">
           <h3>Postavke izgleda</h3>
@@ -241,31 +214,15 @@
         </div>
         <div class="half" role="menu">
           <h3>Info</h3>
-          <app-link
-            role="menuitem"
-            to="/pretplata"
-            @click.native="maybeCloseSide"
-            >Pretplata</app-link
-          >
-          <app-link role="menuitem" to="/klub" @click.native="maybeCloseSide"
-            >Klub</app-link
-          >
-          <app-link
-            role="menuitem"
-            to="/stranica/impressum"
-            @click.native="maybeCloseSide"
+          <app-link role="menuitem" to="/pretplata">Pretplata</app-link>
+          <app-link role="menuitem" to="/klub">Klub</app-link>
+          <app-link role="menuitem" to="/stranica/impressum"
             >Impressum</app-link
           >
-          <app-link
-            role="menuitem"
-            to="/stranica/oglasavanje"
-            @click.native="maybeCloseSide"
+          <app-link role="menuitem" to="/stranica/oglasavanje"
             >Oglašavanje</app-link
           >
-          <app-link
-            role="menuitem"
-            to="/stranica/uvjeti-koristenja"
-            @click.native="maybeCloseSide"
+          <app-link role="menuitem" to="/stranica/uvjeti-koristenja"
             >Uvjeti korištenja</app-link
           >
         </div>
@@ -295,45 +252,15 @@
             <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon>
           </a>
           <div class="menu flex" role="menu">
-            <app-link
-              role="menuitem"
-              to="/politika-kriminal"
-              @click.native="maybeCloseSide"
+            <app-link role="menuitem" to="/politika-kriminal"
               >Politika & Kriminal</app-link
             >
-            <app-link
-              role="menuitem"
-              to="/komentari"
-              @click.native="maybeCloseSide"
-              >Komentari</app-link
-            >
-            <app-link
-              role="menuitem"
-              to="/biznis-tech"
-              @click.native="maybeCloseSide"
-              >Biznis & Tech</app-link
-            >
-            <app-link
-              role="menuitem"
-              to="/velike-price"
-              @click.native="maybeCloseSide"
-              >Velike priče</app-link
-            >
-            <app-link role="menuitem" to="/zivot" @click.native="maybeCloseSide"
-              >Život</app-link
-            >
-            <app-link
-              role="menuitem"
-              to="/kultura"
-              @click.native="maybeCloseSide"
-              >Kultura</app-link
-            >
-            <app-link
-              role="menuitem"
-              to="/openspace"
-              @click.native="maybeCloseSide"
-              >Openspace</app-link
-            >
+            <app-link role="menuitem" to="/komentari">Komentari</app-link>
+            <app-link role="menuitem" to="/biznis-tech">Biznis & Tech</app-link>
+            <app-link role="menuitem" to="/velike-price">Velike priče</app-link>
+            <app-link role="menuitem" to="/zivot">Život</app-link>
+            <app-link role="menuitem" to="/kultura">Kultura</app-link>
+            <app-link role="menuitem" to="/openspace">Openspace</app-link>
             <app-link to="/super1" role="menuitem">Super1</app-link>
             <a href="https://telesport.telegram.hr" role="menuitem">
               Telesport
@@ -394,18 +321,10 @@
             <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon>
           </a>
           <div class="menu flex" role="menu">
-            <app-link role="menuitem" to="/" @click.native="maybeCloseSide"
-              >Na prvu</app-link
-            >
-            <app-link role="menuitem" to="/" @click.native="maybeCloseSide"
-              >Priče</app-link
-            >
-            <app-link role="menuitem" to="/" @click.native="maybeCloseSide"
-              >Analize</app-link
-            >
-            <app-link role="menuitem" to="/" @click.native="maybeCloseSide"
-              >Kolumne</app-link
-            >
+            <app-link role="menuitem" to="/">Na prvu</app-link>
+            <app-link role="menuitem" to="/">Priče</app-link>
+            <app-link role="menuitem" to="/">Analize</app-link>
+            <app-link role="menuitem" to="/">Kolumne</app-link>
           </div>
           <div v-show="headline" class="header-headline single-exclusive">
             {{ headline }}
@@ -462,36 +381,11 @@
             <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon>
           </a>
           <div class="menu flex" role="menu">
-            <app-link
-              role="menuitem"
-              to="/super1/look"
-              @click.native="maybeCloseSide"
-              >Look</app-link
-            >
-            <app-link
-              role="menuitem"
-              to="/super1/beauty"
-              @click.native="maybeCloseSide"
-              >Beauty</app-link
-            >
-            <app-link
-              role="menuitem"
-              to="/super1/life"
-              @click.native="maybeCloseSide"
-              >Life</app-link
-            >
-            <app-link
-              role="menuitem"
-              to="/super1/design"
-              @click.native="maybeCloseSide"
-              >Design</app-link
-            >
-            <app-link
-              role="menuitem"
-              to="/super1/power"
-              @click.native="maybeCloseSide"
-              >Power</app-link
-            >
+            <app-link role="menuitem" to="/super1/look">Look</app-link>
+            <app-link role="menuitem" to="/super1/beauty">Beauty</app-link>
+            <app-link role="menuitem" to="/super1/life">Life</app-link>
+            <app-link role="menuitem" to="/super1/design">Design</app-link>
+            <app-link role="menuitem" to="/super1/power">Power</app-link>
           </div>
           <div v-show="headline" class="header-headline single-exclusive">
             {{ headline }}
@@ -900,11 +794,6 @@ export default {
     logout() {
       this.maybeCloseSide()
       this.$store.dispatch('user/logout')
-    },
-    maybeCloseSide() {
-      if (this.$mobile && this.$store.state.header.showSideMenu) {
-        this.$store.commit('header/updateMenu', 'side')
-      }
     },
   },
 }

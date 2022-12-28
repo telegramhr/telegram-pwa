@@ -213,7 +213,6 @@ export default {
     return {
       loading: false,
       posts: [],
-      cat: '',
       description: '',
       page: 2,
     }
@@ -224,6 +223,24 @@ export default {
         ? this.$store.state.category.categories[this.$route.params.category]
             .extraClass
         : ''
+    },
+    cat() {
+      return this.$store.state.category.categories[this.$route.params.category]
+        ? this.$store.state.category.categories[this.$route.params.category]
+            .name
+        : ''
+    },
+    jsonld() {
+      return {
+        '@context': 'https://schema.org',
+        '@type': 'Website',
+        url: `https://www.telegram.hr${
+          this.$store.state.category.categories[this.$route.params.category]
+            .canonical
+        }`,
+        name: this.cat,
+        description: this.description,
+      }
     },
   },
   mounted() {
@@ -261,7 +278,13 @@ export default {
         hid: 'og:title',
         name: 'og:title',
         property: 'og:title',
-        content: this.$options.filters.parseCat(this.cat),
+        content: this.cat,
+      },
+      {
+        hid: 'og:description',
+        name: 'og:description',
+        property: 'og:description',
+        content: this.description,
       },
       {
         hid: 'og:url',
@@ -325,6 +348,14 @@ export default {
       description: this.description,
       meta,
       link,
+      script: [
+        {
+          vmid: 'schema-ld',
+          hid: 'schema-ld',
+          type: 'application/ld+json',
+          json: this.jsonld,
+        },
+      ],
     }
   },
 }

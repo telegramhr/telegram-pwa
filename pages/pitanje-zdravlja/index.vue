@@ -12,12 +12,12 @@
           ><span data-aos="fade-down" data-aos-delay="1500">zdravlja</span>
         </h1>
         <nav class="full center page-header-nav">
-          <app-link role="menuitem" to="/leksikon-zdravlja"
+          <app-link role="menuitem" to="/pitanje-zdravlja/leksikon-zdravlja"
             >Leksikon zdravlja</app-link
           >
-          <app-link role="menuitem" to="/lifestyle">Lifestyle</app-link>
-          <app-link role="menuitem" to="/vijesti">Vijesti</app-link>
-          <app-link role="menuitem" to="/price">Priče</app-link>
+          <app-link role="menuitem" to="/pitanje-zdravlja/lifestyle">Lifestyle</app-link>
+          <app-link role="menuitem" to="/pitanje-zdravlja/vijesti">Vijesti</app-link>
+          <app-link role="menuitem" to="/pitanje-zdravlja/price">Priče</app-link>
         </nav>
       </div>
     </div>
@@ -264,9 +264,6 @@ export default {
   name: 'PitanjeZdravlja',
   async fetch() {
     this.featured = await this.$axios.$get('/api/featured/pitanje-zdravlja')
-    await this.$axios.get('/api/category/pitanje-zdravlja').then((res) => {
-      this.posts = res.data.posts
-    })
   },
   data() {
     return {
@@ -290,6 +287,13 @@ export default {
           'Provjerene i ekskluzivne zdravstvene vijesti, analize i priče',
       }
     },
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.$axios.get('/api/category/pitanje-zdravlja').then((res) => {
+        this.posts = res.data.posts
+      })
+    })
   },
   methods: {
     loadMore() {
