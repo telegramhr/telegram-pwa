@@ -17,7 +17,7 @@
     </div>
     <!-- Pretplata first timers -->
     <div v-show="canLogIn" class="full flex">
-      <pretplata-xmas></pretplata-xmas>
+      <pretplata-first-time></pretplata-first-time>
       <div class="full mobile-side-pad mobile-only">
         <div class="full column-bottom-border-mobile"></div>
       </div>
@@ -665,9 +665,7 @@
 </template>
 
 <script>
-import PretplataXmas from '../components/widgets/PretplataXmas.vue'
 export default {
-  components: { PretplataXmas },
   async fetch() {
     await this.$store.dispatch('featured/pullPosts')
     await this.$store.dispatch('featured/pullBreaks')
