@@ -17,7 +17,7 @@
     </div>
     <!-- Pretplata first timers -->
     <div v-show="canLogIn" class="full flex">
-      <pretplata-first-time></pretplata-first-time>
+      <pretplata-xmas></pretplata-xmas>
       <div class="full mobile-side-pad mobile-only">
         <div class="full column-bottom-border-mobile"></div>
       </div>
@@ -320,10 +320,6 @@
           <div class="full center">
             <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
           </div>
-        </div>
-        <!-- shopping guide -->
-        <div class="full center m-order-9">
-          <shoping-guide></shoping-guide>
         </div>
       </div>
     </div>
