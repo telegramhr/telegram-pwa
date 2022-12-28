@@ -795,6 +795,11 @@ export default {
       this.maybeCloseSide()
       this.$store.dispatch('user/logout')
     },
+    maybeCloseSide() {
+      if (this.$store.state.header.showSideMenu) {
+        this.$store.commit('header/updateMenu', 'side')
+      }
+    },
   },
 }
 </script>
