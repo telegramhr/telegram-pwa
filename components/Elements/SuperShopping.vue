@@ -30,7 +30,7 @@
                   <img :src="post.image" aria-hidden="true" loading="lazy" />
                 </div>
                 <div class="full flex article-pad">
-                  <p class="full center-text">{{ post.title }}</p>
+                  <p class="full center-text">{{ post.title | parseCat }}</p>
                   <div v-if="post.price" class="full center">
                     <div class="s1-toppick-price">{{ post.price }}</div>
                   </div>
