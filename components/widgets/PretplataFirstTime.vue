@@ -26,10 +26,10 @@
         <div class="half center column-horizontal-pad mobile-side-pad">
           <div class="full column-left-pad flex article">
             <h2 class="full relative center-text">
-              <span class="faded strikethrough">6,50€</span> 5,18€
+              <span class="faded strikethrough">49 kn</span> 39 kn
             </h2>
             <h2 class="full relative center-text">
-              (<span class="faded strikethrough">49 kn</span> 39 kn) <br />
+              (<span class="faded strikethrough">6,50€</span> 5,18€) <br />
               mjesečno, ako odmah uzmete za godinu dana
             </h2>
             <div class="full center">

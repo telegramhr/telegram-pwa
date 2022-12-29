@@ -34,9 +34,9 @@
             <div class="full flex overtitle-parent">
               <h3 class="overtitle">Standard</h3>
             </div>
-            <h2 class="full">62,11€</h2>
+            <h2 class="full">468kn</h2>
             <h4 class="full center-text undertitle">
-              godišnja pretplata (468kn)
+              godišnja pretplata (62,11€)
             </h4>
             <div class="full pretplata-benefits">
               <p class="full animate">
@@ -70,9 +70,9 @@
             <div class="full flex overtitle-parent">
               <h3 class="overtitle">Premium</h3>
             </div>
-            <h2 class="full">78,04€</h2>
+            <h2 class="full">588kn</h2>
             <h4 class="full center-text undertitle">
-              godišnja pretplata (588kn)
+              godišnja pretplata (78,04€)
             </h4>
             <div class="full pretplata-benefits">
               <p class="full animate">

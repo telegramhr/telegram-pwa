@@ -39,10 +39,10 @@
             </div>
             <div class="full flex knjiga-features">
               <h1 class="full relative center-text">
-                <span class="faded strikethrough">23,76€</span> 13,14€
+                <span class="faded strikethrough">179 kn</span> 99 kn
               </h1>
               <h1 class="full relative center-text">
-                (<span class="faded strikethrough">179 kn</span> 99 kn) <br />
+                (<span class="faded strikethrough">23,76€</span> 13,14€) <br />
                 posebna cijena za sve pretplatnike Telegrama
               </h1>
               <h4 class="full relative center-text">

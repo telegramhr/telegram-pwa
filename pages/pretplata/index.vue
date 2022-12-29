@@ -114,8 +114,8 @@
                 <div class="full flex overtitle-parent">
                   <h3 class="overtitle">Standard</h3>
                 </div>
-                <h2 class="full">6,50€</h2>
-                <h4 class="full center-text undertitle">Mjesečno (49kn)</h4>
+                <h2 class="full">49kn</h2>
+                <h4 class="full center-text undertitle">Mjesečno (6,50€)</h4>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
                     <font-awesome-icon
@@ -152,8 +152,8 @@
                 <div class="full flex overtitle-parent">
                   <h3 class="overtitle">Premium</h3>
                 </div>
-                <h2 class="full">9,16€</h2>
-                <h4 class="full center-text undertitle">Mjesečno (69kn)</h4>
+                <h2 class="full">69kn</h2>
+                <h4 class="full center-text undertitle">Mjesečno (9,16€)</h4>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
                     <font-awesome-icon
@@ -196,9 +196,9 @@
                 <div class="full flex overtitle-parent">
                   <h3 class="overtitle">Standard</h3>
                 </div>
-                <h2 class="full">5,18€</h2>
+                <h2 class="full">39kn</h2>
                 <h4 class="full center-text undertitle">
-                  mjesečno (39kn), za cijelu godinu 62,11€ (468kn)
+                  mjesečno (5,18€), za cijelu godinu 468kn (62,11€)
                 </h4>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
@@ -236,9 +236,9 @@
                 <div class="full flex overtitle-parent">
                   <h3 class="overtitle">Premium</h3>
                 </div>
-                <h2 class="full">6,50€</h2>
+                <h2 class="full">49kn</h2>
                 <h4 class="full center-text undertitle">
-                  mjesečno (49kn), za cijelu godinu 78,04€ (588kn)
+                  mjesečno (6,50€), za cijelu godinu 588kn (78,04€)
                 </h4>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
@@ -561,7 +561,7 @@
               </summary>
               <p>
                 Bespoštedno i neovisno novinarstvo, istraživački specijali i
-                velike priče nisu jeftini. Svake godine stotine tisuća eura
+                velike priče nisu jeftini. Svake godine stotine tisuća kuna
                 odlaze nam na sudske borbe protiv moćnika koji, nakon što smo ih
                 uhvatili u nedjelima, pokušavaju takvim pritiskom financijski
                 devastirati Telegram. Nerijetko za tužbe i odmazde koriste javni
@@ -597,10 +597,10 @@
               </summary>
               <p>
                 Najisplativija opcija je godišnja premium pretplata: u njoj za
-                samo 6,50 eura mjesečno (godišnji iznos naplaćuje se
-                jednokratno) dobivate godinu dana neograničenog čitanja
-                Telegrama i Telesporta bez oglasa, nove funkcionalnosti koje
-                ćemo uvoditi i popust na knjigu jednog od naših autora.
+                samo 49 kuna mjesečno (godišnji iznos naplaćuje se jednokratno)
+                dobivate godinu dana neograničenog čitanja Telegrama i
+                Telesporta bez oglasa, nove funkcionalnosti koje ćemo uvoditi i
+                popust na knjigu jednog od naših autora.
               </p>
             </details>
             <details class="full flex relative">

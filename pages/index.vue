@@ -388,10 +388,10 @@
             <div class="third center column-horizontal-pad flex-responsive">
               <div class="full flex article">
                 <h2 class="full relative center-text">
-                  <span class="faded strikethrough">23,76€</span> 15,79€
+                  <span class="faded strikethrough">179 kn</span> 119 kn
                 </h2>
                 <h5 class="full center-text">
-                  (<span class="faded strikethrough">179 kn</span> 119 kn)
+                  (<span class="faded strikethrough">23,76€</span> 15,79€)
                   <br />
                   posebna cijena za Telegramove pretplatnike!
                 </h5>
