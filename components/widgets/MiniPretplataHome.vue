@@ -1,5 +1,9 @@
 <template>
-  <app-link to="/pretplata" class="full flex stretch relative mini-pretplata" data-nosnippet>
+  <app-link
+    to="/pretplata"
+    class="full flex stretch relative mini-pretplata"
+    data-nosnippet
+  >
     <h2 class="full center-text">Pretplatite se na Telegram.</h2>
     <div class="full center-text">
       Neograničen pristup već za manje od 1,5 kn (0,2€) dnevno
