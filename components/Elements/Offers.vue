@@ -84,7 +84,7 @@
                 {{ post.opis }}
               </h4>
               <div class="newbtn">
-                {{ shop === 'interspar' ? 'Pogledaj letak' : 'Saznaj više' }}
+                {{ post.cta }}
               </div>
             </div>
           </a>
