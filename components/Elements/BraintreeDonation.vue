@@ -46,10 +46,10 @@
       >
         <h4 class="full">Način doniranja</h4>
         <div class="full flex desktop-only">
-          <label class="half" for="price">Odaberite iznos (u kn):</label>
+          <label class="half" for="price">Odaberite iznos (u €):</label>
           <label class="half">Ili upišite sami:</label>
         </div>
-        <label class="mobile-only" for="price">Odaberite iznos (u kn):</label>
+        <label class="mobile-only" for="price">Odaberite iznos (u €):</label>
         <div class="full flex donation-select">
           <div class="half flex flex-responsive column-right-pad">
             <div class="third">
@@ -146,7 +146,7 @@
           <label>Datum isteka:</label>
           <div id="expiration-date" class="hosted-field"></div>
         </div>
-        <button @click="submit">Platite {{ price }} kn</button>
+        <button @click="submit">Platite {{ price }} €</button>
       </div>
       <div
         v-show="nacinPlacanja === 'bankovna-uplata'"
@@ -155,7 +155,7 @@
         <h4 class="full">Izvršite donaciju</h4>
         <p class="small-top-margin">IBAN: HR7323600001101437160</p>
         <p>Telegram Media Grupa d.o.o.</p>
-        <p>Iznos: {{ price }},00 kn</p>
+        <p>Iznos: {{ price }},00 €</p>
         <p v-if="number">Model plaćanja: 00</p>
         <p v-if="number">Poziv na broj: {{ number }}</p>
         <p>Opis plaćanja: Donacija - {{ name }}</p>
