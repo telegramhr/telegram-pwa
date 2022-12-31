@@ -7,7 +7,6 @@
         headline="Pretplatite se i podržite naše bespoštedno novinarstvo."
       ></theader>
     </div>
-    <pretplata-xmas @trigger="setPromo"></pretplata-xmas>
     <!--<div class="full flex relative dark-mode pretplata-bf">
       <img
         src="@/assets/img/tg_black_friday_bg.jpg"

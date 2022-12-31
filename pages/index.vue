@@ -15,13 +15,15 @@
     <div class="full flex">
       <theader></theader>
     </div>
-    <!-- Pretplata first timers -->
-    <div v-show="canLogIn" class="full flex">
-      <pretplata-xmas></pretplata-xmas>
-      <div class="full mobile-side-pad mobile-only">
-        <div class="full column-bottom-border-mobile"></div>
+    <client-only>
+      <!-- Pretplata first timers -->
+      <div v-show="canLogIn" class="full flex">
+        <pretplata-first-time></pretplata-first-time>
+        <div class="full mobile-side-pad mobile-only">
+          <div class="full column-bottom-border-mobile"></div>
+        </div>
       </div>
-    </div>
+    </client-only>
     <!-- Cantha header -->
     <div class="full relative cantha-header">
       <div class="container flex relative column-top-pad column-horizontal-pad">
