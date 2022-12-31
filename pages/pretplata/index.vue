@@ -741,29 +741,25 @@ export default {
     return {
       promo_code: '',
       terms: {
-        TM0FMYURHRA3: {
+        TMJHR6Y8K4QA: {
           title: 'Telegram Mjesečna Pretplata',
-          price: 49,
+          price: 6.5,
           gtm: 'standard-monthly',
         },
-        TMXKYJUN5YN5: {
+        TMY8ORHQG44A: {
           title: 'Telegram Premium Mjesečna Pretplata',
-          price: 69,
+          price: 9.16,
           gtm: 'premium-monthly',
         },
-        TMVUCFM94OA7: {
+        TM8RZKGESM1T: {
           title: 'Telegram Godišnja Pretplata',
-          price: 468,
+          price: 62.11,
           gtm: 'standard-annual',
         },
-        TM8R9U7RK5B1: {
+        TMQDTT4IEHY0: {
           title: 'Telegram Premium Godišnja Pretplata',
-          price: 588,
+          price: 78.04,
           gtm: 'premium-annual',
-        },
-        TMBXUSHKJZZ0: {
-          title: 'Telegram Mjesečna Pretplata - Božićna akcija',
-          price: 1,
         },
       },
     }
@@ -771,42 +767,27 @@ export default {
   computed: {
     one() {
       if (process.client) {
-        if (window.tp.sandbox) {
-          return 'TMC561I3C1ZT'
-        }
-        return 'TM0FMYURHRA3'
+        return 'TMJHR6Y8K4QA'
       }
       return ''
     },
     two() {
       if (process.client) {
-        if (window.tp.sandbox) {
-          return 'TM68H8RUQ7VJ'
-        }
-        return 'TMXKYJUN5YN5'
+        return 'TMY8ORHQG44A'
       }
       return ''
     },
     three() {
       if (process.client) {
-        if (window.tp.sandbox) {
-          return 'TMA44DJRTT2A'
-        }
-        return 'TMVUCFM94OA7'
+        return 'TM8RZKGESM1T'
       }
       return ''
     },
     four() {
       if (process.client) {
-        if (window.tp.sandbox) {
-          return 'TM6MUK1A0QU6'
-        }
-        return 'TM8R9U7RK5B1'
+        return 'TMQDTT4IEHY0'
       }
       return ''
-    },
-    promo() {
-      return 'TMBXUSHKJZZ0'
     },
   },
   mounted() {
@@ -814,11 +795,10 @@ export default {
     window.fbq = window.fbq || function () {}
     window.fbq('track', 'ViewContent', {
       content_ids: [
-        'TM0FMYURHRA3',
-        'TMXKYJUN5YN5',
-        'TMVUCFM94OA7',
-        'TM8R9U7RK5B1',
-        'TMBXUSHKJZZ0',
+        'TMJHR6Y8K4QA',
+        'TMY8ORHQG44A',
+        'TM8RZKGESM1T',
+        'TMQDTT4IEHY0',
       ],
     })
     window.tp.push([
@@ -895,17 +875,17 @@ export default {
       window.fbq = window.fbq || function () {}
       window.fbq('track', 'InitiateCheckout', {
         content_ids: [termId],
-        currency: 'HRK',
+        currency: 'EUR',
         value: this.terms[termId].price,
       })
       window.tp.push([
         'init',
         () => {
           window.tp.offer.show({
-            offerId: window.tp.sandbox ? 'OFVZ3BQ00JLQ' : 'OF5JVPQYFLE1',
+            offerId: 'OF5JVPQYFLE1',
             termId,
-            templateId: window.tp.sandbox ? 'OTTXZFQ6FGFC' : 'OTXWXSOL0WWS',
-            checkoutFlowId: window.tp.sandbox ? 'CF8Q59Z3RJ5G' : 'CF65KTMVQXXX',
+            templateId: 'OTXWXSOL0WWS',
+            checkoutFlowId: 'CF65KTMVQXXX',
             promoCode: this.promo_code,
             closeOnLogout: true,
             complete: (data) => {
