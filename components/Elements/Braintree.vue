@@ -82,7 +82,7 @@
             <div id="cvv" class="hosted-field"></div>
             <label>Datum isteka</label>
             <div id="expiration-date" class="hosted-field"></div>
-            <button @click="submit">Platite {{ price }} kn</button>
+            <button @click="submit">Platite {{ price }} €</button>
           </template>
           <template v-else>
             <button @click="order">Naručite</button>

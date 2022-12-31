@@ -34,9 +34,9 @@
             <div class="full flex overtitle-parent">
               <h3 class="overtitle">Standard</h3>
             </div>
-            <h2 class="full">468kn</h2>
+            <h2 class="full">62,11€</h2>
             <h4 class="full center-text undertitle">
-              godišnja pretplata (62,11€)
+              godišnja pretplata (468kn)
             </h4>
             <div class="full pretplata-benefits">
               <p class="full animate">
@@ -70,9 +70,9 @@
             <div class="full flex overtitle-parent">
               <h3 class="overtitle">Premium</h3>
             </div>
-            <h2 class="full">588kn</h2>
+            <h2 class="full">78,04€</h2>
             <h4 class="full center-text undertitle">
-              godišnja pretplata (78,04€)
+              godišnja pretplata (588kn)
             </h4>
             <div class="full pretplata-benefits">
               <p class="full animate">
@@ -295,39 +295,31 @@ export default {
   data() {
     return {
       terms: {
-        TM6L5G5WJDIH: {
+        TM1LSJL22UJP: {
           title: 'Telegram Standard Poklon',
-          price: 468,
+          price: 62.11,
           gtm: 'standard-annual-gift',
         },
-        TMC2CGIYTVI0: {
+        TMMT1WONB6S8: {
           title: 'Telegram Premium Poklon',
-          price: 588,
+          price: 78.04,
           gtm: 'premium-annual-gift',
-        },
-        TMF58Q2TEDY0: {
-          title: 'Telegram Standard Mjesec Poklon',
-          price: 49,
-          gtm: 'standard-monthly-gift',
         },
       },
     }
   },
   computed: {
     one() {
-      return 'TM6L5G5WJDIH'
+      return 'TM1LSJL22UJP'
     },
     two() {
-      return 'TMC2CGIYTVI0'
-    },
-    three() {
-      return 'TMF58Q2TEDY0'
+      return 'TMMT1WONB6S8'
     },
   },
   mounted() {
     window.fbq = window.fbq || function () {}
     window.fbq('track', 'ViewContent', {
-      content_ids: ['TM6L5G5WJDIH', 'TMC2CGIYTVI0', 'TMF58Q2TEDY0'],
+      content_ids: ['TM1LSJL22UJP', 'TMMT1WONB6S8'],
     })
     window.tp.push([
       'addHandler',
@@ -347,14 +339,6 @@ export default {
       'article-author': this.$store.state.history.author,
       'user-type': this.$store.state.user.type,
     })
-
-    if (
-      this.$route.query.promo_code &&
-      (this.$route.query.promo_code === 'TG2022-310H2R' ||
-        this.$route.query.promo_code === 'TG2022-287H2R')
-    ) {
-      this.checkout('TMF58Q2TEDY0')
-    }
   },
   methods: {
     checkout(termId) {
@@ -389,7 +373,7 @@ export default {
       window.fbq = window.fbq || function () {}
       window.fbq('track', 'InitiateCheckout', {
         content_ids: [termId],
-        currency: 'HRK',
+        currency: 'EUR',
         value: this.terms[termId].price,
       })
       const promo = this.$route.query.promo_code
@@ -407,7 +391,7 @@ export default {
               _that.$store.dispatch('user/checkAccess')
               window.fbq('track', 'Purchase', {
                 content_ids: [termId],
-                currency: 'HRK',
+                currency: 'EUR',
                 value: this.terms[termId].price,
               })
               _that.$gtm.push({
