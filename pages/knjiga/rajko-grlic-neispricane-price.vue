@@ -12,7 +12,7 @@
         class="full flex relative center knjiga-header article-head mobile-side-pad column-full-pad"
       >
         <div class="container relative flex single-article-body">
-          <h3 class="full center-text overtitle">Telegram prednarudžba</h3>
+          <h3 class="full center-text overtitle">Telegram narudžba</h3>
           <h1 class="full center-text">Neispričane priče</h1>
           <h4 class="full center-text">
             (novo i nadopunjeno izdanje)<br />Rajko Grlić
@@ -34,10 +34,10 @@
             </div>
             <div class="full flex knjiga-features">
               <h1 class="full relative center-text">
-                <span class="faded strikethrough">179 kn</span> 119 kn
+                <span class="faded strikethrough">23,76€</span> 15,79€
               </h1>
               <h1 class="full relative center-text">
-                (<span class="faded strikethrough">23,76€</span> 15,79€) <br />
+                (<span class="faded strikethrough">179 kn</span> 119 kn) <br />
                 posebna cijena za sve pretplatnike Telegrama
               </h1>
               <h4 class="full relative center-text">
