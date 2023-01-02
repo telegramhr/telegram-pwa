@@ -113,7 +113,7 @@
                 <div class="full flex overtitle-parent">
                   <h3 class="overtitle">Standard</h3>
                 </div>
-                <h2 class="full">6,50€</h2>
+                <h2 class="full">6,49€</h2>
                 <h4 class="full center-text undertitle">Mjesečno (49kn)</h4>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
@@ -151,7 +151,7 @@
                 <div class="full flex overtitle-parent">
                   <h3 class="overtitle">Premium</h3>
                 </div>
-                <h2 class="full">9,16€</h2>
+                <h2 class="full">9,10€</h2>
                 <h4 class="full center-text undertitle">Mjesečno (69kn)</h4>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
@@ -195,9 +195,9 @@
                 <div class="full flex overtitle-parent">
                   <h3 class="overtitle">Standard</h3>
                 </div>
-                <h2 class="full">5,18€</h2>
+                <h2 class="full">5,16€</h2>
                 <h4 class="full center-text undertitle">
-                  mjesečno (39kn), za cijelu godinu 62,11€ (468kn)
+                  mjesečno (39kn), za cijelu godinu 62€ (467kn)
                 </h4>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
@@ -237,7 +237,7 @@
                 </div>
                 <h2 class="full">6,50€</h2>
                 <h4 class="full center-text undertitle">
-                  mjesečno (49kn), za cijelu godinu 78,04€ (588kn)
+                  mjesečno (49kn), za cijelu godinu 78€ (588kn)
                 </h4>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
