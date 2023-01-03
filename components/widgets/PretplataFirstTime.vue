@@ -26,7 +26,7 @@
         <div class="half center column-horizontal-pad mobile-side-pad">
           <div class="full column-left-pad flex article">
             <h2 class="full relative center-text">
-              <span class="faded strikethrough">6,59€</span> 5,16€
+              <span class="faded strikethrough">6,49€</span> 5,16€
             </h2>
             <h2 class="full relative center-text">
               (<span class="faded strikethrough">49 kn</span> 39 kn) <br />
