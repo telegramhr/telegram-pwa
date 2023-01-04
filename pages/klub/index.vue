@@ -166,7 +166,7 @@
             <div class="klub-ponuda-tile relative">
               <div class="klub-sticker center">
                 <div class="full center-text klub-sticker-amount">
-                  20<span class="klub-sticker-smaller">kn</span>
+                  3<span class="klub-sticker-smaller">EUR</span>
                 </div>
                 <div class="full center-text klub-sticker-text">popust</div>
               </div>
@@ -493,14 +493,14 @@
             <h3 class="full overtitle">Zagrebačko kazalište mladih - ZKM</h3>
             <h2 class="full">Popust na ulaznice za ZKM-ove predstave</h2>
             <h4 class="full">
-              Telegramovi pretplatnici ostvaruju 20 kuna popusta na ulaznice za
+              Telegramovi pretplatnici ostvaruju 3 eura popusta na ulaznice za
               sve predstave u ZKM-u.
             </h4>
             <div v-show="!canLogIn" class="full flex">
               <p class="full bold">Kako do popusta?</p>
               <p class="full">
                 Kako biste ostvarili svoj popust, posjetite web stranicu za
-                online kupnju ulaznica i upišite kod <b>ZKM+TELEGRAM</b>.
+                online kupnju ulaznica i upišite kod <b>ZKM-TELEGRAM-2223</b>.
               </p>
               <a
                 href="https://www.zekaem.hr/raspored/"
