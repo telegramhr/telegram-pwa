@@ -1098,6 +1098,12 @@ footer .copyright, footer .conversion-notice {
     margin-bottom: 18px;
     line-height: 1em;
 }
+.single-article-body h3, .single-article-body h4 {
+    font-size: 20px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    line-height: 1em;
+}
 .single-article article .article-meta {
     font-family: 'Barlow', sans-serif;
     font-weight: 400;
