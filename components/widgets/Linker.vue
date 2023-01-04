@@ -1,43 +1,41 @@
 <template>
-  <div>
+  <div
+    class="container flex relative block-related cantha-related standard-block stretch"
+    data-nosnippet
+  >
     <div
-      class="container flex relative block-related cantha-related standard-block stretch"
-      data-nosnippet
+      v-if="title && body"
+      class="full column-horizontal-pad column-top-pad mobile-side-pad"
     >
-      <div
-        v-if="title && body"
-        class="full column-horizontal-pad column-top-pad mobile-side-pad"
-      >
-        <div class="full cantha-separator"></div>
-      </div>
-      <h3
-        v-if="title && body"
-        class="full center-text column-full-pad subsection-title mobile-side-pad"
-      >
-        {{ title }}
-      </h3>
-      <div class="full flex mobile-side-pad">
-        <template v-if="type === 'keep-reading'">
-          <div
-            :id="`linker-${id}`"
-            class="lwdgt lwdgt-load"
-            :data-wid="id"
-            data-infinite="true"
-            data-cycles="20"
-          ></div>
-        </template>
-        <template v-else>
-          <div
-            v-if="id && body"
-            :id="'linker-' + id"
-            class="lwdgt column-full-pad"
-          >
-            <!-- eslint-disable-next-line -->
+      <div class="full cantha-separator"></div>
+    </div>
+    <h3
+      v-if="title && body"
+      class="full center-text column-full-pad subsection-title mobile-side-pad"
+    >
+      {{ title }}
+    </h3>
+    <div class="full flex mobile-side-pad">
+      <template v-if="type === 'keep-reading'">
+        <div
+          :id="`linker-${id}`"
+          class="lwdgt lwdgt-load"
+          :data-wid="id"
+          data-infinite="true"
+          data-cycles="20"
+        ></div>
+      </template>
+      <template v-else>
+        <div
+          v-if="id && body"
+          :id="'linker-' + id"
+          class="lwdgt column-full-pad"
+        >
+          <!-- eslint-disable-next-line -->
             <div v-html="body"></div>
-          </div>
-          <div :id="`linker-scripts-${id}`"></div>
-        </template>
-      </div>
+        </div>
+        <div :id="`linker-scripts-${id}`"></div>
+      </template>
     </div>
   </div>
 </template>
