@@ -1049,6 +1049,33 @@
               </div>
               <div class="full center">
                 <img
+                  src="@/assets/img/extras/klub/tg_visual_klub_vbz.jpg"
+                  aria-hidden="true"
+                />
+              </div>
+            </div>
+            <h3 class="full overtitle">V.B.Z. knjižara</h3>
+            <a href="#knjizare" @click="selected_knjizara = 'vbz'">
+              <h2 class="full">Popust na naslove u V.B.Z. knjižari</h2></a
+            >
+            <a
+              href="#knjizare"
+              class="newbtn clickable"
+              @click="selected_knjizara = 'vbz'"
+            >
+              Iskoristite ponudu
+            </a>
+          </div>
+          <div
+            class="fourth flex article klub-ponuda relative column-horizontal-pad"
+          >
+            <div class="klub-ponuda-tile relative">
+              <div class="klub-sticker center">
+                <div class="full center-text klub-sticker-amount">10%</div>
+                <div class="full center-text klub-sticker-text">popust</div>
+              </div>
+              <div class="full center">
+                <img
                   src="@/assets/img/extras/klub/tg_visual_klub_sk.jpg"
                   aria-hidden="true"
                 />
@@ -1320,6 +1347,60 @@
               <p class="full small-top-margin">
                 Možete posjetiti i jednu od knjižara Hoću knjigu i pokazati
                 svoju digitalnu pretplatničku iskaznicu, koju možete preuzeti
+                <a href="#iskaznica">ovdje.</a>
+              </p>
+            </div>
+            <div v-show="canLogIn" class="full flex">
+              <p class="full bold">
+                Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
+                pretplatnicima.
+              </p>
+              <app-link to="/pretplata" class="newbtn huge-newbtn"
+                >Pretplatite se</app-link
+              >
+              <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+                >Prijava</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        v-if="selected_knjizara === 'vbz'"
+        id="vbz"
+        class="full flex relative klub-expanded"
+      >
+        <div class="container flex relative stretch mobile-side-pad">
+          <div class="close-klub-expand" @click="selected_knjizara = ''">x</div>
+          <div class="third center flex-responsive column-left-pad">
+            <img
+              src="@/assets/img/extras/klub/tg_visual_klub_vbz.jpg"
+              aria-hidden="true"
+            />
+          </div>
+          <div class="two-thirds center flex-responsive article">
+            <h3 class="full overtitle">V.B.Z. knjižara</h3>
+            <h2 class="full">Popust na naslove u V.B.Z. knjižari</h2>
+            <h4 class="full">
+              Telegramovi pretplatnici ostvaruju 10% popusta na knjige u
+              knjižari V.B.Z.
+            </h4>
+            <div v-show="!canLogIn" class="full flex">
+              <p class="full bold">Kako do popusta?</p>
+              <p class="full">
+                Kako biste ostvarili svoj popust, posjetite link knjige koju
+                želite kupiti i pri odabiru načina plaćanja upišite kod
+                <b>5vptbds9</b>.
+              </p>
+              <a
+                href="https://www.vbz.hr/"
+                target="_blank"
+                class="newbtn huge-newbtn"
+                >Kupite ovdje</a
+              >
+              <p class="full small-top-margin">
+                Možete posjetiti i jednu od knjižara V.B.Z. -a i pokazati svoju
+                digitalnu pretplatničku iskaznicu, koju možete preuzeti
                 <a href="#iskaznica">ovdje.</a>
               </p>
             </div>
