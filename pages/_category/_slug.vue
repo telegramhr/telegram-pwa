@@ -27,21 +27,6 @@
           </div>
         </div>
       </div>
-      <client-only>
-        <div
-          v-if="!$mobile && $route.name === 'category-slug'"
-          class="full center header-billboard"
-        >
-          <div v-if="!$mobile" class="container wallpaper-banners animate">
-            <div class="wallpaper-left">
-              <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
-            </div>
-            <div class="wallpaper-right">
-              <ad-unit id="telegram_dekstop_wallpaper_right"></ad-unit>
-            </div>
-          </div>
-        </div>
-      </client-only>
       <div
         v-if="post.type === 'premium'"
         class="full premium-article-head relative"
@@ -248,28 +233,7 @@
                 </div>
               </h5>
             </div>
-            <div class="full relative center single-top-banner">
-              <ad-unit
-                id="telegram_desktop_billboard_v1"
-                :disable="
-                  post.disable_ads.includes('all') ||
-                  (post.category_slug &&
-                    post.category_slug.includes('openspace'))
-                "
-              ></ad-unit>
-            </div>
             <div class="full relative single-article-body">
-              <client-only>
-                <mini-pretplata-new
-                  v-if="
-                    canLogIn &&
-                    !(
-                      post.category_slug.includes('promo') ||
-                      post.category_slug.includes('superone')
-                    )
-                  "
-                ></mini-pretplata-new>
-              </client-only>
               <!-- eslint-disable vue/no-v-html -->
               <div
                 id="article-content"
@@ -288,10 +252,6 @@
                 >
                   <gallery :gallery="gallery"></gallery>
                 </portal>
-              </client-only>
-              <client-only>
-                <intext></intext>
-                <linker type="mobile"></linker>
               </client-only>
               <!-- Article footer -->
               <div
@@ -351,49 +311,9 @@
                 </div>
               </div>
             </div>
-            <client-only>
-              <div
-                v-if="!hasPremium && !exclude"
-                class="full relative"
-                style="order: 3"
-              >
-                <offers></offers>
-              </div>
-            </client-only>
-            <!--<div class="full relative single-article-body" style="order: 4">
-              <div
-                class="full relative single-article-footer flex column-top-pad"
-              >
-                <mini-pretplata
-                  v-show="!$store.state.user.access"
-                ></mini-pretplata>
-              </div>
-            </div>-->
           </article>
         </div>
         <client-only>
-          <div v-if="!hasPremium" class="full">
-            <linker type="category"></linker>
-          </div>
-          <div
-            v-if="
-              !hasPremium &&
-              hasLinker &&
-              !post.category_slug.includes('superone')
-            "
-            class="container center"
-          >
-            <div
-              data-contentexchange-widget="k7dWfvWSYDqoSZvwu"
-              data-contentexchange-source="ughr"
-            ></div>
-          </div>
-          <div v-if="!hasPremium" class="full mobile-only">
-            <linker type="footer"></linker>
-          </div>
-          <div v-if="!hasPremium" class="container flex center">
-            <linker type="shop"></linker>
-          </div>
           <keep-reading
             v-if="post.category_slug && post.category_slug !== 'promo'"
             :category="post.category_slug"
@@ -401,7 +321,6 @@
             :permalink="post.permalink"
           ></keep-reading>
         </client-only>
-        <ticker></ticker>
       </div>
     </template>
     <template v-if="$fetchState.error || post.title === 'Objava ne postoji'">
@@ -487,18 +406,18 @@ export default {
     if (!post) {
       if (this.$route.params.category === 'preview') {
         post = await this.$axios.$get(
-          `${this.$config.baseURL}/preview/${this.$route.params.slug}`
+          `${this.$config.baseURL}preview/${this.$route.params.slug}`
         )
       } else {
         post = await this.$axios.$get(
-          `${this.$config.baseURL}/single/${this.$route.params.slug}?pwa=1`
+          `${this.$config.baseURL}single/${this.$route.params.slug}?pwa=1`
         )
       }
     }
     if (post && post.id) {
       this.post = post
       await this.$axios
-        .get(`${this.$config.baseURL}/related/${post.id}`)
+        .get(`${this.$config.baseURL}related/${post.id}`)
         .then((res) => {
           if (Array.isArray(res.data)) {
             this.$store.dispatch('posts/setPosts', res.data, { root: true })
@@ -571,7 +490,6 @@ export default {
         quiz: null,
       },
       related_posts: [],
-      hasLinker: false,
     }
   },
   computed: {
@@ -757,75 +675,9 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.getPost()
-      window.addEventListener('scroll', this.handleScroll)
     })
   },
-  beforeDestroy() {
-    window.removeEventListener('scroll', this.handleScroll)
-  },
   methods: {
-    handleScroll() {
-      const walls = document.getElementsByClassName('wallpaper-banners')
-      const bill =
-        document
-          .getElementById('telegram_desktop_billboard_v1')
-          .getBoundingClientRect().top - 10
-      if (bill < 0) {
-        walls.forEach((item) => {
-          item.classList.add('sticky-single-wallpaper')
-        })
-      } else {
-        walls.forEach((item) => {
-          item.classList.remove('sticky-single-wallpaper')
-        })
-      }
-    },
-    loadAds() {
-      if (
-        this.post.category_slug &&
-        this.post.category_slug.includes('openspace')
-      ) {
-        return
-      }
-      this.$store.dispatch('ads/initAds', {
-        route: this.$route,
-        options: this.post.disable_ads,
-        tags: this.post.tags,
-      })
-      if (
-        !this.post.disable_ads.includes('all') &&
-        !this.post.disable_ads.includes('nepromo')
-      ) {
-        this.loadMox()
-      }
-      if (
-        !this.post.disable_ads.includes('all') &&
-        !this.post.disable_ads.includes('midas') &&
-        !this.post.disable_ads.includes('nepromo')
-      ) {
-        this.$linker.reloadLinker()
-        this.hasLinker = true
-      }
-    },
-    loadMox() {
-      if (this.$store.state.user.access) {
-        return
-      }
-      const container = document.querySelectorAll(
-        '[data-id=_mwayss-325b7d752b361c5458420729057fe2ff]'
-      )[0]
-      if (container) {
-        container.setAttribute(
-          'id',
-          container.getAttribute('data-id') + new Date().getTime()
-        )
-        container.removeAttribute('data-id')
-        const scriptTag = document.createElement('script')
-        scriptTag.src =
-          'https://ad.mox.tv/mox/mwayss_invocation.min.js?pzoneid=5182&height=405&width=720&tld=telegram.hr&ctype=div'
-        container.parentNode.insertBefore(scriptTag, container)
-      }
-    },
     loadPiano() {
       const tp = window.tp || []
       if (this.post.tags.length) {
@@ -892,8 +744,6 @@ export default {
           this.showQuiz = true
         }
         this.$store.commit('history/setData', this.post)
-        // this.loadPiano()
-        // this.loadAds()
         this.triggerAnalytics()
         if (typeof FB !== 'undefined') {
           FB.XFBML.parse()
@@ -986,35 +836,6 @@ export default {
         nonce: 'LFZOW4mi',
       },
     ]
-    if (!this.$store.getters['user/hasPremium']) {
-      script = [
-        ...script,
-        {
-          vmid: 'linker-slider',
-          hid: 'linker-slider',
-          type: 'text/javascript',
-          src: 'https://linker.hr/widget/slider/splide.min.js',
-          async: true,
-        },
-        {
-          hid: 'contentexchange',
-          src: 'https://ughr.contentexchange.me/static/tracker.js',
-          async: true,
-        },
-      ]
-      if (!this.post.category_slug.includes('superone')) {
-        script = [
-          ...script,
-          {
-            vmid: 'linker-infinite',
-            hid: 'linker-infinite',
-            type: 'text/javascript',
-            src: 'https://linker.hr/lw-inf.js',
-            async: true,
-          },
-        ]
-      }
-    }
     // charts and tables
     /* const wdtStyles = [
       'bootstrap/wpdatatables-bootstrap.min.css',

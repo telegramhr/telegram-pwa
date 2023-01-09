@@ -459,34 +459,53 @@
         <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon
       ></a>
     </div>
-    <div class="full mobile-app-stickynav flex">
-      <app-link to="/" class="fourth center homepage-appnav">
-        <div class="full center">
-          <font-awesome-icon :icon="['fad', 'house']"></font-awesome-icon>
-        </div>
-        <span>Naslovnica</span>
-      </app-link>
-      <app-link to="/najnovije" class="fourth center najnovije-appnav">
-        <div class="full center">
-          <font-awesome-icon :icon="['fad', 'newspaper']"></font-awesome-icon>
-        </div>
-        <span>Najnovije</span>
-      </app-link>
-      <app-link to="/komentari" class="fourth center komentari-appnav">
-        <div class="full center">
-          <font-awesome-icon
-            :icon="['fad', 'message-quote']"
-          ></font-awesome-icon>
-        </div>
-        <span>Komentari</span>
-      </app-link>
-      <app-link to="/velike-price" class="fourth center velike-price-appnav">
-        <div class="full center">
-          <font-awesome-icon :icon="['fad', 'lightbulb']"></font-awesome-icon>
-        </div>
-        <span>Velike priče</span>
-      </app-link>
-    </div>
+    <client-only>
+      <div class="full mobile-app-stickynav flex">
+        <a
+          v-if="checkHistory"
+          href="#"
+          class="fourth center homepage-appnav"
+          @click.prevent="$router.back()"
+        >
+          <div class="full center">
+            <font-awesome-icon
+              :icon="['fad', 'arrow-left']"
+            ></font-awesome-icon>
+          </div>
+          <span>Nazad</span>
+        </a>
+        <app-link to="/" class="fourth center homepage-appnav">
+          <div class="full center">
+            <font-awesome-icon :icon="['fad', 'house']"></font-awesome-icon>
+          </div>
+          <span>Naslovnica</span>
+        </app-link>
+        <app-link
+          v-if="!checkHistory"
+          to="/najnovije"
+          class="fourth center najnovije-appnav"
+        >
+          <div class="full center">
+            <font-awesome-icon :icon="['fad', 'newspaper']"></font-awesome-icon>
+          </div>
+          <span>Najnovije</span>
+        </app-link>
+        <app-link to="/komentari" class="fourth center komentari-appnav">
+          <div class="full center">
+            <font-awesome-icon
+              :icon="['fad', 'message-quote']"
+            ></font-awesome-icon>
+          </div>
+          <span>Komentari</span>
+        </app-link>
+        <app-link to="/velike-price" class="fourth center velike-price-appnav">
+          <div class="full center">
+            <font-awesome-icon :icon="['fad', 'lightbulb']"></font-awesome-icon>
+          </div>
+          <span>Velike priče</span>
+        </app-link>
+      </div>
+    </client-only>
     <!-- Mobile only fixed TG multiverse nav -->
     <div
       class="container mobile-only mobile-sticky-nav multiverse-mobile-nav flex mobile-side-pad"
@@ -758,6 +777,12 @@ export default {
         this.$route.path.includes('moj-racun') ||
         this.$route.path.includes('pretplata')
       )
+    },
+    checkHistory() {
+      if (process.client) {
+        return window.history.length
+      }
+      return false
     },
   },
   mounted() {

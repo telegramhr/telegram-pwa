@@ -1,29 +1,9 @@
 <template>
   <div class="main-container flex homepage">
-    <!-- Wallpapers -->
-    <client-only>
-      <div v-if="!$mobile" class="container wallpaper-banners animate">
-        <div class="wallpaper-left">
-          <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
-        </div>
-        <div class="wallpaper-right">
-          <ad-unit id="telegram_dekstop_wallpaper_right"></ad-unit>
-        </div>
-      </div>
-    </client-only>
     <!-- TG Multiverse Header -->
     <div class="full flex">
       <theader></theader>
     </div>
-    <client-only>
-      <!-- Pretplata first timers -->
-      <div v-show="canLogIn" class="full flex">
-        <pretplata-first-time></pretplata-first-time>
-        <div class="full mobile-side-pad mobile-only">
-          <div class="full column-bottom-border-mobile"></div>
-        </div>
-      </div>
-    </client-only>
     <!-- Cantha header -->
     <div class="full relative cantha-header">
       <div class="container flex relative column-top-pad column-horizontal-pad">
@@ -120,24 +100,6 @@
     <!-- Intro block: G1 + comments -->
     <div class="full relative">
       <div class="container flex relative stretch cantha-intro-block">
-        <!-- Billboard 1 -->
-
-        <!--<client-only>
-        <client-only>
-          <div v-show="!hasPremium" class="full relative m-order-2">
-            <div class="full flex column-horizontal-pad desktop-only">
-              <div class="full flex relative column-bottom-border"></div>
-            </div>
-            <div class="full center relative">
-              <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
-            </div>
-          </div>
-        <div
-          class="full flex column-horizontal-pad column-bottom-pad desktop-only"
-        >
-          <div class="full flex relative column-bottom-border"></div>
-        </div>
-        </client-only>-->
         <!-- breaking -->
         <h2
           v-show="$store.state.breaking.on2"
@@ -151,7 +113,6 @@
             {{ $store.state.breaking.title2 }}</app-link
           >
         </h2>
-        -->
         <div
           class="full flex column-horizontal-pad column-bottom-pad desktop-only"
         >
@@ -182,7 +143,6 @@
           </div>
           <commentary type="tg"></commentary>
         </div>
-        -->
         <div class="full column-full-pad desktop-only">
           <div class="full column-top-border"></div>
         </div>
@@ -206,10 +166,6 @@
           >
             <medium :post="post"></medium>
           </div>
-        </div>
-        <!-- Billboard 2 -->
-        <div class="full center m-order-6">
-          <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
         </div>
         <!-- Teme -->
         <div class="full relative m-order-8 mobile-side-pad">
@@ -325,12 +281,6 @@
                 <standard :post="post"></standard>
               </div>
             </div>
-          </div>
-        </div>
-        <!-- Billboard 3 -->
-        <div class="full relative cantha-billboard3 m-order-10">
-          <div class="full center">
-            <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
           </div>
         </div>
       </div>
@@ -629,22 +579,10 @@
         <pitanje-zdravlja></pitanje-zdravlja>
       </client-only>
     </div>
-    <!-- Billboard 4 -->
-    <div class="full relative">
-      <div class="full center">
-        <ad-unit id="telegram_desktop_billboard_v4"></ad-unit>
-      </div>
-    </div>
     <!-- Openspace -->
     <div class="full relative">
       <client-only>
         <os-homepage></os-homepage>
-      </client-only>
-    </div>
-    <!-- Linker -->
-    <div class="full mobile-side-pad relative">
-      <client-only>
-        <linker type="naslovnica"></linker>
       </client-only>
     </div>
     <!-- Rubrike -->
@@ -661,11 +599,6 @@
             <category slug="velike-price"></category>
           </client-only>
         </div>
-      </div>
-    </div>
-    <div class="full relative">
-      <div class="container flex center">
-        <div id="linker-526" class="lwdgt" data-wid="526"></div>
       </div>
     </div>
     <tfooter></tfooter>
@@ -743,10 +676,6 @@ export default {
           },
         ])
       }
-      this.$store.dispatch('ads/initAds', { route: this.$route })
-      if (!this.$store.state.user.access) {
-        this.$linker.reloadLinker()
-      }
     },
     loadMore() {
       this.loading = true
@@ -764,13 +693,6 @@ export default {
           hid: 'schema-ld',
           type: 'application/ld+json',
           json: this.jsonld,
-        },
-        {
-          vmid: 'linker-slider',
-          hid: 'linker-slider',
-          type: 'text/javascript',
-          src: 'https://linker.hr/widget/slider/splide.min.js',
-          async: true,
         },
       ],
     }

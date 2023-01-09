@@ -21,11 +21,7 @@ export default {
   name: 'ShopingGuide',
   async fetch() {
     this.posts = await this.$axios
-<<<<<<< HEAD
-      .get(`${this.$config.baseURL}shop-guide/related/1182196`)
-=======
-      .get('/api/shop-guide/related/1347241')
->>>>>>> master
+      .get(`${this.$config.baseURL}shop-guide/related/1347241`)
       .then((res) => {
         const shuffled = res.data.sort(() => 0.5 - Math.random())
         return shuffled.slice(0, 4)

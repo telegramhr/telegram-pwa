@@ -15,7 +15,7 @@
       </client-only>
     </div>
     <!-- Wallpapers -->
-    <div class="full relative">
+    <!--<div class="full relative">
       <client-only>
         <div v-if="!$mobile" class="container wallpaper-banners">
           <div class="wallpaper-left">
@@ -26,7 +26,7 @@
           </div>
         </div>
       </client-only>
-    </div>
+    </div>-->
     <!-- Category header -->
     <div class="full flex relative">
       <div class="container flex mobile-side-pad relative">

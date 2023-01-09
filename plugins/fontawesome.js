@@ -24,6 +24,7 @@ import {
   faMessageQuote,
   faNewspaper,
   faLightbulb,
+  faArrowLeft,
 } from '@fortawesome/pro-duotone-svg-icons'
 
 import {
@@ -88,7 +89,8 @@ library.add(
   faHouse,
   faMessageQuote,
   faNewspaper,
-  faLightbulb
+  faLightbulb,
+  faArrowLeft
 )
 
 // Register the component globally
