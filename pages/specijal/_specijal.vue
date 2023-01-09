@@ -27,6 +27,23 @@
         </div>
       </section>
     </div>
+    <!-- Read more widget -->
+    <div class="full flex relative">
+      <div class="container flex relative column-full-pad">
+        <div class="full center relative clickable" @click="loadMore">
+          <div v-show="!loading" class="newbtn altbtn animate">
+            Učitaj još članaka
+          </div>
+          <div v-show="loading" class="full center cool-loader">
+            <div class="loader-square">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <tfooter></tfooter>
   </div>
 </template>
@@ -66,19 +83,18 @@ export default {
       morePosts: [],
       page: 2,
       hasMore: true,
+      loading: false,
     }
   },
   mounted() {
     this.$nextTick(() => {
       if (this.post.tag) {
-        this.$axios
-          .get('/api/tag/' + this.post.tag + '/special')
-          .then((res) => {
-            this.posts = res.data.posts
-            if (this.posts.length < 9) {
-              this.hasMore = false
-            }
-          })
+        this.$axios.get('/api/tag/' + this.post.tag).then((res) => {
+          this.posts = res.data.posts
+          if (this.posts.length < 9) {
+            this.hasMore = false
+          }
+        })
       }
     })
   },
@@ -88,7 +104,7 @@ export default {
       this.$axios
         .get('/api/tag/' + this.post.tag + '/page/' + this.page)
         .then((res) => {
-          this.morePosts = [...this.morePosts, ...res.data.posts]
+          this.posts = [...this.posts, ...res.data.posts]
           this.page++
           this.loading = false
           if (res.data.posts < 9) {
