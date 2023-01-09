@@ -1,13 +1,14 @@
 <template>
   <div
+    v-if="posts.length && posts[0].link"
     class="container cantha-small-block flex relative native-block offers-widget column-top-pad stretch mobile-side-pad"
   >
     <div class="full column-horizontal-pad">
       <div class="full cantha-separator"></div>
     </div>
     <h3 class="full center-text column-full-pad subsection-title">
-      <div class="full center spar-line">
-        <div class="flex">
+      <div v-if="shop === 'interspar'" class="full center spar-line">
+        <div class="flex center">
           <img
             src="@/assets/img/extras/partner_logos/spar.svg"
             alt="Spar logo"
@@ -28,6 +29,19 @@
           />
         </div>
       </div>
+      <div v-if="shop === 'pevex'" class="full center pevex-line">
+        <div class="flex">
+          <img
+            src="@/assets/img/extras/partner_logos/pevex.webp"
+            alt="Pevex logo"
+          />
+          <img
+            src="@/assets/img/extras/partner_logos/pevex.webp"
+            class="dark-mode-only"
+            alt="Pevex logo"
+          />
+        </div>
+      </div>
     </h3>
     <div class="full flex stretch column-bottom-pad gallery-content">
       <VueSlickCarousel
@@ -36,8 +50,13 @@
         v-bind="slider_settings"
         style="display: block; width: 100%"
       >
-        <div v-for="post in posts" :key="post.title" class="offer-slide">
+        <div
+          v-for="(post, index) in posts"
+          :key="post.naslov"
+          class="offer-slide"
+        >
           <a
+            :id="index === 0 ? 'letak' : 'slide-' + index"
             :href="post.link"
             target="_blank"
             rel="sponsored"
@@ -45,11 +64,17 @@
             role="article"
             @click="trackClick"
           >
-            <img :src="post.slika" loading="lazy" />
+            <img
+              :src="post.slika"
+              loading="lazy"
+              :alt="post.naslov"
+              width="400"
+              height="400"
+            />
             <div class="full flex article-pad">
               <h2 class="full">{{ post.naslov }}</h2>
               <h3 v-if="post.cijena" class="full overtitle">
-                {{ post.cijena }} ({{ post.cijena_euro }})
+                {{ post.cijena }} ({{ post.cijena_euro }})<br />
                 <span v-if="post.stara_cijena" class="strikethrough-price">
                   {{ post.stara_cijena }} ({{ post.stara_cijena_euro }})
                 </span>
@@ -58,7 +83,9 @@
               <h4 class="full">
                 {{ post.opis }}
               </h4>
-              <div class="newbtn">Pogledaj letak</div>
+              <div class="newbtn">
+                {{ post.cta }}
+              </div>
             </div>
           </a>
         </div>
@@ -89,6 +116,13 @@
 <script>
 export default {
   name: 'Partners',
+  props: {
+    shop: {
+      type: String,
+      required: false,
+      default: 'interspar',
+    },
+  },
   data() {
     return {
       posts: [],
@@ -127,7 +161,7 @@ export default {
     this.getPosts()
     this.$gtm.push({
       event: 'webshop-widget',
-      'webshop-category': 'interspar',
+      'webshop-category': this.shop,
       'webshop-action': 'view',
       'webshop-label': 'impression',
       'webshop-value': 1,
@@ -137,7 +171,7 @@ export default {
     trackClick() {
       this.$gtm.push({
         event: 'webshop-widget',
-        'webshop-category': 'interspar',
+        'webshop-category': this.shop,
         'webshop-action': 'click',
         'webshop-label': 'click',
         'webshop-value': 1,
@@ -146,9 +180,46 @@ export default {
     async getPosts() {
       const preview = this.$route.query.webshop ? this.$route.query.webshop : ''
       this.posts = await this.$axios.$get(
-        `/api/promos/webshop?webshop=${preview}`
+        `/api/promos/webshop?shop=${this.shop}&webshop=${preview}`
       )
     },
   },
 }
 </script>
+
+<style>
+.spar-line {
+  background-color: #006431;
+}
+
+.pevex-line {
+  background-color: #00ab4e;
+}
+
+.spar-line > div {
+  padding-left: 7px;
+  background-color: #fcf1e7;
+  width: 468px;
+}
+
+.pevex-line > div {
+  padding: 10px;
+}
+
+.contrast-mode .spar-line > div {
+  background-color: white;
+}
+.dark-mode .spar-line > div {
+  background-color: #212121;
+}
+
+h3.subsection-title .pevex-line img {
+  height: 14px;
+  bottom: 0px;
+}
+
+h3.subsection-title .spar-line img {
+  height: 30px;
+  bottom: 0px;
+}
+</style>

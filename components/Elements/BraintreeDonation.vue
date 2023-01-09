@@ -46,10 +46,10 @@
       >
         <h4 class="full">Način doniranja</h4>
         <div class="full flex desktop-only">
-          <label class="half" for="price">Odaberite iznos (u kn):</label>
+          <label class="half" for="price">Odaberite iznos (u €):</label>
           <label class="half">Ili upišite sami:</label>
         </div>
-        <label class="mobile-only" for="price">Odaberite iznos (u kn):</label>
+        <label class="mobile-only" for="price">Odaberite iznos (u €):</label>
         <div class="full flex donation-select">
           <div class="half flex flex-responsive column-right-pad">
             <div class="third">
@@ -146,17 +146,21 @@
           <label>Datum isteka:</label>
           <div id="expiration-date" class="hosted-field"></div>
         </div>
-        <button @click="submit">Platite {{ price }} kn</button>
+        <button @click="submit">Platite {{ price }} €</button>
       </div>
       <div
         v-show="nacinPlacanja === 'bankovna-uplata'"
-        class="third flex-responsive column-horizontal-pad"
+        class="third flex-responsive column-horizontal-pad contains-code-image"
       >
         <h4 class="full">Izvršite donaciju</h4>
-        <p class="small-top-margin">IBAN: HR 12 3456789</p>
+        <p class="small-top-margin">IBAN: HR7323600001101437160</p>
         <p>Telegram Media Grupa d.o.o.</p>
-        <p>Iznos: {{ price }},00 kn</p>
-        <p>Model plaćanja: 00 11</p>
+        <p>Iznos: {{ price }},00 €</p>
+        <p v-if="number">Model plaćanja: 00</p>
+        <p v-if="number">Poziv na broj: {{ number }}</p>
+        <p>Opis plaćanja: Donacija - {{ name }}</p>
+        <p v-if="code"><img :src="'data:image/png;base64,' + code" /></p>
+        <button @click="submitBank">Generiraj kod za plaćanje</button>
       </div>
     </div>
   </div>
@@ -167,13 +171,6 @@ import braintree from 'braintree-web'
 
 export default {
   name: 'Braintree',
-  props: {
-    price: {
-      required: true,
-      type: Number,
-      default: 100,
-    },
-  },
   data() {
     return {
       access: {},
@@ -183,13 +180,16 @@ export default {
         this.$store.state.user.first_name +
         ' ' +
         this.$store.state.user.last_name,
-      email: '',
+      email: this.$store.state.user.email,
       note: '',
       nacinPlacanja: 'kreditna-kartica',
       token: '',
       deviceData: null,
       hostedInstance: null,
       threeDS: null,
+      number: false,
+      code: false,
+      price: 100,
     }
   },
   mounted() {
@@ -198,6 +198,30 @@ export default {
     }
   },
   methods: {
+    submitBank() {
+      this.$axios
+        .get('/pretplate/sanctum/csrf-cookie', {
+          withCredentials: true,
+        })
+        .then(() => {
+          this.$axios
+            .post(
+              '/pretplate/donation',
+              {
+                name: this.name,
+                email: this.email,
+                note: this.note,
+                amount: this.price,
+                type: 'bank',
+              },
+              { withCredentials: true }
+            )
+            .then((res) => {
+              this.number = res.data.number
+              this.code = res.data.code
+            })
+        })
+    },
     getToken() {
       if (this.price) {
         this.$axios.get('/pretplate/braintree/client/1').then((res) => {
@@ -229,9 +253,6 @@ export default {
                     number: {
                       selector: '#credit-card',
                       placeholder: '1111 1111 1111 1111',
-                      supportedCardBrands: {
-                        'diners-club': false,
-                      },
                     },
                     cvv: {
                       selector: '#cvv',
@@ -256,9 +277,6 @@ export default {
               this.hostedInstance = instances[0]
               this.threeDS = instances[1]
               this.deviceData = instances[2].deviceData
-            })
-            .catch((err) => {
-              console.error(err)
             })
         })
       }
@@ -295,7 +313,6 @@ export default {
         })
         .then((payload) => {
           if (!payload.liabilityShifted) {
-            console.log('Liability did not shift', payload)
             this.error =
               '3DS autorizacija kartice nije prošla. Probajte ponovo.'
           } else {
@@ -322,25 +339,16 @@ export default {
         .then(() => {
           this.$axios
             .post(
-              '/pretplate/order',
+              '/pretplate/donation',
               {
-                book: this.book,
                 name: this.name,
-                email: this.$store.state.user.email,
+                email: this.email,
                 uid: this.$store.state.user.uid,
-                shipping: {
-                  name: this.name,
-                  address: this.address,
-                  address2: this.address2,
-                  city: this.city,
-                  country: this.country,
-                  postal_code: this.postal_code,
-                  note: this.note,
-                },
-                billing: false,
                 nonce: this.nonce,
                 amount: this.price,
                 deviceData: this.deviceData,
+                note: this.note,
+                type: 'credit',
               },
               { withCredentials: true }
             )

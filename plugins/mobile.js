@@ -1,7 +1,7 @@
 export default ({ app, req, store }, inject) => {
   const linker = {
     reloadLinker() {
-      const lwdgtDivs = document.getElementsByClassName('lwdgt')
+      const lwdgtDivs = document.getElementsByClassName('lwdgt-load')
       for (let i = 0; i < lwdgtDivs.length; i++) {
         this.processLinker(lwdgtDivs[i].getAttribute('data-wid'))
       }

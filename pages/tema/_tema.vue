@@ -195,7 +195,7 @@ export default {
   name: 'TemaIndex',
   async fetch() {
     await this.$axios
-      .get(`${this.$config.baseURL}tag/${this.$route.params.slug}`)
+      .get(`${this.$config.baseURL}tag/${this.$route.params.tema}`)
       .then((res) => {
         this.posts = res.data.posts
         this.category = res.data.tag
@@ -234,7 +234,7 @@ export default {
       this.loading = true
       this.$axios
         .get(
-          `${this.$config.baseURL}tag/${this.$route.params.slug}/page/${this.page}`
+          `${this.$config.baseURL}tag/${this.$route.params.tema}/page/${this.page}`
         )
         .then((res) => {
           this.posts = [...this.posts, ...res.data.posts]
@@ -244,9 +244,6 @@ export default {
             this.hasMore = false
           }
         })
-        .catch(() => {
-          // TODO: error logging
-        })
     },
   },
   head() {
@@ -254,6 +251,10 @@ export default {
       title: this.cat,
       titleTemplate: 'Više o temi %s | Telegram.hr',
       meta: [
+        {
+          name: 'robots',
+          content: 'noarchive, nositelinkssearchbox, nosnippet',
+        },
         {
           hid: 'og:type',
           name: 'og:type',

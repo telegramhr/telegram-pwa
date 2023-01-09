@@ -21,7 +21,9 @@
         <div
           class="two-thirds flex-responsive flex column-horizontal-pad column-right-border mobile-side-pad"
         >
-          <featured v-for="i in [0, 1, 2, 3]" :key="i" :post="posts[i]" />
+          <template v-for="i in [0, 1, 2, 3]">
+            <featured v-if="posts[i]" :key="i" :post="posts[i]" />
+          </template>
         </div>
         <div class="full flex mobile-only">
           <newsletter></newsletter>
@@ -29,7 +31,9 @@
         <div
           class="third flex-responsive column-horizontal-pad flex mobile-side-pad"
         >
-          <standard v-for="i in [4, 5, 6, 7, 8]" :key="i" :post="posts[i]" />
+          <template v-for="i in [4, 5, 6, 7, 8]">
+            <standard v-if="posts[i]" :key="i" :post="posts[i]" />
+          </template>
         </div>
       </section>
       <section
@@ -88,9 +92,6 @@ export default {
           this.hasMore = false
         }
       })
-      .catch(() => {
-        // TODO: error logging
-      })
   },
   data() {
     return {
@@ -124,6 +125,18 @@ export default {
           // TODO: error logging
         })
     },
+  },
+  head() {
+    return {
+      title: `Traži: ${this.$route.params.search}`,
+      meta: [
+        {
+          name: 'robots',
+          content:
+            'noindex, nofollow, noarchive, nositelinkssearchbox, nosnippet',
+        },
+      ],
+    }
   },
 }
 </script>

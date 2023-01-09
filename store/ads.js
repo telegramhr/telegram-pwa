@@ -4,17 +4,16 @@ export const state = () => ({
   prefix: '/1092744/telegram/',
   units: {
     telegram_desktop_billboard_v1: {
-      upc: {
-        desktop: 12,
-        mobile: 12,
-      },
+      upc: false,
       mobile: [
+        [1, 1],
         [300, 50],
         [300, 100],
         [300, 250],
         [320, 50],
       ],
       desktop: [
+        [1, 1],
         [970, 250],
         [970, 500],
         [1000, 250],
@@ -26,21 +25,21 @@ export const state = () => ({
         'index',
         'category',
         'category-slug',
+        'super1',
+        'super1-category',
         'nesto-slug',
         'fotogalerije-category',
         'fotogalerije-category-slug',
         'category',
         'search',
-        'author-slug',
-        'tema-slug',
+        'autor-autor',
+        'tema-tema',
+        'super1-category-slug',
       ],
     },
     telegram_desktop_billboard_v2: {
-      upc: {
-        desktop: 12,
-        mobile: 12,
-      },
-      routes: ['index'],
+      upc: false,
+      routes: ['index', 'category', 'super1', 'super1-category'],
       mobile: [
         [1, 1],
         [300, 50],
@@ -152,11 +151,8 @@ export const state = () => ({
       },
     },
     telegram_desktop_billboard_v3: {
-      upc: {
-        desktop: 12,
-        mobile: 12,
-      },
-      routes: ['index'],
+      upc: false,
+      routes: ['index', 'category', 'super1', 'super1-category'],
       mobile: [
         [1, 1],
         [300, 50],
@@ -261,11 +257,8 @@ export const state = () => ({
       },
     },
     telegram_desktop_billboard_v4: {
-      upc: {
-        desktop: 12,
-        mobile: 12,
-      },
-      routes: ['index'],
+      upc: false,
+      routes: ['index', 'super1', 'category', 'super1-category'],
       mobile: [
         [1, 1],
         [300, 50],
@@ -377,62 +370,61 @@ export const state = () => ({
       },
     },
     telegram_desktop_wallpaper_left: {
-      upc: {
-        desktop: 2,
-        mobile: 36,
-      },
+      upc: 36,
       desktop: [
         [1, 1],
         [300, 900],
         [200, 900],
         [340, 1050],
+        [350, 1080],
       ],
       mobile: false,
       routes: [
         'index',
         'category',
         'category-slug',
+        'super1',
+        'super1-category',
+        'super1-category-slug',
         'nesto-slug',
         'fotogalerije-category',
         'fotogalerije-category-slug',
         'category',
         'search',
-        'author-slug',
-        'tema-slug',
+        'autor-autor',
+        'tema-tema',
       ],
     },
     telegram_dekstop_wallpaper_right: {
-      upc: {
-        desktop: 36,
-        mobile: 36,
-      },
+      upc: 36,
       desktop: [
         [1, 1],
         [301, 901],
         [201, 901],
         [341, 1051],
+        [351, 1081],
       ],
       mobile: false,
       routes: [
         'index',
         'category',
         'category-slug',
+        'super1',
+        'super1-category',
+        'super1-category-slug',
         'nesto-slug',
         'nesto-slug',
         'fotogalerije-category',
         'fotogalerije-category-slug',
         'category',
         'search',
-        'author-slug',
-        'tema-slug',
+        'autor-autor',
+        'tema-tema',
       ],
     },
     telegram_desktop_intext_v1: {
-      upc: {
-        desktop: 14,
-        mobile: 14,
-      },
-      routes: ['category-slug', 'nesto-slug'],
+      upc: false,
+      routes: ['category-slug', 'nesto-slug', 'super1-category-slug'],
       desktop: [
         [1, 1],
         [660, 350],
@@ -455,11 +447,8 @@ export const state = () => ({
       ],
     },
     telegram_desktop_intext_v2: {
-      upc: {
-        desktop: 10,
-        mobile: 10,
-      },
-      routes: ['category-slug', 'nesto-slug'],
+      upc: false,
+      routes: ['category-slug', 'nesto-slug', 'super1-category-slug'],
       desktop: [
         [1, 1],
         [660, 350],
@@ -579,11 +568,8 @@ export const state = () => ({
       },
     },
     telegram_desktop_intext_v3: {
-      upc: {
-        desktop: 10,
-        mobile: 10,
-      },
-      routes: ['category-slug', 'nesto-slug'],
+      upc: false,
+      routes: ['category-slug', 'nesto-slug', 'super1-category-slug'],
       desktop: [
         [1, 1],
         [660, 350],
@@ -699,11 +685,8 @@ export const state = () => ({
       },
     },
     telegram_desktop_intext_v4: {
-      upc: {
-        desktop: 13,
-        mobile: 13,
-      },
-      routes: ['category-slug', 'nesto-slug'],
+      upc: false,
+      routes: ['category-slug', 'nesto-slug', 'super1-category-slug'],
       desktop: [
         [1, 1],
         [660, 350],
@@ -819,11 +802,8 @@ export const state = () => ({
       },
     },
     telegram_desktop_intext_v5: {
-      upc: {
-        desktop: 13,
-        mobile: 13,
-      },
-      routes: ['category-slug', 'nesto-slug'],
+      upc: false,
+      routes: ['category-slug', 'nesto-slug', 'super1-category-slug'],
       desktop: [
         [1, 1],
         [660, 350],
@@ -918,11 +898,8 @@ export const state = () => ({
       },
     },
     telegram_desktop_intext_v6: {
-      upc: {
-        desktop: 13,
-        mobile: 13,
-      },
-      routes: ['category-slug', 'nesto-slug'],
+      upc: false,
+      routes: ['category-slug', 'nesto-slug', 'super1-category-slug'],
       desktop: [
         [1, 1],
         [660, 350],
@@ -1017,21 +994,21 @@ export const state = () => ({
       },
     },
     telegram_sticky: {
-      upc: {
-        desktop: 36,
-        mobile: 36,
-      },
+      upc: 36,
       routes: [
         'index',
         'category',
+        'super1',
+        'super1-category',
         'category-slug',
+        'super1-category-slug',
         'nesto-slug',
         'fotogalerije-category',
         'fotogalerije-category-slug',
         'category',
         'search',
-        'author-slug',
-        'tema-slug',
+        'autor-autor',
+        'tema-tema',
       ],
       mobile: [
         [1, 1],
@@ -1100,14 +1077,14 @@ export const actions = {
       // remove intext banners
       const b = document.getElementsByClassName('banner-slot')
       for (const box in b) {
-        if (box.id.includes('intext')) {
+        if (box.id && box.id.includes('intext')) {
           box.parentElement.parentElement.classList.add('hide')
         }
       }
       return
     }
     // load the up to date floor data
-    if (state.upc_updated + 60 * 60 * 1000 < new Date().getTime()) {
+    /* if (state.upc_updated + 60 * 60 * 1000 < new Date().getTime()) {
       this.$axios
         .get('/api/upc')
         .then((res) => {
@@ -1116,9 +1093,9 @@ export const actions = {
         .then(() => {
           dispatch('setupTargeting', payload)
         })
-    } else {
-      dispatch('setupTargeting', payload)
-    }
+    } else { */
+    dispatch('setupTargeting', payload)
+    // }
   },
   setupTargeting({ state, commit, dispatch, rootState }, payload) {
     window.googletag = window.googletag || {}
@@ -1139,20 +1116,30 @@ export const actions = {
           targeting.wp_post_type = ['home']
           break
         case 'category':
+        case 'super1-category':
         case 'fotogalerije-category':
           targeting.wp_post_type = ['category']
           targeting.post_category = [route.params.category]
+          break
+        case 'super1':
+          targeting.wp_post_type = ['category']
+          targeting.post_category = ['super1']
           break
         case 'tema':
           targeting.wp_post_type = ['archive']
           targeting.post_category = [route.params.slug]
           break
         case 'category-slug':
+        case 'super1-category-slug':
         case 'nesto-slug':
         case 'fotogalerije-category-slug':
           targeting.wp_post_type = ['single']
           targeting.post_slug = [route.params.slug]
-          targeting.post_category = [route.params.category]
+          if (route.name.includes('super1')) {
+            targeting.post_category = [route.params.category, 'super1']
+          } else {
+            targeting.post_category = [route.params.category]
+          }
           if (payload.tags) {
             targeting.post_tag = payload.tags.map((tag) => tag.slug)
           }
@@ -1192,11 +1179,9 @@ export const actions = {
       for (const i of Object.keys(state.units)) {
         if (i in state.units) {
           unit = state.units[i]
-          let upc = sizes === 'desktop' ? 14 : 12
-          if (state.upc[i]) {
-            upc = state.upc[i][sizes]
-          } else {
-            upc = state.upc_b
+          let upc = 4
+          if (unit.upc) {
+            upc = unit.upc
           }
           if (!unit[sizes]) {
             continue
@@ -1216,7 +1201,7 @@ export const actions = {
       }
       commit('setSlots')
     })
-    window.pbjs = window.pbjs || {}
+    /* window.pbjs = window.pbjs || {}
     window.pbjs.que = window.pbjs.que || []
     window.pbjs.que.push(() => {
       window.pbjs.setConfig({
@@ -1279,7 +1264,7 @@ export const actions = {
           })
         }
       }
-    })
+    }) */
     dispatch('displaySlots')
   },
   displaySlots({ dispatch }) {
@@ -1292,7 +1277,8 @@ export const actions = {
         window.googletag.display(slot.id)
       })
     })
-    dispatch('refreshSlots')
+    // dispatch('refreshSlots')
+    dispatch('initAdserver')
   },
   refreshSlots({ dispatch }) {
     window.googlefc = window.googlefc || {}
@@ -1320,21 +1306,17 @@ export const actions = {
     })
     setTimeout(() => {
       dispatch('initAdserver')
-    }, 1500)
+    }, 500)
   },
   initAdserver({ state }) {
-    if (window.pbjs.initAdserverSet) return
-    window.pbjs.initAdserverSet = true
+    // if (window.pbjs.initAdserverSet) return
+    // window.pbjs.initAdserverSet = true
     if (state.route === 'nesto-slug') {
       return
     }
+    const _that = this
     window.googletag.cmd.push(function () {
-      window.pbjs.setTargetingForGPTAsync &&
-        window.pbjs.setTargetingForGPTAsync()
       window.googletag.pubads().refresh()
-    })
-
-    window.googletag.cmd.push(() => {
       window.googletag
         .pubads()
         .addEventListener('slotRenderEnded', function (event) {
@@ -1345,22 +1327,24 @@ export const actions = {
               .getElementById(event.slot.getSlotElementId() + '-info')
               .classList.remove('hide')
           }
-          if (event.isEmpty && name.includes('billboard_v1')) {
-            el.style.minHeight = 0
-            if (!this.$mobile) {
-              el.parentElement.parentElement.classList.add('hide')
+          if (name.includes('billboard_v1')) {
+            if (event.isEmpty && !_that.$mobile) {
+              el.parentElement.classList.add('hide')
             }
           }
           if (event.isEmpty && name.includes('intext')) {
             el.parentElement.classList.add('hide')
           }
           if (!event.isEmpty) {
+            el.style.minHeight = event.size[1] + 'px'
             window.marfeel.cmd.push([
               'compass',
               function (compass) {
                 compass.trackAdEvent('slotRenderEnded', event.slot)
               },
             ])
+          } else {
+            el.style.minHeight = 0 + 'px'
           }
         })
       window.googletag

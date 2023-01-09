@@ -45,7 +45,7 @@ export default {
       },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=IBM+Plex+Mono:wght@500;600&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=IBM+Plex+Mono:wght@500;600&family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap',
       },
       {
         rel: 'preload',
@@ -58,10 +58,10 @@ export default {
         src: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js',
         async: true,
       },
-      {
+      /* {
         src: '/prebid-6.10.0.js',
         async: true,
-      },
+      }, */
       {
         hid: 'piano',
         src: 'https://cdn.tinypass.com/api/tinypass.min.js',
@@ -231,6 +231,7 @@ export default {
       /svg.*/,
       /fb_.*/,
       /twitter.*/,
+      /ol/,
     ],
   },
 

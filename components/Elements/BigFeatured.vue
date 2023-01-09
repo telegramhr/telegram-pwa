@@ -21,7 +21,7 @@
                 preporuka
               </h3>
             </div>
-            <h2 class="full">{{ post.title }}</h2>
+            <h2 class="full">{{ post.portal_title }}</h2>
             <h5 v-show="post.authors[0]" class="full flex article-meta">
               piše
               {{ post.authors[0] ? post.authors[0].name : '' }}

@@ -237,6 +237,25 @@
                 ulogu”, priča Bartulović.
               </p>
               <product-guide></product-guide>
+              <ol>
+                <li>Bananu usitnite sa vilicom</li>
+                <li>
+                  U velikoj zdjeli pomješajte sve sastojke – bananu, biljno
+                  mlijeko, brašno, prašak za pecivo, sol i cimet. Miješajte dok
+                  smjesa ne postane kompaktna i bez grudica.
+                </li>
+                <li>
+                  Zagrijte tavu i dodajte malo kokosovog ulja koje ćete koristi
+                  za pečenje. Za jednu palačinku potrebno vam je oko 1/4 šalice
+                  od 2dl.Pecite na jednoj strani dok se ne pojave mjehurići i
+                  okrenite na drugu stranu. Za pripremu svake palačinke potrebno
+                  je oko 2 min
+                </li>
+                <li>
+                  Poslužite sa javorovim sirupom, veganskim čokoladnim preljevom
+                  i voćnim dodacima – borovnicama i bananama.
+                </li>
+              </ol>
               <p>
                 Hrvatski Telekom je tako ove godine svojim zaposlenicima
                 isplatio božićnicu u iznosu od 1.250 kuna, a kao priznanje za
@@ -347,9 +366,6 @@
             </div>
           </div>
         </article>
-      </div>
-      <div class="full flex">
-        <offers></offers>
       </div>
       <div class="full flex">
         <div

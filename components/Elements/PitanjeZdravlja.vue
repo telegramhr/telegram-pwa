@@ -59,7 +59,7 @@
 <script>
 import Standard from '../articles/Standard.vue'
 export default {
-  name: 'Super1',
+  name: 'PitanjeZdravlja',
   components: { Standard },
   async fetch() {
     await this.$store.dispatch('pz/pullPosts')

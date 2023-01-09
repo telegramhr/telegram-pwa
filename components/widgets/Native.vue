@@ -26,7 +26,7 @@
         <img
           :src="post.image.url"
           :srcset="srcset(post)"
-          :alt="post.title"
+          :alt="post.portal_title"
           loading="lazy"
         />
         <div class="full flex article-pad">
@@ -34,7 +34,7 @@
             <h3 class="overtitle"></h3>
           </div>
           <h2 class="full">
-            {{ post.title }}
+            {{ post.portal_title }}
           </h2>
           <h4 class="full"></h4>
           <h5 class="full flex article-meta">

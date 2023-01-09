@@ -4,18 +4,18 @@
       <div class="full mobile-side-pad column-horizontal-pad">
         <div class="full cantha-separator"></div>
       </div>
-      <a href="https://super1.telegram.hr" class="full flex relative">
+      <app-link to="/super1" class="full flex relative">
         <h3
           class="full center-text column-full-pad subsection-title s1-subsection-logo"
         >
-          <img src="@/assets/img/super1_logo_black.svg" alt="Super1 logo" />
+          <img src="@/assets/img/s1_logo_clean_noline.svg" alt="Super1 logo" />
           <img
-            src="@/assets/img/super1_logo_white.svg"
-            class="dark-mode-only"
+            src="@/assets/img/s1_logo_clean_noline_white.svg"
             alt="Super1 logo"
+            class="dark-mode-only"
           />
         </h3>
-      </a>
+      </app-link>
       <div class="full block-echovald mobile-side-pad flex relative">
         <div class="three-fourths flex-responsive flex stretch">
           <div class="half flex-responsive flex column-horizontal-pad">
@@ -68,36 +68,17 @@
 export default {
   name: 'Super1',
   async fetch() {
-    await this.$axios
-      .get('https://super1.telegram.hr/wp-json/telegram/pwa2/v1/portal/3')
-      .then((res) => {
-        this.posts = res.data.posts
-        this.reading = res.data.reading
-      })
+    await this.$store.dispatch('s1/pullPosts')
   },
   data() {
     return {
       showMore: false,
       loading: false,
-      page: 2,
-      posts: [],
-      reading: [],
     }
   },
-  methods: {
-    loadMore() {
-      this.loading = true
-      this.$axios
-        .get(
-          'https://super1.telegram.hr/wp-json/telegram/pwa2/v1/portal/3/page/' +
-            this.page
-        )
-        .then((res) => {
-          this.posts = [...this.posts, ...res.data.posts]
-          this.loading = false
-          this.page++
-          this.showMore = true
-        })
+  computed: {
+    posts() {
+      return this.$store.state.s1.posts
     },
   },
 }

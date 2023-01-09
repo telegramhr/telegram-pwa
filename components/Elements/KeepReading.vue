@@ -1,6 +1,7 @@
 <template>
   <div class="full">
     <div
+      v-if="this.$store.getters['user/hasPremium']"
       class="container flex relative block-related cantha-related standard-block stretch"
     >
       <div class="full column-horizontal-pad column-top-pad mobile-side-pad">
@@ -28,15 +29,16 @@
             </div>
           </div>
         </template>
-        <div
+        <!--<div
           v-if="!$store.getters['user/hasPremium']"
           class="lwdgt"
-          data-wid="542"
+          :data-wid="id"
           data-infinite="true"
           data-cycles="20"
-        ></div>
+        ></div>-->
       </div>
     </div>
+    <linker v-else type="keep-reading"></linker>
   </div>
 </template>
 
@@ -66,6 +68,14 @@ export default {
       loading: false,
       posts: [],
     }
+  },
+  computed: {
+    id() {
+      if (this.category.includes('superone')) {
+        return 659
+      }
+      return 542
+    },
   },
   mounted() {
     if (this.$store.getters['user/hasPremium']) {

@@ -18,10 +18,12 @@
           :src="post.image.url"
           alt="post.image.alt"
           loading="lazy"
+          width="800"
+          height="505"
         />
       </div>
       <div class="komentar-content full">
-        <h2 :id="'top-' + post.id" class="full">{{ post.portal_title }}</h2>
+        <h2 :id="'top-' + post.id" class="full">{{ post.portal_title | parseCat }}</h2>
         <h5 class="full flex article-meta">
           <span v-if="post.authors.length" class="meta-author"
             ><i>Piše</i> {{ post.authors[0].name }}</span

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div data-nosnippet>
     <a
       v-if="show"
       class="full relative article-head-newsletter"

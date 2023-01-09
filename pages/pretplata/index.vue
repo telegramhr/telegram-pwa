@@ -7,6 +7,68 @@
         headline="Pretplatite se i podržite naše bespoštedno novinarstvo."
       ></theader>
     </div>
+    <!--<div class="full flex relative dark-mode pretplata-bf">
+      <img
+        src="@/assets/img/tg_black_friday_bg.jpg"
+        alt="Kolaž naslovnih fotografija raznih istraživačkih specijala Telegrama"
+        class="img-as-bg"
+      />
+      <div
+        class="container center relative mobile-side-pad pretplata-packs pretplata-packboxes"
+      >
+        <div class="full center relative">
+          <img
+            src="@/assets/img/tg_blackfriday_logo.png"
+            class="bf-logo"
+            alt="Kolaž naslovnih fotografija raznih istraživačkih specijala Telegrama"
+          />
+        </div>
+        <div
+          class="full flex-responsive flex relative pretplata-packbox bf-packbox stretch"
+        >
+          <div class="best-price-sticker animate">Najbolja <br />cijena</div>
+          <div class="full flex overtitle-parent">
+            <h3 class="overtitle">Premium</h3>
+          </div>
+          <h2 class="full">1+1 gratis</h2>
+          <h4 class="full center-text undertitle">
+            platite samo 588 kn za 24 mjeseca čitanja (78,04€)
+          </h4>
+          <div class="full pretplata-benefits">
+            <p class="full animate">
+              <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+              dvije godine za cijenu jedne
+            </p>
+            <p class="full animate">
+              <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+              neograničeno čitanje Telegrama
+            </p>
+            <p class="full animate">
+              <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+              neograničeno čitanje Telesporta
+            </p>
+            <p class="full animate">
+              <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+              posebni popusti i pogodnosti
+            </p>
+            <p class="full animate">
+              <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+              specijalni newsletteri
+            </p>
+            <p class="full animate">
+              <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+              surfanje bez oglasa
+            </p>
+            <h4 class="full center-text undertitle">
+              *ponuda vrijedi samo za nove korisnike
+            </h4>
+          </div>
+          <div class="full center btn-parent" @click="checkout(four)">
+            <div class="btn animate">Odaberi</div>
+          </div>
+        </div>
+      </div>
+    </div>-->
     <div id="pretplata-selector" class="full flex pretplata-page-content">
       <div class="full flex relative">
         <div
@@ -51,8 +113,8 @@
                 <div class="full flex overtitle-parent">
                   <h3 class="overtitle">Standard</h3>
                 </div>
-                <h2 class="full">49kn</h2>
-                <h4 class="full center-text undertitle">Mjesečno (6,50€)</h4>
+                <h2 class="full">6,49€</h2>
+                <h4 class="full center-text undertitle">Mjesečno (49kn)</h4>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
                     <font-awesome-icon
@@ -89,8 +151,8 @@
                 <div class="full flex overtitle-parent">
                   <h3 class="overtitle">Premium</h3>
                 </div>
-                <h2 class="full">69kn</h2>
-                <h4 class="full center-text undertitle">Mjesečno (9,16€)</h4>
+                <h2 class="full">9,10€</h2>
+                <h4 class="full center-text undertitle">Mjesečno (69kn)</h4>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
                     <font-awesome-icon
@@ -133,9 +195,9 @@
                 <div class="full flex overtitle-parent">
                   <h3 class="overtitle">Standard</h3>
                 </div>
-                <h2 class="full">39kn</h2>
+                <h2 class="full">5,16€</h2>
                 <h4 class="full center-text undertitle">
-                  mjesečno (5,18€), za cijelu godinu 468kn (62,11€)
+                  mjesečno (39kn), za cijelu godinu 62€ (467kn)
                 </h4>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
@@ -173,9 +235,9 @@
                 <div class="full flex overtitle-parent">
                   <h3 class="overtitle">Premium</h3>
                 </div>
-                <h2 class="full">49kn</h2>
+                <h2 class="full">6,50€</h2>
                 <h4 class="full center-text undertitle">
-                  mjesečno (6,50€), za cijelu godinu 588kn (78,04€)
+                  mjesečno (49kn), za cijelu godinu 78€ (588kn)
                 </h4>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
@@ -219,7 +281,7 @@
                 >Trebat će vam R1 račun ili želite ponudu za pravne osobe?
                 Javite nam se.</a
               >
-              <div class="full column-horizontal-pad">
+              <div class="full column-horizontal-pad" data-nosnippet>
                 <app-link
                   to="/pretplata/poklon"
                   class="full flex stretch relative mini-pretplata column-top-pad column-top-border"
@@ -498,7 +560,7 @@
               </summary>
               <p>
                 Bespoštedno i neovisno novinarstvo, istraživački specijali i
-                velike priče nisu jeftini. Svake godine stotine tisuća kuna
+                velike priče nisu jeftini. Svake godine stotine tisuća eura
                 odlaze nam na sudske borbe protiv moćnika koji, nakon što smo ih
                 uhvatili u nedjelima, pokušavaju takvim pritiskom financijski
                 devastirati Telegram. Nerijetko za tužbe i odmazde koriste javni
@@ -534,10 +596,10 @@
               </summary>
               <p>
                 Najisplativija opcija je godišnja premium pretplata: u njoj za
-                samo 49 kuna mjesečno (godišnji iznos naplaćuje se jednokratno)
-                dobivate godinu dana neograničenog čitanja Telegrama i
-                Telesporta bez oglasa, nove funkcionalnosti koje ćemo uvoditi i
-                popust na knjigu jednog od naših autora.
+                samo 6,50 eura mjesečno (godišnji iznos naplaćuje se
+                jednokratno) dobivate godinu dana neograničenog čitanja
+                Telegrama i Telesporta bez oglasa, nove funkcionalnosti koje
+                ćemo uvoditi i popust na knjigu jednog od naših autora.
               </p>
             </details>
             <details class="full flex relative">
@@ -676,30 +738,27 @@ export default {
   name: 'Pretplata',
   data() {
     return {
+      promo_code: '',
       terms: {
-        TM0FMYURHRA3: {
+        TMJHR6Y8K4QA: {
           title: 'Telegram Mjesečna Pretplata',
-          price: 49,
+          price: 6.5,
           gtm: 'standard-monthly',
         },
-        TMXKYJUN5YN5: {
+        TMY8ORHQG44A: {
           title: 'Telegram Premium Mjesečna Pretplata',
-          price: 69,
+          price: 9.16,
           gtm: 'premium-monthly',
         },
-        TMVUCFM94OA7: {
+        TM8RZKGESM1T: {
           title: 'Telegram Godišnja Pretplata',
-          price: 468,
+          price: 62.11,
           gtm: 'standard-annual',
         },
-        TM8R9U7RK5B1: {
+        TMQDTT4IEHY0: {
           title: 'Telegram Premium Godišnja Pretplata',
-          price: 588,
+          price: 78.04,
           gtm: 'premium-annual',
-        },
-        TMBXUSHKJZZ0: {
-          title: 'Telegram Mjesečna Pretplata - Božićna akcija',
-          price: 1,
         },
       },
     }
@@ -707,53 +766,38 @@ export default {
   computed: {
     one() {
       if (process.client) {
-        if (window.tp.sandbox) {
-          return 'TMC561I3C1ZT'
-        }
-        return 'TM0FMYURHRA3'
+        return 'TMJHR6Y8K4QA'
       }
       return ''
     },
     two() {
       if (process.client) {
-        if (window.tp.sandbox) {
-          return 'TM68H8RUQ7VJ'
-        }
-        return 'TMXKYJUN5YN5'
+        return 'TMY8ORHQG44A'
       }
       return ''
     },
     three() {
       if (process.client) {
-        if (window.tp.sandbox) {
-          return 'TMA44DJRTT2A'
-        }
-        return 'TMVUCFM94OA7'
+        return 'TM8RZKGESM1T'
       }
       return ''
     },
     four() {
       if (process.client) {
-        if (window.tp.sandbox) {
-          return 'TM6MUK1A0QU6'
-        }
-        return 'TM8R9U7RK5B1'
+        return 'TMQDTT4IEHY0'
       }
       return ''
     },
-    promo() {
-      return 'TMBXUSHKJZZ0'
-    },
   },
   mounted() {
+    this.promo_code = this.$route.query.promo_code
     window.fbq = window.fbq || function () {}
     window.fbq('track', 'ViewContent', {
       content_ids: [
-        'TM0FMYURHRA3',
-        'TMXKYJUN5YN5',
-        'TMVUCFM94OA7',
-        'TM8R9U7RK5B1',
-        'TMBXUSHKJZZ0',
+        'TMJHR6Y8K4QA',
+        'TMY8ORHQG44A',
+        'TM8RZKGESM1T',
+        'TMQDTT4IEHY0',
       ],
     })
     window.tp.push([
@@ -774,8 +818,15 @@ export default {
       'article-author': this.$store.state.history.author,
       'user-type': this.$store.state.user.type,
     })
+    if (this.$route.query.promo_code === 'KHD6THX') {
+      this.checkout(this.one)
+    }
   },
   methods: {
+    setPromo() {
+      this.promo_code = 'KHD6THX'
+      this.checkout(this.one)
+    },
     checkout(termId) {
       this.$gtm.push({ ecommerce: null }) // Clear the previous ecommerce object.
       this.$gtm.push({
@@ -823,19 +874,18 @@ export default {
       window.fbq = window.fbq || function () {}
       window.fbq('track', 'InitiateCheckout', {
         content_ids: [termId],
-        currency: 'HRK',
+        currency: 'EUR',
         value: this.terms[termId].price,
       })
-      const promo = this.$route.query.promo_code
       window.tp.push([
         'init',
         () => {
           window.tp.offer.show({
-            offerId: window.tp.sandbox ? 'OFVZ3BQ00JLQ' : 'OF5JVPQYFLE1',
+            offerId: 'OF5JVPQYFLE1',
             termId,
-            templateId: window.tp.sandbox ? 'OTTXZFQ6FGFC' : 'OTXWXSOL0WWS',
-            checkoutFlowId: window.tp.sandbox ? 'CF8Q59Z3RJ5G' : 'CF65KTMVQXXX',
-            promoCode: promo,
+            templateId: 'OTXWXSOL0WWS',
+            checkoutFlowId: 'CF65KTMVQXXX',
+            promoCode: this.promo_code,
             closeOnLogout: true,
             complete: (data) => {
               _that.$store.dispatch('user/checkAccess')
