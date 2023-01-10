@@ -8836,8 +8836,14 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .superone header .subheader .single-exclusive .third:last-child a {
     display: none;
 }
+.s1-home header .subheader .single-exclusive .third:last-child a {
+    display: inline-block;
+}
 .superone header .subheader .single-exclusive .third:last-child a.single-nav-search {
     display: inline-block;
+}
+.s1-home header .subheader .single-exclusive .third:last-child a.single-nav-search {
+    display: none;
 }
 .superone .real-mobile-sticky-nav .mob-nav-search, .superone .mobile-pa-nav .mob-nav-search {
     display: inline;
@@ -10541,10 +10547,26 @@ header .search-menu {
 }
 
 @media screen and (min-width: 767px) {
-    .s1-home .telegram-sticky {
+    .s1-home header .subheader {
         display: flex;
         position: relative;
         z-index: 15;
+        box-shadow: none;
+    }
+    .s1-home header .subheader, .s1-home header .subheader .single-exclusive {
+        display: flex;
+    }
+    .s1-home header .subheader .homepage-exclusive, .s1-home header .subheader .single-exclusive .logo.superone-subheader-logo {
+        display: none;
+    }
+    .s1-home header .subheader .single-exclusive .logo {
+        width: auto;
+        margin-bottom: 0px;
+    }
+    .s1-home header .subheader .single-exclusive .logo img {
+        height: 16px;
+        margin-bottom: -3px;
+        position: relative;
     }
 }
 @media screen and (max-width: 767px) {
