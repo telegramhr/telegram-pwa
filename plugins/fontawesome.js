@@ -23,6 +23,7 @@ import {
   faHouse,
   faMessageQuote,
   faNewspaper,
+  faShareFromSquare,
   faLightbulb,
   faArrowLeft,
 } from '@fortawesome/pro-duotone-svg-icons'
@@ -72,6 +73,7 @@ library.add(
   faTwitter,
   farAngleRight,
   faAngleLeft,
+  faShareFromSquare,
   faSearch,
   faBars,
   faUser,

@@ -10406,27 +10406,26 @@ label.payment-tile svg {
     color: white;
     box-shadow: 10px 0px -20px rgba(0, 0, 0, 0.25);
     z-index: 300;
-    font-size: 12px;
-    font-size: 0.6rem;
-    border-top: 1px solid #c8c8c8;
+    font-size: 11px;
+    font-size: 0.55rem;
+    justify-content: space-between;
 }
 .dark-mode .mobile-app-stickynav {
     background-color: #121212;
-    border-top: 1px solid #333;
 }
 .mobile-app-stickynav .fourth {
     font-family: 'Barlow', sans-serif;
     font-weight: 700;
     text-align: center;
-    padding: 8px;
-    padding-top: 10px;
+    padding: 6px;
+    padding-top: 7px;
     flex-wrap: wrap;
     opacity: .8;
 }
 .mobile-app-stickynav .fourth svg {
-    height: 2em;
+    height: 1.5em;
     margin: 0 auto;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
     --fa-primary-color: #ae3737;
     --fa-secondary-color: white;
     --fa-primary-opacity: 0.5;
@@ -10434,6 +10433,19 @@ label.payment-tile svg {
 }
 .mobile-app-stickynav .fourth span {
     opacity: .8;
+}
+.single-article .mobile-app-stickynav .fourth {
+    display: none;
+}
+.single-article .mobile-app-stickynav .fourth.single-exclusive {
+    display: flex;
+    opacity: 1;
+}
+.category-page .single-article .mobile-app-stickynav .fourth {
+    display: flex;
+}
+.category-page .single-article .mobile-app-stickynav .fourth.single-exclusive {
+    display: none;
 }
 .homepage .mobile-app-stickynav .homepage-appnav span {
     opacity: 1;

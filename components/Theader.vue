@@ -464,7 +464,7 @@
         <a
           v-if="checkHistory"
           href="#"
-          class="fourth center homepage-appnav"
+          class="fourth center homepage-appnav single-exclusive"
           @click.prevent="$router.back()"
         >
           <div class="full center">
@@ -482,9 +482,15 @@
         </app-link>
         <app-link
           v-if="!checkHistory"
-          to="/najnovije"
-          class="fourth center najnovije-appnav"
+          to="/"
+          class="fourth center homepage-appnav single-exclusive"
         >
+          <div class="full center">
+            <font-awesome-icon :icon="['fad', 'house']"></font-awesome-icon>
+          </div>
+          <span>Naslovnica</span>
+        </app-link>
+        <app-link to="/najnovije" class="fourth center najnovije-appnav">
           <div class="full center">
             <font-awesome-icon :icon="['fad', 'newspaper']"></font-awesome-icon>
           </div>
@@ -504,6 +510,16 @@
           </div>
           <span>Velike priče</span>
         </app-link>
+        <div
+          class="fourth center clickable velike-price-appnav single-exclusive"
+        >
+          <div class="full center">
+            <font-awesome-icon
+              :icon="['fad', 'share-from-square']"
+            ></font-awesome-icon>
+          </div>
+          <span>Podijeli</span>
+        </div>
       </div>
     </client-only>
     <!-- Mobile only fixed TG multiverse nav -->

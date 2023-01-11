@@ -3,9 +3,6 @@ export default {
   globalName: 'telegram',
   modern: 'client',
   telemetry: false,
-  server: {
-    host: '0',
-  },
   ssr: false,
   head: {
     title: 'Telegram.hr',
