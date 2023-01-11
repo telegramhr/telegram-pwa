@@ -512,6 +512,7 @@
         </app-link>
         <div
           class="fourth center clickable velike-price-appnav single-exclusive"
+          @click="share"
         >
           <div class="full center">
             <font-awesome-icon
@@ -717,6 +718,7 @@
 </template>
 
 <script>
+import { Share } from '@capacitor/share'
 export default {
   name: 'Header',
   props: {
@@ -868,6 +870,14 @@ export default {
       if (this.$store.state.header.showSideMenu) {
         this.$store.commit('header/updateMenu', 'side')
       }
+    },
+    async share() {
+      await Share.share({
+        title: this.post.portal_title,
+        text: this.post.description,
+        url: this.post.social.path,
+        dialogTitle: 'Podijeli članak',
+      })
     },
   },
 }

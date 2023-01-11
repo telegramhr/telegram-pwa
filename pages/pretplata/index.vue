@@ -818,15 +818,8 @@ export default {
       'article-author': this.$store.state.history.author,
       'user-type': this.$store.state.user.type,
     })
-    if (this.$route.query.promo_code === 'KHD6THX') {
-      this.checkout(this.one)
-    }
   },
   methods: {
-    setPromo() {
-      this.promo_code = 'KHD6THX'
-      this.checkout(this.one)
-    },
     checkout(termId) {
       this.$gtm.push({ ecommerce: null }) // Clear the previous ecommerce object.
       this.$gtm.push({
