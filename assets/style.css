@@ -9796,7 +9796,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
   }
 
   .mobile-app-stickynav {
-    min-height: calc(var(--ion-safe-area-bottom) + 72px);
+    min-height: calc(var(--ion-safe-area-bottom) + 50px);
   }
 
   .side-menu-exit {
@@ -10415,7 +10415,6 @@ label.payment-tile svg {
 }
 .mobile-app-stickynav .fourth {
     font-family: 'Barlow', sans-serif;
-    font-weight: 700;
     text-align: center;
     padding: 6px;
     padding-top: 7px;
@@ -10423,7 +10422,7 @@ label.payment-tile svg {
     opacity: .8;
 }
 .mobile-app-stickynav .fourth svg {
-    height: 1.5em;
+    height: 1.8em;
     margin: 0 auto;
     margin-bottom: 4px;
     --fa-primary-color: #ae3737;
