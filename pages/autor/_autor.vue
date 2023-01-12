@@ -121,11 +121,6 @@ export default {
       hasMore: true,
     }
   },
-  mounted() {
-    this.$nextTick(() => {
-      this.$store.dispatch('ads/initAds', { route: this.$route })
-    })
-  },
   methods: {
     loadMore() {
       this.$axios

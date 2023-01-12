@@ -272,11 +272,6 @@ export default {
       }
     },
   },
-  mounted() {
-    this.$nextTick(() => {
-      this.$store.dispatch('ads/initAds', { route: this.$route })
-    })
-  },
   head() {
     return {
       bodyAttrs: {

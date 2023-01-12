@@ -43,9 +43,6 @@ export default {
       },
     }
   },
-  mounted() {
-    this.$store.dispatch('ads/initAds', { route: this.$route })
-  },
   head() {
     return {
       title: this.post.title,

@@ -223,7 +223,6 @@ export default {
     },
   },
   mounted() {
-    this.$store.dispatch('ads/initAds', { route: this.$route })
     this.loadMore()
   },
   methods: {

@@ -103,9 +103,6 @@ export default {
       hasMore: true,
     }
   },
-  mounted() {
-    this.$store.dispatch('ads/initAds', { route: this.$route })
-  },
   methods: {
     loadMore() {
       this.loading = true

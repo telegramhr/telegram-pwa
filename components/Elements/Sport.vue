@@ -67,11 +67,11 @@
 export default {
   name: 'Sport',
   async fetch() {
-    await this.$axios
-      .get('https://telesport.telegram.hr/wp-json/telegram/pwa2/v1/portal/2')
-      .then((res) => {
-        this.posts = res.data.posts
-      })
+    console.log('telesport start')
+    await this.$axios.get(`${this.$config.baseURL}portal/2`).then((res) => {
+      console.log('telesport then')
+      this.posts = res.data.posts
+    })
   },
   data() {
     return {
@@ -85,10 +85,7 @@ export default {
     loadMore() {
       this.loading = true
       this.$axios
-        .get(
-          'https://telesport.telegram.hr/wp-json/telegram/pwa2/v1/portal/2/page/' +
-            this.page
-        )
+        .get(`${this.$config.baseURL}portal/2/page/${this.page}`)
         .then((res) => {
           this.posts = [...this.posts, ...res.data.posts]
           this.loading = false

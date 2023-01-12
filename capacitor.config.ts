@@ -9,7 +9,8 @@ const config: CapacitorConfig = {
     scheme: 'Telegram.hr',
   },
   server: {
-    hostname: 'www.telegram.hr',
+    hostname: 'app.telegram.hr',
+    androidScheme: 'https',
   },
 }
 

@@ -84,7 +84,7 @@ export default {
       }
       if (this.type === 'keep-reading') {
         if (this.$route.name.includes('super1')) {
-          return 0
+          return 659
         }
         return 542
       }
