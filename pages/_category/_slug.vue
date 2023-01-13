@@ -891,6 +891,9 @@ export default {
         if (typeof FB !== 'undefined') {
           FB.XFBML.parse()
         }
+        if (typeof instgrm !== 'undefined') {
+          instgrm.Embeds.process()
+        }
         if (document.getElementsByClassName('twitter-tweet')) {
           const head = document.getElementsByTagName('head')[0]
           const scriptTag = document.createElement('script')
@@ -977,6 +980,12 @@ export default {
         defer: true,
         crossorigin: 'anonymous',
         nonce: 'LFZOW4mi',
+      },
+      {
+        hid: 'instagram',
+        src: 'https://www.instagram.com/static/bundles/metro/EmbedSDK.js/33cd2c5d5d59.js',
+        async: true,
+        defer: true,
       },
     ]
     if (!this.$store.getters['user/hasPremium']) {

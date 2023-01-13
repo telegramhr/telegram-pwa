@@ -123,7 +123,7 @@
               Open Space Test
             </h3>
             <ostest></ostest>-->
-          <opportunities></opportunities>
+          <!--<opportunities></opportunities>-->
         </section>
         <div class="three-fourths flex-responsive flex">
           <section
