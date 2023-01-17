@@ -604,6 +604,16 @@ export default {
             'https://www.telegram.hr/stranica/uvjeti-koristenja',
           license: 'https://www.telegram.hr/stranica/uvjeti-koristenja',
           copyrightNotice: this.post.image.author,
+          publisher: {
+            '@type': 'Organization',
+            name: 'Telegram.hr',
+            logo: {
+              '@type': 'ImageObject',
+              url: `https://www.telegram.hr${this.$icon(512)}`,
+              width: 512,
+              height: 512,
+            },
+          },
         },
       ]
       if (this.post.image.url2) {
@@ -673,7 +683,7 @@ export default {
             url: 'https://www.telegram.hr',
             logo: {
               '@type': 'ImageObject',
-              url: 'https://www.telegram.hr/tg_neue_favicon.png',
+              url: `https://www.telegram.hr${this.$icon(512)}`,
               width: 512,
               height: 512,
             },
@@ -863,11 +873,9 @@ export default {
         'compass',
         function (compass) {
           if (_that.post.paywall === 'always') {
-            console.log('paywall', 'hard')
             compass.setPageVar('closed', 'hard-paywall')
           }
           if (_that.post.paywall === 'none') {
-            console.log('paywall', 'dynamic')
             compass.setPageVar('closed', 'dynamic-paywall')
           }
         },
@@ -891,6 +899,7 @@ export default {
         if (typeof FB !== 'undefined') {
           FB.XFBML.parse()
         }
+        /* global instgrm */
         if (typeof instgrm !== 'undefined') {
           instgrm.Embeds.process()
         }

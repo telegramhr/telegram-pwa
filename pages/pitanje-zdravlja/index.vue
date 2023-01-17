@@ -15,9 +15,15 @@
           <app-link role="menuitem" to="/pitanje-zdravlja/leksikon-zdravlja"
             >Leksikon zdravlja</app-link
           >
-          <app-link role="menuitem" to="/pitanje-zdravlja/lifestyle">Lifestyle</app-link>
-          <app-link role="menuitem" to="/pitanje-zdravlja/vijesti">Vijesti</app-link>
-          <app-link role="menuitem" to="/pitanje-zdravlja/price">Priče</app-link>
+          <app-link role="menuitem" to="/pitanje-zdravlja/lifestyle"
+            >Lifestyle</app-link
+          >
+          <app-link role="menuitem" to="/pitanje-zdravlja/vijesti"
+            >Vijesti</app-link
+          >
+          <app-link role="menuitem" to="/pitanje-zdravlja/price"
+            >Priče</app-link
+          >
         </nav>
       </div>
     </div>
@@ -285,6 +291,16 @@ export default {
         name: 'PitanjeZdravlja',
         description:
           'Provjerene i ekskluzivne zdravstvene vijesti, analize i priče',
+        publisher: {
+          '@type': 'Organization',
+          name: 'Telegram.hr',
+          logo: {
+            '@type': 'ImageObject',
+            url: `https://www.telegram.hr${this.$icon(512)}`,
+            width: 512,
+            height: 512,
+          },
+        },
       }
     },
   },

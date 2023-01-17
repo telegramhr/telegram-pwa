@@ -708,7 +708,9 @@ export default {
             name: 'Telegram.hr',
             logo: {
               '@type': 'ImageObject',
-              url: 'https://www.telegram.hr/tg_neue_favicon.png',
+              url: `https://www.telegram.hr${this.$icon(512)}`,
+              width: 512,
+              height: 512,
             },
           },
           author: this.post.authors,

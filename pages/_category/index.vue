@@ -240,6 +240,16 @@ export default {
         }`,
         name: this.cat,
         description: this.description,
+        publisher: {
+          '@type': 'Organization',
+          name: 'Telegram.hr',
+          logo: {
+            '@type': 'ImageObject',
+            url: `https://www.telegram.hr${this.$icon(512)}`,
+            width: 512,
+            height: 512,
+          },
+        },
       }
     },
   },
