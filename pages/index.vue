@@ -695,6 +695,7 @@ export default {
         '@type': 'Website',
         url: 'https://www.telegram.hr',
         name: 'Telegram.hr',
+        headline: 'Telegram.hr',
         description:
           'Portal za društvena i kulturna pitanja. I svijet koji dolazi.',
         publisher: {
