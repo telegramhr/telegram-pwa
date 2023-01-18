@@ -24,12 +24,6 @@ export default {
       { property: 'fb:pages', content: '688325737947866' },
     ],
     link: [
-      {
-        hid: 'favicon',
-        rel: 'icon',
-        type: 'image/x-icon',
-        href: '/favicon.ico',
-      },
       { hid: 'canonical', rel: 'canonical', href: 'https://www.telegram.hr' },
       {
         rel: 'me',
@@ -150,9 +144,6 @@ export default {
       appleStatusBarStyle: 'black',
       name: 'Telegram.hr',
       author: 'Telegram.hr',
-    },
-    icon: {
-      fileName: 'tg_neue_favicon.png',
     },
     manifest: {
       name: 'Telegram.hr',

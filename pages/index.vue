@@ -633,8 +633,19 @@ export default {
         '@type': 'Website',
         url: 'https://www.telegram.hr',
         name: 'Telegram.hr',
+        headline: 'Telegram.hr',
         description:
           'Portal za društvena i kulturna pitanja. I svijet koji dolazi.',
+        publisher: {
+          '@type': 'Organization',
+          name: 'Telegram.hr',
+          logo: {
+            '@type': 'ImageObject',
+            url: `https://www.telegram.hr${this.$icon(512)}`,
+            width: 512,
+            height: 512,
+          },
+        },
         potentialAction: [
           {
             '@type': 'SearchAction',

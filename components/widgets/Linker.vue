@@ -16,7 +16,7 @@
       {{ title }}
     </h3>
     <div class="full flex mobile-side-pad">
-      <template v-if="type === 'keep-reading'">
+      <template v-if="type === 'keep-reading' && id !== 659">
         <div
           :id="`linker-${id}`"
           class="lwdgt lwdgt-load"
@@ -51,7 +51,7 @@ export default {
     },
   },
   async fetch() {
-    if (this.id && this.type !== 'keep-reading') {
+    if (this.id && this.id !== 542) {
       this.body = await this.$axios.$get(
         `https://linker.hr/widget/lw.php?wid=${this.id}&_=${Date.now()}`
       )

@@ -123,7 +123,7 @@
               Open Space Test
             </h3>
             <ostest></ostest>-->
-          <opportunities></opportunities>
+          <!--<opportunities></opportunities>-->
         </section>
         <div class="three-fourths flex-responsive flex">
           <section
@@ -211,6 +211,16 @@ export default {
         name: 'Openspace.hr',
         description:
           'Telegramova platforma za traženje idealnog posla, profesionalno napredovanje i karijernu inspiraciju.',
+        publisher: {
+          '@type': 'Organization',
+          name: 'Telegram.hr',
+          logo: {
+            '@type': 'ImageObject',
+            url: `https://www.telegram.hr${this.$icon(512)}`,
+            width: 512,
+            height: 512,
+          },
+        },
       }
     },
   },
