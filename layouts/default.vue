@@ -2,8 +2,10 @@
   <div>
     <div id="fb-root"></div>
     <Nuxt />
-    <ticker-ad-unit id="telegram_sticky"></ticker-ad-unit>
-    <ticker-special></ticker-special>
+    <client-only>
+      <ticker-ad-unit id="telegram_sticky"></ticker-ad-unit>
+      <ticker-special></ticker-special>
+    </client-only>
   </div>
 </template>
 
