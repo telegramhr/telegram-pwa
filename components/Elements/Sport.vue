@@ -67,9 +67,7 @@
 export default {
   name: 'Sport',
   async fetch() {
-    console.log('telesport start')
     await this.$axios.get(`${this.$config.baseURL}portal/2`).then((res) => {
-      console.log('telesport then')
       this.posts = res.data.posts
     })
   },

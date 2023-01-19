@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="fb-root"></div>
-    <Nuxt />
+    <Nuxt :key="key" />
     <ticker-ad-unit id="telegram_sticky"></ticker-ad-unit>
   </div>
 </template>
@@ -9,6 +9,18 @@
 <script>
 export default {
   middleware: 'piano',
+  data() {
+    return {
+      key: Math.round(Date.now() / 1000),
+    }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      setInterval(() => {
+        this.key = Math.round(Date.now() / 1000)
+      }, 2 * 60 * 1000)
+    })
+  },
   head() {
     let font, theme
     if (process.server) {

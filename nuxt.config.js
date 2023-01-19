@@ -215,9 +215,9 @@ export default {
       },
     },
     optimization: {
-      minimize: false,
+      minimize: true,
       splitChunks: {
-        maxSize: 500,
+        maxSize: 50000,
       },
     },
     babel: {

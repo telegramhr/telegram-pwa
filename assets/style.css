@@ -10850,3 +10850,10 @@ header .search-menu {
 .top-qatar-section section > .column-horizontal-pad {
     display: none;
 }
+
+/*
+Disable popup close on login
+ */
+.tp-close.tp-active {
+  display: none !important;
+}

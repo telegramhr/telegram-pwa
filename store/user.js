@@ -130,6 +130,7 @@ export const actions = {
   login({ commit, dispatch }) {
     window.tp.pianoId.show({
       screen: 'login',
+      disableSignup: true,
       loggedIn(data) {
         dispatch('setUser', data.user)
         commit('setToken', data.token)

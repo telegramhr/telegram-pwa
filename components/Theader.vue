@@ -808,7 +808,9 @@ export default {
     this.$store.dispatch('stocks/pullStocks')
     this.$store.dispatch('user/checkAccess')
     this.$store.dispatch('theme/loadTheme')
-    this.triggerLogin()
+    if (this.canLogIn) {
+      this.triggerLogin()
+    }
   },
   methods: {
     clearFC() {
@@ -852,15 +854,13 @@ export default {
       this.$store.dispatch('user/login')
     },
     triggerLogin() {
-      if (this.$route.query.login && !this.$store.state.user.email) {
-        const tp = window.tp || []
-        tp.push([
-          'init',
-          () => {
-            this.login()
-          },
-        ])
-      }
+      const tp = window.tp || []
+      tp.push([
+        'init',
+        () => {
+          this.login()
+        },
+      ])
     },
     logout() {
       this.maybeCloseSide()

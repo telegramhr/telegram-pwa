@@ -228,7 +228,6 @@ export default {
         })
         .then((payload) => {
           if (!payload.liabilityShifted) {
-            console.log('Liability did not shift', payload)
             this.error =
               '3DS autorizacija kartice nije prošla. Probajte ponovo.'
           } else {
