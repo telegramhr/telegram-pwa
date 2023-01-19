@@ -665,6 +665,9 @@
 <script>
 export default {
   async fetch() {
+    if (process.client) {
+      this.$telegram.$loading.start()
+    }
     await this.$store.dispatch('featured/pullPosts')
     await this.$store.dispatch('featured/pullBreaks')
   },
@@ -721,6 +724,7 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.loadAds()
+      this.$telegram.$loading.finish()
     })
   },
   methods: {
