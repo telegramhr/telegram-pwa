@@ -5272,7 +5272,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .fancy-rubrika, .fancy-rubrika .intro-block, .fancy-article, .fancy-rubrika .header-billboard, .fancy-article .header-billboard {
   background-color: white;
 }
-.dark-mode .fancy-rubrika, .dark-mode.fancy-rubrika, .dark-mode.fancy-rubrika .intro-block, .dark-mode .fancy-article {
+.dark-mode .fancy-rubrika, .dark-mode.fancy-rubrika, .dark-mode .fancy-rubrika .intro-block, .dark-mode.fancy-rubrika .intro-block, .dark-mode .fancy-article {
   background-color: #212121;
   color: #efefef;
 }
