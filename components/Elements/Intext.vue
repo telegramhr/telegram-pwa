@@ -1,6 +1,10 @@
 <template>
   <div>
-    <div v-show="show" class="full flex relative pretplata-intext" data-nosnippet>
+    <div
+      v-show="show"
+      class="full flex relative pretplata-intext"
+      data-nosnippet
+    >
       <div class="full center">
         <img
           src="@/assets/img/tg_neue_favicon.png"

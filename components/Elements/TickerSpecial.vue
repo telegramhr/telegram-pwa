@@ -42,8 +42,22 @@ export default {
   name: 'TickerSpecial',
   data() {
     return {
-      shown: true,
+      shown: false,
     }
+  },
+  mounted() {
+    window.addEventListener('piano_popup', this.load)
+  },
+  destroyed() {
+    window.removeEventListener('piano_popup', this.load)
+  },
+  methods: {
+    load() {
+      if (this.shown) {
+        return
+      }
+      this.shown = true
+    },
   },
 }
 </script>
