@@ -604,7 +604,9 @@
 export default {
   async fetch() {
     if (process.client) {
-      this.$telegram.$loading.start()
+      this.$nextTick(() => {
+        this.$telegram.$loading.start()
+      })
     }
     await this.$store.dispatch('featured/pullPosts')
     await this.$store.dispatch('featured/pullBreaks')
