@@ -10,9 +10,9 @@ export default () => {
   window.tp.push(['setSandbox', false])
   window.tp.push(['setDebug', false])
   window.tp.push(['setUsePianoIdUserProvider', true])
-  window.tp.push(['setCloudflareWorkerUrl', 'https://auth.telegram.hr']);
+  // window.tp.push(['setCloudflareWorkerUrl', 'https://auth.telegram.hr']);
   window.tp.push(["setMaxCookieExpirationInDays", 365]);
-
+  window.tp.push(['setCookieDomain', 'app.telegram.hr']);
   // Adblock
   /* document.cookie =
     '__adblocker=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/'

@@ -551,11 +551,11 @@
       </div>
     </div> -->
     <!-- Sport -->
-    <div class="full relative">
+    <!--<div class="full relative">
       <client-only>
         <sport></sport>
       </client-only>
-    </div>
+    </div>-->
     <!-- Widget partneri -->
     <div class="full relative">
       <client-only>

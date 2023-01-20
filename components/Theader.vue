@@ -27,8 +27,8 @@
               class="signup-btn sub-btn"
               >Pretplatite se</app-link
             >
-            <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
-              >Prijava</a
+            <NuxtLink v-show="canLogIn" class="signup-btn" to="/login"
+              >Prijava</NuxtLink
             >
             <app-link v-show="!canLogIn" to="/moj-racun" class="signup-btn"
               >Moj račun</app-link
@@ -809,7 +809,7 @@ export default {
     this.$store.dispatch('user/checkAccess')
     this.$store.dispatch('theme/loadTheme')
     if (this.canLogIn) {
-      this.triggerLogin()
+      this.$router.push('login')
     }
   },
   methods: {

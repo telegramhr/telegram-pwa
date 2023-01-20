@@ -48,5 +48,15 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
+	<key>WKAppBoundDomains</key>
+	<array>
+		<string>.piano.io</string>
+		<string>cdn.piano.io</string>
+		<string>.telegram.hr</string>
+		<string>id.tinypass.com</string>
+		<string>cdn.tinypass.com</string>
+		<string>app.telegram.hr</string>
+		<string>www.telegram.hr</string>
+	</array>
 </dict>
 </plist>

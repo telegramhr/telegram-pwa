@@ -9,5 +9,10 @@
 	"server": {
 		"hostname": "app.telegram.hr",
 		"androidScheme": "https"
+	},
+	"plugins": {
+		"CapacitorCookies": {
+			"enabled": true
+		}
 	}
 }

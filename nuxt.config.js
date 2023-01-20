@@ -76,7 +76,7 @@ export default {
     { src: '@/plugins/mobile.js' },
     { src: '@/plugins/cxtrack.js', ssr: false },
     { src: '@/plugins/fontawesome.js' },
-    { src: '@/plugins/gemius.client.js' },
+    // { src: '@/plugins/gemius.client.js' },
     { src: '@/plugins/dotmetrics.client.js' },
     { src: '@/plugins/marfeel.client.js' },
   ],

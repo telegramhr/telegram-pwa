@@ -12,6 +12,11 @@ const config: CapacitorConfig = {
     hostname: 'app.telegram.hr',
     androidScheme: 'https',
   },
+  plugins: {
+    CapacitorCookies: {
+      enabled: true,
+    },
+  },
 }
 
 export default config
