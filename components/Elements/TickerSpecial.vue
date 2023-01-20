@@ -27,10 +27,18 @@
           pretplatite se već od 6,49 eura mjesečno.
         </p>
         <div class="full center">
-          <app-link to="/pretplata" class="btn animate" @click="shown = !shown"
+          <app-link
+            to="/pretplata"
+            class="btn animate"
+            @click.native="shown = !shown"
             >Pretplatite se</app-link
           >
-          <app-link to="/donacije" class="btn animate" @click="shown = !shown">Donirajte</app-link>
+          <app-link
+            to="/donacije"
+            class="btn animate"
+            @click.native="shown = !shown"
+            >Donirajte</app-link
+          >
         </div>
       </div>
     </div>
@@ -42,7 +50,7 @@ export default {
   name: 'TickerSpecial',
   data() {
     return {
-      shown: false,
+      shown: true,
     }
   },
   mounted() {
