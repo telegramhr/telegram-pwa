@@ -659,8 +659,8 @@ export default {
           '@type': 'ImageObject',
           contentUrl: this.post.image.full,
           url: this.post.image.full,
-          height: this.post.image.width,
-          width: this.post.image.height,
+          height: this.post.image.height,
+          width: this.post.image.width,
           creditText: this.$options.filters.parseCat(this.post.image.author),
           caption: this.$options.filters.parseCat(this.post.image.alt),
           acquireLicensePage:
