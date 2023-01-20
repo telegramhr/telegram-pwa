@@ -10769,6 +10769,12 @@ header .search-menu {
     .special-ticker .container div.center {
         justify-content: flex-start;
     }
+    .dark-mode .special-ticker .container > img {
+        display: none;
+    }
+    .dark-mode .special-ticker .container > img.dark-mode-only.desktop-only {
+        display: block;
+    }
 }
 @media screen and (max-width: 767px) {
     .special-ticker .container {
@@ -10786,5 +10792,11 @@ header .search-menu {
         font-size: 8.5vw;
         margin-bottom: 16vw;
         mix-blend-mode: difference;
+    }
+    .dark-mode .special-ticker .container > img {
+        display: none;
+    }
+    .dark-mode .special-ticker .container > img.dark-mode-only.mobile-only {
+        display: block;
     }
 }

@@ -14,6 +14,16 @@
         class="desktop-only"
         aria-hidden="true"
       />
+      <img
+        src="@/assets/img/tg_ticker_special_bg_mobile_dark.jpg"
+        class="mobile-only dark-mode-only"
+        aria-hidden="true"
+      />
+      <img
+        src="@/assets/img/tg_ticker_special_bg_desktop_dark.jpg"
+        class="desktop-only dark-mode-only"
+        aria-hidden="true"
+      />
       <div class="half flex-responsive flex">
         <h2 class="full">U 2023. zajedno možemo napraviti više. Puno više.</h2>
         <p class="full">
