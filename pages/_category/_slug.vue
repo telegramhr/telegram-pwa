@@ -598,6 +598,8 @@ export default {
           '@type': 'ImageObject',
           contentUrl: this.post.image.url,
           url: this.post.image.url,
+          height: 505,
+          width: 800,
           creditText: this.$options.filters.parseCat(this.post.image.author),
           caption: this.$options.filters.parseCat(this.post.image.alt),
           acquireLicensePage:
@@ -623,6 +625,8 @@ export default {
           '@type': 'ImageObject',
           contentUrl: this.post.image.url2,
           url: this.post.image.url2,
+          height: 1010,
+          width: 1600,
           creditText: this.$options.filters.parseCat(this.post.image.author),
           caption: this.$options.filters.parseCat(this.post.image.alt),
           acquireLicensePage:
@@ -638,6 +642,8 @@ export default {
           '@type': 'ImageObject',
           contentUrl: this.post.image.url3,
           url: this.post.image.url3,
+          height: 1515,
+          width: 2400,
           creditText: this.$options.filters.parseCat(this.post.image.author),
           caption: this.$options.filters.parseCat(this.post.image.alt),
           acquireLicensePage:
@@ -653,6 +659,8 @@ export default {
           '@type': 'ImageObject',
           contentUrl: this.post.image.full,
           url: this.post.image.full,
+          height: this.post.image.width,
+          width: this.post.image.height,
           creditText: this.$options.filters.parseCat(this.post.image.author),
           caption: this.$options.filters.parseCat(this.post.image.alt),
           acquireLicensePage:
@@ -668,6 +676,8 @@ export default {
           '@type': 'ImageObject',
           contentUrl: this.post.image.facebook,
           url: this.post.image.facebook,
+          height: (1200 * this.post.image.height) / this.post.image.width,
+          width: 1200,
           creditText: this.$options.filters.parseCat(this.post.image.author),
           caption: this.$options.filters.parseCat(this.post.image.alt),
           acquireLicensePage:
@@ -1156,12 +1166,12 @@ export default {
       {
         hid: 'og:image:width',
         property: 'og:image:width',
-        content: this.post.social.width,
+        content: 1200,
       },
       {
         hid: 'og:image:height',
         property: 'og:image:height',
-        content: this.post.social.height,
+        content: (1200 * this.post.image.height) / this.post.image.width,
       },
       {
         hid: 'og:url',
