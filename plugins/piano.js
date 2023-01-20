@@ -1,5 +1,5 @@
 /* eslint-disable */
-export default () => {
+export default function ({ route }) {
   window.PianoESPConfig = {
     id: 280
   }
@@ -12,6 +12,16 @@ export default () => {
   window.tp.push(['setUsePianoIdUserProvider', true])
   window.tp.push(['setCloudflareWorkerUrl', 'https://auth.telegram.hr']);
   window.tp.push(["setMaxCookieExpirationInDays", 365]);
+
+  if (!route.name.includes('category-slug')) {
+    window.tp.push([
+      'init',
+      function () {
+        window.tp.experience.execute()
+        window.tp.enableGACrossDomainLinking()
+      },
+    ])
+  }
 
   // Adblock
   /* document.cookie =

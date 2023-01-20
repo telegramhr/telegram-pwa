@@ -34,7 +34,7 @@ export default function ({ route, store }) {
       'GRU',
       'f0432a5c19cac4cf07c94cc89ef57dd30575ec83',
     ])
-    if (route.name !== 'category-slug') {
+    if (!route.name.includes('category-slug')) {
       window.tp.push([
         'init',
         function () {
