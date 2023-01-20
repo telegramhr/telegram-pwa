@@ -47,7 +47,7 @@
         class="full premium-article-head relative"
       >
         <div v-if="post.image.author" class="meta-foto">
-          FOTO: {{ post.image.author }}
+          FOTO: {{ post.image.author | parseCat }}
         </div>
         <div class="mobile-only full center mobile-pa-nav relative flex">
           <a
@@ -199,7 +199,7 @@
                     height="560"
                   />
                   <div v-if="post.image.author" class="meta-foto">
-                    FOTO: {{ post.image.author }}
+                    FOTO: {{ post.image.author | parseCat }}
                   </div>
                 </template>
               </div>
@@ -598,12 +598,14 @@ export default {
           '@type': 'ImageObject',
           contentUrl: this.post.image.url,
           url: this.post.image.url,
-          creditText: this.post.image.author,
-          caption: this.post.image.alt,
+          creditText: this.$options.filters.parseCat(this.post.image.author),
+          caption: this.$options.filters.parseCat(this.post.image.alt),
           acquireLicensePage:
             'https://www.telegram.hr/stranica/uvjeti-koristenja',
           license: 'https://www.telegram.hr/stranica/uvjeti-koristenja',
-          copyrightNotice: this.post.image.author,
+          copyrightNotice: this.$options.filters.parseCat(
+            this.post.image.author
+          ),
           publisher: {
             '@type': 'Organization',
             name: 'Telegram.hr',
@@ -621,12 +623,14 @@ export default {
           '@type': 'ImageObject',
           contentUrl: this.post.image.url2,
           url: this.post.image.url2,
-          creditText: this.post.image.author,
-          caption: this.post.image.alt,
+          creditText: this.$options.filters.parseCat(this.post.image.author),
+          caption: this.$options.filters.parseCat(this.post.image.alt),
           acquireLicensePage:
             'https://www.telegram.hr/stranica/uvjeti-koristenja',
           license: 'https://www.telegram.hr/stranica/uvjeti-koristenja',
-          copyrightNotice: this.post.image.author,
+          copyrightNotice: this.$options.filters.parseCat(
+            this.post.image.author
+          ),
         })
       }
       if (this.post.image.url3) {
@@ -634,12 +638,14 @@ export default {
           '@type': 'ImageObject',
           contentUrl: this.post.image.url3,
           url: this.post.image.url3,
-          creditText: this.post.image.author,
-          caption: this.post.image.alt,
+          creditText: this.$options.filters.parseCat(this.post.image.author),
+          caption: this.$options.filters.parseCat(this.post.image.alt),
           acquireLicensePage:
             'https://www.telegram.hr/stranica/uvjeti-koristenja',
           license: 'https://www.telegram.hr/stranica/uvjeti-koristenja',
-          copyrightNotice: this.post.image.author,
+          copyrightNotice: this.$options.filters.parseCat(
+            this.post.image.author
+          ),
         })
       }
       if (this.post.image.full) {
@@ -647,12 +653,14 @@ export default {
           '@type': 'ImageObject',
           contentUrl: this.post.image.full,
           url: this.post.image.full,
-          creditText: this.post.image.author,
-          caption: this.post.image.alt,
+          creditText: this.$options.filters.parseCat(this.post.image.author),
+          caption: this.$options.filters.parseCat(this.post.image.alt),
           acquireLicensePage:
             'https://www.telegram.hr/stranica/uvjeti-koristenja',
           license: 'https://www.telegram.hr/stranica/uvjeti-koristenja',
-          copyrightNotice: this.post.image.author,
+          copyrightNotice: this.$options.filters.parseCat(
+            this.post.image.author
+          ),
         })
       }
       if (this.post.image.facebook) {
@@ -660,12 +668,14 @@ export default {
           '@type': 'ImageObject',
           contentUrl: this.post.image.facebook,
           url: this.post.image.facebook,
-          creditText: this.post.image.author,
-          caption: this.post.image.alt,
+          creditText: this.$options.filters.parseCat(this.post.image.author),
+          caption: this.$options.filters.parseCat(this.post.image.alt),
           acquireLicensePage:
             'https://www.telegram.hr/stranica/uvjeti-koristenja',
           license: 'https://www.telegram.hr/stranica/uvjeti-koristenja',
-          copyrightNotice: this.post.image.author,
+          copyrightNotice: this.$options.filters.parseCat(
+            this.post.image.author
+          ),
         })
       }
       return [
