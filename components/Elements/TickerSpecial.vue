@@ -27,10 +27,10 @@
           pretplatite se već od 6,49 eura mjesečno.
         </p>
         <div class="full center">
-          <app-link to="/pretplata" class="btn animate"
+          <app-link to="/pretplata" class="btn animate" @click="shown = !shown"
             >Pretplatite se</app-link
           >
-          <app-link to="/donacije" class="btn animate">Donirajte</app-link>
+          <app-link to="/donacije" class="btn animate" @click="shown = !shown">Donirajte</app-link>
         </div>
       </div>
     </div>
