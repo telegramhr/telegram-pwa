@@ -131,6 +131,12 @@ export const actions = {
     console.log('init login', window.location.href)
     window.tp.pianoId.show({
       screen: 'login',
+      loginDisplayed() {
+        console.log('login displayed')
+      },
+      loginSuccess(data) {
+        console.log('login success', data)
+      },
       loggedIn(data) {
         console.log('data', data)
         dispatch('setUser', data.user)

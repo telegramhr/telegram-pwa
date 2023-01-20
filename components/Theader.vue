@@ -809,7 +809,7 @@ export default {
     this.$store.dispatch('user/checkAccess')
     this.$store.dispatch('theme/loadTheme')
     if (this.canLogIn) {
-      this.$router.push('login')
+      this.login()
     }
   },
   methods: {
@@ -852,15 +852,6 @@ export default {
     login() {
       this.maybeCloseSide()
       this.$store.dispatch('user/login')
-    },
-    triggerLogin() {
-      const tp = window.tp || []
-      tp.push([
-        'init',
-        () => {
-          this.login()
-        },
-      ])
     },
     logout() {
       this.maybeCloseSide()
