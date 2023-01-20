@@ -60,7 +60,7 @@ export default {
   name: 'TickerSpecial',
   data() {
     return {
-      shown: true,
+      shown: false,
     }
   },
   mounted() {
