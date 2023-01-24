@@ -676,7 +676,9 @@ export default {
           '@type': 'ImageObject',
           contentUrl: this.post.image.facebook,
           url: this.post.image.facebook,
-          height: (1200 * this.post.image.height) / this.post.image.width,
+          height: Math.round(
+            (1200 * this.post.image.height) / this.post.image.width
+          ),
           width: 1200,
           creditText: this.$options.filters.parseCat(this.post.image.author),
           caption: this.$options.filters.parseCat(this.post.image.alt),
@@ -1171,7 +1173,9 @@ export default {
       {
         hid: 'og:image:height',
         property: 'og:image:height',
-        content: (1200 * this.post.image.height) / this.post.image.width,
+        content: Math.round(
+          (1200 * this.post.image.height) / this.post.image.width
+        ),
       },
       {
         hid: 'og:url',
