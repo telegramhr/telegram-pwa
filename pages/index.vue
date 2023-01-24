@@ -361,44 +361,43 @@
         </div>
       </div>
     </div>
-    <!-- Prekid knjiga -->
+    <!-- Prekid klub -->
     <div class="full relative">
       <div class="container flex relative column-horizontal-pad">
         <app-link
-          to="/knjiga/rajko-grlic-neispricane-price"
-          class="full cantha-break break-dezulovic mobile-side-pad flex relative stretch"
+          to="/klub"
+          class="full cantha-break mobile-side-pad flex relative stretch klub-cantha-break"
         >
-          <div class="forty column-full-pad center flex-responsive">
-            <div class="full flex article">
-              <h3 class="full overtitle">Ekskluzivna prednarudžba</h3>
-              <h2 class="full">
-                Telegram donosi novu knjigu: Neispričane priče Rajka Grlića
-              </h2>
+          <div class="third column-full-pad center flex-responsive">
+            <div class="full flex">
+              <img
+                src="@/assets/img/tg_klub_logo_negative.svg"
+                alt="Telegram Klub logo"
+                class="klub-break-logo"
+              />
               <h5 class="full">
-                Novo i dopunjeno izdanje hit knjige čuvenog redatelja, <br />
-                na 435 stranica s 21 novom, nikad objavljenom pričom
+                Klub ekskluzivnih ponuda, pogodnosti i popusta, samo za
+                pretplatnike Telegrama.
               </h5>
             </div>
           </div>
-          <div class="sixty stretch flex flex-responsive">
-            <div class="two-thirds column-top-pad center flex-responsive">
+          <div class="two-thirds stretch flex flex-responsive">
+            <div class="two-thirds stretch center flex-responsive">
               <img
-                src="@/assets/img/tg_knjiga_vizual_grlic.png"
-                alt="Portret Rajka Grlića i naslovnica njegove knjige 'Neispričane priče'"
+                src="@/assets/img/tg_klub_vizual_widget.jpg"
+                alt="Neki od popusta u kazalištima i muzejima koje se nalaze u Telegram Klubu"
               />
             </div>
-            <div class="third center column-horizontal-pad flex-responsive">
-              <div class="full flex article">
-                <h2 class="full relative center-text">
-                  <span class="faded strikethrough">23,76€</span> 15,79€
-                </h2>
+            <div
+              class="third center stretch column-horizontal-pad flex-responsive"
+            >
+              <div class="full column-left-pad flex article">
                 <h5 class="full center-text">
-                  (<span class="faded strikethrough">179 kn</span> 119 kn)
-                  <br />
-                  posebna cijena za Telegramove pretplatnike!
+                  Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
+                  pretplatnicima.
                 </h5>
                 <div class="full center">
-                  <div class="newbtn">Kupite</div>
+                  <div class="newbtn">Saznajte više</div>
                 </div>
               </div>
             </div>
@@ -509,45 +508,44 @@
         </div>
       </div>
     </div>
-    <!-- Prekid klub -->
+    <!-- Prekid knjiga -->
     <div class="full relative">
-      <div
-        class="container flex relative column-horizontal-pad column-bottom-pad"
-      >
+      <div class="container flex relative column-full-pad">
         <app-link
-          to="/klub"
-          class="full cantha-break mobile-side-pad flex relative stretch klub-cantha-break"
+          to="/knjiga/rajko-grlic-neispricane-price"
+          class="full cantha-break break-dezulovic mobile-side-pad flex relative stretch"
         >
-          <div class="third column-full-pad center flex-responsive">
-            <div class="full flex">
-              <img
-                src="@/assets/img/tg_klub_logo_negative.svg"
-                alt="Telegram Klub logo"
-                class="klub-break-logo"
-              />
+          <div class="forty column-full-pad center flex-responsive">
+            <div class="full flex article">
+              <h3 class="full overtitle">Posebna ponuda</h3>
+              <h2 class="full">
+                Telegram donosi novu knjigu: Neispričane priče Rajka Grlića
+              </h2>
               <h5 class="full">
-                Klub ekskluzivnih ponuda, pogodnosti i popusta, samo za
-                pretplatnike Telegrama.
+                Novo i dopunjeno izdanje hit knjige čuvenog redatelja, <br />
+                na 435 stranica s 21 novom, nikad objavljenom pričom
               </h5>
             </div>
           </div>
-          <div class="two-thirds stretch flex flex-responsive">
-            <div class="two-thirds stretch center flex-responsive">
+          <div class="sixty stretch flex flex-responsive">
+            <div class="two-thirds column-top-pad center flex-responsive">
               <img
-                src="@/assets/img/tg_klub_vizual_widget.jpg"
-                alt="Neki od popusta u kazalištima i muzejima koje se nalaze u Telegram Klubu"
+                src="@/assets/img/tg_knjiga_vizual_grlic.png"
+                alt="Portret Rajka Grlića i naslovnica njegove knjige 'Neispričane priče'"
               />
             </div>
-            <div
-              class="third center stretch column-horizontal-pad flex-responsive"
-            >
-              <div class="full column-left-pad flex article">
+            <div class="third center column-horizontal-pad flex-responsive">
+              <div class="full flex article">
+                <h2 class="full relative center-text">
+                  <span class="faded strikethrough">23,76€</span> 15,79€
+                </h2>
                 <h5 class="full center-text">
-                  Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
-                  pretplatnicima.
+                  (<span class="faded strikethrough">179 kn</span> 119 kn)
+                  <br />
+                  posebna cijena za Telegramove pretplatnike!
                 </h5>
                 <div class="full center">
-                  <div class="newbtn">Saznajte više</div>
+                  <div class="newbtn">Kupite</div>
                 </div>
               </div>
             </div>
