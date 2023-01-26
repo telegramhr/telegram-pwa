@@ -288,6 +288,15 @@
                 >
                   <gallery :gallery="gallery"></gallery>
                 </portal>
+                <portal
+                  v-if="!hasPremium && !post.category_slug.includes('superone')"
+                  selector="#intext_premium"
+                >
+                  <div>
+                    <offers-premium></offers-premium>
+                  </div>
+                </portal>
+
               </client-only>
               <client-only>
                 <intext></intext>

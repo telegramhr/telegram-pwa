@@ -361,6 +361,7 @@
         </div>
       </div>
     </div>
+    <offers-premium></offers-premium>
     <!-- Prekid klub -->
     <div class="full relative">
       <div class="container flex relative column-horizontal-pad">
