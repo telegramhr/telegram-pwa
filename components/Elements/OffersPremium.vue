@@ -80,7 +80,6 @@
         ></font-awesome-icon>
       </div>
     </div>
-    <p class="full offer-disclaimer center-text">1 euro = 7,53450 kuna</p>
   </div>
 </template>
 
