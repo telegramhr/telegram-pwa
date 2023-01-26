@@ -240,6 +240,7 @@
                       post.social.path
                     )}&via=TelegramHR`"
                     target="_blank"
+                    rel="nofollow"
                     ><font-awesome-icon
                       :icon="['fab', 'twitter']"
                       class="animate"
@@ -329,6 +330,7 @@
                       )}&via=TelegramHR`"
                       target="_blank"
                       class="animate center"
+                      rel="nofollow"
                     >
                       <font-awesome-icon
                         :icon="['fab', 'twitter']"
