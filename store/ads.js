@@ -35,11 +35,22 @@ export const state = () => ({
         'autor-autor',
         'tema-tema',
         'super1-category-slug',
+        'pitanje-zdravlja-category-slug',
+        'openspace-category-slug',
+        'pitanje-zdravlja-category',
+        'openspace-category',
       ],
     },
     telegram_desktop_billboard_v2: {
       upc: false,
-      routes: ['index', 'category', 'super1', 'super1-category'],
+      routes: [
+        'index',
+        'category',
+        'super1',
+        'super1-category',
+        'pitanje-zdravlja-category',
+        'openspace-category',
+      ],
       mobile: [
         [1, 1],
         [300, 50],
@@ -152,7 +163,14 @@ export const state = () => ({
     },
     telegram_desktop_billboard_v3: {
       upc: false,
-      routes: ['index', 'category', 'super1', 'super1-category'],
+      routes: [
+        'index',
+        'category',
+        'super1',
+        'super1-category',
+        'pitanje-zdravlja-category',
+        'openspace-category',
+      ],
       mobile: [
         [1, 1],
         [300, 50],
@@ -258,7 +276,14 @@ export const state = () => ({
     },
     telegram_desktop_billboard_v4: {
       upc: false,
-      routes: ['index', 'super1', 'category', 'super1-category'],
+      routes: [
+        'index',
+        'super1',
+        'category',
+        'super1-category',
+        'pitanje-zdravlja-category',
+        'openspace-category',
+      ],
       mobile: [
         [1, 1],
         [300, 50],
@@ -393,6 +418,10 @@ export const state = () => ({
         'search',
         'autor-autor',
         'tema-tema',
+        'pitanje-zdravlja-category-slug',
+        'openspace-category-slug',
+        'pitanje-zdravlja-category',
+        'openspace-category',
       ],
     },
     telegram_dekstop_wallpaper_right: {
@@ -420,11 +449,24 @@ export const state = () => ({
         'search',
         'autor-autor',
         'tema-tema',
+        'pitanje-zdravlja-category-slug',
+        'openspace-category-slug',
+        'pitanje-zdravlja-category',
+        'openspace-category',
       ],
     },
     telegram_desktop_intext_v1: {
       upc: false,
-      routes: ['category-slug', 'nesto-slug', 'super1-category-slug'],
+      routes: [
+        'category-slug',
+        'nesto-slug',
+        'super1-category-slug',
+        'pitanje-zdravlja-category-slug',
+        'openspace-category-slug',
+        'pitanje-zdravlja-category',
+        'openspace-category',
+        'super1-category',
+      ],
       desktop: [
         [1, 1],
         [660, 350],
@@ -448,7 +490,16 @@ export const state = () => ({
     },
     telegram_desktop_intext_v2: {
       upc: false,
-      routes: ['category-slug', 'nesto-slug', 'super1-category-slug'],
+      routes: [
+        'category-slug',
+        'nesto-slug',
+        'super1-category-slug',
+        'pitanje-zdravlja-category-slug',
+        'openspace-category-slug',
+        'pitanje-zdravlja-category',
+        'openspace-category',
+        'super1-category',
+      ],
       desktop: [
         [1, 1],
         [660, 350],
@@ -569,7 +620,16 @@ export const state = () => ({
     },
     telegram_desktop_intext_v3: {
       upc: false,
-      routes: ['category-slug', 'nesto-slug', 'super1-category-slug'],
+      routes: [
+        'category-slug',
+        'nesto-slug',
+        'super1-category-slug',
+        'pitanje-zdravlja-category-slug',
+        'openspace-category-slug',
+        'pitanje-zdravlja-category',
+        'openspace-category',
+        'super1-category',
+      ],
       desktop: [
         [1, 1],
         [660, 350],
@@ -686,7 +746,16 @@ export const state = () => ({
     },
     telegram_desktop_intext_v4: {
       upc: false,
-      routes: ['category-slug', 'nesto-slug', 'super1-category-slug'],
+      routes: [
+        'category-slug',
+        'nesto-slug',
+        'super1-category-slug',
+        'pitanje-zdravlja-category-slug',
+        'openspace-category-slug',
+        'pitanje-zdravlja-category',
+        'openspace-category',
+        'super1-category',
+      ],
       desktop: [
         [1, 1],
         [660, 350],
@@ -803,7 +872,16 @@ export const state = () => ({
     },
     telegram_desktop_intext_v5: {
       upc: false,
-      routes: ['category-slug', 'nesto-slug', 'super1-category-slug'],
+      routes: [
+        'category-slug',
+        'nesto-slug',
+        'super1-category-slug',
+        'pitanje-zdravlja-category-slug',
+        'openspace-category-slug',
+        'pitanje-zdravlja-category',
+        'openspace-category',
+        'super1-category',
+      ],
       desktop: [
         [1, 1],
         [660, 350],
@@ -899,7 +977,16 @@ export const state = () => ({
     },
     telegram_desktop_intext_v6: {
       upc: false,
-      routes: ['category-slug', 'nesto-slug', 'super1-category-slug'],
+      routes: [
+        'category-slug',
+        'nesto-slug',
+        'super1-category-slug',
+        'pitanje-zdravlja-category-slug',
+        'openspace-category-slug',
+        'pitanje-zdravlja-category',
+        'openspace-category',
+        'super1-category',
+      ],
       desktop: [
         [1, 1],
         [660, 350],
@@ -1009,6 +1096,10 @@ export const state = () => ({
         'search',
         'autor-autor',
         'tema-tema',
+        'pitanje-zdravlja-category-slug',
+        'openspace-category-slug',
+        'pitanje-zdravlja-category',
+        'openspace-category',
       ],
       mobile: [
         [1, 1],

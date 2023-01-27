@@ -297,7 +297,6 @@
                     <offers-premium></offers-premium>
                   </div>
                 </portal>
-
               </client-only>
               <client-only>
                 <intext></intext>
