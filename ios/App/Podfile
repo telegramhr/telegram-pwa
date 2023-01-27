@@ -18,6 +18,11 @@ end
 target 'Telegram.hr' do
   capacitor_pods
   # Add your Pods here
+  pod 'PianoComposer', '~> 2.6.1'
+  pod 'PianoTemplate', '~> 2.6.1'
+  pod 'PianoTemplate.ID', '~> 2.6.1'
+  pod 'PianoOAuth', '~> 2.6.1'
+  pod 'PianoC1X', '~> 2.6.1'
 end
 
 
