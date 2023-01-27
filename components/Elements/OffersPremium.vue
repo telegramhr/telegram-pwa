@@ -2,10 +2,8 @@
   <div
     v-if="posts.length && posts[0].link"
     class="container cantha-small-block flex relative native-block offers-widget column-top-pad stretch mobile-side-pad"
+    style="margin-bottom: 40px"
   >
-    <div class="full column-horizontal-pad">
-      <div class="full cantha-separator"></div>
-    </div>
     <h3 class="full center-text column-full-pad subsection-title">
       <div class="full center spar-line">
         <div class="flex center">
@@ -30,7 +28,10 @@
         </div>
       </div>
     </h3>
-    <div class="full flex stretch column-bottom-pad gallery-content">
+    <div
+      class="full flex stretch column-bottom-pad gallery-content"
+      style="background-color: #fff"
+    >
       <VueSlickCarousel
         v-if="posts.length"
         ref="offer_carousel"
