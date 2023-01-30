@@ -1,6 +1,7 @@
 <template>
   <div
     v-if="posts.length && posts[0].link"
+    id="offer-premium"
     class="container cantha-small-block flex relative native-block offers-widget column-top-pad stretch mobile-side-pad"
     style="margin-bottom: 40px"
   >
@@ -191,11 +192,11 @@ h3.subsection-title .spar-line img {
   bottom: 0px;
 }
 
-.slick-slide {
+#offer-premium .slick-slide {
   border-right: 1px solid #c8c8c8;
 }
 
-.dark-mode .slick-slide {
+#offer-premium .dark-mode .slick-slide {
   border-right: 1px solid #212121;
 }
 </style>
