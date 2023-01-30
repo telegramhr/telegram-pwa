@@ -28,10 +28,7 @@
         </div>
       </div>
     </h3>
-    <div
-      class="full flex stretch column-bottom-pad gallery-content"
-      style="background-color: #fff"
-    >
+    <div class="full flex stretch column-bottom-pad gallery-content">
       <VueSlickCarousel
         v-if="posts.length"
         ref="offer_carousel"
@@ -192,5 +189,13 @@ h3.subsection-title .pevex-line img {
 h3.subsection-title .spar-line img {
   height: 30px;
   bottom: 0px;
+}
+
+.slick-slide {
+  border-right: 1px solid #c8c8c8;
+}
+
+.dark-mode .slick-slide {
+  border-right: 1px solid #212121;
 }
 </style>
