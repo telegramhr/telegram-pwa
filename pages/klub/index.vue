@@ -1206,35 +1206,35 @@
             <ul class="full">
               <li>
                 <a
-                  href="https://fraktura.hr/krvava-prostranstva.html"
+                  href="https://fraktura.hr/deset-lekcija-za-svijet-poslije-pandemije.html"
                   target="_blank"
-                  >Krvava prostranstva</a
+                  >Deset lekcija za svijet nakon pandemije</a
                 >
               </li>
               <li>
                 <a
-                  href="https://fraktura.hr/raditi-kako-treba.html"
+                  href="https://fraktura.hr/smrtni-grijesi-feminizma.html"
                   target="_blank"
-                  >Raditi kako treba</a
+                  >Smrtni grijesi feminizma</a
                 >
               </li>
               <li>
                 <a
-                  href="https://fraktura.hr/krvnikov-prijelaz.html"
+                  href="https://fraktura.hr/kad-je-nina-znala.html"
                   target="_blank"
-                  >Krvnikov prijelaz</a
-                >
-              </li>
-              <li>
-                <a href="https://fraktura.hr/redovnik-moke.html" target="_blank"
-                  >Redovnik Moke</a
+                  >Kad je Nina znala</a
                 >
               </li>
               <li>
                 <a
-                  href="https://fraktura.hr/konkvistadori-s-kistom.html"
+                  href="https://fraktura.hr/muskarci-koji-mrze-zene-3.html"
                   target="_blank"
-                  >Konkvistadori s kistom</a
+                  >Muškarci koji mrze žene</a
+                >
+              </li>
+              <li>
+                <a href="https://fraktura.hr/shantaram.html" target="_blank"
+                  >Shantaram</a
                 >
               </li>
             </ul>
@@ -1243,7 +1243,7 @@
               <p class="full">
                 Kako biste ostvarili svoj popust, posjetite link knjige koju
                 želite kupiti i pri odabiru načina plaćanja upišite kod
-                <b>TELEGRAM22</b>.
+                <b>TELEGRAM23</b>.
               </p>
               <p class="full small-top-margin">
                 Možete posjetiti i knjižaru Fraktura i pokazati svoju digitalnu
