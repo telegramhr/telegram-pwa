@@ -293,7 +293,7 @@
                   v-if="!hasPremium && !post.category_slug.includes('superone')"
                   selector="#intext_premium"
                 >
-                  <div>
+                  <div class="full">
                     <offers-premium></offers-premium>
                   </div>
                 </portal>
