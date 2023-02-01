@@ -71,7 +71,7 @@ export default {
   },
   methods: {
     load() {
-      if (this.shown) {
+      if (this.$store.state.user.access || this.shown) {
         return
       }
       this.shown = true
