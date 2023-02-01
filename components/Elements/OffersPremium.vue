@@ -3,7 +3,7 @@
     v-if="posts.length && posts[0].link"
     id="offer-premium"
     class="container cantha-small-block flex relative native-block offers-widget column-top-pad stretch mobile-side-pad"
-    style="margin-bottom: 40px"
+    style="max-width: 1201px"
   >
     <h3 class="full center-text column-full-pad subsection-title">
       <div class="full center spar-line">
@@ -79,7 +79,7 @@
         ></font-awesome-icon>
       </div>
     </div>
-        <p class="full offer-disclaimer center-text">1 euro = 7,53450 kuna</p>
+    <p class="full offer-disclaimer center-text">1 euro = 7,53450 kuna</p>
   </div>
 </template>
 
