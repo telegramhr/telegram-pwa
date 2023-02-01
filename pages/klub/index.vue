@@ -166,6 +166,37 @@
             <div class="klub-ponuda-tile relative">
               <div class="klub-sticker center">
                 <div class="full center-text klub-sticker-amount">
+                  5<span class="klub-sticker-smaller">EUR</span>
+                </div>
+                <div class="full center-text klub-sticker-text">ulaznica</div>
+              </div>
+              <div class="full center">
+                <img
+                  src="@/assets/img/extras/klub/tg_visual_klub_zarptica.jpg"
+                  aria-hidden="true"
+                />
+              </div>
+            </div>
+            <h3 class="full overtitle">Gradsko kazalište Žar ptica</h3>
+            <a href="#kazalista" @click="selected_kazaliste = 'zarptica'">
+              <h2 class="full">
+                Popust na nedjeljne matineje u Gradskom kazalištu Žar ptica
+              </h2></a
+            >
+            <a
+              href="#kazalista"
+              class="newbtn clickable"
+              @click="selected_kazaliste = 'zarptica'"
+            >
+              Iskoristite ponudu
+            </a>
+          </div>
+          <div
+            class="fourth flex article klub-ponuda relative column-horizontal-pad"
+          >
+            <div class="klub-ponuda-tile relative">
+              <div class="klub-sticker center">
+                <div class="full center-text klub-sticker-amount">
                   3<span class="klub-sticker-smaller">EUR</span>
                 </div>
                 <div class="full center-text klub-sticker-text">popust</div>
@@ -371,6 +402,56 @@
     <div id="kazalista" class="full flex fake-inpage-anchor"></div>
     <div class="full flex relative">
       <div
+        v-if="selected_kazaliste === 'zarptica'"
+        id="zarptica"
+        class="full flex relative klub-expanded"
+      >
+        <div class="container flex relative stretch mobile-side-pad">
+          <div class="close-klub-expand" @click="selected_kazaliste = ''">
+            x
+          </div>
+          <div class="third center flex-responsive column-left-pad">
+            <img
+              src="@/assets/img/extras/klub/tg_visual_klub_zarptica.jpg"
+              aria-hidden="true"
+            />
+          </div>
+          <div class="two-thirds center flex-responsive article">
+            <h3 class="full overtitle">Gradsko kazalište Žar ptica</h3>
+            <h2 class="full">
+              Popust na nedjeljne matineje u Gradskom kazalištu Žar ptica
+            </h2>
+            <h4 class="full">
+              Telegramovi pretplatnici ostvaruju kupnju ulaznica na nedjeljne
+              matineje po cijeni od 5 eura po ulaznici (na jednu digitalnu
+              pretplatničku iskaznicu moguće je kupiti maksimalno dvije ulaznice
+              po sniženoj cijeni po matineji - nazvati 01 2347 855 za
+              rezervaciju karata).
+            </h4>
+            <div v-show="!canLogIn" class="full flex">
+              <p class="full bold">Kako do popusta?</p>
+              <p class="full">
+                Kako biste ostvarili svoj popust, posjetite blagajnu kazališta i
+                pokažite svoju digitalnu pretplatničku iskaznicu koju možete
+                preuzeti <a href="#iskaznica">ovdje.</a>
+              </p>
+            </div>
+            <div v-show="canLogIn" class="full flex">
+              <p class="full bold">
+                Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
+                pretplatnicima.
+              </p>
+              <app-link to="/pretplata" class="newbtn huge-newbtn"
+                >Pretplatite se</app-link
+              >
+              <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+                >Prijava</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         v-if="selected_kazaliste === 'hnkzg'"
         id="hnkzg"
         class="full flex relative klub-expanded"
@@ -445,7 +526,7 @@
               <p class="full bold">Kako do popusta?</p>
               <p class="full">
                 Kako biste ostvarili svoj popust, posjetite web stranicu za
-                online kupnju ulaznica i upišite kod <b>GSKK1964</b>.
+                online kupnju ulaznica i upišite kod <b>GSKKTE2023</b>.
               </p>
               <a
                 href="https://kazalistekerempuh.hr/raspored-predstava/"
@@ -1022,6 +1103,33 @@
               </div>
               <div class="full center">
                 <img
+                  src="@/assets/img/extras/klub/tg_visual_klub_mozaik.jpg"
+                  aria-hidden="true"
+                />
+              </div>
+            </div>
+            <h3 class="full overtitle">Mozaik knjiga</h3>
+            <a href="#knjizare" @click="selected_knjizara = 'mozaik'">
+              <h2 class="full">Popust na naslove izdavača Mozaik knjiga</h2></a
+            >
+            <a
+              href="#knjizare"
+              class="newbtn clickable"
+              @click="selected_knjizara = 'mozaik'"
+            >
+              Iskoristite ponudu
+            </a>
+          </div>
+          <div
+            class="fourth flex article klub-ponuda relative column-horizontal-pad"
+          >
+            <div class="klub-ponuda-tile relative">
+              <div class="klub-sticker center">
+                <div class="full center-text klub-sticker-amount">10%</div>
+                <div class="full center-text klub-sticker-text">popust</div>
+              </div>
+              <div class="full center">
+                <img
                   src="@/assets/img/extras/klub/tg_visual_klub_hocuknjigu.jpg"
                   aria-hidden="true"
                 />
@@ -1250,6 +1358,55 @@
                 pretplatničku iskaznicu, koju možete preuzeti
                 <a href="#iskaznica">ovdje.</a>
               </p>
+            </div>
+            <div v-show="canLogIn" class="full flex">
+              <p class="full bold">
+                Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
+                pretplatnicima.
+              </p>
+              <app-link to="/pretplata" class="newbtn huge-newbtn"
+                >Pretplatite se</app-link
+              >
+              <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+                >Prijava</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        v-if="selected_knjizara === 'mozaik'"
+        id="mozaik"
+        class="full flex relative klub-expanded"
+      >
+        <div class="container flex relative stretch mobile-side-pad">
+          <div class="close-klub-expand" @click="selected_knjizara = ''">x</div>
+          <div class="third center flex-responsive column-left-pad">
+            <img
+              src="@/assets/img/extras/klub/tg_visual_klub_mozaik.jpg"
+              aria-hidden="true"
+            />
+          </div>
+          <div class="two-thirds center flex-responsive article">
+            <h3 class="full overtitle">Mozaik knjiga</h3>
+            <h2 class="full">Popust na naslove izdavača Mozaik knjiga</h2>
+            <h4 class="full">
+              Telegramovi pretplatnici ostvaruju 10% popusta na naslove Mozaik
+              knjige (popust se ne odnosi na naslove na akciji).
+            </h4>
+            <div v-show="!canLogIn" class="full flex">
+              <p class="full bold">Kako do popusta?</p>
+              <p class="full">
+                Kako biste ostvarili svoj popust, posjetite link knjige koju
+                želite kupiti i pri odabiru načina plaćanja upišite promo kod:
+                <b>Telegram</b>.
+              </p>
+              <a
+                href="https://mozaik-knjiga.hr/"
+                target="_blank"
+                class="newbtn huge-newbtn"
+                >Kupite ovdje</a
+              >
             </div>
             <div v-show="canLogIn" class="full flex">
               <p class="full bold">
