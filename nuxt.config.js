@@ -47,6 +47,11 @@ export default {
         src: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js',
         async: true,
       },
+      {
+        src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2317149376955370',
+        async: true,
+        crossorigin: 'anonymous',
+      },
       /* {
         src: '/prebid-6.10.0.js',
         async: true,
