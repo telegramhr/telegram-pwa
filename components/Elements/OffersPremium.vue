@@ -131,7 +131,7 @@ export default {
     this.getPosts()
     this.$gtm.push({
       event: 'webshop-widget',
-      'webshop-category': this.shop,
+      'webshop-category': 'interspar-premium',
       'webshop-action': 'view',
       'webshop-label': 'impression',
       'webshop-value': 1,
@@ -141,7 +141,7 @@ export default {
     trackClick() {
       this.$gtm.push({
         event: 'webshop-widget',
-        'webshop-category': this.shop,
+        'webshop-category': 'interspar-premium',
         'webshop-action': 'click',
         'webshop-label': 'click',
         'webshop-value': 1,
