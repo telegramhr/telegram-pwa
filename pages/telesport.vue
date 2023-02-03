@@ -11,11 +11,11 @@
           <div class="full center">
             <nuxt-link to="/telesport" class="logo"
               ><img
-                src="@/assets/img/telesport_logo_white.svg"
+                src="@/assets/img/telesport_logo_black.svg"
                 class="light-mode-only"
                 alt="Telesport logo" />
               <img
-                src="@/assets/img/telesport_logo.svg"
+                src="@/assets/img/telesport_logo_black.svg"
                 class="contrast-mode-only"
                 alt="Telesport logo" />
               <img
@@ -53,11 +53,11 @@
         <div
           class="three-fourths featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad column-right-border mobile-order-1"
         >
-          <featured-sport
+          <featured
             v-for="post in posts.slice(0, 1)"
             :key="'sport-' + post.id"
             :post="post"
-          ></featured-sport>
+          ></featured>
         </div>
         <div
           class="fourth flex mini-article-list mobile-side-pad flex-responsive column-horizontal-pad align-children-bottom"
@@ -90,11 +90,11 @@
         <div
           class="three-fourths flex-responsive column-horizontal-pad column-right-border flex relative featured-split smaller-featured-split show-one-related"
         >
-          <featured-sport
+          <featured
             v-for="post in posts.slice(5, 7)"
             :key="post.id"
             :post="post"
-          ></featured-sport>
+          ></featured>
         </div>
         <div class="fourth flex-responsive column-horizontal-pad flex relative">
           <medium
@@ -141,11 +141,11 @@
         <div
           class="three-fourths flex-responsive column-horizontal-pad column-right-border flex relative featured-split smaller-featured-split show-one-related"
         >
-          <featured-sport
+          <featured
             v-for="post in posts.slice(6, 7)"
             :key="post.id"
             :post="post"
-          ></featured-sport>
+          ></featured>
         </div>
         <div class="full column-full-pad tablet-only">
           <div class="full column-bottom-border"></div>
@@ -174,8 +174,8 @@
                 Telegram predstavlja: Bili libar, nova knjiga Borisa Dežulovića
               </h2>
               <h5 class="full">
-                Naručite još danas i osigurajte svoj primjera, uz posebnu cijenu
-                za pretplatnike
+                Naručite još danas i osigurajte svoj primjerak, uz posebnu
+                cijenu za pretplatnike
               </h5>
             </div>
           </div>
@@ -189,10 +189,10 @@
             <div class="third center column-horizontal-pad flex-responsive">
               <div class="full column-left-pad flex article">
                 <h2 class="full relative center-text">
-                  <span class="faded strikethrough">149 kn</span> 99 kn
+                  <span class="faded strikethrough">19,78€</span> 13,14€
                 </h2>
                 <h5 class="full center-text">
-                  (<span class="faded strikethrough">19,78€</span> 13,14€)
+                  (<span class="faded strikethrough">149 kn</span> 99 kn)
                   <br />
                   posebna cijena za Telegramove pretplatnike!
                 </h5>
@@ -216,11 +216,11 @@
         <div
           class="three-fourths flex-responsive column-horizontal-pad column-right-border flex relative featured-split smaller-featured-split show-one-related"
         >
-          <featured-sport
+          <featured
             v-for="post in posts.slice(4, 5)"
             :key="post.id"
             :post="post"
-          ></featured-sport>
+          ></featured>
         </div>
         <div class="full column-full-pad tablet-only">
           <div class="full column-bottom-border"></div>
@@ -230,16 +230,6 @@
         >
           <trending :id="1"></trending>
         </div>
-        <div class="full column-horizontal-pad">
-          <div class="full column-top-pad column-bottom-border"></div>
-        </div>
-      </div>
-    </div>
-    <div class="full relative">
-      <div
-        class="container mobile-side-pad column-horizontal-pad flex relative stretch column-bottom-pad"
-      >
-        "Smisljam jos 😃" -Miran Pavić
       </div>
     </div>
     <!-- Footer -->
