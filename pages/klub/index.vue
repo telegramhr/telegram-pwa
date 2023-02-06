@@ -166,37 +166,6 @@
             <div class="klub-ponuda-tile relative">
               <div class="klub-sticker center">
                 <div class="full center-text klub-sticker-amount">
-                  5<span class="klub-sticker-smaller">EUR</span>
-                </div>
-                <div class="full center-text klub-sticker-text">ulaznica</div>
-              </div>
-              <div class="full center">
-                <img
-                  src="@/assets/img/extras/klub/tg_visual_klub_zarptica.jpg"
-                  aria-hidden="true"
-                />
-              </div>
-            </div>
-            <h3 class="full overtitle">Gradsko kazalište Žar ptica</h3>
-            <a href="#kazalista" @click="selected_kazaliste = 'zarptica'">
-              <h2 class="full">
-                Popust na nedjeljne matineje u Gradskom kazalištu Žar ptica
-              </h2></a
-            >
-            <a
-              href="#kazalista"
-              class="newbtn clickable"
-              @click="selected_kazaliste = 'zarptica'"
-            >
-              Iskoristite ponudu
-            </a>
-          </div>
-          <div
-            class="fourth flex article klub-ponuda relative column-horizontal-pad"
-          >
-            <div class="klub-ponuda-tile relative">
-              <div class="klub-sticker center">
-                <div class="full center-text klub-sticker-amount">
                   3<span class="klub-sticker-smaller">EUR</span>
                 </div>
                 <div class="full center-text klub-sticker-text">popust</div>
@@ -274,6 +243,35 @@
               href="#kazalista"
               class="newbtn clickable"
               @click="selected_kazaliste = 'komedija'"
+            >
+              Iskoristite ponudu
+            </a>
+          </div>
+          <div
+            class="fourth flex article klub-ponuda relative column-horizontal-pad"
+          >
+            <div class="klub-ponuda-tile relative">
+              <div class="klub-sticker center">
+                <div class="full center-text klub-sticker-amount">9%</div>
+                <div class="full center-text klub-sticker-text">popust</div>
+              </div>
+              <div class="full center">
+                <img
+                  src="@/assets/img/extras/klub/tg_visual_klub_zarptica.jpg"
+                  aria-hidden="true"
+                />
+              </div>
+            </div>
+            <h3 class="full overtitle">Gradsko kazalište Žar ptica</h3>
+            <a href="#kazalista" @click="selected_kazaliste = 'zarptica'">
+              <h2 class="full">
+                Popust na nedjeljne matineje u Gradskom kazalištu Žar ptica
+              </h2></a
+            >
+            <a
+              href="#kazalista"
+              class="newbtn clickable"
+              @click="selected_kazaliste = 'zarptica'"
             >
               Iskoristite ponudu
             </a>
