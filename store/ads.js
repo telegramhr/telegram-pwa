@@ -1207,10 +1207,21 @@ export const actions = {
           targeting.wp_post_type = ['home']
           break
         case 'category':
-        case 'super1-category':
         case 'fotogalerije-category':
           targeting.wp_post_type = ['category']
           targeting.post_category = [route.params.category]
+          break
+        case 'super1-category':
+          targeting.wp_post_type = ['category']
+          targeting.post_category = ['super1', route.params.category]
+          break
+        case 'pitanje-zdravlja-category':
+          targeting.wp_post_type = ['category']
+          targeting.post_category = ['super1', route.params.category]
+          break
+        case 'openspace-category':
+          targeting.wp_post_type = ['category']
+          targeting.post_category = ['super1', route.params.category]
           break
         case 'super1':
           targeting.wp_post_type = ['category']
@@ -1222,11 +1233,20 @@ export const actions = {
           break
         case 'category-slug':
         case 'super1-category-slug':
+        case 'openspace-category-slug':
+        case 'pitanje-zdravlja-category-slug':
         case 'nesto-slug':
         case 'fotogalerije-category-slug':
           targeting.wp_post_type = ['single']
           targeting.post_slug = [route.params.slug]
-          if (route.name.includes('super1')) {
+          if (route.name.includes('openspace')) {
+            targeting.post_category = [route.params.category, 'openspace']
+          } else if (route.name.includes('pitanje-zdravlja')) {
+            targeting.post_category = [
+              route.params.category,
+              'pitanje-zdravlja',
+            ]
+          } else if (route.name.includes('super1')) {
             targeting.post_category = [route.params.category, 'super1']
           } else {
             targeting.post_category = [route.params.category]
