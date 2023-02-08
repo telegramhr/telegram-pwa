@@ -189,15 +189,22 @@
                   <div style="width: 100%" v-html="post.video" />
                 </template>
                 <template v-else>
-                  <img
-                    class="article-head-image"
-                    :srcset="srcset"
-                    :src="post.image.url"
-                    :alt="post.image.alt"
-                    fetchpriority="high"
-                    width="888"
-                    height="560"
-                  />
+                  <picture class="article-head-image">
+                    <source
+                      :src="post.image.url"
+                      :srcset="srcset"
+                      type="image/webp"
+                      width="888"
+                      height="560"
+                    />
+                    <img
+                      :src="post.image.jpg"
+                      :alt="post.image.alt"
+                      width="888"
+                      height="560"
+                      fetchpriority="high"
+                    />
+                  </picture>
                   <div v-if="post.image.author" class="meta-foto">
                     FOTO: {{ post.image.author | parseCat }}
                   </div>
