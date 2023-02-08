@@ -7,38 +7,11 @@
       <div class="full cantha-separator"></div>
     </div>
     <h3 class="full center-text column-full-pad subsection-title">
-      <div v-if="shop === 'interspar'" class="full center spar-line">
+      <div class="full center telemach-line">
         <div class="flex center">
           <img
-            src="@/assets/img/extras/partner_logos/spar.svg"
-            alt="Spar logo"
-          />
-          <img
-            src="@/assets/img/extras/partner_logos/spar.svg"
-            class="dark-mode-only"
-            alt="Spar logo"
-          />
-          <img
-            src="@/assets/img/extras/partner_logos/interspar.svg"
-            alt="Interspar logo"
-          />
-          <img
-            src="@/assets/img/extras/partner_logos/interspar.svg"
-            class="dark-mode-only"
-            alt="Interspar logo"
-          />
-        </div>
-      </div>
-      <div v-if="shop === 'pevex'" class="full center pevex-line">
-        <div class="flex">
-          <img
-            src="@/assets/img/extras/partner_logos/pevex.webp"
-            alt="Pevex logo"
-          />
-          <img
-            src="@/assets/img/extras/partner_logos/pevex.webp"
-            class="dark-mode-only"
-            alt="Pevex logo"
+            src="https://www.telegram.hr/wp-content/uploads/2023/02/telemach-logo-vektor.png"
+            alt="Telemach logo"
           />
         </div>
       </div>
@@ -161,7 +134,7 @@ export default {
     this.getPosts()
     this.$gtm.push({
       event: 'webshop-widget',
-      'webshop-category': this.shop,
+      'webshop-category': 'telemach',
       'webshop-action': 'view',
       'webshop-label': 'impression',
       'webshop-value': 1,
@@ -171,7 +144,7 @@ export default {
     trackClick() {
       this.$gtm.push({
         event: 'webshop-widget',
-        'webshop-category': this.shop,
+        'webshop-category': 'telemach',
         'webshop-action': 'click',
         'webshop-label': 'click',
         'webshop-value': 1,
@@ -188,37 +161,25 @@ export default {
 </script>
 
 <style>
-.spar-line {
-  background-color: #006431;
+.telemach-line {
+  background-color: #0a0405;
 }
 
-.pevex-line {
-  background-color: #00ab4e;
-}
-
-.spar-line > div {
-  padding-left: 7px;
+.telemach-line > div {
   background-color: #fcf1e7;
-  width: 468px;
+}
+.telemach-line img {
+  margin-right: 0 !important;
 }
 
-.pevex-line > div {
-  padding: 10px;
-}
-
-.contrast-mode .spar-line > div {
+.contrast-mode .telemach-line > div {
   background-color: white;
 }
-.dark-mode .spar-line > div {
+.dark-mode .telemach-line > div {
   background-color: #212121;
 }
 
-h3.subsection-title .pevex-line img {
-  height: 14px;
-  bottom: 0px;
-}
-
-h3.subsection-title .spar-line img {
+h3.subsection-title .telemach-line img {
   height: 30px;
   bottom: 0px;
 }

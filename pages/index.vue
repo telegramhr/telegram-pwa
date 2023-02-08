@@ -456,6 +456,11 @@
         <category-big slug="more-news"></category-big>
       </div>
     </div>
+    <client-only>
+      <div v-if="!hasPremium" class="full relative">
+        <offers></offers>
+      </div>
+    </client-only>
     <!-- Mala rubrika: Biznis i tech -->
     <div class="full relative">
       <div class="container flex relative">
