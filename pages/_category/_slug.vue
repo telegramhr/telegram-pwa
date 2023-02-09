@@ -195,13 +195,13 @@
                       :srcset="srcset"
                       type="image/webp"
                       width="888"
-                      height="560"
+                      :height="post.category_slug.includes('super1')?888:560"
                     />
                     <img
                       :src="post.image.jpg"
                       :alt="post.image.alt"
                       width="888"
-                      height="560"
+                      :height="post.category_slug.includes('super1')?888:560"
                       fetchpriority="high"
                     />
                   </picture>
