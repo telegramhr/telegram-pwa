@@ -3582,9 +3582,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         margin-top: 16px;
         margin-bottom: 0px;
     }
-    .article-head-image img {
-      aspect-ratio: 1.584191788;
-    }
     .single-article .article-head .article-meta {
         margin-top: 8px;
         padding-right: 0px;
@@ -10726,7 +10723,7 @@ header .search-menu {
     display: none;
 }
 
-/* Special ticker */ 
+/* Special ticker */
 
 .special-ticker {
     padding: 0px;

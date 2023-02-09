@@ -13,6 +13,11 @@
             src="https://www.telegram.hr/wp-content/uploads/2023/02/telemach-logo-vektor.png"
             alt="Telemach logo"
           />
+          <img
+            src="https://www.telegram.hr/wp-content/uploads/2023/02/telemach-logo-vektor.png"
+            alt="Telemach logo"
+            class="dark-mode-only"
+          />
         </div>
       </div>
     </h3>
