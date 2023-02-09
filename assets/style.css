@@ -10797,3 +10797,7 @@ header .search-menu {
         display: block;
     }
 }
+
+#hidden-content {
+    display: none;
+}

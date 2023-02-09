@@ -195,13 +195,17 @@
                       :srcset="srcset"
                       type="image/webp"
                       width="888"
-                      :height="post.category_slug.includes('super1')?888:560"
+                      :height="
+                        post.category_slug.includes('super1') ? 888 : 560
+                      "
                     />
                     <img
                       :src="post.image.jpg"
                       :alt="post.image.alt"
                       width="888"
-                      :height="post.category_slug.includes('super1')?888:560"
+                      :height="
+                        post.category_slug.includes('super1') ? 888 : 560
+                      "
                       fetchpriority="high"
                     />
                   </picture>
@@ -287,7 +291,11 @@
               ></div>
               <client-only>
                 <portal v-if="showQuiz" selector="#quiz-container">
-                  <quiz v-if="post.quiz" :data="post.quiz"></quiz>
+                  <quiz
+                    v-if="post.quiz"
+                    :data="post.quiz"
+                    :post="post.id"
+                  ></quiz>
                 </portal>
                 <portal
                   v-for="gallery in post.galleries"
