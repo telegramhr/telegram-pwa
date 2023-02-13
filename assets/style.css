@@ -1538,8 +1538,8 @@ figure img {
     opacity: .5;
 }
 .side-menu a {
-    font-size: 16px;
-    font-size: 0.8rem;
+    font-size: 15px;
+    font-size: 0.75rem;
     margin-bottom: 4px;
 }
 .side-menu-activate {
@@ -3415,19 +3415,13 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
       font-size: 24px;
       font-size: 1.2rem;
     }
-    .pretplata-page .flex-responsive img {
-      margin-top: 16px;
-    }
-    .pretplata-page .pretplata-keypoint img {
-        margin-top: 0px;
-    }
     .pretplata-page h1 {
-      font-size: 48px;
-      font-size: 2.4rem;
-    }
-    .pretplata-page h2 {
       font-size: 36px;
       font-size: 1.8rem;
+    }
+    .pretplata-page h2 {
+      font-size: 26px;
+      font-size: 1.3rem;
     }
     .dojava-creative h1 {
         font-size: 36px;
@@ -3470,8 +3464,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         margin-bottom: 0px;
     }
     .pretplata-page h2, .pretplata-page .single-article-body h2 {
-        font-size: 36px;
-        font-size: 1.8rem;
+        font-size: 30px;
+        font-size: 1.5rem;
     }
     .pretplata-faq summary, .pretplata-page p.pretplata-tagline {
         font-size: 20px;
@@ -4446,7 +4440,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .side-menu .half {
         width: 100%;
-        padding: 12px 0px;
+        padding: 8px 0px;
     }
     .side-menu-exit {
         top: 10px;
@@ -9515,6 +9509,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         margin-top: 8vw;
         opacity: .7;
     }
+    .pretplata-page .klub-header .small-top-margin {
+        margin-top: 4vw;
+        opacity: 1;
+    }
     .klub-header .container .three-fourths {
         order: 1;
         margin-bottom: -8vw;
@@ -10800,4 +10798,136 @@ header .search-menu {
 
 #hidden-content {
     display: none;
+}
+.pretplata-page .cantha-break .two-thirds {
+    align-content: flex-end;
+}
+.pretplata-page .cantha-break h2 {
+    margin-bottom: 4px;
+    font-size: 38px;
+    font-size: 1.9rem;
+}
+.pretplata-page .cantha-break p {
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+.pretplata-page .huge-newbtn {
+    margin-bottom: 0px;
+    margin-top: 8px;
+    font-size: 0.8rem;
+    padding: 10px 16px;
+    padding-top: 9px;
+}
+@media screen and (max-width: 767px) {
+    .pretplata-page .half .cantha-break {
+        margin-top: 4vw;
+        padding-bottom: 4vw;
+    }
+    .pretplata-page .cantha-break h2 {
+        font-size: 26px;
+        font-size: 1.3rem;
+    }
+}
+@media screen and (min-width: 767px) {
+    .no-sticky-ticker .container > .half {
+        max-width: 100%;
+    }
+    .pretplata-page .no-sticky-ticker, .pretplata-page .break-dezulovic, .pretplata-page .bottom-pretplata-promo {
+        height: 400px;
+    }
+    .pretplata-page .no-sticky-ticker .container  {
+        justify-content: flex-start;
+        height: 400px;
+    }
+    .pretplata-page .no-sticky-ticker img, .pretplata-page .bottom-pretplata-promo .three-fourths img {
+        height: 400px;
+        object-fit: cover;
+    }
+    .pretplata-page .break-dezulovic .all-books-effect img {
+        height: 480px;
+        object-fit: contain;
+        object-position: top center;
+    }
+    .all-books-effect {
+        margin-top: -80px;
+        z-index: 5;
+        position: relative;
+    }
+    .all-books-effect img {
+        height: 480px;
+    }
+}
+.no-sticky-ticker {
+    position: relative;
+    z-index: 5;
+    overflow: hidden;
+}
+.no-sticky-ticker .container {
+    padding: 24px 0px;
+}
+.no-sticky-ticker .container .sixty {
+    z-index: 3;
+}
+.smaller-booksel .knjiga-hero h4 {
+    margin-top: 16px;
+    margin-bottom: 0px;
+}
+.smaller-booksel .pretplata-packbox:nth-child(3), .smaller-booksel .pretplata-packbox:nth-child(4) {
+    display: flex;
+}
+.smaller-booksel .knjiga-features h1 {
+    font-size: 34px;
+    font-size: 1.7rem;
+}
+@media screen and (max-width: 767px) {
+    .pretplata-page p {
+        font-size: 18px;
+        font-size: 0.9rem;
+    }
+    .pretplata-page .klub-header {
+        margin-bottom: 0px;
+        padding-bottom: 16vw;
+    }
+    .pretplata-page .special-ticker h2 {
+        mix-blend-mode: normal;
+        font-size: 26px;
+        font-size: 1.3rem;
+        margin-top: 16vw;
+        margin-bottom: 4px;
+    }
+    .pretplata-page .special-ticker .container {
+        text-align: left;
+    }
+    .pretplata-page .special-ticker p, .pretplata-page .cantha-break p {
+        font-size: 18px;
+        font-size: 0.9rem;
+        line-height: normal;
+    }
+    .pretplata-page .special-ticker .container div.center:last-child {
+        padding-top: 0px;
+        justify-content: flex-start;
+        padding-bottom: 8vw;
+    }
+    .pretplata-page .no-sticky-ticker {
+        margin-top: 16vw;
+    }
+    .pretplata-page .cantha-break .container > .half {
+        order: 2;
+        padding-bottom: 8vw;
+    }
+    .pretplata-page .cantha-break .container > .all-books-effect {
+        order: 1;
+        padding-bottom: 0vw;
+        margin-top: -16vw;
+        z-index: 6;
+    }
+    .knjiga-hero .btn {
+        font-size: 0.8rem;
+        padding: 10px 16px;
+        padding-top: 10px;
+        padding-top: 9px;
+    }
+    .smaller-booksel {
+        margin-bottom: 12vw;
+    }
 }

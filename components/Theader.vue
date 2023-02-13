@@ -216,6 +216,7 @@
           <h3>Info</h3>
           <app-link role="menuitem" to="/pretplata">Pretplata</app-link>
           <app-link role="menuitem" to="/klub">Klub</app-link>
+          <app-link role="menuitem" to="/knjiga">Knjige</app-link>
           <app-link role="menuitem" to="/stranica/impressum"
             >Impressum</app-link
           >

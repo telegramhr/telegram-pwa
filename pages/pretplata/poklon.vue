@@ -24,7 +24,7 @@
           </p>
         </div>
       </div>
-      <div class="full flex relative pretplata-sale">
+      <div class="full flex relative">
         <div
           class="container center relative mobile-side-pad pretplata-packs pretplata-packboxes"
         >

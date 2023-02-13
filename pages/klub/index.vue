@@ -194,7 +194,7 @@
           >
             <div class="klub-ponuda-tile relative">
               <div class="klub-sticker center">
-                <div class="full center-text klub-sticker-amount">30kn</div>
+                <div class="full center-text klub-sticker-amount">4EUR</div>
                 <div class="full center-text klub-sticker-text">popust</div>
               </div>
               <div class="full center">
@@ -517,8 +517,8 @@
             <h3 class="full overtitle">Kazalište Kerempuh</h3>
             <h2 class="full">Popust na ulaznice za Kerempuhove predstave</h2>
             <h4 class="full">
-              Telegramovi pretplatnici ostvaruju 30kn popusta na ulaznice za sve
-              predstave u Kerempuhu.
+              Telegramovi pretplatnici ostvaruju 4 eura popusta na ulaznice za
+              sve predstave u Kerempuhu.
             </h4>
             <div v-show="!canLogIn" class="full flex">
               <p class="full bold">Kako do popusta?</p>
@@ -2221,6 +2221,33 @@
               Iskoristite ponudu
             </a>
           </div>
+          <div
+            class="fourth flex article klub-ponuda relative column-horizontal-pad"
+          >
+            <div class="klub-ponuda-tile relative">
+              <div class="klub-sticker center">
+                <div class="full center-text klub-sticker-amount">5%</div>
+                <div class="full center-text klub-sticker-text">popust</div>
+              </div>
+              <div class="full center">
+                <img
+                  src="@/assets/img/extras/klub/tg_visual_klub_2game.jpg"
+                  aria-hidden="true"
+                />
+              </div>
+            </div>
+            <h3 class="full overtitle">2game.com</h3>
+            <a href="#ostalo" @click="selected_ostalo = '2game'">
+              <h2 class="full">Popust na videoigre na 2game.com</h2></a
+            >
+            <a
+              href="#ostalo"
+              class="newbtn clickable"
+              @click="selected_ostalo = '2game'"
+            >
+              Iskoristite ponudu
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -2254,6 +2281,53 @@
                 odaberite željeno testiranje, i u ''Pregledu košarice“ upišite
                 kod <b>TELEGRAM20</b>. Kupite
                 <a target="_blank" href="http://webshop.mensa.hr/">ovdje.</a>
+              </p>
+            </div>
+            <div v-show="canLogIn" class="full flex">
+              <p class="full bold">
+                Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
+                pretplatnicima.
+              </p>
+              <app-link to="/pretplata" class="newbtn huge-newbtn"
+                >Pretplatite se</app-link
+              >
+              <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+                >Prijava</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        v-if="selected_ostalo === '2game'"
+        id="msu"
+        class="full flex relative klub-expanded"
+      >
+        <div class="container flex relative stretch mobile-side-pad">
+          <div class="close-klub-expand" @click="selected_ostalo = ''">x</div>
+          <div class="third center flex-responsive column-left-pad">
+            <img
+              src="@/assets/img/extras/klub/tg_visual_klub_2game.jpg"
+              aria-hidden="true"
+            />
+          </div>
+          <div class="two-thirds center flex-responsive article">
+            <h3 class="full overtitle">2game.com</h3>
+            <h2 class="full">Popust na videoigre na 2game.com</h2>
+            <h4 class="full">
+              Telegramovi pretplatnici ostvaruju 5% popusta prilikom kupnje
+              jedne od dostupnih videoigara.
+            </h4>
+            <div v-show="!canLogIn" class="full flex">
+              <p class="full bold">Kako do popusta?</p>
+              <p class="full">
+                Kako biste ostvarili svoj popust, posjetite web stranicu, i
+                prilikom kupnje upišite kod <b>TGXLM5</b>. Kupite
+                <a
+                  target="_blank"
+                  href="https://2game.com/?ref=telegram&utm_source=Tapfiliate&utm_medium=referral&utm_campaign=telegram"
+                  >ovdje.</a
+                >
               </p>
             </div>
             <div v-show="canLogIn" class="full flex">
