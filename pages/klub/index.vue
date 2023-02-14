@@ -194,7 +194,9 @@
           >
             <div class="klub-ponuda-tile relative">
               <div class="klub-sticker center">
-                <div class="full center-text klub-sticker-amount">4EUR</div>
+                <div class="full center-text klub-sticker-amount">
+                  4<span class="klub-sticker-smaller">EUR</span>
+                </div>
                 <div class="full center-text klub-sticker-text">popust</div>
               </div>
               <div class="full center">
@@ -1838,7 +1840,7 @@
             <div class="klub-ponuda-tile relative">
               <div class="klub-sticker center">
                 <div class="full center-text klub-sticker-amount">
-                  10<span class="klub-sticker-smaller">kn</span>
+                  1,5<span class="klub-sticker-smaller">EUR</span>
                 </div>
                 <div class="full center-text klub-sticker-text">popust</div>
               </div>
@@ -1929,7 +1931,7 @@
             <div class="klub-ponuda-tile relative">
               <div class="klub-sticker center">
                 <div class="full center-text klub-sticker-amount">
-                  10<span class="klub-sticker-smaller">kn</span>
+                  1<span class="klub-sticker-smaller">EUR</span>
                 </div>
                 <div class="full center-text klub-sticker-text">popust</div>
               </div>
@@ -2067,7 +2069,7 @@
               Popust na ulaznice za izložbe Muzeja prekinutih veza
             </h2>
             <h4 class="full">
-              Telegramovi pretplatnici ostvaruju 10 kuna popusta na izložbe
+              Telegramovi pretplatnici ostvaruju 1,50 eura popusta na izložbe
               Muzeja prekinutih veza.
             </h4>
             <div v-show="!canLogIn" class="full flex">
@@ -2112,7 +2114,7 @@
               Popust na ulaznice za izložbe Muzeja Vučedolske kulture
             </h2>
             <h4 class="full">
-              Telegramovi pretplatnici ostvaruju 10 kuna popusta na izložbe
+              Telegramovi pretplatnici ostvaruju 1 euro popusta na izložbe
               Muzeja Vučedolske kulture.
             </h4>
             <div v-show="!canLogIn" class="full flex">
