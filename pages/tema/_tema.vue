@@ -1,6 +1,6 @@
 <template>
-  <div class="main-container flex category-page">
-    <div v-if="posts.length">
+  <div>
+    <div v-if="posts.length" class="main-container flex category-page">
       <!-- TG Multiverse header -->
       <div class="full flex relative single-article">
         <client-only>
@@ -189,6 +189,7 @@
           </div>
         </div>
       </div>
+      <tfooter></tfooter>
     </div>
     <div v-else>
       <div class="full flex relative single-article">
@@ -209,7 +210,6 @@
         </div>
       </div>
     </div>
-    <tfooter></tfooter>
   </div>
 </template>
 
