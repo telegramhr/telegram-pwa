@@ -225,16 +225,13 @@ export default {
         if (res.data.posts.length < 12) {
           this.hasMore = false
         }
+        if (!res.data.posts.length) {
+          this.$telegram.context.res.statusCode = 404
+        }
       })
       .catch(() => {
         // TODO: error logging
       })
-    if (!this.posts.length) {
-      // set status code on server and
-      if (process.server) {
-        this.$telegram.context.res.statusCode = 404
-      }
-    }
   },
   data() {
     return {
