@@ -1,5 +1,8 @@
 <template>
-  <div :class="['main-container', 'flex', 'specijal-page', post.class]">
+  <div
+    class="main-container flex specijal-page"
+    :class="[post.class ? post.class + ' fancy-rubrika' : '']"
+  >
     <div class="full flex relative single-article">
       <client-only>
         <theader></theader>
