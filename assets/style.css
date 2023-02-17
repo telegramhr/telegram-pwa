@@ -1831,8 +1831,7 @@ header {
     height: 16px;
     max-width: 620px;
     min-width: 280px;
-    overflow-y: visible;
-    overflow-x: hidden;
+    overflow: hidden;
     position: relative;
 }
 .header-headline::before {
