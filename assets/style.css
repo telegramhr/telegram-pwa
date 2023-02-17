@@ -1523,7 +1523,7 @@ figure img {
 }
 .side-menu .half {
     width: 100%;
-    padding: 20px 0px;
+    padding: 10px 0px;
 }
 .side-menu .half:nth-child(2n-1) {
     padding-right: 20px;
@@ -1831,15 +1831,16 @@ header {
     height: 16px;
     max-width: 620px;
     min-width: 280px;
-    overflow: hidden;
+    overflow-y: visible;
+    overflow-x: hidden;
     position: relative;
 }
 .header-headline::before {
     content: ' ';
-    height: 16px;
+    height: 20px;
     width: 20%;
     position: absolute;
-    top: 0;
+    top: -2px;
     right: 0;
     background: linear-gradient(to left, rgba(252,241,231,1), rgba(252,241,231,0));
 }
@@ -4694,7 +4695,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 2.7rem;
     }
 }
-@media screen and (max-width: 767px) and (max-height: 880px) {
+@media screen and (max-width: 767px) and (max-height: 960px) {
     .side-menu .half {
         width: 49.99%;
     }
@@ -5681,6 +5682,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         white-space: nowrap;
         justify-content: flex-start;
     }
+    .pitanje-zdravlja .page-header-nav, .openspace .page-header-nav {
+        overflow-x: hidden;
+    }
     .os-elevate-title {
         margin-top: -26px;
         margin-bottom: 0px;
@@ -6503,9 +6507,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .pz-homepage .breaking-news {
         display: none;
     }
-    .pitanje-zdravlja.single-article header .subheader {
-        display: flex;
-    }
 }
 
 @keyframes point-down {
@@ -6622,6 +6623,24 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 16px;
         font-size: 0.8rem;
         opacity: .6;
+    }
+    .pitanje-zdravlja .page-header-nav {
+        margin: 0 auto;
+        width: 97%;
+    }
+    .pitanje-zdravlja .page-header-nav a {
+        font-size: 3.5vw;
+        margin: 4vw;
+        margin-top: 2vw;
+    }
+    .openspace .page-header-nav {
+        margin: 0 auto;
+        width: 97%;
+    }
+    .openspace .page-header-nav a {
+        font-size: 3.5vw;
+        margin: 4vw;
+        margin-top: 2vw;
     }
     .pitanje-zdravlja .intro-block .third .article-featured .article-pad {
         padding-bottom: 4vw;
@@ -10515,7 +10534,7 @@ label.payment-tile svg {
 .multiverse-mobile-nav {
     display: none;
 }
-.superone-subheader-logo, .single-article header .desktop-subheader .logo.superone-subheader-logo {
+.superone-subheader-logo, header .logo.superone-subheader-logo, .single-article header .desktop-subheader .logo.superone-subheader-logo {
     display: none;
 }
 .superone-mobilepanav-logo {
@@ -10541,46 +10560,144 @@ header .search-menu {
     top: 14px;
 }
 
+.pz-sticky {
+    display: none;
+}
+.pitanje-zdravlja .telegram-sticky {
+    display: none;
+}
+.pitanje-zdravlja.single-article-premium-alt .telegram-sticky {
+    display: none;
+}
+.pitanje-zdravlja .pz-sticky {
+    display: flex;
+}
+.mobile-sticky-nav .pz-mobnav-logo {
+    display: none;
+}
+.pitanje-zdravlja .mobile-sticky-nav .telegram-mobnav-logo {
+    display: none;
+}
+.pitanje-zdravlja .mobile-sticky-nav .pz-mobnav-logo {
+    display: block;
+}
+.mobile-sticky-nav .pz-mobnav-logo {
+    width: 210px;
+}
+.mobile-sticky-nav .pz-mobnav-logo img {
+    margin: 0 auto;
+    height: 22px;
+}
+.pz-subheader-logo, header .logo.pz-subheader-logo, .single-article header .desktop-subheader .logo.pz-subheader-logo {
+    display: none;
+}
+.pz-mobilepanav-logo {
+    display: none;
+}
+.pitanje-zdravlja.single-article-premium header .subheader .logo {
+    display: none;
+}
+.pitanje-zdravlja.single-article-premium header .subheader .logo.pz-subheader-logo {
+    display: inline-block;
+}
+.pitanje-zdravlja.single-article-premium header .subheader .logo.pz-subheader-logo img {
+    display: inline-block;
+    height: 16px;
+}
+.pitanje-zdravlja .sticky-subheader .logo {
+    max-width: 205px;
+}
+
+
+.os-sticky {
+    display: none;
+}
+.openspace .telegram-sticky {
+    display: none;
+}
+.openspace.single-article-premium-alt .telegram-sticky {
+    display: none;
+}
+.openspace .os-sticky {
+    display: flex;
+}
+.mobile-sticky-nav .os-mobnav-logo {
+    display: none;
+}
+.openspace .mobile-sticky-nav .telegram-mobnav-logo {
+    display: none;
+}
+.openspace .mobile-sticky-nav .os-mobnav-logo {
+    display: block;
+}
+.mobile-sticky-nav .os-mobnav-logo {
+    width: 210px;
+}
+.mobile-sticky-nav .os-mobnav-logo img {
+    margin: 0 auto;
+    height: 23px;
+}
+.os-subheader-logo, header .logo.os-subheader-logo, .single-article header .desktop-subheader .logo.os-subheader-logo {
+    display: none;
+}
+.os-mobilepanav-logo {
+    display: none;
+}
+.openspace.single-article-premium header .subheader .logo {
+    display: none;
+}
+.openspace.single-article-premium header .subheader .logo.os-subheader-logo {
+    display: inline-block;
+}
+.openspace.single-article-premium header .subheader .logo.os-subheader-logo img {
+    display: inline-block;
+    height: 18px;
+}
+
 @media screen and (min-width: 767px) {
-    .s1-home header .subheader {
+    .s1-home header .subheader, .os-home header .subheader {
         display: flex;
         position: relative;
         z-index: 15;
         box-shadow: none;
     }
-    .s1-home header .subheader, .s1-home header .subheader .single-exclusive {
+    .s1-home header .subheader, .s1-home header .subheader .single-exclusive, .pz-homepage header .subheader, .pz-homepage header .subheader .single-exclusive, .os-home header .subheader, .os-home .subheader .single-exclusive {
         display: flex;
     }
-    .s1-home header .subheader .homepage-exclusive, .s1-home header .subheader .single-exclusive .logo.superone-subheader-logo {
+    .s1-home header .subheader .homepage-exclusive, .pz-homepage header .subheader .homepage-exclusive, .s1-home header .subheader .single-exclusive .logo.superone-subheader-logo, .os-home header .subheader .homepage-exclusive {
         display: none;
     }
-    .s1-home header .subheader .single-exclusive .logo {
+    .s1-home header .subheader .single-exclusive .logo, .pz-homepage header .subheader .single-exclusive .logo, .os-home header .subheader .single-exclusive .logo {
         width: auto;
         margin-bottom: 0px;
     }
-    .s1-home header .subheader .single-exclusive .logo img {
+    .s1-home header .subheader .single-exclusive .logo img, .pz-homepage header .subheader .single-exclusive .logo img, .os-home header .subheader .single-exclusive .logo img{
         height: 16px;
         margin-bottom: -3px;
         position: relative;
     }
 }
 @media screen and (max-width: 767px) {
-    .main-container.s1-home {
+    .main-container.s1-home, .main-container.pz-homepage, .main-container.os-home {
         padding-top: 0px;
     }
     .superone-home-header {
         z-index: 200;
         background-color: white;
     }
-    .s1-home .multiverse-mobile-nav {
+    .s1-home .multiverse-mobile-nav, .pz-homepage .multiverse-mobile-nav, .os-home .multiverse-mobile-nav {
         display: flex;
         position: relative;
         z-index: 200;
     }
-    .dark-mode .superone-home-header {
+    .pz-homepage .fancy-rubrika-header, .os-home .fancy-rubrika-header {
+        z-index: 200;
+        background-color: white;
+    }
+    .dark-mode .superone-home-header, .dark-mode .pz-homepage .fancy-rubrika-header {
         background-color: #212121;
     }
-    .superone .mobile-pa-nav .logo {
+    .superone .mobile-pa-nav .logo, .pitanje-zdravlja .mobile-pa-nav .logo, .openspace .mobile-pa-nav .logo {
         display: none;
     }
     .superone .mobile-pa-nav .logo.superone-mobilepanav-logo {
@@ -10588,6 +10705,20 @@ header .search-menu {
     }
     .superone .mobile-pa-nav .logo.superone-mobilepanav-logo img {
         margin: 0 auto;
+    }
+    .pitanje-zdravlja .mobile-pa-nav .logo.pz-mobilepanav-logo {
+        display: block;
+        width: 210px;
+    }
+    .pitanje-zdravlja .mobile-pa-nav .logo.pz-mobilepanav-logo img {
+        margin: 0 auto;
+    }
+    .openspace .mobile-pa-nav .logo.os-mobilepanav-logo {
+        display: block;
+    }
+    .openspace .mobile-pa-nav .logo.os-mobilepanav-logo img {
+        margin: 0 auto;
+        height: 22px;
     }
     .sticky-search-menu {
         top: 43px;

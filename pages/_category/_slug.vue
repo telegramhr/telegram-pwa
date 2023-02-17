@@ -70,6 +70,18 @@
               alt="Super1 logo"
             />
           </nuxt-link>
+          <nuxt-link to="/pitanje-zdravlja" class="logo pz-mobilepanav-logo">
+            <img
+              src="@/assets/img/pz_logo_negative.svg"
+              alt="PitanjeZdravlja logo"
+            />
+          </nuxt-link>
+          <nuxt-link to="/openspace" class="logo os-mobilepanav-logo">
+            <img
+              src="@/assets/img/openspace_logo_negative.svg"
+              alt="openspace logo"
+            />
+          </nuxt-link>
           <a
             v-show="canLogIn"
             class="mob-nav-otherbtn mobile-only"

@@ -404,6 +404,166 @@
         </div>
       </div>
     </div>
+    <!-- PitanjeZdravlja desktop sticky -->
+    <div
+      class="full subheader sticky-subheader mobile-side-pad center pz-sticky"
+    >
+      <div class="container flex desktop-subheader column-horizontal-pad">
+        <div class="two-thirds flex subheader-ow-fix" role="navigation">
+          <app-link to="/pitanje-zdravlja" class="logo"
+            ><img
+              src="@/assets/img/pz_logo_normal.svg"
+              alt="PitanjeZdravlja logo" />
+            <img
+              src="@/assets/img/pz_logo_negative.svg"
+              alt="PitanjeZdravlja logo"
+              class="dark-mode-only"
+          /></app-link>
+          <a
+            :aria-expanded="$store.state.header.showSideMenu.toString()"
+            aria-label="Prikaži lijevi meni"
+            aria-controls="sidebar"
+            @click.prevent="$store.commit('header/updateMenu', 'side')"
+          >
+            <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon>
+          </a>
+          <div class="menu flex" role="menu">
+            <app-link
+              role="menuitem"
+              to="/pitanje-zdravlja/leksikon-zdravlja"
+              @click.native="maybeCloseSide"
+              >Leksikon zdravlja</app-link
+            >
+            <app-link
+              role="menuitem"
+              to="/pitanje-zdravlja/lifestyle"
+              @click.native="maybeCloseSide"
+              >Lifestyle</app-link
+            >
+            <app-link
+              role="menuitem"
+              to="/pitanje-zdravlja/vijesti"
+              @click.native="maybeCloseSide"
+              >Vijesti</app-link
+            >
+            <app-link
+              role="menuitem"
+              to="/pitanje-zdravlja/price"
+              @click.native="maybeCloseSide"
+              >Priče</app-link
+            >
+          </div>
+          <div v-show="headline" class="header-headline single-exclusive">
+            {{ headline }}
+          </div>
+        </div>
+        <div class="flex third relative">
+          <client-only>
+            <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
+              >Prijava</a
+            >
+            <app-link
+              v-show="!$store.state.user.access"
+              id="pretplatite se - header"
+              to="/pretplata"
+              class="signup-btn sub-btn"
+              >Pretplatite se</app-link
+            >
+            <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun">
+              <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
+            </app-link>
+          </client-only>
+          <a
+            aria-label="Prikaži tražilicu"
+            :aria-expanded="$store.state.header.showSearchMenu.toString()"
+            aria-controls="search"
+            @click.prevent="$store.commit('header/updateMenu', 'search')"
+          >
+            <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Openspace desktop sticky -->
+    <div
+      class="full subheader sticky-subheader mobile-side-pad center os-sticky"
+    >
+      <div class="container flex desktop-subheader column-horizontal-pad">
+        <div class="two-thirds flex subheader-ow-fix" role="navigation">
+          <app-link to="/openspace" class="logo"
+            ><img
+              src="@/assets/img/openspace_logo_normal.svg"
+              alt="openspace logo" />
+            <img
+              src="@/assets/img/openspace_logo_negative.svg"
+              alt="openspace logo"
+              class="dark-mode-only"
+          /></app-link>
+          <a
+            :aria-expanded="$store.state.header.showSideMenu.toString()"
+            aria-label="Prikaži lijevi meni"
+            aria-controls="sidebar"
+            @click.prevent="$store.commit('header/updateMenu', 'side')"
+          >
+            <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon>
+          </a>
+          <div class="menu flex" role="menu">
+            <app-link
+              role="menuitem"
+              to="/openspace/vjestine"
+              @click.native="maybeCloseSide"
+              >Vještine</app-link
+            >
+            <app-link
+              role="menuitem"
+              to="/openspace/tvrtke-karijere"
+              @click.native="maybeCloseSide"
+              >Tvrtke i karijere</app-link
+            >
+            <app-link
+              role="menuitem"
+              to="/openspace/kvizovi-testovi"
+              @click.native="maybeCloseSide"
+              >Kvizovi i testovi</app-link
+            >
+            <app-link
+              role="menuitem"
+              to="/openspace/vodici"
+              @click.native="maybeCloseSide"
+              >Vodiči</app-link
+            >
+          </div>
+          <div v-show="headline" class="header-headline single-exclusive">
+            {{ headline }}
+          </div>
+        </div>
+        <div class="flex third relative">
+          <client-only>
+            <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
+              >Prijava</a
+            >
+            <app-link
+              v-show="!$store.state.user.access"
+              id="pretplatite se - header"
+              to="/pretplata"
+              class="signup-btn sub-btn"
+              >Pretplatite se</app-link
+            >
+            <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun">
+              <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
+            </app-link>
+          </client-only>
+          <a
+            aria-label="Prikaži tražilicu"
+            :aria-expanded="$store.state.header.showSearchMenu.toString()"
+            aria-controls="search"
+            @click.prevent="$store.commit('header/updateMenu', 'search')"
+          >
+            <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon>
+          </a>
+        </div>
+      </div>
+    </div>
     <!-- Mobile only sticky nav -->
     <div
       class="container mobile-only mobile-sticky-nav real-mobile-sticky-nav flex mobile-side-pad"
@@ -429,6 +589,24 @@
         <img
           src="@/assets/img/s1_logo_clean_noline_white.svg"
           alt="Super1 logo"
+          class="dark-mode-only"
+      /></app-link>
+      <app-link to="/pitanje-zdravlja" class="logo pz-mobnav-logo"
+        ><img
+          src="@/assets/img/pz_logo_normal.svg"
+          alt="PitanjeZdravlja logo" />
+        <img
+          src="@/assets/img/pz_logo_negative.svg"
+          alt="PitanjeZdravlja logo"
+          class="dark-mode-only"
+      /></app-link>
+      <app-link to="/openspace" class="logo os-mobnav-logo"
+        ><img
+          src="@/assets/img/openspace_logo_normal.svg"
+          alt="openspace logo" />
+        <img
+          src="@/assets/img/openspace_logo_negative.svg"
+          alt="openspace logo"
           class="dark-mode-only"
       /></app-link>
       <div class="desktop-only full center-text tagline">
@@ -550,6 +728,14 @@
               <img
                 src="@/assets/img/s1_logo_clean_noline_white.svg"
                 alt="Super1 logo"
+            /></app-link>
+            <app-link to="/pitanje-zdravlja" class="logo pz-subheader-logo">
+              <img src="@/assets/img/pz_logo_negative.svg" alt="Super1 logo"
+            /></app-link>
+            <app-link to="/openspace" class="logo os-subheader-logo">
+              <img
+                src="@/assets/img/openspace_logo_negative.svg"
+                alt="openspace logo"
             /></app-link>
           </div>
           <div class="flex third relative">
