@@ -254,6 +254,37 @@
           >
             <div class="klub-ponuda-tile relative">
               <div class="klub-sticker center">
+                <div class="full center-text klub-sticker-amount">
+                  2,5<span class="klub-sticker-smaller">EUR</span>
+                </div>
+                <div class="full center-text klub-sticker-text">popust</div>
+              </div>
+              <div class="full center">
+                <img
+                  src="@/assets/img/extras/klub/tg_visual_klub_exit.jpg"
+                  aria-hidden="true"
+                />
+              </div>
+            </div>
+            <h3 class="full overtitle">Teatar EXIT</h3>
+            <a href="#kazalista" @click="selected_kazaliste = 'exit'">
+              <h2 class="full">
+                Popust na ulaznice za predstave Teatra EXIT
+              </h2></a
+            >
+            <a
+              href="#kazalista"
+              class="newbtn clickable"
+              @click="selected_kazaliste = 'exit'"
+            >
+              Iskoristite ponudu
+            </a>
+          </div>
+          <div
+            class="fourth flex article klub-ponuda relative column-horizontal-pad"
+          >
+            <div class="klub-ponuda-tile relative">
+              <div class="klub-sticker center">
                 <div class="full center-text klub-sticker-amount">9%</div>
                 <div class="full center-text klub-sticker-text">popust</div>
               </div>
@@ -401,6 +432,51 @@
     <!-- Kazalista expandables -->
     <div id="kazalista" class="full flex fake-inpage-anchor"></div>
     <div class="full flex relative">
+      <div
+        v-if="selected_kazaliste === 'exit'"
+        id="zarptica"
+        class="full flex relative klub-expanded"
+      >
+        <div class="container flex relative stretch mobile-side-pad">
+          <div class="close-klub-expand" @click="selected_kazaliste = ''">
+            x
+          </div>
+          <div class="third center flex-responsive column-left-pad">
+            <img
+              src="@/assets/img/extras/klub/tg_visual_klub_exit.jpg"
+              aria-hidden="true"
+            />
+          </div>
+          <div class="two-thirds center flex-responsive article">
+            <h3 class="full overtitle">Teatar EXIT</h3>
+            <h2 class="full">Popust na ulaznice za predstave Teatra EXIT</h2>
+            <h4 class="full">
+              Telegramovi pretplatnici ostvaruju 2,5 eura popusta na ulaznice za
+              sve predstave u Teatru EXIT.
+            </h4>
+            <div v-show="!canLogIn" class="full flex">
+              <p class="full bold">Kako do popusta?</p>
+              <p class="full">
+                Kako biste ostvarili svoj popust, posjetite blagajnu kazališta
+                (Ilica 208) i pokažite svoju digitalnu pretplatničku iskaznicu,
+                koju možete preuzeti <a href="#iskaznica">ovdje.</a>
+              </p>
+            </div>
+            <div v-show="canLogIn" class="full flex">
+              <p class="full bold">
+                Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
+                pretplatnicima.
+              </p>
+              <app-link to="/pretplata" class="newbtn huge-newbtn"
+                >Pretplatite se</app-link
+              >
+              <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+                >Prijava</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
       <div
         v-if="selected_kazaliste === 'zarptica'"
         id="zarptica"
