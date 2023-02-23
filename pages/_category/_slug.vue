@@ -388,7 +388,7 @@
                 </div>
               </div>
             </div>
-            <client-only>
+            <!--<client-only>
               <div
                 v-if="!hasPremium && !exclude"
                 class="full relative"
@@ -396,7 +396,7 @@
               >
                 <offers></offers>
               </div>
-            </client-only>
+            </client-only>-->
             <!--<div class="full relative single-article-body" style="order: 4">
               <div
                 class="full relative single-article-footer flex column-top-pad"
