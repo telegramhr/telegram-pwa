@@ -1360,6 +1360,33 @@
               Iskoristite ponudu
             </a>
           </div>
+          <div
+            class="fourth flex article klub-ponuda relative column-horizontal-pad"
+          >
+            <div class="klub-ponuda-tile relative">
+              <div class="klub-sticker center">
+                <div class="full center-text klub-sticker-amount">20%</div>
+                <div class="full center-text klub-sticker-text">popust</div>
+              </div>
+              <div class="full center">
+                <img
+                  src="@/assets/img/extras/klub/tg_visual_klub_planetopija.jpg"
+                  aria-hidden="true"
+                />
+              </div>
+            </div>
+            <h3 class="full overtitle">Planetopija</h3>
+            <a href="#knjizare" @click="selected_knjizara = 'planetopija'">
+              <h2 class="full">Popust na naslove izdavača Planetopija</h2></a
+            >
+            <a
+              href="#knjizare"
+              class="newbtn clickable"
+              @click="selected_knjizara = 'planetopija'"
+            >
+              Iskoristite ponudu
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -1854,6 +1881,124 @@
                 koju možete preuzeti
                 <a href="#iskaznica">ovdje.</a>
               </p>
+            </div>
+            <div v-show="canLogIn" class="full flex">
+              <p class="full bold">
+                Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
+                pretplatnicima.
+              </p>
+              <app-link to="/pretplata" class="newbtn huge-newbtn"
+                >Pretplatite se</app-link
+              >
+              <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+                >Prijava</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        v-if="selected_knjizara === 'planetopija'"
+        id="planetopija"
+        class="full flex relative klub-expanded"
+      >
+        <div class="container flex relative stretch mobile-side-pad">
+          <div class="close-klub-expand" @click="selected_knjizara = ''">x</div>
+          <div class="third center flex-responsive column-left-pad">
+            <img
+              src="@/assets/img/extras/klub/tg_visual_klub_planetopija.jpg"
+              aria-hidden="true"
+            />
+          </div>
+          <div class="two-thirds center flex-responsive article">
+            <h3 class="full overtitle">Planetopija</h3>
+            <h2 class="full">Popust na naslove izdavača Planetopija</h2>
+            <h4 class="full">
+              Telegramovi pretplatnici ostvaruju 20% popusta na odabrane naslove
+              knjižare Planetopija
+            </h4>
+            <div v-show="!canLogIn" class="full flex">
+              <p class="full bold">Kako do popusta?</p>
+              <p class="full">
+                Kako biste ostvarili svoj popust, posjetite jednu od knjižara
+                Planetopije i pokažite svoju digitalnu pretplatničku iskaznicu,
+                koju možete preuzeti <a href="#iskaznica">ovdje.</a>
+              </p>
+              <p class="full bold small-top-margin">Dostupni naslovi su:</p>
+              <ul class="full">
+                <li>
+                  <a
+                    href="https://planetopija.hr/kategorija/publicistika/tema/biografije/obecana-zemlja"
+                    target="_blank"
+                    >Barack Obama: Obećana zemlja</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://planetopija.hr/kategorija/publicistika/tema/filozofija/kako-razmislja-car-filozof"
+                    target="_blank"
+                    >Donald Robertson: Kako razmišlja car filozof</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://planetopija.hr/kategorija/publicistika/tema/filozofija/aristotelov-put"
+                    target="_blank"
+                    >Edith Hall: Aristotelov put</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://planetopija.hr/kategorija/publicistika/tema/biografije/martin-luther-king-autobiografija"
+                    target="_blank"
+                    >Clayborne Carson (urednik): Martin Luther King -
+                    autobiografija</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://planetopija.hr/kategorija/publicistika/tema/drustvene-znanosti/voditi-iz-nadolazece-buducnosti"
+                    target="_blank"
+                    >Otto Scharmer: Voditi iz nadolazeće budućnosti
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://planetopija.hr/kategorija/publicistika/tema/drustvene-znanosti/podrijetlo"
+                    target="_blank"
+                    >Lewis Dartnell: Podrijetlo</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://planetopija.hr/kategorija/duh-um-i-tijelo/tema/samopomoc/placebo-ste-vi"
+                    target="_blank"
+                    >dr Joe Dispenza: Placebo ste vi</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://planetopija.hr/kategorija/publicistika/tema/drustvene-znanosti/srce-zna-da-je-ljepsi-svijet-moguc"
+                    target="_blank"
+                    >Charles Eisenstein: Srce zna da je drugačiji svijet moguć
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://planetopija.hr/kategorija/duh-um-i-tijelo/tema/samopomoc/iscjeljivanje-kolektivne-traume"
+                    target="_blank"
+                    >Thomas Hübl: Iscjeljivanje kolektivne traume</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://planetopija.hr/kategorija/duh-um-i-tijelo/tema/osobni-razvoj/voli-ljude-koristi-se-stvarima"
+                    target="_blank"
+                    >Joshua Fields Millburn i Ryan Nicodamus: Voli ljude koristi
+                    se stvarima
+                  </a>
+                </li>
+              </ul>
             </div>
             <div v-show="canLogIn" class="full flex">
               <p class="full bold">
