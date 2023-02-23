@@ -10,12 +10,12 @@
       <div class="full center telemach-line">
         <div class="flex center">
           <img
-            src="https://www.telegram.hr/wp-content/uploads/2023/02/telemach-logo-vektor.png"
-            alt="Telemach logo"
+            src="https://www.telegram.hr/wp-content/uploads/2023/02/modulosamcom-logo-1574853228.png"
+            alt="ModulOsam logo"
           />
           <img
-            src="https://www.telegram.hr/wp-content/uploads/2023/02/telemach-logo-vektor.png"
-            alt="Telemach logo"
+            src="https://www.telegram.hr/wp-content/uploads/2023/02/modulosamcom-logo-1574853228.png"
+            alt="ModulOsam logo"
             class="dark-mode-only"
           />
         </div>
@@ -139,7 +139,7 @@ export default {
     this.getPosts()
     this.$gtm.push({
       event: 'webshop-widget',
-      'webshop-category': 'telemach',
+      'webshop-category': 'modulosam',
       'webshop-action': 'view',
       'webshop-label': 'impression',
       'webshop-value': 1,
@@ -149,7 +149,7 @@ export default {
     trackClick() {
       this.$gtm.push({
         event: 'webshop-widget',
-        'webshop-category': 'telemach',
+        'webshop-category': 'modulosam',
         'webshop-action': 'click',
         'webshop-label': 'click',
         'webshop-value': 1,
@@ -167,7 +167,7 @@ export default {
 
 <style>
 .telemach-line {
-  background-color: #0a0405;
+  background-color: #ffffff;
 }
 
 .telemach-line > div {
@@ -181,7 +181,7 @@ export default {
   background-color: white;
 }
 .dark-mode .telemach-line > div {
-  background-color: #212121;
+  background-color: #ffffff;
 }
 
 h3.subsection-title .telemach-line img {
