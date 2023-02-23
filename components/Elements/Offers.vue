@@ -62,7 +62,7 @@
                 {{ post.opis }}
               </h4>
               <div class="newbtn">
-                {{ post.cta }}
+                {{ post.cta ? post.cta : 'Pogledaj ponudu' }}
               </div>
             </div>
           </a>
