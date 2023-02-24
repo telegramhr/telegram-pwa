@@ -10,11 +10,11 @@
       <div class="full center telemach-line">
         <div class="flex center">
           <img
-            src="https://www.telegram.hr/wp-content/uploads/2023/02/modulosamcom-logo-1574853228.png"
+            src="https://www.telegram.hr/wp-content/uploads/2023/02/logo1.png"
             alt="ModulOsam logo"
           />
           <img
-            src="https://www.telegram.hr/wp-content/uploads/2023/02/modulosamcom-logo-1574853228.png"
+            src="https://www.telegram.hr/wp-content/uploads/2023/02/logo1.png"
             alt="ModulOsam logo"
             class="dark-mode-only"
           />
