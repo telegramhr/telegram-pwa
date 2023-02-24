@@ -167,25 +167,23 @@ export default {
 
 <style>
 .telemach-line {
-  background-color: #ffffff;
+  background-color: #f37e59;
 }
 
 .telemach-line > div {
   background-color: #fcf1e7;
 }
-.telemach-line img {
-  margin-right: 0 !important;
-}
 
 .contrast-mode .telemach-line > div {
-  background-color: white;
+  background-color: #f37e59;
 }
 .dark-mode .telemach-line > div {
-  background-color: #ffffff;
+  background-color: #f37e59;
 }
 
 h3.subsection-title .telemach-line img {
   height: 30px;
   bottom: 0px;
+  margin: 0 20px;
 }
 </style>
