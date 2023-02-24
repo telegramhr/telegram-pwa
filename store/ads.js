@@ -1290,9 +1290,11 @@ export const actions = {
       for (const i of Object.keys(state.units)) {
         if (i in state.units) {
           unit = state.units[i]
-          let upc = 4
-          if (unit.upc) {
-            upc = unit.upc
+          let upc = sizes === 'desktop' ? 14 : 12
+          if (state.upc[i]) {
+            upc = state.upc[i][sizes]
+          } else {
+            upc = state.upc_b
           }
           if (!unit[sizes]) {
             continue
