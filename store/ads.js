@@ -1175,7 +1175,7 @@ export const actions = {
       return
     }
     // load the up to date floor data
-    /* if (state.upc_updated + 60 * 60 * 1000 < new Date().getTime()) {
+    if (state.upc_updated + 60 * 60 * 1000 < new Date().getTime()) {
       this.$axios
         .get('/api/upc')
         .then((res) => {
@@ -1184,9 +1184,9 @@ export const actions = {
         .then(() => {
           dispatch('setupTargeting', payload)
         })
-    } else { */
-    dispatch('setupTargeting', payload)
-    // }
+    } else {
+      dispatch('setupTargeting', payload)
+    }
   },
   setupTargeting({ state, commit, dispatch, rootState }, payload) {
     window.googletag = window.googletag || {}
