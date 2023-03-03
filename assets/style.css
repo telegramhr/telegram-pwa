@@ -3498,6 +3498,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 
 @media screen and (max-width: 767px) {
+    .mobile-bottom-pad {
+        padding-bottom: 4vw;
+    }
     .mobile-top-pad {
         padding-top: 4vw;
     }
