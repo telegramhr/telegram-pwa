@@ -49,9 +49,9 @@
     </section>
     <!-- G1 + Kolumne -->
     <section class="full flex relative">
-      <div class="container flex relative stretch">
+      <div class="container flex relative stretch ts-hometop">
         <div
-          class="three-fourths featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad column-right-border mobile-order-1"
+          class="eighty featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad column-right-border mobile-order-1"
         >
           <featured
             v-for="post in posts.slice(0, 1)"
@@ -60,7 +60,7 @@
           ></featured>
         </div>
         <div
-          class="fourth flex mini-article-list mobile-side-pad flex-responsive column-horizontal-pad align-children-bottom"
+          class="fifth flex mini-article-list mobile-side-pad flex-responsive column-horizontal-pad align-children-bottom"
         >
           <commentary type="ts"></commentary>
         </div>
@@ -83,7 +83,9 @@
     </section>
     <!-- Block 1: 75-25 -->
     <section class="full flex relative">
-      <div class="container flex relative column-bottom-pad stretch">
+      <div
+        class="container flex relative column-bottom-pad mobile-side-pad stretch"
+      >
         <div class="full column-horizontal-pad flex">
           <div class="full column-top-border column-bottom-pad"></div>
         </div>
