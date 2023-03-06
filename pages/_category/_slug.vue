@@ -212,7 +212,7 @@
                       "
                     />
                     <img
-                      :src="post.image.jpg"
+                      :src="post.category_slug.includes('super1') ? post.image.s1jpg : post.image.jpg"
                       :alt="post.image.alt"
                       width="888"
                       :height="
