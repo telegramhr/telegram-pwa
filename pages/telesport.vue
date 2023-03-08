@@ -51,16 +51,57 @@
     <section class="full flex relative">
       <div class="container flex relative stretch ts-hometop">
         <div
-          class="eighty featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad column-right-border mobile-order-1"
+          class="two-thirds flex-responsive column-horizontal-pad flex mobile-side-pad column-right-border"
         >
-          <featured
+          <!--<featured
             v-for="post in posts.slice(0, 1)"
             :key="'sport-' + post.id"
             :post="post"
-          ></featured>
+          ></featured>-->
+          <div role="article" class="full flex article-featured article">
+            <a
+              href="https://telesport.telegram.hr/price/tko-cuva-cuvare/"
+              target="_blank"
+              aria-labelledby="featured-305673"
+              class="full flex"
+              ><img
+                srcset="
+                  https://images.telegram.hr/q4fSHaFDFXonj1EyxOAQaKzmTq64xpsh-H2K7HuaZ34/preset:single1/aHR0cHM6Ly90ZWxlc3BvcnQudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzL3NpdGVzLzIvMjAyMy8wMy9qdXJhai1oYWpkdWtvdmktZ29sbWFuaS11dm9kbmEuanBn.jpg
+                "
+                src="https://images.telegram.hr/q4fSHaFDFXonj1EyxOAQaKzmTq64xpsh-H2K7HuaZ34/preset:single1/aHR0cHM6Ly90ZWxlc3BvcnQudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzL3NpdGVzLzIvMjAyMy8wMy9qdXJhai1oYWpkdWtvdmktZ29sbWFuaS11dm9kbmEuanBn.jpg"
+                alt=""
+                loading="lazy"
+            /></a>
+            <div class="full flex article-pad">
+              <a
+                href="https://telesport.telegram.hr/price/tko-cuva-cuvare/"
+                target="_blank"
+                aria-labelledby="featured-305673"
+                class="full flex"
+                ><div class="full flex">
+                  <h3 class="overtitle">
+                    <!---->
+                    <span>Priče</span>
+                  </h3>
+                </div>
+                <h2 id="featured-305673" class="full animate">
+                  Tko čuva čuvare?
+                </h2>
+                <h4 class="full">
+                  Hajdukovo golmansko pitanje opet je goruća tema
+                </h4>
+                <h5 class="full flex article-meta">
+                  <span class="meta-author"><i>Piše</i> Juraj Vrdoljak</span>
+                  <span class="meta-preporuke">12 preporuka</span>
+                  <span class="meta-date">07. 03. 2023.</span>
+                </h5></a
+              >
+              <!---->
+            </div>
+          </div>
         </div>
         <div
-          class="fifth flex mini-article-list mobile-side-pad flex-responsive column-horizontal-pad align-children-bottom"
+          class="third flex mini-article-list mobile-side-pad flex-responsive column-horizontal-pad align-children-bottom"
         >
           <commentary type="ts"></commentary>
         </div>
