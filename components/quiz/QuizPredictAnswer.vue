@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <h2>{{ data.question }}</h2>
+  <div class="flex column-bottom-pad mobile-bottom-pad">
+    <h2 class="full">{{ data.question }}</h2>
     <label
       v-for="answer in data.answers"
       :key="answer.id"
-      class="flex"
+      class="column-right-pad mobile-right-pad"
       style="justify-content: space-between"
     >
       <input
@@ -13,23 +13,21 @@
         :name="'answer-' + data.id + '-' + answer.id"
         :value="answer.id"
       />
-      <span
+      <div
+        class="newbtn clickable"
         :style="{
           backgroundColor: sums[answer.id]
             ? answered === answer.id
               ? '#ae3737'
-              : '#c8c8c8'
-            : '',
-          width: sums[answer.id]
-            ? Math.round((sums[answer.id] * 100) / total) + '%'
-            : '',
+              : '#888888'
+            : '#888888',
         }"
       >
         {{ answer.text | parseCat }}
-      </span>
-      <i v-if="sums[answer.id]"
-        >{{ Math.round((sums[answer.id] * 100) / total) }} %</i
-      >
+        <i v-if="sums[answer.id]"
+          >({{ Math.round((sums[answer.id] * 100) / total) }}%)</i
+        >
+      </div>
     </label>
   </div>
 </template>

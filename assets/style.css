@@ -3504,6 +3504,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .mobile-top-pad {
         padding-top: 4vw;
     }
+    .mobile-right-pad {
+        padding-right: 4vw;
+    }
+    .mobile-left-pad {
+        padding-left: 4vw;
+    }
     .single-article {
         font-size: 17px;
         font-size: 0.85rem;
