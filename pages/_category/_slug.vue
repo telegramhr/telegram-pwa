@@ -851,6 +851,7 @@ export default {
         route: this.$route,
         options: this.post.disable_ads,
         tags: this.post.tags,
+        category_slug: this.post.category_slug,
       })
       if (
         !this.post.disable_ads.includes('all') &&
