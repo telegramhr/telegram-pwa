@@ -1208,6 +1208,7 @@ export const actions = {
           break
         case 'super1-category':
           targeting.wp_post_type = ['category']
+          targeting.post_category.push('super1')
           break
         case 'pitanje-zdravlja-category':
           targeting.wp_post_type = ['category']
