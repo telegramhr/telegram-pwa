@@ -1133,9 +1133,6 @@ export const state = () => ({
       ],
     },
   },
-  upc_b: 4,
-  upc: {},
-  upc_updated: null,
   route: '',
 })
 
@@ -1145,10 +1142,6 @@ export const mutations = {
   },
   setSlots(state) {
     state.slots = true
-  },
-  setUpc(state, data) {
-    state.upc = data
-    state.upc_updated = new Date().getTime()
   },
   setRoute(state, route) {
     state.route = route.name
@@ -1186,19 +1179,7 @@ export const actions = {
       }
       return
     }
-    // load the up to date floor data
-    if (state.upc_updated + 60 * 60 * 1000 < new Date().getTime()) {
-      this.$axios
-        .get('/api/upc')
-        .then((res) => {
-          commit('setUpc', res.data)
-        })
-        .then(() => {
-          dispatch('setupTargeting', payload)
-        })
-    } else {
-      dispatch('setupTargeting', payload)
-    }
+    dispatch('setupTargeting', payload)
   },
   setupTargeting({ state, commit, dispatch, rootState }, payload) {
     window.googletag = window.googletag || {}
@@ -1212,6 +1193,9 @@ export const actions = {
       post_tag: [],
       post_category: [],
     }
+    if (payload.category_slug) {
+      targeting.post_category = payload.category_slug.split(' ')
+    }
     if (route) {
       commit('setRoute', route)
       switch (route.name) {
@@ -1221,19 +1205,17 @@ export const actions = {
         case 'category':
         case 'fotogalerije-category':
           targeting.wp_post_type = ['category']
-          targeting.post_category = [route.params.category]
           break
         case 'super1-category':
           targeting.wp_post_type = ['category']
-          targeting.post_category = ['super1', route.params.category]
           break
         case 'pitanje-zdravlja-category':
           targeting.wp_post_type = ['category']
-          targeting.post_category = ['super1', route.params.category]
+          targeting.post_category.push('super1')
           break
         case 'openspace-category':
           targeting.wp_post_type = ['category']
-          targeting.post_category = ['super1', route.params.category]
+          targeting.post_category.push('super1')
           break
         case 'super1':
           targeting.wp_post_type = ['category']
@@ -1252,16 +1234,13 @@ export const actions = {
           targeting.wp_post_type = ['single']
           targeting.post_slug = [route.params.slug]
           if (route.name.includes('openspace')) {
-            targeting.post_category = [route.params.category, 'openspace']
+            targeting.post_category.push('openspace')
           } else if (route.name.includes('pitanje-zdravlja')) {
-            targeting.post_category = [
-              route.params.category,
-              'pitanje-zdravlja',
-            ]
+            targeting.post_category.push('pitanje-zdravlja')
           } else if (route.name.includes('super1')) {
-            targeting.post_category = [route.params.category, 'super1']
+            targeting.post_category.push('super1')
           } else {
-            targeting.post_category = [route.params.category]
+            targeting.post_category.push(route.params.category)
           }
           if (payload.tags) {
             targeting.post_tag = payload.tags.map((tag) => tag.slug)
@@ -1302,12 +1281,6 @@ export const actions = {
       for (const i of Object.keys(state.units)) {
         if (i in state.units) {
           unit = state.units[i]
-          let upc = sizes === 'desktop' ? 14 : 12
-          if (state.upc[i]) {
-            upc = state.upc[i][sizes]
-          } else {
-            upc = state.upc_b
-          }
           if (!unit[sizes]) {
             continue
           }
@@ -1320,76 +1293,11 @@ export const actions = {
           ds = window.googletag.defineSlot(prefix + i, unit[sizes], i)
           if (ds) {
             ds.addService(window.googletag.pubads())
-            ds.setTargeting('upc', upc)
           }
         }
       }
       commit('setSlots')
     })
-    /* window.pbjs = window.pbjs || {}
-    window.pbjs.que = window.pbjs.que || []
-    window.pbjs.que.push(() => {
-      window.pbjs.setConfig({
-        enableSendAllBids: false,
-        consentManagement: {
-          gdpr: {
-            cmpApi: 'iab',
-            defaultGdprScope: true,
-          },
-        },
-        userSync: {
-          userIds: [
-            {
-              name: 'pubCommonId',
-              storage: {
-                name: '_pubcid',
-                type: 'cookie',
-                expires: 365,
-              },
-              params: {
-                pixelUrl: '/wp-json/pubcid/v1/extend/',
-              },
-            },
-          ],
-          filterSettings: {
-            iframe: {
-              bidders: '*',
-              filter: 'include',
-            },
-            image: {
-              bidders: '*',
-              filter: 'include',
-            },
-          },
-        },
-      })
-      // const prefix = state.prefix
-      const sizes = this.$mobile ? 'mobile' : 'desktop'
-      let unit
-      for (const i of Object.keys(state.units)) {
-        if (i in state.units && state.units[i].pbjs) {
-          unit = state.units[i]
-          if (!unit.pbjs[sizes].sizes) {
-            continue
-          }
-          if (route && !unit.routes.includes(route.name)) {
-            continue
-          }
-          if (!document.getElementById(i)) {
-            continue
-          }
-          window.pbjs.addAdUnits({
-            code: i,
-            mediaTypes: {
-              banner: {
-                sizes: unit.pbjs[sizes].sizes,
-              },
-            },
-            bids: unit.pbjs[sizes].bids,
-          })
-        }
-      }
-    }) */
     dispatch('displaySlots')
   },
   displaySlots({ dispatch }) {
@@ -1402,23 +1310,7 @@ export const actions = {
         window.googletag.display(slot.id)
       })
     })
-    // dispatch('refreshSlots')
     dispatch('initAdserver')
-  },
-  refreshSlots({ dispatch }) {
-    window.googlefc = window.googlefc || {}
-    window.googlefc.callbackQueue = window.googlefc.callbackQueue || []
-    window.googletag = window.googletag || {}
-    window.googletag.cmd = window.googletag.cmd || []
-    /* global __tcfapi */
-    window.googlefc.callbackQueue.push({
-      CONSENT_DATA_READY: () =>
-        __tcfapi('getTCData', 0, (data, success) => {
-          if (data.purpose.consents[1]) {
-            dispatch('initPBJS')
-          }
-        }),
-    })
   },
   initPBJS({ dispatch }) {
     window.pbjs = window.pbjs || {}
@@ -1434,8 +1326,6 @@ export const actions = {
     }, 500)
   },
   initAdserver({ state }) {
-    // if (window.pbjs.initAdserverSet) return
-    // window.pbjs.initAdserverSet = true
     if (state.route === 'nesto-slug') {
       return
     }
