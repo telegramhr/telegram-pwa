@@ -11,6 +11,8 @@
         :src="post.image.url"
         :alt="post.image.alt"
         loading="lazy"
+        width="800"
+        height="505"
       />
     </app-link>
     <div class="full flex article-pad">
@@ -31,7 +33,7 @@
           </h3>
         </div>
         <h2 :id="'featured-' + post.id" class="full animate">
-          {{ post.portal_title }}
+          {{ post.portal_title | parseCat }}
         </h2>
         <h4 class="full">{{ post.subtitle }}</h4>
         <h5 class="full flex article-meta">

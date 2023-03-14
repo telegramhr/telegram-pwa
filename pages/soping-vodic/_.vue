@@ -5,6 +5,7 @@
       'flex',
       'single-article',
       'shop-guide',
+      typeClass,
       categoryClass,
     ]"
   >
@@ -22,6 +23,64 @@
           >
         </div>
       </div>-->
+      <div
+        v-if="post.type === 'premium'"
+        class="full premium-article-head relative"
+      >
+        <div v-if="post.image.author" class="meta-foto">
+          FOTO: {{ post.image.author }}
+        </div>
+        <div class="mobile-only full center mobile-pa-nav relative flex">
+          <a
+            :aria-expanded="$store.state.header.showSideMenu.toString()"
+            aria-label="Prikaži lijevi meni"
+            aria-controls="sidebar"
+            @click.prevent="$store.commit('header/updateMenu', 'side')"
+          >
+            <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon
+          ></a>
+          <nuxt-link to="/" class="logo">
+            <img
+              src="@/assets/img/telegram_logo_white.svg"
+              alt="Telegram logo"
+            />
+          </nuxt-link>
+          <a
+            v-show="canLogIn"
+            class="mob-nav-otherbtn mobile-only"
+            @click.prevent="$store.dispatch('user/login')"
+          >
+            <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
+          ></a>
+          <app-link
+            v-show="!canLogIn"
+            class="mobile-only mob-nav-otherbtn"
+            to="/moj-racun"
+            aria-label="Moj račun"
+          >
+            <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
+          ></app-link>
+        </div>
+        <img
+          v-if="post.image.full"
+          class="article-head-image"
+          :src="post.image.full"
+          :alt="post.image.alt"
+        />
+        <div class="full flex article-head">
+          <div class="full flex overtitle-parent">
+            <h3 class="overtitle">
+              {{ parsedOvertitle }}
+            </h3>
+            <div v-if="post.promo.partner" class="collab-overtitle">
+              <h3 class="overtitle">{{ post.promo.prefix }}</h3>
+              <img :src="post.promo.logo" :alt="post.promo.partner" />
+            </div>
+          </div>
+          <h1 class="full">{{ post.portal_title }}</h1>
+          <h2 class="full">{{ post.subtitle }}</h2>
+        </div>
+      </div>
       <div class="full flex">
         <article
           class="container column-full-pad flex relative mobile-side-pad"
@@ -97,9 +156,20 @@
               v-html="post.content"
             ></div>
             <!-- eslint-enable vue/no-v-html -->
-            <portal v-if="show" selector="#guide-container">
-              <product-guide :products="post.products"></product-guide>
-            </portal>
+            <client-only>
+              <portal
+                v-if="show && !post.parent"
+                selector="#guide-category-container"
+              >
+                <product-category-guide :post="post"></product-category-guide>
+              </portal>
+              <portal v-if="show" selector="#guide-container">
+                <product-guide
+                  :products="post.products"
+                  :category="post.title"
+                ></product-guide>
+              </portal>
+            </client-only>
             <!-- Article footer -->
             <div
               class="full relative single-article-footer flex column-top-pad"
@@ -133,7 +203,10 @@
             </div>
           </div>
         </article>
-        <more-shoping-guides :post="post.id"></more-shoping-guides>
+        <more-shoping-guides
+          v-if="post.parent"
+          :post="post.id"
+        ></more-shoping-guides>
       </div>
     </div>
     <tfooter></tfooter>
@@ -243,7 +316,9 @@ export default {
             name: 'Telegram.hr',
             logo: {
               '@type': 'ImageObject',
-              url: 'https://www.telegram.hr/tg_neue_favicon.png',
+              url: `https://www.telegram.hr${this.$icon(512)}`,
+              width: 512,
+              height: 512,
             },
           },
         },
@@ -266,6 +341,16 @@ export default {
           ],
         },
       ]
+    },
+    typeClass() {
+      switch (this.post.type) {
+        case 'premium':
+          return 'single-article-premium single-article-premium-alt'
+        case 'commentary':
+          return 'single-article-commentary'
+        default:
+          return ''
+      }
     },
     categoryClass() {
       if (this.post.category_slug) {

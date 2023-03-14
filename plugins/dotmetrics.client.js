@@ -28,7 +28,7 @@ export default ({ route }, inject) => {
     ) {
       dotmetricsId = '12608'
     }
-    if (path.includes('super1')) {
+    if (path.includes('super1') || path.includes('superone')) {
       dotmetricsId = '4136'
     }
     if (path.includes('telesport')) {

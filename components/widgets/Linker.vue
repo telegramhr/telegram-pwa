@@ -1,10 +1,43 @@
 <template>
   <div
-    v-if="id"
-    :id="'linker-' + id"
-    class="lwdgt column-full-pad"
-    :data-wid="id"
-  ></div>
+    class="container flex relative block-related cantha-related standard-block stretch"
+    data-nosnippet
+  >
+    <div
+      v-if="title && body"
+      class="full column-horizontal-pad column-top-pad mobile-side-pad"
+    >
+      <div class="full cantha-separator"></div>
+    </div>
+    <h3
+      v-if="title && body"
+      class="full center-text column-full-pad subsection-title mobile-side-pad"
+    >
+      {{ title }}
+    </h3>
+    <div class="full flex mobile-side-pad">
+      <template v-if="type === 'keep-reading' && id !== 659">
+        <div
+          :id="`linker-${id}`"
+          class="lwdgt lwdgt-load"
+          :data-wid="id"
+          data-infinite="true"
+          data-cycles="20"
+        ></div>
+      </template>
+      <template v-else>
+        <div
+          v-if="id && body"
+          :id="'linker-' + id"
+          class="lwdgt column-full-pad"
+        >
+          <!-- eslint-disable-next-line -->
+            <div v-html="body"></div>
+        </div>
+        <div :id="`linker-scripts-${id}`"></div>
+      </template>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -17,13 +50,52 @@ export default {
       default: 'category',
     },
   },
+  async fetch() {
+    if (this.id && this.id !== 542) {
+      this.body = await this.$axios.$get(
+        `https://linker.hr/widget/lw.php?wid=${this.id}&_=${Date.now()}`
+      )
+      this.$nextTick(() => {
+        this.execute()
+      })
+    }
+  },
+  data() {
+    return {
+      body: '',
+    }
+  },
   computed: {
+    title() {
+      switch (this.type) {
+        case 'footer':
+          return 'Oglasi'
+        case 'keep-reading':
+          return 'Ostanite uz Telegram'
+        case 'category':
+          return 'Više s weba'
+        default:
+          return false
+      }
+    },
     id() {
       if (this.$store.getters['user/hasPremium']) {
         return 0
       }
+      if (this.type === 'keep-reading') {
+        if (this.$route.name.includes('super1')) {
+          return 659
+        }
+        return 542
+      }
       if (!this.$mobile && this.type === 'mobile') {
-        return 0
+        return 660
+      }
+      if (this.type === 'intext') {
+        return 476
+      }
+      if (this.type === 'shop') {
+        return 526
       }
       if (this.type === 'footer') {
         return 503
@@ -62,5 +134,33 @@ export default {
         : 0
     },
   },
+  methods: {
+    execute() {
+      if (this.body && this.id) {
+        const el = document.getElementById(`linker-${this.id}`)
+        const els = document.getElementById(`linker-scripts-${this.id}`)
+        if (!el) return
+        const arr = el.getElementsByTagName('script')
+        for (let n = 0; n < arr.length; n++) {
+          const s = document.createElement('script')
+          s.setAttribute('type', 'text/javascript')
+          if (arr[n].src) {
+            s.setAttribute('src', arr[n].src)
+          }
+          if (arr[n].innerHTML) {
+            s.innerHTML = arr[n].innerHTML
+          }
+          s.async = true
+          els.appendChild(s)
+        }
+      }
+    },
+  },
 }
 </script>
+
+<style>
+.linker-widget-title {
+  display: none !important;
+}
+</style>

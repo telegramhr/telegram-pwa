@@ -15,7 +15,7 @@
           <h3 class="overtitle">{{ author.name }}</h3>
         </div>
         <h2 :id="'standard-' + post.id" class="full">
-          {{ post.portal_title }}
+          {{ post.portal_title | parseCat }}
         </h2>
         <h4 class="full">{{ post.subtitle }}</h4>
         <h5 class="full flex article-meta">

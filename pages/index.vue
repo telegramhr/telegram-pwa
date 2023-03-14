@@ -15,13 +15,15 @@
     <div class="full flex">
       <theader></theader>
     </div>
-    <!-- Pretplata first timers -->
-    <div v-show="canLogIn" class="full flex">
-      <pretplata-first-time></pretplata-first-time>
-      <div class="full mobile-side-pad mobile-only">
-        <div class="full column-bottom-border-mobile"></div>
+    <client-only>
+      <!-- Pretplata first timers -->
+      <div v-show="canLogIn" class="full flex">
+        <pretplata-first-time></pretplata-first-time>
+        <div class="full mobile-side-pad mobile-only">
+          <div class="full column-bottom-border-mobile"></div>
+        </div>
       </div>
-    </div>
+    </client-only>
     <!-- Cantha header -->
     <div class="full relative cantha-header">
       <div class="container flex relative column-top-pad column-horizontal-pad">
@@ -80,7 +82,7 @@
           <app-link role="menuitem" to="/zivot">Život</app-link>
           <app-link role="menuitem" to="/kultura">Kultura</app-link>
           <app-link role="menuitem" to="/openspace">Openspace</app-link>
-          <a href="https://super1.telegram.hr" role="menuitem">Super1</a>
+          <app-link to="/super1" role="menuitem">Super1</app-link>
           <a href="https://telesport.telegram.hr" role="menuitem">
             Telesport
           </a>
@@ -120,7 +122,7 @@
       <div class="container flex relative stretch cantha-intro-block">
         <!-- Billboard 1 -->
         <client-only>
-          <div v-show="!hasPremium" class="full relative">
+          <div v-show="!hasPremium" class="full relative m-order-2">
             <div class="full flex column-horizontal-pad desktop-only">
               <div class="full flex relative column-bottom-border"></div>
             </div>
@@ -129,14 +131,10 @@
             </div>
           </div>
         </client-only>
-        <div
-          class="full flex column-horizontal-pad column-bottom-pad desktop-only"
-        >
-          <div class="full flex relative column-bottom-border"></div>
-        </div>
+        <!-- breaking -->
         <h2
           v-show="$store.state.breaking.on2"
-          class="full major-event-header mobile-order-1 mobile-side-pad column-horizontal-pad column-bottom-pad center-text"
+          class="full major-event-header mobile-order-1 mobile-side-pad column-horizontal-pad center-text m-order-1"
         >
           <app-link
             :to="
@@ -147,7 +145,13 @@
           >
         </h2>
         <div
-          class="three-fourths featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad column-right-border mobile-order-1"
+          class="full flex column-horizontal-pad column-bottom-pad desktop-only"
+        >
+          <div class="full flex relative column-bottom-border"></div>
+        </div>
+        <!-- G1 -->
+        <div
+          class="three-fourths featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad column-right-border mobile-order-1 m-order-1"
         >
           <featured-alt
             v-if="posts[0]"
@@ -157,7 +161,7 @@
         </div>
         <!-- komentari -->
         <div
-          class="fourth flex-responsive column-horizontal-pad mobile-side-pad cantha-commentary"
+          class="fourth flex-responsive column-horizontal-pad mobile-side-pad cantha-commentary m-order-10"
         >
           <div class="full mobile-only flex relative">
             <div class="full column-horizontal-pad column-top-pad">
@@ -172,15 +176,19 @@
         <div class="full column-full-pad desktop-only">
           <div class="full column-top-border"></div>
         </div>
+        <!-- latest -->
         <client-only>
           <div
             v-if="$mobile"
-            class="full flex relative mobile-only mobile-side-pad"
+            class="full flex relative mobile-only mobile-side-pad m-order-4"
           >
             <latest :portal="1"></latest>
           </div>
         </client-only>
-        <div class="full flex cantha-small-block mobile-side-pad stretch">
+        <!-- rest of Gs -->
+        <div
+          class="full flex cantha-small-block mobile-side-pad stretch m-order-5"
+        >
           <div
             v-for="post in posts.slice(1, 4)"
             :key="`featured${post.id}`"
@@ -190,22 +198,30 @@
           </div>
         </div>
         <!-- Billboard 2 -->
-        <div class="full center">
+        <div class="full center m-order-6">
           <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
         </div>
-        <div class="full column-horizontal-pad mobile-side-pad column-top-pad">
-          <div class="full cantha-separator"></div>
+        <!-- Teme -->
+        <div class="full relative m-order-8 mobile-side-pad">
+          <div class="full column-horizontal-pad column-top-pad">
+            <div class="full cantha-separator"></div>
+          </div>
+          <h3 class="full center-text column-full-pad subsection-title">
+            <img
+              src="@/assets/img/telegram_logo_black.svg"
+              alt="Telegram logo"
+            />
+            <img
+              src="@/assets/img/telegram_logo_white.svg"
+              class="dark-mode-only"
+              alt="Telegram logo"
+            />
+            teme
+          </h3>
         </div>
-        <h3 class="full center-text column-full-pad subsection-title">
-          <img src="@/assets/img/telegram_logo_black.svg" alt="Telegram logo" />
-          <img
-            src="@/assets/img/telegram_logo_white.svg"
-            class="dark-mode-only"
-            alt="Telegram logo"
-          />
-          teme
-        </h3>
-        <div class="full flex mobile-side-pad stretch secondary-gs-block">
+        <div
+          class="full flex mobile-side-pad stretch secondary-gs-block m-order-8"
+        >
           <div
             class="three-fourths flex-responsive column-horizontal-pad column-right-border flex relative featured-split smaller-featured-split show-one-related"
           >
@@ -246,64 +262,67 @@
             ></medium>
           </div>
         </div>
-      </div>
-    </div>
-    <!-- Prekid pretplata -->
-    <client-only>
-      <div v-if="!$store.state.user.access" class="full relative mobile-only">
-        <div class="container flex relative column-horizontal-pad">
-          <app-link
-            to="/pretplata"
-            class="full cantha-break cantha-mini-break mobile-side-pad flex relative stretch"
-          >
-            <div class="two-thirds column-full-pad center flex-responsive">
-              <div class="full flex article">
-                <h2 class="full">
-                  Bespoštedno novinarstvo <br />koje gura društvo naprijed.
-                </h2>
-                <h5 class="full">
-                  Za neograničeno čitanje Telegrama i podršku istraživačkim
-                  serijalima, odaberite jedan od paketa.
-                </h5>
-              </div>
-            </div>
-            <div class="third stretch flex flex-responsive">
-              <div class="full flex article">
-                <div class="full center">
-                  <div class="newbtn">Pretplatite se</div>
-                </div>
-              </div>
-            </div>
-          </app-link>
-        </div>
-      </div>
-    </client-only>
-    <!-- Još vijesti -->
-    <div class="full relative">
-      <div
-        class="container flex cantha-small-block mobile-side-pad relative stretch"
-      >
-        <div class="full column-horizontal-pad column-top-pad">
-          <div class="full cantha-separator"></div>
-        </div>
-        <h3 class="full center-text column-full-pad subsection-title">
-          Još vijesti
-        </h3>
-        <div class="full flex stretch relative no-last-border-mobile">
+        <!-- Prekid pretplata -->
+        <client-only>
           <div
-            v-for="post in posts.slice(8, 12)"
-            :key="post.id"
-            class="fourth flex-responsive column-right-border column-horizontal-pad"
+            v-if="!$store.state.user.access"
+            class="full relative mobile-only m-order-8"
           >
-            <standard :post="post"></standard>
+            <div class="container flex relative column-horizontal-pad">
+              <app-link
+                to="/pretplata"
+                class="full cantha-break cantha-mini-break mobile-side-pad flex relative stretch"
+              >
+                <div class="two-thirds column-full-pad center flex-responsive">
+                  <div class="full flex article">
+                    <h2 class="full">
+                      Bespoštedno novinarstvo <br />koje gura društvo naprijed.
+                    </h2>
+                    <h5 class="full">
+                      Za neograničeno čitanje Telegrama i podršku istraživačkim
+                      serijalima, odaberite jedan od paketa.
+                    </h5>
+                  </div>
+                </div>
+                <div class="third stretch flex flex-responsive">
+                  <div class="full flex article">
+                    <div class="full center">
+                      <div class="newbtn">Pretplatite se</div>
+                    </div>
+                  </div>
+                </div>
+              </app-link>
+            </div>
+          </div>
+        </client-only>
+        <!-- Još vijesti -->
+        <div class="full relative cantha-more-news m-order-11">
+          <div
+            class="container flex cantha-small-block mobile-side-pad relative stretch"
+          >
+            <div class="full column-horizontal-pad column-top-pad">
+              <div class="full cantha-separator"></div>
+            </div>
+            <h3 class="full center-text column-full-pad subsection-title">
+              Još vijesti
+            </h3>
+            <div class="full flex stretch relative no-last-border-mobile">
+              <div
+                v-for="post in posts.slice(8, 12)"
+                :key="post.id"
+                class="fourth flex-responsive column-right-border column-horizontal-pad"
+              >
+                <standard :post="post"></standard>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-    <!-- Billboard 3 -->
-    <div class="full relative">
-      <div class="full center">
-        <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
+        <!-- Billboard 3 -->
+        <div class="full relative cantha-billboard3 m-order-10">
+          <div class="full center">
+            <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
+          </div>
+        </div>
       </div>
     </div>
     <!-- TG preporuka -->
@@ -342,44 +361,49 @@
         </div>
       </div>
     </div>
-    <!-- Prekid knjiga -->
+    <client-only>
+      <div v-if="!hasPremium" class="full relative">
+        <offers-premium></offers-premium>
+      </div>
+    </client-only>
+
+    <!-- Prekid klub -->
     <div class="full relative">
       <div class="container flex relative column-horizontal-pad">
         <app-link
-          to="/knjiga/rajko-grlic-neispricane-price"
-          class="full cantha-break break-dezulovic mobile-side-pad flex relative stretch"
+          to="/klub"
+          class="full cantha-break mobile-side-pad flex relative stretch klub-cantha-break"
         >
-          <div class="forty column-full-pad center flex-responsive">
-            <div class="full flex article">
-              <h3 class="full overtitle">Ekskluzivna prednarudžba</h3>
-              <h2 class="full">
-                Telegram donosi novu knjigu: Neispričane priče Rajka Grlića
-              </h2>
+          <div class="third column-full-pad center flex-responsive">
+            <div class="full flex">
+              <img
+                src="@/assets/img/tg_klub_logo_negative.svg"
+                alt="Telegram Klub logo"
+                class="klub-break-logo"
+              />
               <h5 class="full">
-                Novo i dopunjeno izdanje hit knjige čuvenog redatelja, <br />
-                na 435 stranica s 21 novom, nikad objavljenom pričom
+                Klub ekskluzivnih ponuda, pogodnosti i popusta, samo za
+                pretplatnike Telegrama.
               </h5>
             </div>
           </div>
-          <div class="sixty stretch flex flex-responsive">
-            <div class="two-thirds column-top-pad center flex-responsive">
+          <div class="two-thirds stretch flex flex-responsive">
+            <div class="two-thirds stretch center flex-responsive">
               <img
-                src="@/assets/img/tg_knjiga_vizual_grlic.png"
-                alt="Portret Rajka Grlića i naslovnica njegove knjige 'Neispričane priče'"
+                src="@/assets/img/tg_klub_vizual_widget.jpg"
+                alt="Neki od popusta u kazalištima i muzejima koje se nalaze u Telegram Klubu"
               />
             </div>
-            <div class="third center column-horizontal-pad flex-responsive">
-              <div class="full flex article">
-                <h2 class="full relative center-text">
-                  <span class="faded strikethrough">179 kn</span> 119 kn
-                </h2>
+            <div
+              class="third center stretch column-horizontal-pad flex-responsive"
+            >
+              <div class="full column-left-pad flex article">
                 <h5 class="full center-text">
-                  (<span class="faded strikethrough">23,76€</span> 15,79€)
-                  <br />
-                  posebna cijena za Telegramove pretplatnike!
+                  Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
+                  pretplatnicima.
                 </h5>
                 <div class="full center">
-                  <div class="newbtn">Kupite</div>
+                  <div class="newbtn">Saznajte više</div>
                 </div>
               </div>
             </div>
@@ -432,11 +456,6 @@
         <category-big slug="more-news"></category-big>
       </div>
     </div>
-    <client-only>
-      <div v-if="!hasPremium" class="full relative">
-        <offers></offers>
-      </div>
-    </client-only>
     <!-- Mala rubrika: Biznis i tech -->
     <div class="full relative">
       <div class="container flex relative">
@@ -490,45 +509,44 @@
         </div>
       </div>
     </div>
-    <!-- Prekid klub -->
+    <!-- Prekid knjiga -->
     <div class="full relative">
-      <div
-        class="container flex relative column-horizontal-pad column-bottom-pad"
-      >
+      <div class="container flex relative column-full-pad">
         <app-link
-          to="/klub"
-          class="full cantha-break mobile-side-pad flex relative stretch klub-cantha-break"
+          to="/knjiga/rajko-grlic-neispricane-price"
+          class="full cantha-break break-dezulovic mobile-side-pad flex relative stretch"
         >
-          <div class="third column-full-pad center flex-responsive">
-            <div class="full flex">
-              <img
-                src="@/assets/img/tg_klub_logo_negative.svg"
-                alt="Telegram Klub logo"
-                class="klub-break-logo"
-              />
+          <div class="forty column-full-pad center flex-responsive">
+            <div class="full flex article">
+              <h3 class="full overtitle">Posebna ponuda</h3>
+              <h2 class="full">
+                Telegram donosi novu knjigu: Neispričane priče Rajka Grlića
+              </h2>
               <h5 class="full">
-                Klub ekskluzivnih ponuda, pogodnosti i popusta, samo za
-                pretplatnike Telegrama.
+                Novo i dopunjeno izdanje hit knjige čuvenog redatelja, <br />
+                na 435 stranica s 21 novom, nikad objavljenom pričom
               </h5>
             </div>
           </div>
-          <div class="two-thirds stretch flex flex-responsive">
-            <div class="two-thirds stretch center flex-responsive">
+          <div class="sixty stretch flex flex-responsive">
+            <div class="two-thirds column-top-pad center flex-responsive">
               <img
-                src="@/assets/img/tg_klub_vizual_widget.jpg"
-                alt="Neki od popusta u kazalištima i muzejima koje se nalaze u Telegram Klubu"
+                src="@/assets/img/tg_knjiga_vizual_grlic.png"
+                alt="Portret Rajka Grlića i naslovnica njegove knjige 'Neispričane priče'"
               />
             </div>
-            <div
-              class="third center stretch column-horizontal-pad flex-responsive"
-            >
-              <div class="full column-left-pad flex article">
+            <div class="third center column-horizontal-pad flex-responsive">
+              <div class="full flex article">
+                <h2 class="full relative center-text">
+                  <span class="faded strikethrough">23,76€</span> 15,79€
+                </h2>
                 <h5 class="full center-text">
-                  Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
-                  pretplatnicima.
+                  (<span class="faded strikethrough">179 kn</span> 119 kn)
+                  <br />
+                  posebna cijena za Telegramove pretplatnike!
                 </h5>
                 <div class="full center">
-                  <div class="newbtn">Saznajte više</div>
+                  <div class="newbtn">Kupite</div>
                 </div>
               </div>
             </div>
@@ -600,6 +618,11 @@
         <pitanje-zdravlja></pitanje-zdravlja>
       </client-only>
     </div>
+    <client-only>
+      <div v-if="!hasPremium" class="full relative">
+        <offers></offers>
+      </div>
+    </client-only>
     <!-- Billboard 4 -->
     <div class="full relative">
       <div class="full center">
@@ -646,6 +669,9 @@
 <script>
 export default {
   async fetch() {
+    if (process.client) {
+      this.$telegram.$loading.start()
+    }
     await this.$store.dispatch('featured/pullPosts')
     await this.$store.dispatch('featured/pullBreaks')
   },
@@ -676,8 +702,19 @@ export default {
         '@type': 'Website',
         url: 'https://www.telegram.hr',
         name: 'Telegram.hr',
+        headline: 'Telegram.hr',
         description:
           'Portal za društvena i kulturna pitanja. I svijet koji dolazi.',
+        publisher: {
+          '@type': 'Organization',
+          name: 'Telegram.hr',
+          logo: {
+            '@type': 'ImageObject',
+            url: `https://www.telegram.hr${this.$icon(512)}`,
+            width: 512,
+            height: 512,
+          },
+        },
         potentialAction: [
           {
             '@type': 'SearchAction',
@@ -691,6 +728,7 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.loadAds()
+      this.$telegram.$loading.finish()
     })
   },
   methods: {

@@ -14,6 +14,7 @@
         <component
           :is="question.type"
           :data="question"
+          :post="post"
           @answer="getAnswer"
         ></component>
       </div>
@@ -41,6 +42,10 @@ export default {
           scoring: {},
         }
       },
+    },
+    post: {
+      type: String,
+      required: true,
     },
   },
   data() {

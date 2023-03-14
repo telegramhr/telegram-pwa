@@ -47,7 +47,7 @@
         class="full premium-article-head relative"
       >
         <div v-if="post.image.author" class="meta-foto">
-          FOTO: {{ post.image.author }}
+          FOTO: {{ post.image.author | parseCat }}
         </div>
         <div class="mobile-only full center mobile-pa-nav relative flex">
           <a
@@ -62,6 +62,24 @@
             <img
               src="@/assets/img/telegram_logo_white.svg"
               alt="Telegram logo"
+            />
+          </nuxt-link>
+          <nuxt-link to="/super1" class="logo superone-mobilepanav-logo">
+            <img
+              src="@/assets/img/s1_logo_clean_noline_white.svg"
+              alt="Super1 logo"
+            />
+          </nuxt-link>
+          <nuxt-link to="/pitanje-zdravlja" class="logo pz-mobilepanav-logo">
+            <img
+              src="@/assets/img/pz_logo_negative.svg"
+              alt="PitanjeZdravlja logo"
+            />
+          </nuxt-link>
+          <nuxt-link to="/openspace" class="logo os-mobilepanav-logo">
+            <img
+              src="@/assets/img/openspace_logo_negative.svg"
+              alt="openspace logo"
             />
           </nuxt-link>
           <a
@@ -79,12 +97,24 @@
           >
             <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
           ></app-link>
+          <a
+            href="#"
+            aria-label="Prikaži tražilicu"
+            :aria-expanded="$store.state.header.showSearchMenu.toString()"
+            aria-controls="search"
+            class="mobile-only mob-nav-otherbtn mob-nav-search"
+            @click.prevent="$store.commit('header/updateMenu', 'search')"
+          >
+            <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon
+          ></a>
         </div>
         <img
           v-if="post.image.full"
           class="article-head-image"
           :src="post.image.full"
           :alt="post.image.alt"
+          :width="post.image.width"
+          :height="post.image.height"
         />
         <div class="full flex article-head">
           <div class="full flex overtitle-parent">
@@ -96,8 +126,8 @@
               <img :src="post.promo.logo" :alt="post.promo.partner" />
             </div>
           </div>
-          <h1 class="full">{{ post.portal_title }}</h1>
-          <h2 class="full">{{ post.subtitle }}</h2>
+          <h1 class="full">{{ post.portal_title | parseCat }}</h1>
+          <h2 class="full">{{ post.subtitle | parseCat }}</h2>
         </div>
       </div>
       <div class="full relative">
@@ -128,9 +158,15 @@
                   />
                 </div>
               </div>
-              <h1 class="full">{{ post.title }}</h1>
+              <h1 class="full">
+                <b
+                  v-show="categoryClass && categoryClass.includes('superone')"
+                  >{{ parsedOvertitle }}</b
+                >
+                {{ post.portal_title | parseCat }}
+              </h1>
               <h2 class="full">
-                {{ post.subtitle }}
+                {{ post.subtitle | parseCat }}
               </h2>
               <h5 class="full flex relative article-meta mobile-only">
                 <nuxt-link
@@ -165,15 +201,32 @@
                   <div style="width: 100%" v-html="post.video" />
                 </template>
                 <template v-else>
-                  <img
-                    class="article-head-image"
-                    :srcset="srcset"
-                    :src="post.image.url"
-                    :alt="post.image.alt"
-                    fetchpriority="high"
-                  />
+                  <picture class="article-head-image">
+                    <source
+                      :src="post.image.url"
+                      :srcset="srcset"
+                      type="image/webp"
+                      width="888"
+                      :height="
+                        post.category_slug.includes('super1') ? 888 : 560
+                      "
+                    />
+                    <img
+                      :src="
+                        post.category_slug.includes('super1')
+                          ? post.image.s1jpg
+                          : post.image.jpg
+                      "
+                      :alt="post.image.alt"
+                      width="888"
+                      :height="
+                        post.category_slug.includes('super1') ? 888 : 560
+                      "
+                      fetchpriority="high"
+                    />
+                  </picture>
                   <div v-if="post.image.author" class="meta-foto">
-                    FOTO: {{ post.image.author }}
+                    FOTO: {{ post.image.author | parseCat }}
                   </div>
                 </template>
               </div>
@@ -214,6 +267,7 @@
                       post.social.path
                     )}&via=TelegramHR`"
                     target="_blank"
+                    rel="nofollow"
                     ><font-awesome-icon
                       :icon="['fab', 'twitter']"
                       class="animate"
@@ -235,7 +289,13 @@
             <div class="full relative single-article-body">
               <client-only>
                 <mini-pretplata-new
-                  v-if="canLogIn && post.category_slug !== 'promo'"
+                  v-if="
+                    canLogIn &&
+                    !(
+                      post.category_slug.includes('promo') ||
+                      post.category_slug.includes('superone')
+                    )
+                  "
                 ></mini-pretplata-new>
               </client-only>
               <!-- eslint-disable vue/no-v-html -->
@@ -247,12 +307,31 @@
               ></div>
               <client-only>
                 <portal v-if="showQuiz" selector="#quiz-container">
-                  <quiz v-if="post.quiz" :data="post.quiz"></quiz>
+                  <quiz
+                    v-if="post.quiz"
+                    :data="post.quiz"
+                    :post="post.id"
+                  ></quiz>
+                </portal>
+                <portal
+                  v-for="gallery in post.galleries"
+                  :key="gallery.id"
+                  :selector="`#gallery-${gallery.id}`"
+                >
+                  <gallery :gallery="gallery"></gallery>
+                </portal>
+                <portal
+                  v-if="!hasPremium && !post.category_slug.includes('superone')"
+                  selector="#intext_premium"
+                >
+                  <div class="full">
+                    <offers-premium></offers-premium>
+                  </div>
                 </portal>
               </client-only>
               <client-only>
                 <intext></intext>
-                <linker v-if="!hasPremium" type="mobile"></linker>
+                <linker type="mobile"></linker>
               </client-only>
               <!-- Article footer -->
               <div
@@ -281,6 +360,7 @@
                       )}&via=TelegramHR`"
                       target="_blank"
                       class="animate center"
+                      rel="nofollow"
                     >
                       <font-awesome-icon
                         :icon="['fab', 'twitter']"
@@ -300,15 +380,6 @@
                 </div>
               </div>
             </div>
-            <client-only>
-              <div
-                v-if="!hasPremium && !exclude"
-                class="full relative"
-                style="order: 3"
-              >
-                <offers></offers>
-              </div>
-            </client-only>
             <!--<div class="full relative single-article-body" style="order: 4">
               <div
                 class="full relative single-article-footer flex column-top-pad"
@@ -322,52 +393,33 @@
         </div>
         <client-only>
           <div v-if="!hasPremium" class="full">
-            <div
-              class="container flex relative block-related cantha-related standard-block stretch"
-            >
-              <div
-                class="full column-horizontal-pad column-top-pad mobile-side-pad"
-              >
-                <div class="full cantha-separator"></div>
-              </div>
-              <h3
-                v-if="hasLinker"
-                class="full center-text column-full-pad subsection-title mobile-side-pad"
-              >
-                Više s weba
-              </h3>
-              <div class="full flex mobile-side-pad">
-                <linker type="category"></linker>
-              </div>
-            </div>
+            <linker type="category"></linker>
           </div>
-          <div v-if="!hasPremium && hasLinker" class="container center">
+          <div
+            v-if="!hasPremium && !exclude"
+            class="full relative"
+            style="order: 3"
+          >
+            <offers></offers>
+          </div>
+          <div
+            v-if="
+              !hasPremium &&
+              hasLinker &&
+              !post.category_slug.includes('superone')
+            "
+            class="container center"
+          >
             <div
               data-contentexchange-widget="k7dWfvWSYDqoSZvwu"
               data-contentexchange-source="ughr"
             ></div>
           </div>
           <div v-if="!hasPremium" class="full mobile-only">
-            <div
-              class="container flex relative block-related cantha-related standard-block stretch"
-            >
-              <div
-                class="full column-horizontal-pad column-top-pad mobile-side-pad"
-              >
-                <div class="full cantha-separator"></div>
-              </div>
-              <h3
-                class="full center-text column-full-pad subsection-title mobile-side-pad"
-              >
-                Oglasi
-              </h3>
-              <div class="full flex mobile-side-pad">
-                <linker type="footer"></linker>
-              </div>
-            </div>
+            <linker type="footer"></linker>
           </div>
           <div v-if="!hasPremium" class="container flex center">
-            <div id="linker-526" class="lwdgt" data-wid="526"></div>
+            <linker type="shop"></linker>
           </div>
           <keep-reading
             v-if="post.category_slug && post.category_slug !== 'promo'"
@@ -437,7 +489,7 @@
       </div>
       </div>-->
     </template>
-    <tfooter v-if="post.id || $fetchState.error"></tfooter>
+    <tfooter v-if="post.id || $fetchState.error" :post="post"></tfooter>
   </div>
 </template>
 
@@ -448,48 +500,38 @@ export default {
   scrollToTop: true,
   components: { Portal },
   async fetch() {
-    if (!this.$route.params.slug) {
+    if (!this.$route.params.slug && !this.$route.params.category) {
       return
     }
+    const slug = this.$route.params.slug || this.$route.params.category
     let post
     if (process.client) {
       this.$nextTick(() => {
         this.$telegram.$loading.start()
       })
-      post = this.$store.state.posts.posts[this.$route.params.slug]
+      post = this.$store.state.posts.posts[slug]
     }
     if (!post) {
       if (this.$route.params.category === 'preview') {
-        post = await this.$axios
-          .$get(encodeURI('/api/preview/' + this.$route.params.slug))
-          .catch(() => {
-            // TODO: error logging
-          })
+        post = await this.$axios.$get(encodeURI('/api/preview/' + slug))
       } else {
-        post = await this.$axios
-          .$get(encodeURI('/api/single/' + this.$route.params.slug) + '?pwa=1')
-          .catch(() => {
-            // TODO: error logging
-          })
+        post = await this.$axios.$get(
+          encodeURI('/api/single/' + slug) + '?pwa=1'
+        )
       }
     }
     if (post && post.id) {
       this.post = post
-      await this.$axios
-        .get('/api/related/' + post.id)
-        .then((res) => {
-          if (Array.isArray(res.data)) {
-            this.$store.dispatch('posts/setPosts', res.data, { root: true })
-            this.related_posts = res.data
-              .filter((item) => {
-                return item.id !== post.id
-              })
-              .splice(0, 3)
-          }
-        })
-        .catch(() => {
-          // TODO: error logging
-        })
+      await this.$axios.get('/api/related/' + post.id).then((res) => {
+        if (Array.isArray(res.data)) {
+          this.$store.dispatch('posts/setPosts', res.data, { root: true })
+          this.related_posts = res.data
+            .filter((item) => {
+              return item.id !== post.id
+            })
+            .splice(0, 3)
+        }
+      })
     } else {
       this.post.title = 'Objava ne postoji'
       this.post.portal_title = 'Objava ne postoji'
@@ -559,7 +601,10 @@ export default {
       )
     },
     exclude() {
-      if (this.post.disable_ads && this.post.disable_ads.includes('spar')) {
+      if (
+        (this.post.disable_ads && this.post.disable_ads.includes('spar')) ||
+        this.post.category_slug.includes('superone')
+      ) {
         return true
       }
       const terms = 'lidl'
@@ -579,42 +624,104 @@ export default {
         {
           '@type': 'ImageObject',
           contentUrl: this.post.image.url,
-          creditText: this.post.image.author,
+          url: this.post.image.url,
+          height: 505,
+          width: 800,
+          creditText: this.$options.filters.parseCat(this.post.image.author),
+          caption: this.$options.filters.parseCat(this.post.image.alt),
+          acquireLicensePage:
+            'https://www.telegram.hr/stranica/uvjeti-koristenja',
+          license: 'https://www.telegram.hr/stranica/uvjeti-koristenja',
+          copyrightNotice: this.$options.filters.parseCat(
+            this.post.image.author
+          ),
+          publisher: {
+            '@type': 'Organization',
+            name: 'Telegram.hr',
+            logo: {
+              '@type': 'ImageObject',
+              url: `https://www.telegram.hr${this.$icon(512)}`,
+              width: 512,
+              height: 512,
+            },
+          },
         },
       ]
       if (this.post.image.url2) {
         images.push({
           '@type': 'ImageObject',
           contentUrl: this.post.image.url2,
-          creditText: this.post.image.author,
+          url: this.post.image.url2,
+          height: 1010,
+          width: 1600,
+          creditText: this.$options.filters.parseCat(this.post.image.author),
+          caption: this.$options.filters.parseCat(this.post.image.alt),
+          acquireLicensePage:
+            'https://www.telegram.hr/stranica/uvjeti-koristenja',
+          license: 'https://www.telegram.hr/stranica/uvjeti-koristenja',
+          copyrightNotice: this.$options.filters.parseCat(
+            this.post.image.author
+          ),
         })
       }
       if (this.post.image.url3) {
         images.push({
           '@type': 'ImageObject',
           contentUrl: this.post.image.url3,
-          creditText: this.post.image.author,
+          url: this.post.image.url3,
+          height: 1515,
+          width: 2400,
+          creditText: this.$options.filters.parseCat(this.post.image.author),
+          caption: this.$options.filters.parseCat(this.post.image.alt),
+          acquireLicensePage:
+            'https://www.telegram.hr/stranica/uvjeti-koristenja',
+          license: 'https://www.telegram.hr/stranica/uvjeti-koristenja',
+          copyrightNotice: this.$options.filters.parseCat(
+            this.post.image.author
+          ),
         })
       }
       if (this.post.image.full) {
         images.push({
           '@type': 'ImageObject',
           contentUrl: this.post.image.full,
-          creditText: this.post.image.author,
+          url: this.post.image.full,
+          height: this.post.image.height,
+          width: this.post.image.width,
+          creditText: this.$options.filters.parseCat(this.post.image.author),
+          caption: this.$options.filters.parseCat(this.post.image.alt),
+          acquireLicensePage:
+            'https://www.telegram.hr/stranica/uvjeti-koristenja',
+          license: 'https://www.telegram.hr/stranica/uvjeti-koristenja',
+          copyrightNotice: this.$options.filters.parseCat(
+            this.post.image.author
+          ),
         })
       }
       if (this.post.image.facebook) {
         images.push({
           '@type': 'ImageObject',
           contentUrl: this.post.image.facebook,
-          creditText: this.post.image.author,
+          url: this.post.image.facebook,
+          height: Math.round(
+            (1200 * this.post.image.height) / this.post.image.width
+          ),
+          width: 1200,
+          creditText: this.$options.filters.parseCat(this.post.image.author),
+          caption: this.$options.filters.parseCat(this.post.image.alt),
+          acquireLicensePage:
+            'https://www.telegram.hr/stranica/uvjeti-koristenja',
+          license: 'https://www.telegram.hr/stranica/uvjeti-koristenja',
+          copyrightNotice: this.$options.filters.parseCat(
+            this.post.image.author
+          ),
         })
       }
       return [
         {
           '@context': 'https://schema.org',
           '@type': 'NewsArticle',
-          headline: this.post.title,
+          headline: this.$options.filters.parseCat(this.post.title),
           mainEntityOfPage: this.post.social.path,
           datePublished: new Date(this.post.time * 1000).toISOString(),
           dateModified: new Date(this.post.timem * 1000).toISOString(),
@@ -625,7 +732,7 @@ export default {
             url: 'https://www.telegram.hr',
             logo: {
               '@type': 'ImageObject',
-              url: 'https://www.telegram.hr/tg_neue_favicon.png',
+              url: `https://www.telegram.hr${this.$icon(512)}`,
               width: 512,
               height: 512,
             },
@@ -633,13 +740,14 @@ export default {
           author: this.post.authors,
           keywords: this.post.tags.map((tag) => tag.slug),
           sections: this.$options.filters.parseCat(this.post.category),
-          isAccessibleForFree: this.post.paywall === 'never' ? 'True' : 'False',
+          articleSection: this.$options.filters.parseCat(this.post.category),
+          isAccessibleForFree: this.post.paywall === 'never',
           hasPart:
             this.post.paywall === 'never'
               ? ''
               : {
                   '@type': 'WebPageElement',
-                  isAccessibleForFree: 'False',
+                  isAccessibleForFree: false,
                   cssSelector: '.piano-content',
                 },
         },
@@ -674,24 +782,26 @@ export default {
       }
     },
     categoryClass() {
-      if (this.post.category_slug) {
-        if (
-          this.post.category_slug.includes('openspace') ||
-          this.post.category_slug.includes('pitanje-zdravlja')
-        ) {
-          return this.post.category_slug + ' fancy-rubrika'
-        }
-        return this.post.category_slug
-      }
-      return ''
+      return this.post.category_slug
     },
     srcset() {
-      let set = `${this.post.image.url}`
-      if (this.post.image.url2) {
-        set += `, ${this.post.image.url2} 2x`
-      }
-      if (this.post.image.url3) {
-        set += `, ${this.post.image.url3} 3x`
+      let set
+      if (this.categoryClass && this.categoryClass.includes('superone')) {
+        set = `${this.post.image.s1url}`
+        if (this.post.image.s1url2) {
+          set += `, ${this.post.image.s1url2} 2x`
+        }
+        if (this.post.image.s1url3) {
+          set += `, ${this.post.image.s1url3} 3x`
+        }
+      } else {
+        set = `${this.post.image.url}`
+        if (this.post.image.url2) {
+          set += `, ${this.post.image.url2} 2x`
+        }
+        if (this.post.image.url3) {
+          set += `, ${this.post.image.url3} 3x`
+        }
       }
       return set
     },
@@ -733,6 +843,7 @@ export default {
         route: this.$route,
         options: this.post.disable_ads,
         tags: this.post.tags,
+        category_slug: this.post.category_slug,
       })
       if (
         !this.post.disable_ads.includes('all') &&
@@ -795,7 +906,11 @@ export default {
         }
       }
       tp.push(['setContentIsNative', this.post.post_type === 'partneri'])
-      tp.push(['setCustomVariable', 'isPaywall', this.post.paywall])
+      if (this.post.category_slug.includes('superone')) {
+        tp.push(['setCustomVariable', 'isPaywall', 'never'])
+      } else {
+        tp.push(['setCustomVariable', 'isPaywall', this.post.paywall])
+      }
       tp.push([
         'init',
         function () {
@@ -816,6 +931,9 @@ export default {
         },
       ])
     },
+    triggerAnalytics() {
+      this.$dotmetrics.postLoad(this.post.category_slug)
+    },
     getPost() {
       if (this.post && this.post.id) {
         if (process.client) {
@@ -825,10 +943,15 @@ export default {
           this.showQuiz = true
         }
         this.$store.commit('history/setData', this.post)
+        this.triggerAnalytics()
         this.loadPiano()
         this.loadAds()
         if (typeof FB !== 'undefined') {
           FB.XFBML.parse()
+        }
+        /* global instgrm */
+        if (typeof instgrm !== 'undefined') {
+          instgrm.Embeds.process()
         }
         if (document.getElementsByClassName('twitter-tweet')) {
           const head = document.getElementsByTagName('head')[0]
@@ -916,7 +1039,7 @@ export default {
     },
   },
   head() {
-    const link = [
+    let link = [
       {
         hid: 'canonical',
         rel: 'canonical',
@@ -940,7 +1063,13 @@ export default {
       },
       {
         hid: 'coral',
-        src: 'https://coral.telegram.hr/assets/js/embed.js',
+        src: 'https://talk.telegram.hr/assets/js/embed.js',
+      },
+      {
+        hid: 'instagram',
+        src: 'https://www.instagram.com/static/bundles/metro/EmbedSDK.js/33cd2c5d5d59.js',
+        async: true,
+        defer: true,
       },
     ]
     if (!this.$store.getters['user/hasPremium']) {
@@ -954,18 +1083,23 @@ export default {
           async: true,
         },
         {
-          vmid: 'linker-infinite',
-          hid: 'linker-infinite',
-          type: 'text/javascript',
-          src: 'https://linker.hr/lw-inf.js',
-          async: true,
-        },
-        {
           hid: 'contentexchange',
           src: 'https://ughr.contentexchange.me/static/tracker.js',
           async: true,
         },
       ]
+      if (!this.post.category_slug.includes('superone')) {
+        script = [
+          ...script,
+          {
+            vmid: 'linker-infinite',
+            hid: 'linker-infinite',
+            type: 'text/javascript',
+            src: 'https://linker.hr/lw-inf.js',
+            async: true,
+          },
+        ]
+      }
     }
     // charts and tables
     /* const wdtStyles = [
@@ -1040,120 +1174,156 @@ export default {
         })
       })
     }
+    let meta = [
+      {
+        hid: 'cXenseParse:articleid',
+        name: 'cXenseParse:articleid',
+        content: this.post.id,
+      },
+      {
+        hid: 'cXenseParse:image',
+        name: 'cXenseParse:image',
+        content: this.post.image.url,
+      },
+      {
+        hid: 'cXenseParse:title',
+        name: 'cXenseParse:title',
+        content: this.$options.filters.parseCat(this.post.portal_title),
+      },
+      {
+        hid: 'description',
+        name: 'description',
+        content: this.post.description,
+      },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content: this.post.social.description,
+      },
+      {
+        hid: 'og:type',
+        property: 'og:type',
+        content: 'article',
+      },
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content: this.$options.filters.parseCat(this.post.social.title),
+      },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content:
+          this.$route.params.category === 'preview'
+            ? '/img/tg_preview_placeholder.jpg'
+            : this.post.social.image,
+      },
+      {
+        hid: 'og:image:width',
+        property: 'og:image:width',
+        content: 1200,
+      },
+      {
+        hid: 'og:image:height',
+        property: 'og:image:height',
+        content: Math.round(
+          (1200 * this.post.image.height) / this.post.image.width
+        ),
+      },
+      {
+        hid: 'og:url',
+        property: 'og:url',
+        content: this.post.social.path,
+      },
+      {
+        hid: 'fb:app_id',
+        property: 'fb:app_id',
+        content: '1383786971938581',
+      },
+      {
+        hid: 'article:opinion',
+        property: 'article:opinion',
+        content: this.post.category === 'Komentari',
+      },
+      {
+        hid: 'article:content_tier',
+        property: 'article:content_tier',
+        content: fbPaywall[this.post.paywall],
+      },
+      {
+        hid: 'twitter:card',
+        name: 'twitter:card',
+        content: 'summary_large_image',
+      },
+      {
+        hid: 'twitter:site',
+        name: 'twitter:site',
+        content: '@TelegramHR',
+      },
+      {
+        hid: 'twitter:widgets:theme',
+        name: 'twitter:widgets:theme',
+        content: this.$store.state.theme.theme === 'dark' ? 'dark' : 'light',
+      },
+      {
+        hid: 'robots',
+        name: 'robots',
+        content:
+          this.$route.params.category === 'preview' ||
+          this.post.status !== 'publish'
+            ? 'noindex, noarchive, nocache, nosnippet'
+            : 'index, follow, max-image-preview:large, max-snippet:-1',
+      },
+      {
+        hid: 'nrbi:sections',
+        name: 'nrbi:sections',
+        property: 'nrbi:sections',
+        content: this.$options.filters.parseCat(this.post.category),
+      },
+      {
+        hid: 'mrf:tags',
+        name: 'mrf:tags',
+        property: 'mrf:tags',
+        content: this.post.tags.map((tag) => `keyword:${tag.slug}`).join(';'),
+      },
+    ]
+    let siteName = 'Telegram.hr'
+    if (this.post.category_slug.includes('superone')) {
+      link = [
+        ...link,
+        {
+          hid: 'favicon',
+          rel: 'icon',
+          href: '/s1_fav/favicon.ico',
+        },
+        {
+          hid: 'apple-touch-icon',
+          rel: 'apple-touch-icon',
+          href: '/s1_fav/apple-touch-icon.png',
+        },
+        {
+          hid: 'manifest',
+          rel: 'manifest',
+          href: '/s1_fav/site.webmanifest',
+        },
+      ]
+      meta = [
+        ...meta,
+        {
+          hid: 'apple-mobile-web-app-title',
+          name: 'apple-mobile-web-app-title',
+          content: 'Super1.hr',
+        },
+      ]
+      siteName = 'Super1.hr'
+    }
     return {
-      title: this.post.title,
-      titleTemplate: '%s | Telegram.hr',
-      meta: [
-        {
-          hid: 'cXenseParse:articleid',
-          name: 'cXenseParse:articleid',
-          content: this.post.id,
-        },
-        {
-          hid: 'cXenseParse:image',
-          name: 'cXenseParse:image',
-          content: this.post.image.url,
-        },
-        {
-          hid: 'cXenseParse:title',
-          name: 'cXenseParse:title',
-          content: this.post.portal_title,
-        },
-        {
-          hid: 'description',
-          name: 'description',
-          content: this.post.social.description,
-        },
-        {
-          hid: 'og:description',
-          property: 'og:description',
-          content: this.post.social.description,
-        },
-        {
-          hid: 'og:type',
-          property: 'og:type',
-          content: 'article',
-        },
-        {
-          hid: 'og:title',
-          property: 'og:title',
-          content: this.post.social.title,
-        },
-        {
-          hid: 'og:image',
-          property: 'og:image',
-          content:
-            this.$route.params.category === 'preview'
-              ? '/img/tg_preview_placeholder.jpg'
-              : this.post.social.image,
-        },
-        {
-          hid: 'og:image:width',
-          property: 'og:image:width',
-          content: this.post.social.width,
-        },
-        {
-          hid: 'og:image:height',
-          property: 'og:image:height',
-          content: this.post.social.height,
-        },
-        {
-          hid: 'og:url',
-          property: 'og:url',
-          content: this.post.social.path,
-        },
-        {
-          hid: 'fb:app_id',
-          property: 'fb:app_id',
-          content: '1383786971938581',
-        },
-        {
-          hid: 'article:opinion',
-          property: 'article:opinion',
-          content: this.post.category === 'Komentari',
-        },
-        {
-          hid: 'article:content_tier',
-          property: 'article:content_tier',
-          content: fbPaywall[this.post.paywall],
-        },
-        {
-          hid: 'twitter:card',
-          name: 'twitter:card',
-          content: 'summary_large_image',
-        },
-        {
-          hid: 'twitter:site',
-          name: 'twitter:site',
-          content: '@TelegramHR',
-        },
-        {
-          hid: 'twitter:widgets:theme',
-          name: 'twitter:widgets:theme',
-          content: this.$store.state.theme.theme === 'dark' ? 'dark' : 'light',
-        },
-        {
-          hid: 'robots',
-          name: 'robots',
-          content:
-            this.$route.params.category === 'preview' ||
-            this.post.status !== 'publish'
-              ? 'noindex, noarchive, nocache, nosnippet'
-              : 'index, follow',
-        },
-        {
-          hid: 'nrbi:sections',
-          name: 'nrbi:sections',
-          property: 'nrbi:sections',
-          content: this.$options.filters.parseCat(this.post.category),
-        },
-        {
-          hid: 'mrf:tags',
-          name: 'mrf:tags',
-          property: 'mrf:tags',
-          content: this.post.tags.map((tag) => `keyword:${tag.slug}`).join(';'),
-        },
-      ],
+      bodyAttrs: {
+        class: [this.$store.state.theme.theme, this.post.category_slug],
+      },
+      title: this.$options.filters.parseCat(this.post.title),
+      titleTemplate: `%s | ${siteName}`,
+      meta,
       script,
       link,
     }

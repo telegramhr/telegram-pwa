@@ -1,26 +1,29 @@
 <template>
-  <div v-show="show" class="full flex relative pretplata-intext">
-    <div class="full center">
-      <img
-        src="@/assets/img/tg_neue_favicon.png"
-        aria-hidden="true"
-        class="pretplata-avatar"
-      />
-    </div>
-    <h2 class="full">{{ title }}</h2>
-    <p class="full center-text">
-      {{ subtitle }}
-    </p>
-    <div class="full center">
-      <app-link :id="id" to="/pretplata" class="btn">Pretplatite se</app-link>
-      <div
-        v-if="!$store.state.user.token"
-        class="btn altbtn"
-        @click.prevent="$store.dispatch('user/login')"
-      >
-        Već imam pretplatu
+  <div>
+    <div
+      v-show="show"
+      class="full flex relative pretplata-intext"
+      data-nosnippet
+    >
+      <div class="full center">
+        <img :src="$icon(144)" aria-hidden="true" class="pretplata-avatar" />
+      </div>
+      <h2 class="full">{{ title }}</h2>
+      <p class="full center-text">
+        {{ subtitle }}
+      </p>
+      <div class="full center">
+        <app-link :id="id" to="/pretplata" class="btn">Pretplatite se</app-link>
+        <div
+          v-if="!$store.state.user.token"
+          class="btn altbtn"
+          @click.prevent="$store.dispatch('user/login')"
+        >
+          Već imam pretplatu
+        </div>
       </div>
     </div>
+    <linker v-if="show" type="intext"></linker>
   </div>
 </template>
 
@@ -104,7 +107,9 @@ export default {
         document
           .querySelector('#article-content p:last-child')
           .classList.add('premium-fade-out')
-        document.getElementById('new_pretplata').classList.add('hide')
+        if (document.getElementById('new_pretplata')) {
+          document.getElementById('new_pretplata').classList.add('hide')
+        }
       } else {
         if (this.type === 'load') {
           setTimeout(this.load, 500)
@@ -113,6 +118,7 @@ export default {
           setTimeout(this.paywall, 500)
         }
       }
+      this.$linker.processLinker(476)
     },
   },
 }

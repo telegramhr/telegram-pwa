@@ -23,7 +23,7 @@
         <img
           :src="post.image.url"
           :srcset="srcset(post)"
-          :alt="post.title"
+          :alt="post.portal_title"
           loading="lazy"
         />
         <div class="full flex article-pad">

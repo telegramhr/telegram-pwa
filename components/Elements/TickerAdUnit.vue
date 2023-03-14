@@ -10,6 +10,7 @@
         bannerClass === 'takeover' ? 'sticky-fade' : '',
         bannerClass === 'ticker-right' ? 'sticky-right' : '',
       ]"
+      data-nosnippet
     >
       <div class="relative">
         <div id="telegram_sticky" :class="bannerClass"></div>
@@ -35,7 +36,7 @@
 
 <script>
 export default {
-  name: 'AdUnit',
+  name: 'TickerAdUnit',
   props: {
     id: {
       type: String,
@@ -82,6 +83,11 @@ export default {
           if (name.includes('sticky') && !event.isEmpty) {
             _that.showClose = true
             _that.size = event.size
+            if (_that.bannerClass === 'takeover') {
+              setTimeout(() => {
+                _that.shouldHide = true
+              }, 30000)
+            }
           }
         })
     })

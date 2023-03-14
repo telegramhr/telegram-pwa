@@ -7,7 +7,7 @@
   >
     <div class="full flex article-pad">
       <h2 :id="'mini-' + post.id" class="full animate">
-        {{ post.portal_title }}
+        {{ post.portal_title | parseCat }}
       </h2>
       <h5 class="full flex article-meta">
         <span class="meta-author">

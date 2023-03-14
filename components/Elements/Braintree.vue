@@ -6,7 +6,7 @@
       </div>
       <div class="full flex book-popup-content">
         <div class="full center book-popup-header">
-          <img src="@/assets/img/tg_neue_favicon.png" alt="Telegram Logo" />
+          <img :src="$icon(144)" alt="Telegram Logo" />
         </div>
         <div v-if="error" class="full flex column-full-pad mobile-side-pad">
           <h2 class="full center-text">
@@ -82,7 +82,7 @@
             <div id="cvv" class="hosted-field"></div>
             <label>Datum isteka</label>
             <div id="expiration-date" class="hosted-field"></div>
-            <button @click="submit">Platite {{ price }} kn</button>
+            <button @click="submit">Platite {{ price }} €</button>
           </template>
           <template v-else>
             <button @click="order">Naručite</button>

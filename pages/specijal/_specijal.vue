@@ -1,5 +1,8 @@
 <template>
-  <div :class="['main-container', 'flex', 'specijal-page', post.class]">
+  <div
+    class="main-container flex specijal-page"
+    :class="[post.class ? post.class + ' fancy-rubrika' : '']"
+  >
     <div class="full flex relative single-article">
       <client-only>
         <theader></theader>
@@ -27,6 +30,23 @@
         </div>
       </section>
     </div>
+    <!-- Read more widget -->
+    <div class="full flex relative">
+      <div class="container flex relative column-full-pad">
+        <div class="full center relative clickable" @click="loadMore">
+          <div v-show="!loading" class="newbtn altbtn animate">
+            Učitaj još članaka
+          </div>
+          <div v-show="loading" class="full center cool-loader">
+            <div class="loader-square">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <tfooter></tfooter>
   </div>
 </template>
@@ -34,6 +54,11 @@
 <script>
 export default {
   name: 'SpecijalIndex',
+  async fetch() {
+    this.post = await this.$axios.$get(
+      '/api/special/' + this.$route.params.specijal
+    )
+  },
   data() {
     return {
       post: {
@@ -49,23 +74,31 @@ export default {
           logo: '',
         },
         class: '',
+        social: {
+          title: '',
+          image: '',
+          description: '',
+          path: '',
+        },
       },
       posts: [],
       category: '',
       morePosts: [],
       page: 2,
       hasMore: true,
+      loading: false,
     }
   },
   mounted() {
-    this.$axios.get('/api/special/' + this.$route.params.slug).then((res) => {
-      this.post = res.data
-      this.$axios.get('/api/tag/' + res.data.tag + '/special').then((r) => {
-        this.posts = r.data.posts
-        if (r.data.posts.length < 9) {
-          this.hasMore = false
-        }
-      })
+    this.$nextTick(() => {
+      if (this.post.tag) {
+        this.$axios.get('/api/tag/' + this.post.tag).then((res) => {
+          this.posts = res.data.posts
+          if (this.posts.length < 9) {
+            this.hasMore = false
+          }
+        })
+      }
     })
   },
   methods: {
@@ -74,7 +107,7 @@ export default {
       this.$axios
         .get('/api/tag/' + this.post.tag + '/page/' + this.page)
         .then((res) => {
-          this.morePosts = [...this.morePosts, ...res.data.posts]
+          this.posts = [...this.posts, ...res.data.posts]
           this.page++
           this.loading = false
           if (res.data.posts < 9) {
@@ -88,26 +121,36 @@ export default {
   },
   head() {
     return {
-      title: this.cat,
+      title: this.post.title,
       titleTemplate: '%s | Telegram.hr',
       meta: [
         {
           hid: 'og:type',
           name: 'og:type',
           property: 'og:type',
-          content: 'website',
+          content: 'article',
         },
         {
           hid: 'og:title',
           name: 'og:title',
           property: 'og:title',
-          content: this.cat,
+          content: this.post.social.title,
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.post.social.description,
         },
         {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: this.$route.fullPath,
+          content: this.post.social.path,
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: this.post.social.image,
         },
         {
           hid: 'fb:app_id',

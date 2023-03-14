@@ -24,7 +24,13 @@
       </div>
     </div>-->
     <app-link
-      v-show="!$store.state.user.access"
+      v-show="
+        !$store.state.user.access &&
+        !(
+          post.category_slug.includes('superone') ||
+          $route.name.includes('super1')
+        )
+      "
       to="/klub"
       class="full dark-element bottom-pretplata-promo relative"
     >
@@ -72,13 +78,12 @@
         </div>
         <div class="full flex center">
           <div class="full logo-line flex">
-            <a
-              href="https://super1.telegram.hr"
-              target="_blank"
-              class="center animate"
-            >
-              <img src="@/assets/img/super1_logo_white.svg" alt="Super1 logo" />
-            </a>
+            <app-link to="/super1" class="center animate">
+              <img
+                src="@/assets/img/s1_logo_clean_noline_white.svg"
+                alt="Super1 logo"
+              />
+            </app-link>
             <a
               href="https://telesport.telegram.hr"
               target="_blank"
@@ -105,6 +110,7 @@
               href="https://www.telegramgrupa.hr#studio"
               target="_blank"
               class="center animate"
+              rel="nofollow"
             >
               <img
                 src="@/assets/img/tg_studio_white.svg"
@@ -114,27 +120,30 @@
           </div>
         </div>
         <div class="full flex social-links center">
-          <app-link
-            to="https://www.facebook.com/Telegram.hr/"
+          <a
+            href="https://www.facebook.com/Telegram.hr/"
             class="center animate"
             aria-label="Facebook"
+            rel="noreferrer nofollow"
           >
             <font-awesome-icon :icon="['fab', 'facebook-f']"></font-awesome-icon
-          ></app-link>
-          <app-link
-            to="https://twitter.com/telegramhr/"
+          ></a>
+          <a
+            href="https://twitter.com/telegramhr/"
             class="center animate"
             aria-label="Twitter"
+            rel="noreferrer nofollow"
           >
             <font-awesome-icon :icon="['fab', 'twitter']"></font-awesome-icon
-          ></app-link>
-          <app-link
-            to="https://www.instagram.com/telegram.hr/"
+          ></a>
+          <a
+            href="https://www.instagram.com/telegram.hr/"
             class="center animate"
             aria-label="Instagram"
+            rel="noreferrer nofollow"
           >
             <font-awesome-icon :icon="['fab', 'instagram']"></font-awesome-icon
-          ></app-link>
+          ></a>
           <app-link
             to="https://www.telegram.hr/feed"
             class="center animate"
@@ -185,5 +194,17 @@
 <script>
 export default {
   name: 'Footer',
+  props: {
+    post: {
+      type: Object,
+      required: false,
+      default() {
+        return {
+          id: 0,
+          category_slug: '',
+        }
+      },
+    },
+  },
 }
 </script>

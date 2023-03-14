@@ -1,5 +1,5 @@
 <template>
-  <div v-show="shown" class="full pretplata-ticker relative">
+  <div v-show="shown" class="full pretplata-ticker relative" data-nosnippet>
     <div class="close-ticker-btn center animate" @click="shown = !shown">
       <font-awesome-icon :icon="['fas', 'times']"></font-awesome-icon>
     </div>

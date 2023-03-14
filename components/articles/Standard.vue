@@ -11,13 +11,17 @@
       :src="post.image.url"
       :alt="post.image.alt"
       loading="lazy"
+      width="800"
+      height="505"
     />
     <div class="full flex article-pad">
       <div class="full flex desktop-only">
         <h3 class="overtitle">{{ parsedOvertitle }}</h3>
       </div>
-      <h2 :id="'standard-' + post.id" class="full">{{ post.portal_title }}</h2>
-      <h4 class="full">{{ post.subtitle }}</h4>
+      <h2 :id="'standard-' + post.id" class="full">
+        {{ post.portal_title | parseCat }}
+      </h2>
+      <h4 class="full">{{ post.subtitle | parseCat }}</h4>
       <h5 class="full flex article-meta">
         <span v-if="post.authors.length" class="meta-author"
           ><i>Piše</i> {{ post.authors[0].name }}</span
