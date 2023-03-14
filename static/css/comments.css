@@ -2,12 +2,25 @@
   all: initial;
   --palette-background-body: var(--tg-primary-background-color);
   --palette-background-input: var(--tg-primary-background-color);
+  --palette-primary-100: var(--tg-primary-highlight-color);
+  --palette-primary-200: var(--tg-primary-highlight-color);
+  --palette-primary-300: var(--tg-primary-highlight-color);
+  --palette-primary-400: var(--tg-primary-highlight-color);
   --palette-primary-500: var(--tg-primary-highlight-color);
+  --palette-primary-600: var(--tg-primary-highlight-color);
+  --palette-primary-700: var(--tg-primary-highlight-color);
+  --palette-primary-800: var(--tg-primary-highlight-color);
+  --palette-primary-900: var(--tg-primary-highlight-color);
   --font-family-primary: 'Merriweather', serif;
   --font-family-secondary: 'Barlow', sans-serif;
   --palette-text-500: var(--tg-primary-text-color) !important;
   --palette-text-900: var(--tg-primary-text-color) !important;
-  --palette-grey-100: var(--tg-secondary-background-color);
+  --palette-grey-100: rgba(0,0,0,0.05);
+  --font-size-1: 0.65rem;
+  --font-size-2: 0.8rem;
+  --font-size-3: 0.9rem;
+  --font-size-4: 0.9rem;
+  --palette-grey-300: #c8c8c8;
   /*
   --round-corners: 3px;
   --palette-background-popover: #FFFFFF;
@@ -90,4 +103,77 @@
   --mini-unit-small: 4;
   --mini-unit-large: 8;
   --mini-unit: calc(1px * var(--mini-unit-small))*/
+}
+#coral .coral-viewerBox > div {
+  display: inline-block;
+  margin-right: 0.2rem;
+  font-family: 'Barlow', sans-serif;
+}
+#coral .coral-viewerBox .coral-viewerBox-username {
+  font-size: var(--font-size-2);
+}
+#coral .coral-tabBarSecondary-row label {
+  font-family: 'Barlow', sans-serif;
+}
+#coral .coral-checkbox-label, #coral .coral-tabBarSecondary li button {
+  font-family: 'Barlow', sans-serif;
+  font-size: var(--font-size-2);
+}
+#coral button.coral-createComment-submit {
+  padding: 8px 32px;
+  padding-top: 8px;
+  padding-top: 7px;
+  text-align: center;
+  display: block;
+  margin-bottom: 20px;
+  text-transform: none;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+  color: white;
+  font-size: 14px;
+  font-size: 0.7rem;
+  background-color: #ae3737;
+  cursor: pointer;
+}
+#coral button.coral-emailNotifications-updateButton, #coral button.coral-ignoredComments-manageButton {
+  padding: 8px 32px;
+  padding-top: 8px;
+  padding-top: 7px;
+  text-align: center;
+  display: block;
+  margin-bottom: 20px;
+  text-transform: none;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+#coral button {
+  font-family: 'Barlow', sans-serif;
+  text-decoration: none;
+}
+#coral .coral-selectField {
+  font-family: 'Barlow', sans-serif;
+  font-size: var(--font-size-2);
+  background: transparent;
+  color: var(--palette-text-500);
+}
+#coral #comments-allComments-log div {
+  border: none !important;
+}
+#coral .coral-comment-userTag {
+  font-family: 'Barlow', sans-serif;
+  font-size: var(--font-size-1);
+  padding: 2px 7px;
+}
+#coral .coral-timestamp {
+  font-family: 'Barlow', sans-serif;
+  font-size: var(--font-size-1);
+}
+#coral .coral-comment-username {
+  color: var(--palette-text-900);
+}
+#coral .coral-myComments span {
+  margin-bottom: 0.2rem;
 }

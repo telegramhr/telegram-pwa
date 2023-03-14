@@ -19,6 +19,10 @@
   --tg-secondary-background-color: #c8c8c8;
 }
 
+.contrast-mode * {
+    --tg-primary-background-color: #ffffff;
+}
+
 /* Basics */
 
 html {
