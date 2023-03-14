@@ -212,7 +212,11 @@
                       "
                     />
                     <img
-                      :src="post.category_slug.includes('super1') ? post.image.s1jpg : post.image.jpg"
+                      :src="
+                        post.category_slug.includes('super1')
+                          ? post.image.s1jpg
+                          : post.image.jpg
+                      "
                       :alt="post.image.alt"
                       width="888"
                       :height="
@@ -371,21 +375,20 @@
                     </div>
                   </div>
                 </div>
-                <div
-                  v-if="!post.comments_off"
-                  v-show="comments"
-                  class="full fb-parent"
-                >
-                  <div
-                    v-show="comments"
-                    class="fb-comments"
-                    :data-href="post.social.path"
-                    data-width="100%"
-                    data-numposts="5"
-                    data-lazy="true"
-                    data-colorscheme="dark"
-                  ></div>
-                </div>
+                <client-only>
+                  <div v-if="!post.comments_off" class="full fb-parent">
+                    <div v-if="isAdmin" id="coral_thread"></div>
+                    <div
+                      v-else
+                      class="fb-comments"
+                      :data-href="post.social.path"
+                      data-width="100%"
+                      data-numposts="5"
+                      data-lazy="true"
+                      data-colorscheme="dark"
+                    ></div>
+                  </div>
+                </client-only>
               </div>
             </div>
             <!--<div class="full relative single-article-body" style="order: 4">
@@ -603,6 +606,9 @@ export default {
     }
   },
   computed: {
+    isAdmin() {
+      return this.$store.state.user.email.includes('telegram')
+    },
     parsedOvertitle() {
       return this.$options.filters.parseCat(
         this.post.overtitle ? this.post.overtitle : this.post.category
@@ -979,9 +985,29 @@ export default {
             }
           })
         }
+        this.loadComments()
       } else {
         setTimeout(this.getPost, 500)
       }
+    },
+    loadComments() {
+      if (!this.$store.state.user.uid && !this.isAdmin) {
+        return
+      }
+      this.$store.dispatch('user/getCoralToken').then((token) => {
+        /* global Coral */
+        Coral.createStreamEmbed({
+          id: 'coral_thread',
+          containerClass: this.$store.state.theme.theme,
+          autoRender: true,
+          rootURL: 'https://talk.telegram.hr',
+          storyID: this.post.id,
+          accessToken: token,
+        })
+      })
+    },
+    dotmetrics() {
+      this.$dotmetrics.postLoad(this.post.category_slug)
     },
     fbShare() {
       /* global FB */
@@ -1047,6 +1073,10 @@ export default {
         defer: true,
         crossorigin: 'anonymous',
         nonce: 'LFZOW4mi',
+      },
+      {
+        hid: 'coral',
+        src: 'https://talk.telegram.hr/assets/js/embed.js',
       },
       {
         hid: 'instagram',

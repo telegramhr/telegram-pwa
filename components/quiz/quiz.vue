@@ -44,7 +44,7 @@ export default {
       },
     },
     post: {
-      type: String,
+      type: Number,
       required: true,
     },
   },

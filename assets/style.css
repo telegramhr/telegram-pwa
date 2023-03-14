@@ -3,6 +3,22 @@
 * by TG Studio Marijan
 */
 
+/* vars */
+
+* {
+  --tg-primary-background-color: #fcf1e7;
+  --tg-primary-highlight-color: #ae3737;
+  --tg-primary-text-color: #111111;
+  --tg-secondary-background-color: #c8c8c8;
+}
+
+.dark-mode * {
+  --tg-primary-background-color: #212121;
+  --tg-primary-highlight-color: #ae3737;
+  --tg-primary-text-color: #ffffff;
+  --tg-secondary-background-color: #c8c8c8;
+}
+
 /* Basics */
 
 html {
@@ -11069,4 +11085,8 @@ header .search-menu {
     .smaller-booksel {
         margin-bottom: 12vw;
     }
+}
+
+.fb-parent {
+  margin-top: 20px;
 }
