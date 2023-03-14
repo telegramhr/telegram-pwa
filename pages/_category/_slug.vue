@@ -375,9 +375,20 @@
                     </div>
                   </div>
                 </div>
-                <div v-if="!post.comments_off" class="full fb-parent">
-                  <div id="coral_thread"></div>
-                </div>
+                <client-only>
+                  <div v-if="!post.comments_off" class="full fb-parent">
+                    <div v-if="isAdmin" id="coral_thread"></div>
+                    <div
+                      v-else
+                      class="fb-comments"
+                      :data-href="post.social.path"
+                      data-width="100%"
+                      data-numposts="5"
+                      data-lazy="true"
+                      data-colorscheme="dark"
+                    ></div>
+                  </div>
+                </client-only>
               </div>
             </div>
             <!--<div class="full relative single-article-body" style="order: 4">
@@ -595,6 +606,9 @@ export default {
     }
   },
   computed: {
+    isAdmin() {
+      return this.$store.state.user.email.includes('telegram')
+    },
     parsedOvertitle() {
       return this.$options.filters.parseCat(
         this.post.overtitle ? this.post.overtitle : this.post.category
@@ -971,14 +985,13 @@ export default {
             }
           })
         }
-        this.dotmetrics()
         this.loadComments()
       } else {
         setTimeout(this.getPost, 500)
       }
     },
     loadComments() {
-      if (!this.$store.state.user.uid) {
+      if (!this.$store.state.user.uid && !this.isAdmin) {
         return
       }
       this.$store.dispatch('user/getCoralToken').then((token) => {
@@ -987,7 +1000,7 @@ export default {
           id: 'coral_thread',
           containerClass: this.$store.state.theme.theme,
           autoRender: true,
-          rootURL: 'https://coral.telegram.hr',
+          rootURL: 'https://talk.telegram.hr',
           storyID: this.post.id,
           accessToken: token,
         })
