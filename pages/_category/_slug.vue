@@ -1002,6 +1002,7 @@ export default {
           autoRender: true,
           rootURL: 'https://talk.telegram.hr',
           storyID: this.post.id,
+          storyURL: this.post.social.path,
           accessToken: token,
         })
       })
@@ -1077,6 +1078,7 @@ export default {
       {
         hid: 'coral',
         src: 'https://talk.telegram.hr/assets/js/embed.js',
+        async: true,
       },
       {
         hid: 'instagram',
