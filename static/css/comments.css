@@ -167,7 +167,14 @@
 #coral .coral-comment-userTag {
   font-family: 'Barlow', sans-serif;
   font-size: var(--font-size-1);
-  padding: 2px 7px;
+  padding: 0px;
+  background-color: transparent;
+}
+#coral .coral-comment-userTag img {
+  width: 16px;
+  position: relative;
+  bottom: -2px;
+  left: -2px;
 }
 #coral .coral-timestamp {
   font-family: 'Barlow', sans-serif;
