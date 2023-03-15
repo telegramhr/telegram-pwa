@@ -10,13 +10,15 @@
   --tg-primary-highlight-color: #ae3737;
   --tg-primary-text-color: #111111;
   --tg-secondary-background-color: #c8c8c8;
+  --palette-divider: #c8c8c8;
 }
 
 .dark-mode * {
   --tg-primary-background-color: #212121;
   --tg-primary-highlight-color: #ae3737;
   --tg-primary-text-color: #ffffff;
-  --tg-secondary-background-color: #c8c8c8;
+  --tg-secondary-background-color: #555555;
+  --palette-divider: #555555;
 }
 
 .contrast-mode * {

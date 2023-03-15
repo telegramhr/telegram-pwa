@@ -13,9 +13,11 @@
   --palette-primary-900: var(--tg-primary-highlight-color);
   --font-family-primary: 'Merriweather', serif;
   --font-family-secondary: 'Barlow', sans-serif;
+  --palette-divider: var(--tg-primary-text-color);
   --palette-text-500: var(--tg-primary-text-color) !important;
   --palette-text-900: var(--tg-primary-text-color) !important;
   --palette-grey-100: rgba(0,0,0,0.05);
+  --palette-grey-200: rgba(0,0,0,0.05);
   --font-size-1: 0.65rem;
   --font-size-2: 0.8rem;
   --font-size-3: 0.9rem;
@@ -156,7 +158,7 @@
 #coral .coral-selectField {
   font-family: 'Barlow', sans-serif;
   font-size: var(--font-size-2);
-  background: transparent;
+  background-color: var(--tg-primary-background-color);
   color: var(--palette-text-500);
 }
 #coral #comments-allComments-log div {
@@ -176,4 +178,16 @@
 }
 #coral .coral-myComments span {
   margin-bottom: 0.2rem;
+}
+#coral .coral-comment-content {
+  font-size: var(--font-size-2);
+}
+#coral .coral-selectField option {
+  background-color: var(--tg-primary-background-color);
+}
+#coral .coral-userPopover div {
+  color: #111111;
+}
+#coral .comment-actionBar {
+  flex-wrap: wrap;
 }
