@@ -191,3 +191,6 @@
 #coral .comment-actionBar {
   flex-wrap: wrap;
 }
+#coral .coral-comment-highlight {
+  background-color: var(--palette-grey-100);
+}
