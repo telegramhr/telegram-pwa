@@ -109,6 +109,13 @@ export const state = () => ({
                 siteId: 1056554,
               },
             },
+            {
+              bidder: 'smilewanted',
+              params: {
+                zoneId: 'telegram_desktop_billboard_v2',
+                bidfloor: 0.0,
+              },
+            },
           ],
         },
         mobile: {
@@ -157,6 +164,13 @@ export const state = () => ({
               params: {
                 networkId: 10047,
                 siteId: 1056554,
+              },
+            },
+            {
+              bidder: 'smilewanted',
+              params: {
+                zoneId: 'telegram_desktop_billboard_v2',
+                bidfloor: 0.0,
               },
             },
           ],
@@ -231,6 +245,13 @@ export const state = () => ({
                 siteId: 1056554,
               },
             },
+            {
+              bidder: 'smilewanted',
+              params: {
+                zoneId: 'telegram_desktop_billboard_v3',
+                bidfloor: 0.0,
+              },
+            },
           ],
         },
         mobile: {
@@ -272,6 +293,13 @@ export const state = () => ({
               params: {
                 networkId: 10047,
                 siteId: 1056554,
+              },
+            },
+            {
+              bidder: 'smilewanted',
+              params: {
+                zoneId: 'telegram_desktop_billboard_v3',
+                bidfloor: 0.0,
               },
             },
           ],
@@ -346,6 +374,13 @@ export const state = () => ({
                 siteId: 1056554,
               },
             },
+            {
+              bidder: 'smilewanted',
+              params: {
+                zoneId: 'telegram_desktop_billboard_v4',
+                bidfloor: 0.0,
+              },
+            },
           ],
         },
         mobile: {
@@ -394,6 +429,13 @@ export const state = () => ({
               params: {
                 networkId: 10047,
                 siteId: 1056554,
+              },
+            },
+            {
+              bidder: 'smilewanted',
+              params: {
+                zoneId: 'telegram_desktop_billboard_v4',
+                bidfloor: 0.0,
               },
             },
           ],
@@ -572,6 +614,13 @@ export const state = () => ({
                 siteId: 1056554,
               },
             },
+            {
+              bidder: 'smilewanted',
+              params: {
+                zoneId: 'telegram_desktop_intext_v2',
+                bidfloor: 0.0,
+              },
+            },
           ],
         },
         mobile: {
@@ -620,6 +669,13 @@ export const state = () => ({
               params: {
                 networkId: 10047,
                 siteId: 1056554,
+              },
+            },
+            {
+              bidder: 'smilewanted',
+              params: {
+                zoneId: 'telegram_desktop_intext_v2',
+                bidfloor: 0.0,
               },
             },
           ],
@@ -699,6 +755,13 @@ export const state = () => ({
                 siteId: 1056554,
               },
             },
+            {
+              bidder: 'smilewanted',
+              params: {
+                zoneId: 'telegram_desktop_intext_v3',
+                bidfloor: 0.0,
+              },
+            },
           ],
         },
         mobile: {
@@ -747,6 +810,13 @@ export const state = () => ({
               params: {
                 networkId: 10047,
                 siteId: 1056554,
+              },
+            },
+            {
+              bidder: 'smilewanted',
+              params: {
+                zoneId: 'telegram_desktop_intext_v3',
+                bidfloor: 0.0,
               },
             },
           ],
@@ -826,6 +896,13 @@ export const state = () => ({
                 siteId: 1056554,
               },
             },
+            {
+              bidder: 'smilewanted',
+              params: {
+                zoneId: 'telegram_desktop_intext_v4',
+                bidfloor: 0.0,
+              },
+            },
           ],
         },
         mobile: {
@@ -874,6 +951,13 @@ export const state = () => ({
               params: {
                 networkId: 10047,
                 siteId: 1056554,
+              },
+            },
+            {
+              bidder: 'smilewanted',
+              params: {
+                zoneId: 'telegram_desktop_intext_v4',
+                bidfloor: 0.0,
               },
             },
           ],
@@ -946,6 +1030,13 @@ export const state = () => ({
                 siteId: 1056554,
               },
             },
+            {
+              bidder: 'smilewanted',
+              params: {
+                zoneId: 'telegram_desktop_intext_v5',
+                bidfloor: 0.0,
+              },
+            },
           ],
         },
         mobile: {
@@ -980,6 +1071,13 @@ export const state = () => ({
               params: {
                 networkId: 10047,
                 siteId: 1056554,
+              },
+            },
+            {
+              bidder: 'smilewanted',
+              params: {
+                zoneId: 'telegram_desktop_intext_v5',
+                bidfloor: 0.0,
               },
             },
           ],
@@ -1052,6 +1150,13 @@ export const state = () => ({
                 siteId: 1056554,
               },
             },
+            {
+              bidder: 'smilewanted',
+              params: {
+                zoneId: 'telegram_desktop_intext_v6',
+                bidfloor: 0.0,
+              },
+            },
           ],
         },
         mobile: {
@@ -1086,6 +1191,13 @@ export const state = () => ({
               params: {
                 networkId: 10047,
                 siteId: 1056554,
+              },
+            },
+            {
+              bidder: 'smilewanted',
+              params: {
+                zoneId: 'telegram_desktop_intext_v6',
+                bidfloor: 0.0,
               },
             },
           ],
@@ -1302,6 +1414,71 @@ export const actions = {
       }
       commit('setSlots')
     })
+    window.pbjs = window.pbjs || {}
+    window.pbjs.que = window.pbjs.que || []
+    window.pbjs.que.push(() => {
+      window.pbjs.setConfig({
+        enableSendAllBids: false,
+        consentManagement: {
+          gdpr: {
+            cmpApi: 'iab',
+            defaultGdprScope: true,
+          },
+        },
+        userSync: {
+          iframeEnabled: true,
+          userIds: [
+            {
+              name: 'pubCommonId',
+              storage: {
+                name: '_pubcid',
+                type: 'cookie',
+                expires: 365,
+              },
+              params: {
+                pixelUrl: '/wp-json/pubcid/v1/extend/',
+              },
+            },
+          ],
+          filterSettings: {
+            iframe: {
+              bidders: '*',
+              filter: 'include',
+            },
+            image: {
+              bidders: '*',
+              filter: 'include',
+            },
+          },
+        },
+      })
+      // const prefix = state.prefix
+      const sizes = this.$mobile ? 'mobile' : 'desktop'
+      let unit
+      for (const i of Object.keys(state.units)) {
+        if (i in state.units && state.units[i].pbjs) {
+          unit = state.units[i]
+          if (!unit.pbjs[sizes].sizes) {
+            continue
+          }
+          if (route && !unit.routes.includes(route.name)) {
+            continue
+          }
+          if (!document.getElementById(i)) {
+            continue
+          }
+          window.pbjs.addAdUnits({
+            code: i,
+            mediaTypes: {
+              banner: {
+                sizes: unit.pbjs[sizes].sizes,
+              },
+            },
+            bids: unit.pbjs[sizes].bids,
+          })
+        }
+      }
+    })
     dispatch('displaySlots')
   },
   displaySlots({ dispatch }) {
@@ -1314,7 +1491,22 @@ export const actions = {
         window.googletag.display(slot.id)
       })
     })
-    dispatch('initAdserver')
+    dispatch('refreshSlots')
+  },
+  refreshSlots({ dispatch }) {
+    window.googlefc = window.googlefc || {}
+    window.googlefc.callbackQueue = window.googlefc.callbackQueue || []
+    window.googletag = window.googletag || {}
+    window.googletag.cmd = window.googletag.cmd || []
+    /* global __tcfapi */
+    window.googlefc.callbackQueue.push({
+      CONSENT_DATA_READY: () =>
+        __tcfapi('getTCData', 0, (data, success) => {
+          if (data.purpose.consents[1]) {
+            dispatch('initPBJS')
+          }
+        }),
+    })
   },
   initPBJS({ dispatch }) {
     window.pbjs = window.pbjs || {}
@@ -1327,9 +1519,11 @@ export const actions = {
     })
     setTimeout(() => {
       dispatch('initAdserver')
-    }, 500)
+    }, 1500)
   },
   initAdserver({ state }) {
+    if (window.pbjs.initAdserverSet) return
+    window.pbjs.initAdserverSet = true
     if (state.route === 'nesto-slug') {
       return
     }

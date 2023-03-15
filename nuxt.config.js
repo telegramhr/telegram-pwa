@@ -52,10 +52,10 @@ export default {
         async: true,
         crossorigin: 'anonymous',
       },
-      /* {
-        src: '/prebid-6.10.0.js',
+      {
+        src: '/prebid7.40.0.js',
         async: true,
-      }, */
+      },
       {
         hid: 'piano',
         src: 'https://cdn.tinypass.com/api/tinypass.min.js',
@@ -72,6 +72,10 @@ export default {
         async: true,
         defer: true,
       },
+      /* {
+        hid: 'coral',
+        src: 'https://talk.telegram.hr/assets/js/embed.js',
+      }, */
     ],
   },
 
