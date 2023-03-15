@@ -317,14 +317,13 @@
             </div>
           </div>
         </div>
-        <!-- Billboard 3 -->
-        <div class="full relative cantha-billboard3 m-order-10">
-          <div class="full center">
-            <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
-          </div>
-        </div>
       </div>
     </div>
+    <client-only>
+      <div v-if="!hasPremium" class="full relative">
+        <offers-premium></offers-premium>
+      </div>
+    </client-only>
     <!-- TG preporuka -->
     <div class="full relative">
       <div
@@ -361,12 +360,12 @@
         </div>
       </div>
     </div>
-    <client-only>
-      <div v-if="!hasPremium" class="full relative">
-        <offers-premium></offers-premium>
+    <!-- Billboard 3 -->
+    <div class="full relative cantha-billboard3">
+      <div class="full center">
+        <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
       </div>
-    </client-only>
-
+    </div>
     <!-- Prekid klub -->
     <div class="full relative">
       <div class="container flex relative column-horizontal-pad">
