@@ -151,9 +151,10 @@
   font-size: 0.7rem;
   cursor: pointer;
 }
-#coral button {
+#coral button, #coral .coral-general-moderateStreamLink {
   font-family: 'Barlow', sans-serif;
   text-decoration: none;
+  text-transform: none;
 }
 #coral .coral-selectField {
   font-family: 'Barlow', sans-serif;
