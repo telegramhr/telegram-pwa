@@ -72,10 +72,10 @@ export default {
         async: true,
         defer: true,
       },
-      /* {
+      {
         hid: 'coral',
         src: 'https://talk.telegram.hr/assets/js/embed.js',
-      }, */
+      },
     ],
   },
 

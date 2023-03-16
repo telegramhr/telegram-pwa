@@ -377,16 +377,7 @@
                 </div>
                 <client-only>
                   <div v-if="!post.comments_off" class="full fb-parent">
-                    <div v-if="isAdmin" id="coral_thread"></div>
-                    <div
-                      v-else
-                      class="fb-comments"
-                      :data-href="post.social.path"
-                      data-width="100%"
-                      data-numposts="5"
-                      data-lazy="true"
-                      data-colorscheme="dark"
-                    ></div>
+                    <div v-show="comments" id="coral_thread"></div>
                   </div>
                 </client-only>
               </div>
@@ -991,21 +982,33 @@ export default {
       }
     },
     loadComments() {
-      if (!this.$store.state.user.uid && !this.isAdmin) {
-        return
-      }
-      this.$store.dispatch('user/getCoralToken').then((token) => {
-        /* global Coral */
-        Coral.createStreamEmbed({
-          id: 'coral_thread',
-          containerClass: this.$store.state.theme.theme,
-          autoRender: true,
-          rootURL: 'https://talk.telegram.hr',
-          storyID: this.post.id,
-          storyURL: this.post.social.path,
-          accessToken: token,
-        })
+      if (this.$route.params.category === 'preview') return
+      /* global Coral */
+      const embed = Coral.createStreamEmbed({
+        id: 'coral_thread',
+        autoRender: true,
+        rootURL: 'https://talk.telegram.hr',
+        storyID: this.post.id,
+        storyURL: this.post.social.path,
+        events: (events) => {
+          events.onAny((eventName, data) => {
+            if (eventName === 'showAuthPopup') {
+              this.$store.dispatch('user/login')
+            }
+            if (
+              eventName === 'createCommentFocus' &&
+              !this.$store.state.user.uid
+            ) {
+              this.$store.dispatch('user/login')
+            }
+          })
+        },
       })
+      if (this.$store.state.user.uid && this.isAdmin) {
+        this.$store.dispatch('user/getCoralToken').then((token) => {
+          embed.login(token)
+        })
+      }
     },
     dotmetrics() {
       this.$dotmetrics.postLoad(this.post.category_slug)
@@ -1074,11 +1077,6 @@ export default {
         defer: true,
         crossorigin: 'anonymous',
         nonce: 'LFZOW4mi',
-      },
-      {
-        hid: 'coral',
-        src: 'https://talk.telegram.hr/assets/js/embed.js',
-        async: true,
       },
       {
         hid: 'instagram',
