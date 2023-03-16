@@ -547,6 +547,7 @@ export default {
     return {
       showQuiz: false,
       comments: false,
+      comments_embed: null,
       showSideMenu: false,
       showSearchMenu: false,
       post: {
@@ -816,6 +817,7 @@ export default {
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.handleScroll)
+    this.comments_embed = null
   },
   methods: {
     handleScroll() {
@@ -983,7 +985,7 @@ export default {
         return
       if (this.post.social.path.includes('?p=')) return
       /* global Coral */
-      const embed = Coral.createStreamEmbed({
+      this.comments_embed = Coral.createStreamEmbed({
         id: 'coral_thread',
         autoRender: true,
         rootURL: 'https://talk.telegram.hr',
@@ -991,7 +993,7 @@ export default {
         storyURL: this.post.social.path,
         events: (events) => {
           events.onAny((eventName, data) => {
-            if (eventName === 'showAuthPopup') {
+            if (eventName === 'showAuthPopup' || eventName === 'loginPrompt') {
               this.$store.dispatch('user/login')
             }
             if (
@@ -1005,7 +1007,7 @@ export default {
       })
       if (this.$store.state.user.uid) {
         this.$store.dispatch('user/getCoralToken').then((token) => {
-          embed.login(token)
+          this.comments_embed.login(token)
         })
       }
     },
