@@ -366,18 +366,18 @@
                         :icon="['fab', 'twitter']"
                       ></font-awesome-icon
                     ></a>
-                    <div
+                    <!-- <div
                       v-if="!post.comments_off"
                       class="classic-btn clickable animate"
                       @click="comments = !comments"
                     >
                       Komentari
-                    </div>
+                    </div>-->
                   </div>
                 </div>
                 <client-only>
                   <div v-if="!post.comments_off" class="full fb-parent">
-                    <div v-show="comments" id="coral_thread"></div>
+                    <div id="coral_thread"></div>
                   </div>
                 </client-only>
               </div>
@@ -982,7 +982,7 @@ export default {
       }
     },
     loadComments() {
-      if (this.$route.params.category === 'preview') return
+      if (this.$route.params.category === 'preview' || this.post.comments_off) return
       /* global Coral */
       const embed = Coral.createStreamEmbed({
         id: 'coral_thread',
