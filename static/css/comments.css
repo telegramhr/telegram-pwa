@@ -134,7 +134,7 @@
   color: white;
   font-size: 14px;
   font-size: 0.7rem;
-  background-color: #ae3737;
+  background-color: var(--tg-primary-highlight-color);
   cursor: pointer;
 }
 #coral button.coral-emailNotifications-updateButton, #coral button.coral-ignoredComments-manageButton {
@@ -210,9 +210,9 @@
   font-family: 'Barlow', sans-serif;
 }
 #coral .coral-guidelines-content p a {
-  color: #ae3737;
+  color: var(--tg-primary-highlight-color);
   text-decoration: underline;
   text-decoration-color: currentcolor;
-  -webkit-text-decoration-color: #ae3737;
-  text-decoration-color: #ae3737;
+  -webkit-text-decoration-color: var(--tg-primary-highlight-color);
+  text-decoration-color: var(--tg-primary-highlight-color);
 }
