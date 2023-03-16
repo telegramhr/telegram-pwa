@@ -201,3 +201,17 @@
 #coral .coral-comment-highlight {
   background-color: var(--palette-grey-100);
 }
+#coral .coral-guidelines {
+  background-color: var(--palette-grey-100);
+}
+#coral .coral-guidelines-content {
+  font-size: var(--font-size-1);
+  font-family: 'Barlow', sans-serif;
+}
+#coral .coral-guidelines-content p a {
+  color: #ae3737;
+  text-decoration: underline;
+  text-decoration-color: currentcolor;
+  -webkit-text-decoration-color: #ae3737;
+  text-decoration-color: #ae3737;
+}
