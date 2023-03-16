@@ -597,9 +597,6 @@ export default {
     }
   },
   computed: {
-    isAdmin() {
-      return this.$store.state.user.email.includes('telegram')
-    },
     parsedOvertitle() {
       return this.$options.filters.parseCat(
         this.post.overtitle ? this.post.overtitle : this.post.category
@@ -1006,7 +1003,7 @@ export default {
           })
         },
       })
-      if (this.$store.state.user.uid && this.isAdmin) {
+      if (this.$store.state.user.uid) {
         this.$store.dispatch('user/getCoralToken').then((token) => {
           embed.login(token)
         })
