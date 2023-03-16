@@ -216,3 +216,9 @@
   -webkit-text-decoration-color: var(--tg-primary-highlight-color);
   text-decoration-color: var(--tg-primary-highlight-color);
 }
+#coral .coral-comment-actionBar {
+  flex-wrap: wrap;
+}
+#coral .coral-comment-topBar div {
+  flex-basis: auto;
+}
