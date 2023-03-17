@@ -54,14 +54,13 @@ export const mutations = {
 export const actions = {
   setUser({ commit, dispatch }, data) {
     commit('setUser', data)
-    dispatch('getCoralToken')
   },
   getCoralToken({ commit, state }) {
     return new Promise((resolve) => {
       if (
         state.coral_token &&
         state.coral_update &&
-        state.coral_update < new Date().getTime() - 24 * 3600000
+        state.coral_update > new Date().getTime() - 24 * 3600000
       ) {
         resolve(state.coral_token)
         return
