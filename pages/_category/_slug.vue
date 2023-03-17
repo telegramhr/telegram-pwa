@@ -366,17 +366,10 @@
                         :icon="['fab', 'twitter']"
                       ></font-awesome-icon
                     ></a>
-                    <!-- <div
-                      v-if="!post.comments_off"
-                      class="classic-btn clickable animate"
-                      @click="comments = !comments"
-                    >
-                      Komentari
-                    </div>-->
                   </div>
                 </div>
                 <client-only>
-                  <comments></comments>
+                  <comments :post="post"></comments>
                 </client-only>
               </div>
             </div>
