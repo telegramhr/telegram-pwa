@@ -10,6 +10,7 @@ export const state = () => ({
   admin: false,
   type: 'not-registered',
   coral_token: false,
+  coral_update: null,
 })
 
 export const mutations = {
@@ -46,6 +47,7 @@ export const mutations = {
   },
   setCoral(state, token) {
     state.coral_token = token
+    state.coral_update = new Date().getTime()
   },
 }
 
@@ -56,7 +58,10 @@ export const actions = {
   },
   getCoralToken({ commit, state }) {
     return new Promise((resolve) => {
-      if (state.coral_token) {
+      if (
+        state.coral_token &&
+        state.coral_update < new Date().getTime() - 24 * 3600000
+      ) {
         resolve(state.coral_token)
         return
       }
