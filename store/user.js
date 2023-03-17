@@ -60,6 +60,7 @@ export const actions = {
     return new Promise((resolve) => {
       if (
         state.coral_token &&
+        state.coral_update &&
         state.coral_update < new Date().getTime() - 24 * 3600000
       ) {
         resolve(state.coral_token)
