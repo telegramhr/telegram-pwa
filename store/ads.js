@@ -112,7 +112,7 @@ export const state = () => ({
             {
               bidder: 'smilewanted',
               params: {
-                zoneId: 'telegram_desktop_billboard_v2',
+                zoneId: 'telegram.hr_hb_display',
                 bidfloor: 0.0,
               },
             },
@@ -169,7 +169,7 @@ export const state = () => ({
             {
               bidder: 'smilewanted',
               params: {
-                zoneId: 'telegram_desktop_billboard_v2',
+                zoneId: 'telegram.hr_hb_display',
                 bidfloor: 0.0,
               },
             },
@@ -248,7 +248,7 @@ export const state = () => ({
             {
               bidder: 'smilewanted',
               params: {
-                zoneId: 'telegram_desktop_billboard_v3',
+                zoneId: 'telegram.hr_hb_display',
                 bidfloor: 0.0,
               },
             },
@@ -298,7 +298,7 @@ export const state = () => ({
             {
               bidder: 'smilewanted',
               params: {
-                zoneId: 'telegram_desktop_billboard_v3',
+                zoneId: 'telegram.hr_hb_display',
                 bidfloor: 0.0,
               },
             },
@@ -377,7 +377,7 @@ export const state = () => ({
             {
               bidder: 'smilewanted',
               params: {
-                zoneId: 'telegram_desktop_billboard_v4',
+                zoneId: 'telegram.hr_hb_display',
                 bidfloor: 0.0,
               },
             },
@@ -434,7 +434,7 @@ export const state = () => ({
             {
               bidder: 'smilewanted',
               params: {
-                zoneId: 'telegram_desktop_billboard_v4',
+                zoneId: 'telegram.hr_hb_display',
                 bidfloor: 0.0,
               },
             },
@@ -617,7 +617,7 @@ export const state = () => ({
             {
               bidder: 'smilewanted',
               params: {
-                zoneId: 'telegram_desktop_intext_v2',
+                zoneId: 'telegram.hr_hb_display',
                 bidfloor: 0.0,
               },
             },
@@ -674,7 +674,7 @@ export const state = () => ({
             {
               bidder: 'smilewanted',
               params: {
-                zoneId: 'telegram_desktop_intext_v2',
+                zoneId: 'telegram.hr_hb_display',
                 bidfloor: 0.0,
               },
             },
@@ -758,7 +758,7 @@ export const state = () => ({
             {
               bidder: 'smilewanted',
               params: {
-                zoneId: 'telegram_desktop_intext_v3',
+                zoneId: 'telegram.hr_hb_display',
                 bidfloor: 0.0,
               },
             },
@@ -815,7 +815,7 @@ export const state = () => ({
             {
               bidder: 'smilewanted',
               params: {
-                zoneId: 'telegram_desktop_intext_v3',
+                zoneId: 'telegram.hr_hb_display',
                 bidfloor: 0.0,
               },
             },
@@ -899,7 +899,7 @@ export const state = () => ({
             {
               bidder: 'smilewanted',
               params: {
-                zoneId: 'telegram_desktop_intext_v4',
+                zoneId: 'telegram.hr_hb_display',
                 bidfloor: 0.0,
               },
             },
@@ -956,7 +956,7 @@ export const state = () => ({
             {
               bidder: 'smilewanted',
               params: {
-                zoneId: 'telegram_desktop_intext_v4',
+                zoneId: 'telegram.hr_hb_display',
                 bidfloor: 0.0,
               },
             },
@@ -1033,7 +1033,7 @@ export const state = () => ({
             {
               bidder: 'smilewanted',
               params: {
-                zoneId: 'telegram_desktop_intext_v5',
+                zoneId: 'telegram.hr_hb_display',
                 bidfloor: 0.0,
               },
             },
@@ -1076,7 +1076,7 @@ export const state = () => ({
             {
               bidder: 'smilewanted',
               params: {
-                zoneId: 'telegram_desktop_intext_v5',
+                zoneId: 'telegram.hr_hb_display',
                 bidfloor: 0.0,
               },
             },
@@ -1153,7 +1153,7 @@ export const state = () => ({
             {
               bidder: 'smilewanted',
               params: {
-                zoneId: 'telegram_desktop_intext_v6',
+                zoneId: 'telegram.hr_hb_display',
                 bidfloor: 0.0,
               },
             },
@@ -1196,7 +1196,7 @@ export const state = () => ({
             {
               bidder: 'smilewanted',
               params: {
-                zoneId: 'telegram_desktop_intext_v6',
+                zoneId: 'telegram.hr_hb_display',
                 bidfloor: 0.0,
               },
             },
