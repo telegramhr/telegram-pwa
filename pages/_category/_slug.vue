@@ -842,40 +842,11 @@ export default {
       })
       if (
         !this.post.disable_ads.includes('all') &&
-        !this.post.disable_ads.includes('nepromo')
-      ) {
-        this.loadMox()
-      }
-      if (
-        !this.post.disable_ads.includes('all') &&
         !this.post.disable_ads.includes('midas') &&
         !this.post.disable_ads.includes('nepromo')
       ) {
         this.$linker.reloadLinker()
         this.hasLinker = true
-      }
-    },
-    loadMox() {
-      if (this.$store.state.user.access) {
-        return
-      }
-      const container = document.getElementById(
-        '_vidverto-dff73064e3dde196504d365b18894cf9'
-      )
-      if (container) {
-        const a = document.createElement('script')
-        a.src = 'https://ad.vidverto.io/vidverto/js/aries/v1/invocation.js'
-        a.setAttribute('fetchpriority', 'high')
-
-        const r = window.top
-        r.document.head.appendChild(a)
-        r.aries = r.aries || {}
-        r.aries.v1 = r.aries.v1 || { commands: [] }
-        const c = r.aries.v1
-        c.commands.push(function () {
-          const t = '#_vidverto-dff73064e3dde196504d365b18894cf9'
-          c.mount('9152', t, { width: 720, height: 405 })
-        })
       }
     },
     loadPiano() {

@@ -1,5 +1,5 @@
 <template>
-  <section class="full flex relative">
+  <section id="s1-shopping" class="full flex relative">
     <div class="container flex relative">
       <div class="full center relative">
         <h3 class="flex superone-section-title">
@@ -104,3 +104,12 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+#s1-shopping .gallery-left {
+  left: 0;
+}
+#s1-shopping .gallery-right {
+  right: 0;
+}
+</style>
