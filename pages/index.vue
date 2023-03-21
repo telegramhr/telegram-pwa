@@ -617,11 +617,11 @@
         <pitanje-zdravlja></pitanje-zdravlja>
       </client-only>
     </div>
-    <client-only>
+    <!--<client-only>
       <div v-if="!hasPremium" class="full relative">
         <offers></offers>
       </div>
-    </client-only>
+    </client-only>-->
     <!-- Billboard 4 -->
     <div class="full relative">
       <div class="full center">

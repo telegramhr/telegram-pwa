@@ -388,13 +388,13 @@
           <div v-if="!hasPremium" class="full">
             <linker type="category"></linker>
           </div>
-          <div
+          <!--<div
             v-if="!hasPremium && !exclude"
             class="full relative"
             style="order: 3"
           >
             <offers></offers>
-          </div>
+          </div>-->
           <div
             v-if="
               !hasPremium &&
