@@ -9,6 +9,8 @@ export const state = () => ({
   updated: null,
   admin: false,
   type: 'not-registered',
+  coral_token: false,
+  coral_update: null,
 })
 
 export const mutations = {
@@ -21,12 +23,15 @@ export const mutations = {
     state.type = 'registered'
   },
   logout(state) {
+    state.uid = 0
     state.first_name = ''
     state.last_name = ''
     state.email = ''
     state.token = ''
     state.exp = 0
     state.access = false
+    state.coral_token = false
+    state.type = 'not-registered'
   },
   setTerm(state, data) {
     state.access = data.rid
@@ -41,11 +46,31 @@ export const mutations = {
   setAdmin(state) {
     state.admin = true
   },
+  setCoral(state, token) {
+    state.coral_token = token
+    state.coral_update = new Date().getTime()
+  },
 }
 
 export const actions = {
-  setUser({ commit }, data) {
+  setUser({ commit, dispatch }, data) {
     commit('setUser', data)
+  },
+  getCoralToken({ commit, state }) {
+    return new Promise((resolve) => {
+      if (
+        state.coral_token &&
+        state.coral_update &&
+        state.coral_update > new Date().getTime() - 24 * 3600000
+      ) {
+        resolve(state.coral_token)
+        return
+      }
+      this.$axios.get(`/pretplate/coral/token/${state.uid}`).then((res) => {
+        commit('setCoral', res.data)
+        resolve(res.data)
+      })
+    })
   },
   setAccess({ commit, dispatch, state }, data) {
     return new Promise((resolve) => {

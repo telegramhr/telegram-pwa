@@ -14,6 +14,16 @@
         class="desktop-only"
         aria-hidden="true"
       />
+      <img
+        src="@/assets/img/tg_ticker_special_bg_mobile_dark.jpg"
+        class="mobile-only dark-mode-only"
+        aria-hidden="true"
+      />
+      <img
+        src="@/assets/img/tg_ticker_special_bg_desktop_dark.jpg"
+        class="desktop-only dark-mode-only"
+        aria-hidden="true"
+      />
       <div class="half flex-responsive flex">
         <h2 class="full">U 2023. zajedno možemo napraviti više. Puno više.</h2>
         <p class="full">
@@ -27,10 +37,18 @@
           pretplatite se već od 6,49 eura mjesečno.
         </p>
         <div class="full center">
-          <app-link to="/pretplata" class="btn animate"
+          <app-link
+            to="/pretplata"
+            class="btn animate"
+            @click.native="shown = !shown"
             >Pretplatite se</app-link
           >
-          <app-link to="/donacije" class="btn animate">Donirajte</app-link>
+          <app-link
+            to="/donacije"
+            class="btn animate"
+            @click.native="shown = !shown"
+            >Donirajte</app-link
+          >
         </div>
       </div>
     </div>
@@ -42,8 +60,22 @@ export default {
   name: 'TickerSpecial',
   data() {
     return {
-      shown: true,
+      shown: false,
     }
+  },
+  mounted() {
+    window.addEventListener('piano_popup', this.load)
+  },
+  destroyed() {
+    window.removeEventListener('piano_popup', this.load)
+  },
+  methods: {
+    load() {
+      if (this.$store.state.user.access || this.shown) {
+        return
+      }
+      this.shown = true
+    },
   },
 }
 </script>

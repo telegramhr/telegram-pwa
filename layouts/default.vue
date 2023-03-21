@@ -2,7 +2,6 @@
   <div>
     <div id="fb-root"></div>
     <Nuxt :key="key" />
-    <ticker-ad-unit id="telegram_sticky"></ticker-ad-unit>
   </div>
 </template>
 

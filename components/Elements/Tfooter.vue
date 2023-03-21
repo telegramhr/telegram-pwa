@@ -44,6 +44,7 @@
               href="https://www.telegramgrupa.hr#studio"
               target="_blank"
               class="center animate"
+              rel="nofollow"
             >
               <img
                 src="@/assets/img/tg_studio_white.svg"

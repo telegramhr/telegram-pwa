@@ -1,12 +1,12 @@
 <template>
   <div>
-    <div v-show="show" class="full flex relative pretplata-intext" data-nosnippet>
+    <div
+      v-show="show"
+      class="full flex relative pretplata-intext"
+      data-nosnippet
+    >
       <div class="full center">
-        <img
-          src="@/assets/img/tg_neue_favicon.png"
-          aria-hidden="true"
-          class="pretplata-avatar"
-        />
+        <img :src="$icon(144)" aria-hidden="true" class="pretplata-avatar" />
       </div>
       <h2 class="full">{{ title }}</h2>
       <p class="full center-text">

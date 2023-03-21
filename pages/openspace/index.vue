@@ -1,5 +1,5 @@
 <template>
-  <div class="main-container flex fancy-rubrika openspace">
+  <div class="main-container flex fancy-rubrika openspace os-home">
     <div class="full flex">
       <theader></theader>
     </div>

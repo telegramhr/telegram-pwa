@@ -1,5 +1,5 @@
 /* eslint-disable */
-export default () => {
+export default function ({ route }) {
   window.PianoESPConfig = {
     id: 280
   }
@@ -13,6 +13,16 @@ export default () => {
   // window.tp.push(['setCloudflareWorkerUrl', 'https://auth.telegram.hr']);
   window.tp.push(["setMaxCookieExpirationInDays", 365]);
   window.tp.push(['setCookieDomain', '.telegram.hr']);
+
+  if (!route.name.includes('category-slug')) {
+    window.tp.push([
+      'init',
+      function () {
+        window.tp.experience.execute()
+        window.tp.enableGACrossDomainLinking()
+      },
+    ])
+  }
   // Adblock
   /* document.cookie =
     '__adblocker=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/'

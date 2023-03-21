@@ -1,22 +1,30 @@
 <template>
   <div
     v-if="posts.length && posts[0].link"
+    id="offer-premium"
     class="container cantha-small-block flex relative native-block offers-widget column-top-pad stretch mobile-side-pad"
+    style="max-width: 1201px"
   >
-    <div class="full column-horizontal-pad">
-      <div class="full cantha-separator"></div>
-    </div>
     <h3 class="full center-text column-full-pad subsection-title">
-      <div class="full center telemach-line">
+      <div class="full center spar-line">
         <div class="flex center">
           <img
-            src="https://www.telegram.hr/wp-content/uploads/2023/02/logo1.png"
-            alt="ModulOsam logo"
+            src="@/assets/img/extras/partner_logos/spar.svg"
+            alt="Spar logo"
           />
           <img
-            src="https://www.telegram.hr/wp-content/uploads/2023/02/logo1.png"
-            alt="ModulOsam logo"
+            src="@/assets/img/extras/partner_logos/spar.svg"
             class="dark-mode-only"
+            alt="Spar logo"
+          />
+          <img
+            src="@/assets/img/extras/partner_logos/interspar.svg"
+            alt="Interspar logo"
+          />
+          <img
+            src="@/assets/img/extras/partner_logos/interspar.svg"
+            class="dark-mode-only"
+            alt="Interspar logo"
           />
         </div>
       </div>
@@ -30,11 +38,11 @@
       >
         <div
           v-for="(post, index) in posts"
-          :key="post.naslov"
+          :key="post.image"
           class="offer-slide"
         >
           <a
-            :id="index === 0 ? 'letak' : 'slide-' + index"
+            :id="'slide-' + index"
             :href="post.link"
             target="_blank"
             rel="sponsored"
@@ -45,26 +53,10 @@
             <img
               :src="post.slika"
               loading="lazy"
-              :alt="post.naslov"
+              alt="Spar promo"
               width="400"
               height="400"
             />
-            <div class="full flex article-pad">
-              <h2 class="full">{{ post.naslov }}</h2>
-              <h3 v-if="post.cijena" class="full overtitle">
-                {{ post.cijena }} ({{ post.cijena_euro }})<br />
-                <span v-if="post.stara_cijena" class="strikethrough-price">
-                  {{ post.stara_cijena }} ({{ post.stara_cijena_euro }})
-                </span>
-              </h3>
-
-              <h4 class="full">
-                {{ post.opis }}
-              </h4>
-              <div class="newbtn">
-                {{ post.cta ? post.cta : 'Pogledaj ponudu' }}
-              </div>
-            </div>
           </a>
         </div>
       </VueSlickCarousel>
@@ -93,12 +85,12 @@
 
 <script>
 export default {
-  name: 'Partners',
+  name: 'OffersPremium',
   props: {
     shop: {
       type: String,
       required: false,
-      default: 'interspar',
+      default: 'pevex',
     },
   },
   data() {
@@ -139,7 +131,7 @@ export default {
     this.getPosts()
     this.$gtm.push({
       event: 'webshop-widget',
-      'webshop-category': 'modulosam',
+      'webshop-category': 'interspar-premium',
       'webshop-action': 'view',
       'webshop-label': 'impression',
       'webshop-value': 1,
@@ -149,7 +141,7 @@ export default {
     trackClick() {
       this.$gtm.push({
         event: 'webshop-widget',
-        'webshop-category': 'modulosam',
+        'webshop-category': 'interspar-premium',
         'webshop-action': 'click',
         'webshop-label': 'click',
         'webshop-value': 1,
@@ -166,24 +158,46 @@ export default {
 </script>
 
 <style>
-.telemach-line {
-  background-color: #f37e59;
+.spar-line {
+  background-color: #006431;
 }
 
-.telemach-line > div {
+.pevex-line {
+  background-color: #00ab4e;
+}
+
+.spar-line > div {
+  padding-left: 7px;
   background-color: #fcf1e7;
+  width: 468px;
 }
 
-.contrast-mode .telemach-line > div {
+.pevex-line > div {
+  padding: 10px;
+}
+
+.contrast-mode .spar-line > div {
   background-color: white;
 }
-.dark-mode .telemach-line > div {
+.dark-mode .spar-line > div {
   background-color: #212121;
 }
 
-h3.subsection-title .telemach-line img {
+h3.subsection-title .pevex-line img {
+  height: 14px;
+  bottom: 0px;
+}
+
+h3.subsection-title .spar-line img {
   height: 30px;
   bottom: 0px;
-  margin: 0 20px;
+}
+
+#offer-premium .slick-slide {
+  border-right: 1px solid #c8c8c8;
+}
+
+#offer-premium .dark-mode .slick-slide {
+  border-right: 1px solid #212121;
 }
 </style>

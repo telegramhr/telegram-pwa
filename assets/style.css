@@ -3,6 +3,44 @@
 * by TG Studio Marijan
 */
 
+/* vars */
+
+* {
+    --tg-primary-background-color: #fcf1e7;
+    --tg-primary-highlight-color: #ae3737;
+    --tg-primary-text-color: #111111;
+    --tg-secondary-background-color: #c8c8c8;
+    --palette-divider: #c8c8c8;
+}
+
+.fancy-rubrika *, .contrast-mode * {
+    --tg-primary-background-color: #ffffff;
+}
+
+.super1 * {
+    --tg-primary-highlight-color: #111111;
+}
+
+.pitanje-zdravlja * {
+    --tg-primary-highlight-color: #0a80c5;
+}
+
+.openspace * {
+    --tg-primary-highlight-color: #464b7a;
+}
+
+.dark-mode *, .dark-mode .fancy-rubrika * {
+    --tg-primary-background-color: #212121;
+    --tg-primary-highlight-color: #ae3737;
+    --tg-primary-text-color: #ffffff;
+    --tg-secondary-background-color: #555555;
+    --palette-divider: #555555;
+}
+
+.dark-mode .super1 * {
+    --tg-primary-highlight-color: #eeeeee;
+}
+
 /* Basics */
 
 html {
@@ -1529,7 +1567,7 @@ figure img {
 
 .side-menu .half {
     width: 100%;
-    padding: 20px 0px;
+    padding: 10px 0px;
 }
 .side-menu .half:nth-child(2n-1) {
     padding-right: 20px;
@@ -1544,8 +1582,8 @@ figure img {
     opacity: .5;
 }
 .side-menu a {
-    font-size: 16px;
-    font-size: 0.8rem;
+    font-size: 15px;
+    font-size: 0.75rem;
     margin-bottom: 4px;
 }
 .side-menu-activate {
@@ -1842,10 +1880,10 @@ header {
 }
 .header-headline::before {
     content: ' ';
-    height: 16px;
+    height: 20px;
     width: 20%;
     position: absolute;
-    top: 0;
+    top: -2px;
     right: 0;
     background: linear-gradient(to left, rgba(252,241,231,1), rgba(252,241,231,0));
 }
@@ -3421,19 +3459,13 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
       font-size: 24px;
       font-size: 1.2rem;
     }
-    .pretplata-page .flex-responsive img {
-      margin-top: 16px;
-    }
-    .pretplata-page .pretplata-keypoint img {
-        margin-top: 0px;
-    }
     .pretplata-page h1 {
-      font-size: 48px;
-      font-size: 2.4rem;
-    }
-    .pretplata-page h2 {
       font-size: 36px;
       font-size: 1.8rem;
+    }
+    .pretplata-page h2 {
+      font-size: 26px;
+      font-size: 1.3rem;
     }
     .dojava-creative h1 {
         font-size: 36px;
@@ -3476,8 +3508,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         margin-bottom: 0px;
     }
     .pretplata-page h2, .pretplata-page .single-article-body h2 {
-        font-size: 36px;
-        font-size: 1.8rem;
+        font-size: 30px;
+        font-size: 1.5rem;
     }
     .pretplata-faq summary, .pretplata-page p.pretplata-tagline {
         font-size: 20px;
@@ -3510,8 +3542,17 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 
 @media screen and (max-width: 767px) {
+    .mobile-bottom-pad {
+        padding-bottom: 4vw;
+    }
     .mobile-top-pad {
         padding-top: 4vw;
+    }
+    .mobile-right-pad {
+        padding-right: 4vw;
+    }
+    .mobile-left-pad {
+        padding-left: 4vw;
     }
     .single-article {
         font-size: 17px;
@@ -3587,9 +3628,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         margin-right: -50vw;
         margin-top: 16px;
         margin-bottom: 0px;
-    }
-    .article-head-image img {
-      aspect-ratio: 1.584191788;
     }
     .single-article .article-head .article-meta {
         margin-top: 8px;
@@ -4455,7 +4493,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .side-menu .half {
         width: 100%;
-        padding: 12px 0px;
+        padding: 8px 0px;
     }
     .side-menu-exit {
         top: 10px;
@@ -4713,9 +4751,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     width: 49.99%;
 }
 .side-menu {
-    width: 100%;
+  width: 100%;
 }
-
 /* New medium article */
 
 .article-medium .overtitle {
@@ -5276,7 +5313,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .fancy-rubrika, .fancy-rubrika .intro-block, .fancy-article, .fancy-rubrika .header-billboard, .fancy-article .header-billboard {
   background-color: white;
 }
-.dark-mode .fancy-rubrika, .dark-mode.fancy-rubrika, .dark-mode.fancy-rubrika .intro-block, .dark-mode .fancy-article {
+.dark-mode .fancy-rubrika, .dark-mode.fancy-rubrika, .dark-mode .fancy-rubrika .intro-block, .dark-mode.fancy-rubrika .intro-block, .dark-mode .fancy-article {
   background-color: #212121;
   color: #efefef;
 }
@@ -5693,6 +5730,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         overflow-x: scroll;
         white-space: nowrap;
         justify-content: flex-start;
+    }
+    .pitanje-zdravlja .page-header-nav, .openspace .page-header-nav {
+        overflow-x: hidden;
     }
     .os-elevate-title {
         margin-top: -26px;
@@ -6516,9 +6556,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .pz-homepage .breaking-news {
         display: none;
     }
-    .pitanje-zdravlja.single-article header .subheader {
-        display: flex;
-    }
 }
 
 @keyframes point-down {
@@ -6635,6 +6672,24 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 16px;
         font-size: 0.8rem;
         opacity: .6;
+    }
+    .pitanje-zdravlja .page-header-nav {
+        margin: 0 auto;
+        width: 97%;
+    }
+    .pitanje-zdravlja .page-header-nav a {
+        font-size: 3.5vw;
+        margin: 4vw;
+        margin-top: 2vw;
+    }
+    .openspace .page-header-nav {
+        margin: 0 auto;
+        width: 97%;
+    }
+    .openspace .page-header-nav a {
+        font-size: 3.5vw;
+        margin: 4vw;
+        margin-top: 2vw;
     }
     .pitanje-zdravlja .intro-block .third .article-featured .article-pad {
         padding-bottom: 4vw;
@@ -9522,6 +9577,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         margin-top: 8vw;
         opacity: .7;
     }
+    .pretplata-page .klub-header .small-top-margin {
+        margin-top: 4vw;
+        opacity: 1;
+    }
     .klub-header .container .three-fourths {
         order: 1;
         margin-bottom: -8vw;
@@ -10645,7 +10704,7 @@ label.payment-tile svg {
 .multiverse-mobile-nav {
     display: none;
 }
-.superone-subheader-logo, .single-article header .desktop-subheader .logo.superone-subheader-logo {
+.superone-subheader-logo, header .logo.superone-subheader-logo, .single-article header .desktop-subheader .logo.superone-subheader-logo {
     display: none;
 }
 .superone-mobilepanav-logo {
@@ -10671,46 +10730,144 @@ header .search-menu {
     top: 14px;
 }
 
+.pz-sticky {
+    display: none;
+}
+.pitanje-zdravlja .telegram-sticky {
+    display: none;
+}
+.pitanje-zdravlja.single-article-premium-alt .telegram-sticky {
+    display: none;
+}
+.pitanje-zdravlja .pz-sticky {
+    display: flex;
+}
+.mobile-sticky-nav .pz-mobnav-logo {
+    display: none;
+}
+.pitanje-zdravlja .mobile-sticky-nav .telegram-mobnav-logo {
+    display: none;
+}
+.pitanje-zdravlja .mobile-sticky-nav .pz-mobnav-logo {
+    display: block;
+}
+.mobile-sticky-nav .pz-mobnav-logo {
+    width: 210px;
+}
+.mobile-sticky-nav .pz-mobnav-logo img {
+    margin: 0 auto;
+    height: 22px;
+}
+.pz-subheader-logo, header .logo.pz-subheader-logo, .single-article header .desktop-subheader .logo.pz-subheader-logo {
+    display: none;
+}
+.pz-mobilepanav-logo {
+    display: none;
+}
+.pitanje-zdravlja.single-article-premium header .subheader .logo {
+    display: none;
+}
+.pitanje-zdravlja.single-article-premium header .subheader .logo.pz-subheader-logo {
+    display: inline-block;
+}
+.pitanje-zdravlja.single-article-premium header .subheader .logo.pz-subheader-logo img {
+    display: inline-block;
+    height: 16px;
+}
+.pitanje-zdravlja .sticky-subheader .logo {
+    max-width: 205px;
+}
+
+
+.os-sticky {
+    display: none;
+}
+.openspace .telegram-sticky {
+    display: none;
+}
+.openspace.single-article-premium-alt .telegram-sticky {
+    display: none;
+}
+.openspace .os-sticky {
+    display: flex;
+}
+.mobile-sticky-nav .os-mobnav-logo {
+    display: none;
+}
+.openspace .mobile-sticky-nav .telegram-mobnav-logo {
+    display: none;
+}
+.openspace .mobile-sticky-nav .os-mobnav-logo {
+    display: block;
+}
+.mobile-sticky-nav .os-mobnav-logo {
+    width: 210px;
+}
+.mobile-sticky-nav .os-mobnav-logo img {
+    margin: 0 auto;
+    height: 23px;
+}
+.os-subheader-logo, header .logo.os-subheader-logo, .single-article header .desktop-subheader .logo.os-subheader-logo {
+    display: none;
+}
+.os-mobilepanav-logo {
+    display: none;
+}
+.openspace.single-article-premium header .subheader .logo {
+    display: none;
+}
+.openspace.single-article-premium header .subheader .logo.os-subheader-logo {
+    display: inline-block;
+}
+.openspace.single-article-premium header .subheader .logo.os-subheader-logo img {
+    display: inline-block;
+    height: 18px;
+}
+
 @media screen and (min-width: 767px) {
-    .s1-home header .subheader {
+    .s1-home header .subheader, .os-home header .subheader {
         display: flex;
         position: relative;
         z-index: 15;
         box-shadow: none;
     }
-    .s1-home header .subheader, .s1-home header .subheader .single-exclusive {
+    .s1-home header .subheader, .s1-home header .subheader .single-exclusive, .pz-homepage header .subheader, .pz-homepage header .subheader .single-exclusive, .os-home header .subheader, .os-home .subheader .single-exclusive {
         display: flex;
     }
-    .s1-home header .subheader .homepage-exclusive, .s1-home header .subheader .single-exclusive .logo.superone-subheader-logo {
+    .s1-home header .subheader .homepage-exclusive, .pz-homepage header .subheader .homepage-exclusive, .s1-home header .subheader .single-exclusive .logo.superone-subheader-logo, .os-home header .subheader .homepage-exclusive {
         display: none;
     }
-    .s1-home header .subheader .single-exclusive .logo {
+    .s1-home header .subheader .single-exclusive .logo, .pz-homepage header .subheader .single-exclusive .logo, .os-home header .subheader .single-exclusive .logo {
         width: auto;
         margin-bottom: 0px;
     }
-    .s1-home header .subheader .single-exclusive .logo img {
+    .s1-home header .subheader .single-exclusive .logo img, .pz-homepage header .subheader .single-exclusive .logo img, .os-home header .subheader .single-exclusive .logo img{
         height: 16px;
         margin-bottom: -3px;
         position: relative;
     }
 }
 @media screen and (max-width: 767px) {
-    .main-container.s1-home {
+    .main-container.s1-home, .main-container.pz-homepage, .main-container.os-home {
         padding-top: 0px;
     }
     .superone-home-header {
         z-index: 200;
         background-color: white;
     }
-    .s1-home .multiverse-mobile-nav {
+    .s1-home .multiverse-mobile-nav, .pz-homepage .multiverse-mobile-nav, .os-home .multiverse-mobile-nav {
         display: flex;
         position: relative;
         z-index: 200;
     }
-    .dark-mode .superone-home-header {
+    .pz-homepage .fancy-rubrika-header, .os-home .fancy-rubrika-header {
+        z-index: 200;
+        background-color: white;
+    }
+    .dark-mode .superone-home-header, .dark-mode .pz-homepage .fancy-rubrika-header {
         background-color: #212121;
     }
-    .superone .mobile-pa-nav .logo {
+    .superone .mobile-pa-nav .logo, .pitanje-zdravlja .mobile-pa-nav .logo, .openspace .mobile-pa-nav .logo {
         display: none;
     }
     .superone .mobile-pa-nav .logo.superone-mobilepanav-logo {
@@ -10718,6 +10875,20 @@ header .search-menu {
     }
     .superone .mobile-pa-nav .logo.superone-mobilepanav-logo img {
         margin: 0 auto;
+    }
+    .pitanje-zdravlja .mobile-pa-nav .logo.pz-mobilepanav-logo {
+        display: block;
+        width: 210px;
+    }
+    .pitanje-zdravlja .mobile-pa-nav .logo.pz-mobilepanav-logo img {
+        margin: 0 auto;
+    }
+    .openspace .mobile-pa-nav .logo.os-mobilepanav-logo {
+        display: block;
+    }
+    .openspace .mobile-pa-nav .logo.os-mobilepanav-logo img {
+        margin: 0 auto;
+        height: 22px;
     }
     .sticky-search-menu {
         top: 43px;
@@ -10900,6 +11071,12 @@ Disable popup close on login
     .special-ticker .container div.center {
         justify-content: flex-start;
     }
+    .dark-mode .special-ticker .container > img {
+        display: none;
+    }
+    .dark-mode .special-ticker .container > img.dark-mode-only.desktop-only {
+        display: block;
+    }
 }
 @media screen and (max-width: 767px) {
     .special-ticker .container {
@@ -10918,4 +11095,155 @@ Disable popup close on login
         margin-bottom: 16vw;
         mix-blend-mode: difference;
     }
+    .dark-mode .special-ticker .container > img {
+        display: none;
+    }
+    .dark-mode .special-ticker .container > img.dark-mode-only.mobile-only {
+        display: block;
+    }
+}
+
+#hidden-content {
+    display: none;
+}
+.pretplata-page .cantha-break .two-thirds {
+    align-content: flex-end;
+}
+.pretplata-page .cantha-break h2 {
+    margin-bottom: 4px;
+    font-size: 38px;
+    font-size: 1.9rem;
+}
+.pretplata-page .cantha-break p {
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+.pretplata-page .huge-newbtn {
+    margin-bottom: 0px;
+    margin-top: 8px;
+    font-size: 0.8rem;
+    padding: 10px 16px;
+    padding-top: 9px;
+}
+@media screen and (max-width: 767px) {
+    .pretplata-page .half .cantha-break {
+        margin-top: 4vw;
+        padding-bottom: 4vw;
+    }
+    .pretplata-page .cantha-break h2 {
+        font-size: 26px;
+        font-size: 1.3rem;
+    }
+}
+@media screen and (min-width: 767px) {
+    .no-sticky-ticker .container > .half {
+        max-width: 100%;
+    }
+    .pretplata-page .no-sticky-ticker, .pretplata-page .break-dezulovic, .pretplata-page .bottom-pretplata-promo {
+        height: 400px;
+    }
+    .pretplata-page .no-sticky-ticker .container  {
+        justify-content: flex-start;
+        height: 400px;
+    }
+    .pretplata-page .no-sticky-ticker img, .pretplata-page .bottom-pretplata-promo .three-fourths img {
+        height: 400px;
+        object-fit: cover;
+    }
+    .pretplata-page .break-dezulovic .all-books-effect img {
+        height: 480px;
+        object-fit: contain;
+        object-position: top center;
+    }
+    .all-books-effect {
+        margin-top: -80px;
+        z-index: 5;
+        position: relative;
+    }
+    .all-books-effect img {
+        height: 480px;
+    }
+}
+.no-sticky-ticker {
+    position: relative;
+    z-index: 5;
+    overflow: hidden;
+}
+.no-sticky-ticker .container {
+    padding: 24px 0px;
+}
+.no-sticky-ticker .container .sixty {
+    z-index: 3;
+}
+.smaller-booksel .knjiga-hero h4 {
+    margin-top: 16px;
+    margin-bottom: 0px;
+}
+.smaller-booksel .pretplata-packbox:nth-child(3), .smaller-booksel .pretplata-packbox:nth-child(4) {
+    display: flex;
+}
+.smaller-booksel .knjiga-features h1 {
+    font-size: 34px;
+    font-size: 1.7rem;
+}
+@media screen and (max-width: 767px) {
+    .pretplata-page p {
+        font-size: 18px;
+        font-size: 0.9rem;
+    }
+    .pretplata-page .klub-header {
+        margin-bottom: 0px;
+        padding-bottom: 16vw;
+    }
+    .pretplata-page .special-ticker h2 {
+        mix-blend-mode: normal;
+        font-size: 26px;
+        font-size: 1.3rem;
+        margin-top: 16vw;
+        margin-bottom: 4px;
+    }
+    .pretplata-page .special-ticker .container {
+        text-align: left;
+    }
+    .pretplata-page .special-ticker p, .pretplata-page .cantha-break p {
+        font-size: 18px;
+        font-size: 0.9rem;
+        line-height: normal;
+    }
+    .pretplata-page .special-ticker .container div.center:last-child {
+        padding-top: 0px;
+        justify-content: flex-start;
+        padding-bottom: 8vw;
+    }
+    .pretplata-page .no-sticky-ticker {
+        margin-top: 16vw;
+    }
+    .pretplata-page .cantha-break .container > .half {
+        order: 2;
+        padding-bottom: 8vw;
+    }
+    .pretplata-page .cantha-break .container > .all-books-effect {
+        order: 1;
+        padding-bottom: 0vw;
+        margin-top: -16vw;
+        z-index: 6;
+    }
+    .knjiga-hero .btn {
+        font-size: 0.8rem;
+        padding: 10px 16px;
+        padding-top: 10px;
+        padding-top: 9px;
+    }
+    .smaller-booksel {
+        margin-bottom: 12vw;
+    }
+}
+
+.fb-parent {
+  margin-top: 20px;
+}
+.wpDataTables {
+    font-family: 'Barlow', sans-serif;
+    font-size: 16px;
+    font-size: 0.8rem;
 }

@@ -207,7 +207,6 @@ export default {
       .get(`${this.$config.baseURL}category/${this.$route.params.category}`)
       .then((res) => {
         this.posts = res.data.posts
-        this.cat = res.data.category
         this.description = res.data.description
       })
       .catch(() => {

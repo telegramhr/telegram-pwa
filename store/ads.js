@@ -35,11 +35,22 @@ export const state = () => ({
         'autor-autor',
         'tema-tema',
         'super1-category-slug',
+        'pitanje-zdravlja-category-slug',
+        'openspace-category-slug',
+        'pitanje-zdravlja-category',
+        'openspace-category',
       ],
     },
     telegram_desktop_billboard_v2: {
       upc: false,
-      routes: ['index', 'category', 'super1', 'super1-category'],
+      routes: [
+        'index',
+        'category',
+        'super1',
+        'super1-category',
+        'pitanje-zdravlja-category',
+        'openspace-category',
+      ],
       mobile: [
         [1, 1],
         [300, 50],
@@ -51,6 +62,8 @@ export const state = () => ({
       ],
       desktop: [
         [1, 1],
+        [660, 350],
+        [660, 500],
         [970, 250],
         [970, 500],
         [1000, 250],
@@ -94,6 +107,13 @@ export const state = () => ({
               params: {
                 networkId: 10047,
                 siteId: 1056554,
+              },
+            },
+            {
+              bidder: 'smilewanted',
+              params: {
+                zoneId: 'telegram.hr_hb_display',
+                bidfloor: 0.0,
               },
             },
           ],
@@ -146,13 +166,27 @@ export const state = () => ({
                 siteId: 1056554,
               },
             },
+            {
+              bidder: 'smilewanted',
+              params: {
+                zoneId: 'telegram.hr_hb_display',
+                bidfloor: 0.0,
+              },
+            },
           ],
         },
       },
     },
     telegram_desktop_billboard_v3: {
       upc: false,
-      routes: ['index', 'category', 'super1', 'super1-category'],
+      routes: [
+        'index',
+        'category',
+        'super1',
+        'super1-category',
+        'pitanje-zdravlja-category',
+        'openspace-category',
+      ],
       mobile: [
         [1, 1],
         [300, 50],
@@ -164,6 +198,8 @@ export const state = () => ({
       ],
       desktop: [
         [1, 1],
+        [660, 350],
+        [660, 500],
         [970, 250],
         [970, 500],
         [1000, 250],
@@ -209,6 +245,13 @@ export const state = () => ({
                 siteId: 1056554,
               },
             },
+            {
+              bidder: 'smilewanted',
+              params: {
+                zoneId: 'telegram.hr_hb_display',
+                bidfloor: 0.0,
+              },
+            },
           ],
         },
         mobile: {
@@ -252,13 +295,27 @@ export const state = () => ({
                 siteId: 1056554,
               },
             },
+            {
+              bidder: 'smilewanted',
+              params: {
+                zoneId: 'telegram.hr_hb_display',
+                bidfloor: 0.0,
+              },
+            },
           ],
         },
       },
     },
     telegram_desktop_billboard_v4: {
       upc: false,
-      routes: ['index', 'super1', 'category', 'super1-category'],
+      routes: [
+        'index',
+        'super1',
+        'category',
+        'super1-category',
+        'pitanje-zdravlja-category',
+        'openspace-category',
+      ],
       mobile: [
         [1, 1],
         [300, 50],
@@ -270,6 +327,8 @@ export const state = () => ({
       ],
       desktop: [
         [1, 1],
+        [660, 350],
+        [660, 500],
         [970, 250],
         [970, 500],
         [1000, 250],
@@ -313,6 +372,13 @@ export const state = () => ({
               params: {
                 networkId: 10047,
                 siteId: 1056554,
+              },
+            },
+            {
+              bidder: 'smilewanted',
+              params: {
+                zoneId: 'telegram.hr_hb_display',
+                bidfloor: 0.0,
               },
             },
           ],
@@ -365,6 +431,13 @@ export const state = () => ({
                 siteId: 1056554,
               },
             },
+            {
+              bidder: 'smilewanted',
+              params: {
+                zoneId: 'telegram.hr_hb_display',
+                bidfloor: 0.0,
+              },
+            },
           ],
         },
       },
@@ -393,6 +466,10 @@ export const state = () => ({
         'search',
         'autor-autor',
         'tema-tema',
+        'pitanje-zdravlja-category-slug',
+        'openspace-category-slug',
+        'pitanje-zdravlja-category',
+        'openspace-category',
       ],
     },
     telegram_dekstop_wallpaper_right: {
@@ -420,14 +497,28 @@ export const state = () => ({
         'search',
         'autor-autor',
         'tema-tema',
+        'pitanje-zdravlja-category-slug',
+        'openspace-category-slug',
+        'pitanje-zdravlja-category',
+        'openspace-category',
       ],
     },
     telegram_desktop_intext_v1: {
       upc: false,
-      routes: ['category-slug', 'nesto-slug', 'super1-category-slug'],
+      routes: [
+        'category-slug',
+        'nesto-slug',
+        'super1-category-slug',
+        'pitanje-zdravlja-category-slug',
+        'openspace-category-slug',
+        'pitanje-zdravlja-category',
+        'openspace-category',
+        'super1-category',
+      ],
       desktop: [
         [1, 1],
         [660, 350],
+        [660, 500],
         [300, 250],
         [300, 600],
         [710, 350],
@@ -448,10 +539,20 @@ export const state = () => ({
     },
     telegram_desktop_intext_v2: {
       upc: false,
-      routes: ['category-slug', 'nesto-slug', 'super1-category-slug'],
+      routes: [
+        'category-slug',
+        'nesto-slug',
+        'super1-category-slug',
+        'pitanje-zdravlja-category-slug',
+        'openspace-category-slug',
+        'pitanje-zdravlja-category',
+        'openspace-category',
+        'super1-category',
+      ],
       desktop: [
         [1, 1],
         [660, 350],
+        [660, 500],
         [300, 250],
         [300, 600],
         [320, 480],
@@ -513,6 +614,13 @@ export const state = () => ({
                 siteId: 1056554,
               },
             },
+            {
+              bidder: 'smilewanted',
+              params: {
+                zoneId: 'telegram.hr_hb_display',
+                bidfloor: 0.0,
+              },
+            },
           ],
         },
         mobile: {
@@ -563,16 +671,33 @@ export const state = () => ({
                 siteId: 1056554,
               },
             },
+            {
+              bidder: 'smilewanted',
+              params: {
+                zoneId: 'telegram.hr_hb_display',
+                bidfloor: 0.0,
+              },
+            },
           ],
         },
       },
     },
     telegram_desktop_intext_v3: {
       upc: false,
-      routes: ['category-slug', 'nesto-slug', 'super1-category-slug'],
+      routes: [
+        'category-slug',
+        'nesto-slug',
+        'super1-category-slug',
+        'pitanje-zdravlja-category-slug',
+        'openspace-category-slug',
+        'pitanje-zdravlja-category',
+        'openspace-category',
+        'super1-category',
+      ],
       desktop: [
         [1, 1],
         [660, 350],
+        [660, 500],
         [300, 250],
         [300, 600],
         [320, 480],
@@ -630,6 +755,13 @@ export const state = () => ({
                 siteId: 1056554,
               },
             },
+            {
+              bidder: 'smilewanted',
+              params: {
+                zoneId: 'telegram.hr_hb_display',
+                bidfloor: 0.0,
+              },
+            },
           ],
         },
         mobile: {
@@ -678,6 +810,13 @@ export const state = () => ({
               params: {
                 networkId: 10047,
                 siteId: 1056554,
+              },
+            },
+            {
+              bidder: 'smilewanted',
+              params: {
+                zoneId: 'telegram.hr_hb_display',
+                bidfloor: 0.0,
               },
             },
           ],
@@ -686,10 +825,20 @@ export const state = () => ({
     },
     telegram_desktop_intext_v4: {
       upc: false,
-      routes: ['category-slug', 'nesto-slug', 'super1-category-slug'],
+      routes: [
+        'category-slug',
+        'nesto-slug',
+        'super1-category-slug',
+        'pitanje-zdravlja-category-slug',
+        'openspace-category-slug',
+        'pitanje-zdravlja-category',
+        'openspace-category',
+        'super1-category',
+      ],
       desktop: [
         [1, 1],
         [660, 350],
+        [660, 500],
         [300, 250],
         [300, 600],
         [320, 480],
@@ -747,6 +896,13 @@ export const state = () => ({
                 siteId: 1056554,
               },
             },
+            {
+              bidder: 'smilewanted',
+              params: {
+                zoneId: 'telegram.hr_hb_display',
+                bidfloor: 0.0,
+              },
+            },
           ],
         },
         mobile: {
@@ -797,16 +953,33 @@ export const state = () => ({
                 siteId: 1056554,
               },
             },
+            {
+              bidder: 'smilewanted',
+              params: {
+                zoneId: 'telegram.hr_hb_display',
+                bidfloor: 0.0,
+              },
+            },
           ],
         },
       },
     },
     telegram_desktop_intext_v5: {
       upc: false,
-      routes: ['category-slug', 'nesto-slug', 'super1-category-slug'],
+      routes: [
+        'category-slug',
+        'nesto-slug',
+        'super1-category-slug',
+        'pitanje-zdravlja-category-slug',
+        'openspace-category-slug',
+        'pitanje-zdravlja-category',
+        'openspace-category',
+        'super1-category',
+      ],
       desktop: [
         [1, 1],
         [660, 350],
+        [660, 500],
         [300, 250],
         [300, 600],
         [320, 480],
@@ -857,6 +1030,13 @@ export const state = () => ({
                 siteId: 1056554,
               },
             },
+            {
+              bidder: 'smilewanted',
+              params: {
+                zoneId: 'telegram.hr_hb_display',
+                bidfloor: 0.0,
+              },
+            },
           ],
         },
         mobile: {
@@ -891,6 +1071,13 @@ export const state = () => ({
               params: {
                 networkId: 10047,
                 siteId: 1056554,
+              },
+            },
+            {
+              bidder: 'smilewanted',
+              params: {
+                zoneId: 'telegram.hr_hb_display',
+                bidfloor: 0.0,
               },
             },
           ],
@@ -899,10 +1086,20 @@ export const state = () => ({
     },
     telegram_desktop_intext_v6: {
       upc: false,
-      routes: ['category-slug', 'nesto-slug', 'super1-category-slug'],
+      routes: [
+        'category-slug',
+        'nesto-slug',
+        'super1-category-slug',
+        'pitanje-zdravlja-category-slug',
+        'openspace-category-slug',
+        'pitanje-zdravlja-category',
+        'openspace-category',
+        'super1-category',
+      ],
       desktop: [
         [1, 1],
         [660, 350],
+        [660, 500],
         [300, 250],
         [300, 600],
         [320, 480],
@@ -953,6 +1150,13 @@ export const state = () => ({
                 siteId: 1056554,
               },
             },
+            {
+              bidder: 'smilewanted',
+              params: {
+                zoneId: 'telegram.hr_hb_display',
+                bidfloor: 0.0,
+              },
+            },
           ],
         },
         mobile: {
@@ -987,6 +1191,13 @@ export const state = () => ({
               params: {
                 networkId: 10047,
                 siteId: 1056554,
+              },
+            },
+            {
+              bidder: 'smilewanted',
+              params: {
+                zoneId: 'telegram.hr_hb_display',
+                bidfloor: 0.0,
               },
             },
           ],
@@ -1009,6 +1220,10 @@ export const state = () => ({
         'search',
         'autor-autor',
         'tema-tema',
+        'pitanje-zdravlja-category-slug',
+        'openspace-category-slug',
+        'pitanje-zdravlja-category',
+        'openspace-category',
       ],
       mobile: [
         [1, 1],
@@ -1030,9 +1245,6 @@ export const state = () => ({
       ],
     },
   },
-  upc_b: 4,
-  upc: {},
-  upc_updated: null,
   route: '',
 })
 
@@ -1042,10 +1254,6 @@ export const mutations = {
   },
   setSlots(state) {
     state.slots = true
-  },
-  setUpc(state, data) {
-    state.upc = data
-    state.upc_updated = new Date().getTime()
   },
   setRoute(state, route) {
     state.route = route.name
@@ -1083,19 +1291,7 @@ export const actions = {
       }
       return
     }
-    // load the up to date floor data
-    /* if (state.upc_updated + 60 * 60 * 1000 < new Date().getTime()) {
-      this.$axios
-        .get('/api/upc')
-        .then((res) => {
-          commit('setUpc', res.data)
-        })
-        .then(() => {
-          dispatch('setupTargeting', payload)
-        })
-    } else { */
     dispatch('setupTargeting', payload)
-    // }
   },
   setupTargeting({ state, commit, dispatch, rootState }, payload) {
     window.googletag = window.googletag || {}
@@ -1109,6 +1305,9 @@ export const actions = {
       post_tag: [],
       post_category: [],
     }
+    if (payload.category_slug) {
+      targeting.post_category = payload.category_slug.split(' ')
+    }
     if (route) {
       commit('setRoute', route)
       switch (route.name) {
@@ -1116,10 +1315,20 @@ export const actions = {
           targeting.wp_post_type = ['home']
           break
         case 'category':
-        case 'super1-category':
         case 'fotogalerije-category':
           targeting.wp_post_type = ['category']
-          targeting.post_category = [route.params.category]
+          break
+        case 'super1-category':
+          targeting.wp_post_type = ['category']
+          targeting.post_category.push('super1')
+          break
+        case 'pitanje-zdravlja-category':
+          targeting.wp_post_type = ['category']
+          targeting.post_category.push('super1')
+          break
+        case 'openspace-category':
+          targeting.wp_post_type = ['category']
+          targeting.post_category.push('super1')
           break
         case 'super1':
           targeting.wp_post_type = ['category']
@@ -1131,14 +1340,20 @@ export const actions = {
           break
         case 'category-slug':
         case 'super1-category-slug':
+        case 'openspace-category-slug':
+        case 'pitanje-zdravlja-category-slug':
         case 'nesto-slug':
         case 'fotogalerije-category-slug':
           targeting.wp_post_type = ['single']
           targeting.post_slug = [route.params.slug]
-          if (route.name.includes('super1')) {
-            targeting.post_category = [route.params.category, 'super1']
+          if (route.name.includes('openspace')) {
+            targeting.post_category.push('openspace')
+          } else if (route.name.includes('pitanje-zdravlja')) {
+            targeting.post_category.push('pitanje-zdravlja')
+          } else if (route.name.includes('super1')) {
+            targeting.post_category.push('super1')
           } else {
-            targeting.post_category = [route.params.category]
+            targeting.post_category.push(route.params.category)
           }
           if (payload.tags) {
             targeting.post_tag = payload.tags.map((tag) => tag.slug)
@@ -1179,10 +1394,6 @@ export const actions = {
       for (const i of Object.keys(state.units)) {
         if (i in state.units) {
           unit = state.units[i]
-          let upc = 4
-          if (unit.upc) {
-            upc = unit.upc
-          }
           if (!unit[sizes]) {
             continue
           }
@@ -1195,13 +1406,15 @@ export const actions = {
           ds = window.googletag.defineSlot(prefix + i, unit[sizes], i)
           if (ds) {
             ds.addService(window.googletag.pubads())
-            ds.setTargeting('upc', upc)
+            if (unit.upc) {
+              ds.setTargeting('upc', unit.upc)
+            }
           }
         }
       }
       commit('setSlots')
     })
-    /* window.pbjs = window.pbjs || {}
+    window.pbjs = window.pbjs || {}
     window.pbjs.que = window.pbjs.que || []
     window.pbjs.que.push(() => {
       window.pbjs.setConfig({
@@ -1213,6 +1426,7 @@ export const actions = {
           },
         },
         userSync: {
+          iframeEnabled: true,
           userIds: [
             {
               name: 'pubCommonId',
@@ -1264,7 +1478,7 @@ export const actions = {
           })
         }
       }
-    }) */
+    })
     dispatch('displaySlots')
   },
   displaySlots({ dispatch }) {
@@ -1277,8 +1491,7 @@ export const actions = {
         window.googletag.display(slot.id)
       })
     })
-    // dispatch('refreshSlots')
-    dispatch('initAdserver')
+    dispatch('refreshSlots')
   },
   refreshSlots({ dispatch }) {
     window.googlefc = window.googlefc || {}
@@ -1306,11 +1519,11 @@ export const actions = {
     })
     setTimeout(() => {
       dispatch('initAdserver')
-    }, 500)
+    }, 1500)
   },
   initAdserver({ state }) {
-    // if (window.pbjs.initAdserverSet) return
-    // window.pbjs.initAdserverSet = true
+    if (window.pbjs.initAdserverSet) return
+    window.pbjs.initAdserverSet = true
     if (state.route === 'nesto-slug') {
       return
     }
