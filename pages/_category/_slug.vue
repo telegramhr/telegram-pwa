@@ -366,19 +366,10 @@
                         :icon="['fab', 'twitter']"
                       ></font-awesome-icon
                     ></a>
-                    <!-- <div
-                      v-if="!post.comments_off"
-                      class="classic-btn clickable animate"
-                      @click="comments = !comments"
-                    >
-                      Komentari
-                    </div>-->
                   </div>
                 </div>
                 <client-only>
-                  <div v-if="!post.comments_off" class="full fb-parent">
-                    <div id="coral_thread"></div>
-                  </div>
+                  <comments :post="post"></comments>
                 </client-only>
               </div>
             </div>
@@ -397,13 +388,13 @@
           <div v-if="!hasPremium" class="full">
             <linker type="category"></linker>
           </div>
-          <div
+          <!--<div
             v-if="!hasPremium && !exclude"
             class="full relative"
             style="order: 3"
           >
             <offers></offers>
-          </div>
+          </div>-->
           <div
             v-if="
               !hasPremium &&
@@ -547,6 +538,7 @@ export default {
     return {
       showQuiz: false,
       comments: false,
+      comments_embed: null,
       showSideMenu: false,
       showSearchMenu: false,
       post: {
@@ -816,6 +808,7 @@ export default {
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.handleScroll)
+    this.comments_embed = null
   },
   methods: {
     handleScroll() {
@@ -849,36 +842,11 @@ export default {
       })
       if (
         !this.post.disable_ads.includes('all') &&
-        !this.post.disable_ads.includes('nepromo')
-      ) {
-        this.loadMox()
-      }
-      if (
-        !this.post.disable_ads.includes('all') &&
         !this.post.disable_ads.includes('midas') &&
         !this.post.disable_ads.includes('nepromo')
       ) {
         this.$linker.reloadLinker()
         this.hasLinker = true
-      }
-    },
-    loadMox() {
-      if (this.$store.state.user.access) {
-        return
-      }
-      const container = document.querySelectorAll(
-        '[data-id=_mwayss-325b7d752b361c5458420729057fe2ff]'
-      )[0]
-      if (container) {
-        container.setAttribute(
-          'id',
-          container.getAttribute('data-id') + new Date().getTime()
-        )
-        container.removeAttribute('data-id')
-        const scriptTag = document.createElement('script')
-        scriptTag.src =
-          'https://ad.mox.tv/mox/mwayss_invocation.min.js?pzoneid=5182&height=405&width=720&tld=telegram.hr&ctype=div'
-        container.parentNode.insertBefore(scriptTag, container)
       }
     },
     loadPiano() {
@@ -973,44 +941,9 @@ export default {
             }
           })
         }
-        this.loadComments()
       } else {
         setTimeout(this.getPost, 500)
       }
-    },
-    loadComments() {
-      if (this.$route.params.category === 'preview' || this.post.comments_off)
-        return
-      if (this.post.social.path.includes('?p=')) return
-      /* global Coral */
-      const embed = Coral.createStreamEmbed({
-        id: 'coral_thread',
-        autoRender: true,
-        rootURL: 'https://talk.telegram.hr',
-        storyID: this.post.id,
-        storyURL: this.post.social.path,
-        events: (events) => {
-          events.onAny((eventName, data) => {
-            if (eventName === 'showAuthPopup') {
-              this.$store.dispatch('user/login')
-            }
-            if (
-              eventName === 'createCommentFocus' &&
-              !this.$store.state.user.uid
-            ) {
-              this.$store.dispatch('user/login')
-            }
-          })
-        },
-      })
-      if (this.$store.state.user.uid) {
-        this.$store.dispatch('user/getCoralToken').then((token) => {
-          embed.login(token)
-        })
-      }
-    },
-    dotmetrics() {
-      this.$dotmetrics.postLoad(this.post.category_slug)
     },
     fbShare() {
       /* global FB */
