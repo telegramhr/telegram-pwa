@@ -369,7 +369,7 @@
                   </div>
                 </div>
                 <client-only>
-                  <comments :post="post"></comments>
+                  <comments v-if="post.id" :post="post"></comments>
                 </client-only>
               </div>
             </div>
@@ -1047,32 +1047,34 @@ export default {
       }
     }
     // charts and tables
-    /* const wdtStyles = [
-      'bootstrap/wpdatatables-bootstrap.min.css',
-      'bootstrap/bootstrap-select/bootstrap-select.min.css',
-      'bootstrap/bootstrap-tagsinput/bootstrap-tagsinput.css',
-      'bootstrap/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css',
-      'bootstrap/bootstrap-nouislider/bootstrap-nouislider.min.css',
-      'bootstrap/bootstrap-datetimepicker/wdt-bootstrap-datetimepicker.min.css',
-      'bootstrap/bootstrap-colorpicker/bootstrap-colorpicker.min.css',
-      'style.min.css',
-      'animate/animate.min.css',
-      'uikit/uikit.css',
-      'wdt.frontend.min.css',
-      'wdt-skins/light.css',
-      'wdt.simpleTable.min.css',
-      'wpdatatables.min.css',
-    ]
-    wdtStyles.forEach((item) => {
-      link.push({
-        hid: item,
-        rel: 'stylesheet',
-        type: 'text/css',
-        href:
-          'https://www.telegram.hr/wp-content/plugins/wpdatatables/assets/css/' +
-          item,
+    if (this.post.tables) {
+      const wdtStyles = [
+        'bootstrap/wpdatatables-bootstrap.min.css',
+        'bootstrap/bootstrap-select/bootstrap-select.min.css',
+        'bootstrap/bootstrap-tagsinput/bootstrap-tagsinput.css',
+        'bootstrap/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css',
+        'bootstrap/bootstrap-nouislider/bootstrap-nouislider.min.css',
+        'bootstrap/bootstrap-datetimepicker/wdt-bootstrap-datetimepicker.min.css',
+        'bootstrap/bootstrap-colorpicker/bootstrap-colorpicker.min.css',
+        'style.min.css',
+        'animate/animate.min.css',
+        'uikit/uikit.css',
+        'wdt.frontend.min.css',
+        'wdt-skins/light.css',
+        'wdt.simpleTable.min.css',
+        'wpdatatables.min.css',
+      ]
+      wdtStyles.forEach((item) => {
+        link.push({
+          hid: item,
+          rel: 'stylesheet',
+          type: 'text/css',
+          href:
+            'https://www.telegram.hr/wp-content/plugins/wpdatatables/assets/css/' +
+            item,
+        })
       })
-    }) */
+    }
     const fbPaywall = {
       none: 'metered',
       always: 'locked',
