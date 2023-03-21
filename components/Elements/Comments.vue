@@ -16,7 +16,7 @@ export default {
   mounted() {
     if (this.$route.params.category === 'preview' || this.post.comments_off)
       return
-    if (this.post.social.path.includes('?p=')) return
+    if (this.post.social.path && this.post.social.path.includes('?p=')) return
     /* global Coral */
     const embed = Coral.createStreamEmbed({
       id: 'coral_thread',
