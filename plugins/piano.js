@@ -12,7 +12,7 @@ export default () => {
   window.tp.push(['setUsePianoIdUserProvider', true])
   // window.tp.push(['setCloudflareWorkerUrl', 'https://auth.telegram.hr']);
   window.tp.push(["setMaxCookieExpirationInDays", 365]);
-  window.tp.push(['setCookieDomain', 'app.telegram.hr']);
+  window.tp.push(['setCookieDomain', '.telegram.hr']);
   // Adblock
   /* document.cookie =
     '__adblocker=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/'

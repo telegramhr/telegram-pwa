@@ -727,7 +727,7 @@ export default {
           window.tp.enableGACrossDomainLinking()
         },
       ])
-      const _that = this
+      /* const _that = this
       window.marfeel.cmd.push([
         'compass',
         function (compass) {
@@ -738,10 +738,10 @@ export default {
             compass.setPageVar('closed', 'dynamic-paywall')
           }
         },
-      ])
+      ]) */
     },
     triggerAnalytics() {
-      this.$dotmetrics.postLoad(this.post.category_slug)
+      // this.$dotmetrics.postLoad(this.post.category_slug)
     },
     getPost() {
       if (this.post && this.post.id) {

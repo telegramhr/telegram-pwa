@@ -22,12 +22,22 @@
 	<array>
 		<dict>
 			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
+			<string>Viewer</string>
 			<key>CFBundleURLName</key>
 			<string>piano</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>io.piano.id.quthmvhfpu</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>telegram</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>app.telegram.hr</string>
 			</array>
 		</dict>
 	</array>
@@ -39,6 +49,11 @@
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>processing</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -51,8 +66,6 @@
 	<string>UIStatusBarStyleDarkContent</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
@@ -68,8 +81,10 @@
 		<string>cdn.piano.io</string>
 		<string>buy.tinypass.com</string>
 		<string>id.tinypass.com</string>
+		<string>www.telegram.hr</string>
 		<string>cdn.cxense.com</string>
 		<string>cdn.tinypass.com</string>
+		<string>telesport.telegram.hr</string>
 	</array>
 </dict>
 </plist>

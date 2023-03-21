@@ -31,6 +31,7 @@ export const mutations = {
   setTerm(state, data) {
     state.access = data.rid
     state.expiry_date = data.expiry_date
+    state.exp = data.expiry_date
     state.type = 'subscribed'
     state.updated = new Date().getTime()
   },
@@ -117,7 +118,8 @@ export const actions = {
     }
   },
   logout({ commit, dispatch, state }) {
-    this.$cookies.remove('tmg_access', {
+    console.log('logout')
+    /* this.$cookies.remove('tmg_access', {
       path: '/',
       domain: '.telegram.hr',
     })
@@ -125,10 +127,20 @@ export const actions = {
       window.tp.pianoId.logout()
       dispatch('newsletters/clearAccess', null, { root: true })
     }
-    commit('logout')
+    commit('logout') */
   },
   login({ commit, dispatch }) {
     console.log('init login', window.location.href)
+    // const aid = 'QuTHmVhFpu'
+    // const secret = 'yBtIrFtAFaWCOjbgkPfItvwYedwmXJ4m'
+    /* Browser.open({
+      url: `https://id.piano.io/id/?response_type=code&client_id=${aid}&redirect_uri=app.telegram.hr&disable_sign_up=true`,
+    }).then((res) => {
+      console.log('open browser', res)
+    })
+    this.$piano.login().then((res) => {
+      console.log(res)
+    }) */
     window.tp.pianoId.show({
       screen: 'login',
       loginDisplayed() {

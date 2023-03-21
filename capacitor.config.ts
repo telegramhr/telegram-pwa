@@ -7,10 +7,12 @@ const config: CapacitorConfig = {
   bundledWebRuntime: false,
   ios: {
     scheme: 'Telegram.hr',
+    limitsNavigationsToAppBoundDomains: true,
   },
   server: {
     hostname: 'app.telegram.hr',
     androidScheme: 'https',
+    allowNavigation: ['*'],
   },
   plugins: {
     CapacitorCookies: {

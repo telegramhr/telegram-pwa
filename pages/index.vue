@@ -663,6 +663,9 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
+      if (this.canLogIn) {
+        this.$router.push('/login')
+      }
       this.loadAds()
       this.$telegram.$loading.finish()
     })
@@ -670,7 +673,7 @@ export default {
   methods: {
     manageLogin() {
       if (this.canLogIn) {
-        this.$store.dispatch('user/login')
+        this.$router.push('/login')
       } else {
         this.$store.dispatch('user/logout')
       }

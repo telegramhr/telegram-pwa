@@ -4,11 +4,15 @@
 	"webDir": "dist",
 	"bundledWebRuntime": false,
 	"ios": {
-		"scheme": "Telegram.hr"
+		"scheme": "Telegram.hr",
+		"limitsNavigationsToAppBoundDomains": true
 	},
 	"server": {
 		"hostname": "app.telegram.hr",
-		"androidScheme": "https"
+		"androidScheme": "https",
+		"allowNavigation": [
+			"*"
+		]
 	},
 	"plugins": {
 		"CapacitorCookies": {

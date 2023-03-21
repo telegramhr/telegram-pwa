@@ -719,6 +719,7 @@
 
 <script>
 import { Share } from '@capacitor/share'
+
 export default {
   name: 'Header',
   props: {
@@ -809,7 +810,7 @@ export default {
     this.$store.dispatch('user/checkAccess')
     this.$store.dispatch('theme/loadTheme')
     if (this.canLogIn) {
-      this.login()
+      // this.login()
     }
   },
   methods: {
