@@ -367,7 +367,7 @@
       </div>
     </div>
     <!-- Prekid klub -->
-    <div class="full relative" style="margin-top: 20px;">
+    <div class="full relative" style="margin-top: 20px">
       <div class="container flex relative column-horizontal-pad">
         <app-link
           to="/klub"

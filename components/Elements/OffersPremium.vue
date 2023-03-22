@@ -48,7 +48,7 @@
             rel="sponsored"
             class="full flex article relative"
             role="article"
-            @click="trackClick"
+            @click.prevent="trackClick(post.link)"
           >
             <img
               :src="post.slika"
@@ -138,7 +138,7 @@ export default {
     })
   },
   methods: {
-    trackClick() {
+    trackClick(link) {
       this.$gtm.push({
         event: 'webshop-widget',
         'webshop-category': 'interspar-premium',
@@ -146,6 +146,7 @@ export default {
         'webshop-label': 'click',
         'webshop-value': 1,
       })
+      window.open(link, '_blank')
     },
     async getPosts() {
       const preview = this.$route.query.webshop ? this.$route.query.webshop : ''
