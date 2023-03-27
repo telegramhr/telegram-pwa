@@ -331,7 +331,15 @@
               </client-only>
               <client-only>
                 <intext></intext>
-                <div class="full" style="max-width: 1201px">
+                <div
+                  v-if="
+                    !hasPremium &&
+                    !post.category_slug.includes('superone') &&
+                    !(post.disable_ads && post.disable_ads.includes('spar'))
+                  "
+                  class="full"
+                  style="max-width: 1201px"
+                >
                   <offers-premium></offers-premium>
                 </div>
                 <linker type="mobile"></linker>
