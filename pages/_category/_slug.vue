@@ -331,6 +331,9 @@
               </client-only>
               <client-only>
                 <intext></intext>
+                <div class="full" style="max-width: 1201px">
+                  <offers-premium></offers-premium>
+                </div>
                 <linker type="mobile"></linker>
               </client-only>
               <!-- Article footer -->
