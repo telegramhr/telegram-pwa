@@ -455,7 +455,7 @@
       </div>
     </div>-->
     <!-- Pretplata keypoints -->
-    <div class="full flex relative">
+    <div class="full flex relative mobile-bottom-pad">
       <div id="keypoint-autori" class="full flex relative sub-point">
         <div class="container relative flex mobile-side-pad stretch">
           <div class="half flex-responsive column-full-pad">
@@ -603,6 +603,45 @@
         </div>
       </div>
     </div>
+    <!-- Newsletteri -->
+    <app-link
+      to="/newsletters"
+      class="full cantha-break mobile-side-pad flex relative stretch"
+      style="margin-bottom: 0px"
+    >
+      <div class="container flex stretch relative">
+        <div class="half column-full-pad center flex-responsive">
+          <div class="full flex article">
+            <h2 class="full">
+              Specijalni newsletteri za Telegramove pretplatnike.
+            </h2>
+            <p class="full">Najbolje od Telegrama, svaki dan u vašem inboxu.</p>
+            <div v-show="canLogIn" class="full flex">
+              <app-link
+                v-show="canLogIn"
+                to="/pretplata"
+                class="newbtn huge-newbtn animate"
+                >Pretplatite se</app-link
+              >
+              <app-link to="/donacije" class="newbtn huge-newbtn animate"
+                >Saznajte više</app-link
+              >
+            </div>
+            <div v-show="!canLogIn" class="full flex">
+              <app-link to="/donacije" class="newbtn huge-newbtn animate"
+                >Saznajte više</app-link
+              >
+            </div>
+          </div>
+        </div>
+        <div class="half column-full-pad center flex-responsive">
+          <img
+            src="@/assets/img/tg_newsletter_visual.png"
+            alt="Kolekcija Telegramovih newslettera"
+          />
+        </div>
+      </div>
+    </app-link>
     <!-- Donacije -->
     <div
       class="full pretplata-ticker special-ticker no-sticky-ticker relative column-vertical-pad"
