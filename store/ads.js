@@ -536,6 +536,118 @@ export const state = () => ({
         [300, 50],
         [300, 600],
       ],
+      pbjs: {
+        desktop: {
+          sizes: [[970, 250]],
+          bids: [
+            {
+              bidder: 'iprom',
+              params: {
+                id: 't30769k9tyez1my7',
+                dimension: '970x250',
+              },
+            },
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [969220],
+              },
+            },
+            {
+              bidder: 'iprom',
+              params: {
+                id: '1ac5399de31649f8',
+                dimension: '970x250',
+              },
+            },
+            {
+              bidder: 'luponmedia',
+              params: {
+                siteId: 4396,
+                keyId: 'uid_telegramhr',
+              },
+            },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2218',
+                adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'connectad',
+              params: {
+                networkId: 10047,
+                siteId: 1056554,
+              },
+            },
+            {
+              bidder: 'smilewanted',
+              params: {
+                zoneId: 'telegram.hr_hb_display',
+                bidfloor: 0.0,
+              },
+            },
+          ],
+        },
+        mobile: {
+          sizes: [
+            [300, 250],
+            [336, 280],
+            [300, 600],
+          ],
+          bids: [
+            {
+              bidder: 'iprom',
+              params: {
+                id: 't30769k9tyez1my7',
+                dimension: '300x250',
+              },
+            },
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [929094],
+              },
+            },
+            {
+              bidder: 'luponmedia',
+              params: {
+                siteId: 4396,
+                keyId: 'uid_telegramhr',
+              },
+            },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2217',
+                adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2215',
+                adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'connectad',
+              params: {
+                networkId: 10047,
+                siteId: 1056554,
+              },
+            },
+            {
+              bidder: 'smilewanted',
+              params: {
+                zoneId: 'telegram.hr_hb_display',
+                bidfloor: 0.0,
+              },
+            },
+          ],
+        },
+      },
     },
     telegram_desktop_intext_v2: {
       upc: false,
@@ -1418,7 +1530,8 @@ export const actions = {
     window.pbjs.que = window.pbjs.que || []
     window.pbjs.que.push(() => {
       window.pbjs.setConfig({
-        enableSendAllBids: false,
+        debug: true,
+        enableSendAllBids: true,
         consentManagement: {
           gdpr: {
             cmpApi: 'iab',
