@@ -616,23 +616,7 @@
               Specijalni newsletteri za Telegramove pretplatnike.
             </h2>
             <p class="full">Najbolje od Telegrama, svaki dan u vašem inboxu.</p>
-            <div v-show="canLogIn" class="full flex">
-              <div
-                v-show="canLogIn"
-                to="/pretplata"
-                class="newbtn huge-newbtn animate"
-              >
-                Pretplatite se
-              </div>
-              <div to="/donacije" class="newbtn huge-newbtn animate">
-                Saznajte više
-              </div>
-            </div>
-            <div v-show="!canLogIn" class="full flex">
-              <div to="/donacije" class="newbtn huge-newbtn animate">
-                Saznajte više
-              </div>
-            </div>
+            <div class="newbtn huge-newbtn animate">Saznajte više</div>
           </div>
         </div>
         <div class="half column-full-pad center flex-responsive">
