@@ -617,20 +617,21 @@
             </h2>
             <p class="full">Najbolje od Telegrama, svaki dan u vašem inboxu.</p>
             <div v-show="canLogIn" class="full flex">
-              <app-link
+              <div
                 v-show="canLogIn"
                 to="/pretplata"
                 class="newbtn huge-newbtn animate"
-                >Pretplatite se</app-link
               >
-              <app-link to="/donacije" class="newbtn huge-newbtn animate"
-                >Saznajte više</app-link
-              >
+                Pretplatite se
+              </div>
+              <div to="/donacije" class="newbtn huge-newbtn animate">
+                Saznajte više
+              </div>
             </div>
             <div v-show="!canLogIn" class="full flex">
-              <app-link to="/donacije" class="newbtn huge-newbtn animate"
-                >Saznajte više</app-link
-              >
+              <div to="/donacije" class="newbtn huge-newbtn animate">
+                Saznajte više
+              </div>
             </div>
           </div>
         </div>
