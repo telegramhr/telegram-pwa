@@ -138,13 +138,13 @@
                     <font-awesome-icon
                       :icon="['fas', 'check']"
                     ></font-awesome-icon>
-                    surfanje s manje oglasa
+                    verificirani profil u komentarima
                   </p>
                   <p class="full animate">
                     <font-awesome-icon
                       :icon="['fas', 'check']"
                     ></font-awesome-icon>
-                    verificirani profil u komentarima
+                    surfanje s manje oglasa
                   </p>
                 </div>
                 <div class="full center btn-parent" @click="checkout(one)">
@@ -188,13 +188,13 @@
                     <font-awesome-icon
                       :icon="['fas', 'check']"
                     ></font-awesome-icon>
-                    surfanje bez oglasa
+                    verificirani profil u komentarima
                   </p>
                   <p class="full animate">
                     <font-awesome-icon
                       :icon="['fas', 'check']"
                     ></font-awesome-icon>
-                    verificirani profil u komentarima
+                    surfanje bez oglasa
                   </p>
                 </div>
                 <div class="full center btn-parent" @click="checkout(two)">
@@ -234,13 +234,13 @@
                     <font-awesome-icon
                       :icon="['fas', 'check']"
                     ></font-awesome-icon>
-                    surfanje s manje oglasa
+                    verificirani profil u komentarima
                   </p>
                   <p class="full animate">
                     <font-awesome-icon
                       :icon="['fas', 'check']"
                     ></font-awesome-icon>
-                    verificirani profil u komentarima
+                    surfanje s manje oglasa
                   </p>
                 </div>
                 <div class="full center btn-parent" @click="checkout(three)">
@@ -286,13 +286,13 @@
                     <font-awesome-icon
                       :icon="['fas', 'check']"
                     ></font-awesome-icon>
-                    surfanje bez oglasa
+                    verificirani profil u komentarima
                   </p>
                   <p class="full animate">
                     <font-awesome-icon
                       :icon="['fas', 'check']"
                     ></font-awesome-icon>
-                    verificirani profil u komentarima
+                    surfanje bez oglasa
                   </p>
                 </div>
                 <div class="full center btn-parent" @click="checkout(four)">

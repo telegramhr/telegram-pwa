@@ -7,35 +7,11 @@
         ></theader>
       </client-only>
     </div>
-    <app-link to="/openspace" class="full flex relative mini-os-header">
-      <h1
-        class="full section-title mobile-side-pad center-text column-full-pad os-section-title hide"
-      >
-        openspace
-      </h1>
-      <div class="full center">
-        <img
-          src="@/assets/img/openspace_logo_normal.svg"
-          class="os-header-logo light-mode-only"
-          alt="openspace logo"
-        />
-        <img
-          src="@/assets/img/openspace_logo_normal.svg"
-          class="os-header-logo contrast-mode-only"
-          alt="openspace logo"
-        />
-        <img
-          src="@/assets/img/openspace_logo_negative.svg"
-          class="os-header-logo dark-mode-only"
-          alt="openspace logo"
-        />
-      </div>
-    </app-link>
     <div class="full flex os-special-page">
       <div
         class="container relative mobile-side-pad flex article-width-container"
       >
-        <h1 class="full center-text">Kalkulator plaće</h1>
+        <h1 class="full center-text column-top-pad">Kalkulator plaće</h1>
         <h4 class="full center-text">
           Uz Telegramov kalkulator plaće brzo preračunajte neto u bruto ili
           obrnuto, naučite više o faktorima koji utječu na oporezivanje plaće,
@@ -54,7 +30,7 @@
               required
             />
             <p class="full os-calculator-description">
-              Iznos plaće u kunama koji će biti osnova za sve izračune.
+              Iznos plaće u eurima koji će biti osnova za sve izračune.
             </p>
           </div>
           <div
@@ -97,6 +73,14 @@
               Neto plaća je iznos koji zaposleniku sjeda na račun. Bruto plaća
               je iznos koji poslodavac mora izdvojiti za plaću zaposlenika. U
               ugovoru o radu obično se nalazi bruto iznos.
+            </p>
+            <p
+              v-if="smjerKonverzije === 'neto-u-bruto'"
+              class="full bold os-calculator-description"
+            >
+              Izračun u smjeru neto u bruto trenutno ima greške pri visokim
+              iznosima. Telegram Studio i dalje razvija openspace kalkulator
+              plaće i trenutno nije namijenjen javnoj uporabi.
             </p>
           </div>
           <div
@@ -492,7 +476,7 @@
             <p class="full os-calculator-description">
               Uzdržavani članovi uže obitelji i uzdržavana djeca su fizičke
               osobe kojima oporezivi primici na godišnjoj razini ne prelaze
-              15.000,00 kn.
+              1990,84 EUR.
             </p>
             <p class="full os-calculator-description">
               Uzdržavani članovi vašeg kućanstva povećavaju vaš osobni odbitak,
@@ -559,16 +543,16 @@
               class="half flex flex-responsive column-right-pad column-right-border"
             >
               <h4 class="full overtitle">Neto plaća</h4>
-              <p class="full os-calculator-result">{{ netoPlaca }} kn</p>
-              <h4 class="full overtitle">{{ netoPlacaEur }} EUR</h4>
+              <p class="full os-calculator-result">{{ netoPlaca }} EUR</p>
+              <h4 class="full overtitle">{{ netoPlacaEur }} HRK</h4>
             </div>
             <div
               class="full flex mobile-only column-bottom-border-mobile os-calculator-mobile-space"
             ></div>
             <div class="half flex flex-responsive column-left-pad">
               <h4 class="full overtitle">Bruto plaća</h4>
-              <p class="full os-calculator-result">{{ brutoPlaca }} kn</p>
-              <h4 class="full overtitle">{{ brutoPlacaEur }} EUR</h4>
+              <p class="full os-calculator-result">{{ brutoPlaca }} EUR</p>
+              <h4 class="full overtitle">{{ brutoPlacaEur }} HRK</h4>
             </div>
             <p class="full os-calculator-description">
               Telegramov kalkulator plaće je isključivo informativan te se ne
@@ -581,8 +565,8 @@
                 <div class="third flex-responsive">Bruto iznos</div>
                 <div class="two-thirds flex-responsive flex">
                   <div class="third"></div>
-                  <div class="third right-text">{{ brutoPlaca }} HRK</div>
-                  <div class="third right-text">{{ brutoPlacaEur }} EUR</div>
+                  <div class="third right-text">{{ brutoPlaca }} EUR</div>
+                  <div class="third right-text">{{ brutoPlacaEur }} HRK</div>
                 </div>
               </div>
               <div
@@ -593,9 +577,9 @@
                 </div>
                 <div class="two-thirds flex-responsive flex">
                   <div class="third">15.00%</div>
-                  <div class="third right-text">{{ mirovinskoJedan }} HRK</div>
+                  <div class="third right-text">{{ mirovinskoJedan }} EUR</div>
                   <div class="third right-text">
-                    {{ mirovinskoJedanEur }} EUR
+                    {{ mirovinskoJedanEur }} HRK
                   </div>
                 </div>
               </div>
@@ -607,8 +591,8 @@
                 </div>
                 <div class="two-thirds flex-responsive flex">
                   <div class="third">5.00%</div>
-                  <div class="third right-text">{{ mirovinskoDva }} HRK</div>
-                  <div class="third right-text">{{ mirovinskoDvaEur }} EUR</div>
+                  <div class="third right-text">{{ mirovinskoDva }} EUR</div>
+                  <div class="third right-text">{{ mirovinskoDvaEur }} HRK</div>
                 </div>
               </div>
               <div
@@ -617,8 +601,8 @@
                 <div class="third flex-responsive">Ukupno doprinosi</div>
                 <div class="two-thirds flex-responsive flex">
                   <div class="third">20.00%</div>
-                  <div class="third right-text">{{ doprinosi }} HRK</div>
-                  <div class="third right-text">{{ doprinosiEur }} EUR</div>
+                  <div class="third right-text">{{ doprinosi }} EUR</div>
+                  <div class="third right-text">{{ doprinosiEur }} HRK</div>
                 </div>
               </div>
               <div
@@ -627,8 +611,8 @@
                 <div class="third flex-responsive">Dohodak</div>
                 <div class="two-thirds flex-responsive flex">
                   <div class="third"></div>
-                  <div class="third right-text">{{ dohodak }} HRK</div>
-                  <div class="third right-text">{{ dohodakEur }} EUR</div>
+                  <div class="third right-text">{{ dohodak }} EUR</div>
+                  <div class="third right-text">{{ dohodakEur }} HRK</div>
                 </div>
               </div>
               <div
@@ -637,8 +621,8 @@
                 <div class="third flex-responsive">Osobni odbitak</div>
                 <div class="two-thirds flex-responsive flex">
                   <div class="third"></div>
-                  <div class="third right-text">{{ osobniOdbitak }} HRK</div>
-                  <div class="third right-text">{{ osobniOdbitakEur }} EUR</div>
+                  <div class="third right-text">{{ osobniOdbitak }} EUR</div>
+                  <div class="third right-text">{{ osobniOdbitakEur }} HRK</div>
                 </div>
               </div>
               <div
@@ -647,30 +631,30 @@
                 <div class="third flex-responsive">Porezna osnovica</div>
                 <div class="two-thirds flex-responsive flex">
                   <div class="third"></div>
-                  <div class="third right-text">{{ poreznaOsnovica }} HRK</div>
+                  <div class="third right-text">{{ poreznaOsnovica }} EUR</div>
                   <div class="third right-text">
-                    {{ poreznaOsnovicaEur }} EUR
+                    {{ poreznaOsnovicaEur }} HRK
                   </div>
                 </div>
               </div>
               <div
                 class="full flex relative column-bottom-border column-bottom-border-mobile"
               >
-                <div class="third flex-responsive">Porez ispod 30,000 kn</div>
+                <div class="third flex-responsive">Porez ispod 3981,68 €</div>
                 <div class="two-thirds flex-responsive flex">
                   <div class="third">20.00%</div>
-                  <div class="third right-text">{{ porez1 }} HRK</div>
-                  <div class="third right-text">{{ porez1Eur }} EUR</div>
+                  <div class="third right-text">{{ porez1 }} EUR</div>
+                  <div class="third right-text">{{ porez1Eur }} HRK</div>
                 </div>
               </div>
               <div
                 class="full flex relative column-bottom-border column-bottom-border-mobile"
               >
-                <div class="third flex-responsive">Porez preko 30,000 kn</div>
+                <div class="third flex-responsive">Porez preko 3981,68 €</div>
                 <div class="two-thirds flex-responsive flex">
                   <div class="third">30.00%</div>
-                  <div class="third right-text">{{ porez2 }} HRK</div>
-                  <div class="third right-text">{{ porez2Eur }} EUR</div>
+                  <div class="third right-text">{{ porez2 }} EUR</div>
+                  <div class="third right-text">{{ porez2Eur }} HRK</div>
                 </div>
               </div>
               <div
@@ -681,8 +665,8 @@
                   <div class="third">
                     {{ prirez[prebivaliste].toFixed(2) }} %
                   </div>
-                  <div class="third right-text">{{ prirezKn }} HRK</div>
-                  <div class="third right-text">{{ prirezEur }} EUR</div>
+                  <div class="third right-text">{{ prirezKn }} EUR</div>
+                  <div class="third right-text">{{ prirezEur }} HRK</div>
                 </div>
               </div>
               <div
@@ -691,8 +675,8 @@
                 <div class="third flex-responsive">Ukupan porez i prirez</div>
                 <div class="two-thirds flex-responsive flex">
                   <div class="third">{{ efektivnaPoreznaStopa }} %</div>
-                  <div class="third right-text">{{ ukupanPorez }} HRK</div>
-                  <div class="third right-text">{{ ukupanPorezEur }} EUR</div>
+                  <div class="third right-text">{{ ukupanPorez }} EUR</div>
+                  <div class="third right-text">{{ ukupanPorezEur }} HRK</div>
                 </div>
               </div>
               <div
@@ -701,8 +685,8 @@
                 <div class="third flex-responsive">Neto iznos</div>
                 <div class="two-thirds flex-responsive flex">
                   <div class="third"></div>
-                  <div class="third right-text">{{ netoPlaca }} HRK</div>
-                  <div class="third right-text">{{ netoPlacaEur }} EUR</div>
+                  <div class="third right-text">{{ netoPlaca }} EUR</div>
+                  <div class="third right-text">{{ netoPlacaEur }} HRK</div>
                 </div>
               </div>
             </div>
@@ -715,16 +699,16 @@
               class="half flex flex-responsive column-right-pad column-right-border"
             >
               <h4 class="full overtitle">Bruto plaća</h4>
-              <p class="full os-calculator-result">{{ brutoPlaca }} kn</p>
-              <h4 class="full overtitle">{{ brutoPlacaEur }} EUR</h4>
+              <p class="full os-calculator-result">{{ brutoPlaca }} EUR</p>
+              <h4 class="full overtitle">{{ brutoPlacaEur }} HRK</h4>
             </div>
             <div
               class="full flex mobile-only column-bottom-border-mobile os-calculator-mobile-space"
             ></div>
             <div class="half flex flex-responsive column-left-pad">
               <h4 class="full overtitle">Trošak plaće (Bruto 2)</h4>
-              <p class="full os-calculator-result">{{ brutoDva }} kn</p>
-              <h4 class="full overtitle">{{ brutoDvaEur }} EUR</h4>
+              <p class="full os-calculator-result">{{ brutoDva }} EUR</p>
+              <h4 class="full overtitle">{{ brutoDvaEur }} HRK</h4>
             </div>
             <p class="full os-calculator-description">
               Na bruto plaću poslodavac još plaća doprinos za zdravstveno
@@ -745,8 +729,8 @@
                 <div class="third flex-responsive">Bruto 1</div>
                 <div class="two-thirds flex-responsive flex">
                   <div class="third"></div>
-                  <div class="third right-text">{{ brutoPlaca }} HRK</div>
-                  <div class="third right-text">{{ brutoPlacaEur }} EUR</div>
+                  <div class="third right-text">{{ brutoPlaca }} EUR</div>
+                  <div class="third right-text">{{ brutoPlacaEur }} HRK</div>
                 </div>
               </div>
               <div
@@ -757,8 +741,8 @@
                 </div>
                 <div class="two-thirds flex-responsive flex">
                   <div class="third">16.5%</div>
-                  <div class="third right-text">{{ zdravstvo }} HRK</div>
-                  <div class="third right-text">{{ zdravstvoEur }} EUR</div>
+                  <div class="third right-text">{{ zdravstvo }} EUR</div>
+                  <div class="third right-text">{{ zdravstvoEur }} HRK</div>
                 </div>
               </div>
               <div
@@ -767,8 +751,8 @@
                 <div class="third flex-responsive">Bruto 2</div>
                 <div class="two-thirds flex-responsive flex">
                   <div class="third"></div>
-                  <div class="third right-text">{{ brutoDva }} HRK</div>
-                  <div class="third right-text">{{ brutoDvaEur }} EUR</div>
+                  <div class="third right-text">{{ brutoDva }} EUR</div>
+                  <div class="third right-text">{{ brutoDvaEur }} HRK</div>
                 </div>
               </div>
             </div>
@@ -834,7 +818,7 @@ export default {
   name: 'KalkulatorPlaca',
   data() {
     return {
-      iznos: 7690,
+      iznos: 1500,
       uzdrzavani: 0,
       djeca: 0,
       prebivaliste: 'zagreb',
@@ -1160,7 +1144,7 @@ export default {
       },
       eurTecaj: 7.5345,
       invalidnost: 'invalidnost-none',
-      smjerKonverzije: 'neto-u-bruto',
+      smjerKonverzije: 'bruto-u-neto',
       loading: false,
       posts: [],
       page: 1,
@@ -1177,7 +1161,7 @@ export default {
       }
     },
     mirovinskoJedanEur() {
-      return (this.mirovinskoJedan / this.eurTecaj).toFixed(2)
+      return (this.mirovinskoJedan * this.eurTecaj).toFixed(2)
     },
     mirovinskoDva() {
       if (this.smjerKonverzije === 'neto-u-bruto') {
@@ -1187,7 +1171,7 @@ export default {
       }
     },
     mirovinskoDvaEur() {
-      return Number(this.mirovinskoDva / this.eurTecaj).toFixed(2)
+      return Number(this.mirovinskoDva * this.eurTecaj).toFixed(2)
     },
     doprinosi() {
       return Number(
@@ -1201,9 +1185,11 @@ export default {
     },
     dohodak() {
       if (this.smjerKonverzije === 'neto-u-bruto') {
-        if (this.poreznaOsnovicaReverse < 30001) {
+        if (Number(this.osobniOdbitak) > Number(this.iznos)) {
+          return Number(this.iznos)
+        } else if (this.poreznaOsnovica < 3981.69) {
           return Number(
-            Number(this.poreznaOsnovicaReverse) /
+            Number(this.poreznaOsnovica) /
               Number(
                 1 -
                   Number(
@@ -1218,9 +1204,9 @@ export default {
           return Number(
             Number(
               Number(
-                (Number(this.poreznaOsnovicaReverse) -
-                  3000 -
-                  3000 * Number(this.prirezKn)) /
+                (Number(this.poreznaOsnovica) -
+                  398.17 -
+                  398.17 * Number(this.prirezKn)) /
                   Number(0.7 - Number(0.3 * Number(this.prirezKn)))
               )
             ) + Number(this.osobniOdbitak)
@@ -1231,7 +1217,7 @@ export default {
       }
     },
     dohodakEur() {
-      return Number(this.dohodak / this.eurTecaj).toFixed(2)
+      return Number(this.dohodak * this.eurTecaj).toFixed(2)
     },
     invalidnostBonus() {
       switch (this.invalidnost) {
@@ -1239,10 +1225,10 @@ export default {
           return 0
         }
         case 'invalidnost-half': {
-          return 1000
+          return 132.72
         }
         case 'invalidnost-full': {
-          return 3750
+          return 497.71
         }
         default: {
           return 0
@@ -1255,31 +1241,31 @@ export default {
           return 0
         }
         case 1: {
-          return 1750
+          return 232.26
         }
         case 2: {
-          return 4250
+          return 564.07
         }
         case 3: {
-          return 7750
+          return 1028.6
         }
         case 4: {
-          return 12500
+          return 1659.04
         }
         case 5: {
-          return 18750
+          return 2488.55
         }
         case 6: {
-          return 26750
+          return 3550.34
         }
         case 7: {
-          return 36750
+          return 4877.56
         }
         case 8: {
-          return 49000
+          return 6503.42
         }
         case 9: {
-          return 63750
+          return 8461.08
         }
         default: {
           return 0
@@ -1292,31 +1278,31 @@ export default {
           return 0
         }
         case 1: {
-          return 1750
+          return 232.26
         }
         case 2: {
-          return 3500
+          return 464.53
         }
         case 3: {
-          return 5250
+          return 696.79
         }
         case 4: {
-          return 7000
+          return 929.06
         }
         case 5: {
-          return 8750
+          return 1161.32
         }
         case 6: {
-          return 10500
+          return 1393.59
         }
         case 7: {
-          return 12250
+          return 1625.85
         }
         case 8: {
-          return 14000
+          return 1858.12
         }
         case 9: {
-          return 15750
+          return 2090.38
         }
         default: {
           return 0
@@ -1325,52 +1311,47 @@ export default {
     },
     osobniOdbitak() {
       return Number(
-        this.invalidnostBonus + this.djecaBonus + this.uzdrzavaniBonus + 4000
+        this.invalidnostBonus + this.djecaBonus + this.uzdrzavaniBonus + 530.89
       ).toFixed(2)
     },
     osobniOdbitakEur() {
-      return Number(this.osobniOdbitak / this.eurTecaj).toFixed(2)
+      return Number(this.osobniOdbitak * this.eurTecaj).toFixed(2)
     },
     poreznaOsnovica() {
-      if (Number(this.dohodak) > Number(this.osobniOdbitak)) {
-        return Number(this.dohodak - this.osobniOdbitak).toFixed(2)
-      } else {
-        return Number(0).toFixed(2)
-      }
-    },
-    poreznaOsnovicaReverse() {
       if (this.smjerKonverzije === 'neto-u-bruto') {
         if (Number(this.iznos) > Number(this.osobniOdbitak)) {
           return Number(this.iznos - this.osobniOdbitak).toFixed(2)
         } else {
           return Number(0).toFixed(2)
         }
+      } else if (Number(this.dohodak) > Number(this.osobniOdbitak)) {
+        return Number(this.dohodak - this.osobniOdbitak).toFixed(2)
       } else {
         return Number(0).toFixed(2)
       }
     },
     poreznaOsnovicaEur() {
-      return Number(this.poreznaOsnovica / this.eurTecaj).toFixed(2)
+      return Number(this.poreznaOsnovica * this.eurTecaj).toFixed(2)
     },
     porez1() {
-      if (this.poreznaOsnovica < 30001) {
+      if (this.poreznaOsnovica < 3981.69) {
         return Number(Number(this.poreznaOsnovica) * 0.2).toFixed(2)
       } else {
-        return Number(6000).toFixed(2)
+        return Number(796.34).toFixed(2)
       }
     },
     porez1Eur() {
-      return Number(this.porez1 / this.eurTecaj).toFixed(2)
+      return Number(this.porez1 * this.eurTecaj).toFixed(2)
     },
     porez2() {
-      if (this.poreznaOsnovica > 30000) {
-        return Number(Number(this.poreznaOsnovica - 30000) * 0.3).toFixed(2)
+      if (this.poreznaOsnovica > 3981.68) {
+        return Number(Number(this.poreznaOsnovica - 3981.68) * 0.3).toFixed(2)
       } else {
         return Number(0).toFixed(2)
       }
     },
     porez2Eur() {
-      return Number(this.porez2 / this.eurTecaj).toFixed(2)
+      return Number(this.porez2 * this.eurTecaj).toFixed(2)
     },
     prirezKn() {
       return Number(
@@ -1379,7 +1360,7 @@ export default {
       ).toFixed(2)
     },
     prirezEur() {
-      return Number(this.prirezKn / this.eurTecaj).toFixed(2)
+      return Number(this.prirezKn * this.eurTecaj).toFixed(2)
     },
     ukupanPorez() {
       return Number(
@@ -1387,7 +1368,7 @@ export default {
       ).toFixed(2)
     },
     ukupanPorezEur() {
-      return Number(this.ukupanPorez / this.eurTecaj).toFixed(2)
+      return Number(this.ukupanPorez * this.eurTecaj).toFixed(2)
     },
     efektivnaPoreznaStopa() {
       return Number(Number(this.ukupanPorez / this.dohodak) * 100).toFixed(2)
@@ -1400,7 +1381,7 @@ export default {
       }
     },
     netoPlacaEur() {
-      return Number(this.netoPlaca / this.eurTecaj).toFixed(2)
+      return Number(this.netoPlaca * this.eurTecaj).toFixed(2)
     },
     brutoPlaca() {
       if (this.smjerKonverzije === 'neto-u-bruto') {
@@ -1410,19 +1391,19 @@ export default {
       }
     },
     brutoPlacaEur() {
-      return Number(this.brutoPlaca / this.eurTecaj).toFixed(2)
+      return Number(this.brutoPlaca * this.eurTecaj).toFixed(2)
     },
     zdravstvo() {
       return Number(Number(Number(this.brutoPlaca) * 0.165)).toFixed(2)
     },
     zdravstvoEur() {
-      return Number(this.zdravstvo / this.eurTecaj).toFixed(2)
+      return Number(this.zdravstvo * this.eurTecaj).toFixed(2)
     },
     brutoDva() {
       return Number(Number(this.zdravstvo) + Number(this.brutoPlaca)).toFixed(2)
     },
     brutoDvaEur() {
-      return Number(this.brutoDva / this.eurTecaj).toFixed(2)
+      return Number(this.brutoDva * this.eurTecaj).toFixed(2)
     },
   },
   head() {

@@ -11114,3 +11114,10 @@ header .search-menu {
     font-size: 16px;
     font-size: 0.8rem;
 }
+
+.digital-lavander {
+    background-color: #D2C4E2;
+}
+.dark-mode .digital-lavander, .contrast-mode .digital-lavander {
+    background-color: inherit;
+}
