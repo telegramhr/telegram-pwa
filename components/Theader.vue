@@ -20,12 +20,13 @@
       <div class="menu flex">
         <div class="half" role="menu">
           <client-only>
-            <app-link
+            <a
               v-show="!$store.state.user.access"
               id="pretplatite se - burger menu"
-              to="/pretplata"
+              href="https://www.telegram.hr/pretplata"
               class="signup-btn sub-btn"
-              >Pretplatite se</app-link
+              target="_blank"
+              >Pretplatite se</a
             >
             <NuxtLink v-show="canLogIn" class="signup-btn" to="/login"
               >Prijava</NuxtLink
@@ -214,9 +215,16 @@
         </div>
         <div class="half" role="menu">
           <h3>Info</h3>
-          <app-link role="menuitem" to="/pretplata">Pretplata</app-link>
+          <a role="menuitem" href="https://www.telegram.hr/pretplata"
+            >Pretplata</a
+          >
           <app-link role="menuitem" to="/klub">Klub</app-link>
-          <app-link role="menuitem" to="/knjiga">Knjige</app-link>
+          <a
+            role="menuitem"
+            href="https://www.telegram.hr/knjiga"
+            target="_blank"
+            >Knjige</a
+          >
           <app-link role="menuitem" to="/stranica/impressum"
             >Impressum</app-link
           >
@@ -276,12 +284,13 @@
             <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
               >Prijava</a
             >
-            <app-link
+            <a
               v-show="!$store.state.user.access"
               id="pretplatite se - header"
-              to="/pretplata"
+              href="https://www.telegram.hr/pretplata"
               class="signup-btn sub-btn"
-              >Pretplatite se</app-link
+              target="_blank"
+              >Pretplatite se</a
             >
             <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun">
               <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
@@ -336,12 +345,13 @@
             <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
               >Prijava</a
             >
-            <app-link
+            <a
               v-show="!$store.state.user.access"
               id="pretplatite se - header"
-              to="/pretplata"
+              href="https://www.telegram.hr/pretplata"
               class="signup-btn sub-btn"
-              >Pretplatite se</app-link
+              target="_blank"
+              >Pretplatite se</a
             >
             <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun">
               <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
@@ -462,12 +472,13 @@
             <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
               >Prijava</a
             >
-            <app-link
+            <a
               v-show="!$store.state.user.access"
               id="pretplatite se - header"
-              to="/pretplata"
+              href="https://www.telegram.hr/pretplata"
               class="signup-btn sub-btn"
-              >Pretplatite se</app-link
+              target="_blank"
+              >Pretplatite se</a
             >
             <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun">
               <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
@@ -542,12 +553,13 @@
             <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
               >Prijava</a
             >
-            <app-link
+            <a
               v-show="!$store.state.user.access"
               id="pretplatite se - header"
-              to="/pretplata"
+              href="https://www.telegram.hr/pretplata"
               class="signup-btn sub-btn"
-              >Pretplatite se</app-link
+              target="_blank"
+              >Pretplatite se</a
             >
             <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun">
               <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
@@ -727,6 +739,7 @@
         class="mob-nav-otherbtn mobile-only"
         @click.prevent="login"
       >
+        {{ $store.state.user.uid }}
         <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
       ></a>
       <app-link
@@ -901,11 +914,13 @@
         </div>
       </div>-->
     </header>
+    <login v-show="showLogin" @close="closeLogin"></login>
   </div>
 </template>
 
 <script>
 import { Share } from '@capacitor/share'
+// import { Capacitor } from '@capacitor/core'
 
 export default {
   name: 'Header',
@@ -939,6 +954,7 @@ export default {
       dynamicHeader: false,
       hideDynamicHeader: false,
       search_term: '',
+      showLogin: false,
     }
   },
   computed: {
@@ -992,15 +1008,18 @@ export default {
     },
   },
   mounted() {
-    this.clearFC()
-    this.$store.dispatch('stocks/pullStocks')
-    this.$store.dispatch('user/checkAccess')
+    // this.clearFC()
+    // this.$store.dispatch('stocks/pullStocks')
+    // this.$store.dispatch('user/checkAccess')
     this.$store.dispatch('theme/loadTheme')
     if (this.canLogIn) {
-      // this.login()
+      this.login()
     }
   },
   methods: {
+    closeLogin() {
+      this.showLogin = false
+    },
     clearFC() {
       if (process.client) {
         this.$store.dispatch('user/checkAdmin')
@@ -1039,7 +1058,7 @@ export default {
     },
     login() {
       this.maybeCloseSide()
-      this.$store.dispatch('user/login')
+      this.showLogin = true
     },
     logout() {
       this.maybeCloseSide()

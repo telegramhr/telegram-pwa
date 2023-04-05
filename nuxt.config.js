@@ -35,7 +35,7 @@ export default {
       },
     ],
     script: [
-      {
+      /* {
         src: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js',
         async: true,
       },
@@ -48,7 +48,7 @@ export default {
         hid: 'cxense',
         src: 'https://cdn.cxense.com/cx.cce.js',
         async: true,
-      },
+      }, */
       {
         hid: 'coral',
         src: 'https://talk.telegram.hr/assets/js/embed.js',
@@ -76,14 +76,14 @@ export default {
     { src: '@/plugins/persisted.client.js' },
     { src: '@/plugins/vue-slick-carousel.js' },
     // { src: '@/plugins/piano-cxense.js', ssr: false },
-    { src: '@/plugins/piano.js', ssr: false },
+    // { src: '@/plugins/piano.js', ssr: false },
     { src: '@/plugins/mobile.js' },
     // { src: '@/plugins/cxtrack.js', ssr: false },
     { src: '@/plugins/fontawesome.js' },
     // { src: '@/plugins/gemius.client.js' },
     // { src: '@/plugins/dotmetrics.client.js' },
     // { src: '@/plugins/marfeel.client.js' },
-    { src: '@/plugins/piano-capacitor.js' },
+    // { src: '@/plugins/piano-capacitor.js' },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)

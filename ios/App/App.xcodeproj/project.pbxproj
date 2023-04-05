@@ -15,6 +15,8 @@
 		504EC3121FED79650016851F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 504EC3101FED79650016851F /* LaunchScreen.storyboard */; };
 		50B271D11FEDC1A000F3C39B /* public in Resources */ = {isa = PBXBuildFile; fileRef = 50B271D01FEDC1A000F3C39B /* public */; };
 		532E9D7E29E6B82EC812EB8E /* Pods_Telegram_hr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46F22D0DBE358DE15D1ECB2C /* Pods_Telegram_hr.framework */; };
+		AD48B27629D5B15600C307E6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD48B27529D5B15500C307E6 /* GoogleService-Info.plist */; };
+		ADB2D3DC29DC74F90057626F /* sc.aiff in Resources */ = {isa = PBXBuildFile; fileRef = ADB2D3DB29DC74F90057626F /* sc.aiff */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,10 @@
 		50B271D01FEDC1A000F3C39B /* public */ = {isa = PBXFileReference; lastKnownFileType = folder; path = public; sourceTree = "<group>"; };
 		6AD2AF44C21E5823D2D31C14 /* Pods-Telegram.hr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Telegram.hr.release.xcconfig"; path = "Pods/Target Support Files/Pods-Telegram.hr/Pods-Telegram.hr.release.xcconfig"; sourceTree = "<group>"; };
 		6AFBD2C8B42486831C5EDA19 /* Pods-Telegram.hr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Telegram.hr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Telegram.hr/Pods-Telegram.hr.debug.xcconfig"; sourceTree = "<group>"; };
+		AD48B27529D5B15500C307E6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AD48B27729D5B30200C307E6 /* Telegram.hrDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Telegram.hrDebug.entitlements; sourceTree = "<group>"; };
+		ADB2D3DB29DC74F90057626F /* sc.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = sc.aiff; sourceTree = "<group>"; };
+		ADB2D3DD29DD5B5F0057626F /* Telegram.hr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Telegram.hr.entitlements; sourceTree = "<group>"; };
 		ADD3F53329928DB8005D464E /* Telegram.hr-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Telegram.hr-Bridging-Header.h"; sourceTree = "<group>"; };
 		AF51FD2D460BCFE21FA515B2 /* Pods-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App.release.xcconfig"; path = "Pods/Target Support Files/Pods-App/Pods-App.release.xcconfig"; sourceTree = "<group>"; };
 		FC68EB0AF532CFC21C3344DD /* Pods-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-App/Pods-App.debug.xcconfig"; sourceTree = "<group>"; };
@@ -58,6 +64,8 @@
 		504EC2FB1FED79650016851F = {
 			isa = PBXGroup;
 			children = (
+				ADB2D3DD29DD5B5F0057626F /* Telegram.hr.entitlements */,
+				AD48B27729D5B30200C307E6 /* Telegram.hrDebug.entitlements */,
 				504EC3061FED79650016851F /* App */,
 				504EC3051FED79650016851F /* Products */,
 				7F8756D8B27F46E3366F6CEA /* Pods */,
@@ -76,6 +84,8 @@
 		504EC3061FED79650016851F /* App */ = {
 			isa = PBXGroup;
 			children = (
+				ADB2D3DB29DC74F90057626F /* sc.aiff */,
+				AD48B27529D5B15500C307E6 /* GoogleService-Info.plist */,
 				50379B222058CBB4000EE86E /* capacitor.config.json */,
 				504EC3071FED79650016851F /* AppDelegate.swift */,
 				504EC30B1FED79650016851F /* Main.storyboard */,
@@ -162,11 +172,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				504EC3121FED79650016851F /* LaunchScreen.storyboard in Resources */,
+				ADB2D3DC29DC74F90057626F /* sc.aiff in Resources */,
 				50B271D11FEDC1A000F3C39B /* public in Resources */,
 				504EC30F1FED79650016851F /* Assets.xcassets in Resources */,
 				50379B232058CBB4000EE86E /* capacitor.config.json in Resources */,
 				504EC30D1FED79650016851F /* Main.storyboard in Resources */,
 				2FAD9763203C412B000D30F8 /* config.xml in Resources */,
+				AD48B27629D5B15600C307E6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +364,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Telegram.hrDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DD6H56JWUD;
 				INFOPLIST_FILE = App/Info.plist;
@@ -380,6 +393,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Telegram.hr.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DD6H56JWUD;
 				INFOPLIST_FILE = App/Info.plist;

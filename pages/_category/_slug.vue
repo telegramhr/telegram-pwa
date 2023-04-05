@@ -284,14 +284,6 @@
                 >
                   <gallery :gallery="gallery"></gallery>
                 </portal>
-                <portal
-                  v-if="!hasPremium && !post.category_slug.includes('superone')"
-                  selector="#intext_premium"
-                >
-                  <div class="full">
-                    <offers-premium></offers-premium>
-                  </div>
-                </portal>
               </client-only>
               <!-- Article footer -->
               <div

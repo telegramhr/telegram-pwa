@@ -66,10 +66,12 @@ export const actions = {
         resolve(state.coral_token)
         return
       }
-      this.$axios.get(`/pretplate/coral/token/${state.uid}`).then((res) => {
-        commit('setCoral', res.data)
-        resolve(res.data)
-      })
+      this.$axios
+        .get(`https://pretplate.telegram.hr/coral/token/${state.uid}`)
+        .then((res) => {
+          commit('setCoral', res.data)
+          resolve(res.data)
+        })
     })
   },
   setAccess({ commit, dispatch, state }, data) {
@@ -132,7 +134,7 @@ export const actions = {
             }
           })
         } else {
-          dispatch('logout')
+          // dispatch('logout')
         }
       },
     ])
@@ -143,46 +145,28 @@ export const actions = {
     }
   },
   logout({ commit, dispatch, state }) {
-    console.log('logout')
-    /* this.$cookies.remove('tmg_access', {
-      path: '/',
-      domain: '.telegram.hr',
-    })
-    if (state.first_name) {
-      window.tp.pianoId.logout()
-      dispatch('newsletters/clearAccess', null, { root: true })
-    }
-    commit('logout') */
+    commit('logout')
   },
-  login({ commit, dispatch }) {
-    console.log('init login', window.location.href)
-    // const aid = 'QuTHmVhFpu'
-    // const secret = 'yBtIrFtAFaWCOjbgkPfItvwYedwmXJ4m'
-    /* Browser.open({
-      url: `https://id.piano.io/id/?response_type=code&client_id=${aid}&redirect_uri=app.telegram.hr&disable_sign_up=true`,
-    }).then((res) => {
-      console.log('open browser', res)
-    })
-    this.$piano.login().then((res) => {
-      console.log(res)
-    }) */
-    window.tp.pianoId.show({
-      screen: 'login',
-      loginDisplayed() {
-        console.log('login displayed')
-      },
-      loginSuccess(data) {
-        console.log('login success', data)
-      },
-      loggedIn(data) {
-        console.log('data', data)
-        dispatch('setUser', data.user)
-        commit('setToken', data.token)
-        window.tp.api.callApi('/access/list', {}, function (response) {
-          console.log(response)
-          dispatch('setAccess', { data: response.data, user: data.user })
+  login({ commit, dispatch }, data) {
+    return new Promise((resolve, reject) => {
+      this.$axios
+        .post('https://pretplate.telegram.hr/api/piano/login', {
+          email: data.email,
+          password: data.password,
         })
-      },
+        .then((res) => {
+          if (!res.data.term.rid) {
+            reject(Error('Nemate pretplatu'))
+          }
+          commit('setUser', res.data.user)
+          commit('setTerm', res.data.term)
+          commit('setToken', res.data.token.access_token)
+          commit('setCoral', res.data.coral_token)
+          resolve()
+        })
+        .catch(() => {
+          reject(Error('Neispravni podaci'))
+        })
     })
   },
 }

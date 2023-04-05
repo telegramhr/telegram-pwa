@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "861058356878",
+    "project_id": "telegram-hr",
+    "storage_bucket": "telegram-hr.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:861058356878:android:7350d69edddb3734b99bdf",
+        "android_client_info": {
+          "package_name": "hr.telegram.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "861058356878-qi3ma7qujvpuerhaeicdcud9daqacb3q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuJA6uDFw17IQuwK6drso3Ct5-EMrBvmM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "861058356878-qi3ma7qujvpuerhaeicdcud9daqacb3q.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "861058356878-pa6rmuq31802nvd0oaer1gf8j7geuo2u.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "hr.telegram.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

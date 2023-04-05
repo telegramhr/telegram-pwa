@@ -285,11 +285,6 @@
         </div>
       </div>
     </div>
-    <client-only>
-      <div v-if="!hasPremium" class="full relative">
-        <offers-premium></offers-premium>
-      </div>
-    </client-only>
     <!-- TG preporuka -->
     <div class="full relative">
       <div
@@ -475,7 +470,7 @@
       </div>
     </div>
     <!-- Prekid knjiga -->
-    <div class="full relative">
+    <!--<div class="full relative">
       <div class="container flex relative column-full-pad">
         <app-link
           to="/knjiga/rajko-grlic-neispricane-price"
@@ -518,7 +513,7 @@
           </div>
         </app-link>
       </div>
-    </div>
+    </div>-->
     <!-- Prekid dojave
     <div class="full relative desktop-only">
       <div class="container flex relative column-full-pad"
@@ -560,17 +555,17 @@
       </div>
     </div> -->
     <!-- Sport -->
-    <!--<div class="full relative">
+    <div class="full relative">
       <client-only>
         <sport></sport>
       </client-only>
-    </div>-->
+    </div>
     <!-- Widget partneri -->
-    <div class="full relative">
+    <!--<div class="full relative">
       <client-only>
         <partners></partners>
       </client-only>
-    </div>
+    </div>-->
     <!-- Super1 -->
     <div class="full relative">
       <client-only>
@@ -672,17 +667,14 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      if (this.canLogIn) {
-        this.$router.push('/login')
-      }
-      this.loadAds()
+      // this.loadAds()
       this.$telegram.$loading.finish()
     })
   },
   methods: {
     manageLogin() {
       if (this.canLogIn) {
-        this.$router.push('/login')
+        // this.$router.push('/login')
       } else {
         this.$store.dispatch('user/logout')
       }

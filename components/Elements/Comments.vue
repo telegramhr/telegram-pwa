@@ -31,7 +31,7 @@ export default {
             eventName === 'loginPrompt' ||
             (eventName === 'createCommentFocus' && !this.$store.state.user.uid)
           ) {
-            this.$store.dispatch('user/login')
+            this.$router.push('/login')
           }
         })
       },

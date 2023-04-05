@@ -6,19 +6,58 @@
 </template>
 
 <script>
+import { PushNotifications } from '@capacitor/push-notifications'
 export default {
-  middleware: 'piano',
   data() {
     return {
       key: Math.round(Date.now() / 1000),
     }
   },
-  mounted() {
+  async mounted() {
     this.$nextTick(() => {
-      setInterval(() => {
-        this.key = Math.round(Date.now() / 1000)
-      }, 2 * 60 * 1000)
+      if (this.$route.name === 'index') {
+        setInterval(() => {
+          this.key = Math.round(Date.now() / 1000)
+        }, 2 * 60 * 1000)
+      }
     })
+    await PushNotifications.addListener('registration', (token) => {
+      this.$axios.post(
+        'https://pretplate.telegram.hr/api/notifications/subscribe',
+        {
+          uid: this.$store.state.user.uid,
+          token: token.value,
+        }
+      )
+      // this.$store.commit('notifications/setGranted')
+      // this.$store.commit('notifications/setRegister')
+    })
+    await PushNotifications.addListener(
+      'pushNotificationActionPerformed',
+      (notification) => {
+        if (notification.notification.data.url.includes('https:')) {
+          window.open(notification.notification.data.url, '_blank')
+          return
+        }
+        this.$router.push(notification.notification.data.url)
+      }
+    )
+    await this.registerNotifications()
+  },
+  methods: {
+    test() {
+      PushNotifications.requestPermissions().then((status) => {
+        if (status.receive === 'granted') {
+          PushNotifications.register()
+        }
+      })
+    },
+    async registerNotifications() {
+      const permStatus = await PushNotifications.checkPermissions()
+      if (permStatus.receive === 'granted') {
+        PushNotifications.register()
+      }
+    },
   },
   head() {
     let font, theme

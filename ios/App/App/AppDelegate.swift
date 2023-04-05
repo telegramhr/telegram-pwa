@@ -1,5 +1,6 @@
 import UIKit
 import Capacitor
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -7,11 +8,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        //PianoID.shared.aid = "QuTHmVhFpu"
-        //PianoID.shared.delegate = self
-        //PianoOAuth.PianoIDApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
-    
+        FirebaseApp.configure()
+        // When running from Xcode in debug mode, enable webView inspection 5 seconds after startup
+        #if DEBUG
+          if #available(macOS 13.3, iOS 16.4, tvOS 16.4, *) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                      if let vc = self.window?.rootViewController as? CAPBridgeViewController {
+                          vc.bridge?.webView?.isInspectable = true;
+                      }
+                }
+          }
+        #endif
         return true
     }
 
@@ -50,7 +57,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // tracking app url opens, make sure to keep this call
         return ApplicationDelegateProxy.shared.application(application, continue: userActivity, restorationHandler: restorationHandler)
     }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+      Messaging.messaging().apnsToken = deviceToken
+      Messaging.messaging().token(completion: { (token, error) in
+        if let error = error {
+            NotificationCenter.default.post(name: .capacitorDidFailToRegisterForRemoteNotifications, object: error)
+        } else if let token = token {
+            NotificationCenter.default.post(name: .capacitorDidRegisterForRemoteNotifications, object: token)
+        }
+      })
+    }
 
-
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+      NotificationCenter.default.post(name: .capacitorDidFailToRegisterForRemoteNotifications, object: error)
+    }
 }
 
