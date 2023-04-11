@@ -2449,6 +2449,33 @@
           >
             <div class="klub-ponuda-tile relative">
               <div class="klub-sticker center">
+                <div class="full center-text klub-sticker-amount">20%</div>
+                <div class="full center-text klub-sticker-text">popust</div>
+              </div>
+              <div class="full center">
+                <img
+                  src="@/assets/img/extras/klub/tg_visual_klub_lider.jpg"
+                  aria-hidden="true"
+                />
+              </div>
+            </div>
+            <h3 class="full overtitle">Lider</h3>
+            <a href="#ostalo" @click="selected_ostalo = 'lider'">
+              <h2 class="full">Popust na kupnju All-digital pretplate</h2></a
+            >
+            <a
+              href="#ostalo"
+              class="newbtn clickable"
+              @click="selected_ostalo = 'lider'"
+            >
+              Iskoristite ponudu
+            </a>
+          </div>
+          <div
+            class="fourth flex article klub-ponuda relative column-horizontal-pad"
+          >
+            <div class="klub-ponuda-tile relative">
+              <div class="klub-sticker center">
                 <div class="full center-text klub-sticker-amount">5%</div>
                 <div class="full center-text klub-sticker-text">popust</div>
               </div>
@@ -2504,6 +2531,54 @@
                 odaberite željeno testiranje, i u ''Pregledu košarice“ upišite
                 kod <b>TELEGRAM20</b>. Kupite
                 <a target="_blank" href="http://webshop.mensa.hr/">ovdje.</a>
+              </p>
+            </div>
+            <div v-show="canLogIn" class="full flex">
+              <p class="full bold">
+                Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
+                pretplatnicima.
+              </p>
+              <app-link to="/pretplata" class="newbtn huge-newbtn"
+                >Pretplatite se</app-link
+              >
+              <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+                >Prijava</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        v-if="selected_ostalo === 'lider'"
+        id="msu"
+        class="full flex relative klub-expanded"
+      >
+        <div class="container flex relative stretch mobile-side-pad">
+          <div class="close-klub-expand" @click="selected_ostalo = ''">x</div>
+          <div class="third center flex-responsive column-left-pad">
+            <img
+              src="@/assets/img/extras/klub/tg_visual_klub_lider.jpg"
+              aria-hidden="true"
+            />
+          </div>
+          <div class="two-thirds center flex-responsive article">
+            <h3 class="full overtitle">Lider</h3>
+            <h2 class="full">Popust na kupnju All-digital pretplate</h2>
+            <h4 class="full">
+              Telegramovi pretplatnici ostvaruju 20% popusta na kupnju
+              All-digital pretplate
+            </h4>
+            <div v-show="!canLogIn" class="full flex">
+              <p class="full bold">Kako do popusta?</p>
+              <p class="full">
+                Kako biste ostvarili svoj popust, posjetite web stranicu,
+                odaberite All-digital pretplatu i upišite kod <b>telegram20</b>.
+                Kupite
+                <a
+                  target="_blank"
+                  href="https://pretplate.lider.media/?utm_source=Posjeta%20na%20stranici%20sa%20izbornika%20weba&utm_medium=Web&utm_campaign=pretplata&utm_id=Izbornik%20weba"
+                  >ovdje.</a
+                >
               </p>
             </div>
             <div v-show="canLogIn" class="full flex">
