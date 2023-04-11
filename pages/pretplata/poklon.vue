@@ -339,6 +339,9 @@ export default {
       'article-author': this.$store.state.history.author,
       'user-type': this.$store.state.user.type,
     })
+    if (this.$route.query.promo_code) {
+      this.checkout(this.one)
+    }
   },
   methods: {
     checkout(termId) {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>{{ data.question }}</h2>
+    <h2 v-html="data.question"></h2>
     <textarea v-model="answer"></textarea>
     <button class="classic-btn" @click="next">Sljedeće</button>
   </div>
