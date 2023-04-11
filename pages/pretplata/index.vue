@@ -606,7 +606,7 @@
     <!-- Newsletteri -->
     <app-link
       to="/newsletters"
-      class="full cantha-break mobile-side-pad flex relative stretch"
+      class="full cantha-break mobile-side-pad center relative stretch"
       style="margin-bottom: 0px"
     >
       <div class="container flex stretch relative">
