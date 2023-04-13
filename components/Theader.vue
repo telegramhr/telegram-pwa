@@ -25,7 +25,7 @@
               id="pretplatite se - burger menu"
               href="https://www.telegram.hr/pretplata"
               class="signup-btn sub-btn"
-              target="_blank"
+              @click.prevent="$browser.open($event.currentTarget.href)"
               >Pretplatite se</a
             >
             <NuxtLink v-show="canLogIn" class="signup-btn" to="/login"
@@ -180,7 +180,12 @@
           </div>
           <h3>Kanali</h3>
           <app-link role="menuitem" to="/super1">Super1</app-link>
-          <a role="menuitem" href="https://telesport.telegram.hr">Telesport</a>
+          <a
+            role="menuitem"
+            href="https://telesport.telegram.hr"
+            @click.prevent="$browser.open($event.currentTarget.href)"
+            >Telesport</a
+          >
           <app-link role="menuitem" to="/openspace">Openspace</app-link>
           <app-link role="menuitem" to="/pitanje-zdravlja"
             >PitanjeZdravlja</app-link
@@ -192,37 +197,44 @@
             role="menuitem"
             href="https://www.facebook.com/Telegram.hr/"
             rel="noreferrer nofollow"
+            @click.prevent="$browser.open($event.currentTarget.href)"
             >Facebook</a
           >
           <a
             role="menuitem"
             href="https://twitter.com/telegramhr/"
             rel="noreferrer nofollow"
+            @click.prevent="$browser.open($event.currentTarget.href)"
             >Twitter</a
           >
           <a
             role="menuitem"
             href="https://www.instagram.com/telegram.hr/"
             rel="noreferrer nofollow"
+            @click.prevent="$browser.open($event.currentTarget.href)"
             >Instagram</a
           >
           <a
             role="menuitem"
             href="https://www.youtube.com/channel/UCV_gCZEP2ikrjZVTRulR7sw"
             rel="noreferrer nofollow"
+            @click.prevent="$browser.open($event.currentTarget.href)"
             >Youtube</a
           >
         </div>
         <div class="half" role="menu">
           <h3>Info</h3>
-          <a role="menuitem" href="https://www.telegram.hr/pretplata"
+          <a
+            role="menuitem"
+            href="https://www.telegram.hr/pretplata"
+            @click.prevent="$browser.open($event.currentTarget.href)"
             >Pretplata</a
           >
           <app-link role="menuitem" to="/klub">Klub</app-link>
           <a
             role="menuitem"
             href="https://www.telegram.hr/knjiga"
-            target="_blank"
+            @click.prevent="$browser.open($event.currentTarget.href)"
             >Knjige</a
           >
           <app-link role="menuitem" to="/stranica/impressum"
@@ -271,7 +283,11 @@
             <app-link role="menuitem" to="/kultura">Kultura</app-link>
             <app-link role="menuitem" to="/openspace">Openspace</app-link>
             <app-link to="/super1" role="menuitem">Super1</app-link>
-            <a href="https://telesport.telegram.hr" role="menuitem">
+            <a
+              href="https://telesport.telegram.hr"
+              role="menuitem"
+              @click.prevent="$browser.open($event.currentTarget.href)"
+            >
               Telesport
             </a>
           </div>
@@ -289,7 +305,7 @@
               id="pretplatite se - header"
               href="https://www.telegram.hr/pretplata"
               class="signup-btn sub-btn"
-              target="_blank"
+              @click.prevent="$browser.open($event.currentTarget.href)"
               >Pretplatite se</a
             >
             <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun">
@@ -350,7 +366,7 @@
               id="pretplatite se - header"
               href="https://www.telegram.hr/pretplata"
               class="signup-btn sub-btn"
-              target="_blank"
+              @click.prevent="$browser.open($event.currentTarget.href)"
               >Pretplatite se</a
             >
             <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun">
@@ -441,25 +457,21 @@
             <app-link
               role="menuitem"
               to="/pitanje-zdravlja/leksikon-zdravlja"
-              @click.native="maybeCloseSide"
               >Leksikon zdravlja</app-link
             >
             <app-link
               role="menuitem"
               to="/pitanje-zdravlja/lifestyle"
-              @click.native="maybeCloseSide"
               >Lifestyle</app-link
             >
             <app-link
               role="menuitem"
               to="/pitanje-zdravlja/vijesti"
-              @click.native="maybeCloseSide"
               >Vijesti</app-link
             >
             <app-link
               role="menuitem"
               to="/pitanje-zdravlja/price"
-              @click.native="maybeCloseSide"
               >Priče</app-link
             >
           </div>
@@ -477,7 +489,7 @@
               id="pretplatite se - header"
               href="https://www.telegram.hr/pretplata"
               class="signup-btn sub-btn"
-              target="_blank"
+              @click.prevent="$browser.open($event.currentTarget.href)"
               >Pretplatite se</a
             >
             <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun">
@@ -522,25 +534,21 @@
             <app-link
               role="menuitem"
               to="/openspace/vjestine"
-              @click.native="maybeCloseSide"
               >Vještine</app-link
             >
             <app-link
               role="menuitem"
               to="/openspace/tvrtke-karijere"
-              @click.native="maybeCloseSide"
               >Tvrtke i karijere</app-link
             >
             <app-link
               role="menuitem"
               to="/openspace/kvizovi-testovi"
-              @click.native="maybeCloseSide"
               >Kvizovi i testovi</app-link
             >
             <app-link
               role="menuitem"
               to="/openspace/vodici"
-              @click.native="maybeCloseSide"
               >Vodiči</app-link
             >
           </div>
@@ -558,7 +566,7 @@
               id="pretplatite se - header"
               href="https://www.telegram.hr/pretplata"
               class="signup-btn sub-btn"
-              target="_blank"
+              @click.prevent="$browser.open($event.currentTarget.href)"
               >Pretplatite se</a
             >
             <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun">

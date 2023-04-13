@@ -30,7 +30,9 @@
 export default {
   name: 'SuperPartneri',
   async fetch() {
-    this.posts = await this.$axios.$get('/api/s1/zone/s1-partneri')
+    this.posts = await this.$axios.$get(
+      `${this.$config.baseURL}/s1/zone/s1-partneri`
+    )
   },
   data() {
     return {

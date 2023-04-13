@@ -370,14 +370,16 @@ export const actions = {
         state.categories[payload.category].updated_most + 10 * 60 * 1000 <
         new Date().getTime()
       ) {
-        this.$axios.get('/api/most-read/' + payload.category).then((res) => {
-          commit('setMostRead', {
-            posts: res.data,
-            slug: payload.category,
+        this.$axios
+          .get(`${this.$config.baseURL}most-read/${payload.category}`)
+          .then((res) => {
+            commit('setMostRead', {
+              posts: res.data,
+              slug: payload.category,
+            })
+            dispatch('posts/setPosts', res.data.posts, { root: true })
+            resolve()
           })
-          dispatch('posts/setPosts', res.data.posts, { root: true })
-          resolve()
-        })
       } else {
         resolve()
       }

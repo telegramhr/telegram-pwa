@@ -84,6 +84,7 @@ export default {
     // { src: '@/plugins/dotmetrics.client.js' },
     // { src: '@/plugins/marfeel.client.js' },
     // { src: '@/plugins/piano-capacitor.js' },
+    { src: '@/plugins/browser.js' },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)

@@ -5,6 +5,7 @@ export const state = () => ({
 
 export const mutations = {
   updateMenu(state, menu) {
+    console.log('updateMenu', menu)
     if (menu === 'search') {
       state.showSearchMenu = !state.showSearchMenu
     }

@@ -1,6 +1,6 @@
 <template>
   <!-- eslint-disable-next-line -->
-  <component v-bind="linkProperties(to)">
+  <component v-bind="linkProperties(to)" @click.prevent="click(to)">
     <slot></slot>
   </component>
 </template>
@@ -24,19 +24,18 @@ export default {
         return {
           is: 'a',
           href: route,
-          target: '_blank',
         }
       }
       return {
         is: 'nuxt-link',
         to: {
           path: route,
-          query: this.tracker
-            ? {
-                tracker: this.tracker,
-              }
-            : {},
         },
+      }
+    },
+    click(route) {
+      if (route.match(/^(http(s)?|ftp):\/\//)) {
+        this.$browser.open(route)
       }
     },
   },

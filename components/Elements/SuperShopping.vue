@@ -66,7 +66,7 @@
 export default {
   name: 'SuperShopping',
   async fetch() {
-    this.posts = await this.$axios.$get('/api/s1/shopping')
+    this.posts = await this.$axios.$get(`${this.$config.baseURL}s1/shopping`)
   },
   data() {
     return {

@@ -7,6 +7,7 @@
 
 <script>
 import { PushNotifications } from '@capacitor/push-notifications'
+import { App } from '@capacitor/app'
 export default {
   data() {
     return {
@@ -43,6 +44,13 @@ export default {
       }
     )
     await this.registerNotifications()
+    App.addListener('backButton', (e) => {
+      if (this.$route.name === 'index') {
+        App.exitApp()
+      } else {
+        this.$router.go(-1)
+      }
+    })
   },
   methods: {
     test() {

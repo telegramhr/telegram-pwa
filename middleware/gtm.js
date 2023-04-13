@@ -1,6 +1,7 @@
 export default function (ctx) {
-  ctx.app.router.afterEach((to) => {
-    setTimeout(() => {
+  ctx.app.router.beforeEach((next) => {
+    next()
+    /* setTimeout(() => {
       ctx.$gtm.push({
         routeName: to.name,
         pageType: 'PageView',
@@ -9,6 +10,6 @@ export default function (ctx) {
         event: 'nuxtRoute',
         'user-type': ctx.store.state.user.type,
       })
-    }, 250)
+    }, 250) */
   })
 }
