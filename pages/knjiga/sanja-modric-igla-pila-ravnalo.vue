@@ -221,7 +221,7 @@ export default {
           name: 'og:image',
           property: 'og:image',
           content:
-            'https://www.telegram.hr/wp-content/uploads/2023/04/tg-naslovna-2023-04-18-modric-4.jpg',
+            'https://www.telegram.hr/wp-content/uploads/2023/04/tg-naslovna-2023-04-18-modric-5.jpg',
         },
         {
           hid: 'og:url',
