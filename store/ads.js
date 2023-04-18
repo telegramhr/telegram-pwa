@@ -1530,8 +1530,17 @@ export const actions = {
     window.pbjs.que = window.pbjs.que || []
     window.pbjs.que.push(() => {
       window.pbjs.setConfig({
-        debug: true,
+        ortb2: {
+          site: {
+            content: {
+              language: 'hr',
+            },
+          },
+        },
+        performanceMetrics: false,
+        debug: false,
         enableSendAllBids: true,
+        priceGranularity: 'low',
         consentManagement: {
           gdpr: {
             cmpApi: 'iab',
