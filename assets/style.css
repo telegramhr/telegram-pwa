@@ -9150,15 +9150,15 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .break-dezulovic img {
         margin: 0px;
     }
-    .break-dezulovic .sixty .third h2 {
+    .break-dezulovic .two-thirds .third h2 {
         font-size: 40px;
         font-size: 2rem;
         margin-top: 5vw;
     }
-    .break-dezulovic .sixty .third {
+    .break-dezulovic .two-thirds .third {
         order: 1;
     }
-    .break-dezulovic .sixty .two-thirds {
+    .break-dezulovic .two-thirds .two-thirds {
         order: 2;
     }
     .bottom-pretplata-promo h1 {
