@@ -75,14 +75,24 @@
             name="note"
             placeholder="Napomene"
           ></textarea>
-          <template v-if="price">
+          <label for="quantity">Broj željenih komada</label>
+          <input
+            id="quantity"
+            v-model="quantity"
+            type="number"
+            min="1"
+            max="100"
+            step="1"
+            name="quantity"
+          />
+          <template v-if="charge">
             <label>Broj kartice</label>
             <div id="credit-card" class="hosted-field"></div>
             <label>CVV (kontrolni broj)</label>
             <div id="cvv" class="hosted-field"></div>
             <label>Datum isteka</label>
             <div id="expiration-date" class="hosted-field"></div>
-            <button @click="submit">Platite {{ price }} €</button>
+            <button @click="submit">Platite {{ charge }} €</button>
           </template>
           <template v-else>
             <button @click="order">Naručite</button>
@@ -115,6 +125,7 @@ export default {
       access: {},
       thankyou: false,
       error: false,
+      quantity: 1,
       name:
         this.$store.state.user.first_name +
         ' ' +
@@ -135,6 +146,11 @@ export default {
     if (this.price) {
       this.getToken()
     }
+  },
+  computed: {
+    charge() {
+      return (this.price * this.quantity).toFixed(2)
+    },
   },
   methods: {
     getToken() {
@@ -215,7 +231,7 @@ export default {
             onLookupComplete: (data, next) => {
               next()
             },
-            amount: this.price,
+            amount: this.charge,
             nonce: payload.nonce,
             bin: payload.details.bin,
             email: this.$store.state.user.email,
@@ -272,8 +288,9 @@ export default {
                 },
                 billing: false,
                 nonce: this.nonce,
-                amount: this.price,
+                amount: this.charge,
                 deviceData: this.deviceData,
+                quantity: this.quantity,
               },
               { withCredentials: true }
             )
