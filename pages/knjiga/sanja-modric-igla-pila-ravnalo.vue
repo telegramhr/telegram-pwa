@@ -38,8 +38,8 @@
                 posebna cijena za sve pretplatnike Telegrama
               </h1>
               <h4 class="full relative center-text">
-                Naručite još danas i osigurajte svoj primjerak prije nego dođe u
-                knjižare, početkom svibnja. Besplatna dostava unutar Hrvatske.
+                Naručite još danas i osigurajte svoj primjerak početkom svibnja,
+                prije nego dođe u knjižare. Besplatna dostava unutar Hrvatske.
               </h4>
               <div class="full knjiga-keypoints">
                 <p class="full center-text">Izdavač: Telegram Media Grupa</p>
