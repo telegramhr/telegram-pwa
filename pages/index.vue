@@ -393,6 +393,7 @@
                 class="align-end"
                 src="@/assets/img/tg_knjiga_vizual_modric.png"
                 alt="Portret Sanje Modrić i naslovnica njene knjige 'Igla, pila, ravnalo'"
+                loading="lazy"
               />
             </div>
             <div class="third stretch center column-full-pad flex-responsive">

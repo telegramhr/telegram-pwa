@@ -11,20 +11,24 @@
           <img
             src="@/assets/img/extras/partner_logos/spar.svg"
             alt="Spar logo"
+            loading="lazy"
           />
           <img
             src="@/assets/img/extras/partner_logos/spar.svg"
             class="dark-mode-only"
             alt="Spar logo"
+            loading="lazy"
           />
           <img
             src="@/assets/img/extras/partner_logos/interspar.svg"
             alt="Interspar logo"
+            loading="lazy"
           />
           <img
             src="@/assets/img/extras/partner_logos/interspar.svg"
             class="dark-mode-only"
             alt="Interspar logo"
+            loading="lazy"
           />
         </div>
       </div>

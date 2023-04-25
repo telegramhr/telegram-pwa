@@ -40,11 +40,13 @@
             src="@/assets/img/tg_vizual_klub_mini.jpg"
             class="desktop-only"
             alt="Telegram Klub kolaž"
+            loading="lazy"
           />
           <img
             src="@/assets/img/tg_klub_header_vizual_mobile.jpg"
             class="mobile-only"
             alt="Telegram Klub kolaž"
+            loading="lazy"
           />
         </div>
         <div
@@ -54,6 +56,7 @@
             <img
               src="@/assets/img/tg_klub_logo_negative.svg"
               alt="Telegram Klub logo"
+              loading="lazy"
             />
             <h4 class="full small-top-margin">
               Klub ekskluzivnih ponuda, pogodnosti i popusta, <br />
@@ -73,6 +76,7 @@
             <img
               src="@/assets/img/telegram_logo_white.svg"
               alt="Telegram logo"
+              loading="lazy"
             />
           </div>
         </div>
@@ -82,6 +86,7 @@
               <img
                 src="@/assets/img/s1_logo_clean_noline_white.svg"
                 alt="Super1 logo"
+                loading="lazy"
               />
             </app-link>
             <a
@@ -92,18 +97,21 @@
               <img
                 src="@/assets/img/telesport_logo_white.svg"
                 alt="Telesport logo"
+                loading="lazy"
               />
             </a>
             <app-link to="/openspace" class="center animate">
               <img
                 src="@/assets/img/openspace_logo_negative.svg"
                 alt="openspace logo"
+                loading="lazy"
               />
             </app-link>
             <app-link to="/pitanje-zdravlja" class="center animate">
               <img
                 src="@/assets/img/pz_logo_negative.svg"
                 alt="openspace logo"
+                loading="lazy"
               />
             </app-link>
             <a

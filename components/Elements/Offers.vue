@@ -12,11 +12,13 @@
           <img
             src="https://www.telegram.hr/wp-content/uploads/2023/02/logo1.png"
             alt="ModulOsam logo"
+            loading="lazy"
           />
           <img
             src="https://www.telegram.hr/wp-content/uploads/2023/02/logo1.png"
             alt="ModulOsam logo"
             class="dark-mode-only"
+            loading="lazy"
           />
         </div>
       </div>

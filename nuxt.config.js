@@ -1,6 +1,7 @@
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   globalName: 'telegram',
+  server: { host: '0' },
   modern: 'client',
   telemetry: false,
   head: {

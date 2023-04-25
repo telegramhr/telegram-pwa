@@ -13,6 +13,7 @@
             src="@/assets/img/s1_logo_clean_noline_white.svg"
             alt="Super1 logo"
             class="dark-mode-only"
+            loading="lazy"
           />
         </h3>
       </app-link>

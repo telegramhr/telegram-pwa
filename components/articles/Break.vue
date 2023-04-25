@@ -21,6 +21,7 @@
             src="@/assets/img/telegram_logo_white.svg"
             class="logo"
             alt="Telegram logo"
+            loading="lazy"
           />
         </div>
         <h3 class="overtitle full center-text">Preporuka</h3>

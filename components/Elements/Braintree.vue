@@ -142,15 +142,15 @@ export default {
       threeDS: null,
     }
   },
-  mounted() {
-    if (this.price) {
-      this.getToken()
-    }
-  },
   computed: {
     charge() {
       return (this.price * this.quantity).toFixed(2)
     },
+  },
+  mounted() {
+    if (this.price) {
+      this.getToken()
+    }
   },
   methods: {
     getToken() {

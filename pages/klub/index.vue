@@ -19,6 +19,7 @@
             <img
               src="@/assets/img/tg_klub_logo_negative.svg"
               alt="Telegram Klub logo"
+              loading="lazy"
             />
             <h4 class="full flex small-top-margin">
               Postoje klubovi koji nisu za sve. <br />Ali su sve onima, koji im
@@ -35,11 +36,13 @@
             src="@/assets/img/tg_klub_header_vizual.jpg"
             class="desktop-only"
             alt="Telegram Klub kolaž"
+            loading="lazy"
           />
           <img
             src="@/assets/img/tg_klub_header_vizual_mobile.jpg"
             class="mobile-only"
             alt="Telegram Klub kolaž"
+            loading="lazy"
           />
         </div>
       </div>
@@ -114,6 +117,7 @@
                 <img
                   src="@/assets/img/extras/klub/tg_visual_klub_hnkzg.jpg"
                   aria-hidden="true"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -143,6 +147,7 @@
                 <img
                   src="@/assets/img/extras/klub/tg_visual_klub_gavella.jpg"
                   aria-hidden="true"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -174,6 +179,7 @@
                 <img
                   src="@/assets/img/extras/klub/tg_visual_klub_zkm.jpg"
                   aria-hidden="true"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -203,6 +209,7 @@
                 <img
                   src="@/assets/img/extras/klub/tg_visual_klub_kerempuh.jpg"
                   aria-hidden="true"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -232,6 +239,7 @@
                 <img
                   src="@/assets/img/extras/klub/tg_visual_klub_komedija.jpg"
                   aria-hidden="true"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -263,6 +271,7 @@
                 <img
                   src="@/assets/img/extras/klub/tg_visual_klub_exit.jpg"
                   aria-hidden="true"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -292,6 +301,7 @@
                 <img
                   src="@/assets/img/extras/klub/tg_visual_klub_zarptica.jpg"
                   aria-hidden="true"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -321,6 +331,7 @@
                 <img
                   src="@/assets/img/extras/klub/tg_visual_klub_hnkvz.jpg"
                   aria-hidden="true"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -350,6 +361,7 @@
                 <img
                   src="@/assets/img/extras/klub/tg_visual_klub_kmd.jpg"
                   aria-hidden="true"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -380,6 +392,7 @@
                 <img
                   src="@/assets/img/extras/klub/tg_visual_klub_hnko.jpg"
                   aria-hidden="true"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -409,6 +422,7 @@
                 <img
                   src="@/assets/img/extras/klub/tg_visual_klub_hnksibenik.jpg"
                   aria-hidden="true"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -445,6 +459,7 @@
             <img
               src="@/assets/img/extras/klub/tg_visual_klub_exit.jpg"
               aria-hidden="true"
+              loading="lazy"
             />
           </div>
           <div class="two-thirds center flex-responsive article">
@@ -490,6 +505,7 @@
             <img
               src="@/assets/img/extras/klub/tg_visual_klub_zarptica.jpg"
               aria-hidden="true"
+              loading="lazy"
             />
           </div>
           <div class="two-thirds center flex-responsive article">
@@ -540,6 +556,7 @@
             <img
               src="@/assets/img/extras/klub/tg_visual_klub_hnkzg.jpg"
               aria-hidden="true"
+              loading="lazy"
             />
           </div>
           <div class="two-thirds center flex-responsive article">
@@ -589,6 +606,7 @@
             <img
               src="@/assets/img/extras/klub/tg_visual_klub_kerempuh.jpg"
               aria-hidden="true"
+              loading="lazy"
             />
           </div>
           <div class="two-thirds center flex-responsive article">
@@ -644,6 +662,7 @@
             <img
               src="@/assets/img/extras/klub/tg_visual_klub_zkm.jpg"
               aria-hidden="true"
+              loading="lazy"
             />
           </div>
           <div class="two-thirds center flex-responsive article">
@@ -699,6 +718,7 @@
             <img
               src="@/assets/img/extras/klub/tg_visual_klub_komedija.jpg"
               aria-hidden="true"
+              loading="lazy"
             />
           </div>
           <div class="two-thirds center flex-responsive article">
@@ -757,6 +777,7 @@
             <img
               src="@/assets/img/extras/klub/tg_visual_klub_kmd.jpg"
               aria-hidden="true"
+              loading="lazy"
             />
           </div>
           <div class="two-thirds center flex-responsive article">
@@ -815,6 +836,7 @@
             <img
               src="@/assets/img/extras/klub/tg_visual_klub_hnkvz.jpg"
               aria-hidden="true"
+              loading="lazy"
             />
           </div>
           <div class="two-thirds center flex-responsive article">
@@ -872,6 +894,7 @@
             <img
               src="@/assets/img/extras/klub/tg_visual_klub_gavella.jpg"
               aria-hidden="true"
+              loading="lazy"
             />
           </div>
           <div class="two-thirds center flex-responsive article">

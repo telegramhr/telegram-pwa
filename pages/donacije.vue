@@ -15,16 +15,19 @@
               src="@/assets/img/tg_pretplata_keypoint_vizual_korupcija.jpg"
               aria-hidden="true"
               class="light-mode-only"
+              loading="lazy"
             />
             <img
               src="@/assets/img/tg_pretplata_keypoint_vizual_korupcija_dark.jpg"
               aria-hidden="true"
               class="dark-mode-only"
+              loading="lazy"
             />
             <img
               src="@/assets/img/tg_pretplata_keypoint_vizual_korupcija_white.jpg"
               aria-hidden="true"
               class="contrast-mode-only"
+              loading="lazy"
             />
           </div>
           <div
