@@ -1,5 +1,5 @@
 <template>
-  <div class="main-container flex homepage">
+  <div id="top" class="main-container flex homepage">
     <!-- TG Multiverse Header -->
     <div class="full flex">
       <theader></theader>

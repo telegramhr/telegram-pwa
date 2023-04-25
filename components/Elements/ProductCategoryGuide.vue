@@ -35,7 +35,7 @@ export default {
   },
   async fetch() {
     this.categories = await this.$axios.$get(
-      '/api/shop-guide/related/' + this.post.id
+      'https://www.telegram.hr/wp-json/telegram/pwa/v1/shop-guide/related/' + this.post.id
     )
   },
   data() {

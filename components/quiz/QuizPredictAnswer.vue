@@ -78,7 +78,7 @@ export default {
     next() {
       // make request to api
       this.$axios
-        .post('/api/quiz/prediction', {
+        .post('https://www.telegram.hr/wp-json/telegram/pwa/v1/quiz/prediction', {
           data: {
             post: this.post,
             answer: this.answered,

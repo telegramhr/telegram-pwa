@@ -150,7 +150,7 @@ export default {
     async getPosts() {
       const preview = this.$route.query.webshop ? this.$route.query.webshop : ''
       this.posts = await this.$axios.$get(
-        `/api/promos/webshop?shop=${this.shop}&webshop=${preview}`
+        `https://www.telegram.hr/wp-json/telegram/pwa/v1/promos/webshop?shop=${this.shop}&webshop=${preview}`
       )
     },
   },

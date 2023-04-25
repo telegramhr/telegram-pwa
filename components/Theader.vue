@@ -1,5 +1,5 @@
 <template>
-  <div class="full">
+  <div id="top" class="full">
     <div
       :class="{
         'side-menu': true,
@@ -454,24 +454,16 @@
             <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon>
           </a>
           <div class="menu flex" role="menu">
-            <app-link
-              role="menuitem"
-              to="/pitanje-zdravlja/leksikon-zdravlja"
+            <app-link role="menuitem" to="/pitanje-zdravlja/leksikon-zdravlja"
               >Leksikon zdravlja</app-link
             >
-            <app-link
-              role="menuitem"
-              to="/pitanje-zdravlja/lifestyle"
+            <app-link role="menuitem" to="/pitanje-zdravlja/lifestyle"
               >Lifestyle</app-link
             >
-            <app-link
-              role="menuitem"
-              to="/pitanje-zdravlja/vijesti"
+            <app-link role="menuitem" to="/pitanje-zdravlja/vijesti"
               >Vijesti</app-link
             >
-            <app-link
-              role="menuitem"
-              to="/pitanje-zdravlja/price"
+            <app-link role="menuitem" to="/pitanje-zdravlja/price"
               >Priče</app-link
             >
           </div>
@@ -531,26 +523,16 @@
             <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon>
           </a>
           <div class="menu flex" role="menu">
-            <app-link
-              role="menuitem"
-              to="/openspace/vjestine"
+            <app-link role="menuitem" to="/openspace/vjestine"
               >Vještine</app-link
             >
-            <app-link
-              role="menuitem"
-              to="/openspace/tvrtke-karijere"
+            <app-link role="menuitem" to="/openspace/tvrtke-karijere"
               >Tvrtke i karijere</app-link
             >
-            <app-link
-              role="menuitem"
-              to="/openspace/kvizovi-testovi"
+            <app-link role="menuitem" to="/openspace/kvizovi-testovi"
               >Kvizovi i testovi</app-link
             >
-            <app-link
-              role="menuitem"
-              to="/openspace/vodici"
-              >Vodiči</app-link
-            >
+            <app-link role="menuitem" to="/openspace/vodici">Vodiči</app-link>
           </div>
           <div v-show="headline" class="header-headline single-exclusive">
             {{ headline }}
@@ -673,7 +655,17 @@
           </div>
           <span>Nazad</span>
         </a>
-        <app-link to="/" class="fourth center homepage-appnav">
+        <a
+          v-if="$route.name === 'index'"
+          href="#top"
+          class="fourth center homepage-appnav"
+        >
+          <div class="full center">
+            <font-awesome-icon :icon="['fad', 'house']"></font-awesome-icon>
+          </div>
+          <span>Naslovnica</span>
+        </a>
+        <app-link v-else to="/" class="fourth center homepage-appnav">
           <div class="full center">
             <font-awesome-icon :icon="['fad', 'house']"></font-awesome-icon>
           </div>
