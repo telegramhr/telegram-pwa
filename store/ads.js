@@ -443,9 +443,10 @@ export const state = () => ({
       },
     },
     telegram_desktop_wallpaper_left: {
-      upc: 36,
+      upc: false,
       desktop: [
         [1, 1],
+        [300, 600],
         [300, 900],
         [200, 900],
         [340, 1050],
@@ -473,9 +474,10 @@ export const state = () => ({
       ],
     },
     telegram_dekstop_wallpaper_right: {
-      upc: 36,
+      upc: false,
       desktop: [
         [1, 1],
+        [301, 601],
         [301, 901],
         [201, 901],
         [341, 1051],
@@ -1317,7 +1319,7 @@ export const state = () => ({
       },
     },
     telegram_sticky: {
-      upc: 36,
+      upc: false,
       routes: [
         'index',
         'category',
@@ -1680,6 +1682,30 @@ export const actions = {
             ])
           } else {
             el.style.minHeight = 0 + 'px'
+          }
+          if (
+            !window.googletag.reloadedSlots.includes(name) &&
+            event.isEmpty &&
+            event.slot.getAdUnitPath().includes('wallpaper')
+          ) {
+            const el = document.getElementById(event.slot.getSlotElementId())
+            const unit = state.units[name]
+            el.innerHTML = ''
+            el.removeAttribute('data-google-query-id')
+            el.removeAttribute('style')
+            unit.opt_div = unit.opt_div + '_new'
+            el.setAttribute('id', unit.opt_div)
+            unit.desktop_sizes = [
+              [300, 600],
+              [200, 900],
+              [300, 900],
+            ]
+            window.googletag
+              .defineSlot(state.prefix + name, unit.desktop_sizes, name)
+              .addService(window.googletag.pubads())
+              .setTargeting('upc', unit.upc ? unit.upc : 10)
+            window.googletag.display(unit.opt_div)
+            window.googletag.reloadedSlots.push(name)
           }
         })
       window.googletag
