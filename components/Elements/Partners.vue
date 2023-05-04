@@ -24,25 +24,13 @@
 <script>
 export default {
   name: 'Partners',
-  data() {
-    return {
-      posts: [],
-    }
+  computed: {
+    posts() {
+      return this.$store.state.promos.posts
+    },
   },
   mounted() {
-    this.getPosts()
-  },
-  methods: {
-    getPosts() {
-      this.$axios
-        .get('/api/promos')
-        .then((res) => {
-          this.posts = res.data
-        })
-        .catch(() => {
-          // TODO: error logging
-        })
-    },
+    this.$store.dispatch('promos/pullPosts')
   },
 }
 </script>

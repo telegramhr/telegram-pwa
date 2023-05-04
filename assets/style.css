@@ -10424,7 +10424,7 @@ label.payment-tile svg {
     font-family: 'Barlow', sans-serif !important;
 }
 .apexcharts_stacked_bar_chart, .apexcharts_straight_line_chart {
-    background: url("https://www.telegram.hr/wp-content/uploads/2022/10/tg-chartbg-darkpaper.jpg") center center / cover no-repeat;
+    /* background: url("https://www.telegram.hr/wp-content/uploads/2022/10/tg-chartbg-darkpaper.jpg") center center / cover no-repeat; */
     padding: 24px;
     margin-bottom: 15px;
 }
