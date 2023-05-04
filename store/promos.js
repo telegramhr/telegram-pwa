@@ -30,15 +30,15 @@ export const mutations = {
 
 export const actions = {
   pullPosts({ commit, dispatch, state }) {
-    if (state.updated + 60 * 60 * 1000 < new Date().getTime()) {
+    if (state.updated + 20 * 60 * 1000 < new Date().getTime()) {
       this.$axios.$get('/api/promos').then((res) => {
-        commit('setPosts', res.posts)
+        commit('setPosts', res)
       })
     }
   },
   pullOffers({ commit, dispatch, state }, data) {
     if (
-      state.offers[data.shop][data.preview + '_updated'] + 60 * 60 * 1000 <
+      state.offers[data.shop][data.preview + '_updated'] + 20 * 60 * 1000 <
       new Date().getTime()
     ) {
       this.$axios
