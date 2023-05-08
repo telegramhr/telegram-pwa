@@ -48,11 +48,6 @@ export default {
         async: true,
       },
       {
-        src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2317149376955370',
-        async: true,
-        crossorigin: 'anonymous',
-      },
-      {
         src: '/prebid7.40.0.js',
         async: true,
       },
@@ -65,12 +60,6 @@ export default {
         hid: 'cxense',
         src: 'https://cdn.cxense.com/cx.cce.js',
         async: true,
-      },
-      {
-        hid: 'sovrn',
-        src: 'https://get.s-onetag.com/71db7e62-a54b-43f0-98c7-ae8594228b02/tag.min.js',
-        async: true,
-        defer: true,
       },
       {
         hid: 'coral',
