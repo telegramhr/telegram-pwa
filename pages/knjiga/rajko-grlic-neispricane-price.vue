@@ -56,15 +56,15 @@
                 <u>prijavite se ili pretplatite</u>
               </app-link>
               <div class="full center btn-parent">
-                <div
+                <!--<div
                   v-if="$store.state.user.email"
                   class="btn animate"
                   @click="buy"
                 >
                   {{ price ? 'Kupite' : 'Naručite' }}
                 </div>
-                <div v-else class="btn animate" @click="login">Kupite</div>
-                <!--<div class="btn animate">Rasprodano!</div>-->
+                <div v-else class="btn animate" @click="login">Kupite</div>-->
+                <div class="btn animate">Rasprodano!</div>
               </div>
             </div>
           </div>

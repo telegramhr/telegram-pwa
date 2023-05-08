@@ -51,7 +51,7 @@
                 Za pristup sniženoj cijeni, <br />
                 <u>prijavite se ili pretplatite</u>
               </app-link>
-              <div class="full center btn-parent">
+              <!--<div class="full center btn-parent">
                 <div
                   v-if="$store.state.user.email"
                   class="btn animate"
@@ -60,6 +60,9 @@
                   {{ price ? 'Kupite' : 'Naručite' }}
                 </div>
                 <div v-else class="btn animate" @click="login">Kupite</div>
+              </div>-->
+              <div class="full center btn-parent">
+                <div class="btn animate">Rasprodano</div>
               </div>
             </div>
           </div>
