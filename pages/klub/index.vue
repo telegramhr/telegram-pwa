@@ -125,10 +125,7 @@
         <div class="container flex relative stretch mobile-side-pad">
           <div class="close-klub-expand" @click="selected_offer = null">x</div>
           <div class="third center flex-responsive column-left-pad">
-            <img
-              src="@/assets/img/extras/klub/tg_visual_klub_mensa.jpg"
-              aria-hidden="true"
-            />
+            <img :src="selected_offer.image" aria-hidden="true" />
           </div>
           <div class="two-thirds center flex-responsive article">
             <h3 class="full overtitle">{{ selected_offer.overtitle }}</h3>
@@ -136,11 +133,13 @@
             <h4 class="full">
               {{ selected_offer.subtitle }}
             </h4>
+            <!-- eslint-disable vue/no-v-html -->
             <div
               v-show="!canLogIn"
               class="full flex"
               v-html="selected_offer.text"
             ></div>
+            <!-- eslint-enable vue/no-v-html -->
             <div v-show="canLogIn" class="full flex">
               <p class="full bold">
                 Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
@@ -187,10 +186,7 @@
         <div class="container flex relative stretch mobile-side-pad">
           <div class="close-klub-expand" @click="selected_offer = null">x</div>
           <div class="third center flex-responsive column-left-pad">
-            <img
-              src="@/assets/img/extras/klub/tg_visual_klub_mensa.jpg"
-              aria-hidden="true"
-            />
+            <img :src="selected_offer.image" aria-hidden="true" />
           </div>
           <div class="two-thirds center flex-responsive article">
             <h3 class="full overtitle">{{ selected_offer.overtitle }}</h3>
@@ -198,11 +194,13 @@
             <h4 class="full">
               {{ selected_offer.subtitle }}
             </h4>
+            <!-- eslint-disable vue/no-v-html -->
             <div
               v-show="!canLogIn"
               class="full flex"
               v-html="selected_offer.text"
             ></div>
+            <!-- eslint-enable vue/no-v-html -->
             <div v-show="canLogIn" class="full flex">
               <p class="full bold">
                 Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
@@ -249,10 +247,7 @@
         <div class="container flex relative stretch mobile-side-pad">
           <div class="close-klub-expand" @click="selected_offer = null">x</div>
           <div class="third center flex-responsive column-left-pad">
-            <img
-              src="@/assets/img/extras/klub/tg_visual_klub_mensa.jpg"
-              aria-hidden="true"
-            />
+            <img :src="selected_offer.image" aria-hidden="true" />
           </div>
           <div class="two-thirds center flex-responsive article">
             <h3 class="full overtitle">{{ selected_offer.overtitle }}</h3>
@@ -260,11 +255,13 @@
             <h4 class="full">
               {{ selected_offer.subtitle }}
             </h4>
+            <!-- eslint-disable vue/no-v-html -->
             <div
               v-show="!canLogIn"
               class="full flex"
               v-html="selected_offer.text"
             ></div>
+            <!-- eslint-enable vue/no-v-html -->
             <div v-show="canLogIn" class="full flex">
               <p class="full bold">
                 Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
@@ -311,10 +308,7 @@
         <div class="container flex relative stretch mobile-side-pad">
           <div class="close-klub-expand" @click="selected_offer = null">x</div>
           <div class="third center flex-responsive column-left-pad">
-            <img
-              src="@/assets/img/extras/klub/tg_visual_klub_mensa.jpg"
-              aria-hidden="true"
-            />
+            <img :src="selected_offer.image" aria-hidden="true" />
           </div>
           <div class="two-thirds center flex-responsive article">
             <h3 class="full overtitle">{{ selected_offer.overtitle }}</h3>
@@ -322,11 +316,13 @@
             <h4 class="full">
               {{ selected_offer.subtitle }}
             </h4>
+            <!-- eslint-disable vue/no-v-html -->
             <div
               v-show="!canLogIn"
               class="full flex"
               v-html="selected_offer.text"
             ></div>
+            <!-- eslint-enable vue/no-v-html -->
             <div v-show="canLogIn" class="full flex">
               <p class="full bold">
                 Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
@@ -373,10 +369,7 @@
         <div class="container flex relative stretch mobile-side-pad">
           <div class="close-klub-expand" @click="selected_offer = null">x</div>
           <div class="third center flex-responsive column-left-pad">
-            <img
-              src="@/assets/img/extras/klub/tg_visual_klub_mensa.jpg"
-              aria-hidden="true"
-            />
+            <img :src="selected_offer.image" aria-hidden="true" />
           </div>
           <div class="two-thirds center flex-responsive article">
             <h3 class="full overtitle">{{ selected_offer.overtitle }}</h3>
@@ -384,11 +377,13 @@
             <h4 class="full">
               {{ selected_offer.subtitle }}
             </h4>
+            <!-- eslint-disable vue/no-v-html -->
             <div
               v-show="!canLogIn"
               class="full flex"
               v-html="selected_offer.text"
             ></div>
+            <!-- eslint-enable vue/no-v-html -->
             <div v-show="canLogIn" class="full flex">
               <p class="full bold">
                 Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
