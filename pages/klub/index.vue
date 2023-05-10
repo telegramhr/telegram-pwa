@@ -503,6 +503,7 @@ export default {
     },
     selectOffer(offer) {
       this.selected_offer = offer
+      window.location.href = `#${offer.category}`
     },
   },
   head() {
