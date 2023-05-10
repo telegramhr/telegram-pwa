@@ -9276,8 +9276,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .klub-expanded .article p {
     line-height: 1.3em;
-}
-.klub-expanded .article p.bold {
     margin-bottom: 8px;
 }
 .klub-ponuda-tile > .full.center {
@@ -9356,7 +9354,13 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-weight: 700;
 }
 .klub-expanded .newbtn {
-    margin-top: 16px;
+    margin-top: 12px;
+    display: flex;
+    margin-bottom: 16px;
+    color: white;
+    text-decoration: none;
+    width: 140px;
+    justify-content: center;
 }
 .fake-inpage-anchor {
     position: relative;
@@ -11120,4 +11124,42 @@ header .search-menu {
 }
 .dark-mode .digital-lavander, .contrast-mode .digital-lavander {
     background-color: inherit;
+}
+
+/* Book offers */
+
+@media screen and (min-width: 767px) {
+    .book-offers-widget .article h2 {
+        font-size: 1.2rem;
+    }
+    .book-offers-widget .slick-slide:last-child .fourth {
+        border-right: none;
+    }
+}
+@media screen and (max-width: 767px) {
+    .book-offers-widget .fourth .article, .book-offers-widget .fourth .article .article-pad {
+        border-bottom: none;
+    }
+    .book-offers-widget .article img {
+        width: 50vw;
+        margin: 0 auto;
+        margin-top: 4vw;
+        object-fit: contain;
+        height: auto;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .book-offers-widget .fourth {
+        width: 55vw;
+        min-width: 55vw;
+        scroll-snap-align: start;
+        margin-right: 5vw;
+    }
+    .book-offers-widget {
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        display: flex;
+        scroll-snap-type: x mandatory;
+        margin-bottom: 3vw;
+    }
 }

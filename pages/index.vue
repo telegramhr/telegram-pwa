@@ -366,7 +366,7 @@
         <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
       </div>
     </div>
-    <!-- Prekid knjiga -->
+    <!-- Prekid knjiga
     <div class="full relative" style="margin-top: 24px">
       <div class="container flex relative column-horizontal-pad">
         <app-link
@@ -414,6 +414,10 @@
           </div>
         </app-link>
       </div>
+    </div> -->
+    <!-- Šoping knjige -->
+    <div class="full relative">
+      <book-offers></book-offers>
     </div>
     <!-- Prekid newsletteri
     <div class="full relative">
@@ -671,7 +675,9 @@
 </template>
 
 <script>
+import BookOffers from '../components/Elements/BookOffers.vue'
 export default {
+  components: { BookOffers },
   async fetch() {
     if (process.client) {
       this.$telegram.$loading.start()
