@@ -9,7 +9,7 @@
       <img src="@/assets/img/telegram_logo_black.svg" alt="Telegram logo" />
       knjige
     </h3>
-    <div class="full flex stretch column-bottom-pad book-offers-widget">
+    <div class="full flex stretch book-offers-widget">
       <div class="fourth flex-responsive column-horizontal-pad">
         <app-link
           to="/knjiga/sanja-modric-igla-pila-ravnalo"
