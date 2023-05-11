@@ -96,7 +96,7 @@
       </div>
     </div>
     <!-- Kazalista -->
-    <div class="full flex relative mobile-side-pad">
+    <div id="kazalista_list" class="full flex relative mobile-side-pad">
       <div class="container flex relative">
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
@@ -157,7 +157,7 @@
       </div>
     </div>
     <!-- Streaming -->
-    <div class="full flex relative mobile-side-pad">
+    <div id="streaming_list" class="full flex relative mobile-side-pad">
       <div class="container flex relative">
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
@@ -218,7 +218,7 @@
       </div>
     </div>
     <!-- Knjizare -->
-    <div class="full flex relative mobile-side-pad">
+    <div id="knjige_list" class="full flex relative mobile-side-pad">
       <div class="container flex relative">
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
@@ -237,7 +237,7 @@
       </div>
     </div>
     <!-- Knjizare expandables -->
-    <div id="knjizare" class="full flex fake-inpage-anchor"></div>
+    <div id="knjige" class="full flex fake-inpage-anchor"></div>
     <div class="full flex relative">
       <div
         v-if="selected_offer && selected_offer.category === 'knjige'"
@@ -279,7 +279,7 @@
       </div>
     </div>
     <!-- Muzeji -->
-    <div class="full flex relative mobile-side-pad">
+    <div id="muzeji_list" class="full flex relative mobile-side-pad">
       <div class="container flex relative">
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
@@ -340,7 +340,7 @@
       </div>
     </div>
     <!-- Ostalo -->
-    <div class="full flex relative mobile-side-pad">
+    <div id="ostalo_list" class="full flex relative mobile-side-pad">
       <div class="container flex relative">
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>

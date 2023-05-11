@@ -520,6 +520,9 @@
     <!-- Prekid knjiga -->
     <!-- Prekid klub -->
     <div class="full relative">
+      <klub-offers></klub-offers>
+    </div>
+    <!--<div class="full relative">
       <div class="container flex relative column-full-pad">
         <app-link
           to="/klub"
@@ -561,7 +564,7 @@
           </div>
         </app-link>
       </div>
-    </div>
+    </div>-->
     <!-- Prekid dojave
     <div class="full relative desktop-only">
       <div class="container flex relative column-full-pad"
