@@ -519,9 +519,11 @@
     </div>
     <!-- Prekid knjiga -->
     <!-- Prekid klub -->
-    <div class="full relative">
-      <klub-offers></klub-offers>
-    </div>
+    <client-only>
+      <div class="full relative">
+        <klub-offers></klub-offers>
+      </div>
+    </client-only>
     <!--<div class="full relative">
       <div class="container flex relative column-full-pad">
         <app-link
