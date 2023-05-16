@@ -11128,15 +11128,25 @@ header .search-menu {
 
 /* Book offers */
 
+.book-offers-widget .klub-ponuda {
+    margin-bottom: 0px;
+}
+
 @media screen and (min-width: 767px) {
     .book-offers-widget .article h2 {
         font-size: 1.2rem;
+    }
+    .book-offers-widget .klub-ponuda h2 {
+        font-size: 1rem;
     }
     .book-offers-widget .slick-slide:last-child .fourth {
         border-right: none;
     }
 }
 @media screen and (max-width: 767px) {
+    .book-offers-widget .klub-ponuda {
+        margin-top: 4vw;
+    }
     .book-offers-widget .fourth .article, .book-offers-widget .fourth .article .article-pad {
         border-bottom: none;
     }
@@ -11146,6 +11156,9 @@ header .search-menu {
         margin-top: 4vw;
         object-fit: contain;
         height: auto;
+    }
+    .book-offers-widget .klub-ponuda h2 {
+        font-size: 1rem;
     }
 }
 @media screen and (max-width: 1024px) {
