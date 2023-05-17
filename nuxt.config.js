@@ -65,6 +65,17 @@ export default {
         hid: 'coral',
         src: 'https://talk.telegram.hr/assets/js/embed.js',
       },
+      {
+        src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
+        async: true,
+        crossorigin: 'anonymous',
+      },
+      {
+        hid: 'sovrn',
+        src: 'https://get.s-onetag.com/71db7e62-a54b-43f0-98c7-ae8594228b02/tag.min.js',
+        async: true,
+        defer: true,
+      },
     ],
   },
 
@@ -95,6 +106,7 @@ export default {
     { src: '@/plugins/gemius.client.js' },
     { src: '@/plugins/dotmetrics.client.js' },
     { src: '@/plugins/marfeel.client.js' },
+    { src: '@/plugins/adsense.client.js' },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
