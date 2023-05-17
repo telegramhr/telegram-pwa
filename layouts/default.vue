@@ -8,6 +8,7 @@
 <script>
 import { PushNotifications } from '@capacitor/push-notifications'
 import { App } from '@capacitor/app'
+import { Capacitor } from '@capacitor/core'
 export default {
   data() {
     return {
@@ -22,35 +23,37 @@ export default {
         }, 2 * 60 * 1000)
       }
     })
-    await PushNotifications.addListener('registration', (token) => {
-      this.$axios.post(
-        'https://pretplate.telegram.hr/api/notifications/subscribe',
-        {
-          uid: this.$store.state.user.uid,
-          token: token.value,
+    if (Capacitor.isNativePlatform()) {
+      await PushNotifications.addListener('registration', (token) => {
+        this.$axios.post(
+          'https://pretplate.telegram.hr/api/notifications/subscribe',
+          {
+            uid: this.$store.state.user.uid,
+            token: token.value,
+          }
+        )
+        // this.$store.commit('notifications/setGranted')
+        // this.$store.commit('notifications/setRegister')
+      })
+      await PushNotifications.addListener(
+        'pushNotificationActionPerformed',
+        (notification) => {
+          if (notification.notification.data.url.includes('https:')) {
+            window.open(notification.notification.data.url, '_blank')
+            return
+          }
+          this.$router.push(notification.notification.data.url)
         }
       )
-      // this.$store.commit('notifications/setGranted')
-      // this.$store.commit('notifications/setRegister')
-    })
-    await PushNotifications.addListener(
-      'pushNotificationActionPerformed',
-      (notification) => {
-        if (notification.notification.data.url.includes('https:')) {
-          window.open(notification.notification.data.url, '_blank')
-          return
+      await this.registerNotifications()
+      App.addListener('backButton', (e) => {
+        if (this.$route.name === 'index') {
+          App.exitApp()
+        } else {
+          this.$router.go(-1)
         }
-        this.$router.push(notification.notification.data.url)
-      }
-    )
-    await this.registerNotifications()
-    App.addListener('backButton', (e) => {
-      if (this.$route.name === 'index') {
-        App.exitApp()
-      } else {
-        this.$router.go(-1)
-      }
-    })
+      })
+    }
   },
   methods: {
     test() {

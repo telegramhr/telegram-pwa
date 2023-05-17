@@ -44,7 +44,7 @@
         <div
           class="fourth flex-responsive column-horizontal-pad cantha-commentary"
         >
-          <commentary type="ts"></commentary>
+          <commentary :outposts="commentary" type="ts"></commentary>
         </div>
         <div class="full column-full-pad desktop-only">
           <div class="full column-top-border"></div>
@@ -69,6 +69,7 @@ export default {
   async fetch() {
     await this.$axios.get(`${this.$config.baseURL}portal/2`).then((res) => {
       this.posts = res.data.posts
+      this.commentary = res.data.comments
     })
   },
   data() {
@@ -77,6 +78,7 @@ export default {
       loading: false,
       page: 2,
       posts: [],
+      commentary: [],
     }
   },
   methods: {

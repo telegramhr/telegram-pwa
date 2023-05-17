@@ -4,17 +4,17 @@ export default ({ store }) => {
   createPersistedState({
     key: 'tg',
     paths: [
-      'stocks',
-      'weather',
+      'featured',
       'latest',
       'mostread',
       'theme',
       'user',
-      'partner',
       'break',
-      'breaking',
       'newsletters',
       'authors',
+      'openspace',
+      's1',
+      'zdravlje',
     ],
   })(store)
 }

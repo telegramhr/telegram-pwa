@@ -835,7 +835,7 @@
           </div>
         </div>
         <!-- Stock Subheader -->
-        <div
+        <!--<div
           id="sidebar"
           class="container flex desktop-subheader column-horizontal-pad homepage-exclusive"
           role="navigation"
@@ -843,7 +843,7 @@
           <client-only>
             <stocks></stocks>
           </client-only>
-        </div>
+        </div>-->
       </div>
       <nav class="full flex homepage-exclusive animate">
         <div class="container relative">
@@ -985,21 +985,6 @@ export default {
         day: 'numeric',
       }).format(new Date())
     },
-    stock_key() {
-      const keys = Object.keys(this.$store.state.stocks.stocks)
-      return keys[Math.floor(Math.random() * keys.length)]
-    },
-    showBreaking() {
-      return !(
-        (this.post.category_slug &&
-          (this.post.category_slug.includes('openspace') ||
-            this.post.category_slug.includes('pitanje-zdravlja'))) ||
-        this.$route.path.includes('openspace') ||
-        this.$route.path.includes('pitanje-zdravlja') ||
-        this.$route.path.includes('moj-racun') ||
-        this.$route.path.includes('pretplata')
-      )
-    },
     checkHistory() {
       if (process.client) {
         return window.history.length
@@ -1008,9 +993,6 @@ export default {
     },
   },
   mounted() {
-    // this.clearFC()
-    // this.$store.dispatch('stocks/pullStocks')
-    // this.$store.dispatch('user/checkAccess')
     this.$store.dispatch('theme/loadTheme')
     if (this.canLogIn) {
       this.login()
