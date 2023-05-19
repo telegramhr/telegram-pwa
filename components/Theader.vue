@@ -920,6 +920,7 @@
 
 <script>
 import { Share } from '@capacitor/share'
+import {PushNotifications} from "@capacitor/push-notifications";
 // import { Capacitor } from '@capacitor/core'
 
 export default {
@@ -1001,6 +1002,11 @@ export default {
   methods: {
     closeLogin() {
       this.showLogin = false
+      PushNotifications.requestPermissions().then((status) => {
+        if (status.receive === 'granted') {
+          PushNotifications.register()
+        }
+      })
     },
     clearFC() {
       if (process.client) {

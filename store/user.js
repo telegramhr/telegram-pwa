@@ -11,6 +11,7 @@ export const state = () => ({
   type: 'not-registered',
   coral_token: false,
   coral_update: null,
+  notifications_token: null,
 })
 
 export const mutations = {
@@ -49,6 +50,9 @@ export const mutations = {
   setCoral(state, token) {
     state.coral_token = token
     state.coral_update = new Date().getTime()
+  },
+  setNotificationToken(state, token) {
+    state.notifications_token = token
   },
 }
 

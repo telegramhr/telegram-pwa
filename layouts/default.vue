@@ -16,6 +16,7 @@ export default {
     }
   },
   async mounted() {
+    this.check()
     this.$nextTick(() => {
       if (this.$route.name === 'index') {
         setInterval(() => {
@@ -25,6 +26,9 @@ export default {
     })
     if (Capacitor.isNativePlatform()) {
       await PushNotifications.addListener('registration', (token) => {
+        if (this.$store.state.user.notifications_token === token.value) {
+          return
+        }
         this.$axios.post(
           'https://pretplate.telegram.hr/api/notifications/subscribe',
           {
@@ -32,8 +36,7 @@ export default {
             token: token.value,
           }
         )
-        // this.$store.commit('notifications/setGranted')
-        // this.$store.commit('notifications/setRegister')
+        this.$store.commit('user/setNotificationToken', token.value)
       })
       await PushNotifications.addListener(
         'pushNotificationActionPerformed',
@@ -45,7 +48,7 @@ export default {
           this.$router.push(notification.notification.data.url)
         }
       )
-      await this.registerNotifications()
+      // await this.registerNotifications()
       App.addListener('backButton', (e) => {
         if (this.$route.name === 'index') {
           App.exitApp()
@@ -56,12 +59,24 @@ export default {
     }
   },
   methods: {
-    test() {
-      PushNotifications.requestPermissions().then((status) => {
-        if (status.receive === 'granted') {
-          PushNotifications.register()
-        }
-      })
+    check() {
+      console.log(this.$store.state.user.access)
+      if (this.$store.state.user.access) {
+        PushNotifications.checkPermissions().then((status) => {
+          if (status.receive !== 'granted') {
+            this.sub()
+          }
+        })
+      }
+    },
+    sub() {
+      if (this.$store.state.user.access) {
+        PushNotifications.requestPermissions().then((status) => {
+          if (status.receive === 'granted') {
+            PushNotifications.register()
+          }
+        })
+      }
     },
     async registerNotifications() {
       const permStatus = await PushNotifications.checkPermissions()

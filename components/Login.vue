@@ -5,12 +5,10 @@
         <div class="full center book-popup-header">
           <img :src="$icon(144)" alt="Telegram Logo" />
         </div>
-        <div v-if="error" class="full flex column-full-pad mobile-side-pad">
-          <h2 class="full center-text">
-            {{ error }}
-          </h2>
-        </div>
-        <div v-if="!error" class="full flex column-full-pad mobile-side-pad">
+        <form
+          class="full flex column-full-pad mobile-side-pad"
+          @submit.prevent="login"
+        >
           <h2 class="full center-text column-top-pad">Prijava</h2>
           <p
             class="full infotext center-text"
@@ -31,14 +29,19 @@
             type="password"
             name="password"
           />
+          <p class="full infotext center-text">
+            {{ error }}
+          </p>
           <button class="newbtn clickable" @click="login">Prijava</button>
-        </div>
+        </form>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import {PushNotifications} from "@capacitor/push-notifications";
+
 export default {
   name: 'Login',
   data() {
@@ -58,8 +61,8 @@ export default {
         .then(() => {
           this.$emit('close')
         })
-        .catch((error) => {
-          this.error = error
+        .catch(() => {
+          this.error = 'Neispravni podaci za prijavu.'
         })
     },
     close() {

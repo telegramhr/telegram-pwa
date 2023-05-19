@@ -16,13 +16,7 @@
           Za upravljanje vašom pretplatom, kliknite
           <a target="_blank" href="https://www.telegram.hr/moj-racun">ovdje.</a>
         </p>
-        <app-link
-          class="newbtn animate clickable"
-          style="margin-bottom: 4vw"
-          to="/moj-racun/obavijesti"
-        >
-          Obavijesti
-        </app-link>
+        <obavijesti></obavijesti>
       </client-only>
     </div>
     <tfooter></tfooter>
