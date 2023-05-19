@@ -802,7 +802,7 @@ export default {
       tp.push([
         'init',
         function () {
-          window.tp.experience.execute()
+          // window.tp.experience.execute()
           window.tp.enableGACrossDomainLinking()
         },
       ])
@@ -820,7 +820,7 @@ export default {
       ]) */
     },
     triggerAnalytics() {
-      // this.$dotmetrics.postLoad(this.post.category_slug)
+      this.$dotmetrics.postLoad(this.post.category_slug)
     },
     getPost() {
       if (this.post && this.post.id) {
@@ -886,16 +886,13 @@ export default {
         if (button !== undefined && button !== 0) return
         // don't handle same page links/anchors
         event.preventDefault()
-        console.log(target.href)
         if (target.href.includes('www.telegram.hr')) {
           const url = new URL(target.href)
           const to = url.pathname
-          console.log('telegram:', to)
           if (window.location.pathname !== to && event.preventDefault) {
             this.$router.push(to)
           }
         } else {
-          console.log('browser')
           this.$browser.open(target.href)
         }
       }

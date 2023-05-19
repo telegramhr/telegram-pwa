@@ -8,11 +8,16 @@
     <h3
       class="full center-text column-full-pad subsection-title os-subsection-logo"
     >
-      <img src="@/assets/img/openspace_logo_black.svg" alt="openspace logo" />
+      <img
+        src="@/assets/img/openspace_logo_black.svg"
+        alt="openspace logo"
+        loading="lazy"
+      />
       <img
         src="@/assets/img/openspace_logo_negative.svg"
         class="dark-mode-only"
         alt="openspace logo"
+        loading="lazy"
       />
     </h3>
     <div class="full column-bottom-pad flex relative the-big-gs stretch">
@@ -54,7 +59,7 @@ export default {
   name: 'Partners',
   async fetch() {
     this.posts = await this.$axios
-      .get(`${this.$config.baseURL}category/openspace?pure=1`)
+      .get(`${this.$config.baseURL}category/openspace`)
       .then((res) => res.data.posts.slice(0, 4))
   },
   data() {

@@ -9,7 +9,7 @@
       role="article"
       :aria-labelledby="'standard-' + post.id"
     >
-      <img :src="author.image" :alt="author.name" />
+      <img :src="author.image" :alt="author.name" loading="lazy" />
       <div class="full flex article-pad">
         <div class="full flex desktop-only">
           <h3 class="overtitle">{{ author.name }}</h3>

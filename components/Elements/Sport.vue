@@ -11,11 +11,13 @@
           <img
             src="@/assets/img/telesport_logo_black.svg"
             alt="Telesport logo"
+            loading="lazy"
           />
           <img
             src="@/assets/img/telesport_logo_white.svg"
             class="dark-mode-only"
             alt="Telesport logo"
+            loading="lazy"
           />
         </h3>
       </a>

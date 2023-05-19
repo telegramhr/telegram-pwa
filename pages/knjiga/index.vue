@@ -33,7 +33,30 @@
       <div
         class="container flex relative mobile-side-pad pretplata-packboxes smaller-booksel column-vertical-pad"
       >
-        <div class="third flex flex-responsive column-full-pad">
+        <div class="half flex flex-responsive column-full-pad">
+          <app-link
+            to="/knjiga/sanja-modric-igla-pila-ravnalo.vue"
+            class="full flex knjiga-hero pretplata-packbox relative column-full-pad"
+          >
+            <div class="full flex knjiga-cover knjiga-cover-3d">
+              <img
+                src="@/assets/img/tg_book_mockup_modric.png"
+                alt="Naslovnica nove knjige Sanje Modrić 'Igla, pila, ravnalo'"
+              />
+            </div>
+            <div class="full flex knjiga-features">
+              <h1 class="full relative center-text">Igla, pila, ravnalo</h1>
+              <h4 class="full relative center-text">Sanja Modrić</h4>
+              <h4 class="full relative center-text bold">
+                <span class="faded strikethrough">19,99€</span> 13,99€
+              </h4>
+              <div class="full center btn-parent">
+                <div class="btn animate">Pogledajte više</div>
+              </div>
+            </div>
+          </app-link>
+        </div>
+        <div class="half flex flex-responsive column-full-pad">
           <app-link
             to="/knjiga/boris-dezulovic-bili-libar"
             class="full flex knjiga-hero pretplata-packbox relative column-full-pad"
@@ -56,7 +79,7 @@
             </div>
           </app-link>
         </div>
-        <div class="third flex flex-responsive column-full-pad">
+        <div class="half flex flex-responsive column-full-pad">
           <app-link
             to="/knjiga/rajko-grlic-neispricane-price"
             class="full flex knjiga-hero pretplata-packbox relative column-full-pad"
@@ -79,7 +102,7 @@
             </div>
           </app-link>
         </div>
-        <div class="third flex flex-responsive column-full-pad">
+        <div class="half flex flex-responsive column-full-pad">
           <app-link
             to="/knjiga/zrinka-paladino-o-zagrebu"
             class="full flex knjiga-hero pretplata-packbox relative column-full-pad"

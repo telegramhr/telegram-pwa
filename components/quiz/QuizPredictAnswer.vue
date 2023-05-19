@@ -1,6 +1,6 @@
 <template>
   <div class="flex column-bottom-pad mobile-bottom-pad">
-    <h2 class="full">{{ data.question }}</h2>
+    <h2 class="full" v-html="data.question"></h2>
     <label
       v-for="answer in data.answers"
       :key="answer.id"

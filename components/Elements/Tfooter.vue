@@ -1,5 +1,74 @@
 <template>
   <div class="full flex relative">
+    <!--<div
+      v-show="!$store.state.user.access"
+      class="full pretplata-ticker pretplata-prefooter relative"
+    >
+      <div class="container flex relative">
+        <h2 class="full center-text">
+          Bespoštedno novinarstvo koje gura društvo naprijed.
+        </h2>
+        <p class="full center-text">
+          Za neograničeno čitanje Telegrama i podršku istraživačkim serijalima,
+          odaberite jedan od paketa.
+        </p>
+        <div class="full center">
+          <app-link
+            id="pretplatite se - footer"
+            to="/pretplata"
+            class="btn animate"
+            >Pretplatite se</app-link
+          >
+          <div class="btn animate" @click="login">Već imam pretplatu</div>
+        </div>
+      </div>
+    </div>-->
+    <app-link
+      v-show="
+        !$store.state.user.access &&
+        !(
+          post.category_slug.includes('superone') ||
+          $route.name.includes('super1')
+        )
+      "
+      to="/klub"
+      class="full dark-element bottom-pretplata-promo relative"
+    >
+      <div class="container relative flex align-children-end">
+        <div class="three-fourths flex-responsive">
+          <img
+            src="@/assets/img/tg_vizual_klub_mini.jpg"
+            class="desktop-only"
+            alt="Telegram Klub kolaž"
+            loading="lazy"
+          />
+          <img
+            src="@/assets/img/tg_klub_header_vizual_mobile.jpg"
+            class="mobile-only"
+            alt="Telegram Klub kolaž"
+            loading="lazy"
+          />
+        </div>
+        <div
+          class="half klub-header mobile-side-pad column-full-pad center flex-responsive"
+        >
+          <div class="full flex">
+            <img
+              src="@/assets/img/tg_klub_logo_negative.svg"
+              alt="Telegram Klub logo"
+              loading="lazy"
+            />
+            <h4 class="full small-top-margin">
+              Klub ekskluzivnih ponuda, pogodnosti i popusta, <br />
+              samo za pretplatnike Telegrama.
+            </h4>
+            <div class="full flex small-top-margin">
+              <div class="newbtn huge-newbtn">Saznajte više</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </app-link>
     <footer class="full flex mobile-side-pad">
       <div class="container">
         <div class="full flex center">
@@ -7,6 +76,7 @@
             <img
               src="@/assets/img/telegram_logo_white.svg"
               alt="Telegram logo"
+              loading="lazy"
             />
           </div>
         </div>
@@ -16,6 +86,7 @@
               <img
                 src="@/assets/img/s1_logo_clean_noline_white.svg"
                 alt="Super1 logo"
+                loading="lazy"
               />
             </app-link>
             <a
@@ -26,18 +97,21 @@
               <img
                 src="@/assets/img/telesport_logo_white.svg"
                 alt="Telesport logo"
+                loading="lazy"
               />
             </a>
             <app-link to="/openspace" class="center animate">
               <img
                 src="@/assets/img/openspace_logo_negative.svg"
                 alt="openspace logo"
+                loading="lazy"
               />
             </app-link>
             <app-link to="/pitanje-zdravlja" class="center animate">
               <img
                 src="@/assets/img/pz_logo_negative.svg"
                 alt="openspace logo"
+                loading="lazy"
               />
             </app-link>
             <a

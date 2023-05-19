@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>{{ data.question }}</h2>
+    <h2 v-html="data.question"></h2>
     <label v-for="answer in data.answers" :key="answer.id">
       <input
         v-model="answered"

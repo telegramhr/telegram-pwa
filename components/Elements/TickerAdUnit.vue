@@ -9,6 +9,7 @@
         'sticky-banner',
         bannerClass === 'takeover' ? 'sticky-fade' : '',
         bannerClass === 'ticker-right' ? 'sticky-right' : '',
+        bannerClass === 'ticker-left' ? 'sticky-left' : '',
       ]"
       data-nosnippet
     >
@@ -68,6 +69,9 @@ export default {
       if (this.size[0] === 200 && this.size[1] === 250) {
         return 'ticker-right'
       }
+      if (this.size[0] === 2000 && this.size[1] === 300) {
+        return 'ticker-left'
+      }
       return 'ticker'
     },
   },
@@ -112,6 +116,10 @@ export default {
 
 .sticky-right {
   justify-content: flex-end;
+}
+
+.sticky-left {
+  justify-content: flex-start;
 }
 
 .sticky-fade {

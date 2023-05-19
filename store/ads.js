@@ -443,9 +443,10 @@ export const state = () => ({
       },
     },
     telegram_desktop_wallpaper_left: {
-      upc: 36,
+      upc: false,
       desktop: [
         [1, 1],
+        [300, 600],
         [300, 900],
         [200, 900],
         [340, 1050],
@@ -473,9 +474,10 @@ export const state = () => ({
       ],
     },
     telegram_dekstop_wallpaper_right: {
-      upc: 36,
+      upc: false,
       desktop: [
         [1, 1],
+        [301, 601],
         [301, 901],
         [201, 901],
         [341, 1051],
@@ -536,6 +538,118 @@ export const state = () => ({
         [300, 50],
         [300, 600],
       ],
+      pbjs: {
+        desktop: {
+          sizes: [[970, 250]],
+          bids: [
+            {
+              bidder: 'iprom',
+              params: {
+                id: 't30769k9tyez1my7',
+                dimension: '970x250',
+              },
+            },
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [969220],
+              },
+            },
+            {
+              bidder: 'iprom',
+              params: {
+                id: '1ac5399de31649f8',
+                dimension: '970x250',
+              },
+            },
+            {
+              bidder: 'luponmedia',
+              params: {
+                siteId: 4396,
+                keyId: 'uid_telegramhr',
+              },
+            },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2218',
+                adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'connectad',
+              params: {
+                networkId: 10047,
+                siteId: 1056554,
+              },
+            },
+            {
+              bidder: 'smilewanted',
+              params: {
+                zoneId: 'telegram.hr_hb_display',
+                bidfloor: 0.0,
+              },
+            },
+          ],
+        },
+        mobile: {
+          sizes: [
+            [300, 250],
+            [336, 280],
+            [300, 600],
+          ],
+          bids: [
+            {
+              bidder: 'iprom',
+              params: {
+                id: 't30769k9tyez1my7',
+                dimension: '300x250',
+              },
+            },
+            {
+              bidder: 'sovrn',
+              params: {
+                tagid: [929094],
+              },
+            },
+            {
+              bidder: 'luponmedia',
+              params: {
+                siteId: 4396,
+                keyId: 'uid_telegramhr',
+              },
+            },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2217',
+                adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'contentexchange',
+              params: {
+                placementId: '2215',
+                adFormat: 'banner',
+              },
+            },
+            {
+              bidder: 'connectad',
+              params: {
+                networkId: 10047,
+                siteId: 1056554,
+              },
+            },
+            {
+              bidder: 'smilewanted',
+              params: {
+                zoneId: 'telegram.hr_hb_display',
+                bidfloor: 0.0,
+              },
+            },
+          ],
+        },
+      },
     },
     telegram_desktop_intext_v2: {
       upc: false,
@@ -1205,7 +1319,7 @@ export const state = () => ({
       },
     },
     telegram_sticky: {
-      upc: 36,
+      upc: false,
       routes: [
         'index',
         'category',
@@ -1242,6 +1356,7 @@ export const state = () => ({
         [984, 150],
         [1200, 150],
         [1200, 200],
+        [2000, 300],
       ],
     },
   },
@@ -1418,7 +1533,17 @@ export const actions = {
     window.pbjs.que = window.pbjs.que || []
     window.pbjs.que.push(() => {
       window.pbjs.setConfig({
-        enableSendAllBids: false,
+        ortb2: {
+          site: {
+            content: {
+              language: 'hr',
+            },
+          },
+        },
+        performanceMetrics: false,
+        debug: false,
+        enableSendAllBids: true,
+        priceGranularity: 'low',
         consentManagement: {
           gdpr: {
             cmpApi: 'iab',
@@ -1558,6 +1683,30 @@ export const actions = {
             ])
           } else {
             el.style.minHeight = 0 + 'px'
+          }
+          if (
+            !window.googletag.reloadedSlots.includes(name) &&
+            event.isEmpty &&
+            event.slot.getAdUnitPath().includes('wallpaper')
+          ) {
+            const el = document.getElementById(event.slot.getSlotElementId())
+            const unit = state.units[name]
+            el.innerHTML = ''
+            el.removeAttribute('data-google-query-id')
+            el.removeAttribute('style')
+            unit.opt_div = unit.opt_div + '_new'
+            el.setAttribute('id', unit.opt_div)
+            unit.desktop_sizes = [
+              [300, 600],
+              [200, 900],
+              [300, 900],
+            ]
+            window.googletag
+              .defineSlot(state.prefix + name, unit.desktop_sizes, name)
+              .addService(window.googletag.pubads())
+              .setTargeting('upc', unit.upc ? unit.upc : 10)
+            window.googletag.display(unit.opt_div)
+            window.googletag.reloadedSlots.push(name)
           }
         })
       window.googletag

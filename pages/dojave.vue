@@ -18,6 +18,7 @@
             src="@/assets/img/tg_graphic_dojava.png"
             aria-hidden="true"
             class="dojava-visual"
+            loading="lazy"
           />
         </div>
       </div>

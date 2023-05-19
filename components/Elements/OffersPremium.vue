@@ -11,20 +11,24 @@
           <img
             src="@/assets/img/extras/partner_logos/spar.svg"
             alt="Spar logo"
+            loading="lazy"
           />
           <img
             src="@/assets/img/extras/partner_logos/spar.svg"
             class="dark-mode-only"
             alt="Spar logo"
+            loading="lazy"
           />
           <img
             src="@/assets/img/extras/partner_logos/interspar.svg"
             alt="Interspar logo"
+            loading="lazy"
           />
           <img
             src="@/assets/img/extras/partner_logos/interspar.svg"
             class="dark-mode-only"
             alt="Interspar logo"
+            loading="lazy"
           />
         </div>
       </div>
@@ -48,7 +52,7 @@
             rel="sponsored"
             class="full flex article relative"
             role="article"
-            @click="trackClick"
+            @click.prevent="trackClick(post.link)"
           >
             <img
               :src="post.slika"
@@ -95,7 +99,6 @@ export default {
   },
   data() {
     return {
-      posts: [],
       slider_settings: {
         infinite: true,
         slidesToShow: 4,
@@ -127,8 +130,22 @@ export default {
       },
     }
   },
+  computed: {
+    posts() {
+      const preview = this.$route.query.webshop
+        ? this.$route.query.webshop
+        : 'production'
+      return this.$store.state.promos.offers[this.shop][preview]
+    },
+  },
   mounted() {
-    this.getPosts()
+    const preview = this.$route.query.webshop
+      ? this.$route.query.webshop
+      : 'production'
+    this.$store.dispatch('promos/pullOffers', {
+      shop: this.shop,
+      preview,
+    })
     this.$gtm.push({
       event: 'webshop-widget',
       'webshop-category': 'interspar-premium',
@@ -138,7 +155,7 @@ export default {
     })
   },
   methods: {
-    trackClick() {
+    trackClick(link) {
       this.$gtm.push({
         event: 'webshop-widget',
         'webshop-category': 'interspar-premium',
@@ -146,12 +163,7 @@ export default {
         'webshop-label': 'click',
         'webshop-value': 1,
       })
-    },
-    async getPosts() {
-      const preview = this.$route.query.webshop ? this.$route.query.webshop : ''
-      this.posts = await this.$axios.$get(
-        `https://www.telegram.hr/wp-json/telegram/pwa/v1/promos/webshop?shop=${this.shop}&webshop=${preview}`
-      )
+      window.open(link, '_blank')
     },
   },
 }

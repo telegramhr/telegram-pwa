@@ -1,10 +1,6 @@
 <template>
   <div>
-    <komentar
-      v-for="post in outposts ?? posts"
-      :key="post.id"
-      :post="post"
-    ></komentar>
+    <komentar v-for="post in posts" :key="post.id" :post="post"></komentar>
   </div>
 </template>
 <script>
@@ -31,7 +27,7 @@ export default {
   },
   data() {
     return {
-      posts: [],
+      posts: this.outposts,
     }
   },
 }

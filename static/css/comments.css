@@ -222,3 +222,6 @@
 #coral .coral-comment-topBar div {
   flex-basis: auto;
 }
+#coral .coral-streamFooter {
+  padding-top: 48px;
+}

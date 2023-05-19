@@ -170,7 +170,7 @@
 import braintree from 'braintree-web'
 
 export default {
-  name: 'Braintree',
+  name: 'BraintreeDonation',
   data() {
     return {
       access: {},
