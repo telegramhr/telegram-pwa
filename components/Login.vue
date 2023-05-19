@@ -11,7 +11,17 @@
           </h2>
         </div>
         <div v-if="!error" class="full flex column-full-pad mobile-side-pad">
-          <h2 class="full center-text">Prijava</h2>
+          <h2 class="full center-text column-top-pad">Prijava</h2>
+          <p
+            class="full infotext center-text"
+            style="margin-top: 4vw; margin-bottom: 4vw"
+          >
+            Samo pretplatnici imaju pristup aplikaciji. Kliknite
+            <a href="https://www.telegram.hr/pretplata" target="_blank"
+              >ovdje</a
+            >
+            ako nemate pretplatu.
+          </p>
           <label for="name">Email adresa</label>
           <input id="email" v-model="email" type="email" name="name" />
           <label for="address">Lozinka</label>
@@ -21,7 +31,7 @@
             type="password"
             name="password"
           />
-          <button @click="login">Prijava</button>
+          <button class="newbtn clickable" @click="login">Prijava</button>
         </div>
       </div>
     </div>

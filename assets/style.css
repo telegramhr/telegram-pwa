@@ -7331,6 +7331,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     right: 0px;
     font-size: 20px;
 }
+.tgred-accent {
+    accent-color: #ae3737;
+}
 .newbtn {
     font-family: 'Barlow', sans-serif;
     font-weight: 600;
@@ -7341,6 +7344,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     background-color: #ae3737;
     border-radius: 2px;
     color: white;
+    border: none;
 }
 .huge-newbtn {
     font-size: 16px;
@@ -7695,6 +7699,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 @media screen and (max-width: 767px) {
     .main-container {
         padding-top: calc(42px + var(--ion-safe-area-top));
+        min-height: 100vh;
+        align-content: space-between;
     }
     .single-article-premium {
         padding-top: var(--ion-safe-area-top);
@@ -11246,4 +11252,15 @@ Disable popup close on login
     font-family: 'Barlow', sans-serif;
     font-size: 16px;
     font-size: 0.8rem;
+}
+p.infotext {
+    font-size: 17px;
+    font-size: 0.85rem;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+    opacity: 0.7;
+}
+p.infotext a {
+    color: #ae3737;
+    font-weight: 700;
 }

@@ -5,18 +5,24 @@
         <theader></theader>
       </client-only>
     </div>
-    <div class="container full relative">
+    <div class="container flex mobile-side-pad full relative">
       <client-only>
-        <div>
-          <h1>Vaš račun</h1>
-          <p>
-            Ime: {{ $store.state.user.first_name }}
-            {{ $store.state.user.last_name }}
-          </p>
-          <p>
-            <app-link to="/moj-racun/obavijesti"> Obavijesti </app-link>
-          </p>
-        </div>
+        <h1>Vaš račun</h1>
+        <p class="full" style="margin-bottom: 4vw">
+          Ime: {{ $store.state.user.first_name }}
+          {{ $store.state.user.last_name }}
+        </p>
+        <p class="full infotext" style="margin-bottom: 5vw">
+          Za upravljanje vašom pretplatom, kliknite
+          <a target="_blank" href="https://www.telegram.hr/moj-racun">ovdje.</a>
+        </p>
+        <app-link
+          class="newbtn animate clickable"
+          style="margin-bottom: 4vw"
+          to="/moj-racun/obavijesti"
+        >
+          Obavijesti
+        </app-link>
       </client-only>
     </div>
     <tfooter></tfooter>

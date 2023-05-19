@@ -5,25 +5,41 @@
         <theader></theader>
       </client-only>
     </div>
-    <div class="container full relative">
+    <div class="container flex mobile-side-pad full relative">
       <client-only>
-        <div>
-          <h1>Uredi postavke obavijesti</h1>
-          <p>
-            <button class="signup-btn" @click="sub">
-              Aktiviraj notifikacije
-            </button>
-          </p>
-          <p>Odaberite vrstu obavijesti koje želite primati:</p>
-          <ul>
-            <li v-for="type in types" :key="type.title">
-              <label
-                ><input v-model="type.value" type="checkbox" />
-                {{ type.title }}</label
-              >
-            </li>
-          </ul>
-          <button @click="save">Spremi</button>
+        <h1 style="margin-bottom: 4vw">Uredi postavke obavijesti</h1>
+        <div class="full flex">
+          <button
+            class="newbtn animate clickable signup-btn"
+            style="margin-bottom: 4vw"
+            @click="sub"
+          >
+            Aktiviraj notifikacije
+          </button>
+        </div>
+        <p style="margin-bottom: 2vw">
+          Odaberite vrstu obavijesti koje želite primati:
+        </p>
+        <ul style="margin-bottom: 4vw">
+          <li v-for="type in types" :key="type.title">
+            <label
+              ><input
+                v-model="type.value"
+                class="tgred-accent"
+                type="checkbox"
+              />
+              {{ type.title }}</label
+            >
+          </li>
+        </ul>
+        <div class="full flex">
+          <button
+            class="newbtn animate clickable"
+            style="margin-bottom: 4vw"
+            @click="save"
+          >
+            Spremi
+          </button>
         </div>
       </client-only>
     </div>

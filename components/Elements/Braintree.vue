@@ -303,6 +303,7 @@ export default {
   letter-spacing: -0.05em;
   font-size: 36px;
   font-size: 1.8rem;
+  margin-top: 16px;
 }
 #book-pay-popup > div {
   border: 1px solid #c8c8c8;
@@ -363,12 +364,13 @@ export default {
 }
 #book-pay-popup button {
   padding: 8px 32px;
+  padding-top: 7px;
   text-align: center;
   display: block;
   margin: 16px auto;
   font-family: 'Barlow', sans-serif;
   font-weight: 600;
-  text-transform: uppercase;
+  text-transform: none;
   color: white;
   font-size: 20px;
   font-size: 1rem;
@@ -376,6 +378,7 @@ export default {
   position: relative;
   z-index: 200;
   cursor: pointer;
+  border: none;
 }
 #book-pay-popup textarea {
   width: 100%;
