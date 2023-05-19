@@ -26,9 +26,6 @@ export default {
     })
     if (Capacitor.isNativePlatform()) {
       await PushNotifications.addListener('registration', (token) => {
-        if (this.$store.state.user.notifications_token === token.value) {
-          return
-        }
         this.$axios.post(
           'https://pretplate.telegram.hr/api/notifications/subscribe',
           {
@@ -48,19 +45,28 @@ export default {
           this.$router.push(notification.notification.data.url)
         }
       )
-      // await this.registerNotifications()
-      App.addListener('backButton', (e) => {
-        if (this.$route.name === 'index') {
-          App.exitApp()
-        } else {
-          this.$router.go(-1)
-        }
-      })
+      if (Capacitor.getPlatform() === 'android') {
+        App.addListener('backButton', (e) => {
+          if (this.$route.name === 'index') {
+            App.exitApp()
+          } else {
+            this.$router.go(-1)
+          }
+        })
+        await PushNotifications.createChannel({
+          id: 'telegram.hr',
+          name: 'Telegram.hr',
+          importance: 5,
+          visibility: 1,
+          sound: 'ball',
+          lights: true,
+          vibration: true,
+        })
+      }
     }
   },
   methods: {
     check() {
-      console.log(this.$store.state.user.access)
       if (this.$store.state.user.access) {
         PushNotifications.checkPermissions().then((status) => {
           if (status.receive !== 'granted') {

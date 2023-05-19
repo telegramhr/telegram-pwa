@@ -2,7 +2,7 @@
   <div>
     <client-only>
       <h1 style="margin-bottom: 4vw">Uredi postavke obavijesti</h1>
-      <div v-if="!enabled" class="full flex">
+      <div class="full flex">
         <button
           class="newbtn animate clickable signup-btn"
           style="margin-bottom: 4vw"
