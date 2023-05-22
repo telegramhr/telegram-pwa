@@ -216,7 +216,6 @@ export default {
       },
     },
     optimization: {
-      minimize: false,
       splitChunks: {
         maxSize: 50000,
       },

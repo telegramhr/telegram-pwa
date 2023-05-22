@@ -11,9 +11,10 @@
     </h3>
     <div class="full flex stretch book-offers-widget">
       <div class="fourth flex-responsive column-horizontal-pad">
-        <app-link
-          to="/knjiga/sanja-modric-igla-pila-ravnalo"
+        <a
+          href="https://www.telegram.hr/knjiga/sanja-modric-igla-pila-ravnalo"
           class="full flex article relative"
+          target="_blank"
         >
           <img
             src="@/assets/img/tg_book_clean_modric.png"
@@ -29,12 +30,13 @@
               <div class="newbtn">Pogledajte više</div>
             </div>
           </div>
-        </app-link>
+        </a>
       </div>
       <div class="fourth flex-responsive column-horizontal-pad">
-        <app-link
-          to="/knjiga/boris-dezulovic-bili-libar"
+        <a
+          href="https://www.telegram.hr/knjiga/boris-dezulovic-bili-libar"
           class="full flex article relative"
+          target="_blank"
         >
           <img
             src="@/assets/img/tg_book_clean_dezulovic.png"
@@ -50,11 +52,12 @@
               <div class="newbtn">Pogledajte više</div>
             </div>
           </div>
-        </app-link>
+        </a>
       </div>
       <div class="fourth flex-responsive column-horizontal-pad">
-        <app-link
-          to="/knjiga/rajko-grlic-neispricane-price"
+        <a
+          href="https://www.telegram.hr/knjiga/rajko-grlic-neispricane-price"
+          target="_blank"
           class="full flex article relative"
         >
           <img
@@ -71,12 +74,13 @@
               <div class="newbtn">Pogledajte više</div>
             </div>
           </div>
-        </app-link>
+        </a>
       </div>
       <div class="fourth flex-responsive column-horizontal-pad">
-        <app-link
-          to="/knjiga/zrinka-paladino-o-zagrebu"
+        <a
+          href="https://www.telegram.hr/knjiga/zrinka-paladino-o-zagrebu"
           class="full flex article relative"
+          target="_blank"
         >
           <img
             src="@/assets/img/tg_book_clean_paladino.png"
@@ -92,7 +96,7 @@
               <div class="newbtn">Pogledajte više</div>
             </div>
           </div>
-        </app-link>
+        </a>
       </div>
     </div>
   </div>

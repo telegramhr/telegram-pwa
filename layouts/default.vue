@@ -13,13 +13,14 @@ export default {
   data() {
     return {
       key: Math.round(Date.now() / 1000),
+      interval: null,
     }
   },
   async mounted() {
     this.check()
     this.$nextTick(() => {
       if (this.$route.name === 'index') {
-        setInterval(() => {
+        this.interval = setInterval(() => {
           this.key = Math.round(Date.now() / 1000)
         }, 2 * 60 * 1000)
       }
@@ -63,6 +64,11 @@ export default {
           vibration: true,
         })
       }
+    }
+  },
+  beforeDestroy() {
+    if (this.interval) {
+      clearInterval(this.interval)
     }
   },
   methods: {
