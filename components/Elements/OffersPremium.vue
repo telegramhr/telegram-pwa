@@ -61,6 +61,22 @@
               width="400"
               height="400"
             />
+            <div v-if="temp" class="full flex article-pad">
+              <h2 class="full">{{ post.naslov }}</h2>
+              <h3 v-if="post.cijena" class="full overtitle">
+                {{ post.cijena }} ({{ post.cijena_euro }})<br />
+                <span v-if="post.stara_cijena" class="strikethrough-price">
+                  {{ post.stara_cijena }} ({{ post.stara_cijena_euro }})
+                </span>
+              </h3>
+
+              <h4 class="full">
+                {{ post.opis }}
+              </h4>
+              <div class="newbtn">
+                {{ post.cta ? post.cta : 'Pogledaj ponudu' }}
+              </div>
+            </div>
           </a>
         </div>
       </VueSlickCarousel>
@@ -131,6 +147,11 @@ export default {
     }
   },
   computed: {
+    temp() {
+      return (
+        this.$route.query.webshop === 'preview' || new Date().getDate() > 23
+      )
+    },
     posts() {
       const preview = this.$route.query.webshop
         ? this.$route.query.webshop
@@ -174,18 +195,10 @@ export default {
   background-color: #006431;
 }
 
-.pevex-line {
-  background-color: #00ab4e;
-}
-
 .spar-line > div {
   padding-left: 7px;
   background-color: #fcf1e7;
   width: 468px;
-}
-
-.pevex-line > div {
-  padding: 10px;
 }
 
 .contrast-mode .spar-line > div {
@@ -193,11 +206,6 @@ export default {
 }
 .dark-mode .spar-line > div {
   background-color: #212121;
-}
-
-h3.subsection-title .pevex-line img {
-  height: 14px;
-  bottom: 0px;
 }
 
 h3.subsection-title .spar-line img {
