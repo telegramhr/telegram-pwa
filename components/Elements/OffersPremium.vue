@@ -62,17 +62,22 @@
               height="400"
             />
             <div v-if="temp" class="full flex article-pad">
-              <h2 class="full">{{ post.naslov }}</h2>
-              <h3 v-if="post.cijena_euro" class="full overtitle">
-                {{ post.cijena_euro }} ({{ post.cijena }})<br />
-                <span v-if="post.stara_cijena_euro" class="strikethrough-price">
-                  {{ post.stara_cijena_euro }} ({{ post.stara_cijena }})
-                </span>
-              </h3>
+              <div>
+                <h2 class="full">{{ post.naslov }}</h2>
+                <h3 v-if="post.cijena_euro" class="full overtitle">
+                  {{ post.cijena_euro }} ({{ post.cijena }})<br />
+                  <span
+                    v-if="post.stara_cijena_euro"
+                    class="strikethrough-price"
+                  >
+                    {{ post.stara_cijena_euro }} ({{ post.stara_cijena }})
+                  </span>
+                </h3>
 
-              <h4 class="full">
-                {{ post.opis }}
-              </h4>
+                <h4 class="full">
+                  {{ post.opis }}
+                </h4>
+              </div>
               <div class="newbtn">
                 {{ post.cta ? post.cta : 'Pogledaj ponudu' }}
               </div>
@@ -219,5 +224,11 @@ h3.subsection-title .spar-line img {
 
 #offer-premium .dark-mode .slick-slide {
   border-right: 1px solid #212121;
+}
+
+#offer-premium .article-pad {
+  flex-direction: column;
+  min-height: 240px;
+  justify-content: space-between;
 }
 </style>
