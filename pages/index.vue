@@ -1,5 +1,5 @@
 <template>
-  <div id="top" class="main-container flex homepage">
+  <div id="top" :key="key" class="main-container flex homepage">
     <!-- TG Multiverse Header -->
     <div class="full flex">
       <theader></theader>
@@ -634,6 +634,8 @@ export default {
   data() {
     return {
       loading: false,
+      key: Math.round(Date.now() / 1000),
+      interval: null,
     }
   },
   computed: {
@@ -681,10 +683,21 @@ export default {
       }
     },
   },
+  beforeDestroy() {
+    if (this.interval) {
+      clearInterval(this.interval)
+      this.interval = null
+    }
+  },
   mounted() {
     this.$nextTick(() => {
       // this.loadAds()
       this.$telegram.$loading.finish()
+      if (!this.interval) {
+        this.interval = setInterval(() => {
+          this.key = Math.round(Date.now() / 1000)
+        }, 2 * 60 * 1000)
+      }
     })
   },
   methods: {

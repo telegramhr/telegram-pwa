@@ -424,7 +424,7 @@ export default {
         )
       } else {
         post = await this.$axios.$get(
-          `${this.$config.baseURL}single/${this.$route.params.slug}?pwa=1`
+          `${this.$config.baseURL}single/${this.$route.params.slug}`
         )
       }
     }

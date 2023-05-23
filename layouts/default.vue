@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="fb-root"></div>
-    <Nuxt :key="key" />
+    <Nuxt />
   </div>
 </template>
 
@@ -10,21 +10,8 @@ import { PushNotifications } from '@capacitor/push-notifications'
 import { App } from '@capacitor/app'
 import { Capacitor } from '@capacitor/core'
 export default {
-  data() {
-    return {
-      key: Math.round(Date.now() / 1000),
-      interval: null,
-    }
-  },
   async mounted() {
     this.check()
-    this.$nextTick(() => {
-      if (this.$route.name === 'index') {
-        this.interval = setInterval(() => {
-          this.key = Math.round(Date.now() / 1000)
-        }, 2 * 60 * 1000)
-      }
-    })
     if (Capacitor.isNativePlatform()) {
       await PushNotifications.addListener('registration', (token) => {
         this.$axios.post(
@@ -64,11 +51,6 @@ export default {
           vibration: true,
         })
       }
-    }
-  },
-  beforeDestroy() {
-    if (this.interval) {
-      clearInterval(this.interval)
     }
   },
   methods: {
