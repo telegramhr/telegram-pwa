@@ -61,7 +61,7 @@
               width="400"
               height="400"
             />
-            <div v-if="temp" class="full flex article-pad">
+            <div class="full flex article-pad">
               <div>
                 <h2 class="full">{{ post.naslov }}</h2>
                 <h3 v-if="post.cijena_euro" class="full overtitle">
@@ -115,7 +115,7 @@ export default {
     shop: {
       type: String,
       required: false,
-      default: 'pevex',
+      default: 'interspar',
     },
   },
   data() {
@@ -152,11 +152,6 @@ export default {
     }
   },
   computed: {
-    temp() {
-      return (
-        this.$route.query.webshop === 'preview' || new Date().getDate() > 23
-      )
-    },
     posts() {
       const preview = this.$route.query.webshop
         ? this.$route.query.webshop
