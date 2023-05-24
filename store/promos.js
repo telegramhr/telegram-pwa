@@ -1,7 +1,7 @@
 export const state = () => ({
   posts: [],
   offers: {
-    spar: {
+    interspar: {
       preview: [],
       preview_updated: null,
       production: [],
