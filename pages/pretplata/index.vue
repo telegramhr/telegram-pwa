@@ -976,8 +976,11 @@ export default {
       'article-author': this.$store.state.history.author,
       'user-type': this.$store.state.user.type,
     })
-    if (this.$route.query.promo_code === 'KHD6THX') {
-      this.checkout(this.one)
+    if (this.$route.query.promo_code === 'XUETUP3') {
+      this.checkout(this.three)
+    }
+    if (this.$route.query.promo_code === 'RHXAYAVF') {
+      this.checkout(this.three)
     }
   },
   methods: {
