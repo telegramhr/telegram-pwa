@@ -39,6 +39,7 @@ export default {
           type: '',
           show_correct: false,
           question: '',
+          required: 0,
           answers: [
             {
               id: 0,
@@ -56,6 +57,9 @@ export default {
   },
   methods: {
     next() {
+      if (this.data.required && !this.answered) {
+        return
+      }
       this.$emit('answer', this.data.id, this.answered)
     },
   },

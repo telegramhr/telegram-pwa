@@ -18,6 +18,7 @@ export default {
           id: 0,
           type: '',
           question: '',
+          required: 0,
         }
       },
     },
@@ -29,6 +30,9 @@ export default {
   },
   methods: {
     next() {
+      if (this.data.required && !this.answer) {
+        return
+      }
       this.$emit('answer', this.data.id, this.answer)
     },
   },

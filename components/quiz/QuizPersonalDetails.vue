@@ -35,6 +35,7 @@ export default {
           type: '',
           question: '',
           terms_conditions: '',
+          required: 0,
         }
       },
     },
@@ -50,6 +51,9 @@ export default {
   methods: {
     submit() {
       if (this.data.terms_conditions && !this.consent2) {
+        return
+      }
+      if (this.data.required && (!this.email || !this.name)) {
         return
       }
       if (this.consent) {

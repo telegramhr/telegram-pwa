@@ -45,6 +45,7 @@ export default {
           type: '',
           show_correct: false,
           question: '',
+          required: 0,
           answers: [
             {
               id: 0,
