@@ -1003,9 +1003,8 @@ export default {
     })
   },
   methods: {
-    setPromo() {
-      this.promo_code = 'KHD6THX'
-      this.checkout(this.one)
+    canLogIn() {
+      return this.$store.state.user.exp * 1000 < new Date().getTime()
     },
     checkout(termId) {
       this.$gtm.push({ ecommerce: null }) // Clear the previous ecommerce object.
