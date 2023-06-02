@@ -948,40 +948,43 @@ export default {
     },
   },
   mounted() {
-    this.promo_code = this.$route.query.promo_code
-    window.fbq = window.fbq || function () {}
-    window.fbq('track', 'ViewContent', {
-      content_ids: [
-        'TMJHR6Y8K4QA',
-        'TMY8ORHQG44A',
-        'TM8RZKGESM1T',
-        'TMQDTT4IEHY0',
-      ],
+    this.$nextTick(() => {
+      this.promo_code = this.$route.query.promo_code
+      window.fbq = window.fbq || function () {}
+      window.fbq('track', 'ViewContent', {
+        content_ids: [
+          'TMJHR6Y8K4QA',
+          'TMY8ORHQG44A',
+          'TM8RZKGESM1T',
+          'TMQDTT4IEHY0',
+        ],
+      })
+      window.tp.push([
+        'addHandler',
+        'checkoutComplete',
+        function (conversion) {
+          if (conversion.rid === '') {
+            this.$store.commit('user/setTerm', true)
+          }
+        },
+      ])
+      this.$gtm.push({
+        event: 'subscription-funnel',
+        'subscription-category': 'subscription-new',
+        'subscription-action': 'viewed',
+        'article-title': this.$store.state.history.title,
+        'article-category': this.$store.state.history.category,
+        'article-author': this.$store.state.history.author,
+        'user-type': this.$store.state.user.type,
+      })
+
+      if (this.$route.query.promo_code === 'XUETUP3') {
+        this.checkout(this.three)
+      }
+      if (this.$route.query.promo_code === 'RHXAYAVF') {
+        this.checkout(this.three)
+      }
     })
-    window.tp.push([
-      'addHandler',
-      'checkoutComplete',
-      function (conversion) {
-        if (conversion.rid === '') {
-          this.$store.commit('user/setTerm', true)
-        }
-      },
-    ])
-    this.$gtm.push({
-      event: 'subscription-funnel',
-      'subscription-category': 'subscription-new',
-      'subscription-action': 'viewed',
-      'article-title': this.$store.state.history.title,
-      'article-category': this.$store.state.history.category,
-      'article-author': this.$store.state.history.author,
-      'user-type': this.$store.state.user.type,
-    })
-    if (this.$route.query.promo_code === 'XUETUP3') {
-      this.checkout(this.three)
-    }
-    if (this.$route.query.promo_code === 'RHXAYAVF') {
-      this.checkout(this.three)
-    }
   },
   methods: {
     setPromo() {
