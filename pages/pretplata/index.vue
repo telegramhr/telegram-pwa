@@ -984,6 +984,22 @@ export default {
       if (this.$route.query.promo_code === 'RHXAYAVF') {
         this.checkout(this.three)
       }
+      if (this.$route.query.checkout) {
+        switch (this.$route.query.checkout) {
+          case 'sm':
+            this.checkout(this.one)
+            break
+          case 'sy':
+            this.checkout(this.two)
+            break
+          case 'pm':
+            this.checkout(this.three)
+            break
+          case 'py':
+            this.checkout(this.four)
+            break
+        }
+      }
     })
   },
   methods: {
