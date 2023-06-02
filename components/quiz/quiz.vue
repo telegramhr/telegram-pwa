@@ -97,7 +97,6 @@ export default {
       if (this.data.questions[q].type === 'QuizPersonalDetails') {
         this.$set(this.answers, 'ime', val.name)
         this.$set(this.answers, 'email', val.email)
-        this.submit()
       } else if (this.data.questions[q].answers.length) {
         this.$set(
           this.answers,
