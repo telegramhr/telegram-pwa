@@ -343,7 +343,7 @@
                 >
                   <offers-premium></offers-premium>
                 </div>
-                <linker type="mobile"></linker>
+                <linker v-if="hasLinker" type="mobile"></linker>
               </client-only>
               <!-- Article footer -->
               <div
@@ -397,7 +397,7 @@
           </article>
         </div>
         <client-only>
-          <div v-if="!hasPremium" class="full">
+          <div v-if="!hasPremium && hasLinker" class="full">
             <linker type="category"></linker>
           </div>
           <!--<div
@@ -420,10 +420,10 @@
               data-contentexchange-source="ughr"
             ></div>
           </div>
-          <div v-if="!hasPremium" class="full mobile-only">
+          <div v-if="!hasPremium && hasLinker" class="full mobile-only">
             <linker type="footer"></linker>
           </div>
-          <div v-if="!hasPremium" class="container flex center">
+          <div v-if="!hasPremium && hasLinker" class="container flex center">
             <linker type="shop"></linker>
           </div>
           <keep-reading
@@ -500,6 +500,7 @@
 
 <script>
 import { Portal } from '@linusborg/vue-simple-portal'
+import {has} from "vue-slick-carousel/dist/vue-slick-carousel.common";
 export default {
   name: 'Slug',
   scrollToTop: true,
@@ -823,6 +824,7 @@ export default {
     this.comments_embed = null
   },
   methods: {
+    has,
     handleScroll() {
       const walls = document.getElementsByClassName('wallpaper-banners')
       const bill =
@@ -857,8 +859,8 @@ export default {
         !this.post.disable_ads.includes('midas') &&
         !this.post.disable_ads.includes('nepromo')
       ) {
-        this.$linker.reloadLinker()
         this.hasLinker = true
+        this.$linker.reloadLinker()
       }
     },
     loadPiano() {
