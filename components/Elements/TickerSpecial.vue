@@ -8,21 +8,25 @@
         src="@/assets/img/tg_ticker_special_bg_mobile.jpg"
         class="mobile-only"
         aria-hidden="true"
+        loading="lazy"
       />
       <img
         src="@/assets/img/tg_ticker_special_bg_desktop.jpg"
         class="desktop-only"
         aria-hidden="true"
+        loading="lazy"
       />
       <img
         src="@/assets/img/tg_ticker_special_bg_mobile_dark.jpg"
         class="mobile-only dark-mode-only"
         aria-hidden="true"
+        loading="lazy"
       />
       <img
         src="@/assets/img/tg_ticker_special_bg_desktop_dark.jpg"
         class="desktop-only dark-mode-only"
         aria-hidden="true"
+        loading="lazy"
       />
       <div class="half flex-responsive flex">
         <h2 class="full">U 2023. zajedno možemo napraviti više. Puno više.</h2>

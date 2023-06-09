@@ -6,7 +6,11 @@
       <div class="full cantha-separator"></div>
     </div>
     <h3 class="full center-text column-full-pad subsection-title">
-      <img src="@/assets/img/telegram_logo_black.svg" alt="Telegram logo" />
+      <img
+        src="@/assets/img/telegram_logo_black.svg"
+        alt="Telegram logo"
+        loading="lazy"
+      />
       knjige
     </h3>
     <div class="full flex stretch book-offers-widget">
@@ -18,6 +22,7 @@
           <img
             src="@/assets/img/tg_book_clean_modric.png"
             alt="Naslovnica nove knjige Sanje Modrić 'Igla, pila, ravnalo'"
+            loading="lazy"
           />
           <div class="full flex article-pad center-text">
             <h2 class="full">Igla, pila, ravnalo</h2>
@@ -39,6 +44,7 @@
           <img
             src="@/assets/img/tg_book_clean_dezulovic.png"
             alt="Naslovnica knjige Borisa Dežulovića 'Bili libar'"
+            loading="lazy"
           />
           <div class="full flex article-pad center-text">
             <h2 class="full">Bili libar</h2>
@@ -60,6 +66,7 @@
           <img
             src="@/assets/img/tg_book_clean_grlic.png"
             alt="Naslovnica knjige Rajka Grlića 'Neispričane priče'"
+            loading="lazy"
           />
           <div class="full flex article-pad center-text">
             <h2 class="full">Neispričane priče</h2>
@@ -81,6 +88,7 @@
           <img
             src="@/assets/img/tg_book_clean_paladino.png"
             alt="Naslovnica knjige Zrinke Paladino 'O Zagrebu i... Telegramovih 48'"
+            loading="lazy"
           />
           <div class="full flex article-pad center-text">
             <h2 class="full">O Zagrebu i...</h2>

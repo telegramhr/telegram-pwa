@@ -123,6 +123,7 @@
               <img
                 src="@/assets/img/tg_studio_white.svg"
                 alt="TG Studio logo"
+                loading="lazy"
               />
             </a>
           </div>

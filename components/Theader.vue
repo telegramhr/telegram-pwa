@@ -493,11 +493,13 @@
           <app-link to="/openspace" class="logo"
             ><img
               src="@/assets/img/openspace_logo_normal.svg"
-              alt="openspace logo" />
+              alt="openspace logo"
+              loading="lazy" />
             <img
               src="@/assets/img/openspace_logo_negative.svg"
               alt="openspace logo"
               class="dark-mode-only"
+              loading="lazy"
           /></app-link>
           <a
             :aria-expanded="$store.state.header.showSideMenu.toString()"
@@ -603,7 +605,8 @@
       <app-link to="/openspace" class="logo os-mobnav-logo"
         ><img
           src="@/assets/img/openspace_logo_normal.svg"
-          alt="openspace logo" />
+          alt="openspace logo"
+          loading="lazy" />
         <img
           src="@/assets/img/openspace_logo_negative.svg"
           alt="openspace logo"
@@ -736,6 +739,7 @@
               <img
                 src="@/assets/img/openspace_logo_negative.svg"
                 alt="openspace logo"
+                loading="lazy"
             /></app-link>
           </div>
           <div class="flex third relative">
