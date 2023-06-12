@@ -61,6 +61,12 @@ export default {
         src: 'https://cdn.cxense.com/cx.cce.js',
         async: true,
       },
+      {
+        hid: 'coral',
+        src: 'https://talk.telegram.hr/assets/js/embed.js',
+        async: false,
+        defer: true,
+      },
     ],
   },
 

@@ -1319,10 +1319,6 @@ export default {
         hid: 'wdt_frontend_strings',
         innerHTML: 'var wpdatatables_frontend_strings = [];',
       },
-      {
-        hid: 'coral',
-        src: 'https://talk.telegram.hr/assets/js/embed.js',
-      },
     ]
     wdtScripts.forEach((item) => {
       script.push({
