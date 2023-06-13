@@ -164,6 +164,8 @@
 }
 #coral #comments-allComments-log div {
   border: none !important;
+  height: auto !important;
+  position: relative !important;
 }
 #coral .coral-comment-userTag {
   font-family: 'Barlow', sans-serif;
@@ -223,5 +225,5 @@
   flex-basis: auto;
 }
 #coral .coral-streamFooter {
-  padding-top: 48px;
+  padding-top: 24px;
 }
