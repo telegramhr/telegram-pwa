@@ -181,35 +181,6 @@
                 <div class="full flex newsletter-header">
                   <div class="newsletter-avatar">
                     <img
-                      src="https://www.telegram.hr/wp-content/uploads/2020/04/repecki2.png"
-                      aria-hidden="true"
-                    />
-                  </div>
-                  <div class="full relative">
-                    <h3 class="full overtitle">Redovito</h3>
-                    <h2 class="full newsletter-title">Marko Repecki</h2>
-                    <h3 class="full subtitle">Puni članci autora</h3>
-                  </div>
-                </div>
-                <div class="full flex newsletter-box">
-                  <p class="full newsletter-intro">
-                    Autorske kolumne, analize i priče Telegramovog novinara i
-                    komentatora za ekonomiju, biznis, državne financije i
-                    poduzetništvo.
-                  </p>
-                  <subscribe-button
-                    :mlid="2562"
-                    :free="false"
-                    title="Marko Repecki"
-                  ></subscribe-button>
-                </div>
-              </div>
-            </div>
-            <div class="third flex-responsive column-full-pad flex stretch">
-              <div class="full newsletter-listing flex relative stretch">
-                <div class="full flex newsletter-header">
-                  <div class="newsletter-avatar">
-                    <img
                       src="https://www.telegram.hr/wp-content/uploads/2017/09/goranko_fizulic.png"
                       aria-hidden="true"
                     />
@@ -327,6 +298,34 @@
                     :mlid="2564"
                     :free="false"
                     title="Drago Hedl"
+                  ></subscribe-button>
+                </div>
+              </div>
+            </div>
+            <div class="third flex-responsive column-full-pad flex stretch">
+              <div class="full newsletter-listing flex relative stretch">
+                <div class="full flex newsletter-header">
+                  <div class="newsletter-avatar">
+                    <img
+                      src="https://www.telegram.hr/wp-content/uploads/2023/06/silvana-mendusic.png"
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <div class="full relative">
+                    <h3 class="full overtitle">Redovito</h3>
+                    <h2 class="full newsletter-title">Silvana Menđušić</h2>
+                    <h3 class="full subtitle">Puni članci autora</h3>
+                  </div>
+                </div>
+                <div class="full flex newsletter-box">
+                  <p class="full newsletter-intro">
+                    Dugogodišnja reporterka i urednica, za Telegram redovito
+                    donosi istraživačke serijale i ljudske sudbine
+                  </p>
+                  <subscribe-button
+                    :mlid="9962"
+                    :free="false"
+                    title="Silvana Menđušić"
                   ></subscribe-button>
                 </div>
               </div>

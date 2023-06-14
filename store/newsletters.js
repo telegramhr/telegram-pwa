@@ -9,7 +9,6 @@ export const state = () => ({
     2559: false,
     2560: false,
     2561: false,
-    2562: false,
     2563: false,
     2564: false,
     2565: false,
@@ -28,6 +27,7 @@ export const state = () => ({
     2630: false,
     2631: false,
     2642: false,
+    9962: false,
   },
   updated: null,
 })
