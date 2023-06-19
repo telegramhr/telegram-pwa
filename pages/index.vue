@@ -352,7 +352,7 @@
       </div>
     </div>
     <!-- Billboard 3 -->
-    <div class="full relative cantha-billboard3">
+    <div class="full relative cantha-billboard">
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
       </div>
