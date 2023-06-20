@@ -3111,13 +3111,13 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     background-color: rgba(0, 0, 0, 0.3);
     color: #666;
 }
-.pretplata-packbox:nth-child(3), .pretplata-packbox:nth-child(4) {
+.pretplata-packbox:nth-child(4), .pretplata-packbox:nth-child(5) {
     display: none;
 }
-.yeartoggle:checked ~ .pretplata-packboxes .pretplata-packbox:nth-child(1), .yeartoggle:checked ~ .pretplata-packboxes .pretplata-packbox:nth-child(2) {
+.yeartoggle:checked ~ .pretplata-packboxes .pretplata-packbox:nth-child(1), .yeartoggle:checked ~ .pretplata-packboxes .pretplata-packbox:nth-child(2), .yeartoggle:checked ~ .pretplata-packboxes .pretplata-packbox:nth-child(3) {
     display: none;
 }
-.yeartoggle:checked ~ .pretplata-packboxes .pretplata-packbox:nth-child(3), .yeartoggle:checked ~ .pretplata-packboxes .pretplata-packbox:nth-child(4) {
+.yeartoggle:checked ~ .pretplata-packboxes .pretplata-packbox:nth-child(4), .yeartoggle:checked ~ .pretplata-packboxes .pretplata-packbox:nth-child(5) {
     display: flex;
 }
 #billtoggle {
@@ -11176,3 +11176,43 @@ header .search-menu {
         margin-bottom: 3vw;
     }
 }
+
+/* Latest widget and page
+
+.desktop-big-time {
+    display: none;
+}
+@media screen and (min-width: 767px) {
+    .latest-articles .mini-article-list .article-mini .mini-big-time, .latest-articles .mini-article-list .article-mini::before {
+        display: none;
+    }
+    .latest-articles {
+        background-color: #e8dacd;
+        padding: 24px;
+        margin-bottom: 24px;
+    }
+    .latest-articles .mini-article-list .article-mini {
+        width: 24.99%;
+    }
+    .latest-articles .article-mini h2 {
+        font-family: 'Lora', serif;
+        font-weight: 400;
+        font-size: 16px;
+        font-size: 0.8rem;
+    }
+    .latest-articles .article-mini .article-pad {
+        padding-bottom: 0px;
+    }
+    .desktop-big-time {
+        display: flex;
+        font-family: 'Barlow', sans-serif;
+        font-weight: 700;
+        font-size: 14px;
+        font-size: 0.7rem;
+        margin-bottom: 10px;
+    }
+    .desktop-big-time span {
+        color: #ae3737;
+        padding-left: 8px;
+    }
+} */

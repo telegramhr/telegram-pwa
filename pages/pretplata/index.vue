@@ -111,6 +111,52 @@
                 class="half flex-responsive flex relative pretplata-packbox stretch"
               >
                 <div class="full flex overtitle-parent">
+                  <h3 class="overtitle">Probni period</h3>
+                </div>
+                <h2 class="full">0,99€</h2>
+                <h4 class="full center-text undertitle">
+                  prvi mjesec, nakon toga 6,49€ (49kn) mjesečno
+                </h4>
+                <div class="full pretplata-benefits">
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    neograničeno čitanje Telegrama
+                  </p>
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    posebni popusti i pogodnosti
+                  </p>
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    specijalni newsletteri
+                  </p>
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    verificirani profil u komentarima
+                  </p>
+                  <p class="full animate">
+                    <font-awesome-icon
+                      :icon="['fas', 'check']"
+                    ></font-awesome-icon>
+                    surfanje s manje oglasa
+                  </p>
+                </div>
+                <div class="full center btn-parent" @click="checkout(one)">
+                  <div class="btn animate">Odaberi</div>
+                </div>
+              </div>
+              <div
+                class="half flex-responsive flex relative pretplata-packbox stretch"
+              >
+                <div class="full flex overtitle-parent">
                   <h3 class="overtitle">Standard</h3>
                 </div>
                 <h2 class="full">6,49€</h2>
