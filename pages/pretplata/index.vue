@@ -149,7 +149,7 @@
                     surfanje s manje oglasa
                   </p>
                 </div>
-                <div class="full center btn-parent" @click="checkout(one)">
+                <div class="full center btn-parent" @click="checkout(five)">
                   <div class="btn animate">Odaberi</div>
                 </div>
               </div>
@@ -965,6 +965,11 @@ export default {
           price: 78.04,
           gtm: 'premium-annual',
         },
+        TMWPGMUCMX45: {
+          title: 'Telegram Mjesečna Pretplata (Trial)',
+          price: 6.49,
+          gtm: 'standard-monthly-trial',
+        },
       },
     }
   },
@@ -993,6 +998,9 @@ export default {
       }
       return ''
     },
+    five() {
+      return 'TMWPGMUCMX45'
+    },
   },
   mounted() {
     this.$nextTick(() => {
@@ -1004,6 +1012,7 @@ export default {
           'TMY8ORHQG44A',
           'TM8RZKGESM1T',
           'TMQDTT4IEHY0',
+          'TMWPGMUCMX45',
         ],
       })
       window.tp.push([
@@ -1044,6 +1053,9 @@ export default {
             break
           case 'py':
             this.checkout(this.four)
+            break
+          case 'trial':
+            this.checkout(this.five)
             break
         }
       }
