@@ -500,7 +500,9 @@
 
 <script>
 import { Portal } from '@linusborg/vue-simple-portal'
-import {has} from "vue-slick-carousel/dist/vue-slick-carousel.common";
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+
 export default {
   name: 'Slug',
   scrollToTop: true,
@@ -824,7 +826,6 @@ export default {
     this.comments_embed = null
   },
   methods: {
-    has,
     handleScroll() {
       const walls = document.getElementsByClassName('wallpaper-banners')
       const bill =
@@ -953,6 +954,11 @@ export default {
             if (image.width < image.height) {
               image.classList.remove('size-full')
             }
+          })
+        }
+        if (this.post.content.indexOf('data-aos')) {
+          AOS.init({
+            once: true,
           })
         }
       } else {
