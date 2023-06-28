@@ -3548,6 +3548,13 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .mobile-left-pad {
         padding-left: 4vw;
     }
+    .mobile-full-pad {
+        padding: 4vw;
+    }
+    .mobile-vertical-pad {
+        padding-bottom: 4vw;
+        padding-top: 4vw;
+    }
     .single-article {
         font-size: 17px;
         font-size: 0.85rem;
@@ -7442,13 +7449,13 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .alt-big-break .article h2 {
     font-weight: 400;
 }
-.cantha-break {
+.cantha-break, .darkened-bg {
     background-color: #e8dacd;
 }
-.contrast-mode .cantha-break, .fancy-rubrika .cantha-break {
+.contrast-mode .cantha-break, .fancy-rubrika .cantha-break, .contrast-mode .darkened-bg, .fancy-rubrika .darkened-bg {
     background-color: #eeeeee;
 }
-.dark-mode .cantha-break {
+.dark-mode .cantha-break, .dark-mode .darkened-bg {
     background-color:rgba(0, 0, 0, 0.3);
 }
 .klub-cantha-break {
