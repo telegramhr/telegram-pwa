@@ -81,7 +81,7 @@
     <div class="full flex relative darkened-bg">
       <div class="container column-full-pad mobile-full-pad flex relative">
         <p
-          class="full center-text birati-stranu-title"
+          class="full center-text birati-stranu-title column-top-pad mobile-top-pad"
           data-aos="fade-down"
           data-aos-delay="0"
           data-aos-duration="500"
@@ -227,21 +227,12 @@
               alt="Tvrtko Jakovina - pretplatnik i povjesničar"
             />
           </div>
-
-          <input
-            id="pretplatnik-show-more"
-            name="pretplatnik-show-more"
-            class="full hide"
-            type="checkbox"
-          />
-          <label
-            for="pretplatnik-show-more"
-            class="full column-bottom-pad mobile-bottom-pad clickable center-text italic"
-          >
-            Pročitajte još izjava pretplatnika na našoj strani
-          </label>
           <div
-            class="half flex-responsive flex relative birati-stranu-pretplatnik input-hidden"
+            class="half flex-responsive flex relative birati-stranu-pretplatnik"
+            data-aos="fade-right"
+            data-aos-delay="300"
+            data-aos-duration="500"
+            data-aos-offset="250"
           >
             <img
               src="@/assets/img/extras/pretplatnici/ankica.png"
@@ -250,7 +241,11 @@
           </div>
 
           <div
-            class="half flex-responsive flex relative birati-stranu-pretplatnik input-hidden"
+            class="half flex-responsive flex relative birati-stranu-pretplatnik"
+            data-aos="fade-left"
+            data-aos-delay="300"
+            data-aos-duration="500"
+            data-aos-offset="250"
           >
             <img
               src="@/assets/img/extras/pretplatnici/ivanaD.png"
@@ -259,7 +254,11 @@
           </div>
 
           <div
-            class="half flex-responsive flex relative birati-stranu-pretplatnik input-hidden"
+            class="half flex-responsive flex relative birati-stranu-pretplatnik"
+            data-aos="fade-right"
+            data-aos-delay="300"
+            data-aos-duration="500"
+            data-aos-offset="250"
           >
             <img
               src="@/assets/img/extras/pretplatnici/ivica.png"
@@ -268,7 +267,11 @@
           </div>
 
           <div
-            class="half flex-responsive flex relative birati-stranu-pretplatnik input-hidden"
+            class="half flex-responsive flex relative birati-stranu-pretplatnik"
+            data-aos="fade-left"
+            data-aos-delay="300"
+            data-aos-duration="500"
+            data-aos-offset="250"
           >
             <img
               src="@/assets/img/extras/pretplatnici/majaV.png"
@@ -277,7 +280,11 @@
           </div>
 
           <div
-            class="half flex-responsive flex relative birati-stranu-pretplatnik input-hidden"
+            class="half flex-responsive flex relative birati-stranu-pretplatnik"
+            data-aos="fade-right"
+            data-aos-delay="300"
+            data-aos-duration="500"
+            data-aos-offset="250"
           >
             <img
               src="@/assets/img/extras/pretplatnici/marko.png"
@@ -286,7 +293,11 @@
           </div>
 
           <div
-            class="half flex-responsive flex relative birati-stranu-pretplatnik input-hidden"
+            class="half flex-responsive flex relative birati-stranu-pretplatnik"
+            data-aos="fade-left"
+            data-aos-delay="300"
+            data-aos-duration="500"
+            data-aos-offset="250"
           >
             <img
               src="@/assets/img/extras/pretplatnici/mia.png"
@@ -295,7 +306,11 @@
           </div>
 
           <div
-            class="half flex-responsive flex relative birati-stranu-pretplatnik input-hidden"
+            class="half flex-responsive flex relative birati-stranu-pretplatnik"
+            data-aos="fade-right"
+            data-aos-delay="300"
+            data-aos-duration="500"
+            data-aos-offset="250"
           >
             <img
               src="@/assets/img/extras/pretplatnici/nebojsa.png"
@@ -304,13 +319,36 @@
           </div>
 
           <div
-            class="half flex-responsive flex relative birati-stranu-pretplatnik input-hidden"
+            class="half flex-responsive flex relative birati-stranu-pretplatnik"
+            data-aos="fade-left"
+            data-aos-delay="300"
+            data-aos-duration="500"
+            data-aos-offset="250"
           >
             <img
               src="@/assets/img/extras/pretplatnici/vuk.png"
               alt="Vuk Vuković - pretplatnik i ekonomist"
             />
           </div>
+
+          <!--<input
+            id="pretplatnik-show-more"
+            name="pretplatnik-show-more"
+            class="full hide"
+            type="checkbox"
+          />
+          <label
+            for="pretplatnik-show-more"
+            class="full clickable center-text italic"
+          >
+            Pročitajte još izjava pretplatnika na našoj strani
+          </label>-->
+          <a
+            class="full clickable center-text italic"
+            href="https://www.telegram.hr/native/stigao-je-novi-telegram/"
+            target="_blank"
+            >Pročitajte još izjava pretplatnika na našoj strani</a
+          >
         </div>
       </div>
     </div>
@@ -336,7 +374,7 @@
           Paketi pretplate već od 5,16 EUR/mj.
         </p>
         <div
-          class="full center column-top-pad mobile-top-pad"
+          class="full center column-vertical-pad mobile-vertical-pad"
           data-aos="flip-up"
           data-aos-delay="1500"
           data-aos-duration="750"
@@ -349,8 +387,12 @@
     </div>
     <!-- Big logo -->
     <div class="full flex relative">
-      <div class="container column-full-pad mobile-full-pad center relative">
-        <div class="two-thirds flex relative column-full-pad mobile-full-pad">
+      <div
+        class="container column-vertical-pad mobile-vertical-pad center relative"
+      >
+        <div
+          class="two-thirds center relative column-vertical-pad mobile-vertical-pad"
+        >
           <img
             class="column-full-pad light-mode-only"
             src="@/assets/img/telegram_logo_black.svg"
