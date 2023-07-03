@@ -38,12 +38,7 @@
         id="article-body"
         class="container column-full-pad mobile-full-pad flex relative mobile-side-pad"
       >
-        <p
-          class="full center-text mobile-only birati-stranu-note"
-          data-aos="flip-up"
-          data-aos-delay="1750"
-          data-aos-duration="500"
-        >
+        <p class="full center-text mobile-only birati-stranu-note">
           Svaki novi pretplatnik omogućit će Telegramu da proširi listu
           raskrinkanih moćnika
         </p>
