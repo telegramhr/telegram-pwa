@@ -730,7 +730,7 @@ export default {
         {
           hid: 'og:title',
           property: 'og:title',
-          content: 'Telegram Dojave',
+          content: 'Nekad je nužno odabrati stranu',
         },
         {
           hid: 'og:url',
