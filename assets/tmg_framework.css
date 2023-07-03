@@ -129,6 +129,9 @@ img {
 .no-wrap {
     flex-wrap: nowrap;
 }
+.flex-wrap {
+    flex-wrap: wrap;
+}
 .half {
     width: 49.99%;
 }
@@ -155,6 +158,9 @@ img {
 }
 .sixth {
     width: 16.66%;
+}
+.eighth {
+    width: 12.49%;
 }
 .three-fourths {
     width: 74.99%;

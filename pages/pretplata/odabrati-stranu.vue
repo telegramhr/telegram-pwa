@@ -128,7 +128,7 @@
         <p
           class="full center-text column-vertical-pad mobile-vertical-pad birati-stranu-title"
         >
-          Pretplatnici Telegrama odabrali su stranu.
+          <span>Pretplatnici Telegrama</span> <span>odabrali su stranu.</span>
         </p>
         <div class="full column-vertical-pad mobile-full-pad flex">
           <div
@@ -139,7 +139,7 @@
             data-aos-offset="250"
           >
             <img
-              src="@/assets/img/extras/pretplatnici/emil.png"
+              src="@/assets/img/extras/pretplatnici/emil.jpg"
               alt="Emil Tedeschi - pretplatnik i poduzetnik"
             />
           </div>
@@ -151,7 +151,7 @@
             data-aos-offset="250"
           >
             <img
-              src="@/assets/img/extras/pretplatnici/maja.png"
+              src="@/assets/img/extras/pretplatnici/maja.jpg"
               alt="Maja Sever - pretplatnica i novinarka"
             />
           </div>
@@ -163,7 +163,7 @@
             data-aos-offset="250"
           >
             <img
-              src="@/assets/img/extras/pretplatnici/rade.png"
+              src="@/assets/img/extras/pretplatnici/rade.jpg"
               alt="Rade Šerbedžija - pretplatnik i umjetnik"
             />
           </div>
@@ -175,7 +175,7 @@
             data-aos-offset="250"
           >
             <img
-              src="@/assets/img/extras/pretplatnici/ivana.png"
+              src="@/assets/img/extras/pretplatnici/ivana.jpg"
               alt="Ivana Gadžić - pretplatnica i predsjednica Zagrebačke burze"
             />
           </div>
@@ -187,7 +187,7 @@
             data-aos-offset="250"
           >
             <img
-              src="@/assets/img/extras/pretplatnici/luka.png"
+              src="@/assets/img/extras/pretplatnici/luka.jpg"
               alt="Luka Abrus - pretplatnik i poduzetnik"
             />
           </div>
@@ -199,8 +199,8 @@
             data-aos-offset="250"
           >
             <img
-              src="@/assets/img/extras/pretplatnici/cedo.png"
-              alt="Čedo Prodanovtić - pretplatnik i odvjetnik"
+              src="@/assets/img/extras/pretplatnici/cedo.jpg"
+              alt="Čedo Prodanović - pretplatnik i odvjetnik"
             />
           </div>
           <div
@@ -211,7 +211,7 @@
             data-aos-offset="250"
           >
             <img
-              src="@/assets/img/extras/pretplatnici/ivanaS.png"
+              src="@/assets/img/extras/pretplatnici/ivanaS.jpg"
               alt="Ivana Šoljan - pretplatnica i poduzetnica"
             />
           </div>
@@ -223,23 +223,22 @@
             data-aos-offset="250"
           >
             <img
-              src="@/assets/img/extras/pretplatnici/tvrtko.png"
+              src="@/assets/img/extras/pretplatnici/tvrtko.jpg"
               alt="Tvrtko Jakovina - pretplatnik i povjesničar"
             />
           </div>
           <div
             class="half flex-responsive flex relative birati-stranu-pretplatnik"
             data-aos="fade-right"
-            data-aos-delay="300"
+            data-aos-delay="150"
             data-aos-duration="500"
             data-aos-offset="250"
           >
             <img
-              src="@/assets/img/extras/pretplatnici/ankica.png"
-              alt="Emil Tedeschi - pretplatnik i poduzetnik"
+              src="@/assets/img/extras/pretplatnici/ankica.jpg"
+              alt="Ankica Mamić - pretplatnica i PR stručnjakinja"
             />
           </div>
-
           <div
             class="half flex-responsive flex relative birati-stranu-pretplatnik"
             data-aos="fade-left"
@@ -248,11 +247,10 @@
             data-aos-offset="250"
           >
             <img
-              src="@/assets/img/extras/pretplatnici/ivanaD.png"
+              src="@/assets/img/extras/pretplatnici/ivanaD.jpg"
               alt="Ivana Dragičević - pretplatnica i novinarka"
             />
           </div>
-
           <div
             class="half flex-responsive flex relative birati-stranu-pretplatnik"
             data-aos="fade-right"
@@ -261,88 +259,239 @@
             data-aos-offset="250"
           >
             <img
-              src="@/assets/img/extras/pretplatnici/ivica.png"
-              alt="Ivica Matošević - pretplatnik i vinar"
-            />
-          </div>
-
-          <div
-            class="half flex-responsive flex relative birati-stranu-pretplatnik"
-            data-aos="fade-left"
-            data-aos-delay="300"
-            data-aos-duration="500"
-            data-aos-offset="250"
-          >
-            <img
-              src="@/assets/img/extras/pretplatnici/majaV.png"
-              alt="Maja Vehovec - pretplatnica i ekonomistica"
-            />
-          </div>
-
-          <div
-            class="half flex-responsive flex relative birati-stranu-pretplatnik"
-            data-aos="fade-right"
-            data-aos-delay="300"
-            data-aos-duration="500"
-            data-aos-offset="250"
-          >
-            <img
-              src="@/assets/img/extras/pretplatnici/marko.png"
-              alt="Marko Rakar - pretplatnik i IT stručnjak"
-            />
-          </div>
-
-          <div
-            class="half flex-responsive flex relative birati-stranu-pretplatnik"
-            data-aos="fade-left"
-            data-aos-delay="300"
-            data-aos-duration="500"
-            data-aos-offset="250"
-          >
-            <img
-              src="@/assets/img/extras/pretplatnici/mia.png"
-              alt="Mia Biberović - pretplatnica i glavna urednica portala Netokracija"
-            />
-          </div>
-
-          <div
-            class="half flex-responsive flex relative birati-stranu-pretplatnik"
-            data-aos="fade-right"
-            data-aos-delay="300"
-            data-aos-duration="500"
-            data-aos-offset="250"
-          >
-            <img
-              src="@/assets/img/extras/pretplatnici/nebojsa.png"
-              alt="Nebojša Taraba - pretplatnik i producent"
-            />
-          </div>
-
-          <div
-            class="half flex-responsive flex relative birati-stranu-pretplatnik"
-            data-aos="fade-left"
-            data-aos-delay="300"
-            data-aos-duration="500"
-            data-aos-offset="250"
-          >
-            <img
-              src="@/assets/img/extras/pretplatnici/vuk.png"
+              src="@/assets/img/extras/pretplatnici/vuk.jpg"
               alt="Vuk Vuković - pretplatnik i ekonomist"
             />
           </div>
-
-          <!--<input
-            id="pretplatnik-show-more"
-            name="pretplatnik-show-more"
-            class="full hide"
-            type="checkbox"
-          />
-          <label
-            for="pretplatnik-show-more"
-            class="full clickable center-text italic"
+          <div
+            class="half flex-responsive flex relative birati-stranu-pretplatnik"
+            data-aos="fade-left"
+            data-aos-delay="300"
+            data-aos-duration="500"
+            data-aos-offset="250"
           >
-            Pročitajte još izjava pretplatnika na našoj strani
-          </label>-->
+            <img
+              src="@/assets/img/extras/pretplatnici/manuela.jpg"
+              alt="Manuela Šola - pretplatnica i poduzetnica"
+            />
+          </div>
+          <div
+            class="half flex-responsive flex relative birati-stranu-pretplatnik"
+            data-aos="fade-right"
+            data-aos-delay="300"
+            data-aos-duration="500"
+            data-aos-offset="250"
+          >
+            <img
+              src="@/assets/img/extras/pretplatnici/zeljko.jpg"
+              alt="Željko Vela - pretplatnik i novinar"
+            />
+          </div>
+          <div
+            class="half flex-responsive flex relative birati-stranu-pretplatnik"
+            data-aos="fade-left"
+            data-aos-delay="300"
+            data-aos-duration="500"
+            data-aos-offset="250"
+          >
+            <img
+              src="@/assets/img/extras/pretplatnici/majaV.jpg"
+              alt="Maja Vehovec - pretplatnica i ekonomistica"
+            />
+          </div>
+          <div
+            class="half flex-responsive flex relative birati-stranu-pretplatnik"
+            data-aos="fade-right"
+            data-aos-delay="300"
+            data-aos-duration="500"
+            data-aos-offset="250"
+          >
+            <img
+              src="@/assets/img/extras/pretplatnici/marko.jpg"
+              alt="Marko Rakar - pretplatnik i IT stručnjak"
+            />
+          </div>
+          <div
+            class="half flex-responsive flex relative birati-stranu-pretplatnik"
+            data-aos="fade-left"
+            data-aos-delay="300"
+            data-aos-duration="500"
+            data-aos-offset="250"
+          >
+            <img
+              src="@/assets/img/extras/pretplatnici/snjezana.jpg"
+              alt="Snježana Prljić Samadržija - pretplatnica i rektorica Sveučilišta u Rijeci"
+            />
+          </div>
+          <div
+            class="half flex-responsive flex relative birati-stranu-pretplatnik"
+            data-aos="fade-right"
+            data-aos-delay="300"
+            data-aos-duration="500"
+            data-aos-offset="250"
+          >
+            <img
+              src="@/assets/img/extras/pretplatnici/nebojsa.jpg"
+              alt="Nebojša Taraba - pretplatnik i producent"
+            />
+          </div>
+          <div
+            class="half flex-responsive flex relative birati-stranu-pretplatnik"
+            data-aos="fade-left"
+            data-aos-delay="300"
+            data-aos-duration="500"
+            data-aos-offset="250"
+          >
+            <img
+              src="@/assets/img/extras/pretplatnici/ivica.jpg"
+              alt="Ivica Matošević - pretplatnik i vinar"
+            />
+          </div>
+          <div
+            class="half flex-responsive flex relative birati-stranu-pretplatnik"
+            data-aos="fade-right"
+            data-aos-delay="300"
+            data-aos-duration="500"
+            data-aos-offset="250"
+          >
+            <img
+              src="@/assets/img/extras/pretplatnici/vesna.jpg"
+              alt="Vesna Alaburić - pretplatnica i odvjetnica"
+            />
+          </div>
+          <div
+            class="half flex-responsive flex relative birati-stranu-pretplatnik"
+            data-aos="fade-left"
+            data-aos-delay="300"
+            data-aos-duration="500"
+            data-aos-offset="250"
+          >
+            <img
+              src="@/assets/img/extras/pretplatnici/nevio.jpg"
+              alt="Nevio Marasović - pretplatnik i redatelj"
+            />
+          </div>
+          <div
+            class="half flex-responsive flex relative birati-stranu-pretplatnik"
+            data-aos="fade-right"
+            data-aos-delay="300"
+            data-aos-duration="500"
+            data-aos-offset="250"
+          >
+            <img
+              src="@/assets/img/extras/pretplatnici/vlatko.jpg"
+              alt="Vlatko Silobrčić - pretplatnik i akademik"
+            />
+          </div>
+          <div
+            class="half flex-responsive flex relative birati-stranu-pretplatnik"
+            data-aos="fade-left"
+            data-aos-delay="300"
+            data-aos-duration="500"
+            data-aos-offset="250"
+          >
+            <img
+              src="@/assets/img/extras/pretplatnici/mia.jpg"
+              alt="Mia Biberović - pretplatnica i glavna urednica portala Netokracija"
+            />
+          </div>
+          <div
+            class="half flex-responsive flex relative birati-stranu-pretplatnik"
+            data-aos="fade-right"
+            data-aos-delay="300"
+            data-aos-duration="500"
+            data-aos-offset="250"
+          >
+            <img
+              src="@/assets/img/extras/pretplatnici/davor.jpg"
+              alt="Davor Bruketa - pretplatnik i marketinški stručnjak"
+            />
+          </div>
+          <div
+            class="half flex-responsive flex relative birati-stranu-pretplatnik"
+            data-aos="fade-left"
+            data-aos-delay="300"
+            data-aos-duration="500"
+            data-aos-offset="250"
+          >
+            <img
+              src="@/assets/img/extras/pretplatnici/jelena.jpg"
+              alt="Jelena Šuran - pretplatnica i poduzetnica"
+            />
+          </div>
+          <div
+            class="half flex-responsive flex relative birati-stranu-pretplatnik"
+            data-aos="fade-right"
+            data-aos-delay="300"
+            data-aos-duration="500"
+            data-aos-offset="250"
+          >
+            <img
+              src="@/assets/img/extras/pretplatnici/ante.jpg"
+              alt="Ante Mandić - pretplatnik i poduzetnik"
+            />
+          </div>
+          <div
+            class="half flex-responsive flex relative birati-stranu-pretplatnik"
+            data-aos="fade-left"
+            data-aos-delay="300"
+            data-aos-duration="500"
+            data-aos-offset="250"
+          >
+            <img
+              src="@/assets/img/extras/pretplatnici/viktorija.jpg"
+              alt="Viktorija Đurđek - pretplatnica i operna pjevačica"
+            />
+          </div>
+          <div
+            class="half flex-responsive flex relative birati-stranu-pretplatnik"
+            data-aos="fade-right"
+            data-aos-delay="300"
+            data-aos-duration="500"
+            data-aos-offset="250"
+          >
+            <img
+              src="@/assets/img/extras/pretplatnici/borna.jpg"
+              alt="Borna Sor - pretplatnik i satiričar"
+            />
+          </div>
+          <div
+            class="half flex-responsive flex relative birati-stranu-pretplatnik"
+            data-aos="fade-left"
+            data-aos-delay="300"
+            data-aos-duration="500"
+            data-aos-offset="250"
+          >
+            <img
+              src="@/assets/img/extras/pretplatnici/ratko.jpg"
+              alt="Ratko Rudić - pretplatnik i trener
+"
+            />
+          </div>
+          <div
+            class="half flex-responsive flex relative birati-stranu-pretplatnik"
+            data-aos="fade-right"
+            data-aos-delay="300"
+            data-aos-duration="500"
+            data-aos-offset="250"
+          >
+            <img
+              src="@/assets/img/extras/pretplatnici/branka.jpg"
+              alt="Branka Bebić - pretplatnica i poduzetnica"
+            />
+          </div>
+          <div
+            class="half flex-responsive flex relative birati-stranu-pretplatnik"
+            data-aos="fade-left"
+            data-aos-delay="300"
+            data-aos-duration="500"
+            data-aos-offset="250"
+          >
+            <img
+              src="@/assets/img/extras/pretplatnici/hrvoje.jpg"
+              alt="Hrvoje Hribar - pretplatnik i redatelj"
+            />
+          </div>
           <a
             class="full clickable center-text italic"
             href="https://www.telegram.hr/native/stigao-je-novi-telegram/"
@@ -448,6 +597,9 @@
   font-size: 1.5rem;
   font-weight: bold;
 }
+.birati-stranu-title span {
+  display: inline-block;
+}
 .birati-stranu-subtitle {
   font-family: 'Barlow', sans-serif;
   font-size: 30px;
@@ -458,7 +610,7 @@
   font-size: 1.36rem;
 }
 .birati-stranu-header {
-  margin-bottom: -10%;
+  margin-bottom: -14vw;
 }
 .birati-stranu-body p {
   font-size: 21px;
@@ -481,6 +633,9 @@ input:checked ~ .input-hidden {
   .birati-stranu-pretplatnik:nth-child(even) {
     padding-left: 12px;
   }
+  .birati-stranu-header {
+    margin-bottom: -10vw;
+  }
 }
 @media screen and (max-width: 767px) {
   .birati-stranu-header {
@@ -492,8 +647,8 @@ input:checked ~ .input-hidden {
   }
   .birati-stranu-note {
     position: relative;
-    font-size: 14px;
-    font-size: 0.7rem;
+    font-size: 15px;
+    font-size: 0.75rem;
     padding-bottom: 24px;
   }
   .birati-stranu-title {
@@ -510,6 +665,17 @@ input:checked ~ .input-hidden {
   .birati-stranu-alt-subtitle {
     font-size: 21px;
     font-size: 1.08rem;
+  }
+  .birati-stranu-header img {
+    width: 152vw;
+    max-width: 152vw;
+    left: -27vw;
+    position: relative;
+  }
+  .birati-stranu-body p {
+    font-size: 18px;
+    font-size: 0.9rem;
+    line-height: 1.45em;
   }
 }
 </style>

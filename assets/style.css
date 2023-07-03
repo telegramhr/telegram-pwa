@@ -11189,37 +11189,71 @@ header .search-menu {
 .desktop-big-time {
     display: none;
 }
+.latest-articles .mini-article-list .article-mini .mini-big-time, .latest-articles .mini-article-list .article-mini::before {
+    display: none;
+}
+.latest-articles {
+    background-color: #e8dacd;
+}
+.latest-articles .newbtn {
+    background-color: #212121;
+}
+.latest-articles .mini-article-list .article-mini {
+    padding-left: 0px;
+}
+.latest-articles .article-mini h2 {
+    font-family: 'Lora', serif;
+    font-weight: 400;
+    font-size: 16px;
+    font-size: 0.8rem;
+}
+.latest-articles .article-mini .article-pad {
+    padding-bottom: 0px;
+}
+.desktop-big-time {
+    display: flex;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    font-size: 0.7rem;
+    margin-bottom: 10px;
+}
+.desktop-big-time span {
+    color: #ae3737;
+    padding-left: 8px;
+}
+.latest-articles .eighth span {
+    font-family: 'Barlow', sans-serif;
+    opacity: .7;
+}
+.latest-articles .eighth span.big-number {
+    font-size: 38px;
+    font-size: 1.9rem;
+    font-weight: 700;
+    opacity: 1;
+}
 @media screen and (min-width: 767px) {
-    .latest-articles .mini-article-list .article-mini .mini-big-time, .latest-articles .mini-article-list .article-mini::before {
-        display: none;
-    }
-    .latest-articles {
-        background-color: #e8dacd;
-        padding: 24px;
-        margin-bottom: 24px;
-    }
     .latest-articles .mini-article-list .article-mini {
         width: 24.99%;
+        padding-left: 24px;
+        padding-right: 16px;
     }
-    .latest-articles .article-mini h2 {
-        font-family: 'Lora', serif;
-        font-weight: 400;
-        font-size: 16px;
-        font-size: 0.8rem;
+    .latest-articles .article-mini {
+        border-left: 1px solid #c8c8c8;
     }
-    .latest-articles .article-mini .article-pad {
-        padding-bottom: 0px;
+    .latest-articles .eighth:last-child {
+        border-left: 1px solid #c8c8c8;
     }
-    .desktop-big-time {
-        display: flex;
-        font-family: 'Barlow', sans-serif;
-        font-weight: 700;
-        font-size: 14px;
-        font-size: 0.7rem;
-        margin-bottom: 10px;
+    .latest-articles {
+        padding: 24px 0px;
     }
-    .desktop-big-time span {
-        color: #ae3737;
-        padding-left: 8px;
+}
+@media screen and (max-width: 767px) {
+    .latest-articles {
+        border-bottom: 0px;
+    }
+    .latest-articles .eighth:first-child {
+        padding-bottom: 4vw;
+        border-bottom: 1px solid #c8c8c8;
     }
 } */
