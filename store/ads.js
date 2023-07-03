@@ -103,13 +103,6 @@ export const state = () => ({
               },
             },
             {
-              bidder: 'connectad',
-              params: {
-                networkId: 10047,
-                siteId: 1056554,
-              },
-            },
-            {
               bidder: 'smilewanted',
               params: {
                 zoneId: 'telegram.hr_hb_display',
@@ -157,13 +150,6 @@ export const state = () => ({
               params: {
                 placementId: '2215',
                 adFormat: 'banner',
-              },
-            },
-            {
-              bidder: 'connectad',
-              params: {
-                networkId: 10047,
-                siteId: 1056554,
               },
             },
             {
@@ -239,13 +225,6 @@ export const state = () => ({
               },
             },
             {
-              bidder: 'connectad',
-              params: {
-                networkId: 10047,
-                siteId: 1056554,
-              },
-            },
-            {
               bidder: 'smilewanted',
               params: {
                 zoneId: 'telegram.hr_hb_display',
@@ -286,13 +265,6 @@ export const state = () => ({
               params: {
                 placementId: '2215',
                 adFormat: 'banner',
-              },
-            },
-            {
-              bidder: 'connectad',
-              params: {
-                networkId: 10047,
-                siteId: 1056554,
               },
             },
             {
@@ -368,13 +340,6 @@ export const state = () => ({
               },
             },
             {
-              bidder: 'connectad',
-              params: {
-                networkId: 10047,
-                siteId: 1056554,
-              },
-            },
-            {
               bidder: 'smilewanted',
               params: {
                 zoneId: 'telegram.hr_hb_display',
@@ -422,13 +387,6 @@ export const state = () => ({
               params: {
                 placementId: '2217',
                 adFormat: 'banner',
-              },
-            },
-            {
-              bidder: 'connectad',
-              params: {
-                networkId: 10047,
-                siteId: 1056554,
               },
             },
             {
@@ -577,13 +535,6 @@ export const state = () => ({
               },
             },
             {
-              bidder: 'connectad',
-              params: {
-                networkId: 10047,
-                siteId: 1056554,
-              },
-            },
-            {
               bidder: 'smilewanted',
               params: {
                 zoneId: 'telegram.hr_hb_display',
@@ -631,13 +582,6 @@ export const state = () => ({
               params: {
                 placementId: '2215',
                 adFormat: 'banner',
-              },
-            },
-            {
-              bidder: 'connectad',
-              params: {
-                networkId: 10047,
-                siteId: 1056554,
               },
             },
             {
@@ -722,13 +666,6 @@ export const state = () => ({
               },
             },
             {
-              bidder: 'connectad',
-              params: {
-                networkId: 10047,
-                siteId: 1056554,
-              },
-            },
-            {
               bidder: 'smilewanted',
               params: {
                 zoneId: 'telegram.hr_hb_display',
@@ -776,13 +713,6 @@ export const state = () => ({
               params: {
                 placementId: '2215',
                 adFormat: 'banner',
-              },
-            },
-            {
-              bidder: 'connectad',
-              params: {
-                networkId: 10047,
-                siteId: 1056554,
               },
             },
             {
@@ -863,13 +793,6 @@ export const state = () => ({
               },
             },
             {
-              bidder: 'connectad',
-              params: {
-                networkId: 10047,
-                siteId: 1056554,
-              },
-            },
-            {
               bidder: 'smilewanted',
               params: {
                 zoneId: 'telegram.hr_hb_display',
@@ -917,13 +840,6 @@ export const state = () => ({
               params: {
                 placementId: '2217',
                 adFormat: 'banner',
-              },
-            },
-            {
-              bidder: 'connectad',
-              params: {
-                networkId: 10047,
-                siteId: 1056554,
               },
             },
             {
@@ -1004,13 +920,6 @@ export const state = () => ({
               },
             },
             {
-              bidder: 'connectad',
-              params: {
-                networkId: 10047,
-                siteId: 1056554,
-              },
-            },
-            {
               bidder: 'smilewanted',
               params: {
                 zoneId: 'telegram.hr_hb_display',
@@ -1058,13 +967,6 @@ export const state = () => ({
               params: {
                 placementId: '2215',
                 adFormat: 'banner',
-              },
-            },
-            {
-              bidder: 'connectad',
-              params: {
-                networkId: 10047,
-                siteId: 1056554,
               },
             },
             {
@@ -1138,13 +1040,6 @@ export const state = () => ({
               },
             },
             {
-              bidder: 'connectad',
-              params: {
-                networkId: 10047,
-                siteId: 1056554,
-              },
-            },
-            {
               bidder: 'smilewanted',
               params: {
                 zoneId: 'telegram.hr_hb_display',
@@ -1178,13 +1073,6 @@ export const state = () => ({
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
-              },
-            },
-            {
-              bidder: 'connectad',
-              params: {
-                networkId: 10047,
-                siteId: 1056554,
               },
             },
             {
@@ -1258,13 +1146,6 @@ export const state = () => ({
               },
             },
             {
-              bidder: 'connectad',
-              params: {
-                networkId: 10047,
-                siteId: 1056554,
-              },
-            },
-            {
               bidder: 'smilewanted',
               params: {
                 zoneId: 'telegram.hr_hb_display',
@@ -1298,13 +1179,6 @@ export const state = () => ({
               params: {
                 siteId: 4396,
                 keyId: 'uid_telegramhr',
-              },
-            },
-            {
-              bidder: 'connectad',
-              params: {
-                networkId: 10047,
-                siteId: 1056554,
               },
             },
             {
