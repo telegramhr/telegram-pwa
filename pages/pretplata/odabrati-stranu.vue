@@ -27,12 +27,7 @@
         class="contrast-mode-only"
         alt="Grafika moćnika koje je raskrinalo Telegramovo istraživačko novinarstvo"
       />
-      <p
-        class="full center-text desktop-only birati-stranu-note"
-        data-aos="flip-up"
-        data-aos-delay="250"
-        data-aos-duration="500"
-      >
+      <p class="full center-text desktop-only birati-stranu-note">
         Svaki novi pretplatnik omogućit će Telegramu da proširi listu
         raskrinkanih moćnika
       </p>
@@ -704,22 +699,28 @@ export default {
       {
         hid: 'canonical',
         rel: 'canonical',
-        href: 'https://www.telegram.hr/birati-stranu',
+        href: 'https://www.telegram.hr/pretplata/odabrati-stranu',
       },
     ]
     return {
-      title: 'Nekad je nužno odabrati stranu.',
+      title: 'Nekad je nužno odabrati stranu',
       titleTemplate: '%s | Telegram.hr',
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: 'Postanite Telegramov pretplatnik.',
+          content: 'Postanite Telegramov pretplatnik',
         },
         {
           hid: 'og:description',
           property: 'og:description',
-          content: 'Postanite Telegramov pretplatnik.',
+          content: 'Postanite Telegramov pretplatnik',
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          property: 'og:image',
+          content: 'https://www.telegram.hr/img/tg_share_odabrati_stranu.jpg',
         },
         {
           hid: 'og:type',
@@ -734,7 +735,7 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/birati-stranu',
+          content: 'https://www.telegram.hr/pretplata/odabrati-stranu',
         },
         {
           hid: 'fb:app_id',
