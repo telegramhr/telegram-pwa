@@ -508,7 +508,7 @@
           </div>
           <a
             class="full clickable center-text italic"
-            href="https://www.telegram.hr/native/stigao-je-novi-telegram/"
+            href="https://www.telegram.hr/zivot/nekad-je-nuzno-odabrati-stranu-telegramovi-pretplatnici-odabrali-su-svoju"
             target="_blank"
             >Pročitajte još izjava pretplatnika na našoj strani</a
           >
