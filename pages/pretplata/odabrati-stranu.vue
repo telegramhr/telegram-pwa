@@ -393,8 +393,8 @@
             data-aos-offset="250"
           >
             <img
-              src="@/assets/img/extras/pretplatnici/davor.jpg"
-              alt="Davor Bruketa - pretplatnik i marketinški stručnjak"
+              src="@/assets/img/extras/pretplatnici/daniel.jpg"
+              alt="Daniel Ackermann - pretplatnik i poduzetnik"
             />
           </div>
           <div
@@ -480,6 +480,30 @@
             <img
               src="@/assets/img/extras/pretplatnici/hrvoje.jpg"
               alt="Hrvoje Hribar - pretplatnik i redatelj"
+            />
+          </div>
+          <div
+            class="half flex-responsive flex relative birati-stranu-pretplatnik"
+            data-aos="fade-right"
+            data-aos-delay="300"
+            data-aos-duration="500"
+            data-aos-offset="250"
+          >
+            <img
+              src="@/assets/img/extras/pretplatnici/davor.jpg"
+              alt="Davor Bruketa - pretplatnik i marketinški stručnjak"
+            />
+          </div>
+          <div
+            class="half flex-responsive flex relative birati-stranu-pretplatnik"
+            data-aos="fade-left"
+            data-aos-delay="300"
+            data-aos-duration="500"
+            data-aos-offset="250"
+          >
+            <img
+              src="@/assets/img/extras/pretplatnici/dunja.jpg"
+              alt="Dunja Franjić Bubek - pretplatnica i dizajnerica"
             />
           </div>
           <a
