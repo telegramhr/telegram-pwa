@@ -17,6 +17,7 @@
     </div>
     <!-- Above header banner -->
     <app-link
+      v-if="canLogIn"
       to="/pretplata/odabrati-stranu"
       class="full relative darkened-bg birati-stranu-widget"
     >
