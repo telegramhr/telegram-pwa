@@ -76,6 +76,12 @@ export default {
     },
   },
   mounted() {
+    this.$watch(
+      () => this.$route.path,
+      (to) => {
+        this.shouldHide = to.includes('pretplata')
+      }
+    )
     const _that = this
     window.googletag = window.googletag || {}
     window.googletag.cmd = window.googletag.cmd || []
