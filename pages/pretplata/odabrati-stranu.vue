@@ -534,7 +534,7 @@
           data-aos-duration="500"
           data-aos-offset="250"
         >
-          Paketi pretplate već od 5,16 EUR/mj.
+          Paketi pretplate već od 0,99 EUR/mj.
         </p>
         <div
           class="full center column-vertical-pad mobile-vertical-pad"

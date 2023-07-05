@@ -610,6 +610,12 @@
         <partners></partners>
       </client-only>
     </div>
+    <!-- Widget partner special
+    <div class="full relative">
+      <client-only>
+        <partner-special></partner-special>
+      </client-only>
+    </div> -->
     <!-- Super1 -->
     <div class="full relative">
       <client-only>

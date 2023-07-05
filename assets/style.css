@@ -11184,11 +11184,12 @@ header .search-menu {
     }
 }
 
-/* Latest widget and page
+/* Latest widget and page */
 
 .desktop-big-time {
     display: none;
 }
+/*
 .latest-articles .mini-article-list .article-mini .mini-big-time, .latest-articles .mini-article-list .article-mini::before {
     display: none;
 }
@@ -11257,3 +11258,25 @@ header .search-menu {
         border-bottom: 1px solid #c8c8c8;
     }
 } */
+
+/* Partner special widget */
+
+:root {
+    --partner-color: #ae3737;
+}
+.partner-special-block {
+    background-color: white;
+    border: 1px solid #c8c8c8;
+    margin-bottom: 24px;
+}
+.partner-special-block .article h3.overtitle {
+    color: var(--partner-color);
+}
+@media screen and (max-width: 767px) {
+    .partner-special-block .fourth:first-child img {
+        width: 100%;
+        max-height: 80vw;
+        object-fit: cover;
+        object-position: top center;
+    }
+}
