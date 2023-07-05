@@ -91,7 +91,11 @@ export default {
       window.googletag
         .pubads()
         .addEventListener('slotRenderEnded', function (event) {
-          if (_that.shouldHide && !event.isEmpty) {
+          if (
+            _that.shouldHide &&
+            !event.isEmpty &&
+            !_that.$route.path.includes('pretplata')
+          ) {
             _that.shouldHide = false
           }
           const name = event.slot.getAdUnitPath().split('/').pop()
