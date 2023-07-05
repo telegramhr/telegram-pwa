@@ -79,7 +79,9 @@ export default {
     this.$watch(
       () => this.$route.path,
       (to) => {
-        this.shouldHide = to.includes('pretplata')
+        if (to.includes('pretplata')) {
+          this.shouldHide = true
+        }
       }
     )
     const _that = this
@@ -89,6 +91,9 @@ export default {
       window.googletag
         .pubads()
         .addEventListener('slotRenderEnded', function (event) {
+          if (_that.shouldHide && !event.isEmpty) {
+            _that.shouldHide = false
+          }
           const name = event.slot.getAdUnitPath().split('/').pop()
           if (name.includes('sticky') && !event.isEmpty) {
             _that.showClose = true
