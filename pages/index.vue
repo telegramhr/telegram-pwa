@@ -15,6 +15,25 @@
     <div class="full flex">
       <theader></theader>
     </div>
+    <!-- Above header banner -->
+    <app-link
+      to="/pretplata/odabrati-stranu"
+      class="full relative darkened-bg birati-stranu-widget"
+    >
+      <div class="container column-full-pad mobile-full-pad flex relative">
+        <p
+          class="full center-text column-top-pad mobile-top-pad birati-stranu-title"
+        >
+          Nekad je nužno odabrati stranu.
+        </p>
+        <p class="full center-text birati-stranu-subtitle">
+          Postanite Telegramov pretplatnik
+        </p>
+        <div class="full center column-vertical-pad mobile-vertical-pad">
+          <div class="newbtn huge-newbtn">Pretplatite se</div>
+        </div>
+      </div>
+    </app-link>
     <!-- Cantha header -->
     <div class="full relative cantha-header">
       <div class="container flex relative column-top-pad column-horizontal-pad">

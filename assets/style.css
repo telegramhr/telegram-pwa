@@ -7455,8 +7455,11 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .contrast-mode .cantha-break, .fancy-rubrika .cantha-break, .contrast-mode .darkened-bg, .fancy-rubrika .darkened-bg {
     background-color: #eeeeee;
 }
-.dark-mode .cantha-break, .dark-mode .darkened-bg {
+.dark-mode .cantha-break {
     background-color:rgba(0, 0, 0, 0.3);
+}
+.dark-mode .darkened-bg {
+    background-color: #121212;
 }
 .klub-cantha-break {
     background-color: #333;
@@ -11278,5 +11281,127 @@ header .search-menu {
         max-height: 80vw;
         object-fit: cover;
         object-position: top center;
+    }
+}
+
+/* Birati stranu */
+
+.birati-stranu .container {
+    max-width: 1048px;
+}
+.birati-stranu-header h1 {
+    position: absolute;
+    top: 4%;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    font-size: 48px;
+    font-size: 2.4rem;
+}
+.birati-stranu-header p {
+    position: absolute;
+    bottom: 15%;
+    left: 0;
+}
+.birati-stranu-note {
+    font-family: 'Barlow', sans-serif;
+    font-style: italic;
+    font-size: 16px;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+.birati-stranu-title {
+    font-family: 'Barlow', sans-serif;
+    font-size: 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.birati-stranu-title span {
+    display: inline-block;
+}
+.birati-stranu-subtitle {
+    font-family: 'Barlow', sans-serif;
+    font-size: 30px;
+    font-size: 1.48rem;
+}
+.birati-stranu-alt-subtitle {
+    font-size: 27px;
+    font-size: 1.36rem;
+}
+.birati-stranu-header {
+    margin-bottom: -14vw;
+}
+.birati-stranu-body p {
+    font-size: 21px;
+    font-size: 1.05rem;
+    line-height: 1.5em;
+}
+.birati-stranu-pretplatnik {
+    padding-bottom: 24px;
+}
+.input-hidden {
+    display: none;
+}
+input:checked ~ .input-hidden {
+    display: flex;
+}
+@media screen and (min-width: 767px) {
+    .birati-stranu-pretplatnik:nth-child(odd) {
+        padding-right: 12px;
+    }
+    .birati-stranu-pretplatnik:nth-child(even) {
+        padding-left: 12px;
+    }
+    .birati-stranu-header {
+        margin-bottom: -10vw;
+    }
+    .birati-stranu-widget {
+        z-index: 100;
+    }
+}
+@media screen and (max-width: 767px) {
+    .birati-stranu-header {
+        padding-top: 4vw;
+    }
+    .birati-stranu-header h1 {
+        position: relative;
+        font-size: 10vw;
+    }
+    .birati-stranu-note {
+        position: relative;
+        font-size: 15px;
+        font-size: 0.75rem;
+        padding-bottom: 24px;
+    }
+    .birati-stranu-title {
+        font-family: 'Barlow', sans-serif;
+        font-size: 24px;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+    .birati-stranu-subtitle {
+        font-family: 'Barlow', sans-serif;
+        font-size: 24px;
+        font-size: 1.18rem;
+    }
+    .birati-stranu-alt-subtitle {
+        font-size: 21px;
+        font-size: 1.08rem;
+    }
+    .birati-stranu-header img {
+        width: 152vw;
+        max-width: 152vw;
+        left: -27vw;
+        position: relative;
+    }
+    .birati-stranu-body p {
+        font-size: 18px;
+        font-size: 0.9rem;
+        line-height: 1.45em;
+    }
+    .birati-stranu-widget {
+        margin-bottom: -2vw;
     }
 }
