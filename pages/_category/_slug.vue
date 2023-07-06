@@ -459,7 +459,7 @@
               alt="Telegram logo"
           /></app-link>
           <h2 class="full column-horizontal-pad desktop-only site-subtitle">
-            Portal za društvena i kulturna pitanja
+            Nekad je nužno odabrati stranu
           </h2>
         </div>
       </div>

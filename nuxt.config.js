@@ -14,8 +14,7 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content:
-          'Portal za društvena i kulturna pitanja. I svijet koji dolazi.',
+        content: 'Nekad je nužno odabrati stranu',
       },
       { name: 'twitter:dnt', content: 'on' },
       { name: 'twitter:widgets:csp', content: 'on' },
@@ -86,6 +85,7 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
+    { src: '@/plugins/axios.js', ssr: false },
     { src: '@/plugins/filters.js' },
     { src: '@/plugins/persisted.client.js' },
     { src: '@/plugins/vue-slick-carousel.js' },
@@ -149,8 +149,7 @@ export default {
     workbox: false,
     meta: {
       lang: 'hr',
-      title:
-        'Telegram.hr - Portal za društvena i kulturna pitanja. I svijet koji dolazi.',
+      title: 'Telegram.hr - Nekad je nužno odabrati stranu',
       description:
         'Pročitajte najnovije vijesti iz Hrvatske i svijeta. Društvene analize, kolumne političkih stručnjaka, velike priče o malim ljudima. Portal bez treša i estrade, za ljude koji razmišljaju o svijetu budućnosti.',
       ogSiteName: 'Telegram.hr',
@@ -168,8 +167,7 @@ export default {
       name: 'Telegram.hr',
       lang: 'hr',
       short_name: 'Telegram.hr',
-      description:
-        'Portal za društvena i kulturna pitanja. I svijet koji dolazi.',
+      description: 'Nekad je nužno odabrati stranu',
       background_color: '#fcf1e7',
       display: 'browser',
       start_url: '/',

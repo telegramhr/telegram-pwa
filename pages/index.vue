@@ -70,7 +70,7 @@
         <h2
           class="full column-horizontal-pad center-text desktop-only site-subtitle"
         >
-          Portal za društvena i kulturna pitanja
+          Nekad je nužno odabrati stranu
         </h2>
         <div class="full mobile-side-pad">
           <div class="full desktop-only cantha-separator"></div>
@@ -736,7 +736,7 @@ export default {
         name: 'Telegram.hr',
         headline: 'Telegram.hr',
         description:
-          'Portal za društvena i kulturna pitanja. I svijet koji dolazi.',
+          'Nekad je nužno odabrati stranu',
         publisher: {
           '@type': 'Organization',
           name: 'Telegram.hr',

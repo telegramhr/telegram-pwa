@@ -613,7 +613,7 @@
           class="dark-mode-only"
       /></app-link>
       <div class="desktop-only full center-text tagline">
-        Portal za društvena i kulturna pitanja. I svijet koji dolazi.
+        Nekad je nužno odabrati stranu
       </div>
       <a
         v-show="canLogIn"
@@ -792,7 +792,7 @@
               class="dark-mode-only"
           /></app-link>
           <div class="desktop-only full center-text tagline">
-            Portal za društvena i kulturna pitanja. I svijet koji dolazi.
+            Nekad je nužno odabrati stranu
           </div>
           <a
             v-show="canLogIn"
