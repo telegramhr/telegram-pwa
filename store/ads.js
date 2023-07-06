@@ -1396,6 +1396,9 @@ export const actions = {
           ds = window.googletag.defineSlot(prefix + i, unit[sizes], i)
           if (ds) {
             ds.addService(window.googletag.pubads())
+            if (i.includes('sticky') && this.$store.state.user.access) {
+              ds.setTargeting('upc', 26)
+            }
             if (unit.upc) {
               ds.setTargeting('upc', unit.upc)
             }
