@@ -1,5 +1,4 @@
 export default ({ app, store }) => {
-  console.log(store.state.user.access)
   if (store.state.user.access !== 'BR92VTWM') {
     const s = document.createElement('script')
     s.src =

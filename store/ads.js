@@ -1376,7 +1376,7 @@ export const actions = {
 
     dispatch('initSlots', route)
   },
-  initSlots({ state, commit, dispatch }, route) {
+  initSlots({ state, commit, dispatch, rootState }, route) {
     window.googletag.cmd.push(() => {
       const prefix = state.prefix
       const sizes = this.$mobile ? 'mobile' : 'desktop'
@@ -1396,7 +1396,7 @@ export const actions = {
           ds = window.googletag.defineSlot(prefix + i, unit[sizes], i)
           if (ds) {
             ds.addService(window.googletag.pubads())
-            if (i.includes('sticky') && this.$store.state.user.access) {
+            if (i.includes('sticky') && rootState.user.access) {
               ds.setTargeting('upc', 26)
             }
             if (unit.upc) {
