@@ -42,10 +42,10 @@ export const actions = {
     }
   },
   pullSpecialWidget({ commit, dispatch, state }, payload) {
-    // if (state.widget[payload].updated + 60 * 60 * 1000 < new Date().getTime()) {
-    this.$axios.$get(`/api/partner-special-widget/${payload}`).then((res) => {
-      commit('setWidget', { res, payload })
-    })
-    // }
+    if (state.widget[payload].updated + 60 * 60 * 1000 < new Date().getTime()) {
+      this.$axios.$get(`/api/partner-special-widget/${payload}`).then((res) => {
+        commit('setWidget', { res, payload })
+      })
+    }
   },
 }
