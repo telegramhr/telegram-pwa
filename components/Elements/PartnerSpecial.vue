@@ -1,21 +1,15 @@
 <template>
   <!-- Ovdje widget color preko sustava u style -->
   <div
+    v-show="widget.url"
     class="container cantha-small-block flex relative native-block partner-special-block column-vertical-pad stretch"
-    style="--partner-color: #5c903e"
+    :style="{ '--partner-color': widget.color }"
   >
     <div class="full flex stretch column-bottom-pad">
       <!-- Ovdje link na specijal -->
-      <a
-        href="https://www.telegram.hr/native/zelena-licnost/"
-        target="_blank"
-        class="fourth flex-responsive"
-      >
+      <a :href="widget.url" target="_blank" class="fourth flex-responsive">
         <!-- Ovdje sliku koju stave -->
-        <img
-          src="@/assets/img/extras/partner_widgets/zelena_licnost.jpg"
-          alt="Telegram logo"
-        />
+        <img :src="widget.image" alt="Telegram logo" />
       </a>
       <!-- Ovdje odabrana tri članka -->
       <div
@@ -25,7 +19,10 @@
       >
         <standard
           :post="post"
-          :utm="{ source: 'Telegram.hr', campaign: 'Partneri' }"
+          :utm="{
+            source: 'Telegram.hr',
+            campaign: 'SpecialWidget-' + position,
+          }"
         ></standard>
       </div>
     </div>
@@ -35,13 +32,23 @@
 <script>
 export default {
   name: 'PartnerSpecial',
+  props: {
+    position: {
+      type: String,
+      required: true,
+      default: 'tg',
+    },
+  },
   computed: {
     posts() {
-      return this.$store.state.promos.posts
+      return this.$store.state.partner.widget[this.position].posts ?? []
+    },
+    widget() {
+      return this.$store.state.partner.widget[this.position] ?? { url: null }
     },
   },
   mounted() {
-    this.$store.dispatch('promos/pullPosts')
+    this.$store.dispatch('partner/pullSpecialWidget', this.position)
   },
 }
 </script>

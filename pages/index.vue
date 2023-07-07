@@ -630,12 +630,12 @@
         <partners></partners>
       </client-only>
     </div>
-    <!-- Widget partner special
-    <div class="full relative">
-      <client-only>
-        <partner-special></partner-special>
-      </client-only>
-    </div> -->
+    <!-- Widget partner special -->
+    <client-only>
+      <div v-if="!hasPremium" class="full relative">
+        <partner-special position="tg"></partner-special>
+      </div>
+    </client-only>
     <!-- Super1 -->
     <div class="full relative">
       <client-only>
@@ -735,8 +735,7 @@ export default {
         url: 'https://www.telegram.hr',
         name: 'Telegram.hr',
         headline: 'Telegram.hr',
-        description:
-          'Nekad je nužno odabrati stranu',
+        description: 'Nekad je nužno odabrati stranu',
         publisher: {
           '@type': 'Organization',
           name: 'Telegram.hr',
