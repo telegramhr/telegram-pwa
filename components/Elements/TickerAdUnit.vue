@@ -97,6 +97,7 @@ export default {
             !_that.$route.path.includes('pretplata')
           ) {
             _that.shouldHide = false
+            _that.showClose = true
           }
           const name = event.slot.getAdUnitPath().split('/').pop()
           if (name.includes('sticky') && !event.isEmpty) {
