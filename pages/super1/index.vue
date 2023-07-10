@@ -181,6 +181,10 @@
     <client-only>
       <!-- Block 3: Look (75-25 + 33-33-33) -->
       <super-block category="look"></super-block>
+      <!-- Special widget -->
+      <div v-if="!hasPremium" class="full relative">
+        <partner-special position="s1"></partner-special>
+      </div>
       <!-- Block 4: Partneri -->
       <super-partneri></super-partneri>
       <!-- Block 5: Style (75-25 + 33-33-33) -->
