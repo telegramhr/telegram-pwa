@@ -11284,6 +11284,10 @@ header .search-menu {
     }
 }
 
+.superone .partner-special-block {
+  border: none;
+}
+
 /* Birati stranu */
 
 .birati-stranu .container {
