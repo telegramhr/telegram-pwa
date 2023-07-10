@@ -17,7 +17,7 @@
     </div>
     <!-- Above header banner -->
     <app-link
-      v-if="canLogIn"
+      v-if="!$store.state.user.access"
       to="/pretplata/odabrati-stranu"
       class="full relative darkened-bg birati-stranu-widget"
     >
@@ -36,7 +36,7 @@
       </div>
     </app-link>
     <app-link
-      v-if="!canLogIn"
+      v-else
       to="/pretplata/odabrati-stranu"
       class="full relative darkened-bg birati-stranu-widget"
     >

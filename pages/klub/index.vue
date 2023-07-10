@@ -102,6 +102,25 @@
           <div class="full cantha-separator"></div>
         </div>
         <h3 class="full center-text column-full-pad subsection-title">
+          Događanja i konferencije
+        </h3>
+        <div class="full flex relative stretch mobile-native-slider">
+          <KlubItem
+            v-for="offer in offers.konferencije"
+            :key="offer.title"
+            :offer="offer"
+            @select="selectOffer"
+          />
+        </div>
+      </div>
+    </div>
+    <!-- Kazalista -->
+    <div id="kazalista_list" class="full flex relative mobile-side-pad">
+      <div class="container flex relative">
+        <div class="full column-horizontal-pad column-top-pad">
+          <div class="full cantha-separator"></div>
+        </div>
+        <h3 class="full center-text column-full-pad subsection-title">
           Kazališta
         </h3>
         <div class="full flex relative stretch mobile-native-slider">
