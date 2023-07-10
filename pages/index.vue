@@ -35,6 +35,27 @@
         </div>
       </div>
     </app-link>
+    <app-link
+      v-if="!canLogIn"
+      to="/pretplata/odabrati-stranu"
+      class="full relative darkened-bg birati-stranu-widget"
+    >
+      <div class="container column-full-pad mobile-full-pad flex relative">
+        <p
+          class="full center-text column-top-pad mobile-top-pad birati-stranu-title"
+        >
+          Nekad je nužno odabrati stranu.
+        </p>
+        <p
+          class="full center-text birati-stranu-subtitle birati-stranu-alt-subtitle"
+        >
+          Hvala Vam što ste naš pretplatnik.
+        </p>
+        <div class="full center column-vertical-pad mobile-vertical-pad">
+          <div class="newbtn huge-newbtn">Na strani Telegrama</div>
+        </div>
+      </div>
+    </app-link>
     <!-- Cantha header -->
     <div class="full relative cantha-header">
       <div class="container flex relative column-top-pad column-horizontal-pad">
@@ -273,7 +294,31 @@
             ></medium>
           </div>
         </div>
-        <!-- Prekid pretplata -->
+        <!-- Prekid odabrati stranu -->
+        <client-only>
+          <div
+            v-if="!$store.state.user.access"
+            class="container column-horizontal-pad column-top-pad mobile-bottom-pad flex relative m-order-8"
+          >
+            <app-link
+              to="/pretplata/odabrati-stranu"
+              class="full relative darkened-bg column-full-pad mobile-full-pad birati-stranu-widget"
+            >
+              <p
+                class="full center-text column-top-pad mobile-top-pad birati-stranu-title"
+              >
+                Nekad je nužno odabrati stranu.
+              </p>
+              <p class="full center-text birati-stranu-subtitle">
+                Postanite Telegramov pretplatnik
+              </p>
+              <div class="full center column-vertical-pad mobile-vertical-pad">
+                <div class="newbtn huge-newbtn">Pretplatite se</div>
+              </div>
+            </app-link>
+          </div>
+        </client-only>
+        <!-- Prekid pretplata
         <client-only>
           <div
             v-if="!$store.state.user.access"
@@ -305,7 +350,7 @@
               </app-link>
             </div>
           </div>
-        </client-only>
+        </client-only> -->
         <!-- Još vijesti -->
         <div class="full relative cantha-more-news m-order-11">
           <div
