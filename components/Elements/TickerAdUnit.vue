@@ -16,7 +16,7 @@
       <div class="relative">
         <div id="telegram_sticky" :class="bannerClass"></div>
         <a
-          v-show="!noClose && showClose"
+          v-show="showClose"
           href="#"
           :class="[
             bannerClass === 'ticker' ? 'ticker-exit' : '',
@@ -111,14 +111,6 @@ export default {
           }
         })
     })
-    window.addEventListener('message', this.handleClose)
-  },
-  methods: {
-    handleClose(e) {
-      if (e.data === 'shouldHaveClose') {
-        this.noClose = true
-      }
-    },
   },
 }
 </script>
