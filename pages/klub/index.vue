@@ -96,7 +96,7 @@
       </div>
     </div>
     <!-- Kazalista -->
-    <div id="kazalista_list" class="full flex relative mobile-side-pad">
+    <div id="konferencije_list" class="full flex relative mobile-side-pad">
       <div class="container flex relative">
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
@@ -111,6 +111,47 @@
             :offer="offer"
             @select="selectOffer"
           />
+        </div>
+      </div>
+    </div>
+    <div id="konferencije" class="full flex fake-inpage-anchor"></div>
+    <div class="full flex relative">
+      <div
+        v-if="selected_offer && selected_offer.category === 'konferencije'"
+        id="msu"
+        class="full flex relative klub-expanded"
+      >
+        <div class="container flex relative stretch mobile-side-pad">
+          <div class="close-klub-expand" @click="selected_offer = null">x</div>
+          <div class="third center flex-responsive column-left-pad">
+            <img :src="selected_offer.image" aria-hidden="true" />
+          </div>
+          <div class="two-thirds center flex-responsive article">
+            <h3 class="full overtitle">{{ selected_offer.overtitle }}</h3>
+            <h2 class="full">{{ selected_offer.title }}</h2>
+            <h4 class="full">
+              {{ selected_offer.subtitle }}
+            </h4>
+            <!-- eslint-disable vue/no-v-html -->
+            <div
+              v-show="!canLogIn"
+              class="full flex"
+              v-html="selected_offer.text"
+            ></div>
+            <!-- eslint-enable vue/no-v-html -->
+            <div v-show="canLogIn" class="full flex">
+              <p class="full bold">
+                Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
+                pretplatnicima.
+              </p>
+              <app-link to="/pretplata" class="newbtn huge-newbtn"
+                >Pretplatite se</app-link
+              >
+              <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
+                >Prijava</a
+              >
+            </div>
+          </div>
         </div>
       </div>
     </div>
