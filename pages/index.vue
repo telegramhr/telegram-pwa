@@ -300,10 +300,6 @@
             ></medium>
           </div>
         </div>
-        <!-- Odabrati stranu pretplatnici widget -->
-        <div class="full relative">
-          <pretplatnici-widget></pretplatnici-widget>
-        </div>
         <!-- Prekid odabrati stranu
         <client-only>
           <div
@@ -431,6 +427,10 @@
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
       </div>
+    </div>
+    <!-- Odabrati stranu pretplatnici widget -->
+    <div class="full relative">
+      <pretplatnici-widget></pretplatnici-widget>
     </div>
     <!-- Prekid knjiga
     <div class="full relative" style="margin-top: 24px">

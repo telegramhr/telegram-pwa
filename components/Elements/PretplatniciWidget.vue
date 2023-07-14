@@ -59,6 +59,51 @@
             alt="Čedo Prodanović - pretplatnik i odvjetnik"
           />
         </app-link>
+        <app-link
+          to="/pretplata/odabrati-stranu"
+          class="full flex relative column-horizontal-pad mobile-mini-side-pad"
+        >
+          <img
+            src="@/assets/img/extras/pretplatnici/marko.jpg"
+            alt="Marko Rakar - pretplatnik i IT stručnjak"
+          />
+        </app-link>
+        <app-link
+          to="/pretplata/odabrati-stranu"
+          class="full flex relative column-horizontal-pad mobile-mini-side-pad"
+        >
+          <img
+            src="@/assets/img/extras/pretplatnici/majaV.jpg"
+            alt="Maja Vehovec - pretplatnica i ekonomistica"
+          />
+        </app-link>
+        <app-link
+          to="/pretplata/odabrati-stranu"
+          class="full flex relative column-horizontal-pad mobile-mini-side-pad"
+        >
+          <img
+            src="@/assets/img/extras/pretplatnici/luka.jpg"
+            alt="Luka Abrus - pretplatnik i poduzetnik"
+          />
+        </app-link>
+        <app-link
+          to="/pretplata/odabrati-stranu"
+          class="full flex relative column-horizontal-pad mobile-mini-side-pad"
+        >
+          <img
+            src="@/assets/img/extras/pretplatnici/ivana.jpg"
+            alt="Ivana Gadžić - pretplatnica i predsjednica Zagrebačke burze"
+          />
+        </app-link>
+        <app-link
+          to="/pretplata/odabrati-stranu"
+          class="full flex relative column-horizontal-pad mobile-mini-side-pad"
+        >
+          <img
+            src="@/assets/img/extras/pretplatnici/nevio.jpg"
+            alt="Nevio Marasović - pretplatnik i redatelj"
+          />
+        </app-link>
       </VueSlickCarousel>
       <div
         class="gallery-left center gallery-arrow desktop-only animate"
@@ -90,7 +135,7 @@ export default {
       pretplatnici_slider: {
         infinite: true,
         slidesToShow: 3,
-        initialSlide: Math.floor(Math.random() * 5),
+        initialSlide: Math.floor(Math.random() * 9),
         slidesToScroll: 1,
         arrows: false,
         autoplay: true,
