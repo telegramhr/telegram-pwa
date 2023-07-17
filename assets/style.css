@@ -3576,6 +3576,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         padding-left: 4vw;
         padding-right: 4vw;
     }
+    .mobile-mini-side-pad {
+        padding-left: 2vw;
+        padding-right: 2vw;
+    }
     .article-pad {
         margin-bottom: 0px;
         padding-bottom: 4vw;
@@ -11419,4 +11423,38 @@ input:checked ~ .input-hidden {
     .birati-stranu-widget {
         margin-bottom: -2vw;
     }
+}
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+}
+
+.animated-birati-stranu > .birati-stranu-title {
+    opacity: 0;
+    animation-name: fadeIn;
+    animation-delay: 0.5s;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+.animated-birati-stranu > .birati-stranu-subtitle {
+    opacity: 0;
+    animation-name: fadeIn;
+    animation-delay: 2.5s;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;  
+}
+.animated-birati-stranu > div.center {
+    opacity: 0;
+    animation-name: fadeIn;
+    animation-delay: 4s;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;  
 }

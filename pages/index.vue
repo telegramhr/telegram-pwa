@@ -21,16 +21,20 @@
       to="/pretplata/odabrati-stranu"
       class="full relative darkened-bg birati-stranu-widget"
     >
-      <div class="container column-full-pad mobile-full-pad flex relative">
+      <div
+        class="container column-full-pad mobile-full-pad flex relative animated-birati-stranu"
+      >
         <p
-          class="full center-text column-top-pad mobile-top-pad birati-stranu-title"
+          class="full center-text animate column-top-pad mobile-top-pad birati-stranu-title"
         >
           Nekad je nužno odabrati stranu.
         </p>
-        <p class="full center-text birati-stranu-subtitle">
+        <p class="full center-text animate birati-stranu-subtitle">
           Postanite Telegramov pretplatnik
         </p>
-        <div class="full center column-vertical-pad mobile-vertical-pad">
+        <div
+          class="full center animate column-vertical-pad mobile-vertical-pad"
+        >
           <div class="newbtn huge-newbtn">Pretplatite se</div>
         </div>
       </div>
@@ -40,7 +44,9 @@
       to="/pretplata/odabrati-stranu"
       class="full relative darkened-bg birati-stranu-widget"
     >
-      <div class="container column-full-pad mobile-full-pad flex relative">
+      <div
+        class="container column-full-pad mobile-full-pad flex relative animated-birati-stranu"
+      >
         <p
           class="full center-text column-top-pad mobile-top-pad birati-stranu-title"
         >
@@ -294,7 +300,7 @@
             ></medium>
           </div>
         </div>
-        <!-- Prekid odabrati stranu -->
+        <!-- Prekid odabrati stranu
         <client-only>
           <div
             v-if="!$store.state.user.access"
@@ -317,7 +323,7 @@
               </div>
             </app-link>
           </div>
-        </client-only>
+        </client-only> -->
         <!-- Prekid pretplata
         <client-only>
           <div
@@ -411,9 +417,9 @@
         >
           <trending :id="1"></trending>
         </div>
-        <div class="full column-horizontal-pad">
+        <!--<div class="full column-horizontal-pad">
           <div class="full column-top-pad column-bottom-border"></div>
-        </div>
+        </div>-->
       </div>
     </div>
     <!-- Billboard 3 -->
@@ -421,6 +427,10 @@
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
       </div>
+    </div>
+    <!-- Odabrati stranu pretplatnici widget -->
+    <div class="full relative">
+      <pretplatnici-widget></pretplatnici-widget>
     </div>
     <!-- Prekid knjiga
     <div class="full relative" style="margin-top: 24px">
@@ -471,10 +481,6 @@
         </app-link>
       </div>
     </div> -->
-    <!-- Šoping knjige -->
-    <div class="full relative">
-      <book-offers></book-offers>
-    </div>
     <!-- Prekid newsletteri
     <div class="full relative">
       <div class="container flex relative column-horizontal-pad">
@@ -686,6 +692,10 @@
       <client-only>
         <super1></super1>
       </client-only>
+    </div>
+    <!-- Šoping knjige -->
+    <div class="full relative">
+      <book-offers></book-offers>
     </div>
     <!-- PitanjeZdravlja -->
     <div class="full relative">
