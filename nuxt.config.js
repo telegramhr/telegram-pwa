@@ -117,7 +117,30 @@ export default {
     '@nuxtjs/pwa',
     'cookie-universal-nuxt',
     '@nuxtjs/gtm',
+    '@nuxtjs/onesignal',
   ],
+
+  oneSignal: {
+    init: {
+      appId: '4a5a4862-40d1-42f0-b324-85812703ccc5',
+      allowLocalhostAsSecureOrigin: true,
+      welcomeNotification: {
+        disable: true,
+      },
+      requiresUserPrivacyConsent: true,
+      promptOptions: {
+        actionMessage: 'Prijavite na obavijesti s Telegram.hr',
+        acceptButton: 'Prijavi se',
+        acceptButtonText: 'Prijavi se',
+        showCredit: false,
+      },
+      notifyButton: {
+        enable: false,
+        showCredit: false,
+      },
+      autoResubscribe: true,
+    },
+  },
 
   googleFonts: {
     display: 'swap',

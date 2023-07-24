@@ -20,6 +20,7 @@
     "@fortawesome/vue-fontawesome": "^2.0.8",
     "@nuxtjs/axios": "^5.12.5",
     "@nuxtjs/gtm": "^2.4.0",
+    "@nuxtjs/onesignal": "^3.0.0-beta.16",
     "@nuxtjs/pwa": "^3.3.4",
     "aos": "^3.0.0-beta.6",
     "braintree-web": "^3.76.3",
