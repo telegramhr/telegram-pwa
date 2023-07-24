@@ -127,12 +127,14 @@ export default {
       welcomeNotification: {
         disable: true,
       },
-      requiresUserPrivacyConsent: true,
+      requiresUserPrivacyConsent: false,
       promptOptions: {
         actionMessage: 'Prijavite na obavijesti s Telegram.hr',
         acceptButton: 'Prijavi se',
         acceptButtonText: 'Prijavi se',
         showCredit: false,
+        cancelButton: 'Ne, hvala',
+        cancelButtonText: 'Ne, hvala',
       },
       notifyButton: {
         enable: false,
@@ -168,7 +170,6 @@ export default {
   },
 
   pwa: {
-    onesignal: false,
     workbox: false,
     meta: {
       lang: 'hr',
