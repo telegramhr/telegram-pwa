@@ -310,7 +310,7 @@
           >
             <img
               src="@/assets/img/extras/pretplatnici/snjezana.jpg"
-              alt="Snježana Prljić Samadržija - pretplatnica i rektorica Sveučilišta u Rijeci"
+              alt="Snježana Prijić Samaržija - pretplatnica i rektorica Sveučilišta u Rijeci"
             />
           </div>
           <div

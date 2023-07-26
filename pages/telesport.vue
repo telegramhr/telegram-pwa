@@ -11,7 +11,7 @@
           <div class="full center">
             <nuxt-link to="/telesport" class="logo"
               ><img
-                src="@/assets/img/telesport_logo_white.svg"
+                src="@/assets/img/telesport_logo.svg"
                 class="light-mode-only"
                 alt="Telesport logo" />
               <img
@@ -51,18 +51,13 @@
     <section class="full flex relative">
       <div class="container flex relative stretch">
         <div
-          class="three-fourths featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad column-right-border mobile-order-1"
+          class="full featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad"
         >
-          <featured-sport
-            v-for="post in posts.slice(0, 1)"
+          <featured
+            v-for="post in posts.slice(1, 2)"
             :key="'sport-' + post.id"
             :post="post"
-          ></featured-sport>
-        </div>
-        <div
-          class="fourth flex mini-article-list mobile-side-pad flex-responsive column-horizontal-pad align-children-bottom"
-        >
-          <commentary type="ts"></commentary>
+          ></featured>
         </div>
         <div class="full column-full-pad desktop-only">
           <div class="full column-top-border"></div>
@@ -73,7 +68,7 @@
     <section class="full flex relative cantha-small-block">
       <div class="container flex relative column-bottom-pad stretch">
         <div
-          v-for="post in posts.slice(1, 4)"
+          v-for="post in posts.slice(2, 5)"
           :key="post.id"
           class="third flex-responsive flex column-right-border mobile-side-pad column-horizontal-pad"
         >
@@ -90,11 +85,11 @@
         <div
           class="three-fourths flex-responsive column-horizontal-pad column-right-border flex relative featured-split smaller-featured-split show-one-related"
         >
-          <featured-sport
+          <featured
             v-for="post in posts.slice(5, 7)"
             :key="post.id"
             :post="post"
-          ></featured-sport>
+          ></featured>
         </div>
         <div class="fourth flex-responsive column-horizontal-pad flex relative">
           <medium
@@ -141,11 +136,11 @@
         <div
           class="three-fourths flex-responsive column-horizontal-pad column-right-border flex relative featured-split smaller-featured-split show-one-related"
         >
-          <featured-sport
+          <featured
             v-for="post in posts.slice(6, 7)"
             :key="post.id"
             :post="post"
-          ></featured-sport>
+          ></featured>
         </div>
         <div class="full column-full-pad tablet-only">
           <div class="full column-bottom-border"></div>
@@ -216,11 +211,11 @@
         <div
           class="three-fourths flex-responsive column-horizontal-pad column-right-border flex relative featured-split smaller-featured-split show-one-related"
         >
-          <featured-sport
+          <featured
             v-for="post in posts.slice(4, 5)"
             :key="post.id"
             :post="post"
-          ></featured-sport>
+          ></featured>
         </div>
         <div class="full column-full-pad tablet-only">
           <div class="full column-bottom-border"></div>
@@ -230,16 +225,6 @@
         >
           <trending :id="1"></trending>
         </div>
-        <div class="full column-horizontal-pad">
-          <div class="full column-top-pad column-bottom-border"></div>
-        </div>
-      </div>
-    </div>
-    <div class="full relative">
-      <div
-        class="container mobile-side-pad column-horizontal-pad flex relative stretch column-bottom-pad"
-      >
-        "Smisljam jos 😃" -Miran Pavić
       </div>
     </div>
     <!-- Footer -->

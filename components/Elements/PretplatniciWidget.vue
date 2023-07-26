@@ -28,6 +28,15 @@
           class="full flex relative column-horizontal-pad mobile-mini-side-pad"
         >
           <img
+            src="@/assets/img/extras/pretplatnici/snjezana.jpg"
+            alt="Snježana Prijić Samaržija - pretplatnica i rektorica Sveučilišta u Rijeci"
+          />
+        </app-link>
+        <app-link
+          to="/pretplata/odabrati-stranu"
+          class="full flex relative column-horizontal-pad mobile-mini-side-pad"
+        >
+          <img
             src="@/assets/img/extras/pretplatnici/maja.jpg"
             alt="Maja Sever - pretplatnica i novinarka"
           />
@@ -46,8 +55,27 @@
           class="full flex relative column-horizontal-pad mobile-mini-side-pad"
         >
           <img
+            src="@/assets/img/extras/pretplatnici/ratko.jpg"
+            alt="Ratko Rudić - pretplatnik i trener
+"
+          />
+        </app-link>
+        <app-link
+          to="/pretplata/odabrati-stranu"
+          class="full flex relative column-horizontal-pad mobile-mini-side-pad"
+        >
+          <img
             src="@/assets/img/extras/pretplatnici/emil.jpg"
             alt="Emil Tedeschi - pretplatnik i poduzetnik"
+          />
+        </app-link>
+        <app-link
+          to="/pretplata/odabrati-stranu"
+          class="full flex relative column-horizontal-pad mobile-mini-side-pad"
+        >
+          <img
+            src="@/assets/img/extras/pretplatnici/viktorija.jpg"
+            alt="Viktorija Đurđek - pretplatnica i operna pjevačica"
           />
         </app-link>
         <app-link
@@ -73,6 +101,15 @@
           class="full flex relative column-horizontal-pad mobile-mini-side-pad"
         >
           <img
+            src="@/assets/img/extras/pretplatnici/ivanaS.jpg"
+            alt="Ivana Šoljan - pretplatnica i poduzetnica"
+          />
+        </app-link>
+        <app-link
+          to="/pretplata/odabrati-stranu"
+          class="full flex relative column-horizontal-pad mobile-mini-side-pad"
+        >
+          <img
             src="@/assets/img/extras/pretplatnici/majaV.jpg"
             alt="Maja Vehovec - pretplatnica i ekonomistica"
           />
@@ -84,6 +121,15 @@
           <img
             src="@/assets/img/extras/pretplatnici/luka.jpg"
             alt="Luka Abrus - pretplatnik i poduzetnik"
+          />
+        </app-link>
+        <app-link
+          to="/pretplata/odabrati-stranu"
+          class="full flex relative column-horizontal-pad mobile-mini-side-pad"
+        >
+          <img
+            src="@/assets/img/extras/pretplatnici/tvrtko.jpg"
+            alt="Tvrtko Jakovina - pretplatnik i povjesničar"
           />
         </app-link>
         <app-link

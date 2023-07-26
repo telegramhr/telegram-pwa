@@ -8062,6 +8062,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         margin-top: 24px;
         font-size: 40px;
         font-size: 2rem;
+        padding-bottom: 8px;
     }
     #telegram_desktop_billboard_v3 {
         margin-top: 0px;
@@ -10791,25 +10792,12 @@ header .search-menu {
 
 /* Telesport */
 
-.telesport, .dark-mode.telesport {
+.dark-mode.telesport {
     background: #171d21;
-    color: white;
 }
 .telesport .article h2 {
     font-family: 'Barlow', sans-serif;
-    font-weight: 400;
-}
-.telesport .dark-mode-only {
-    display: inherit;
-}
-.telesport .light-mode-only {
-    display: none;
-}
-.telesport .subheader .logo img, .telesport header nav .logo img {
-    display: none;
-}
-.telesport .subheader .logo img.dark-mode-only, .telesport header nav .logo img.dark-mode-only {
-    display: inline-block;
+    font-weight: 700;
 }
 .sport-slash {
     color: #069eff;
@@ -10859,20 +10847,8 @@ header .search-menu {
     opacity: 1;
     color: #069eff;
 }
-.telesport.fancy-rubrika .subheader {
-    background-color: #111;
-    color: white;
-    border-bottom-color: #223344;
-}
-.telesport .article-standard {
-    border-bottom-color: #223344;
-}
-.telesport .cantha-separator {
-    border-top-color: #223344;
-    border-bottom-color: #069eff;
-}
-.telesport .cantha-break, .telesport .cantha-break {
-    background-color: #111;
+.telesport .featured-split.biggest-font .article-featured h3.overtitle {
+    display: none;
 }
 
 @media screen and (max-width: 767px) {
@@ -10889,13 +10865,7 @@ header .search-menu {
     }
 }
 
-@media screen and (min-width: 767px) {
-    .telesport .column-right-border, .telesport .column-bottom-border, .telesport .column-top-border, .telesport .column-left-border {
-        border-color: #223344;
-    }
-    .telesport .article:hover h2, .telesport .komentar:hover h2 {
-        color: #ccc;
-    }
+@media screen and (min-width: 767px) { 
     .telesport .article-featured h2, .telesport .alt-big-break.center-text .telesport .article h2 {
         font-size: 24px;
         font-size: 1.2rem;
@@ -10904,8 +10874,29 @@ header .search-menu {
         font-size: 36px;
         font-size: 1.8rem;
     }
-    .telesport .featured-split .article-featured {
-        border-color: #223344;
+    .telesport .featured-split.biggest-font .article-featured h2 {
+        font-size: 48px;
+        font-size: 2.4rem;
+        margin-bottom: 24px;
+        padding-bottom: 24px;
+    }
+    .telesport .featured-split.biggest-font .article-featured h2::before {
+        content: " ";
+        width: 60px;
+        height: 4px;
+        background-color: #069eff;
+        position: absolute;
+        left: 0px;
+        bottom: -1px;
+    }
+    .telesport .featured-split.biggest-font .article-featured h4 {
+        font-size: 24px;
+        font-size: 1.2rem;
+    }
+    .telesport .featured-split.biggest-font .article-featured h5.article-meta {
+        margin-top: 6px;
+        font-size: 16px;
+        font-size: 0.8rem;
     }
 }
 
@@ -11203,6 +11194,9 @@ header .search-menu {
 .latest-articles {
     background-color: #e8dacd;
 }
+.dark-mode .latest-articles {
+    background-color:rgba(0, 0, 0, 0.3);
+}
 .latest-articles .newbtn {
     background-color: #212121;
 }
@@ -11240,6 +11234,10 @@ header .search-menu {
     font-weight: 700;
     opacity: 1;
 }
+.simple-btn-margin {
+    margin-top: 8px;
+}
+
 @media screen and (min-width: 767px) {
     .latest-articles .mini-article-list .article-mini {
         width: 24.99%;
@@ -11254,6 +11252,10 @@ header .search-menu {
     }
     .latest-articles {
         padding: 24px 0px;
+    }
+    .article-medium-alt h2 {
+        font-size: 24px;
+        font-size: 1.2rem;
     }
 }
 @media screen and (max-width: 767px) {
