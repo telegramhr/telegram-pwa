@@ -8337,6 +8337,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         padding-left: 0px;
         padding-top: 8px;
     }
+    .dark-mode .featured-split.biggest-font .related-articles, .dark-mode .featured-split.biggest-font .related-articles a {
+        border-color: #333333;
+    }
     .featured-split.biggest-font .related-articles a {
         width: 49.99%;
         border-left: 1px solid #c8c8c8;
