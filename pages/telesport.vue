@@ -1,5 +1,5 @@
 <template>
-  <div class="main-container flex fancy-rubrika telesport">
+  <div class="main-container flex telesport">
     <!-- TG Multiverse header -->
     <div class="full flex">
       <theader></theader>
@@ -11,11 +11,11 @@
           <div class="full center">
             <nuxt-link to="/telesport" class="logo"
               ><img
-                src="@/assets/img/telesport_logo.svg"
+                src="@/assets/img/telesport_logo_black.svg"
                 class="light-mode-only"
                 alt="Telesport logo" />
               <img
-                src="@/assets/img/telesport_logo.svg"
+                src="@/assets/img/telesport_logo_black.svg"
                 class="contrast-mode-only"
                 alt="Telesport logo" />
               <img
@@ -54,7 +54,7 @@
           class="full featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad"
         >
           <featured
-            v-for="post in posts.slice(1, 2)"
+            v-for="post in posts.slice(0, 1)"
             :key="'sport-' + post.id"
             :post="post"
           ></featured>
@@ -68,7 +68,7 @@
     <section class="full flex relative cantha-small-block">
       <div class="container flex relative column-bottom-pad stretch">
         <div
-          v-for="post in posts.slice(2, 5)"
+          v-for="post in posts.slice(1, 4)"
           :key="post.id"
           class="third flex-responsive flex column-right-border mobile-side-pad column-horizontal-pad"
         >
@@ -83,7 +83,7 @@
           <div class="full column-top-border column-bottom-pad"></div>
         </div>
         <div
-          class="three-fourths flex-responsive column-horizontal-pad column-right-border flex relative featured-split smaller-featured-split show-one-related"
+          class="three-fourths mobile-side-pad flex-responsive column-horizontal-pad column-right-border flex relative featured-split smaller-featured-split show-one-related"
         >
           <featured
             v-for="post in posts.slice(5, 7)"
@@ -91,7 +91,9 @@
             :post="post"
           ></featured>
         </div>
-        <div class="fourth flex-responsive column-horizontal-pad flex relative">
+        <div
+          class="fourth mobile-side-pad flex-responsive column-horizontal-pad flex relative"
+        >
           <medium
             v-for="post in posts.slice(7, 9)"
             :key="post.id"
