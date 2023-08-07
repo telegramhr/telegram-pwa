@@ -39,29 +39,6 @@
         </div>
       </div>
     </app-link>
-    <app-link
-      v-else
-      to="/pretplata/odabrati-stranu"
-      class="full relative darkened-bg birati-stranu-widget"
-    >
-      <div
-        class="container column-full-pad mobile-full-pad flex relative animated-birati-stranu"
-      >
-        <p
-          class="full center-text column-top-pad mobile-top-pad birati-stranu-title"
-        >
-          Nekad je nužno odabrati stranu.
-        </p>
-        <p
-          class="full center-text birati-stranu-subtitle birati-stranu-alt-subtitle"
-        >
-          Hvala Vam što ste naš pretplatnik.
-        </p>
-        <div class="full center column-vertical-pad mobile-vertical-pad">
-          <div class="newbtn huge-newbtn">Na strani Telegrama</div>
-        </div>
-      </div>
-    </app-link>
     <!-- Cantha header -->
     <div class="full relative cantha-header">
       <div class="container flex relative column-top-pad column-horizontal-pad">
@@ -94,11 +71,12 @@
             <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon>
           </a>
         </div>
-        <h2
+        <app-link
+          to="/pretplata/odabrati-stranu"
           class="full column-horizontal-pad center-text desktop-only site-subtitle"
         >
           Nekad je nužno odabrati stranu
-        </h2>
+        </app-link>
         <div class="full mobile-side-pad">
           <div class="full desktop-only cantha-separator"></div>
         </div>
@@ -189,7 +167,7 @@
         </div>
         <!-- G1 -->
         <div
-          class="three-fourths featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad column-right-border mobile-order-1 m-order-1"
+          class="seventy featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad column-right-border mobile-order-1 m-order-1"
         >
           <featured-alt
             v-if="posts[0]"
@@ -197,7 +175,16 @@
             :post="posts[0]"
           ></featured-alt>
         </div>
-        <!-- komentari -->
+        <div
+          class="thirty flex-responsive mobile-side-pad column-horizontal-pad flex relative m-order-2"
+        >
+          <medium
+            v-for="post in posts.slice(5, 6)"
+            :key="post.id"
+            :post="post"
+          ></medium>
+        </div>
+        <!-- komentari
         <div
           class="fourth flex-responsive column-horizontal-pad mobile-side-pad cantha-commentary m-order-10"
         >
@@ -210,19 +197,10 @@
             </h3>
           </div>
           <commentary type="tg"></commentary>
-        </div>
+        </div> -->
         <div class="full column-full-pad desktop-only">
           <div class="full column-top-border"></div>
         </div>
-        <!-- latest -->
-        <client-only>
-          <div
-            v-if="$mobile"
-            class="full flex relative mobile-only mobile-side-pad m-order-4"
-          >
-            <latest :portal="1"></latest>
-          </div>
-        </client-only>
         <!-- rest of Gs -->
         <div
           class="full flex cantha-small-block mobile-side-pad stretch m-order-5"
@@ -235,6 +213,14 @@
             <medium :post="post"></medium>
           </div>
         </div>
+        <!-- latest -->
+        <client-only>
+          <div
+            class="full flex relative column-horizontal-pad column-top-pad mobile-side-pad m-order-4"
+          >
+            <latest :portal="1"></latest>
+          </div>
+        </client-only>
         <!-- Billboard 2 -->
         <div class="full center m-order-6">
           <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>

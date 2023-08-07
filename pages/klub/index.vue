@@ -47,6 +47,29 @@
         </div>
       </div>
     </div>
+    <div class="full flex darkened-bg">
+      <div class="container flex relative stretch">
+        <div
+          class="three-fourths center flex-wrap mobile-half article column-full-pad mobile-full-pad"
+        >
+          <h3 class="full overtitle">Specijalna ponuda</h3>
+          <h2 class="full">Samo ovaj mjesec: uzmite Pickbox sa 50% popusta</h2>
+          <div class="full flex">
+            <a
+              href="#streaming"
+              class="newbtn huge-newbtn simple-btn-margin flex"
+              >Pogledajte ponudu</a
+            >
+          </div>
+        </div>
+        <div class="fourth mobile-half flex-responsive center">
+          <img
+            src="@/assets/img/extras/klub/tg_klub_pickbox.png"
+            alt="Pickbox ponuda"
+          />
+        </div>
+      </div>
+    </div>
     <!-- Intro -->
     <div class="full flex relative mobile-side-pad klub-intro">
       <div class="container flex relative">

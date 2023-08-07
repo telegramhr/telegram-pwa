@@ -45,6 +45,16 @@ export default () => {
       return '60+'
     }
   })
+  Vue.filter('parseTimeOnly', function (value) {
+    if (!value) {
+      return ''
+    }
+    const altTimedate = new Date(value)
+    const altHours = String(altTimedate.getHours()).padStart(2, '0')
+    const altMinutes = String(altTimedate.getMinutes()).padStart(2, '0')
+
+    return `${altHours}:${altMinutes}`
+  })
   Vue.filter('parseCat', function (value) {
     if (!value || value === 'null') {
       return ''

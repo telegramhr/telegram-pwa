@@ -7895,6 +7895,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .cantha-intro-block > .ukraine-header {
         order: 1;
     }
+
     .cantha-commentary .komentar {
         margin-bottom: 0px;
         padding-top: 4vw;
@@ -11199,7 +11200,7 @@ header .search-menu {
 .desktop-big-time {
     display: none;
 }
-/*
+
 .latest-articles .mini-article-list .article-mini .mini-big-time, .latest-articles .mini-article-list .article-mini::before {
     display: none;
 }
@@ -11278,7 +11279,7 @@ header .search-menu {
         padding-bottom: 4vw;
         border-bottom: 1px solid #c8c8c8;
     }
-} */
+}
 
 /* Partner special widget */
 
@@ -11471,4 +11472,12 @@ input:checked ~ .input-hidden {
     animation-duration: 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;  
+}
+
+
+@media screen and (min-width: 767px) {
+    .cantha-intro-block .article-standard h2 {
+        font-size: 21px;
+        font-size: 1.05rem;
+    }
 }

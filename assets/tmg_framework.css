@@ -162,6 +162,9 @@ img {
 .eighth {
     width: 12.49%;
 }
+.seventy {
+    width: 69.99%;
+}
 .three-fourths {
     width: 74.99%;
 }
@@ -251,6 +254,9 @@ img {
     }
     .flex-responsive {
         width: 100%;
+    }
+    .mobile-half {
+        width: 49.99%;
     }
     .yt-embed {
         height: 51.5vw;
