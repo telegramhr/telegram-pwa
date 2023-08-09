@@ -1203,7 +1203,7 @@ export const state = () => ({
       },
     },
     telegram_sticky: {
-      upc: false,
+      upc: 36,
       routes: [
         'index',
         'category',
@@ -1406,9 +1406,9 @@ export const actions = {
           ds = window.googletag.defineSlot(prefix + i, unit[sizes], i)
           if (ds) {
             ds.addService(window.googletag.pubads())
-            if (i.includes('sticky') && rootState.user.access) {
+            /* if (i.includes('sticky') && rootState.user.access) {
               ds.setTargeting('upc', 26)
-            }
+            } */
             if (unit.upc) {
               ds.setTargeting('upc', unit.upc)
             }
