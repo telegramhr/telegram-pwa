@@ -49,7 +49,7 @@ export default () => {
     if (!value) {
       return ''
     }
-    const altTimedate = new Date(value)
+    const altTimedate = new Date(value * 1000)
     const altHours = String(altTimedate.getHours()).padStart(2, '0')
     const altMinutes = String(altTimedate.getMinutes()).padStart(2, '0')
 
