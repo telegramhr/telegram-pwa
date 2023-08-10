@@ -176,7 +176,7 @@
           ></featured-alt>
         </div>
         <div
-          class="thirty flex-responsive mobile-side-pad column-horizontal-pad flex relative m-order-2"
+          class="thirty flex-responsive mobile-side-pad column-horizontal-pad flex relative m-order-3 intro-block-title-tweak no-last-border-mobile"
         >
           <medium
             v-for="post in posts.slice(5, 6)"
@@ -216,7 +216,7 @@
         <!-- latest -->
         <client-only>
           <div
-            class="full flex relative column-horizontal-pad column-top-pad mobile-side-pad m-order-4"
+            class="full flex relative column-horizontal-pad column-top-pad mobile-side-pad m-order-2"
           >
             <latest :portal="1"></latest>
           </div>

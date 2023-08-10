@@ -13,8 +13,9 @@
       width="800"
       height="505"
     />
-    <div class="full desktop-big-time">
-      {{ post.time | parseTimeOnly }}<span>{{ parsedOvertitle }}</span>
+    <div class="full time-overtitle">
+      <span>{{ post.time | parseTimeOnly }}</span
+      ><span>{{ parsedOvertitle }}</span>
     </div>
     <h2 :id="'standard-' + post.id" class="full">
       {{ post.portal_title | parseCat }}

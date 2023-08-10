@@ -1,17 +1,15 @@
 <template>
   <div class="full flex relative latest-articles mobile-side-pad">
-    <div class="full hide column-horizontal-pad column-top-pad">
-      <div class="full cantha-separator"></div>
-    </div>
-    <h3 class="full center hide column-full-pad subsection-title">Najnovije</h3>
-    <div class="full flex relative mini-article-list stretch">
-      <div class="eighth flex-responsive center flex-wrap relative">
-        <span class="full center mobile-only">Najnovije</span>
-        <span class="full center-text big-number">10:45</span
-        ><span class="full center-text">zadnja objava</span>
+    <div class="full flex latest-articles-header mobile-only stretch">
+      <div class="third flex center active-latest-header animate">
+        <span>Vijesti</span>
       </div>
+      <div class="third flex center animate"><span>Sport</span></div>
+      <div class="third flex center animate"><span>Lifestyle</span></div>
+    </div>
+    <div class="full flex relative mini-article-list stretch">
       <mini-alt
-        v-for="post in posts.slice(0, 3)"
+        v-for="post in posts.slice(0, 4)"
         :key="post.id"
         :post="post"
       ></mini-alt>

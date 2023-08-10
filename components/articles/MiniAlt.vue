@@ -6,8 +6,9 @@
     :aria-labelledby="'mini-' + post.id"
   >
     <div class="full flex article-pad">
-      <div class="full desktop-big-time">
-        {{ post.time | parseTimeOnly }}<span>{{ parsedOvertitle }}</span>
+      <div class="full time-overtitle">
+        <span>{{ post.time | parseTimeOnly }}</span
+        ><span>{{ parsedOvertitle }}</span>
       </div>
       <h2 :id="'mini-' + post.id" class="full animate">
         {{ post.portal_title | parseCat }}

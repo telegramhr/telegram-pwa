@@ -1,5 +1,5 @@
 <template>
-  <div :class="['main-container', 'flex', 'category-page']">
+  <div :class="['main-container', 'flex', 'category-page', 'latest-page']">
     <!-- TG Multiverse header -->
     <div class="full flex relative single-article">
       <client-only>
@@ -22,9 +22,7 @@
     <!-- Category header -->
     <div class="full flex relative">
       <div class="container flex mobile-side-pad relative">
-        <h1
-          class="full section-title center-text column-horizontal-pad os-section-title"
-        >
+        <h1 class="full section-title center-text column-horizontal-pad">
           Najnovije na Telegramu
         </h1>
         <div class="full column-horizontal-pad column-top-pad">
@@ -35,20 +33,14 @@
     <!-- Veliki blok - intro -->
     <div class="full relative">
       <div
-        class="container flex relative stretch column-vertical-pad block-echovald mobile-top-pad"
+        class="container flex relative stretch column-vertical-pad block-echovald mobile-top-pad latest-page-pad"
       >
         <div
-          class="three-fourths mobile-side-pad split-articles column-horizontal-pad flex flex-responsive column-right-border"
+          class="full mobile-side-pad split-articles column-left-border column-horizontal-pad flex"
         >
           <template v-for="post in posts.slice(0, 8)">
             <medium-alt :key="post.id" :post="post"></medium-alt>
           </template>
-        </div>
-        <div
-          v-if="!$mobile"
-          class="fourth flex-responsive column-horizontal-pad flex mobile-side-pad"
-        >
-          <commentary type="tg"></commentary>
         </div>
       </div>
     </div>
