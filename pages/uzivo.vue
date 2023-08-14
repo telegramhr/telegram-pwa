@@ -1,5 +1,5 @@
 <template>
-  <div :class="['main-container', 'flex', 'category-page', 'latest-page']">
+  <div :class="['main-container', 'flex', 'category-page']">
     <!-- TG Multiverse header -->
     <div class="full flex relative single-article">
       <client-only>
@@ -21,7 +21,7 @@
     </div>
     <!-- Category header -->
     <div class="full flex relative">
-      <div class="container flex mobile-side-pad relative">
+      <div class="container smaller-container flex mobile-side-pad relative">
         <h1 class="full section-title center-text column-horizontal-pad">
           Najnovije na Telegramu
         </h1>
@@ -33,29 +33,29 @@
     <!-- Veliki blok - intro -->
     <div class="full relative">
       <div
-        class="container flex relative stretch column-vertical-pad block-echovald mobile-top-pad latest-page-pad"
+        class="container mobile-side-pad smaller-container flex relative stretch column-vertical-pad block-echovald latest-line-feed latest-line-feed-pad"
       >
         <div
-          class="full mobile-side-pad split-articles column-left-border column-horizontal-pad flex"
+          class="full split-articles column-left-border column-horizontal-pad flex"
         >
           <template v-for="post in posts.slice(0, 8)">
             <medium-alt :key="post.id" :post="post"></medium-alt>
           </template>
-        </div>
-      </div>
-    </div>
-    <!-- Read more widget -->
-    <div class="full flex relative">
-      <div class="container flex relative column-full-pad mobile-full-pad">
-        <div class="full center relative clickable" @click="loadMore">
-          <div v-show="!loading" class="newbtn altbtn animate">
-            Učitaj još članaka
-          </div>
-          <div v-show="loading" class="full center cool-loader">
-            <div class="loader-square">
-              <div></div>
-              <div></div>
-              <div></div>
+          <!-- Read more widget -->
+          <div
+            class="full latest-feed-btn flex-responsive flex relative mobile-side-pad"
+          >
+            <div class="full flex relative clickable" @click="loadMore">
+              <div v-show="!loading" class="newbtn animate">
+                Učitaj još članaka
+              </div>
+              <div v-show="loading" class="full center cool-loader">
+                <div class="loader-square">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

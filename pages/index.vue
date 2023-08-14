@@ -216,7 +216,8 @@
         <!-- latest -->
         <client-only>
           <div
-            class="full flex relative column-horizontal-pad column-top-pad mobile-side-pad m-order-2"
+            v-if="$mobile"
+            class="full flex mobile-only relative column-horizontal-pad column-top-pad mobile-side-pad m-order-2 latest-line-feed"
           >
             <latest :portal="1"></latest>
           </div>
