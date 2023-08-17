@@ -11271,6 +11271,9 @@ header .search-menu {
     height: 1px;
     background-color: #c8c8c8;
 }
+.dark-mode .latest-articles-header > .third::before {
+    background-color: #333;
+}
 .latest-articles-header > .third.active-latest-header {
     font-weight: 700;
 }
@@ -11289,32 +11292,14 @@ header .search-menu {
     padding-left: 8px;
     border-bottom: none;
 }
-.latest-line-feed .article::before {
-    content: " ";
-    position: absolute;
-    top: -4px;
-    left: -39px;
-    width: 28px;
-    height: 28px;
-    z-index: 5;
-    border: 1px solid #c8c8c8;
-    background-color: #fcf1e7;
-}
-.latest-line-feed .article::after {
-    content: " ";
-    position: absolute;
-    top: 6px;
-    left: -29px;
-    width: 10px;
-    height: 10px;
-    z-index: 6;
-    background-color: #ae3737;
-}
 .latest-line-feed .split-articles .article-medium img {
     margin-bottom: 0px;
 }
 .latest-line-feed .column-left-border {
     border-left: 1px solid #c8c8c8;
+}
+.dark-mode .latest-line-feed .column-left-border {
+    border-left-color: #333;
 }
 .latest-line-feed .latest-feed-btn::before {
     content: " ";
@@ -11327,20 +11312,60 @@ header .search-menu {
     width: 20px;
     height: 14px;
 }
+.dark-mode .latest-line-feed .latest-feed-btn::before {
+    border-top-color: #333;
+    background-color: #212121;
+}
 .latest-line-feed .latest-feed-btn .newbtn {
     z-index: 5;
     position: relative;
 }
+.latest-line-feed .article {
+    border-bottom: none;
+}
+.latest-line-feed .article::before {
+    content: " ";
+    position: absolute;
+    top: 18px;
+    left: -10px;
+    width: 16px;
+    height: 16px;
+    z-index: 5;
+    border: 1px solid #c8c8c8;
+    background-color: #fcf1e7;
+}
+.dark-mode .latest-line-feed .article::before {
+    border-color: #333;
+    background-color: #212121;
+}
+.latest-line-feed .article::after {
+    content: " ";
+    position: absolute;
+    top: 23px;
+    left: -5px;
+    width: 8px;
+    height: 8px;
+    z-index: 6;
+    background-color: #ae3737;
+}
+.latest-line-feed .article-mini .article-meta {
+    display: none;
+}
+.latest-line-feed .article-mini h2 {
+    font-weight: 400;
+    font-size: 16px;
+    font-size: 0.8rem;
+}
 
 @media screen and (min-width: 767px) {
-    .latest-line-feed .article .time-overtitle {
+    .category-page .latest-line-feed .article .time-overtitle {
         font-size: 16px;
         font-size: 0.8rem;
     }
     .latest-line-feed-pad {
         padding-left: 108px;
     }
-    .latest-line-feed .article .time-overtitle span:first-child {
+    .category-page .latest-line-feed .article .time-overtitle span:first-child {
         position: absolute;
         top: -4px;
         left: -108px;
@@ -11362,59 +11387,64 @@ header .search-menu {
         font-size: 24px;
         font-size: 1.2rem;
     }
-    .latest-line-feed .article .time-overtitle span:last-child {
+    .category-page .latest-line-feed .article .time-overtitle span:last-child {
         padding-left: 0px;
     }
     .latest-line-feed .latest-feed-btn::before {
-        left: -25px;
+        left: -1px;
         width: 28px;
+    }
+    .category-page .latest-line-feed .latest-feed-btn::before {
+        left: -25px;
+    }
+    .latest-line-feed .article:first-child::before {
+        top: 0px;
+    }
+    .latest-line-feed .article:first-child::after {
+        top: 5px;
+    }
+    .category-page .latest-line-feed .article::before {
+        top: -4px;
+        left: -39px;
+        width: 28px;
+        height: 28px;
+    }
+    .category-page .latest-line-feed .article::after {
+        top: 6px;
+        left: -29px;
+        width: 10px;
+        height: 10px;
+    }
+    .latest-line-feed .article-mini .article-pad {
+        padding-bottom: 0px;
+    }
+    .latest-line-feed .article-mini {
+        padding: 16px;
+        padding-top: 0px;
+    }
+    .latest-line-feed .article-mini::before {
+        top: 0px;
+    }
+    .latest-line-feed .article::after {
+        top: 5px;
+    }
+    .latest-feed-btn {
+        padding-left: 16px;
+    }
+    .category-page .latest-feed-btn {
+        padding-left: 0px;
     }
 }
 @media screen and (max-width: 767px) {
     .latest-articles {
         border-bottom: 0px;
     }
-    .latest-articles .eighth:first-child {
-        padding-bottom: 4vw;
-        border-bottom: 1px solid #c8c8c8;
-    }
-    .latest-line-feed .article {
-        border-bottom: none;
-    }
-    .latest-line-feed .article::before {
-        content: " ";
-        position: absolute;
-        top: 18px;
-        left: -10px;
-        width: 16px;
-        height: 16px;
-        z-index: 5;
-        border: 1px solid #c8c8c8;
-        background-color: #fcf1e7;
-    }
-    .latest-line-feed .article::after {
-        content: " ";
-        position: absolute;
-        top: 23px;
-        left: -5px;
-        width: 8px;
-        height: 8px;
-        z-index: 6;
-        background-color: #ae3737;
-    }
     .latest-line-feed .article {
         padding-left: 4vw;
+        padding-top: 18px;
     }
     .latest-line-feed .time-overtitle {
         margin-bottom: 8px;
-    }
-    .latest-line-feed .article-mini .article-meta {
-        display: none;
-    }
-    .latest-line-feed .article-mini h2 {
-        font-weight: 400;
-        font-size: 16px;
-        font-size: 0.8rem;
     }
     .latest-line-feed h3.subsection-title {
         padding-bottom: 1vw;
@@ -11423,14 +11453,14 @@ header .search-menu {
         margin-bottom: 4vw;
         margin-top: 4vw;
     }
-    .category-page .latest-line-feed .article:first-child {
-        padding-top: 0px;
-    }
     .category-page .latest-line-feed .article:first-child::before {
         top: 0px;
     }
     .category-page .latest-line-feed .article:first-child::after {
         top: 5px;
+    }
+    .category-page .latest-line-feed .article:first-child {
+        padding-top: 0px;
     }
 }
 
@@ -11625,12 +11655,4 @@ input:checked ~ .input-hidden {
     animation-duration: 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;  
-}
-
-
-@media screen and (min-width: 767px) {
-    .intro-block-title-tweak .article h2 {
-        font-size: 21px;
-        font-size: 1.05rem;
-    }
 }

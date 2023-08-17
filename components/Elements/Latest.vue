@@ -20,7 +20,7 @@
         :post="post"
       ></mini-alt>
       <div
-        class="eighth latest-feed-btn flex-responsive flex relative mobile-side-pad"
+        class="full latest-feed-btn flex-responsive flex relative mobile-side-pad"
       >
         <app-link to="/uzivo" class="flex newbtn">Još vijesti</app-link>
       </div>

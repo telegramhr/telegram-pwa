@@ -167,7 +167,7 @@
         </div>
         <!-- G1 -->
         <div
-          class="seventy featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad column-right-border mobile-order-1 m-order-1"
+          class="seventy featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad mobile-order-1 m-order-1"
         >
           <featured-alt
             v-if="posts[0]"
@@ -176,13 +176,13 @@
           ></featured-alt>
         </div>
         <div
-          class="thirty flex-responsive mobile-side-pad column-horizontal-pad flex relative m-order-3 intro-block-title-tweak no-last-border-mobile"
+          class="thirty flex-responsive mobile-side-pad column-right-pad flex relative m-order-3 no-last-border-mobile"
         >
-          <medium
-            v-for="post in posts.slice(5, 6)"
-            :key="post.id"
-            :post="post"
-          ></medium>
+          <client-only>
+            <div class="full flex relative latest-line-feed">
+              <latest :portal="1"></latest>
+            </div>
+          </client-only>
         </div>
         <!-- komentari
         <div
@@ -213,15 +213,6 @@
             <medium :post="post"></medium>
           </div>
         </div>
-        <!-- latest -->
-        <client-only>
-          <div
-            v-if="$mobile"
-            class="full flex mobile-only relative column-horizontal-pad column-top-pad mobile-side-pad m-order-2 latest-line-feed"
-          >
-            <latest :portal="1"></latest>
-          </div>
-        </client-only>
         <!-- Billboard 2 -->
         <div class="full center m-order-6">
           <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
