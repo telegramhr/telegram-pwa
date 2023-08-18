@@ -28,6 +28,15 @@
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
+        <div
+          class="full flex latest-articles-header column-horizontal-pad stretch"
+        >
+          <div class="third flex center active-latest-header animate">
+            <span>Vijesti</span>
+          </div>
+          <div class="third flex center animate"><span>Sport</span></div>
+          <div class="third flex center animate"><span>Lifestyle</span></div>
+        </div>
       </div>
     </div>
     <!-- Veliki blok - intro -->

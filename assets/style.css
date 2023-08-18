@@ -11338,6 +11338,9 @@ header .search-menu {
     border-color: #333;
     background-color: #212121;
 }
+.contrast-mode .latest-line-feed .article::before {
+    background-color: white;
+}
 .latest-line-feed .article::after {
     content: " ";
     position: absolute;
@@ -11355,6 +11358,10 @@ header .search-menu {
     font-weight: 400;
     font-size: 16px;
     font-size: 0.8rem;
+}
+.category-page .latest-articles-header {
+    padding-top: 8px;
+    margin-bottom: 16px;
 }
 
 @media screen and (min-width: 767px) {
@@ -11433,6 +11440,11 @@ header .search-menu {
     }
     .category-page .latest-feed-btn {
         padding-left: 0px;
+    }
+    .category-page .latest-articles-header > .third {
+        padding: 16px;
+        font-size: 18px;
+        font-size: 0.9rem;
     }
 }
 @media screen and (max-width: 767px) {
