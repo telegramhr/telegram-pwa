@@ -11356,8 +11356,8 @@ header .search-menu {
 }
 .latest-line-feed .article-mini h2 {
     font-weight: 400;
-    font-size: 16px;
-    font-size: 0.8rem;
+    font-size: 15px;
+    font-size: 0.75rem;
 }
 .category-page .latest-articles-header {
     padding-top: 8px;
@@ -11443,8 +11443,8 @@ header .search-menu {
     }
     .category-page .latest-articles-header > .third {
         padding: 16px;
-        font-size: 18px;
-        font-size: 0.9rem;
+        font-size: 24px;
+        font-size: 1.2rem;
     }
 }
 @media screen and (max-width: 767px) {

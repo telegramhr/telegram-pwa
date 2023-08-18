@@ -21,21 +21,17 @@
     </div>
     <!-- Category header -->
     <div class="full flex relative">
-      <div class="container smaller-container flex mobile-side-pad relative">
-        <h1 class="full section-title center-text column-horizontal-pad">
-          Najnovije na Telegramu
-        </h1>
-        <div class="full column-horizontal-pad column-top-pad">
-          <div class="full cantha-separator"></div>
-        </div>
+      <div
+        class="container smaller-container column-top-pad mobile-top-pad flex mobile-side-pad relative"
+      >
         <div
           class="full flex latest-articles-header column-horizontal-pad stretch"
         >
           <div class="third flex center active-latest-header animate">
-            <span>Vijesti</span>
+            <span>Najnovije</span>
           </div>
           <div class="third flex center animate"><span>Sport</span></div>
-          <div class="third flex center animate"><span>Lifestyle</span></div>
+          <div class="third flex center animate"><span>Život</span></div>
         </div>
       </div>
     </div>

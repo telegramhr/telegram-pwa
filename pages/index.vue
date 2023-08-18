@@ -167,7 +167,7 @@
         </div>
         <!-- G1 -->
         <div
-          class="seventy featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad mobile-order-1 m-order-1"
+          class="three-fourths featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad mobile-order-1 m-order-1"
         >
           <featured-alt
             v-if="posts[0]"
@@ -176,7 +176,7 @@
           ></featured-alt>
         </div>
         <div
-          class="thirty flex-responsive mobile-side-pad column-right-pad flex relative m-order-3 no-last-border-mobile"
+          class="fourth flex-responsive mobile-side-pad column-right-pad flex relative m-order-3 no-last-border-mobile"
         >
           <client-only>
             <div class="full flex relative latest-line-feed">
