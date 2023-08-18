@@ -74,7 +74,7 @@
         <div
           class="container relative flex mobile-side-pad stretch column-full-pad"
         >
-          <h1 class="full center-text">Priče koje guraju društvo naprijed.</h1>
+          <h1 class="full center-text">Nekad je nužno odabrati stranu</h1>
           <p class="full center-text pretplata-tagline">
             Pretplatite se i podržite naše bespoštedno novinarstvo.
           </p>
