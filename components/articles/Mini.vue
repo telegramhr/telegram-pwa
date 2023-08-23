@@ -14,11 +14,11 @@
           {{ post.authors.length ? 'Piše ' + post.authors[0].name : '' }}</span
         >
         <span v-if="post.time" class="meta-date">{{
-          post.time | parseTime
+          post.timem | parseTime
         }}</span>
       </h5>
     </div>
-    <span class="mini-big-time">{{ post.time | parseRecentTime }}</span>
+    <span class="mini-big-time">{{ post.timem | parseRecentTime }}</span>
   </app-link>
 </template>
 

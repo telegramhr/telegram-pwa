@@ -44,7 +44,7 @@
           <span v-if="post.recommendations" class="meta-preporuke"
             >{{ post.recommendations }} preporuka</span
           >
-          <span class="meta-date">{{ post.time | parseTime }}</span>
+          <span class="meta-date">{{ post.timem | parseTime }}</span>
         </h5>
       </app-link>
       <template v-if="post.related && post.related.length">
