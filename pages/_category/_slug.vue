@@ -249,7 +249,7 @@
                     author.name
                   }}</span></nuxt-link
                 >
-                <span class="meta-date">{{ post.time | parseTime }}</span>
+                <span class="meta-date">{{ post.timem | parseTime }}</span>
                 <span v-if="post.recommendations" class="meta-preporuke"
                   >{{ post.recommendations }} preporuka</span
                 >
