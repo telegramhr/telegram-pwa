@@ -40,18 +40,23 @@
           <client-only>
             <div v-show="$store.state.user.admin" class="half">
               <h3>Admin</h3>
-              <a role="menuitem" href="https://www.telegram.hr/wp-admin"
+              <a
+                role="menuitem"
+                href="https://www.telegram.hr/wp-admin"
+                rel="nofollow"
                 >Admin</a
               >
               <a
                 role="menuitem"
                 href="https://www.telegram.hr/wp-admin/post-new.php"
+                rel="nofollow"
               >
                 Nova objava
               </a>
               <a
                 v-show="id"
                 :href="`https://www.telegram.hr/wp-admin/post.php?post=${id}&action=edit`"
+                rel="nofollow"
                 role="menuitem"
                 >Uredi</a
               >
