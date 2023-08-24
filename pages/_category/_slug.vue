@@ -746,10 +746,16 @@ export default {
               height: 512,
             },
           },
-          author: this.post.authors,
+          author: this.post.authors.map((author) => {
+            return {
+              '@type': 'Person',
+              name: author.name,
+              url: author.url,
+              image: author.image,
+            }
+          }),
           keywords: this.post.tags.map((tag) => tag.slug),
-          sections: this.$options.filters.parseCat(this.post.category),
-          articleSection: this.$options.filters.parseCat(this.post.category),
+          articleSection: [this.$options.filters.parseCat(this.post.category)],
           isAccessibleForFree: this.post.paywall === 'never',
           hasPart:
             this.post.paywall === 'never'
