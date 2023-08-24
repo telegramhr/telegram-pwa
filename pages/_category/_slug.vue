@@ -119,7 +119,9 @@
         <div class="full flex article-head">
           <div class="full flex overtitle-parent">
             <h3 class="overtitle">
-              {{ parsedOvertitle }}
+              <AppLink :to="'/' + post.category_link">
+                {{ parsedOvertitle }}
+              </AppLink>
             </h3>
             <div v-if="post.promo.partner" class="collab-overtitle">
               <h3 class="overtitle">{{ post.promo.prefix }}</h3>
@@ -139,7 +141,9 @@
             <div class="full column article-head column-top-pad flex">
               <div class="full flex overtitle-parent">
                 <h3 class="overtitle">
-                  {{ parsedOvertitle }}
+                  <AppLink :to="'/' + post.category_link">
+                    {{ parsedOvertitle }}
+                  </AppLink>
                 </h3>
                 <div v-if="post.promo.partner" class="collab-overtitle">
                   <h3 class="overtitle">{{ post.promo.prefix }}</h3>
@@ -585,6 +589,7 @@ export default {
         tags: [],
         category: '',
         category_slug: '',
+        category_link: '#',
         social: {
           title: '',
           description: '',
