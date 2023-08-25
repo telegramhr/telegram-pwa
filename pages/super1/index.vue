@@ -273,16 +273,7 @@ export default {
         url: 'https://www.telegram.hr/super1',
         name: 'Super1.hr',
         description: 'Lifestyle pokret stvarnih žena.',
-        publisher: {
-          '@type': 'Organization',
-          name: 'Telegram.hr',
-          logo: {
-            '@type': 'ImageObject',
-            url: `https://www.telegram.hr${this.$icon(512)}`,
-            width: 512,
-            height: 512,
-          },
-        },
+        publisher: this.$store.state.header.publisher,
       }
     },
   },

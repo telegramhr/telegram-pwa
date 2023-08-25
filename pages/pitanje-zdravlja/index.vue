@@ -291,16 +291,7 @@ export default {
         name: 'PitanjeZdravlja',
         description:
           'Provjerene i ekskluzivne zdravstvene vijesti, analize i priče',
-        publisher: {
-          '@type': 'Organization',
-          name: 'Telegram.hr',
-          logo: {
-            '@type': 'ImageObject',
-            url: `https://www.telegram.hr${this.$icon(512)}`,
-            width: 512,
-            height: 512,
-          },
-        },
+        publisher: this.$store.state.header.publisher,
       }
     },
   },

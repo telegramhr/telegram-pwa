@@ -488,14 +488,7 @@ export default {
           mainEntityOfPage: this.post.social.path,
           datePublished: new Date(this.post.time).toISOString(),
           image: images,
-          publisher: {
-            '@type': 'Organization',
-            name: 'Telegram.hr',
-            logo: {
-              '@type': 'ImageObject',
-              url: 'https://www.telegram.hr/tg_neue_favicon.png',
-            },
-          },
+          publisher: this.$store.state.header.publisher,
         },
         {
           '@context': 'https://schema.org',

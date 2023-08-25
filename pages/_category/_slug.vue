@@ -649,16 +649,7 @@ export default {
           copyrightNotice: this.$options.filters.parseCat(
             this.post.image.author
           ),
-          publisher: {
-            '@type': 'Organization',
-            name: 'Telegram.hr',
-            logo: {
-              '@type': 'ImageObject',
-              url: `https://www.telegram.hr${this.$icon(512)}`,
-              width: 512,
-              height: 512,
-            },
-          },
+          publisher: this.$store.state.header.publisher,
         },
       ]
       if (this.post.image.url2) {
@@ -740,23 +731,15 @@ export default {
           datePublished: new Date(this.post.time * 1000).toISOString(),
           dateModified: new Date(this.post.timem * 1000).toISOString(),
           image: images,
-          publisher: {
-            '@type': 'Organization',
-            name: 'Telegram.hr',
-            url: 'https://www.telegram.hr',
-            logo: {
-              '@type': 'ImageObject',
-              url: `https://www.telegram.hr${this.$icon(512)}`,
-              width: 512,
-              height: 512,
-            },
-          },
+          publisher: this.$store.state.header.publisher,
           author: this.post.authors.map((author) => {
             return {
               '@type': 'Person',
               name: author.name,
               url: author.url,
               image: author.image,
+              sameAs: author.sameAs,
+              description: author.description,
             }
           }),
           keywords: this.post.tags.map((tag) => tag.slug),
