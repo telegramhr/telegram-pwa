@@ -15,7 +15,9 @@ export const state = () => ({
       'https://www.facebook.com/Telegram.hr',
       'https://twitter.com/TelegramHR',
       'https://www.instagram.com/telegram.hr/',
-      'https://www.youtube.com/channel/UC4QXqyX9u2XHJYQ2ZzZ6Z2g',
+      'https://www.youtube.com/@TelegramhrVideo',
+      'https://www.linkedin.com/company/telegramhr',
+      'https://hr.wikipedia.org/wiki/Telegram_(portal)',
     ],
   },
 })
