@@ -725,7 +725,10 @@ export default {
       return [
         {
           '@context': 'https://schema.org',
-          '@type': 'NewsArticle',
+          '@type':
+            this.post.category === 'Komentari'
+              ? 'OpinionNewsArticle'
+              : 'NewsArticle',
           headline: this.$options.filters.parseCat(this.post.title),
           mainEntityOfPage: this.post.social.path,
           datePublished: new Date(this.post.time * 1000).toISOString(),
@@ -762,7 +765,8 @@ export default {
               '@type': 'ListItem',
               position: 1,
               name: this.post.category,
-              item: 'https://www.telegram.hr/' + this.$route.params.category,
+              item:
+                'https://www.telegram.hr/' + this.$route.params.category_link,
             },
             {
               '@type': 'ListItem',

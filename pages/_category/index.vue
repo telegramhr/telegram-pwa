@@ -280,7 +280,7 @@ export default {
     jsonld() {
       return {
         '@context': 'https://schema.org',
-        '@type': 'Website',
+        '@type': 'ItemList',
         url: `https://www.telegram.hr${
           this.$store.state.category.categories[this.$route.params.category]
             .canonical
@@ -288,6 +288,122 @@ export default {
         name: this.cat,
         description: this.description,
         publisher: this.$store.state.header.publisher,
+        itemListElement: this.posts.map((post, index) => {
+          const images = [
+            {
+              '@type': 'ImageObject',
+              contentUrl: post.image.url,
+              url: post.image.url,
+              height: 505,
+              width: 800,
+              creditText: this.$options.filters.parseCat(post.image.author),
+              caption: this.$options.filters.parseCat(post.image.alt),
+              acquireLicensePage:
+                'https://www.telegram.hr/stranica/uvjeti-koristenja',
+              license: 'https://www.telegram.hr/stranica/uvjeti-koristenja',
+              copyrightNotice: this.$options.filters.parseCat(
+                post.image.author
+              ),
+              publisher: this.$store.state.header.publisher,
+            },
+          ]
+          if (post.image.url2) {
+            images.push({
+              '@type': 'ImageObject',
+              contentUrl: post.image.url2,
+              url: post.image.url2,
+              height: 1010,
+              width: 1600,
+              creditText: this.$options.filters.parseCat(post.image.author),
+              caption: this.$options.filters.parseCat(post.image.alt),
+              acquireLicensePage:
+                'https://www.telegram.hr/stranica/uvjeti-koristenja',
+              license: 'https://www.telegram.hr/stranica/uvjeti-koristenja',
+              copyrightNotice: this.$options.filters.parseCat(
+                post.image.author
+              ),
+            })
+          }
+          if (post.image.url3) {
+            images.push({
+              '@type': 'ImageObject',
+              contentUrl: post.image.url3,
+              url: post.image.url3,
+              height: 1515,
+              width: 2400,
+              creditText: this.$options.filters.parseCat(post.image.author),
+              caption: this.$options.filters.parseCat(post.image.alt),
+              acquireLicensePage:
+                'https://www.telegram.hr/stranica/uvjeti-koristenja',
+              license: 'https://www.telegram.hr/stranica/uvjeti-koristenja',
+              copyrightNotice: this.$options.filters.parseCat(
+                post.image.author
+              ),
+            })
+          }
+          if (post.image.full) {
+            images.push({
+              '@type': 'ImageObject',
+              contentUrl: post.image.full,
+              url: post.image.full,
+              height: post.image.height,
+              width: post.image.width,
+              creditText: this.$options.filters.parseCat(post.image.author),
+              caption: this.$options.filters.parseCat(post.image.alt),
+              acquireLicensePage:
+                'https://www.telegram.hr/stranica/uvjeti-koristenja',
+              license: 'https://www.telegram.hr/stranica/uvjeti-koristenja',
+              copyrightNotice: this.$options.filters.parseCat(
+                post.image.author
+              ),
+            })
+          }
+          if (post.image.facebook) {
+            images.push({
+              '@type': 'ImageObject',
+              contentUrl: post.image.facebook,
+              url: post.image.facebook,
+              height: Math.round((1200 * post.image.height) / post.image.width),
+              width: 1200,
+              creditText: this.$options.filters.parseCat(post.image.author),
+              caption: this.$options.filters.parseCat(post.image.alt),
+              acquireLicensePage:
+                'https://www.telegram.hr/stranica/uvjeti-koristenja',
+              license: 'https://www.telegram.hr/stranica/uvjeti-koristenja',
+              copyrightNotice: this.$options.filters.parseCat(
+                post.image.author
+              ),
+            })
+          }
+          return {
+            '@type': 'ListItem',
+            position: index + 1,
+            item: {
+              '@type':
+                post.category === 'Komentari'
+                  ? 'OpinionNewsArticle'
+                  : 'NewsArticle',
+              headline: this.$options.filters.parseCat(post.title),
+              mainEntityOfPage: post.social.path,
+              datePublished: new Date(post.time * 1000).toISOString(),
+              dateModified: new Date(post.timem * 1000).toISOString(),
+              image: images,
+              publisher: this.$store.state.header.publisher,
+              author: post.authors.map((author) => {
+                return {
+                  '@type': 'Person',
+                  name: author.name,
+                  url: author.url,
+                  image: author.image,
+                  sameAs: author.sameAs,
+                  description: author.description,
+                }
+              }),
+              keywords: post.tags.map((tag) => tag.slug),
+              articleSection: [this.$options.filters.parseCat(post.category)],
+            },
+          }
+        }),
       }
     },
   },
