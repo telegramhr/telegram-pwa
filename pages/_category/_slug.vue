@@ -973,8 +973,9 @@ export default {
       // handle only links that occur inside the component and do not reference external resources
       if (
         target &&
-        target.matches("#article-content a([href*='://www.telegram.hr'])") &&
-        target.href
+        target.matches('#article-content a') &&
+        target.href &&
+        target.href.match(/^https?:\/\/www.telegram.hr/)
       ) {
         // some sanity checks taken from vue-router:
         // https://github.com/vuejs/vue-router/blob/dev/src/components/link.js#L106
