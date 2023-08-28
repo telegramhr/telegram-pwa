@@ -142,10 +142,26 @@ export default {
         })
     },
   },
+  json() {
+    return [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'NewsArticle',
+      },
+    ]
+  },
   head() {
     return {
       title: this.author.name,
       titleTemplate: 'Autor %s | Telegram.hr',
+      script: [
+        {
+          vmid: 'schema-ld',
+          hid: 'schema-ld',
+          type: 'application/ld+json',
+          json: this.jsonld,
+        },
+      ],
       meta: [
         {
           hid: 'description',
