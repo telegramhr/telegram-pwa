@@ -1254,7 +1254,8 @@ export default {
                     description: 'Mjesečna pretplata na Telegram.hr',
                     sku: 'TMJHR6Y8K4QA',
                     mpn: 'TMJHR6Y8K4QA',
-                    brand: this.$store.state.header.publisher,
+                    image:
+                      'https://www.telegram.hr/wp-content/uploads/2021/01/tg-background.jpg',
                     offers: {
                       '@type': 'Offer',
                       url: 'https://www.telegram.hr/pretplata',
@@ -1263,11 +1264,11 @@ export default {
                       itemCondition: 'https://schema.org/NewCondition',
                       availability: 'https://schema.org/InStock',
                       seller: this.$store.state.header.publisher,
-                      aggregateRating: {
-                        '@type': 'AggregateRating',
-                        ratingValue: '4.9',
-                        reviewCount: '100',
-                      },
+                    },
+                    aggregateRating: {
+                      '@type': 'AggregateRating',
+                      ratingValue: '4.9',
+                      reviewCount: '100',
                     },
                   },
                 },
@@ -1280,7 +1281,8 @@ export default {
                     description: 'Mjesečna premium pretplata na Telegram.hr',
                     sku: 'TMY8ORHQG44A',
                     mpn: 'TMY8ORHQG44A',
-                    brand: this.$store.state.header.publisher,
+                    image:
+                      'https://www.telegram.hr/wp-content/uploads/2021/01/tg-background.jpg',
                     offers: {
                       '@type': 'Offer',
                       url: 'https://www.telegram.hr/pretplata',
@@ -1289,11 +1291,11 @@ export default {
                       itemCondition: 'https://schema.org/NewCondition',
                       availability: 'https://schema.org/InStock',
                       seller: this.$store.state.header.publisher,
-                      aggregateRating: {
-                        '@type': 'AggregateRating',
-                        ratingValue: '4.9',
-                        reviewCount: '100',
-                      },
+                    },
+                    aggregateRating: {
+                      '@type': 'AggregateRating',
+                      ratingValue: '4.9',
+                      reviewCount: '100',
                     },
                   },
                 },
@@ -1306,7 +1308,8 @@ export default {
                     description: 'Godišnja pretplata na Telegram.hr',
                     sku: 'TM8RZKGESM1T',
                     mpn: 'TM8RZKGESM1T',
-                    brand: this.$store.state.header.publisher,
+                    image:
+                      'https://www.telegram.hr/wp-content/uploads/2021/01/tg-background.jpg',
                     offers: {
                       '@type': 'Offer',
                       url: 'https://www.telegram.hr/pretplata',
@@ -1315,11 +1318,11 @@ export default {
                       itemCondition: 'https://schema.org/NewCondition',
                       availability: 'https://schema.org/InStock',
                       seller: this.$store.state.header.publisher,
-                      aggregateRating: {
-                        '@type': 'AggregateRating',
-                        ratingValue: '4.9',
-                        reviewCount: '100',
-                      },
+                    },
+                    aggregateRating: {
+                      '@type': 'AggregateRating',
+                      ratingValue: '4.9',
+                      reviewCount: '100',
                     },
                   },
                 },
@@ -1332,7 +1335,8 @@ export default {
                     description: 'Godišnja premium pretplata na Telegram.hr',
                     sku: 'TMQDTT4IEHY0',
                     mpn: 'TMQDTT4IEHY0',
-                    brand: this.$store.state.header.publisher,
+                    image:
+                      'https://www.telegram.hr/wp-content/uploads/2021/01/tg-background.jpg',
                     offers: {
                       '@type': 'Offer',
                       url: 'https://www.telegram.hr/pretplata',
@@ -1341,37 +1345,11 @@ export default {
                       itemCondition: 'https://schema.org/NewCondition',
                       availability: 'https://schema.org/InStock',
                       seller: this.$store.state.header.publisher,
-                      aggregateRating: {
-                        '@type': 'AggregateRating',
-                        ratingValue: '4.9',
-                        reviewCount: '100',
-                      },
                     },
-                  },
-                },
-                {
-                  '@type': 'ListItem',
-                  position: 5,
-                  item: {
-                    '@type': 'Product',
-                    name: 'Telegram Mjesečna Pretplata',
-                    description: 'Mjesečna pretplata na Telegram.hr',
-                    sku: 'TMJHR6Y8K4QA',
-                    mpn: 'TMJHR6Y8K4QA',
-                    brand: this.$store.state.header.publisher,
-                    offers: {
-                      '@type': 'Offer',
-                      url: 'https://www.telegram.hr/pretplata',
-                      priceCurrency: 'EUR',
-                      price: 6.5,
-                      itemCondition: 'https://schema.org/NewCondition',
-                      availability: 'https://schema.org/InStock',
-                      seller: this.$store.state.header.publisher,
-                      aggregateRating: {
-                        '@type': 'AggregateRating',
-                        ratingValue: '4.9',
-                        reviewCount: '100',
-                      },
+                    aggregateRating: {
+                      '@type': 'AggregateRating',
+                      ratingValue: '4.9',
+                      reviewCount: '100',
                     },
                   },
                 },
