@@ -168,13 +168,13 @@ export const state = () => ({
       extraClass: 'pitanje-zdravlja fancy-rubrika',
       canonical: '/pitanje-zdravlja/lifestyle',
     },
-    'vijesti-pz': {
-      name: 'Vijesti',
+    novosti: {
+      name: 'Novosti',
       description: '',
       posts: [],
       updated: null,
       extraClass: 'pitanje-zdravlja fancy-rubrika',
-      canonical: '/pitanje-zdravlja/vijesti',
+      canonical: '/pitanje-zdravlja/novosti',
     },
     super1: {
       name: 'Super1',
