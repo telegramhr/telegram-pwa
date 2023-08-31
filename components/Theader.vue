@@ -83,6 +83,7 @@
             </form>
           </div>
           <h3>Rubrika</h3>
+          <app-link role="menuitem" to="/vijesti">Vijesti</app-link>
           <app-link role="menuitem" to="/politika-kriminal"
             >Politika & Kriminal</app-link
           >
@@ -258,6 +259,7 @@
             <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon>
           </a>
           <div class="menu flex" role="menu">
+            <app-link role="menuitem" to="/vijesti">Vijesti</app-link>
             <app-link role="menuitem" to="/politika-kriminal"
               >Politika & Kriminal</app-link
             >

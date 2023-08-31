@@ -111,6 +111,7 @@
         class="container mobile-side-pad flex relative column-horizontal-pad"
       >
         <nav class="menu desktop-only flex" role="menu">
+          <app-link role="menuitem" to="/vijesti">Vijesti</app-link>
           <app-link role="menuitem" to="/politika-kriminal"
             >Politika & Kriminal</app-link
           >
