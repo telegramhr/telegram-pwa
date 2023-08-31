@@ -18,8 +18,8 @@
           <app-link role="menuitem" to="/pitanje-zdravlja/lifestyle"
             >Lifestyle</app-link
           >
-          <app-link role="menuitem" to="/pitanje-zdravlja/vijesti"
-            >Vijesti</app-link
+          <app-link role="menuitem" to="/pitanje-zdravlja/novosti"
+            >Novosti</app-link
           >
           <app-link role="menuitem" to="/pitanje-zdravlja/price"
             >Priče</app-link
