@@ -35,7 +35,7 @@
       >
         <div class="half flex flex-responsive column-full-pad">
           <app-link
-            to="/knjiga/sanja-modric-igla-pila-ravnalo.vue"
+            to="/knjiga/sanja-modric-igla-pila-ravnalo"
             class="full flex knjiga-hero pretplata-packbox relative column-full-pad"
           >
             <div class="full flex knjiga-cover knjiga-cover-3d">
