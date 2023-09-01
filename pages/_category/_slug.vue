@@ -979,7 +979,8 @@ export default {
         target &&
         target.matches('#article-content a') &&
         target.href &&
-        target.href.match(/^https?:\/\/www.telegram.hr/)
+        target.href.match(/^https?:\/\/www.telegram.hr/) &&
+        !target.href.match(/^https?:\/\/www.telegram.hr\/native/)
       ) {
         // some sanity checks taken from vue-router:
         // https://github.com/vuejs/vue-router/blob/dev/src/components/link.js#L106
