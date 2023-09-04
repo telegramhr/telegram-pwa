@@ -128,7 +128,7 @@
     <braintree
       v-if="showModal"
       :price="price"
-      book="modric"
+      book="aco"
       @close="close"
     ></braintree>
     <tfooter></tfooter>
@@ -151,7 +151,7 @@ export default {
   methods: {
     getPrice() {
       this.$axios
-        .get('/pretplate/get_price/?book=modric', {
+        .get('/pretplate/get_price/?book=aco', {
           withCredentials: true,
         })
         .then((res) => {
