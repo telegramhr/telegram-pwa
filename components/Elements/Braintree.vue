@@ -56,6 +56,14 @@
             name="city"
             placeholder="Grad"
           />
+          <label for="phone">Broj mobitela</label>
+          <input
+            id="phone"
+            v-model="phone"
+            type="text"
+            name="phone"
+            placeholder="Broj mobitela za dostavu"
+          />
           <label for="postal-code">Poštanski broj</label>
           <input
             id="postal-code"
@@ -134,6 +142,7 @@ export default {
       address2: '',
       city: '',
       postal_code: '',
+      phone: '',
       note: '',
       token: '',
       country: 'Hrvatska',
@@ -285,6 +294,7 @@ export default {
                   country: this.country,
                   postal_code: this.postal_code,
                   note: this.note,
+                  phone: this.phone,
                 },
                 billing: false,
                 nonce: this.nonce,
