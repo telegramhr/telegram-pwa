@@ -11472,3 +11472,66 @@ input:checked ~ .input-hidden {
     animation-iteration-count: 1;
     animation-fill-mode: forwards;  
 }
+
+/* New book (Stanković) */
+
+.newbook-overtitle {
+    font-family: 'Barlow', sans-serif;
+    color: #ae3737;
+    font-size: 20px;
+    font-size: 1rem;
+    font-weight: 700;
+}
+.single-article h1.newbook-title {
+    font-family: 'Barlow', sans-serif;
+    font-size: 26vw;
+    line-height: 0.9em;
+}
+.newbook-author {
+    font-family: 'Barlow', sans-serif;
+    font-size: 8.5vw;
+}
+.newbook-intro {
+    font-family: 'Barlow', sans-serif;
+    margin-top: 16px;
+}
+.newbook-btn .huge-newbtn {
+    font-size: 21px;
+    font-size: 1.05rem;
+    margin-top: 16px;
+}
+.newbook-price {
+    font-size: 24px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    font-variant-numeric: lining-nums;
+    font-feature-settings: 'lnum';
+}
+.neat-numbers {
+    font-variant-numeric: lining-nums;
+    font-feature-settings: 'lnum';
+}
+
+@media screen and (min-width: 767px) {
+    .single-article h1.newbook-title {
+        font-size: 138px;
+        font-size: 6.9rem;
+    }
+    .newbook-author {
+        font-size: 46px;
+        font-size: 2.3rem;
+    }
+    .newbook-intro {
+        font-size: 21px;
+        font-size: 1.05rem;
+        max-width: 420px;
+    }
+}
+@media screen and (max-width: 767px) {
+    .newbook-overtitle {
+        margin-top: 5vw;
+    }
+    .newbook-btn .huge-newbtn {
+        margin-bottom: 4vw;
+    }
+}
