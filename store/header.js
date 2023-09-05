@@ -4,12 +4,28 @@ export const state = () => ({
   publisher: {
     '@type': 'Organization',
     name: 'Telegram.hr',
+    alternateName: 'Telegram',
     url: 'https://www.telegram.hr',
     logo: {
       '@type': 'ImageObject',
       url: `https://www.telegram.hr/icon.png`,
       width: 512,
       height: 512,
+    },
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Zagreb',
+      postalCode: '10000',
+      streetAddress: 'Ul. Franje Petračića 4',
+      addressCountry: {
+        '@type': 'Country',
+        name: 'Croatia',
+      },
+    },
+    parentOrganization: {
+      name: 'Telegram media grupa',
+      url: 'https://telegramgrupa.hr/',
+      sameAs: ['https://hr.wikipedia.org/wiki/Telegram_media_grupa'],
     },
     sameAs: [
       'https://hr.wikipedia.org/wiki/Telegram_(portal)',
