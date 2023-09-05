@@ -23,6 +23,7 @@ export const state = () => ({
       'https://www.youtube.com/@TelegramhrVideo',
       'https://www.youtube.com/@Super1',
       'https://www.linkedin.com/company/telegramhr',
+      'https://bsky.app/profile/telegram.hr',
     ],
   },
 })
