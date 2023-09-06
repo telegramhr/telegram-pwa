@@ -58,21 +58,34 @@
         </div>
       </div>
       <div class="full flex relative single-article-body mobile-side-pad">
-        <p class="full center-text">
-          „Bilo mi je toliko loše da sam odlučio otkazati emisiju. Rekoh to i
-          producentici koja je radila sa mnom. „Stvarno, danas ne mogu“. Popio
-          sam antidepresiv i anksiolitik i nema pomoći. Noge mi se tresu, usta
-          su suha i potpuno sam dezorijentiran. Moglo bi se dogoditi tijekom
-          emisije da zaboravim kako se gost zove, ili da mu ne uspijem postaviti
-          pitanje. Teško sastavljam rečenice. Ne mogu se prisjetiti pojedinih
-          riječi. Stvarno mi je grozno! „Možeš li čitati?“ pitala me. „Mogu.“
-          „Onda samo čitaj pitanja i to je sve. Ništa ne propituj, ne upuštaj se
-          u rasprave, ne zaključuj.“ Tako je i bilo. Ne znam je li Pilić
-          primijetio moju dezorijentaciju, ali nadao sam se da nećemo puno
-          pričati nakon emisije. Na kraju sam se srušio u krevet i zatrpao
-          tabletama. Nikad mi poslije nije bilo toliko loše“ – ulomak iz knjige
-        </p>
+        <div class="full">
+          <p class="full center-text">
+            „Bilo mi je toliko loše da sam odlučio otkazati emisiju. Rekoh to i
+            producentici koja je radila sa mnom. „Stvarno, danas ne mogu“. Popio
+            sam antidepresiv i anksiolitik i nema pomoći. Noge mi se tresu, usta
+            su suha i potpuno sam dezorijentiran. Moglo bi se dogoditi tijekom
+            emisije da zaboravim kako se gost zove, ili da mu ne uspijem
+            postaviti pitanje. Teško sastavljam rečenice. Ne mogu se prisjetiti
+            pojedinih riječi. Stvarno mi je grozno!
+          </p>
+          <p class="full center-text">
+            „Možeš li čitati?“ pitala me. „Mogu.“ „Onda samo čitaj pitanja i to
+            je sve. Ništa ne propituj, ne upuštaj se u rasprave, ne zaključuj.“
+            Tako je i bilo. Ne znam je li Pilić primijetio moju dezorijentaciju,
+            ali nadao sam se da nećemo puno pričati nakon emisije. Na kraju sam
+            se srušio u krevet i zatrpao tabletama. Nikad mi poslije nije bilo
+            toliko loše“
+          </p>
+          <p class="full center-text">– ulomak iz knjige</p>
+        </div>
       </div>
+    </div>
+    <div class="full center">
+      <img
+        src="@/assets/img/stankovic_headtop.png"
+        alt="Autor knjige Aleksandar Stanković"
+        class="bookauthor-headtop"
+      />
     </div>
     <div class="full flex relative book-quote">
       <div class="container relative mobile-side-pad column-full-pad">

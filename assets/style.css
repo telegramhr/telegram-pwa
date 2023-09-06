@@ -11511,6 +11511,11 @@ input:checked ~ .input-hidden {
     font-variant-numeric: lining-nums;
     font-feature-settings: 'lnum';
 }
+.bookauthor-headtop {
+    max-width: 355px;
+    margin-bottom: -33px;
+    z-index: -1;
+}
 
 @media screen and (min-width: 767px) {
     .single-article h1.newbook-title {
