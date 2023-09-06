@@ -163,10 +163,9 @@
                 </div>
               </div>
               <h1 class="full">
-                <b
-                  v-show="categoryClass && categoryClass.includes('superone')"
-                  >{{ parsedOvertitle }}</b
-                >
+                <b v-if="categoryClass && categoryClass.includes('superone')">{{
+                  parsedOvertitle
+                }}</b>
                 {{ post.portal_title | parseCat }}
               </h1>
               <h2 class="full">
