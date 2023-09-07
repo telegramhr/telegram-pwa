@@ -721,61 +721,58 @@ export default {
           ),
         })
       }
-      return [
-        {
-          '@context': 'https://schema.org',
-          '@type':
-            this.post.category === 'Komentari'
-              ? 'OpinionNewsArticle'
-              : 'NewsArticle',
-          headline: this.$options.filters.parseCat(this.post.title),
-          mainEntityOfPage: this.post.social.path,
-          datePublished: new Date(this.post.time * 1000).toISOString(),
-          dateModified: new Date(this.post.timem * 1000).toISOString(),
-          image: images,
-          publisher: this.$store.state.header.publisher,
-          author: this.post.authors.map((author) => {
-            return {
-              '@type': 'Person',
-              name: author.name,
-              url: author.url,
-              image: author.image,
-              sameAs: author.sameAs,
-              description: author.description,
-            }
-          }),
-          keywords: this.post.tags.map((tag) => tag.slug),
-          articleSection: [this.$options.filters.parseCat(this.post.category)],
-          isAccessibleForFree: this.post.paywall === 'never',
-          hasPart:
-            this.post.paywall === 'never'
-              ? ''
-              : {
-                  '@type': 'WebPageElement',
-                  isAccessibleForFree: false,
-                  cssSelector: '.piano-content',
-                },
-        },
-        {
-          '@context': 'https://schema.org',
-          '@type': 'BreadcrumbList',
-          itemListElement: [
-            {
-              '@type': 'ListItem',
-              position: 1,
-              name: this.post.category,
-              item:
-                'https://www.telegram.hr/' + this.$route.params.category_link,
-            },
-            {
-              '@type': 'ListItem',
-              position: 2,
-              name: this.post.title,
-              item: this.post.social.path,
-            },
-          ],
-        },
-      ]
+      const breadcrumb = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: this.post.category,
+            item: 'https://www.telegram.hr/' + this.$route.params.category_link,
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: this.post.title,
+            item: this.post.social.path,
+          },
+        ],
+      }
+      const article = {
+        '@context': 'https://schema.org',
+        '@type':
+          this.post.category === 'Komentari'
+            ? 'OpinionNewsArticle'
+            : 'NewsArticle',
+        headline: this.$options.filters.parseCat(this.post.title),
+        mainEntityOfPage: this.post.social.path,
+        datePublished: new Date(this.post.time * 1000).toISOString(),
+        dateModified: new Date(this.post.timem * 1000).toISOString(),
+        image: images,
+        publisher: this.$store.state.header.publisher,
+        author: this.post.authors.map((author) => {
+          return {
+            '@type': 'Person',
+            name: author.name,
+            url: author.url,
+            image: author.image,
+            sameAs: author.sameAs,
+            description: author.description,
+          }
+        }),
+        keywords: this.post.tags.map((tag) => tag.slug),
+        articleSection: [this.$options.filters.parseCat(this.post.category)],
+      }
+      if (this.post.paywall !== 'never') {
+        article.isAccessibleForFree = 'False'
+        article.hasPart = {
+          '@type': 'WebPageElement',
+          isAccessibleForFree: 'False',
+          cssSelector: '.piano-content',
+        }
+      }
+      return [article, breadcrumb]
     },
     typeClass() {
       switch (this.post.type) {

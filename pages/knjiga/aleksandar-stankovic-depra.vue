@@ -133,7 +133,7 @@
           Broj stranica: 170<br />
           Godina izdanja: 2023.<br />
           Dimenzije: 145 x 205 mm<br />
-          Urednik: Marina Vujčić <br />
+          Urednik: Miran Pavić <br />
         </p>
       </div>
     </div>
