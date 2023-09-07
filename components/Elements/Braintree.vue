@@ -59,15 +59,6 @@
             placeholder="Grad"
             required
           />
-          <label for="phone">Broj mobitela</label>
-          <input
-            id="phone"
-            v-model="phone"
-            type="text"
-            name="phone"
-            placeholder="Broj mobitela za dostavu"
-            required
-          />
           <label for="postal-code">Poštanski broj</label>
           <input
             id="postal-code"
@@ -75,6 +66,15 @@
             type="text"
             name="postal_code"
             placeholder="Poštanski broj"
+            required
+          />
+          <label for="phone">Broj mobitela</label>
+          <input
+            id="phone"
+            v-model="phone"
+            type="text"
+            name="phone"
+            placeholder="Broj mobitela za dostavu"
             required
           />
           <small
