@@ -31,6 +31,7 @@
             type="text"
             name="name"
             placeholder="Ime i prezime"
+            required
           />
           <label for="address">Adresa</label>
           <input
@@ -39,6 +40,7 @@
             type="text"
             name="address"
             placeholder="Ulica i broj"
+            required
           />
           <label for="address2">Dodatne informacije za dostavu</label>
           <input
@@ -55,6 +57,7 @@
             type="text"
             name="city"
             placeholder="Grad"
+            required
           />
           <label for="phone">Broj mobitela</label>
           <input
@@ -63,6 +66,7 @@
             type="text"
             name="phone"
             placeholder="Broj mobitela za dostavu"
+            required
           />
           <label for="postal-code">Poštanski broj</label>
           <input
@@ -71,6 +75,7 @@
             type="text"
             name="postal_code"
             placeholder="Poštanski broj"
+            required
           />
           <small
             >Ako želite naručiti van Hrvatske, molimo javite nam se na
@@ -263,7 +268,15 @@ export default {
         })
     },
     order() {
-      if (!(this.name && this.address && this.city && this.postal_code)) {
+      if (
+        !(
+          this.name &&
+          this.address &&
+          this.city &&
+          this.postal_code &&
+          this.phone
+        )
+      ) {
         return
       }
       if (this.token) {
