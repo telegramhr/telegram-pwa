@@ -11482,7 +11482,7 @@ input:checked ~ .input-hidden {
     font-size: 1rem;
     font-weight: 700;
 }
-.single-article h1.newbook-title {
+.single-article h1.newbook-title, .newbook-title {
     font-family: 'Barlow', sans-serif;
     font-size: 26vw;
     line-height: 0.9em;
@@ -11516,9 +11516,12 @@ input:checked ~ .input-hidden {
     margin-bottom: -33px;
     z-index: -1;
 }
+.shoo-top {
+    margin-top: 24px;
+}
 
 @media screen and (min-width: 767px) {
-    .single-article h1.newbook-title {
+    .single-article h1.newbook-title, .newbook-title {
         font-size: 138px;
         font-size: 6.9rem;
     }
@@ -11538,5 +11541,8 @@ input:checked ~ .input-hidden {
     }
     .newbook-btn .huge-newbtn {
         margin-bottom: 4vw;
+    }
+    .shoo-top {
+        margin-top: 4vw;
     }
 }
