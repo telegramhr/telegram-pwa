@@ -18,7 +18,7 @@
     <!-- Above header banner -->
     <app-link
       v-if="!$store.state.user.access"
-      to="/pretplata/odabrati-stranu"
+      to="/pretplata"
       class="full relative darkened-bg birati-stranu-widget"
     >
       <div
@@ -36,29 +36,6 @@
           class="full center animate column-vertical-pad mobile-vertical-pad"
         >
           <div class="newbtn huge-newbtn">Pretplatite se</div>
-        </div>
-      </div>
-    </app-link>
-    <app-link
-      v-else
-      to="/pretplata/odabrati-stranu"
-      class="full relative darkened-bg birati-stranu-widget"
-    >
-      <div
-        class="container column-full-pad mobile-full-pad flex relative animated-birati-stranu"
-      >
-        <p
-          class="full center-text column-top-pad mobile-top-pad birati-stranu-title"
-        >
-          Nekad je nužno odabrati stranu.
-        </p>
-        <p
-          class="full center-text birati-stranu-subtitle birati-stranu-alt-subtitle"
-        >
-          Hvala Vam što ste naš pretplatnik.
-        </p>
-        <div class="full center column-vertical-pad mobile-vertical-pad">
-          <div class="newbtn huge-newbtn">Na strani Telegrama</div>
         </div>
       </div>
     </app-link>
