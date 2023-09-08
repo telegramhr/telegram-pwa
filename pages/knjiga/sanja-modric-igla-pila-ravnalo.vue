@@ -10,9 +10,11 @@
         class="full flex relative center knjiga-header article-head mobile-side-pad column-full-pad"
       >
         <div class="container relative flex single-article-body">
-          <h3 class="full center-text overtitle">Ekskluzivna prednarudžba</h3>
+          <div class="noththree full center-text overtitle">
+            Ekskluzivna prednarudžba
+          </div>
           <h1 class="full center-text">Igla, pila, ravnalo</h1>
-          <h4 class="full center-text">Sanja Modrić</h4>
+          <div class="nothfour full center-text">Sanja Modrić</div>
         </div>
       </div>
       <div class="full flex relative single-article-body">
@@ -29,18 +31,18 @@
               />
             </div>
             <div class="full flex knjiga-features">
-              <h1 class="full relative center-text">
+              <div class="full relative center-text big-book-price bold">
                 <span class="faded strikethrough">19,99€</span> 13,99€
-              </h1>
-              <h1 class="full relative center-text">
+              </div>
+              <div class="full relative center-text big-book-price">
                 (<span class="faded strikethrough">150,61 kn</span> 105,41 kn)
                 <br />
                 posebna cijena za sve pretplatnike Telegrama
-              </h1>
-              <h4 class="full relative center-text">
+              </div>
+              <div class="nothfour full relative center-text">
                 Naručite još danas i osigurajte svoj primjerak početkom svibnja,
                 prije nego dođe u knjižare. Besplatna dostava unutar Hrvatske.
-              </h4>
+              </div>
               <div class="full knjiga-keypoints">
                 <p class="full center-text">Izdavač: Telegram Media Grupa</p>
               </div>

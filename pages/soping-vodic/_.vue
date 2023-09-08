@@ -69,11 +69,11 @@
         />
         <div class="full flex article-head">
           <div class="full flex overtitle-parent">
-            <h3 class="overtitle">
+            <div class="noththree overtitle">
               {{ parsedOvertitle }}
-            </h3>
+            </div>
             <div v-if="post.promo.partner" class="collab-overtitle">
-              <h3 class="overtitle">{{ post.promo.prefix }}</h3>
+              <div class="noththree overtitle">{{ post.promo.prefix }}</div>
               <img :src="post.promo.logo" :alt="post.promo.partner" />
             </div>
           </div>
@@ -87,9 +87,9 @@
         >
           <div class="full column article-head column-top-pad flex">
             <div class="full flex overtitle-parent">
-              <h3 class="overtitle">{{ parsedOvertitle }}</h3>
+              <div class="noththree overtitle">{{ parsedOvertitle }}</div>
               <div v-if="post.promo.partner" class="collab-overtitle">
-                <h3 class="overtitle">{{ post.promo.prefix }}</h3>
+                <div class="noththree overtitle">{{ post.promo.prefix }}</div>
                 <img :src="post.promo.logo" :alt="post.promo.partner" />
               </div>
             </div>
@@ -100,7 +100,7 @@
             <p v-if="post.perex" class="perex">
               {{ post.perex }}
             </p>
-            <h5 class="full flex relative article-meta">
+            <div class="nothfour full flex relative article-meta">
               <span class="meta-date">{{ post.time | parseTime }}</span>
               <span v-if="post.recommendations" class="meta-preporuke"
                 >{{ post.recommendations }} preporuka</span
@@ -129,7 +129,7 @@
                   ></font-awesome-icon
                 ></a>
               </div>
-            </h5>
+            </div>
             <div class="full flex article-head-image-parent relative">
               <template v-if="post.video">
                 <!-- eslint-disable-next-line -->

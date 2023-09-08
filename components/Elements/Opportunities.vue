@@ -1,6 +1,8 @@
 <template>
   <div class="full flex">
-    <h3 class="full flex overtitle os-widget-overtitle">Pregled prilika</h3>
+    <div class="noththree full flex overtitle os-widget-overtitle">
+      Pregled prilika
+    </div>
     <div class="full flex stretch mobile-native-slider">
       <app-link
         v-for="opportunity in opportunities"
@@ -30,10 +32,10 @@
             <h2 class="full animate">
               {{ opportunity.title }}
             </h2>
-            <h5 v-show="opportunity.ends_at" class="full flex article-meta">
+            <div v-show="opportunity.ends_at" class="full flex article-meta">
               <span class="meta-author"><i>Prijave do</i></span>
               <span class="meta-date">{{ opportunity.ends_at }}</span>
-            </h5>
+            </div>
           </div>
         </div>
       </app-link>

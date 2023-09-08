@@ -5,8 +5,8 @@
         <div class="full cantha-separator"></div>
       </div>
       <a href="https://telesport.telegram.hr" class="full flex relative">
-        <h3
-          class="full center-text column-full-pad subsection-title ts-subsection-logo"
+        <div
+          class="noththree full center-text column-full-pad subsection-title ts-subsection-logo"
         >
           <img
             src="@/assets/img/telesport_logo_black.svg"
@@ -19,7 +19,7 @@
             alt="Telesport logo"
             loading="lazy"
           />
-        </h3>
+        </div>
       </a>
       <div class="full block-echovald mobile-side-pad flex relative">
         <div class="three-fourths flex-responsive flex stretch">

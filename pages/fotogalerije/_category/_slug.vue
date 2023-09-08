@@ -7,7 +7,7 @@
       <div class="container flex relative mobile-side-pad">
         <div class="full flex article-head">
           <div class="full flex">
-            <h3 class="overtitle">{{ parsedOvertitle }}</h3>
+            <div class="noththree overtitle">{{ parsedOvertitle }}</div>
           </div>
           <h1 class="full">{{ post.title }}</h1>
           <h2 class="full">{{ post.subtitle }}</h2>

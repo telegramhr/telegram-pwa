@@ -13,11 +13,11 @@
         <img :src="offer.image" aria-hidden="true" />
       </div>
     </div>
-    <h3 class="full overtitle">{{ offer.overtitle }}</h3>
+    <div class="noththree full overtitle">{{ offer.overtitle }}</div>
     <a @click.prevent="select">
-      <h2 class="full">
+      <div class="full offer-title">
         {{ offer.title }}
-      </h2></a
+      </div></a
     >
     <a class="newbtn clickable" @click.prevent="select"> Iskoristite ponudu </a>
   </div>

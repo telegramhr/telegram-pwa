@@ -17,7 +17,7 @@
         v-if="post.company.name"
         class="relative flex-responsive specijal-patron"
       >
-        <h3 class="full overtitle center-text">Omogućuje</h3>
+        <div class="noththree full overtitle center-text">Omogućuje</div>
         <img :src="post.company.logo" :alt="post.company.name" />
       </div>
     </div>

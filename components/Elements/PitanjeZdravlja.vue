@@ -5,8 +5,8 @@
         <div class="full cantha-separator"></div>
       </div>
       <app-link to="/pitanje-zdravlja" class="full flex">
-        <h3
-          class="full center-text column-full-pad subsection-title pz-subsection-logo"
+        <div
+          class="noththree full center-text column-full-pad subsection-title pz-subsection-logo"
         >
           <img
             src="@/assets/img/pz_logo_black.svg"
@@ -17,7 +17,7 @@
             class="dark-mode-only"
             alt="PitanjeZdravlja logo"
           />
-        </h3>
+        </div>
       </app-link>
       <div class="full block-echovald mobile-side-pad flex relative">
         <div class="three-fourths flex-responsive flex stretch">

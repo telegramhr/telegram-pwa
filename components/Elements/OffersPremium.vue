@@ -5,7 +5,7 @@
     class="container cantha-small-block flex relative native-block offers-widget column-top-pad stretch mobile-side-pad"
     style="max-width: 1201px"
   >
-    <h3 class="full center-text column-full-pad subsection-title">
+    <div class="noththree full center-text column-full-pad subsection-title">
       <div class="full center spar-line">
         <div class="flex center">
           <img
@@ -32,7 +32,7 @@
           />
         </div>
       </div>
-    </h3>
+    </div>
     <div class="full flex stretch column-bottom-pad gallery-content">
       <VueSlickCarousel
         v-if="posts.length"
@@ -63,8 +63,8 @@
             />
             <div class="full flex article-pad">
               <div>
-                <h2 class="full">{{ post.naslov }}</h2>
-                <h3 v-if="post.cijena_euro" class="full overtitle">
+                <div class="full offer-title bold">{{ post.naslov }}</div>
+                <div v-if="post.cijena_euro" class="noththree full overtitle">
                   {{ post.cijena_euro }} ({{ post.cijena }})<br />
                   <span
                     v-if="post.stara_cijena_euro"
@@ -72,11 +72,11 @@
                   >
                     {{ post.stara_cijena_euro }} ({{ post.stara_cijena }})
                   </span>
-                </h3>
+                </div>
 
-                <h4 class="full">
+                <div class="nothfour full">
                   {{ post.opis }}
-                </h4>
+                </div>
               </div>
               <div class="newbtn">
                 {{ post.cta ? post.cta : 'Pogledaj ponudu' }}
@@ -208,7 +208,7 @@ export default {
   background-color: #212121;
 }
 
-h3.subsection-title .spar-line img {
+.noththree.subsection-title .spar-line img {
   height: 30px;
   bottom: 0px;
 }

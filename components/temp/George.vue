@@ -48,15 +48,15 @@
             />
             <div class="full flex article-pad">
               <div class="full flex desktop-only">
-                <h3 class="overtitle"></h3>
+                <div class="noththree overtitle"></div>
               </div>
               <h2 class="full">
                 Kroz ovih pet godina Telegram je pedantno pratio priče o
                 poslovnim uspjesima. Donosimo 12 najinspirativnijih
               </h2>
-              <h5 class="full flex article-meta">
+              <div class="nothfive full flex article-meta">
                 <span class="meta-preporuke">8 preporuka</span>
-              </h5>
+              </div>
             </div>
           </div>
           <div
@@ -69,15 +69,15 @@
             />
             <div class="full flex article-pad">
               <div class="full flex desktop-only">
-                <h3 class="overtitle"></h3>
+                <div class="noththree overtitle"></div>
               </div>
               <h2 class="full">
                 Otvaranje računa u banci uvijek mi je kao odlazak odvjetniku. S
                 Georgeom sam bio gotov za 20 minuta
               </h2>
-              <h5 class="full flex article-meta">
+              <div class="nothfive full flex article-meta">
                 <span class="meta-preporuke">27 preporuka</span>
-              </h5>
+              </div>
             </div>
           </div>
           <div
@@ -90,15 +90,15 @@
             />
             <div class="full flex article-pad">
               <div class="full flex desktop-only">
-                <h3 class="overtitle"></h3>
+                <div class="noththree overtitle"></div>
               </div>
               <h2 class="full">
                 Pitali smo nekoliko redovnih čitatelja koje autore i teme
                 najviše vole na Telegramu
               </h2>
-              <h5 class="full flex article-meta">
+              <div class="nothfive full flex article-meta">
                 <span class="meta-preporuke">38 preporuka</span>
-              </h5>
+              </div>
             </div>
           </div>
         </div>

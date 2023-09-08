@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3 class="full overtitle column-bottom-pad">Upravo se čita</h3>
+    <div class="noththree full overtitle column-bottom-pad">Upravo se čita</div>
     <div class="full flex">
       <mini
         v-for="post in posts.slice(0, 4)"

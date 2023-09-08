@@ -5,7 +5,7 @@
     <div class="full column-horizontal-pad">
       <div class="full cantha-separator"></div>
     </div>
-    <h3 class="full center-text column-full-pad subsection-title">Partneri</h3>
+    <div class="noththree full center-text column-full-pad subsection-title">Partneri</div>
     <div class="full flex stretch column-bottom-pad">
       <div
         v-for="post in posts"

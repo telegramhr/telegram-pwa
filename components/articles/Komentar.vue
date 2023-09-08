@@ -20,12 +20,12 @@
           <div class="komentar-quotation">“</div>
           {{ post.portal_title | parseCat }}
         </h2>
-        <h5 class="full flex article-meta">
+        <div class="nothfive full flex article-meta">
           <span v-if="post.recommendations" class="meta-preporuke"
             >{{ post.recommendations }} preporuka</span
           >
           <span class="meta-date">{{ post.time | parseTime }}</span>
-        </h5>
+        </div>
       </div>
       <div class="full flex relative">
         <div

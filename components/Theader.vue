@@ -39,7 +39,7 @@
           </client-only>
           <client-only>
             <div v-show="$store.state.user.admin" class="half">
-              <h3>Admin</h3>
+              <div class="noththree">Admin</div>
               <a role="menuitem" href="https://www.telegram.hr/wp-admin"
                 >Admin</a
               >
@@ -77,7 +77,7 @@
               </button>
             </form>
           </div>
-          <h3>Rubrika</h3>
+          <div class="noththree">Rubrika</div>
           <app-link role="menuitem" to="/politika-kriminal"
             >Politika & Kriminal</app-link
           >
@@ -88,7 +88,7 @@
           <app-link role="menuitem" to="/kultura">Kultura</app-link>
         </div>
         <div class="half" role="menu">
-          <h3>Postavke izgleda</h3>
+          <div class="noththree">Postavke izgleda</div>
           <div class="full flex theme-previews">
             <input
               id="regular-theme"
@@ -177,7 +177,7 @@
               >Aa</label
             >
           </div>
-          <h3>Kanali</h3>
+          <div class="noththree">Kanali</div>
           <app-link role="menuitem" to="/super1">Super1</app-link>
           <a role="menuitem" href="https://telesport.telegram.hr">Telesport</a>
           <app-link role="menuitem" to="/openspace">Openspace</app-link>
@@ -186,7 +186,7 @@
           >
         </div>
         <div class="half" role="menu">
-          <h3>Social</h3>
+          <div class="noththree">Social</div>
           <a
             role="menuitem"
             href="https://www.facebook.com/Telegram.hr/"
@@ -213,7 +213,7 @@
           >
         </div>
         <div class="half" role="menu">
-          <h3>Info</h3>
+          <div class="noththree">Info</div>
           <app-link role="menuitem" to="/pretplata">Pretplata</app-link>
           <app-link role="menuitem" to="/klub">Klub</app-link>
           <app-link role="menuitem" to="/knjiga">Knjige</app-link>
@@ -836,7 +836,7 @@
             <h2 class="full">
               <span class="superbold">Petak,</span>{{ date }}
             </h2>
-            <h5>Želiš raditi za Telegram? Javi nam se ovdje.</h5>
+            <div class="nothfive">Želiš raditi za Telegram? Javi nam se ovdje.</div>
           </div>
         </div>
       </div>-->

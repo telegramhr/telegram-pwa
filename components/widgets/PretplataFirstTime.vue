@@ -6,12 +6,12 @@
     <div class="container stretch relative flex" data-nosnippet>
       <div class="third column-full-pad center flex-responsive mobile-side-pad">
         <div class="full flex article">
-          <h3 class="full overtitle">Bespoštedno novinarstvo</h3>
+          <div class="noththree full overtitle">Bespoštedno novinarstvo</div>
           <h1 class="full">Podržite Telegram</h1>
-          <h4 class="full">
+          <div class="nothfour full">
             Najkvalitetniji hrvatski portal, po velikom međunarodnom
             istraživanju navika čitatelja
-          </h4>
+          </div>
         </div>
       </div>
       <div class="two-thirds stretch flex flex-responsive">
@@ -35,10 +35,10 @@
             <div class="full center">
               <div class="newbtn huge-newbtn">Pretplatite se</div>
             </div>
-            <h5 class="full center-text desktop-only">
+            <div class="nothfour full center-text desktop-only">
               Neograničeno čitanje svih naših reportera, kolumnista, vijesti i
               analiza.
-            </h5>
+            </div>
           </div>
         </div>
       </div>

@@ -21,7 +21,7 @@
       >
     </p>
     <div class="full article-head center-text">
-      <h3 class="overtitle">Dobitnički odgovori</h3>
+      <div class="noththree overtitle">Dobitnički odgovori</div>
     </div>
     <VueSlickCarousel
       :arrows="false"
@@ -43,7 +43,7 @@
       </div>
     </VueSlickCarousel>
     <div class="full article-head center-text">
-      <h3 class="overtitle">Pošaljite vašu prijavu</h3>
+      <div class="noththree overtitle">Pošaljite vašu prijavu</div>
     </div>
     <form id="xmas-form" class="full flex relative">
       <label class="full" for="xmas-ime">Vaše ime i prezime:</label>

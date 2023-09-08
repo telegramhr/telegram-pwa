@@ -21,14 +21,14 @@
               alt="Telegram Klub logo"
               loading="lazy"
             />
-            <h4 class="full flex small-top-margin">
+            <div class="nothfour full flex small-top-margin">
               Postoje klubovi koji nisu za sve. <br />Ali su sve onima, koji im
               pripadaju.
-            </h4>
-            <h4 class="full flex small-top-margin">
+            </div>
+            <div class="nothfour full flex small-top-margin">
               Klub ekskluzivnih ponuda, pogodnosti i popusta, samo za
               pretplatnike Telegrama.
-            </h4>
+            </div>
           </div>
         </div>
         <div class="three-fourths flex-responsive">
@@ -52,7 +52,7 @@
         <div
           class="three-fourths center flex-wrap mobile-half article column-full-pad mobile-full-pad"
         >
-          <h3 class="full overtitle">Specijalna ponuda</h3>
+          <div class="noththree full overtitle">Specijalna ponuda</div>
           <h2 class="full">Samo ovaj mjesec: uzmite Pickbox sa 50% popusta</h2>
           <div class="full flex">
             <a
@@ -81,7 +81,7 @@
             v-show="canLogIn"
             class="third flex flex-responsive column-horizontal-pad column-right-border"
           >
-            <h4 class="full bold">1. Pretplatite se.</h4>
+            <div class="nothfour full bold">1. Pretplatite se.</div>
             <p>
               Posebne ponude Telegram Kluba dostupne su našim pretplatnicima.
               <app-link to="/pretplata">Pretplatite se</app-link> ili, ako već
@@ -92,7 +92,7 @@
             v-show="!canLogIn"
             class="third flex flex-responsive column-horizontal-pad column-right-border"
           >
-            <h4 class="full bold">1. Aktivna pretplata.</h4>
+            <div class="nothfour full bold">1. Aktivna pretplata.</div>
             <p>
               Posebne ponude dostupne su samo pretplatnicima poput Vas. Možete
               ih koristiti sve dok imate pretplatu na Telegram.
@@ -101,14 +101,14 @@
           <div
             class="third flex flex-responsive column-horizontal-pad column-right-border"
           >
-            <h4 class="full bold">2. Odaberite ponudu.</h4>
+            <div class="nothfour full bold">2. Odaberite ponudu.</div>
             <p>
               Odaberite neke od predstava, izložbi, knjiga ili koncerata naših
               partnera na ovoj stranici, te slijedite upute za daljnje korake.
             </p>
           </div>
           <div class="third flex flex-responsive column-horizontal-pad">
-            <h4 class="full bold">3. Kupite uz popust.</h4>
+            <div class="nothfour full bold">3. Kupite uz popust.</div>
             <p>
               Za kupnju na prodajnom mjestu, pokažite
               <a href="#iskaznica">digitalnu iskaznicu.</a> Za kupnju na webu,
@@ -124,9 +124,11 @@
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
-        <h3 class="full center-text column-full-pad subsection-title">
+        <div
+          class="noththree full center-text column-full-pad subsection-title"
+        >
           Događanja i konferencije
-        </h3>
+        </div>
         <div class="full flex relative stretch mobile-native-slider">
           <KlubItem
             v-for="offer in offers.konferencije"
@@ -150,11 +152,13 @@
             <img :src="selected_offer.image" aria-hidden="true" />
           </div>
           <div class="two-thirds center flex-responsive article">
-            <h3 class="full overtitle">{{ selected_offer.overtitle }}</h3>
+            <div class="noththree full overtitle">
+              {{ selected_offer.overtitle }}
+            </div>
             <h2 class="full">{{ selected_offer.title }}</h2>
-            <h4 class="full">
+            <div class="nothfour full">
               {{ selected_offer.subtitle }}
-            </h4>
+            </div>
             <!-- eslint-disable vue/no-v-html -->
             <div
               v-show="!canLogIn"
@@ -184,9 +188,11 @@
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
-        <h3 class="full center-text column-full-pad subsection-title">
+        <div
+          class="noththree full center-text column-full-pad subsection-title"
+        >
           Kazališta
-        </h3>
+        </div>
         <div class="full flex relative stretch mobile-native-slider">
           <KlubItem
             v-for="offer in offers.kazalista"
@@ -211,11 +217,13 @@
             <img :src="selected_offer.image" aria-hidden="true" />
           </div>
           <div class="two-thirds center flex-responsive article">
-            <h3 class="full overtitle">{{ selected_offer.overtitle }}</h3>
+            <div class="noththree full overtitle">
+              {{ selected_offer.overtitle }}
+            </div>
             <h2 class="full">{{ selected_offer.title }}</h2>
-            <h4 class="full">
+            <div class="nothfour full">
               {{ selected_offer.subtitle }}
-            </h4>
+            </div>
             <!-- eslint-disable vue/no-v-html -->
             <div
               v-show="!canLogIn"
@@ -245,9 +253,11 @@
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
-        <h3 class="full center-text column-full-pad subsection-title">
+        <div
+          class="noththree full center-text column-full-pad subsection-title"
+        >
           Streaming
-        </h3>
+        </div>
         <div class="full flex relative stretch mobile-native-slider">
           <KlubItem
             v-for="offer in offers.streaming"
@@ -272,11 +282,13 @@
             <img :src="selected_offer.image" aria-hidden="true" />
           </div>
           <div class="two-thirds center flex-responsive article">
-            <h3 class="full overtitle">{{ selected_offer.overtitle }}</h3>
+            <div class="noththree full overtitle">
+              {{ selected_offer.overtitle }}
+            </div>
             <h2 class="full">{{ selected_offer.title }}</h2>
-            <h4 class="full">
+            <div class="nothfour full">
               {{ selected_offer.subtitle }}
-            </h4>
+            </div>
             <!-- eslint-disable vue/no-v-html -->
             <div
               v-show="!canLogIn"
@@ -306,9 +318,11 @@
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
-        <h3 class="full center-text column-full-pad subsection-title">
+        <div
+          class="noththree full center-text column-full-pad subsection-title"
+        >
           Knjige
-        </h3>
+        </div>
         <div class="full flex relative stretch mobile-native-slider">
           <KlubItem
             v-for="offer in offers.knjige"
@@ -333,11 +347,13 @@
             <img :src="selected_offer.image" aria-hidden="true" />
           </div>
           <div class="two-thirds center flex-responsive article">
-            <h3 class="full overtitle">{{ selected_offer.overtitle }}</h3>
+            <div class="noththree full overtitle">
+              {{ selected_offer.overtitle }}
+            </div>
             <h2 class="full">{{ selected_offer.title }}</h2>
-            <h4 class="full">
+            <div class="nothfour full">
               {{ selected_offer.subtitle }}
-            </h4>
+            </div>
             <!-- eslint-disable vue/no-v-html -->
             <div
               v-show="!canLogIn"
@@ -367,9 +383,11 @@
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
-        <h3 class="full center-text column-full-pad subsection-title">
+        <div
+          class="noththree full center-text column-full-pad subsection-title"
+        >
           Muzeji
-        </h3>
+        </div>
         <div class="full flex relative stretch mobile-native-slider">
           <KlubItem
             v-for="offer in offers.muzeji"
@@ -394,11 +412,13 @@
             <img :src="selected_offer.image" aria-hidden="true" />
           </div>
           <div class="two-thirds center flex-responsive article">
-            <h3 class="full overtitle">{{ selected_offer.overtitle }}</h3>
+            <div class="noththree full overtitle">
+              {{ selected_offer.overtitle }}
+            </div>
             <h2 class="full">{{ selected_offer.title }}</h2>
-            <h4 class="full">
+            <div class="nothfour full">
               {{ selected_offer.subtitle }}
-            </h4>
+            </div>
             <!-- eslint-disable vue/no-v-html -->
             <div
               v-show="!canLogIn"
@@ -428,9 +448,11 @@
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
-        <h3 class="full center-text column-full-pad subsection-title">
+        <div
+          class="noththree full center-text column-full-pad subsection-title"
+        >
           Ostalo
-        </h3>
+        </div>
         <div class="full flex relative stretch mobile-native-slider">
           <KlubItem
             v-for="offer in offers.ostalo"
@@ -455,11 +477,13 @@
             <img :src="selected_offer.image" aria-hidden="true" />
           </div>
           <div class="two-thirds center flex-responsive article">
-            <h3 class="full overtitle">{{ selected_offer.overtitle }}</h3>
+            <div class="noththree full overtitle">
+              {{ selected_offer.overtitle }}
+            </div>
             <h2 class="full">{{ selected_offer.title }}</h2>
-            <h4 class="full">
+            <div class="nothfour full">
               {{ selected_offer.subtitle }}
-            </h4>
+            </div>
             <!-- eslint-disable vue/no-v-html -->
             <div
               v-show="!canLogIn"
@@ -490,9 +514,11 @@
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
-        <h3 class="full center-text column-full-pad subsection-title">
+        <div
+          class="noththree full center-text column-full-pad subsection-title"
+        >
           Vaša klub iskaznica
-        </h3>
+        </div>
         <div class="full center relative">
           <client-only>
             <div class="klub-card flex stretch relative">

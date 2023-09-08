@@ -10,7 +10,9 @@
         class="full flex relative center knjiga-header article-head mobile-side-pad column-full-pad"
       >
         <div class="container relative flex">
-          <h3 class="full center-text overtitle">Ekskluzivna ponuda</h3>
+          <div class="noththree full center-text overtitle">
+            Ekskluzivna ponuda
+          </div>
           <h1 class="full center-text">Nova knjiga Zrinke Paladino</h1>
           <p class="full center-text">
             Čuvena arhitektica, konzervatorica i kolumnistica donosi veliku
@@ -38,17 +40,17 @@
               </div>
             </div>
             <div class="full flex knjiga-features">
-              <h1 class="full relative center-text">
+              <div class="full relative center-text big-book-price bold">
                 <span class="faded strikethrough">23,76€</span> 13,14€
-              </h1>
-              <h1 class="full relative center-text">
+              </div>
+              <div class="full relative center-text big-book-price">
                 (<span class="faded strikethrough">179 kn</span> 99 kn) <br />
                 posebna cijena za sve pretplatnike Telegrama
-              </h1>
-              <h4 class="full relative center-text">
+              </div>
+              <div class="nothfour full relative center-text">
                 Naručite 'O Zagrebu i... Telegramovih 48' danas, s besplatnom
                 dostavom na kućnu adresu unutar Hrvatske.
-              </h4>
+              </div>
               <div class="full knjiga-keypoints">
                 <p class="full center-text">Broj stranica: 378</p>
                 <p class="full center-text">Godina izdavanja: 2021.</p>
@@ -167,9 +169,9 @@
           povijesti hrvatske arhitekture, a posebno zaštite hrvatske
           graditeljske baštine. Izdržljiva je majka trojice sinova.
         </p>
-        <h3 class="full center-text overtitle exclusive-msg">
+        <div class="noththree full center-text overtitle exclusive-msg">
           <span>Knjiga dostupna samo na Telegramu</span>
-        </h3>
+        </div>
       </div>
     </div>
 

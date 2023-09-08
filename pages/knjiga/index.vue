@@ -11,10 +11,10 @@
       <div
         class="container relative flex mobile-side-pad stretch column-full-pad"
       >
-        <h1 class="full center-text desktop-only">
+        <h1 v-if="$mobile" class="full center-text desktop-only">
           Telegramove hit knjige <br />po posebnoj cijeni za pretplatnike.
         </h1>
-        <h1 class="full center-text mobile-only">
+        <h1 v-if="!$mobile" class="full center-text mobile-only">
           Telegramove hit knjige po posebnoj cijeni za pretplatnike.
         </h1>
         <p class="full center-text pretplata-tagline desktop-only">
@@ -45,11 +45,13 @@
               />
             </div>
             <div class="full flex knjiga-features">
-              <h1 class="full relative center-text">Igla, pila, ravnalo</h1>
-              <h4 class="full relative center-text">Sanja Modrić</h4>
-              <h4 class="full relative center-text bold">
+              <div class="full relative center-text big-book-price bold">
+                Igla, pila, ravnalo
+              </div>
+              <div class="nothfour full relative center-text">Sanja Modrić</div>
+              <div class="nothfour full relative center-text bold">
                 <span class="faded strikethrough">19,99€</span> 13,99€
-              </h4>
+              </div>
               <div class="full center btn-parent">
                 <div class="btn animate">Pogledajte više</div>
               </div>
@@ -68,11 +70,15 @@
               />
             </div>
             <div class="full flex knjiga-features">
-              <h1 class="full relative center-text">Bili libar</h1>
-              <h4 class="full relative center-text">Boris Dežulović</h4>
-              <h4 class="full relative center-text bold">
+              <div class="full relative center-text big-book-price bold">
+                Bili libar
+              </div>
+              <div class="nothfour full relative center-text">
+                Boris Dežulović
+              </div>
+              <div class="nothfour full relative center-text bold">
                 <span class="faded strikethrough">19,78€</span> 13,14€
-              </h4>
+              </div>
               <div class="full center btn-parent">
                 <div class="btn animate">Pogledajte više</div>
               </div>
@@ -91,11 +97,13 @@
               />
             </div>
             <div class="full flex knjiga-features">
-              <h1 class="full relative center-text">Neispričane priče</h1>
-              <h4 class="full relative center-text">Rajko Grlić</h4>
-              <h4 class="full relative center-text bold">
+              <div class="full relative center-text big-book-price bold">
+                Neispričane priče
+              </div>
+              <div class="nothfour full relative center-text">Rajko Grlić</div>
+              <div class="nothfour full relative center-text bold">
                 <span class="faded strikethrough">23,76€</span> 15,79€
-              </h4>
+              </div>
               <div class="full center btn-parent">
                 <div class="btn animate">Pogledajte više</div>
               </div>
@@ -114,11 +122,15 @@
               />
             </div>
             <div class="full flex knjiga-features">
-              <h1 class="full relative center-text">O Zagrebu i...</h1>
-              <h4 class="full relative center-text">Zrinka Paladino</h4>
-              <h4 class="full relative center-text bold">
+              <div class="full relative center-text big-book-price bold">
+                O Zagrebu i...
+              </div>
+              <div class="nothfour full relative center-text">
+                Zrinka Paladino
+              </div>
+              <div class="nothfour full relative center-text bold">
                 <span class="faded strikethrough">23,76€</span> 13,14€
-              </h4>
+              </div>
               <div class="full center btn-parent">
                 <div class="btn animate">Pogledajte više</div>
               </div>

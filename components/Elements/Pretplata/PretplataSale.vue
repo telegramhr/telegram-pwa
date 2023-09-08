@@ -17,12 +17,12 @@
           aria-hidden="true"
         />
         <div class="full flex overtitle-parent">
-          <h3 class="overtitle">Božićna akcija</h3>
+          <div class="noththree overtitle">Božićna akcija</div>
         </div>
         <h2 class="full"><span>49kn</span>1kn</h2>
-        <h4 class="full center-text undertitle">
+        <div class="nothfour full center-text undertitle">
           Prvi mjesec (0,13€), poslije 49kn mjesečno (6,50€)
-        </h4>
+        </div>
         <div class="full pretplata-benefits">
           <p class="full animate">
             <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
@@ -44,9 +44,9 @@
             <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
             možete otkazati bilo kada
           </p>
-          <h4 class="full center-text undertitle">
+          <div class="nothfour full center-text undertitle">
             *promotivna ponuda vrijedi samo za nove pretplatnike
-          </h4>
+          </div>
         </div>
         <div class="full center btn-parent" @click="checkout(promo)">
           <div class="btn animate">Odaberi</div>

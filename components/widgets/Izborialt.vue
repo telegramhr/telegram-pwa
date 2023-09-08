@@ -8,7 +8,7 @@
       </h2>
     </div>
     <div class="fourth flex column-full-pad grad-segment">
-      <h3 class="full overtitle column-top-border">ZAGREB</h3>
+      <div class="noththree full overtitle column-top-border">ZAGREB</div>
       <div class="full flex kandidat">
         <div class="half">
           <img
@@ -35,7 +35,7 @@
       </div>
     </div>
     <div class="fourth flex column-full-pad grad-segment">
-      <h3 class="full overtitle column-top-border">SPLIT</h3>
+      <div class="noththree full overtitle column-top-border">SPLIT</div>
       <div class="full flex kandidat">
         <div class="half">
           <img src="@/assets/img/extras/izbori_lokalni/ivica-puljak.gif" />
@@ -60,7 +60,7 @@
       </div>
     </div>
     <div class="fourth flex column-full-pad grad-segment">
-      <h3 class="full overtitle column-top-border">RIJEKA</h3>
+      <div class="noththree full overtitle column-top-border">RIJEKA</div>
       <div class="full flex kandidat">
         <div class="half">
           <img src="@/assets/img/extras/izbori_lokalni/marko-filipovic.gif" />
@@ -85,7 +85,7 @@
       </div>
     </div>
     <div class="fourth flex column-full-pad grad-segment">
-      <h3 class="full overtitle column-top-border">OSIJEK</h3>
+      <div class="noththree full overtitle column-top-border">OSIJEK</div>
       <div class="full flex kandidat">
         <div class="half">
           <img src="@/assets/img/extras/izbori_lokalni/ivan-radic.gif" />
@@ -146,7 +146,7 @@
 .izbori-mini-widget .kandidat {
   margin-bottom: 8px;
 }
-.izbori-mini-widget h3.overtitle {
+.izbori-mini-widget .noththree.overtitle {
   padding-top: 8px;
   margin-bottom: 20px;
 }
@@ -169,25 +169,25 @@
 .kandidat:nth-child(5) {
   margin-bottom: 0px;
 }
-.izbori-mini-widget h3.overtitle .data-age-time {
+.izbori-mini-widget .noththree.overtitle .data-age-time {
   color: #111;
   opacity: 0.25;
   float: right;
 }
-.dark-mode .izbori-mini-widget h3.overtitle .data-age-time {
+.dark-mode .izbori-mini-widget .noththree.overtitle .data-age-time {
   color: #efefef;
 }
-.izbori-mini-widget h3.overtitle:hover .data-age-time {
+.izbori-mini-widget .noththree.overtitle:hover .data-age-time {
   opacity: 0.7;
 }
 @media screen and (max-width: 1024px) {
   .grad-segment {
     margin-bottom: 6vw;
   }
-  .grad-segment h3.overtitle {
+  .grad-segment .noththree.overtitle {
     border-top: 1px solid #c8c8c8;
   }
-  .dark-mode .grad-segment h3.overtitle {
+  .dark-mode .grad-segment .noththree.overtitle {
     border-color: #555;
   }
   .izbori-mini-widget {

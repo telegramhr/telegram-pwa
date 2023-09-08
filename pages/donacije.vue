@@ -34,7 +34,7 @@
             class="half mobile-side-pad center flex-responsive column-full-pad"
           >
             <div class="full flex">
-              <h3 class="full overtitle">Telegram donacije</h3>
+              <div class="noththree full overtitle">Telegram donacije</div>
               <h2 class="full">Zajedno možemo <br />više. Puno više.</h2>
               <p>
                 Naša otkrića dovela su do uhićenja Gabrijele Žalac, zatvora za

@@ -64,13 +64,13 @@
           >
             <div class="third column-full-pad center flex-responsive">
               <div class="full flex article">
-                <h3 class="full overtitle">Posebne pogodnosti</h3>
+                <div class="noththree full overtitle">Posebne pogodnosti</div>
                 <h2 class="full">
                   Specijalni newsletteri za Telegramove pretplatnike.
                 </h2>
-                <h5 class="full">
+                <div class="nothfour full">
                   Najbolje od Telegrama, svaki dan u vašem inboxu.
-                </h5>
+                </div>
               </div>
             </div>
             <div class="two-thirds stretch flex flex-responsive">
@@ -85,10 +85,10 @@
                   <div class="full center">
                     <div class="newbtn">Prijavite se</div>
                   </div>
-                  <h5 class="full center-text">
+                  <div class="nothfour full center-text">
                     Odaberite tematske i autorske newslettere koje želite
                     primati.
-                  </h5>
+                  </div>
                 </div>
               </div>
             </div>

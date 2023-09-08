@@ -3,11 +3,11 @@
     <div class="full column-horizontal-pad column-top-pad mobile-side-pad">
       <div class="full cantha-separator"></div>
     </div>
-    <h3
-      class="full center-text column-full-pad subsection-title mobile-side-pad"
+    <div
+      class="noththree full center-text column-full-pad subsection-title mobile-side-pad"
     >
       Nekad je nužno odabrati stranu
-    </h3>
+    </div>
     <div class="full flex stretch column-bottom-pad gallery-content">
       <VueSlickCarousel
         ref="pretplatnici_carousel"

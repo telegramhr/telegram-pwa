@@ -5,10 +5,10 @@
     <div class="full column-horizontal-pad">
       <div class="full cantha-separator"></div>
     </div>
-    <h3 class="full center-text column-full-pad subsection-title">
+    <div class="noththree full center-text column-full-pad subsection-title">
       <img src="@/assets/img/telegram_logo_black.svg" alt="Telegram logo" />
       Klub
-    </h3>
+    </div>
     <div class="full flex stretch column-bottom-pad book-offers-widget">
       <klub-item
         v-for="offer in list"

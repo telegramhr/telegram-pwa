@@ -23,8 +23,10 @@
         />
       </div>
       <div class="komentar-content full">
-        <h2 :id="'top-' + post.id" class="full">{{ post.portal_title | parseCat }}</h2>
-        <h5 class="full flex article-meta">
+        <h2 :id="'top-' + post.id" class="full">
+          {{ post.portal_title | parseCat }}
+        </h2>
+        <div class="nothfive full flex article-meta">
           <span v-if="post.authors.length" class="meta-author"
             ><i>Piše</i> {{ post.authors[0].name }}</span
           >
@@ -32,7 +34,7 @@
             >{{ post.recommendations }} preporuka</span
           >
           <span class="meta-date">{{ post.time | parseTime }}</span>
-        </h5>
+        </div>
       </div>
     </div>
   </app-link>

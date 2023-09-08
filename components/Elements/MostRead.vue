@@ -3,9 +3,9 @@
     <div class="full">
       <div class="full cantha-separator"></div>
     </div>
-    <h3 class="full center-text column-full-pad subsection-title">
+    <div class="noththree full center-text column-full-pad subsection-title">
       Najčitanije
-    </h3>
+    </div>
     <top
       v-for="(post, index) in posts"
       :key="post.id"

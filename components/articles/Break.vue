@@ -24,16 +24,19 @@
             loading="lazy"
           />
         </div>
-        <h3 class="overtitle full center-text">Preporuka</h3>
+        <div class="noththree overtitle full center-text">Preporuka</div>
         <h2 :id="'break-' + post.id" class="full center-text">
           {{ post.portal_title }}
         </h2>
-        <h5 v-if="post.authors.length" class="full article-meta center-text">
+        <div
+          v-if="post.authors.length"
+          class="nothfive full article-meta center-text"
+        >
           <span class="meta-author"
             ><i>Piše</i>
             {{ post.authors[0].name }}
           </span>
-        </h5>
+        </div>
         <div class="full flex">
           <img
             class="break-image"

@@ -4,9 +4,9 @@
       {{ city.gropNaziv ? city.gropNaziv : city.zupNaziv
       }}{{ type ? ' - ' + type : '' }}
     </h2>
-    <h3 class="timestamp-disclose">
+    <div class="noththree timestamp-disclose">
       {{ Math.round((city.bmZatvoreno / city.bmUkupno) * 100) }}% prebrojano
-    </h3>
+    </div>
     <div class="full flex relative result-table total-results">
       <div class="full row flex">
         <div>Lista</div>

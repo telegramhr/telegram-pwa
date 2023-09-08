@@ -13,14 +13,14 @@
       <h2 :id="'mini-' + post.id" class="full animate">
         {{ post.portal_title | parseCat }}
       </h2>
-      <h5 class="full flex article-meta">
+      <div class="nothfive full flex article-meta">
         <span class="meta-author">
           {{ post.authors.length ? 'Piše ' + post.authors[0].name : '' }}</span
         >
         <span v-if="post.time" class="meta-date">{{
           post.time | parseTime
         }}</span>
-      </h5>
+      </div>
     </div>
     <span class="mini-big-time">{{ post.time | parseRecentTime }}</span>
   </app-link>

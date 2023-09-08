@@ -33,9 +33,11 @@
                 />
               </div>
               <div class="full relative">
-                <h3 class="full overtitle">Radnim danom</h3>
+                <div class="noththree full overtitle">Radnim danom</div>
                 <h2 class="full newsletter-title">Dnevni Telegram</h2>
-                <h3 class="full subtitle">Odabir najvažnijih tema</h3>
+                <div class="noththree full subtitle">
+                  Odabir najvažnijih tema
+                </div>
               </div>
             </div>
             <div class="full flex newsletter-box">
@@ -61,9 +63,9 @@
                 />
               </div>
               <div class="full relative">
-                <h3 class="full overtitle">Ponedjeljkom</h3>
+                <div class="noththree full overtitle">Ponedjeljkom</div>
                 <h2 class="full newsletter-title">Možda ste propustili</h2>
-                <h3 class="full subtitle">Personaliziran za vas</h3>
+                <div class="noththree full subtitle">Personaliziran za vas</div>
               </div>
             </div>
             <div class="full flex newsletter-box">
@@ -89,9 +91,11 @@
                 />
               </div>
               <div class="full relative">
-                <h3 class="full overtitle">Petkom</h3>
+                <div class="noththree full overtitle">Petkom</div>
                 <h2 class="full newsletter-title">Vikend na Telegramu</h2>
-                <h3 class="full subtitle">Najbolje za vikend čitanje</h3>
+                <div class="noththree full subtitle">
+                  Najbolje za vikend čitanje
+                </div>
               </div>
             </div>
             <div class="full flex newsletter-box">
@@ -110,11 +114,11 @@
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
-        <h3
-          class="full center-text column-horizontal-pad column-top-pad subsection-title"
+        <div
+          class="noththree full center-text column-horizontal-pad column-top-pad subsection-title"
         >
           Komentari i analize
-        </h3>
+        </div>
         <div class="full flex newsletter-komentari relative stretch">
           <div class="full flex newsletter-komentari relative stretch">
             <div class="third flex-responsive column-full-pad flex stretch">
@@ -127,9 +131,13 @@
                     />
                   </div>
                   <div class="full relative">
-                    <h3 class="full overtitle">Četiri puta tjedno</h3>
+                    <div class="noththree full overtitle">
+                      Četiri puta tjedno
+                    </div>
                     <h2 class="full newsletter-title">Sanja Modrić</h2>
-                    <h3 class="full subtitle">Puni članci autora</h3>
+                    <div class="noththree full subtitle">
+                      Puni članci autora
+                    </div>
                   </div>
                 </div>
                 <div class="full flex newsletter-box">
@@ -157,9 +165,11 @@
                     />
                   </div>
                   <div class="full relative">
-                    <h3 class="full overtitle">Redovito</h3>
+                    <div class="noththree full overtitle">Redovito</div>
                     <h2 class="full newsletter-title">Jasmin Klarić</h2>
-                    <h3 class="full subtitle">Puni članci autora</h3>
+                    <div class="noththree full subtitle">
+                      Puni članci autora
+                    </div>
                   </div>
                 </div>
                 <div class="full flex newsletter-box">
@@ -186,9 +196,11 @@
                     />
                   </div>
                   <div class="full relative">
-                    <h3 class="full overtitle">Redovito</h3>
+                    <div class="noththree full overtitle">Redovito</div>
                     <h2 class="full newsletter-title">Goranko Fižulić</h2>
-                    <h3 class="full subtitle">Puni članci autora</h3>
+                    <div class="noththree full subtitle">
+                      Puni članci autora
+                    </div>
                   </div>
                 </div>
                 <div class="full flex newsletter-box">
@@ -215,9 +227,11 @@
                     />
                   </div>
                   <div class="full relative">
-                    <h3 class="full overtitle">Redovito</h3>
+                    <div class="noththree full overtitle">Redovito</div>
                     <h2 class="full newsletter-title">Đivo Đurović</h2>
-                    <h3 class="full subtitle">Puni članci autora</h3>
+                    <div class="noththree full subtitle">
+                      Puni članci autora
+                    </div>
                   </div>
                 </div>
                 <div class="full flex newsletter-box">
@@ -245,9 +259,11 @@
                     />
                   </div>
                   <div class="full relative">
-                    <h3 class="full overtitle">Redovito</h3>
+                    <div class="noththree full overtitle">Redovito</div>
                     <h2 class="full newsletter-title">Dragan Markovina</h2>
-                    <h3 class="full subtitle">Puni članci autora</h3>
+                    <div class="noththree full subtitle">
+                      Puni članci autora
+                    </div>
                   </div>
                 </div>
                 <div class="full flex newsletter-box">
@@ -267,11 +283,11 @@
           <div class="full column-horizontal-pad column-top-pad">
             <div class="full cantha-separator"></div>
           </div>
-          <h3
-            class="full center-text column-horizontal-pad column-top-pad subsection-title"
+          <div
+            class="noththree full center-text column-horizontal-pad column-top-pad subsection-title"
           >
             Telegram autori
-          </h3>
+          </div>
           <div class="full flex newsletter-komentari relative stretch">
             <div class="third flex-responsive column-full-pad flex stretch">
               <div class="full newsletter-listing flex relative stretch">
@@ -283,9 +299,11 @@
                     />
                   </div>
                   <div class="full relative">
-                    <h3 class="full overtitle">Redovito</h3>
+                    <div class="noththree full overtitle">Redovito</div>
                     <h2 class="full newsletter-title">Drago Hedl</h2>
-                    <h3 class="full subtitle">Puni članci autora</h3>
+                    <div class="noththree full subtitle">
+                      Puni članci autora
+                    </div>
                   </div>
                 </div>
                 <div class="full flex newsletter-box">
@@ -312,9 +330,11 @@
                     />
                   </div>
                   <div class="full relative">
-                    <h3 class="full overtitle">Redovito</h3>
+                    <div class="noththree full overtitle">Redovito</div>
                     <h2 class="full newsletter-title">Silvana Menđušić</h2>
-                    <h3 class="full subtitle">Puni članci autora</h3>
+                    <div class="noththree full subtitle">
+                      Puni članci autora
+                    </div>
                   </div>
                 </div>
                 <div class="full flex newsletter-box">
@@ -340,9 +360,11 @@
                     />
                   </div>
                   <div class="full relative">
-                    <h3 class="full overtitle">Redovito</h3>
+                    <div class="noththree full overtitle">Redovito</div>
                     <h2 class="full newsletter-title">Ana Raić Knežević</h2>
-                    <h3 class="full subtitle">Puni članci autora</h3>
+                    <div class="noththree full subtitle">
+                      Puni članci autora
+                    </div>
                   </div>
                 </div>
                 <div class="full flex newsletter-box">
@@ -369,9 +391,11 @@
                     />
                   </div>
                   <div class="full relative">
-                    <h3 class="full overtitle">Redovito</h3>
+                    <div class="noththree full overtitle">Redovito</div>
                     <h2 class="full newsletter-title">Andrej Dimitrijević</h2>
-                    <h3 class="full subtitle">Puni članci autora</h3>
+                    <div class="noththree full subtitle">
+                      Puni članci autora
+                    </div>
                   </div>
                 </div>
                 <div class="full flex newsletter-box">
@@ -398,9 +422,11 @@
                     />
                   </div>
                   <div class="full relative">
-                    <h3 class="full overtitle">Redovito</h3>
+                    <div class="noththree full overtitle">Redovito</div>
                     <h2 class="full newsletter-title">Dora Kršul</h2>
-                    <h3 class="full subtitle">Puni članci autora</h3>
+                    <div class="noththree full subtitle">
+                      Puni članci autora
+                    </div>
                   </div>
                 </div>
                 <div class="full flex newsletter-box">
@@ -427,9 +453,11 @@
                     />
                   </div>
                   <div class="full relative">
-                    <h3 class="full overtitle">Redovito</h3>
+                    <div class="noththree full overtitle">Redovito</div>
                     <h2 class="full newsletter-title">Rajko Grlić</h2>
-                    <h3 class="full subtitle">Puni članci autora</h3>
+                    <div class="noththree full subtitle">
+                      Puni članci autora
+                    </div>
                   </div>
                 </div>
                 <div class="full flex newsletter-box">
@@ -456,9 +484,11 @@
                     />
                   </div>
                   <div class="full relative">
-                    <h3 class="full overtitle">Redovito</h3>
+                    <div class="noththree full overtitle">Redovito</div>
                     <h2 class="full newsletter-title">Zrinka Paladino</h2>
-                    <h3 class="full subtitle">Puni članci autora</h3>
+                    <div class="noththree full subtitle">
+                      Puni članci autora
+                    </div>
                   </div>
                 </div>
                 <div class="full flex newsletter-box">
@@ -485,9 +515,11 @@
                     />
                   </div>
                   <div class="full relative">
-                    <h3 class="full overtitle">Redovito</h3>
+                    <div class="noththree full overtitle">Redovito</div>
                     <h2 class="full newsletter-title">Mladen Pleše</h2>
-                    <h3 class="full subtitle">Puni članci autora</h3>
+                    <div class="noththree full subtitle">
+                      Puni članci autora
+                    </div>
                   </div>
                 </div>
                 <div class="full flex newsletter-box">
@@ -514,11 +546,13 @@
                     />
                   </div>
                   <div class="full relative">
-                    <h3 class="full overtitle">Redovito</h3>
+                    <div class="noththree full overtitle">Redovito</div>
                     <h2 class="full newsletter-title">
                       Irena Frlan Gašparović
                     </h2>
-                    <h3 class="full subtitle">Puni članci autora</h3>
+                    <div class="noththree full subtitle">
+                      Puni članci autora
+                    </div>
                   </div>
                 </div>
                 <div class="full flex newsletter-box">
@@ -545,9 +579,11 @@
                     />
                   </div>
                   <div class="full relative">
-                    <h3 class="full overtitle">Redovito</h3>
+                    <div class="noththree full overtitle">Redovito</div>
                     <h2 class="full newsletter-title">Davor Špišić</h2>
-                    <h3 class="full subtitle">Puni članci autora</h3>
+                    <div class="noththree full subtitle">
+                      Puni članci autora
+                    </div>
                   </div>
                 </div>
                 <div class="full flex newsletter-box">
@@ -570,11 +606,11 @@
           <div class="full column-horizontal-pad column-top-pad">
             <div class="full cantha-separator"></div>
           </div>
-          <h3
-            class="full center-text column-horizontal-pad column-top-pad subsection-title"
+          <div
+            class="noththree full center-text column-horizontal-pad column-top-pad subsection-title"
           >
             Rubrike
-          </h3>
+          </div>
           <div class="third flex-responsive column-full-pad flex stretch">
             <div class="full newsletter-listing flex relative stretch">
               <div class="full flex newsletter-header">
@@ -585,9 +621,9 @@
                   />
                 </div>
                 <div class="full relative">
-                  <h3 class="full overtitle">Jednom tjedno</h3>
+                  <div class="noththree full overtitle">Jednom tjedno</div>
                   <h2 class="full newsletter-title">Politika & kriminal</h2>
-                  <h3 class="full subtitle">Najbolje iz rubrike</h3>
+                  <div class="noththree full subtitle">Najbolje iz rubrike</div>
                 </div>
               </div>
               <div class="full flex newsletter-box">
@@ -612,9 +648,9 @@
                   />
                 </div>
                 <div class="full relative">
-                  <h3 class="full overtitle">Jednom tjedno</h3>
+                  <div class="noththree full overtitle">Jednom tjedno</div>
                   <h2 class="full newsletter-title">Komentari</h2>
-                  <h3 class="full subtitle">Najbolje iz rubrike</h3>
+                  <div class="noththree full subtitle">Najbolje iz rubrike</div>
                 </div>
               </div>
               <div class="full flex newsletter-box">
@@ -639,9 +675,9 @@
                   />
                 </div>
                 <div class="full relative">
-                  <h3 class="full overtitle">Jednom tjedno</h3>
+                  <div class="noththree full overtitle">Jednom tjedno</div>
                   <h2 class="full newsletter-title">Biznis & tech</h2>
-                  <h3 class="full subtitle">Najbolje iz rubrike</h3>
+                  <div class="noththree full subtitle">Najbolje iz rubrike</div>
                 </div>
               </div>
               <div class="full flex newsletter-box">
@@ -666,9 +702,9 @@
                   />
                 </div>
                 <div class="full relative">
-                  <h3 class="full overtitle">Jednom tjedno</h3>
+                  <div class="noththree full overtitle">Jednom tjedno</div>
                   <h2 class="full newsletter-title">Život</h2>
-                  <h3 class="full subtitle">Najbolje iz rubrike</h3>
+                  <div class="noththree full subtitle">Najbolje iz rubrike</div>
                 </div>
               </div>
               <div class="full flex newsletter-box">
@@ -689,9 +725,11 @@
                   />
                 </div>
                 <div class="full relative">
-                  <h3 class="full overtitle">Povremeno</h3>
+                  <div class="noththree full overtitle">Povremeno</div>
                   <h2 class="full newsletter-title">Velike priče</h2>
-                  <h3 class="full subtitle">Puni longform članci</h3>
+                  <div class="noththree full subtitle">
+                    Puni longform članci
+                  </div>
                 </div>
               </div>
               <div class="full flex newsletter-box">
@@ -717,9 +755,9 @@
                   />
                 </div>
                 <div class="full relative">
-                  <h3 class="full overtitle">To nije sve</h3>
+                  <div class="noththree full overtitle">To nije sve</div>
                   <h2 class="full newsletter-title">Još newslettera</h2>
-                  <h3 class="full subtitle">Dolazi uskoro</h3>
+                  <div class="noththree full subtitle">Dolazi uskoro</div>
                 </div>
               </div>
               <div class="full flex newsletter-box">

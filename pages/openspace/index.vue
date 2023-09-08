@@ -84,7 +84,9 @@
           <div
             class="third column-horizontal-pad flex-responsive column-right-border"
           >
-            <h3 class="full os-about-subtitle">Alati za najbolji posao</h3>
+            <div class="noththree full os-about-subtitle">
+              Alati za najbolji posao
+            </div>
             <p>
               Platforma Openspace pruža vam sve potrebne alate za ostvarivanje
               punog profesionalnog potencijala, od pronalaska idealnog radnog
@@ -94,7 +96,7 @@
           <div
             class="third column-horizontal-pad flex-responsive column-right-border"
           >
-            <h3 class="full os-about-subtitle">Vodiči i savjeti</h3>
+            <div class="noththree full os-about-subtitle">Vodiči i savjeti</div>
             <p>
               Kroz životne priče i inspirativne primjere pojedinaca i kompanija,
               dajemo vam insajderski uvid u najkorisnije vještine i savjete za
@@ -102,7 +104,7 @@
             </p>
           </div>
           <div class="third column-horizontal-pad flex-responsive">
-            <h3 class="full os-about-subtitle">Top ljudi za tim</h3>
+            <div class="noththree full os-about-subtitle">Top ljudi za tim</div>
             <p>
               Mjesto za poslodavce koji žele ispričati svoju priču, predstaviti
               kulturu i objasniti vrijednosti, te tako pronaći potencijalne
@@ -117,11 +119,11 @@
         <section
           class="fourth flex flex-responsive column-horizontal-pad mobile-side-pad bypass-show-mobile os-prilike-widget"
         >
-          <!--<h3 class="full flex overtitle os-widget-overtitle">Newsletter</h3>
+          <!--<div class="noththree full flex overtitle os-widget-overtitle">Newsletter</div>
             <newsletter></newsletter>
-            <h3 class="full flex overtitle os-widget-overtitle">
+            <div class="noththree full flex overtitle os-widget-overtitle">
               Open Space Test
-            </h3>
+            </div>
             <ostest></ostest>-->
           <!--<opportunities></opportunities>-->
         </section>

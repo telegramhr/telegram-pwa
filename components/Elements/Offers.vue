@@ -6,7 +6,7 @@
     <div class="full column-horizontal-pad">
       <div class="full cantha-separator"></div>
     </div>
-    <h3 class="full center-text column-full-pad subsection-title">
+    <div class="noththree full center-text column-full-pad subsection-title">
       <div class="full center telemach-line">
         <div class="flex center">
           <img
@@ -22,7 +22,7 @@
           />
         </div>
       </div>
-    </h3>
+    </div>
     <div class="full flex stretch column-bottom-pad gallery-content">
       <VueSlickCarousel
         v-if="posts.length"
@@ -52,17 +52,17 @@
               height="400"
             />
             <div class="full flex article-pad">
-              <h2 class="full">{{ post.naslov }}</h2>
-              <h3 v-if="post.cijena_euro" class="full overtitle">
+              <div class="full offer-title bold">{{ post.naslov }}</div>
+              <div v-if="post.cijena_euro" class="noththree full overtitle">
                 {{ post.cijena_euro }} ({{ post.cijena }})<br />
                 <span v-if="post.stara_cijena_euro" class="strikethrough-price">
                   {{ post.stara_cijena_euro }} ({{ post.stara_cijena }})
                 </span>
-              </h3>
+              </div>
 
-              <h4 class="full">
+              <div class="nothfour full">
                 {{ post.opis }}
-              </h4>
+              </div>
               <div class="newbtn">
                 {{ post.cta ? post.cta : 'Pogledaj ponudu' }}
               </div>
@@ -183,7 +183,7 @@ export default {
   background-color: #212121;
 }
 
-h3.subsection-title .telemach-line img {
+.noththree.subsection-title .telemach-line img {
   height: 30px;
   bottom: 0px;
   margin: 0 20px;

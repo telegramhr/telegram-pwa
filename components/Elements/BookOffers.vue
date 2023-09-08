@@ -5,14 +5,14 @@
     <div class="full column-horizontal-pad">
       <div class="full cantha-separator"></div>
     </div>
-    <h3 class="full center-text column-full-pad subsection-title">
+    <div class="noththree full center-text column-full-pad subsection-title">
       <img
         src="@/assets/img/telegram_logo_black.svg"
         alt="Telegram logo"
         loading="lazy"
       />
       knjige
-    </h3>
+    </div>
     <div class="full flex stretch book-offers-widget">
       <div class="fourth flex-responsive column-horizontal-pad">
         <app-link
@@ -25,11 +25,11 @@
             loading="lazy"
           />
           <div class="full flex article-pad center-text">
-            <h2 class="full">Igla, pila, ravnalo</h2>
-            <h4 class="full">Sanja Modrić</h4>
-            <h3 class="full overtitle">
+            <div class="full offer-title">Igla, pila, ravnalo</div>
+            <div class="nothfour full">Sanja Modrić</div>
+            <div class="noththree full overtitle">
               <span class="faded strikethrough">19,99€</span> 13,99€
-            </h3>
+            </div>
             <div class="full center">
               <div class="newbtn">Pogledajte više</div>
             </div>
@@ -47,11 +47,11 @@
             loading="lazy"
           />
           <div class="full flex article-pad center-text">
-            <h2 class="full">Bili libar</h2>
-            <h4 class="full">Boris Dežulović</h4>
-            <h3 class="full overtitle">
+            <div class="full offer-title">Bili libar</div>
+            <div class="nothfour full">Boris Dežulović</div>
+            <div class="noththree full overtitle">
               <span class="faded strikethrough">19,78€</span> 13,14€
-            </h3>
+            </div>
             <div class="full center">
               <div class="newbtn">Pogledajte više</div>
             </div>
@@ -69,11 +69,11 @@
             loading="lazy"
           />
           <div class="full flex article-pad center-text">
-            <h2 class="full">Neispričane priče</h2>
-            <h4 class="full">Rajko Grlić</h4>
-            <h3 class="full overtitle">
+            <div class="full offer-title">Neispričane priče</div>
+            <div class="nothfour full">Rajko Grlić</div>
+            <div class="noththree full overtitle">
               <span class="faded strikethrough">23,76€</span> 15,79€
-            </h3>
+            </div>
             <div class="full center">
               <div class="newbtn">Pogledajte više</div>
             </div>
@@ -91,11 +91,11 @@
             loading="lazy"
           />
           <div class="full flex article-pad center-text">
-            <h2 class="full">O Zagrebu i...</h2>
-            <h4 class="full">Zrinka Paladino</h4>
-            <h3 class="full overtitle">
+            <div class="full offer-title">O Zagrebu i...</div>
+            <div class="nothfour full">Zrinka Paladino</div>
+            <div class="noththree full overtitle">
               <span class="faded strikethrough">23,76€</span> 13,14€
-            </h3>
+            </div>
             <div class="full center">
               <div class="newbtn">Pogledajte više</div>
             </div>

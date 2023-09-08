@@ -110,9 +110,11 @@
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
-        <h3 class="full center-text column-full-pad subsection-title">
+        <div
+          class="noththree full center-text column-full-pad subsection-title"
+        >
           Telesport autori
-        </h3>
+        </div>
         <div class="full flex stretch relative no-last-border-mobile">
           <div
             v-for="post in posts.slice(8, 12)"
@@ -132,9 +134,11 @@
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
-        <h3 class="full center-text column-full-pad subsection-title">
+        <div
+          class="noththree full center-text column-full-pad subsection-title"
+        >
           Telesport preporuka
-        </h3>
+        </div>
         <div
           class="three-fourths flex-responsive column-horizontal-pad column-right-border flex relative featured-split smaller-featured-split show-one-related"
         >
@@ -166,14 +170,14 @@
         >
           <div class="forty column-full-pad center flex-responsive">
             <div class="full flex article">
-              <h3 class="full overtitle">Posebna akacija</h3>
+              <div class="noththree full overtitle">Posebna akacija</div>
               <h2 class="full">
                 Telegram predstavlja: Bili libar, nova knjiga Borisa Dežulovića
               </h2>
-              <h5 class="full">
+              <div class="nothfour full">
                 Naručite još danas i osigurajte svoj primjera, uz posebnu cijenu
                 za pretplatnike
-              </h5>
+              </div>
             </div>
           </div>
           <div class="sixty stretch flex flex-responsive">
@@ -188,11 +192,11 @@
                 <h2 class="full relative center-text">
                   <span class="faded strikethrough">149 kn</span> 99 kn
                 </h2>
-                <h5 class="full center-text">
+                <div class="nothfour full center-text">
                   (<span class="faded strikethrough">19,78€</span> 13,14€)
                   <br />
                   posebna cijena za Telegramove pretplatnike!
-                </h5>
+                </div>
               </div>
             </div>
           </div>
@@ -207,9 +211,11 @@
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
-        <h3 class="full center-text column-full-pad subsection-title">
+        <div
+          class="noththree full center-text column-full-pad subsection-title"
+        >
           Odabir urednika
-        </h3>
+        </div>
         <div
           class="three-fourths flex-responsive column-horizontal-pad column-right-border flex relative featured-split smaller-featured-split show-one-related"
         >

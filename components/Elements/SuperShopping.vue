@@ -2,7 +2,7 @@
   <section id="s1-shopping" class="full flex relative">
     <div class="container flex relative">
       <div class="full center relative">
-        <h3 class="flex superone-section-title">
+        <div class="noththree flex superone-section-title">
           <img src="@/assets/img/s1_logo_clean_noline.svg" alt="Super1 logo" />
           <img
             src="@/assets/img/s1_logo_clean_noline_white.svg"
@@ -10,7 +10,7 @@
             class="dark-mode-only"
             loading="lazy"
           />Top picks
-        </h3>
+        </div>
       </div>
       <div class="full flex column-horizontal-pad">
         <div class="full flex stretch gallery-content superone-toppicks">

@@ -28,23 +28,23 @@
         />
         <div class="full flex article-pad">
           <div class="full flex desktop-only">
-            <h3 class="overtitle"></h3>
+            <div class="noththree overtitle"></div>
           </div>
           <h2 class="full">
             {{ post.title }}
           </h2>
-          <h4 class="full"></h4>
-          <h5 class="full flex article-meta">
+          <div class="nothfour full"></div>
+          <div class="nothfive full flex article-meta">
             <span class="meta-author"></span>
             <span class="meta-preporuke"></span>
             <span class="meta-date"></span>
-          </h5>
+          </div>
         </div>
       </a>
     </div>
-    <h5 class="full center-text special-partner-signature">
+    <div class="nothfour full center-text special-partner-signature">
       <span class="faded">Sadržaj donosi</span> Uplift.hr
-    </h5>
+    </div>
     <div class="line-decoration-box animate">
       <div class="line-1 animate"></div>
       <div class="line-2 animate"></div>
@@ -92,7 +92,7 @@
   position: relative;
   z-index: 5;
 }
-.special-partner-widget .fourth:nth-child(2) .article h4 {
+.special-partner-widget .fourth:nth-child(2) .article .nothfour {
   display: block;
   margin-bottom: 0px;
   z-index: 5;

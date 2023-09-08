@@ -13,20 +13,23 @@
         <div class="full flex">
           <div class="half flex flex-responsive">
             <div class="full flex">
-              <h3 class="overtitle">
+              <div class="noththree overtitle">
                 <img
                   src="@/assets/img/telegram_logo_white.svg"
                   alt="Telegram logo"
                 />
                 preporuka
-              </h3>
+              </div>
             </div>
             <h2 class="full">{{ post.portal_title }}</h2>
-            <h5 v-show="post.authors[0]" class="full flex article-meta">
+            <div
+              v-show="post.authors[0]"
+              class="nothfive full flex article-meta"
+            >
               piše
               {{ post.authors[0] ? post.authors[0].name : '' }}
-            </h5>
-            <h4 class="full hide">{{ post.subtitle }}</h4>
+            </div>
+            <div class="nothfour full hide">{{ post.subtitle }}</div>
           </div>
           <div class="reading-line"></div>
         </div>
@@ -69,19 +72,19 @@
               alt="Telegram logo"
             />
           </div>
-          <h3 class="overtitle full center-text">Preporuka</h3>
+          <div class="noththree overtitle full center-text">Preporuka</div>
           <h2 :id="'break-' + post.id" class="full center-text">
             {{ post.portal_title }}
           </h2>
-          <h5
+          <div
             v-show="post.authors.length"
-            class="full article-meta center-text"
+            class="nothfive full article-meta center-text"
           >
             <span class="meta-author"
               ><i>Piše</i>
               {{ post.authors[0] ? post.authors[0].name : '' }}
             </span>
-          </h5>
+          </div>
           <div class="full flex">
             <img
               class="break-image"

@@ -5,9 +5,9 @@
     <div class="full mobile-only">
       <div class="full cantha-separator"></div>
     </div>
-    <h3 class="full center-text column-bottom-pad subsection-title">
+    <div class="noththree full center-text column-bottom-pad subsection-title">
       <nuxt-link :to="'/' + slug">{{ category | parseCat }}</nuxt-link>
-    </h3>
+    </div>
     <featured
       v-for="post in posts.slice(0, 1)"
       :key="post.id"

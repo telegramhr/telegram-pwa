@@ -15,7 +15,9 @@
           <div class="full center">
             <img src="@/assets/img/tg_icon_xmastree.svg" />
           </div>
-          <h4 class="full center-text">Telegramova najveća akcija dosad</h4>
+          <div class="nothfour full center-text">
+            Telegramova najveća akcija dosad
+          </div>
           <h1 class="full center-text">1kn za 3 mjeseca pretplate</h1>
           <div class="full center">
             <div class="newbtn huge-newbtn">Pretplatite se</div>
@@ -26,7 +28,9 @@
           <p class="full relative center-text">
             (<span class="faded strikethrough">19,50€</span> 0,13€)
           </p>
-          <h5 class="full center-text desktop-only">Samo do 01.01.2023.</h5>
+          <div class="nothfour full center-text desktop-only">
+            Samo do 01.01.2023.
+          </div>
         </div>
       </div>
     </div>

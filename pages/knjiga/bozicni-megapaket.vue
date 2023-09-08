@@ -10,11 +10,13 @@
         class="full flex relative center knjiga-header article-head mobile-side-pad column-full-pad"
       >
         <div class="container relative flex single-article-body">
-          <h3 class="full center-text overtitle">Najbolji božićni poklon</h3>
+          <div class="noththree full center-text overtitle">
+            Najbolji božićni poklon
+          </div>
           <h1 class="full center-text">Telegram božićni megapaket</h1>
-          <h4 class="full center-text">
+          <div class="nothfour full center-text">
             Hit knjige iz naše biblioteke i premium godišnja pretplata
-          </h4>
+          </div>
         </div>
       </div>
       <div class="full flex relative single-article-body">
@@ -32,30 +34,30 @@
             </div>
             <div class="full flex knjiga-features">
               <client-only>
-                <h1
+                <div
                   v-if="$store.state.user.access"
-                  class="full relative center-text"
+                  class="full relative center-text big-book-price"
                 >
                   <span class="faded strikethrough">1095 kn</span> 599 kn
-                </h1>
-                <h1 v-else class="full relative center-text">
+                </div>
+                <div v-else class="full relative center-text big-book-price">
                   <span class="faded strikethrough">1095 kn</span> 799 kn
-                </h1>
-                <h1
+                </div>
+                <div
                   v-if="$store.state.user.access"
-                  class="full relative center-text"
+                  class="full relative center-text big-book-price"
                 >
                   (<span class="faded strikethrough">145,33€</span> 79,50€)
                   <br />
                   posebna cijena za sve pretplatnike Telegrama
-                </h1>
-                <h1 v-else class="full relative center-text">
+                </div>
+                <div v-else class="full relative center-text big-book-price">
                   (<span class="faded strikethrough">145,33€</span> 106,05€)
                   <br />
                   posebna cijena za Božić
-                </h1>
+                </div>
               </client-only>
-              <h4 class="full relative center-text">
+              <div class="nothfour full relative center-text">
                 Paket sadrži Bili libar Borisa Dežulovića, O Zagrebu Zrinke
                 Paladino, Neispričane priče Rajka Grlića i godišnju premium
                 pretplatu koja omogućuje neograničeno čitanje Telegrama i
@@ -64,7 +66,7 @@
                   >Napomena: za dostavu van Zagreba potrebno je 2-3 radna
                   dana.</b
                 >
-              </h4>
+              </div>
               <div class="full knjiga-keypoints">
                 <p class="full center-text">Izdavač: Telegram Media Grupa</p>
               </div>

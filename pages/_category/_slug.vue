@@ -118,11 +118,11 @@
         />
         <div class="full flex article-head">
           <div class="full flex overtitle-parent">
-            <h3 class="overtitle">
+            <div class="noththree overtitle">
               {{ parsedOvertitle }}
-            </h3>
+            </div>
             <div v-if="post.promo.partner" class="collab-overtitle">
-              <h3 class="overtitle">{{ post.promo.prefix }}</h3>
+              <div class="noththree overtitle">{{ post.promo.prefix }}</div>
               <img :src="post.promo.logo" :alt="post.promo.partner" />
             </div>
           </div>
@@ -138,11 +138,11 @@
           >
             <div class="full column article-head column-top-pad flex">
               <div class="full flex overtitle-parent">
-                <h3 class="overtitle">
+                <div class="noththree overtitle">
                   {{ parsedOvertitle }}
-                </h3>
+                </div>
                 <div v-if="post.promo.partner" class="collab-overtitle">
-                  <h3 class="overtitle">{{ post.promo.prefix }}</h3>
+                  <div class="noththree overtitle">{{ post.promo.prefix }}</div>
                   <a
                     v-if="post.promo.link"
                     :href="post.promo.link"
@@ -168,7 +168,7 @@
               <h2 class="full">
                 {{ post.subtitle | parseCat }}
               </h2>
-              <h5 class="full flex relative article-meta mobile-only">
+              <div class="nothfive full flex relative article-meta mobile-only">
                 <nuxt-link
                   v-for="author in post.authors"
                   :key="author.name"
@@ -191,7 +191,7 @@
                     :author="post.authors[0]"
                   ></subscribe-link>
                 </client-only>
-              </h5>
+              </div>
               <div
                 v-if="post.image.url || post.video"
                 class="full flex article-head-image-parent relative"
@@ -233,7 +233,7 @@
               <p v-if="post.perex" class="perex">
                 {{ post.perex }}
               </p>
-              <h5 class="full flex relative article-meta">
+              <div class="nothfive full flex relative article-meta">
                 <nuxt-link
                   v-for="author in post.authors"
                   :key="author.name"
@@ -274,7 +274,7 @@
                     ></font-awesome-icon
                   ></a>
                 </div>
-              </h5>
+              </div>
             </div>
             <div class="full relative center single-top-banner">
               <ad-unit

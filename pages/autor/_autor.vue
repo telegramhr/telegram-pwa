@@ -22,9 +22,9 @@
               <h2 class="full author-segment-name">
                 {{ author.name }}
               </h2>
-              <h3 class="author-segment-title">
+              <div class="noththree author-segment-title">
                 {{ author.byline }}
-              </h3>
+              </div>
             </div>
           </div>
           <div class="bold full">Biografija autora</div>

@@ -32,12 +32,12 @@
             class="half flex-responsive flex relative pretplata-packbox stretch"
           >
             <div class="full flex overtitle-parent">
-              <h3 class="overtitle">Standard</h3>
+              <div class="noththree overtitle">Standard</div>
             </div>
-            <h2 class="full">62€</h2>
-            <h4 class="full center-text undertitle">
+            <div class="full sub-price bold">62€</div>
+            <div class="nothfour full center-text undertitle">
               godišnja pretplata (467kn)
-            </h4>
+            </div>
             <div class="full pretplata-benefits">
               <p class="full animate">
                 <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
@@ -68,12 +68,12 @@
             class="half flex-responsive flex relative pretplata-packbox stretch"
           >
             <div class="full flex overtitle-parent">
-              <h3 class="overtitle">Premium</h3>
+              <div class="noththree overtitle">Premium</div>
             </div>
-            <h2 class="full">78€</h2>
-            <h4 class="full center-text undertitle">
+            <div class="full sub-price bold">78€</div>
+            <div class="nothfour full center-text undertitle">
               godišnja pretplata (588kn)
-            </h4>
+            </div>
             <div class="full pretplata-benefits">
               <p class="full animate">
                 <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
@@ -123,12 +123,12 @@
               src="https://telegram.hr/wp-content/themes/telegram2-desktop/templates/native/erste/tgneue/img/sprajc.png?ver=2.0"
               alt="Zoran Šprajc"
             />
-            <h2 class="full">
+            <div class="full fancy-quote-heading">
               Telegram je letvicu istraživačkog novinarstva podignuo dosta
               visoko. Pokazao je da internet novinarstvo može biti zanimljivo i
               ozbiljno, ako ne i ozbiljnije od tradicionalnih medija.
-            </h2>
-            <h3 class="fancy-quote-author">Zoran Šprajc</h3>
+            </div>
+            <div class="noththree fancy-quote-author">Zoran Šprajc</div>
             <div class="quotation-marks">“</div>
           </div>
           <div class="fancy-quote relative">
@@ -138,12 +138,12 @@
               src="@/assets/img/extras/people/maja-sever.png"
               alt="Maja Sever"
             />
-            <h2 class="full">
+            <div class="full fancy-quote-heading">
               Pretplatila sam se na Telegram zato što je novinarstvo u našem
               društvu jedan od rijetkih korektiva vlasti. U državi u kojoj
               institucije ne funkcioniraju, neovisno novinarstvo treba podržati.
-            </h2>
-            <h3 class="fancy-quote-author">Maja Sever</h3>
+            </div>
+            <div class="noththree fancy-quote-author">Maja Sever</div>
             <div class="quotation-marks">“</div>
           </div>
           <div class="fancy-quote relative">
@@ -153,12 +153,12 @@
               src="https://telegram.hr/wp-content/themes/telegram2-desktop/templates/native/erste/tgneue/img/vukovic-vuk.png?ver=2.0"
               alt="Vuk Vukoviić"
             />
-            <h2 class="full">
+            <div class="full fancy-quote-heading">
               Podržavam Telegram da bi nastavili otkrivati još veće koruptivne i
               političke skandale te time činili društvo boljim. Kako bi
               Amerikanci rekli, ‘put your money where your mouth is’.
-            </h2>
-            <h3 class="fancy-quote-author">Vuk Vuković</h3>
+            </div>
+            <div class="noththree fancy-quote-author">Vuk Vuković</div>
             <div class="quotation-marks">“</div>
           </div>
           <div class="fancy-quote relative">
@@ -168,12 +168,12 @@
               src="@/assets/img/extras/people/miljenko-jergovic.png"
               alt="Miljenko Jergović"
             />
-            <h2 class="full">
+            <div class="full fancy-quote-heading">
               U nedovršenim društvima, kakvo je hrvatsko, neovisno novinarstvo i
               jest jedino novinarstvo. Telegram čitam svakodnevno, a to košta,
               ustvari to mora koštati da bi išta vrijedilo.
-            </h2>
-            <h3 class="fancy-quote-author">Miljenko Jergović</h3>
+            </div>
+            <div class="noththree fancy-quote-author">Miljenko Jergović</div>
             <div class="quotation-marks">“</div>
           </div>
         </div>

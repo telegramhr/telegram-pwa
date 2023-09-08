@@ -2,7 +2,7 @@
   <section v-if="posts.length" class="full flex relative">
     <div class="container flex relative">
       <div class="full center relative superone-st-bottompad">
-        <h3 class="flex superone-section-title">
+        <div class="noththree flex superone-section-title">
           <img src="@/assets/img/s1_logo_clean_noline.svg" alt="Super1 logo" loading="lazy" />
           <img
             src="@/assets/img/s1_logo_clean_noline_white.svg"
@@ -10,7 +10,7 @@
             class="dark-mode-only"
             loading="lazy"
           />{{ title }}
-        </h3>
+        </div>
       </div>
       <div class="full flex relative stretch column-bottom-pad">
         <div class="three-fourths flex flex-responsive relative">
@@ -25,9 +25,9 @@
         <div
           class="fourth flex mini-article-list mobile-side-pad flex-responsive column-horizontal-pad align-children-bottom"
         >
-          <h3 class="full overtitle super-minititle">
+          <div class="noththree full overtitle super-minititle">
             {{ title }} najčitanije
-          </h3>
+          </div>
           <div class="full flex">
             <mini
               v-for="post in mostRead.slice(0, 6)"

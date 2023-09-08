@@ -12,11 +12,11 @@
         class="container relative mobile-side-pad flex article-width-container"
       >
         <h1 class="full center-text column-top-pad">Kalkulator plaće</h1>
-        <h4 class="full center-text">
+        <div class="nothfour full center-text">
           Uz Telegramov kalkulator plaće brzo preračunajte neto u bruto ili
           obrnuto, naučite više o faktorima koji utječu na oporezivanje plaće,
           te saznajte koje doprinose plaćate koliko.
-        </h4>
+        </div>
         <form class="full flex relative os-calculator" @submit.prevent="submit">
           <div
             class="full column-full-pad flex-responsive flex os-calculator-section"
@@ -542,17 +542,17 @@
             <div
               class="half flex flex-responsive column-right-pad column-right-border"
             >
-              <h4 class="full overtitle">Neto plaća</h4>
+              <div class="nothfour full overtitle">Neto plaća</div>
               <p class="full os-calculator-result">{{ netoPlaca }} EUR</p>
-              <h4 class="full overtitle">{{ netoPlacaEur }} HRK</h4>
+              <div class="nothfour full overtitle">{{ netoPlacaEur }} HRK</div>
             </div>
             <div
               class="full flex mobile-only column-bottom-border-mobile os-calculator-mobile-space"
             ></div>
             <div class="half flex flex-responsive column-left-pad">
-              <h4 class="full overtitle">Bruto plaća</h4>
+              <div class="nothfour full overtitle">Bruto plaća</div>
               <p class="full os-calculator-result">{{ brutoPlaca }} EUR</p>
-              <h4 class="full overtitle">{{ brutoPlacaEur }} HRK</h4>
+              <div class="nothfour full overtitle">{{ brutoPlacaEur }} HRK</div>
             </div>
             <p class="full os-calculator-description">
               Telegramov kalkulator plaće je isključivo informativan te se ne
@@ -698,17 +698,17 @@
             <div
               class="half flex flex-responsive column-right-pad column-right-border"
             >
-              <h4 class="full overtitle">Bruto plaća</h4>
+              <div class="nothfour full overtitle">Bruto plaća</div>
               <p class="full os-calculator-result">{{ brutoPlaca }} EUR</p>
-              <h4 class="full overtitle">{{ brutoPlacaEur }} HRK</h4>
+              <div class="nothfour full overtitle">{{ brutoPlacaEur }} HRK</div>
             </div>
             <div
               class="full flex mobile-only column-bottom-border-mobile os-calculator-mobile-space"
             ></div>
             <div class="half flex flex-responsive column-left-pad">
-              <h4 class="full overtitle">Trošak plaće (Bruto 2)</h4>
+              <div class="nothfour full overtitle">Trošak plaće (Bruto 2)</div>
               <p class="full os-calculator-result">{{ brutoDva }} EUR</p>
-              <h4 class="full overtitle">{{ brutoDvaEur }} HRK</h4>
+              <div class="nothfour full overtitle">{{ brutoDvaEur }} HRK</div>
             </div>
             <p class="full os-calculator-description">
               Na bruto plaću poslodavac još plaća doprinos za zdravstveno

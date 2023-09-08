@@ -28,12 +28,12 @@
         >
           <div class="best-price-sticker animate">Najbolja <br />cijena</div>
           <div class="full flex overtitle-parent">
-            <h3 class="overtitle">Premium</h3>
+            <div class="noththree overtitle">Premium</div>
           </div>
           <h2 class="full">1+1 gratis</h2>
-          <h4 class="full center-text undertitle">
+          <div class="nothfour full center-text undertitle">
             platite samo 588 kn za 24 mjeseca čitanja (78,04€)
-          </h4>
+          </div>
           <div class="full pretplata-benefits">
             <p class="full animate">
               <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
@@ -59,9 +59,9 @@
               <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
               surfanje bez oglasa
             </p>
-            <h4 class="full center-text undertitle">
+            <div class="nothfour full center-text undertitle">
               *ponuda vrijedi samo za nove korisnike
-            </h4>
+            </div>
           </div>
           <div class="full center btn-parent" @click="checkout(four)">
             <div class="btn animate">Odaberi</div>
@@ -111,12 +111,12 @@
                 class="half flex-responsive flex relative pretplata-packbox stretch"
               >
                 <div class="full flex overtitle-parent">
-                  <h3 class="overtitle">Probni period</h3>
+                  <div class="noththree overtitle">Probni period</div>
                 </div>
-                <h2 class="full">0,99€</h2>
-                <h4 class="full center-text undertitle">
+                <div class="full sub-price bold">0,99€</div>
+                <div class="nothfour full center-text undertitle">
                   prvi mjesec, nakon toga 6,49€ (49kn) mjesečno
-                </h4>
+                </div>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
                     <font-awesome-icon
@@ -157,10 +157,12 @@
                 class="half flex-responsive flex relative pretplata-packbox stretch"
               >
                 <div class="full flex overtitle-parent">
-                  <h3 class="overtitle">Standard</h3>
+                  <div class="noththree overtitle">Standard</div>
                 </div>
-                <h2 class="full">6,49€</h2>
-                <h4 class="full center-text undertitle">Mjesečno (49kn)</h4>
+                <div class="full sub-price bold">6,49€</div>
+                <div class="nothfour full center-text undertitle">
+                  Mjesečno (49kn)
+                </div>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
                     <font-awesome-icon
@@ -201,10 +203,12 @@
                 class="half flex-responsive flex relative pretplata-packbox stretch"
               >
                 <div class="full flex overtitle-parent">
-                  <h3 class="overtitle">Premium</h3>
+                  <div class="noththree overtitle">Premium</div>
                 </div>
-                <h2 class="full">9,10€</h2>
-                <h4 class="full center-text undertitle">Mjesečno (69kn)</h4>
+                <div class="full sub-price bold">9,10€</div>
+                <div class="nothfour full center-text undertitle">
+                  Mjesečno (69kn)
+                </div>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
                     <font-awesome-icon
@@ -251,12 +255,12 @@
                 class="half flex-responsive flex relative pretplata-packbox stretch"
               >
                 <div class="full flex overtitle-parent">
-                  <h3 class="overtitle">Standard</h3>
+                  <div class="noththree overtitle">Standard</div>
                 </div>
-                <h2 class="full">5,16€</h2>
-                <h4 class="full center-text undertitle">
+                <div class="full sub-price bold">5,16€</div>
+                <div class="nothfour full center-text undertitle">
                   mjesečno (39kn), za cijelu godinu 62€ (467kn)
-                </h4>
+                </div>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
                     <font-awesome-icon
@@ -297,12 +301,12 @@
                 class="half flex-responsive flex relative pretplata-packbox stretch"
               >
                 <div class="full flex overtitle-parent">
-                  <h3 class="overtitle">Premium</h3>
+                  <div class="noththree overtitle">Premium</div>
                 </div>
-                <h2 class="full">6,50€</h2>
-                <h4 class="full center-text undertitle">
+                <div class="full sub-price bold">6,50€</div>
+                <div class="nothfour full center-text undertitle">
                   mjesečno (49kn), za cijelu godinu 78€ (588kn)
-                </h4>
+                </div>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
                     <font-awesome-icon
@@ -455,7 +459,7 @@
               aria-hidden="true"
             />
             <div class="keypoint-text full center">
-              <h3>Vrhunski autori</h3>
+              <div class="noththree">Vrhunski autori</div>
             </div>
           </a>
         </div>
@@ -468,7 +472,7 @@
               aria-hidden="true"
             />
             <div class="keypoint-text full center">
-              <h3>Otkrivanje korupcije</h3>
+              <div class="noththree">Otkrivanje korupcije</div>
             </div>
           </a>
         </div>
@@ -481,7 +485,7 @@
               aria-hidden="true"
             />
             <div class="keypoint-text full center">
-              <h3>Istraživački specijali</h3>
+              <div class="noththree">Istraživački specijali</div>
             </div>
           </a>
         </div>
@@ -494,7 +498,7 @@
               aria-hidden="true"
             />
             <div class="keypoint-text full center">
-              <h3>Inspirativne reportaže</h3>
+              <div class="noththree">Inspirativne reportaže</div>
             </div>
           </a>
         </div>

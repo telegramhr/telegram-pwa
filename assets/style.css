@@ -70,13 +70,13 @@ h1 {
     font-weight: 700;
     font-style: normal;
 }
-h2 {
+h2, .sub-price, .offer-title {
     font-family: 'Lora', serif;
     line-height: 1.2em;
     font-weight: 700;
     font-style: normal;
 }
-h3, h5 {
+.noththree, .nothfive {
     font-family: 'Barlow', sans-serif;
     font-weight: 600;
 }
@@ -209,13 +209,13 @@ header .logo, .mobile-sticky-nav .logo {
     margin-bottom: 10px;
     line-height: 1em;
 }
-.article h4 {
+.article .nothfour {
     font-size: 15px;
     font-size: 0.75rem;
     margin-bottom: 10px;
     line-height: 1.37em;
 }
-.article h3.overtitle {
+.article .noththree.overtitle {
     color: #ae3737;
     margin-bottom: 10px;
 }
@@ -225,15 +225,15 @@ header .logo, .mobile-sticky-nav .logo {
     padding: 2px 4px 3px 6px;
     margin-right: 8px;
 }
-.article h3.overtitle, h5.article-meta {
+.article .noththree.overtitle, .nothfive.article-meta {
     font-size: 11px;
     font-size: 0.55rem;
     text-transform: uppercase;
 }
-h5.article-meta > span, h5.article-meta > a  {
+.nothfive.article-meta > span, .nothfive.article-meta > a  {
     margin-right: 10px;
 }
-h5.article-meta i {
+.nothfive.article-meta i {
     font-weight: 400;
 }
 .meta-author {
@@ -273,11 +273,11 @@ h5.article-meta i {
     top: -2px;
     margin-bottom: 4px;
 }
-.article h4 {
+.article .nothfour {
     font-family: 'Barlow', sans-serif;
     opacity: .7;
 }
-.article-standarrd h5.article-meta > span.meta-preporuke {
+.article-standarrd .nothfive.article-meta > span.meta-preporuke {
     margin-right: 0px;
 }
 .article-standard .article-pad {
@@ -453,7 +453,7 @@ h2.section-title {
     padding-bottom: 4px;
     border-bottom: 3px solid #ae3737;
 }
-h3.subsection-title {
+.noththree.subsection-title {
     font-size: 16px;
     font-size: 0.8rem;
     text-transform: uppercase;
@@ -461,7 +461,7 @@ h3.subsection-title {
     font-weight: 600;
     opacity: .8;
 }
-h3.subsection-title img {
+.noththree.subsection-title img {
     height: 12px;
     width: auto;
     display: inline-block;
@@ -469,25 +469,25 @@ h3.subsection-title img {
     bottom: -0.5px;
     margin-right: 2px;
 }
-h3.os-subsection-logo img {
+.noththree.os-subsection-logo img {
     height: 28px;
 }
-h3.s1-subsection-logo img {
+.noththree.s1-subsection-logo img {
     height: 30px;
 }
-h3.ts-subsection-logo {
+.noththree.ts-subsection-logo {
     padding: 10px 24px;
 }
-h3.ts-subsection-logo img {
+.noththree.ts-subsection-logo img {
     height: 50px;
 }
-h3.pz-subsection-logo img {
+.noththree.pz-subsection-logo img {
     height: 18px;
 }
-h3.subsection-title img.dark-mode-only, .dark-mode h3.subsection-title img {
+.noththree.subsection-title img.dark-mode-only, .dark-mode .noththree.subsection-title img {
     display: none;
 }
-.dark-mode h3.subsection-title img.dark-mode-only {
+.dark-mode .noththree.subsection-title img.dark-mode-only {
     display: inline-block;
 }
 
@@ -543,7 +543,7 @@ h3.subsection-title img.dark-mode-only, .dark-mode h3.subsection-title img {
     margin-right: 8px;
     border-radius: 16px;
 }
-.komentar h5.article-meta {
+.komentar .nothfive.article-meta {
     display: none;
 }
 .komentar h2 {
@@ -621,7 +621,7 @@ h3.subsection-title img.dark-mode-only, .dark-mode h3.subsection-title img {
 .list-article .komentar-content {
     padding-top: 24px;
 }
-.list-article h5.article-meta {
+.list-article .nothfive.article-meta {
     display: flex;
 }
 
@@ -688,7 +688,7 @@ h3.subsection-title img.dark-mode-only, .dark-mode h3.subsection-title img {
     top: -10%;
     left: -10%;
 }
-.article-break h3.overtitle {
+.article-break .noththree.overtitle {
     color: white;
     font-size: 14px;
     font-size: 0.7rem;
@@ -872,7 +872,7 @@ h3.subsection-title img.dark-mode-only, .dark-mode h3.subsection-title img {
 .stock-market .superbold {
     float: right;
 }
-.stonk-widget h3.overtitle {
+.stonk-widget .noththree.overtitle {
     margin-bottom: 22px;
 }
 .stonk-widget img {
@@ -973,7 +973,7 @@ h3.subsection-title img.dark-mode-only, .dark-mode h3.subsection-title img {
 .sport-block .block-title, .sport-block .dynamic-overtitle-element, .sport-block .widget, .sport-block .widget::before, .sport-block .komentar .komentar-image, .sport-block .subtle-btn-parent:hover .subtle-btn, .sport-block .loader-square div, .sport-block .newbtn {
     background-color: #376cae;
 }
-.sport-block .meta-preporuke, .sport-block h3.overtitle, .sport-block .article-mini .meta-date, .sport-block .related-articles h5, .sport-block .komentar-quotation {
+.sport-block .meta-preporuke, .sport-block .noththree.overtitle, .sport-block .article-mini .meta-date, .sport-block .related-articles .nothfive, .sport-block .komentar-quotation {
     color: #376cae;
 }
 .sport-block h2.section-title {
@@ -982,7 +982,7 @@ h3.subsection-title img.dark-mode-only, .dark-mode h3.subsection-title img {
 .super1-block .block-title, .super1-block .dynamic-overtitle-element, .super1-block .widget, .super1-block .widget::before, .super1-block .komentar .komentar-image, .super1-block .subtle-btn-parent:hover .subtle-btn, .super1-block .loader-square div, .super1-block .newbtn {
     background-color: #CC3366;
 }
-.super1-block .meta-preporuke, .super1-block h3.overtitle, .super1-block .article-mini .meta-date, .super1-block .related-articles h5 {
+.super1-block .meta-preporuke, .super1-block .noththree.overtitle, .super1-block .article-mini .meta-date, .super1-block .related-articles .nothfive {
     color: #CC3366;
 }
 .super1-block h2.section-title {
@@ -991,7 +991,7 @@ h3.subsection-title img.dark-mode-only, .dark-mode h3.subsection-title img {
 .pz-block .block-title, .pz-block .dynamic-overtitle-element, .pz-block .widget, .pz-block .widget::before, .pz-block .komentar .komentar-image, .pz-block .subtle-btn-parent:hover .subtle-btn, .pz-block .loader-square div, .pz-block .newbtn {
     background-color: #27a9e0;
 }
-.pz-block .meta-preporuke, .pz-block h3.overtitle, .pz-block .article-mini .meta-date, .pz-block .related-articles h5 {
+.pz-block .meta-preporuke, .pz-block .noththree.overtitle, .pz-block .article-mini .meta-date, .pz-block .related-articles .nothfive {
     color: #0a80c5;
 }
 .pz-block h2.section-title {
@@ -1004,7 +1004,7 @@ h3.subsection-title img.dark-mode-only, .dark-mode h3.subsection-title img {
     font-size: 1.2rem;
     font-weight: 300;
 }
-.weekday-title h5 {
+.weekday-title .nothfive {
     margin-top: 8px;
     font-family: 'Barlow', sans-serif;
     font-weight: 300;
@@ -1119,7 +1119,7 @@ footer .copyright, footer .conversion-notice {
     font-size: 0.8rem;
     opacity: .7;
 }
-.article-head h3.overtitle {
+.article-head .noththree.overtitle {
     color: #ae3737;
     margin-top: 32px;
     margin-bottom: 10px;
@@ -1136,7 +1136,7 @@ footer .copyright, footer .conversion-notice {
     margin-bottom: 18px;
     line-height: 1em;
 }
-.single-article-body h3, .single-article-body h4 {
+.single-article-body .noththree, .single-article-body .nothfour {
     font-size: 20px;
     font-size: 1rem;
     margin-bottom: 15px;
@@ -1334,11 +1334,11 @@ figure img {
 .single-article-commentary .article-head {
     text-align: center;
 }
-.single-article-commentary article h3.overtitle {
+.single-article-commentary article .noththree.overtitle {
     margin: 0 auto;
     margin-bottom: 16px;
 }
-.single-article-commentary .related-header-widget h3.overtitle {
+.single-article-commentary .related-header-widget .noththree.overtitle {
     margin: 0px;
     margin-bottom: 10px;
 }
@@ -1385,7 +1385,7 @@ figure img {
 .single-article-premium-alt .premium-article-head .article-head {
     display: none;
 }
-.single-article .premium-article-head .article-head h3.overtitle {
+.single-article .premium-article-head .article-head .noththree.overtitle {
     color: white;
 }
 .single-article-premium header .container {
@@ -1526,7 +1526,7 @@ figure img {
     top: 0;
     height: 100%;
 }
-.immersive-break h3.overtitle img {
+.immersive-break .noththree.overtitle img {
     height: 15px;
     display: inline-block;
     margin-right: 8px;
@@ -1566,7 +1566,7 @@ figure img {
 .side-menu .half:nth-child(2n-1) {
     padding-right: 20px;
 }
-.side-menu h3 {
+.side-menu .noththree {
     font-family: 'Barlow', sans-serif;
     font-weight: 700;
     text-transform: uppercase;
@@ -1932,7 +1932,7 @@ header {
     position: absolute;
     left: -1px;
 }
-.related-articles h5 {
+.related-articles .nothfive {
     font-weight: 700;
     letter-spacing: normal;
     text-transform: none;
@@ -1984,7 +1984,7 @@ header {
     border-top: 1px solid #c8c8c8;
     border-bottom: 1px solid #c8c8c8;
 }
-.widget-more-on-2 h3.overtitle {
+.widget-more-on-2 .noththree.overtitle {
     letter-spacing: 1.5px;
     color: #ae3737;
     margin-bottom: 30px;
@@ -2075,7 +2075,7 @@ header {
     width: 100%;
     max-width: 888px;
 }
-.gallery-body h3.overtitle {
+.gallery-body .noththree.overtitle {
     color: white;
 }
 .gallery-header > .third {
@@ -2287,7 +2287,7 @@ header {
     top: -20px;
     margin-bottom: -20px;
 }
-.collab-overtitle h3.overtitle {
+.collab-overtitle .noththree.overtitle {
     color: #c1b9b1;
     margin-right: 5px;
 }
@@ -2369,10 +2369,10 @@ header .fa-sliders-h {
     top: 16px;
     right: 4vw;
 }
-.side-menu .half h3 {
+.side-menu .half .noththree {
     padding-top: 14px;
 }
-.side-menu .half h3:first-child {
+.side-menu .half .noththree:first-child {
     padding-top: 0px;
 }
 .theme-preview {
@@ -2470,7 +2470,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .special-partner-logobox {
     padding: 32px;
 }
-.special-partner-logobox h5 {
+.special-partner-logobox .nothfive {
     text-transform: uppercase;
     letter-spacing: 1px;
     padding-top: 8px;
@@ -2496,9 +2496,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     width: 33%;
     z-index: 5;
 }
-.special-partner-widget .article-standard h4,
+.special-partner-widget .article-standard .nothfour,
 .special-partner-widget .article-standard .desktop-only,
-.special-partner-widget .article-standard h5 {
+.special-partner-widget .article-standard .nothfive {
     display: none;
 }
 .special-partner-widget .article-standard {
@@ -2575,7 +2575,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 48px;
     padding-right: 68px;
 }
-.contact-tile h3 {
+.contact-tile .noththree {
     color: #ae3737;
     font-size: 24px;
     margin-bottom: 16px;
@@ -2829,7 +2829,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     top: 0;
     left: 35%;
 }*/
-.pretplata-keypoint h3 {
+.pretplata-keypoint .noththree {
     font-size: 38px;
     font-size: 1.9rem;
     padding: 10px;
@@ -2945,7 +2945,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     margin-bottom: 48px;
     text-align: center;
 }
-.pretplata-page .pretplata-packbox h2 {
+.pretplata-page .pretplata-packbox .sub-price {
     font-size: 72px;
     font-size: 3.6rem;
     margin-bottom: 0px;
@@ -3449,7 +3449,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
       padding-top: 16px;
       margin-bottom: 16px;
     }
-    .pretplata-keypoint h3 {
+    .pretplata-keypoint .noththree {
       font-size: 24px;
       font-size: 1.2rem;
     }
@@ -3471,7 +3471,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         margin-top: 32px;
         height: auto;
     }
-    .contact-tile h3 {
+    .contact-tile .noththree {
         font-size: 20px;
         font-size: 1rem;
     }
@@ -3616,7 +3616,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     header a.mob-nav-otherbtn, .mobile-sticky-nav a.mob-nav-otherbtn {
         right: 4vw;
     }
-    .article-standard h4 {
+    .article-standard .nothfour {
         display: none;
     }
     header .subheader .weather {
@@ -3878,7 +3878,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .collab-overtitle img {
         bottom: -25px;
     }
-    .collab-overtitle h3.overtitle {
+    .collab-overtitle .noththree.overtitle {
         margin-bottom: 36px;
         margin-top: 57px;
     }
@@ -4049,11 +4049,11 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         width: 100%;
         top: 0;
     }
-    .article h3.overtitle, h5.article-meta {
+    .article .noththree.overtitle, .nothfive.article-meta {
         font-size: 12px;
         font-size: 0.6rem;
     }
-    .article h4 {
+    .article .nothfour {
         font-size: 15px;
         font-size: 0.75rem;
     }
@@ -4261,14 +4261,14 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .standard-block > .full {
         order: 3;
     }
-    .block-5 .fourth .article-standard h3.overtitle, .block-5 .fourth .article-standard img {
+    .block-5 .fourth .article-standard .noththree.overtitle, .block-5 .fourth .article-standard img {
         display: none;
     }
     .block-5 .article-featured h2 {
         font-size: 20px;
         font-size: 1rem;
     }
-    .block-5 .article-standard h4, .block-5 .article-featured .meta-date {
+    .block-5 .article-standard .nothfour, .block-5 .article-featured .meta-date {
         display: none;
     }
     .standard-block .article-featured:not(:first-child) {
@@ -4379,7 +4379,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         opacity: 1;
         font-weight: 700;
     }
-    .article-head h3.overtitle {
+    .article-head .noththree.overtitle {
         font-size: 18px;
         font-size: 0.9rem;
         margin-bottom: 16px;
@@ -4430,7 +4430,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 13px;
         font-size: 0.65rem;
     }
-    .related-header-widget .article-standard h3.overtitle {
+    .related-header-widget .article-standard .noththree.overtitle {
         font-size: 13px;
         font-size: 0.65rem;
     }
@@ -4441,7 +4441,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         top: -2px;
         margin-bottom: 0px;
     }
-    .related-header-widget .article-standard h4, .related-header-widget .article-standard h5 {
+    .related-header-widget .article-standard .nothfour, .related-header-widget .article-standard .nothfive {
         display: none;
     }
     /* Komentar desktop */
@@ -4792,7 +4792,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 24px;
         font-size: 1.2rem;
     }
-    .article-medium h4 {
+    .article-medium .nothfour {
         display: block;
     }
     .article-medium img {
@@ -4812,7 +4812,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         display: block;
         width: auto;
     }
-    .article-medium h3.overtitle {
+    .article-medium .noththree.overtitle {
         margin-top: 0px;
         margin-bottom: 6px;
         position: relative;
@@ -4820,7 +4820,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
 }
 @media screen and (min-width: 767px) {
-    .split-articles .article-medium h3.overtitle {
+    .split-articles .article-medium .noththree.overtitle {
         margin-top: 0px;
     }
     .block-5 .fourth .article-medium {
@@ -4860,7 +4860,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .contact-tile svg {
         font-size: 2rem;
     }
-    .cantha-big-block .no-image-block .article h4 {
+    .cantha-big-block .no-image-block .article .nothfour {
         display: none;
     }
     .cantha-big-block .mini-article-list .article-mini:nth-child(4), .cantha-big-block .mini-article-list .article-mini:nth-child(5) {
@@ -5359,14 +5359,14 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     color: #7077b7;
     text-decoration-color: #7077b7;
 }
-.openspace .article h5.article-meta {
+.openspace .article .nothfive.article-meta {
     font-family: 'IBM Plex Mono', monospace;
     font-weight: 600;
 }
-.openspace .article h5.article-meta > span {
+.openspace .article .nothfive.article-meta > span {
   display: none;
 }
-.openspace .article h5.article-meta > span.meta-author {
+.openspace .article .nothfive.article-meta > span.meta-author {
   display: inline-block;
 }
 .openspace .related-articles {
@@ -5408,7 +5408,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-family: 'IBM Plex Mono', monospace;
     font-weight: 500;
 }
-.openspace .immersive-break h3.overtitle img {
+.openspace .immersive-break .noththree.overtitle img {
     bottom: -1px;
 }
 .openspace .fancy-rubrika-header h1 {
@@ -5517,12 +5517,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .openspace .related-header-widget, .openspace .article-head-newsletter, .openspace .post-article-newsletters {
     display: none;
 }
-.openspace .article-head h3.overtitle {
+.openspace .article-head .noththree.overtitle {
     font-family: 'IBM Plex Mono', monospace;
     font-weight: 500;
     color: #464b7a;
 }
-.dark-mode .openspace .article-head h3.overtitle {
+.dark-mode .openspace .article-head .noththree.overtitle {
     color: #7077b7;
 }
 .openspace .single-article-body h2 {
@@ -5592,7 +5592,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .openspace .os-prilika .meta-preporuke {
     display: none;
 }
-.openspace .os-prilika h5.article-meta > span, h5.article-meta > a {
+.openspace .os-prilika .nothfive.article-meta > span, .nothfive.article-meta > a {
     margin-right: 10px;
 }
 .openspace .os-prilika .komentar-quotation {
@@ -5746,7 +5746,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         margin-top: -26px;
         margin-bottom: 0px;
     }
-    .openspace .article-break h3.overtitle {
+    .openspace .article-break .noththree.overtitle {
         color: white;
         opacity: .7;
     }
@@ -6320,10 +6320,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .pitanje-zdravlja .block-2 .three-fourths .article-featured .article-pad {
     padding-bottom: 24px;
 }
-.pitanje-zdravlja .article h4 {
+.pitanje-zdravlja .article .nothfour {
     margin-bottom: 0px;
 }
-.pitanje-zdravlja .article h5.article-meta {
+.pitanje-zdravlja .article .nothfive.article-meta {
     margin-top: 10px;
 }
 .pitanje-zdravlja .page-header-nav a {
@@ -6350,11 +6350,11 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 40px;
     font-size: 2rem;
 }
-.pitanje-zdravlja .article h3.overtitle,
+.pitanje-zdravlja .article .noththree.overtitle,
 .pz-blue {
     color: #0a80c5;
 }
-.pitanje-zdravlja .block-related .article h3.overtitle {
+.pitanje-zdravlja .block-related .article .noththree.overtitle {
     color: #ae3737;
 }
 .pitanje-zdravlja .article-featured img {
@@ -6517,7 +6517,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .single-article.pitanje-zdravlja .related-header-widget, .single-article.pitanje-zdravlja .mini-pretplata, .single-article.pitanje-zdravlja .article-head-newsletter, .single-article.pitanje-zdravlja .post-article-newsletters {
     display: none;
 }
-.single-article.pitanje-zdravlja .article-head h3.overtitle, .single-article.pitanje-zdravlja .single-article-body p a, .single-article.pitanje-zdravlja .single-article-body ul a {
+.single-article.pitanje-zdravlja .article-head .noththree.overtitle, .single-article.pitanje-zdravlja .single-article-body p a, .single-article.pitanje-zdravlja .single-article-body ul a {
     color: #0a80c5;
     text-decoration-color: #0a80c5;
 }
@@ -6627,7 +6627,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         margin-bottom: 0px;
         margin-top: 4vw;
     }
-    .pitanje-zdravlja .article h4 {
+    .pitanje-zdravlja .article .nothfour {
         margin-bottom: 0px;
         font-size: 15px;
         font-size: 0.75rem;
@@ -7137,7 +7137,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     min-height: 200px;
     margin-bottom: 32px;
 }
-.fancy-quote h2 {
+.fancy-quote .fancy-quote-heading {
     font-family: 'Merriweather', serif;
     font-weight: 400;
     font-size: 16px;
@@ -7202,7 +7202,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-weight: 700;
     letter-spacing: normal;
 }
-.article h3.overtitle {
+.article .noththree.overtitle {
     font-weight: 700;
     letter-spacing: normal;
     text-transform: none;
@@ -7238,7 +7238,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .no-image-block .article .article-meta .meta-date {
     display: flex;
 }
-.no-subtitle-block .article h4 {
+.no-subtitle-block .article .nothfour {
     display: none;
 }
 .no-subtitle-block .article h2 {
@@ -7373,14 +7373,14 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 14px;
     font-size: 0.7rem;
 }
-.mini-article-list h3.overtitle {
+.mini-article-list .noththree.overtitle {
     font-weight: 700;
     opacity: .8;
 }
-.mini-article-list .article-mini h5.article-meta {
+.mini-article-list .article-mini .nothfive.article-meta {
     display: none;
 }
-.cantha-mini-block .article-mini h5.article-meta {
+.cantha-mini-block .article-mini .nothfive.article-meta {
     display: none;
 }
 .cantha-mini-block .article-mini h2 {
@@ -7472,7 +7472,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .dark-mode .cantha-break.klub-cantha-break, .contrast-mode .cantha-break.klub-cantha-break {
     background-color: #333;
 }
-.cantha-break h5 {
+.cantha-break .nothfive {
     opacity: .5;
     font-weight: 400;
     font-size: 16px;
@@ -7499,7 +7499,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .hard-light-blend {
     mix-blend-mode: hard-light;
 }
-.alt-big-break.center-text .article h3.overtitle {
+.alt-big-break.center-text .article .noththree.overtitle {
     margin-left: auto;
     margin-right: auto;
 }
@@ -7530,7 +7530,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .cantha-big-block .article-featured .related-articles a:nth-child(-n+3) {
     display: flex;
 }
-.cantha-big-block .no-image-block .article:last-child h4 {
+.cantha-big-block .no-image-block .article:last-child .nothfour {
     display: none;
 }
 .cantha-big-block .no-image-block .article:last-child h2 {
@@ -7634,7 +7634,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .temp-related-limit .related-articles a:nth-child(n+4) {
     display: none;
 }
-.temp-preview-category .cantha-separator, .temp-preview-category h3.subsection-title {
+.temp-preview-category .cantha-separator, .temp-preview-category .noththree.subsection-title {
     display: none;
 }
 .fancy-authors-widget .article-featured h2 {
@@ -7723,14 +7723,14 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         margin-bottom: 1vw;
         margin-top: 5vw;
     }
-    h3.subsection-title, .mini-article-list h3.overtitle {
+    .noththree.subsection-title, .mini-article-list .noththree.overtitle {
         padding-top: 4vw;
         padding-bottom: 5vw;
     }
-    .mini-article-list h3.overtitle {
+    .mini-article-list .noththree.overtitle {
         padding-bottom: 1vw;
     }
-    h3.pz-subsection-logo, h3.s1-subsection-logo, h3.os-subsection-logo, h3.ts-subsection-logo {
+    .noththree.pz-subsection-logo, .noththree.s1-subsection-logo, .noththree.os-subsection-logo, .noththree.ts-subsection-logo {
         padding-top: 5vw;
     }
     .article-mini h2 {
@@ -7791,7 +7791,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 24px;
         font-size: 1.2rem;
     }
-    .cantha-break h5 {
+    .cantha-break .nothfive {
         font-size: 16px;
         font-size: 0.8rem;
     }
@@ -7860,7 +7860,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .alt-big-break .article .article-meta {
         justify-content: center;
     }
-    .alt-big-break h4, .alt-big-break h3.overtitle {
+    .alt-big-break .nothfour, .alt-big-break .noththree.overtitle {
         display: none;
     }
     .alt-big-break.center-text .article .article-pad {
@@ -7928,7 +7928,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .mobile-articles-noimage .article-standard h2 {
         margin-bottom: 0px;
     }
-    .mobile-articles-noimage .article-standard h5.article-meta {
+    .mobile-articles-noimage .article-standard .nothfive.article-meta {
         display: none;
     }
     .cantha-commentary .komentar h2, .block-echovald .cantha-commentary .komentar h2 {
@@ -7961,11 +7961,11 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 2rem;
         padding-top: 0px;
     }
-    .article-mini h4 {
+    .article-mini .nothfour {
         margin-bottom: 2px;
         margin-top: 4px;
     }
-    .article h3.overtitle, .related-articles h5 {
+    .article .noththree.overtitle, .related-articles .nothfive {
         font-size: 14px;
         font-size: 0.7rem;
         margin-bottom: 6px;
@@ -8036,7 +8036,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         padding-top: 2vw;
         border-bottom: 1px solid #c8c8c8;
     }
-    .latest-articles h3.subsection-title {
+    .latest-articles .noththree.subsection-title {
         padding-bottom: 0px;
     }
     .dark-mode .latest-articles {
@@ -8160,7 +8160,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .article-featured {
         margin-bottom: 0px;
     }
-    .article-featured h3.overtitle {
+    .article-featured .noththree.overtitle {
         margin-bottom: 7px;
         margin-top: 3px;
     }
@@ -8297,7 +8297,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .cantha-related .third {
         width: 24.99%;
     }
-    .desktop-mini-force .article img, .desktop-mini-force .article h3.overtitle, .desktop-mini-force .article h4 {
+    .desktop-mini-force .article img, .desktop-mini-force .article .noththree.overtitle, .desktop-mini-force .article .nothfour {
         display: none;
     }
     .desktop-mini-force .article h2 {
@@ -8559,7 +8559,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 0.8rem;
     text-transform: uppercase;
 }
-.superone .mini-article-list h3.super-minititle {
+.superone .mini-article-list .noththree.super-minititle {
     opacity: 1;
     margin-bottom: 16px;
 }
@@ -8702,7 +8702,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .superone.single-article h1 {
     margin-top: 24px;
 }
-.superone.single-article .article-head .overtitle-parent > h3.overtitle {
+.superone.single-article .article-head .overtitle-parent > .noththree.overtitle {
     display: none;
 }
 .superone.single-article .article-head .overtitle-parent {
@@ -8742,7 +8742,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 
 @media screen and (min-width: 767px) {
-    .super-sidebar .article h4 {
+    .super-sidebar .article .nothfour {
         display: none;
     }
     .super-sidebar.split-articles .article-medium img {
@@ -8817,7 +8817,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         padding: 0px;
         margin-top: 0px;
     }
-    .superone .mini-article-list h3.super-minititle {
+    .superone .mini-article-list .noththree.super-minititle {
         margin-bottom: 0px;
     }
     .superone .offers-widget .gallery-content .gallery-left {
@@ -8929,7 +8929,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .knjiga-header {
     padding-top: 48px;
 }
-.knjiga-header h3.overtitle,
+.knjiga-header .noththree.overtitle,
 .exclusive-msg {
     font-size: 14px;
     margin-top: 0px;
@@ -9003,7 +9003,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     padding: 6px 16px;
     padding-top: 5px;
 }
-.knjiga-features h1 {
+.knjiga-features .big-book-price {
     margin-top: 32px;
     font-size: 28px;
     font-size: 2.4rem;
@@ -9045,14 +9045,14 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .knjiga-page .pretplata-packboxes a.undertitle {
     margin-bottom: 0px;
 }
-.knjiga-header h4 {
+.knjiga-header .nothfour {
     font-size: 24px;
     font-size: 1.2rem;
     font-family: 'Barlow', sans-serif;
     margin-top: -10px;
     line-height: normal;
 }
-.book-popup-content h4 {
+.book-popup-content .nothfour {
     margin-top: 8px;
 }
 .knjiga-cover-3d {
@@ -9061,20 +9061,20 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .knjiga-cover-2d {
     margin-bottom: 32px;
 }
-.knjiga-hero h1 {
+.knjiga-hero .big-book-price {
     margin-top: 0px;
     margin-bottom: 0px;
-    max-width: 450px;
+    max-width: 480px;
     margin-left: auto;
     margin-right: auto;
 }
-.knjiga-hero h1:nth-child(2) {
+.knjiga-hero .big-book-price:nth-child(2) {
     font-weight: 400;
     font-size: 40px;
     font-size: 2rem;
     line-height: 1.2em;
 }
-.knjiga-hero h4 {
+.knjiga-hero .nothfour {
     font-family: 'Barlow', sans-serif;
     opacity: 0.7;
     line-height: 1.1em;
@@ -9091,7 +9091,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 14px;
     font-size: 0.7rem;
 }
-.knjiga-header h3.overtitle {
+.knjiga-header .noththree.overtitle {
     text-transform: none;
 }
 .break-dezulovic .newbtn {
@@ -9104,14 +9104,14 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 92px;
     font-size: 4.6rem;
 }
-.bottom-pretplata-promo h4 {
+.bottom-pretplata-promo .nothfour {
     font-weight: 400;
     font-size: 32px;
     font-size: 1.6rem;
     opacity: 1;
     line-height: 1.1em;
 }
-.bottom-pretplata-promo h5 {
+.bottom-pretplata-promo .nothfive {
     font-weight: 400;
     font-size: 16px;
     font-size: 0.8rem;
@@ -9155,7 +9155,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
 }
 @media screen and (max-width: 767px) {
-    .knjiga-features h1 {
+    .knjiga-features .big-book-price {
         font-size: 40px;
         font-size: 2rem;
     }
@@ -9183,11 +9183,11 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .bottom-pretplata-promo h1 {
         font-size: 17vw;
     }
-    .bottom-pretplata-promo h4 {
+    .bottom-pretplata-promo .nothfour {
         font-size: 20px;
         font-size: 1rem;
     }
-    .bottom-pretplata-promo .klub-header h4 {
+    .bottom-pretplata-promo .klub-header .nothfour {
         font-size: 15px;
         font-size: 0.75rem;
     }
@@ -9203,7 +9203,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         padding: 0px;
         margin-bottom: -5vw;
     }
-    .knjiga-hero h1:nth-child(2) {
+    .knjiga-hero .big-book-price:nth-child(2) {
         font-size: 32px;
         font-size: 1.6rem;
     }
@@ -9223,14 +9223,14 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 74px;
         font-size: 3.7rem;
     }
-    .knjiga-header h4 {
+    .knjiga-header .nothfour {
         font-size: 47px;
         font-size: 2.35rem;
     }
     .knjiga-header {
         padding-top: 5vw;
     }
-    .knjiga-header h3.overtitle {
+    .knjiga-header .noththree.overtitle {
         font-size: 18px;
         font-size: 0.9rem;
     }
@@ -9264,7 +9264,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .klub-ponuda:last-child {
     margin-right: 0px;
 }
-.klub-ponuda h3.overtitle {
+.klub-ponuda .noththree.overtitle {
     margin-bottom: 4px;
     margin-top: 8px;
 }
@@ -9286,7 +9286,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     flex-wrap: wrap;
     padding: 24px;
 }
-.klub-expanded .article h4 {
+.klub-expanded .article .nothfour {
     font-size: 1rem;
     font-size: 20px;
     padding-bottom: 24px;
@@ -9392,7 +9392,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     opacity: .5;
     font-weight: 400;
 }
-.offer-slide h2 {
+.offer-slide .offer-title {
     font-size: 20px;
     font-size: 1rem;
     margin-top: 8px;
@@ -9407,12 +9407,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .offer-slide img {
     height: auto;
 }
-.offer-slide h3.overtitle {
+.offer-slide .noththree.overtitle {
     margin-bottom: 4px;
     font-size: 17px;
     font-size: 0.85rem;
 }
-.offer-slide h3.overtitle .strikethrough-price {
+.offer-slide .noththree.overtitle .strikethrough-price {
     font-size: 16px;
     font-size: 0.8rem;
 }
@@ -9487,7 +9487,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-weight: 700;
     margin-bottom: 36px;
 }
-.klub-intro h4 {
+.klub-intro .nothfour {
     font-size: 24px;
     font-size: 1.2rem;
     margin-bottom: 8px;
@@ -9516,7 +9516,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .klub-header .container {
         justify-content: flex-end;
     }
-    .klub-header h4 {
+    .klub-header .nothfour {
         font-size: 24px;
         font-size: 1.2rem;
     }
@@ -9527,7 +9527,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         min-width: 40vw;
         margin-right: 4vw;
     }
-    .klub-header h4 {
+    .klub-header .nothfour {
         font-size: 18px;
         font-size: 0.9rem;
     }
@@ -9614,7 +9614,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 1.1rem;
         margin-bottom: 2vw;
     }
-    .klub-intro h4 {
+    .klub-intro .nothfour {
         font-size: 18px;
         font-size: 0.9rem;
         margin-bottom: 2vw;
@@ -9870,11 +9870,11 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 3.6rem;
     margin-bottom: 8px;
 }
-.pretplata-new-promo h4 {
+.pretplata-new-promo .nothfour {
     font-size: 26px;
     font-size: 1.3rem;
 }
-.pretplata-new-promo h5 {
+.pretplata-new-promo .nothfive {
     max-width: 270px;
     margin-left: auto;
     margin-right: auto;
@@ -9890,11 +9890,11 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 40px;
         font-size: 2rem;
     }
-    .pretplata-new-promo h4, .pretplata-new-promo h2:nth-child(2) {
+    .pretplata-new-promo .nothfour, .pretplata-new-promo h2:nth-child(2) {
         font-size: 18px;
         font-size: 0.9rem;
     }
-    .pretplata-new-promo h5 {
+    .pretplata-new-promo .nothfive {
         font-size: 12px;
         font-size: 0.6rem;
     }
@@ -9903,7 +9903,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .pretplata-new-promo h1 {
         font-size: 10vw;
     }
-    .pretplata-new-promo h4 {
+    .pretplata-new-promo .nothfour {
         font-size: 18px;
         font-size: 0.9rem;
     }
@@ -9911,7 +9911,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 24px;
         font-size: 1.2rem;
     }
-    .pretplata-new-promo h5 {
+    .pretplata-new-promo .nothfive {
         margin-top: 8px;
     }
     .pretplata-new-promo h2:nth-child(2) {
@@ -9919,7 +9919,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 0.7rem;
         margin-bottom: 16px;
     }
-    .pretplata-new-promo h2:nth-child(2), .pretplata-new-promo h5 {
+    .pretplata-new-promo h2:nth-child(2), .pretplata-new-promo .nothfive {
         max-width: 100%;
     }
     .pretplata-new-promo {
@@ -9978,7 +9978,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 2rem;
     margin-top: 4px;
 }
-.os-special-page h4 {
+.os-special-page .nothfour {
     font-size: 24px;
     font-size: 1.2rem;
 }
@@ -10116,7 +10116,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 2.1rem;
         margin-top: 24px;
     }
-    .os-special-page h4 {
+    .os-special-page .nothfour {
         font-size: 20px;
         font-size: 1rem;
       }
@@ -10220,7 +10220,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 
 /* Donation page */
 
-.sub-point h3.overtitle {
+.sub-point .noththree.overtitle {
     color: #ae3737;
     font-weight: 700;
     margin-bottom: 8px;
@@ -10248,7 +10248,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     border-color: #555;
     color: #efefef;
 }
-.donation-form h4 {
+.donation-form .nothfour {
     font-size: 22px;
     font-size: 1.1rem;
     font-weight: 700;
@@ -10434,7 +10434,7 @@ label.payment-tile svg {
         font-size: 36px;
         font-size: 1.8rem;
     }
-    .donation-form h4 {
+    .donation-form .nothfour {
         margin-top: 4vw;
     }
 }
@@ -10512,7 +10512,7 @@ label.payment-tile svg {
 .sitetop-bf h1 {
     margin-bottom: 24px;
 }
-.sitetop-bf h4 {
+.sitetop-bf .nothfour {
     margin-bottom: 16px;
 }
 .sitetop-xmas {
@@ -10816,7 +10816,7 @@ header .search-menu {
 .telesport .block-title, .telesport .dynamic-overtitle-element, .telesport .widget, .telesport .widget::before, .telesport .komentar .komentar-image, .telesport .subtle-btn-parent:hover .subtle-btn, .telesport .loader-square div, .telesport .newbtn {
     background-color: #069eff;
 }
-.telesport .meta-preporuke, .telesport h3.overtitle, .telesport .article-mini .meta-date, .telesport .related-articles h5, .telesport .komentar-quotation {
+.telesport .meta-preporuke, .telesport .noththree.overtitle, .telesport .article-mini .meta-date, .telesport .related-articles .nothfive, .telesport .komentar-quotation {
     color: #069eff;
 }
 .telesport h2.section-title {
@@ -10859,7 +10859,7 @@ header .search-menu {
     opacity: 1;
     color: #069eff;
 }
-.telesport .featured-split.biggest-font .article-featured h3.overtitle {
+.telesport .featured-split.biggest-font .article-featured .noththree.overtitle {
     display: none;
 }
 
@@ -10902,11 +10902,11 @@ header .search-menu {
         left: 0px;
         bottom: -1px;
     }
-    .telesport .featured-split.biggest-font .article-featured h4 {
+    .telesport .featured-split.biggest-font .article-featured .nothfour {
         font-size: 19px;
         font-size: 0.95rem;
     }
-    .telesport .featured-split.biggest-font .article-featured h5.article-meta {
+    .telesport .featured-split.biggest-font .article-featured .nothfive.article-meta {
         margin-top: 6px;
         font-size: 16px;
         font-size: 0.8rem;
@@ -11067,14 +11067,14 @@ header .search-menu {
 .no-sticky-ticker .container .sixty {
     z-index: 3;
 }
-.smaller-booksel .knjiga-hero h4 {
+.smaller-booksel .knjiga-hero .nothfour {
     margin-top: 16px;
     margin-bottom: 0px;
 }
 .smaller-booksel .pretplata-packbox:nth-child(3), .smaller-booksel .pretplata-packbox:nth-child(4) {
     display: flex;
 }
-.smaller-booksel .knjiga-features h1 {
+.smaller-booksel .knjiga-features .big-book-price {
     font-size: 34px;
     font-size: 1.7rem;
 }
@@ -11149,12 +11149,15 @@ header .search-menu {
 .book-offers-widget .klub-ponuda {
     margin-bottom: 0px;
 }
+.book-offers-widget .offer-title {
+    margin-bottom: 10px;
+}
 
 @media screen and (min-width: 767px) {
-    .book-offers-widget .article h2 {
+    .book-offers-widget .article .offer-title {
         font-size: 1.2rem;
     }
-    .book-offers-widget .klub-ponuda h2 {
+    .book-offers-widget .klub-ponuda .offer-title {
         font-size: 1rem;
     }
     .book-offers-widget .slick-slide:last-child .fourth {
@@ -11175,7 +11178,7 @@ header .search-menu {
         object-fit: contain;
         height: auto;
     }
-    .book-offers-widget .klub-ponuda h2 {
+    .book-offers-widget .klub-ponuda .offer-title {
         font-size: 1rem;
     }
 }
@@ -11448,6 +11451,12 @@ header .search-menu {
     }
 }
 @media screen and (max-width: 767px) {
+    .latest-line-feed {
+        border-bottom: 1px solid #c8c8c8;
+    }
+    .dark-mode .latest-line-feed {
+        border-color: #333;
+    }
     .latest-articles {
         border-bottom: 0px;
     }
@@ -11458,7 +11467,7 @@ header .search-menu {
     .latest-line-feed .time-overtitle {
         margin-bottom: 8px;
     }
-    .latest-line-feed h3.subsection-title {
+    .latest-line-feed .noththree.subsection-title {
         padding-bottom: 1vw;
     }
     .category-page .latest-line-feed {
@@ -11487,7 +11496,7 @@ header .search-menu {
     border: 1px solid #c8c8c8;
     margin-bottom: 24px;
 }
-.partner-special-block .article h3.overtitle, .partner-special-block  h5.article-meta .meta-preporuke {
+.partner-special-block .article .noththree.overtitle, .partner-special-block  .nothfive.article-meta .meta-preporuke {
     color: var(--partner-color);
 }
 @media screen and (max-width: 767px) {

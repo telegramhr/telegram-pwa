@@ -58,10 +58,10 @@
               alt="Telegram Klub logo"
               loading="lazy"
             />
-            <h4 class="full small-top-margin">
+            <div class="nothfour full small-top-margin">
               Klub ekskluzivnih ponuda, pogodnosti i popusta, <br />
               samo za pretplatnike Telegrama.
-            </h4>
+            </div>
             <div class="full flex small-top-margin">
               <div class="newbtn huge-newbtn">Saznajte više</div>
             </div>

@@ -77,7 +77,9 @@
         <div
           class="fourth flex mini-article-list mobile-side-pad flex-responsive column-horizontal-pad align-children-bottom"
         >
-          <h3 class="full overtitle super-minititle">Super se čita</h3>
+          <div class="noththree full overtitle super-minititle">
+            Super se čita
+          </div>
           <div class="full flex">
             <mini v-for="post in mostRead" :key="post.id" :post="post"></mini>
           </div>
@@ -146,7 +148,7 @@
     <section v-if="breaks[0]" class="full flex relative">
       <div class="container flex relative">
         <div class="full center relative">
-          <h3 class="flex superone-section-title">
+          <div class="noththree flex superone-section-title">
             <img
               src="@/assets/img/s1_logo_clean_noline.svg"
               alt="Super1 logo"
@@ -156,7 +158,7 @@
               alt="Super1 logo"
               class="dark-mode-only"
             />story
-          </h3>
+          </div>
         </div>
         <div class="full flex column-horizontal-pad">
           <app-link
@@ -196,7 +198,7 @@
         class="container flex relative stretch column-bottom-pad column-horizontal-pad"
       >
         <div class="full center relative">
-          <h3 class="flex superone-section-title">
+          <div class="noththree flex superone-section-title">
             <img
               src="@/assets/img/s1_logo_clean_noline.svg"
               alt="Super1 logo"
@@ -206,7 +208,7 @@
               alt="Super1 logo"
               class="dark-mode-only"
             />Preporuka
-          </h3>
+          </div>
         </div>
         <div
           class="three-fourths superone-preporuka flex flex-responsive relative"

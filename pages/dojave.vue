@@ -39,7 +39,7 @@
                 :icon="['fad', 'comment-dots']"
               ></font-awesome-icon>
               <h2 class="full">Signal</h2>
-              <h3 class="full contact-data">099 624 3591</h3>
+              <div class="noththree full contact-data">099 624 3591</div>
               <p class="full">
                 Signal je aplikacija za razmjenu poruka, slika, videa i poziva
                 koji su zaštićeni potpunom enkripcijom. Jedina informacija
@@ -56,9 +56,9 @@
                 :icon="['fad', 'envelope-open-text']"
               ></font-awesome-icon>
               <h2 class="full">Email</h2>
-              <h3 class="full contact-data">
+              <div class="noththree full contact-data">
                 <a href="mailto:dojave@telegram.hr">dojave@telegram.hr</a>
-              </h3>
+              </div>
               <p class="full">
                 Našem dediciranom emailu za dojave pristup ima malen i zatvoren
                 broj urednika na Telegramu. Sve primljene dojave provjeravamo i
@@ -74,7 +74,7 @@
                 :icon="['fab', 'telegram']"
               ></font-awesome-icon>
               <h2 class="full">Telegram</h2>
-              <h3 class="full contact-data">099 624 3591</h3>
+              <div class="noththree full contact-data">099 624 3591</div>
               <p class="full">
                 Slično kao Signal, Telegram je aplikacija za sigurnu razmjenu
                 poruka, slika, videa i dokumenata zaštićena potpunom
@@ -93,11 +93,11 @@
           <div class="full column-horizontal-pad column-top-pad">
             <div class="full cantha-separator"></div>
           </div>
-          <h3
-            class="full center-text column-horizontal-pad column-top-pad subsection-title"
+          <div
+            class="noththree full center-text column-horizontal-pad column-top-pad subsection-title"
           >
             Možda će vas zanimati
-          </h3>
+          </div>
         </div>
         <div
           v-for="post in posts.slice(0, 12)"

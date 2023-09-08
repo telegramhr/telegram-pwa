@@ -17,7 +17,7 @@
       <div
         class="third flex flex-responsive column-horizontal-pad column-right-border"
       >
-        <h4 class="full">Unesite podatke</h4>
+        <div class="nothfour full">Unesite podatke</div>
         <label for="name">Ime i prezime:</label>
         <input
           id="name"
@@ -44,7 +44,7 @@
       <div
         class="third flex flex-responsive column-horizontal-pad column-right-border"
       >
-        <h4 class="full">Način doniranja</h4>
+        <div class="nothfour full">Način doniranja</div>
         <div class="full flex desktop-only">
           <label class="half" for="price">Odaberite iznos (u €):</label>
           <label class="half">Ili upišite sami:</label>
@@ -135,7 +135,7 @@
         v-show="nacinPlacanja === 'kreditna-kartica'"
         class="third flex flex-responsive column-horizontal-pad"
       >
-        <h4 class="full">Izvršite donaciju</h4>
+        <div class="nothfour full">Izvršite donaciju</div>
         <label>Broj kartice:</label>
         <div id="credit-card" class="hosted-field"></div>
         <div class="half flex flex-responsive column-right-pad">
@@ -152,7 +152,7 @@
         v-show="nacinPlacanja === 'bankovna-uplata'"
         class="third flex-responsive column-horizontal-pad contains-code-image"
       >
-        <h4 class="full">Izvršite donaciju</h4>
+        <div class="nothfour full">Izvršite donaciju</div>
         <p class="small-top-margin">IBAN: HR7323600001101437160</p>
         <p>Telegram Media Grupa d.o.o.</p>
         <p>Iznos: {{ price }},00 €</p>

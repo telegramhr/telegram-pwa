@@ -59,9 +59,9 @@
       />
       <div class="full flex article-head">
         <div class="full flex overtitle-parent">
-          <h3 class="overtitle">Tvrtke i karijere</h3>
+          <div class="noththree overtitle">Tvrtke i karijere</div>
           <div v-if="post.promo.partner" class="collab-overtitle">
-            <h3 class="overtitle">U suradnji s</h3>
+            <div class="noththree overtitle">U suradnji s</div>
             <img :src="post.promo.logo" :alt="post.promo.partner" />
           </div>
         </div>
@@ -76,9 +76,9 @@
         >
           <div class="full column article-head column-top-pad flex">
             <div class="full flex overtitle-parent">
-              <h3 class="overtitle">Tvrtke i karijere</h3>
+              <div class="noththree overtitle">Tvrtke i karijere</div>
               <div v-if="post.promo.partner" class="collab-overtitle">
-                <h3 class="overtitle">U suradnji s</h3>
+                <div class="noththree overtitle">U suradnji s</div>
                 <img :src="post.promo.logo" :alt="post.promo.partner" />
               </div>
             </div>
@@ -86,7 +86,7 @@
             <h2 class="full">
               {{ post.subtitle }}
             </h2>
-            <h5 class="full flex relative article-meta mobile-only">
+            <div class="nothfour full flex relative article-meta mobile-only">
               <template v-if="post.promo.partner">
                 <a href="#" class="meta-author flex">
                   <img
@@ -111,7 +111,7 @@
                   <span>Piše</span><span>{{ author.name }}</span></nuxt-link
                 >
               </template>
-            </h5>
+            </div>
             <div class="full flex article-head-image-parent relative">
               <img
                 class="article-head-image"
@@ -126,7 +126,7 @@
             <p v-if="post.perex" class="perex">
               {{ post.perex }}
             </p>
-            <h5 class="full flex relative article-meta">
+            <div class="nothfour full flex relative article-meta">
               <template v-if="post.promo.partner">
                 <a href="#" class="meta-author flex desktop-only">
                   <img :src="post.promo.logo" />
@@ -176,7 +176,7 @@
                 ></a>
                 <!--<a href="#"><i class="fab fa-instagram animate"></i></a>-->
               </div>
-            </h5>
+            </div>
           </div>
           <div class="full relative single-article-body">
             <div id="article-content" @click="handleClick">

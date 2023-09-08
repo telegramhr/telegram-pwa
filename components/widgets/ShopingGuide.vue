@@ -3,9 +3,9 @@
     <div class="full column-horizontal-pad column-top-pad">
       <div class="full cantha-separator"></div>
     </div>
-    <h3 class="full center-text column-full-pad subsection-title">
+    <div class="noththree full center-text column-full-pad subsection-title">
       Pokloni za Božić
-    </h3>
+    </div>
     <div
       v-for="post in posts"
       :key="post.id"

@@ -66,10 +66,10 @@
           <div
             class="third column-horizontal-pad flex-responsive column-right-border"
           >
-            <h3 class="full os-about-subtitle">
+            <div class="noththree full os-about-subtitle">
               <span>Kritički progovaramo</span
               ><span> o zdravstvenim temama</span>
-            </h3>
+            </div>
             <p>
               Obrađujemo zdravstvene teme iz svih kuteva, koristimo relevantne
               izvore podataka i otvaramo diskusiju s čitateljima.
@@ -78,10 +78,10 @@
           <div
             class="third column-horizontal-pad flex-responsive column-right-border"
           >
-            <h3 class="full os-about-subtitle">
+            <div class="noththree full os-about-subtitle">
               <span>Pomažemo u razvoju</span
               ><span> zdravstvene pismenosti građana</span>
-            </h3>
+            </div>
             <p>
               Educiramo, informiramo i demistificiramo. Zdravstvene teme
               objašnjavamo laički. Pomažemo vam da steknete kontrolu nad svojim
@@ -89,9 +89,9 @@
             </p>
           </div>
           <div class="third column-horizontal-pad flex-responsive">
-            <h3 class="full os-about-subtitle">
+            <div class="noththree full os-about-subtitle">
               <span>Dajemo točne odgovore</span><span> na vaša pitanja</span>
-            </h3>
+            </div>
             <p>
               Pitanje zdravlja je pravo mjesto za informacije o zdravstvenim
               temama. Kritički obrađujemo teme koje vas zanimaju.

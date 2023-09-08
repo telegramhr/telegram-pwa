@@ -167,7 +167,7 @@
         </div>
         <!-- G1 -->
         <div
-          class="three-fourths featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad mobile-order-1 m-order-1"
+          class="three-fourths featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles column-right-border mobile-side-pad mobile-order-1 m-order-1"
         >
           <featured-alt
             v-if="posts[0]"
@@ -175,16 +175,7 @@
             :post="posts[0]"
           ></featured-alt>
         </div>
-        <div
-          class="fourth flex-responsive mobile-side-pad column-right-pad flex relative m-order-3 no-last-border-mobile"
-        >
-          <client-only>
-            <div class="full flex relative latest-line-feed">
-              <latest :portal="1"></latest>
-            </div>
-          </client-only>
-        </div>
-        <!-- komentari
+        <!-- komentari -->
         <div
           class="fourth flex-responsive column-horizontal-pad mobile-side-pad cantha-commentary m-order-10"
         >
@@ -192,15 +183,28 @@
             <div class="full column-horizontal-pad column-top-pad">
               <div class="full cantha-separator"></div>
             </div>
-            <h3 class="full center-text column-full-pad subsection-title">
+            <div
+              class="noththree full center-text column-full-pad subsection-title"
+            >
               Komentari
-            </h3>
+            </div>
           </div>
           <commentary type="tg"></commentary>
-        </div> -->
+        </div>
         <div class="full column-full-pad desktop-only">
           <div class="full column-top-border"></div>
         </div>
+        <!-- latest -->
+        <client-only>
+          <div
+            v-if="$mobile"
+            class="full mobile-side-pad column-right-pad flex relative m-order-3 no-last-border-mobile"
+          >
+            <div class="full flex relative latest-line-feed">
+              <latest :portal="1"></latest>
+            </div>
+          </div>
+        </client-only>
         <!-- rest of Gs -->
         <div
           class="full flex cantha-small-block mobile-side-pad stretch m-order-5"
@@ -222,7 +226,9 @@
           <div class="full column-horizontal-pad column-top-pad">
             <div class="full cantha-separator"></div>
           </div>
-          <h3 class="full center-text column-full-pad subsection-title">
+          <div
+            class="noththree full center-text column-full-pad subsection-title"
+          >
             <img
               src="@/assets/img/telegram_logo_black.svg"
               alt="Telegram logo"
@@ -233,7 +239,7 @@
               alt="Telegram logo"
             />
             teme
-          </h3>
+          </div>
         </div>
         <div
           class="full flex mobile-side-pad stretch secondary-gs-block m-order-8"
@@ -318,10 +324,10 @@
                     <h2 class="full">
                       Bespoštedno novinarstvo <br />koje gura društvo naprijed.
                     </h2>
-                    <h5 class="full">
+                    <div class="nothfour full">
                       Za neograničeno čitanje Telegrama i podršku istraživačkim
                       serijalima, odaberite jedan od paketa.
-                    </h5>
+                    </div>
                   </div>
                 </div>
                 <div class="third stretch flex flex-responsive">
@@ -343,9 +349,11 @@
             <div class="full column-horizontal-pad column-top-pad">
               <div class="full cantha-separator"></div>
             </div>
-            <h3 class="full center-text column-full-pad subsection-title">
+            <div
+              class="noththree full center-text column-full-pad subsection-title"
+            >
               Još vijesti
-            </h3>
+            </div>
             <div class="full flex stretch relative no-last-border-mobile">
               <div
                 v-for="post in posts.slice(8, 12)"
@@ -372,7 +380,9 @@
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
-        <h3 class="full center-text column-full-pad subsection-title">
+        <div
+          class="noththree full center-text column-full-pad subsection-title"
+        >
           <img src="@/assets/img/telegram_logo_black.svg" alt="Telegram logo" />
           <img
             src="@/assets/img/telegram_logo_white.svg"
@@ -380,7 +390,7 @@
             alt="Telegram logo"
           />
           preporuka
-        </h3>
+        </div>
         <div
           v-if="breaks[0]"
           class="three-fourths flex-responsive column-horizontal-pad flex split-articles big-split alt-big-break center-text column-right-border"
@@ -419,14 +429,14 @@
         >
           <div class="third column-full-pad center flex-responsive">
             <div class="full flex article">
-              <h3 class="full overtitle">Ekskluzivna prednarudžba</h3>
+              <div class="noththree full overtitle">Ekskluzivna prednarudžba</div>
               <h2 class="full">
                 Telegram Vam predstavlja: <br />Prva knjiga Sanje Modrić
               </h2>
-              <h5 class="full">
+              <div class="nothfour full">
                 Špajza novinskih tekstova Telegramove <br />
                 nagrađivane novinarke, prvi put kao knjiga
-              </h5>
+              </div>
             </div>
           </div>
           <div class="two-thirds stretch flex flex-responsive">
@@ -445,11 +455,11 @@
                 <h2 class="full relative center-text">
                   <span class="faded strikethrough">19,99€</span> 13,99€
                 </h2>
-                <h5 class="full center-text">
+                <div class="nothfour full center-text">
                   (<span class="faded strikethrough">150,61 kn</span> 105,41 kn)
                   <br />
                   posebna cijena za Telegramove pretplatnike!
-                </h5>
+                </div>
                 <div class="full center">
                   <div class="newbtn">Kupite</div>
                 </div>
@@ -468,13 +478,13 @@
         >
           <div class="third column-full-pad center flex-responsive">
             <div class="full flex article">
-              <h3 class="full overtitle">Posebne pogodnosti</h3>
+              <div class="noththree full overtitle">Posebne pogodnosti</div>
               <h2 class="full">
                 Specijalni newsletteri za Telegramove pretplatnike.
               </h2>
-              <h5 class="full">
+              <div class="nothfour full">
                 Najbolje od Telegrama, svaki dan u vašem inboxu.
-              </h5>
+              </div>
             </div>
           </div>
           <div class="two-thirds stretch flex flex-responsive">
@@ -489,9 +499,9 @@
                 <div class="full center">
                   <div class="newbtn">Prijavite se</div>
                 </div>
-                <h5 class="full center-text">
+                <div class="nothfour full center-text">
                   Odaberite tematske i autorske newslettere koje želite primati.
-                </h5>
+                </div>
               </div>
             </div>
           </div>
@@ -526,9 +536,11 @@
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
-        <h3 class="full center-text column-full-pad subsection-title">
+        <div
+          class="noththree full center-text column-full-pad subsection-title"
+        >
           Odabir urednika
-        </h3>
+        </div>
         <div
           v-if="breaks[1]"
           class="full column-horizontal-pad flex split-articles big-split alt-big-break center-text"
@@ -538,11 +550,11 @@
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
-        <h3
-          class="full center-text column-full-pad subsection-title manual-subsection-adjust"
+        <div
+          class="noththree full center-text column-full-pad subsection-title manual-subsection-adjust"
         >
           Pretplatnici čitaju
-        </h3>
+        </div>
         <div class="full flex cantha-small-block stretch">
           <div
             v-for="post in breaks.slice(2, 5)"
@@ -577,10 +589,10 @@
                 alt="Telegram Klub logo"
                 class="klub-break-logo"
               />
-              <h5 class="full">
+              <div class="nothfour full">
                 Klub ekskluzivnih ponuda, pogodnosti i popusta, samo za
                 pretplatnike Telegrama.
-              </h5>
+              </div>
             </div>
           </div>
           <div class="two-thirds stretch flex flex-responsive">
@@ -594,10 +606,10 @@
               class="third center stretch column-horizontal-pad flex-responsive"
             >
               <div class="full column-left-pad flex article">
-                <h5 class="full center-text">
+                <div class="nothfour full center-text">
                   Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
                   pretplatnicima.
-                </h5>
+                </div>
                 <div class="full center">
                   <div class="newbtn">Saznajte više</div>
                 </div>
@@ -616,13 +628,13 @@
         >
           <div class="forty column-full-pad center flex-responsive">
             <div class="full flex article">
-              <h3 class="full overtitle">Telegram dojave</h3>
+              <div class="noththree full overtitle">Telegram dojave</div>
               <h2 class="full">
                 Imate saznanja o korupciji? Javite se našim novinarima.
               </h2>
-              <h5 class="full">
+              <div class="nothfour full">
                 Naši su članci otkrili brojne pljačke i nepravilnosti.
-              </h5>
+              </div>
             </div>
           </div>
           <div class="sixty stretch flex flex-responsive">
@@ -638,9 +650,9 @@
                 <div class="full center">
                   <div class="newbtn">Javite nam se</div>
                 </div>
-                <h5 class="full center-text">
+                <div class="nothfour full center-text">
                   Imamo sigurne kanale putem kojih nas možete kontaktirati.
-                </h5>
+                </div>
               </div>
             </div>
           </div>

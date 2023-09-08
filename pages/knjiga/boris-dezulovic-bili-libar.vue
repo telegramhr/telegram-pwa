@@ -10,9 +10,11 @@
         class="full flex relative center knjiga-header article-head mobile-side-pad column-full-pad"
       >
         <div class="container relative flex single-article-body">
-          <h3 class="full center-text overtitle">Telegram naklada</h3>
+          <div class="noththree full center-text overtitle">
+            Telegram naklada
+          </div>
           <h1 class="full center-text">Bili libar</h1>
-          <h4 class="full center-text">Boris Dežulović</h4>
+          <div class="nothfour full center-text">Boris Dežulović</div>
         </div>
       </div>
       <div class="full flex relative single-article-body">
@@ -29,17 +31,17 @@
               />
             </div>
             <div class="full flex knjiga-features">
-              <h1 class="full relative center-text">
+              <div class="full relative center-text big-book-price bold">
                 <span class="faded strikethrough">19,78€</span> 13,14€
-              </h1>
-              <h1 class="full relative center-text">
+              </div>
+              <div class="full relative center-text big-book-price">
                 (<span class="faded strikethrough">149 kn</span> 99 kn) <br />
                 posebna cijena za sve pretplatnike Telegrama
-              </h1>
-              <h4 class="full relative center-text">
+              </div>
+              <div class="nothfour full relative center-text">
                 Naručite Bili Libar danas, s besplatnom dostavom na kućnu adresu
                 unutar Hrvatske.
-              </h4>
+              </div>
               <div class="full knjiga-keypoints">
                 <p class="full center-text">Izdavač: Telegram Media Grupa</p>
               </div>

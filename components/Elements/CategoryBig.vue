@@ -3,9 +3,9 @@
     <div class="full column-horizontal-pad column-top-pad">
       <div class="full cantha-separator"></div>
     </div>
-    <h3 class="full center-text column-full-pad subsection-title">
+    <div class="noththree full center-text column-full-pad subsection-title">
       <nuxt-link :to="'/' + slug">{{ category | parseCat }}</nuxt-link>
-    </h3>
+    </div>
     <div class="full block-echovald flex relative">
       <div class="three-fourths flex-responsive flex stretch">
         <div class="half flex-responsive flex column-horizontal-pad">

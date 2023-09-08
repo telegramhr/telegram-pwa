@@ -18,10 +18,10 @@
       <election-list-widget
         :city="this.$store.state.elections.osijek"
       ></election-list-widget>
-      <h3 class="overtitle full center-text izbori-cta animate">
+      <div class="noththree overtitle full center-text izbori-cta animate">
         Pratite rezultate za sve županije, gradove i općine uživo u našem
         specijalu.
-      </h3>
+      </div>
     </div>
   </app-link>
 </template>
@@ -55,7 +55,7 @@
 .izbori-mini-widget .kandidat {
   margin-bottom: 8px;
 }
-.izbori-mini-widget h3.overtitle {
+.izbori-mini-widget .noththree.overtitle {
   padding-top: 8px;
   margin-bottom: 20px;
 }
@@ -78,18 +78,18 @@
 .kandidat:nth-child(5) {
   margin-bottom: 0px;
 }
-.izbori-mini-widget h3.overtitle .data-age-time {
+.izbori-mini-widget .noththree.overtitle .data-age-time {
   color: #111;
   opacity: 0.25;
   float: right;
 }
-.dark-mode .izbori-mini-widget h3.overtitle .data-age-time {
+.dark-mode .izbori-mini-widget .noththree.overtitle .data-age-time {
   color: #efefef;
 }
-.izbori-mini-widget h3.overtitle:hover .data-age-time {
+.izbori-mini-widget .noththree.overtitle:hover .data-age-time {
   opacity: 0.7;
 }
-.izbori-mini-widget h3.izbori-cta {
+.izbori-mini-widget .noththree.izbori-cta {
   font-weight: 400;
   font-style: italic;
   font-family: 'Merriweather', serif;
@@ -100,10 +100,10 @@
   text-transform: none;
   text-decoration: underline;
 }
-.dark-mode .izbori-mini-widget h3.izbori-cta {
+.dark-mode .izbori-mini-widget .noththree.izbori-cta {
   color: #efefef;
 }
-.izbori-mini-widget:hover h3.izbori-cta {
+.izbori-mini-widget:hover .noththree.izbori-cta {
   color: #ae3737;
   opacity: 1;
 }
@@ -111,10 +111,10 @@
   .grad-segment {
     margin-bottom: 6vw;
   }
-  .grad-segment h3.overtitle {
+  .grad-segment .noththree.overtitle {
     border-top: 1px solid #c8c8c8;
   }
-  .dark-mode .grad-segment h3.overtitle {
+  .dark-mode .grad-segment .noththree.overtitle {
     border-color: #555;
   }
   .izbori-mini-widget {

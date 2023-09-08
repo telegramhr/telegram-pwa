@@ -5,8 +5,8 @@
         <div class="full cantha-separator"></div>
       </div>
       <app-link to="/super1" class="full flex relative">
-        <h3
-          class="full center-text column-full-pad subsection-title s1-subsection-logo"
+        <div
+          class="noththree full center-text column-full-pad subsection-title s1-subsection-logo"
         >
           <img src="@/assets/img/s1_logo_clean_noline.svg" alt="Super1 logo" />
           <img
@@ -15,7 +15,7 @@
             class="dark-mode-only"
             loading="lazy"
           />
-        </h3>
+        </div>
       </app-link>
       <div class="full block-echovald mobile-side-pad flex relative">
         <div class="three-fourths flex-responsive flex stretch">

@@ -26,21 +26,21 @@
         :aria-labelledby="'featured-' + post.id"
       >
         <div class="full flex">
-          <h3
+          <div
             class="overtitle"
-            :class="{ dynamicOvertitle: post.overtitle_tag }"
+            :class="{ noththree: true, dynamicOvertitle: post.overtitle_tag }"
           >
             <span v-if="post.overtitle_tag" class="dynamic-overtitle-element">{{
               post.overtitle_tag
             }}</span>
             <span>{{ parsedOvertitle }}</span>
-          </h3>
+          </div>
         </div>
         <h2 :id="'featured-' + post.id" class="full animate">
           {{ post.portal_title | parseCat }}
         </h2>
-        <h4 class="full">{{ post.subtitle }}</h4>
-        <h5 class="full flex article-meta">
+        <div class="nothfour full">{{ post.subtitle }}</div>
+        <div class="nothfive full flex article-meta">
           <span v-if="post.authors.length" class="meta-author"
             ><i>Piše</i>
             {{ post.authors.length ? post.authors[0].name : '' }}</span
@@ -49,12 +49,12 @@
             >{{ post.recommendations }} preporuka</span
           >
           <span class="meta-date">{{ post.time | parseTime }}</span>
-        </h5>
+        </div>
       </app-link>
     </div>
     <template v-if="post.related && post.related.length">
       <div class="full flex related-articles relative">
-        <h5 class="full">Još o temi</h5>
+        <div class="nothfive full">Još o temi</div>
         <app-link
           v-for="article in post.related"
           :key="'related' + article.id"

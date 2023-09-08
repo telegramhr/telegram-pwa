@@ -11,9 +11,9 @@
             <img :src="category.image" loading="lazy" />
           </div>
           <div class="full relative">
-            <h3 class="full overtitle">Jednom tjedno</h3>
+            <div class="noththree full overtitle">Jednom tjedno</div>
             <h2 class="full newsletter-title">{{ category.title }}</h2>
-            <h3 class="full subtitle">Najbolje iz rubrike</h3>
+            <div class="noththree full subtitle">Najbolje iz rubrike</div>
           </div>
         </div>
         <div class="full flex newsletter-box">
@@ -39,9 +39,9 @@
             />
           </div>
           <div class="full relative">
-            <h3 class="full overtitle">Radnim danom</h3>
+            <div class="noththree full overtitle">Radnim danom</div>
             <h2 class="full newsletter-title">Dnevni Telegram</h2>
-            <h3 class="full subtitle">Odabir najvažnijih tema</h3>
+            <div class="noththree full subtitle">Odabir najvažnijih tema</div>
           </div>
         </div>
         <div class="full flex newsletter-box">

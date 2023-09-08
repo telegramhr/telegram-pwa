@@ -16,9 +16,9 @@
               />
             </div>
             <div class="full relative">
-              <h3 class="full overtitle">Radnim danom</h3>
+              <div class="noththree full overtitle">Radnim danom</div>
               <h2 class="full newsletter-title">Dnevni Telegram</h2>
-              <h3 class="full subtitle">Odabir najvažnijih tema</h3>
+              <div class="noththree full subtitle">Odabir najvažnijih tema</div>
             </div>
           </div>
           <div class="full flex newsletter-box">
@@ -45,9 +45,9 @@
               <img :src="author.image" loading="lazy" />
             </div>
             <div class="full relative">
-              <h3 class="full overtitle">Redovito</h3>
+              <div class="noththree full overtitle">Redovito</div>
               <h2 class="full newsletter-title">{{ author.name }}</h2>
-              <h3 class="full subtitle">Puni članci autora</h3>
+              <div class="noththree full subtitle">Puni članci autora</div>
             </div>
           </div>
           <div class="full flex newsletter-box">
@@ -75,9 +75,9 @@
               />
             </div>
             <div class="full relative">
-              <h3 class="full overtitle">Jednom tjedno</h3>
+              <div class="noththree full overtitle">Jednom tjedno</div>
               <h2 class="full newsletter-title">{{ category.title }}</h2>
-              <h3 class="full subtitle">Najbolje iz rubrike</h3>
+              <div class="noththree full subtitle">Najbolje iz rubrike</div>
             </div>
           </div>
           <div class="full flex newsletter-box">
@@ -103,9 +103,9 @@
               />
             </div>
             <div class="full relative">
-              <h3 class="full overtitle">Petkom</h3>
+              <div class="noththree full overtitle">Petkom</div>
               <h2 class="full newsletter-title">Vikend na Telegramu</h2>
-              <h3 class="full subtitle">Najbolje za vikend čitanje</h3>
+              <div class="noththree full subtitle">Najbolje za vikend čitanje</div>
             </div>
           </div>
           <div class="full flex newsletter-box">

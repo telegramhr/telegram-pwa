@@ -19,9 +19,9 @@
       <div class="full center flex-responsive mobile-side-pad">
         <div class="full flex article">
           <h1 class="full center-text">Godinu dana pretplate besplatno</h1>
-          <h4 class="full center-text">
+          <div class="nothfour full center-text">
             Kupite jednu godinu, drugu dobijete besplatno
-          </h4>
+          </div>
           <div class="full center">
             <div class="newbtn huge-newbtn">Pretplatite se</div>
           </div>
