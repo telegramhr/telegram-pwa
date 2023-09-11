@@ -11519,6 +11519,9 @@ input:checked ~ .input-hidden {
 .shoo-top {
     margin-top: 24px;
 }
+.shoo-bottom {
+    margin-bottom: 24px;
+}
 
 @media screen and (min-width: 767px) {
     .single-article h1.newbook-title, .newbook-title {
@@ -11544,5 +11547,8 @@ input:checked ~ .input-hidden {
     }
     .shoo-top {
         margin-top: 4vw;
+    }
+    .shoo-bottom {
+        margin-bottom: 4vw;
     }
 }
