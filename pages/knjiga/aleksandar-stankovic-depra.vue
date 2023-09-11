@@ -160,6 +160,9 @@ export default {
   },
   mounted() {
     this.getPrice()
+    if (this.$route.query.checkout) {
+      this.showModal = true
+    }
   },
   methods: {
     getPrice() {

@@ -408,7 +408,7 @@
     </div>
     <!-- Book widget DEPRA -->
     <app-link
-      to="/knjiga/aleksandar-stankovic-depra"
+      to="/knjiga/aleksandar-stankovic-depra?checkout=true"
       class="full flex relative center mobile-side-pad darkened-bg column-full-pad shoo-bottom"
     >
       <div class="container relative flex stretch">
