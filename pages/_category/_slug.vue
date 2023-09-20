@@ -128,6 +128,15 @@
           </div>
           <h1 class="full">{{ post.portal_title | parseCat }}</h1>
           <h2 class="full">{{ post.subtitle | parseCat }}</h2>
+          <div class="full flex">
+            <span class="fancy-overtitle-premium">
+              <img
+                src="@/assets/img/tg_monogram_logo_white.svg"
+                alt="Telegram monogram logo (TG)"
+              />
+              Samo za pretplatnike
+            </span>
+          </div>
         </div>
       </div>
       <div class="full relative">
@@ -168,6 +177,15 @@
               <h2 class="full">
                 {{ post.subtitle | parseCat }}
               </h2>
+              <div class="full flex">
+                <span class="fancy-overtitle-premium">
+                  <img
+                    src="@/assets/img/tg_monogram_logo_white.svg"
+                    alt="Telegram monogram logo (TG)"
+                  />
+                  Samo za pretplatnike
+                </span>
+              </div>
               <div class="nothfive full flex relative article-meta mobile-only">
                 <nuxt-link
                   v-for="author in post.authors"

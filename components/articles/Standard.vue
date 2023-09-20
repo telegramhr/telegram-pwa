@@ -21,6 +21,15 @@
       <h2 :id="'standard-' + post.id" class="full">
         {{ post.portal_title | parseCat }}
       </h2>
+      <div v-if="premiumOnly" class="full flex">
+        <span class="fancy-overtitle-premium">
+          <img
+            src="@/assets/img/tg_monogram_logo_white.svg"
+            alt="Telegram monogram logo (TG)"
+          />
+          Samo za pretplatnike
+        </span>
+      </div>
       <div class="nothfour full">{{ post.subtitle | parseCat }}</div>
       <div class="nothfive full flex article-meta">
         <span v-if="post.authors.length" class="meta-author"
@@ -90,6 +99,9 @@ export default {
         set += `, ${this.post.image.url3} 3x`
       }
       return set
+    },
+    premiumOnly() {
+      return Math.random() <= 0.1
     },
   },
 }
