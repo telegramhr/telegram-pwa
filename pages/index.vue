@@ -421,9 +421,9 @@
             Aleksandar Stanković
           </div>
           <p class="full center-text newbook-intro">
-            Poznati novinar i voditelj godinama boluje od teške depresije, a
-            sada je, u ovoj knjizi, prvi put odlučio progovoriti o svojoj borbi
-            s tom bolesti
+            Poznati novinar i voditelj godinama boluje od depresije, a sada je,
+            u ovoj knjizi, prvi put odlučio progovoriti o svojoj borbi s tom
+            bolesti
           </p>
         </div>
 
