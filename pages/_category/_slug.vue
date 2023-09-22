@@ -125,18 +125,19 @@
               <div class="noththree overtitle">{{ post.promo.prefix }}</div>
               <img :src="post.promo.logo" :alt="post.promo.partner" />
             </div>
-          </div>
-          <h1 class="full">{{ post.portal_title | parseCat }}</h1>
-          <h2 class="full">{{ post.subtitle | parseCat }}</h2>
-          <div class="full flex">
-            <span class="fancy-overtitle-premium">
+            <div
+              v-if="!post.promo.partner"
+              class="collab-overtitle premium-only-collab"
+            >
+              <div class="noththree overtitle">Samo za pretplatnike</div>
               <img
                 src="@/assets/img/tg_monogram_logo_white.svg"
                 alt="Telegram monogram logo (TG)"
               />
-              Samo za pretplatnike
-            </span>
+            </div>
           </div>
+          <h1 class="full">{{ post.portal_title | parseCat }}</h1>
+          <h2 class="full">{{ post.subtitle | parseCat }}</h2>
         </div>
       </div>
       <div class="full relative">
@@ -146,7 +147,7 @@
             class="container column-full-pad flex relative mobile-side-pad"
           >
             <div class="full column article-head column-top-pad flex">
-              <div class="full flex overtitle-parent">
+              <div class="full flex overtitle-parent relative">
                 <div class="noththree overtitle">
                   {{ parsedOvertitle }}
                 </div>
@@ -166,6 +167,16 @@
                     :alt="post.promo.partner"
                   />
                 </div>
+                <div
+                  v-if="!post.promo.partner"
+                  class="collab-overtitle premium-only-collab"
+                >
+                  <div class="noththree overtitle">Samo za pretplatnike</div>
+                  <img
+                    src="@/assets/img/tg_monogram_logo_white.svg"
+                    alt="Telegram monogram logo (TG)"
+                  />
+                </div>
               </div>
               <h1 class="full">
                 <b
@@ -177,15 +188,6 @@
               <h2 class="full">
                 {{ post.subtitle | parseCat }}
               </h2>
-              <div class="full flex">
-                <span class="fancy-overtitle-premium">
-                  <img
-                    src="@/assets/img/tg_monogram_logo_white.svg"
-                    alt="Telegram monogram logo (TG)"
-                  />
-                  Samo za pretplatnike
-                </span>
-              </div>
               <div class="nothfive full flex relative article-meta mobile-only">
                 <nuxt-link
                   v-for="author in post.authors"

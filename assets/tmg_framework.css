@@ -86,9 +86,6 @@ i, em, .italic {
 .strikethrough {
     text-decoration: line-through;
 }
-.center-text {
-    text-align: center;
-}
 
 /* Media */
 
