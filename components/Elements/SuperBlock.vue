@@ -3,7 +3,11 @@
     <div class="container flex relative">
       <div class="full center relative superone-st-bottompad">
         <div class="noththree flex superone-section-title">
-          <img src="@/assets/img/s1_logo_clean_noline.svg" alt="Super1 logo" loading="lazy" />
+          <img
+            src="@/assets/img/s1_logo_clean_noline.svg"
+            alt="Super1 logo"
+            loading="lazy"
+          />
           <img
             src="@/assets/img/s1_logo_clean_noline_white.svg"
             alt="Super1 logo"

@@ -57,7 +57,7 @@ export default {
   },
   computed: {
     premiumOnly() {
-      return Math.random() <= 0.1
+      return false
     },
   },
 }

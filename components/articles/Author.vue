@@ -54,7 +54,7 @@ export default {
         .shift()
     },
     premiumOnly() {
-      return Math.random() <= 0.1
+      return false
     },
   },
 }

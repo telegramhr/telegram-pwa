@@ -97,7 +97,7 @@ export default {
       return set
     },
     premiumOnly() {
-      return Math.random() <= 0.1
+      return false
     },
   },
 }
