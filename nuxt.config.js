@@ -19,6 +19,10 @@ export default {
       { name: 'twitter:dnt', content: 'on' },
       { name: 'twitter:widgets:csp', content: 'on' },
       { property: 'fb:pages', content: '688325737947866' },
+      {
+        name: 'google-site-verification',
+        content: 'Laeir-LCi9jxATGNiq0pzM6SKn0DeAWNa5f_vsvYKdA',
+      },
     ],
     link: [
       { hid: 'canonical', rel: 'canonical', href: 'https://www.telegram.hr' },

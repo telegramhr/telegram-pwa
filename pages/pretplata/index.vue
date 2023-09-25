@@ -7,74 +7,12 @@
         headline="Pretplatite se i podržite naše bespoštedno novinarstvo."
       ></theader>
     </div>
-    <!--<div class="full flex relative dark-mode pretplata-bf">
-      <img
-        src="@/assets/img/tg_black_friday_bg.jpg"
-        alt="Kolaž naslovnih fotografija raznih istraživačkih specijala Telegrama"
-        class="img-as-bg"
-      />
-      <div
-        class="container center relative mobile-side-pad pretplata-packs pretplata-packboxes"
-      >
-        <div class="full center relative">
-          <img
-            src="@/assets/img/tg_blackfriday_logo.png"
-            class="bf-logo"
-            alt="Kolaž naslovnih fotografija raznih istraživačkih specijala Telegrama"
-          />
-        </div>
-        <div
-          class="full flex-responsive flex relative pretplata-packbox bf-packbox stretch"
-        >
-          <div class="best-price-sticker animate">Najbolja <br />cijena</div>
-          <div class="full flex overtitle-parent">
-            <div class="noththree overtitle">Premium</div>
-          </div>
-          <h2 class="full">1+1 gratis</h2>
-          <div class="nothfour full center-text undertitle">
-            platite samo 588 kn za 24 mjeseca čitanja (78,04€)
-          </div>
-          <div class="full pretplata-benefits">
-            <p class="full animate">
-              <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-              dvije godine za cijenu jedne
-            </p>
-            <p class="full animate">
-              <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-              neograničeno čitanje Telegrama
-            </p>
-            <p class="full animate">
-              <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-              neograničeno čitanje Telesporta
-            </p>
-            <p class="full animate">
-              <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-              posebni popusti i pogodnosti
-            </p>
-            <p class="full animate">
-              <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-              specijalni newsletteri
-            </p>
-            <p class="full animate">
-              <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-              surfanje bez oglasa
-            </p>
-            <div class="nothfour full center-text undertitle">
-              *ponuda vrijedi samo za nove korisnike
-            </div>
-          </div>
-          <div class="full center btn-parent" @click="checkout(four)">
-            <div class="btn animate">Odaberi</div>
-          </div>
-        </div>
-      </div>
-    </div>-->
     <div id="pretplata-selector" class="full flex">
       <div class="full flex relative">
         <div
           class="container relative flex mobile-side-pad stretch column-full-pad"
         >
-          <h1 class="full center-text">Priče koje guraju društvo naprijed.</h1>
+          <h1 class="full center-text">Nekad je nužno odabrati stranu</h1>
           <p class="full center-text pretplata-tagline">
             Pretplatite se i podržite naše bespoštedno novinarstvo.
           </p>
@@ -107,52 +45,6 @@
               </label>
             </div>
             <div class="full flex center pretplata-packboxes">
-              <div
-                class="half flex-responsive flex relative pretplata-packbox stretch"
-              >
-                <div class="full flex overtitle-parent">
-                  <div class="noththree overtitle">Probni period</div>
-                </div>
-                <div class="full sub-price bold">0,99€</div>
-                <div class="nothfour full center-text undertitle">
-                  prvi mjesec, nakon toga 6,49€ (49kn) mjesečno
-                </div>
-                <div class="full pretplata-benefits">
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    neograničeno čitanje Telegrama
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    posebni popusti i pogodnosti
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    specijalni newsletteri
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    verificirani profil u komentarima
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    surfanje s manje oglasa
-                  </p>
-                </div>
-                <div class="full center btn-parent" @click="checkout(five)">
-                  <div class="btn animate">Odaberi</div>
-                </div>
-              </div>
               <div
                 class="half flex-responsive flex relative pretplata-packbox stretch"
               >
@@ -355,20 +247,6 @@
                 >Trebat će vam R1 račun ili želite ponudu za pravne osobe?
                 Javite nam se.</a
               >
-              <!--<div class="full column-horizontal-pad" data-nosnippet>
-                <app-link
-                  to="/pretplata/poklon"
-                  class="full flex stretch relative mini-pretplata column-top-pad column-top-border"
-                >
-                  <h2 class="full center-text">
-                    Poklonite pretplatu na Telegram.
-                  </h2>
-                  <div class="full center-text">
-                    Poklon koji se otvara svaki dan, 365 dana
-                    <div class="btn">Pokloni</div>
-                  </div>
-                </app-link>
-              </div>-->
             </div>
           </div>
         </div>
@@ -951,7 +829,7 @@ export default {
       terms: {
         TMJHR6Y8K4QA: {
           title: 'Telegram Mjesečna Pretplata',
-          price: 6.5,
+          price: 6.49,
           gtm: 'standard-monthly',
         },
         TMY8ORHQG44A: {
@@ -1001,9 +879,6 @@ export default {
         return 'TMQDTT4IEHY0'
       }
       return ''
-    },
-    five() {
-      return 'TMWPGMUCMX45'
     },
   },
   mounted() {
@@ -1057,9 +932,6 @@ export default {
             break
           case 'py':
             this.checkout(this.four)
-            break
-          case 'trial':
-            this.checkout(this.five)
             break
         }
       }
@@ -1233,6 +1105,133 @@ export default {
           hid: 'canonical',
           rel: 'canonical',
           href: 'https://www.telegram.hr/pretplata',
+        },
+      ],
+      script: [
+        {
+          vmid: 'schema-ld',
+          hid: 'schema-ld',
+          type: 'application/ld+json',
+          json: [
+            {
+              '@context': 'https://schema.org',
+              '@type': 'ItemList',
+              name: 'Telegram.hr Pretplata',
+              description: 'Odaberite jedan od paketa i podržite nas',
+              image:
+                'https://www.telegram.hr/wp-content/uploads/2021/01/tg-background.jpg',
+              itemListElement: [
+                {
+                  '@type': 'ListItem',
+                  position: 1,
+                  item: {
+                    '@type': 'Product',
+                    name: 'Telegram Mjesečna Pretplata',
+                    description: 'Mjesečna pretplata na Telegram.hr',
+                    sku: 'TMJHR6Y8K4QA',
+                    mpn: 'TMJHR6Y8K4QA',
+                    image:
+                      'https://www.telegram.hr/wp-content/uploads/2021/01/tg-background.jpg',
+                    offers: {
+                      '@type': 'Offer',
+                      url: 'https://www.telegram.hr/pretplata',
+                      priceCurrency: 'EUR',
+                      price: 6.49,
+                      itemCondition: 'https://schema.org/NewCondition',
+                      availability: 'https://schema.org/InStock',
+                      seller: this.$store.state.header.publisher,
+                    },
+                    aggregateRating: {
+                      '@type': 'AggregateRating',
+                      ratingValue: '4.9',
+                      reviewCount: '100',
+                    },
+                  },
+                },
+                {
+                  '@type': 'ListItem',
+                  position: 2,
+                  item: {
+                    '@type': 'Product',
+                    name: 'Telegram Premium Mjesečna Pretplata',
+                    description: 'Mjesečna premium pretplata na Telegram.hr',
+                    sku: 'TMY8ORHQG44A',
+                    mpn: 'TMY8ORHQG44A',
+                    image:
+                      'https://www.telegram.hr/wp-content/uploads/2021/01/tg-background.jpg',
+                    offers: {
+                      '@type': 'Offer',
+                      url: 'https://www.telegram.hr/pretplata',
+                      priceCurrency: 'EUR',
+                      price: 9.16,
+                      itemCondition: 'https://schema.org/NewCondition',
+                      availability: 'https://schema.org/InStock',
+                      seller: this.$store.state.header.publisher,
+                    },
+                    aggregateRating: {
+                      '@type': 'AggregateRating',
+                      ratingValue: '4.9',
+                      reviewCount: '100',
+                    },
+                  },
+                },
+                {
+                  '@type': 'ListItem',
+                  position: 3,
+                  item: {
+                    '@type': 'Product',
+                    name: 'Telegram Godišnja Pretplata',
+                    description: 'Godišnja pretplata na Telegram.hr',
+                    sku: 'TM8RZKGESM1T',
+                    mpn: 'TM8RZKGESM1T',
+                    image:
+                      'https://www.telegram.hr/wp-content/uploads/2021/01/tg-background.jpg',
+                    offers: {
+                      '@type': 'Offer',
+                      url: 'https://www.telegram.hr/pretplata',
+                      priceCurrency: 'EUR',
+                      price: 62,
+                      itemCondition: 'https://schema.org/NewCondition',
+                      availability: 'https://schema.org/InStock',
+                      seller: this.$store.state.header.publisher,
+                    },
+                    aggregateRating: {
+                      '@type': 'AggregateRating',
+                      ratingValue: '4.9',
+                      reviewCount: '100',
+                    },
+                  },
+                },
+                {
+                  '@type': 'ListItem',
+                  position: 4,
+                  item: {
+                    '@type': 'Product',
+                    name: 'Telegram Premium Godišnja Pretplata',
+                    description: 'Godišnja premium pretplata na Telegram.hr',
+                    sku: 'TMQDTT4IEHY0',
+                    mpn: 'TMQDTT4IEHY0',
+                    image:
+                      'https://www.telegram.hr/wp-content/uploads/2021/01/tg-background.jpg',
+                    offers: {
+                      '@type': 'Offer',
+                      url: 'https://www.telegram.hr/pretplata',
+                      priceCurrency: 'EUR',
+                      price: 78,
+                      itemCondition: 'https://schema.org/NewCondition',
+                      availability: 'https://schema.org/InStock',
+                      seller: this.$store.state.header.publisher,
+                    },
+                    aggregateRating: {
+                      '@type': 'AggregateRating',
+                      ratingValue: '4.9',
+                      reviewCount: '100',
+                    },
+                  },
+                },
+              ],
+            },
+          ],
         },
       ],
     }

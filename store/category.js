@@ -16,6 +16,14 @@ export const state = () => ({
       extraClass: 'politika-kriminal',
       canonical: '/politika-kriminal',
     },
+    vijesti: {
+      name: 'Vijesti',
+      description: '',
+      posts: [],
+      updated: null,
+      extraClass: 'vijesti',
+      canonical: '/vijesti',
+    },
     najnovije: {
       name: 'Najnovije',
       description: '',
@@ -160,13 +168,13 @@ export const state = () => ({
       extraClass: 'pitanje-zdravlja fancy-rubrika',
       canonical: '/pitanje-zdravlja/lifestyle',
     },
-    vijesti: {
-      name: 'Vijesti',
+    novosti: {
+      name: 'Novosti',
       description: '',
       posts: [],
       updated: null,
       extraClass: 'pitanje-zdravlja fancy-rubrika',
-      canonical: '/pitanje-zdravlja/vijesti',
+      canonical: '/pitanje-zdravlja/novosti',
     },
     super1: {
       name: 'Super1',
@@ -239,6 +247,10 @@ export const state = () => ({
   },
   morePosts: {
     'politika-kriminal': {
+      posts: [],
+      page: 2,
+    },
+    vijesti: {
       posts: [],
       page: 2,
     },

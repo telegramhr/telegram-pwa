@@ -18,8 +18,8 @@
           <app-link role="menuitem" to="/pitanje-zdravlja/lifestyle"
             >Lifestyle</app-link
           >
-          <app-link role="menuitem" to="/pitanje-zdravlja/vijesti"
-            >Vijesti</app-link
+          <app-link role="menuitem" to="/pitanje-zdravlja/novosti"
+            >Novosti</app-link
           >
           <app-link role="menuitem" to="/pitanje-zdravlja/price"
             >Priče</app-link
@@ -291,16 +291,7 @@ export default {
         name: 'PitanjeZdravlja',
         description:
           'Provjerene i ekskluzivne zdravstvene vijesti, analize i priče',
-        publisher: {
-          '@type': 'Organization',
-          name: 'Telegram.hr',
-          logo: {
-            '@type': 'ImageObject',
-            url: `https://www.telegram.hr${this.$icon(512)}`,
-            width: 512,
-            height: 512,
-          },
-        },
+        publisher: this.$store.state.header.publisher,
       }
     },
   },

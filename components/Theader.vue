@@ -40,18 +40,23 @@
           <client-only>
             <div v-show="$store.state.user.admin" class="half">
               <div class="noththree">Admin</div>
-              <a role="menuitem" href="https://www.telegram.hr/wp-admin"
+              <a
+                role="menuitem"
+                href="https://www.telegram.hr/wp-admin"
+                rel="nofollow"
                 >Admin</a
               >
               <a
                 role="menuitem"
                 href="https://www.telegram.hr/wp-admin/post-new.php"
+                rel="nofollow"
               >
                 Nova objava
               </a>
               <a
                 v-show="id"
                 :href="`https://www.telegram.hr/wp-admin/post.php?post=${id}&action=edit`"
+                rel="nofollow"
                 role="menuitem"
                 >Uredi</a
               >
@@ -78,6 +83,7 @@
             </form>
           </div>
           <div class="noththree">Rubrika</div>
+          <app-link role="menuitem" to="/vijesti">Vijesti</app-link>
           <app-link role="menuitem" to="/politika-kriminal"
             >Politika & Kriminal</app-link
           >
@@ -253,6 +259,7 @@
             <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon>
           </a>
           <div class="menu flex" role="menu">
+            <app-link role="menuitem" to="/vijesti">Vijesti</app-link>
             <app-link role="menuitem" to="/politika-kriminal"
               >Politika & Kriminal</app-link
             >
@@ -261,7 +268,6 @@
             <app-link role="menuitem" to="/velike-price">Velike priče</app-link>
             <app-link role="menuitem" to="/zivot">Život</app-link>
             <app-link role="menuitem" to="/kultura">Kultura</app-link>
-            <app-link role="menuitem" to="/openspace">Openspace</app-link>
             <app-link to="/super1" role="menuitem">Super1</app-link>
             <a href="https://telesport.telegram.hr" role="menuitem">
               Telesport

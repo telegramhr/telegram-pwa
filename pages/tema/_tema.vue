@@ -274,13 +274,26 @@ export default {
     },
   },
   head() {
+    let description = 'Najnovije vijesti na temu ' + this.cat + ' na Telegramu.'
+    if (this.posts.length) {
+      description = ''
+      this.posts.slice(0, 3).forEach((post) => {
+        description += post.title + ' '
+      })
+    }
     return {
       title: this.cat,
-      titleTemplate: 'Više o temi %s | Telegram.hr',
+      titleTemplate: '%s - Najnovije vijesti',
       meta: [
         {
+          hid: 'robots',
           name: 'robots',
-          content: 'noarchive, nositelinkssearchbox, nosnippet',
+          content: 'noarchive',
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: description,
         },
         {
           hid: 'og:type',
@@ -293,6 +306,11 @@ export default {
           name: 'og:title',
           property: 'og:title',
           content: this.cat,
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: description,
         },
         {
           hid: 'og:url',

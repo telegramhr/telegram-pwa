@@ -33,6 +33,7 @@
             type="text"
             name="name"
             placeholder="Ime i prezime"
+            required
           />
           <label for="address">Adresa</label>
           <input
@@ -41,6 +42,7 @@
             type="text"
             name="address"
             placeholder="Ulica i broj"
+            required
           />
           <label for="address2">Dodatne informacije za dostavu</label>
           <input
@@ -57,6 +59,7 @@
             type="text"
             name="city"
             placeholder="Grad"
+            required
           />
           <label for="postal-code">Poštanski broj</label>
           <input
@@ -65,6 +68,16 @@
             type="text"
             name="postal_code"
             placeholder="Poštanski broj"
+            required
+          />
+          <label for="phone">Broj mobitela</label>
+          <input
+            id="phone"
+            v-model="phone"
+            type="text"
+            name="phone"
+            placeholder="Broj mobitela za dostavu"
+            required
           />
           <small
             >Ako želite naručiti van Hrvatske, molimo javite nam se na
@@ -136,6 +149,7 @@ export default {
       address2: '',
       city: '',
       postal_code: '',
+      phone: '',
       note: '',
       token: '',
       country: 'Hrvatska',
@@ -256,7 +270,15 @@ export default {
         })
     },
     order() {
-      if (!(this.name && this.address && this.city && this.postal_code)) {
+      if (
+        !(
+          this.name &&
+          this.address &&
+          this.city &&
+          this.postal_code &&
+          this.phone
+        )
+      ) {
         return
       }
       if (this.token) {
@@ -287,6 +309,7 @@ export default {
                   country: this.country,
                   postal_code: this.postal_code,
                   note: this.note,
+                  phone: this.phone,
                 },
                 billing: false,
                 nonce: this.nonce,

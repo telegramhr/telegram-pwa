@@ -241,6 +241,14 @@ img {
 }
 
 /* Media Queries */
+@media screen and (max-width: 1240px) {
+    .tablet-full {
+        width: 100%;
+    }
+    .tablet-half {
+        width: 49.99%;
+    }
+}
 
 @media screen and (max-width: 767px) {
     .mobile-only {
@@ -262,3 +270,5 @@ img {
         height: 163.5vw;
     }
 }
+
+

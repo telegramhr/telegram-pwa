@@ -119,7 +119,9 @@
         <div class="full flex article-head">
           <div class="full flex overtitle-parent">
             <div class="noththree overtitle">
-              {{ parsedOvertitle }}
+              <AppLink :to="'/' + post.category_link">
+                {{ parsedOvertitle }}
+              </AppLink>
             </div>
             <div v-if="post.promo.partner" class="collab-overtitle">
               <div class="noththree overtitle">{{ post.promo.prefix }}</div>
@@ -149,7 +151,9 @@
             <div class="full column article-head column-top-pad flex">
               <div class="full flex overtitle-parent relative">
                 <div class="noththree overtitle">
-                  {{ parsedOvertitle }}
+                  <AppLink :to="'/' + post.category_link">
+                    {{ parsedOvertitle }}
+                  </AppLink>
                 </div>
                 <div v-if="post.promo.partner" class="collab-overtitle">
                   <div class="noththree overtitle">{{ post.promo.prefix }}</div>
@@ -179,10 +183,9 @@
                 </div>
               </div>
               <h1 class="full">
-                <b
-                  v-show="categoryClass && categoryClass.includes('superone')"
-                  >{{ parsedOvertitle }}</b
-                >
+                <b v-if="categoryClass && categoryClass.includes('superone')">{{
+                  parsedOvertitle
+                }}</b>
                 {{ post.portal_title | parseCat }}
               </h1>
               <h2 class="full">
@@ -250,9 +253,7 @@
                   </div>
                 </template>
               </div>
-              <p v-if="post.perex" class="perex">
-                {{ post.perex }}
-              </p>
+              <p v-if="post.perex" class="perex" v-html="perex"></p>
               <div class="nothfive full flex relative article-meta">
                 <nuxt-link
                   v-for="author in post.authors"
@@ -269,7 +270,7 @@
                     author.name
                   }}</span></nuxt-link
                 >
-                <span class="meta-date">{{ post.time | parseTime }}</span>
+                <span class="meta-date">{{ post.timem | parseTime }}</span>
                 <span v-if="post.recommendations" class="meta-preporuke"
                   >{{ post.recommendations }} preporuka</span
                 >
@@ -605,6 +606,7 @@ export default {
         tags: [],
         category: '',
         category_slug: '',
+        category_link: '#',
         social: {
           title: '',
           description: '',
@@ -664,16 +666,7 @@ export default {
           copyrightNotice: this.$options.filters.parseCat(
             this.post.image.author
           ),
-          publisher: {
-            '@type': 'Organization',
-            name: 'Telegram.hr',
-            logo: {
-              '@type': 'ImageObject',
-              url: `https://www.telegram.hr${this.$icon(512)}`,
-              width: 512,
-              height: 512,
-            },
-          },
+          publisher: this.$store.state.header.publisher,
         },
       ]
       if (this.post.image.url2) {
@@ -746,59 +739,58 @@ export default {
           ),
         })
       }
-      return [
-        {
-          '@context': 'https://schema.org',
-          '@type': 'NewsArticle',
-          headline: this.$options.filters.parseCat(this.post.title),
-          mainEntityOfPage: this.post.social.path,
-          datePublished: new Date(this.post.time * 1000).toISOString(),
-          dateModified: new Date(this.post.timem * 1000).toISOString(),
-          image: images,
-          publisher: {
-            '@type': 'Organization',
-            name: 'Telegram.hr',
-            url: 'https://www.telegram.hr',
-            logo: {
-              '@type': 'ImageObject',
-              url: `https://www.telegram.hr${this.$icon(512)}`,
-              width: 512,
-              height: 512,
-            },
+      const breadcrumb = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: this.post.category,
+            item: 'https://www.telegram.hr/' + this.$route.params.category_link,
           },
-          author: this.post.authors,
-          keywords: this.post.tags.map((tag) => tag.slug),
-          sections: this.$options.filters.parseCat(this.post.category),
-          articleSection: this.$options.filters.parseCat(this.post.category),
-          isAccessibleForFree: this.post.paywall === 'never',
-          hasPart:
-            this.post.paywall === 'never'
-              ? ''
-              : {
-                  '@type': 'WebPageElement',
-                  isAccessibleForFree: false,
-                  cssSelector: '.piano-content',
-                },
-        },
-        {
-          '@context': 'https://schema.org',
-          '@type': 'BreadcrumbList',
-          itemListElement: [
-            {
-              '@type': 'ListItem',
-              position: 1,
-              name: this.post.category,
-              item: 'https://www.telegram.hr/' + this.$route.params.category,
-            },
-            {
-              '@type': 'ListItem',
-              position: 2,
-              name: this.post.title,
-              item: this.post.social.path,
-            },
-          ],
-        },
-      ]
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: this.post.title,
+            item: this.post.social.path,
+          },
+        ],
+      }
+      const article = {
+        '@context': 'https://schema.org',
+        '@type':
+          this.post.category === 'Komentari'
+            ? 'OpinionNewsArticle'
+            : 'NewsArticle',
+        headline: this.$options.filters.parseCat(this.post.title),
+        mainEntityOfPage: this.post.social.path,
+        datePublished: new Date(this.post.time * 1000).toISOString(),
+        dateModified: new Date(this.post.timem * 1000).toISOString(),
+        image: images,
+        publisher: this.$store.state.header.publisher,
+        author: this.post.authors.map((author) => {
+          return {
+            '@type': 'Person',
+            name: author.name,
+            url: author.url,
+            image: author.image,
+            sameAs: author.sameAs,
+            description: author.description,
+          }
+        }),
+        keywords: this.post.tags.map((tag) => tag.slug),
+        articleSection: [this.$options.filters.parseCat(this.post.category)],
+      }
+      if (this.post.paywall !== 'never') {
+        article.isAccessibleForFree = 'False'
+        article.hasPart = {
+          '@type': 'WebPageElement',
+          isAccessibleForFree: 'False',
+          cssSelector: '.piano-content',
+        }
+      }
+      return [article, breadcrumb]
     },
     typeClass() {
       switch (this.post.type) {
@@ -999,8 +991,10 @@ export default {
       // handle only links that occur inside the component and do not reference external resources
       if (
         target &&
-        target.matches("#article-content a([href*='://www.telegram.hr'])") &&
-        target.href
+        target.matches('#article-content a') &&
+        target.href &&
+        target.href.match(/^https?:\/\/www.telegram.hr/) &&
+        !target.href.match(/^https?:\/\/www.telegram.hr\/native/)
       ) {
         // some sanity checks taken from vue-router:
         // https://github.com/vuejs/vue-router/blob/dev/src/components/link.js#L106

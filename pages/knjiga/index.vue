@@ -18,14 +18,14 @@
           Telegramove hit knjige po posebnoj cijeni za pretplatnike.
         </h1>
         <p class="full center-text pretplata-tagline desktop-only">
-          Bili libar Borisa Dežulovića, O Zagrebu Zrinke Paladino i Neispričane
-          priče Rajka Grlića, <br />s besplatnom dostavom na kućnu adresu unutar
-          Hrvatske.
+          'Depra' Aleksandra Stankovića, 'Bili libar' Borisa Dežulovića, 'O
+          Zagrebu' Zrinke Paladino <br />i 'Neispričane priče' Rajka Grlića, s
+          besplatnom dostavom na kućnu adresu unutar Hrvatske.
         </p>
         <p class="full center-text pretplata-tagline mobile-only">
-          Bili libar Borisa Dežulovića, O Zagrebu Zrinke Paladino i Neispričane
-          priče Rajka Grlića, s besplatnom dostavom na kućnu adresu unutar
-          Hrvatske.
+          'Depra' Aleksandra Stankovića, 'Bili libar' Borisa Dežulovića, 'O
+          Zagrebu' Zrinke Paladino i 'Neispričane priče' Rajka Grlića, s
+          besplatnom dostavom na kućnu adresu unutar Hrvatske.
         </p>
       </div>
     </div>
@@ -35,7 +35,30 @@
       >
         <div class="half flex flex-responsive column-full-pad">
           <app-link
-            to="/knjiga/sanja-modric-igla-pila-ravnalo.vue"
+            to="/knjiga/aleksandar-stankovic-depra"
+            class="full flex knjiga-hero pretplata-packbox relative column-full-pad"
+          >
+            <div class="full flex knjiga-cover knjiga-cover-3d">
+              <img
+                src="@/assets/img/tg_book_mockup_stankovic.png"
+                alt="Naslovnica nove knjige Aleksandra Stankovića 'DEPRA'"
+              />
+            </div>
+            <div class="full flex knjiga-features">
+              <h1 class="full relative center-text">DEPRA</h1>
+              <h4 class="full relative center-text">Aleksandar Stanković</h4>
+              <h4 class="full relative center-text bold">
+                <span class="faded strikethrough">19,99€</span> 14,99€
+              </h4>
+              <div class="full center btn-parent">
+                <div class="btn animate">Pogledajte više</div>
+              </div>
+            </div>
+          </app-link>
+        </div>
+        <div class="half flex flex-responsive column-full-pad">
+          <app-link
+            to="/knjiga/sanja-modric-igla-pila-ravnalo"
             class="full flex knjiga-hero pretplata-packbox relative column-full-pad"
           >
             <div class="full flex knjiga-cover knjiga-cover-3d">

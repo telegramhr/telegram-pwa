@@ -705,16 +705,7 @@ export default {
           datePublished: new Date(this.post.time * 1000).toISOString(),
           dateModified: new Date(this.post.timem * 1000).toISOString(),
           image: images,
-          publisher: {
-            '@type': 'Organization',
-            name: 'Telegram.hr',
-            logo: {
-              '@type': 'ImageObject',
-              url: `https://www.telegram.hr${this.$icon(512)}`,
-              width: 512,
-              height: 512,
-            },
-          },
+          publisher: this.$store.state.header.publisher,
           author: this.post.authors,
         },
         {
