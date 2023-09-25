@@ -171,7 +171,7 @@
                     :alt="post.promo.partner"
                   />
                 </div>
-                <div
+                <!--<div
                   v-if="!post.promo.partner"
                   class="collab-overtitle premium-only-collab"
                 >
@@ -180,7 +180,7 @@
                     src="@/assets/img/tg_monogram_logo_white.svg"
                     alt="Telegram monogram logo (TG)"
                   />
-                </div>
+                </div>-->
               </div>
               <h1 class="full">
                 <b v-if="categoryClass && categoryClass.includes('superone')">{{
