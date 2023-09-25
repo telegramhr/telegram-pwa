@@ -196,7 +196,7 @@
           <div class="full column-top-border"></div>
         </div>
         <!-- latest -->
-        <client-only>
+        <!--<client-only>
           <div
             v-if="$mobile"
             class="full mobile-side-pad column-right-pad flex relative m-order-3 no-last-border-mobile"
@@ -205,7 +205,7 @@
               <latest :portal="1"></latest>
             </div>
           </div>
-        </client-only>
+        </client-only>-->
         <!-- rest of Gs -->
         <div
           class="full flex cantha-small-block mobile-side-pad stretch m-order-5"
