@@ -253,7 +253,7 @@
                   </div>
                 </template>
               </div>
-              <p v-if="post.perex" class="perex" v-html="perex"></p>
+              <p v-if="post.perex" class="perex" v-html="post.perex"></p>
               <div class="nothfive full flex relative article-meta">
                 <nuxt-link
                   v-for="author in post.authors"
