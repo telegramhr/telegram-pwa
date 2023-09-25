@@ -553,6 +553,12 @@
         <category-big slug="more-news"></category-big>
       </div>
     </div>
+    <!-- Widget partner special -->
+    <client-only>
+      <div v-if="!hasPremium" class="full relative">
+        <partner-special position="tg"></partner-special>
+      </div>
+    </client-only>
     <!-- Mala rubrika: Biznis i tech -->
     <div class="full relative">
       <div class="container flex relative">
@@ -710,12 +716,6 @@
         <partners></partners>
       </client-only>
     </div>
-    <!-- Widget partner special -->
-    <client-only>
-      <div v-if="!hasPremium" class="full relative">
-        <partner-special position="tg"></partner-special>
-      </div>
-    </client-only>
     <!-- Super1 -->
     <div class="full relative">
       <client-only>
