@@ -11494,15 +11494,25 @@ header .search-menu {
     background-color: white;
     color: #111111;
     border: 1px solid #c8c8c8;
-    margin-bottom: 24px;
+    margin-top: 24px;
+}
+.dark-mode .partner-special-block .article:hover h2 {
+    color: #444;
+}
+.dark-mode .partner-special-block.cantha-small-block .fourth {
+    border-right-color: #c8c8c8;
 }
 .partner-special-block .article .noththree.overtitle, .partner-special-block  .nothfive.article-meta .meta-preporuke {
     color: var(--partner-color);
 }
 @media screen and (max-width: 767px) {
+    .partner-special-block {
+        margin-top: 0px;
+        margin-bottom: 4vw;
+        border: none;
+    }
     .partner-special-block .fourth:first-child img {
         width: 100%;
-        max-height: 80vw;
         object-fit: cover;
         object-position: top center;
     }
