@@ -11951,3 +11951,6 @@ input:checked ~ .input-hidden {
         margin-bottom: 4vw;
     }
 }
+.many-btns .huge-newbtn:first-child {
+    margin-right: 16px; 
+}

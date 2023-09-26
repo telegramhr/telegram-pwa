@@ -581,7 +581,9 @@
           class="desktop-only dark-mode-only"
           aria-hidden="true"
         />
-        <div class="half mobile-side-pad column-full-pad flex-responsive flex">
+        <div
+          class="half mobile-side-pad column-full-pad flex-responsive flex mobile-bottom-pad"
+        >
           <h2 class="full">
             Želite pomoći još više? Donirajte za rad Telegrama
           </h2>
@@ -589,7 +591,10 @@
             Za čitatelje koji žele dati još veći doprinos našem istraživačkom
             radu, otvorili smo mogućnost donacija.
           </p>
-          <div v-show="canLogIn" class="full center">
+          <div
+            v-show="canLogIn"
+            class="full center many-btns mobile-bottom-pad"
+          >
             <app-link
               v-show="canLogIn"
               to="/pretplata"
