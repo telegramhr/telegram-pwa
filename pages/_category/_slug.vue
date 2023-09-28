@@ -122,7 +122,10 @@
               <AppLink :to="'/' + post.category_link">
                 {{ parsedOvertitle }}
               </AppLink>
-              <span v-if="premiumOnly" class="fancy-overtitle-premium">
+              <span
+                v-if="post.paywall === 'always'"
+                class="fancy-overtitle-premium"
+              >
                 <img
                   src="@/assets/img/tg_monogram_logo_white.svg"
                   alt="Telegram monogram logo (TG)"
@@ -152,7 +155,10 @@
                     {{ parsedOvertitle }}
                   </AppLink>
                 </div>
-                <span v-if="premiumOnly" class="fancy-overtitle-premium">
+                <span
+                  v-if="post.paywall === 'always'"
+                  class="fancy-overtitle-premium"
+                >
                   <img
                     src="@/assets/img/tg_monogram_logo_white.svg"
                     alt="Telegram monogram logo (TG)"
@@ -819,9 +825,6 @@ export default {
         }
       }
       return set
-    },
-    premiumOnly() {
-      return false
     },
   },
   mounted() {
