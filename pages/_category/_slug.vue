@@ -122,20 +122,17 @@
               <AppLink :to="'/' + post.category_link">
                 {{ parsedOvertitle }}
               </AppLink>
+              <span v-if="premiumOnly" class="fancy-overtitle-premium">
+                <img
+                  src="@/assets/img/tg_monogram_logo_white.svg"
+                  alt="Telegram monogram logo (TG)"
+                />
+                Samo za pretplatnike
+              </span>
             </div>
             <div v-if="post.promo.partner" class="collab-overtitle">
               <div class="noththree overtitle">{{ post.promo.prefix }}</div>
               <img :src="post.promo.logo" :alt="post.promo.partner" />
-            </div>
-            <div
-              v-if="!post.promo.partner"
-              class="collab-overtitle premium-only-collab"
-            >
-              <div class="noththree overtitle">Samo za pretplatnike</div>
-              <img
-                src="@/assets/img/tg_monogram_logo_white.svg"
-                alt="Telegram monogram logo (TG)"
-              />
             </div>
           </div>
           <h1 class="full">{{ post.portal_title | parseCat }}</h1>
@@ -155,6 +152,13 @@
                     {{ parsedOvertitle }}
                   </AppLink>
                 </div>
+                <span v-if="premiumOnly" class="fancy-overtitle-premium">
+                  <img
+                    src="@/assets/img/tg_monogram_logo_white.svg"
+                    alt="Telegram monogram logo (TG)"
+                  />
+                  Samo za pretplatnike
+                </span>
                 <div v-if="post.promo.partner" class="collab-overtitle">
                   <div class="noththree overtitle">{{ post.promo.prefix }}</div>
                   <a
@@ -171,16 +175,6 @@
                     :alt="post.promo.partner"
                   />
                 </div>
-                <!--<div
-                  v-if="!post.promo.partner"
-                  class="collab-overtitle premium-only-collab"
-                >
-                  <div class="noththree overtitle">Samo za pretplatnike</div>
-                  <img
-                    src="@/assets/img/tg_monogram_logo_white.svg"
-                    alt="Telegram monogram logo (TG)"
-                  />
-                </div>-->
               </div>
               <h1 class="full">
                 <b v-if="categoryClass && categoryClass.includes('superone')">{{
@@ -825,6 +819,9 @@ export default {
         }
       }
       return set
+    },
+    premiumOnly() {
+      return false
     },
   },
   mounted() {
