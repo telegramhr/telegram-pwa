@@ -11845,3 +11845,15 @@ input:checked ~ .input-hidden {
 .many-btns .huge-newbtn:first-child {
     margin-right: 16px; 
 }
+
+.article .nothtwo {
+    font-family: 'Lora', serif;
+    line-height: 1.2em;
+    font-weight: 700;
+    letter-spacing: normal;
+    font-size: 16px;
+    font-size: 0.8rem;
+    position: relative;
+    top: -2px;
+    margin-bottom: 4px;
+}
