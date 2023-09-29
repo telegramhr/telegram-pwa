@@ -122,18 +122,20 @@
               <AppLink :to="'/' + post.category_link">
                 {{ parsedOvertitle }}
               </AppLink>
-              <span
-                v-if="
-                  this.$store.state.user.access && post.paywall === 'always'
-                "
-                class="fancy-overtitle-premium"
-              >
-                <img
-                  src="@/assets/img/tg_monogram_logo_white.svg"
-                  alt="Telegram monogram logo (TG)"
-                />
-                Samo za pretplatnike
-              </span>
+              <client-only>
+                <span
+                  v-if="
+                    this.$store.state.user.access && post.paywall === 'always'
+                  "
+                  class="fancy-overtitle-premium"
+                >
+                  <img
+                    src="@/assets/img/tg_monogram_logo_white.svg"
+                    alt="Telegram monogram logo (TG)"
+                  />
+                  Samo za pretplatnike
+                </span>
+              </client-only>
             </div>
             <div v-if="post.promo.partner" class="collab-overtitle">
               <div class="noththree overtitle">{{ post.promo.prefix }}</div>
@@ -157,18 +159,20 @@
                     {{ parsedOvertitle }}
                   </AppLink>
                 </div>
-                <span
-                  v-if="
-                    this.$store.state.user.access && post.paywall === 'always'
-                  "
-                  class="fancy-overtitle-premium"
-                >
-                  <img
-                    src="@/assets/img/tg_monogram_logo_white.svg"
-                    alt="Telegram monogram logo (TG)"
-                  />
-                  Samo za pretplatnike
-                </span>
+                <client-only
+                  ><span
+                    v-if="
+                      this.$store.state.user.access && post.paywall === 'always'
+                    "
+                    class="fancy-overtitle-premium"
+                  >
+                    <img
+                      src="@/assets/img/tg_monogram_logo_white.svg"
+                      alt="Telegram monogram logo (TG)"
+                    />
+                    Samo za pretplatnike
+                  </span>
+                </client-only>
                 <div v-if="post.promo.partner" class="collab-overtitle">
                   <div class="noththree overtitle">{{ post.promo.prefix }}</div>
                   <a
