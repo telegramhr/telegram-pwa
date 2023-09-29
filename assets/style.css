@@ -11827,6 +11827,9 @@ input:checked ~ .input-hidden {
         font-size: 1.05rem;
         max-width: 420px;
     }
+    .single-article-commentary article .article-meta.mobile-only {
+        display: flex;
+    }
 }
 @media screen and (max-width: 767px) {
     .newbook-overtitle {
