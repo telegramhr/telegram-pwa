@@ -123,7 +123,9 @@
                 {{ parsedOvertitle }}
               </AppLink>
               <span
-                v-if="post.paywall === 'always'"
+                v-if="
+                  this.$store.state.user.access && post.paywall === 'always'
+                "
                 class="fancy-overtitle-premium"
               >
                 <img
@@ -156,7 +158,9 @@
                   </AppLink>
                 </div>
                 <span
-                  v-if="post.paywall === 'always'"
+                  v-if="
+                    this.$store.state.user.access && post.paywall === 'always'
+                  "
                   class="fancy-overtitle-premium"
                 >
                   <img
