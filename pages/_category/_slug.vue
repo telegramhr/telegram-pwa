@@ -22,7 +22,7 @@
             class="third flex"
           >
             <div class="full flex column-horizontal-pad">
-              <standard :post="rpost"></standard>
+              <standard-no-h :post="rpost"></standard-no-h>
             </div>
           </div>
         </div>
@@ -298,7 +298,7 @@
                     target="_blank"
                     rel="nofollow"
                     ><font-awesome-icon
-                      :icon="['fab', 'twitter']"
+                      :icon="['fab', 'x-twitter']"
                       class="animate"
                     ></font-awesome-icon
                   ></a>
@@ -404,7 +404,7 @@
                       rel="nofollow"
                     >
                       <font-awesome-icon
-                        :icon="['fab', 'twitter']"
+                        :icon="['fab', 'x-twitter']"
                       ></font-awesome-icon
                     ></a>
                   </div>

@@ -33,6 +33,7 @@ import {
   faTelegram,
   faGooglePay,
   faApplePay,
+  faXTwitter,
 } from '@fortawesome/free-brands-svg-icons'
 
 import {
@@ -88,7 +89,8 @@ library.add(
   faHouse,
   faMessageQuote,
   faNewspaper,
-  faLightbulb
+  faLightbulb,
+  faXTwitter
 )
 
 // Register the component globally
