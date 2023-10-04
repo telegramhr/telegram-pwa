@@ -527,7 +527,7 @@ export default {
         class: [this.$store.state.theme.theme, this.extraClass],
       },
       title: this.$options.filters.parseCat(this.cat),
-      titleTemplate: `Kategorija %s | ${siteName}`,
+      titleTemplate: `%s | ${siteName}`,
       description: this.description,
       meta,
       link,
