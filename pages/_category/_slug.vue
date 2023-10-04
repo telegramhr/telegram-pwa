@@ -339,7 +339,7 @@
                   <quiz
                     v-if="post.quiz"
                     :data="post.quiz"
-                    :post="post.id"
+                    :post="parseInt(post.id)"
                   ></quiz>
                 </portal>
                 <portal
