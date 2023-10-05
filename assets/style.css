@@ -11860,3 +11860,78 @@ input:checked ~ .input-hidden {
     top: -2px;
     margin-bottom: 4px;
 }
+
+.pretplata-intext .pretplata-benefits {
+    max-width: 500px;
+}
+
+/* New pretplata intext */
+
+.new-pretplata-intext {
+    background-color: #e8dacd;
+    border-top: 3px solid #111;
+    padding: 24px;
+    padding-top: 32px;
+    z-index: 5;
+}
+.new-pretplata-intext::before {
+    content: " ";
+    position: absolute;
+    top: 4px;
+    left: 0px;
+    width: 100%;
+    height: 1px;
+    background-color: #111;
+}
+.dark-mode .new-pretplata-intext {
+    background-color:rgba(0, 0, 0, 0.3);
+    border-color: #555;
+}
+.dark-mode .new-pretplata-intext::before {
+    background-color: #555;
+}
+.contrast-mode .new-pretplata-intext {
+    background-color: #eeeeee;
+}
+.new-pretplata-intext .element-title {
+    font-size: 28px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    line-height: 1.35em;
+}
+.new-pretplata-intext > * {
+    max-width: 510px;
+}
+.element-separator {
+    margin-bottom: 16px;
+    margin-top: 16px;
+    height: 1px;
+    background-color: #c8c8c8;
+}
+.dark-mode .element-separator {
+    background-color: #555;
+}
+.new-pretplata-intext .pretplata-benefits p svg {
+    margin-right: 5px;
+}
+.new-pretplata-intext .smaller-text {
+    font-size: 12px;
+    font-size: 0.6rem;
+}
+.new-pretplata-intext .secondary-cta {
+    margin-top: 4px;
+    margin-bottom: 16px;
+}
+
+@media screen and (max-width: 767px) {
+    .new-pretplata-intext .element-title {
+        font-size: 22px;
+        font-size: 1.1rem;
+        line-height: 1.3em;
+    }
+    .new-pretplata-intext {
+        padding: 4vw 8.5vw;
+        padding-top: 6vw;
+    }
+}
