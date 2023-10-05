@@ -37,7 +37,7 @@
 
 <script>
 export default {
-  name: 'Standard',
+  name: 'StandardNoH',
   props: {
     post: {
       required: true,

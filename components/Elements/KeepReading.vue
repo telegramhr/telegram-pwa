@@ -13,19 +13,10 @@
         Ostanite uz Telegram
       </div>
       <div class="full flex mobile-side-pad">
-        <template v-for="(post, index) in posts.slice(0, 8)">
-          <div
-            v-if="index === 0"
-            :key="post.id"
-            class="fourth flex-responsive flex"
-          >
+        <template v-for="post in posts.slice(0, 8)">
+          <div :key="post.id" class="fourth flex-responsive flex">
             <div class="full flex column-horizontal-pad">
-              <featured :post="post"></featured>
-            </div>
-          </div>
-          <div v-else :key="post.id" class="fourth flex-responsive flex">
-            <div class="full flex column-horizontal-pad">
-              <standard :post="post"></standard>
+              <standard-no-h :post="post"></standard-no-h>
             </div>
           </div>
         </template>
