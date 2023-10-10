@@ -1438,8 +1438,8 @@ export const actions = {
               document.getElementById('status').textContent = 'Oglas učitan.'
             }
           })
+        commit('setInterstitialSlot', interstitialSlot)
       }
-      commit('setInterstitialSlot', interstitialSlot)
       commit('setSlots')
     })
     window.pbjs = window.pbjs || {}
@@ -1529,9 +1529,11 @@ export const actions = {
         window.googletag.display(slot.id)
       })
     })
-    window.googletag.cmd.push(function() {
-      window.googletag.display(state.interstitialSlot)
-    })
+    if (state.interstitialSlot) {
+      window.googletag.cmd.push(function () {
+        window.googletag.display(state.interstitialSlot)
+      })
+    }
     dispatch('refreshSlots')
   },
   refreshSlots({ dispatch }) {
