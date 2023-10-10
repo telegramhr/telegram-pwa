@@ -11901,7 +11901,7 @@ input:checked ~ .input-hidden {
     line-height: 1.35em;
 }
 .new-pretplata-intext > * {
-    max-width: 510px;
+    max-width: 512px;
 }
 .element-separator {
     margin-bottom: 16px;
