@@ -1429,15 +1429,6 @@ export const actions = {
       )
       if (interstitialSlot) {
         interstitialSlot.addService(window.googletag.pubads())
-        document.getElementById('status').textContent = 'Učitavanje oglasa...'
-        window.googletag
-          .pubads()
-          .addEventListener('slotOnload', function (event) {
-            if (interstitialSlot === event.slot) {
-              document.getElementById('link').style.display = 'block'
-              document.getElementById('status').textContent = 'Oglas učitan.'
-            }
-          })
         commit('setInterstitialSlot', interstitialSlot)
       }
       commit('setSlots')
