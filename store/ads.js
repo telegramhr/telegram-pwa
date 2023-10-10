@@ -1246,6 +1246,7 @@ export const state = () => ({
     },
   },
   route: '',
+  interstitialSlot: false,
 })
 
 export const mutations = {
@@ -1257,6 +1258,9 @@ export const mutations = {
   },
   setRoute(state, route) {
     state.route = route.name
+  },
+  setInterstitialSlot(state, payload) {
+    state.interstitialSlot = payload
   },
 }
 
@@ -1419,6 +1423,23 @@ export const actions = {
           }
         }
       }
+      const interstitialSlot = window.googletag.defineOutOfPageSlot(
+        prefix + 'telegram_interstitial',
+        window.googletag.enums.OutOfPageFormat.INTERSTITIAL
+      )
+      if (interstitialSlot) {
+        interstitialSlot.addService(window.googletag.pubads())
+        document.getElementById('status').textContent = 'Učitavanje oglasa...'
+        window.googletag
+          .pubads()
+          .addEventListener('slotOnload', function (event) {
+            if (interstitialSlot === event.slot) {
+              document.getElementById('link').style.display = 'block'
+              document.getElementById('status').textContent = 'Oglas učitan.'
+            }
+          })
+      }
+      commit('setInterstitialSlot', interstitialSlot)
       commit('setSlots')
     })
     window.pbjs = window.pbjs || {}
@@ -1498,7 +1519,7 @@ export const actions = {
     })
     dispatch('displaySlots')
   },
-  displaySlots({ dispatch }) {
+  displaySlots({ dispatch, state }) {
     window.googletag = window.googletag || {}
     window.googletag.cmd = window.googletag.cmd || []
 
@@ -1507,6 +1528,9 @@ export const actions = {
       window.googletag.cmd.push(function () {
         window.googletag.display(slot.id)
       })
+    })
+    window.googletag.cmd.push(function() {
+      window.googletag.display(state.interstitialSlot)
     })
     dispatch('refreshSlots')
   },
