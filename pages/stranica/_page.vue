@@ -3,12 +3,13 @@
     <client-only>
       <theader></theader>
     </client-only>
-    <div class="full flex tg-red">
-      <h1 class="full center-text page-title">{{ post.title }}</h1>
-      <div class="full header-filler"></div>
-    </div>
     <div class="full flex">
       <article class="container column-full-pad flex relative mobile-side-pad">
+        <div
+          class="full column article-head column-top-pad mobile-top-pad flex"
+        >
+          <h1 class="full">{{ post.title }}</h1>
+        </div>
         <!-- eslint-disable vue/no-v-html -->
         <div
           class="full relative single-article-body"

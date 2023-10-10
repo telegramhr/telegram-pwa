@@ -13,15 +13,6 @@
       <h2 :id="'mini-' + post.id" class="full animate">
         {{ post.portal_title | parseCat }}
       </h2>
-      <div v-if="premiumOnly" class="full flex">
-        <span class="fancy-overtitle-premium">
-          <img
-            src="@/assets/img/tg_monogram_logo_white.svg"
-            alt="Telegram monogram logo (TG)"
-          />
-          Samo za pretplatnike
-        </span>
-      </div>
       <div class="nothfive full flex article-meta">
         <span class="meta-author">
           {{ post.authors.length ? 'Piše ' + post.authors[0].name : '' }}</span
@@ -64,9 +55,6 @@ export default {
       return this.$options.filters.parseCat(
         this.post.overtitle ? this.post.overtitle : this.post.category
       )
-    },
-    premiumOnly() {
-      return Math.random() <= 0.1
     },
   },
 }

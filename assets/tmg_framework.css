@@ -201,6 +201,9 @@ img {
 .stretch-height {
     min-height: 90vh;
 }
+span.ib {
+    display: inline-block;
+}
 
 /* Style */
 

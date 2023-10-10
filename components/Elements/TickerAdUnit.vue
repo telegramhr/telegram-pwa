@@ -91,6 +91,10 @@ export default {
       window.googletag
         .pubads()
         .addEventListener('slotRenderEnded', function (event) {
+          const name = event.slot.getAdUnitPath().split('/').pop()
+          if (!name.includes('sticky') || event.isEmpty) {
+            return
+          }
           if (
             _that.shouldHide &&
             !event.isEmpty &&
@@ -99,7 +103,6 @@ export default {
             _that.shouldHide = false
             _that.showClose = true
           }
-          const name = event.slot.getAdUnitPath().split('/').pop()
           if (name.includes('sticky') && !event.isEmpty) {
             _that.showClose = true
             _that.size = event.size

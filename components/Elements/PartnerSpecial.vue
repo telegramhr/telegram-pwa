@@ -2,6 +2,7 @@
   <!-- Ovdje widget color preko sustava u style -->
   <div
     v-show="widget.url"
+    id="partner-special"
     class="container cantha-small-block flex relative native-block partner-special-block column-vertical-pad stretch"
     :style="{ '--partner-color': widget.color }"
   >

@@ -18,9 +18,9 @@
       <div class="full flex desktop-only">
         <div class="noththree overtitle">{{ parsedOvertitle }}</div>
       </div>
-      <h2 :id="'standard-' + post.id" class="full">
+      <div :id="'standard-' + post.id" class="full nothtwo">
         {{ post.portal_title | parseCat }}
-      </h2>
+      </div>
       <div class="nothfour full">{{ post.subtitle | parseCat }}</div>
       <div class="nothfive full flex article-meta">
         <span v-if="post.authors.length" class="meta-author"
@@ -37,7 +37,7 @@
 
 <script>
 export default {
-  name: 'Standard',
+  name: 'StandardNoH',
   props: {
     post: {
       required: true,

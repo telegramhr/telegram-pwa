@@ -2,25 +2,43 @@
   <div>
     <div
       v-show="show"
-      class="full flex relative pretplata-intext"
+      class="full center flex-wrap relative new-pretplata-intext"
       data-nosnippet
     >
-      <div class="full center">
-        <img :src="$icon(144)" aria-hidden="true" class="pretplata-avatar" />
+      <div class="full relative center-text element-title shoo-top">
+        {{ title }}
       </div>
-      <h2 class="full">{{ title }}</h2>
-      <p class="full center-text">
+      <p class="full relative center-text">
         {{ subtitle }}
       </p>
       <div class="full center">
-        <app-link :id="id" to="/pretplata" class="btn">Pretplatite se</app-link>
-        <div
-          v-if="!$store.state.user.token"
-          class="btn altbtn"
-          @click.prevent="$store.dispatch('user/login')"
+        <app-link :id="id" to="/pretplata" class="newbtn huge-newbtn"
+          >Pretplatite se</app-link
         >
-          Već imam pretplatu
-        </div>
+      </div>
+      <p
+        v-if="!$store.state.user.token"
+        class="full center-text relative italic smaller-text faded secondary-cta clickable"
+        @click.prevent="$store.dispatch('user/login')"
+      >
+        Već imam pretplatu
+      </p>
+      <div class="full flex-responsive flex pretplata-benefits">
+        <p class="full animate">
+          <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+          neograničen pristup svim člancima
+          <span class="ib">najkvalitetnijih novinara u Hrvatskoj</span>
+        </p>
+        <p class="full animate">
+          <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+          premium iskustvo čitanja s manje
+          <span class="ib">oglasa i specijalnim newsletterima</span>
+        </p>
+        <p class="full animate">
+          <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+          posebni popusti na top knjige,
+          <span class="ib">predstave, muzeje i streaminge</span>
+        </p>
       </div>
     </div>
     <linker v-if="show" type="intext"></linker>

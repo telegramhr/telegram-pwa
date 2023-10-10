@@ -1,5 +1,5 @@
 <template>
-  <div data-nosnippet>
+  <div data-nosnippet class="full flex">
     <a
       v-if="show"
       class="full relative article-head-newsletter"

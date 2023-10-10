@@ -22,7 +22,7 @@
             class="third flex"
           >
             <div class="full flex column-horizontal-pad">
-              <standard :post="rpost"></standard>
+              <standard-no-h :post="rpost"></standard-no-h>
             </div>
           </div>
         </div>
@@ -122,20 +122,24 @@
               <AppLink :to="'/' + post.category_link">
                 {{ parsedOvertitle }}
               </AppLink>
+              <client-only>
+                <span
+                  v-if="
+                    this.$store.state.user.access && post.paywall === 'always'
+                  "
+                  class="fancy-overtitle-premium"
+                >
+                  <img
+                    src="@/assets/img/tg_monogram_logo_white.svg"
+                    alt="Telegram monogram logo (TG)"
+                  />
+                  Samo za pretplatnike
+                </span>
+              </client-only>
             </div>
             <div v-if="post.promo.partner" class="collab-overtitle">
               <div class="noththree overtitle">{{ post.promo.prefix }}</div>
               <img :src="post.promo.logo" :alt="post.promo.partner" />
-            </div>
-            <div
-              v-if="!post.promo.partner"
-              class="collab-overtitle premium-only-collab"
-            >
-              <div class="noththree overtitle">Samo za pretplatnike</div>
-              <img
-                src="@/assets/img/tg_monogram_logo_white.svg"
-                alt="Telegram monogram logo (TG)"
-              />
             </div>
           </div>
           <h1 class="full">{{ post.portal_title | parseCat }}</h1>
@@ -155,6 +159,20 @@
                     {{ parsedOvertitle }}
                   </AppLink>
                 </div>
+                <client-only
+                  ><span
+                    v-if="
+                      this.$store.state.user.access && post.paywall === 'always'
+                    "
+                    class="fancy-overtitle-premium"
+                  >
+                    <img
+                      src="@/assets/img/tg_monogram_logo_white.svg"
+                      alt="Telegram monogram logo (TG)"
+                    />
+                    Samo za pretplatnike
+                  </span>
+                </client-only>
                 <div v-if="post.promo.partner" class="collab-overtitle">
                   <div class="noththree overtitle">{{ post.promo.prefix }}</div>
                   <a
@@ -169,16 +187,6 @@
                     v-else
                     :src="post.promo.logo"
                     :alt="post.promo.partner"
-                  />
-                </div>
-                <div
-                  v-if="!post.promo.partner"
-                  class="collab-overtitle premium-only-collab"
-                >
-                  <div class="noththree overtitle">Samo za pretplatnike</div>
-                  <img
-                    src="@/assets/img/tg_monogram_logo_white.svg"
-                    alt="Telegram monogram logo (TG)"
                   />
                 </div>
               </div>
@@ -253,7 +261,7 @@
                   </div>
                 </template>
               </div>
-              <p v-if="post.perex" class="perex" v-html="perex"></p>
+              <p v-if="post.perex" class="perex" v-html="post.perex"></p>
               <div class="nothfive full flex relative article-meta">
                 <nuxt-link
                   v-for="author in post.authors"
@@ -270,7 +278,7 @@
                     author.name
                   }}</span></nuxt-link
                 >
-                <span class="meta-date">{{ post.timem | parseTime }}</span>
+                <span class="meta-date">{{ post.time | parseTime }}</span>
                 <span v-if="post.recommendations" class="meta-preporuke"
                   >{{ post.recommendations }} preporuka</span
                 >
@@ -290,7 +298,7 @@
                     target="_blank"
                     rel="nofollow"
                     ><font-awesome-icon
-                      :icon="['fab', 'twitter']"
+                      :icon="['fab', 'x-twitter']"
                       class="animate"
                     ></font-awesome-icon
                   ></a>
@@ -331,7 +339,7 @@
                   <quiz
                     v-if="post.quiz"
                     :data="post.quiz"
-                    :post="post.id"
+                    :post="parseInt(post.id)"
                   ></quiz>
                 </portal>
                 <portal
@@ -396,7 +404,7 @@
                       rel="nofollow"
                     >
                       <font-awesome-icon
-                        :icon="['fab', 'twitter']"
+                        :icon="['fab', 'x-twitter']"
                       ></font-awesome-icon
                     ></a>
                   </div>
@@ -544,9 +552,10 @@ export default {
       if (this.$route.params.category === 'preview') {
         post = await this.$axios.$get(encodeURI('/api/preview/' + slug))
       } else {
-        post = await this.$axios.$get(
-          encodeURI('/api/single/' + slug) + '?pwa=1'
-        )
+        post = await this.$axios.$get(encodeURI('/api/single/' + slug))
+        if (this.$route.params.category === 'l') {
+          this.$telegram.context.redirect({ path: post.permalink })
+        }
       }
     }
     if (post && post.id) {

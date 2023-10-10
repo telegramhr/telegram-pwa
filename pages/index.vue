@@ -196,7 +196,7 @@
           <div class="full column-top-border"></div>
         </div>
         <!-- latest -->
-        <client-only>
+        <!--<client-only>
           <div
             v-if="$mobile"
             class="full mobile-side-pad column-right-pad flex relative m-order-3 no-last-border-mobile"
@@ -205,7 +205,7 @@
               <latest :portal="1"></latest>
             </div>
           </div>
-        </client-only>
+        </client-only>-->
         <!-- rest of Gs -->
         <div
           class="full flex cantha-small-block mobile-side-pad stretch m-order-5"
@@ -553,6 +553,12 @@
         <category-big slug="more-news"></category-big>
       </div>
     </div>
+    <!-- Widget partner special -->
+    <client-only>
+      <div v-if="!hasPremium" class="full relative">
+        <partner-special position="tg"></partner-special>
+      </div>
+    </client-only>
     <!-- Mala rubrika: Biznis i tech -->
     <div class="full relative">
       <div class="container flex relative">
@@ -710,12 +716,6 @@
         <partners></partners>
       </client-only>
     </div>
-    <!-- Widget partner special -->
-    <client-only>
-      <div v-if="!hasPremium" class="full relative">
-        <partner-special position="tg"></partner-special>
-      </div>
-    </client-only>
     <!-- Super1 -->
     <div class="full relative">
       <client-only>
