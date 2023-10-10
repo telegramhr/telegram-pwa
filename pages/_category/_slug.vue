@@ -552,9 +552,10 @@ export default {
       if (this.$route.params.category === 'preview') {
         post = await this.$axios.$get(encodeURI('/api/preview/' + slug))
       } else {
-        post = await this.$axios.$get(
-          encodeURI('/api/single/' + slug) + '?pwa=1'
-        )
+        post = await this.$axios.$get(encodeURI('/api/single/' + slug))
+        if (this.$route.params.category === 'l') {
+          this.$telegram.context.redirect({ path: post.permalink })
+        }
       }
     }
     if (post && post.id) {
