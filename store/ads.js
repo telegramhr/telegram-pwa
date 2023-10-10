@@ -1377,6 +1377,10 @@ export const actions = {
       if (payload.options && payload.options.includes('nepromo')) {
         window.googletag.pubads().setCategoryExclusion('NePromo')
       }
+      window.googletag.pubads().setTargeting('env', 'test')
+      if (route.query.reload) {
+        window.googletag.pubads().setTargeting('reload', 1)
+      }
       window.googletag.pubads().enableSingleRequest()
       window.googletag.pubads().collapseEmptyDivs()
       window.googletag.pubads().disableInitialLoad()

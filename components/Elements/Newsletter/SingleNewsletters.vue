@@ -105,7 +105,9 @@
             <div class="full relative">
               <div class="noththree full overtitle">Petkom</div>
               <h2 class="full newsletter-title">Vikend na Telegramu</h2>
-              <div class="noththree full subtitle">Najbolje za vikend čitanje</div>
+              <div class="noththree full subtitle">
+                Najbolje za vikend čitanje
+              </div>
             </div>
           </div>
           <div class="full flex newsletter-box">
