@@ -1023,8 +1023,6 @@ h2.section-title {
 /* Footer */
 
 footer {
-    background-color: #212121;
-    color: white;
     font-family: 'Barlow', sans-serif;
     font-weight: 300;
     font-style: normal;
@@ -1061,7 +1059,7 @@ footer .conversion-notice {
     margin-right: auto;
 }
 footer .services, footer .social-links, footer .conversion-notice {
-    margin-bottom: 8vw;
+    margin-bottom: 4vw;
 }
 footer .social-links {
     margin-top: 8vw;
@@ -2430,7 +2428,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .dark-mode .banner-separator::before {
     background-color: #555;
 }
-.dark-mode .subheader, .dark-mode footer, .dark-mode .side-menu, .dark-mode .pretplata-ticker {
+.dark-mode .subheader, .dark-mode .side-menu, .dark-mode .pretplata-ticker {
     background-color: #121212;
 }
 .dark-mode .subheader .header-headline::before {
@@ -4296,8 +4294,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 12px;
         font-size: 0.6rem;
     }
-    footer .services, footer .social-links, footer .conversion-notice {
-        margin-bottom: 32px;
+    footer .conversion-notice {
+        margin-bottom: 16px;
     }
     .komentar-author i {
         margin-bottom: 3px;
@@ -11933,5 +11931,37 @@ input:checked ~ .input-hidden {
     .new-pretplata-intext {
         padding: 4vw 8.5vw;
         padding-top: 6vw;
+    }
+}
+
+/* New footer */
+
+.footer-list > * {
+    margin-bottom: 6px;
+}
+.footer-list > p.bold {
+    margin-bottom: 8px;
+    font-size: 20px;
+    font-size: 1rem;
+}
+.footer-list a:hover {
+    color: #ae3737;
+}
+
+.footer-logo-el {
+    border-bottom: 1px solid #c8c8c8;
+    border-top: 3px solid #111;
+    padding: 16px 0px;
+}
+.dark-mode .footer-logo-el {
+    border-bottom-color: #555;
+    border-top-color: #777;
+}
+@media screen and (max-width: 767px) {
+    footer .conversion-notice {
+        border-top: 1px solid #c8c8c8;
+    }
+    .dark-mode footer .conversion-notice {
+        border-color: #555;
     }
 }
