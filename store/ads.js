@@ -1246,6 +1246,7 @@ export const state = () => ({
     },
   },
   route: '',
+  interstitialSlot: false,
 })
 
 export const mutations = {
@@ -1257,6 +1258,9 @@ export const mutations = {
   },
   setRoute(state, route) {
     state.route = route.name
+  },
+  setInterstitialSlot(state, payload) {
+    state.interstitialSlot = payload
   },
 }
 
@@ -1377,6 +1381,10 @@ export const actions = {
       if (payload.options && payload.options.includes('nepromo')) {
         window.googletag.pubads().setCategoryExclusion('NePromo')
       }
+      window.googletag.pubads().setTargeting('env', 'test')
+      if (route.query.reload) {
+        window.googletag.pubads().setTargeting('reload', '1')
+      }
       window.googletag.pubads().enableSingleRequest()
       window.googletag.pubads().collapseEmptyDivs()
       window.googletag.pubads().disableInitialLoad()
@@ -1414,6 +1422,14 @@ export const actions = {
             }
           }
         }
+      }
+      const interstitialSlot = window.googletag.defineOutOfPageSlot(
+        prefix + 'telegram_interstitial',
+        window.googletag.enums.OutOfPageFormat.INTERSTITIAL
+      )
+      if (interstitialSlot) {
+        interstitialSlot.addService(window.googletag.pubads())
+        commit('setInterstitialSlot', interstitialSlot)
       }
       commit('setSlots')
     })
@@ -1494,7 +1510,7 @@ export const actions = {
     })
     dispatch('displaySlots')
   },
-  displaySlots({ dispatch }) {
+  displaySlots({ dispatch, state }) {
     window.googletag = window.googletag || {}
     window.googletag.cmd = window.googletag.cmd || []
 
@@ -1504,6 +1520,11 @@ export const actions = {
         window.googletag.display(slot.id)
       })
     })
+    if (state.interstitialSlot) {
+      window.googletag.cmd.push(function () {
+        window.googletag.display(state.interstitialSlot)
+      })
+    }
     dispatch('refreshSlots')
   },
   refreshSlots({ dispatch }) {

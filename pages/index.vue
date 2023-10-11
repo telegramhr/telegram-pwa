@@ -789,9 +789,6 @@
 export default {
   // components: { BookOffers },
   async fetch() {
-    if (process.client) {
-      this.$telegram.$loading.start()
-    }
     await this.$store.dispatch('featured/pullPosts')
     await this.$store.dispatch('featured/pullBreaks')
   },
@@ -838,7 +835,9 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.loadAds()
-      this.$telegram.$loading.finish()
+      setTimeout(() => {
+        this.$router.push('/?reload=1')
+      }, 300000)
     })
   },
   methods: {
