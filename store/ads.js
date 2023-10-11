@@ -1383,7 +1383,7 @@ export const actions = {
       }
       window.googletag.pubads().setTargeting('env', 'test')
       if (route.query.reload) {
-        window.googletag.pubads().setTargeting('reload', 1)
+        window.googletag.pubads().setTargeting('reload', '1')
       }
       window.googletag.pubads().enableSingleRequest()
       window.googletag.pubads().collapseEmptyDivs()
