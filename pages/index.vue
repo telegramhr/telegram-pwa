@@ -795,6 +795,7 @@ export default {
   data() {
     return {
       loading: false,
+      reloadInterval: null,
     }
   },
   computed: {
@@ -835,10 +836,13 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.loadAds()
-      setTimeout(() => {
+      this.reloadInterval = setInterval(() => {
         this.$router.push('/?reload=1')
       }, 300000)
     })
+  },
+  beforeDestroy() {
+    clearInterval(this.reloadInterval)
   },
   methods: {
     manageLogin() {
