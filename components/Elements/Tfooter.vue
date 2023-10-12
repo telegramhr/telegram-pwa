@@ -145,27 +145,31 @@
             href="https://www.facebook.com/Telegram.hr/"
             target="_blank"
             class="full"
+            rel="nofollow"
             >Facebook</a
           >
           <a
             href="https://www.youtube.com/@TelegramhrVideo"
             target="_blank"
             class="full"
+            rel="nofollow"
             >YouTube</a
           >
           <a
             href="https://www.instagram.com/telegram.hr/"
             target="_blank"
             class="full"
+            rel="nofollow"
             >Instagram</a
           >
           <a
             href="https://www.tiktok.com/@telegram.hr"
             target="_blank"
             class="full"
+            rel="nofollow"
             >TikTok</a
           >
-          <a href="https://twitter.com/telegramhr/" target="_blank" class="full"
+          <a href="https://twitter.com/telegramhr/" target="_blank" class="full" rel="nofollow"
             >Twitter</a
           >
           <a href="https://www.telegram.hr/feed" target="_blank" class="full"
