@@ -105,7 +105,7 @@
           <app-link to="/politika-kriminal" class="full"
             >Politika&Kriminal</app-link
           >
-          <app-link to="/komentar" class="full">Komentari</app-link>
+          <app-link to="/komentari" class="full">Komentari</app-link>
           <app-link to="/biznis-tech" class="full">Biznis&Tech</app-link>
           <app-link to="/velike-price" class="full">Velike priče</app-link>
           <app-link to="/zivot" class="full">Život</app-link>
@@ -116,15 +116,15 @@
         >
           <p class="full bold column-mini-bottom-pad">Najnovije</p>
 
-          <app-link to="/tema/rat-u-ukrajini" class="full"
+          <app-link to="/tema/rat-u-ukrajini/" class="full"
             >Rat u Ukrajini</app-link
           >
-          <app-link to="/tema/koronavirus" class="full">Koronavirus</app-link>
-          <app-link to="/tema/hrvatska" class="full">Hrvatska</app-link>
-          <app-link to="/tema/zagreb" class="full">Zagreb</app-link>
-          <app-link to="/tema/split" class="full">Split</app-link>
-          <app-link to="/tema/rijeka" class="full">Rijeka</app-link>
-          <app-link to="/tema/osijek" class="full">Osijek</app-link>
+          <app-link to="/tema/koronavirus/" class="full">Koronavirus</app-link>
+          <app-link to="/tema/hrvatska/" class="full">Hrvatska</app-link>
+          <app-link to="/tema/zagreb/" class="full">Zagreb</app-link>
+          <app-link to="/tema/split/" class="full">Split</app-link>
+          <app-link to="/tema/rijeka/" class="full">Rijeka</app-link>
+          <app-link to="/tema/osijek/" class="full">Osijek</app-link>
         </div>
         <div
           class="fifth column-full-pad flex tablet-half mobile-half mobile-side-pad footer-list mobile-bottom-pad"
@@ -187,7 +187,7 @@
           <app-link to="/stranica/oglasavanje" class="full"
             >Oglašavanje</app-link
           >
-          <app-link to="/stranica/kontakt" class="full">Kontakt </app-link>
+          <app-link to="/stranica/kontaktirajte-nas" class="full">Kontakt </app-link>
           <app-link to="/stranica/uvjeti-koristenja" class="full"
             >Uvjeti korištenja</app-link
           >
