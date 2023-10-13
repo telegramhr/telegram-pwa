@@ -169,7 +169,11 @@
             rel="nofollow"
             >TikTok</a
           >
-          <a href="https://twitter.com/telegramhr/" target="_blank" class="full" rel="nofollow"
+          <a
+            href="https://twitter.com/telegramhr/"
+            target="_blank"
+            class="full"
+            rel="nofollow"
             >Twitter</a
           >
           <a href="https://www.telegram.hr/feed" target="_blank" class="full"
@@ -187,7 +191,9 @@
           <app-link to="/stranica/oglasavanje" class="full"
             >Oglašavanje</app-link
           >
-          <app-link to="/stranica/kontaktirajte-nas" class="full">Kontakt </app-link>
+          <app-link to="/stranica/kontaktirajte-nas" class="full"
+            >Kontakt
+          </app-link>
           <app-link to="/stranica/uvjeti-koristenja" class="full"
             >Uvjeti korištenja</app-link
           >
