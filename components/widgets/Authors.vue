@@ -3,9 +3,13 @@
     <div class="full column-horizontal-pad column-top-pad">
       <div class="full cantha-separator"></div>
     </div>
-    <div class="noththree full center-text column-full-pad subsection-title">
-      <img src="@/assets/img/telegram_logo_black.svg" alt="Telegram logo" />
-      autori
+    <div class="full flex column-horizontal-pad">
+      <div
+        class="noththree full center-text column-vertical-pad subsection-title"
+      >
+        <img src="@/assets/img/telegram_logo_black.svg" alt="Telegram logo" />
+        autori
+      </div>
     </div>
     <div class="full flex fancy-authors-widget stretch">
       <author

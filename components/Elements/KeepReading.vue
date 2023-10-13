@@ -7,10 +7,12 @@
       <div class="full column-horizontal-pad column-top-pad mobile-side-pad">
         <div class="full cantha-separator"></div>
       </div>
-      <div
-        class="noththree full center-text column-full-pad subsection-title mobile-side-pad"
-      >
-        Ostanite uz Telegram
+      <div class="full flex column-horizontal-pad">
+        <div
+          class="noththree full center-text column-vertical-pad subsection-title"
+        >
+          Ostanite uz Telegram
+        </div>
       </div>
       <div class="full flex mobile-side-pad">
         <template v-for="post in posts.slice(0, 8)">

@@ -93,10 +93,12 @@
           <div class="full column-horizontal-pad column-top-pad">
             <div class="full cantha-separator"></div>
           </div>
-          <div
-            class="noththree full center-text column-horizontal-pad column-top-pad subsection-title"
-          >
-            Možda će vas zanimati
+          <div class="full flex column-horizontal-pad">
+            <div
+              class="noththree full center-text column-horizontal-pad column-top-pad subsection-title"
+            >
+              Možda će vas zanimati
+            </div>
           </div>
         </div>
         <div
