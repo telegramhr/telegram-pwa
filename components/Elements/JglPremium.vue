@@ -233,7 +233,7 @@ export default {
 
 #offer-premium-jgl .article-pad {
   flex-direction: column;
-  min-height: 100px;
+  min-height: 150px;
   justify-content: space-between;
 }
 </style>
