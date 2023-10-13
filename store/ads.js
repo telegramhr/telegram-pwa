@@ -1423,13 +1423,15 @@ export const actions = {
           }
         }
       }
-      const interstitialSlot = window.googletag.defineOutOfPageSlot(
-        prefix + 'telegram_interstitial',
-        window.googletag.enums.OutOfPageFormat.INTERSTITIAL
-      )
-      if (interstitialSlot) {
-        interstitialSlot.addService(window.googletag.pubads())
-        commit('setInterstitialSlot', interstitialSlot)
+      if (this.$mobile) {
+        const interstitialSlot = window.googletag.defineOutOfPageSlot(
+          prefix + 'telegram_interstitial',
+          window.googletag.enums.OutOfPageFormat.INTERSTITIAL
+        )
+        if (interstitialSlot) {
+          interstitialSlot.addService(window.googletag.pubads())
+          commit('setInterstitialSlot', interstitialSlot)
+        }
       }
       commit('setSlots')
     })
