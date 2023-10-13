@@ -13,6 +13,12 @@ export const state = () => ({
       production: [],
       production_updated: null,
     },
+    jgl: {
+      preview: [],
+      preview_updated: null,
+      production: [],
+      production_updated: null,
+    },
   },
   updated: null,
 })
