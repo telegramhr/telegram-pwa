@@ -174,10 +174,10 @@
       <!-- Read more widget -->
       <div class="full flex relative">
         <div class="container flex relative column-full-pad">
-          <div class="full center relative clickable" @click="loadMore">
-            <div v-show="!loading" class="newbtn altbtn animate">
+          <div class="full center relative clickable" @click.prevent="loadMore">
+            <a v-show="!loading" :href="readMore" class="newbtn altbtn animate">
               Učitaj još članaka
-            </div>
+            </a>
             <div v-show="loading" class="full center cool-loader">
               <div class="loader-square">
                 <div></div>
@@ -243,8 +243,9 @@ export default {
       }
       return
     }
+    const page = this.$route.query.page ? parseInt(this.$route.query.page) : 1
     await this.$axios
-      .get('/api/category/' + this.$route.params.category)
+      .get(`/api/category/${this.$route.params.category}/page/${page}`)
       .then((res) => {
         this.posts = res.data.posts
         this.description = res.data.description
@@ -261,7 +262,7 @@ export default {
       loading: false,
       posts: [],
       description: '',
-      page: 2,
+      page: this.$route.query.page ? parseInt(this.$route.query.page) : 1,
     }
   },
   computed: {
@@ -269,6 +270,16 @@ export default {
       return this.$store.state.category.categories[this.$route.params.category]
         ? this.$store.state.category.categories[this.$route.params.category]
             .extraClass
+        : ''
+    },
+    readMore() {
+      return this.$store.state.category.categories[this.$route.params.category]
+        ? `https://www.telegram.hr${
+            this.$store.state.category.categories[this.$route.params.category]
+              .canonical
+          }/?page=${
+            this.$route.query.page ? parseInt(this.$route.query.page) + 1 : 2
+          }`
         : ''
     },
     cat() {
@@ -432,12 +443,12 @@ export default {
   methods: {
     loadMore() {
       this.loading = true
+      this.page++
       this.$axios
         .get(`/api/category/${this.$route.params.category}/page/${this.page}`)
         .then((res) => {
           this.posts = [...this.posts, ...res.data.posts]
           this.loading = false
-          this.page++
         })
     },
   },

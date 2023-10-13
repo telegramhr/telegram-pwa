@@ -175,10 +175,10 @@
       <!-- Read more widget -->
       <div class="full flex relative">
         <div class="container flex relative column-full-pad">
-          <div class="full center relative clickable" @click="loadMore">
-            <div v-show="!loading" class="newbtn altbtn animate">
+          <div class="full center relative clickable" @click.prevent="loadMore">
+            <a v-show="!loading" :href="readMore" class="newbtn altbtn animate">
               Učitaj još članaka
-            </div>
+            </a>
             <div v-show="loading" class="full center cool-loader">
               <div class="loader-square">
                 <div></div>
@@ -217,8 +217,9 @@
 export default {
   name: 'TemaIndex',
   async fetch() {
+    const page = this.$route.query.page ? parseInt(this.$route.query.page) : 1
     await this.$axios
-      .get('/api/tag/' + this.$route.params.tema)
+      .get(`/api/tag/${this.$route.params.tema}/page/${page}`)
       .then((res) => {
         this.posts = res.data.posts
         this.category = res.data.tag
@@ -238,7 +239,7 @@ export default {
       posts: [],
       category: '',
       morePosts: [],
-      page: 2,
+      page: this.$route.query.page ? parseInt(this.$route.query.page) : 1,
       hasMore: true,
       loading: false,
     }
@@ -246,6 +247,14 @@ export default {
   computed: {
     cat() {
       return this.$options.filters.parseCat(this.category)
+    },
+    readMore() {
+      return (
+        'https://www.telegram.hr/tema/' +
+        this.$route.params.tema +
+        '/?page=' +
+        (this.$route.query.page ? parseInt(this.$route.query.page) + 1 : 2)
+      )
     },
   },
   mounted() {
@@ -258,11 +267,11 @@ export default {
         return
       }
       this.loading = true
+      this.page++
       this.$axios
-        .get('/api/tag/' + this.$route.params.tema + '/page/' + this.page)
+        .get(`/api/tag/${this.$route.params.tema}/page/${this.page}`)
         .then((res) => {
           this.posts = [...this.posts, ...res.data.posts]
-          this.page++
           this.loading = false
           if (res.data.posts < 12) {
             this.hasMore = false
