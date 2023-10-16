@@ -857,6 +857,11 @@ export default {
           price: 6.49,
           gtm: 'standard-monthly-trial',
         },
+        TM15W5K9EVY4: {
+          title: 'Telegram Mjesečna Pretplat (PBF)',
+          price: 6.49,
+          gtm: 'standard-monthly-pbf',
+        },
       },
     }
   },
@@ -885,6 +890,9 @@ export default {
       }
       return ''
     },
+    five() {
+      return 'TM15W5K9EVY4'
+    },
   },
   mounted() {
     this.$nextTick(() => {
@@ -897,6 +905,7 @@ export default {
           'TM8RZKGESM1T',
           'TMQDTT4IEHY0',
           'TMWPGMUCMX45',
+          'TM15W5K9EVY4',
         ],
       })
       window.tp.push([
@@ -938,6 +947,8 @@ export default {
           case 'py':
             this.checkout(this.four)
             break
+          case 'pbf':
+            this.checkout(this.five)
         }
       }
     })
