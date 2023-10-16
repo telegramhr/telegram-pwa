@@ -460,6 +460,23 @@ h2.section-title {
     font-family: 'Barlow', sans-serif;
     font-weight: 600;
     opacity: .8;
+    border-bottom: 1px solid #c8c8c8;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+}
+.dark-mode .noththree.subsection-title {
+    border-color: #555;
+}
+@media screen and (min-width: 767px) { 
+    .classic-category .noththree.subsection-title {
+        border-bottom: none;
+        padding-top: 0px;
+        margin-bottom: 0px;
+    }
+}
+#offer-premium .noththree.subsection-title, #offer-premium-jgl .noththree.subsection-title {
+    border-bottom: none;
 }
 .noththree.subsection-title img {
     height: 12px;
@@ -3553,6 +3570,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .mobile-vertical-pad {
         padding-bottom: 4vw;
         padding-top: 4vw;
+    }
+    .mobile-top-border {
+        border-top: 1px solid #c8c8c8;
+    }
+    .dark-mode .mobile-top-border {
+        border-color: #555;
     }
     .single-article {
         font-size: 17px;
@@ -7250,12 +7273,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     display: none;
 }
 .cantha-separator {
-    border-top: 1px solid #c8c8c8;
     border-bottom: 3px solid #111;
-    padding-top: 5px;
 }
 .dark-mode .cantha-separator {
-    border-top-color: #555;
     border-bottom-color: #777;
 }
 .cantha-header {
@@ -7724,7 +7744,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .noththree.subsection-title, .mini-article-list .noththree.overtitle {
         padding-top: 4vw;
-        padding-bottom: 5vw;
+        padding-bottom: 4.5vw;
+    }
+    .classic-category .noththree.subsection-title {
+        padding-top: 4vw;
     }
     .mini-article-list .noththree.overtitle {
         padding-bottom: 1vw;
@@ -7992,7 +8015,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .block-echovald .cantha-commentary, .super1-block .block-echovald > .fourth {
         order: 2;
     }
-    .cantha-small-block .subsection-title, .cantha-mini-block .subsection-title, .subsection-title.manual-subsection-adjust {
+    .cantha-mini-block .subsection-title, .subsection-title.manual-subsection-adjust {
         padding-bottom: 1vw;
     }
     .cantha-block-title > .container {

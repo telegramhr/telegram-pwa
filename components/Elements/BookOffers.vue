@@ -5,13 +5,17 @@
     <div class="full column-horizontal-pad">
       <div class="full cantha-separator"></div>
     </div>
-    <div class="noththree full center-text column-full-pad subsection-title">
-      <img
-        src="@/assets/img/telegram_logo_black.svg"
-        alt="Telegram logo"
-        loading="lazy"
-      />
-      knjige
+    <div class="full flex column-horizontal-pad">
+      <div
+        class="noththree full center-text column-vertical-pad subsection-title"
+      >
+        <img
+          src="@/assets/img/telegram_logo_black.svg"
+          alt="Telegram logo"
+          loading="lazy"
+        />
+        knjige
+      </div>
     </div>
     <div class="full flex stretch book-offers-widget">
       <div class="fourth flex-responsive column-horizontal-pad">

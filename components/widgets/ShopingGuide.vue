@@ -3,8 +3,12 @@
     <div class="full column-horizontal-pad column-top-pad">
       <div class="full cantha-separator"></div>
     </div>
-    <div class="noththree full center-text column-full-pad subsection-title">
-      Pokloni za Božić
+    <div class="full flex column-horizontal-pad">
+      <div
+        class="noththree full center-text column-vertical-pad subsection-title"
+      >
+        Pokloni za Božić
+      </div>
     </div>
     <div
       v-for="post in posts"

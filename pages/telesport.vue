@@ -110,10 +110,12 @@
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
-        <div
-          class="noththree full center-text column-full-pad subsection-title"
-        >
-          Telesport autori
+        <div class="full flex column-horizontal-pad">
+          <div
+            class="noththree full center-text column-vertical-pad subsection-title"
+          >
+            Telesport autori
+          </div>
         </div>
         <div class="full flex stretch relative no-last-border-mobile">
           <div
@@ -134,10 +136,12 @@
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
-        <div
-          class="noththree full center-text column-full-pad subsection-title"
-        >
-          Telesport preporuka
+        <div class="full flex column-horizontal-pad">
+          <div
+            class="noththree full center-text column-vertical-pad subsection-title"
+          >
+            Telesport preporuka
+          </div>
         </div>
         <div
           class="three-fourths flex-responsive column-horizontal-pad column-right-border flex relative featured-split smaller-featured-split show-one-related"
@@ -211,10 +215,12 @@
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
-        <div
-          class="noththree full center-text column-full-pad subsection-title"
-        >
-          Odabir urednika
+        <div class="full flex column-horizontal-pad">
+          <div
+            class="noththree full center-text column-vertical-pad subsection-title"
+          >
+            Odabir urednika
+          </div>
         </div>
         <div
           class="three-fourths flex-responsive column-horizontal-pad column-right-border flex relative featured-split smaller-featured-split show-one-related"

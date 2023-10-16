@@ -5,7 +5,9 @@
     <div class="full mobile-only">
       <div class="full cantha-separator"></div>
     </div>
-    <div class="noththree full center-text column-bottom-pad subsection-title">
+    <div
+      class="noththree full center-text column-vertical-pad subsection-title"
+    >
       <nuxt-link :to="'/' + slug">{{ category | parseCat }}</nuxt-link>
     </div>
     <featured
