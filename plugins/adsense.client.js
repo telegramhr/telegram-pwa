@@ -17,7 +17,7 @@ export default ({ app, store }) => {
     } else {
       const defractal = document.createElement('script')
       defractal.src =
-        'https://cdn.defractal.com/scripts/defractal-7- 00770051-F494-429B-A1AF-2D4AB7F53D99js'
+        'https://cdn.defractal.com/scripts/defractal-7-00770051-F494-429B-A1AF-2D4AB7F53D99js'
       document.head.appendChild(defractal)
     }
   }
