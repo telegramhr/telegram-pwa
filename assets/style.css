@@ -4139,9 +4139,16 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         justify-content: flex-end;
     }
     .subheader {
-        height: 40px;
+        height: 50px;
         font-size: 14px;
         font-size: 0.7rem;
+    }
+    .signup-btn {
+        padding: 6px 16px;
+        font-size: 14px;
+        font-size: 0.7rem;
+        margin-bottom: -11px;
+        top: -5.5px;
     }
     .subheader .menu {
         font-size: 13px;
@@ -11986,5 +11993,14 @@ input:checked ~ .input-hidden {
     }
     .dark-mode footer .conversion-notice {
         border-color: #555;
+    }
+}
+
+@media screen and (min-width: 767px) {
+    .homepage .column-right-border, .homepage .column-left-border {
+        border: none;
+    }
+    .cantha-small-block .fourth {
+        border-right: none;
     }
 }

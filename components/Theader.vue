@@ -279,9 +279,6 @@
         </div>
         <div class="flex third relative">
           <client-only>
-            <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
-              >Prijava</a
-            >
             <app-link
               v-show="!$store.state.user.access"
               id="pretplatite se - header"
@@ -339,9 +336,6 @@
         </div>
         <div class="flex third relative">
           <client-only>
-            <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
-              >Prijava</a
-            >
             <app-link
               v-show="!$store.state.user.access"
               id="pretplatite se - header"
@@ -465,9 +459,6 @@
         </div>
         <div class="flex third relative">
           <client-only>
-            <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
-              >Prijava</a
-            >
             <app-link
               v-show="!$store.state.user.access"
               id="pretplatite se - header"
@@ -547,9 +538,6 @@
         </div>
         <div class="flex third relative">
           <client-only>
-            <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
-              >Prijava</a
-            >
             <app-link
               v-show="!$store.state.user.access"
               id="pretplatite se - header"
