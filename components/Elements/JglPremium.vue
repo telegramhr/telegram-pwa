@@ -30,71 +30,33 @@
         style="display: block; width: 100%"
       >
         <div
-          v-for="post in posts"
+          v-for="(post, index) in posts"
           :key="post.image"
           class="fourth flex-responsive column-full-pad mobile-side-pad"
         >
           <a
             :id="'slide-' + index"
-            class="full flex article-standard article relative"
-            :href="post.link"
-            target="_blank"
-            @click.prevent="trackClick(post.link)"
-          >
-            <img
-              :src="post.slika"
-              loading="lazy"
-              alt="Spar promo"
-              width="400"
-              height="400"
-            />
-            <div class="full flex article-pad">
-              <div class="full flex desktop-only">
-                <div class="noththree overtitle">{{ post.naslov }}</div>
-              </div>
-              <h2 class="full">
-                {{ post.opis }}
-              </h2>
-              <div class="nothfour full"></div>
-              <div class="nothfive full flex article-meta">
-                <span class="meta-author"></span>
-                <span class="meta-preporuke"></span>
-                <span class="meta-date"></span>
-              </div>
-            </div>
-          </a>
-        </div>
-        <!--<div
-          v-for="(post, index) in posts"
-          :key="post.image"
-          class="offer-slide"
-        >
-          <a
-            :id="'slide-' + index"
+            class="full flex article-standard article-medium article relative"
             :href="post.link"
             target="_blank"
             rel="sponsored"
-            class="full flex article relative"
-            role="article"
             @click.prevent="trackClick(post.link)"
           >
             <img
               :src="post.slika"
+              alt="JGL promo"
               loading="lazy"
-              alt="Spar promo"
               width="400"
               height="400"
             />
-            <div class="full flex article-pad">
-              <div>
-                <div class="full offer-title bold">{{ post.naslov }}</div>
-                <div class="nothfour full">
-                  {{ post.opis }}
-                </div>
-              </div>
+            <div class="full flex desktop-only">
+              <div class="noththree overtitle">{{ post.naslov }}</div>
             </div>
+            <h2 :id="'standard-' + post.id" class="full">
+              {{ post.opis }}
+            </h2>
           </a>
-        </div>-->
+        </div>
       </VueSlickCarousel>
       <div
         class="gallery-left center gallery-arrow desktop-only animate"
@@ -235,5 +197,14 @@ export default {
   flex-direction: column;
   min-height: 150px;
   justify-content: space-between;
+}
+
+#offer-premium-jgl .article-medium {
+  padding-right: 0;
+}
+
+#offer-premium-jgl .article-medium img {
+  width: 100%;
+  height: 100%;
 }
 </style>
