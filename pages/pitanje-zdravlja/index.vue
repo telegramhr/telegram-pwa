@@ -266,6 +266,8 @@
 </template>
 
 <script>
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 export default {
   name: 'PitanjeZdravlja',
   async fetch() {
@@ -299,6 +301,9 @@ export default {
     this.$nextTick(() => {
       this.$axios.get('/api/category/pitanje-zdravlja').then((res) => {
         this.posts = res.data.posts
+      })
+      AOS.init({
+        once: true,
       })
     })
   },
