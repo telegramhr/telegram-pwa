@@ -370,7 +370,7 @@
                   class="full"
                   style="max-width: 1201px"
                 >
-                  <offers-premium></offers-premium>
+                  <jgl-premium></jgl-premium>
                 </div>
                 <linker v-if="hasLinker" type="mobile"></linker>
               </client-only>
