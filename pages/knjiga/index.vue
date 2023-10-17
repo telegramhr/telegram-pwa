@@ -45,11 +45,15 @@
               />
             </div>
             <div class="full flex knjiga-features">
-              <h1 class="full relative center-text">DEPRA</h1>
-              <h4 class="full relative center-text">Aleksandar Stanković</h4>
-              <h4 class="full relative center-text bold">
+              <div class="full relative center-text big-book-price bold">
+                DEPRA
+              </div>
+              <div class="nothfour full relative center-text">
+                Aleksandar Stanković
+              </div>
+              <div class="nothfour full relative center-text bold">
                 <span class="faded strikethrough">19,99€</span> 14,99€
-              </h4>
+              </div>
               <div class="full center btn-parent">
                 <div class="btn animate">Pogledajte više</div>
               </div>
