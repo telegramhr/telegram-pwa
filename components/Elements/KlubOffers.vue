@@ -9,8 +9,7 @@
       <div
         class="noththree full center-text column-vertical-pad subsection-title"
       >
-        <img src="@/assets/img/telegram_logo_black.svg" alt="Telegram logo" />
-        Klub
+        Telegram Klub
       </div>
     </div>
     <div class="full flex stretch column-bottom-pad book-offers-widget">

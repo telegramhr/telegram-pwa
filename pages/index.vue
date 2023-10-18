@@ -366,16 +366,7 @@
           <div
             class="noththree full center-text column-vertical-pad subsection-title"
           >
-            <img
-              src="@/assets/img/telegram_logo_black.svg"
-              alt="Telegram logo"
-            />
-            <img
-              src="@/assets/img/telegram_logo_white.svg"
-              class="dark-mode-only"
-              alt="Telegram logo"
-            />
-            preporuka
+            Telegram preporuka
           </div>
         </div>
         <div
