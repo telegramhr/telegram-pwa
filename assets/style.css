@@ -5026,7 +5026,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 @media screen and (max-width: 480px) and (min-width: 411px) {
     html {
-        font-size: 23px;
+        font-size: 21px;
     }
     html.small-fontsize, .fontsize-previews .small-fontsize {
         font-size: 19px;
