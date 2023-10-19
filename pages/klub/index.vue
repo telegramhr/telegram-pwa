@@ -64,7 +64,7 @@
         </div>
         <div class="fourth mobile-half flex-responsive center">
           <img
-            src="@/assets/img/extras/klub/tg_klub_pickbox.png"
+            src="https://www.telegram.hr/wp-content/uploads/2023/05/tg-visual-klub-pickbox.jpg"
             alt="Pickbox ponuda"
           />
         </div>
