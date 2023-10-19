@@ -53,7 +53,7 @@
           class="three-fourths center flex-wrap mobile-half article column-full-pad mobile-full-pad"
         >
           <div class="noththree full overtitle">Specijalna ponuda</div>
-          <h2 class="full">Samo ovaj mjesec: uzmite Pickbox sa 50% popusta</h2>
+          <h2 class="full">Samo ovaj mjesec: uzmite Pickbox sa 10% popusta</h2>
           <div class="full flex">
             <a
               href="#streaming"
