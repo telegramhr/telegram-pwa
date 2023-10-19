@@ -306,6 +306,7 @@
                 Telegramove hit knjige po posebnoj cijeni za pretplatnike
               </h2>
               <p class="full">
+                Depra Aleksandra Stankovića, Igla, pila, ravnalo Sanje Modrić,
                 Bili libar Borisa Dežulovića, O Zagrebu Zrinke Paladino i
                 Neispričane priče Rajka Grlića.
               </p>
