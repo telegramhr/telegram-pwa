@@ -454,12 +454,27 @@ h2.section-title {
     border-bottom: 3px solid #ae3737;
 }
 .noththree.subsection-title {
-    font-size: 16px;
-    font-size: 0.8rem;
-    text-transform: uppercase;
+    font-size: 18px;
+    font-size: 0.9rem;
     font-family: 'Barlow', sans-serif;
-    font-weight: 600;
-    opacity: .8;
+    font-weight: 700;
+    padding-top: 22px;
+    padding-bottom: 24px;
+}
+@media screen and (max-width: 767px) {
+    .noththree.subsection-title.no-mob-bot-pad {
+        padding-bottom: 0px;
+    }
+}
+@media screen and (min-width: 767px) { 
+    .classic-category .noththree.subsection-title {
+        border-bottom: none;
+        padding-top: 0px;
+        margin-bottom: 0px;
+    }
+}
+#offer-premium .noththree.subsection-title, #offer-premium-jgl .noththree.subsection-title {
+    border-bottom: none;
 }
 .noththree.subsection-title img {
     height: 12px;
@@ -473,7 +488,7 @@ h2.section-title {
     height: 28px;
 }
 .noththree.s1-subsection-logo img {
-    height: 30px;
+    height: 24px;
 }
 .noththree.ts-subsection-logo {
     padding: 10px 24px;
@@ -3554,6 +3569,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         padding-bottom: 4vw;
         padding-top: 4vw;
     }
+    .mobile-top-border {
+        border-top: 1px solid #c8c8c8;
+    }
+    .dark-mode .mobile-top-border {
+        border-color: #555;
+    }
     .single-article {
         font-size: 17px;
         font-size: 0.85rem;
@@ -4116,9 +4137,16 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         justify-content: flex-end;
     }
     .subheader {
-        height: 40px;
+        height: 50px;
         font-size: 14px;
         font-size: 0.7rem;
+    }
+    .signup-btn {
+        padding: 6px 16px;
+        font-size: 14px;
+        font-size: 0.7rem;
+        margin-bottom: -11px;
+        top: -5.5px;
     }
     .subheader .menu {
         font-size: 13px;
@@ -5002,7 +5030,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 @media screen and (max-width: 480px) and (min-width: 411px) {
     html {
-        font-size: 23px;
+        font-size: 21px;
     }
     html.small-fontsize, .fontsize-previews .small-fontsize {
         font-size: 19px;
@@ -7250,12 +7278,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     display: none;
 }
 .cantha-separator {
-    border-top: 1px solid #c8c8c8;
     border-bottom: 3px solid #111;
-    padding-top: 5px;
 }
 .dark-mode .cantha-separator {
-    border-top-color: #555;
     border-bottom-color: #777;
 }
 .cantha-header {
@@ -7723,14 +7748,17 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         margin-top: 5vw;
     }
     .noththree.subsection-title, .mini-article-list .noththree.overtitle {
-        padding-top: 4vw;
-        padding-bottom: 5vw;
+        padding-top: 3vw;
+        padding-bottom: 3.5vw;
+    }
+    .classic-category .noththree.subsection-title {
+        padding-top: 3vw;
     }
     .mini-article-list .noththree.overtitle {
         padding-bottom: 1vw;
     }
     .noththree.pz-subsection-logo, .noththree.s1-subsection-logo, .noththree.os-subsection-logo, .noththree.ts-subsection-logo {
-        padding-top: 5vw;
+        padding-top: 3.5vw;
     }
     .article-mini h2 {
         font-size: 18px;
@@ -7992,7 +8020,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .block-echovald .cantha-commentary, .super1-block .block-echovald > .fourth {
         order: 2;
     }
-    .cantha-small-block .subsection-title, .cantha-mini-block .subsection-title, .subsection-title.manual-subsection-adjust {
+    .cantha-mini-block .subsection-title, .subsection-title.manual-subsection-adjust {
         padding-bottom: 1vw;
     }
     .cantha-block-title > .container {
@@ -9532,9 +9560,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
 }
 @media screen and (max-width: 767px) {
-    .offers-widget .gallery-content {
-        padding-top: 4vw;
-    }
     .offer-slide {
         padding: 0px 4vw;
     }
@@ -11164,9 +11189,6 @@ header .search-menu {
     }
 }
 @media screen and (max-width: 767px) {
-    .book-offers-widget .klub-ponuda {
-        margin-top: 4vw;
-    }
     .book-offers-widget .fourth .article, .book-offers-widget .fourth .article .article-pad {
         border-bottom: none;
     }

@@ -5,18 +5,20 @@
         <div class="full cantha-separator"></div>
       </div>
       <app-link to="/pitanje-zdravlja" class="full flex">
-        <div
-          class="noththree full center-text column-full-pad subsection-title pz-subsection-logo"
-        >
-          <img
-            src="@/assets/img/pz_logo_black.svg"
-            alt="PitanjeZdravlja logo"
-          />
-          <img
-            src="@/assets/img/pz_logo_negative.svg"
-            class="dark-mode-only"
-            alt="PitanjeZdravlja logo"
-          />
+        <div class="full flex column-horizontal-pad">
+          <div
+            class="noththree full center-text column-vertical-pad subsection-title pz-subsection-logo"
+          >
+            <img
+              src="@/assets/img/pz_logo_black.svg"
+              alt="PitanjeZdravlja logo"
+            />
+            <img
+              src="@/assets/img/pz_logo_negative.svg"
+              class="dark-mode-only"
+              alt="PitanjeZdravlja logo"
+            />
+          </div>
         </div>
       </app-link>
       <div class="full block-echovald mobile-side-pad flex relative">

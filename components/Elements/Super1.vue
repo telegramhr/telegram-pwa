@@ -5,16 +5,21 @@
         <div class="full cantha-separator"></div>
       </div>
       <app-link to="/super1" class="full flex relative">
-        <div
-          class="noththree full center-text column-full-pad subsection-title s1-subsection-logo"
-        >
-          <img src="@/assets/img/s1_logo_clean_noline.svg" alt="Super1 logo" />
-          <img
-            src="@/assets/img/s1_logo_clean_noline_white.svg"
-            alt="Super1 logo"
-            class="dark-mode-only"
-            loading="lazy"
-          />
+        <div class="full flex column-horizontal-pad">
+          <div
+            class="noththree full center-text column-vertical-pad subsection-title s1-subsection-logo"
+          >
+            <img
+              src="@/assets/img/s1_logo_clean_noline.svg"
+              alt="Super1 logo"
+            />
+            <img
+              src="@/assets/img/s1_logo_clean_noline_white.svg"
+              alt="Super1 logo"
+              class="dark-mode-only"
+              loading="lazy"
+            />
+          </div>
         </div>
       </app-link>
       <div class="full block-echovald mobile-side-pad flex relative">

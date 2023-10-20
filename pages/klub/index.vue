@@ -124,10 +124,12 @@
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
-        <div
-          class="noththree full center-text column-full-pad subsection-title"
-        >
-          Događanja i konferencije
+        <div class="full flex column-horizontal-pad">
+          <div
+            class="noththree full center-text column-vertical-pad subsection-title"
+          >
+            Događanja i konferencije
+          </div>
         </div>
         <div class="full flex relative stretch mobile-native-slider">
           <KlubItem
@@ -188,10 +190,12 @@
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
-        <div
-          class="noththree full center-text column-full-pad subsection-title"
-        >
-          Kazališta
+        <div class="full flex column-horizontal-pad">
+          <div
+            class="noththree full center-text column-vertical-pad subsection-title"
+          >
+            Kazališta
+          </div>
         </div>
         <div class="full flex relative stretch mobile-native-slider">
           <KlubItem
@@ -253,10 +257,12 @@
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
-        <div
-          class="noththree full center-text column-full-pad subsection-title"
-        >
-          Streaming
+        <div class="full flex column-horizontal-pad">
+          <div
+            class="noththree full center-text column-vertical-pad subsection-title"
+          >
+            Streaming
+          </div>
         </div>
         <div class="full flex relative stretch mobile-native-slider">
           <KlubItem
@@ -318,10 +324,12 @@
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
-        <div
-          class="noththree full center-text column-full-pad subsection-title"
-        >
-          Knjige
+        <div class="full flex column-horizontal-pad">
+          <div
+            class="noththree full center-text column-vertical-pad subsection-title"
+          >
+            Knjige
+          </div>
         </div>
         <div class="full flex relative stretch mobile-native-slider">
           <KlubItem
@@ -383,10 +391,12 @@
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
-        <div
-          class="noththree full center-text column-full-pad subsection-title"
-        >
-          Muzeji
+        <div class="full flex column-horizontal-pad">
+          <div
+            class="noththree full center-text column-vertical-pad subsection-title"
+          >
+            Muzeji
+          </div>
         </div>
         <div class="full flex relative stretch mobile-native-slider">
           <KlubItem
@@ -448,10 +458,12 @@
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
-        <div
-          class="noththree full center-text column-full-pad subsection-title"
-        >
-          Ostalo
+        <div class="full flex column-horizontal-pad">
+          <div
+            class="noththree full center-text column-vertical-pad subsection-title"
+          >
+            Ostalo
+          </div>
         </div>
         <div class="full flex relative stretch mobile-native-slider">
           <KlubItem
@@ -514,10 +526,12 @@
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
-        <div
-          class="noththree full center-text column-full-pad subsection-title"
-        >
-          Vaša klub iskaznica
+        <div class="full flex column-horizontal-pad">
+          <div
+            class="noththree full center-text column-vertical-pad subsection-title"
+          >
+            Vaša klub iskaznica
+          </div>
         </div>
         <div class="full center relative">
           <client-only>

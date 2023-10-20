@@ -5,20 +5,22 @@
     <div class="full column-horizontal-pad">
       <div class="full cantha-separator"></div>
     </div>
-    <div
-      class="noththree full center-text column-full-pad subsection-title os-subsection-logo"
-    >
-      <img
-        src="@/assets/img/openspace_logo_black.svg"
-        alt="openspace logo"
-        loading="lazy"
-      />
-      <img
-        src="@/assets/img/openspace_logo_negative.svg"
-        class="dark-mode-only"
-        alt="openspace logo"
-        loading="lazy"
-      />
+    <div class="full flex column-horizontal-pad">
+      <div
+        class="noththree full center-text column-vertical-pad subsection-title os-subsection-logo no-mob-bot-pad"
+      >
+        <img
+          src="@/assets/img/openspace_logo_black.svg"
+          alt="openspace logo"
+          loading="lazy"
+        />
+        <img
+          src="@/assets/img/openspace_logo_negative.svg"
+          class="dark-mode-only"
+          alt="openspace logo"
+          loading="lazy"
+        />
+      </div>
     </div>
     <div class="full column-bottom-pad flex relative the-big-gs stretch">
       <div

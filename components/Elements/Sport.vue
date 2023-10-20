@@ -5,20 +5,22 @@
         <div class="full cantha-separator"></div>
       </div>
       <a href="https://telesport.telegram.hr" class="full flex relative">
-        <div
-          class="noththree full center-text column-full-pad subsection-title ts-subsection-logo"
-        >
-          <img
-            src="@/assets/img/telesport_logo_black.svg"
-            alt="Telesport logo"
-            loading="lazy"
-          />
-          <img
-            src="@/assets/img/telesport_logo_white.svg"
-            class="dark-mode-only"
-            alt="Telesport logo"
-            loading="lazy"
-          />
+        <div class="full flex column-horizontal-pad">
+          <div
+            class="noththree full center-text column-vertical-pad subsection-title ts-subsection-logo"
+          >
+            <img
+              src="@/assets/img/telesport_logo_black.svg"
+              alt="Telesport logo"
+              loading="lazy"
+            />
+            <img
+              src="@/assets/img/telesport_logo_white.svg"
+              class="dark-mode-only"
+              alt="Telesport logo"
+              loading="lazy"
+            />
+          </div>
         </div>
       </a>
       <div class="full block-echovald mobile-side-pad flex relative">

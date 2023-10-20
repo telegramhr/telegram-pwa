@@ -178,16 +178,18 @@
         </div>
         <!-- komentari -->
         <div
-          class="fourth flex-responsive column-horizontal-pad mobile-side-pad cantha-commentary m-order-10"
+          class="fourth flex-responsive column-horizontal-pad mobile-side-pad cantha-commentary m-order-11"
         >
           <div class="full mobile-only flex relative">
             <div class="full column-horizontal-pad column-top-pad">
               <div class="full cantha-separator"></div>
             </div>
-            <div
-              class="noththree full center-text column-full-pad subsection-title"
-            >
-              Komentari
+            <div class="full flex column-horizontal-pad">
+              <div
+                class="noththree full center-text column-vertical-pad subsection-title"
+              >
+                Komentari
+              </div>
             </div>
           </div>
           <commentary type="tg"></commentary>
@@ -223,28 +225,12 @@
           <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
         </div>
         <!-- Teme -->
-        <div class="full relative m-order-8 mobile-side-pad">
-          <div class="full column-horizontal-pad column-top-pad">
-            <div class="full cantha-separator"></div>
-          </div>
-          <div
-            class="noththree full center-text column-full-pad subsection-title"
-          >
-            <img
-              src="@/assets/img/telegram_logo_black.svg"
-              alt="Telegram logo"
-            />
-            <img
-              src="@/assets/img/telegram_logo_white.svg"
-              class="dark-mode-only"
-              alt="Telegram logo"
-            />
-            teme
-          </div>
-        </div>
         <div
           class="full flex mobile-side-pad stretch secondary-gs-block m-order-8"
         >
+          <div class="full column-horizontal-pad column-bottom-pad flex">
+            <div class="full column-top-border"></div>
+          </div>
           <div
             class="three-fourths flex-responsive column-horizontal-pad column-right-border flex relative featured-split smaller-featured-split show-one-related"
           >
@@ -343,17 +329,12 @@
           </div>
         </client-only> -->
         <!-- Još vijesti -->
-        <div class="full relative cantha-more-news m-order-11">
+        <div class="full relative cantha-more-news m-order-10">
           <div
-            class="container flex cantha-small-block mobile-side-pad relative stretch"
+            class="container flex cantha-small-block mobile-side-pad relative stretch column-top-pad"
           >
-            <div class="full column-horizontal-pad column-top-pad">
-              <div class="full cantha-separator"></div>
-            </div>
-            <div
-              class="noththree full center-text column-full-pad subsection-title"
-            >
-              Još vijesti
+            <div class="full column-horizontal-pad flex column-bottom-pad">
+              <div class="full flex column-top-border mobile-top-border"></div>
             </div>
             <div class="full flex stretch relative no-last-border-mobile">
               <div
@@ -381,16 +362,12 @@
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
-        <div
-          class="noththree full center-text column-full-pad subsection-title"
-        >
-          <img src="@/assets/img/telegram_logo_black.svg" alt="Telegram logo" />
-          <img
-            src="@/assets/img/telegram_logo_white.svg"
-            class="dark-mode-only"
-            alt="Telegram logo"
-          />
-          preporuka
+        <div class="full flex column-horizontal-pad">
+          <div
+            class="noththree full center-text column-vertical-pad subsection-title"
+          >
+            Telegram preporuka
+          </div>
         </div>
         <div
           v-if="breaks[0]"
@@ -417,48 +394,6 @@
         <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
       </div>
     </div>
-    <!-- Book widget DEPRA -->
-    <app-link
-      to="/knjiga/aleksandar-stankovic-depra?checkout=true"
-      class="full flex relative center mobile-side-pad darkened-bg column-full-pad shoo-bottom"
-    >
-      <div class="container relative flex stretch">
-        <div class="forty tablet-full flex flex-responsive center">
-          <div class="full center-text newbook-overtitle">
-            Telegram naklada
-          </div>
-          <h1 class="full center-text newbook-title">DEPRA</h1>
-          <div class="full center-text newbook-author">
-            Aleksandar Stanković
-          </div>
-          <p class="full center-text newbook-intro">
-            Poznati novinar i voditelj godinama boluje od depresije, a sada je,
-            u ovoj knjizi, prvi put odlučio progovoriti o svojoj borbi s tom
-            bolesti
-          </p>
-        </div>
-
-        <div class="forty tablet-full flex flex-responsive center">
-          <img
-            src="@/assets/img/tg_book_mockup_stankovic.png"
-            alt="Naslovnica nove knjige Aleksandra Stankovića 'DEPRA'"
-          />
-        </div>
-        <div class="fifth tablet-full flex flex-responsive center">
-          <div class="full relative center-text newbook-price">
-            <span class="faded strikethrough">19,99€</span> 14,99€
-          </div>
-          <div class="full relative center-text neat-numbers">
-            (<span class="faded strikethrough">150,61 kn</span> 112,94 kn)
-            <br />
-            posebna cijena za sve pretplatnike Telegrama
-          </div>
-          <div class="full center btn-parent newbook-btn">
-            <div class="newbtn clickable huge-newbtn animate">Kupite</div>
-          </div>
-        </div>
-      </div>
-    </app-link>
     <!-- Prekid knjiga
     <div class="full relative" style="margin-top: 24px">
       <div class="container flex relative column-horizontal-pad">
@@ -549,7 +484,7 @@
     </div> -->
     <!-- Velika rubrika: Politika i kriminal -->
     <div class="full relative">
-      <div class="container flex relative">
+      <div class="container flex relative column-bottom-pad">
         <category-big slug="more-news"></category-big>
       </div>
     </div>
@@ -560,32 +495,26 @@
         <jgl-premium shop="jgl"></jgl-premium>
       </div>
     </client-only>
-    <!-- Mala rubrika: Biznis i tech -->
+    <!-- Sport -->
     <div class="full relative">
-      <div class="container flex relative">
-        <client-only>
-          <category-alt slug="biznis-tech"></category-alt>
-        </client-only>
-      </div>
-    </div>
-    <!-- Widget autori -->
-    <div class="full mobile-side-pad relative">
       <client-only>
-        <div class="full center">
-          <authors></authors>
-        </div>
+        <sport></sport>
       </client-only>
     </div>
-    <!-- Odabir urednika -->
+    <!-- Pretplatnici čitaju -->
     <div class="full relative">
-      <div class="container flex relative stretch mobile-side-pad">
+      <div
+        class="container flex relative stretch mobile-side-pad column-bottom-pad"
+      >
         <div class="full column-horizontal-pad column-top-pad">
           <div class="full cantha-separator"></div>
         </div>
-        <div
-          class="noththree full center-text column-full-pad subsection-title"
-        >
-          Odabir urednika
+        <div class="full flex column-horizontal-pad">
+          <div
+            class="noththree full center-text column-vertical-pad subsection-title"
+          >
+            Pretplatnici čitaju
+          </div>
         </div>
         <div
           v-if="breaks[1]"
@@ -593,15 +522,10 @@
         >
           <standard :key="breaks[1].id" :post="breaks[1]"></standard>
         </div>
-        <div class="full column-horizontal-pad column-top-pad">
-          <div class="full cantha-separator"></div>
-        </div>
-        <div
-          class="noththree full center-text column-full-pad subsection-title manual-subsection-adjust"
-        >
-          Pretplatnici čitaju
-        </div>
-        <div class="full flex cantha-small-block stretch">
+        <div class="full flex cantha-small-block stretch column-top-pad">
+          <div class="full flex column-horizontal-pad column-bottom-pad">
+            <div class="full flex column-top-border"></div>
+          </div>
           <div
             v-for="post in breaks.slice(2, 5)"
             :key="post.id"
@@ -610,12 +534,14 @@
             <medium :post="post"></medium>
           </div>
         </div>
-        <div class="full column-horizontal-pad">
-          <div class="full column-top-pad column-bottom-border"></div>
-        </div>
       </div>
     </div>
-    <!-- Prekid knjiga -->
+    <!-- Super1 -->
+    <div class="full relative">
+      <client-only>
+        <super1></super1>
+      </client-only>
+    </div>
     <!-- Prekid klub -->
     <client-only>
       <div class="full relative">
@@ -705,28 +631,6 @@
         </app-link>
       </div>
     </div> -->
-    <!-- Sport -->
-    <div class="full relative">
-      <client-only>
-        <sport></sport>
-      </client-only>
-    </div>
-    <!-- Widget partneri -->
-    <div class="full relative">
-      <client-only>
-        <partners></partners>
-      </client-only>
-    </div>
-    <!-- Super1 -->
-    <div class="full relative">
-      <client-only>
-        <super1></super1>
-      </client-only>
-    </div>
-    <!-- Odabrati stranu pretplatnici widget -->
-    <div class="full relative shoo-bottom">
-      <pretplatnici-widget></pretplatnici-widget>
-    </div>
     <!-- Šoping knjige
     <div class="full relative">
       <book-offers></book-offers>
@@ -742,6 +646,12 @@
         <offers></offers>
       </div>
     </client-only>-->
+    <!-- Widget partneri -->
+    <div class="full relative">
+      <client-only>
+        <partners></partners>
+      </client-only>
+    </div>
     <!-- Billboard 4 -->
     <div class="full relative">
       <div class="full center">
@@ -754,6 +664,46 @@
         <os-homepage></os-homepage>
       </client-only>
     </div>
+    <!-- Book widget DEPRA -->
+    <app-link
+      to="/knjiga/aleksandar-stankovic-depra?checkout=true"
+      class="full flex relative center mobile-side-pad darkened-bg column-full-pad shoo-bottom"
+    >
+      <div class="container relative flex stretch">
+        <div class="forty tablet-full flex flex-responsive center">
+          <div class="full center-text newbook-overtitle">Telegram naklada</div>
+          <h1 class="full center-text newbook-title">DEPRA</h1>
+          <div class="full center-text newbook-author">
+            Aleksandar Stanković
+          </div>
+          <p class="full center-text newbook-intro">
+            Poznati novinar i voditelj godinama boluje od depresije, a sada je,
+            u ovoj knjizi, prvi put odlučio progovoriti o svojoj borbi s tom
+            bolesti
+          </p>
+        </div>
+
+        <div class="forty tablet-full flex flex-responsive center">
+          <img
+            src="@/assets/img/tg_book_mockup_stankovic.png"
+            alt="Naslovnica nove knjige Aleksandra Stankovića 'DEPRA'"
+          />
+        </div>
+        <div class="fifth tablet-full flex flex-responsive center">
+          <div class="full relative center-text newbook-price">
+            <span class="faded strikethrough">19,99€</span> 14,99€
+          </div>
+          <div class="full relative center-text neat-numbers">
+            (<span class="faded strikethrough">150,61 kn</span> 112,94 kn)
+            <br />
+            posebna cijena za sve pretplatnike Telegrama
+          </div>
+          <div class="full center btn-parent newbook-btn">
+            <div class="newbtn clickable huge-newbtn animate">Kupite</div>
+          </div>
+        </div>
+      </div>
+    </app-link>
     <!-- Linker -->
     <div class="full mobile-side-pad relative">
       <client-only>
@@ -775,6 +725,10 @@
           </client-only>
         </div>
       </div>
+    </div>
+    <!-- Odabrati stranu pretplatnici widget -->
+    <div class="full relative shoo-bottom">
+      <pretplatnici-widget></pretplatnici-widget>
     </div>
     <div class="full relative">
       <div class="container flex center">

@@ -3,8 +3,12 @@
     <div class="full column-horizontal-pad column-top-pad">
       <div class="full cantha-separator"></div>
     </div>
-    <div class="noththree full center-text column-full-pad subsection-title">
-      <nuxt-link :to="'/' + slug">{{ category | parseCat }}</nuxt-link>
+    <div class="full flex column-horizontal-pad">
+      <div
+        class="noththree full center-text column-vertical-pad subsection-title"
+      >
+        <nuxt-link :to="'/' + slug">{{ category | parseCat }}</nuxt-link>
+      </div>
     </div>
     <div class="full block-echovald flex relative">
       <div class="three-fourths flex-responsive flex stretch">

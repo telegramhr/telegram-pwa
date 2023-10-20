@@ -9,11 +9,13 @@
     >
       <div class="full cantha-separator"></div>
     </div>
-    <div
-      v-if="title && body"
-      class="noththree full center-text column-full-pad subsection-title mobile-side-pad"
-    >
-      {{ title }}
+    <div class="full flex column-horizontal-pad">
+      <div
+        v-if="title && body"
+        class="noththree full center-text column-vertical-pad subsection-title mobile-side-pad"
+      >
+        {{ title }}
+      </div>
     </div>
     <div class="full flex mobile-side-pad">
       <template v-if="type === 'keep-reading' && id !== 659">
