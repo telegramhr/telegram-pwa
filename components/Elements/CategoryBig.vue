@@ -7,7 +7,7 @@
       <div
         class="noththree full center-text column-vertical-pad subsection-title"
       >
-        <nuxt-link :to="'/' + slug">{{ category | parseCat }}</nuxt-link>
+        <app-link :to="link">{{ category | parseCat }}</app-link>
       </div>
     </div>
     <div class="full block-echovald flex relative">
@@ -74,6 +74,9 @@ export default {
     category() {
       return this.$store.state.category.categories[this.slug].name
     },
+    link() {
+      return this.$store.state.category.categories[this.slug].canonical
+    }
   },
 }
 </script>
