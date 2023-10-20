@@ -467,6 +467,11 @@ export default {
       },
     ]
     let meta = [
+      {
+        hid: 'description',
+        name: 'description',
+        content: this.description,
+      },
       { hid: 'og:type', name: 'og:type', content: 'website' },
       {
         hid: 'og:title',
