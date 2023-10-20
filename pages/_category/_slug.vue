@@ -1240,11 +1240,11 @@ export default {
         property: 'article:content_tier',
         content: fbPaywall[this.post.paywall],
       },
-      {
+      /* {
         hid: 'twitter:card',
         name: 'twitter:card',
         content: 'summary_large_image',
-      },
+      }, */
       {
         hid: 'twitter:site',
         name: 'twitter:site',
