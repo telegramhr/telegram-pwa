@@ -6,7 +6,7 @@ export const state = () => ({
       posts: [],
       updated: null,
       extraClass: 'more-news',
-      canonical: '/more-news',
+      canonical: '/politika-kriminal',
     },
     'politika-kriminal': {
       name: 'Politika & Kriminal',
