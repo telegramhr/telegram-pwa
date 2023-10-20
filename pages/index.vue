@@ -52,7 +52,7 @@
           >
             <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon
           ></a>
-          <nuxt-link to="/" class="logo" @click="$fetch"
+          <app-link to="/" class="logo" @click="$fetch"
             ><img
               src="@/assets/img/telegram_logo_black.svg"
               alt="Telegram logo" />
@@ -60,7 +60,7 @@
               src="@/assets/img/telegram_logo_white.svg"
               alt="Telegram logo"
               class="dark-mode-only"
-          /></nuxt-link>
+          /></app-link>
           <a
             aria-label="Prikaži tražilicu"
             class="cantha-searchbtn"

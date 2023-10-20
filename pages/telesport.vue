@@ -9,7 +9,7 @@
       <div class="full flex relative">
         <div class="container flex relative">
           <div class="full center">
-            <nuxt-link to="/telesport" class="logo"
+            <app-link to="/telesport" class="logo"
               ><img
                 src="@/assets/img/telesport_logo_black.svg"
                 class="light-mode-only"
@@ -22,7 +22,7 @@
                 src="@/assets/img/telesport_logo_white.svg"
                 alt="Telesport logo"
                 class="dark-mode-only"
-            /></nuxt-link>
+            /></app-link>
           </div>
         </div>
       </div>

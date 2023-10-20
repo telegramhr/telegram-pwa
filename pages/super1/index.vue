@@ -18,7 +18,7 @@
     <section class="full flex relative">
       <div class="container flex relative superone-home-header column-full-pad">
         <div class="full center">
-          <nuxt-link to="/super1" class="logo"
+          <app-link to="/super1" class="logo"
             ><img
               src="@/assets/img/s1_logo_clean_alt.svg"
               class="light-mode-only"
@@ -31,7 +31,7 @@
               src="@/assets/img/s1_logo_clean_negative_alt.svg"
               alt="Super1 logo"
               class="dark-mode-only"
-          /></nuxt-link>
+          /></app-link>
         </div>
         <div class="full center">
           <nav class="menu flex" role="menu">

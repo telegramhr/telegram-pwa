@@ -656,7 +656,7 @@
             čitanje Telegrama i Telesporta, ali i brojne druge benefite i
             funkcionalnosti poput surfanja bez oglasa, popust na knjige i
             ekskluzivnih
-            <nuxt-link to="/newsletters">newslettera</nuxt-link>.
+            <app-link to="/newsletters">newslettera</app-link>.
           </p>
         </details>
         <details class="full flex relative">

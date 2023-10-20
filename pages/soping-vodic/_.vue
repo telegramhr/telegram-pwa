@@ -39,12 +39,12 @@
           >
             <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon
           ></a>
-          <nuxt-link to="/" class="logo">
+          <app-link to="/" class="logo">
             <img
               src="@/assets/img/telegram_logo_white.svg"
               alt="Telegram logo"
             />
-          </nuxt-link>
+          </app-link>
           <a
             v-show="canLogIn"
             class="mob-nav-otherbtn mobile-only"

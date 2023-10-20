@@ -4,10 +4,10 @@
     class="full flex new-breaking mobile-side-pad"
   >
     <div class="container column-vertical-pad column-bottom-border center-text">
-      <nuxt-link
+      <app-link
         :to="$store.state.breaking.link ? $store.state.breaking.link : '#'"
         ><b>{{ $store.state.breaking.prefix }}</b>
-        {{ $store.state.breaking.title }}</nuxt-link
+        {{ $store.state.breaking.title }}</app-link
       >
     </div>
   </div>
