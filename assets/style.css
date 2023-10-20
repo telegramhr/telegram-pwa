@@ -458,8 +458,13 @@ h2.section-title {
     font-size: 0.9rem;
     font-family: 'Barlow', sans-serif;
     font-weight: 700;
-    padding-top: 16px;
-    padding-bottom: 16px;
+    padding-top: 22px;
+    padding-bottom: 24px;
+}
+@media screen and (max-width: 767px) {
+    .noththree.subsection-title.no-mob-bot-pad {
+        padding-bottom: 0px;
+    }
 }
 @media screen and (min-width: 767px) { 
     .classic-category .noththree.subsection-title {
@@ -483,7 +488,7 @@ h2.section-title {
     height: 28px;
 }
 .noththree.s1-subsection-logo img {
-    height: 30px;
+    height: 24px;
 }
 .noththree.ts-subsection-logo {
     padding: 10px 24px;
@@ -7753,7 +7758,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         padding-bottom: 1vw;
     }
     .noththree.pz-subsection-logo, .noththree.s1-subsection-logo, .noththree.os-subsection-logo, .noththree.ts-subsection-logo {
-        padding-top: 5vw;
+        padding-top: 3.5vw;
     }
     .article-mini h2 {
         font-size: 18px;
@@ -9555,9 +9560,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
 }
 @media screen and (max-width: 767px) {
-    .offers-widget .gallery-content {
-        padding-top: 4vw;
-    }
     .offer-slide {
         padding: 0px 4vw;
     }
@@ -11187,9 +11189,6 @@ header .search-menu {
     }
 }
 @media screen and (max-width: 767px) {
-    .book-offers-widget .klub-ponuda {
-        margin-top: 4vw;
-    }
     .book-offers-widget .fourth .article, .book-offers-widget .fourth .article .article-pad {
         border-bottom: none;
     }

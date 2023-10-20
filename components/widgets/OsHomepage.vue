@@ -7,7 +7,7 @@
     </div>
     <div class="full flex column-horizontal-pad">
       <div
-        class="noththree full center-text column-vertical-pad subsection-title os-subsection-logo"
+        class="noththree full center-text column-vertical-pad subsection-title os-subsection-logo no-mob-bot-pad"
       >
         <img
           src="@/assets/img/openspace_logo_black.svg"

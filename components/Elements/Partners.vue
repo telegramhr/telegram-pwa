@@ -7,7 +7,7 @@
     </div>
     <div class="full flex column-horizontal-pad">
       <div
-        class="noththree full center-text column-vertical-pad subsection-title"
+        class="noththree full center-text column-vertical-pad subsection-title no-mob-bot-pad"
       >
         Partneri
       </div>

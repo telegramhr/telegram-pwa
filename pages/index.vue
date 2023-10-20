@@ -178,7 +178,7 @@
         </div>
         <!-- komentari -->
         <div
-          class="fourth flex-responsive column-horizontal-pad mobile-side-pad cantha-commentary m-order-10"
+          class="fourth flex-responsive column-horizontal-pad mobile-side-pad cantha-commentary m-order-11"
         >
           <div class="full mobile-only flex relative">
             <div class="full column-horizontal-pad column-top-pad">
@@ -329,7 +329,7 @@
           </div>
         </client-only> -->
         <!-- Još vijesti -->
-        <div class="full relative cantha-more-news m-order-11">
+        <div class="full relative cantha-more-news m-order-10">
           <div
             class="container flex cantha-small-block mobile-side-pad relative stretch column-top-pad"
           >
@@ -394,48 +394,6 @@
         <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
       </div>
     </div>
-    <!-- Book widget DEPRA -->
-    <app-link
-      to="/knjiga/aleksandar-stankovic-depra?checkout=true"
-      class="full flex relative center mobile-side-pad darkened-bg column-full-pad shoo-bottom"
-    >
-      <div class="container relative flex stretch">
-        <div class="forty tablet-full flex flex-responsive center">
-          <div class="full center-text newbook-overtitle">
-            Ekskluzivna prednarudžba
-          </div>
-          <h1 class="full center-text newbook-title">DEPRA</h1>
-          <div class="full center-text newbook-author">
-            Aleksandar Stanković
-          </div>
-          <p class="full center-text newbook-intro">
-            Poznati novinar i voditelj godinama boluje od depresije, a sada je,
-            u ovoj knjizi, prvi put odlučio progovoriti o svojoj borbi s tom
-            bolesti
-          </p>
-        </div>
-
-        <div class="forty tablet-full flex flex-responsive center">
-          <img
-            src="@/assets/img/tg_book_mockup_stankovic.png"
-            alt="Naslovnica nove knjige Aleksandra Stankovića 'DEPRA'"
-          />
-        </div>
-        <div class="fifth tablet-full flex flex-responsive center">
-          <div class="full relative center-text newbook-price">
-            <span class="faded strikethrough">19,99€</span> 14,99€
-          </div>
-          <div class="full relative center-text neat-numbers">
-            (<span class="faded strikethrough">150,61 kn</span> 112,94 kn)
-            <br />
-            posebna cijena za sve pretplatnike Telegrama
-          </div>
-          <div class="full center btn-parent newbook-btn">
-            <div class="newbtn clickable huge-newbtn animate">Kupite</div>
-          </div>
-        </div>
-      </div>
-    </app-link>
     <!-- Prekid knjiga
     <div class="full relative" style="margin-top: 24px">
       <div class="container flex relative column-horizontal-pad">
@@ -673,10 +631,6 @@
         </app-link>
       </div>
     </div> -->
-    <!-- Odabrati stranu pretplatnici widget -->
-    <div class="full relative shoo-bottom">
-      <pretplatnici-widget></pretplatnici-widget>
-    </div>
     <!-- Šoping knjige
     <div class="full relative">
       <book-offers></book-offers>
@@ -710,6 +664,48 @@
         <os-homepage></os-homepage>
       </client-only>
     </div>
+    <!-- Book widget DEPRA -->
+    <app-link
+      to="/knjiga/aleksandar-stankovic-depra?checkout=true"
+      class="full flex relative center mobile-side-pad darkened-bg column-full-pad shoo-bottom"
+    >
+      <div class="container relative flex stretch">
+        <div class="forty tablet-full flex flex-responsive center">
+          <div class="full center-text newbook-overtitle">
+            Ekskluzivna prednarudžba
+          </div>
+          <h1 class="full center-text newbook-title">DEPRA</h1>
+          <div class="full center-text newbook-author">
+            Aleksandar Stanković
+          </div>
+          <p class="full center-text newbook-intro">
+            Poznati novinar i voditelj godinama boluje od depresije, a sada je,
+            u ovoj knjizi, prvi put odlučio progovoriti o svojoj borbi s tom
+            bolesti
+          </p>
+        </div>
+
+        <div class="forty tablet-full flex flex-responsive center">
+          <img
+            src="@/assets/img/tg_book_mockup_stankovic.png"
+            alt="Naslovnica nove knjige Aleksandra Stankovića 'DEPRA'"
+          />
+        </div>
+        <div class="fifth tablet-full flex flex-responsive center">
+          <div class="full relative center-text newbook-price">
+            <span class="faded strikethrough">19,99€</span> 14,99€
+          </div>
+          <div class="full relative center-text neat-numbers">
+            (<span class="faded strikethrough">150,61 kn</span> 112,94 kn)
+            <br />
+            posebna cijena za sve pretplatnike Telegrama
+          </div>
+          <div class="full center btn-parent newbook-btn">
+            <div class="newbtn clickable huge-newbtn animate">Kupite</div>
+          </div>
+        </div>
+      </div>
+    </app-link>
     <!-- Linker -->
     <div class="full mobile-side-pad relative">
       <client-only>
@@ -731,6 +727,10 @@
           </client-only>
         </div>
       </div>
+    </div>
+    <!-- Odabrati stranu pretplatnici widget -->
+    <div class="full relative shoo-bottom">
+      <pretplatnici-widget></pretplatnici-widget>
     </div>
     <div class="full relative">
       <div class="container flex center">
