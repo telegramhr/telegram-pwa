@@ -31,7 +31,7 @@ export default {
         is: 'nuxt-link',
         to: {
           path:
-            route + ((route.at(-1) && !route.includes('?')) === '/' ? '' : '/'),
+            route + (route.at(-1) !== '/' && !route.includes('?') ? '/' : ''),
           query: this.tracker
             ? {
                 tracker: this.tracker,
