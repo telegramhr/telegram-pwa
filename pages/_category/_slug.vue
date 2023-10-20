@@ -1260,7 +1260,8 @@ export default {
         name: 'robots',
         content:
           this.$route.params.category === 'preview' ||
-          this.post.status !== 'publish'
+          this.post.status !== 'publish' ||
+          this.post.tags.filter((tag) => tag.slug === 'demantij').length
             ? 'noindex, noarchive, nocache, nosnippet'
             : 'index, follow, max-image-preview:large, max-snippet:-1',
       },
