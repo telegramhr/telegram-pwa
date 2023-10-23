@@ -168,7 +168,7 @@
         </div>
         <!-- G1 -->
         <div
-          class="three-fourths featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles column-right-border mobile-side-pad mobile-order-1 m-order-1"
+          class="three-fourths featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad mobile-order-1 m-order-1"
         >
           <featured-alt
             v-if="posts[0]"
@@ -177,7 +177,7 @@
           ></featured-alt>
         </div>
         <!-- komentari -->
-        <div
+        <!--<div
           class="fourth flex-responsive column-horizontal-pad mobile-side-pad cantha-commentary m-order-11"
         >
           <div class="full mobile-only flex relative">
@@ -193,21 +193,20 @@
             </div>
           </div>
           <commentary type="tg"></commentary>
-        </div>
-        <div class="full column-full-pad desktop-only">
-          <div class="full column-top-border"></div>
-        </div>
+        </div>-->
         <!-- latest -->
-        <!--<client-only>
+        <client-only>
           <div
-            v-if="$mobile"
-            class="full mobile-side-pad column-right-pad flex relative m-order-3 no-last-border-mobile"
+            class="fourth flex-responsive mobile-side-pad column-right-pad flex relative m-order-3 no-last-border-mobile"
           >
             <div class="full flex relative latest-line-feed">
               <latest :portal="1"></latest>
             </div>
           </div>
-        </client-only>-->
+        </client-only>
+        <div class="full column-full-pad desktop-only">
+          <div class="full column-top-border"></div>
+        </div>
         <!-- rest of Gs -->
         <div
           class="full flex cantha-small-block mobile-side-pad stretch m-order-5"
@@ -486,6 +485,12 @@
     <div class="full relative">
       <div class="container flex relative column-bottom-pad">
         <category-big slug="more-news"></category-big>
+      </div>
+    </div>
+    <!-- Widget autori -->
+    <div class="full relative">
+      <div class="container flex relative column-bottom-pad">
+        <authors></authors>
       </div>
     </div>
     <!-- Widget partner special -->

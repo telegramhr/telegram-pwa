@@ -7,8 +7,7 @@
       <div
         class="noththree full center-text column-vertical-pad subsection-title"
       >
-        <img src="@/assets/img/telegram_logo_black.svg" alt="Telegram logo" />
-        autori
+        Telegram komentari
       </div>
     </div>
     <div class="full flex fancy-authors-widget stretch">
