@@ -1,5 +1,5 @@
 <template>
-  <div class="container flex relative stretch">
+  <div class="container flex relative stretch mobile-side-pad">
     <div class="full column-horizontal-pad column-top-pad">
       <div class="full cantha-separator"></div>
     </div>
