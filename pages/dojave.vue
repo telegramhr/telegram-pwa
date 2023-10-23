@@ -39,7 +39,7 @@
                 :icon="['fad', 'comment-dots']"
               ></font-awesome-icon>
               <h2 class="full">Signal</h2>
-              <div class="noththree full contact-data">099 624 3591</div>
+              <div class="noththree full contact-data">099 624 3951</div>
               <p class="full">
                 Signal je aplikacija za razmjenu poruka, slika, videa i poziva
                 koji su zaštićeni potpunom enkripcijom. Jedina informacija
@@ -74,7 +74,7 @@
                 :icon="['fab', 'telegram']"
               ></font-awesome-icon>
               <h2 class="full">Telegram</h2>
-              <div class="noththree full contact-data">099 624 3591</div>
+              <div class="noththree full contact-data">099 624 3951</div>
               <p class="full">
                 Slično kao Signal, Telegram je aplikacija za sigurnu razmjenu
                 poruka, slika, videa i dokumenata zaštićena potpunom
