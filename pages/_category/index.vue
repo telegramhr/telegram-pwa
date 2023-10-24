@@ -172,7 +172,7 @@
         </div>
       </div>
       <!-- Read more widget -->
-      <div class="full flex relative">
+      <div v-if="hasMore" class="full flex relative">
         <div class="container flex relative column-full-pad">
           <div class="full center relative clickable" @click.prevent="loadMore">
             <a v-show="!loading" :href="readMore" class="newbtn altbtn animate">
@@ -232,6 +232,7 @@
 
 <script>
 import Standard from '../../components/articles/Standard.vue'
+import {has} from "vue-slick-carousel/dist/vue-slick-carousel.common";
 export default {
   name: 'CategoryIndex',
   components: { Standard },
@@ -249,6 +250,9 @@ export default {
       .then((res) => {
         this.posts = res.data.posts
         this.description = res.data.description
+        if (res.data.posts.length < 20) {
+          this.hasMore = false
+        }
       })
       .catch(() => {
         if (process.server) {
@@ -262,6 +266,7 @@ export default {
       loading: false,
       posts: [],
       description: '',
+      hasMore: true,
       page: this.$route.query.page ? parseInt(this.$route.query.page) : 1,
     }
   },
@@ -441,6 +446,7 @@ export default {
     })
   },
   methods: {
+    has,
     loadMore() {
       this.loading = true
       this.page++
@@ -449,6 +455,9 @@ export default {
         .then((res) => {
           this.posts = [...this.posts, ...res.data.posts]
           this.loading = false
+          if (res.data.posts.length < 20) {
+            this.hasMore = false
+          }
         })
     },
   },
