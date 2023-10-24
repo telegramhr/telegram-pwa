@@ -7662,8 +7662,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     display: none;
 }
 .fancy-authors-widget .article-featured h2 {
-    font-size: 16px;
-    font-size: 0.8rem;
+    font-size: 18px;
+    font-size: 0.9rem;
+    font-weight: 400;
 }
 .banner-slot {
     margin-top: 24px;
@@ -11986,4 +11987,27 @@ input:checked ~ .input-hidden {
     .dark-mode footer .conversion-notice {
         border-color: #555;
     }
+}
+.mini-article-list .article-mini .article-pad h2 {
+    font-weight: 400;
+    font-size: 15px;
+    font-size: 0.75rem;
+}
+.single-article .single-article-body .new-pretplata-intext::after {
+    position: absolute;
+    top: -153px;
+    content: ' ';
+    background: linear-gradient(to top, rgba(252,241,231, 1), rgba(252,241,231, 0));
+    width: 100%;
+    height: 150px;
+    z-index: 4;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.openspace .single-article-body .new-pretplata-intext::after,  .contrast-mode .single-article .single-article-body .new-pretplata-intext::after, .fancy-rubrika .single-article .single-article-body .new-pretplata-intext::after {
+    background: linear-gradient(to top, rgba(255,255,255, 1), rgba(255,255,255, 0));
+}
+.dark-mode .single-article .single-article-body .new-pretplata-intext::after {
+    background: linear-gradient(to top, rgba(33,33,33, 1), rgba(33,33,33, 0));
 }
