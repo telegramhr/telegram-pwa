@@ -26,7 +26,7 @@ export default ({ app, store }) => {
       app.$gtm.push({
         event: 'reload-script',
         action: 'reload-script',
-        provider: 'sovrn',
+        provider: 'defractal',
       })
     }
   }
