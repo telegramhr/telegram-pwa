@@ -32,7 +32,7 @@
             />
           </div>
           <div
-            class="half super-sidebar flex column-horizontal-pad column-left-border column-right-border flex-responsive split-articles"
+            class="half super-sidebar flex column-horizontal-pad column-left-border flex-responsive split-articles"
           >
             <medium
               v-for="post in posts.slice(1, 4)"
@@ -44,7 +44,7 @@
         <div class="full column-full-pad tablet-only">
           <div class="full column-bottom-border"></div>
         </div>
-        <div
+        <!--<div
           class="fourth flex-responsive desktop-only column-horizontal-pad tablet-fix"
         >
           <mini
@@ -52,13 +52,22 @@
             :key="'super-' + post.id"
             :post="post"
           ></mini>
-        </div>
+        </div>-->
+        <client-only>
+          <div
+            class="fourth flex-responsive column-right-pad flex relative no-last-border-mobile"
+          >
+            <div class="full flex relative latest-line-feed">
+              <latest :portal="1"></latest>
+            </div>
+          </div>
+        </client-only>
         <div class="full column-full-pad">
           <div class="full column-top-border"></div>
         </div>
         <div class="full flex cantha-small-block remove-last-mobile-border">
           <div
-            v-for="post in posts.slice(8, 12)"
+            v-for="post in posts.slice(4, 8)"
             :key="'super-' + post.id"
             class="fourth flex-responsive column-right-border column-horizontal-pad"
           >

@@ -7577,6 +7577,11 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     border-bottom: 1px solid #c8c8c8;
     margin-bottom: 16px;
 }
+.block-echovald .latest-line-feed .article-mini .article-pad {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    border-bottom: none;
+}
 .dark-mode .block-echovald .fourth .article-mini .article-pad {
     border-color: #333;
 }
@@ -7960,8 +7965,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         display: none;
     }
     .cantha-commentary .komentar h2, .block-echovald .cantha-commentary .komentar h2 {
-        font-size: 22px;
-        font-size: 1.1rem;
+        font-size: 20px;
+        font-size: 1rem;
     }
     .classic-category .article-medium:last-child {
         border-bottom: none;
@@ -8011,8 +8016,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         padding-top: 0px;
     }
     .cantha-commentary .komentar:first-child h2 {
-        font-size: 22px;
-        font-size: 1.1rem;
+        font-size: 18px;
+        font-size: 0.9rem;
     }
     .cantha-commentary .komentar:first-child > img.mobile-only {
         display: block;

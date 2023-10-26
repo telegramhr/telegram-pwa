@@ -487,12 +487,12 @@
         <category-big slug="more-news"></category-big>
       </div>
     </div>
-    <!-- Widget autori -->
+    <!-- Widget autori
     <div class="full relative">
       <div class="container flex relative column-bottom-pad">
         <authors></authors>
       </div>
-    </div>
+    </div> -->
     <!-- Widget partner special -->
     <client-only>
       <div v-if="!hasPremium" class="full relative">
