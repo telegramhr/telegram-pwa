@@ -31,7 +31,7 @@
             />
           </div>
           <div
-            class="half super-sidebar flex column-horizontal-pad column-left-border flex-responsive split-articles"
+            class="half super-sidebar flex column-horizontal-pad column-left-border column-right-border flex-responsive split-articles"
           >
             <medium
               v-for="post in posts.slice(1, 4)"
@@ -43,7 +43,7 @@
         <div class="full column-full-pad tablet-only">
           <div class="full column-bottom-border"></div>
         </div>
-        <!--<div
+        <div
           class="fourth desktop-mini-force flex-responsive column-horizontal-pad remove-last-mobile-border"
         >
           <standard
@@ -51,16 +51,7 @@
             :key="'pz-' + post.id"
             :post="post"
           ></standard>
-        </div>-->
-        <client-only>
-          <div
-            class="fourth flex-responsive column-right-pad flex relative no-last-border-mobile"
-          >
-            <div class="full flex relative latest-line-feed">
-              <latest :portal="1"></latest>
-            </div>
-          </div>
-        </client-only>
+        </div>
       </div>
     </div>
   </div>
