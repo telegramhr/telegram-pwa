@@ -231,8 +231,8 @@
 </template>
 
 <script>
+import { has } from 'vue-slick-carousel/dist/vue-slick-carousel.common'
 import Standard from '../../components/articles/Standard.vue'
-import {has} from "vue-slick-carousel/dist/vue-slick-carousel.common";
 export default {
   name: 'CategoryIndex',
   components: { Standard },
@@ -300,7 +300,7 @@ export default {
           '@type': 'ItemList',
           url: `https://www.telegram.hr${
             this.$store.state.category.categories[this.$route.params.category]
-              .canonical
+              .canonical + (this.page < 2 ? '?page=' + this.page : '')
           }`,
           name: this.cat,
           description: this.description,
@@ -472,7 +472,8 @@ export default {
         href:
           'https://www.telegram.hr' +
           this.$store.state.category.categories[this.$route.params.category]
-            .canonical,
+            .canonical +
+          (this.page < 2 ? '?page=' + this.page : ''),
       },
     ]
     let meta = [
