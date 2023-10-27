@@ -1,15 +1,28 @@
 <template>
   <div class="full flex relative mobile-bottom-pad">
     <div class="full flex latest-articles-header mobile-only stretch">
-      <div class="third flex center active-latest-header animate">
+      <div class="half flex center animate">
         <span>Najnovije</span>
       </div>
-      <div class="third flex center animate"><span>Sport</span></div>
-      <div class="third flex center animate"><span>Život</span></div>
+      <div class="half flex center active-latest-header animate">
+        <span>Najčitanije</span>
+      </div>
     </div>
-    <div class="full flex relative column-left-border stretch">
-      <mini-alt
+    <div class="full flex relative mini-article-list stretch mobile-only">
+      <mini
         v-for="post in posts.slice(0, 4)"
+        :key="post.id"
+        :post="post"
+      ></mini>
+      <div class="full mobile-top-pad flex-responsive flex relative">
+        <app-link to="/uzivo" class="flex newbtn">Još vijesti</app-link>
+      </div>
+    </div>
+    <div
+      class="full flex relative column-left-border stretch latest-line-feed desktop-only"
+    >
+      <mini-alt
+        v-for="post in posts.slice(0, 3)"
         :key="post.id"
         :post="post"
       ></mini-alt>
