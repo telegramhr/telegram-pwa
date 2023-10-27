@@ -282,7 +282,7 @@ export default {
         ? `https://www.telegram.hr${
             this.$store.state.category.categories[this.$route.params.category]
               .canonical
-          }/?page=${
+          }?page=${
             this.$route.query.page ? parseInt(this.$route.query.page) + 1 : 2
           }`
         : ''
