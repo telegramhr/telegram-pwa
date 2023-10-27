@@ -25,7 +25,6 @@ export default ({ app, store }) => {
       document.head.appendChild(defractal)
       app.$gtm.push({
         event: 'reload-script',
-        action: 'reload-script',
         provider: 'defractal',
       })
     }
