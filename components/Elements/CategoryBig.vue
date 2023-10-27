@@ -33,7 +33,6 @@
         <div class="full column-bottom-border"></div>
       </div>
       <div
-        v-if="slug != 'more-news'"
         class="fourth desktop-mini-force flex-responsive column-horizontal-pad"
       >
         <standard
@@ -41,24 +40,6 @@
           :key="post.id"
           :post="post"
         ></standard>
-      </div>
-      <div
-        v-if="slug == 'more-news'"
-        class="fourth flex-responsive column-horizontal-pad cantha-commentary"
-      >
-        <!--<div class="full mobile-only flex relative">
-          <div class="full column-horizontal-pad column-top-pad">
-            <div class="full cantha-separator"></div>
-          </div>
-          <div class="full flex column-horizontal-pad">
-            <div
-              class="noththree full center-text column-vertical-pad subsection-title"
-            >
-              Komentari
-            </div>
-          </div>
-        </div>-->
-        <commentary type="tg"></commentary>
       </div>
     </div>
   </section>

@@ -199,7 +199,7 @@
           <div
             class="fourth flex-responsive mobile-side-pad column-right-pad flex relative m-order-3 no-last-border-mobile"
           >
-            <div class="full flex relative latest-line-feed">
+            <div class="full flex relative">
               <latest :portal="1"></latest>
             </div>
           </div>
@@ -378,9 +378,9 @@
           <div class="full column-bottom-border"></div>
         </div>
         <div
-          class="fourth flex-responsive column-horizontal-pad mini-article-list"
+          class="fourth tablet-full flex-responsive column-horizontal-pad cantha-commentary shorten-commentary"
         >
-          <trending :id="1"></trending>
+          <commentary type="tg"></commentary>
         </div>
         <!--<div class="full column-horizontal-pad">
           <div class="full column-top-pad column-bottom-border"></div>
