@@ -489,6 +489,7 @@ export const state = () => ({
         [970, 250],
         [970, 500],
         [1200, 250],
+        [660, 600],
       ],
       mobile: [
         [1, 1],
@@ -621,6 +622,7 @@ export const state = () => ({
         [320, 480],
         [710, 350],
         [970, 500],
+        [660, 600],
       ],
       mobile: [
         [1, 1],
@@ -753,6 +755,7 @@ export const state = () => ({
         [320, 480],
         [710, 350],
         [970, 500],
+        [660, 600],
       ],
       mobile: [
         [1, 1],
@@ -881,6 +884,7 @@ export const state = () => ({
         [320, 480],
         [710, 350],
         [970, 500],
+        [660, 600],
       ],
       mobile: [
         [1, 1],
@@ -1009,6 +1013,7 @@ export const state = () => ({
         [320, 480],
         [710, 350],
         [970, 500],
+        [660, 600],
       ],
       mobile: [
         [1, 1],
@@ -1116,6 +1121,7 @@ export const state = () => ({
         [320, 480],
         [710, 350],
         [970, 500],
+        [660, 600],
       ],
       mobile: [
         [1, 1],
@@ -1381,7 +1387,7 @@ export const actions = {
       if (payload.options && payload.options.includes('nepromo')) {
         window.googletag.pubads().setCategoryExclusion('NePromo')
       }
-      window.googletag.pubads().setTargeting('env', 'test')
+      // window.googletag.pubads().setTargeting('env', 'test')
       if (route.query.reload) {
         window.googletag.pubads().setTargeting('reload', '1')
       }

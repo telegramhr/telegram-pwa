@@ -172,7 +172,7 @@
         </div>
       </div>
       <!-- Read more widget -->
-      <div class="full flex relative">
+      <div v-if="hasMore" class="full flex relative">
         <div class="container flex relative column-full-pad">
           <div class="full center relative clickable" @click.prevent="loadMore">
             <a v-show="!loading" :href="readMore" class="newbtn altbtn animate">
@@ -231,6 +231,7 @@
 </template>
 
 <script>
+import { has } from 'vue-slick-carousel/dist/vue-slick-carousel.common'
 import Standard from '../../components/articles/Standard.vue'
 export default {
   name: 'CategoryIndex',
@@ -249,6 +250,9 @@ export default {
       .then((res) => {
         this.posts = res.data.posts
         this.description = res.data.description
+        if (res.data.posts.length < 20) {
+          this.hasMore = false
+        }
       })
       .catch(() => {
         if (process.server) {
@@ -262,6 +266,7 @@ export default {
       loading: false,
       posts: [],
       description: '',
+      hasMore: true,
       page: this.$route.query.page ? parseInt(this.$route.query.page) : 1,
     }
   },
@@ -277,7 +282,7 @@ export default {
         ? `https://www.telegram.hr${
             this.$store.state.category.categories[this.$route.params.category]
               .canonical
-          }/?page=${
+          }?page=${
             this.$route.query.page ? parseInt(this.$route.query.page) + 1 : 2
           }`
         : ''
@@ -295,7 +300,7 @@ export default {
           '@type': 'ItemList',
           url: `https://www.telegram.hr${
             this.$store.state.category.categories[this.$route.params.category]
-              .canonical
+              .canonical + (this.page < 2 ? '?page=' + this.page : '')
           }`,
           name: this.cat,
           description: this.description,
@@ -441,6 +446,7 @@ export default {
     })
   },
   methods: {
+    has,
     loadMore() {
       this.loading = true
       this.page++
@@ -449,6 +455,9 @@ export default {
         .then((res) => {
           this.posts = [...this.posts, ...res.data.posts]
           this.loading = false
+          if (res.data.posts.length < 20) {
+            this.hasMore = false
+          }
         })
     },
   },
@@ -463,10 +472,16 @@ export default {
         href:
           'https://www.telegram.hr' +
           this.$store.state.category.categories[this.$route.params.category]
-            .canonical,
+            .canonical +
+          (this.page < 2 ? '?page=' + this.page : ''),
       },
     ]
     let meta = [
+      {
+        hid: 'description',
+        name: 'description',
+        content: this.description,
+      },
       { hid: 'og:type', name: 'og:type', content: 'website' },
       {
         hid: 'og:title',

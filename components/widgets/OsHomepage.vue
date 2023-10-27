@@ -6,7 +6,8 @@
       <div class="full cantha-separator"></div>
     </div>
     <div class="full flex column-horizontal-pad">
-      <div
+      <app-link
+        to="/openspace"
         class="noththree full center-text column-vertical-pad subsection-title os-subsection-logo no-mob-bot-pad"
       >
         <img
@@ -20,7 +21,7 @@
           alt="openspace logo"
           loading="lazy"
         />
-      </div>
+      </app-link>
     </div>
     <div class="full column-bottom-pad flex relative the-big-gs stretch">
       <div

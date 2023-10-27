@@ -10,7 +10,7 @@
         <div class="container relative flex stretch">
           <div class="forty tablet-full flex flex-responsive center">
             <div class="full center-text newbook-overtitle">
-              Ekskluzivna prednarudžba
+              Telegram naklada
             </div>
             <h1 class="full center-text newbook-title">DEPRA</h1>
             <div class="full center-text newbook-author">

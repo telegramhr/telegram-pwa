@@ -58,30 +58,30 @@
           >
             <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon
           ></a>
-          <nuxt-link to="/" class="logo">
+          <app-link to="/" class="logo">
             <img
               src="@/assets/img/telegram_logo_white.svg"
               alt="Telegram logo"
             />
-          </nuxt-link>
-          <nuxt-link to="/super1" class="logo superone-mobilepanav-logo">
+          </app-link>
+          <app-link to="/super1" class="logo superone-mobilepanav-logo">
             <img
               src="@/assets/img/s1_logo_clean_noline_white.svg"
               alt="Super1 logo"
             />
-          </nuxt-link>
-          <nuxt-link to="/pitanje-zdravlja" class="logo pz-mobilepanav-logo">
+          </app-link>
+          <app-link to="/pitanje-zdravlja" class="logo pz-mobilepanav-logo">
             <img
               src="@/assets/img/pz_logo_negative.svg"
               alt="PitanjeZdravlja logo"
             />
-          </nuxt-link>
-          <nuxt-link to="/openspace" class="logo os-mobilepanav-logo">
+          </app-link>
+          <app-link to="/openspace" class="logo os-mobilepanav-logo">
             <img
               src="@/assets/img/openspace_logo_negative.svg"
               alt="openspace logo"
             />
-          </nuxt-link>
+          </app-link>
           <a
             v-show="canLogIn"
             class="mob-nav-otherbtn mobile-only"
@@ -200,7 +200,7 @@
                 {{ post.subtitle | parseCat }}
               </h2>
               <div class="nothfive full flex relative article-meta mobile-only">
-                <nuxt-link
+                <app-link
                   v-for="author in post.authors"
                   :key="author.name"
                   :to="author.url"
@@ -214,7 +214,7 @@
                   <span>Piše</span
                   ><span class="vcard author">{{
                     author.name
-                  }}</span></nuxt-link
+                  }}</span></app-link
                 >
                 <client-only>
                   <subscribe-link
@@ -263,7 +263,7 @@
               </div>
               <p v-if="post.perex" class="perex" v-html="post.perex"></p>
               <div class="nothfive full flex relative article-meta">
-                <nuxt-link
+                <app-link
                   v-for="author in post.authors"
                   :key="author.name"
                   :to="author.url"
@@ -276,7 +276,7 @@
                   /><span>Piše</span
                   ><span class="vcard author">{{
                     author.name
-                  }}</span></nuxt-link
+                  }}</span></app-link
                 >
                 <span class="meta-date">{{ post.time | parseTime }}</span>
                 <span v-if="post.recommendations" class="meta-preporuke"
@@ -370,7 +370,7 @@
                   class="full"
                   style="max-width: 1201px"
                 >
-                  <offers-premium></offers-premium>
+                  <jgl-premium></jgl-premium>
                 </div>
                 <linker v-if="hasLinker" type="mobile"></linker>
               </client-only>
@@ -379,12 +379,12 @@
                 class="full relative single-article-footer flex column-top-pad"
               >
                 <div class="half flex-responsive article-tags">
-                  <nuxt-link
+                  <app-link
                     v-for="tag in post.tags"
                     :key="tag.slug"
                     :to="'/tema/' + tag.slug"
                     >{{ tag.name }},
-                  </nuxt-link>
+                  </app-link>
                 </div>
                 <div class="half flex-responsive">
                   <div class="flex float-right social-circle-buttons">
@@ -1240,11 +1240,11 @@ export default {
         property: 'article:content_tier',
         content: fbPaywall[this.post.paywall],
       },
-      {
+      /* {
         hid: 'twitter:card',
         name: 'twitter:card',
         content: 'summary_large_image',
-      },
+      }, */
       {
         hid: 'twitter:site',
         name: 'twitter:site',
@@ -1260,7 +1260,8 @@ export default {
         name: 'robots',
         content:
           this.$route.params.category === 'preview' ||
-          this.post.status !== 'publish'
+          this.post.status !== 'publish' ||
+          this.post.tags.filter((tag) => tag.slug === 'demantij').length
             ? 'noindex, noarchive, nocache, nosnippet'
             : 'index, follow, max-image-preview:large, max-snippet:-1',
       },

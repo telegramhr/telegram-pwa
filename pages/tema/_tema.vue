@@ -173,7 +173,7 @@
         </div>
       </div>
       <!-- Read more widget -->
-      <div class="full flex relative">
+      <div v-if="hasMore" class="full flex relative">
         <div class="container flex relative column-full-pad">
           <div class="full center relative clickable" @click.prevent="loadMore">
             <a v-show="!loading" :href="readMore" class="newbtn altbtn animate">

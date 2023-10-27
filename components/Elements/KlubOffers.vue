@@ -6,11 +6,12 @@
       <div class="full cantha-separator"></div>
     </div>
     <div class="full flex column-horizontal-pad">
-      <div
+      <app-link
+        to="/klub"
         class="noththree full center-text column-vertical-pad subsection-title"
       >
         Telegram Klub
-      </div>
+      </app-link>
     </div>
     <div class="full flex stretch column-bottom-pad book-offers-widget">
       <klub-item

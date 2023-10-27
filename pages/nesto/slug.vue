@@ -45,9 +45,9 @@
         <a @click.prevent="showSideMenu = !showSideMenu">
           <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon
         ></a>
-        <nuxt-link to="/" class="logo">
+        <app-link to="/" class="logo">
           <img src="@/assets/img/telegram_logo_white.svg" alt="Telegram logo" />
-        </nuxt-link>
+        </app-link>
         <a @click.prevent="showSearchMenu = !showSearchMenu">
           <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon>
         </a>
@@ -98,7 +98,7 @@
                 </a>
               </template>
               <template v-else>
-                <nuxt-link
+                <app-link
                   v-for="author in post.authors"
                   :key="author.name"
                   :to="author.url"
@@ -108,7 +108,7 @@
                     :src="author.image"
                     :alt="author.name"
                   />
-                  <span>Piše</span><span>{{ author.name }}</span></nuxt-link
+                  <span>Piše</span><span>{{ author.name }}</span></app-link
                 >
               </template>
             </div>
@@ -135,7 +135,7 @@
                 </a>
               </template>
               <template v-else>
-                <nuxt-link
+                <app-link
                   v-for="author in post.authors"
                   :key="author.name"
                   :to="author.url"
@@ -144,7 +144,7 @@
                     v-if="author.image"
                     :src="author.image"
                     :alt="author.name"
-                  /><span>Piše</span><span>{{ author.name }}</span></nuxt-link
+                  /><span>Piše</span><span>{{ author.name }}</span></app-link
                 >
               </template>
               <span class="meta-date">{{ post.time | parseTime }}</span>
@@ -308,12 +308,12 @@
               class="full relative single-article-footer flex column-top-pad"
             >
               <div class="half flex-responsive article-tags">
-                <nuxt-link
+                <app-link
                   v-for="tag in post.tags"
                   :key="tag.slug"
                   :to="'/tema/' + tag.slug"
                   >{{ tag.name }},
-                </nuxt-link>
+                </app-link>
               </div>
               <div class="half flex-responsive">
                 <div class="flex float-right social-circle-buttons">

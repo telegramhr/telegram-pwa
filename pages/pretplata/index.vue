@@ -306,6 +306,7 @@
                 Telegramove hit knjige po posebnoj cijeni za pretplatnike
               </h2>
               <p class="full">
+                Depra Aleksandra Stankovića, Igla, pila, ravnalo Sanje Modrić,
                 Bili libar Borisa Dežulovića, O Zagrebu Zrinke Paladino i
                 Neispričane priče Rajka Grlića.
               </p>
@@ -655,7 +656,7 @@
             čitanje Telegrama i Telesporta, ali i brojne druge benefite i
             funkcionalnosti poput surfanja bez oglasa, popust na knjige i
             ekskluzivnih
-            <nuxt-link to="/newsletters">newslettera</nuxt-link>.
+            <app-link to="/newsletters">newslettera</app-link>.
           </p>
         </details>
         <details class="full flex relative">
@@ -857,6 +858,11 @@ export default {
           price: 6.49,
           gtm: 'standard-monthly-trial',
         },
+        TM15W5K9EVY4: {
+          title: 'Telegram Mjesečna Pretplat (PBF)',
+          price: 6.49,
+          gtm: 'standard-monthly-pbf',
+        },
       },
     }
   },
@@ -885,6 +891,9 @@ export default {
       }
       return ''
     },
+    five() {
+      return 'TM15W5K9EVY4'
+    },
   },
   mounted() {
     this.$nextTick(() => {
@@ -897,6 +906,7 @@ export default {
           'TM8RZKGESM1T',
           'TMQDTT4IEHY0',
           'TMWPGMUCMX45',
+          'TM15W5K9EVY4',
         ],
       })
       window.tp.push([
@@ -938,6 +948,8 @@ export default {
           case 'py':
             this.checkout(this.four)
             break
+          case 'pbf':
+            this.checkout(this.five)
         }
       }
     })

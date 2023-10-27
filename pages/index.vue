@@ -52,7 +52,7 @@
           >
             <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon
           ></a>
-          <nuxt-link to="/" class="logo" @click="$fetch"
+          <app-link to="/" class="logo" @click="$fetch"
             ><img
               src="@/assets/img/telegram_logo_black.svg"
               alt="Telegram logo" />
@@ -60,7 +60,7 @@
               src="@/assets/img/telegram_logo_white.svg"
               alt="Telegram logo"
               class="dark-mode-only"
-          /></nuxt-link>
+          /></app-link>
           <a
             aria-label="Prikaži tražilicu"
             class="cantha-searchbtn"
@@ -676,9 +676,7 @@
     >
       <div class="container relative flex stretch">
         <div class="forty tablet-full flex flex-responsive center">
-          <div class="full center-text newbook-overtitle">
-            Ekskluzivna prednarudžba
-          </div>
+          <div class="full center-text newbook-overtitle">Telegram naklada</div>
           <h1 class="full center-text newbook-title">DEPRA</h1>
           <div class="full center-text newbook-author">
             Aleksandar Stanković

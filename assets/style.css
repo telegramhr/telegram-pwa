@@ -9186,6 +9186,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         left: 0;
         height: 100%;
     }
+    .knjiga-cover img {
+        max-width: 450px;
+    }
 }
 @media screen and (max-width: 767px) {
     .knjiga-features .big-book-price {
@@ -9276,9 +9279,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         max-width: 100%;
         margin-top: -48px;
         left: auto;
-    }
-    .knjiga-cover img {
-        max-width: 450px;
     }
     .knjiga-cover-2d img {
         max-width: 300px;
