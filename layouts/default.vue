@@ -19,28 +19,8 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      // check if no history
-      // push to history
-      const url = location.href
-      history.pushState({ init: true }, null, '/pretplata')
-      history.pushState({ init: true }, null, url)
-      // window.addEventListener('popstate', this.listener)
+      this.$backwidget.init()
     })
-  },
-  beforeDestroy() {
-    // window.removeEventListener('popstate', this.listener)
-  },
-  methods: {
-    listener(event) {
-      // if (this.init) {
-      alert(
-        `location: ${document.location}, state: ${JSON.stringify(event.state)}`
-      )
-      /*  this.init = false
-      } else if (event.state.init) {
-        this.init = true
-      } */
-    },
   },
   head() {
     let font, theme
