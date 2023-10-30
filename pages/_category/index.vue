@@ -552,7 +552,9 @@ export default {
       bodyAttrs: {
         class: [this.$store.state.theme.theme, this.extraClass],
       },
-      title: `${this.$options.filters.parseCat(this.cat)} - ${this.page}. stranica | Telegram.hr',
+      title: `${this.$options.filters.parseCat(this.cat)} - ${
+        this.page
+      }. stranica | Telegram.hr`,
       description: this.description,
       meta,
       link,
