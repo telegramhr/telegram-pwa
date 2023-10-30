@@ -1,7 +1,6 @@
 export default ({ app }, inject) => {
   const init = () => {
-    alert(document.referrer)
-    if (app.$mobile && checkReferrer()) {
+    if (app.$mobile) {
       const url = location.href
       history.replaceState({ init: true }, null, url)
       history.pushState({ init: false }, null, url)
@@ -17,7 +16,7 @@ export default ({ app }, inject) => {
       )
     }
   }
-  const checkReferrer = () => {
+  /* const checkReferrer = () => {
     const referrer = document.referrer
     if (referrer) {
       if (referrer.includes('midas') || referrer.includes('facebook')) {
@@ -25,6 +24,6 @@ export default ({ app }, inject) => {
       }
     }
     return false
-  }
+  } */
   inject('backwidget', { init })
 }
