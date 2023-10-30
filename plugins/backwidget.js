@@ -1,9 +1,11 @@
 export default ({ app }, inject) => {
   const init = () => {
+    alert(document.referrer)
     if (app.$mobile && checkReferrer()) {
       const url = location.href
       history.replaceState({ init: true }, null, url)
       history.pushState({ init: false }, null, url)
+      alert('init')
       window.addEventListener('popstate', listener)
     }
   }
@@ -19,16 +21,6 @@ export default ({ app }, inject) => {
     const referrer = document.referrer
     if (referrer) {
       if (referrer.includes('midas') || referrer.includes('facebook')) {
-        return true
-      }
-    }
-    return true
-  }
-
-  const checkHistory = () => {
-    const history = window.history
-    if (history) {
-      if (history.length === 1) {
         return true
       }
     }

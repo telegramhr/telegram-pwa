@@ -15,30 +15,32 @@
     <div class="full flex">
       <theader></theader>
     </div>
-    <!-- Above header banner -->
-    <app-link
-      v-if="!$store.state.user.access"
-      to="/pretplata"
-      class="full relative darkened-bg birati-stranu-widget"
-    >
-      <div
-        class="container column-full-pad mobile-full-pad flex relative animated-birati-stranu"
+    <client-only>
+      <!-- Above header banner -->
+      <app-link
+        v-if="!$store.state.user.access"
+        to="/pretplata"
+        class="full relative darkened-bg birati-stranu-widget"
       >
-        <p
-          class="full center-text animate column-top-pad mobile-top-pad birati-stranu-title"
-        >
-          Nekad je nužno odabrati stranu.
-        </p>
-        <p class="full center-text animate birati-stranu-subtitle">
-          Postanite Telegramov pretplatnik
-        </p>
         <div
-          class="full center animate column-vertical-pad mobile-vertical-pad"
+          class="container column-full-pad mobile-full-pad flex relative animated-birati-stranu"
         >
-          <div class="newbtn huge-newbtn">Pretplatite se</div>
+          <p
+            class="full center-text animate column-top-pad mobile-top-pad birati-stranu-title"
+          >
+            Nekad je nužno odabrati stranu.
+          </p>
+          <p class="full center-text animate birati-stranu-subtitle">
+            Postanite Telegramov pretplatnik
+          </p>
+          <div
+            class="full center animate column-vertical-pad mobile-vertical-pad"
+          >
+            <div class="newbtn huge-newbtn">Pretplatite se</div>
+          </div>
         </div>
-      </div>
-    </app-link>
+      </app-link>
+    </client-only>
     <!-- Cantha header -->
     <div class="full relative cantha-header">
       <div class="container flex relative column-top-pad column-horizontal-pad">
