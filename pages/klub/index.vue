@@ -634,7 +634,7 @@ export default {
       {
         hid: 'canonical',
         rel: 'canonical',
-        href: 'https://www.telegram.hr/klub',
+        href: 'https://www.telegram.hr/klub/',
       },
     ]
     return {
@@ -691,7 +691,7 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/klub',
+          content: 'https://www.telegram.hr/klub/',
         },
         {
           hid: 'fb:app_id',

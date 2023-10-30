@@ -210,7 +210,7 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/knjige',
+          content: 'https://www.telegram.hr/knjige/',
         },
         {
           hid: 'fb:app_id',

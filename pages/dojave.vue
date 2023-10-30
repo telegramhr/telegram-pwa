@@ -162,7 +162,7 @@ export default {
       {
         hid: 'canonical',
         rel: 'canonical',
-        href: 'https://www.telegram.hr/dojave',
+        href: 'https://www.telegram.hr/dojave/',
       },
     ]
     return {
@@ -194,7 +194,7 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/dojave',
+          content: 'https://www.telegram.hr/dojave/',
         },
         {
           hid: 'fb:app_id',

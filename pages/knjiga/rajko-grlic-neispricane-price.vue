@@ -244,7 +244,7 @@ export default {
           name: 'og:url',
           property: 'og:url',
           content:
-            'https://www.telegram.hr/knjiga/rajko-grlic-neispricane-price',
+            'https://www.telegram.hr/knjiga/rajko-grlic-neispricane-price/',
         },
         {
           hid: 'fb:app_id',
@@ -267,7 +267,7 @@ export default {
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: 'https://www.telegram.hr/knjiga/rajko-grlic-neispricane-price',
+          href: 'https://www.telegram.hr/knjiga/rajko-grlic-neispricane-price/',
         },
       ],
     }

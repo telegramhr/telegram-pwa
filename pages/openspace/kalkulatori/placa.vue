@@ -1411,7 +1411,7 @@ export default {
       {
         hid: 'canonical',
         rel: 'canonical',
-        href: 'https://www.telegram.hr/kalkulatori/placa',
+        href: 'https://www.telegram.hr/kalkulatori/placa/',
       },
     ]
     return {
@@ -1441,7 +1441,7 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/kalkulatori/placa',
+          content: 'https://www.telegram.hr/kalkulatori/placa/',
         },
         {
           hid: 'fb:app_id',

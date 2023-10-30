@@ -289,7 +289,7 @@ export default {
       return {
         '@context': 'https://schema.org',
         '@type': 'Website',
-        url: 'https://www.telegram.hr/pitanje-zdravlja',
+        url: 'https://www.telegram.hr/pitanje-zdravlja/',
         name: 'PitanjeZdravlja',
         description:
           'Provjerene i ekskluzivne zdravstvene vijesti, analize i priče',
@@ -352,7 +352,7 @@ export default {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/pitanje-zdravlja',
+          content: 'https://www.telegram.hr/pitanje-zdravlja/',
         },
         {
           hid: 'og:image',
@@ -376,7 +376,7 @@ export default {
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: 'https://www.telegram.hr/pitanje-zdravlja',
+          href: 'https://www.telegram.hr/pitanje-zdravlja/',
         },
       ],
       script: [

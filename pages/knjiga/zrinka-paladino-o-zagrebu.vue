@@ -254,7 +254,7 @@ export default {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegra.hr/knjiga/zrinka-paladino-o-zagrebu',
+          content: 'https://www.telegra.hr/knjiga/zrinka-paladino-o-zagrebu/',
         },
         {
           hid: 'fb:app_id',
@@ -277,7 +277,7 @@ export default {
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: 'https://www.telegra.hr/knjiga/zrinka-paladino-o-zagrebu',
+          href: 'https://www.telegra.hr/knjiga/zrinka-paladino-o-zagrebu/',
         },
       ],
     }

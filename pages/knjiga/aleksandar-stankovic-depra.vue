@@ -224,7 +224,7 @@ export default {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/knjiga/aleksandar-stankovic-depra',
+          content: 'https://www.telegram.hr/knjiga/aleksandar-stankovic-depra/',
         },
         {
           hid: 'fb:app_id',
@@ -247,7 +247,7 @@ export default {
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: 'https://www.telegram.hr/knjiga/aleksandar-stankovic-depra',
+          href: 'https://www.telegram.hr/knjiga/aleksandar-stankovic-depra/',
         },
       ],
     }

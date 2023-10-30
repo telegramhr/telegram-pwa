@@ -207,7 +207,7 @@ export default {
       return {
         '@context': 'https://schema.org',
         '@type': 'Website',
-        url: 'https://www.telegram.hr/openspace',
+        url: 'https://www.telegram.hr/openspace/',
         name: 'Openspace.hr',
         description:
           'Telegramova platforma za traženje idealnog posla, profesionalno napredovanje i karijernu inspiraciju.',
@@ -243,7 +243,7 @@ export default {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/openspace',
+          content: 'https://www.telegram.hr/openspace/',
         },
         {
           hid: 'og:image',
@@ -267,7 +267,7 @@ export default {
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: 'https://www.telegram.hr/openspace',
+          href: 'https://www.telegram.hr/openspace/',
         },
       ],
       script: [

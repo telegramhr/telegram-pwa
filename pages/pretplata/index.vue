@@ -1114,14 +1114,14 @@ export default {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/pretplata',
+          content: 'https://www.telegram.hr/pretplata/',
         },
       ],
       link: [
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: 'https://www.telegram.hr/pretplata',
+          href: 'https://www.telegram.hr/pretplata/',
         },
       ],
       script: [

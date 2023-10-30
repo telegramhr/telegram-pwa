@@ -312,7 +312,7 @@ export default {
       {
         hid: 'canonical',
         rel: 'canonical',
-        href: 'https://www.telegram.hr/studio/naslovne',
+        href: 'https://www.telegram.hr/studio/naslovne/',
       },
     ]
     return {
@@ -362,7 +362,7 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/studio/naslovne',
+          content: 'https://www.telegram.hr/studio/naslovne/',
         },
         {
           hid: 'fb:app_id',

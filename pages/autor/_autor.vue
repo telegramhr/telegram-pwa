@@ -64,9 +64,9 @@
       <div
         v-if="hasMore"
         class="full center subtle-btn-parent relative clickable"
-        @click="loadMore"
+        @click.prevent="loadMore"
       >
-        <div class="subtle-btn animate">Vidi više</div>
+        <a :href="readMore" class="subtle-btn animate">Vidi više</a>
         <div class="subtle-btn-line"></div>
         <div class="full center cool-loader hide">
           <div class="loader-square">
@@ -87,13 +87,15 @@ export default {
   name: 'Autor',
   components: { Standard },
   async fetch() {
+    const page = this.$route.query.page ? parseInt(this.$route.query.page) : 1
     await this.$axios
-      .get('/api/author/' + this.$route.params.autor)
+      .get(`/api/author/${this.$route.params.autor}/page/${page}`)
       .then((res) => {
         this.author = res.data.author
         this.posts = res.data.posts
         if (this.posts.length < 8) {
           this.hasMore = false
+          this.page = page + 1
         }
       })
       .catch(() => {
@@ -121,6 +123,25 @@ export default {
       hasMore: true,
     }
   },
+  computed: {
+    readMore() {
+      return `${this.author.url}?page=${
+        this.$route.query.page ? parseInt(this.$route.query.page) + 1 : 2
+      }`
+    },
+    json() {
+      return [
+        {
+          '@context': 'https://schema.org',
+          '@type': this.author.type,
+          name: this.author.name,
+          image: this.author.image.url,
+          url: this.author.url,
+          sameAs: this.author.sameAs,
+        },
+      ]
+    },
+  },
   mounted() {
     this.$nextTick(() => {
       this.$store.dispatch('ads/initAds', { route: this.$route })
@@ -142,14 +163,6 @@ export default {
         })
     },
   },
-  json() {
-    return [
-      {
-        '@context': 'https://schema.org',
-        '@type': 'NewsArticle',
-      },
-    ]
-  },
   head() {
     return {
       title: this.author.name,
@@ -159,7 +172,7 @@ export default {
           vmid: 'schema-ld',
           hid: 'schema-ld',
           type: 'application/ld+json',
-          json: this.jsonld,
+          json: this.json,
         },
       ],
       meta: [
@@ -196,7 +209,7 @@ export default {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/autor/' + this.$route.params.autor,
+          content: this.author.url,
         },
         {
           hid: 'fb:app_id',
@@ -219,7 +232,10 @@ export default {
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: 'https://www.telegram.hr/autor/' + this.$route.params.autor,
+          href:
+            this.author.url + this.$route.query.page
+              ? '?page=' + this.$route.query.page
+              : '',
         },
       ],
     }

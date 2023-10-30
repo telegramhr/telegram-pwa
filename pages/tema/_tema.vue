@@ -291,8 +291,7 @@ export default {
       })
     }
     return {
-      title: this.cat,
-      titleTemplate: '%s - Najnovije vijesti',
+      title: `${this.cat} - Najnovije vijesti - ${this.page}. stranica`,
       meta: [
         {
           hid: 'robots',
@@ -348,7 +347,9 @@ export default {
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: 'https://www.telegram.hr' + this.$route.fullPath,
+          href: `https://www.telegram.hr/tema/${this.$route.params.tema}/${
+            this.$route.query.page ? `?page=${this.$route.query.page}` : ''
+          }`,
         },
       ],
     }
