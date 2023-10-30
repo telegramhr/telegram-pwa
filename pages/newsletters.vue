@@ -791,7 +791,7 @@ export default {
       {
         hid: 'canonical',
         rel: 'canonical',
-        href: 'https://www.telegram.hr/newsletters',
+        href: 'https://www.telegram.hr/newsletters/',
       },
     ]
     return {
@@ -848,7 +848,7 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/newsletters',
+          content: 'https://www.telegram.hr/newsletters/',
         },
         {
           hid: 'fb:app_id',

@@ -230,7 +230,7 @@ export default {
           name: 'og:url',
           property: 'og:url',
           content:
-            'https://www.telegram.hr/knjiga/sanja-modric-igla-pila-ravnalo',
+            'https://www.telegram.hr/knjiga/sanja-modric-igla-pila-ravnalo/',
         },
         {
           hid: 'fb:app_id',
@@ -253,7 +253,7 @@ export default {
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: 'https://www.telegram.hr/knjiga/sanja-modric-igla-pila-ravnalo',
+          href: 'https://www.telegram.hr/knjiga/sanja-modric-igla-pila-ravnalo/',
         },
       ],
     }

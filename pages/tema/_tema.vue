@@ -348,7 +348,9 @@ export default {
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: 'https://www.telegram.hr' + this.$route.fullPath,
+          href: `https://www.telegram.hr/tema/${this.$route.params.tema}/${
+            this.$route.query.page ? `?page=${this.$route.query.page}` : ''
+          }`,
         },
       ],
     }

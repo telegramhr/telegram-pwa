@@ -602,7 +602,7 @@ export default {
       {
         hid: 'canonical',
         rel: 'canonical',
-        href: 'https://www.telegram.hr/pretplata/odabrati-stranu',
+        href: 'https://www.telegram.hr/pretplata/odabrati-stranu/',
       },
     ]
     return {
@@ -638,7 +638,7 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/pretplata/odabrati-stranu',
+          content: 'https://www.telegram.hr/pretplata/odabrati-stranu/',
         },
         {
           hid: 'fb:app_id',

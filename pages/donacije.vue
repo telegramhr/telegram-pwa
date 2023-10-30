@@ -90,14 +90,14 @@ export default {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/donacije',
+          content: 'https://www.telegram.hr/donacije/',
         },
       ],
       link: [
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: 'https://www.telegram.hr/donacije',
+          href: 'https://www.telegram.hr/donacije/',
         },
       ],
     }

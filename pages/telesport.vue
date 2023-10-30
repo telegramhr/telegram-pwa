@@ -336,7 +336,7 @@ export default {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/super1',
+          content: 'https://www.telegram.hr/super1/',
         },
         {
           hid: 'og:image',

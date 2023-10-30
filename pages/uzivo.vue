@@ -117,7 +117,7 @@ export default {
       {
         hid: 'canonical',
         rel: 'canonical',
-        href: 'https://www.telegram.hr/najnovije',
+        href: 'https://www.telegram.hr/najnovije/',
       },
     ]
     return {
@@ -147,7 +147,7 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/najnovije',
+          content: 'https://www.telegram.hr/najnovije/',
         },
         {
           hid: 'fb:app_id',

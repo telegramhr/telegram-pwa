@@ -294,7 +294,7 @@ export default {
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: 'https://www.telegram.hr/super1',
+          href: 'https://www.telegram.hr/super1/',
         },
         {
           hid: 'favicon',
@@ -324,7 +324,7 @@ export default {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/super1',
+          content: 'https://www.telegram.hr/super1/',
         },
         {
           hid: 'og:image',
