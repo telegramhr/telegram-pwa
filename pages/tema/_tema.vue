@@ -291,8 +291,7 @@ export default {
       })
     }
     return {
-      title: this.cat,
-      titleTemplate: '%s - Najnovije vijesti',
+      title: `${this.cat} - Najnovije vijesti - ${this.page}. stranica`,
       meta: [
         {
           hid: 'robots',
