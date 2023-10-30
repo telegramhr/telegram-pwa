@@ -5,6 +5,7 @@
     <client-only>
       <ticker-ad-unit id="telegram_sticky"></ticker-ad-unit>
       <ticker-special></ticker-special>
+      <back-widget></back-widget>
     </client-only>
   </div>
 </template>
@@ -16,11 +17,6 @@ export default {
     return {
       init: false,
     }
-  },
-  mounted() {
-    this.$nextTick(() => {
-      this.$backwidget.init()
-    })
   },
   head() {
     let font, theme

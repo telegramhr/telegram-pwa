@@ -1,12 +1,12 @@
 export default ({ app }, inject) => {
   const init = () => {
-    if (app.$mobile) {
-      const url = location.href
-      history.replaceState({ init: true }, null, url)
-      history.pushState({ init: false }, null, url)
-      alert('init')
-      window.addEventListener('popstate', listener)
-    }
+    // if (app.$mobile) {
+    const url = location.href
+    history.replaceState({ init: true }, null, url)
+    history.pushState({ init: false }, null, url)
+    alert('init')
+    window.addEventListener('popstate', listener)
+    // }
   }
 
   const listener = (event) => {

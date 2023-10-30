@@ -5,8 +5,7 @@
   >
     <app-link
       class="full flex"
-      :to="post.permalink"
-      :tracker="post.trackerPermalink"
+      :to="post.permalink + utm"
       :aria-labelledby="'featured-' + post.id"
     >
       <img
@@ -21,8 +20,7 @@
     <div class="full flex article-pad">
       <app-link
         class="full flex"
-        :to="post.permalink"
-        :tracker="post.trackerPermalink"
+        :to="post.permalink + utm"
         :aria-labelledby="'featured-' + post.id"
       >
         <div class="full flex">
@@ -96,6 +94,11 @@ export default {
           time: 0,
         }
       },
+    },
+    utm: {
+      type: String,
+      default: '',
+      required: false,
     },
   },
   data() {
