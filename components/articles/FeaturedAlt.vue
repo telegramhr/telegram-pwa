@@ -2,6 +2,7 @@
   <div
     class="full flex article-featured article-featured-alt article"
     role="article"
+    @click="$emit('clicked')"
   >
     <app-link
       class="full flex"

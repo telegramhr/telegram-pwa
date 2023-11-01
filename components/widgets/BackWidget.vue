@@ -15,23 +15,18 @@ export default {
   mounted() {
     this.$store.dispatch('mostread/pullPosts')
     if (this.$mobile && this.checkReferrer()) {
-      this.init()
+      window.addEventListener('load', this.init)
+      window.addEventListener('popstate', this.listener)
     }
   },
   methods: {
     init() {
-      this.interval = setInterval(() => {
-        if (window.document.readyState !== 'complete') {
-          return
-        }
-        const url = location.href
-        history.replaceState({ backWidget: true }, '', url)
-        history.pushState({ backWidgetInitizalized: true }, '', url)
-        window.addEventListener('popstate', this.listener)
-        clearInterval(this.interval)
-      }, 200)
+      console.log('init')
+      window.history.replaceState({ backWidget: true }, document.title)
+      window.history.pushState({ backWidgetInitialized: true }, document.title)
     },
     listener(event) {
+      console.log('listener', event.state)
       if (event.state.backWidget) {
         this.show = true
       }
@@ -47,7 +42,7 @@ export default {
           return true
         }
       }
-      return false
+      return true
     },
   },
 }
@@ -62,6 +57,7 @@ export default {
           :key="`featured-${post.id}`"
           :post="post"
           utm="?utm_campaign=back_widget"
+          @clicked="show = false"
         ></featured-alt>
       </div>
     </div>
