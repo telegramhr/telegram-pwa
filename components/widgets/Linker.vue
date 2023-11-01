@@ -1,17 +1,18 @@
 <template>
   <div
+    v-if="id"
     class="container flex relative block-related cantha-related standard-block stretch"
     data-nosnippet
   >
     <div
-      v-if="title && body"
+      v-if="title"
       class="full column-horizontal-pad column-top-pad mobile-side-pad"
     >
       <div class="full cantha-separator"></div>
     </div>
     <div class="full flex column-horizontal-pad">
       <div
-        v-if="title && body"
+        v-if="title"
         class="noththree full center-text column-vertical-pad subsection-title mobile-side-pad"
       >
         {{ title }}
@@ -28,15 +29,7 @@
         ></div>
       </template>
       <template v-else>
-        <div
-          v-if="id && body"
-          :id="'linker-' + id"
-          class="lwdgt column-full-pad"
-        >
-          <!-- eslint-disable-next-line -->
-            <div v-html="body"></div>
-        </div>
-        <div :id="`linker-scripts-${id}`"></div>
+        <div v-if="id" :data-wid="id" class="lwdgt column-full-pad"></div>
       </template>
     </div>
   </div>
