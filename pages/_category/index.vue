@@ -554,7 +554,7 @@ export default {
       },
       title: `${this.$options.filters.parseCat(this.cat)} - ${
         this.page
-      }. stranica | Telegram.hr`,
+      }. stranica | ${siteName}`,
       description: this.description,
       meta,
       link,

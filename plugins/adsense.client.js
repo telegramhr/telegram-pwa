@@ -1,5 +1,9 @@
 export default ({ app, store }) => {
   if (store.state.user.access !== 'BR92VTWM') {
+    const l = document.createElement('script')
+    l.src = 'https://linker.hr/lw.js'
+    l.async = true
+    document.head.appendChild(l)
     const s = document.createElement('script')
     s.src =
       'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2317149376955370'

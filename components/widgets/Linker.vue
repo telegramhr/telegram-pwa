@@ -52,16 +52,6 @@ export default {
       default: 'category',
     },
   },
-  async fetch() {
-    if (this.id && this.id !== 542) {
-      this.body = await this.$axios.$get(
-        `https://linker.hr/widget/lw.php?wid=${this.id}&_=${Date.now()}`
-      )
-      this.$nextTick(() => {
-        this.execute()
-      })
-    }
-  },
   data() {
     return {
       body: '',
@@ -134,28 +124,6 @@ export default {
       return ids[this.$route.params.category]
         ? ids[this.$route.params.category][this.type]
         : 0
-    },
-  },
-  methods: {
-    execute() {
-      if (this.body && this.id) {
-        const el = document.getElementById(`linker-${this.id}`)
-        const els = document.getElementById(`linker-scripts-${this.id}`)
-        if (!el) return
-        const arr = el.getElementsByTagName('script')
-        for (let n = 0; n < arr.length; n++) {
-          const s = document.createElement('script')
-          s.setAttribute('type', 'text/javascript')
-          if (arr[n].src) {
-            s.setAttribute('src', arr[n].src)
-          }
-          if (arr[n].innerHTML) {
-            s.innerHTML = arr[n].innerHTML
-          }
-          s.async = true
-          els.appendChild(s)
-        }
-      }
     },
   },
 }
