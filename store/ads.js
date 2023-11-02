@@ -1577,29 +1577,34 @@ export const actions = {
         .addEventListener('slotRenderEnded', function (event) {
           const name = event.slot.getAdUnitPath().split('/').pop()
           const el = document.getElementById(event.slot.getSlotElementId())
-          if (!event.isEmpty && name.includes('intext')) {
-            document
-              .getElementById(event.slot.getSlotElementId() + '-info')
-              .classList.remove('hide')
-          }
-          if (name.includes('billboard_v1')) {
-            if (event.isEmpty && !_that.$mobile) {
+          if (el) {
+            if (!event.isEmpty && name.includes('intext')) {
+              document
+                .getElementById(event.slot.getSlotElementId() + '-info')
+                .classList.remove('hide')
+            }
+            if (name.includes('billboard_v1')) {
+              if (event.isEmpty && !_that.$mobile) {
+                el.parentElement.classList.add('hide')
+              }
+            }
+            if (event.isEmpty && name.includes('intext')) {
               el.parentElement.classList.add('hide')
             }
+
+            if (!event.isEmpty) {
+              el.style.minHeight = event.size[1] + 'px'
+            } else {
+              el.style.minHeight = 0 + 'px'
+            }
           }
-          if (event.isEmpty && name.includes('intext')) {
-            el.parentElement.classList.add('hide')
-          }
-          if (!event.isEmpty) {
-            el.style.minHeight = event.size[1] + 'px'
+          if (!event.isEmpty()) {
             window.marfeel.cmd.push([
               'compass',
               function (compass) {
                 compass.trackAdEvent('slotRenderEnded', event.slot)
               },
             ])
-          } else {
-            el.style.minHeight = 0 + 'px'
           }
           if (
             !window.googletag.reloadedSlots.includes(name) &&

@@ -1,6 +1,12 @@
 <template>
   <div>
     <div id="fb-root"></div>
+    <img
+      height="1"
+      width="1"
+      style="display: none"
+      src="https://cdn.midas-network.com/MidasPixel/IndexAsync/d533faa6-4827-4887-93ec-a7528afd9a45"
+    />
     <Nuxt />
     <client-only>
       <ticker-ad-unit id="telegram_sticky"></ticker-ad-unit>
