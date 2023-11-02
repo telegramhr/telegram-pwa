@@ -212,9 +212,7 @@
                     :alt="author.name"
                   />
                   <span>Piše</span
-                  ><span class="vcard author">{{
-                    author.name
-                  }}</span></app-link
+                  ><span class="vcard author">{{ author.name }}</span></app-link
                 >
                 <client-only>
                   <subscribe-link
@@ -274,9 +272,7 @@
                     :src="author.image"
                     :alt="author.name"
                   /><span>Piše</span
-                  ><span class="vcard author">{{
-                    author.name
-                  }}</span></app-link
+                  ><span class="vcard author">{{ author.name }}</span></app-link
                 >
                 <span class="meta-date">{{ post.time | parseTime }}</span>
                 <span v-if="post.recommendations" class="meta-preporuke"
@@ -882,7 +878,6 @@ export default {
         !this.post.disable_ads.includes('nepromo')
       ) {
         this.hasLinker = true
-        this.$linker.reloadLinker()
       }
     },
     loadPiano() {

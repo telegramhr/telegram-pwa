@@ -826,9 +826,6 @@ export default {
         ])
       }
       this.$store.dispatch('ads/initAds', { route: this.$route })
-      if (!this.$store.state.user.access) {
-        this.$linker.reloadLinker()
-      }
     },
     loadMore() {
       this.loading = true
