@@ -353,8 +353,6 @@
                     <offers-premium></offers-premium>
                   </div>
                 </portal>
-              </client-only>
-              <client-only>
                 <intext></intext>
                 <div
                   v-if="
@@ -445,7 +443,7 @@
               data-contentexchange-source="ughr"
             ></div>
           </div>
-          <div v-if="!hasPremium && hasLinker" class="full mobile-only">
+          <div v-if="$mobile && !hasPremium && hasLinker" class="full mobile-only">
             <linker type="footer"></linker>
           </div>
           <div v-if="!hasPremium && hasLinker" class="container flex center">

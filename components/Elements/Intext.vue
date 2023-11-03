@@ -147,9 +147,11 @@ export default {
           setTimeout(this.paywall, 500)
         }
       }
-      if (window.reloadLinkerElements) {
-        window.reloadLinkerElements()
-      }
+      setTimeout(() => {
+        if (window.reloadLinkerElements) {
+          window.reloadLinkerElements()
+        }
+      })
     },
     checkout(termId) {
       if (this.$store.state.user.token) {

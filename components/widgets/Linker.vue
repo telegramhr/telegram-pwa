@@ -73,7 +73,7 @@ export default {
         }
         return 542
       }
-      if (!this.$mobile && this.type === 'mobile') {
+      if (this.$mobile && this.type === 'mobile') {
         return 660
       }
       if (this.type === 'intext') {
@@ -89,6 +89,10 @@ export default {
         return 519
       }
       const ids = {
+        vijesti: {
+          category: 486,
+          mobile: 495,
+        },
         'politika-kriminal': {
           category: 486,
           mobile: 495,
