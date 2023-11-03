@@ -1598,7 +1598,7 @@ export const actions = {
               el.style.minHeight = 0 + 'px'
             }
           }
-          if (!event.isEmpty()) {
+          if (!event.isEmpty) {
             window.marfeel.cmd.push([
               'compass',
               function (compass) {
