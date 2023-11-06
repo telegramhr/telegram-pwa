@@ -380,9 +380,9 @@
           <div class="full column-bottom-border"></div>
         </div>
         <div
-          class="fourth tablet-full flex-responsive column-horizontal-pad cantha-commentary shorten-commentary"
+          class="fourth flex-responsive column-horizontal-pad mini-article-list"
         >
-          <commentary type="tg"></commentary>
+          <trending :id="1"></trending>
         </div>
         <!--<div class="full column-horizontal-pad">
           <div class="full column-top-pad column-bottom-border"></div>
@@ -489,12 +489,6 @@
         <category-big slug="more-news"></category-big>
       </div>
     </div>
-    <!-- Widget autori
-    <div class="full relative">
-      <div class="container flex relative column-bottom-pad">
-        <authors></authors>
-      </div>
-    </div> -->
     <!-- Widget partner special -->
     <client-only>
       <div v-if="!hasPremium" class="full relative">
@@ -506,6 +500,43 @@
     <div class="full relative">
       <client-only>
         <sport></sport>
+      </client-only>
+    </div>
+    <!-- Widget autori -->
+    <div
+      class="full relative darkened-bg column-top-margin column-bottom-margin"
+    >
+      <div class="container flex relative">
+        <div class="full column-horizontal-pad column-top-pad">
+          <div class="full cantha-separator"></div>
+        </div>
+        <div class="full flex column-horizontal-pad">
+          <div
+            class="noththree full center-text column-vertical-pad subsection-title"
+          >
+            Telegram komentari
+          </div>
+        </div>
+        <div
+          v-if="breaks[0]"
+          class="three-fourths flex-responsive column-horizontal-pad flex split-articles big-split alt-big-break center-text column-right-border"
+        >
+          <standard :key="breaks[0].id" :post="breaks[0]"></standard>
+        </div>
+        <div class="full column-full-pad tablet-only">
+          <div class="full column-bottom-border"></div>
+        </div>
+        <div
+          class="fourth flex-responsive column-horizontal-pad mini-article-list shorten-commentary"
+        >
+          <commentary type="tg"></commentary>
+        </div>
+      </div>
+    </div>
+    <!-- Super1 -->
+    <div class="full relative">
+      <client-only>
+        <super1></super1>
       </client-only>
     </div>
     <!-- Pretplatnici čitaju -->
@@ -543,10 +574,10 @@
         </div>
       </div>
     </div>
-    <!-- Super1 -->
+    <!-- PitanjeZdravlja -->
     <div class="full relative">
       <client-only>
-        <super1></super1>
+        <pitanje-zdravlja></pitanje-zdravlja>
       </client-only>
     </div>
     <!-- Prekid klub -->
@@ -642,12 +673,7 @@
     <div class="full relative">
       <book-offers></book-offers>
     </div> -->
-    <!-- PitanjeZdravlja -->
-    <div class="full relative">
-      <client-only>
-        <pitanje-zdravlja></pitanje-zdravlja>
-      </client-only>
-    </div>
+
     <!--<client-only>
       <div v-if="!hasPremium" class="full relative">
         <offers></offers>

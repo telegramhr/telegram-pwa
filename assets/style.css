@@ -12029,3 +12029,18 @@ input:checked ~ .input-hidden {
         border-bottom: none;
     }
 }
+
+.column-top-margin {
+    margin-top: 24px;
+}
+.column-bottom-margin {
+    margin-bottom: 24px;
+}
+@media screen and (max-width: 767px) {
+    .column-top-margin {
+        margin-top: 4vw;
+    }
+    .column-bottom-margin {
+        margin-bottom: 4vw;
+    }
+}
