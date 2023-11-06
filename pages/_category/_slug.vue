@@ -190,12 +190,14 @@
                   />
                 </div>
               </div>
-              <h1 class="full">
+              <div class="full nothone">
                 <b v-if="categoryClass && categoryClass.includes('superone')">{{
                   parsedOvertitle
                 }}</b>
-                {{ post.portal_title | parseCat }}
-              </h1>
+                <h1 class="full">
+                  {{ post.portal_title | parseCat }}
+                </h1>
+              </div>
               <h2 class="full">
                 {{ post.subtitle | parseCat }}
               </h2>
@@ -443,7 +445,10 @@
               data-contentexchange-source="ughr"
             ></div>
           </div>
-          <div v-if="$mobile && !hasPremium && hasLinker" class="full mobile-only">
+          <div
+            v-if="$mobile && !hasPremium && hasLinker"
+            class="full mobile-only"
+          >
             <linker type="footer"></linker>
           </div>
           <div v-if="!hasPremium && hasLinker" class="container flex center">

@@ -11987,3 +11987,32 @@ input:checked ~ .input-hidden {
         border-color: #555;
     }
 }
+.superone.single-article .nothone * {
+    font-family: "Poppins",sans-serif;
+    font-size: 28px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: normal;
+    line-height: 1.2em;
+    display: inline;
+    font-weight: 300;
+    margin: 0px;
+}
+.superone.single-article .nothone b {
+    font-weight: 700;
+    padding-right: 0.2rem;
+}
+.superone.single-article .nothone {
+    margin-top: 24px;
+    margin-bottom: 8px;
+    display: block;
+}
+.single-article-premium article .article-head > .nothone {
+    display: block;
+}
+@media screen and (min-width: 767px) {
+    .superone.single-article .nothone > * {
+      font-size: 36px;
+      font-size: 1.8rem;
+    }
+}
