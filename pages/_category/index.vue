@@ -473,7 +473,7 @@ export default {
           'https://www.telegram.hr' +
           this.$store.state.category.categories[this.$route.params.category]
             .canonical +
-          (this.page < 2 ? '?page=' + this.page : ''),
+          (this.page > 1 ? '?page=' + this.page : ''),
       },
     ]
     let meta = [
