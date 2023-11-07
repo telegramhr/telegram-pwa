@@ -506,11 +506,8 @@
     <div
       class="full relative darkened-bg column-top-margin column-bottom-margin"
     >
-      <div class="container flex relative">
-        <div class="full column-horizontal-pad column-top-pad">
-          <div class="full cantha-separator"></div>
-        </div>
-        <div class="full flex column-horizontal-pad">
+      <div class="container flex relative column-vertical-pad">
+        <div class="full flex column-horizontal-pad mobile-side-pad">
           <div
             class="noththree full center-text column-vertical-pad subsection-title"
           >
@@ -519,7 +516,7 @@
         </div>
         <div
           v-if="breaks[0]"
-          class="three-fourths flex-responsive column-horizontal-pad flex split-articles big-split alt-big-break center-text column-right-border"
+          class="three-fourths flex-responsive column-horizontal-pad flex split-articles big-split alt-big-break center-text column-right-border mobile-side-pad"
         >
           <standard :key="breaks[0].id" :post="breaks[0]"></standard>
         </div>
@@ -527,7 +524,7 @@
           <div class="full column-bottom-border"></div>
         </div>
         <div
-          class="fourth flex-responsive column-horizontal-pad mini-article-list shorten-commentary"
+          class="fourth flex-responsive column-horizontal-pad mini-article-list shorten-commentary mobile-side-pad"
         >
           <commentary type="tg"></commentary>
         </div>
