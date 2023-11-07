@@ -300,7 +300,7 @@ export default {
           '@type': 'ItemList',
           url: `https://www.telegram.hr${
             this.$store.state.category.categories[this.$route.params.category]
-              .canonical + (this.page < 2 ? '?page=' + this.page : '')
+              .canonical + (this.page > 1 ? '?page=' + this.page : '')
           }`,
           name: this.cat,
           description: this.description,

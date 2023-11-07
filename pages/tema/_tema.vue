@@ -226,6 +226,9 @@ export default {
         if (res.data.posts.length < 12) {
           this.hasMore = false
         }
+        if (res.data.posts.length === 12 && res.data.count <= page * 12) {
+          this.hasMore = false
+        }
         if (!res.data.posts.length) {
           this.$telegram.context.res.statusCode = 404
         }
