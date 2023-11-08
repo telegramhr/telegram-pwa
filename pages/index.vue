@@ -503,33 +503,7 @@
       </client-only>
     </div>
     <!-- Widget autori -->
-    <div
-      class="full relative darkened-bg column-top-margin column-bottom-margin"
-    >
-      <div class="container flex relative column-vertical-pad">
-        <div class="full flex column-horizontal-pad mobile-side-pad">
-          <div
-            class="noththree full center-text column-vertical-pad subsection-title"
-          >
-            Telegram komentari
-          </div>
-        </div>
-        <div
-          v-if="breaks[0]"
-          class="three-fourths flex-responsive column-horizontal-pad flex split-articles big-split alt-big-break center-text column-right-border mobile-side-pad"
-        >
-          <standard :key="breaks[0].id" :post="breaks[0]"></standard>
-        </div>
-        <div class="full column-full-pad tablet-only">
-          <div class="full column-bottom-border"></div>
-        </div>
-        <div
-          class="fourth flex-responsive column-horizontal-pad mini-article-list shorten-commentary mobile-side-pad"
-        >
-          <commentary type="tg"></commentary>
-        </div>
-      </div>
-    </div>
+    <commentary-alt type="tg"></commentary-alt>
     <!-- Super1 -->
     <div class="full relative">
       <client-only>

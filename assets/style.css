@@ -11995,8 +11995,8 @@ input:checked ~ .input-hidden {
 }
 .mini-article-list .article-mini .article-pad h2 {
     font-weight: 400;
-    font-size: 15px;
-    font-size: 0.75rem;
+    font-size: 14px;
+    font-size: 0.7rem;
 }
 .single-article .single-article-body .new-pretplata-intext::after {
     position: absolute;
@@ -12042,5 +12042,13 @@ input:checked ~ .input-hidden {
     }
     .column-bottom-margin {
         margin-bottom: 4vw;
+    }
+    .no-mobile-stretch-split.big-split .article img {
+        width: 100%;
+        max-width: 100%;
+        left: 0;
+        right: 0;
+        margin-left: 0;
+        margin-right: 0;
     }
 }
