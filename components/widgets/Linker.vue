@@ -20,25 +20,35 @@ export default {
       default: 'intext',
     },
   },
+  data() {
+    return {
+      ids: {
+        telegram: {
+          intext: 722,
+          'text-only': 723,
+          'standard-16': 724,
+          ecomm: 726,
+          'standard-4': 725,
+        },
+        super1: {
+          intext: 727,
+          'text-only': 728,
+          'standard-16': 729,
+          ecomm: 731,
+          'standard-4': 730,
+        },
+      },
+    }
+  },
   computed: {
     id() {
       if (this.$store.getters['user/hasPremium']) {
         return 0
       }
-      switch (this.type) {
-        case 'intext':
-          return 722
-        case 'text-only':
-          return 723
-        case 'standard-16':
-          return 724
-        case 'ecomm':
-          return 726
-        case 'standard-4':
-          return 725
-        default:
-          return false
+      if (this.$route.path.includes('super1')) {
+        return this.ids.super1[this.type] ?? false
       }
+      return this.ids.telegram[this.type] ?? false
     },
   },
 }
