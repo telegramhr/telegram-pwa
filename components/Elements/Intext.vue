@@ -48,7 +48,6 @@
         </p>
       </div>
     </div>
-    <linker v-if="show" type="intext"></linker>
   </div>
 </template>
 
@@ -147,11 +146,6 @@ export default {
           setTimeout(this.paywall, 500)
         }
       }
-      setTimeout(() => {
-        if (window.reloadLinkerElements) {
-          window.reloadLinkerElements()
-        }
-      })
     },
     checkout(termId) {
       if (this.$store.state.user.token) {
