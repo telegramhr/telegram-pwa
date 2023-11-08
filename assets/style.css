@@ -11280,7 +11280,7 @@ header .search-menu {
 .simple-btn-margin {
     margin-top: 8px;
 }
-.latest-articles-header > .half {
+.latest-articles-header > .third {
     padding: 8px;
     font-family: 'Barlow', sans-serif;
     font-size: 14px;
@@ -11289,10 +11289,10 @@ header .search-menu {
     padding-top: 4px;
     cursor: pointer;
 }
-.latest-articles-header > .half span {
+.latest-articles-header > .third span {
     opacity: .5;
 }
-.latest-articles-header > .half::before {
+.latest-articles-header > .third::before {
     content: " ";
     position: absolute;
     bottom: 1px;
@@ -11301,18 +11301,18 @@ header .search-menu {
     height: 1px;
     background-color: #c8c8c8;
 }
-.dark-mode .latest-articles-header > .half::before {
+.dark-mode .latest-articles-header > .third::before {
     background-color: #333;
 }
-.latest-articles-header > .half.active-latest-header {
+.latest-articles-header > .third.active-latest-header {
     font-weight: 700;
 }
-.latest-articles-header > .half.active-latest-header::before {
+.latest-articles-header > .third.active-latest-header::before {
     background-color: #ae3737;
     bottom: 0px;
     height: 3px;
 }
-.latest-articles-header > .half.active-latest-header span {
+.latest-articles-header > .third.active-latest-header span {
     opacity: 1;
 }
 .smaller-container {
@@ -11471,7 +11471,7 @@ header .search-menu {
     .category-page .latest-feed-btn {
         padding-left: 0px;
     }
-    .category-page .latest-articles-header > .half {
+    .category-page .latest-articles-header > .third {
         padding: 16px;
         font-size: 24px;
         font-size: 1.2rem;

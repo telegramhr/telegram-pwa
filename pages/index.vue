@@ -201,7 +201,7 @@
           <div
             class="fourth flex-responsive mobile-side-pad column-right-pad flex relative m-order-3 no-last-border-mobile"
           >
-            <div class="full flex relative">
+            <div class="full flex relative latest-line-feed">
               <latest :portal="1"></latest>
             </div>
           </div>
