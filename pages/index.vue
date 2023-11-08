@@ -704,12 +704,6 @@
         </div>
       </div>
     </app-link>
-    <!-- Linker -->
-    <div class="full mobile-side-pad relative">
-      <client-only>
-        <linker type="naslovnica"></linker>
-      </client-only>
-    </div>
     <!-- Rubrike -->
     <div class="full relative">
       <div class="container flex relative block-5 standard-block">
@@ -729,11 +723,6 @@
     <!-- Odabrati stranu pretplatnici widget -->
     <div class="full relative shoo-bottom">
       <pretplatnici-widget></pretplatnici-widget>
-    </div>
-    <div class="full relative">
-      <div class="container flex center">
-        <div id="linker-526" class="lwdgt" data-wid="526"></div>
-      </div>
     </div>
     <tfooter></tfooter>
   </div>
@@ -843,13 +832,6 @@ export default {
           hid: 'schema-ld',
           type: 'application/ld+json',
           json: this.jsonld,
-        },
-        {
-          vmid: 'linker-slider',
-          hid: 'linker-slider',
-          type: 'text/javascript',
-          src: 'https://linker.hr/widget/slider/splide.min.js',
-          async: true,
         },
       ],
     }

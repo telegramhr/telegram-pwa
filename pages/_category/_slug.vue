@@ -368,7 +368,10 @@
                 >
                   <jgl-premium></jgl-premium>
                 </div>
-                <linker v-if="hasLinker" type="mobile"></linker>
+                <linker
+                  v-if="!hasPremium && hasLinker"
+                  type="text-only"
+                ></linker>
               </client-only>
               <!-- Article footer -->
               <div
@@ -423,15 +426,11 @@
         </div>
         <client-only>
           <div v-if="!hasPremium && hasLinker" class="full">
-            <linker type="category"></linker>
+            <linker type="standard-16"></linker>
           </div>
-          <!--<div
-            v-if="!hasPremium && !exclude"
-            class="full relative"
-            style="order: 3"
-          >
-            <offers></offers>
-          </div>-->
+          <div v-if="!hasPremium && hasLinker" class="container flex center">
+            <linker type="ecomm"></linker>
+          </div>
           <div
             v-if="
               !hasPremium &&
@@ -444,15 +443,6 @@
               data-contentexchange-widget="k7dWfvWSYDqoSZvwu"
               data-contentexchange-source="ughr"
             ></div>
-          </div>
-          <div
-            v-if="$mobile && !hasPremium && hasLinker"
-            class="full mobile-only"
-          >
-            <linker type="footer"></linker>
-          </div>
-          <div v-if="!hasPremium && hasLinker" class="container flex center">
-            <linker type="shop"></linker>
           </div>
           <keep-reading
             v-if="post.category_slug && post.category_slug !== 'promo'"
@@ -1062,30 +1052,11 @@ export default {
       script = [
         ...script,
         {
-          vmid: 'linker-slider',
-          hid: 'linker-slider',
-          type: 'text/javascript',
-          src: 'https://linker.hr/widget/slider/splide.min.js',
-          async: true,
-        },
-        {
           hid: 'contentexchange',
           src: 'https://ughr.contentexchange.me/static/tracker.js',
           async: true,
         },
       ]
-      if (!this.post.category_slug.includes('superone')) {
-        script = [
-          ...script,
-          {
-            vmid: 'linker-infinite',
-            hid: 'linker-infinite',
-            type: 'text/javascript',
-            src: 'https://linker.hr/lw-inf.js',
-            async: true,
-          },
-        ]
-      }
     }
     // charts and tables
     if (this.post.tables) {
@@ -1356,6 +1327,13 @@ export default {
           item,
       })
     })
+    if (!this.hasPremium && this.hasLinker) {
+      script.push({
+        hid: 'linker',
+        src: 'https://d.linker.hr/lw.js',
+        async: true,
+      })
+    }
     return {
       script,
     }

@@ -31,7 +31,7 @@
         ></div>-->
       </div>
     </div>
-    <linker v-else type="keep-reading"></linker>
+    <linker v-else type="standard-4"></linker>
   </div>
 </template>
 
