@@ -2,9 +2,7 @@
   <div :class="['main-container', 'flex', 'category-page']">
     <!-- TG Multiverse header -->
     <div class="full flex relative single-article">
-      <client-only>
-        <theader headline="Najnovije na Telegramu"></theader>
-      </client-only>
+      <theader headline="Najnovije na Telegramu"></theader>
     </div>
     <!-- Wallpapers -->
     <div class="full relative">
@@ -56,30 +54,34 @@
       <div
         class="container mobile-side-pad smaller-container flex relative stretch column-vertical-pad block-echovald latest-line-feed latest-line-feed-pad"
       >
-        <div
-          class="full split-articles column-left-border column-horizontal-pad flex"
-        >
-          <template v-for="post in posts[category]">
-            <medium-alt :key="post.id" :post="post"></medium-alt>
-          </template>
-          <!-- Read more widget -->
+        <client-only>
           <div
-            class="full latest-feed-btn flex-responsive flex relative mobile-side-pad"
+            class="full split-articles column-left-border column-horizontal-pad flex"
           >
-            <div class="full flex relative clickable" @click="loadMore">
-              <div v-show="!loading" class="newbtn animate">
-                Učitaj još članaka
-              </div>
-              <div v-show="loading" class="full center cool-loader">
-                <div class="loader-square">
-                  <div></div>
-                  <div></div>
-                  <div></div>
+            <medium-alt
+              v-for="post in posts[category]"
+              :key="post.id"
+              :post="post"
+            ></medium-alt>
+            <!-- Read more widget -->
+            <div
+              class="full latest-feed-btn flex-responsive flex relative mobile-side-pad"
+            >
+              <div class="full flex relative clickable" @click="loadMore">
+                <div v-show="!loading" class="newbtn animate">
+                  Učitaj još članaka
+                </div>
+                <div v-show="loading" class="full center cool-loader">
+                  <div class="loader-square">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </client-only>
       </div>
     </div>
     <tfooter></tfooter>
@@ -88,9 +90,6 @@
 <script>
 export default {
   name: 'Uzivo',
-  async fetch() {
-    await this.$store.dispatch('uzivo/getPosts')
-  },
   data() {
     return {
       loading: false,
@@ -101,6 +100,11 @@ export default {
     posts() {
       return this.$store.state.uzivo.posts
     },
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.$store.dispatch('uzivo/getPosts')
+    })
   },
   methods: {
     loadMore() {

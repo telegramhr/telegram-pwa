@@ -5,7 +5,6 @@ export default ({ store }) => {
     key: 'tg',
     paths: [
       'stocks',
-      'weather',
       'latest',
       'mostread',
       'theme',
@@ -16,6 +15,7 @@ export default ({ store }) => {
       'newsletters',
       'authors',
       'promos',
+      'uzivo',
     ],
   })(store)
 }

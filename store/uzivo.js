@@ -23,15 +23,15 @@ export const mutations = {
 }
 
 export const actions = {
-  getPosts({ commit, state }) {
+  async getPosts({ commit, state }) {
     if (state.lastUpdate < new Date().getTime() - 1000 * 60 * 10) {
-      this.$axios.$get(`/api/uzivo/najnovije/`).then((data) => {
+      await this.$axios.$get(`/api/uzivo/najnovije/`).then((data) => {
         commit('setPosts', { category: 'najnovije', data })
       })
-      this.$axios.$get(`/api/uzivo/sport/`).then((data) => {
+      await this.$axios.$get(`/api/uzivo/sport/`).then((data) => {
         commit('setPosts', { category: 'sport', data })
       })
-      this.$axios.$get(`/api/uzivo/zivot/`).then((data) => {
+      await this.$axios.$get(`/api/uzivo/zivot/`).then((data) => {
         commit('setPosts', { category: 'zivot', data })
       })
     }
