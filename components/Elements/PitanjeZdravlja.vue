@@ -51,7 +51,6 @@
             :key="'pz-' + post.id"
             :post="post"
           ></standard>
-          <!-- TO DO: pull more posts from db, currenltly only 6 -->
         </div>
       </div>
     </div>
@@ -59,10 +58,8 @@
 </template>
 
 <script>
-import Standard from '../articles/Standard.vue'
 export default {
   name: 'PitanjeZdravlja',
-  components: { Standard },
   async fetch() {
     await this.$store.dispatch('pz/pullPosts')
   },

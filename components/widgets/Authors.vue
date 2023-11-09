@@ -1,5 +1,5 @@
 <template>
-  <div class="container flex relative stretch">
+  <div class="container flex relative stretch mobile-side-pad">
     <div class="full column-horizontal-pad column-top-pad">
       <div class="full cantha-separator"></div>
     </div>
@@ -7,8 +7,7 @@
       <div
         class="noththree full center-text column-vertical-pad subsection-title"
       >
-        <img src="@/assets/img/telegram_logo_black.svg" alt="Telegram logo" />
-        autori
+        Telegram komentari
       </div>
     </div>
     <div class="full flex fancy-authors-widget stretch">

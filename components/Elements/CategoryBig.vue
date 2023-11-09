@@ -76,7 +76,7 @@ export default {
     },
     link() {
       return this.$store.state.category.categories[this.slug].canonical
-    }
+    },
   },
 }
 </script>

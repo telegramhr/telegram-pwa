@@ -168,7 +168,7 @@
         </div>
         <!-- G1 -->
         <div
-          class="three-fourths featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles column-right-border mobile-side-pad mobile-order-1 m-order-1"
+          class="three-fourths featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad mobile-order-1 m-order-1"
         >
           <featured-alt
             v-if="posts[0]"
@@ -176,38 +176,19 @@
             :post="posts[0]"
           ></featured-alt>
         </div>
-        <!-- komentari -->
-        <div
-          class="fourth flex-responsive column-horizontal-pad mobile-side-pad cantha-commentary m-order-11"
-        >
-          <div class="full mobile-only flex relative">
-            <div class="full column-horizontal-pad column-top-pad">
-              <div class="full cantha-separator"></div>
-            </div>
-            <div class="full flex column-horizontal-pad">
-              <div
-                class="noththree full center-text column-vertical-pad subsection-title"
-              >
-                Komentari
-              </div>
+        <!-- latest -->
+        <client-only>
+          <div
+            class="fourth flex-responsive mobile-side-pad column-right-pad flex relative m-order-3 no-last-border-mobile"
+          >
+            <div class="full flex relative latest-line-feed">
+              <latest></latest>
             </div>
           </div>
-          <commentary type="tg"></commentary>
-        </div>
+        </client-only>
         <div class="full column-full-pad desktop-only">
           <div class="full column-top-border"></div>
         </div>
-        <!-- latest -->
-        <!--<client-only>
-          <div
-            v-if="$mobile"
-            class="full mobile-side-pad column-right-pad flex relative m-order-3 no-last-border-mobile"
-          >
-            <div class="full flex relative latest-line-feed">
-              <latest :portal="1"></latest>
-            </div>
-          </div>
-        </client-only>-->
         <!-- rest of Gs -->
         <div
           class="full flex cantha-small-block mobile-side-pad stretch m-order-5"
@@ -271,63 +252,6 @@
             ></medium>
           </div>
         </div>
-        <!-- Prekid odabrati stranu
-        <client-only>
-          <div
-            v-if="!$store.state.user.access"
-            class="container column-horizontal-pad column-top-pad mobile-bottom-pad flex relative m-order-8"
-          >
-            <app-link
-              to="/pretplata/odabrati-stranu"
-              class="full relative darkened-bg column-full-pad mobile-full-pad birati-stranu-widget"
-            >
-              <p
-                class="full center-text column-top-pad mobile-top-pad birati-stranu-title"
-              >
-                Nekad je nužno odabrati stranu.
-              </p>
-              <p class="full center-text birati-stranu-subtitle">
-                Postanite Telegramov pretplatnik
-              </p>
-              <div class="full center column-vertical-pad mobile-vertical-pad">
-                <div class="newbtn huge-newbtn">Pretplatite se</div>
-              </div>
-            </app-link>
-          </div>
-        </client-only> -->
-        <!-- Prekid pretplata
-        <client-only>
-          <div
-            v-if="!$store.state.user.access"
-            class="full relative mobile-only m-order-8"
-          >
-            <div class="container flex relative column-horizontal-pad">
-              <app-link
-                to="/pretplata"
-                class="full cantha-break cantha-mini-break mobile-side-pad flex relative stretch"
-              >
-                <div class="two-thirds column-full-pad center flex-responsive">
-                  <div class="full flex article">
-                    <h2 class="full">
-                      Bespoštedno novinarstvo <br />koje gura društvo naprijed.
-                    </h2>
-                    <div class="nothfour full">
-                      Za neograničeno čitanje Telegrama i podršku istraživačkim
-                      serijalima, odaberite jedan od paketa.
-                    </div>
-                  </div>
-                </div>
-                <div class="third stretch flex flex-responsive">
-                  <div class="full flex article">
-                    <div class="full center">
-                      <div class="newbtn">Pretplatite se</div>
-                    </div>
-                  </div>
-                </div>
-              </app-link>
-            </div>
-          </div>
-        </client-only> -->
         <!-- Još vijesti -->
         <div class="full relative cantha-more-news m-order-10">
           <div
@@ -383,9 +307,6 @@
         >
           <trending :id="1"></trending>
         </div>
-        <!--<div class="full column-horizontal-pad">
-          <div class="full column-top-pad column-bottom-border"></div>
-        </div>-->
       </div>
     </div>
     <!-- Billboard 3 -->
@@ -394,94 +315,6 @@
         <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
       </div>
     </div>
-    <!-- Prekid knjiga
-    <div class="full relative" style="margin-top: 24px">
-      <div class="container flex relative column-horizontal-pad">
-        <app-link
-          to="/knjiga/sanja-modric-igla-pila-ravnalo"
-          class="full cantha-break break-dezulovic mobile-side-pad flex relative stretch"
-        >
-          <div class="third column-full-pad center flex-responsive">
-            <div class="full flex article">
-              <div class="noththree full overtitle">Ekskluzivna prednarudžba</div>
-              <h2 class="full">
-                Telegram Vam predstavlja: <br />Prva knjiga Sanje Modrić
-              </h2>
-              <div class="nothfour full">
-                Špajza novinskih tekstova Telegramove <br />
-                nagrađivane novinarke, prvi put kao knjiga
-              </div>
-            </div>
-          </div>
-          <div class="two-thirds stretch flex flex-responsive">
-            <div
-              class="two-thirds stretch column-top-pad center flex-responsive"
-            >
-              <img
-                class="align-end"
-                src="@/assets/img/tg_knjiga_vizual_modric.png"
-                alt="Portret Sanje Modrić i naslovnica njene knjige 'Igla, pila, ravnalo'"
-                loading="lazy"
-              />
-            </div>
-            <div class="third stretch center column-full-pad flex-responsive">
-              <div class="full flex article">
-                <h2 class="full relative center-text">
-                  <span class="faded strikethrough">19,99€</span> 13,99€
-                </h2>
-                <div class="nothfour full center-text">
-                  (<span class="faded strikethrough">150,61 kn</span> 105,41 kn)
-                  <br />
-                  posebna cijena za Telegramove pretplatnike!
-                </div>
-                <div class="full center">
-                  <div class="newbtn">Kupite</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </app-link>
-      </div>
-    </div> -->
-    <!-- Prekid newsletteri
-    <div class="full relative">
-      <div class="container flex relative column-horizontal-pad">
-        <app-link
-          to="/newsletters"
-          class="full cantha-break mobile-side-pad flex relative stretch"
-        >
-          <div class="third column-full-pad center flex-responsive">
-            <div class="full flex article">
-              <div class="noththree full overtitle">Posebne pogodnosti</div>
-              <h2 class="full">
-                Specijalni newsletteri za Telegramove pretplatnike.
-              </h2>
-              <div class="nothfour full">
-                Najbolje od Telegrama, svaki dan u vašem inboxu.
-              </div>
-            </div>
-          </div>
-          <div class="two-thirds stretch flex flex-responsive">
-            <div class="two-thirds column-full-pad center flex-responsive">
-              <img
-                src="@/assets/img/tg_newsletter_visual.png"
-                alt="Kolekcija Telegramovih newslettera"
-              />
-            </div>
-            <div class="third center flex-responsive">
-              <div class="full flex article">
-                <div class="full center">
-                  <div class="newbtn">Prijavite se</div>
-                </div>
-                <div class="nothfour full center-text">
-                  Odaberite tematske i autorske newslettere koje želite primati.
-                </div>
-              </div>
-            </div>
-          </div>
-        </app-link>
-      </div>
-    </div> -->
     <!-- Velika rubrika: Politika i kriminal -->
     <div class="full relative">
       <div class="container flex relative column-bottom-pad">
@@ -499,6 +332,14 @@
     <div class="full relative">
       <client-only>
         <sport></sport>
+      </client-only>
+    </div>
+    <!-- Widget autori -->
+    <commentary-alt type="tg"></commentary-alt>
+    <!-- Super1 -->
+    <div class="full relative">
+      <client-only>
+        <super1></super1>
       </client-only>
     </div>
     <!-- Pretplatnici čitaju -->
@@ -536,10 +377,10 @@
         </div>
       </div>
     </div>
-    <!-- Super1 -->
+    <!-- PitanjeZdravlja -->
     <div class="full relative">
       <client-only>
-        <super1></super1>
+        <pitanje-zdravlja></pitanje-zdravlja>
       </client-only>
     </div>
     <!-- Prekid klub -->
@@ -548,104 +389,6 @@
         <klub-offers></klub-offers>
       </div>
     </client-only>
-    <!--<div class="full relative">
-      <div class="container flex relative column-full-pad">
-        <app-link
-          to="/klub"
-          class="full cantha-break mobile-side-pad flex relative stretch klub-cantha-break"
-        >
-          <div class="third column-full-pad center flex-responsive">
-            <div class="full flex">
-              <img
-                src="@/assets/img/tg_klub_logo_negative.svg"
-                alt="Telegram Klub logo"
-                class="klub-break-logo"
-              />
-              <div class="nothfour full">
-                Klub ekskluzivnih ponuda, pogodnosti i popusta, samo za
-                pretplatnike Telegrama.
-              </div>
-            </div>
-          </div>
-          <div class="two-thirds stretch flex flex-responsive">
-            <div class="two-thirds stretch center flex-responsive">
-              <img
-                src="@/assets/img/tg_klub_vizual_widget.jpg"
-                alt="Neki od popusta u kazalištima i muzejima koje se nalaze u Telegram Klubu"
-              />
-            </div>
-            <div
-              class="third center stretch column-horizontal-pad flex-responsive"
-            >
-              <div class="full column-left-pad flex article">
-                <div class="nothfour full center-text">
-                  Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
-                  pretplatnicima.
-                </div>
-                <div class="full center">
-                  <div class="newbtn">Saznajte više</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </app-link>
-      </div>
-    </div>-->
-    <!-- Prekid dojave
-    <div class="full relative desktop-only">
-      <div class="container flex relative column-full-pad"
-        <app-link
-          to="/dojave"
-          class="full cantha-break mobile-side-pad flex relative stretch"
-        >
-          <div class="forty column-full-pad center flex-responsive">
-            <div class="full flex article">
-              <div class="noththree full overtitle">Telegram dojave</div>
-              <h2 class="full">
-                Imate saznanja o korupciji? Javite se našim novinarima.
-              </h2>
-              <div class="nothfour full">
-                Naši su članci otkrili brojne pljačke i nepravilnosti.
-              </div>
-            </div>
-          </div>
-          <div class="sixty stretch flex flex-responsive">
-            <div class="sixty column-top-pad center flex-responsive">
-              <img
-                src="@/assets/img/tg_dojave_visual.png"
-                alt="Portreti ministara čiju korupciju je otkrio Telegram"
-                class="hard-light-blend"
-              />
-            </div>
-            <div class="forty center column-horizontal-pad flex-responsive">
-              <div class="full column-left-pad flex article">
-                <div class="full center">
-                  <div class="newbtn">Javite nam se</div>
-                </div>
-                <div class="nothfour full center-text">
-                  Imamo sigurne kanale putem kojih nas možete kontaktirati.
-                </div>
-              </div>
-            </div>
-          </div>
-        </app-link>
-      </div>
-    </div> -->
-    <!-- Šoping knjige
-    <div class="full relative">
-      <book-offers></book-offers>
-    </div> -->
-    <!-- PitanjeZdravlja -->
-    <div class="full relative">
-      <client-only>
-        <pitanje-zdravlja></pitanje-zdravlja>
-      </client-only>
-    </div>
-    <!--<client-only>
-      <div v-if="!hasPremium" class="full relative">
-        <offers></offers>
-      </div>
-    </client-only>-->
     <!-- Widget partneri -->
     <div class="full relative">
       <client-only>
