@@ -11490,6 +11490,7 @@ header .search-menu {
     .latest-line-feed .article {
         padding-left: 4vw;
         padding-top: 18px;
+        padding-bottom: 2vw;
     }
     .latest-line-feed .time-overtitle {
         margin-bottom: 8px;
@@ -12076,5 +12077,12 @@ input:checked ~ .input-hidden {
         right: 0;
         margin-left: 0;
         margin-right: 0;
+    }
+    .mini-article-list .article-mini .article-pad h2 {
+        font-size: 16px;
+        font-size: .8rem;
+    }
+    .latest-feed-btn {
+        padding-top: 2vw;
     }
 }
