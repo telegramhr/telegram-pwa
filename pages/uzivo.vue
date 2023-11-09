@@ -27,11 +27,27 @@
         <div
           class="full flex latest-articles-header column-horizontal-pad stretch"
         >
-          <div class="third flex center active-latest-header animate">
+          <div
+            class="third flex center animate"
+            :class="{ 'active-latest-header': category === 'najnovije' }"
+            @click="category = 'najnovije'"
+          >
             <span>Najnovije</span>
           </div>
-          <div class="third flex center animate"><span>Sport</span></div>
-          <div class="third flex center animate"><span>Život</span></div>
+          <div
+            class="third flex center animate"
+            :class="{ 'active-latest-header': category === 'sport' }"
+            @click="category = 'sport'"
+          >
+            <span>Sport</span>
+          </div>
+          <div
+            class="third flex center animate"
+            :class="{ 'active-latest-header': category === 'zivot' }"
+            @click="category = 'zivot'"
+          >
+            <span>Život</span>
+          </div>
         </div>
       </div>
     </div>
@@ -43,7 +59,7 @@
         <div
           class="full split-articles column-left-border column-horizontal-pad flex"
         >
-          <template v-for="post in posts.slice(0, 8)">
+          <template v-for="post in posts[category]">
             <medium-alt :key="post.id" :post="post"></medium-alt>
           </template>
           <!-- Read more widget -->
@@ -71,45 +87,24 @@
 </template>
 <script>
 export default {
-  name: 'NajnovijeNaTelegramu',
-  props: {
-    portal: {
-      type: Number,
-      required: true,
-      default: 1,
-    },
-    category: {
-      type: String,
-      required: false,
-      default: '',
-    },
-  },
+  name: 'Uzivo',
   async fetch() {
-    await this.$axios
-      .$get('/api/latest/1/' + this.category)
-      .then((res) => {
-        this.posts = res
-      })
-      .catch(() => {
-        // error logging
-      })
+    await this.$store.dispatch('uzivo/getPosts')
   },
   data() {
     return {
-      posts: [],
       loading: false,
+      category: 'najnovije',
     }
+  },
+  computed: {
+    posts() {
+      return this.$store.state.uzivo.posts
+    },
   },
   methods: {
     loadMore() {
-      this.loading = true
-      this.$axios
-        .get(`/api/latest/1/${this.$route.params.category}/page/${this.page}`)
-        .then((res) => {
-          this.posts = [...this.posts, ...res.data.posts]
-          this.loading = false
-          this.page++
-        })
+      this.$store.dispatch('uzivo/morePosts', this.category)
     },
   },
   head() {
@@ -117,7 +112,7 @@ export default {
       {
         hid: 'canonical',
         rel: 'canonical',
-        href: 'https://www.telegram.hr/najnovije/',
+        href: 'https://www.telegram.hr/uzivo/',
       },
     ]
     return {
@@ -135,11 +130,6 @@ export default {
           content: 'Najnovije objave na Telegramu..',
         },
         {
-          hid: 'og:type',
-          property: 'og:type',
-          content: 'article',
-        },
-        {
           hid: 'og:title',
           property: 'og:title',
           content: 'Najnovije na Telegramu',
@@ -147,27 +137,7 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/najnovije/',
-        },
-        {
-          hid: 'fb:app_id',
-          property: 'fb:app_id',
-          content: '1383786971938581',
-        },
-        {
-          hid: 'twitter:card',
-          name: 'twitter:card',
-          content: 'summary_large_image',
-        },
-        {
-          hid: 'twitter:site',
-          name: 'twitter:site',
-          content: '@TelegramHR',
-        },
-        {
-          hid: 'robots',
-          name: 'robots',
-          content: 'index, follow',
+          content: 'https://www.telegram.hr/uzivo/',
         },
       ],
       link,
