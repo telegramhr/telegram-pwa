@@ -483,7 +483,7 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      this.loadAds()
+      // this.loadAds()
       this.reloadInterval = setInterval(() => {
         this.$router.push('/?reload=1')
       }, 300000)
