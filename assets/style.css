@@ -12085,4 +12085,10 @@ input:checked ~ .input-hidden {
     .latest-feed-btn {
         padding-top: 2vw;
     }
+    .reorder-echovald .three-fourths, .reorder-echovald .full {
+        order: 1;
+    }
+    .reorder-echovald .desktop-mini-force {
+        order: 2;
+    }
 }

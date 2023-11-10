@@ -23,7 +23,9 @@
           </div>
         </div>
       </a>
-      <div class="full block-echovald mobile-side-pad flex relative">
+      <div
+        class="full block-echovald mobile-side-pad flex relative reorder-echovald"
+      >
         <div class="three-fourths flex-responsive flex stretch">
           <div class="half flex-responsive flex column-horizontal-pad">
             <featured
@@ -46,9 +48,13 @@
           <div class="full column-bottom-border"></div>
         </div>
         <div
-          class="fourth flex-responsive column-horizontal-pad cantha-commentary"
+          class="fourth desktop-mini-force flex-responsive column-horizontal-pad"
         >
-          <commentary type="ts"></commentary>
+          <standard
+            v-for="post in posts.slice(8, 13)"
+            :key="post.id"
+            :post="post"
+          ></standard>
         </div>
         <div class="full column-full-pad desktop-only">
           <div class="full column-top-border"></div>
