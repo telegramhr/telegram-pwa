@@ -279,13 +279,12 @@
       </div>
     </client-only>
     <!-- TG preporuka -->
-    <div class="full relative">
+    <div
+      class="full relative darkened-bg column-top-margin column-bottom-margin column-bottom-pad mobile-vertical-pad"
+    >
       <div
-        class="container mobile-side-pad flex relative stretch column-bottom-pad"
+        class="container mobile-side-pad flex relative stretch column-vertical-pad"
       >
-        <div class="full column-horizontal-pad column-top-pad">
-          <div class="full cantha-separator"></div>
-        </div>
         <div class="full flex column-horizontal-pad">
           <div
             class="noththree full center-text column-vertical-pad subsection-title"
@@ -295,7 +294,7 @@
         </div>
         <div
           v-if="breaks[0]"
-          class="three-fourths flex-responsive column-horizontal-pad flex split-articles big-split alt-big-break center-text column-right-border"
+          class="three-fourths flex-responsive column-horizontal-pad flex split-articles big-split no-mobile-stretch-split alt-big-break center-text column-right-border"
         >
           <standard :key="breaks[0].id" :post="breaks[0]"></standard>
         </div>
