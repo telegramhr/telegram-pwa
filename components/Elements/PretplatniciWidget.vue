@@ -23,6 +23,8 @@
           <img
             src="@/assets/img/extras/pretplatnici/rade.jpg"
             alt="Rade Šerbedžija - pretplatnik i umjetnik"
+            loading="lazy"
+            decoding="async"
           />
         </app-link>
         <app-link
@@ -32,6 +34,8 @@
           <img
             src="@/assets/img/extras/pretplatnici/snjezana.jpg"
             alt="Snježana Prijić Samaržija - pretplatnica i rektorica Sveučilišta u Rijeci"
+            loading="lazy"
+            decoding="async"
           />
         </app-link>
         <app-link
@@ -41,6 +45,8 @@
           <img
             src="@/assets/img/extras/pretplatnici/maja.jpg"
             alt="Maja Sever - pretplatnica i novinarka"
+            loading="lazy"
+            decoding="async"
           />
         </app-link>
         <app-link
@@ -50,6 +56,8 @@
           <img
             src="@/assets/img/extras/pretplatnici/vuk.jpg"
             alt="Vuk Vuković - pretplatnik i ekonomist"
+            loading="lazy"
+            decoding="async"
           />
         </app-link>
         <app-link
@@ -58,8 +66,9 @@
         >
           <img
             src="@/assets/img/extras/pretplatnici/ratko.jpg"
-            alt="Ratko Rudić - pretplatnik i trener
-"
+            alt="Ratko Rudić - pretplatnik i trener"
+            loading="lazy"
+            decoding="async"
           />
         </app-link>
         <app-link
@@ -69,6 +78,8 @@
           <img
             src="@/assets/img/extras/pretplatnici/emil.jpg"
             alt="Emil Tedeschi - pretplatnik i poduzetnik"
+            loading="lazy"
+            decoding="async"
           />
         </app-link>
         <app-link
@@ -78,6 +89,8 @@
           <img
             src="@/assets/img/extras/pretplatnici/viktorija.jpg"
             alt="Viktorija Đurđek - pretplatnica i operna pjevačica"
+            loading="lazy"
+            decoding="async"
           />
         </app-link>
         <app-link
@@ -87,6 +100,8 @@
           <img
             src="@/assets/img/extras/pretplatnici/cedo.jpg"
             alt="Čedo Prodanović - pretplatnik i odvjetnik"
+            loading="lazy"
+            decoding="async"
           />
         </app-link>
         <app-link
@@ -96,6 +111,8 @@
           <img
             src="@/assets/img/extras/pretplatnici/marko.jpg"
             alt="Marko Rakar - pretplatnik i IT stručnjak"
+            loading="lazy"
+            decoding="async"
           />
         </app-link>
         <app-link
@@ -105,6 +122,8 @@
           <img
             src="@/assets/img/extras/pretplatnici/ivanaS.jpg"
             alt="Ivana Šoljan - pretplatnica i poduzetnica"
+            loading="lazy"
+            decoding="async"
           />
         </app-link>
         <app-link
@@ -114,6 +133,8 @@
           <img
             src="@/assets/img/extras/pretplatnici/majaV.jpg"
             alt="Maja Vehovec - pretplatnica i ekonomistica"
+            loading="lazy"
+            decoding="async"
           />
         </app-link>
         <app-link
@@ -123,6 +144,8 @@
           <img
             src="@/assets/img/extras/pretplatnici/luka.jpg"
             alt="Luka Abrus - pretplatnik i poduzetnik"
+            loading="lazy"
+            decoding="async"
           />
         </app-link>
         <app-link
@@ -132,6 +155,8 @@
           <img
             src="@/assets/img/extras/pretplatnici/tvrtko.jpg"
             alt="Tvrtko Jakovina - pretplatnik i povjesničar"
+            loading="lazy"
+            decoding="async"
           />
         </app-link>
         <app-link
@@ -141,6 +166,8 @@
           <img
             src="@/assets/img/extras/pretplatnici/ivana.jpg"
             alt="Ivana Gadžić - pretplatnica i predsjednica Zagrebačke burze"
+            loading="lazy"
+            decoding="async"
           />
         </app-link>
         <app-link
@@ -150,6 +177,8 @@
           <img
             src="@/assets/img/extras/pretplatnici/nevio.jpg"
             alt="Nevio Marasović - pretplatnik i redatelj"
+            loading="lazy"
+            decoding="async"
           />
         </app-link>
       </VueSlickCarousel>

@@ -10,7 +10,12 @@
         </div>
       </div>
       <div class="full center">
-        <img :src="offer.image" aria-hidden="true" />
+        <img
+          :src="offer.image"
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
     </div>
     <div class="noththree full overtitle">{{ offer.overtitle }}</div>
