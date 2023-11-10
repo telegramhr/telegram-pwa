@@ -1272,7 +1272,7 @@ export const mutations = {
 
 export const actions = {
   initAds({ state, commit, dispatch, rootState }, payload) {
-    window.googletag = window.googletag || {}
+    /* window.googletag = window.googletag || {}
     window.googletag.cmd = window.googletag.cmd || []
     window.googletag.reloadedSlots = window.googletag.reloadedSlots || []
     if (state.slots) {
@@ -1301,7 +1301,7 @@ export const actions = {
       }
       return
     }
-    dispatch('setupTargeting', payload)
+    dispatch('setupTargeting', payload) */
   },
   setupTargeting({ state, commit, dispatch, rootState }, payload) {
     window.googletag = window.googletag || {}
