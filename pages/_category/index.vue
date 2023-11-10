@@ -7,19 +7,6 @@
           <theader :headline="cat | parseCat"></theader>
         </client-only>
       </div>
-      <!-- Wallpapers -->
-      <div class="full relative">
-        <client-only>
-          <div v-if="!$mobile" class="container wallpaper-banners">
-            <div class="wallpaper-left">
-              <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
-            </div>
-            <div class="wallpaper-right">
-              <ad-unit id="telegram_dekstop_wallpaper_right"></ad-unit>
-            </div>
-          </div>
-        </client-only>
-      </div>
       <!-- Category header -->
       <div class="full flex relative">
         <div class="container flex mobile-side-pad relative">
@@ -146,9 +133,6 @@
               :key="post.id"
               :post="post"
             ></standard>
-          </div>
-          <div class="full relative center">
-            <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
           </div>
         </div>
       </div>

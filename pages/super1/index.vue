@@ -1,15 +1,5 @@
 <template>
   <div class="main-container flex s1-home">
-    <client-only>
-      <div v-if="!$mobile" class="container wallpaper-banners animate">
-        <div class="wallpaper-left">
-          <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
-        </div>
-        <div class="wallpaper-right">
-          <ad-unit id="telegram_dekstop_wallpaper_right"></ad-unit>
-        </div>
-      </div>
-    </client-only>
     <!-- TG Multiverse header -->
     <div class="full flex">
       <theader></theader>
@@ -52,14 +42,6 @@
             >
           </nav>
         </div>
-        <!-- Billboard 1 -->
-        <client-only>
-          <div v-show="!hasPremium" class="full relative">
-            <div class="full center relative">
-              <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
-            </div>
-          </div>
-        </client-only>
       </div>
     </section>
     <!-- G1 + super se čita -->
@@ -106,11 +88,6 @@
         <partner-special position="s1"></partner-special>
       </div>
     </client-only>
-    <div class="full relative">
-      <div class="full center">
-        <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
-      </div>
-    </div>
     <!-- Block 1: 75-25 -->
     <section class="full flex relative">
       <div class="container flex relative stretch column-bottom-pad">
@@ -179,11 +156,6 @@
         </div>
       </div>
     </section>
-    <div class="full relative">
-      <div class="full center">
-        <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
-      </div>
-    </div>
     <client-only>
       <!-- Block 3: Look (75-25 + 33-33-33) -->
       <super-block category="look"></super-block>
@@ -222,11 +194,6 @@
         </div>
       </div>
     </section>
-    <div class="full relative">
-      <div class="full center">
-        <ad-unit id="telegram_desktop_billboard_v4"></ad-unit>
-      </div>
-    </div>
     <client-only>
       <!-- Block 6: Relax (75-25 + 33-33-33) -->
       <super-block category="life"></super-block>

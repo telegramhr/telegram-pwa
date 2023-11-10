@@ -1,16 +1,5 @@
 <template>
   <div class="main-container flex homepage">
-    <!-- Wallpapers -->
-    <client-only>
-      <div v-if="!$mobile" class="container wallpaper-banners animate">
-        <div class="wallpaper-left">
-          <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
-        </div>
-        <div class="wallpaper-right">
-          <ad-unit id="telegram_dekstop_wallpaper_right"></ad-unit>
-        </div>
-      </div>
-    </client-only>
     <!-- TG Multiverse Header -->
     <div class="full flex">
       <theader></theader>
@@ -137,17 +126,6 @@
     <!-- Intro block: G1 + comments -->
     <div class="full relative">
       <div class="container flex relative stretch cantha-intro-block">
-        <!-- Billboard 1 -->
-        <client-only>
-          <div v-show="!hasPremium" class="full relative m-order-2">
-            <div class="full flex column-horizontal-pad desktop-only">
-              <div class="full flex relative column-bottom-border"></div>
-            </div>
-            <div class="full center relative">
-              <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
-            </div>
-          </div>
-        </client-only>
         <!-- breaking -->
         <h2
           v-show="$store.state.breaking.on2"
@@ -200,10 +178,6 @@
           >
             <medium :post="post"></medium>
           </div>
-        </div>
-        <!-- Billboard 2 -->
-        <div class="full center m-order-6">
-          <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
         </div>
         <!-- Teme -->
         <div
@@ -308,12 +282,6 @@
         </div>
       </div>
     </div>
-    <!-- Billboard 3 -->
-    <div class="full relative cantha-billboard">
-      <div class="full center">
-        <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
-      </div>
-    </div>
     <!-- Velika rubrika: Politika i kriminal -->
     <div class="full relative">
       <div class="container flex relative column-bottom-pad">
@@ -393,12 +361,6 @@
       <client-only>
         <partners></partners>
       </client-only>
-    </div>
-    <!-- Billboard 4 -->
-    <div class="full relative">
-      <div class="full center">
-        <ad-unit id="telegram_desktop_billboard_v4"></ad-unit>
-      </div>
     </div>
     <!-- Openspace -->
     <div class="full relative">

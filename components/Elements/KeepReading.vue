@@ -1,7 +1,6 @@
 <template>
   <div class="full">
     <div
-      v-if="this.$store.getters['user/hasPremium']"
       class="container flex relative block-related cantha-related standard-block stretch"
     >
       <div class="full column-horizontal-pad column-top-pad mobile-side-pad">
@@ -22,16 +21,8 @@
             </div>
           </div>
         </template>
-        <!--<div
-          v-if="!$store.getters['user/hasPremium']"
-          class="lwdgt"
-          :data-wid="id"
-          data-infinite="true"
-          data-cycles="20"
-        ></div>-->
       </div>
     </div>
-    <linker v-else type="standard-4"></linker>
   </div>
 </template>
 

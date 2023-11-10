@@ -27,21 +27,6 @@
           </div>
         </div>
       </div>
-      <client-only>
-        <div
-          v-if="!$mobile && $route.name === 'category-slug'"
-          class="full center header-billboard"
-        >
-          <div v-if="!$mobile" class="container wallpaper-banners animate">
-            <div class="wallpaper-left">
-              <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
-            </div>
-            <div class="wallpaper-right">
-              <ad-unit id="telegram_dekstop_wallpaper_right"></ad-unit>
-            </div>
-          </div>
-        </div>
-      </client-only>
       <div
         v-if="post.type === 'premium'"
         class="full premium-article-head relative"
@@ -303,16 +288,6 @@
                 </div>
               </div>
             </div>
-            <div class="full relative center single-top-banner">
-              <ad-unit
-                id="telegram_desktop_billboard_v1"
-                :disable="
-                  post.disable_ads.includes('all') ||
-                  (post.category_slug &&
-                    post.category_slug.includes('openspace'))
-                "
-              ></ad-unit>
-            </div>
             <div class="full relative single-article-body">
               <client-only>
                 <mini-pretplata-new
@@ -347,31 +322,7 @@
                 >
                   <gallery :gallery="gallery"></gallery>
                 </portal>
-                <portal
-                  v-if="!hasPremium && !post.category_slug.includes('superone')"
-                  selector="#intext_premium"
-                >
-                  <div class="full">
-                    <offers-premium></offers-premium>
-                  </div>
-                </portal>
                 <intext></intext>
-                <div
-                  v-if="
-                    $mobile &&
-                    !hasPremium &&
-                    !post.category_slug.includes('superone') &&
-                    !(post.disable_ads && post.disable_ads.includes('spar'))
-                  "
-                  class="full"
-                  style="max-width: 1201px"
-                >
-                  <jgl-premium></jgl-premium>
-                </div>
-                <linker
-                  v-if="!hasPremium && hasLinker"
-                  type="text-only"
-                ></linker>
               </client-only>
               <!-- Article footer -->
               <div
@@ -425,25 +376,6 @@
           </article>
         </div>
         <client-only>
-          <div v-if="!hasPremium && hasLinker" class="full">
-            <linker type="standard-16"></linker>
-          </div>
-          <div v-if="!hasPremium && hasLinker" class="container flex center">
-            <linker type="ecomm"></linker>
-          </div>
-          <div
-            v-if="
-              !hasPremium &&
-              hasLinker &&
-              !post.category_slug.includes('superone')
-            "
-            class="container center"
-          >
-            <div
-              data-contentexchange-widget="k7dWfvWSYDqoSZvwu"
-              data-contentexchange-source="ughr"
-            ></div>
-          </div>
           <keep-reading
             v-if="post.category_slug && post.category_slug !== 'promo'"
             :category="post.category_slug"
@@ -939,7 +871,7 @@ export default {
         this.$store.commit('history/setData', this.post)
         this.triggerAnalytics()
         this.loadPiano()
-        this.loadAds()
+        // this.loadAds()
         if (typeof FB !== 'undefined') {
           FB.XFBML.parse()
         }
@@ -1048,16 +980,6 @@ export default {
         defer: true,
       },
     ]
-    if (!this.$store.getters['user/hasPremium']) {
-      script = [
-        ...script,
-        {
-          hid: 'contentexchange',
-          src: 'https://ughr.contentexchange.me/static/tracker.js',
-          async: true,
-        },
-      ]
-    }
     // charts and tables
     if (this.post.tables) {
       const wdtStyles = [
@@ -1327,13 +1249,6 @@ export default {
           item,
       })
     })
-    if (!this.hasPremium && this.hasLinker) {
-      script.push({
-        hid: 'linker',
-        src: 'https://d.linker.hr/lw.js',
-        async: true,
-      })
-    }
     return {
       script,
     }

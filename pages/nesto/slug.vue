@@ -18,23 +18,6 @@
       </div>
     </div>
     <div
-      v-if="
-        !mobile &&
-        ($route.name === 'category-slug' || $route.name === 'nesto-slug')
-      "
-      class="full center header-billboard hide"
-    >
-      <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
-      <div v-if="!mobile" class="container wallpaper-banners animate">
-        <div class="wallpaper-left">
-          <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
-        </div>
-        <div class="wallpaper-right">
-          <ad-unit id="telegram_dekstop_wallpaper_right"></ad-unit>
-        </div>
-      </div>
-    </div>
-    <div
       v-if="post.type === 'premium'"
       class="full premium-article-head relative"
     >
@@ -534,7 +517,7 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.resize()
-      this.loadAds()
+      // this.loadAds()
       //  this.getPost()
       window.addEventListener('scroll', this.handleScroll)
     })
@@ -565,51 +548,6 @@ export default {
         options: this.post.disable_ads,
         tags: this.post.tags,
       })
-      if (
-        !this.post.disable_ads &&
-        !this.post.disable_ads.includes('all') &&
-        !this.post.disable_ads.includes('nepromo')
-      ) {
-        this.loadMox()
-      }
-      if (
-        !this.post.disable_ads.includes('all') &&
-        !this.post.disable_ads.includes('midas') &&
-        !this.post.disable_ads.includes('nepromo')
-      ) {
-        this.loadMidas()
-      }
-    },
-    loadMidas() {
-      const container = document.getElementById('midasWidget__657')
-      const intext = document.getElementById('midasWidget__r49')
-      let widget = '2?portalWidgetId=657'
-      if (intext) {
-        widget += '&portalRuleId=49'
-      }
-      const scriptTag = document.createElement('script')
-      scriptTag.src =
-        'https://www.midas-network.com/ScriptsControllerRule/midas-phrygia-1.min.js'
-      scriptTag.async = true
-      scriptTag.id = 'midas-phrygia'
-      scriptTag.setAttribute('data-widget', widget)
-      container.parentNode.insertBefore(scriptTag, container)
-    },
-    loadMox() {
-      const container = document.querySelectorAll(
-        '[data-id=_mwayss-325b7d752b361c5458420729057fe2ff]'
-      )[0]
-      if (container) {
-        container.setAttribute(
-          'id',
-          container.getAttribute('data-id') + new Date().getTime()
-        )
-        container.removeAttribute('data-id')
-        const scriptTag = document.createElement('script')
-        scriptTag.src =
-          'https://ad.mox.tv/mox/mwayss_invocation.min.js?pzoneid=5182&height=405&width=720&tld=telegram.hr&ctype=div'
-        container.parentNode.insertBefore(scriptTag, container)
-      }
     },
     loadPiano() {
       const tp = window.tp || []
@@ -634,7 +572,7 @@ export default {
     },
     getPost() {
       if (this.post && this.post.id) {
-        this.loadAds()
+        // this.loadAds()
         if (typeof FB !== 'undefined') {
           FB.XFBML.parse()
         }
