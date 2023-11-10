@@ -231,7 +231,6 @@
 </template>
 
 <script>
-import { has } from 'vue-slick-carousel/dist/vue-slick-carousel.common'
 import Standard from '../../components/articles/Standard.vue'
 export default {
   name: 'CategoryIndex',
@@ -446,7 +445,6 @@ export default {
     })
   },
   methods: {
-    has,
     loadMore() {
       this.loading = true
       this.page++
@@ -476,6 +474,36 @@ export default {
           (this.page > 1 ? '?page=' + this.page : ''),
       },
     ]
+    if (this.hasMore) {
+      link = [
+        ...link,
+        {
+          hid: 'next',
+          rel: 'next',
+          href:
+            'https://www.telegram.hr' +
+            this.$store.state.category.categories[this.$route.params.category]
+              .canonical +
+            '?page=' +
+            (this.page + 1),
+        },
+      ]
+    }
+    if (this.page > 1) {
+      link = [
+        ...link,
+        {
+          hid: 'prev',
+          rel: 'prev',
+          href:
+            'https://www.telegram.hr' +
+            this.$store.state.category.categories[this.$route.params.category]
+              .canonical +
+            '?page=' +
+            (this.page - 1),
+        },
+      ]
+    }
     let meta = [
       {
         hid: 'description',
@@ -552,9 +580,10 @@ export default {
       bodyAttrs: {
         class: [this.$store.state.theme.theme, this.extraClass],
       },
-      title: `${this.$options.filters.parseCat(this.cat)} - ${
-        this.page
-      }. stranica | ${siteName}`,
+      title:
+        `${this.$options.filters.parseCat(this.cat)}` +
+        (this.page > 1 ? ` - ${this.page}. stranica` : '') +
+        ` | ${siteName}`,
       description: this.description,
       meta,
       link,

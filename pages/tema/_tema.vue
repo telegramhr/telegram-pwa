@@ -262,7 +262,6 @@ export default {
   },
   mounted() {
     this.$store.dispatch('ads/initAds', { route: this.$route })
-    this.loadMore()
   },
   methods: {
     loadMore() {
@@ -293,8 +292,43 @@ export default {
         description += post.title + ' '
       })
     }
+    let link = [
+      {
+        hid: 'canonical',
+        rel: 'canonical',
+        href: `https://www.telegram.hr/tema/${this.$route.params.tema}/${
+          this.$route.query.page ? `?page=${this.$route.query.page}` : ''
+        }`,
+      },
+    ]
+    if (this.hasMore) {
+      link = [
+        ...link,
+        {
+          hid: 'next',
+          rel: 'next',
+          href: `https://www.telegram.hr/tema/${
+            this.$route.params.tema
+          }/?page=${this.page + 1}`,
+        },
+      ]
+    }
+    if (this.page > 1) {
+      link = [
+        ...link,
+        {
+          hid: 'prev',
+          rel: 'prev',
+          href: `https://www.telegram.hr/tema/${
+            this.$route.params.tema
+          }/?page=${this.page - 1}`,
+        },
+      ]
+    }
     return {
-      title: `${this.cat} - Najnovije vijesti - ${this.page}. stranica`,
+      title:
+        `${this.cat} - Najnovije vijesti` +
+        (this.page > 1 ? ` - ${this.page}. stranica` : ''),
       meta: [
         {
           hid: 'robots',
@@ -346,15 +380,7 @@ export default {
           content: '@TelegramHR',
         },
       ],
-      link: [
-        {
-          hid: 'canonical',
-          rel: 'canonical',
-          href: `https://www.telegram.hr/tema/${this.$route.params.tema}/${
-            this.$route.query.page ? `?page=${this.$route.query.page}` : ''
-          }`,
-        },
-      ],
+      link,
     }
   },
 }

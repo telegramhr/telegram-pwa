@@ -164,10 +164,18 @@
         >
           <standard :post="post"></standard>
         </div>
-        <div class="full center relative clickable" @click="loadMore">
-          <div v-show="!loading" class="newbtn huge-newbtn animate">
+        <div
+          v-if="hasMore"
+          class="full center relative clickable"
+          @click="loadMore"
+        >
+          <a
+            v-show="!loading"
+            :href="readMore"
+            class="newbtn huge-newbtn animate"
+          >
             Vidi više
-          </div>
+          </a>
           <div v-show="loading" class="full center cool-loader">
             <div class="loader-square">
               <div></div>
@@ -199,10 +207,16 @@ export default {
       hasMore: true,
       featured: [],
       posts: [],
-      page: 2,
+      page: 1,
     }
   },
   computed: {
+    readMore() {
+      if (this.hasMore) {
+        return `https://www.telegram.hr/openspace/?page=${this.page + 1}`
+      }
+      return '#'
+    },
     jsonld() {
       return {
         '@context': 'https://schema.org',
@@ -218,19 +232,45 @@ export default {
   methods: {
     loadMore() {
       this.loading = true
+      this.page++
       this.$axios
         .get(`/api/category/openspace/page/${this.page}`)
         .then((res) => {
           this.posts = [...this.posts, ...res.data.posts]
-          // dispatch('posts/setPosts', res.data.posts, { root: true })
-          this.page++
           this.loading = false
+          if (res.data.posts < 20) {
+            this.hasMore = false
+          }
         })
     },
   },
   head() {
+    const link = [
+      {
+        hid: 'canonical',
+        rel: 'canonical',
+        href:
+          'https://www.telegram.hr/openspace/' +
+          (this.page > 1 ? `?page=${this.page}` : ''),
+      },
+    ]
+    if (this.hasMore) {
+      link.push({
+        hid: 'next',
+        rel: 'next',
+        href: `https://www.telegram.hr/openspace/?page=${this.page + 1}`,
+      })
+    }
+    if (this.page > 1) {
+      link.push({
+        hid: 'prev',
+        rel: 'prev',
+        href: `https://www.telegram.hr/openspace/?page=${this.page - 1}`,
+      })
+    }
     return {
-      title: 'Openspace.hr',
+      title:
+        'Openspace.hr' + (this.page > 1 ? ` - ${this.page}. stranica` : ''),
       meta: [
         { hid: 'og:type', name: 'og:type', content: 'website' },
         {
@@ -263,13 +303,7 @@ export default {
             'Telegramova platforma za traženje idealnog posla, profesionalno napredovanje i karijernu inspiraciju.',
         },
       ],
-      link: [
-        {
-          hid: 'canonical',
-          rel: 'canonical',
-          href: 'https://www.telegram.hr/openspace/',
-        },
-      ],
+      link,
       script: [
         {
           vmid: 'schema-ld',

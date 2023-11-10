@@ -224,12 +224,17 @@
           <standard :post="post"></standard>
         </div>
         <div
+          v-if="hasMore"
           class="full center subtle-btn-parent relative clickable"
           @click="loadMore"
         >
-          <div v-show="!loading" class="newbtn huge-newbtn animate">
+          <a
+            v-show="!loading"
+            :href="readMore"
+            class="newbtn huge-newbtn animate"
+          >
             Vidi više
-          </div>
+          </a>
           <div v-show="loading" class="full center cool-loader">
             <div class="loader-square">
               <div></div>
@@ -299,9 +304,14 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      this.$axios.get('/api/category/pitanje-zdravlja').then((res) => {
-        this.posts = res.data.posts
-      })
+      if (this.$route.query.page) {
+        this.page = parseInt(this.$route.query.page)
+      }
+      this.$axios
+        .get(`/api/category/pitanje-zdravlja/page/${this.page}`)
+        .then((res) => {
+          this.posts = res.data.posts
+        })
       AOS.init({
         once: true,
       })
@@ -310,11 +320,14 @@ export default {
   methods: {
     loadMore() {
       this.loading = true
+      this.page++
       this.$axios
         .get(`/api/category/pitanje-zdravlja/page/${this.page}`)
         .then((res) => {
           this.posts = [...this.posts, ...res.data.posts]
-          this.page++
+          if (res.data.posts.length < 16) {
+            this.hasMore = false
+          }
           this.loading = false
         })
     },
@@ -338,6 +351,29 @@ export default {
     },
   },
   head() {
+    const link = [
+      {
+        hid: 'canonical',
+        rel: 'canonical',
+        href:
+          'https://www.telegram.hr/pitanje-zdravlja/' +
+          (this.page > 1 ? `?page=${this.page}` : ''),
+      },
+    ]
+    if (this.page > 1) {
+      link.push({
+        hid: 'prev',
+        rel: 'prev',
+        href: `https://www.telegram.hr/pitanje-zdravlja/?page=${this.page - 1}`,
+      })
+    }
+    if (this.hasMore) {
+      link.push({
+        hid: 'next',
+        rel: 'next',
+        href: `https://www.telegram.hr/pitanje-zdravlja/?page=${this.page + 1}`,
+      })
+    }
     return {
       title: 'PitanjeZdravlja',
       meta: [
@@ -372,13 +408,7 @@ export default {
             'Provjerene i ekskluzivne zdravstvene vijesti, analize i priče',
         },
       ],
-      link: [
-        {
-          hid: 'canonical',
-          rel: 'canonical',
-          href: 'https://www.telegram.hr/pitanje-zdravlja/',
-        },
-      ],
+      link,
       script: [
         {
           vmid: 'schema-ld',
