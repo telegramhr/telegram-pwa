@@ -34,11 +34,11 @@ export default {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=IBM+Plex+Mono:wght@500;600&family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap',
       },
-      /*{
+      /* {
         rel: 'preload',
         href: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js',
         as: 'script',
-      },*/
+      }, */
     ],
     script: [
       /* {
@@ -116,10 +116,9 @@ export default {
     '@nuxtjs/pwa',
     'cookie-universal-nuxt',
     '@nuxtjs/gtm',
-    '@nuxtjs/onesignal',
   ],
 
-  oneSignal: {
+  /* oneSignal: {
     init: {
       appId: '4a5a4862-40d1-42f0-b324-85812703ccc5',
       allowLocalhostAsSecureOrigin: true,
@@ -141,7 +140,7 @@ export default {
       },
       autoResubscribe: true,
     },
-  },
+  }, */
 
   googleFonts: {
     display: 'swap',
@@ -169,6 +168,7 @@ export default {
   },
 
   pwa: {
+    oneSignal: false,
     workbox: false,
     meta: {
       lang: 'hr',
