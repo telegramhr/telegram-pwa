@@ -24,11 +24,7 @@
       </div>
     </div>
     <div class="full flex relative column-left-border stretch">
-      <mini-alt
-        v-for="post in posts[category].slice(0, $mobile ? 4 : 3)"
-        :key="post.id"
-        :post="post"
-      ></mini-alt>
+      <mini-alt v-for="post in posts" :key="post.id" :post="post"></mini-alt>
       <div
         class="full latest-feed-btn flex-responsive flex relative mobile-side-pad"
       >
@@ -51,7 +47,8 @@ export default {
   },
   computed: {
     posts() {
-      return this.$store.state.uzivo.posts
+      const number = this.$mobile ? 4 : 3
+      return this.$store.state.uzivo.posts[this.category].slice(0, number)
     },
   },
 }
