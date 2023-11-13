@@ -328,17 +328,13 @@
     </client-only>
     <!-- Sport -->
     <div class="full relative">
-      <client-only>
-        <sport></sport>
-      </client-only>
+      <sport></sport>
     </div>
     <!-- Widget autori -->
     <commentary-alt type="tg"></commentary-alt>
     <!-- Super1 -->
     <div class="full relative">
-      <client-only>
-        <super1></super1>
-      </client-only>
+      <super1></super1>
     </div>
     <!-- Pretplatnici čitaju -->
     <div class="full relative">
@@ -377,9 +373,7 @@
     </div>
     <!-- PitanjeZdravlja -->
     <div class="full relative">
-      <client-only>
-        <pitanje-zdravlja></pitanje-zdravlja>
-      </client-only>
+      <pitanje-zdravlja></pitanje-zdravlja>
     </div>
     <!-- Prekid klub -->
     <client-only>
@@ -401,9 +395,7 @@
     </div>
     <!-- Openspace -->
     <div class="full relative">
-      <client-only>
-        <os-homepage></os-homepage>
-      </client-only>
+      <os-homepage></os-homepage>
     </div>
     <!-- Book widget DEPRA -->
     <app-link
