@@ -22,14 +22,20 @@
       </div>
       <!-- Category header -->
       <div class="full flex relative">
-        <div class="container flex mobile-side-pad relative">
-          <h1
-            class="full section-title center-text column-horizontal-pad os-section-title"
-          >
-            {{ cat | parseCat }}
-          </h1>
-          <div class="full column-horizontal-pad column-top-pad">
+        <div class="container flex mobile-side-pad relative mobile-top-pad">
+          <div class="full column-full-pad">
             <div class="full cantha-separator"></div>
+          </div>
+          <div class="full column-horizontal-pad">
+            <h1 class="full center-text">
+              {{ cat | parseCat }}
+            </h1>
+            <!--<span class="category-secondary">na Telegramu</span>-->
+          </div>
+          <div
+            class="full column-horizontal-pad column-top-pad mobile-side-pad"
+          >
+            <div class="full column-top-border"></div>
           </div>
         </div>
       </div>
@@ -65,53 +71,8 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <!-- Prekid newsletter -->
-      <div class="full relative">
-        <div class="container flex relative">
-          <div class="full column-full-pad">
-            <div class="full column-bottom-border"></div>
-          </div>
-          <div class="full flex column-horizontal-pad">
-            <app-link
-              to="/newsletters"
-              class="full cantha-break mobile-side-pad flex relative stretch"
-            >
-              <div class="third column-full-pad center flex-responsive">
-                <div class="full flex article">
-                  <div class="noththree full overtitle">Posebne pogodnosti</div>
-                  <h2 class="full">
-                    Specijalni newsletteri za Telegramove pretplatnike.
-                  </h2>
-                  <div class="nothfour full">
-                    Najbolje od Telegrama, svaki dan u vašem inboxu.
-                  </div>
-                </div>
-              </div>
-              <div class="two-thirds stretch flex flex-responsive">
-                <div class="two-thirds column-full-pad center flex-responsive">
-                  <img
-                    src="@/assets/img/tg_newsletter_visual.png"
-                    alt="Kolekcija Telegramovih newslettera"
-                  />
-                </div>
-                <div class="third center flex-responsive">
-                  <div class="full flex article">
-                    <div class="full center">
-                      <div class="newbtn">Prijavite se</div>
-                    </div>
-                    <div class="nothfour full center-text">
-                      Odaberite tematske i autorske newslettere koje želite
-                      primati.
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </app-link>
-          </div>
-          <div class="full column-full-pad">
-            <div class="full column-bottom-border"></div>
+          <div class="full column-full-pad mobile-side-pad">
+            <div class="full column-top-border"></div>
           </div>
         </div>
       </div>
