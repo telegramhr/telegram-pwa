@@ -32,7 +32,7 @@
       <div
         class="full latest-feed-btn flex-responsive flex relative mobile-side-pad"
       >
-        <app-link to="/uzivo" class="flex newbtn">Još vijesti</app-link>
+        <app-link to="/najnovije/" class="flex newbtn">Još vijesti</app-link>
       </div>
     </div>
   </div>

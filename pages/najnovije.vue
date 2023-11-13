@@ -103,7 +103,7 @@ export default {
       {
         hid: 'canonical',
         rel: 'canonical',
-        href: 'https://www.telegram.hr/uzivo/',
+        href: 'https://www.telegram.hr/najnovije/',
       },
     ]
     return {
@@ -128,7 +128,7 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/uzivo/',
+          content: 'https://www.telegram.hr/najnovije/',
         },
       ],
       link,
