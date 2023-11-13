@@ -87,15 +87,14 @@ export default {
   name: 'Autor',
   components: { Standard },
   async fetch() {
-    const page = this.$route.query.page ? parseInt(this.$route.query.page) : 1
+    this.page = this.$route.query.page ? parseInt(this.$route.query.page) : 1
     await this.$axios
-      .get(`/api/author/${this.$route.params.autor}/page/${page}`)
+      .get(`/api/author/${this.$route.params.autor}/page/${this.page}`)
       .then((res) => {
         this.author = res.data.author
         this.posts = res.data.posts
         if (this.posts.length < 8) {
           this.hasMore = false
-          this.page = page + 1
         }
       })
       .catch(() => {
@@ -119,15 +118,13 @@ export default {
         description: '',
       },
       posts: [],
-      page: 2,
+      page: 1,
       hasMore: true,
     }
   },
   computed: {
     readMore() {
-      return `${this.author.url}?page=${
-        this.$route.query.page ? parseInt(this.$route.query.page) + 1 : 2
-      }`
+      return `${this.author.url}?page=${this.page + 1}`
     },
     json() {
       return [
@@ -149,11 +146,12 @@ export default {
   },
   methods: {
     loadMore() {
+      this.page++
       this.$axios
         .get('/api/author/' + this.$route.params.autor + '/page/' + this.page)
         .then((res) => {
           this.posts = [...this.posts, ...res.data.posts]
-          this.page++
+
           if (res.data.posts < 8) {
             this.hasMore = false
           }
@@ -165,8 +163,10 @@ export default {
   },
   head() {
     return {
-      title: this.author.name,
-      titleTemplate: 'Autor %s | Telegram.hr',
+      title:
+        this.author.name +
+        (this.page > 1 ? this.page + '. Stranica' : '') +
+        ' | Telegram.hr',
       script: [
         {
           vmid: 'schema-ld',
@@ -232,10 +232,7 @@ export default {
         {
           hid: 'canonical',
           rel: 'canonical',
-          href:
-            this.author.url + this.$route.query.page
-              ? '?page=' + this.$route.query.page
-              : '',
+          href: this.author.url + (this.page > 1 ? '?page=' + this.page : ''),
         },
       ],
     }
