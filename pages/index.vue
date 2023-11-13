@@ -413,7 +413,7 @@
       <div class="container relative flex stretch">
         <div class="forty tablet-full flex flex-responsive center">
           <div class="full center-text newbook-overtitle">Telegram naklada</div>
-          <h1 class="full center-text newbook-title">DEPRA</h1>
+          <h2 class="full center-text newbook-title">DEPRA</h2>
           <div class="full center-text newbook-author">
             Aleksandar Stanković
           </div>
