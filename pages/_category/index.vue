@@ -441,7 +441,6 @@ export default {
   mounted() {
     this.$nextTick(function () {
       this.$store.dispatch('ads/initAds', { route: this.$route })
-      this.loadMore()
     })
   },
   methods: {
