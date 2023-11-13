@@ -25,7 +25,7 @@
     </div>
     <div class="full flex relative column-left-border stretch">
       <mini-alt
-        v-for="post in posts[category].slice(0, 4)"
+        v-for="post in posts[category].slice(0, $mobile ? 4 : 3)"
         :key="post.id"
         :post="post"
       ></mini-alt>
