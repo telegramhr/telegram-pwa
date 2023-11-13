@@ -25,14 +25,14 @@
     </div>
     <div class="full flex relative column-left-border stretch">
       <mini-alt
-        v-for="post in posts[category].slice(0, 4)"
+        v-for="post in posts[category].slice(0, $mobile ? 4 : 3)"
         :key="post.id"
         :post="post"
       ></mini-alt>
       <div
         class="full latest-feed-btn flex-responsive flex relative mobile-side-pad"
       >
-        <app-link to="/uzivo" class="flex newbtn">Još vijesti</app-link>
+        <app-link to="/najnovije/" class="flex newbtn">Još vijesti</app-link>
       </div>
     </div>
   </div>
