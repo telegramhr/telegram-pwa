@@ -356,7 +356,7 @@
                   </div>
                 </portal>
                 <intext></intext>
-                <div
+                <!--<div
                   v-if="
                     $mobile &&
                     !hasPremium &&
@@ -367,7 +367,7 @@
                   style="max-width: 1201px"
                 >
                   <jgl-premium></jgl-premium>
-                </div>
+                </div>-->
                 <linker
                   v-if="!hasPremium && hasLinker"
                   type="text-only"
