@@ -107,6 +107,13 @@
             rel="nofollow"
             >Twitter</a
           >
+          <a
+            href="https://whatsapp.com/channel/0029VaEJ3zWISTkHiZTQwI2f"
+            target="_blank"
+            class="full"
+            rel="nofollow"
+            >WhatsApp</a
+          >
           <a href="https://www.telegram.hr/feed" target="_blank" class="full"
             >RSS</a
           >

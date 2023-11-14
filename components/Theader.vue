@@ -217,6 +217,12 @@
             rel="noreferrer nofollow"
             >Youtube</a
           >
+          <a
+            role="menuitem"
+            href="https://whatsapp.com/channel/0029VaEJ3zWISTkHiZTQwI2f"
+            rel="noreferrer nofollow"
+            >WhatsApp</a
+          >
         </div>
         <div class="half" role="menu">
           <div class="noththree">Info</div>
