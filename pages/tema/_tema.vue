@@ -23,14 +23,19 @@
       </div>
       <!-- Category header -->
       <div class="full flex relative">
-        <div class="container flex mobile-side-pad relative">
-          <h1
-            class="full section-title center-text column-horizontal-pad os-section-title"
-          >
-            Članci na temu {{ cat | parseCat }}
-          </h1>
-          <div class="full column-horizontal-pad column-top-pad">
+        <div class="container flex mobile-side-pad relative mobile-top-pad">
+          <div class="full column-full-pad">
             <div class="full cantha-separator"></div>
+          </div>
+          <div class="full column-horizontal-pad">
+            <h1 class="full center-text">
+              Članci na temu {{ cat | parseCat }}
+            </h1>
+          </div>
+          <div
+            class="full column-horizontal-pad column-top-pad mobile-side-pad"
+          >
+            <div class="full column-top-border"></div>
           </div>
         </div>
       </div>
