@@ -25,7 +25,7 @@ export default {
       },
     ],
     link: [
-      { hid: 'canonical', rel: 'canonical', href: 'https://www.telegram.hr' },
+      { hid: 'canonical', rel: 'canonical', href: 'https://www.telegram.hr/' },
       {
         rel: 'me',
         href: 'https://twitter.com/TelegramHR',
@@ -181,7 +181,7 @@ export default {
       description:
         'Pročitajte najnovije vijesti iz Hrvatske i svijeta. Društvene analize, kolumne političkih stručnjaka, velike priče o malim ljudima. Portal bez treša i estrade, za ljude koji razmišljaju o svijetu budućnosti.',
       ogSiteName: 'Telegram.hr',
-      ogHost: 'https://www.telegram.hr',
+      ogHost: 'https://www.telegram.hr/',
       'fb:app_id': '1383786971938581',
       'og:locale': 'hr_HR',
       ogImage:
