@@ -542,12 +542,6 @@ export default {
         post = await this.$axios.$get(encodeURI('/api/preview/' + slug))
       } else {
         post = await this.$axios.$get(encodeURI('/api/single/' + slug))
-        if (this.$route.params.category === 'l') {
-          this.$telegram.context.redirect({
-            path: post.permalink,
-            query: this.$route.query,
-          })
-        }
       }
     }
     if (post && post.id) {
@@ -832,6 +826,9 @@ export default {
     this.$nextTick(() => {
       this.getPost()
       window.addEventListener('scroll', this.handleScroll)
+      if (this.$route.params.category === 'l') {
+        window.history.replaceState({}, null, this.post.permalink)
+      }
     })
   },
   beforeDestroy() {
