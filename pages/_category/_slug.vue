@@ -543,7 +543,10 @@ export default {
       } else {
         post = await this.$axios.$get(encodeURI('/api/single/' + slug))
         if (this.$route.params.category === 'l') {
-          this.$telegram.context.redirect({ path: post.permalink })
+          this.$telegram.context.redirect({
+            path: post.permalink,
+            query: this.$route.query,
+          })
         }
       }
     }
