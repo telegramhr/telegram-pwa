@@ -261,6 +261,7 @@
                   </div>
                 </template>
               </div>
+              <!-- eslint-disable-next-line -->
               <p v-if="post.perex" class="perex" v-html="post.perex"></p>
               <div class="nothfive full flex relative article-meta">
                 <app-link

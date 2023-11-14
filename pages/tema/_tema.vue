@@ -39,6 +39,11 @@
           </div>
         </div>
       </div>
+      <client-only>
+        <div class="full relative center">
+          <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
+        </div>
+      </client-only>
       <!-- Veliki blok - intro -->
       <div class="full relative">
         <div
@@ -153,9 +158,11 @@
               :post="post"
             ></standard>
           </div>
-          <div class="full relative center">
-            <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
-          </div>
+          <client-only>
+            <div class="full relative center">
+              <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
+            </div>
+          </client-only>
         </div>
       </div>
       <!-- Standard 1/4 block -->
@@ -177,6 +184,11 @@
           </div>
         </div>
       </div>
+      <client-only>
+        <div class="full relative center">
+          <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
+        </div>
+      </client-only>
       <!-- Read more widget -->
       <div v-if="hasMore" class="full flex relative">
         <div class="container flex relative column-full-pad">
