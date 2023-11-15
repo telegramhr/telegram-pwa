@@ -582,7 +582,7 @@
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 export default {
-  name: 'odabratiStranu',
+  name: 'OdabratiStranu',
   data() {
     return {
       loading: false,

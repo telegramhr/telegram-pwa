@@ -243,8 +243,8 @@ export default {
         if (res.data.posts.length < 12) {
           this.hasMore = false
         }
-        if (res.data.posts.length === 12 && res.data.count <= page * 12) {
-          this.hasMore = false
+        if (res.data.posts.length === 12 && res.data.count >= page * 12) {
+          this.hasMore = true
         }
         if (!res.data.posts.length) {
           this.$telegram.context.res.statusCode = 404
@@ -260,7 +260,7 @@ export default {
       category: '',
       morePosts: [],
       page: this.$route.query.page ? parseInt(this.$route.query.page) : 1,
-      hasMore: true,
+      hasMore: false,
       loading: false,
     }
   },
@@ -278,7 +278,9 @@ export default {
     },
   },
   mounted() {
-    this.$store.dispatch('ads/initAds', { route: this.$route })
+    this.$nextTick(() => {
+      this.$store.dispatch('ads/initAds', { route: this.$route })
+    })
   },
   methods: {
     loadMore() {
@@ -379,22 +381,6 @@ export default {
           name: 'og:url',
           property: 'og:url',
           content: this.$route.fullPath,
-        },
-        {
-          hid: 'fb:app_id',
-          name: 'fb:app_id',
-          property: 'fb:app_id',
-          content: '1383786971938581',
-        },
-        {
-          hid: 'twitter:card',
-          name: 'twitter:card',
-          content: 'summary_large_image',
-        },
-        {
-          hid: 'twitter:site',
-          name: 'twitter:site',
-          content: '@TelegramHR',
         },
       ],
       link,
