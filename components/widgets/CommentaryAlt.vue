@@ -11,6 +11,7 @@
         </div>
       </div>
       <div
+        v-if="posts.length"
         class="three-fourths flex-responsive column-horizontal-pad flex split-articles big-split no-mobile-stretch-split alt-big-break center-text column-right-border mobile-side-pad"
       >
         <standard :key="posts[0].id" :post="posts[0]"></standard>

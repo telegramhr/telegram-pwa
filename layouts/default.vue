@@ -38,6 +38,7 @@ export default {
         class: [
           theme === 'contrast' ? 'contrast-mode' : '',
           theme === 'dark' ? 'dark-mode' : '',
+          this.$store.getters['user/hasPremium'] ? 'logged-in-premium' : '',
         ],
       },
     }

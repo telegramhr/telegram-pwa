@@ -582,11 +582,10 @@
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 export default {
-  name: 'Dojave',
+  name: 'odabratiStranu',
   data() {
     return {
       loading: false,
-      posts: [],
       page: 1,
       email: '',
       thanks: false,

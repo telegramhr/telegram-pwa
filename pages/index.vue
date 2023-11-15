@@ -16,7 +16,7 @@
       <theader></theader>
     </div>
     <!-- Above header banner -->
-    <app-link
+    <!--<app-link
       v-if="!$store.state.user.access"
       to="/pretplata"
       class="full relative darkened-bg birati-stranu-widget"
@@ -38,7 +38,7 @@
           <div class="newbtn huge-newbtn">Pretplatite se</div>
         </div>
       </div>
-    </app-link>
+    </app-link>-->
     <!-- Cantha header -->
     <div class="full relative cantha-header">
       <div class="container flex relative column-top-pad column-horizontal-pad">
