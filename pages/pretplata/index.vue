@@ -862,6 +862,11 @@ export default {
           price: 6.49,
           gtm: 'standard-monthly-pbf',
         },
+        TMWKY7BX6TFX: {
+          title: 'Telegram Standard pretplata (BF)',
+          price: 62,
+          gtm: 'standard-annual-bf',
+        },
       },
     }
   },
@@ -906,6 +911,7 @@ export default {
           'TMQDTT4IEHY0',
           'TMWPGMUCMX45',
           'TM15W5K9EVY4',
+          'TMWKY7BX6TFX',
         ],
       })
       window.tp.push([
@@ -949,6 +955,10 @@ export default {
             break
           case 'pbf':
             this.checkout(this.five)
+            break
+          case 'bf2023':
+            this.checkout('TMWKY7BX6TFX')
+            break
         }
       }
     })
