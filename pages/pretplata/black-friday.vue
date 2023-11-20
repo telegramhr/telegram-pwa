@@ -338,6 +338,7 @@ export default {
     },
     checkout2(termId, back) {
       const _that = this
+      window.fbq = window.fbq || function () {}
       window.tp.push([
         'init',
         () => {
@@ -356,7 +357,10 @@ export default {
                   compass.trackConversion('subscribe')
                 },
               ])
-              window.PianoESP &&
+              window.fbq('track', 'Subscribe', {
+                currency: data.chargeCurrency,
+                value: data.chargeAmount,
+              })              window.PianoESP &&
                 typeof window.PianoESP.handleUserDataPromise === 'function' &&
                 window.PianoESP.handleUserDataPromise({
                   email: _that.$store.state.user.email,
