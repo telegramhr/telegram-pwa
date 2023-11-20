@@ -15,7 +15,7 @@
     <div class="full flex">
       <theader></theader>
     </div>
-    <!-- Above header banner
+    <!-- Above header banner -->
     <app-link
       to="/pretplata/black-friday/?checkout=bf2023"
       class="full center relative dark-mode pretplata-bf column-full-pad mobile-full-pad"
@@ -49,7 +49,7 @@
           <div class="full flex">
             <div
               class="flex newbtn huge-newbtn animate clickable"
-              @click="checkout(bf2023)"
+              @click="checkout('TMWKY7BX6TFX')"
             >
               Kupite odmah
             </div>
@@ -70,7 +70,7 @@
           </div>
         </div>
       </div>
-    </app-link> -->
+    </app-link>
     <!--<app-link
       v-if="!$store.state.user.access"
       to="/pretplata"
@@ -577,6 +577,54 @@ export default {
     clearInterval(this.reloadInterval)
   },
   methods: {
+    checkout(termId) {
+      if (this.$store.state.user.token) {
+        this.checkout2(termId, -1)
+      } else {
+        const _that = this
+        window.tp.pianoId.show({
+          screen: 'register',
+          width: window.innerWidth > 720 ? 600 : 375,
+          loggedIn(data) {
+            _that.$store.dispatch('user/setUser', data.user)
+            // window.location.reload()
+            _that.checkout2(termId, -2)
+          },
+        })
+      }
+    },
+    checkout2(termId, back) {
+      const _that = this
+      window.tp.push([
+        'init',
+        () => {
+          window.tp.offer.show({
+            offerId: 'OF5JVPQYFLE1',
+            termId,
+            templateId: 'OTXWXSOL0WWS',
+            checkoutFlowId: 'CF65KTMVQXXX',
+            closeOnLogout: true,
+            complete: (data) => {
+              _that.$store.dispatch('user/checkAccess')
+              window.marfeel.cmd.push([
+                'compass',
+                function (compass) {
+                  compass.trackConversion('subscribe')
+                },
+              ])
+              window.PianoESP &&
+                typeof window.PianoESP.handleUserDataPromise === 'function' &&
+                window.PianoESP.handleUserDataPromise({
+                  email: _that.$store.state.user.email,
+                  squads: [2128, 2555, 2554],
+                }).then(() => {
+                  _that.$router.go(back)
+                })
+            },
+          })
+        },
+      ])
+    },
     manageLogin() {
       if (this.canLogIn) {
         this.$store.dispatch('user/login')
