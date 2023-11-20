@@ -7,7 +7,7 @@
         headline="Pretplatite se i podržite naše bespoštedno novinarstvo."
       ></theader>
     </div>
-    <!-- Above header banner
+    <!-- Above header banner -->
     <app-link
       to="/pretplata/black-friday/?checkout=bf2023"
       class="full center relative dark-mode pretplata-bf column-full-pad mobile-full-pad"
@@ -41,7 +41,7 @@
           <div class="full flex">
             <div
               class="flex newbtn huge-newbtn animate clickable"
-              @click="checkout(bf2023)"
+              @click="checkout('TMWKY7BX6TFX')"
             >
               Kupite odmah
             </div>
@@ -62,7 +62,7 @@
           </div>
         </div>
       </div>
-    </app-link> -->
+    </app-link>
     <div id="pretplata-selector" class="full flex">
       <div class="full flex relative">
         <div
