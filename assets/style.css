@@ -12109,6 +12109,8 @@ input:checked ~ .input-hidden {
 
 .pretplata-bf .noththree {
     color: #ae3737;
+    font-weight: 700;
+    margin-bottom: 6px;
 }
 
 .pretplata-bf h1 {
@@ -12134,8 +12136,8 @@ input:checked ~ .input-hidden {
     line-height: 1.2em;
     font-weight: 400;
     font-style: normal;
-    font-size: 32px;
-    font-size: 1.6rem;
+    font-size: 28px;
+    font-size: 1.4rem;
     margin-bottom: 16px;
 }
 .pretplata-bf .undertitle {
@@ -12155,12 +12157,6 @@ input:checked ~ .input-hidden {
 }
 .pretplata-bf .img-as-bg {
     object-position: top;
-}
-.pretplata-bf .container {
-    max-width: 888px;
-}
-.homepage .pretplata-bf .container {
-    max-width: 1248px;
 }
 .align-end {
     align-items: flex-end;
@@ -12185,5 +12181,13 @@ input:checked ~ .input-hidden {
         font-size: 6rem;
         letter-spacing: normal;
         margin-right: -0.2em;
+    }
+}
+@media screen and (max-width: 767px) {
+    .homepage .pretplata-bf {
+        margin-bottom: -2vw;
+    }
+    .homepage .pretplata-bf .nothtwo {
+        margin-bottom: 8px;
     }
 }

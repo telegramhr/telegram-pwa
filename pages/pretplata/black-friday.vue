@@ -15,12 +15,12 @@
         alt="Kolaž naslovnih fotografija raznih istraživačkih specijala Telegrama"
         class="img-as-bg"
       />
-      <div class="container center relative mobile-side-pad">
-        <div class="full center relative">
+      <div class="container smaller-container center relative mobile-side-pad">
+        <div class="full center relative mobile-bottom-pad">
           <img
             src="@/assets/img/tg_visual_bf_logo.png"
             alt="Logo Black Friday akcije na Telegramu: 2 za 1"
-            class="two-thirds"
+            class="two-thirds flex-responsive"
           />
           <div class="full flex hide">
             <h1 class="full center-text">Black Friday na Telegramu</h1>
@@ -39,7 +39,7 @@
             Dvije godine premium pretplate za cijenu jedne!
           </div>
           <div class="full undertitle bigger-undertitle">
-            <span class="strikethrough faded">156€</span> 78€ / godišnje
+            <span class="strikethrough faded">156€</span> 78€ za 2 godine
           </div>
           <div class="full flex">
             <div
@@ -73,7 +73,7 @@
           </div>
         </div>
         <div
-          class="third column-full-pad flex-responsive align-end relative stretch m-order-1"
+          class="third column-full-pad flex-responsive align-end relative stretch desktop-only"
         >
           <img
             src="@/assets/img/tg_mockup_mobile_homepage.gif"
