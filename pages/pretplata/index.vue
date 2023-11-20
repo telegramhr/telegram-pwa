@@ -959,6 +959,8 @@ export default {
           case 'bf2023':
             this.checkout('TMWKY7BX6TFX')
             break
+          case 'two-year':
+            this.checkout('TML20R6ZYA0X')
         }
       }
     })
