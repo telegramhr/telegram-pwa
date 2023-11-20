@@ -10515,9 +10515,14 @@ label.payment-tile svg {
 
 /* Pretplata BF */
 
+.pretplata-bf {
+    background-color: transparent;
+}
 .pretplata-bf .container {
-    z-index: 10;
     flex-wrap: wrap;
+}
+.pretplata-bf .img-as-bg {
+    z-index: -1;
 }
 .best-price-sticker {
     font-family: 'Barlow', sans-serif;
@@ -11905,21 +11910,9 @@ input:checked ~ .input-hidden {
     padding-top: 32px;
     z-index: 5;
 }
-.new-pretplata-intext::before {
-    content: " ";
-    position: absolute;
-    top: 4px;
-    left: 0px;
-    width: 100%;
-    height: 1px;
-    background-color: #111;
-}
 .dark-mode .new-pretplata-intext {
     background-color:rgba(0, 0, 0, 0.3);
     border-color: #555;
-}
-.dark-mode .new-pretplata-intext::before {
-    background-color: #555;
 }
 .contrast-mode .new-pretplata-intext {
     background-color: #eeeeee;
@@ -12094,5 +12087,103 @@ input:checked ~ .input-hidden {
     }
     .reorder-echovald .desktop-mini-force {
         order: 2;
+    }
+}
+.special-category-title h1 img {
+    max-width: 160px;
+    display: inline-block;
+    margin-right: 6px;
+}
+.special-category-title h1 {
+    font-weight: 400;
+}
+.blend-ligthen {
+    mix-blend-mode: lighten;
+}
+.full-height {
+    min-height: 100vh;
+}
+.near-full-height {
+    min-height: 80vh;
+}
+
+.pretplata-bf .noththree {
+    color: #ae3737;
+}
+
+.pretplata-bf h1 {
+    font-family: 'Barlow', sans-serif;
+    font-size: 24px;
+    font-size: 1.2rem;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-weight: 700;
+    color: #ae3737;
+}
+.pretplata-bf .nothone {
+    font-size: 72px;
+    font-size: 3.6rem;
+    font-family: 'Lora', serif;
+    line-height: 0.9em;
+    font-weight: 700;
+    font-style: normal;
+    padding-right: 0.05em;
+}
+.pretplata-bf .nothtwo {
+    font-family: 'Lora', serif;
+    line-height: 1.2em;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 32px;
+    font-size: 1.6rem;
+    margin-bottom: 16px;
+}
+.pretplata-bf .undertitle {
+    font-family: 'Barlow', sans-serif;
+    font-size: 19px;
+    font-size: 0.95rem;
+}
+.pretplata-bf .bigger-undertitle {
+    font-size: 30px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 12px;
+    margin-bottom: 16px;
+}
+.pretplata-bf .pretplata-benefits {
+    margin-top: 24px;
+}
+.pretplata-bf .img-as-bg {
+    object-position: top;
+}
+.pretplata-bf .container {
+    max-width: 888px;
+}
+.homepage .pretplata-bf .container {
+    max-width: 1248px;
+}
+.align-end {
+    align-items: flex-end;
+}
+
+@media screen and (min-width: 767px) {
+    .pretplata-bf h1 {
+        font-size: 30px;
+        font-size: 1.5rem;
+    }
+    .pretplata-bf .nothone {
+      font-size: 240px;
+      font-size: 12rem;
+      letter-spacing: -0.1em;
+    }
+    .pretplata-bf .nothtwo {
+        font-size: 40px;
+        font-size: 2rem;
+    }
+    .pretplata-bf .nothone span {
+        font-size: 120px;
+        font-size: 6rem;
+        letter-spacing: normal;
+        margin-right: -0.2em;
     }
 }
