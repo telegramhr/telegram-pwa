@@ -616,6 +616,11 @@ export default {
                   compass.trackConversion('subscribe')
                 },
               ])
+              window.fbq('track', 'Purchase', {
+                content_ids: data.termId,
+                currency: data.chargeCurrency,
+                value: data.chargeAmount,
+              })
               window.fbq('track', 'Subscribe', {
                 currency: data.chargeCurrency,
                 value: data.chargeAmount,
