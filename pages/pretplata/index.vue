@@ -867,6 +867,11 @@ export default {
           price: 62,
           gtm: 'standard-annual-bf',
         },
+        TML20R6ZYA0X: {
+          title: 'Telegram Godišnja Pretplata (2 godine)',
+          price: 158,
+          gtm: 'standard-annual-2y',
+        },
       },
     }
   },
