@@ -44,7 +44,7 @@
           <div class="full flex">
             <div
               class="flex newbtn huge-newbtn animate clickable"
-              @click="checkout(bf2023)"
+              @click="checkout('TMWKY7BX6TFX')"
             >
               Kupite odmah
             </div>
@@ -314,48 +314,60 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      this.loadAds()
-      this.reloadInterval = setInterval(() => {
-        this.$router.push('/?reload=1')
-      }, 300000)
+      if (this.$route.query.checkout) {
+        this.checkout('TMWKY7BX6TFX')
+      }
     })
   },
-  beforeDestroy() {
-    clearInterval(this.reloadInterval)
-  },
   methods: {
-    manageLogin() {
-      if (this.canLogIn) {
-        this.$store.dispatch('user/login')
+    checkout(termId) {
+      if (this.$store.state.user.token) {
+        this.checkout2(termId, -1)
       } else {
-        this.$store.dispatch('user/logout')
-      }
-    },
-    handleScroll() {
-      const walls = document.getElementsByClassName('wallpaper-banners')
-      walls.forEach((item) => {
-        item.classList.add('sticky-homepage-wallpaper')
-      })
-    },
-    loadAds() {
-      if (this.$route.query.reset_token) {
-        window.tp.push([
-          'init',
-          function () {
-            window.tp.pianoId.show({
-              displayMode: 'modal',
-              screen: 'new_password',
-            })
+        const _that = this
+        window.tp.pianoId.show({
+          screen: 'register',
+          width: window.innerWidth > 720 ? 600 : 375,
+          loggedIn(data) {
+            _that.$store.dispatch('user/setUser', data.user)
+            // window.location.reload()
+            _that.checkout2(termId, -2)
           },
-        ])
+        })
       }
-      this.$store.dispatch('ads/initAds', { route: this.$route })
     },
-    loadMore() {
-      this.loading = true
-      this.$store.dispatch('featured/loadMore').then(() => {
-        this.loading = false
-      })
+    checkout2(termId, back) {
+      const _that = this
+      window.tp.push([
+        'init',
+        () => {
+          window.tp.offer.show({
+            offerId: 'OF5JVPQYFLE1',
+            termId,
+            templateId: 'OTXWXSOL0WWS',
+            checkoutFlowId: 'CF65KTMVQXXX',
+            promoCode: this.promo_code,
+            closeOnLogout: true,
+            complete: (data) => {
+              _that.$store.dispatch('user/checkAccess')
+              window.marfeel.cmd.push([
+                'compass',
+                function (compass) {
+                  compass.trackConversion('subscribe')
+                },
+              ])
+              window.PianoESP &&
+                typeof window.PianoESP.handleUserDataPromise === 'function' &&
+                window.PianoESP.handleUserDataPromise({
+                  email: _that.$store.state.user.email,
+                  squads: [2128, 2555, 2554],
+                }).then(() => {
+                  _that.$router.go(back)
+                })
+            },
+          })
+        },
+      ])
     },
   },
   head() {
@@ -388,11 +400,6 @@ export default {
             'https://www.telegram.hr/wp-content/uploads/2023/11/tg-naslovna-2023-11-17-bf.jpg',
         },
         {
-          hid: 'og:type',
-          property: 'og:type',
-          content: 'article',
-        },
-        {
           hid: 'og:title',
           property: 'og:title',
           content: 'Dvije godine premium pretplate za cijenu jedne! ',
@@ -401,26 +408,6 @@ export default {
           hid: 'og:url',
           property: 'og:url',
           content: 'https://www.telegram.hr/pretplata/black-friday/',
-        },
-        {
-          hid: 'fb:app_id',
-          property: 'fb:app_id',
-          content: '1383786971938581',
-        },
-        {
-          hid: 'twitter:card',
-          name: 'twitter:card',
-          content: 'summary_large_image',
-        },
-        {
-          hid: 'twitter:site',
-          name: 'twitter:site',
-          content: '@TelegramHR',
-        },
-        {
-          hid: 'robots',
-          name: 'robots',
-          content: 'index, follow',
         },
       ],
       link,
