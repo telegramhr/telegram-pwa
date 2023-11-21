@@ -1614,7 +1614,7 @@ export const actions = {
               },
             ])
           }
-          if (
+          /* if (
             !window.googletag.reloadedSlots.includes(name) &&
             event.isEmpty &&
             event.slot.getAdUnitPath().includes('wallpaper')
@@ -1637,7 +1637,7 @@ export const actions = {
               .setTargeting('upc', unit.upc ? unit.upc : 10)
             window.googletag.display(unit.opt_div)
             window.googletag.reloadedSlots.push(name)
-          }
+          } */
         })
       window.googletag
         .pubads()
