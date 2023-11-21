@@ -1387,7 +1387,7 @@ export const actions = {
       if (payload.options && payload.options.includes('nepromo')) {
         window.googletag.pubads().setCategoryExclusion('NePromo')
       }
-      // window.googletag.pubads().setTargeting('env', 'test')
+      window.googletag.pubads().setTargeting('env', 'test')
       if (route.query.reload) {
         window.googletag.pubads().setTargeting('reload', '1')
       }
@@ -1441,7 +1441,7 @@ export const actions = {
       }
       commit('setSlots')
     })
-    window.pbjs = window.pbjs || {}
+    /* window.pbjs = window.pbjs || {}
     window.pbjs.que = window.pbjs.que || []
     window.pbjs.que.push(() => {
       window.pbjs.setConfig({
@@ -1515,7 +1515,7 @@ export const actions = {
           })
         }
       }
-    })
+    }) */
     dispatch('displaySlots')
   },
   displaySlots({ dispatch, state }) {
@@ -1536,6 +1536,7 @@ export const actions = {
     dispatch('refreshSlots')
   },
   refreshSlots({ dispatch }) {
+    // check consent and if we get have it then continue with load
     window.googlefc = window.googlefc || {}
     window.googlefc.callbackQueue = window.googlefc.callbackQueue || []
     window.googletag = window.googletag || {}
@@ -1553,19 +1554,26 @@ export const actions = {
   initPBJS({ dispatch }) {
     window.pbjs = window.pbjs || {}
     window.pbjs.que = window.pbjs.que || []
-    window.pbjs.que.push(() => {
+    /* window.pbjs.que.push(() => {
       window.pbjs.requestBids({
         bidsBackHandler: () => dispatch('initAdserver'),
         timeout: 1000,
       })
+    }) */
+    window.pbjs.que.push(function () {
+      window.pbjs.rp.requestBids({
+        callback: () => dispatch('initAdserver'),
+      })
     })
     setTimeout(() => {
       dispatch('initAdserver')
-    }, 1500)
+    }, 3500)
   },
   initAdserver({ state }) {
-    if (window.pbjs.initAdserverSet) return
-    window.pbjs.initAdserverSet = true
+    /* if (window.pbjs.initAdserverSet) return
+    window.pbjs.initAdserverSet = true */
+    if (window.pbjs.adserverCalled) return
+    window.pbjs.adserverCalled = true
     if (state.route === 'nesto-slug') {
       return
     }

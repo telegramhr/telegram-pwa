@@ -51,7 +51,7 @@ export default {
         async: true,
       },
       {
-        src: '/prebid7.40.0.js',
+        src: 'https://micro.rubiconproject.com/prebid/dynamic/26072.js',
         async: true,
       },
       {
