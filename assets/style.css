@@ -11813,6 +11813,12 @@ input:checked ~ .input-hidden {
     font-size: 26vw;
     line-height: 0.9em;
 }
+.single-article h1.newbook-title-smaller, .newbook-title-smaller {
+    font-size: 18vw;
+}
+.single-article h1.newbook-title-double, .newbook-title-double {
+    font-size: 15vw;
+}
 .newbook-author {
     font-family: 'Barlow', sans-serif;
     font-size: 8.5vw;
@@ -11853,6 +11859,10 @@ input:checked ~ .input-hidden {
     .single-article h1.newbook-title, .newbook-title {
         font-size: 138px;
         font-size: 6.9rem;
+    }
+    .single-article h1.newbook-title-smaller, .newbook-title-smaller {
+        font-size: 90px;
+        font-size: 4.5rem;
     }
     .newbook-author {
         font-size: 46px;
@@ -12190,4 +12200,42 @@ input:checked ~ .input-hidden {
     .homepage .pretplata-bf .nothtwo {
         margin-bottom: 8px;
     }
+}
+
+.category-kultura .article h2, .category-kultura .block-kaineng .alt-big-break .article h2 {
+    font-weight: 400;
+}
+@media screen and (min-width: 767px) {
+    .category-kultura .article h2, .category-kultura .block-kaineng .alt-big-break .article h2 {
+        padding-top: 4px;
+    }
+}
+.category-kultura .super-sidebar .article h2 {
+    padding-top: 0px;
+}
+.category-kultura .super-sidebar .article h2 {
+    font-size: 19px;
+    font-size: 0.95rem;
+}
+.category-kultura .super-sidebar.split-articles .article-medium img {
+    object-fit: cover;
+    width: 90px;
+    height: 90px;
+    margin-left: 16px;
+    padding-left: 0px;
+    object-position: center center;
+}
+.category-kultura .noththree.overtitle {
+    display: none;
+}
+
+.single-article h1.newbook-title-double, .newbook-title-double {
+    line-height: 0.6em;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+}
+.newbook-title-double .smaller-text {
+    font-size: 0.5em;
+    display: inline-block;
+    padding-bottom: 0.3em;
 }
