@@ -183,21 +183,21 @@ export default {
   },
   head() {
     return {
-      title: 'Boris Dežulović: Bili libar 2',
+      title: 'Boris Dežulović: Bili libar i Bili libar 2 paket',
       titleTemplate: '%s | Telegram.hr',
       meta: [
         {
           hid: 'description',
           name: 'description',
           content:
-            'Veliki Telegramov hit dobio je nastavak, s 12 još raskošnijih, još čudesnijih i luđih priča o jednom nogometnom klubu. I, naravno, ne samo o njemu.',
+            'Jedinstveni paket, dostupan samo na Telegramu: veliki književni hit Borisa Dežulovića Bili libar i upravo objavljeni nastavak Bili libar 2, s posebnom cijenom i besplatnom dostavom.',
         },
         {
           hid: 'og:description',
           name: 'og:description',
           property: 'og:description',
           content:
-            'Veliki Telegramov hit dobio je nastavak, s 12 još raskošnijih, još čudesnijih i luđih priča o jednom nogometnom klubu. I, naravno, ne samo o njemu.',
+            'Jedinstveni paket, dostupan samo na Telegramu: veliki književni hit Borisa Dežulovića Bili libar i upravo objavljeni nastavak Bili libar 2, s posebnom cijenom i besplatnom dostavom.',
         },
         {
           hid: 'og:type',
@@ -209,14 +209,14 @@ export default {
           hid: 'og:title',
           name: 'og:title',
           property: 'og:title',
-          content: 'Boris Dežulović: Bili libar 2',
+          content: 'Boris Dežulović: Bili libar i Bili libar 2 paket',
         },
         {
           hid: 'og:image',
           name: 'og:image',
           property: 'og:image',
           content:
-            'https://www.telegram.hr/wp-content/uploads/2022/05/dezulovic-image-article-tg2.png',
+            'https://www.telegram.hr/wp-content/uploads/2023/11/tg-naslovna-2023-11-23-pack.jpg',
         },
         {
           hid: 'og:url',

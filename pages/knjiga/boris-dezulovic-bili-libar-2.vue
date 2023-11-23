@@ -215,7 +215,7 @@ export default {
           name: 'og:image',
           property: 'og:image',
           content:
-            'https://www.telegram.hr/wp-content/uploads/2022/05/dezulovic-image-article-tg2.png',
+            'https://www.telegram.hr/wp-content/uploads/2023/11/tg-naslovna-2023-11-23-book.jpg',
         },
         {
           hid: 'og:url',
