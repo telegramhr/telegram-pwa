@@ -11,21 +11,21 @@
       <div
         class="container relative flex mobile-side-pad stretch column-full-pad"
       >
-        <h1 v-if="$mobile" class="full center-text desktop-only">
+        <h1 v-if="!$mobile" class="full center-text">
           Telegramove hit knjige <br />po posebnoj cijeni za pretplatnike.
         </h1>
-        <h1 v-if="!$mobile" class="full center-text mobile-only">
+        <h1 v-if="$mobile" class="full center-text">
           Telegramove hit knjige po posebnoj cijeni za pretplatnike.
         </h1>
         <p class="full center-text pretplata-tagline desktop-only">
-          'Depra' Aleksandra Stankovića, 'Bili libar' Borisa Dežulovića, 'O
-          Zagrebu' Zrinke Paladino <br />i 'Neispričane priče' Rajka Grlića, s
-          besplatnom dostavom na kućnu adresu unutar Hrvatske.
+          'Depra' Aleksandra Stankovića, 'Bili libar' i 'Bili Libar 2' Borisa
+          Dežulovića, 'O Zagrebu' Zrinke Paladino <br />i 'Neispričane priče'
+          Rajka Grlića, s besplatnom dostavom na kućnu adresu unutar Hrvatske.
         </p>
         <p class="full center-text pretplata-tagline mobile-only">
-          'Depra' Aleksandra Stankovića, 'Bili libar' Borisa Dežulovića, 'O
-          Zagrebu' Zrinke Paladino i 'Neispričane priče' Rajka Grlića, s
-          besplatnom dostavom na kućnu adresu unutar Hrvatske.
+          'Depra' Aleksandra Stankovića, 'Bili libar' i 'Bili Libar 2' Borisa
+          Dežulovića, 'O Zagrebu' Zrinke Paladino i 'Neispričane priče' Rajka
+          Grlića, s besplatnom dostavom na kućnu adresu unutar Hrvatske.
         </p>
       </div>
     </div>
@@ -33,6 +33,31 @@
       <div
         class="container flex relative mobile-side-pad pretplata-packboxes smaller-booksel column-vertical-pad"
       >
+        <div class="half flex flex-responsive column-full-pad">
+          <app-link
+            to="/knjiga/boris-dezulovic-bili-libar-2"
+            class="full flex knjiga-hero pretplata-packbox relative column-full-pad"
+          >
+            <div class="full flex knjiga-cover knjiga-cover-3d">
+              <img
+                src="@/assets/img/tg_book_clean_dezulovic2.png"
+                alt="Naslovnica knjige Borisa Dežulovića 'Bili libar 2'"
+              />
+            </div>
+            <div class="full flex knjiga-features">
+              <div class="full relative center-text big-book-price bold">
+                Bili libar 2
+              </div>
+              <div class="nothfour full relative center-text">
+                Boris Dežulović
+              </div>
+              <div class="nothfour full relative center-text bold">19,99€</div>
+              <div class="full center btn-parent">
+                <div class="btn animate">Pogledajte više</div>
+              </div>
+            </div>
+          </app-link>
+        </div>
         <div class="half flex flex-responsive column-full-pad">
           <app-link
             to="/knjiga/aleksandar-stankovic-depra"
