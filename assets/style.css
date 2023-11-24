@@ -11814,10 +11814,10 @@ input:checked ~ .input-hidden {
     line-height: 0.9em;
 }
 .single-article h1.newbook-title-smaller, .newbook-title-smaller {
-    font-size: 18vw;
+    font-size: 15vw;
 }
 .single-article h1.newbook-title-double, .newbook-title-double {
-    font-size: 15vw;
+    font-size: 14vw;
 }
 .newbook-author {
     font-family: 'Barlow', sans-serif;
