@@ -28,11 +28,7 @@
           </div>
           <div class="full column-horizontal-pad special-category-title">
             <h1 class="full">
-              <img
-                src="@/assets/img/tg_kultura_logo.svg"
-                class="light-mode-only"
-                alt="Kultura"
-              />
+              <img src="@/assets/img/tg_kultura_logo.svg" alt="Kultura" />
               Telegram
             </h1>
           </div>

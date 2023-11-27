@@ -1,7 +1,9 @@
 <template>
   <div class="main-container flex single-article reset-flex-order">
     <div class="full flex">
-      <theader headline="Depra - nova knjiga Borisa Dežulovića"></theader>
+      <theader
+        headline="Boris Dežulović: Bili libar i Bili libar 2 paket"
+      ></theader>
     </div>
     <div class="full flex relative reset-flex-order">
       <div
