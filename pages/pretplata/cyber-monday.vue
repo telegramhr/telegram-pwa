@@ -68,7 +68,7 @@
             </p>
             <p class="full animate bold">
               <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-              Ograničena akcija, samo do ponedjeljka 27.11.
+              Ograničena akcija, samo u ponedjeljak 27.11.
             </p>
           </div>
         </div>
