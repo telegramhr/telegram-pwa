@@ -9,19 +9,19 @@
     </div>
     <!-- Above header banner -->
     <app-link
-      to="/pretplata/black-friday/?checkout=bf2023"
+      to="/pretplata/cyber-monday/?checkout=bf2023"
       class="full center relative dark-mode pretplata-bf column-full-pad mobile-full-pad"
     >
       <img
-        src="@/assets/img/tg_black_friday_bg.jpg"
+        src="@/assets/img/tg_cyber_monday.jpg"
         alt="Kolaž naslovnih fotografija raznih istraživačkih specijala Telegrama"
         class="img-as-bg"
       />
       <div class="container center relative mobile-side-pad">
         <div class="half relative desktop-only">
           <img
-            src="@/assets/img/tg_visual_bf_logo.png"
-            alt="Logo Black Friday akcije na Telegramu: 2 za 1"
+            src="@/assets/img/tg_visual_cm_logo.png"
+            alt="Logo Cyber Monday akcije na Telegramu: -50%"
           />
         </div>
         <div
@@ -29,7 +29,7 @@
         >
           <div class="full flex overtitle-parent mobile-only">
             <div class="overtitle noththree">
-              <span>Black Friday akcija</span>
+              <span>Cyber Monday akcija</span>
             </div>
           </div>
           <div class="full nothtwo">
@@ -57,7 +57,7 @@
             </p>
             <p class="full animate bold">
               <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-              Ograničena akcija, samo do petka 24.11.
+              Ograničena akcija, samo u ponedjeljak 27.11.
             </p>
           </div>
         </div>
