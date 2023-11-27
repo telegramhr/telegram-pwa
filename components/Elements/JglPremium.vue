@@ -9,12 +9,12 @@
       <div class="full center jgl-line">
         <div class="flex center">
           <img
-            src="@/assets/img/extras/partner_logos/jgl.png"
+            src="@/assets/img/extras/partner_logos/telemach.png"
             alt="JGL logo"
             loading="lazy"
           />
           <img
-            src="@/assets/img/extras/partner_logos/jgl.png"
+            src="@/assets/img/extras/partner_logos/telemach.png"
             class="dark-mode-only"
             alt="JGL logo"
             loading="lazy"
@@ -55,6 +55,7 @@
             <h2 :id="'standard-' + post.id" class="full">
               {{ post.opis }}
             </h2>
+            <div class="newbtn">Kupi odmah</div>
           </a>
         </div>
       </VueSlickCarousel>
@@ -87,7 +88,7 @@ export default {
     shop: {
       type: String,
       required: false,
-      default: 'jgl',
+      default: 'telemach',
     },
   },
   data() {
@@ -141,7 +142,7 @@ export default {
     })
     this.$gtm.push({
       event: 'webshop-widget',
-      'webshop-category': 'jgl-premium',
+      'webshop-category': 'telemach-premium',
       'webshop-action': 'view',
       'webshop-label': 'impression',
       'webshop-value': 1,
@@ -151,7 +152,7 @@ export default {
     trackClick(link) {
       this.$gtm.push({
         event: 'webshop-widget',
-        'webshop-category': 'jgl-premium',
+        'webshop-category': 'telemach-premium',
         'webshop-action': 'click',
         'webshop-label': 'click',
         'webshop-value': 1,
