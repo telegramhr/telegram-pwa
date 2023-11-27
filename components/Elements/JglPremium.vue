@@ -78,6 +78,18 @@
         ></font-awesome-icon>
       </div>
     </div>
+    <img
+      :src="`https://gdehr.hit.gemius.pl/_${timestamp}/redot.gif?id=pzBFNntttavREWRtodi_g6eirjxUPxuMmWv4Fg2vNVn.N7/fastid=mpkldpzlcgbvlfbooavewblarmkf/stparam=ujkhmimjck/nc=0/gdpr=0/gdpr_consent=`"
+    />
+    <img
+      :src="`https://gdehr.hit.gemius.pl/_${timestamp}/redot.gif?id=pzBFNntttavREWRtodi_g6eirjxUPxuMmWv4Fg2vNVn.N7/fastid=bbfzdmdbtwyiaadsmfqgnvauiykk/stparam=soeoqxgfpo/nc=0/gdpr=0/gdpr_consent=`"
+    />
+    <img
+      :src="`https://gdehr.hit.gemius.pl/_${timestamp}/redot.gif?id=pzBFNntttavREWRtodi_g6eirjxUPxuMmWv4Fg2vNVn.N7/fastid=iblrktbezitgarlmofijqyfxnflf/stparam=lmpkgqjhbz/nc=0/gdpr=0/gdpr_consent=`"
+    />
+    <img
+      :src="`https://gdehr.hit.gemius.pl/_${timestamp}/redot.gif?id=pzBFNntttavREWRtodi_g6eirjxUPxuMmWv4Fg2vNVn.N7/fastid=ecvqqabjxbqbhemsnzrmvrvrermd/stparam=zakrkpetpz/nc=0/gdpr=0/gdpr_consent=`"
+    />
   </div>
 </template>
 
@@ -93,6 +105,7 @@ export default {
   },
   data() {
     return {
+      timestamp: Date.now(),
       slider_settings: {
         infinite: true,
         slidesToShow: 4,
@@ -165,7 +178,7 @@ export default {
 
 <style>
 .jgl-line {
-  background-color: #0052cc;
+  background-color: #000000;
 }
 
 .jgl-line > div {
