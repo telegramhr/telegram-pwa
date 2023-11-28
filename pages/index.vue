@@ -39,7 +39,7 @@
         </div>
       </div>
     </app-link>-->
-    <client-only>
+    <!--<client-only>
       <app-link
         v-if="!$store.state.user.access"
         to="/pretplata/cyber-monday/?checkout=bf2023"
@@ -96,7 +96,7 @@
           </div>
         </div>
       </app-link>
-    </client-only>
+    </client-only>-->
     <!-- Cantha header -->
     <div class="full relative cantha-header">
       <div class="container flex relative column-top-pad column-horizontal-pad">

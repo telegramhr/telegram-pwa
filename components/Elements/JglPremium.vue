@@ -183,16 +183,16 @@ export default {
 
 .jgl-line > div {
   padding-left: 7px;
-  background-color: #fcf1e7;
+  /*background-color: #fcf1e7;*/
   width: 200px;
 }
-
+/*
 .contrast-mode .jgl-line > div {
   background-color: white;
 }
 .dark-mode .jgl-line > div {
   background-color: #212121;
-}
+}*/
 
 .noththree.subsection-title .jgl-line img {
   height: 40px;

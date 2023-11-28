@@ -27,6 +27,12 @@ export default {
           target: '_blank',
         }
       }
+      if (route.match(/\/native\//)) {
+        return {
+          is: 'a',
+          href: route,
+        }
+      }
       return {
         is: 'nuxt-link',
         to: {
