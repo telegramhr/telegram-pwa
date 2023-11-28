@@ -28,9 +28,39 @@
           </div>
           <div class="full column-horizontal-pad special-category-title">
             <h1 class="full">
-              <img src="@/assets/img/tg_kultura_logo.svg" alt="Kultura" />
-              Telegram
+              <img
+                src="@/assets/img/tg_square_logo_black.svg"
+                class
+                alt="Telegram"
+              />
+              <img src="@/assets/img/tg_kultura_logo.svg" class alt="Kultura" />
+              <img
+                src="@/assets/img/tg_square_logo_white.svg"
+                class="dark-mode-only"
+                alt="Telegram"
+              />
+              <img
+                src="@/assets/img/tg_kultura_logo_negative.svg"
+                class="dark-mode-only"
+                alt="Kultura"
+              />
+              <span class="hide">Telegram Kultura</span>
             </h1>
+          </div>
+          <div class="full cantha-block-title relative flex">
+            <nav class="full menu column-horizontal-pad flex" role="menu">
+              <app-link role="menuitem" to="/tema/kazaliste"
+                >Kazalište</app-link
+              >
+              <app-link role="menuitem" to="/tema/film"
+                >Filmovi i serije</app-link
+              >
+              <app-link role="menuitem" to="/tema/knjizevnost">Knjige</app-link>
+              <app-link role="menuitem" to="/tema/glazba">Glazba</app-link>
+              <app-link role="menuitem" to="/tema/videoigre"
+                >Videoigre</app-link
+              >
+            </nav>
           </div>
           <div
             class="full column-horizontal-pad column-top-pad mobile-side-pad"
@@ -44,26 +74,24 @@
         <div
           class="container flex relative stretch block-kaineng mobile-top-pad"
         >
-          <div class="full flex stretch column-top-pad">
-            <div class="two-thirds flex-responsive flex mobile-side-pad">
-              <div
-                class="full column-horizontal-pad flex alt-big-break center-text"
-              >
-                <featured
-                  v-for="post in posts.slice(0, 1)"
-                  :key="post.id"
-                  :post="post"
-                ></featured>
-              </div>
-            </div>
+          <div class="full flex stretch column-top-pad mobile-side-pad">
             <div
-              class="third flex-responsive super-sidebar flex column-horizontal-pad column-left-border flex-responsive split-articles mobile-side-pad"
+              class="three-fourths flex-responsive column-horizontal-pad flex split-articles big-split no-mobile-stretch-split alt-big-break center-text column-right-border"
             >
-              <medium
-                v-for="post in posts.slice(4, 8)"
+              <standard
+                v-for="post in posts.slice(0, 1)"
                 :key="post.id"
                 :post="post"
-              ></medium>
+              ></standard>
+            </div>
+            <div
+              class="fourth flex-responsive column-horizontal-pad smaller-featured-title"
+            >
+              <featured
+                v-for="post in posts.slice(1, 2)"
+                :key="post.id"
+                :post="post"
+              ></featured>
             </div>
           </div>
           <div class="full flex mobile-side-pad stretch">
@@ -71,7 +99,7 @@
               <div class="full column-top-border"></div>
             </div>
             <div
-              v-for="post in posts.slice(1, 4)"
+              v-for="post in posts.slice(2, 5)"
               :key="post.id"
               class="third flex-responsive column-right-border stretch"
             >

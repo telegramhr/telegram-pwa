@@ -12100,12 +12100,27 @@ input:checked ~ .input-hidden {
     }
 }
 .special-category-title h1 img {
-    max-width: 160px;
+    height: 36px;
     display: inline-block;
-    margin-right: 6px;
+    margin-right: 2px;
+}
+.special-category-title h1 img.dark-mode-only {
+    display: none;
+}
+.dark-mode .special-category-title h1 img {
+    display: none;
+}
+.special-category-title h1 img:first-child, .special-category-title h1 img:nth-child(3) {
+    position: relative;
+    bottom: -0.5px;
+}
+.dark-mode .special-category-title h1 img.dark-mode-only {
+    display: inline-block;
 }
 .special-category-title h1 {
     font-weight: 400;
+    font-size: 40px;
+    font-size: 2rem;
 }
 .blend-ligthen {
     mix-blend-mode: lighten;
@@ -12205,9 +12220,17 @@ input:checked ~ .input-hidden {
 .category-kultura .article h2, .category-kultura .block-kaineng .alt-big-break .article h2 {
     font-weight: 400;
 }
+.category-kultura .smaller-featured-title .article h2 {
+    font-size: 20px;
+    font-size: 1rem;
+}
 @media screen and (min-width: 767px) {
     .category-kultura .article h2, .category-kultura .block-kaineng .alt-big-break .article h2 {
-        padding-top: 4px;
+        margin-bottom: 6px;
+    }
+    .category-kultura .smaller-featured-title .article h2 {
+        font-size: 18px;
+        font-size: 0.9rem;
     }
 }
 .category-kultura .super-sidebar .article h2 {
@@ -12238,4 +12261,9 @@ input:checked ~ .input-hidden {
     font-size: 0.5em;
     display: inline-block;
     padding-bottom: 0.3em;
+}
+@media screen and (max-width: 767px) {
+    .category-kultura .cantha-block-title .menu {
+        border-top: none;
+    }
 }
