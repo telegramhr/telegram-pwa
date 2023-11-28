@@ -1449,7 +1449,7 @@ export const actions = {
       }
       commit('setSlots')
     })
-    window.pbjs = window.pbjs || {}
+    /* window.pbjs = window.pbjs || {}
     window.pbjs.que = window.pbjs.que || []
     window.pbjs.que.push(() => {
       window.pbjs.setConfig({
@@ -1523,7 +1523,7 @@ export const actions = {
           })
         }
       }
-    })
+    }) */
     dispatch('displaySlots')
   },
   displaySlots({ dispatch, state }) {
@@ -1559,7 +1559,7 @@ export const actions = {
     })
   },
   initPBJS({ dispatch }) {
-    window.pbjs = window.pbjs || {}
+    /* window.pbjs = window.pbjs || {}
     window.pbjs.que = window.pbjs.que || []
     window.pbjs.que.push(() => {
       window.pbjs.requestBids({
@@ -1567,16 +1567,16 @@ export const actions = {
         timeout: 1000,
       })
     })
-    setTimeout(() => {
-      dispatch('initAdserver')
-    }, 1500)
+    setTimeout(() => { */
+    dispatch('initAdserver')
+    // }, 1500)
   },
   initAdserver({ state }) {
-    if (window.pbjs.initAdserverSet) return
+    /* if (window.pbjs.initAdserverSet) return
     window.pbjs.initAdserverSet = true
     if (state.route === 'nesto-slug') {
       return
-    }
+    } */
     const _that = this
     window.googletag.cmd.push(function () {
       window.googletag.pubads().refresh()
