@@ -12267,3 +12267,79 @@ input:checked ~ .input-hidden {
         border-top: none;
     }
 }
+.pretplata-blue {
+    background-color: #304769;
+}
+.pretplata-blue p {
+    font-family: 'Barlow', sans-serif;
+    font-size: 20px;
+    font-size: 1rem;
+}
+.pretplata-blue .pretplata-benefits p {
+    font-size: 16px;
+    font-size: 0.8rem;
+}
+.pretplata-blue .smaller-text {
+    font-size: 16px;
+    font-size: 0.8rem;
+}
+.dark-mode.pretplata-blue .pretplata-benefits p {
+    color: white;
+    opacity: .7;
+}
+.pretplata-blue .bigger-undertitle {
+    margin-bottom: 4px;
+}
+.pretplata-blue .huge-newbtn {
+    margin-top: 16px;
+}
+.pretplata-blue .nothtwo {
+    margin-bottom: 16px;
+}
+.pretplata-blue .nothtwo span {
+    display: inline-block;
+}
+.pretplata-blue .pretplata-benefits {
+    margin-top: 16px;
+}
+@media screen and (min-width: 767px) {
+    .pretplata-blue .absolute-half-img {
+        width: 69%;
+        height: auto;
+        position: absolute;
+        bottom: 0;
+        right: -3%;
+    }
+    .pretplata-blue .nothtwo {
+        font-size: 48px;
+        font-size: 2.4rem;
+    }
+    .pretplata-blue .sixty {
+        z-index: 5;
+    }
+}
+@media screen and (max-width: 767px) {
+    .pretplata-blue .pretplata-benefits {
+
+        margin-bottom: 0px;
+    }
+    .pretplata-blue .pretplata-benefits p, .pretplata-blue .smaller-text {
+        font-size: 3.6vw;
+    }
+    .pretplata-blue p {
+        font-size: 4.4vw;
+    }
+    .pretplata-blue .nothtwo {
+        font-size: 10vw;
+        margin-bottom: 8px;
+    }
+    .pretplata-blue .sixty {
+        margin-bottom: 0px;
+    }
+    .homepage .pretplata-blue .sixty {
+        margin-bottom: -15vw;
+    }
+    .homepage .pretplata-blur .nothtwo {
+        font-size: 8vw;
+    }
+}
