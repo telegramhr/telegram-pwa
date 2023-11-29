@@ -7,7 +7,7 @@
         headline="Pretplatite se i podržite naše bespoštedno novinarstvo."
       ></theader>
     </div>
-    <!-- Above header banner
+    <!-- Above header banner -->
     <div class="full center relative dark-mode pretplata-bf pretplata-blue">
       <div class="container smaller-container flex relative">
         <div
@@ -37,7 +37,7 @@
           <div class="full flex">
             <div
               class="flex newbtn huge-newbtn animate clickable"
-              @click="checkout('TMJHR6Y8K4QA')"
+              @click="checkout('TMYNBHMX6JBL')"
             >
               Kupite odmah
             </div>
@@ -63,7 +63,7 @@
           class="absolute-half-img"
         />
       </div>
-    </div> -->
+    </div>
     <div id="pretplata-selector" class="full flex">
       <div class="full flex relative">
         <div
@@ -1017,6 +1017,9 @@ export default {
             break
           case 'two-year':
             this.checkout('TML20R6ZYA0X')
+            break
+          case 'plenkovic':
+            this.checkout('TMYNBHMX6JBL')
             break
         }
       }

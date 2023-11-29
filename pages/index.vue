@@ -15,50 +15,52 @@
     <div class="full flex">
       <theader></theader>
     </div>
-    <!-- Above header banner
-    <app-link
-      v-if="!$store.state.user.access"
-      to="/pretplata"
-      class="full center relative dark-mode pretplata-bf pretplata-blue"
-    >
-      <div class="container smaller-container flex relative">
-        <div
-          class="sixty mobile-side-pad column-full-pad column-top-margin column-bottom-margin flex-responsive flex relative stretch mobile-top-pad"
-        >
-          <div class="full flex overtitle-parent">
-            <div class="overtitle noththree">
-              <span>Akcija godine</span>
+    <!-- Above header banner -->
+    <client-only>
+      <app-link
+        v-if="!$store.state.user.access"
+        to="/pretplata?checkout=plenkovic"
+        class="full center relative dark-mode pretplata-bf pretplata-blue"
+      >
+        <div class="container smaller-container flex relative">
+          <div
+            class="sixty mobile-side-pad column-full-pad column-top-margin column-bottom-margin flex-responsive flex relative stretch mobile-top-pad"
+          >
+            <div class="full flex overtitle-parent">
+              <div class="overtitle noththree">
+                <span>Akcija godine</span>
+              </div>
+            </div>
+            <div class="full nothtwo">
+              <span>Uđite u spregu </span><span>s Telegramom</span>
+            </div>
+            <p class="full">
+              Premijer napada Telegram da radimo u sprezi. <br />
+              U pravu je: u sprezi smo s našim pretplatnicima.
+            </p>
+            <div class="full undertitle bigger-undertitle">
+              <span class="strikethrough faded">6,49€</span> 1€ mjesečno
+            </div>
+            <p class="full smaller-text faded">
+              prva 3 mjeseca, nakon toga 6,49€
+            </p>
+            <p class="full smaller-text faded">
+              možete prekinuti u bilo kojem trenutku
+            </p>
+            <div class="full flex">
+              <div class="flex newbtn huge-newbtn animate clickable">
+                Kupite odmah
+              </div>
             </div>
           </div>
-          <div class="full nothtwo">
-            <span>Uđite u spregu </span><span>s Telegramom</span>
-          </div>
-          <p class="full">
-            Premijer napada Telegram da radimo u sprezi. <br />
-            U pravu je: u sprezi smo s našim pretplatnicima.
-          </p>
-          <div class="full undertitle bigger-undertitle">
-            <span class="strikethrough faded">6,49€</span> 1€ mjesečno
-          </div>
-          <p class="full smaller-text faded">
-            prva 3 mjeseca, nakon toga 6,49€
-          </p>
-          <p class="full smaller-text faded">
-            možete prekinuti u bilo kojem trenutku
-          </p>
-          <div class="full flex">
-            <div class="flex newbtn huge-newbtn animate clickable">
-              Kupite odmah
-            </div>
-          </div>
+          <img
+            src="@/assets/img/tg_visual_pretplata_plenkovic.jpg"
+            alt="Premijer Andrej Plenković"
+            class="absolute-half-img"
+          />
         </div>
-        <img
-          src="@/assets/img/tg_visual_pretplata_plenkovic.jpg"
-          alt="Premijer Andrej Plenković"
-          class="absolute-half-img"
-        />
-      </div>
-    </app-link> -->
+      </app-link>
+    </client-only>
     <!--<client-only>
       <app-link
         v-if="!$store.state.user.access"
