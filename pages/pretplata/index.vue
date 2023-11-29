@@ -1066,15 +1066,20 @@ export default {
         this.checkout2(termId, -1)
       } else {
         const _that = this
-        window.tp.pianoId.show({
-          screen: 'register',
-          width: window.innerWidth > 720 ? 600 : 375,
-          loggedIn(data) {
-            _that.$store.dispatch('user/setUser', data.user)
-            // window.location.reload()
-            _that.checkout2(termId, -2)
+        window.tp.push([
+          'init',
+          () => {
+            window.tp.pianoId.show({
+              screen: 'register',
+              width: window.innerWidth > 720 ? 600 : 375,
+              loggedIn(data) {
+                _that.$store.dispatch('user/setUser', data.user)
+                // window.location.reload()
+                _that.checkout2(termId, -2)
+              },
+            })
           },
-        })
+        ])
       }
     },
     checkout2(termId, back) {
