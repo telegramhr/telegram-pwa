@@ -929,6 +929,11 @@ export default {
           price: 158,
           gtm: 'standard-annual-2y',
         },
+        TMYNBHMX6JBL: {
+          title: 'Akcija u sprezi',
+          price: 1,
+          gtm: 'akcija-sprega',
+        },
       },
     }
   },
@@ -974,6 +979,7 @@ export default {
           'TMWPGMUCMX45',
           'TM15W5K9EVY4',
           'TMWKY7BX6TFX',
+          'TMYNBHMX6JBL',
         ],
       })
       window.tp.push([
