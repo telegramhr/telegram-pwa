@@ -22,18 +22,18 @@
       </div>
       <!-- Category header -->
       <div class="full flex relative">
-        <div class="container flex mobile-side-pad relative mobile-top-pad">
-          <div class="full column-full-pad">
+        <div
+          class="container flex stretch mobile-side-pad relative mobile-top-pad column-top-pad"
+        >
+          <div class="full column-horizontal-pad">
             <div class="full cantha-separator"></div>
           </div>
-          <div class="full column-horizontal-pad special-category-title">
+          <div
+            class="two-thirds flex-responsive column-full-pad special-category-title"
+          >
             <h1 class="full">
-              <img
-                src="@/assets/img/tg_square_logo_black.svg"
-                class
-                alt="Telegram"
-              />
-              <img src="@/assets/img/tg_kultura_logo.svg" class alt="Kultura" />
+              <img src="@/assets/img/tg_square_logo_black.svg" alt="Telegram" />
+              <img src="@/assets/img/tg_kultura_logo.svg" alt="Kultura" />
               <img
                 src="@/assets/img/tg_square_logo_white.svg"
                 class="dark-mode-only"
@@ -46,25 +46,65 @@
               />
               <span class="hide">Telegram Kultura</span>
             </h1>
+            <div class="full cantha-block-title relative flex">
+              <nav class="full menu flex" role="menu">
+                <app-link role="menuitem" to="/tema/kazaliste"
+                  >Kazalište</app-link
+                >
+                <app-link role="menuitem" to="/tema/film"
+                  >Filmovi i serije</app-link
+                >
+                <app-link role="menuitem" to="/tema/knjizevnost"
+                  >Knjige</app-link
+                >
+                <app-link role="menuitem" to="/tema/glazba">Glazba</app-link>
+                <app-link role="menuitem" to="/tema/videoigre"
+                  >Videoigre</app-link
+                >
+              </nav>
+            </div>
           </div>
-          <div class="full cantha-block-title relative flex">
-            <nav class="full menu column-horizontal-pad flex" role="menu">
-              <app-link role="menuitem" to="/tema/kazaliste"
-                >Kazalište</app-link
-              >
-              <app-link role="menuitem" to="/tema/film"
-                >Filmovi i serije</app-link
-              >
-              <app-link role="menuitem" to="/tema/knjizevnost">Knjige</app-link>
-              <app-link role="menuitem" to="/tema/glazba">Glazba</app-link>
-              <app-link role="menuitem" to="/tema/videoigre"
-                >Videoigre</app-link
-              >
-            </nav>
-          </div>
-          <div
-            class="full column-horizontal-pad column-top-pad mobile-side-pad"
+          <app-link
+            v-if="$store.state.user.access"
+            to="/pretplata"
+            class="third desktop-only column-full-pad special-category-widget right-text relative"
           >
+            <img
+              src="@/assets/img/tg_pretplata_main_vizual_mini.jpg"
+              class="img-as-bg"
+              aria-hidden="true"
+            />
+            <p class="full animate">
+              <span class="ib">Podržite Telegram za neograničeno čitanje </span
+              ><span class="ib"
+                >i popuste na top knjige, predstave i izložbe</span
+              >
+            </p>
+            <div class="full flex align-children-end">
+              <div class="flex newbtn animate clickable">Pretplatite se</div>
+            </div>
+          </app-link>
+          <app-link
+            v-if="!$store.state.user.access"
+            to="/klub"
+            class="third desktop-only column-full-pad special-category-widget right-text relative"
+          >
+            <img
+              src="@/assets/img/tg_pretplata_main_vizual_mini.jpg"
+              class="img-as-bg"
+              aria-hidden="true"
+            />
+            <p class="full animate">
+              <span class="ib">Hvala Vam što podržavate Telegram. </span
+              ><span class="ib"
+                >Uživajte u popustima na knjige, predstave i izložbe</span
+              >
+            </p>
+            <div class="full flex align-children-end">
+              <div class="flex newbtn animate clickable">Pogledajte ponude</div>
+            </div>
+          </app-link>
+          <div class="full column-horizontal-pad desktop-only">
             <div class="full column-top-border"></div>
           </div>
         </div>
@@ -94,30 +134,72 @@
               ></featured>
             </div>
           </div>
-          <div class="full flex mobile-side-pad stretch">
-            <div class="full flex column-full-pad">
+          <div class="full flex stretch">
+            <div class="full flex column-full-pad mobile-side-pad">
               <div class="full column-top-border"></div>
             </div>
             <div
-              v-for="post in posts.slice(2, 5)"
+              v-for="post in posts.slice(2, 3)"
               :key="post.id"
-              class="third flex-responsive column-right-border stretch"
+              class="third flex-responsive column-right-border stretch mobile-side-pad"
+            >
+              <div
+                class="full flex column-horizontal-pad no-mob-articlepad-border"
+              >
+                <featured :post="post"></featured>
+              </div>
+            </div>
+            <app-link
+              v-if="!$store.state.user.access"
+              to="/pretplata"
+              class="full flex mobile-only darkened-bg mobile-full-pad special-category-pretplata relative"
+            >
+              <img
+                src="@/assets/img/tg_pretplata_main_vizual_mini.jpg"
+                class="img-as-bg"
+                aria-hidden="true"
+              />
+              <div class="full nothtwo center-text">
+                <span class="ib"
+                  >Podržite Telegram za neograničeno čitanje </span
+                ><span class="ib"
+                  >i popuste na top knjige, predstave i izložbe</span
+                >
+              </div>
+              <div class="full center">
+                <div class="flex newbtn huge-newbtn animate clickable">
+                  Pretplatite se
+                </div>
+              </div>
+            </app-link>
+            <div
+              v-for="post in posts.slice(3, 5)"
+              :key="post.id"
+              class="third flex-responsive column-right-border stretch mobile-side-pad"
             >
               <div class="full flex column-horizontal-pad">
                 <featured :post="post"></featured>
               </div>
             </div>
           </div>
-          <div class="full column-full-pad mobile-side-pad">
-            <div class="full column-top-border"></div>
-          </div>
         </div>
       </div>
+      <!-- Prekid klub -->
+      <client-only>
+        <div class="full relative">
+          <klub-offers></klub-offers>
+        </div>
+      </client-only>
       <!-- Echovald rubrika -->
       <div class="full flex">
         <div
           class="container flex relative block-echovald stretch mobile-side-pad"
         >
+          <div
+            class="full column-horizontal-pad column-bottom-pad desktop-only"
+          >
+            <div class="full column-top-border"></div>
+          </div>
           <div class="three-fourths flex-responsive flex stretch">
             <div class="half flex-responsive flex column-horizontal-pad">
               <featured
