@@ -12248,10 +12248,6 @@ input:checked ~ .input-hidden {
     padding-left: 0px;
     object-position: center center;
 }
-.category-kultura .noththree.overtitle {
-    display: none;
-}
-
 .single-article h1.newbook-title-double, .newbook-title-double {
     line-height: 0.6em;
     padding-top: 0.4em;
@@ -12265,8 +12261,98 @@ input:checked ~ .input-hidden {
 @media screen and (max-width: 767px) {
     .category-kultura .cantha-block-title .menu {
         border-top: none;
+        padding-bottom: 4vw;
+    }
+    .no-mob-articlepad-border .article-featured:first-child .article-pad {
+        border-bottom: none;
     }
 }
+.special-category-widget p {
+    font-family: 'Barlow', sans-serif;
+    line-height: 1.15em;
+    letter-spacing: normal;
+    font-size: 14px;
+    font-size: 0.7rem;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 3;
+    opacity: .8;
+}
+.special-category-widget:hover p {
+    opacity: 1;
+}
+.special-category-widget .newbtn {
+    position: relative;
+    z-index: 3;
+}
+.special-category-widget .img-as-bg {
+    opacity: .2;
+    z-index: 1;
+}
+.special-category-widget::before {
+    content: " ";
+    position: absolute;
+    left: -1px;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 2;
+    background: linear-gradient(to right, rgba(252,241,231, 1), rgba(252,241,231, 0));
+}
+.special-category-widget::after {
+    content: " ";
+    position: absolute;
+    right: -1px;
+    top: 0;
+    width: 20%;
+    height: 100%;
+    z-index: 2;
+    background: linear-gradient(to left, rgba(252,241,231, 1), rgba(252,241,231, 0));
+}
+.dark-mode .special-category-widget::before {
+    background: linear-gradient(to right, rgba(33,33,33, 1), rgba(33,33,33, 0));
+}
+.contrast-mode .special-category-widget::before {
+    background: linear-gradient(to right, rgba(255,255,255, 1), rgba(255,255,255, 0));
+}
+.dark-mode .special-category-widget::after {
+    background: linear-gradient(to left, rgba(33,33,33, 1), rgba(33,33,33, 0));
+}
+.contrast-mode .special-category-widget::after {
+    background: linear-gradient(to left, rgba(255,255,255, 1), rgba(255,255,255, 0));
+}
+.special-category-pretplata {
+    margin-bottom: 4vw;
+}
+.special-category-pretplata .nothtwo {
+    font-family: 'Barlow', sans-serif;
+    line-height: 1.15em;
+    letter-spacing: normal;
+    font-size: 16px;
+    font-size: 0.8rem;
+    margin-bottom: 16px;
+}
+.special-category-pretplata .img-as-bg {
+    opacity: .1;
+    z-index: 2;
+}
+.special-category-pretplata div {
+    z-index: 3;
+    position: relative;
+}
+@media screen and (min-width: 767px) {
+    .category-kultura .alt-big-break.center-text .article .noththree.overtitle {
+        margin-bottom: 0px;
+    }
+}
+@media screen and (max-width: 767px) {
+    .category-kultura .alt-big-break.center-text .article .desktop-only, .category-kultura .alt-big-break.center-text .article .desktop-only .noththree.overtitle {
+        display: flex;
+    }
+}
+
+/* Pretplata blue */
+
 .pretplata-blue {
     background-color: #304769;
 }
