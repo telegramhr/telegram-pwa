@@ -357,6 +357,10 @@
                   </div>
                 </portal>
                 <intext></intext>
+                <linker
+                  v-if="!hasPremium && hasLinker"
+                  type="text-only"
+                ></linker>
                 <div
                   v-if="
                     !hasPremium &&
@@ -368,10 +372,6 @@
                 >
                   <jgl-premium></jgl-premium>
                 </div>
-                <linker
-                  v-if="!hasPremium && hasLinker"
-                  type="text-only"
-                ></linker>
               </client-only>
               <!-- Article footer -->
               <div

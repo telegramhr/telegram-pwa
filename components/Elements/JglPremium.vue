@@ -104,15 +104,9 @@
 <script>
 export default {
   name: 'JglPremium',
-  props: {
-    shop: {
-      type: String,
-      required: false,
-      default: 'telemach',
-    },
-  },
   data() {
     return {
+      shop: 'telemach',
       timestamp: Date.now(),
       slider_settings: {
         infinite: true,

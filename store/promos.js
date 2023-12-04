@@ -13,7 +13,7 @@ export const state = () => ({
       production: [],
       production_updated: null,
     },
-    jgl: {
+    telemach: {
       preview: [],
       preview_updated: null,
       production: [],
