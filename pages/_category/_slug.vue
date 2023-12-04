@@ -359,7 +359,6 @@
                 <intext></intext>
                 <div
                   v-if="
-                    $mobile &&
                     !hasPremium &&
                     !post.category_slug.includes('superone') &&
                     !(post.disable_ads && post.disable_ads.includes('spar'))
