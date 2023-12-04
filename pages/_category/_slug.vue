@@ -354,6 +354,7 @@
                 >
                   <div class="full">
                     <offers-premium></offers-premium>
+                    <jgl-premium></jgl-premium>
                   </div>
                 </portal>
                 <intext></intext>
