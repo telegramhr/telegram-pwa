@@ -47,6 +47,16 @@ export default {
     ],
     script: [
       {
+        vmid: 'recaptcha',
+        src: 'https://www.google.com/recaptcha/api.js?render=6Le4Y0caAAAAAI_E2k1sgXvWuXR8cViLC-iJIpEq',
+      },
+      {
+        vmid: 'recaptcha-inner',
+        hid: 'recaptcha-inner',
+        innerHTML:
+          "grecaptcha.ready(function() { grecaptcha.execute('6Le4Y0caAAAAAI_E2k1sgXvWuXR8cViLC-iJIpEq', {action: 'homepage'}).then(function(token) {}); });",
+      },
+      {
         src: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js',
         async: true,
       },
@@ -71,6 +81,9 @@ export default {
         defer: true,
       },
     ],
+    __dangerouslyDisableSanitizersByTagID: {
+      'recaptcha-inner': ['innerHTML'],
+    },
   },
 
   router: {

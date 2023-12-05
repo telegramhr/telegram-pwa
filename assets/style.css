@@ -12465,3 +12465,7 @@ input:checked ~ .input-hidden {
         font-size: 8vw;
     }
 }
+
+.grecaptcha-badge {
+  visibility: hidden !important;
+}
