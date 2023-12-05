@@ -60,7 +60,7 @@
           :key="'related' + article.id"
           class="full flex"
           :to="article.permalink"
-          >{{ article.title }}</app-link
+          >{{ article.portal_title }}</app-link
         >
       </div>
     </template>
