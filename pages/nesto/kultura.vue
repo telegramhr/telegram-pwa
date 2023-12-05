@@ -65,7 +65,7 @@
             </div>
           </div>
           <app-link
-            v-if="$store.state.user.access"
+            v-if="!$store.state.user.access"
             to="/pretplata"
             class="third desktop-only column-full-pad special-category-widget right-text relative"
           >
@@ -85,7 +85,7 @@
             </div>
           </app-link>
           <app-link
-            v-if="!$store.state.user.access"
+            v-if="$store.state.user.access"
             to="/klub"
             class="third desktop-only column-full-pad special-category-widget right-text relative"
           >
@@ -190,8 +190,49 @@
           <klub-offers></klub-offers>
         </div>
       </client-only>
+      <!-- Amnytas rubrika -->
+      <div class="full relative">
+        <div class="container flex relative stretch mobile-top-pad">
+          <div class="full column-horizontal-pad">
+            <div class="full column-bottom-border"></div>
+          </div>
+          <div
+            class="full flex stretch mobile-side-pad column-top-pad column-horizontal-pad article-amnytas mobile-bottom-pad"
+          >
+            <featured
+              v-for="post in posts.slice(5, 6)"
+              :key="post.id"
+              :post="post"
+            ></featured>
+          </div>
+          <div class="full column-full-pad">
+            <div class="full column-bottom-border"></div>
+          </div>
+          <div
+            class="full flex stretch mobile-side-pad column-horizontal-pad article-amnytas mobile-bottom-pad"
+          >
+            <featured
+              v-for="post in posts.slice(6, 7)"
+              :key="post.id"
+              :post="post"
+            ></featured>
+          </div>
+          <div class="full column-full-pad">
+            <div class="full column-bottom-border"></div>
+          </div>
+          <div
+            class="full flex stretch mobile-side-pad column-horizontal-pad article-amnytas mobile-bottom-pad"
+          >
+            <featured
+              v-for="post in posts.slice(7, 8)"
+              :key="post.id"
+              :post="post"
+            ></featured>
+          </div>
+        </div>
+      </div>
       <!-- Echovald rubrika -->
-      <div class="full flex">
+      <!--<div class="full flex">
         <div
           class="container flex relative block-echovald stretch mobile-side-pad"
         >
@@ -233,7 +274,7 @@
             </div>
           </client-only>
         </div>
-      </div>
+      </div>-->
       <!-- Standard 1/4 block -->
       <div class="full relative">
         <div
@@ -244,7 +285,7 @@
           </div>
           <div class="full flex stretch relative no-last-border-mobile">
             <div
-              v-for="post in posts.slice(16)"
+              v-for="post in posts.slice(8, 12)"
               :key="post.id"
               class="fourth flex-responsive column-right-border column-horizontal-pad column-botton-margin"
             >
@@ -289,13 +330,13 @@ export default {
           hid: 'description',
           name: 'description',
           content:
-            'Podijelite s nama informacije koje javnost zaslužuje znati.',
+            'Najnovije i najbitnije u svijetu kulture - kazališta, knjige, filmovi, serije, glazba, i videoigre.',
         },
         {
           hid: 'og:description',
           property: 'og:description',
           content:
-            'Podijelite s nama informacije koje javnost zaslužuje znati.',
+            'Najnovije i najbitnije u svijetu kulture - kazališta, knjige, filmovi, serije, glazba, i videoigre.',
         },
         {
           hid: 'og:type',
@@ -310,7 +351,7 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/dojave/',
+          content: 'https://www.telegram.hr/nesto/kultura/',
         },
         {
           hid: 'fb:app_id',
