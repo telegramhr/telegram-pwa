@@ -12351,6 +12351,41 @@ input:checked ~ .input-hidden {
     }
 }
 
+/* Block Amnytas (kultura only for now) */
+
+.article-amnytas .article-featured {
+    position: relative;
+}
+.article-amnytas .article-featured img {
+    margin-bottom: 0px;
+    max-height: 500px;
+    object-fit: cover;
+}
+.article-amnytas .article-featured .article-pad {
+    position: absolute;
+    z-index: 9;
+    color: white;
+    bottom: 0;
+    left: 0;
+    padding: 24px;
+    padding-top: 24px;
+    padding-top: 80px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+}
+.article-amnytas .article-featured:hover h2 {
+    color: #bbb;
+}
+
+@media screen and (max-width: 767px) {
+    .article-amnytas .article-featured img {
+        height: 125vw;
+    }
+    .article-amnytas .article-featured h2 {
+        font-size: 22px;
+        font-size: 1.1rem;
+    }
+}
+
 /* Pretplata blue */
 
 .pretplata-blue {
