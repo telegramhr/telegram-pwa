@@ -193,11 +193,11 @@
       <!-- Amnytas rubrika -->
       <div class="full relative">
         <div class="container flex relative stretch mobile-top-pad">
-          <div class="full column-horizontal-pad">
+          <div class="full column-horizontal-pad column-bottom-pad">
             <div class="full column-bottom-border"></div>
           </div>
           <div
-            class="full flex stretch mobile-side-pad column-top-pad column-horizontal-pad article-amnytas mobile-bottom-pad"
+            class="three-fourths flex-responsive flex stretch mobile-side-pad column-horizontal-pad article-amnytas mobile-bottom-pad column-right-border"
           >
             <featured
               v-for="post in posts.slice(5, 6)"
@@ -205,11 +205,8 @@
               :post="post"
             ></featured>
           </div>
-          <div class="full column-full-pad">
-            <div class="full column-bottom-border"></div>
-          </div>
           <div
-            class="full flex stretch mobile-side-pad column-horizontal-pad article-amnytas mobile-bottom-pad"
+            class="fourth flex-responsive column-horizontal-pad smaller-featured-title mobile-side-pad"
           >
             <featured
               v-for="post in posts.slice(6, 7)"
@@ -221,10 +218,40 @@
             <div class="full column-bottom-border"></div>
           </div>
           <div
-            class="full flex stretch mobile-side-pad column-horizontal-pad article-amnytas mobile-bottom-pad"
+            class="three-fourths flex-responsive flex stretch mobile-side-pad column-horizontal-pad article-amnytas mobile-bottom-pad column-right-border"
           >
             <featured
               v-for="post in posts.slice(7, 8)"
+              :key="post.id"
+              :post="post"
+            ></featured>
+          </div>
+          <div
+            class="fourth flex-responsive column-horizontal-pad smaller-featured-title mobile-side-pad"
+          >
+            <featured
+              v-for="post in posts.slice(8, 9)"
+              :key="post.id"
+              :post="post"
+            ></featured>
+          </div>
+          <div class="full column-full-pad">
+            <div class="full column-bottom-border"></div>
+          </div>
+          <div
+            class="three-fourths flex-responsive flex stretch mobile-side-pad column-horizontal-pad article-amnytas mobile-bottom-pad column-right-border"
+          >
+            <featured
+              v-for="post in posts.slice(9, 10)"
+              :key="post.id"
+              :post="post"
+            ></featured>
+          </div>
+          <div
+            class="fourth flex-responsive column-horizontal-pad smaller-featured-title mobile-side-pad"
+          >
+            <featured
+              v-for="post in posts.slice(10, 11)"
               :key="post.id"
               :post="post"
             ></featured>
@@ -285,7 +312,7 @@
           </div>
           <div class="full flex stretch relative no-last-border-mobile">
             <div
-              v-for="post in posts.slice(8, 12)"
+              v-for="post in posts.slice(11, 15)"
               :key="post.id"
               class="fourth flex-responsive column-right-border column-horizontal-pad column-botton-margin"
             >
@@ -346,7 +373,7 @@ export default {
         {
           hid: 'og:title',
           property: 'og:title',
-          content: 'Telegram Dojave',
+          content: 'Kultura na Telegramu',
         },
         {
           hid: 'og:url',
