@@ -357,9 +357,12 @@
                   </div>
                 </portal>
                 <intext></intext>
-                <!--<div
+                <linker
+                  v-if="!hasPremium && hasLinker"
+                  type="text-only"
+                ></linker>
+                <div
                   v-if="
-                    $mobile &&
                     !hasPremium &&
                     !post.category_slug.includes('superone') &&
                     !(post.disable_ads && post.disable_ads.includes('spar'))
@@ -368,11 +371,7 @@
                   style="max-width: 1201px"
                 >
                   <jgl-premium></jgl-premium>
-                </div>-->
-                <linker
-                  v-if="!hasPremium && hasLinker"
-                  type="text-only"
-                ></linker>
+                </div>
               </client-only>
               <!-- Article footer -->
               <div
