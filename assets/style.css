@@ -12356,9 +12356,12 @@ input:checked ~ .input-hidden {
 .article-amnytas .article-featured {
     position: relative;
 }
+.article-amnytas .article-featured .nothfour, .article-amnytas .article-featured .noththree.overtitle {
+    display: none;
+}
 .article-amnytas .article-featured img {
     margin-bottom: 0px;
-    max-height: 400px;
+    max-height: 420px;
     object-fit: cover;
 }
 .article-amnytas .article-featured .article-pad {

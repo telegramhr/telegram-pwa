@@ -217,8 +217,7 @@ export default {
           hid: 'og:image',
           name: 'og:image',
           property: 'og:image',
-          content:
-            'https://www.telegram.hr/wp-content/uploads/2023/11/tg-naslovna-2023-11-23-pack.jpg',
+          content: 'https://www.telegram.hr/img/tg_share_dezulovic_pack.jpg',
         },
         {
           hid: 'og:url',
