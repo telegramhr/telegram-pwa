@@ -66,12 +66,12 @@
             <div class="full flex knjiga-cover knjiga-cover-3d">
               <img
                 src="@/assets/img/tg_book_mockup_stankovic.png"
-                alt="Naslovnica nove knjige Aleksandra Stankovića 'DEPRA'"
+                alt="Naslovnica nove knjige Aleksandra Stankovića 'Depra'"
               />
             </div>
             <div class="full flex knjiga-features">
               <div class="full relative center-text big-book-price bold">
-                DEPRA
+                Depra
               </div>
               <div class="nothfour full relative center-text">
                 Aleksandar Stanković
@@ -214,13 +214,13 @@ export default {
           hid: 'description',
           name: 'description',
           content:
-            'Podijelite s nama informacije koje javnost zaslužuje znati.',
+            'Depra Aleksandra Stankovića, Igla, pila, ravnalo Sanje Modrić, Bili libar Borisa Dežulovića, O Zagrebu Zrinke Paladino i Neispričane priče Rajka Grlića.',
         },
         {
           hid: 'og:description',
           property: 'og:description',
           content:
-            'Podijelite s nama informacije koje javnost zaslužuje znati.',
+            'Depra Aleksandra Stankovića, Igla, pila, ravnalo Sanje Modrić, Bili libar Borisa Dežulovića, O Zagrebu Zrinke Paladino i Neispričane priče Rajka Grlića.',
         },
         {
           hid: 'og:type',
@@ -231,6 +231,13 @@ export default {
           hid: 'og:title',
           property: 'og:title',
           content: 'Telegramove hit knjige po posebnoj cijeni za pretplatnike',
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          property: 'og:image',
+          content:
+            'https://www.telegram.hr/img/tg_naslovna_2023_12_06_book.jpg',
         },
         {
           hid: 'og:url',
