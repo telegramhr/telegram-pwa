@@ -12472,3 +12472,55 @@ input:checked ~ .input-hidden {
 .grecaptcha-badge {
   visibility: hidden !important;
 }
+
+
+/* Book xmas */
+.newbook-xmas {
+    color: white; 
+    overflow: hidden;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+}
+.newbook-xmas .container {
+    z-index: 5;
+}
+/*.newbook-xmas .newbtn {
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.2);
+}
+.newbook-xmas .newbtn:hover {
+    border: 1px solid rgba(255,255,255,0.4);
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.4);
+}*/
+.single-article .newbook-xmas h1.newbook-title, .newbook-xmas .newbook-title {
+    font-size: 12vw;
+    line-height: 1.1em;
+}
+.newbook-xmas .newbook-overtitle {
+    color: white;
+    opacity: .7;
+}
+.newbook-xmas .ps-xmas1, .newbook-xmas .ps-xmas2 {
+    mix-blend-mode: overlay;
+    z-index: 3;
+    bottom: 0;
+    width: 40vw;
+    opacity: .5;
+}
+.newbook-xmas .ps-xmas1 {
+    right: -20vw;
+}
+.newbook-xmas .ps-xmas2 {
+    left: -20vw;
+}
+
+@media screen and (min-width: 767px) {
+    .single-article .newbook-xmas h1.newbook-title, .newbook-xmas .newbook-title {
+        font-size: 80px;
+        font-size: 4rem;
+    }
+    .newbook-xmas {
+        padding-top: 10vh;
+        padding-bottom: 10vh;
+    }
+}
