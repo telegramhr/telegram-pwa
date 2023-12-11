@@ -136,7 +136,7 @@
     <braintree
       v-if="showModal"
       :price="price"
-      book="bozic2022paket"
+      book="bozic2023paket"
       @close="close"
     ></braintree>
     <tfooter></tfooter>
@@ -159,7 +159,7 @@ export default {
   methods: {
     getPrice() {
       this.$axios
-        .get('/pretplate/get_price/?book=bozic2022paket', {
+        .get('/pretplate/get_price/?book=bozic2023paket', {
           withCredentials: true,
         })
         .then((res) => {
