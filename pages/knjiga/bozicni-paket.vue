@@ -208,8 +208,7 @@ export default {
           hid: 'og:image',
           name: 'og:image',
           property: 'og:image',
-          content:
-            'https://www.telegram.hr/wp-content/uploads/2022/12/tg-book-share-paket.jpg',
+          content: 'https://www.telegram.hr/img/tg_share_xmas_books.jpg',
         },
         {
           hid: 'og:url',

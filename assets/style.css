@@ -12524,3 +12524,113 @@ input:checked ~ .input-hidden {
         padding-bottom: 10vh;
     }
 }
+.newbook-gifting .newbook-title {
+    font-size: 13vw;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+.newbook-gifting .newbook-author {
+    font-size: 6.2vw;
+}
+.newbook-gifting .newbook-intro {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.newbook-gifting .pretplata-benefits {
+    margin-top: 8px;
+}
+.newbook-gifting {
+    padding-top: 0vh;
+    padding-bottom: 3vh;
+}
+
+@media screen and (min-width: 767px) {
+    .newbook-gifting .newbook-title {
+        font-size: 56px;
+        font-size: 2.8rem;
+        margin-bottom: 0px;
+    }
+    .newbook-gifting .newbook-author {
+        font-size: 40px;
+        font-size: 2.06rem;
+    }
+    .newbook-gifting .newbook-intro {
+        max-width: 100%;
+    }
+    .newbook-gifting {
+        padding-top: 7vh;
+        padding-bottom: 7vh;
+    }    
+    .newbook-gifting .smaller-container .newbook-title {
+        font-size: 48px;
+        font-size: 2.4rem;
+    }
+    .newbook-gifting .smaller-container .newbook-author {
+        font-size: 28px;
+        margin-top: 8px;
+        font-size: 1.4rem;
+    }
+    .homepage .newbook-gifting {
+        padding-top: 3vh;
+    }
+    .newbook-gifting .smaller-container .newbook-intro {
+        font-size: 17px;
+        font-size: 0.85rem;
+    }
+}
+@media screen and (max-width: 767px) {
+    .homepage .newbook-gifting .ps-xmas1, .homepage .newbook-gifting .ps-xmas2 {
+        width: 50vw;
+        opacity: .25;
+    }
+    .homepage .newbook-gifting .ps-xmas1 {
+        right: -20vw;
+    }
+    .homepage .newbook-gifting .ps-xmas2 {
+        left: -20vw;
+        top: 0px;
+    }
+    .homepage .newbook-gifting .newbook-title {
+        font-size: 8.4vw;
+    }
+    .homepage .newbook-gifting {
+        padding-bottom: 0px;
+        margin-bottom: -2vw;
+        padding-top: 2vw;
+    }
+    .homepage .newbook-gifting .newbook-author {
+        font-size: 4vw;
+        text-transform: none;
+        font-weight: bold;
+        font-size: 14px;
+        font-size: 0.7rem;
+    }
+    .homepage .newbook-gifting .newbook-intro {
+        font-size: 14px;
+        font-size: 0.7rem;
+        margin-top: 4px;
+    }
+    .homepage .newbook-gifting .newbook-price {
+        font-size: 16px;
+        font-size: 0.8rem;
+        order: 2;
+        width: auto;
+        padding-left: 8px;
+        padding-top: 2px;
+    }
+    .homepage .newbook-gifting .sixty {
+        justify-content: flex-start;
+    }
+    .homepage .newbook-gifting .huge-newbtn {
+        font-size: 14px;
+        font-size: 0.7rem;
+        padding: 6px 10px;
+        padding-top: 5px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    .homepage .newbook-gifting .newbook-btn {
+        order: 1;
+        width: auto;
+    }
+}

@@ -15,7 +15,57 @@
     <div class="full flex">
       <theader></theader>
     </div>
-    <!-- Above header banner -->
+    <!-- Above header banner
+    <app-link
+      to="/pretplata/poklon"
+      class="full flex relative center newbook-xmas newbook-gifting column-full-pad dark-mode"
+    >
+      <img
+        src="@/assets/img/tg_visual_2023_xmasbg_green.jpg"
+        class="img-as-bg"
+        aria-hidden="true"
+      />
+      <img
+        class="ps-xmas1"
+        src="@/assets/img/tg_xmas_1.png"
+        aria-hidden="true"
+      />
+      <img
+        class="ps-xmas2"
+        src="@/assets/img/tg_xmas_2.png"
+        aria-hidden="true"
+      />
+      <div class="container smaller-container relative flex stretch">
+        <div class="sixty flex center m-order-2 mobile-full-pad">
+          <div class="full newbook-title all-caps desktop-only">
+            Poklonite Telegram
+          </div>
+          <div class="full newbook-author all-caps">
+            Dar koji se otvara svaki dan
+          </div>
+          <p class="full newbook-intro desktop-only">
+            Ovih praznika prijateljima, partnerima ili ukućanima poklonite
+            godinu dana pretplate, po posebnoj cijeni samo za vas
+          </p>
+          <p class="full newbook-intro mobile-only">
+            Za praznike poklonite nekom godinu dana Telegram pretplate, po
+            posebnoj cijeni za Vas
+          </p>
+          <div class="full relative newbook-price">
+            <span class="faded strikethrough">78€</span> 29,99€
+          </div>
+          <div class="full flex btn-parent newbook-btn">
+            <div class="newbtn clickable huge-newbtn animate">Poklonite</div>
+          </div>
+        </div>
+        <div class="forty flex center m-order-1">
+          <img
+            src="@/assets/img/tg_visual_xmas_pretplata_alt.png"
+            aria-hidden="true"
+          />
+        </div>
+      </div>
+    </app-link> -->
     <!-- Cantha header -->
     <div class="full relative cantha-header">
       <div class="container flex relative column-top-pad column-horizontal-pad">
