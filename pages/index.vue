@@ -17,6 +17,61 @@
     </div>
     <!-- Above header banner -->
     <client-only>
+      <!--<app-link
+        v-if="!$store.state.user.access"
+        to="/pretplata"
+        class="full flex relative center newbook-xmas newbook-gifting column-full-pad dark-mode"
+      >
+        <img
+          src="@/assets/img/tg_visual_2023_xmasbg_green.jpg"
+          class="img-as-bg"
+          aria-hidden="true"
+        />
+        <img
+          class="ps-xmas1"
+          src="@/assets/img/tg_xmas_1.png"
+          aria-hidden="true"
+        />
+        <img
+          class="ps-xmas2"
+          src="@/assets/img/tg_xmas_2.png"
+          aria-hidden="true"
+        />
+        <div class="container smaller-container relative flex stretch">
+          <div class="sixty flex center m-order-2 mobile-full-pad">
+            <div class="full newbook-title all-caps desktop-only">
+              <span class="ib">Darujte si</span>
+              <span class="ib">Telegram!</span>
+            </div>
+
+            <div class="full newbook-author all-caps mobile-only">
+              Darujte si Telegram!
+            </div>
+            <p class="full newbook-intro">
+              Ovih praznika počastite se pretplatom, po najboljoj božićnoj
+              cijeni
+            </p>
+            <div class="full relative newbook-price">
+              <span class="faded strikethrough">6,49€</span> 1,99€
+              <span class="desktop-only">mjesečno</span>
+            </div>
+            <p class="full smaller-text faded desktop-only">
+              prva 3 mjeseca, nakon toga 6,49€
+            </p>
+            <div class="full flex btn-parent newbook-btn">
+              <div class="newbtn clickable huge-newbtn animate">
+                Kupite <span class="desktop-only">odmah</span>
+              </div>
+            </div>
+          </div>
+          <div class="forty flex center m-order-1">
+            <img
+              src="@/assets/img/tg_visual_xmas_pretplata_alt.png"
+              aria-hidden="true"
+            />
+          </div>
+        </div>
+      </app-link>-->
       <app-link
         v-if="$store.state.user.access"
         to="/pretplata/poklon?promo_code=OU1FMSFRMS"

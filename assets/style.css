@@ -12633,4 +12633,10 @@ input:checked ~ .input-hidden {
         order: 1;
         width: auto;
     }
+    .homepage .newbook-gifting p.smaller-text.faded{
+        order: 3;
+        font-size: 10px;
+        font-size: 0.5rem;
+        font-family: 'Barlow', sans-serif;
+    }
 }
