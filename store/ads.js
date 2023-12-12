@@ -1449,81 +1449,83 @@ export const actions = {
       }
       commit('setSlots')
     })
-    /* window.pbjs = window.pbjs || {}
-    window.pbjs.que = window.pbjs.que || []
-    window.pbjs.que.push(() => {
-      window.pbjs.setConfig({
-        ortb2: {
-          site: {
-            content: {
-              language: 'hr',
-            },
-          },
-        },
-        performanceMetrics: false,
-        debug: false,
-        enableSendAllBids: true,
-        priceGranularity: 'low',
-        consentManagement: {
-          gdpr: {
-            cmpApi: 'iab',
-            defaultGdprScope: true,
-          },
-        },
-        userSync: {
-          iframeEnabled: true,
-          userIds: [
-            {
-              name: 'pubCommonId',
-              storage: {
-                name: '_pubcid',
-                type: 'cookie',
-                expires: 365,
-              },
-              params: {
-                pixelUrl: '/wp-json/pubcid/v1/extend/',
+    if (window.prebid === 'prebid') {
+      window.pbjs = window.pbjs || {}
+      window.pbjs.que = window.pbjs.que || []
+      window.pbjs.que.push(() => {
+        window.pbjs.setConfig({
+          ortb2: {
+            site: {
+              content: {
+                language: 'hr',
               },
             },
-          ],
-          filterSettings: {
-            iframe: {
-              bidders: '*',
-              filter: 'include',
-            },
-            image: {
-              bidders: '*',
-              filter: 'include',
+          },
+          performanceMetrics: false,
+          debug: false,
+          enableSendAllBids: true,
+          priceGranularity: 'low',
+          consentManagement: {
+            gdpr: {
+              cmpApi: 'iab',
+              defaultGdprScope: true,
             },
           },
-        },
-      })
-      // const prefix = state.prefix
-      const sizes = this.$mobile ? 'mobile' : 'desktop'
-      let unit
-      for (const i of Object.keys(state.units)) {
-        if (i in state.units && state.units[i].pbjs) {
-          unit = state.units[i]
-          if (!unit.pbjs[sizes].sizes) {
-            continue
-          }
-          if (route && !unit.routes.includes(route.name)) {
-            continue
-          }
-          if (!document.getElementById(i)) {
-            continue
-          }
-          window.pbjs.addAdUnits({
-            code: i,
-            mediaTypes: {
-              banner: {
-                sizes: unit.pbjs[sizes].sizes,
+          userSync: {
+            iframeEnabled: true,
+            userIds: [
+              {
+                name: 'pubCommonId',
+                storage: {
+                  name: '_pubcid',
+                  type: 'cookie',
+                  expires: 365,
+                },
+                params: {
+                  pixelUrl: '/wp-json/pubcid/v1/extend/',
+                },
+              },
+            ],
+            filterSettings: {
+              iframe: {
+                bidders: '*',
+                filter: 'include',
+              },
+              image: {
+                bidders: '*',
+                filter: 'include',
               },
             },
-            bids: unit.pbjs[sizes].bids,
-          })
+          },
+        })
+        // const prefix = state.prefix
+        const sizes = this.$mobile ? 'mobile' : 'desktop'
+        let unit
+        for (const i of Object.keys(state.units)) {
+          if (i in state.units && state.units[i].pbjs) {
+            unit = state.units[i]
+            if (!unit.pbjs[sizes].sizes) {
+              continue
+            }
+            if (route && !unit.routes.includes(route.name)) {
+              continue
+            }
+            if (!document.getElementById(i)) {
+              continue
+            }
+            window.pbjs.addAdUnits({
+              code: i,
+              mediaTypes: {
+                banner: {
+                  sizes: unit.pbjs[sizes].sizes,
+                },
+              },
+              bids: unit.pbjs[sizes].bids,
+            })
+          }
         }
-      }
-    }) */
+      })
+    }
     dispatch('displaySlots')
   },
   displaySlots({ dispatch, state }) {
@@ -1559,24 +1561,31 @@ export const actions = {
     })
   },
   initPBJS({ dispatch }) {
-    /* window.pbjs = window.pbjs || {}
+    window.pbjs = window.pbjs || {}
     window.pbjs.que = window.pbjs.que || []
     window.pbjs.que.push(() => {
-      window.pbjs.requestBids({
-        bidsBackHandler: () => dispatch('initAdserver'),
-        timeout: 1000,
-      })
+      if (window.prebid === 'prebid') {
+        window.pbjs.requestBids({
+          bidsBackHandler: () => dispatch('initAdserver'),
+          timeout: 1000,
+        })
+      }
+      if (window.prebid === 'rubicon') {
+        window.pbjs.rp.requestBids({
+          callback: dispatch('initAdserver'),
+        })
+      }
     })
-    setTimeout(() => { */
-    dispatch('initAdserver')
-    // }, 1500)
+    setTimeout(() => {
+      dispatch('initAdserver')
+    }, 3500)
   },
   initAdserver({ state }) {
-    /* if (window.pbjs.initAdserverSet) return
+    if (window.pbjs.initAdserverSet) return
     window.pbjs.initAdserverSet = true
     if (state.route === 'nesto-slug') {
       return
-    } */
+    }
     const _that = this
     window.googletag.cmd.push(function () {
       window.googletag.pubads().refresh()
@@ -1614,7 +1623,7 @@ export const actions = {
               },
             ])
           }
-          if (
+          /* if (
             !window.googletag.reloadedSlots.includes(name) &&
             event.isEmpty &&
             event.slot.getAdUnitPath().includes('wallpaper')
@@ -1637,7 +1646,7 @@ export const actions = {
               .setTargeting('upc', unit.upc ? unit.upc : 10)
             window.googletag.display(unit.opt_div)
             window.googletag.reloadedSlots.push(name)
-          }
+          } */
         })
       window.googletag
         .pubads()

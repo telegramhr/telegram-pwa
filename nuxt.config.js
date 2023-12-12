@@ -57,14 +57,6 @@ export default {
           "grecaptcha.ready(function() { grecaptcha.execute('6Le4Y0caAAAAAI_E2k1sgXvWuXR8cViLC-iJIpEq', {action: 'homepage'}).then(function(token) {}); });",
       },
       {
-        src: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js',
-        async: true,
-      },
-      /* {
-        src: '/prebid7.40.0.js',
-        async: true,
-      }, */
-      {
         hid: 'piano',
         src: 'https://cdn.tinypass.com/api/tinypass.min.js',
         async: true,

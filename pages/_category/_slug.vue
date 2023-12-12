@@ -361,7 +361,7 @@
                   v-if="!hasPremium && hasLinker"
                   type="text-only"
                 ></linker>
-                <div
+                <!--<div
                   v-if="
                     !hasPremium &&
                     !post.category_slug.includes('superone') &&
@@ -371,7 +371,7 @@
                   style="max-width: 1201px"
                 >
                   <jgl-premium></jgl-premium>
-                </div>
+                </div>-->
               </client-only>
               <!-- Article footer -->
               <div
