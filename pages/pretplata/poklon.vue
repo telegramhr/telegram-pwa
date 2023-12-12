@@ -7,7 +7,7 @@
         headline="Poklonite Telegram pretplatu, poklon koji se otvara svaki dan"
       ></theader>
     </div>
-    <!--<div
+    <div
       class="full flex relative center mobile-side-pad newbook-xmas newbook-gifting column-full-pad dark-mode"
     >
       <img
@@ -39,7 +39,9 @@
             <span class="faded strikethrough">78€</span> 29,99€
           </div>
           <div class="full flex btn-parent newbook-btn">
-            <div class="newbtn clickable huge-newbtn animate">Poklonite</div>
+            <div class="newbtn clickable huge-newbtn animate" @click="promo">
+              Poklonite
+            </div>
           </div>
           <div class="full pretplata-benefits">
             <p class="full animate">
@@ -63,7 +65,7 @@
           />
         </div>
       </div>
-    </div>-->
+    </div>
     <div class="full flex pretplata-page-content">
       <div class="full flex relative">
         <div
@@ -343,6 +345,7 @@ export default {
   name: 'Pretplata',
   data() {
     return {
+      promo_code: '',
       terms: {
         TM1LSJL22UJP: {
           title: 'Telegram Standard Poklon',
@@ -389,10 +392,15 @@ export default {
       'user-type': this.$store.state.user.type,
     })
     if (this.$route.query.promo_code) {
+      this.promo_code = this.$route.query.promo_code
       this.checkout(this.one)
     }
   },
   methods: {
+    promo() {
+      this.promo_code = 'OU1FMSFRMS'
+      this.checkout(this.two)
+    },
     checkout(termId) {
       this.$gtm.push({
         event: 'subscription-funnel',
@@ -428,7 +436,6 @@ export default {
         currency: 'EUR',
         value: this.terms[termId].price,
       })
-      const promo = this.$route.query.promo_code
       window.tp.push([
         'init',
         () => {
@@ -437,7 +444,7 @@ export default {
             termId,
             templateId: 'OTXWXSOL0WWS',
             checkoutFlowId: 'CF65KTMVQXXX',
-            promoCode: promo,
+            promoCode: this.promo_code,
             closeOnLogout: true,
             complete: (data) => {
               _that.$store.dispatch('user/checkAccess')
