@@ -1396,6 +1396,12 @@ export const actions = {
         window.googletag.pubads().setCategoryExclusion('NePromo')
       }
       // window.googletag.pubads().setTargeting('env', 'test')
+      if (window.prebid === 'prebid') {
+        window.googletag.pubads().setTargeting('prebid', 'inhouse')
+      }
+      if (window.prebid === 'rubicon') {
+        window.googletag.pubads().setTargeting('prebid', 'demand manager')
+      }
       if (route.query.reload) {
         window.googletag.pubads().setTargeting('reload', '1')
       }
