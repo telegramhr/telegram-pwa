@@ -11813,6 +11813,12 @@ input:checked ~ .input-hidden {
     font-size: 26vw;
     line-height: 0.9em;
 }
+.single-article h1.newbook-title-smaller, .newbook-title-smaller {
+    font-size: 15vw;
+}
+.single-article h1.newbook-title-double, .newbook-title-double {
+    font-size: 14vw;
+}
 .newbook-author {
     font-family: 'Barlow', sans-serif;
     font-size: 8.5vw;
@@ -11853,6 +11859,10 @@ input:checked ~ .input-hidden {
     .single-article h1.newbook-title, .newbook-title {
         font-size: 138px;
         font-size: 6.9rem;
+    }
+    .single-article h1.newbook-title-smaller, .newbook-title-smaller {
+        font-size: 90px;
+        font-size: 4.5rem;
     }
     .newbook-author {
         font-size: 46px;
@@ -12090,12 +12100,27 @@ input:checked ~ .input-hidden {
     }
 }
 .special-category-title h1 img {
-    max-width: 160px;
+    height: 36px;
     display: inline-block;
-    margin-right: 6px;
+    margin-right: 2px;
+}
+.special-category-title h1 img.dark-mode-only {
+    display: none;
+}
+.dark-mode .special-category-title h1 img {
+    display: none;
+}
+.special-category-title h1 img:first-child, .special-category-title h1 img:nth-child(3) {
+    position: relative;
+    bottom: -0.5px;
+}
+.dark-mode .special-category-title h1 img.dark-mode-only {
+    display: inline-block;
 }
 .special-category-title h1 {
     font-weight: 400;
+    font-size: 40px;
+    font-size: 2rem;
 }
 .blend-ligthen {
     mix-blend-mode: lighten;
@@ -12189,5 +12214,429 @@ input:checked ~ .input-hidden {
     }
     .homepage .pretplata-bf .nothtwo {
         margin-bottom: 8px;
+    }
+}
+
+.category-kultura .article h2, .category-kultura .block-kaineng .alt-big-break .article h2 {
+    font-weight: 400;
+}
+.category-kultura .smaller-featured-title .article h2 {
+    font-size: 20px;
+    font-size: 1rem;
+}
+@media screen and (min-width: 767px) {
+    .category-kultura .article h2, .category-kultura .block-kaineng .alt-big-break .article h2 {
+        margin-bottom: 6px;
+    }
+    .category-kultura .smaller-featured-title .article h2 {
+        font-size: 18px;
+        font-size: 0.9rem;
+    }
+}
+.category-kultura .super-sidebar .article h2 {
+    padding-top: 0px;
+}
+.category-kultura .super-sidebar .article h2 {
+    font-size: 19px;
+    font-size: 0.95rem;
+}
+.category-kultura .super-sidebar.split-articles .article-medium img {
+    object-fit: cover;
+    width: 90px;
+    height: 90px;
+    margin-left: 16px;
+    padding-left: 0px;
+    object-position: center center;
+}
+.single-article h1.newbook-title-double, .newbook-title-double {
+    line-height: 0.6em;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+}
+.newbook-title-double .smaller-text {
+    font-size: 0.5em;
+    display: inline-block;
+    padding-bottom: 0.3em;
+}
+@media screen and (max-width: 767px) {
+    .category-kultura .cantha-block-title .menu {
+        border-top: none;
+        padding-bottom: 4vw;
+    }
+    .no-mob-articlepad-border .article-featured:first-child .article-pad {
+        border-bottom: none;
+    }
+}
+.special-category-widget p {
+    font-family: 'Barlow', sans-serif;
+    line-height: 1.15em;
+    letter-spacing: normal;
+    font-size: 14px;
+    font-size: 0.7rem;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 3;
+    opacity: .8;
+}
+.special-category-widget:hover p {
+    opacity: 1;
+}
+.special-category-widget .newbtn {
+    position: relative;
+    z-index: 3;
+}
+.special-category-widget .img-as-bg {
+    opacity: .2;
+    z-index: 1;
+}
+.special-category-widget::before {
+    content: " ";
+    position: absolute;
+    left: -1px;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 2;
+    background: linear-gradient(to right, rgba(252,241,231, 1), rgba(252,241,231, 0));
+}
+.special-category-widget::after {
+    content: " ";
+    position: absolute;
+    right: -1px;
+    top: 0;
+    width: 20%;
+    height: 100%;
+    z-index: 2;
+    background: linear-gradient(to left, rgba(252,241,231, 1), rgba(252,241,231, 0));
+}
+.dark-mode .special-category-widget::before {
+    background: linear-gradient(to right, rgba(33,33,33, 1), rgba(33,33,33, 0));
+}
+.contrast-mode .special-category-widget::before {
+    background: linear-gradient(to right, rgba(255,255,255, 1), rgba(255,255,255, 0));
+}
+.dark-mode .special-category-widget::after {
+    background: linear-gradient(to left, rgba(33,33,33, 1), rgba(33,33,33, 0));
+}
+.contrast-mode .special-category-widget::after {
+    background: linear-gradient(to left, rgba(255,255,255, 1), rgba(255,255,255, 0));
+}
+.special-category-pretplata {
+    margin-bottom: 4vw;
+}
+.special-category-pretplata .nothtwo {
+    font-family: 'Barlow', sans-serif;
+    line-height: 1.15em;
+    letter-spacing: normal;
+    font-size: 16px;
+    font-size: 0.8rem;
+    margin-bottom: 16px;
+}
+.special-category-pretplata .img-as-bg {
+    opacity: .1;
+    z-index: 2;
+}
+.special-category-pretplata div {
+    z-index: 3;
+    position: relative;
+}
+@media screen and (min-width: 767px) {
+    .category-kultura .alt-big-break.center-text .article .noththree.overtitle {
+        margin-bottom: 0px;
+    }
+}
+@media screen and (max-width: 767px) {
+    .category-kultura .alt-big-break.center-text .article .desktop-only, .category-kultura .alt-big-break.center-text .article .desktop-only .noththree.overtitle {
+        display: flex;
+    }
+}
+
+/* Block Amnytas (kultura only for now) */
+
+.article-amnytas .article-featured {
+    position: relative;
+}
+.article-amnytas .article-featured .nothfour, .article-amnytas .article-featured .noththree.overtitle {
+    display: none;
+}
+.article-amnytas .article-featured img {
+    margin-bottom: 0px;
+    max-height: 420px;
+    object-fit: cover;
+}
+.article-amnytas .article-featured .article-pad {
+    position: absolute;
+    z-index: 9;
+    color: white;
+    bottom: 0;
+    left: 0;
+    padding: 24px;
+    padding-top: 24px;
+    padding-top: 80px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+    text-shadow: 0px 0px 10px black;
+}
+.article-amnytas .article-featured:hover h2 {
+    color: #bbb;
+}
+
+@media screen and (max-width: 767px) {
+    .article-amnytas .article-featured img {
+        height: 125vw;
+    }
+    .article-amnytas .article-featured h2 {
+        font-size: 22px;
+        font-size: 1.1rem;
+    }
+}
+
+/* Pretplata blue */
+
+.pretplata-blue {
+    background-color: #304769;
+}
+.pretplata-blue p {
+    font-family: 'Barlow', sans-serif;
+    font-size: 20px;
+    font-size: 1rem;
+}
+.pretplata-blue .pretplata-benefits p {
+    font-size: 16px;
+    font-size: 0.8rem;
+}
+.pretplata-blue .smaller-text {
+    font-size: 16px;
+    font-size: 0.8rem;
+}
+.dark-mode.pretplata-blue .pretplata-benefits p {
+    color: white;
+    opacity: .7;
+}
+.pretplata-blue .bigger-undertitle {
+    margin-bottom: 4px;
+}
+.pretplata-blue .huge-newbtn {
+    margin-top: 16px;
+}
+.pretplata-blue .nothtwo {
+    margin-bottom: 16px;
+}
+.pretplata-blue .nothtwo span {
+    display: inline-block;
+}
+.pretplata-blue .pretplata-benefits {
+    margin-top: 16px;
+}
+@media screen and (min-width: 767px) {
+    .pretplata-blue .absolute-half-img {
+        width: 69%;
+        height: auto;
+        position: absolute;
+        bottom: 0;
+        right: -3%;
+    }
+    .pretplata-blue .nothtwo {
+        font-size: 48px;
+        font-size: 2.4rem;
+    }
+    .pretplata-blue .sixty {
+        z-index: 5;
+    }
+}
+@media screen and (max-width: 767px) {
+    .pretplata-blue .pretplata-benefits {
+
+        margin-bottom: 0px;
+    }
+    .pretplata-blue .pretplata-benefits p, .pretplata-blue .smaller-text {
+        font-size: 3.6vw;
+    }
+    .pretplata-blue p {
+        font-size: 4.4vw;
+    }
+    .pretplata-blue .nothtwo {
+        font-size: 10vw;
+        margin-bottom: 8px;
+    }
+    .pretplata-blue .sixty {
+        margin-bottom: 0px;
+    }
+    .homepage .pretplata-blue .sixty {
+        margin-bottom: -15vw;
+    }
+    .homepage .pretplata-blur .nothtwo {
+        font-size: 8vw;
+    }
+}
+
+.grecaptcha-badge {
+  visibility: hidden !important;
+}
+
+
+/* Book xmas */
+.newbook-xmas {
+    color: white; 
+    overflow: hidden;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+}
+.newbook-xmas .container {
+    z-index: 5;
+}
+/*.newbook-xmas .newbtn {
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.2);
+}
+.newbook-xmas .newbtn:hover {
+    border: 1px solid rgba(255,255,255,0.4);
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.4);
+}*/
+.single-article .newbook-xmas h1.newbook-title, .newbook-xmas .newbook-title {
+    font-size: 12vw;
+    line-height: 1.1em;
+}
+.newbook-xmas .newbook-overtitle {
+    color: white;
+    opacity: .7;
+}
+.newbook-xmas .ps-xmas1, .newbook-xmas .ps-xmas2 {
+    mix-blend-mode: overlay;
+    z-index: 3;
+    bottom: 0;
+    width: 40vw;
+    opacity: .5;
+}
+.newbook-xmas .ps-xmas1 {
+    right: -20vw;
+}
+.newbook-xmas .ps-xmas2 {
+    left: -20vw;
+}
+
+@media screen and (min-width: 767px) {
+    .single-article .newbook-xmas h1.newbook-title, .newbook-xmas .newbook-title {
+        font-size: 80px;
+        font-size: 4rem;
+    }
+    .newbook-xmas {
+        padding-top: 10vh;
+        padding-bottom: 10vh;
+    }
+}
+.newbook-gifting .newbook-title {
+    font-size: 13vw;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+.newbook-gifting .newbook-author {
+    font-size: 6.2vw;
+}
+.newbook-gifting .newbook-intro {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.newbook-gifting .pretplata-benefits {
+    margin-top: 8px;
+}
+.newbook-gifting {
+    padding-top: 0vh;
+    padding-bottom: 3vh;
+}
+
+@media screen and (min-width: 767px) {
+    .newbook-gifting .newbook-title {
+        font-size: 56px;
+        font-size: 2.8rem;
+        margin-bottom: 0px;
+    }
+    .newbook-gifting .newbook-author {
+        font-size: 40px;
+        font-size: 2.06rem;
+    }
+    .newbook-gifting .newbook-intro {
+        max-width: 100%;
+    }
+    .newbook-gifting {
+        padding-top: 7vh;
+        padding-bottom: 7vh;
+    }    
+    .newbook-gifting .smaller-container .newbook-title {
+        font-size: 48px;
+        font-size: 2.4rem;
+    }
+    .newbook-gifting .smaller-container .newbook-author {
+        font-size: 28px;
+        margin-top: 8px;
+        font-size: 1.4rem;
+    }
+    .homepage .newbook-gifting {
+        padding-top: 3vh;
+    }
+    .newbook-gifting .smaller-container .newbook-intro {
+        font-size: 17px;
+        font-size: 0.85rem;
+    }
+}
+@media screen and (max-width: 767px) {
+    .homepage .newbook-gifting .ps-xmas1, .homepage .newbook-gifting .ps-xmas2 {
+        width: 50vw;
+        opacity: .25;
+    }
+    .homepage .newbook-gifting .ps-xmas1 {
+        right: -20vw;
+    }
+    .homepage .newbook-gifting .ps-xmas2 {
+        left: -20vw;
+        top: 0px;
+    }
+    .homepage .newbook-gifting .newbook-title {
+        font-size: 8.4vw;
+    }
+    .homepage .newbook-gifting {
+        padding-bottom: 0px;
+        margin-bottom: -2vw;
+        padding-top: 2vw;
+    }
+    .homepage .newbook-gifting .newbook-author {
+        font-size: 4vw;
+        text-transform: none;
+        font-weight: bold;
+        font-size: 14px;
+        font-size: 0.7rem;
+    }
+    .homepage .newbook-gifting .newbook-intro {
+        font-size: 14px;
+        font-size: 0.7rem;
+        margin-top: 4px;
+    }
+    .homepage .newbook-gifting .newbook-price {
+        font-size: 16px;
+        font-size: 0.8rem;
+        order: 2;
+        width: auto;
+        padding-left: 8px;
+        padding-top: 2px;
+    }
+    .homepage .newbook-gifting .sixty {
+        justify-content: flex-start;
+    }
+    .homepage .newbook-gifting .huge-newbtn {
+        font-size: 14px;
+        font-size: 0.7rem;
+        padding: 6px 10px;
+        padding-top: 5px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    .homepage .newbook-gifting .newbook-btn {
+        order: 1;
+        width: auto;
+    }
+    .homepage .newbook-gifting p.smaller-text.faded{
+        order: 3;
+        font-size: 10px;
+        font-size: 0.5rem;
+        font-family: 'Barlow', sans-serif;
     }
 }

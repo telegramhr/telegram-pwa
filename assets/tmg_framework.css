@@ -86,6 +86,9 @@ i, em, .italic {
 .strikethrough {
     text-decoration: line-through;
 }
+.all-caps {
+    text-transform: uppercase;
+}
 
 /* Media */
 

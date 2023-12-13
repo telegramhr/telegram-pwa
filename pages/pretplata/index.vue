@@ -7,62 +7,78 @@
         headline="Pretplatite se i podržite naše bespoštedno novinarstvo."
       ></theader>
     </div>
-    <!-- Above header banner -->
-    <app-link
-      to="/pretplata/black-friday/?checkout=bf2023"
-      class="full center relative dark-mode pretplata-bf column-full-pad mobile-full-pad"
-    >
-      <img
-        src="@/assets/img/tg_black_friday_bg.jpg"
-        alt="Kolaž naslovnih fotografija raznih istraživačkih specijala Telegrama"
-        class="img-as-bg"
-      />
-      <div class="container center relative mobile-side-pad">
-        <div class="half relative desktop-only">
-          <img
-            src="@/assets/img/tg_visual_bf_logo.png"
-            alt="Logo Black Friday akcije na Telegramu: 2 za 1"
-          />
-        </div>
-        <div
-          class="half column-full-pad flex-responsive flex relative stretch m-order-2 mobile-vertical-pad"
-        >
-          <div class="full flex overtitle-parent mobile-only">
-            <div class="overtitle noththree">
-              <span>Black Friday akcija</span>
+    <client-only>
+      <div
+        v-if="!$store.state.user.access"
+        class="full flex relative center mobile-side-pad newbook-xmas newbook-gifting column-full-pad dark-mode"
+      >
+        <img
+          src="@/assets/img/tg_visual_2023_xmasbg_green.jpg"
+          class="img-as-bg"
+          aria-hidden="true"
+        />
+        <img
+          class="ps-xmas1"
+          src="@/assets/img/tg_xmas_1.png"
+          aria-hidden="true"
+        />
+        <img
+          class="ps-xmas2"
+          src="@/assets/img/tg_xmas_2.png"
+          aria-hidden="true"
+        />
+        <div class="container relative flex stretch">
+          <div class="half tablet-full flex flex-responsive center m-order-2">
+            <div class="full flex overtitle-parent">
+              <div class="overtitle noththree">
+                <span>Božićna akcija</span>
+              </div>
+            </div>
+            <div class="full newbook-title all-caps">
+              <span class="ib">Darujte si</span>
+              <span class="ib">Telegram!</span>
+            </div>
+            <p class="full newbook-intro">
+              Ovih praznika počastite se pretplatom, po najboljoj božićnoj
+              cijeni
+            </p>
+            <div class="full relative newbook-price">
+              <span class="faded strikethrough">6,49€</span> 1,99€ mjesečno
+            </div>
+            <p class="full smaller-text faded">
+              prva 3 mjeseca, nakon toga 6,49€
+            </p>
+            <div class="full flex btn-parent newbook-btn">
+              <div class="newbtn clickable huge-newbtn animate" @click="checkout(bozic)">Kupite</div>
+            </div>
+            <div class="full pretplata-benefits">
+              <p class="full animate">
+                <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+                senzacionalna cijena za vrhunski sadržaj
+              </p>
+              <p class="full animate">
+                <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+                neograničeno čitanje Telegrama i Telesporta
+              </p>
+              <p class="full animate">
+                <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+                pristup najboljim autorima u Hrvatskoj
+              </p>
+              <p class="full animate">
+                <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+                popusti na top knjige, predstave i izložbe
+              </p>
             </div>
           </div>
-          <div class="full nothtwo">
-            Dvije godine premium pretplate za cijenu jedne!
-          </div>
-          <div class="full undertitle bigger-undertitle">
-            <span class="strikethrough faded">156€</span> 78€ za dvije godine
-          </div>
-          <div class="full flex">
-            <div
-              class="flex newbtn huge-newbtn animate clickable"
-              @click="checkout('TMWKY7BX6TFX')"
-            >
-              Kupite odmah
-            </div>
-          </div>
-          <div class="full pretplata-benefits">
-            <p class="full animate">
-              <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-              Neograničeno čitanje bez oglasa
-            </p>
-            <p class="full animate">
-              <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-              Popusti na top knjige, predstave i izložbe
-            </p>
-            <p class="full animate bold">
-              <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-              Ograničena akcija, samo do petka 24.11.
-            </p>
+          <div class="half tablet-full flex flex-responsive center m-order-1">
+            <img
+              src="@/assets/img/tg_visual_xmas_pretplata_alt.png"
+              aria-hidden="true"
+            />
           </div>
         </div>
       </div>
-    </app-link>
+    </client-only>
     <div id="pretplata-selector" class="full flex">
       <div class="full flex relative">
         <div
@@ -928,6 +944,16 @@ export default {
           price: 158,
           gtm: 'standard-annual-2y',
         },
+        TMYNBHMX6JBL: {
+          title: 'Akcija u sprezi',
+          price: 1,
+          gtm: 'akcija-sprega',
+        },
+        TMYTVOS7AU82: {
+          title: 'Božićna akcija',
+          price: 1.99,
+          gtm: 'bozicna-akcija',
+        },
       },
     }
   },
@@ -959,6 +985,9 @@ export default {
     five() {
       return 'TM15W5K9EVY4'
     },
+    bozic() {
+      return 'TMYTVOS7AU82'
+    },
   },
   mounted() {
     this.$nextTick(() => {
@@ -973,6 +1002,8 @@ export default {
           'TMWPGMUCMX45',
           'TM15W5K9EVY4',
           'TMWKY7BX6TFX',
+          'TMYNBHMX6JBL',
+          'TMYTVOS7AU82',
         ],
       })
       window.tp.push([
@@ -1014,14 +1045,15 @@ export default {
           case 'py':
             this.checkout(this.four)
             break
-          case 'pbf':
-            this.checkout(this.five)
-            break
-          case 'bf2023':
-            this.checkout('TMWKY7BX6TFX')
-            break
           case 'two-year':
             this.checkout('TML20R6ZYA0X')
+            break
+          case 'plenkovic':
+            this.checkout('TMYNBHMX6JBL')
+            break
+          case 'bozic':
+            this.checkout(this.bozic)
+            break
         }
       }
     })
@@ -1061,15 +1093,20 @@ export default {
         this.checkout2(termId, -1)
       } else {
         const _that = this
-        window.tp.pianoId.show({
-          screen: 'register',
-          width: window.innerWidth > 720 ? 600 : 375,
-          loggedIn(data) {
-            _that.$store.dispatch('user/setUser', data.user)
-            // window.location.reload()
-            _that.checkout2(termId, -2)
+        window.tp.push([
+          'init',
+          () => {
+            window.tp.pianoId.show({
+              screen: 'register',
+              width: window.innerWidth > 720 ? 600 : 375,
+              loggedIn(data) {
+                _that.$store.dispatch('user/setUser', data.user)
+                // window.location.reload()
+                _that.checkout2(termId, -2)
+              },
+            })
           },
-        })
+        ])
       }
     },
     checkout2(termId, back) {

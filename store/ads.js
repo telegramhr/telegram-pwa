@@ -47,8 +47,12 @@ export const state = () => ({
       routes: [
         'index',
         'category',
+        'category-slug',
         'super1',
         'super1-category',
+        'super1-category-slug',
+        'pitanje-zdravlja-category-slug',
+        'openspace-category-slug',
         'pitanje-zdravlja-category',
         'openspace-category',
       ],
@@ -170,8 +174,12 @@ export const state = () => ({
       routes: [
         'index',
         'category',
+        'category-slug',
         'super1',
         'super1-category',
+        'super1-category-slug',
+        'pitanje-zdravlja-category-slug',
+        'openspace-category-slug',
         'pitanje-zdravlja-category',
         'openspace-category',
       ],
@@ -1388,6 +1396,12 @@ export const actions = {
         window.googletag.pubads().setCategoryExclusion('NePromo')
       }
       window.googletag.pubads().setTargeting('env', 'test')
+      if (window.prebid === 'prebid') {
+        window.googletag.pubads().setTargeting('prebid', 'inhouse')
+      }
+      if (window.prebid === 'rubicon') {
+        window.googletag.pubads().setTargeting('prebid', 'demand manager')
+      }
       if (route.query.reload) {
         window.googletag.pubads().setTargeting('reload', '1')
       }
@@ -1441,81 +1455,83 @@ export const actions = {
       }
       commit('setSlots')
     })
-    /* window.pbjs = window.pbjs || {}
-    window.pbjs.que = window.pbjs.que || []
-    window.pbjs.que.push(() => {
-      window.pbjs.setConfig({
-        ortb2: {
-          site: {
-            content: {
-              language: 'hr',
-            },
-          },
-        },
-        performanceMetrics: false,
-        debug: false,
-        enableSendAllBids: true,
-        priceGranularity: 'low',
-        consentManagement: {
-          gdpr: {
-            cmpApi: 'iab',
-            defaultGdprScope: true,
-          },
-        },
-        userSync: {
-          iframeEnabled: true,
-          userIds: [
-            {
-              name: 'pubCommonId',
-              storage: {
-                name: '_pubcid',
-                type: 'cookie',
-                expires: 365,
-              },
-              params: {
-                pixelUrl: '/wp-json/pubcid/v1/extend/',
+    if (window.prebid === 'prebid') {
+      window.pbjs = window.pbjs || {}
+      window.pbjs.que = window.pbjs.que || []
+      window.pbjs.que.push(() => {
+        window.pbjs.setConfig({
+          ortb2: {
+            site: {
+              content: {
+                language: 'hr',
               },
             },
-          ],
-          filterSettings: {
-            iframe: {
-              bidders: '*',
-              filter: 'include',
-            },
-            image: {
-              bidders: '*',
-              filter: 'include',
+          },
+          performanceMetrics: false,
+          debug: false,
+          enableSendAllBids: true,
+          priceGranularity: 'low',
+          consentManagement: {
+            gdpr: {
+              cmpApi: 'iab',
+              defaultGdprScope: true,
             },
           },
-        },
-      })
-      // const prefix = state.prefix
-      const sizes = this.$mobile ? 'mobile' : 'desktop'
-      let unit
-      for (const i of Object.keys(state.units)) {
-        if (i in state.units && state.units[i].pbjs) {
-          unit = state.units[i]
-          if (!unit.pbjs[sizes].sizes) {
-            continue
-          }
-          if (route && !unit.routes.includes(route.name)) {
-            continue
-          }
-          if (!document.getElementById(i)) {
-            continue
-          }
-          window.pbjs.addAdUnits({
-            code: i,
-            mediaTypes: {
-              banner: {
-                sizes: unit.pbjs[sizes].sizes,
+          userSync: {
+            iframeEnabled: true,
+            userIds: [
+              {
+                name: 'pubCommonId',
+                storage: {
+                  name: '_pubcid',
+                  type: 'cookie',
+                  expires: 365,
+                },
+                params: {
+                  pixelUrl: '/wp-json/pubcid/v1/extend/',
+                },
+              },
+            ],
+            filterSettings: {
+              iframe: {
+                bidders: '*',
+                filter: 'include',
+              },
+              image: {
+                bidders: '*',
+                filter: 'include',
               },
             },
-            bids: unit.pbjs[sizes].bids,
-          })
+          },
+        })
+        // const prefix = state.prefix
+        const sizes = this.$mobile ? 'mobile' : 'desktop'
+        let unit
+        for (const i of Object.keys(state.units)) {
+          if (i in state.units && state.units[i].pbjs) {
+            unit = state.units[i]
+            if (!unit.pbjs[sizes].sizes) {
+              continue
+            }
+            if (route && !unit.routes.includes(route.name)) {
+              continue
+            }
+            if (!document.getElementById(i)) {
+              continue
+            }
+            window.pbjs.addAdUnits({
+              code: i,
+              mediaTypes: {
+                banner: {
+                  sizes: unit.pbjs[sizes].sizes,
+                },
+              },
+              bids: unit.pbjs[sizes].bids,
+            })
+          }
         }
-      }
-    }) */
+      })
+    }
     dispatch('displaySlots')
   },
   displaySlots({ dispatch, state }) {
@@ -1536,15 +1552,14 @@ export const actions = {
     dispatch('refreshSlots')
   },
   refreshSlots({ dispatch }) {
-    // check consent and if we get have it then continue with load
     window.googlefc = window.googlefc || {}
     window.googlefc.callbackQueue = window.googlefc.callbackQueue || []
     window.googletag = window.googletag || {}
     window.googletag.cmd = window.googletag.cmd || []
     /* global __tcfapi */
     window.googlefc.callbackQueue.push({
-      CONSENT_DATA_READY: () =>
-        __tcfapi('getTCData', 0, (data, success) => {
+      CONSENT_API_READY: () =>
+        __tcfapi('addEventListener', 2.2, (data, success) => {
           if (data.purpose.consents[1]) {
             dispatch('initPBJS')
           }
@@ -1554,26 +1569,26 @@ export const actions = {
   initPBJS({ dispatch }) {
     window.pbjs = window.pbjs || {}
     window.pbjs.que = window.pbjs.que || []
-    /* window.pbjs.que.push(() => {
-      window.pbjs.requestBids({
-        bidsBackHandler: () => dispatch('initAdserver'),
-        timeout: 1000,
-      })
-    }) */
-    window.pbjs.que.push(function () {
-      window.pbjs.rp.requestBids({
-        callback: () => dispatch('initAdserver'),
-      })
+    window.pbjs.que.push(() => {
+      if (window.prebid === 'prebid') {
+        window.pbjs.requestBids({
+          bidsBackHandler: () => dispatch('initAdserver'),
+          timeout: 1000,
+        })
+      }
+      if (window.prebid === 'rubicon') {
+        window.pbjs.rp.requestBids({
+          callback: dispatch('initAdserver'),
+        })
+      }
     })
     setTimeout(() => {
       dispatch('initAdserver')
     }, 3500)
   },
   initAdserver({ state }) {
-    /* if (window.pbjs.initAdserverSet) return
-    window.pbjs.initAdserverSet = true */
-    if (window.pbjs.adserverCalled) return
-    window.pbjs.adserverCalled = true
+    if (window.pbjs.initAdserverSet) return
+    window.pbjs.initAdserverSet = true
     if (state.route === 'nesto-slug') {
       return
     }

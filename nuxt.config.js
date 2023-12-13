@@ -32,27 +32,19 @@ export default {
       },
       {
         rel: 'stylesheet',
-        type: 'text/css',
-        href: 'https://linker.hr/widget/lw.css',
-      },
-      {
-        rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=IBM+Plex+Mono:wght@500;600&family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap',
-      },
-      {
-        rel: 'preload',
-        href: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js',
-        as: 'script',
       },
     ],
     script: [
       {
-        src: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js',
-        async: true,
+        vmid: 'recaptcha',
+        src: 'https://www.google.com/recaptcha/api.js?render=6Le4Y0caAAAAAI_E2k1sgXvWuXR8cViLC-iJIpEq',
       },
       {
-        src: 'https://micro.rubiconproject.com/prebid/dynamic/26072.js',
-        async: true,
+        vmid: 'recaptcha-inner',
+        hid: 'recaptcha-inner',
+        innerHTML:
+          "grecaptcha.ready(function() { grecaptcha.execute('6Le4Y0caAAAAAI_E2k1sgXvWuXR8cViLC-iJIpEq', {action: 'homepage'}).then(function(token) {}); });",
       },
       {
         hid: 'piano',
@@ -71,6 +63,9 @@ export default {
         defer: true,
       },
     ],
+    __dangerouslyDisableSanitizersByTagID: {
+      'recaptcha-inner': ['innerHTML'],
+    },
   },
 
   router: {

@@ -7,6 +7,68 @@
         headline="Poklonite Telegram pretplatu, poklon koji se otvara svaki dan"
       ></theader>
     </div>
+    <client-only>
+      <div
+        v-if="$store.state.user.access"
+        class="full flex relative center mobile-side-pad newbook-xmas newbook-gifting column-full-pad dark-mode"
+      >
+        <img
+          src="@/assets/img/tg_visual_2023_xmasbg_green.jpg"
+          class="img-as-bg"
+          aria-hidden="true"
+        />
+        <img
+          class="ps-xmas1"
+          src="@/assets/img/tg_xmas_1.png"
+          aria-hidden="true"
+        />
+        <img
+          class="ps-xmas2"
+          src="@/assets/img/tg_xmas_2.png"
+          aria-hidden="true"
+        />
+        <div class="container relative flex stretch">
+          <div class="half tablet-full flex flex-responsive center m-order-2">
+            <div class="full newbook-title all-caps">Poklonite Telegram</div>
+            <div class="full newbook-author all-caps">
+              dar koji se otvara svaki dan
+            </div>
+            <p class="full newbook-intro">
+              Ovih praznika prijateljima, partnerima ili ukućanima poklonite
+              godinu dana pretplate, po posebnoj cijeni samo za vas
+            </p>
+            <div class="full relative newbook-price">
+              <span class="faded strikethrough">78€</span> 29,99€
+            </div>
+            <div class="full flex btn-parent newbook-btn">
+              <div class="newbtn clickable huge-newbtn animate" @click="promo">
+                Poklonite
+              </div>
+            </div>
+            <div class="full pretplata-benefits">
+              <p class="full animate">
+                <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+                godinu dana neograničenog pristupa
+              </p>
+              <p class="full animate">
+                <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+                premium iskustvko čitanja bez oglasa
+              </p>
+              <p class="full animate">
+                <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+                popusti na top knjige, izložbe i predstave
+              </p>
+            </div>
+          </div>
+          <div class="half tablet-full flex flex-responsive center m-order-1">
+            <img
+              src="@/assets/img/tg_visual_xmas_pretplata_alt.png"
+              aria-hidden="true"
+            />
+          </div>
+        </div>
+      </div>
+    </client-only>
     <div class="full flex pretplata-page-content">
       <div class="full flex relative">
         <div
@@ -41,10 +103,6 @@
             <div class="full pretplata-benefits">
               <p class="full animate">
                 <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-                365 dana pristupa
-              </p>
-              <p class="full animate">
-                <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
                 neograničeno čitanje Telegrama
               </p>
               <p class="full animate">
@@ -54,6 +112,10 @@
               <p class="full animate">
                 <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
                 specijalni newsletteri
+              </p>
+              <p class="full animate">
+                <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+                verificirani profil u komentarima
               </p>
               <p class="full animate">
                 <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
@@ -77,10 +139,6 @@
             <div class="full pretplata-benefits">
               <p class="full animate">
                 <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-                365 dana pristupa
-              </p>
-              <p class="full animate">
-                <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
                 neograničeno čitanje Telegrama
               </p>
               <p class="full animate">
@@ -97,15 +155,11 @@
               </p>
               <p class="full animate">
                 <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-                surfanje bez oglasa
+                verificirani profil u komentarima
               </p>
               <p class="full animate">
                 <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-                gratis knjiga u izdanju Telegrama<a
-                  href="#knjige-disclaimer"
-                  onclick="document.getElementById('knjige-disclaimer').open = true;"
-                  >*</a
-                >
+                surfanje bez oglasa
               </p>
             </div>
             <div class="full center btn-parent" @click="checkout(two)">
@@ -294,6 +348,7 @@ export default {
   name: 'Pretplata',
   data() {
     return {
+      promo_code: '',
       terms: {
         TM1LSJL22UJP: {
           title: 'Telegram Standard Poklon',
@@ -340,10 +395,15 @@ export default {
       'user-type': this.$store.state.user.type,
     })
     if (this.$route.query.promo_code) {
-      this.checkout(this.one)
+      this.promo_code = this.$route.query.promo_code
+      this.checkout(this.two)
     }
   },
   methods: {
+    promo() {
+      this.promo_code = 'OU1FMSFRMS'
+      this.checkout(this.two)
+    },
     checkout(termId) {
       this.$gtm.push({
         event: 'subscription-funnel',
@@ -379,7 +439,6 @@ export default {
         currency: 'EUR',
         value: this.terms[termId].price,
       })
-      const promo = this.$route.query.promo_code
       window.tp.push([
         'init',
         () => {
@@ -388,7 +447,7 @@ export default {
             termId,
             templateId: 'OTXWXSOL0WWS',
             checkoutFlowId: 'CF65KTMVQXXX',
-            promoCode: promo,
+            promoCode: this.promo_code,
             closeOnLogout: true,
             complete: (data) => {
               _that.$store.dispatch('user/checkAccess')

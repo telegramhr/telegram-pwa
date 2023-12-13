@@ -19,84 +19,111 @@
     <client-only>
       <app-link
         v-if="!$store.state.user.access"
-        to="/pretplata/black-friday/?checkout=bf2023"
-        class="full center relative dark-mode pretplata-bf column-full-pad mobile-full-pad"
+        to="/pretplata/?checkout=bozic"
+        class="full flex relative center newbook-xmas newbook-gifting column-full-pad dark-mode"
       >
         <img
-          src="@/assets/img/tg_black_friday_bg.jpg"
-          alt="Kolaž naslovnih fotografija raznih istraživačkih specijala Telegrama"
+          src="@/assets/img/tg_visual_2023_xmasbg_green.jpg"
           class="img-as-bg"
+          aria-hidden="true"
         />
-        <div class="container center relative mobile-side-pad">
-          <div class="half relative desktop-only">
+        <img
+          class="ps-xmas1"
+          src="@/assets/img/tg_xmas_1.png"
+          aria-hidden="true"
+        />
+        <img
+          class="ps-xmas2"
+          src="@/assets/img/tg_xmas_2.png"
+          aria-hidden="true"
+        />
+        <div class="container smaller-container relative flex stretch">
+          <div class="sixty flex center m-order-2 mobile-full-pad">
+            <div class="full newbook-title all-caps desktop-only">
+              <span class="ib">Darujte si</span>
+              <span class="ib">Telegram!</span>
+            </div>
+
+            <div class="full newbook-author all-caps mobile-only">
+              Darujte si Telegram!
+            </div>
+            <p class="full newbook-intro">
+              Ovih praznika počastite se pretplatom, po najboljoj božićnoj
+              cijeni
+            </p>
+            <div class="full relative newbook-price">
+              <span class="faded strikethrough">6,49€</span> 1,99€
+              <span class="desktop-only">mjesečno</span>
+            </div>
+            <p class="full smaller-text faded desktop-only">
+              prva 3 mjeseca, nakon toga 6,49€
+            </p>
+            <div class="full flex btn-parent newbook-btn">
+              <div class="newbtn clickable huge-newbtn animate">
+                Kupite <span class="desktop-only">odmah</span>
+              </div>
+            </div>
+          </div>
+          <div class="forty flex center m-order-1">
             <img
-              src="@/assets/img/tg_visual_bf_logo.png"
-              alt="Logo Black Friday akcije na Telegramu: 2 za 1"
+              src="@/assets/img/tg_visual_xmas_pretplata_alt.png"
+              aria-hidden="true"
             />
           </div>
-          <div
-            class="half column-full-pad flex-responsive flex relative stretch m-order-2 mobile-vertical-pad"
-          >
-            <div class="full flex overtitle-parent mobile-only">
-              <div class="overtitle noththree">
-                <span>Black Friday akcija</span>
-              </div>
+        </div>
+      </app-link>
+      <app-link
+        v-if="$store.state.user.access"
+        to="/pretplata/poklon?promo_code=OU1FMSFRMS"
+        class="full flex relative center newbook-xmas newbook-gifting column-full-pad dark-mode"
+      >
+        <img
+          src="@/assets/img/tg_visual_2023_xmasbg_green.jpg"
+          class="img-as-bg"
+          aria-hidden="true"
+        />
+        <img
+          class="ps-xmas1"
+          src="@/assets/img/tg_xmas_1.png"
+          aria-hidden="true"
+        />
+        <img
+          class="ps-xmas2"
+          src="@/assets/img/tg_xmas_2.png"
+          aria-hidden="true"
+        />
+        <div class="container smaller-container relative flex stretch">
+          <div class="sixty flex center m-order-2 mobile-full-pad">
+            <div class="full newbook-title all-caps desktop-only">
+              Poklonite Telegram
             </div>
-            <div class="full nothtwo">
-              Dvije godine premium pretplate za cijenu jedne!
+            <div class="full newbook-author all-caps">
+              Dar koji se otvara svaki dan
             </div>
-            <div class="full undertitle bigger-undertitle">
-              <span class="strikethrough faded">156€</span> 78€ za 2 godine
+            <p class="full newbook-intro desktop-only">
+              Ovih praznika prijateljima, partnerima ili ukućanima poklonite
+              godinu dana pretplate, po posebnoj cijeni samo za vas
+            </p>
+            <p class="full newbook-intro mobile-only">
+              Za praznike poklonite nekom godinu dana Telegram pretplate, po
+              posebnoj cijeni za Vas
+            </p>
+            <div class="full relative newbook-price">
+              <span class="faded strikethrough">78€</span> 29,99€
             </div>
-            <div class="full flex">
-              <div
-                class="flex newbtn huge-newbtn animate clickable"
-                @click="checkout('TMWKY7BX6TFX')"
-              >
-                Kupite odmah
-              </div>
+            <div class="full flex btn-parent newbook-btn">
+              <div class="newbtn clickable huge-newbtn animate">Poklonite</div>
             </div>
-            <div class="full pretplata-benefits">
-              <p class="full animate">
-                <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-                Neograničeno čitanje bez oglasa
-              </p>
-              <p class="full animate">
-                <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-                Popusti na top knjige, predstave i izložbe
-              </p>
-              <p class="full animate bold">
-                <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-                Ograničena akcija, samo do petka 24.11.
-              </p>
-            </div>
+          </div>
+          <div class="forty flex center m-order-1">
+            <img
+              src="@/assets/img/tg_visual_xmas_pretplata_alt.png"
+              aria-hidden="true"
+            />
           </div>
         </div>
       </app-link>
     </client-only>
-    <!--<app-link
-      v-if="!$store.state.user.access"
-      to="/pretplata"
-      class="full relative darkened-bg birati-stranu-widget"
-    >
-      <div
-        class="container column-full-pad mobile-full-pad flex relative animated-birati-stranu"
-      >
-        <p
-          class="full center-text animate column-top-pad mobile-top-pad birati-stranu-title"
-        >
-          Nekad je nužno odabrati stranu.
-        </p>
-        <p class="full center-text animate birati-stranu-subtitle">
-          Postanite Telegramov pretplatnik
-        </p>
-        <div
-          class="full center animate column-vertical-pad mobile-vertical-pad"
-        >
-          <div class="newbtn huge-newbtn">Pretplatite se</div>
-        </div>
-      </div>
-    </app-link>-->
     <!-- Cantha header -->
     <div class="full relative cantha-header">
       <div class="container flex relative column-top-pad column-horizontal-pad">
@@ -382,6 +409,7 @@
     <client-only>
       <div v-if="!hasPremium" class="full relative">
         <partner-special position="tg"></partner-special>
+        <!--<jgl-premium></jgl-premium>-->
       </div>
     </client-only>
     <!-- Sport -->
@@ -455,39 +483,37 @@
     <div class="full relative">
       <os-homepage></os-homepage>
     </div>
-    <!-- Book widget DEPRA -->
+    <!-- Book widget Bili libar 2 -->
     <app-link
-      to="/knjiga/aleksandar-stankovic-depra?checkout=true"
+      to="/knjiga/boris-dezulovic-bili-libar-2"
       class="full flex relative center mobile-side-pad darkened-bg column-full-pad shoo-bottom"
     >
       <div class="container relative flex stretch">
         <div class="forty tablet-full flex flex-responsive center">
           <div class="full center-text newbook-overtitle">Telegram naklada</div>
-          <h2 class="full center-text newbook-title">DEPRA</h2>
-          <div class="full center-text newbook-author">
-            Aleksandar Stanković
-          </div>
+          <h2 class="full center-text newbook-title newbook-title-smaller">
+            BILI LIBAR 2
+          </h2>
+          <div class="full center-text newbook-author">Boris Dežulović</div>
           <p class="full center-text newbook-intro">
-            Poznati novinar i voditelj godinama boluje od depresije, a sada je,
-            u ovoj knjizi, prvi put odlučio progovoriti o svojoj borbi s tom
-            bolesti
+            Veliki Telegramov hit dobio je nastavak, s 12 još raskošnijih, još
+            čudesnijih i luđih priča o jednom nogometnom klubu. I, naravno, ne
+            samo o njemu.
           </p>
         </div>
 
         <div class="forty tablet-full flex flex-responsive center">
           <img
-            src="@/assets/img/tg_book_mockup_stankovic.png"
-            alt="Naslovnica nove knjige Aleksandra Stankovića 'DEPRA'"
+            src="@/assets/img/tg_book_clean_dezulovic2.png"
+            alt="Naslovnica nove knjige Borisa Dežulovića 'BILI LIBAR 2'"
           />
         </div>
         <div class="fifth tablet-full flex flex-responsive center">
-          <div class="full relative center-text newbook-price">
-            <span class="faded strikethrough">19,99€</span> 14,99€
-          </div>
+          <div class="full relative center-text newbook-price">19,99€</div>
           <div class="full relative center-text neat-numbers">
-            (<span class="faded strikethrough">150,61 kn</span> 112,94 kn)
+            (150,61 kn)
             <br />
-            posebna cijena za sve pretplatnike Telegrama
+            Besplatna dostava po cijeloj Hrvatskoj
           </div>
           <div class="full center btn-parent newbook-btn">
             <div class="newbtn clickable huge-newbtn animate">Kupite</div>

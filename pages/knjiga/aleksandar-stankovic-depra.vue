@@ -12,7 +12,7 @@
             <div class="full center-text newbook-overtitle">
               Telegram naklada
             </div>
-            <h1 class="full center-text newbook-title">DEPRA</h1>
+            <h1 class="full center-text newbook-title">Depra</h1>
             <div class="full center-text newbook-author">
               Aleksandar Stanković
             </div>
@@ -26,7 +26,7 @@
           <div class="forty tablet-full flex flex-responsive center">
             <img
               src="@/assets/img/tg_book_mockup_stankovic.png"
-              alt="Naslovnica nove knjige Aleksandra Stankovića 'DEPRA'"
+              alt="Naslovnica nove knjige Aleksandra Stankovića 'Depra'"
             />
           </div>
           <div class="fifth tablet-full flex flex-responsive center">
@@ -186,7 +186,7 @@ export default {
   },
   head() {
     return {
-      title: 'Aleksandar Stanković: DEPRA',
+      title: 'Aleksandar Stanković: Depra',
       titleTemplate: '%s | Telegram.hr',
       meta: [
         {
@@ -212,7 +212,7 @@ export default {
           hid: 'og:title',
           name: 'og:title',
           property: 'og:title',
-          content: 'Aleksandar Stanković: DEPRA',
+          content: 'Aleksandar Stanković: Depra',
         },
         {
           hid: 'og:image',

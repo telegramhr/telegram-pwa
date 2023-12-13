@@ -5,99 +5,120 @@
     <div class="full flex tg-red">
       <theader headline="Telegram božićni paket"></theader>
     </div>
-    <div class="full flex relative reset-flex-order">
-      <div
-        class="full flex relative center knjiga-header article-head mobile-side-pad column-full-pad"
-      >
-        <div class="container relative flex single-article-body">
-          <div class="noththree full center-text overtitle">
+    <div
+      class="full flex relative center mobile-side-pad newbook-xmas column-full-pad"
+    >
+      <img
+        src="@/assets/img/tg_visual_2023_xmasbg_green.jpg"
+        class="img-as-bg"
+        aria-hidden="true"
+      />
+      <img
+        class="ps-xmas1"
+        src="@/assets/img/tg_xmas_1.png"
+        aria-hidden="true"
+      />
+      <img
+        class="ps-xmas2"
+        src="@/assets/img/tg_xmas_2.png"
+        aria-hidden="true"
+      />
+      <div class="container relative flex stretch">
+        <div class="forty tablet-full flex flex-responsive center">
+          <div class="full center-text newbook-overtitle">
             Najbolji božićni poklon
           </div>
-          <h1 class="full center-text">Telegram <br />božićni paket</h1>
-          <div class="nothfour full center-text">
-            Hit knjige iz naše biblioteke
+          <h1 class="full center-text newbook-title">
+            Telegram bestseller megapaket
+          </h1>
+          <div class="full center-text newbook-intro">
+            <span class="ib">Hit knjige iz naše biblioteke, </span
+            ><span class="ib">po najboljoj cijeni dosad</span>
           </div>
+          <p class="full center-text newbook-intro hide">
+            Paket sadrži 4 top betselera: Depra, Bili libar, Neispričane priče i
+            Igla, pila, ravnalo. Besplatna dostava unutar Hrvatske.
+          </p>
         </div>
-      </div>
-      <div class="full flex relative single-article-body">
-        <div
-          class="container flex relative mobile-side-pad pretplata-packboxes"
-        >
-          <div
-            class="full flex knjiga-hero pretplata-packbox relative column-full-pad"
-          >
-            <div class="full flex knjiga-cover knjiga-cover-3d">
-              <img
-                src="/img/tg_knjiga_vizual_pack.png"
-                alt="Telegram božićni megapaket"
-              />
+        <div class="forty tablet-full flex flex-responsive center">
+          <img
+            src="@/assets/img/tg_visual_2023_bookpack.png"
+            alt="Telegram božićni paket knjiga"
+          />
+        </div>
+        <div class="fifth tablet-full flex flex-responsive center">
+          <div class="full relative center-text newbook-price">
+            <span class="faded strikethrough">83,52€</span> 49,99€
+          </div>
+          <div class="full relative center-text neat-numbers">
+            (<span class="faded strikethrough">629,28 kn</span> 376,65 kn)
+          </div>
+          <div class="full center btn-parent newbook-btn">
+            <div
+              v-if="$store.state.user.email"
+              class="newbtn clickable huge-newbtn animate"
+              @click="buy"
+            >
+              {{ price ? 'Kupite' : 'Naručite' }}
             </div>
-            <div class="full flex knjiga-features">
-              <client-only>
-                <div
-                  v-if="$store.state.user.access"
-                  class="full relative center-text big-book-price"
-                >
-                  <span class="faded strikethrough">507 kn</span> 249 kn
-                </div>
-                <div v-else class="full relative center-text big-book-price">
-                  <span class="faded strikethrough">507 kn</span> 349 kn
-                </div>
-                <div
-                  v-if="$store.state.user.access"
-                  class="full relative center-text big-book-price"
-                >
-                  (<span class="faded strikethrough">67,29€</span> 33,05€)
-                  <br />
-                  posebna cijena za sve pretplatnike Telegrama
-                </div>
-                <div v-else class="full relative center-text big-book-price">
-                  (<span class="faded strikethrough">67,29€</span> 46,32€)
-                  <br />
-                  posebna cijena za Božić
-                </div>
-              </client-only>
-              <div class="nothfour full relative center-text">
-                Paket sadrži Bili libar Borisa Dežulovića, O Zagrebu Zrinke
-                Paladino i Neispričane priče Rajka Grlića. Besplatna dostava
-                unutar Hrvatske.
-                <b
-                  >Napomena: za dostavu van Zagreba potrebno je 2-3 radna
-                  dana.</b
-                >
-              </div>
-              <div class="full knjiga-keypoints">
-                <p class="full center-text">Izdavač: Telegram Media Grupa</p>
-              </div>
-              <app-link
-                v-show="!$store.state.user.uid"
-                to="/pretplata"
-                class="special-sub-cta full relative center-text"
-              >
-                Za pristup sniženoj cijeni, <br />
-                <u>prijavite se ili pretplatite</u>
-              </app-link>
-              <div class="full center btn-parent">
-                <div class="btn animate">Nije moguće naručiti</div>
-              </div>
+            <div
+              v-else
+              class="newbtn clickable huge-newbtn animate"
+              @click="login"
+            >
+              Kupite
             </div>
           </div>
-          <a
-            href="mailto:pretplata@telegram.hr"
-            class="full center-text undertitle"
-          >
-            Želite platiti virmanom? Javite nam se
-          </a>
         </div>
       </div>
     </div>
     <div class="full flex relative single-article-body">
       <div class="container relative mobile-side-pad column-full-pad">
-        <h2 class="full relative">Paket sadrži:</h2>
-        <h2 class="full relative">1. Bili libar, Boris Dežulović</h2>
+        <p class="full relative">
+          Paket sadrži 4 top bestselera: Depra, Bili libar, Neispričane priče i
+          Igla, pila, ravnalo. Besplatna dostava unutar Hrvatske.
+        </p>
+        <h2 class="full relative">1. Depra, Aleksandar Stanković</h2>
+        <p>
+          <app-link to="/knjiga/aleksandar-stankovic-depra"
+            >Redovna cijena: 19,99€ (150,61 kn)</app-link
+          >
+        </p>
+        <p>
+          Poznati novinar i voditelj godinama boluje od depresije, a sada je, u
+          ovoj knjizi, prvi put odlučio progovoriti o svojoj borbi s tom bolesti
+        </p>
+        <h2 class="full relative">2. Igla, pila, ravnalo, Sanja Modrić</h2>
+        <p>
+          <app-link to="/knjiga/sanja-modric-igla-pila-ravnalo"
+            >Redovna cijena: 19,99€ (150,61 kn)</app-link
+          >
+        </p>
+        <p>
+          Prva knjiga Sanje Modrić, jedne od najboljih i najpoznatijih hrvatskih
+          novinarki, dobitnici nagrada Hrvatskog novinarskog društva za
+          Novinarku godine i za životno djelo. U velikom izdanju od 318
+          stranica, u Telegramovoj nakladi, knjiga najboljih kolumni Sanje
+          Modrić špajza je novinskih priča o tome gdje smo i kamo idemo.
+        </p>
+        <h2 class="full relative">3. Neispričane priče, Rajko Grlić</h2>
+        <p>
+          <app-link to="/knjiga/rajko-grlic-neispricane-price"
+            >Redovna cijena: 23,76€ (179 kn)</app-link
+          >
+        </p>
+        <p>
+          Novo, dopunjeno izdanje hit-knjige čuvenog redatelja Rajka Grlića,
+          koja se rasprodala odmah nakon što se pojavila u hrvatskim knjižarama.
+          U ovom golemom izdanju od 436 stranica, koje izlazi u Telegramovoj
+          nakladi, Grlić je pripremio još dvadeset i jednu novu, nikad
+          objavljenu priču. Kako kaže urednica Marina Vujčić: „na sreću svih nas
+          koji vole čitati ovog režisera i pripovjedača“.
+        </p>
+        <h2 class="full relative">4. Bili libar, Boris Dežulović</h2>
         <p>
           <app-link to="/knjiga/boris-dezulovic-bili-libar"
-            >Redovna cijena: 149 kn (19,78€)</app-link
+            >Redovna cijena: 19,78€ (149 kn)</app-link
           >
         </p>
         <p>
@@ -109,39 +130,13 @@
           na koji nitko nikad nije. Bili libar knjiga je o ljubavi i vječnom
           životu.
         </p>
-        <h2 class="full relative">2. Neispričane priče, Rajko Grlić</h2>
-        <p>
-          <app-link to="/knjiga/rajko-grlic-neispricane-price"
-            >Redovna cijena: 179 kn (23,76€)</app-link
-          >
-        </p>
-        <p>
-          Novo, dopunjeno izdanje hit-knjige čuvenog redatelja Rajka Grlića,
-          koja se rasprodala odmah nakon što se pojavila u hrvatskim knjižarama.
-          U ovom golemom izdanju od 436 stranica, koje izlazi u Telegramovoj
-          nakladi, Grlić je pripremio još dvadeset i jednu novu, nikad
-          objavljenu priču. Kako kaže urednica Marina Vujčić: „na sreću svih nas
-          koji vole čitati ovog režisera i pripovjedača“.
-        </p>
-        <h2 class="full relative">3. O Zagrebu, Zrinka Paladino</h2>
-        <p>
-          <app-link to="/knjiga/zrinka-paladino-o-zagrebu"
-            >Redovna cijena: 179 kn (23,76€)</app-link
-          >
-        </p>
-        <p>
-          Čuvena arhitektica, konzervatorica i kolumnistica donosi veliku
-          kroniku Zagreba, njegove arhitekture, devastacije, i društva. Sve
-          kolumne prvi put na jednom mjestu, obogaćene novim zapisima,
-          ilustracijama i fotografijama.
-        </p>
       </div>
     </div>
 
     <braintree
       v-if="showModal"
       :price="price"
-      book="bozic2022paket"
+      book="bozic2023paket"
       @close="close"
     ></braintree>
     <tfooter></tfooter>
@@ -164,7 +159,7 @@ export default {
   methods: {
     getPrice() {
       this.$axios
-        .get('/pretplate/get_price/?book=bozic2022paket', {
+        .get('/pretplate/get_price/?book=bozic2023paket', {
           withCredentials: true,
         })
         .then((res) => {
@@ -213,8 +208,7 @@ export default {
           hid: 'og:image',
           name: 'og:image',
           property: 'og:image',
-          content:
-            'https://www.telegram.hr/wp-content/uploads/2022/12/tg-book-share-paket.jpg',
+          content: 'https://www.telegram.hr/img/tg_share_xmas_books.jpg',
         },
         {
           hid: 'og:url',

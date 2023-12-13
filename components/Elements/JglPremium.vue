@@ -9,12 +9,12 @@
       <div class="full center jgl-line">
         <div class="flex center">
           <img
-            src="@/assets/img/extras/partner_logos/jgl.png"
+            src="@/assets/img/extras/partner_logos/telemach.png"
             alt="JGL logo"
             loading="lazy"
           />
           <img
-            src="@/assets/img/extras/partner_logos/jgl.png"
+            src="@/assets/img/extras/partner_logos/telemach.png"
             class="dark-mode-only"
             alt="JGL logo"
             loading="lazy"
@@ -55,6 +55,7 @@
             <h2 :id="'standard-' + post.id" class="full">
               {{ post.opis }}
             </h2>
+            <div class="newbtn">Kupi odmah</div>
           </a>
         </div>
       </VueSlickCarousel>
@@ -83,15 +84,10 @@
 <script>
 export default {
   name: 'JglPremium',
-  props: {
-    shop: {
-      type: String,
-      required: false,
-      default: 'jgl',
-    },
-  },
   data() {
     return {
+      shop: 'jgl',
+      timestamp: Date.now(),
       slider_settings: {
         infinite: true,
         slidesToShow: 4,
@@ -141,7 +137,7 @@ export default {
     })
     this.$gtm.push({
       event: 'webshop-widget',
-      'webshop-category': 'jgl-premium',
+      'webshop-category': 'telemach-premium',
       'webshop-action': 'view',
       'webshop-label': 'impression',
       'webshop-value': 1,
@@ -151,7 +147,7 @@ export default {
     trackClick(link) {
       this.$gtm.push({
         event: 'webshop-widget',
-        'webshop-category': 'jgl-premium',
+        'webshop-category': 'telemach-premium',
         'webshop-action': 'click',
         'webshop-label': 'click',
         'webshop-value': 1,
@@ -164,21 +160,21 @@ export default {
 
 <style>
 .jgl-line {
-  background-color: #0052cc;
+  background-color: #000000;
 }
 
 .jgl-line > div {
   padding-left: 7px;
-  background-color: #fcf1e7;
+  /*background-color: #fcf1e7;*/
   width: 200px;
 }
-
+/*
 .contrast-mode .jgl-line > div {
   background-color: white;
 }
 .dark-mode .jgl-line > div {
   background-color: #212121;
-}
+}*/
 
 .noththree.subsection-title .jgl-line img {
   height: 40px;

@@ -52,7 +52,7 @@
               height="400"
             />
             <div class="full flex article-pad">
-              <div class="full offer-title bold">{{ post.naslov }}</div>
+              <div class="full offer-title bold">{{ post.naslov | parseCat }}</div>
               <div v-if="post.cijena_euro" class="noththree full overtitle">
                 {{ post.cijena_euro }} ({{ post.cijena }})<br />
                 <span v-if="post.stara_cijena_euro" class="strikethrough-price">
