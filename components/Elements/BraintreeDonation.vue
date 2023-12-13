@@ -153,7 +153,7 @@
         class="third flex-responsive column-horizontal-pad contains-code-image"
       >
         <div class="nothfour full">Izvršite donaciju</div>
-        <p class="small-top-margin">IBAN: HR7323600001101437160</p>
+        <p class="small-top-margin">IBAN: HR4723600001503346846</p>
         <p>Telegram Media Grupa d.o.o.</p>
         <p>Iznos: {{ price }},00 €</p>
         <p v-if="number">Model plaćanja: 00</p>
