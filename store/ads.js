@@ -1549,18 +1549,17 @@ export const actions = {
         window.googletag.display(state.interstitialSlot)
       })
     }
-    dispatch('initPBJS')
+    dispatch('refreshSlots')
   },
   refreshSlots({ dispatch }) {
-    console.log('refreshSlots')
     window.googlefc = window.googlefc || {}
     window.googlefc.callbackQueue = window.googlefc.callbackQueue || []
     window.googletag = window.googletag || {}
     window.googletag.cmd = window.googletag.cmd || []
     /* global __tcfapi */
     window.googlefc.callbackQueue.push({
-      CONSENT_DATA_READY: () =>
-        __tcfapi('getTCData', 0, (data, success) => {
+      CONSENT_API_READY: () =>
+        __tcfapi('addEventListener', 2.2, (data, success) => {
           if (data.purpose.consents[1]) {
             dispatch('initPBJS')
           }
@@ -1568,7 +1567,6 @@ export const actions = {
     })
   },
   initPBJS({ dispatch }) {
-    console.log('initPBJS')
     window.pbjs = window.pbjs || {}
     window.pbjs.que = window.pbjs.que || []
     window.pbjs.que.push(() => {
@@ -1589,7 +1587,6 @@ export const actions = {
     }, 3500)
   },
   initAdserver({ state }) {
-    console.log('initAdserver')
     if (window.pbjs.initAdserverSet) return
     window.pbjs.initAdserverSet = true
     if (state.route === 'nesto-slug') {
