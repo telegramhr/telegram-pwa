@@ -7,7 +7,7 @@
         headline="Pretplatite se i podržite naše bespoštedno novinarstvo."
       ></theader>
     </div>
-    <!--<client-only>
+    <client-only>
       <div
         class="full flex relative center mobile-side-pad newbook-xmas newbook-gifting column-full-pad dark-mode"
       >
@@ -48,7 +48,7 @@
               prva 3 mjeseca, nakon toga 6,49€
             </p>
             <div class="full flex btn-parent newbook-btn">
-              <div class="newbtn clickable huge-newbtn animate">Kupite</div>
+              <div class="newbtn clickable huge-newbtn animate" @click="checkout(bozic)">Kupite</div>
             </div>
             <div class="full pretplata-benefits">
               <p class="full animate">
@@ -77,7 +77,7 @@
           </div>
         </div>
       </div>
-    </client-only>-->
+    </client-only>
     <div id="pretplata-selector" class="full flex">
       <div class="full flex relative">
         <div
@@ -948,6 +948,11 @@ export default {
           price: 1,
           gtm: 'akcija-sprega',
         },
+        TMYTVOS7AU82: {
+          title: 'Božićna akcija',
+          price: 1.99,
+          gtm: 'bozicna-akcija',
+        },
       },
     }
   },
@@ -979,6 +984,9 @@ export default {
     five() {
       return 'TM15W5K9EVY4'
     },
+    bozic() {
+      return 'TMYTVOS7AU82'
+    },
   },
   mounted() {
     this.$nextTick(() => {
@@ -994,6 +1002,7 @@ export default {
           'TM15W5K9EVY4',
           'TMWKY7BX6TFX',
           'TMYNBHMX6JBL',
+          'TMYTVOS7AU82',
         ],
       })
       window.tp.push([
@@ -1040,6 +1049,9 @@ export default {
             break
           case 'plenkovic':
             this.checkout('TMYNBHMX6JBL')
+            break
+          case 'bozic':
+            this.checkout(this.bozic)
             break
         }
       }
