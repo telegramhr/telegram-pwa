@@ -9,6 +9,7 @@
     </div>
     <client-only>
       <div
+        v-if="!$store.state.user.access"
         class="full flex relative center mobile-side-pad newbook-xmas newbook-gifting column-full-pad dark-mode"
       >
         <img

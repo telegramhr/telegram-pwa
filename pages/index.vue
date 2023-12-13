@@ -17,9 +17,9 @@
     </div>
     <!-- Above header banner -->
     <client-only>
-      <!--<app-link
+      <app-link
         v-if="!$store.state.user.access"
-        to="/pretplata"
+        to="/pretplata/?checkout=bozic"
         class="full flex relative center newbook-xmas newbook-gifting column-full-pad dark-mode"
       >
         <img
@@ -71,7 +71,7 @@
             />
           </div>
         </div>
-      </app-link>-->
+      </app-link>
       <app-link
         v-if="$store.state.user.access"
         to="/pretplata/poklon?promo_code=OU1FMSFRMS"
