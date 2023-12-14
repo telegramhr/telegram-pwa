@@ -58,7 +58,7 @@
               </p>
               <p class="full animate">
                 <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-                neograničeno čitanje Telegrama i Telesporta
+                neograničeno čitanje Telegrama
               </p>
               <p class="full animate">
                 <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
