@@ -12580,8 +12580,11 @@ input:checked ~ .input-hidden {
 }
 @media screen and (max-width: 767px) {
     .homepage .newbook-gifting .ps-xmas1, .homepage .newbook-gifting .ps-xmas2 {
-        width: 50vw;
+        width: 70vw;
         opacity: .25;
+    }
+    .homepage .newbook-compact.newbook-gifting .ps-xmas1, .homepage .newbook-compact.newbook-gifting .ps-xmas2 {
+        width: 50vw;
     }
     .homepage .newbook-gifting .ps-xmas1 {
         right: -20vw;
@@ -12592,25 +12595,32 @@ input:checked ~ .input-hidden {
     }
     .homepage .newbook-gifting .newbook-title {
         font-size: 8.4vw;
+        font-weight: 700;
+        margin-bottom: 0px;
+        margin-top: 4px;
+    }
+    .homepage .newbook-gifting p.smaller-text.faded {
+        font-size: 12px;
+        font-size: 0.6rem;
     }
     .homepage .newbook-gifting {
         padding-bottom: 0px;
         margin-bottom: -2vw;
         padding-top: 2vw;
     }
-    .homepage .newbook-gifting .newbook-author {
+    .newbook-compact.newbook-gifting .newbook-author {
         font-size: 4vw;
         text-transform: none;
         font-weight: bold;
         font-size: 14px;
         font-size: 0.7rem;
     }
-    .homepage .newbook-gifting .newbook-intro {
+    .newbook-compact.newbook-gifting .newbook-intro {
         font-size: 14px;
         font-size: 0.7rem;
         margin-top: 4px;
     }
-    .homepage .newbook-gifting .newbook-price {
+    .newbook-compact.newbook-gifting .newbook-price {
         font-size: 16px;
         font-size: 0.8rem;
         order: 2;
@@ -12618,10 +12628,10 @@ input:checked ~ .input-hidden {
         padding-left: 8px;
         padding-top: 2px;
     }
-    .homepage .newbook-gifting .sixty {
+    .newbook-compact.newbook-gifting .sixty {
         justify-content: flex-start;
     }
-    .homepage .newbook-gifting .huge-newbtn {
+    .newbook-compact.newbook-gifting .huge-newbtn {
         font-size: 14px;
         font-size: 0.7rem;
         padding: 6px 10px;
@@ -12629,14 +12639,19 @@ input:checked ~ .input-hidden {
         margin-top: 0px;
         margin-bottom: 0px;
     }
-    .homepage .newbook-gifting .newbook-btn {
+    .newbook-compact.newbook-gifting .newbook-btn {
         order: 1;
         width: auto;
     }
-    .homepage .newbook-gifting p.smaller-text.faded{
+    .newbook-compact.newbook-gifting p.smaller-text.faded{
         order: 3;
         font-size: 10px;
         font-size: 0.5rem;
         font-family: 'Barlow', sans-serif;
+    }
+    .homepage .newbook-gifting .forty.flex-responsive img {
+        max-width: 70%;
+        margin: 0 auto;
+        margin-bottom: -10vw;
     }
 }
