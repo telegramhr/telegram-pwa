@@ -1578,7 +1578,7 @@ export const actions = {
       }
       if (window.prebid === 'rubicon') {
         window.pbjs.rp.requestBids({
-          callback: dispatch('initAdserver'),
+          callback: () => dispatch('initAdserver'),
         })
       }
     })
