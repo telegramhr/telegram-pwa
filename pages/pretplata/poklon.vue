@@ -52,7 +52,7 @@
               </p>
               <p class="full animate">
                 <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-                premium iskustvko čitanja bez oglasa
+                premium iskustvo čitanja bez oglasa
               </p>
               <p class="full animate">
                 <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
