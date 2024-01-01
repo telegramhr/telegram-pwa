@@ -98,7 +98,7 @@
             </div>
             <div class="full sub-price bold">62€</div>
             <div class="nothfour full center-text undertitle">
-              godišnja pretplata (467kn)
+              godišnja pretplata
             </div>
             <div class="full pretplata-benefits">
               <p class="full animate">
@@ -134,7 +134,7 @@
             </div>
             <div class="full sub-price bold">78€</div>
             <div class="nothfour full center-text undertitle">
-              godišnja pretplata (588kn)
+              godišnja pretplata
             </div>
             <div class="full pretplata-benefits">
               <p class="full animate">

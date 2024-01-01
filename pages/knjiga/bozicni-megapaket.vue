@@ -38,15 +38,6 @@
                   v-if="$store.state.user.access"
                   class="full relative center-text big-book-price"
                 >
-                  <span class="faded strikethrough">1095 kn</span> 599 kn
-                </div>
-                <div v-else class="full relative center-text big-book-price">
-                  <span class="faded strikethrough">1095 kn</span> 799 kn
-                </div>
-                <div
-                  v-if="$store.state.user.access"
-                  class="full relative center-text big-book-price"
-                >
                   (<span class="faded strikethrough">145,33€</span> 79,50€)
                   <br />
                   posebna cijena za sve pretplatnike Telegrama

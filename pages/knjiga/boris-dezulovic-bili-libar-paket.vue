@@ -40,8 +40,6 @@
               <span class="faded strikethrough">39,98€</span> 29,99€
             </div>
             <div class="full relative center-text neat-numbers">
-              (<span class="faded strikethrough">301,23 kn</span> 225,96 kn)
-              <br />
               Besplatna dostava po cijeloj Hrvatskoj
             </div>
             <div class="full center btn-parent newbook-btn">

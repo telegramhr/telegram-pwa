@@ -125,7 +125,7 @@
                 </div>
                 <div class="full sub-price bold">6,49€</div>
                 <div class="nothfour full center-text undertitle">
-                  Mjesečno (49kn)
+                  Mjesečno
                 </div>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
@@ -171,7 +171,7 @@
                 </div>
                 <div class="full sub-price bold">9,10€</div>
                 <div class="nothfour full center-text undertitle">
-                  Mjesečno (69kn)
+                  Mjesečno
                 </div>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
@@ -223,7 +223,7 @@
                 </div>
                 <div class="full sub-price bold">5,16€</div>
                 <div class="nothfour full center-text undertitle">
-                  mjesečno (39kn), za cijelu godinu 62€ (467kn)
+                  mjesečno, za cijelu godinu 62€
                 </div>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
@@ -269,7 +269,7 @@
                 </div>
                 <div class="full sub-price bold">6,50€</div>
                 <div class="nothfour full center-text undertitle">
-                  mjesečno (49kn), za cijelu godinu 78€ (588kn)
+                  mjesečno, za cijelu godinu 78€
                 </div>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
