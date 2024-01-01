@@ -1395,7 +1395,7 @@ export const actions = {
       if (payload.options && payload.options.includes('nepromo')) {
         window.googletag.pubads().setCategoryExclusion('NePromo')
       }
-      window.googletag.pubads().setTargeting('env', 'test')
+      // window.googletag.pubads().setTargeting('env', 'test')
       if (window.prebid === 'prebid') {
         window.googletag.pubads().setTargeting('prebid', 'inhouse')
       }
