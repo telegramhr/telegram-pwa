@@ -39,7 +39,6 @@
                 <span class="faded strikethrough">23,76€</span> 15,79€
               </div>
               <div class="full relative center-text big-book-price">
-                (<span class="faded strikethrough">179 kn</span> 119 kn) <br />
                 posebna cijena za sve pretplatnike Telegrama
               </div>
               <div class="nothfour full relative center-text">

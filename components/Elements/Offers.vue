@@ -52,11 +52,13 @@
               height="400"
             />
             <div class="full flex article-pad">
-              <div class="full offer-title bold">{{ post.naslov | parseCat }}</div>
+              <div class="full offer-title bold">
+                {{ post.naslov | parseCat }}
+              </div>
               <div v-if="post.cijena_euro" class="noththree full overtitle">
-                {{ post.cijena_euro }} ({{ post.cijena }})<br />
+                {{ post.cijena_euro }}<br />
                 <span v-if="post.stara_cijena_euro" class="strikethrough-price">
-                  {{ post.stara_cijena_euro }} ({{ post.stara_cijena }})
+                  {{ post.stara_cijena_euro }}
                 </span>
               </div>
 
@@ -89,7 +91,6 @@
         ></font-awesome-icon>
       </div>
     </div>
-    <p class="full offer-disclaimer center-text">1 euro = 7,53450 kuna</p>
   </div>
 </template>
 

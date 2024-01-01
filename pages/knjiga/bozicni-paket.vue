@@ -50,9 +50,6 @@
           <div class="full relative center-text newbook-price">
             <span class="faded strikethrough">83,52€</span> 49,99€
           </div>
-          <div class="full relative center-text neat-numbers">
-            (<span class="faded strikethrough">629,28 kn</span> 376,65 kn)
-          </div>
           <div class="full center btn-parent newbook-btn">
             <div
               v-if="$store.state.user.email"
@@ -81,7 +78,7 @@
         <h2 class="full relative">1. Depra, Aleksandar Stanković</h2>
         <p>
           <app-link to="/knjiga/aleksandar-stankovic-depra"
-            >Redovna cijena: 19,99€ (150,61 kn)</app-link
+            >Redovna cijena: 19,99€</app-link
           >
         </p>
         <p>
@@ -91,7 +88,7 @@
         <h2 class="full relative">2. Igla, pila, ravnalo, Sanja Modrić</h2>
         <p>
           <app-link to="/knjiga/sanja-modric-igla-pila-ravnalo"
-            >Redovna cijena: 19,99€ (150,61 kn)</app-link
+            >Redovna cijena: 19,99€</app-link
           >
         </p>
         <p>
@@ -104,7 +101,7 @@
         <h2 class="full relative">3. Neispričane priče, Rajko Grlić</h2>
         <p>
           <app-link to="/knjiga/rajko-grlic-neispricane-price"
-            >Redovna cijena: 23,76€ (179 kn)</app-link
+            >Redovna cijena: 23,76€</app-link
           >
         </p>
         <p>
@@ -118,7 +115,7 @@
         <h2 class="full relative">4. Bili libar, Boris Dežulović</h2>
         <p>
           <app-link to="/knjiga/boris-dezulovic-bili-libar"
-            >Redovna cijena: 19,78€ (149 kn)</app-link
+            >Redovna cijena: 19,78€</app-link
           >
         </p>
         <p>

@@ -32,8 +32,6 @@
           <div class="fifth tablet-full flex flex-responsive center">
             <div class="full relative center-text newbook-price">19,99€</div>
             <div class="full relative center-text neat-numbers">
-              (150,61 kn)
-              <br />
               Besplatna dostava po cijeloj Hrvatskoj
             </div>
             <div class="full center btn-parent newbook-btn">
