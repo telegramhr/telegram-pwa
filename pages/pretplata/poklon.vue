@@ -7,68 +7,6 @@
         headline="Poklonite Telegram pretplatu, poklon koji se otvara svaki dan"
       ></theader>
     </div>
-    <client-only>
-      <div
-        v-if="$store.state.user.access"
-        class="full flex relative center mobile-side-pad newbook-xmas newbook-gifting column-full-pad dark-mode"
-      >
-        <img
-          src="@/assets/img/tg_visual_2023_xmasbg_green.jpg"
-          class="img-as-bg"
-          aria-hidden="true"
-        />
-        <img
-          class="ps-xmas1"
-          src="@/assets/img/tg_xmas_1.png"
-          aria-hidden="true"
-        />
-        <img
-          class="ps-xmas2"
-          src="@/assets/img/tg_xmas_2.png"
-          aria-hidden="true"
-        />
-        <div class="container relative flex stretch">
-          <div class="half tablet-full flex flex-responsive center m-order-2">
-            <div class="full newbook-title all-caps">Poklonite Telegram</div>
-            <div class="full newbook-author all-caps">
-              dar koji se otvara svaki dan
-            </div>
-            <p class="full newbook-intro">
-              Ovih praznika prijateljima, partnerima ili ukućanima poklonite
-              godinu dana pretplate, po posebnoj cijeni samo za vas
-            </p>
-            <div class="full relative newbook-price">
-              <span class="faded strikethrough">78€</span> 29,99€
-            </div>
-            <div class="full flex btn-parent newbook-btn">
-              <div class="newbtn clickable huge-newbtn animate" @click="promo">
-                Poklonite
-              </div>
-            </div>
-            <div class="full pretplata-benefits">
-              <p class="full animate">
-                <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-                godinu dana neograničenog pristupa
-              </p>
-              <p class="full animate">
-                <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-                premium iskustvo čitanja bez oglasa
-              </p>
-              <p class="full animate">
-                <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-                popusti na top knjige, izložbe i predstave
-              </p>
-            </div>
-          </div>
-          <div class="half tablet-full flex flex-responsive center m-order-1">
-            <img
-              src="@/assets/img/tg_visual_xmas_pretplata_alt.png"
-              aria-hidden="true"
-            />
-          </div>
-        </div>
-      </div>
-    </client-only>
     <div class="full flex pretplata-page-content">
       <div class="full flex relative">
         <div
