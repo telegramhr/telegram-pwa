@@ -428,12 +428,6 @@
           <div v-if="!hasPremium && hasLinker" class="full">
             <linker type="standard-16"></linker>
           </div>
-          <div class="full relative center">
-            <ad-unit
-              id="telegram_desktop_billboard_v2"
-              :disable="post.disable_ads.includes('all')"
-            ></ad-unit>
-          </div>
           <div v-if="!hasPremium && hasLinker" class="container flex center">
             <linker type="ecomm"></linker>
           </div>
@@ -449,12 +443,6 @@
               data-contentexchange-widget="k7dWfvWSYDqoSZvwu"
               data-contentexchange-source="ughr"
             ></div>
-          </div>
-          <div class="full relative center single-top-banner">
-            <ad-unit
-              id="telegram_desktop_billboard_v3"
-              :disable="post.disable_ads.includes('all')"
-            ></ad-unit>
           </div>
           <keep-reading
             v-if="post.category_slug && post.category_slug !== 'promo'"
