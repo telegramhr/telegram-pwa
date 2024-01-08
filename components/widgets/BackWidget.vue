@@ -3,7 +3,7 @@ export default {
   name: 'BackWidget',
   data() {
     return {
-      show: false,
+      show: true,
       interval: null,
     }
   },
@@ -27,8 +27,16 @@ export default {
   },
   methods: {
     init() {
-      window.history.replaceState({ backWidget: true }, document.title)
-      window.history.pushState({ backWidgetInitialized: true }, document.title)
+      window.history.replaceState(
+        { backWidget: true },
+        document.title,
+        '#back-widget'
+      )
+      window.history.pushState(
+        { backWidgetInitialized: true },
+        document.title,
+        '#back-widget2'
+      )
     },
     listener(event) {
       if (event.state.backWidget) {
@@ -39,7 +47,10 @@ export default {
       const referrer = document.referrer
       if (referrer) {
         const url = new URL(referrer)
-        if (url.hostname.includes('midas')) {
+        if (
+          url.hostname.includes('midas') ||
+          url.hostname.includes('facebook')
+        ) {
           return true
         }
       }
