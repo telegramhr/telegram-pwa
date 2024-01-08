@@ -57,7 +57,7 @@ export default {
           v-for="post in posts"
           :key="`featured-${post.id}`"
           :post="post"
-          utm="?utm_campaign=back_widget"
+          utm="utm_campaign=back_widget"
           @clicked="show = false"
         ></featured-alt>
       </div>
