@@ -3,7 +3,7 @@ export default {
   name: 'BackWidget',
   data() {
     return {
-      show: true,
+      show: false,
       interval: null,
     }
   },
