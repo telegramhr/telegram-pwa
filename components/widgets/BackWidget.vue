@@ -19,14 +19,18 @@ export default {
       window.addEventListener('popstate', this.listener)
     }
   },
+  beforeDestroy() {
+    if (this.$mobile && this.checkReferrer()) {
+      window.removeEventListener('load', this.init)
+      window.removeEventListener('popstate', this.listener)
+    }
+  },
   methods: {
     init() {
-      console.log('init')
       window.history.replaceState({ backWidget: true }, document.title)
       window.history.pushState({ backWidgetInitialized: true }, document.title)
     },
     listener(event) {
-      console.log('listener', event.state)
       if (event.state.backWidget) {
         this.show = true
       }
@@ -35,10 +39,7 @@ export default {
       const referrer = document.referrer
       if (referrer) {
         const url = new URL(referrer)
-        if (
-          url.hostname.includes('facebook') ||
-          url.hostname.includes('midas')
-        ) {
+        if (url.hostname.includes('midas')) {
           return true
         }
       }

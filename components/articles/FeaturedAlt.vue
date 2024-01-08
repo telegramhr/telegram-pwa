@@ -2,10 +2,11 @@
   <div
     class="full flex article-featured article-featured-alt article"
     role="article"
+    @click="$emit('clicked')"
   >
     <app-link
       class="full flex"
-      :to="post.permalink"
+      :to="post.permalink + (utm ? '?' + utm : '')"
       :tracker="post.trackerPermalink"
       :aria-labelledby="'featured-' + post.id"
     >
@@ -96,6 +97,11 @@ export default {
           time: 0,
         }
       },
+    },
+    utm: {
+      type: String,
+      default: '',
+      required: false,
     },
   },
   data() {

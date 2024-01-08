@@ -11,6 +11,7 @@
     <client-only>
       <ticker-ad-unit id="telegram_sticky"></ticker-ad-unit>
       <ticker-special></ticker-special>
+      <back-widget></back-widget>
     </client-only>
   </div>
 </template>
