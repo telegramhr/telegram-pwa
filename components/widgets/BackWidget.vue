@@ -18,6 +18,7 @@ export default {
   mounted() {
     if (this.$mobile && this.checkReferrer()) {
       this.$store.dispatch('mostread/pullPosts')
+      this.$store.dispatch('category/mostRead', { category: 'super1' })
       window.addEventListener('load', this.init)
       window.addEventListener('popstate', this.listener)
     }
