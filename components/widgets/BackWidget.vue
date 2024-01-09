@@ -9,12 +9,15 @@ export default {
   },
   computed: {
     posts() {
+      if (this.$route.fullPath.includes('super1')) {
+        return this.$store.state.category.categories.super1.mostRead
+      }
       return this.$store.state.mostread.posts
     },
   },
   mounted() {
-    this.$store.dispatch('mostread/pullPosts')
     if (this.$mobile && this.checkReferrer()) {
+      this.$store.dispatch('mostread/pullPosts')
       window.addEventListener('load', this.init)
       window.addEventListener('popstate', this.listener)
     }

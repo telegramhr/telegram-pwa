@@ -81,7 +81,11 @@
             Super se čita
           </div>
           <div class="full flex">
-            <mini v-for="post in mostRead" :key="post.id" :post="post"></mini>
+            <mini
+              v-for="post in mostRead.slice(0, 6)"
+              :key="post.id"
+              :post="post"
+            ></mini>
           </div>
         </div>
       </div>
