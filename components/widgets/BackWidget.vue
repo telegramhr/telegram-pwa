@@ -73,7 +73,8 @@ export default {
       <div
         class="noththree full center-text column-vertical-pad subsection-title"
       >
-        Nastavite čitati Telegram
+        Nastavite čitati
+        {{ $route.fullPath.includes('super1') ? 'Super1' : 'Telegram' }}
       </div>
     </div>
     <div class="full relative">
