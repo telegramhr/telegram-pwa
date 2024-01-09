@@ -62,6 +62,16 @@ export default {
 
 <template>
   <div v-if="show" id="back-widget" class="main-container flex mobile-side-pad">
+    <div class="full column-horizontal-pa">
+      <div class="full cantha-separator"></div>
+    </div>
+    <div class="full flex column-horizontal-pad">
+      <div
+        class="noththree full center-text column-vertical-pad subsection-title"
+      >
+        Nastavite čitati Telegram
+      </div>
+    </div>
     <div class="full relative">
       <div class="container flex relative stretch cantha-intro-block">
         <featured-alt
