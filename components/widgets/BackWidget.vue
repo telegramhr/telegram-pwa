@@ -53,7 +53,8 @@ export default {
         const url = new URL(referrer)
         if (
           url.hostname.includes('midas') ||
-          url.hostname.includes('facebook')
+          url.hostname.includes('facebook') ||
+          url.hostname.includes('quicksearchbox')
         ) {
           return true
         }
