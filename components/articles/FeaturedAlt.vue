@@ -22,7 +22,7 @@
     <div class="full flex article-pad">
       <app-link
         class="full flex"
-        :to="post.permalink"
+        :to="post.permalink + (utm ? '?' + utm : '')"
         :tracker="post.trackerPermalink"
         :aria-labelledby="'featured-' + post.id"
       >
@@ -60,7 +60,7 @@
           v-for="article in post.related"
           :key="'related' + article.id"
           class="full flex"
-          :to="article.permalink"
+          :to="article.permalink + (utm ? '?' + utm : '')"
           >{{ article.title }}</app-link
         >
       </div>
