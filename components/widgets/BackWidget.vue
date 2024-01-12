@@ -16,12 +16,12 @@ export default {
     },
   },
   mounted() {
-    if (this.$mobile && this.checkReferrer()) {
-      this.$store.dispatch('mostread/pullPosts')
-      this.$store.dispatch('category/mostRead', { category: 'super1' })
-      window.addEventListener('load', this.init)
-      window.addEventListener('popstate', this.listener)
-    }
+    // if (this.$mobile && this.checkReferrer()) {
+    this.$store.dispatch('mostread/pullPosts')
+    this.$store.dispatch('category/mostRead', { category: 'super1' })
+    window.addEventListener('load', this.init)
+    window.addEventListener('popstate', this.listener)
+    // }
   },
   beforeDestroy() {
     if (this.$mobile && this.checkReferrer()) {
@@ -54,7 +54,9 @@ export default {
         if (
           url.hostname.includes('midas') ||
           url.hostname.includes('facebook') ||
-          url.hostname.includes('quicksearchbox')
+          url.hostname.includes('quicksearchbox') ||
+          url.hostname.includes('linker') ||
+          url.hostname.includes('upday')
         ) {
           return true
         }
@@ -80,13 +82,19 @@ export default {
     </div>
     <div class="full relative">
       <div class="container flex relative stretch cantha-intro-block">
-        <featured-alt
-          v-for="post in posts"
-          :key="`featured-${post.id}`"
-          :post="post"
-          utm="utm_campaign=back_widget"
-          @clicked="show = false"
-        ></featured-alt>
+        <div v-for="(post, index) in posts" :key="`back_widget-${index}`">
+          <featured-alt
+            :key="`featured-${post.id}`"
+            :post="post"
+            utm="utm_campaign=back_widget"
+            @clicked="show = false"
+          ></featured-alt>
+          <AdUnit
+            v-if="index === 2"
+            id="telegram_back_widget"
+            key="ad_unit_back_widget"
+          ></AdUnit>
+        </div>
       </div>
     </div>
   </div>

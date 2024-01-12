@@ -37,5 +37,26 @@ export default {
       return this.$mobile ? '250px' : '250px'
     },
   },
+  mounted() {
+    if (this.$store.getters['user/hasPremium']) {
+      return
+    }
+    this.$nextTick(() => {
+      if (this.id === 'telegram_back_widget') {
+        console.log('telegram_back_widget')
+        window.googletag.cmd.push(() => {
+          window.googletag
+            .defineSlot(
+              this.$store.state.ads.prefix + this.id,
+              this.$store.state.ads.units[this.id].mobile,
+              this.id
+            )
+            .addService(window.googletag.pubads())
+          window.googletag.display(this.id)
+          console.log('telegram_back_widget2')
+        })
+      }
+    })
+  },
 }
 </script>
