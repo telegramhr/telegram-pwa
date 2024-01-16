@@ -43,7 +43,6 @@ export default {
     }
     this.$nextTick(() => {
       if (this.id === 'telegram_back_widget') {
-        console.log('telegram_back_widget')
         window.googletag.cmd.push(() => {
           window.googletag
             .defineSlot(
@@ -53,7 +52,6 @@ export default {
             )
             .addService(window.googletag.pubads())
           window.googletag.display(this.id)
-          console.log('telegram_back_widget2')
         })
       }
     })
