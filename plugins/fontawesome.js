@@ -34,6 +34,10 @@ import {
   faGooglePay,
   faApplePay,
   faXTwitter,
+  faCcVisa,
+  faCcMastercard,
+  faCcDinersClub,
+  faGoogle,
 } from '@fortawesome/free-brands-svg-icons'
 
 import {
@@ -42,6 +46,10 @@ import {
   faUser,
   faAngleRight as farAngleRight,
   faAngleLeft,
+  faCalendar,
+  faBuildingColumns,
+  faCreditCardFront,
+  faStars,
 } from '@fortawesome/pro-regular-svg-icons'
 
 import {
@@ -56,6 +64,7 @@ config.autoAddCss = false
 // You can add your icons directly in this plugin. See other examples for how you
 // can add other styles or just individual icons.
 library.add(
+  faCalendar,
   faPodcast,
   faAngleRight,
   faTimes,
@@ -90,7 +99,15 @@ library.add(
   faMessageQuote,
   faNewspaper,
   faLightbulb,
-  faXTwitter
+  faCalendar,
+  faBuildingColumns,
+  faCreditCardFront,
+  faStars,
+  faXTwitter,
+  faCcVisa,
+  faCcMastercard,
+  faCcDinersClub,
+  faGoogle
 )
 
 // Register the component globally
