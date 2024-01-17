@@ -1313,7 +1313,11 @@ export const actions = {
       // clean old stuff from previous request
       window.pbjs = window.pbjs || {}
       window.pbjs.que = window.pbjs.que || []
-      window.pbjs.initAdserverSet = false
+      window.pbjs.requestManager = {
+        adServerRequestSent: false,
+        aps: false,
+        prebid: false,
+      }
       window.pbjs.que.push(() => {
         window.pbjs.removeAdUnit()
       })
@@ -1598,13 +1602,15 @@ export const actions = {
     window.pbjs.que.push(() => {
       if (window.prebid === 'prebid') {
         window.pbjs.requestBids({
-          bidsBackHandler: () => dispatch('initAdserver'),
+          bidsBackHandler: () => dispatch('initMagnite'),
           timeout: 1000,
         })
       }
       if (window.prebid === 'rubicon') {
         window.pbjs.rp.requestBids({
-          callback: () => dispatch('initAdserver'),
+          callback() {
+            window.pbjs.requestManager.prebid = true
+            dispatch('initAdserver') },
         })
       }
     })
@@ -1612,9 +1618,14 @@ export const actions = {
       dispatch('initAdserver')
     }, 3500)
   },
+  biddersBack({dispatch}) {
+    if (window.pbjs.requestManager.aps && window.pbjs.requestManager.prebid) {
+      dispatch('initAdserver')
+    }
+  },
   initAdserver({ state }) {
-    if (window.pbjs.initAdserverSet) return
-    window.pbjs.initAdserverSet = true
+    if (window.pbjs.requestManager.adServerRequestSent) return
+    window.pbjs.requestManager.adServerRequestSent = true
     if (state.route === 'nesto-slug') {
       return
     }
