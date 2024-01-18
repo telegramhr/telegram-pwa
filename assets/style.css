@@ -12737,9 +12737,6 @@ input:checked ~ .input-hidden {
     z-index: 3;
     margin-bottom: 16px;
 }
-.remp-pretplata label.pretplata-packbox:hover {
-    border-color: #333;
-}
 .remp-pretplata .pretplata-packboxes input:checked ~ label.pretplata-packbox {
     border-color: #ae3737;
 }
@@ -12777,6 +12774,8 @@ input:checked ~ .input-hidden {
 }
 .remp-pretplata .pretplata-packbox .overtitle {
     width: 100%;
+    font-size: 17px;
+    font-size: 0.85rem;
 }
 
 .remp-payment {
@@ -12807,6 +12806,10 @@ input:checked ~ .input-hidden {
     font-size: 0.9rem;
     font-family: 'Barlow', sans-serif;
 }
+.dark-mode .remp-new-input {
+    background-color: rgba(255,255,255,0.05);
+    color: white;
+}
 .remp-pretplata p.remp-mini-note {
     font-size: 14px;
     font-size: 0.7rem;
@@ -12832,6 +12835,9 @@ input:checked ~ .input-hidden {
     padding-top: 13px;
     border-bottom: 1px solid #c8c8c8;
     flex-wrap: wrap;
+}
+.dark-mode .remp-pretplata .remp-minibox {
+    border-bottom-color: #555;
 }
 .remp-pretplata .remp-miniboxes > .full:last-child .remp-minibox {
     border-bottom: none;
@@ -12957,12 +12963,17 @@ input:checked ~ .input-hidden {
     font-size: 18px;
     font-size: 0.9rem;
     font-family: 'Barlow', sans-serif;
-}
-.remp-select {
     color: #666;
+}
+.dark-mode .remp-select {
+    background-color: rgba(255,255,255,0.05);
+    color: #aaa;
 }
 .remp-select:focus {
     color: #111;
+}
+.dark-mode .remp-select:focus {
+    color: #eee;
 }
 .remp-final-calc b {
     padding: 0px 4px;
@@ -12993,6 +13004,10 @@ input:checked ~ .input-hidden {
     font-family: 'Barlow', sans-serif;
     cursor: pointer;
 }
+.dark-mode .remp-social-logbtn {
+    background-color: rgba(255,255,255,0.05);
+    color: #aaa;
+}
 .remp-social-logbtn svg {
     opacity: .8;
     margin-right: 10px;
@@ -13001,11 +13016,17 @@ input:checked ~ .input-hidden {
 .remp-social-logbtn:hover {
     color: #111;
 }
+.dark-mode .remp-social-logbtn:hover {
+    color: #eee;
+}
 .remp-social-logbtn:hover  svg {
     opacity: 1;
 }
 
 @media screen and (min-width: 767px) {
+    .remp-pretplata label.pretplata-packbox:hover {
+        border-color: #333;
+    }
     .remp-pretplata h1 {
         font-size: 36px;
         font-size: 1.8rem;
@@ -13019,6 +13040,34 @@ input:checked ~ .input-hidden {
         padding-right: 16px;
         padding-left: 0px;
     }
+}
+.remp-mini-tile {
+    background-color: #ae3737;
+    color: white;
+    padding: 2px 4px;
+    padding-left: 6px;
+    padding-top: 1px;
+    margin-left: 4px;
+    position: relative;
+    top: -0.5px;
+    font-family: 'Barlow', sans-serif;
+    border-radius: 2px;
+}
+.remp-footer > * {
+    padding: 3px 10px;
+    padding-top: 2px;
+    border-right: 1px solid #c8c8c8;
+    font-family: 'Barlow', sans-serif;
+    font-size: 16px;
+    font-size: 0.8rem;
+    opacity: 0.7;
+    transition: 0.3s all;
+}
+.remp-footer > *:last-child {
+    border-right: none;
+}
+.remp-footer > *:hover {
+    opacity: 1;
 }
 
 @media screen and (max-width: 767px) {

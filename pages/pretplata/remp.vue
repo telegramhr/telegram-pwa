@@ -149,8 +149,30 @@
             <div class="full flex relative remp-halfpad pretplata-packboxes">
               <div class="half flex flex-responsive remp-miniboxes">
                 <p class="full remp-subtitle bold faded">
-                  2) Odaberite termin plaćanja
+                  2) Odaberite trajanje pretplate
                 </p>
+                <div class="full relative flex">
+                  <input
+                    id="pretplata-godisnje"
+                    v-model="term"
+                    type="radio"
+                    name="pretplata-termin"
+                    class="hide"
+                    value="pretplata-godisnje"
+                  />
+                  <label
+                    for="pretplata-godisnje"
+                    class="full center relative remp-minibox animate clickable"
+                  >
+                    <div class="remp-radio-indicator center"><div></div></div>
+                    <div class="full">
+                      Godišnje <span class="remp-mini-tile">-20%</span>
+                    </div>
+                    <div class="full remp-special-note">
+                      {{ interimYearPrice }}€ za godinu dana unaprijed
+                    </div>
+                  </label>
+                </div>
                 <div class="full relative flex">
                   <input
                     id="pretplata-mjesecno"
@@ -168,28 +190,6 @@
                     <div class="full">Mjesečno</div>
                     <div class="full remp-special-note">
                       {{ interimMonthPrice }}€/mj, možete otkazati kad god
-                    </div>
-                  </label>
-                </div>
-                <div class="full relative flex">
-                  <input
-                    id="pretplata-godisnje"
-                    v-model="term"
-                    type="radio"
-                    name="pretplata-termin"
-                    class="hide"
-                    value="pretplata-godisnje"
-                  />
-                  <label
-                    for="pretplata-godisnje"
-                    class="full center relative remp-minibox animate clickable"
-                  >
-                    <div class="remp-radio-indicator center"><div></div></div>
-                    <div class="full">
-                      Godišnje <span class="highlight-text">20% jeftinije</span>
-                    </div>
-                    <div class="full remp-special-note">
-                      {{ interimYearPrice }}€ za godinu dana unaprijed
                     </div>
                   </label>
                 </div>
@@ -278,7 +278,7 @@
                       Facebook
                     </div>
                   </div>
-                  <p class="full remp-mini-text center-text faded">
+                  <p class="full remp-mini-text center-text faded hide">
                     Privremeno ćemo vas preusmjeriti na stranicu odabranog
                     davatelja usluga kako bi povezali račune.
                   </p>
@@ -372,7 +372,7 @@
                       </div>
                     </div>
                   </div>
-                  <p class="full remp-mini-text center-text faded">
+                  <p class="full remp-mini-text center-text faded hide">
                     Vaši podaci za plaćanje biti će enkriptirani i sigurno
                     spremljeni po najvišim sigurnosnim standardima.
                   </p>
@@ -385,225 +385,56 @@
                     Tekst za bankovnu uplatu.
                   </p>
                 </div>
-                <div v-if="payment === null" class="full flex relative">
-                  <p class="full smaller-text faded">
-                    Odaberite način plaćanja i prikazati ćemo vam potrebne
-                    podatke.
-                  </p>
-                </div>
               </div>
             </div>
             <div class="full flex relative column-top-pad mobile-top-pad">
-              <div class="full flex column-mini-bottom-pad">
+              <div class="full flex">
                 <div
-                  v-if="term != null && pack != null && payment != null"
                   class="full newbtn huge-newbtn center-text clickable green-newbtn"
+                  @click="fakeCheckout()"
                 >
-                  Pretplatite se za {{ totalPrice }}€
-                </div>
-                <div
-                  v-else
-                  class="full newbtn huge-newbtn center-text clickable locked-newbtn"
-                >
-                  Odaberite svoje opcije pretplate za nastavak
+                  Dovršite kupnju
+                  <span v-if="term != null && pack != null"
+                    >za {{ totalPrice }}€</span
+                  >
                 </div>
               </div>
               <div
-                v-if="term != null && pack != null"
-                class="full flex remp-final-calc column-mini-bottom-pad"
+                v-if="show_msg == 'error-not-finished'"
+                class="full remp-final-calc highlight-text column-mini-top-pad column-mini-bottom-pad center-text bold"
               >
-                Naplatiti ćemo vam <b>{{ totalPrice }}€</b> za
-                {{ packTermText }} dana {{ packText }} pretplate, što je
-                {{ monthlyPrice }}€ za svaki mjesec pretplate.
+                Ispunite sve korake kako bi dovršili kupnju.
               </div>
               <div
-                v-if="term != null && pack != null"
-                class="full flex remp-final-calc column-mini-bottom-pad"
+                v-if="show_msg == 'complete-checkout'"
+                class="full remp-final-calc column-mini-top-pad column-mini-bottom-pad center-text bold"
               >
-                Slijedeća naplata biti će 05.01.2025. za {{ totalPrice }}€.
+                Beep boop fake checkout complete!
+              </div>
+              <p class="full remp-mini-text center-text faded">
                 Pretplatu možete otkazati u bilo kojem trenutku.
-              </div>
+              </p>
+            </div>
+            <div
+              class="full flex relative center column-vertical-pad remp-footer"
+            >
+              <a href="https://www.telegram.hr/pretplata" target="_blank"
+                >Česta pitanja</a
+              >
+              <a href="https://www.telegram.hr/pretplata" target="_blank"
+                >Pretplate za tvrtke</a
+              >
+              <a href="https://www.telegram.hr/donacije/" target="_blank"
+                >Donirajte Telegramu</a
+              >
+              <a
+                href="https://www.telegram.hr/pretplata/poklon/"
+                target="_blank"
+                >Poklonite pretplatu</a
+              >
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="full flex pretplata-faq">
-      <div
-        class="container relative flex mobile-side-pad column-full-pad mobile-top-pad"
-      >
-        <h2 class="full">Često postavljana pitanja</h2>
-        <details class="full flex relative">
-          <summary class="full relative">Što je pretplata na Telegram?</summary>
-          <p>
-            Pretplata na Telegram omogućuje Vam, ovisno o paketu, neograničeno
-            čitanje Telegrama i Telesporta, ali i brojne druge benefite i
-            funkcionalnosti poput surfanja bez oglasa, popust na knjige i
-            ekskluzivnih
-            <app-link to="/newsletters">newslettera</app-link>.
-          </p>
-        </details>
-        <details class="full flex relative">
-          <summary class="full relative">
-            Zašto postoji pretplata na Telegramu?
-          </summary>
-          <p>
-            Bespoštedno i neovisno novinarstvo, istraživački specijali i velike
-            priče nisu jeftini. Svake godine stotine tisuća eura odlaze nam na
-            sudske borbe protiv moćnika koji, nakon što smo ih uhvatili u
-            nedjelima, pokušavaju takvim pritiskom financijski devastirati
-            Telegram. Nerijetko za tužbe i odmazde koriste javni novac, odnosno
-            neograničena sredstva institucija na čijem su čelu, a protiv
-            neograničenih sredstava nije se lako boriti. Upravo zato odlučili
-            smo pitati vas, naše čitatelje, za podršku u ovome što radimo.
-          </p>
-        </details>
-        <details class="full flex relative">
-          <summary class="full relative">
-            Kako da se pretplatim na Telegram?
-          </summary>
-          <p>
-            Vrlo jednostavno, samo odaberite jedan od gore ponuđenih mjesečnih
-            ili godišnjih paketa, a sustav će Vas dalje sam voditi kroz vrlo
-            kratak i jednostavan proces registracije i kupnje.
-          </p>
-        </details>
-        <details class="full flex relative">
-          <summary class="full relative">Koliko košta pretplata?</summary>
-          <p>
-            Cijena pretplate ovisi o paketu koji odaberete. Možete se
-            pretplatiti na mjesečnoj ili godišnjoj bazi i to na samo jedan ili
-            više naših portala. Kako bismo Vam izašli u susret, pripremili smo
-            povoljnu premium opciju mjesečne pretplate, kao i još povoljnije
-            godišnje pretplate.
-          </p>
-        </details>
-        <details class="full flex relative">
-          <summary class="full relative">
-            Koja mi se opcija pretplate najviše isplati?
-          </summary>
-          <p>
-            Najisplativija opcija je godišnja premium pretplata: u njoj za samo
-            6,50 eura mjesečno (godišnji iznos naplaćuje se jednokratno)
-            dobivate godinu dana neograničenog čitanja Telegrama i Telesporta
-            bez oglasa, nove funkcionalnosti koje ćemo uvoditi i popust na
-            knjigu jednog od naših autora.
-          </p>
-        </details>
-        <details class="full flex relative">
-          <summary class="full relative">Kako mogu platiti pretplatu?</summary>
-          <p>
-            Pretplatu možete sigurno platiti svim Maestro, Mastercard, Visa i
-            Diners karticama.
-          </p>
-        </details>
-        <details class="full flex relative">
-          <summary class="full relative">
-            Mogu li nekome pokloniti pretplatu?
-          </summary>
-          <p>
-            Dapače, upravo je u tijeku Božićna akcija darivanja. Samo posjetite
-            <app-link to="/pretplata/poklon">ovu stranicu</app-link> i pratite
-            korake za jedan od najoriginalnijih poklona ovog Božića.
-          </p>
-        </details>
-        <details class="full flex relative">
-          <summary class="full relative">
-            Mogu li čitati Telegram sa svih uređaja jednom kad se pretplatim?
-          </summary>
-          <p>
-            Da, svaki pretplatnik može čitati Telegram na svakom uređaju, bio to
-            mobitel, računalo ili tablet.
-          </p>
-        </details>
-        <details class="full flex relative">
-          <summary class="full relative">
-            Mogu li dijeliti svoju pretplatu s drugima?
-          </summary>
-          <p>
-            Ne, dijeljenje pretplate nije dopušteno, a u slučaju sumnje u
-            dijeljenje pretplate zadržavamo pravo zatvoriti korisnički račun.
-          </p>
-        </details>
-        <details class="full flex relative">
-          <summary class="full relative">
-            Mi smo tvrtka/škola/knjižnica/fakultet, postoji li opcija grupne
-            pretplate?
-          </summary>
-          <p>
-            Za opcije grupne pretplate pravnim osobama javite se na
-            <a href="mailto:pretplata@telegram.hr">pretplata@telegram.hr</a>.
-          </p>
-        </details>
-        <details class="full flex relative">
-          <summary class="full relative">
-            Hoću li moći čitati Telegram i ako se ne pretplatim?
-          </summary>
-          <p>
-            Sve naše članke, pa i najbolje kolumne i istraživačke serijale, i
-            dalje ćete moći nesmetano i besplatno čitati, ali do određene
-            količine mjesečno. Nakon što potrošite svoju količinu besplatnih
-            članaka u mjesecu, da bi ste nastavili čitati bit će Vam potrebna
-            pretplata.
-          </p>
-        </details>
-        <details class="full flex relative">
-          <summary class="full relative">
-            Mogu li se pretplatiti samo na Telesport?
-          </summary>
-          <p>
-            Naravno, možete se pretplatiti samo na Telegram, samo na Telesport
-            ili na oba portala zajedno, kako Vama najbolje odgovara.
-          </p>
-        </details>
-        <details class="full flex relative">
-          <summary class="full relative">
-            Mogu li otkazati pretplatu jednom kad se pretplatim?
-          </summary>
-          <p>
-            Naravno, pretplatu možete samostalno i jednostavno otkazati u bilo
-            kojem trenutku kroz korisničko sučelje.
-          </p>
-        </details>
-        <details class="full flex relative">
-          <summary class="full relative">
-            Kako se obnavlja jednom kupljena pretplata?
-          </summary>
-          <p>
-            Sve mjesečne i godišnje pretplate automatski se obnavljaju po svom
-            isteku na isti vremenski period kako Vi ne biste morali brinuti o
-            tome. Ukoliko želite isključiti automatsku obnovu, to možete
-            jednostavno napraviti jednim klikom u korisničkom sučelju.
-          </p>
-        </details>
-        <details class="full flex relative">
-          <summary class="full relative">
-            Imam pretplatu, no i dalje ne mogu čitati tekstove?
-          </summary>
-          <p>
-            Najvjerojatnije niste prijavljeni u svoj korisnički račun. Kada
-            posjetite Telegram, u gornjem desnom kutu ekrana nalazi se gumb
-            "PRIJAVA", odnosno ikona čovječuljka ako ste na mobilnom uređaju.
-            Klikom na gumb otvorit će Vam se prozor u kojemu se možete prijaviti
-            sa svojom e-mail adresom i lozinkom koju ste postavili, a
-            prepručujemo da ostavite označenom opciju "ostanite prijavljeni"
-            kako se ne biste morali opet prijavljivati pri sljedećem čitanju u
-            istom internetskom pregledniku. Ukoliko ste se prijavljeni, no i
-            dalje ne možete čitati tekstove, javite nam se na
-            <a href="mailto:pretplata@telegram.hr">pretplata@telegram.hr</a>
-            kako bismo što brže riješili problem.
-          </p>
-        </details>
-        <details class="full flex relative">
-          <summary class="full relative">
-            Ne mogu pronaći odgovor na svoje pitanje.
-          </summary>
-          <p>
-            Javite nam se na
-            <a href="mailto:pretplata@telegram.hr">pretplata@telegram.hr</a>
-            i odgovorit ćemo vam u najkraćem roku.
-          </p>
-        </details>
       </div>
     </div>
     <tfooter></tfooter>
@@ -616,9 +447,10 @@ export default {
   data() {
     return {
       pack: null,
-      term: null,
+      term: 'pretplata-godisnje',
       payment: null,
       promo_code: '',
+      show_msg: null,
     }
   },
   computed: {
@@ -680,6 +512,13 @@ export default {
   methods: {
     canLogIn() {
       return this.$store.state.user.exp * 1000 < new Date().getTime()
+    },
+    fakeCheckout() {
+      if (this.term != null && this.payment != null && this.payment != null) {
+        this.show_msg = 'complete-checkout'
+      } else {
+        this.show_msg = 'error-not-finished'
+      }
     },
   },
   head() {
