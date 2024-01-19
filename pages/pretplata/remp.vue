@@ -1,13 +1,13 @@
 <template>
   <div
-    class="main-container flex red-header-page pretplata-page single-article remp-pretplata"
+    class="main-container flex red-header-page pretplata-page single-article"
   >
     <div class="full flex tg-red">
       <theader
         headline="Pretplatite se i podržite naše bespoštedno novinarstvo."
       ></theader>
     </div>
-    <div class="full flex">
+    <div class="full flex remp-pretplata">
       <div class="full flex relative">
         <div class="full flex">
           <div
@@ -30,14 +30,16 @@
                   for="pretplata-standard"
                   class="full flex relative pretplata-packbox animate clickable"
                 >
-                  <div class="full flex overtitle-parent">
-                    <div class="noththree overtitle">Standard</div>
+                  <div class="full flex mobile-third relative">
+                    <div class="full flex overtitle-parent">
+                      <div class="noththree overtitle">Standard</div>
+                    </div>
+                    <div class="full sub-price bold">6,49€</div>
+                    <div class="nothfour full center-text undertitle">
+                      Mjesečno
+                    </div>
                   </div>
-                  <div class="full sub-price bold">6,49€</div>
-                  <div class="nothfour full center-text undertitle">
-                    Mjesečno
-                  </div>
-                  <div class="full pretplata-benefits">
+                  <div class="full pretplata-benefits mobile-two-thirds">
                     <p class="full animate">
                       <font-awesome-icon
                         :icon="['fas', 'check']"
@@ -55,12 +57,6 @@
                         :icon="['fas', 'check']"
                       ></font-awesome-icon>
                       specijalni newsletteri
-                    </p>
-                    <p class="full animate">
-                      <font-awesome-icon
-                        :icon="['fas', 'check']"
-                      ></font-awesome-icon>
-                      verificirani profil u komentarima
                     </p>
                     <p class="full animate">
                       <font-awesome-icon
@@ -92,14 +88,18 @@
                   for="pretplata-premium"
                   class="full flex relative pretplata-packbox animate clickable"
                 >
-                  <div class="full flex overtitle-parent">
-                    <div class="noththree overtitle">Premium (bez oglasa)</div>
+                  <div class="full flex mobile-third relative">
+                    <div class="full flex overtitle-parent">
+                      <div class="noththree overtitle">
+                        Premium <span class="ib">(bez oglasa)</span>
+                      </div>
+                    </div>
+                    <div class="full sub-price bold">9,10€</div>
+                    <div class="nothfour full center-text undertitle">
+                      Mjesečno
+                    </div>
                   </div>
-                  <div class="full sub-price bold">9,10€</div>
-                  <div class="nothfour full center-text undertitle">
-                    Mjesečno
-                  </div>
-                  <div class="full pretplata-benefits">
+                  <div class="full pretplata-benefits mobile-two-thirds">
                     <p class="full animate">
                       <font-awesome-icon
                         :icon="['fas', 'check']"
@@ -123,12 +123,6 @@
                         :icon="['fas', 'check']"
                       ></font-awesome-icon>
                       specijalni newsletteri
-                    </p>
-                    <p class="full animate">
-                      <font-awesome-icon
-                        :icon="['fas', 'check']"
-                      ></font-awesome-icon>
-                      verificirani profil u komentarima
                     </p>
                     <p class="full animate">
                       <font-awesome-icon
@@ -166,7 +160,7 @@
                   >
                     <div class="remp-radio-indicator center"><div></div></div>
                     <div class="full">
-                      Godišnje <span class="remp-mini-tile">-20%</span>
+                      Godišnje <span class="highlight-text">20% popusta</span>
                     </div>
                     <div class="full remp-special-note">
                       {{ interimYearPrice }}€ za godinu dana unaprijed
@@ -390,6 +384,7 @@
             <div class="full flex relative column-top-pad mobile-top-pad">
               <div class="full flex">
                 <div
+                  v-if="pack != null"
                   class="full newbtn huge-newbtn center-text clickable green-newbtn"
                   @click="fakeCheckout()"
                 >
@@ -397,6 +392,12 @@
                   <span v-if="term != null && pack != null"
                     >za {{ totalPrice }}€</span
                   >
+                </div>
+                <div
+                  v-else
+                  class="full newbtn huge-newbtn center-text clickable locked-newbtn"
+                >
+                  Odaberite pretplatu
                 </div>
               </div>
               <div

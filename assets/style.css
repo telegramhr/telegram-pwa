@@ -12792,9 +12792,6 @@ input:checked ~ .input-hidden {
 .remp-pretplata .pretplata-packbox .btn {
     background-color: #999;
 }
-.remp-pretplata .pretplata-packbox:hover .btn {
-    background-color: #333;
-}
 .remp-pretplata .pretplata-packboxes input:checked ~ label.pretplata-packbox .btn, .remp-pretplata .pretplata-packboxes input:checked ~ label.pretplata-packbox:hover .btn {
     background-color: #ae3737;
 }
@@ -12887,9 +12884,6 @@ input:checked ~ .input-hidden {
     position: relative;
     z-index: 2;
 }
-.remp-minibox:hover .remp-radio-indicator div {
-    border-color: #333;
-}
 .remp-radio-indicator div::before {
     content: " ";
     position: absolute;
@@ -12902,9 +12896,6 @@ input:checked ~ .input-hidden {
     opacity: 0;
     z-index: 3;
     border-radius: 5px;
-}
-.remp-minibox:hover .remp-radio-indicator div::before {
-    opacity: .2;
 }
 .remp-pretplata .pretplata-packboxes input:checked ~ label.remp-minibox .remp-radio-indicator div::before {
     opacity: 1;
@@ -12921,13 +12912,6 @@ input:checked ~ .input-hidden {
     height: 40px;
     background-color: rgba(0,0,0,0);
     border-radius: 20px;
-}
-.remp-minibox:hover .remp-radio-indicator div::after {
-    background-color: rgba(0,0,0,0.1);
-    top: -7px;
-    left: -7px;
-    width: 30px;
-    height: 30px;
 }
 .remp-minibox .smaller-text {
     font-size: 0.7em;
@@ -13013,19 +12997,35 @@ input:checked ~ .input-hidden {
     margin-right: 10px;
     margin-bottom: -1.5px;
 }
-.remp-social-logbtn:hover {
-    color: #111;
-}
 .dark-mode .remp-social-logbtn:hover {
     color: #eee;
-}
-.remp-social-logbtn:hover  svg {
-    opacity: 1;
 }
 
 @media screen and (min-width: 767px) {
     .remp-pretplata label.pretplata-packbox:hover {
         border-color: #333;
+    }
+    .remp-pretplata .pretplata-packbox:hover .btn {
+        background-color: #333;
+    }
+    .remp-social-logbtn:hover {
+        color: #111;
+    }
+    .remp-social-logbtn:hover  svg {
+        opacity: 1;
+    }
+    .remp-minibox:hover .remp-radio-indicator div {
+        border-color: #333;
+    }
+    .remp-minibox:hover .remp-radio-indicator div::before {
+        opacity: .2;
+    }
+    .remp-minibox:hover .remp-radio-indicator div::after {
+        background-color: rgba(0,0,0,0.1);
+        top: -7px;
+        left: -7px;
+        width: 30px;
+        height: 30px;
     }
     .remp-pretplata h1 {
         font-size: 36px;
@@ -13039,6 +13039,9 @@ input:checked ~ .input-hidden {
     .remp-pretplata .remp-halfpad > .half:first-child {
         padding-right: 16px;
         padding-left: 0px;
+    }
+    .remp-footer > *:hover {
+        opacity: 1;
     }
 }
 .remp-mini-tile {
@@ -13066,9 +13069,6 @@ input:checked ~ .input-hidden {
 .remp-footer > *:last-child {
     border-right: none;
 }
-.remp-footer > *:hover {
-    opacity: 1;
-}
 
 @media screen and (max-width: 767px) {
     .mobile-no-pad {
@@ -13076,6 +13076,44 @@ input:checked ~ .input-hidden {
     }
     .mobile-mini-top-pad {
         padding-top: 0.6rem;
+    }
+    .remp-pretplata .pretplata-packbox {
+        flex-direction: row;
+    }
+    .remp-pretplata .pretplata-benefits {
+        padding-left: 0.4rem;
+    }
+    .remp-pretplata .pretplata-benefits p {
+        font-size: 14px;
+        font-size: 0.7rem;
+        text-align: right;
+    }
+    .remp-pretplata .pretplata-benefits p svg {
+        display: none;
+    }
+    .remp-pretplata .pretplata-packbox .mobile-third > * {
+        text-align: left;
+    }
+    .remp-pretplata .pretplata-packbox .sub-price {
+        font-size: 40px;
+        font-size: 2rem;
+        position: relative;
+        left: -0.1rem;
+        padding-bottom: 0.2rem;
+    }
+    .remp-pretplata label.pretplata-packbox {
+        padding: 16px;
+        padding: 0.8rem;
+    }
+}
+@media screen and (max-width: 370px) {
+    .remp-pretplata .pretplata-benefits p {
+        font-size: 13px;
+        font-size: 0.65rem;
+    }
+    .remp-pretplata .pretplata-packbox .sub-price {
+        font-size: 36px;
+        font-size: 1.8rem;
     }
 }
 
