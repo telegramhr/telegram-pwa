@@ -57,11 +57,7 @@
               >
                 Kupite
               </div>-->
-              <div
-                class="newbtn clickable huge-newbtn animate"
-              >
-                Rasprodano
-              </div>
+              <div class="newbtn clickable huge-newbtn animate">Rasprodano</div>
             </div>
           </div>
         </div>
