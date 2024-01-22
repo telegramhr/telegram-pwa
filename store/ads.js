@@ -1610,7 +1610,8 @@ export const actions = {
         window.pbjs.rp.requestBids({
           callback() {
             window.pbjs.requestManager.prebid = true
-            dispatch('initAdserver') },
+            dispatch('initAdserver')
+          },
         })
       }
     })
@@ -1618,7 +1619,7 @@ export const actions = {
       dispatch('initAdserver')
     }, 3500)
   },
-  biddersBack({dispatch}) {
+  biddersBack({ dispatch }) {
     if (window.pbjs.requestManager.aps && window.pbjs.requestManager.prebid) {
       dispatch('initAdserver')
     }
