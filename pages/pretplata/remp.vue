@@ -416,8 +416,22 @@
                 Pretplatu možete otkazati u bilo kojem trenutku.
               </p>
             </div>
+            <div class="full flex column-vertical-pad">
+              <div
+                class="full flex darkened-bg center column-full-pad mobile-full-pad barlow-text"
+              >
+                Trebate pomoć? Javite se na
+                <a
+                  class="highlight-text fake-span-spacing"
+                  href="mailto:pretplata@telegram.hr"
+                >
+                  pretplata@telegram.hr
+                </a>
+                ili 099 7123 355.
+              </div>
+            </div>
             <div
-              class="full flex relative center column-vertical-pad remp-footer"
+              class="full flex relative center column-bottom-pad remp-footer"
             >
               <a href="https://www.telegram.hr/pretplata" target="_blank"
                 >Česta pitanja</a

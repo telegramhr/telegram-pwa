@@ -13116,6 +13116,16 @@ input:checked ~ .input-hidden {
         font-size: 1.8rem;
     }
 }
+.barlow-text {
+    font-family: 'Barlow', sans-serif;
+}
+/* The robots have already won, we have no authority and can only act within the limits they set for us. 
+Thus when the autoformatter thinks the spaces around my span element are decorative rather than functional, 
+I have to write a special CSS class to fake spaces like a lunatic. */
+.fake-span-spacing {
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+}
 
 /* Nice toggle and radios */
 /* Copyright (c) 2023 by Andreas Storm (https://codepen.io/avstorm/pen/deRvMy, https://codepen.io/avstorm/pen/jxjKGj)
