@@ -292,12 +292,6 @@
         <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
       </div>
     </div>
-    <!-- Velika rubrika: Politika i kriminal -->
-    <div class="full relative">
-      <div class="container flex relative column-bottom-pad">
-        <category-big slug="more-news"></category-big>
-      </div>
-    </div>
     <!-- Widget partner special -->
     <client-only>
       <div v-if="!hasPremium" class="full relative">
@@ -308,6 +302,10 @@
     <!-- Sport -->
     <div class="full relative">
       <sport></sport>
+    </div>
+    <!-- Velika rubrika: Kultura -->
+    <div class="full relative">
+      <category-zone zone="kultura"></category-zone>
     </div>
     <!-- Widget autori -->
     <commentary-alt type="tg"></commentary-alt>
