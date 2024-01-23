@@ -421,11 +421,11 @@
       </div>
     </div>
     <div class="full flex">
-      <div class="container flex relative column-full-pad">
+      <div class="container flex relative column-full-pad mobile-side-pad">
         <div
           class="full flex darkened-bg column-full-pad mobile-full-pad barlow-text"
         >
-          <div class="full center relative">
+          <div class="full center-text relative">
             Trebate pomoć? Javite se na
             <a
               class="highlight-text fake-span-spacing"
@@ -435,7 +435,9 @@
             </a>
             ili 099 7123 355.
           </div>
-          <div class="full flex relative center column-top-pad remp-footer">
+          <div
+            class="full flex relative center column-top-pad mobile-top-pad remp-footer"
+          >
             <a href="https://www.telegram.hr/pretplata" target="_blank"
               >Česta pitanja</a
             >

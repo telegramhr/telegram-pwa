@@ -13123,8 +13123,8 @@ input:checked ~ .input-hidden {
 Thus when the autoformatter thinks the spaces around my span element are decorative rather than functional, 
 I have to write a special CSS class to fake spaces like a lunatic. */
 .fake-span-spacing {
-    padding-left: 0.3em;
-    padding-right: 0.3em;
+    padding-left: 0.2em;
+    padding-right: 0.2em;
 }
 
 /* Nice toggle and radios */
