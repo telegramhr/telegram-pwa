@@ -9745,12 +9745,28 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .trebam-hitno .third {
     padding: 24px;
 }
+.trebam-hitno .trebam-hitno-smaller-thirds .third {
+    padding: 8px;
+    padding-top: 16px;
+}
+.trebam-hitno .trebam-hitno-smaller-thirds .third:first-child {
+    padding-left: 0px;
+    padding-right: 16px;
+}
+.trebam-hitno .trebam-hitno-smaller-thirds .third:last-child {
+    padding-right: 0px;
+    padding-left: 16px;
+}
 .generator-submenu .half {
     padding-right: 12px;
 }
-.generator-submenu .half:nth-child(3), .generator-submenu .half:nth-child(5) {
+.generator-submenu .half:nth-child(odd) {
     padding-right: 0px;
     padding-left: 12px;
+}
+.generator-submenu .half:first-child {
+    padding-right: 12px;
+    padding-left: 0px;
 }
 .trebam-hitno input[type=radio] {
     display: none;
@@ -9960,6 +9976,15 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     z-index: 4;
     background: white;
     opacity: .5;
+}
+.kolaz-third {
+    overflow: hidden;
+}
+#generator-img-render img#kolaz-left-third, #generator-img-render img#kolaz-right-third {
+    position: absolute;
+    top: 0px;
+    height: 100%;
+    width: auto;
 }
 
 /* New user pretplata promo */
@@ -13115,6 +13140,16 @@ input:checked ~ .input-hidden {
         font-size: 36px;
         font-size: 1.8rem;
     }
+}
+.barlow-text {
+    font-family: 'Barlow', sans-serif;
+}
+/* The robots have already won, we have no authority and can only act within the limits they set for us. 
+Thus when the autoformatter thinks the spaces around my span element are decorative rather than functional, 
+I have to write a special CSS class to fake spaces like a lunatic. */
+.fake-span-spacing {
+    padding-left: 0.2em;
+    padding-right: 0.2em;
 }
 
 /* Nice toggle and radios */
