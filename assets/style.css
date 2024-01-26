@@ -13241,3 +13241,83 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     position: relative;
     top: -2.5px;
 }
+
+/* New year promo */
+
+
+.new-year-promo .overtitle {
+    color: #ae3737;
+}
+.new-year-highlight {
+    font-family: 'Lora', serif;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    border-left: 3px solid #111;
+    padding-left: 16px;
+    padding-left: 0.8rem;
+}
+.new-year-highlight-price .center {
+    justify-content: flex-start;
+}
+
+@media screen and (min-width: 767px) {
+    .new-year-promo .smaller-container .newbook-title {
+        font-size: 64px;
+        font-size: 3.2rem;
+        padding-top: 8px;
+        padding-bottom: 4px;
+    }
+    .new-year-promo .smaller-container .newbook-intro {
+        font-size: 19px;
+        font-size: 0.95rem;
+    }
+
+    .new-year-highlight-price {
+        width: 220px;
+        font-size: 36px;
+        font-size: 1.8rem; 
+    }
+    .new-year-highlight-price p {
+        font-size: 20px;
+        font-size: 1rem;
+        margin-top: 6px;
+    }
+    .new-year-highlight-price .huge-text {
+        font-size: 64px;
+        font-size: 3.2rem; 
+        line-height: 0.8em;
+        padding-right: 0.2rem;
+    }
+    .new-year-highlight .pretplata-benefits {
+        margin: 0px;
+    }
+    .new-year-promo {
+        padding-bottom: 4vh;
+    }
+}
+@media screen and (max-width: 767px) {
+    .homepage .new-year-promo .newbook-title {
+        font-size: 7.2vw;
+        margin-top: 8px;
+    }
+    .new-year-promo .newbook-intro {
+        font-size: 4vw;
+    }
+    .new-year-promo .three-fourths {
+        padding-right: 2vw;
+    }
+    .new-year-highlight {
+        margin: 0px;
+        margin-top: 4px;
+        padding-left: 10px;
+        padding-left: 0.5rem;
+    }
+    .new-year-highlight-price .huge-text {
+        padding-right: 0.2rem;
+    }
+    .new-year-highlight-price .huge-text, .new-year-highlight .faded.strikethrough {
+        font-size: 36px;
+        font-size: 1.8rem; 
+        line-height: 0.8em;
+    }
+}

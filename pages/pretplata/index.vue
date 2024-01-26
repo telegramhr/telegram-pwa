@@ -7,6 +7,77 @@
         headline="Pretplatite se i podržite naše bespoštedno novinarstvo."
       ></theader>
     </div>
+    <!-- Above header banner 
+    <client-only>
+      <app-link
+        v-if="!$store.state.user.access"
+        to="/pretplata/"
+        class="full flex relative center darkened-bg newbook-gifting column-full-pad new-year-promo mobile-side-pad"
+      >
+        <div class="container smaller-container relative flex stretch">
+          <div class="three-fourths flex center mobile-top-pad">
+            <div class="full flex overtitle-parent">
+              <div class="overtitle noththree">
+                <span>Velika godišnja akcija</span>
+              </div>
+            </div>
+            <div class="full newbook-title all-caps">2024. UZ TELEGRAM</div>
+            <p class="full newbook-intro">
+              <span class="ib"
+                >Ove superizborne godine budite informirani o stvarnom stanju u
+                državi, </span
+              ><span class="ib"
+                >samo na Telegramu kojeg financiraju čitatelji, a ne politički
+                moćnici</span
+              >
+            </p>
+            <div class="full flex relative new-year-highlight">
+              <div class="new-year-highlight-price">
+                <div class="full bold center">
+                  <div class="huge-text">29€</div>
+                  <div class="faded strikethrough">78€</div>
+                </div>
+                <p class="full">za godinu dana</p>
+              </div>
+              <div class="pretplata-benefits desktop-only">
+                <p class="full animate">
+                  <font-awesome-icon
+                    :icon="['fas', 'check']"
+                  ></font-awesome-icon>
+                  neograničeno čitanje Telegrama i Telesporta
+                </p>
+                <p class="full animate">
+                  <font-awesome-icon
+                    :icon="['fas', 'check']"
+                  ></font-awesome-icon>
+                  pristup najboljom autorima u Hrvatskoj
+                </p>
+                <p class="full animate">
+                  <font-awesome-icon
+                    :icon="['fas', 'check']"
+                  ></font-awesome-icon>
+                  popusti na knjige, koncerte, izložbe i predstave
+                </p>
+              </div>
+            </div>
+            <div class="full flex btn-parent newbook-btn desktop-only">
+              <div class="newbtn clickable huge-newbtn animate">
+                Kupite odmah
+              </div>
+            </div>
+          </div>
+          <div class="fourth flex center mobile-top-pad">
+            <img
+              src="@/assets/img/tg_mockup_mobile_homepage.gif"
+              aria-hidden="true"
+            />
+          </div>
+          <div class="full center btn-parent newbook-btn mobile-only">
+            <div class="newbtn clickable huge-newbtn animate">Kupite odmah</div>
+          </div>
+        </div>
+      </app-link>
+    </client-only> -->
     <div id="pretplata-selector" class="full flex">
       <div class="full flex relative">
         <div
@@ -52,9 +123,7 @@
                   <div class="noththree overtitle">Standard</div>
                 </div>
                 <div class="full sub-price bold">6,49€</div>
-                <div class="nothfour full center-text undertitle">
-                  Mjesečno
-                </div>
+                <div class="nothfour full center-text undertitle">Mjesečno</div>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
                     <font-awesome-icon
@@ -98,9 +167,7 @@
                   <div class="noththree overtitle">Premium</div>
                 </div>
                 <div class="full sub-price bold">9,10€</div>
-                <div class="nothfour full center-text undertitle">
-                  Mjesečno
-                </div>
+                <div class="nothfour full center-text undertitle">Mjesečno</div>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
                     <font-awesome-icon
