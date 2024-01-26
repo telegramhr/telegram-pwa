@@ -7,7 +7,7 @@
         headline="Pretplatite se i podržite naše bespoštedno novinarstvo."
       ></theader>
     </div>
-    <!-- Above header banner 
+    <!-- Above header banner -->
     <client-only>
       <app-link
         v-if="!$store.state.user.access"
@@ -61,7 +61,10 @@
               </div>
             </div>
             <div class="full flex btn-parent newbook-btn desktop-only">
-              <div class="newbtn clickable huge-newbtn animate">
+              <div
+                class="newbtn clickable huge-newbtn animate"
+                @click="checkout('TMXMTLO3DSSC')"
+              >
                 Kupite odmah
               </div>
             </div>
@@ -77,7 +80,7 @@
           </div>
         </div>
       </app-link>
-    </client-only> -->
+    </client-only>
     <div id="pretplata-selector" class="full flex">
       <div class="full flex relative">
         <div
@@ -949,6 +952,11 @@ export default {
           price: 1.99,
           gtm: 'bozicna-akcija',
         },
+        TMXMTLO3DSSC: {
+          title: 'Superizborna godina',
+          price: 29,
+          gtm: 'superizborna-godina',
+        },
       },
     }
   },
@@ -983,6 +991,9 @@ export default {
     bozic() {
       return 'TMYTVOS7AU82'
     },
+    izbori() {
+      return 'TMXMTLO3DSSC'
+    },
   },
   mounted() {
     this.$nextTick(() => {
@@ -999,6 +1010,7 @@ export default {
           'TMWKY7BX6TFX',
           'TMYNBHMX6JBL',
           'TMYTVOS7AU82',
+          'TMXMTLO3DSSC',
         ],
       })
       window.tp.push([
@@ -1048,6 +1060,9 @@ export default {
             break
           case 'bozic':
             this.checkout(this.bozic)
+            break
+          case 'superizborna':
+            this.checkout(this.izbori)
             break
         }
       }
@@ -1177,7 +1192,7 @@ export default {
                 typeof window.PianoESP.handleUserDataPromise === 'function' &&
                 window.PianoESP.handleUserDataPromise({
                   email: _that.$store.state.user.email,
-                  squads: [2128, 2555, 2554],
+                  squads: [2128, 2555, 2554, 10670, 10671],
                 }).then(() => {
                   _that.$router.go(back)
                 })

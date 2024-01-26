@@ -15,7 +15,7 @@
     <div class="full flex">
       <theader></theader>
     </div>
-    <!-- Above header banner 
+    <!-- Above header banner  -->
     <client-only>
       <app-link
         v-if="!$store.state.user.access"
@@ -69,7 +69,10 @@
               </div>
             </div>
             <div class="full flex btn-parent newbook-btn desktop-only">
-              <div class="newbtn clickable huge-newbtn animate">
+              <div
+                class="newbtn clickable huge-newbtn animate"
+                @click="checkout('TMXMTLO3DSSC')"
+              >
                 Iskoristite akciju odmah
               </div>
             </div>
@@ -87,7 +90,7 @@
           </div>
         </div>
       </app-link>
-    </client-only> -->
+    </client-only>
     <!-- Cantha header -->
     <div class="full relative cantha-header">
       <div class="container flex relative column-top-pad column-horizontal-pad">
@@ -617,7 +620,7 @@ export default {
                 typeof window.PianoESP.handleUserDataPromise === 'function' &&
                 window.PianoESP.handleUserDataPromise({
                   email: _that.$store.state.user.email,
-                  squads: [2128, 2555, 2554],
+                  squads: [2128, 2555, 2554, 10670, 10671],
                 }).then(() => {
                   _that.$router.go(back)
                 })
