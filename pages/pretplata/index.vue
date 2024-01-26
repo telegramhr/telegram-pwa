@@ -11,8 +11,9 @@
     <client-only>
       <app-link
         v-if="!$store.state.user.access"
-        to="/pretplata/"
         class="full flex relative center darkened-bg newbook-gifting column-full-pad new-year-promo mobile-side-pad"
+        to="/pretplata/"
+        @click.prevent="checkout('TMXMTLO3DSSC')"
       >
         <div class="container smaller-container relative flex stretch">
           <div class="three-fourths flex center mobile-top-pad">
@@ -61,10 +62,7 @@
               </div>
             </div>
             <div class="full flex btn-parent newbook-btn desktop-only">
-              <div
-                class="newbtn clickable huge-newbtn animate"
-                @click="checkout('TMXMTLO3DSSC')"
-              >
+              <div class="newbtn clickable huge-newbtn animate">
                 Kupite odmah
               </div>
             </div>
