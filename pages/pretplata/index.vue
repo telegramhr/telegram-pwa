@@ -9,10 +9,9 @@
     </div>
     <!-- Above header banner -->
     <client-only>
-      <app-link
+      <div
         v-if="!$store.state.user.access"
         class="full flex relative center darkened-bg newbook-gifting column-full-pad new-year-promo mobile-side-pad"
-        to="/pretplata/"
         @click.prevent="checkout('TMXMTLO3DSSC')"
       >
         <div class="container smaller-container relative flex stretch">
@@ -77,7 +76,7 @@
             <div class="newbtn clickable huge-newbtn animate">Kupite odmah</div>
           </div>
         </div>
-      </app-link>
+      </div>
     </client-only>
     <div id="pretplata-selector" class="full flex">
       <div class="full flex relative">

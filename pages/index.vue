@@ -17,9 +17,8 @@
     </div>
     <!-- Above header banner  -->
     <client-only>
-      <app-link
+      <div
         v-if="!$store.state.user.access"
-        to="/pretplata/"
         class="full flex relative center darkened-bg newbook-gifting column-full-pad new-year-promo mobile-side-pad"
         @click.prevent="checkout('TMXMTLO3DSSC')"
       >
@@ -87,7 +86,7 @@
             </div>
           </div>
         </div>
-      </app-link>
+      </div>
     </client-only>
     <!-- Cantha header -->
     <div class="full relative cantha-header">

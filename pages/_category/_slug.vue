@@ -953,6 +953,12 @@ export default {
           scriptTag.src = 'https://platform.twitter.com/widgets.js'
           head.append(scriptTag)
         }
+        if (document.getElementsByClassName('tiktok-embed')) {
+          const head = document.getElementsByTagName('head')[0]
+          const scriptTag = document.createElement('script')
+          scriptTag.src = 'https://www.tiktok.com/embed.js'
+          head.append(scriptTag)
+        }
         if (document.getElementById('article-content')) {
           const images = [
             ...document
