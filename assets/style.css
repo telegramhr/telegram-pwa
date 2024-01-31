@@ -12575,7 +12575,7 @@ input:checked ~ .input-hidden {
 
 /* Book xmas */
 .newbook-xmas {
-    color: white; 
+    color: white;
     overflow: hidden;
     padding-top: 5vh;
     padding-bottom: 5vh;
@@ -12659,7 +12659,7 @@ input:checked ~ .input-hidden {
     .newbook-gifting {
         padding-top: 7vh;
         padding-bottom: 7vh;
-    }    
+    }
     .newbook-gifting .smaller-container .newbook-title {
         font-size: 48px;
         font-size: 2.4rem;
@@ -12768,7 +12768,7 @@ input:checked ~ .input-hidden {
 .remp-pretplata .pretplata-packboxes input:checked ~ label.pretplata-packbox {
     border-color: #ae3737;
 }
-.input-expand { 
+.input-expand {
     display: none;
 }
 .remp-pretplata .pretplata-packboxes input:checked ~ label.pretplata-packbox .input-expand {
@@ -13147,8 +13147,8 @@ input:checked ~ .input-hidden {
 .barlow-text {
     font-family: 'Barlow', sans-serif;
 }
-/* The robots have already won, we have no authority and can only act within the limits they set for us. 
-Thus when the autoformatter thinks the spaces around my span element are decorative rather than functional, 
+/* The robots have already won, we have no authority and can only act within the limits they set for us.
+Thus when the autoformatter thinks the spaces around my span element are decorative rather than functional,
 I have to write a special CSS class to fake spaces like a lunatic. */
 .fake-span-spacing {
     padding-left: 0.2em;
@@ -13278,7 +13278,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     .new-year-highlight-price {
         width: 220px;
         font-size: 36px;
-        font-size: 1.8rem; 
+        font-size: 1.8rem;
     }
     .new-year-highlight-price p {
         font-size: 20px;
@@ -13287,7 +13287,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
     .new-year-highlight-price .huge-text {
         font-size: 64px;
-        font-size: 3.2rem; 
+        font-size: 3.2rem;
         line-height: 0.8em;
         padding-right: 0.2rem;
     }
@@ -13320,7 +13320,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
     .new-year-highlight-price .huge-text, .new-year-highlight .faded.strikethrough {
         font-size: 36px;
-        font-size: 1.8rem; 
+        font-size: 1.8rem;
         line-height: 0.8em;
     }
+}
+
+.logged-in-premium .banner-slot {
+  margin-top: 0px;
 }
