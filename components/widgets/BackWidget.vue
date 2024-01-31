@@ -17,8 +17,8 @@ export default {
   },
   mounted() {
     if (this.$mobile && this.checkReferrer()) {
-      this.$store.dispatch('mostread/pullPosts')
-      this.$store.dispatch('category/mostRead', { category: 'super1' })
+      // this.$store.dispatch('mostread/pullPosts')
+      // this.$store.dispatch('category/mostRead', { category: 'super1' })
       window.addEventListener('load', this.init)
       window.addEventListener('popstate', this.listener)
     }
@@ -31,15 +31,16 @@ export default {
   },
   methods: {
     init() {
-      let url = 'https://www.telegram.hr/'
+      let url = '/'
       if (this.$route.fullPath.includes('super1')) {
-        url = 'https://www.telegram.hr/super1/'
+        url = '/super1/'
       }
-      window.history.replaceState({ backWidget: true }, '', url)
+      const final = window.location.href
+      window.history.replaceState({ backWidget: true }, 'Telegram.hr', url)
       window.history.pushState(
         { backWidgetInitialized: true },
         document.title,
-        window.location.href
+        final
       )
     },
     listener(event) {
