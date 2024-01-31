@@ -31,20 +31,20 @@ export default {
   },
   methods: {
     init() {
-      window.history.replaceState(
-        { backWidget: true },
-        document.title,
-        '#back-widget'
-      )
+      let url = 'https://www.telegram.hr/'
+      if (this.$route.fullPath.includes('super1')) {
+        url = 'https://www.telegram.hr/super1/'
+      }
+      window.history.replaceState({ backWidget: true }, '', url)
       window.history.pushState(
         { backWidgetInitialized: true },
         document.title,
-        '#back-widget2'
+        window.location.href
       )
     },
     listener(event) {
       if (event.state.backWidget) {
-        this.show = true
+        // this.show = true
       }
     },
     checkReferrer() {
