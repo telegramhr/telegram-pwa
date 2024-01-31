@@ -9342,6 +9342,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .klub-ponuda h2 {
     font-size: 1.1rem;
 }
+.klub-ponuda .offer-title {
+    margin-bottom: 10px;
+}
 .small-top-margin {
     margin-top: 16px;
 }
