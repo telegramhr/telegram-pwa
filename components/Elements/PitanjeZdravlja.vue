@@ -52,6 +52,12 @@
             :post="post"
           ></standard>
         </div>
+        <app-link
+          to="/pitanje-zdravlja"
+          class="full mobile-only center new-homeblock-link"
+        >
+          Još članaka</app-link
+        >
       </div>
     </div>
   </div>
