@@ -41,38 +41,6 @@ export const state = () => ({
         'pitanje-zdravlja-category',
         'openspace-category',
       ],
-    },
-    telegram_desktop_billboard_v2: {
-      upc: false,
-      routes: [
-        'index',
-        'category',
-        'super1',
-        'super1-category',
-        'pitanje-zdravlja-category',
-        'openspace-category',
-      ],
-      mobile: [
-        [1, 1],
-        [300, 50],
-        [300, 100],
-        [300, 250],
-        [320, 50],
-        [320, 480],
-        [300, 600],
-        [320, 250],
-      ],
-      desktop: [
-        [1, 1],
-        [660, 350],
-        [660, 500],
-        [970, 250],
-        [970, 500],
-        [1000, 250],
-        [1000, 500],
-        [1200, 250],
-        [1200, 500],
-      ],
       pbjs: {
         desktop: {
           sizes: [[970, 250]],
@@ -165,6 +133,50 @@ export const state = () => ({
         },
       },
     },
+    telegram_desktop_billboard_v2: {
+      upc: false,
+      routes: [
+        'index',
+        'category',
+        'super1',
+        'super1-category',
+        'pitanje-zdravlja-category',
+        'openspace-category',
+      ],
+      mobile: [
+        [1, 1],
+        [300, 50],
+        [300, 100],
+        [300, 250],
+        [320, 50],
+        [320, 480],
+        [300, 600],
+        [320, 250],
+      ],
+      desktop: [
+        [1, 1],
+        [660, 350],
+        [660, 500],
+        [970, 250],
+        [970, 500],
+        [1000, 250],
+        [1000, 500],
+        [1200, 250],
+        [1200, 500],
+      ],
+      pbjs: {
+        desktop: {
+          sizes: [[970, 250]],
+        },
+        mobile: {
+          sizes: [
+            [300, 250],
+            [336, 280],
+            [300, 600],
+          ],
+        },
+      },
+    },
     telegram_desktop_billboard_v3: {
       upc: false,
       routes: [
@@ -199,84 +211,12 @@ export const state = () => ({
       pbjs: {
         desktop: {
           sizes: [[970, 250]],
-          bids: [
-            {
-              bidder: 'iprom',
-              params: {
-                id: 't30769k9tyez1my7',
-                dimension: '970x250',
-              },
-            },
-            {
-              bidder: 'contentexchange',
-              params: {
-                placementId: '2218',
-                adFormat: 'banner',
-              },
-            },
-            {
-              bidder: 'sovrn',
-              params: {
-                tagid: [929050],
-              },
-            },
-            {
-              bidder: 'iprom',
-              params: {
-                id: 't30769k9tyez1my7',
-                dimension: '970x250',
-              },
-            },
-            {
-              bidder: 'smilewanted',
-              params: {
-                zoneId: 'telegram.hr_hb_display',
-                bidfloor: 0.0,
-              },
-            },
-          ],
         },
         mobile: {
           sizes: [
             [300, 250],
             [336, 280],
             [300, 600],
-          ],
-          bids: [
-            {
-              bidder: 'iprom',
-              params: {
-                id: 't30769k9tyez1my7',
-                dimension: '300x250',
-              },
-            },
-            {
-              bidder: 'sovrn',
-              params: {
-                tagid: [929093],
-              },
-            },
-            {
-              bidder: 'contentexchange',
-              params: {
-                placementId: '2217',
-                adFormat: 'banner',
-              },
-            },
-            {
-              bidder: 'contentexchange',
-              params: {
-                placementId: '2215',
-                adFormat: 'banner',
-              },
-            },
-            {
-              bidder: 'smilewanted',
-              params: {
-                zoneId: 'telegram.hr_hb_display',
-                bidfloor: 0.0,
-              },
-            },
           ],
         },
       },
@@ -1309,15 +1249,15 @@ export const actions = {
     window.googletag = window.googletag || {}
     window.googletag.cmd = window.googletag.cmd || []
     window.googletag.reloadedSlots = window.googletag.reloadedSlots || []
+    window.pbjs = window.pbjs || {}
+    window.pbjs.que = window.pbjs.que || []
+    window.pbjs.requestManager = {
+      adServerRequestSent: false,
+      aps: false,
+      prebid: false,
+    }
     if (state.slots) {
       // clean old stuff from previous request
-      window.pbjs = window.pbjs || {}
-      window.pbjs.que = window.pbjs.que || []
-      window.pbjs.requestManager = {
-        adServerRequestSent: false,
-        aps: false,
-        prebid: false,
-      }
       window.pbjs.que.push(() => {
         window.pbjs.removeAdUnit()
       })
@@ -1596,25 +1536,53 @@ export const actions = {
         }),
     })
   },
-  initPBJS({ dispatch }) {
+  initPBJS({ dispatch, state }) {
     window.pbjs = window.pbjs || {}
     window.pbjs.que = window.pbjs.que || []
     window.pbjs.que.push(() => {
-      if (window.prebid === 'prebid') {
-        window.pbjs.requestBids({
-          bidsBackHandler: () => dispatch('initMagnite'),
-          timeout: 1000,
-        })
-      }
-      if (window.prebid === 'rubicon') {
-        window.pbjs.rp.requestBids({
-          callback() {
+      window.pbjs.rp.requestBids({
+        callback() {
+          window.googletag.cmd.push(function () {
+            window.pbjs.setTargetingForGPTAsync()
             window.pbjs.requestManager.prebid = true
-            dispatch('initAdserver')
-          },
+            dispatch('biddersBack')
+          })
+        },
+      })
+    })
+
+    const sizes = this.$mobile ? 'mobile' : 'desktop'
+    let unit
+    const APSslots = []
+    for (const i of Object.keys(state.units)) {
+      if (i in state.units) {
+        unit = state.units[i]
+        if (!unit[sizes]) {
+          continue
+        }
+        if (!document.getElementById(i)) {
+          continue
+        }
+        APSslots.push({
+          slotID: i,
+          slotName: state.prefix + i,
+          sizes: unit[sizes],
         })
       }
-    })
+    }
+    window.apstag.fetchBids(
+      {
+        slots: APSslots,
+      },
+      function (bids) {
+        window.googletag.cmd.push(function () {
+          window.apstag.setDisplayBids()
+          window.pbjs.requestManager.aps = true
+          dispatch('biddersBack')
+        })
+      }
+    )
+
     setTimeout(() => {
       dispatch('initAdserver')
     }, 3500)
