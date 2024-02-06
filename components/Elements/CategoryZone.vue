@@ -54,6 +54,9 @@
             <standard :post="post"></standard>
           </div>
         </div>
+        <app-link :to="link" class="full mobile-only center new-homeblock-link">
+          Još članaka</app-link
+        >
       </div>
     </div>
   </div>

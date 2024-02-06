@@ -13329,6 +13329,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   margin-top: 0px;
 }
 
+.new-homeblock-link {
+    padding: 6px;
+    border: 1px solid #c8c8c8;
+    font-size: 14px;
+    font-size: 0.7rem;
+    color: #999;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    margin-bottom: 6vw;
+}
+
+.reorder-echovald .new-homeblock-link {
+    order: 3;
+}
 @media print {
   .banner-slot {
     display: none;

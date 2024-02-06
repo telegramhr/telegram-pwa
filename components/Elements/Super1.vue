@@ -65,6 +65,12 @@
             <standard :post="post"></standard>
           </div>
         </div>
+        <app-link
+          to="/super1"
+          class="full mobile-only center new-homeblock-link"
+        >
+          Još članaka</app-link
+        >
       </div>
     </div>
   </div>

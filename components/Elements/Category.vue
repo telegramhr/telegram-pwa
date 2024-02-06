@@ -10,14 +10,19 @@
     >
       <app-link :to="link">{{ category | parseCat }}</app-link>
     </div>
-    <featured
-      v-for="post in posts.slice(0, 1)"
-      :key="post.id"
-      :post="post"
-    ></featured>
-    <template v-for="post in posts.slice(1, 4)">
-      <medium :key="post.id" :post="post"></medium>
-    </template>
+    <div class="full flex relative">
+      <featured
+        v-for="post in posts.slice(0, 1)"
+        :key="post.id"
+        :post="post"
+      ></featured>
+      <template v-for="post in posts.slice(1, 4)">
+        <medium :key="post.id" :post="post"></medium>
+      </template>
+    </div>
+    <app-link :to="link" class="full mobile-only center new-homeblock-link">
+      Još članaka</app-link
+    >
   </section>
 </template>
 

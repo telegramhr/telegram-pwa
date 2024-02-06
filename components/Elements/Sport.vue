@@ -68,6 +68,12 @@
             <standard :post="post"></standard>
           </div>
         </div>
+        <a
+          href="https://telesport.telegram.hr/"
+          class="full mobile-only center new-homeblock-link"
+        >
+          Još članaka</a
+        >
       </div>
     </div>
   </div>
