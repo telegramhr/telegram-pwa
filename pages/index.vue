@@ -508,9 +508,7 @@
 </template>
 
 <script>
-// import BookOffers from '../components/Elements/BookOffers.vue'
 export default {
-  // components: { BookOffers },
   async fetch() {
     await this.$store.dispatch('featured/pullPosts')
     await this.$store.dispatch('featured/pullBreaks')
