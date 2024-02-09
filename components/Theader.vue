@@ -620,11 +620,11 @@
         class="mob-nav-otherbtn mobile-only"
         @click.prevent="login"
       >
-        <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
-      ></a>
+        <div class="newbtn animate">Pretplatite se</div></a
+      >
       <app-link
         v-show="!canLogIn"
-        class="mobile-only mob-nav-otherbtn"
+        class="mobile-only mob-nav-otherbtn faded"
         to="/moj-racun"
         aria-label="Moj račun"
       >
