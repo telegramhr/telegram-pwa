@@ -12,7 +12,6 @@ export default ({ route }, inject) => {
   function init() {
     window.pp_gemius_use_cmp = true
     window.pp_gemius_identifier = 'nSblbvtw7YnzUiC8AtarvJdS3yggumM2F_xjEZ.9W1..57'
-    window.pp_gemius_init_timeout = 10000;
 
     gemius_pending('gemius_hit')
     gemius_pending('gemius_event')
@@ -29,12 +28,6 @@ export default ({ route }, inject) => {
         s.parentNode.insertBefore(gt, s)
       } catch (e) {}
     })(document, 'script')
-
-    window.googlefc = window.googlefc || {}
-    window.googlefc.callbackQueue = window.googlefc.callbackQueue || []
-    window.googlefc.callbackQueue.push({
-      CONSENT_API_READY: window.gemius_init()
-    })
   }
   init()
 }

@@ -352,8 +352,8 @@
                   v-if="
                     !hasPremium &&
                     !post.category_slug.includes('superone') &&
-                    document.getElementById('intext_premium') &&
-                    !(post.disable_ads && post.disable_ads.includes('spar'))
+                    !(post.disable_ads && post.disable_ads.includes('spar')) &&
+                    document.getElementById('intext_premium')
                   "
                   selector="#intext_premium"
                 >
@@ -954,13 +954,13 @@ export default {
         if (typeof instgrm !== 'undefined') {
           instgrm.Embeds.process()
         }
-        if (document.getElementsByClassName('twitter-tweet')) {
+        if (document.getElementsByClassName('twitter-tweet').length) {
           const head = document.getElementsByTagName('head')[0]
           const scriptTag = document.createElement('script')
           scriptTag.src = 'https://platform.twitter.com/widgets.js'
           head.append(scriptTag)
         }
-        if (document.getElementsByClassName('tiktok-embed')) {
+        if (document.getElementsByClassName('tiktok-embed').length) {
           const head = document.getElementsByTagName('head')[0]
           const scriptTag = document.createElement('script')
           scriptTag.src = 'https://www.tiktok.com/embed.js'
