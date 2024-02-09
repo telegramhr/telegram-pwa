@@ -37,7 +37,7 @@
           class="fourth flex-responsive desktop-only column-horizontal-pad tablet-fix"
         >
           <mini
-            v-for="post in posts.slice(4, 8)"
+            v-for="post in posts.slice(8, 12)"
             :key="'super-' + post.id"
             :post="post"
           ></mini>
@@ -47,7 +47,7 @@
         </div>
         <div class="full flex cantha-small-block remove-last-mobile-border">
           <div
-            v-for="post in posts.slice(8, 12)"
+            v-for="post in posts.slice(4, 8)"
             :key="'super-' + post.id"
             class="fourth flex-responsive column-right-border column-horizontal-pad"
           >
