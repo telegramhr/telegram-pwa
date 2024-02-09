@@ -25,7 +25,7 @@ export default ({ route }, inject) => {
         const s = d.getElementsByTagName(t)[0]
         gt.setAttribute('async', 'async')
         gt.setAttribute('defer', 'defer')
-        gt.src = 'https://hr.hit.gemius.pl/xgemius.js'
+        gt.src = 'https://gahr.hit.gemius.pl/xgemius.js'
         s.parentNode.insertBefore(gt, s)
       } catch (e) {}
     })(document, 'script')

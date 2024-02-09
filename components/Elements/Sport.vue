@@ -24,7 +24,7 @@
         </div>
       </a>
       <div
-        class="full block-echovald mobile-side-pad flex relative reorder-echovald"
+        class="full block-echovald mobile-side-pad flex relative reorder-echovald column-bottom-pad"
       >
         <div class="three-fourths flex-responsive flex stretch">
           <div class="half flex-responsive flex column-horizontal-pad">
@@ -68,6 +68,12 @@
             <standard :post="post"></standard>
           </div>
         </div>
+        <a
+          href="https://telesport.telegram.hr/"
+          class="full mobile-only center new-homeblock-link"
+        >
+          Još članaka</a
+        >
       </div>
     </div>
   </div>

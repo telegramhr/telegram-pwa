@@ -4,24 +4,13 @@
       <div class="full mobile-side-pad column-horizontal-pad">
         <div class="full cantha-separator"></div>
       </div>
-      <app-link to="/super1" class="full flex relative">
-        <div class="full flex column-horizontal-pad">
-          <div
-            class="noththree full center-text column-vertical-pad subsection-title s1-subsection-logo"
-          >
-            <img
-              src="@/assets/img/s1_logo_clean_noline.svg"
-              alt="Super1 logo"
-            />
-            <img
-              src="@/assets/img/s1_logo_clean_noline_white.svg"
-              alt="Super1 logo"
-              class="dark-mode-only"
-              loading="lazy"
-            />
-          </div>
+      <div class="full flex column-horizontal-pad">
+        <div
+          class="noththree full center-text column-vertical-pad subsection-title"
+        >
+          <app-link :to="link">{{ title | parseCat }}</app-link>
         </div>
-      </app-link>
+      </div>
       <div class="full block-echovald mobile-side-pad flex relative">
         <div class="three-fourths flex-responsive flex stretch">
           <div class="half flex-responsive flex column-horizontal-pad">
@@ -65,10 +54,7 @@
             <standard :post="post"></standard>
           </div>
         </div>
-        <app-link
-          to="/super1"
-          class="full mobile-only center new-homeblock-link"
-        >
+        <app-link :to="link" class="full mobile-only center new-homeblock-link">
           Još članaka</app-link
         >
       </div>
@@ -78,9 +64,16 @@
 
 <script>
 export default {
-  name: 'Super1',
+  name: 'CategoryZone',
+  props: {
+    zone: {
+      type: String,
+      required: true,
+      default: '',
+    },
+  },
   async fetch() {
-    await this.$store.dispatch('s1/pullPosts')
+    await this.$store.dispatch('zone/pullPosts', { zone: this.zone })
   },
   data() {
     return {
@@ -90,7 +83,13 @@ export default {
   },
   computed: {
     posts() {
-      return this.$store.state.s1.posts
+      return this.$store.state.zone[this.zone].posts
+    },
+    link() {
+      return this.$store.state.zone[this.zone].link
+    },
+    title() {
+      return this.$store.state.zone[this.zone].title
     },
   },
 }

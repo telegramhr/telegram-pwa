@@ -224,7 +224,7 @@
                 <div class="full flex newsletter-header">
                   <div class="newsletter-avatar">
                     <img
-                      src="https://www.telegram.hr/wp-content/uploads/2017/06/divo2.png"
+                      src="https://www.telegram.hr/wp-content/uploads/2017/06/divo-durovic-2-2-1.png"
                       aria-hidden="true"
                     />
                   </div>
@@ -421,7 +421,7 @@
                 <div class="full flex newsletter-header">
                   <div class="newsletter-avatar">
                     <img
-                      src="https://www.telegram.hr/wp-content/uploads/2019/09/tg_krsul.png"
+                      src="https://www.telegram.hr/wp-content/uploads/2019/09/dora-krsul.png"
                       aria-hidden="true"
                     />
                   </div>

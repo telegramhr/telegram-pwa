@@ -349,7 +349,11 @@
                   <gallery :gallery="gallery"></gallery>
                 </portal>
                 <portal
-                  v-if="!hasPremium && !post.category_slug.includes('superone')"
+                  v-if="
+                    !hasPremium &&
+                    !post.category_slug.includes('superone') &&
+                    !(post.disable_ads && post.disable_ads.includes('spar'))
+                  "
                   selector="#intext_premium"
                 >
                   <div class="full">
@@ -445,7 +449,9 @@
             ></div>
           </div>
           <keep-reading
-            v-if="post.category_slug && post.category_slug !== 'promo'"
+            v-if="
+              post.category_slug && post.category_slug !== 'promo' && hasLinker
+            "
             :category="post.category_slug"
             :p="Number(post.id)"
             :permalink="post.permalink"
@@ -947,10 +953,16 @@ export default {
         if (typeof instgrm !== 'undefined') {
           instgrm.Embeds.process()
         }
-        if (document.getElementsByClassName('twitter-tweet')) {
+        if (document.getElementsByClassName('twitter-tweet').length) {
           const head = document.getElementsByTagName('head')[0]
           const scriptTag = document.createElement('script')
           scriptTag.src = 'https://platform.twitter.com/widgets.js'
+          head.append(scriptTag)
+        }
+        if (document.getElementsByClassName('tiktok-embed').length) {
+          const head = document.getElementsByTagName('head')[0]
+          const scriptTag = document.createElement('script')
+          scriptTag.src = 'https://www.tiktok.com/embed.js'
           head.append(scriptTag)
         }
         if (document.getElementById('article-content')) {

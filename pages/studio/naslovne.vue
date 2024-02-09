@@ -14,38 +14,13 @@
             />
             <label class="clickable animate" for="empty">Sredi veličinu</label>
             <input
-              id="modric"
+              id="autor"
               v-model="selected"
-              :value="'modric'"
+              :value="'autor'"
               type="radio"
               name="overlay"
             />
-            <label class="clickable animate" for="modric">Modrić</label>
-            <input
-              id="redzepovic"
-              v-model="selected"
-              :value="'redzepovic'"
-              type="radio"
-              name="overlay"
-            /><label class="clickable animate" for="redzepovic"
-              >Redžepovića</label
-            >
-            <input
-              id="divo"
-              v-model="selected"
-              :value="'divo'"
-              type="radio"
-              name="overlay"
-            />
-            <label class="clickable animate" for="divo">Đivu</label>
-            <input
-              id="jurican"
-              v-model="selected"
-              :value="'jurican'"
-              type="radio"
-              name="overlay"
-            />
-            <label class="clickable animate" for="jurican">Juričana</label>
+            <label class="clickable animate" for="autor">Autora</label>
             <input
               id="krug"
               v-model="selected"
@@ -55,6 +30,16 @@
               checked
             />
             <label class="clickable animate" for="krug">Krug</label>
+            <input
+              id="kolaz"
+              v-model="selected"
+              :value="'kolaz'"
+              type="radio"
+              name="overlay"
+            />
+            <label class="clickable animate" for="kolaz">Kolaž trećina</label>
+          </div>
+          <div class="third flex-responsive relative">
             <div
               v-if="selected === 'krug'"
               class="full flex relative generator-submenu"
@@ -109,8 +94,74 @@
                 >
               </div>
             </div>
-          </div>
-          <div class="third flex-responsive relative">
+            <div
+              v-show="selected === 'autor'"
+              class="full flex relative generator-submenu"
+            >
+              <h2 class="full center-text">Autor je:</h2>
+              <div class="half flex relative">
+                <input
+                  id="modric"
+                  v-model="autorType"
+                  :value="'modric'"
+                  type="radio"
+                  name="autorType"
+                />
+                <label class="clickable animate" for="modric">Modrić</label>
+              </div>
+              <div class="half flex relative">
+                <input
+                  id="redzepovic"
+                  v-model="autorType"
+                  :value="'redzepovic'"
+                  type="radio"
+                  name="autorType"
+                />
+                <label class="clickable animate" for="redzepovic"
+                  >Redžepović</label
+                >
+              </div>
+              <div class="half flex relative">
+                <input
+                  id="divo"
+                  v-model="autorType"
+                  :value="'divo'"
+                  type="radio"
+                  name="autorType"
+                />
+                <label class="clickable animate" for="divo">Đurović</label>
+              </div>
+              <div class="half flex relative">
+                <input
+                  id="jurican"
+                  v-model="autorType"
+                  :value="'jurican'"
+                  type="radio"
+                  name="autorType"
+                />
+                <label class="clickable animate" for="jurican">Juričan</label>
+              </div>
+              <div class="half flex relative">
+                <input
+                  id="jasmin"
+                  v-model="autorType"
+                  :value="'jasmin'"
+                  type="radio"
+                  name="autorType"
+                />
+                <label class="clickable animate" for="jasmin">Klarić</label>
+              </div>
+              <div class="half flex relative">
+                <input
+                  id="jakovina"
+                  v-model="autorType"
+                  :value="'jakovina'"
+                  type="radio"
+                  name="autorType"
+                />
+                <label class="clickable animate" for="jakovina">Jakovina</label>
+              </div>
+            </div>
             <div v-show="selected === 'krug'" class="full flex relative">
               <h2 class="full center-text">U krug stavi:</h2>
               <div class="full center">
@@ -129,10 +180,141 @@
             <h2 v-show="selected === 'empty'" class="full center-text">
               Ove fotke:
             </h2>
-            <h2 v-show="selected != 'empty'" class="full center-text">
+            <h2
+              v-show="selected != 'empty' && selected != 'kolaz'"
+              class="full center-text"
+            >
               Na ovo:
             </h2>
-            <div class="full center">
+            <div v-show="selected == 'kolaz'" class="full flex">
+              <h2 class="full center-text">U sredinu stavi:</h2>
+              <div class="full center">
+                <div class="full generator-file-upload clickable">
+                  <div class="file-select">
+                    <div id="fileName" class="file-select-button">
+                      Odaberi datoteku
+                    </div>
+                    <div id="noFile" class="file-select-name">
+                      Datoteka će biti dodana na kolaž
+                    </div>
+                    <input
+                      id="chooseFile3"
+                      type="file"
+                      name="chooseFile3"
+                      @change="handleMidChange"
+                    />
+                  </div>
+                </div>
+              </div>
+              <p class="full center-text column-mini-top-pad">
+                Koji dio slike da se vidi?
+              </p>
+              <div class="full center trebam-hitno-smaller-thirds">
+                <div class="third flex">
+                  <input
+                    id="lijevo"
+                    v-model="kolazMidThirdPosition"
+                    :value="'xMinYMid slice'"
+                    type="radio"
+                    name="kolazMidThirdPosition"
+                  />
+                  <label class="clickable animate" for="lijevo">Lijevi</label>
+                </div>
+                <div class="third flex">
+                  <input
+                    id="sredina"
+                    v-model="kolazMidThirdPosition"
+                    :value="'xMidYMid slice'"
+                    type="radio"
+                    name="kolazMidThirdPosition"
+                  />
+                  <label class="clickable animate" for="sredina">Sredina</label>
+                </div>
+                <div class="third flex">
+                  <input
+                    id="desno"
+                    v-model="kolazMidThirdPosition"
+                    :value="'xMaxYMid slice'"
+                    type="radio"
+                    name="kolazMidThirdPosition"
+                  />
+                  <label class="clickable animate" for="desno">Desni</label>
+                </div>
+              </div>
+              <h2 class="full center-text">Lijevo stavi:</h2>
+              <div class="full center">
+                <div class="full generator-file-upload clickable">
+                  <div class="file-select">
+                    <div id="fileName" class="file-select-button">
+                      Odaberi datoteku
+                    </div>
+                    <div id="noFile" class="file-select-name">
+                      Datoteka će biti dodana na kolaž
+                    </div>
+                    <input
+                      id="chooseFile4"
+                      type="file"
+                      name="chooseFile4"
+                      @change="handleLeftChange"
+                    />
+                  </div>
+                </div>
+              </div>
+              <p class="full center-text column-mini-vertical-pad">
+                Pomakni je malo:
+              </p>
+              <div class="full flex relative">
+                <div class="fourth faded">Lijevo</div>
+                <div class="half center">
+                  <input
+                    id="kolaz-left-third-position"
+                    v-model="kolazLeftThird"
+                    type="range"
+                    min="-100"
+                    max="0"
+                    step="1"
+                  />
+                </div>
+                <div class="fourth right-text faded">Desno</div>
+              </div>
+              <h2 class="full center-text column-top-pad">Desno stavi:</h2>
+              <div class="full center">
+                <div class="full generator-file-upload clickable">
+                  <div class="file-select">
+                    <div id="fileName" class="file-select-button">
+                      Odaberi datoteku
+                    </div>
+                    <div id="noFile" class="file-select-name">
+                      Datoteka će biti dodana na kolaž
+                    </div>
+                    <input
+                      id="chooseFile5"
+                      type="file"
+                      name="chooseFile5"
+                      @change="handleRightChange"
+                    />
+                  </div>
+                </div>
+              </div>
+              <p class="full center-text column-mini-vertical-pad">
+                Pomakni je malo:
+              </p>
+              <div class="full flex relative">
+                <div class="fourth faded">Lijevo</div>
+                <div class="half center">
+                  <input
+                    id="kolaz-right-third-position"
+                    v-model="kolazRightThird"
+                    type="range"
+                    min="-100"
+                    max="0"
+                    step="1"
+                  />
+                </div>
+                <div class="fourth right-text faded">Desno</div>
+              </div>
+            </div>
+            <div v-show="selected != 'kolaz'" class="full center">
               <div class="full generator-file-upload clickable">
                 <div class="file-select">
                   <div id="fileName" class="file-select-button">
@@ -157,8 +339,47 @@
     <div class="full flex relative">
       <div id="generator-img-render">
         <div id="generator-img-deliver" />
+        <div v-if="selected === 'kolaz'" id="generator-kolaz" class="center">
+          <div class="half relative kolaz-third">
+            <img
+              id="kolaz-right-third"
+              src="@/assets/img/grey_placeholder.png"
+              :style="{ left: kolazRightThird + '%' }"
+            />
+          </div>
+          <svg
+            width="100%"
+            height="100%"
+            viewBox="0 0 100 150"
+            xmlns="http://www.w3.org/2000/svg"
+            class="kolaz-middle"
+          >
+            <defs>
+              <clipPath id="trapezoid">
+                <polygon points="15,0 85,0 100,150 0,150" />
+              </clipPath>
+            </defs>
+            <image
+              id="kolaz-mid-third"
+              :preserveAspectRatio="kolazMidThirdPosition"
+              :xlink:href="kolazMidThird"
+              width="100"
+              height="150"
+              clip-path="url(#trapezoid)"
+            />
+          </svg>
+          <div class="half relative kolaz-third">
+            <img
+              id="kolaz-left-third"
+              src="@/assets/img/grey_placeholder.png"
+              :style="{ left: kolazLeftThird + '%' }"
+            />
+          </div>
+          <div class="kolaz-border-1"></div>
+          <div class="kolaz-border-2"></div>
+        </div>
         <img
-          v-if="selected === 'modric'"
+          v-if="selected === 'autor' && autorType === 'modric'"
           id="modric-overlay"
           class="generator-img-overlay"
           src="@/assets/img/extras/naslovne/tg_dajmi_overlay_modric.png"
@@ -166,7 +387,7 @@
           height="1680"
         />
         <img
-          v-if="selected === 'redzepovic'"
+          v-if="selected === 'autor' && autorType === 'redzepovic'"
           id="redzepovic-overlay"
           class="generator-img-overlay"
           src="@/assets/img/extras/naslovne/tg_dajmi_overlay_redzepovic.png"
@@ -174,7 +395,7 @@
           height="1680"
         />
         <img
-          v-if="selected === 'jurican'"
+          v-if="selected === 'autor' && autorType === 'jurican'"
           id="jurican-overlay"
           class="generator-img-overlay"
           src="@/assets/img/extras/naslovne/tg_dajmi_overlay_jurican.png"
@@ -182,10 +403,26 @@
           height="1680"
         />
         <img
-          v-if="selected === 'divo'"
+          v-if="selected === 'autor' && autorType === 'divo'"
           id="divo-overlay"
           class="generator-img-overlay"
           src="@/assets/img/extras/naslovne/tg_dajmi_overlay_divo.png"
+          width="2664"
+          height="1680"
+        />
+        <img
+          v-if="selected === 'autor' && autorType === 'jasmin'"
+          id="jasmin-overlay"
+          class="generator-img-overlay"
+          src="@/assets/img/extras/naslovne/tg_dajmi_overlay_jasmin.png"
+          width="2664"
+          height="1680"
+        />
+        <img
+          v-if="selected === 'autor' && autorType === 'jakovina'"
+          id="jakovina-overlay"
+          class="generator-img-overlay"
+          src="@/assets/img/extras/naslovne/tg_dajmi_overlay_jakovina.png"
           width="2664"
           height="1680"
         />
@@ -208,8 +445,13 @@ export default {
   name: 'TelegramKlub',
   data() {
     return {
-      selected: 'modric',
+      selected: 'autor',
       krugType: 'gorelijevo',
+      autorType: 'modric',
+      kolazMidThird: 'null',
+      kolazLeftThird: -50,
+      kolazRightThird: -50,
+      kolazMidThirdPosition: 'xMidYMid slice',
     }
   },
   mounted() {
@@ -306,6 +548,62 @@ export default {
       } else {
       }
     }
+  },
+  methods: {
+    handleMidChange(event) {
+      const file = event.target.files[0]
+
+      if (file) {
+        // Convert the selected image to base64
+        this.convertMidToBase64(file)
+      }
+    },
+    convertMidToBase64(file) {
+      const reader = new FileReader()
+
+      reader.onload = () => {
+        // Set the base64-encoded image data to the data property
+        this.kolazMidThird = reader.result
+      }
+
+      reader.readAsDataURL(file)
+    },
+    handleLeftChange(event) {
+      const file = event.target.files[0]
+
+      if (file) {
+        // Convert the selected image to base64
+        this.convertLeftToBase64(file)
+      }
+    },
+    convertLeftToBase64(file) {
+      const reader = new FileReader()
+
+      reader.onload = () => {
+        // Set the base64-encoded image data to the data property
+        document.getElementById('kolaz-left-third').src = reader.result
+      }
+
+      reader.readAsDataURL(file)
+    },
+    handleRightChange(event) {
+      const file = event.target.files[0]
+
+      if (file) {
+        // Convert the selected image to base64
+        this.convertRightToBase64(file)
+      }
+    },
+    convertRightToBase64(file) {
+      const reader = new FileReader()
+
+      reader.onload = () => {
+        // Set the base64-encoded image data to the data property
+        document.getElementById('kolaz-right-third').src = reader.result
+      }
+
+      reader.readAsDataURL(file)
+    },
   },
   head() {
     const link = [

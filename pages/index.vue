@@ -15,8 +15,79 @@
     <div class="full flex">
       <theader></theader>
     </div>
-    <!-- Above header banner -->
-
+    <!-- Above header banner  -->
+    <client-only>
+      <div
+        v-if="!$store.state.user.access"
+        class="full flex relative center darkened-bg newbook-gifting column-full-pad new-year-promo mobile-side-pad"
+        @click.prevent="checkout('TMXMTLO3DSSC')"
+      >
+        <div class="container smaller-container relative flex stretch">
+          <div class="three-fourths flex center mobile-top-pad">
+            <div class="full flex overtitle-parent">
+              <div class="overtitle noththree">
+                <span>Velika godišnja akcija</span>
+              </div>
+            </div>
+            <div class="full newbook-title all-caps">2024. UZ TELEGRAM</div>
+            <p class="full newbook-intro">
+              <span class="ib"
+                >Ove superizborne godine budite informirani o stvarnom stanju u
+                državi, </span
+              ><span class="ib"
+                >samo na Telegramu kojeg financiraju čitatelji, a ne politički
+                moćnici</span
+              >
+            </p>
+            <div class="full flex relative new-year-highlight">
+              <div class="new-year-highlight-price">
+                <div class="full bold center">
+                  <div class="huge-text">29€</div>
+                  <div class="faded strikethrough">78€</div>
+                </div>
+                <p class="full">za godinu dana</p>
+              </div>
+              <div class="pretplata-benefits desktop-only">
+                <p class="full animate">
+                  <font-awesome-icon
+                    :icon="['fas', 'check']"
+                  ></font-awesome-icon>
+                  neograničeno čitanje Telegrama i Telesporta
+                </p>
+                <p class="full animate">
+                  <font-awesome-icon
+                    :icon="['fas', 'check']"
+                  ></font-awesome-icon>
+                  pristup najboljom autorima u Hrvatskoj
+                </p>
+                <p class="full animate">
+                  <font-awesome-icon
+                    :icon="['fas', 'check']"
+                  ></font-awesome-icon>
+                  popusti na knjige, koncerte, izložbe i predstave
+                </p>
+              </div>
+            </div>
+            <div class="full flex btn-parent newbook-btn desktop-only">
+              <div class="newbtn clickable huge-newbtn animate">
+                Iskoristite akciju odmah
+              </div>
+            </div>
+          </div>
+          <div class="fourth flex center mobile-top-pad">
+            <img
+              src="@/assets/img/tg_mockup_mobile_homepage.gif"
+              aria-hidden="true"
+            />
+          </div>
+          <div class="full center btn-parent newbook-btn mobile-only">
+            <div class="newbtn clickable huge-newbtn animate">
+              Iskoristite akciju odmah
+            </div>
+          </div>
+        </div>
+      </div>
+    </client-only>
     <!-- Cantha header -->
     <div class="full relative cantha-header">
       <div class="container flex relative column-top-pad column-horizontal-pad">
@@ -292,12 +363,6 @@
         <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
       </div>
     </div>
-    <!-- Velika rubrika: Politika i kriminal -->
-    <div class="full relative">
-      <div class="container flex relative column-bottom-pad">
-        <category-big slug="more-news"></category-big>
-      </div>
-    </div>
     <!-- Widget partner special -->
     <client-only>
       <div v-if="!hasPremium" class="full relative">
@@ -308,6 +373,10 @@
     <!-- Sport -->
     <div class="full relative">
       <sport></sport>
+    </div>
+    <!-- Velika rubrika: Kultura -->
+    <div class="full relative">
+      <category-zone zone="kultura"></category-zone>
     </div>
     <!-- Widget autori -->
     <commentary-alt type="tg"></commentary-alt>
@@ -439,9 +508,7 @@
 </template>
 
 <script>
-// import BookOffers from '../components/Elements/BookOffers.vue'
 export default {
-  // components: { BookOffers },
   async fetch() {
     await this.$store.dispatch('featured/pullPosts')
     await this.$store.dispatch('featured/pullBreaks')
@@ -548,7 +615,7 @@ export default {
                 typeof window.PianoESP.handleUserDataPromise === 'function' &&
                 window.PianoESP.handleUserDataPromise({
                   email: _that.$store.state.user.email,
-                  squads: [2128, 2555, 2554],
+                  squads: [2128, 2555, 2554, 10670, 10671],
                 }).then(() => {
                   _that.$router.go(back)
                 })

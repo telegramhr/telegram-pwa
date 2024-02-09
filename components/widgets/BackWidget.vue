@@ -17,8 +17,8 @@ export default {
   },
   mounted() {
     if (this.$mobile && this.checkReferrer()) {
-      this.$store.dispatch('mostread/pullPosts')
-      this.$store.dispatch('category/mostRead', { category: 'super1' })
+      // this.$store.dispatch('mostread/pullPosts')
+      // this.$store.dispatch('category/mostRead', { category: 'super1' })
       window.addEventListener('load', this.init)
       window.addEventListener('popstate', this.listener)
     }
@@ -31,20 +31,21 @@ export default {
   },
   methods: {
     init() {
-      window.history.replaceState(
-        { backWidget: true },
-        document.title,
-        '#back-widget'
-      )
+      let url = '/?utm_campaign=back_widget'
+      if (this.$route.fullPath.includes('super1')) {
+        url = '/super1/?utm_campaign=back_widget'
+      }
+      const final = window.location.href
+      window.history.replaceState({ backWidget: true }, 'Telegram.hr', url)
       window.history.pushState(
         { backWidgetInitialized: true },
         document.title,
-        '#back-widget2'
+        final
       )
     },
     listener(event) {
       if (event.state.backWidget) {
-        this.show = true
+        // this.show = true
       }
     },
     checkReferrer() {

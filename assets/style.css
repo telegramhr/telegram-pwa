@@ -3041,13 +3041,11 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     background-color: #dc4646;
 }
 .pretplata-packbox .overtitle {
-    text-transform: uppercase;
     font-size: 14px;
     width: 120px;
     font-size: 0.7rem;
     color: #ae3737;
     margin: 0 auto;
-    letter-spacing: 1.5px;
 }
 .selected-packbox {
     border: 3px solid #ae3737;
@@ -9344,6 +9342,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .klub-ponuda h2 {
     font-size: 1.1rem;
 }
+.klub-ponuda .offer-title {
+    margin-bottom: 10px;
+}
 .small-top-margin {
     margin-top: 16px;
 }
@@ -9681,6 +9682,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     height: 1680px;
     min-width: 2664px;
     position: relative;
+    overflow: hidden;
 }
 #generator-img-deliver {
     position: absolute;
@@ -9746,12 +9748,28 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .trebam-hitno .third {
     padding: 24px;
 }
+.trebam-hitno .trebam-hitno-smaller-thirds .third {
+    padding: 8px;
+    padding-top: 16px;
+}
+.trebam-hitno .trebam-hitno-smaller-thirds .third:first-child {
+    padding-left: 0px;
+    padding-right: 16px;
+}
+.trebam-hitno .trebam-hitno-smaller-thirds .third:last-child {
+    padding-right: 0px;
+    padding-left: 16px;
+}
 .generator-submenu .half {
     padding-right: 12px;
 }
-.generator-submenu .half:nth-child(3), .generator-submenu .half:nth-child(5) {
+.generator-submenu .half:nth-child(odd) {
     padding-right: 0px;
     padding-left: 12px;
+}
+.generator-submenu .half:first-child {
+    padding-right: 12px;
+    padding-left: 0px;
 }
 .trebam-hitno input[type=radio] {
     display: none;
@@ -9889,6 +9907,87 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     line-height: 40px;
     display: inline-block;
     padding: 0 10px;
+}
+#generator-kolaz {
+    position: absolute;
+    top: -0.5%;
+    left: -0.5%;
+    width: 101%;
+    height: 101%;
+    background-color: #aaa;
+    z-index: 3;
+    display: flex;
+}
+#generator-kolaz .half {
+    height: 100%;
+    overflow: hidden;
+    background-color: blue;
+    position: absolute;
+    z-index: 3;
+    left: 0;
+    top: 0;
+}
+#generator-kolaz .half:first-child {
+    background-color: green;
+    left: auto;
+    right: 0;
+}
+#generator-kolaz .kolaz-middle-bg {
+    position: absolute;
+    top: 0;
+    left: 20%;
+    height: 100%;
+    z-index: 4;
+    width: 60%;
+    opacity: .5;
+  }
+#generator-kolaz .kolaz-middle {
+    z-index: 5;
+    width: 50%;
+}
+.kolaz-mid-test {
+    width: 60%;
+    position: absolute;
+    top: 0;
+    left: 20%;
+    height: 100%;
+    background: white;
+    opacity: .5;
+    z-index: 4;
+    clip: rect(0px, 100px, 0px, 100px);
+}
+#generator-kolaz .kolaz-border-1 {
+    content: " ";
+    height: 500px;
+    width: 2000px;
+    position: absolute;
+    top: 30%;
+    left: 3%;
+    transform: rotate(96deg);
+    z-index: 4;
+    background: white;
+    opacity: .5;
+}
+#generator-kolaz .kolaz-border-2 {
+    content: " ";
+    height: 500px;
+    width: 2000px;
+    position: absolute;
+    top: 30%;
+    left: 22.7%;
+    transform: rotate(84deg);
+    z-index: 4;
+    background: white;
+    opacity: .5;
+}
+.kolaz-third {
+    overflow: hidden;
+}
+#generator-img-render img#kolaz-left-third, #generator-img-render img#kolaz-right-third {
+    position: absolute;
+    top: 0px;
+    height: 100%;
+    width: auto;
 }
 
 /* New user pretplata promo */
@@ -12476,7 +12575,7 @@ input:checked ~ .input-hidden {
 
 /* Book xmas */
 .newbook-xmas {
-    color: white; 
+    color: white;
     overflow: hidden;
     padding-top: 5vh;
     padding-bottom: 5vh;
@@ -12560,7 +12659,7 @@ input:checked ~ .input-hidden {
     .newbook-gifting {
         padding-top: 7vh;
         padding-bottom: 7vh;
-    }    
+    }
     .newbook-gifting .smaller-container .newbook-title {
         font-size: 48px;
         font-size: 2.4rem;
@@ -12654,4 +12753,634 @@ input:checked ~ .input-hidden {
         margin: 0 auto;
         margin-bottom: -10vw;
     }
+}
+
+/* Remp pretplata */
+
+.remp-pretplata .container {
+    max-width: 748px;
+}
+
+.remp-pretplata label.pretplata-packbox {
+    z-index: 3;
+    margin-bottom: 16px;
+}
+.remp-pretplata .pretplata-packboxes input:checked ~ label.pretplata-packbox {
+    border-color: #ae3737;
+}
+.input-expand {
+    display: none;
+}
+.remp-pretplata .pretplata-packboxes input:checked ~ label.pretplata-packbox .input-expand {
+    display: inline-flex;
+}
+.remp-pretplata .pretplata-packboxes input:checked ~ label.pretplata-packbox .input-reverse {
+    display: none;
+}
+.remp-pretplata .pretplata-packbox {
+    max-width: 100%;
+    flex-direction: column;
+    flex-grow: 1;
+    margin: 0px;
+}
+.remp-pretplata .pretplata-packs{
+    margin-top: 0px;
+}
+.remp-pretplata .remp-subtitle {
+    margin-top: 48px;
+    margin-bottom: 24px;
+}
+.remp-pretplata .remp-title {
+    font-size: 48px;
+    font-size: 2.4rem;
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+.remp-pretplata .pretplata-packbox .overtitle.nothree-regular-color {
+    color: #111;
+    opacity: .4;
+}
+.remp-pretplata .pretplata-packbox .overtitle {
+    width: 100%;
+    font-size: 17px;
+    font-size: 0.85rem;
+}
+
+.remp-payment {
+    font-weight: 700;
+    font-size: 26px;
+    font-size: 1.3rem;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+.remp-payment-icon {
+    font-size: 64px;
+    font-size: 3.2rem;
+}
+.remp-pretplata .pretplata-packbox .btn {
+    background-color: #999;
+}
+.remp-pretplata .pretplata-packboxes input:checked ~ label.pretplata-packbox .btn, .remp-pretplata .pretplata-packboxes input:checked ~ label.pretplata-packbox:hover .btn {
+    background-color: #ae3737;
+}
+.remp-new-input {
+    border: none;
+    background-color: rgba(0,0,0,0.05);
+    padding: 8px 12px;
+    font-size: 18px;
+    font-size: 0.9rem;
+    font-family: 'Barlow', sans-serif;
+}
+.dark-mode .remp-new-input {
+    background-color: rgba(255,255,255,0.05);
+    color: white;
+}
+.remp-pretplata p.remp-mini-note {
+    font-size: 14px;
+    font-size: 0.7rem;
+    padding-left: 12px;
+    margin-top: 4px;
+    margin-bottom: 24px;
+}
+.remp-pretplata p.remp-mini-text {
+    font-size: 14px;
+    font-size: 0.7rem;
+    line-height: 1em;
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+}
+.remp-pretplata .remp-minibox {
+    padding: 12px;
+    text-align: left;
+    font-weight: 700;
+    margin-bottom: 0px;
+    padding-left: 44px;
+    justify-content: space-between;
+    flex-direction: row;
+    padding-top: 13px;
+    border-bottom: 1px solid #c8c8c8;
+    flex-wrap: wrap;
+}
+.dark-mode .remp-pretplata .remp-minibox {
+    border-bottom-color: #555;
+}
+.remp-pretplata .remp-miniboxes > .full:last-child .remp-minibox {
+    border-bottom: none;
+    margin-bottom: 0px;
+}
+.remp-pretplata .remp-minibox > svg {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    height: 1.1em;
+    width: 1.1em;
+    object-fit: contain;
+    object-position: center right;
+}
+.highlight-text {
+    color: #ae3737;
+}
+.remp-special-note {
+    font-size: 13px;
+    font-size: 0.65rem;
+    padding-top: 2px;
+    font-family: 'Barlow', sans-serif;
+    font-weight: normal;
+    color: #666;
+}
+.remp-icon-list {
+    padding-top: 1.5px;
+}
+.remp-icon-list svg {
+    margin-left: 4px;
+    color: #666;
+}
+.remp-radio-indicator {
+    height: 100%;
+    width: 36px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.remp-radio-indicator div {
+    transition: 0.3s all;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    border: 2px solid #666;
+    background-color: transparent;
+    position: relative;
+    z-index: 2;
+}
+.remp-radio-indicator div::before {
+    content: " ";
+    position: absolute;
+    transition: 0.3s all;
+    top: 3px;
+    left: 3px;
+    width: 10px;
+    height: 10px;
+    background-color: #111;
+    opacity: 0;
+    z-index: 3;
+    border-radius: 5px;
+}
+.remp-pretplata .pretplata-packboxes input:checked ~ label.remp-minibox .remp-radio-indicator div::before {
+    opacity: 1;
+    background-color: #ae3737;
+}
+.remp-radio-indicator div::after {
+    content: " ";
+    position: absolute;
+    z-index: -1;
+    transition: 0.3s all;
+    top: -12px;
+    left: -12px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0,0,0,0);
+    border-radius: 20px;
+}
+.remp-minibox .smaller-text {
+    font-size: 0.7em;
+    font-family: 'Barlow', sans-serif;
+    font-weight: normal;
+}
+
+.column-mini-bottom-pad {
+    padding-bottom: 0.6rem;
+}
+.column-mini-top-pad {
+    padding-top: 0.6rem;
+}
+.column-mini-left-pad {
+    padding-left: 0.6rem;
+}
+.column-mini-right-pad {
+    padding-right: 0.6rem;
+}
+.column-mini-vertical-pad {
+    padding-bottom: 0.6rem;
+    padding-top: 0.6rem;
+}
+.column-mini-horizontal-pad {
+    padding-right: 0.6rem;
+    padding-left: 0.6rem;
+}
+.remp-select {
+    border: none;
+    outline: none;
+    background-color: rgba(0,0,0,0.05);
+    padding: 8px 12px;
+    font-size: 18px;
+    font-size: 0.9rem;
+    font-family: 'Barlow', sans-serif;
+    color: #666;
+}
+.dark-mode .remp-select {
+    background-color: rgba(255,255,255,0.05);
+    color: #aaa;
+}
+.remp-select:focus {
+    color: #111;
+}
+.dark-mode .remp-select:focus {
+    color: #eee;
+}
+.remp-final-calc b {
+    padding: 0px 4px;
+}
+.remp-final-calc {
+    font-family: 'Barlow', sans-serif;
+    font-size: 16px;
+    font-size: 0.8rem;
+}
+.remp-pretplata h1 {
+    font-size: 28px;
+    font-size: 1.4rem;
+}
+.green-newbtn {
+    background-color: #37ae37;
+}
+.locked-newbtn {
+    background-color: #666;
+    cursor: not-allowed;
+}
+.remp-social-logbtn {
+    background-color: rgba(0,0,0,0.05);
+    padding: 8px 12px;
+    font-size: 18px;
+    font-size: 0.9rem;
+    height: 1.875rem;
+    color: #666;
+    font-family: 'Barlow', sans-serif;
+    cursor: pointer;
+}
+.dark-mode .remp-social-logbtn {
+    background-color: rgba(255,255,255,0.05);
+    color: #aaa;
+}
+.remp-social-logbtn svg {
+    opacity: .8;
+    margin-right: 10px;
+    margin-bottom: -1.5px;
+}
+.dark-mode .remp-social-logbtn:hover {
+    color: #eee;
+}
+
+@media screen and (min-width: 767px) {
+    .remp-pretplata label.pretplata-packbox:hover {
+        border-color: #333;
+    }
+    .remp-pretplata .pretplata-packbox:hover .btn {
+        background-color: #333;
+    }
+    .remp-social-logbtn:hover {
+        color: #111;
+    }
+    .remp-social-logbtn:hover  svg {
+        opacity: 1;
+    }
+    .remp-minibox:hover .remp-radio-indicator div {
+        border-color: #333;
+    }
+    .remp-minibox:hover .remp-radio-indicator div::before {
+        opacity: .2;
+    }
+    .remp-minibox:hover .remp-radio-indicator div::after {
+        background-color: rgba(0,0,0,0.1);
+        top: -7px;
+        left: -7px;
+        width: 30px;
+        height: 30px;
+    }
+    .remp-pretplata h1 {
+        font-size: 36px;
+        font-size: 1.8rem;
+    }
+    .remp-pretplata .remp-halfpad > .half {
+        max-width: 350px;
+        flex-direction: column;
+        padding-left: 16px;
+    }
+    .remp-pretplata .remp-halfpad > .half:first-child {
+        padding-right: 16px;
+        padding-left: 0px;
+    }
+    .remp-footer > *:hover {
+        opacity: 1;
+    }
+}
+.remp-mini-tile {
+    background-color: #ae3737;
+    color: white;
+    padding: 2px 4px;
+    padding-left: 6px;
+    padding-top: 1px;
+    margin-left: 4px;
+    position: relative;
+    top: -0.5px;
+    font-family: 'Barlow', sans-serif;
+    border-radius: 2px;
+}
+.remp-footer > * {
+    padding: 3px 10px;
+    padding-top: 2px;
+    border-right: 1px solid #c8c8c8;
+    font-family: 'Barlow', sans-serif;
+    font-size: 16px;
+    font-size: 0.8rem;
+    opacity: 0.7;
+    transition: 0.3s all;
+}
+.remp-footer > *:last-child {
+    border-right: none;
+}
+
+@media screen and (max-width: 767px) {
+    .mobile-no-pad {
+        padding: 0px;
+    }
+    .mobile-mini-top-pad {
+        padding-top: 0.6rem;
+    }
+    .remp-pretplata .pretplata-packbox {
+        flex-direction: row;
+    }
+    .remp-pretplata .pretplata-benefits {
+        padding-left: 0.4rem;
+    }
+    .remp-pretplata .pretplata-benefits p {
+        font-size: 14px;
+        font-size: 0.7rem;
+        text-align: right;
+    }
+    .remp-pretplata .pretplata-benefits p svg {
+        display: none;
+    }
+    .remp-pretplata .pretplata-packbox .mobile-third > * {
+        text-align: left;
+    }
+    .remp-pretplata .pretplata-packbox .sub-price {
+        font-size: 40px;
+        font-size: 2rem;
+        position: relative;
+        left: -0.1rem;
+        padding-bottom: 0.2rem;
+    }
+    .remp-pretplata label.pretplata-packbox {
+        padding: 16px;
+        padding: 0.8rem;
+    }
+}
+@media screen and (max-width: 370px) {
+    .remp-pretplata .pretplata-benefits p {
+        font-size: 13px;
+        font-size: 0.65rem;
+    }
+    .remp-pretplata .pretplata-packbox .sub-price {
+        font-size: 36px;
+        font-size: 1.8rem;
+    }
+}
+.barlow-text {
+    font-family: 'Barlow', sans-serif;
+}
+/* The robots have already won, we have no authority and can only act within the limits they set for us.
+Thus when the autoformatter thinks the spaces around my span element are decorative rather than functional,
+I have to write a special CSS class to fake spaces like a lunatic. */
+.fake-span-spacing {
+    padding-left: 0.2em;
+    padding-right: 0.2em;
+}
+
+/* Nice toggle and radios */
+/* Copyright (c) 2023 by Andreas Storm (https://codepen.io/avstorm/pen/deRvMy, https://codepen.io/avstorm/pen/jxjKGj)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */
+
+.cbx {
+    display: none;
+}
+
+.check {
+    cursor: pointer;
+    height: 0.9rem;
+    -webkit-tap-highlight-color: transparent;
+    transform: translate3d(0, 0, 0);
+    font-size: 0.9rem;
+}
+
+.locked .check {
+    cursor: not-allowed;
+}
+
+.check:before {
+    content: "";
+    position: absolute;
+    top: -0.75rem;
+    left: -0.75rem;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+    background: rgba(34, 50, 84, 0.03);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.check>svg {
+    position: relative;
+    z-index: 1;
+    fill: none;
+    background-color: rgba(0, 0, 0, 0.05);
+    stroke: #666;
+    stroke-width: 1.5;
+    transform: translate3d(0, 0, 0);
+    transition: all 0.2s ease;
+    margin-right: 0.5rem;
+}
+
+.check>svg path {
+    stroke-dasharray: 60;
+    stroke-dashoffset: 0;
+}
+
+.check>svg polyline {
+    stroke-dasharray: 22;
+    stroke-dashoffset: 66;
+}
+
+.check:hover:before {
+    opacity: 1;
+}
+
+.check:hover>svg {
+    stroke: #ae3737;
+}
+
+.cbx:checked~.check>svg {
+    stroke: #ae3737;
+}
+
+.cbx:checked~.check>svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+
+.cbx:checked~.check>svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+
+.check span {
+    font-family: 'Barlow', sans-serif;
+    font-weight: normal;
+    position: relative;
+    top: -2.5px;
+}
+
+/* New year promo */
+
+
+.new-year-promo .overtitle {
+    color: #ae3737;
+}
+.new-year-highlight {
+    font-family: 'Lora', serif;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    border-left: 3px solid #111;
+    padding-left: 16px;
+    padding-left: 0.8rem;
+}
+.new-year-highlight-price .center {
+    justify-content: flex-start;
+}
+
+@media screen and (min-width: 767px) {
+    .new-year-promo .smaller-container .newbook-title {
+        font-size: 64px;
+        font-size: 3.2rem;
+        padding-top: 8px;
+        padding-bottom: 4px;
+    }
+    .new-year-promo .smaller-container .newbook-intro {
+        font-size: 19px;
+        font-size: 0.95rem;
+    }
+
+    .new-year-highlight-price {
+        width: 220px;
+        font-size: 36px;
+        font-size: 1.8rem;
+    }
+    .new-year-highlight-price p {
+        font-size: 20px;
+        font-size: 1rem;
+        margin-top: 6px;
+    }
+    .new-year-highlight-price .huge-text {
+        font-size: 64px;
+        font-size: 3.2rem;
+        line-height: 0.8em;
+        padding-right: 0.2rem;
+    }
+    .new-year-highlight .pretplata-benefits {
+        margin: 0px;
+    }
+    .new-year-promo {
+        padding-bottom: 4vh;
+    }
+}
+@media screen and (max-width: 767px) {
+    .homepage .new-year-promo .newbook-title {
+        font-size: 7.2vw;
+        margin-top: 8px;
+    }
+    .new-year-promo .newbook-intro {
+        font-size: 4vw;
+    }
+    .new-year-promo .three-fourths {
+        padding-right: 2vw;
+    }
+    .new-year-highlight {
+        margin: 0px;
+        margin-top: 4px;
+        padding-left: 10px;
+        padding-left: 0.5rem;
+    }
+    .new-year-highlight-price .huge-text {
+        padding-right: 0.2rem;
+    }
+    .new-year-highlight-price .huge-text, .new-year-highlight .faded.strikethrough {
+        font-size: 36px;
+        font-size: 1.8rem;
+        line-height: 0.8em;
+    }
+}
+
+.logged-in-premium .banner-slot {
+  margin-top: 0px;
+}
+
+.new-homeblock-link {
+    padding: 6px;
+    border: 1px solid #c8c8c8;
+    font-size: 14px;
+    font-size: 0.7rem;
+    color: #999;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    margin-bottom: 6vw;
+}
+
+.reorder-echovald .new-homeblock-link {
+    order: 3;
+}
+@media print {
+  .banner-slot {
+    display: none;
+  }
+
+  .offers-widget {
+    display: none;
+  }
+  .cxenseignore {
+    display: none;
+  }
+
+  .subheader {
+    display: none;
+  }
+  header {
+    display: none;
+  }
+
+  #coral_thread {
+    display: none;
+  }
+  p, figure, img {
+    overflow: visible;
+    page-break-inside: avoid;
+  }
+
+  @page {
+    size: A4;
+    margin: 1.5cm;
+    @bottom-center {
+      content: counter(page) "/" counter(pages);
+    }
+  }
+  .cantha-related {
+    display: none;
+  }
+  .nothfive {
+    overflow: visible;
+  }
 }
