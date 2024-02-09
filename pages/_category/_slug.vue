@@ -349,7 +349,12 @@
                   <gallery :gallery="gallery"></gallery>
                 </portal>
                 <portal
-                  v-if="!hasPremium && !post.category_slug.includes('superone')"
+                  v-if="
+                    !hasPremium &&
+                    !post.category_slug.includes('superone') &&
+                    document.getElementById('intext_premium') &&
+                    !(post.disable_ads && post.disable_ads.includes('spar'))
+                  "
                   selector="#intext_premium"
                 >
                   <div class="full">
@@ -445,7 +450,9 @@
             ></div>
           </div>
           <keep-reading
-            v-if="post.category_slug && post.category_slug !== 'promo'"
+            v-if="
+              post.category_slug && post.category_slug !== 'promo' && hasLinker
+            "
             :category="post.category_slug"
             :p="Number(post.id)"
             :permalink="post.permalink"
