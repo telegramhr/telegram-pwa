@@ -1552,7 +1552,8 @@ export const actions = {
         },
       })
     })
-    if (state.route.path.includes('biznis-tech')) {
+    const href = location.href
+    if (href.includes('biznis-tech')) {
       const sizes = this.$mobile ? 'mobile' : 'desktop'
       let unit
       const APSslots = []
@@ -1590,15 +1591,18 @@ export const actions = {
       window.pbjs.requestManager.aps = true
     }
     setTimeout(() => {
+      console.log('timeout prebid callback')
       dispatch('initAdserver')
     }, 3500)
   },
   biddersBack({ dispatch }) {
+    console.log('bidders back')
     if (window.pbjs.requestManager.aps && window.pbjs.requestManager.prebid) {
       dispatch('initAdserver')
     }
   },
   initAdserver({ state }) {
+    console.log('init adserver', window.pbjs.requestManager)
     if (window.pbjs.requestManager.adServerRequestSent) return
     window.pbjs.requestManager.adServerRequestSent = true
     if (state.route === 'nesto-slug') {

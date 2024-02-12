@@ -435,19 +435,6 @@
           <div v-if="!hasPremium && hasLinker" class="container flex center">
             <linker type="ecomm"></linker>
           </div>
-          <div
-            v-if="
-              !hasPremium &&
-              hasLinker &&
-              !post.category_slug.includes('superone')
-            "
-            class="container center"
-          >
-            <div
-              data-contentexchange-widget="k7dWfvWSYDqoSZvwu"
-              data-contentexchange-source="ughr"
-            ></div>
-          </div>
           <keep-reading
             v-if="
               post.category_slug && post.category_slug !== 'promo' && hasLinker
@@ -1060,16 +1047,6 @@ export default {
         defer: true,
       },
     ]
-    if (!this.$store.getters['user/hasPremium']) {
-      script = [
-        ...script,
-        {
-          hid: 'contentexchange',
-          src: 'https://ughr.contentexchange.me/static/tracker.js',
-          async: true,
-        },
-      ]
-    }
     // charts and tables
     if (this.post.tables) {
       const wdtStyles = [
