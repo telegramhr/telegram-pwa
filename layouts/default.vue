@@ -20,13 +20,15 @@
 export default {
   middleware: 'piano',
   head() {
-    let font, theme
+    let font, theme, premium
     if (process.server) {
       font = this.$cookies.get('tmg_font')
       theme = this.$cookies.get('tmg_theme')
+      premium = this.$cookies.get('tmg_access')
     } else {
       font = this.$store.state.theme.font
       theme = this.$store.state.theme.theme
+      premium = this.$store.state.user.access
     }
     return {
       htmlAttrs: {
@@ -39,7 +41,7 @@ export default {
         class: [
           theme === 'contrast' ? 'contrast-mode' : '',
           theme === 'dark' ? 'dark-mode' : '',
-          this.$store.getters['user/hasPremium'] ? 'logged-in-premium' : '',
+          premium === 'BR92VTWM' ? 'logged-in-premium' : '',
         ],
       },
     }

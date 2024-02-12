@@ -34,5 +34,32 @@ export default ({ app, store }) => {
     prebid.async = true
     prebid.defer = true
     document.head.appendChild(prebid)
+
+    // amazon
+    const amazon = document.createElement('script')
+    amazon.src = 'https://c.amazon-adsystem.com/aax2/apstag.js'
+    amazon.async = true
+    amazon.defer = true
+    document.head.appendChild(amazon)
+    window.apstag = window.apstag || {
+      init() {
+        q('i', arguments)
+      },
+      fetchBids() {
+        q('f', arguments)
+      },
+      setDisplayBids() {},
+      targetingKeys() {
+        return []
+      },
+      _Q: [],
+    }
+    window.apstag.init({
+      pubID: '921fe99d-b739-4d25-b89d-df067f627a6a',
+      adServer: 'googletag',
+    })
+  }
+  function q(c, r) {
+    window.apstag._Q.push([c, r])
   }
 }
