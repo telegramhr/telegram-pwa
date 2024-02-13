@@ -1537,7 +1537,6 @@ export const actions = {
     })
   },
   initPBJS({ dispatch, state }) {
-    console.log('requesting bids')
     window.pbjs = window.pbjs || {}
     window.pbjs.que = window.pbjs.que || []
     window.pbjs.que.push(() => {
@@ -1546,63 +1545,52 @@ export const actions = {
           window.googletag.cmd.push(function () {
             window.pbjs.setTargetingForGPTAsync()
             window.pbjs.requestManager.prebid = true
-            console.log('magnite prebid callback')
             dispatch('biddersBack')
           })
         },
       })
     })
-    const href = location.href
-    if (href.includes('biznis-tech')) {
-      const sizes = this.$mobile ? 'mobile' : 'desktop'
-      let unit
-      const APSslots = []
-      for (const i of Object.keys(state.units)) {
-        if (i in state.units) {
-          unit = state.units[i]
-          if (!unit[sizes]) {
-            continue
-          }
-          if (!document.getElementById(i)) {
-            continue
-          }
-          APSslots.push({
-            slotID: i,
-            slotName: state.prefix + i,
-            sizes: unit[sizes],
-          })
+    const sizes = this.$mobile ? 'mobile' : 'desktop'
+    let unit
+    const APSslots = []
+    for (const i of Object.keys(state.units)) {
+      if (i in state.units) {
+        unit = state.units[i]
+        if (!unit[sizes]) {
+          continue
         }
+        if (!document.getElementById(i)) {
+          continue
+        }
+        APSslots.push({
+          slotID: i,
+          slotName: state.prefix + i,
+          sizes: unit[sizes],
+        })
       }
-      console.log('fetching amazon bids')
-      window.apstag.fetchBids(
-        {
-          slots: APSslots,
-        },
-        function (bids) {
-          window.googletag.cmd.push(function () {
-            console.log('amazon prebid callback')
-            window.apstag.setDisplayBids()
-            window.pbjs.requestManager.aps = true
-            dispatch('biddersBack')
-          })
-        }
-      )
-    } else {
-      window.pbjs.requestManager.aps = true
     }
+    window.apstag.fetchBids(
+      {
+        slots: APSslots,
+      },
+      function (bids) {
+        window.googletag.cmd.push(function () {
+          window.apstag.setDisplayBids()
+          window.pbjs.requestManager.aps = true
+          dispatch('biddersBack')
+        })
+      }
+    )
     setTimeout(() => {
-      console.log('timeout prebid callback')
       dispatch('initAdserver')
     }, 3500)
   },
   biddersBack({ dispatch }) {
-    console.log('bidders back')
     if (window.pbjs.requestManager.aps && window.pbjs.requestManager.prebid) {
       dispatch('initAdserver')
     }
   },
   initAdserver({ state }) {
-    console.log('init adserver', window.pbjs.requestManager)
     if (window.pbjs.requestManager.adServerRequestSent) return
     window.pbjs.requestManager.adServerRequestSent = true
     if (state.route === 'nesto-slug') {
