@@ -884,6 +884,11 @@ export default {
           price: 29,
           gtm: 'superizborna-godina',
         },
+        TM2QQCNWT3K1: {
+          title: 'Hrvatska tone u mrak',
+          price: 1.99,
+          gtm: 'standard',
+        },
       },
     }
   },
@@ -938,6 +943,7 @@ export default {
           'TMYNBHMX6JBL',
           'TMYTVOS7AU82',
           'TMXMTLO3DSSC',
+          'TM2QQCNWT3K1',
         ],
       })
       window.tp.push([
@@ -990,6 +996,9 @@ export default {
             break
           case 'superizborna':
             this.checkout(this.izbori)
+            break
+          case 'mrak':
+            this.checkout('TM2QQCNWT3K1')
             break
         }
       }
