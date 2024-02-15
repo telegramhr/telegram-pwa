@@ -125,13 +125,13 @@
         </div>
         <!-- G1 -->
         <div
-          class="three-fourths featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad mobile-order-1 m-order-1"
+          class="three-fourths flex-responsive flex stretch column-horizontal-pad article-amnytas mobile-bottom-pad"
         >
-          <featured-alt
+          <featured
             v-if="posts[0]"
             :key="`featured-${posts[0].id}`"
             :post="posts[0]"
-          ></featured-alt>
+          ></featured>
         </div>
         <!-- latest -->
         <client-only>
@@ -263,43 +263,73 @@
         </div>
       </div>
     </div>
-    <!-- Echovald rubrika -->
-    <div class="full flex">
-      <div
-        class="container flex relative block-echovald stretch mobile-side-pad"
-      >
-        <div class="three-fourths flex-responsive flex stretch">
-          <div class="half flex-responsive flex column-horizontal-pad">
-            <featured
-              v-for="post in posts.slice(7, 8)"
-              :key="post.id"
-              :post="post"
-            />
+    <!-- Teme -->
+    <div class="full relative">
+      <div class="container flex relative stretch">
+        <div
+          class="full flex mobile-side-pad stretch secondary-gs-block m-order-8"
+        >
+          <div class="full column-horizontal-pad column-bottom-pad flex">
+            <div class="full column-top-border"></div>
           </div>
           <div
-            class="half super-sidebar flex column-horizontal-pad column-left-border column-right-border flex-responsive split-articles"
+            class="three-fourths flex-responsive flex stretch column-horizontal-pad article-amnytas mobile-bottom-pad column-right-border"
+          >
+            <featured
+              v-for="post in posts.slice(4, 5)"
+              :key="post.id"
+              :post="post"
+            ></featured>
+          </div>
+          <div
+            class="fourth flex-responsive column-horizontal-pad flex relative"
           >
             <medium
-              v-for="post in posts.slice(8, 11)"
+              v-for="post in posts.slice(5, 6)"
+              :key="post.id"
+              :post="post"
+            ></medium>
+          </div>
+          <div class="full column-horizontal-pad column-top-pad flex">
+            <div class="full column-top-border column-bottom-pad"></div>
+          </div>
+          <div
+            class="three-fourths flex-responsive flex stretch column-horizontal-pad article-amnytas mobile-bottom-pad column-right-border"
+          >
+            <featured
+              v-for="post in posts.slice(6, 7)"
+              :key="post.id"
+              :post="post"
+            ></featured>
+          </div>
+          <div
+            class="fourth flex-responsive column-horizontal-pad flex relative"
+          >
+            <medium
+              v-for="post in posts.slice(7, 8)"
               :key="post.id"
               :post="post"
             ></medium>
           </div>
         </div>
-        <div
-          class="fourth flex-responsive column-horizontal-pad desktop-mini-force"
-        >
-          <standard
-            v-for="post in posts.slice(11, 15)"
+      </div>
+    </div>
+    <!-- Widget autori -->
+    <commentary-alt type="ts"></commentary-alt>
+    <!-- Standard 1/4 block -->
+    <div class="full relative">
+      <div
+        class="container flex cantha-small-block mobile-side-pad relative stretch"
+      >
+        <div class="full flex stretch relative no-last-border-mobile">
+          <div
+            v-for="post in posts.slice(7, 11)"
             :key="post.id"
-            :post="post"
-          ></standard>
-        </div>
-        <!--<client-only>
-          <div class="full relative center">
-            <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
+            class="fourth flex-responsive column-right-border column-horizontal-pad"
+          >
+            <standard :post="post"></standard>
           </div>
-        </client-only>-->
+        </div>
       </div>
     </div>
     <!-- Standard 1/4 block -->
@@ -314,10 +344,13 @@
           <div
             v-for="post in posts.slice(11, 15)"
             :key="post.id"
-            class="fourth flex-responsive column-right-border column-horizontal-pad column-botton-margin"
+            class="fourth flex-responsive column-right-border column-horizontal-pad"
           >
             <standard :post="post"></standard>
           </div>
+        </div>
+        <div class="full center column-full-pad">
+          <div class="newbtn huge-newbtn clickable">Učitaj više</div>
         </div>
       </div>
     </div>

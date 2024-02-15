@@ -140,7 +140,6 @@ header .logo, .mobile-sticky-nav .logo {
     padding: 9px 0px;
     background-color: #fcf1e7;
     border-bottom: 1px solid #c8c8c8;
-    box-shadow: 10px 0px 20px rgba(0, 0, 0, 0.25);
 }
 .contrast-mode .subheader {
     background-color: white;
@@ -259,15 +258,13 @@ header .logo, .mobile-sticky-nav .logo {
     min-height: 118px;
 }
 .article-standard img {
-    width: 80px;
-    height: 80px;
     object-fit: cover;
     object-position: center center;
     position: absolute;
     top: 5vw;
     right: 0px;
-    width: 82px;
-    height: 82px;
+    width: 90px;
+    height: 75px;
 }
 .article-standard h2 {
     font-size: 18px;
@@ -918,7 +915,7 @@ h2.section-title {
     top: -2.5px;
     font-feature-settings: "liga" 0, "clig" 0;
     margin-right: 12px;
-    border-radius: 1px;
+    border-radius: 0.1rem;
 }
 .subheader .signup-btn {
     background-color: #333;
@@ -935,10 +932,6 @@ h2.section-title {
 }
 .signup-btn:hover {
     background-color: #444;
-}
-.sub-btn:hover {
-    background: #dc4646;
-    color: white;
 }
 .pretplata-page .sub-btn {
     display: none;
@@ -3409,7 +3402,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 
 @media screen and (max-width: 767px) {
     .article img {
-        aspect-ratio: 1;
+        aspect-ratio: 4/3;
     }
     .mini-pretplata {
         order: 1;
@@ -4147,11 +4140,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 0.7rem;
     }
     .signup-btn {
-        padding: 6px 16px;
+        padding: 6px 10px;
+        padding-top: 5px;
         font-size: 14px;
         font-size: 0.7rem;
         margin-bottom: -11px;
-        top: -5.5px;
+        top: -4.5px;
     }
     .subheader .menu {
         font-size: 13px;
@@ -4798,14 +4792,14 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .article-medium .overtitle {
     margin-top: 16px;
 }
+.split-articles .article-medium > * {
+    width: auto;
+}
 .split-articles .article-medium .overtitle {
     margin-top: 0px;
 }
 .split-articles .article-medium {
     display: block;
-}
-.split-articles .article-medium > * {
-    width: auto;
 }
 .split-articles .article-medium img {
     position: relative;
@@ -4840,7 +4834,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         float: right;
         top: auto;
         width: 90px;
-        height: 90px;
+        height: 75px;
     }
     .article-medium > .desktop-only {
         display: block;
@@ -7258,7 +7252,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .cantha-header .logo {
     width: 70%;
-    max-width: 420px;
+    max-width: 360px;
 }
 .dark-mode .cantha-header .logo img, .dark-mode .mobile-sticky-nav .logo img {
     display: none;
@@ -8097,7 +8091,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         margin-left: -50vw;
         margin-right: -50vw;
         float: none;
-        height: 100vw;
+        height: 75vw;
     }
     .alt-big-break.center-text .article {
         display: block;
@@ -10951,20 +10945,20 @@ header .search-menu {
     font-weight: 700;
 }
 .sport-slash {
-    color: #069eff;
+    color: #5463b4;
     font-weight: 900;
 }
 .contrast-mode .sport-slash {
     color: #223344;
 }
 .telesport .block-title, .telesport .dynamic-overtitle-element, .telesport .widget, .telesport .widget::before, .telesport .komentar .komentar-image, .telesport .subtle-btn-parent:hover .subtle-btn, .telesport .loader-square div, .telesport .newbtn {
-    background-color: #069eff;
+    background-color: #5463b4;
 }
 .telesport .meta-preporuke, .telesport .noththree.overtitle, .telesport .article-mini .meta-date, .telesport .related-articles .nothfive, .telesport .komentar-quotation {
-    color: #069eff;
+    color: #5463b4;
 }
 .telesport h2.section-title {
-    border-bottom-color: #069eff;
+    border-bottom-color: #5463b4;
 }
 .ts-home-header {
     padding-bottom: 24px;
@@ -11001,7 +10995,7 @@ header .search-menu {
 }
 .ts-home-header nav a:hover {
     opacity: 1;
-    color: #069eff;
+    color: #5463b4;
 }
 .telesport .featured-split.biggest-font .article-featured .noththree.overtitle {
     display: none;
@@ -11045,7 +11039,7 @@ header .search-menu {
         content: " ";
         width: 60px;
         height: 4px;
-        background-color: #069eff;
+        background-color: #5463b4;
         position: absolute;
         left: 0px;
         bottom: -1px;
@@ -12470,7 +12464,7 @@ input:checked ~ .input-hidden {
 }
 .article-amnytas .article-featured img {
     margin-bottom: 0px;
-    max-height: 420px;
+    max-height: 480px;
     object-fit: cover;
 }
 .article-amnytas .article-featured .article-pad {
@@ -13406,10 +13400,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     top: 40px;
 }
 .telesport-sticky .subheader .sub-btn, .telesport .latest-line-feed .article::after {
-    background-color: #069eff;
+    background-color: #5463b4;
 }
 .telesport .time-overtitle span:last-child {
-    color: #069eff;
+    color: #5463b4;
 }
 
 @media screen and (max-width: 767px) {
@@ -13429,8 +13423,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
 }
 .category-kultura .cantha-header .logo {
-    max-width: 240px;
+    max-width: 200px;
 }
 .category-kultura .cantha-header .cantha-menubtn, .category-kultura .cantha-header .cantha-searchbtn {
-    top: 30px;
+    top: 24px;
 }
