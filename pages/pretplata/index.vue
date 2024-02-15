@@ -7,7 +7,7 @@
         headline="Pretplatite se i podržite naše bespoštedno novinarstvo."
       ></theader>
     </div>
-    <!-- Above header banner
+    <!-- Above header banner -->
     <div class="full center relative dark-mode pretplata-bf pretplata-blue">
       <div class="container smaller-container flex relative">
         <div
@@ -60,7 +60,7 @@
           class="absolute-half-img"
         />
       </div>
-    </div> -->
+    </div>
     <div id="pretplata-selector" class="full flex">
       <div class="full flex relative">
         <div
