@@ -7,7 +7,60 @@
         headline="Pretplatite se i podržite naše bespoštedno novinarstvo."
       ></theader>
     </div>
-    <!-- Above header banner -->
+    <!-- Above header banner
+    <div class="full center relative dark-mode pretplata-bf pretplata-blue">
+      <div class="container smaller-container flex relative">
+        <div
+          class="two-thirds mobile-full-pad column-full-pad column-top-margin column-bottom-margin flex relative stretch"
+        >
+          <div class="full flex overtitle-parent">
+            <div class="overtitle noththree">
+              <span>Mega akcija</span>
+            </div>
+          </div>
+          <div class="full nothtwo">
+            <span>Hrvatska tone</span> <span>u mrak</span>
+          </div>
+          <p class="full highlight-pitch">
+            Dok HDZ uništava državu do kraja, budite informirani na Telegramu.
+            Jer nas plaćaju čitatelji, a ne političari
+          </p>
+          <div class="full undertitle bigger-undertitle">
+            <span class="strikethrough faded">6,49€</span> 1,99€
+            <span class="desktop-only">mjesečno</span
+            ><span class="mobile-only">/ mj.</span>
+          </div>
+          <p class="full smaller-text faded">prva tri mjeseca pretplate</p>
+          <div class="full flex">
+            <div
+              class="flex newbtn huge-newbtn animate clickable"
+              @click.prevent="checkout('TM2QQCNWT3K1')"
+            >
+              Pretplatite se
+            </div>
+          </div>
+          <div class="full pretplata-benefits">
+            <p class="full animate bold">
+              <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+              Posebna cijena prva 3 mjeseca, zatim 6,49 EUR
+            </p>
+            <p class="full animate">
+              <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+              Neograničeno čitanje Telegrama
+            </p>
+            <p class="full animate">
+              <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+              Možete otkazati u svakom trenutku
+            </p>
+          </div>
+        </div>
+        <img
+          src="@/assets/img/tg_visual_pretplata_hrvatskimrak.jpg"
+          alt="Premijer Andrej Plenković i sudac Ivan Tudurić"
+          class="absolute-half-img"
+        />
+      </div>
+    </div> -->
     <div id="pretplata-selector" class="full flex">
       <div class="full flex relative">
         <div

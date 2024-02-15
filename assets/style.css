@@ -12493,6 +12493,13 @@ input:checked ~ .input-hidden {
 
 .pretplata-blue {
     background-color: #304769;
+    position: relative;
+}
+.pretplata-blue .container > * {
+    z-index: 5;
+}
+.pretplata-blue .container > .absolute-half-img {
+    z-index: 1;
 }
 .pretplata-blue p {
     font-family: 'Barlow', sans-serif;
@@ -12526,13 +12533,23 @@ input:checked ~ .input-hidden {
 .pretplata-blue .pretplata-benefits {
     margin-top: 16px;
 }
+.pretplata-page .pretplata-blue .huge-newbtn {
+    padding: 8px 12px;
+}
 @media screen and (min-width: 767px) {
+    .pretplata-blue .container {
+        padding-top: 2vw;
+        padding-bottom: 2vw;
+    }
+    .pretplata-blue {
+        z-index: 99;
+    }
     .pretplata-blue .absolute-half-img {
-        width: 69%;
+        width: 430px;
         height: auto;
         position: absolute;
-        bottom: 0;
-        right: -3%;
+        bottom: 0px;
+        right: -10px;
     }
     .pretplata-blue .nothtwo {
         font-size: 48px;
@@ -12543,8 +12560,31 @@ input:checked ~ .input-hidden {
     }
 }
 @media screen and (max-width: 767px) {
+    .pretplata-blue .absolute-half-img {
+        width: 78%;
+        height: auto;
+        position: absolute;
+        bottom: 0px;
+        right: -4%;
+    }
+    .pretplata-blue .bigger-undertitle {
+        font-size: 24px;
+        font-size: 1.2rem;
+    }
+    .pretplata-blue .bigger-undertitle span.mobile-only {
+        display: inline;
+    }
+    .pretplata-blue .container::before {
+        content: " ";
+        position: absolute;
+        z-index: 3;
+        top: 0;
+        left: 30%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(to right, rgb(48,71,105,1), rgb(48,71,105,0));
+    }
     .pretplata-blue .pretplata-benefits {
-
         margin-bottom: 0px;
     }
     .pretplata-blue .pretplata-benefits p, .pretplata-blue .smaller-text {
@@ -12554,7 +12594,7 @@ input:checked ~ .input-hidden {
         font-size: 4.4vw;
     }
     .pretplata-blue .nothtwo {
-        font-size: 10vw;
+        font-size: 8vw;
         margin-bottom: 8px;
     }
     .pretplata-blue .sixty {
