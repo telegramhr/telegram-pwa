@@ -10945,20 +10945,20 @@ header .search-menu {
     font-weight: 700;
 }
 .sport-slash {
-    color: #5463b4;
+    color: #376cae;
     font-weight: 900;
 }
 .contrast-mode .sport-slash {
     color: #223344;
 }
 .telesport .block-title, .telesport .dynamic-overtitle-element, .telesport .widget, .telesport .widget::before, .telesport .komentar .komentar-image, .telesport .subtle-btn-parent:hover .subtle-btn, .telesport .loader-square div, .telesport .newbtn {
-    background-color: #5463b4;
+    background-color: #376cae;
 }
 .telesport .meta-preporuke, .telesport .noththree.overtitle, .telesport .article-mini .meta-date, .telesport .related-articles .nothfive, .telesport .komentar-quotation {
-    color: #5463b4;
+    color: #376cae;
 }
 .telesport h2.section-title {
-    border-bottom-color: #5463b4;
+    border-bottom-color: #376cae;
 }
 .ts-home-header {
     padding-bottom: 24px;
@@ -10995,7 +10995,7 @@ header .search-menu {
 }
 .ts-home-header nav a:hover {
     opacity: 1;
-    color: #5463b4;
+    color: #376cae;
 }
 .telesport .featured-split.biggest-font .article-featured .noththree.overtitle {
     display: none;
@@ -11031,7 +11031,7 @@ header .search-menu {
         margin-bottom: 24px;
         padding-bottom: 24px;
     }
-    .telesport .smaller-featured-split .article .article-pad h2 {
+    .telesport .smaller-featured-split .article .article-pad h2, .telesport .article-amnytas .article-featured h2 {
         font-size: 32px;
         font-size: 1.6rem;
     }
@@ -11039,7 +11039,7 @@ header .search-menu {
         content: " ";
         width: 60px;
         height: 4px;
-        background-color: #5463b4;
+        background-color: #376cae;
         position: absolute;
         left: 0px;
         bottom: -1px;
@@ -13400,10 +13400,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     top: 40px;
 }
 .telesport-sticky .subheader .sub-btn, .telesport .latest-line-feed .article::after {
-    background-color: #5463b4;
+    background-color: #376cae;
 }
 .telesport .time-overtitle span:last-child {
-    color: #5463b4;
+    color: #376cae;
 }
 
 @media screen and (max-width: 767px) {

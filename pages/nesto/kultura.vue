@@ -67,7 +67,6 @@
           <div class="full mobile-side-pad">
             <div class="full desktop-only cantha-separator"></div>
           </div>
-          <breaking></breaking>
         </div>
       </div>
       <!-- New subnav no red -->
@@ -314,7 +313,7 @@
               <standard :post="post"></standard>
             </div>
           </div>
-          <div class="full center column-full-pad">
+          <div class="full center column-full-pad mobile-bottom-pad">
             <div class="newbtn huge-newbtn clickable">Učitaj više</div>
           </div>
         </div>

@@ -49,7 +49,6 @@
         <div class="full mobile-side-pad">
           <div class="full desktop-only cantha-separator"></div>
         </div>
-        <breaking></breaking>
       </div>
     </div>
     <!-- New subnav no red -->
@@ -136,7 +135,7 @@
         <!-- latest -->
         <client-only>
           <div
-            class="fourth flex-responsive mobile-side-pad column-right-pad flex relative m-order-3 no-last-border-mobile"
+            class="fourth flex-responsive mobile-side-pad column-right-pad flex relative no-last-border-mobile"
           >
             <div class="full flex relative latest-line-feed">
               <latest></latest>
@@ -148,7 +147,7 @@
         </div>
         <!-- rest of Gs -->
         <div
-          class="full flex cantha-small-block mobile-side-pad stretch m-order-5 column-bottom-pad"
+          class="full flex cantha-small-block mobile-side-pad stretch column-bottom-pad"
         >
           <div
             v-for="post in posts.slice(1, 4)"
@@ -163,14 +162,12 @@
           <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
         </div> -->
         <!-- Teme -->
-        <div
-          class="full flex mobile-side-pad stretch secondary-gs-block m-order-8"
-        >
+        <div class="full flex mobile-side-pad stretch secondary-gs-block">
           <div class="full column-horizontal-pad column-bottom-pad flex">
             <div class="full column-top-border"></div>
           </div>
           <div
-            class="three-fourths flex-responsive column-horizontal-pad column-right-border flex relative featured-split smaller-featured-split show-one-related"
+            class="three-fourths flex-responsive flex stretch column-horizontal-pad article-amnytas mobile-bottom-pad column-right-border"
           >
             <featured
               v-for="post in posts.slice(4, 5)"
@@ -191,7 +188,7 @@
             <div class="full column-top-border column-bottom-pad"></div>
           </div>
           <div
-            class="three-fourths flex-responsive column-horizontal-pad column-right-border flex relative featured-split smaller-featured-split show-one-related"
+            class="three-fourths flex-responsive flex stretch column-horizontal-pad article-amnytas mobile-bottom-pad column-right-border"
           >
             <featured
               v-for="post in posts.slice(6, 7)"
@@ -210,7 +207,7 @@
           </div>
         </div>
         <!-- Još vijesti -->
-        <div class="full relative cantha-more-news m-order-10">
+        <div class="full relative cantha-more-news">
           <div
             class="container flex cantha-small-block mobile-side-pad relative stretch column-top-pad"
           >
@@ -349,7 +346,7 @@
             <standard :post="post"></standard>
           </div>
         </div>
-        <div class="full center column-full-pad">
+        <div class="full center column-full-pad mobile-bottom-pad">
           <div class="newbtn huge-newbtn clickable">Učitaj više</div>
         </div>
       </div>
@@ -363,7 +360,7 @@
         >
           <div class="forty column-full-pad center flex-responsive">
             <div class="full flex article">
-              <div class="noththree full overtitle">Posebna akacija</div>
+              <div class="noththree full overtitle">Posebna akcija</div>
               <h2 class="full">
                 Telegram predstavlja: Bili libar, nova knjiga Borisa Dežulovića
               </h2>

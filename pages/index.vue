@@ -240,7 +240,7 @@
         </div>
         <!-- rest of Gs -->
         <div
-          class="full flex cantha-small-block mobile-side-pad stretch m-order-5"
+          class="full flex cantha-small-block mobile-side-pad stretch m-order-5 column-bottom-pad"
         >
           <div
             v-for="post in posts.slice(1, 4)"
