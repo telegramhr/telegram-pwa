@@ -45,7 +45,13 @@ export default {
     },
     listener(event) {
       if (event.state.backWidget) {
-        // this.show = true
+        // fire ga event
+        this.$gtm.push({
+          event: 'back-widget',
+          eventCategory: 'back-widget',
+          eventAction: 'back-widget',
+          eventLabel: 'back-widget',
+        })
       }
     },
     checkReferrer() {

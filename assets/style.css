@@ -13410,6 +13410,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     page-break-inside: avoid;
   }
 
+  .related-header-widget {
+    display: none;
+  }
+
   @page {
     size: A4;
     margin: 1.5cm;
