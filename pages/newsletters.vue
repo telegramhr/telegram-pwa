@@ -435,9 +435,10 @@
                 </div>
                 <div class="full flex newsletter-box">
                   <p class="full newsletter-intro">
-                    Dobitnica dvije nagrade HND-a, specijalizirana za školstvo,
-                    redovno otkriva važne priče poput dubrovačkog apartmana
-                    rektora Borasa i seksualnog zlostavljanja na Sveučilištu.
+                    Dobitnica tri nagrade HND-a, specijalizirana za školstvo i
+                    akademsku zajednicu, otkriva važne priče poput afere
+                    ministrice Obuljen Koržinek povezane s nepravilnostima na
+                    Geodetskom fakultetu.
                   </p>
                   <subscribe-button
                     :mlid="2566"
