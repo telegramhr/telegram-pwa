@@ -13428,3 +13428,67 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     overflow: visible;
   }
 }
+
+.blue-intext, .dark-mode .blue-intext {
+    background-color: #304769;
+    color: white;
+    overflow: hidden;
+    border-top: none;
+}
+.blue-intext > * {
+    z-index: 5;
+    max-width: 356px;
+}
+.blue-intext::before {
+    content: " ";
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 30%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgb(48,71,105,1), rgb(48,71,105,0));
+}
+.blue-intext .absolute-half-img {
+    width: 368px;
+    height: auto;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    z-index: 2;
+}
+.blue-intext .pretplata-benefits {
+    margin-top: 8px;
+}
+.blue-intext .pretplata-benefits p {
+    color: white;
+    margin-bottom: 4px;
+}
+.blue-intext .secondary-cta {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-left: 12px;
+}
+@media screen and (max-width: 767px) {
+    .blue-intext .absolute-half-img {
+        width: 80%;
+        right: -4%;
+    }
+    .blue-intext {
+        padding: 4vw;
+    }
+    .blue-intext p {
+        font-size: 15px;
+        font-size: 0.75rem;
+    }
+    .blue-intext p span.ib {
+        display: inline;
+    }
+    .blue-intext .element-title {
+        font-size: 28px;
+        font-size: 1.4rem;
+    }
+    .blue-intext .secondary-cta {
+        margin-left: 0px;
+    }
+}
