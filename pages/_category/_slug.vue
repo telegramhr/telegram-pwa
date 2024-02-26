@@ -317,13 +317,7 @@
             <div class="full relative single-article-body">
               <client-only>
                 <mini-pretplata-new
-                  v-if="
-                    canLogIn &&
-                    !(
-                      post.category_slug.includes('promo') ||
-                      post.category_slug.includes('superone')
-                    )
-                  "
+                  v-if="canLogIn && post.paywall === 'always'"
                 ></mini-pretplata-new>
               </client-only>
               <!-- eslint-disable vue/no-v-html -->
@@ -417,15 +411,6 @@
                 </client-only>
               </div>
             </div>
-            <!--<div class="full relative single-article-body" style="order: 4">
-              <div
-                class="full relative single-article-footer flex column-top-pad"
-              >
-                <mini-pretplata
-                  v-show="!$store.state.user.access"
-                ></mini-pretplata>
-              </div>
-            </div>-->
           </article>
         </div>
         <client-only>
