@@ -1,5 +1,6 @@
 <template>
   <div class="full">
+    <!-- Side menu -->
     <div
       :class="{
         'side-menu': true,
@@ -241,442 +242,6 @@
         </div>
       </div>
     </div>
-    <!-- Telegram desktop sticky -->
-    <div
-      class="full subheader sticky-subheader mobile-side-pad center telegram-sticky"
-    >
-      <div class="container flex desktop-subheader column-horizontal-pad">
-        <div class="two-thirds flex subheader-ow-fix" role="navigation">
-          <app-link to="/" class="logo"
-            ><img
-              src="@/assets/img/telegram_logo_black.svg"
-              alt="Telegram logo" />
-            <img
-              src="@/assets/img/telegram_logo_white.svg"
-              alt="Telegram logo"
-              class="dark-mode-only"
-          /></app-link>
-          <a
-            :aria-expanded="$store.state.header.showSideMenu.toString()"
-            aria-label="Prikaži lijevi meni"
-            aria-controls="sidebar"
-            @click.prevent="$store.commit('header/updateMenu', 'side')"
-          >
-            <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon>
-          </a>
-          <div class="menu flex" role="menu">
-            <app-link role="menuitem" to="/vijesti">Vijesti</app-link>
-            <app-link role="menuitem" to="/politika-kriminal"
-              >Politika & Kriminal</app-link
-            >
-            <app-link role="menuitem" to="/komentari">Komentari</app-link>
-            <app-link role="menuitem" to="/biznis-tech">Biznis & Tech</app-link>
-            <app-link role="menuitem" to="/velike-price">Velike priče</app-link>
-            <app-link role="menuitem" to="/zivot">Život</app-link>
-            <app-link role="menuitem" to="/kultura">Kultura</app-link>
-            <app-link to="/super1" role="menuitem">Super1</app-link>
-            <a href="https://telesport.telegram.hr" role="menuitem">
-              Telesport
-            </a>
-          </div>
-          <div v-show="headline" class="header-headline single-exclusive">
-            {{ headline | parseCat }}
-          </div>
-        </div>
-        <div class="flex third relative">
-          <client-only>
-            <app-link
-              v-show="!$store.state.user.access"
-              id="pretplatite se - header"
-              to="/pretplata"
-              class="signup-btn sub-btn"
-              >Pretplatite se</app-link
-            >
-            <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun">
-              <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
-            </app-link>
-          </client-only>
-          <a
-            aria-label="Prikaži tražilicu"
-            :aria-expanded="$store.state.header.showSearchMenu.toString()"
-            aria-controls="search"
-            @click.prevent="$store.commit('header/updateMenu', 'search')"
-          >
-            <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon>
-          </a>
-        </div>
-      </div>
-    </div>
-    <!-- Telesport desktop sticky -->
-    <div
-      class="full subheader sticky-subheader mobile-side-pad center telesport-sticky"
-    >
-      <div class="container flex desktop-subheader column-horizontal-pad">
-        <div class="two-thirds flex subheader-ow-fix" role="navigation">
-          <app-link to="/" class="logo"
-            ><img
-              src="@/assets/img/telesport_logo_black.svg"
-              alt="Telesport logo" />
-            <img
-              src="@/assets/img/telesport_logo_white.svg"
-              alt="Telesport logo"
-              class="dark-mode-only"
-          /></app-link>
-          <a
-            :aria-expanded="$store.state.header.showSideMenu.toString()"
-            aria-label="Prikaži lijevi meni"
-            aria-controls="sidebar"
-            @click.prevent="$store.commit('header/updateMenu', 'side')"
-          >
-            <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon>
-          </a>
-          <div class="menu flex" role="menu">
-            <app-link role="menuitem" to="/">Na prvu</app-link>
-            <app-link role="menuitem" to="/">Priče</app-link>
-            <app-link role="menuitem" to="/">Analize</app-link>
-            <app-link role="menuitem" to="/">Kolumne</app-link>
-          </div>
-          <div v-show="headline" class="header-headline single-exclusive">
-            {{ headline | parseCat }}
-          </div>
-        </div>
-        <div class="flex third relative">
-          <client-only>
-            <app-link
-              v-show="!$store.state.user.access"
-              id="pretplatite se - header"
-              to="/pretplata"
-              class="signup-btn sub-btn"
-              >Pretplatite se</app-link
-            >
-            <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun">
-              <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
-            </app-link>
-          </client-only>
-          <a
-            aria-label="Prikaži tražilicu"
-            :aria-expanded="$store.state.header.showSearchMenu.toString()"
-            aria-controls="search"
-            @click.prevent="$store.commit('header/updateMenu', 'search')"
-          >
-            <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon>
-          </a>
-        </div>
-      </div>
-    </div>
-    <!-- S1 desktop sticky -->
-    <div
-      class="full subheader sticky-subheader mobile-side-pad center super1-sticky"
-    >
-      <div class="container flex desktop-subheader column-horizontal-pad">
-        <div class="two-thirds flex subheader-ow-fix" role="navigation">
-          <app-link to="/super1" class="logo"
-            ><img
-              src="@/assets/img/s1_logo_clean_noline.svg"
-              alt="Super1 logo" />
-            <img
-              src="@/assets/img/s1_logo_clean_noline_white.svg"
-              alt="Super1 logo"
-              class="dark-mode-only"
-          /></app-link>
-          <a
-            :aria-expanded="$store.state.header.showSideMenu.toString()"
-            aria-label="Prikaži lijevi meni"
-            aria-controls="sidebar"
-            @click.prevent="$store.commit('header/updateMenu', 'side')"
-          >
-            <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon>
-          </a>
-          <div class="menu flex" role="menu">
-            <app-link role="menuitem" to="/super1/look">Look</app-link>
-            <app-link role="menuitem" to="/super1/beauty">Beauty</app-link>
-            <app-link role="menuitem" to="/super1/life">Life</app-link>
-            <app-link role="menuitem" to="/super1/design">Design</app-link>
-            <app-link role="menuitem" to="/super1/power">Power</app-link>
-          </div>
-          <div v-show="headline" class="header-headline single-exclusive">
-            {{ headline | parseCat }}
-          </div>
-        </div>
-        <div class="flex third relative">
-          <a
-            aria-label="Prikaži tražilicu"
-            :aria-expanded="$store.state.header.showSearchMenu.toString()"
-            aria-controls="search"
-            @click.prevent="$store.commit('header/updateMenu', 'search')"
-          >
-            <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon>
-          </a>
-        </div>
-      </div>
-    </div>
-    <!-- PitanjeZdravlja desktop sticky -->
-    <div
-      class="full subheader sticky-subheader mobile-side-pad center pz-sticky"
-    >
-      <div class="container flex desktop-subheader column-horizontal-pad">
-        <div class="two-thirds flex subheader-ow-fix" role="navigation">
-          <app-link to="/pitanje-zdravlja" class="logo"
-            ><img
-              src="@/assets/img/pz_logo_normal.svg"
-              alt="PitanjeZdravlja logo" />
-            <img
-              src="@/assets/img/pz_logo_negative.svg"
-              alt="PitanjeZdravlja logo"
-              class="dark-mode-only"
-          /></app-link>
-          <a
-            :aria-expanded="$store.state.header.showSideMenu.toString()"
-            aria-label="Prikaži lijevi meni"
-            aria-controls="sidebar"
-            @click.prevent="$store.commit('header/updateMenu', 'side')"
-          >
-            <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon>
-          </a>
-          <div class="menu flex" role="menu">
-            <app-link
-              role="menuitem"
-              to="/pitanje-zdravlja/leksikon-zdravlja"
-              @click.native="maybeCloseSide"
-              >Leksikon zdravlja</app-link
-            >
-            <app-link
-              role="menuitem"
-              to="/pitanje-zdravlja/lifestyle"
-              @click.native="maybeCloseSide"
-              >Lifestyle</app-link
-            >
-            <app-link
-              role="menuitem"
-              to="/pitanje-zdravlja/vijesti"
-              @click.native="maybeCloseSide"
-              >Vijesti</app-link
-            >
-            <app-link
-              role="menuitem"
-              to="/pitanje-zdravlja/price"
-              @click.native="maybeCloseSide"
-              >Priče</app-link
-            >
-          </div>
-          <div v-show="headline" class="header-headline single-exclusive">
-            {{ headline }}
-          </div>
-        </div>
-        <div class="flex third relative">
-          <client-only>
-            <app-link
-              v-show="!$store.state.user.access"
-              id="pretplatite se - header"
-              to="/pretplata"
-              class="signup-btn sub-btn"
-              >Pretplatite se</app-link
-            >
-            <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun">
-              <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
-            </app-link>
-          </client-only>
-          <a
-            aria-label="Prikaži tražilicu"
-            :aria-expanded="$store.state.header.showSearchMenu.toString()"
-            aria-controls="search"
-            @click.prevent="$store.commit('header/updateMenu', 'search')"
-          >
-            <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon>
-          </a>
-        </div>
-      </div>
-    </div>
-    <!-- Openspace desktop sticky -->
-    <div
-      class="full subheader sticky-subheader mobile-side-pad center os-sticky"
-    >
-      <div class="container flex desktop-subheader column-horizontal-pad">
-        <div class="two-thirds flex subheader-ow-fix" role="navigation">
-          <app-link to="/openspace" class="logo"
-            ><img
-              src="@/assets/img/openspace_logo_normal.svg"
-              alt="openspace logo"
-              loading="lazy" />
-            <img
-              src="@/assets/img/openspace_logo_negative.svg"
-              alt="openspace logo"
-              class="dark-mode-only"
-              loading="lazy"
-          /></app-link>
-          <a
-            :aria-expanded="$store.state.header.showSideMenu.toString()"
-            aria-label="Prikaži lijevi meni"
-            aria-controls="sidebar"
-            @click.prevent="$store.commit('header/updateMenu', 'side')"
-          >
-            <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon>
-          </a>
-          <div class="menu flex" role="menu">
-            <app-link
-              role="menuitem"
-              to="/openspace/vjestine"
-              @click.native="maybeCloseSide"
-              >Vještine</app-link
-            >
-            <app-link
-              role="menuitem"
-              to="/openspace/tvrtke-karijere"
-              @click.native="maybeCloseSide"
-              >Tvrtke i karijere</app-link
-            >
-            <app-link
-              role="menuitem"
-              to="/openspace/kvizovi-testovi"
-              @click.native="maybeCloseSide"
-              >Kvizovi i testovi</app-link
-            >
-            <app-link
-              role="menuitem"
-              to="/openspace/vodici"
-              @click.native="maybeCloseSide"
-              >Vodiči</app-link
-            >
-          </div>
-          <div v-show="headline" class="header-headline single-exclusive">
-            {{ headline }}
-          </div>
-        </div>
-        <div class="flex third relative">
-          <client-only>
-            <app-link
-              v-show="!$store.state.user.access"
-              id="pretplatite se - header"
-              to="/pretplata"
-              class="signup-btn sub-btn"
-              >Pretplatite se</app-link
-            >
-            <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun">
-              <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
-            </app-link>
-          </client-only>
-          <a
-            aria-label="Prikaži tražilicu"
-            :aria-expanded="$store.state.header.showSearchMenu.toString()"
-            aria-controls="search"
-            @click.prevent="$store.commit('header/updateMenu', 'search')"
-          >
-            <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon>
-          </a>
-        </div>
-      </div>
-    </div>
-    <!-- Mobile only sticky nav -->
-    <div
-      class="container mobile-only mobile-sticky-nav real-mobile-sticky-nav flex mobile-side-pad"
-    >
-      <a
-        class="mobile-only"
-        aria-label="Prikaži lijevi meni"
-        :aria-expanded="$store.state.header.showSideMenu.toString()"
-        aria-controls="sidebar"
-        @click.prevent="$store.commit('header/updateMenu', 'side')"
-      >
-        <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon
-      ></a>
-      <app-link to="/" class="logo telegram-mobnav-logo"
-        ><img src="@/assets/img/telegram_logo_black.svg" alt="Telegram logo" />
-        <img
-          src="@/assets/img/telegram_logo_white.svg"
-          alt="Telegram logo"
-          class="dark-mode-only"
-      /></app-link>
-      <app-link to="/super1" class="logo super1-mobnav-logo"
-        ><img src="@/assets/img/s1_logo_clean_noline.svg" alt="Super1 logo" />
-        <img
-          src="@/assets/img/s1_logo_clean_noline_white.svg"
-          alt="Super1 logo"
-          class="dark-mode-only"
-      /></app-link>
-      <app-link to="/pitanje-zdravlja" class="logo pz-mobnav-logo"
-        ><img
-          src="@/assets/img/pz_logo_normal.svg"
-          alt="PitanjeZdravlja logo" />
-        <img
-          src="@/assets/img/pz_logo_negative.svg"
-          alt="PitanjeZdravlja logo"
-          class="dark-mode-only"
-      /></app-link>
-      <app-link to="/openspace" class="logo os-mobnav-logo"
-        ><img
-          src="@/assets/img/openspace_logo_normal.svg"
-          alt="openspace logo"
-          loading="lazy" />
-        <img
-          src="@/assets/img/openspace_logo_negative.svg"
-          alt="openspace logo"
-          class="dark-mode-only"
-      /></app-link>
-      <div class="desktop-only full center-text tagline">
-        Nekad je nužno odabrati stranu
-      </div>
-      <a
-        v-show="canLogIn"
-        class="mob-nav-otherbtn mobile-only"
-        @click.prevent="login"
-      >
-        <div class="newbtn animate">Pretplatite se</div></a
-      >
-      <app-link
-        v-show="!canLogIn"
-        class="mobile-only mob-nav-otherbtn faded"
-        to="/moj-racun"
-        aria-label="Moj račun"
-      >
-        <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
-      ></app-link>
-      <a
-        href="#"
-        aria-label="Prikaži tražilicu"
-        :aria-expanded="$store.state.header.showSearchMenu.toString()"
-        aria-controls="search"
-        class="mobile-only mob-nav-otherbtn mob-nav-search"
-        @click.prevent="$store.commit('header/updateMenu', 'search')"
-      >
-        <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon
-      ></a>
-    </div>
-    <!-- Mobile only fixed TG multiverse nav -->
-    <div
-      class="container mobile-only mobile-sticky-nav multiverse-mobile-nav flex mobile-side-pad"
-    >
-      <a
-        class="mobile-only"
-        aria-label="Prikaži lijevi meni"
-        :aria-expanded="$store.state.header.showSideMenu.toString()"
-        aria-controls="sidebar"
-        @click.prevent="$store.commit('header/updateMenu', 'side')"
-      >
-        <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon
-      ></a>
-      <app-link to="/" class="logo"
-        ><img src="@/assets/img/telegram_logo_black.svg" alt="Telegram logo" />
-        <img
-          src="@/assets/img/telegram_logo_white.svg"
-          alt="Telegram logo"
-          class="dark-mode-only"
-      /></app-link>
-      <a
-        v-show="canLogIn"
-        class="mob-nav-otherbtn mobile-only"
-        @click.prevent="login"
-      >
-        <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
-      ></a>
-      <app-link
-        v-show="!canLogIn"
-        class="mobile-only mob-nav-otherbtn"
-        to="/moj-racun"
-        aria-label="Moj račun"
-      >
-        <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
-      ></app-link>
-    </div>
     <div
       v-show="$store.state.header.showSearchMenu"
       id="search"
@@ -694,6 +259,7 @@
         </button>
       </form>
     </div>
+    <!-- New navbar -->
     <header
       :class="{
         full: true,
@@ -703,112 +269,117 @@
         'hide-dynamic-header': hideDynamicHeader,
       }"
     >
-      <div class="full subheader mobile-side-pad center">
-        <!-- Single Subheader -->
+      <nav class="full center relative nayos stretch">
         <div
-          class="container desktop-only flex desktop-subheader column-horizontal-pad single-exclusive"
+          class="container flex stretch relative column-horizontal-pad mobile-side-pad"
         >
-          <div class="third flex">
+          <div class="third flex vertical-center mobile-thirty">
             <a
               :aria-expanded="$store.state.header.showSideMenu.toString()"
               aria-label="Prikaži lijevi meni"
               aria-controls="sidebar"
               @click.prevent="$store.commit('header/updateMenu', 'side')"
             >
-              <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon
-            ></a>
+              <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon>
+            </a>
           </div>
-          <div class="third center relative">
-            <app-link to="/" class="logo"
-              ><img
-                src="@/assets/img/telegram_logo_black.svg"
-                alt="Telegram logo" /><img
-                src="@/assets/img/telegram_logo_white.svg"
-                alt="Telegram logo"
-                class="dark-mode-only"
-            /></app-link>
-            <app-link to="/super1" class="logo superone-subheader-logo">
-              <img
-                src="@/assets/img/s1_logo_clean_noline_white.svg"
-                alt="Super1 logo"
-            /></app-link>
-            <app-link to="/pitanje-zdravlja" class="logo pz-subheader-logo">
-              <img src="@/assets/img/pz_logo_negative.svg" alt="Super1 logo"
-            /></app-link>
-            <app-link to="/openspace" class="logo os-subheader-logo">
-              <img
-                src="@/assets/img/openspace_logo_negative.svg"
-                alt="openspace logo"
-                loading="lazy"
-            /></app-link>
-          </div>
-          <div class="flex third relative">
-            <a v-show="canLogIn" @click.prevent="login">
-              <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
-            ></a>
-            <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun">
-              <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
-            ></app-link>
-            <a
-              href="#"
-              aria-label="Prikaži tražilicu"
-              :aria-expanded="$store.state.header.showSearchMenu.toString()"
-              aria-controls="search"
-              class="single-nav-search"
-              @click.prevent="$store.commit('header/updateMenu', 'search')"
-            >
-              <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon
-            ></a>
-          </div>
-        </div>
-        <!-- Stock Subheader -->
-        <div
-          id="sidebar"
-          class="container flex desktop-subheader column-horizontal-pad homepage-exclusive"
-          role="navigation"
-        >
-          <client-only>
-            <stocks></stocks>
-          </client-only>
-        </div>
-      </div>
-      <nav class="full flex homepage-exclusive animate">
-        <div class="container relative">
-          <a
-            class="mobile-only"
-            aria-label="Prikaži lijevi meni"
-            :aria-expanded="$store.state.header.showSideMenu.toString()"
-            aria-controls="sidebar"
-            @click.prevent="$store.commit('header/updateMenu', 'side')"
+          <app-link
+            to="/"
+            class="third mobile-forty center nayos-logos telegram-only"
           >
-            <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon
-          ></a>
-          <app-link to="/" class="logo"
-            ><img
+            <img
               src="@/assets/img/telegram_logo_black.svg"
-              alt="Telegram logo" /><img
+              alt="Telegram logo"
+            />
+            <img
               src="@/assets/img/telegram_logo_white.svg"
               alt="Telegram logo"
               class="dark-mode-only"
-          /></app-link>
-          <div class="desktop-only full center-text tagline">
-            Nekad je nužno odabrati stranu
-          </div>
-          <a
-            v-show="canLogIn"
-            class="mob-nav-otherbtn mobile-only"
-            @click.prevent="login"
-          >
-            <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
-          ></a>
+            />
+          </app-link>
           <app-link
-            v-show="!canLogIn"
-            class="mobile-only mob-nav-otherbtn"
-            to="/moj-racun"
-            aria-label="Moj račun"
+            to="/super1"
+            class="third mobile-forty center nayos-logos superone-only"
           >
-            <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
-          ></app-link>
+            <img
+              src="@/assets/img/s1_logo_clean_noline.svg"
+              alt="Super1 logo"
+            />
+
+            <img
+              src="@/assets/img/s1_logo_clean_noline_white.svg"
+              alt="Super1 logo"
+              class="dark-mode-only"
+            />
+          </app-link>
+          <a
+            href="https://telesport.telegram.hr"
+            class="third mobile-forty center nayos-logos telesport-only"
+          >
+            <img
+              src="@/assets/img/telesport_logo_black.svg"
+              alt="Telesport logo"
+            />
+
+            <img
+              src="@/assets/img/telesport_logo_white.svg"
+              alt="Telesport logo"
+              class="dark-mode-only"
+            />
+          </a>
+          <app-link
+            to="/pitanje-zdravlja"
+            class="third mobile-forty center nayos-logos pz-only"
+          >
+            <img
+              src="@/assets/img/pz_logo_normal.svg"
+              alt="PitanjeZdravlja logo"
+            />
+
+            <img
+              src="@/assets/img/pz_logo_negative.svg"
+              alt="PitanjeZdravlja logo"
+              class="dark-mode-only"
+            />
+          </app-link>
+          <app-link
+            to="/openspace"
+            class="third mobile-forty center nayos-logos os-only"
+          >
+            <img
+              src="@/assets/img/openspace_logo_normal.svg"
+              alt="openspace logo"
+              loading="lazy"
+            />
+
+            <img
+              src="@/assets/img/openspace_logo_negative.svg"
+              alt="openspace logo"
+              class="dark-mode-only"
+              loading="lazy"
+            />
+          </app-link>
+          <div class="third center align-children-end mobile-thirty">
+            <app-link
+              v-show="canLogIn"
+              id="pretplatite se - header"
+              to="/pretplata"
+              class="newbtn"
+              >Pretplatite se</app-link
+            >
+            <a
+              class="desktop-only column-mini-left-pad"
+              aria-label="Prikaži tražilicu"
+              :aria-expanded="$store.state.header.showSearchMenu.toString()"
+              aria-controls="search"
+              @click.prevent="$store.commit('header/updateMenu', 'search')"
+            >
+              <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon>
+            </a>
+            <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun">
+              <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
+            </app-link>
+          </div>
         </div>
       </nav>
       <div
@@ -828,18 +399,6 @@
           </button>
         </form>
       </div>
-      <!--<div
-        class="block-title full desktop-only weekday-title homepage-exclusive"
-      >
-        <div class="container flex relative">
-          <div class="fourth flex column-horizontal-pad">
-            <h2 class="full">
-              <span class="superbold">Petak,</span>{{ date }}
-            </h2>
-            <div class="nothfive">Želiš raditi za Telegram? Javi nam se ovdje.</div>
-          </div>
-        </div>
-      </div>-->
     </header>
   </div>
 </template>

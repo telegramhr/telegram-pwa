@@ -15,79 +15,14 @@
     <div class="full flex">
       <theader></theader>
     </div>
-    <!-- Above header banner  -->
-    <client-only>
-      <div
-        v-if="!$store.state.user.access"
-        class="full flex relative center darkened-bg newbook-gifting column-full-pad new-year-promo mobile-side-pad"
-        @click.prevent="checkout('TMXMTLO3DSSC')"
-      >
-        <div class="container smaller-container relative flex stretch">
-          <div class="three-fourths flex center mobile-top-pad">
-            <div class="full flex overtitle-parent">
-              <div class="overtitle noththree">
-                <span>Velika godišnja akcija</span>
-              </div>
-            </div>
-            <div class="full newbook-title all-caps">2024. UZ TELEGRAM</div>
-            <p class="full newbook-intro">
-              <span class="ib"
-                >Ove superizborne godine budite informirani o stvarnom stanju u
-                državi, </span
-              ><span class="ib"
-                >samo na Telegramu kojeg financiraju čitatelji, a ne politički
-                moćnici</span
-              >
-            </p>
-            <div class="full flex relative new-year-highlight">
-              <div class="new-year-highlight-price">
-                <div class="full bold center">
-                  <div class="huge-text">29€</div>
-                  <div class="faded strikethrough">78€</div>
-                </div>
-                <p class="full">za godinu dana</p>
-              </div>
-              <div class="pretplata-benefits desktop-only">
-                <p class="full animate">
-                  <font-awesome-icon
-                    :icon="['fas', 'check']"
-                  ></font-awesome-icon>
-                  neograničeno čitanje Telegrama i Telesporta
-                </p>
-                <p class="full animate">
-                  <font-awesome-icon
-                    :icon="['fas', 'check']"
-                  ></font-awesome-icon>
-                  pristup najboljom autorima u Hrvatskoj
-                </p>
-                <p class="full animate">
-                  <font-awesome-icon
-                    :icon="['fas', 'check']"
-                  ></font-awesome-icon>
-                  popusti na knjige, koncerte, izložbe i predstave
-                </p>
-              </div>
-            </div>
-            <div class="full flex btn-parent newbook-btn desktop-only">
-              <div class="newbtn clickable huge-newbtn animate">
-                Iskoristite akciju odmah
-              </div>
-            </div>
-          </div>
-          <div class="fourth flex center mobile-top-pad">
-            <img
-              src="@/assets/img/tg_mockup_mobile_homepage.gif"
-              aria-hidden="true"
-            />
-          </div>
-          <div class="full center btn-parent newbook-btn mobile-only">
-            <div class="newbtn clickable huge-newbtn animate">
-              Iskoristite akciju odmah
-            </div>
-          </div>
-        </div>
+    <!-- Stocks -->
+    <div class="full center stocks-parent desktop-only">
+      <div class="container flex column-horizontal-pad">
+        <client-only>
+          <stocks></stocks>
+        </client-only>
       </div>
-    </client-only>
+    </div>
     <!-- Cantha header -->
     <div class="full relative cantha-header">
       <div class="container flex relative column-top-pad column-horizontal-pad">
