@@ -1009,6 +1009,12 @@ export default {
         rel: 'canonical',
         href: this.post.social.path,
       },
+      {
+        hid: 'block-styles',
+        rel: 'stylesheet',
+        type: 'text/css',
+        href: 'https://www.telegram.hr/wp-includes/css/dist/block-library/style.min.css',
+      },
     ]
     let script = [
       {

@@ -1312,11 +1312,11 @@ export const actions = {
           break
         case 'pitanje-zdravlja-category':
           targeting.wp_post_type = ['category']
-          targeting.post_category.push('super1')
+          targeting.post_category.push('pitanje-zdravlja')
           break
         case 'openspace-category':
           targeting.wp_post_type = ['category']
-          targeting.post_category.push('super1')
+          targeting.post_category.push('openspace')
           break
         case 'super1':
           targeting.wp_post_type = ['category']
