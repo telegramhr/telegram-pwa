@@ -367,6 +367,9 @@
               class="newbtn"
               >Pretplatite se</app-link
             >
+            <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun">
+              <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
+            </app-link>
             <a
               class="desktop-only column-mini-left-pad"
               aria-label="Prikaži tražilicu"
@@ -376,9 +379,6 @@
             >
               <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon>
             </a>
-            <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun">
-              <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
-            </app-link>
           </div>
         </div>
       </nav>

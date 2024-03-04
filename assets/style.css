@@ -7434,12 +7434,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 
 @media screen and (max-width: 767px) {
-    .main-container {
-        padding-top: 50px;
-    }
-    .single-article-premium {
-        padding-top: 0px;
-    }
     .homepage {
         padding-top: 42px;
     }
