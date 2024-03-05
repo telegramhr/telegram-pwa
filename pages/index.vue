@@ -16,7 +16,7 @@
       <theader></theader>
     </div>
     <!-- Above header banner -->
-    <client-only>
+    <!--<client-only>
       <div
         v-if="!$store.state.user.access"
         class="full center relative dark-mode pretplata-bf pretplata-blue"
@@ -71,7 +71,7 @@
           />
         </div>
       </div>
-    </client-only>
+    </client-only>-->
     <!-- Cantha header -->
     <div class="full relative cantha-header">
       <div class="container flex relative column-top-pad column-horizontal-pad">
