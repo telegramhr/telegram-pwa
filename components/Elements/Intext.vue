@@ -2,55 +2,50 @@
   <div>
     <div
       v-show="show"
-      class="full flex-wrap relative new-pretplata-intext blue-intext"
+      class="full center flex-wrap relative new-pretplata-intext"
       data-nosnippet
     >
-      <img
-        src="@/assets/img/tg_visual_pretplata_hrvatskimrak.jpg"
-        alt="Premijer Andrej Plenković i sudac Ivan Tudurić"
-        class="absolute-half-img"
-      />
-      <div class="two-thirds flex relative">
-        <div class="full relative element-title">
-          Otključate cijeli Telegram za 1,99€/mj
-        </div>
-        <p class="full relative">
-          Dok Hrvatska tone u mrak, informirajte se na Telegramu. Neograničeno
-          čitanje po akcijskoj cijeni
+      <div class="full relative center-text element-title shoo-top">
+        {{ title }}
+      </div>
+      <p class="full relative center-text">
+        {{ subtitle }}
+      </p>
+      <div class="full center">
+        <a
+          v-if="termId"
+          class="newbtn huge-newbtn"
+          @click.prevent="checkout(termId)"
+        >
+          Pretplatite se
+        </a>
+        <app-link v-else :id="id" to="/pretplata" class="newbtn huge-newbtn"
+          >Pretplatite se</app-link
+        >
+      </div>
+      <p
+        v-if="!$store.state.user.token"
+        class="full center-text relative italic smaller-text faded secondary-cta clickable"
+        @click.prevent="$store.dispatch('user/login')"
+      >
+        Već imam pretplatu
+      </p>
+      <div class="full flex-responsive flex pretplata-benefits">
+        <p class="full animate">
+          <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+          neograničen pristup svim člancima
+          <span class="ib">najkvalitetnijih novinara u Hrvatskoj</span>
         </p>
-        <div class="full flex">
-          <a
-            v-if="termId"
-            class="newbtn huge-newbtn"
-            @click.prevent="checkout(termId)"
-          >
-            Pretplatite se
-          </a>
-          <app-link v-else :id="id" to="/pretplata" class="newbtn huge-newbtn"
-            >Pretplatite se</app-link
-          >
-          <div
-            v-if="!$store.state.user.token"
-            class="relative italic smaller-text faded secondary-cta clickable"
-            @click.prevent="$store.dispatch('user/login')"
-          >
-            Već imam pretplatu
-          </div>
-        </div>
-        <div class="full pretplata-benefits desktop-only">
-          <p class="full animate bold">
-            <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-            Posebna cijena prva 3 mjeseca, zatim 6,49 EUR
-          </p>
-          <p class="full animate">
-            <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-            Neograničeno čitanje Telegrama
-          </p>
-          <p class="full animate">
-            <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-            Možete otkazati u svakom trenutku
-          </p>
-        </div>
+        <p class="full animate">
+          <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+          premium iskustvo čitanja s manje
+          <span class="ib">oglasa i specijalnim newsletterima</span>
+        </p>
+        <p class="full animate">
+          <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+          posebni popusti na top knjige,
+          <span class="ib">predstave, muzeje i streaminge</span>
+        </p>
       </div>
     </div>
   </div>
@@ -61,7 +56,7 @@ export default {
   name: 'Intext',
   data() {
     return {
-      termId: 'TM2QQCNWT3K1',
+      termId: null,
       id: 'pretplatite se - article - svi besplatni članci',
       show: false,
       title: 'Pročitali ste sve besplatne članke u ovom mjesecu.',
