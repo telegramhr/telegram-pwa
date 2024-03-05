@@ -74,7 +74,7 @@ export default {
   },
   methods: {
     paywall(e) {
-      /* if (e.detail) {
+      if (e.detail) {
         this.title = e.detail.title
         this.subtitle = e.detail.subtitle
         this.id = e.detail.id
@@ -93,11 +93,11 @@ export default {
           this.subtitle =
             'Iskoristite božićnu akciju i čitajte prvi mjesec bez limita za samo 1 kunu.'
         }
-      } */
+      }
       this.triggerShow('paywall')
     },
     load(e) {
-      /* if (e.detail) {
+      if (e.detail) {
         this.title = e.detail.title
         this.subtitle = e.detail.subtitle
         this.id = e.detail.id
@@ -121,7 +121,7 @@ export default {
           this.subtitle =
             'Iskoristite božićnu akciju i čitajte prvi mjesec bez limita za samo 1 kunu.'
         }
-      } */
+      }
       this.triggerShow('load')
     },
     triggerShow(type) {
