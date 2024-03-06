@@ -8,59 +8,20 @@
       ></theader>
     </div>
     <!-- Above header banner -->
-    <!--<div class="full center relative dark-mode pretplata-bf pretplata-blue">
-      <div class="container smaller-container flex relative">
-        <div
-          class="two-thirds mobile-full-pad column-full-pad column-top-margin column-bottom-margin flex relative stretch"
+    <div class="full relative darkened-bg birati-stranu-widget">
+      <div class="container column-full-pad mobile-full-pad flex relative">
+        <p
+          class="full center-text column-top-pad mobile-top-pad birati-stranu-title"
         >
-          <div class="full flex overtitle-parent">
-            <div class="overtitle noththree">
-              <span>Mega akcija</span>
-            </div>
-          </div>
-          <div class="full nothtwo">
-            <span>Hrvatska tone</span> <span>u mrak</span>
-          </div>
-          <p class="full highlight-pitch">
-            Dok HDZ uništava državu do kraja, budite informirani na Telegramu.
-            Jer nas plaćaju čitatelji, a ne političari
-          </p>
-          <div class="full undertitle bigger-undertitle">
-            <span class="strikethrough faded">6,49€</span> 1,99€
-            <span class="desktop-only">mjesečno</span
-            ><span class="mobile-only">/ mj.</span>
-          </div>
-          <p class="full smaller-text faded">prva tri mjeseca pretplate</p>
-          <div class="full flex">
-            <div
-              class="flex newbtn huge-newbtn animate clickable"
-              @click.prevent="checkout('TM2QQCNWT3K1')"
-            >
-              Pretplatite se
-            </div>
-          </div>
-          <div class="full pretplata-benefits">
-            <p class="full animate bold">
-              <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-              Posebna cijena prva 3 mjeseca, zatim 6,49 EUR
-            </p>
-            <p class="full animate">
-              <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-              Neograničeno čitanje Telegrama
-            </p>
-            <p class="full animate">
-              <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-              Možete otkazati u svakom trenutku
-            </p>
-          </div>
-        </div>
-        <img
-          src="@/assets/img/tg_visual_pretplata_hrvatskimrak.jpg"
-          alt="Premijer Andrej Plenković i sudac Ivan Tudurić"
-          class="absolute-half-img"
-        />
+          Od 01.04. nove cijene pretplate
+        </p>
+        <p
+          class="full center-text birati-stranu-subtitle column-bottom-pad mobile-bottom-pad"
+        >
+          Pretplatite se kako biste osigurali dosadašnje, niže cijene
+        </p>
       </div>
-    </div>-->
+    </div>
     <div id="pretplata-selector" class="full flex">
       <div class="full flex relative">
         <div
@@ -107,6 +68,12 @@
                 </div>
                 <div class="full sub-price bold">6,49€</div>
                 <div class="nothfour full center-text undertitle">Mjesečno</div>
+                <div class="full flex pretplata-minibox darkened-bg">
+                  <p class="full bold">Uskoro 7,99€</p>
+                  <p class="full">
+                    Pretplatite se do 01.04. i zadržite staru cijenu
+                  </p>
+                </div>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
                     <font-awesome-icon
@@ -151,6 +118,12 @@
                 </div>
                 <div class="full sub-price bold">9,10€</div>
                 <div class="nothfour full center-text undertitle">Mjesečno</div>
+                <div class="full flex pretplata-minibox darkened-bg">
+                  <p class="full bold">Uskoro 9,99€</p>
+                  <p class="full">
+                    Pretplatite se do 01.04. i zadržite staru cijenu
+                  </p>
+                </div>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
                     <font-awesome-icon
@@ -199,9 +172,13 @@
                 <div class="full flex overtitle-parent">
                   <div class="noththree overtitle">Standard</div>
                 </div>
-                <div class="full sub-price bold">5,16€</div>
-                <div class="nothfour full center-text undertitle">
-                  mjesečno, za cijelu godinu 62€
+                <div class="full sub-price bold">62€</div>
+                <div class="nothfour full center-text undertitle">godišnje</div>
+                <div class="full flex pretplata-minibox darkened-bg">
+                  <p class="full bold">Uskoro 79€</p>
+                  <p class="full">
+                    Pretplatite se do 01.04. i zadržite staru cijenu
+                  </p>
                 </div>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
@@ -245,9 +222,13 @@
                 <div class="full flex overtitle-parent">
                   <div class="noththree overtitle">Premium</div>
                 </div>
-                <div class="full sub-price bold">6,50€</div>
-                <div class="nothfour full center-text undertitle">
-                  mjesečno, za cijelu godinu 78€
+                <div class="full sub-price bold">78€</div>
+                <div class="nothfour full center-text undertitle">godišnje</div>
+                <div class="full flex pretplata-minibox darkened-bg">
+                  <p class="full bold">Uskoro 99€</p>
+                  <p class="full">
+                    Pretplatite se do 01.04. i zadržite staru cijenu
+                  </p>
                 </div>
                 <div class="full pretplata-benefits">
                   <p class="full animate">

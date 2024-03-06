@@ -11689,7 +11689,7 @@ header .search-menu {
     font-size: 0.8rem;
     opacity: 0.7;
 }
-.birati-stranu-title {
+.birati-stranu-title, .pretplata-page .birati-stranu-title {
     font-family: 'Barlow', sans-serif;
     font-size: 30px;
     font-size: 1.5rem;
@@ -11698,7 +11698,7 @@ header .search-menu {
 .birati-stranu-title span {
     display: inline-block;
 }
-.birati-stranu-subtitle {
+.birati-stranu-subtitle, .pretplata-page .birati-stranu-subtitle {
     font-family: 'Barlow', sans-serif;
     font-size: 30px;
     font-size: 1.47rem;
@@ -11756,13 +11756,13 @@ input:checked ~ .input-hidden {
         font-size: 0.75rem;
         padding-bottom: 24px;
     }
-    .birati-stranu-title {
+    .birati-stranu-title, .pretplata-page .birati-stranu-title {
         font-family: 'Barlow', sans-serif;
         font-size: 24px;
         font-size: 1.2rem;
         font-weight: bold;
     }
-    .birati-stranu-subtitle {
+    .birati-stranu-subtitle, .pretplata-page .birati-stranu-subtitle {
         font-family: 'Barlow', sans-serif;
         font-size: 24px;
         font-size: 1.17rem;
@@ -13499,4 +13499,18 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     margin-bottom: 15px;
     font-family: "Barlow",sans-serif;
     font-weight: 600;
+}
+.pretplata-minibox {
+    padding: 10px;
+    margin-bottom: 16px;
+}
+.pretplata-minibox p {
+    font-size: 14px;
+    font-size: 0.7rem;
+}
+.pretplata-minibox p.bold {
+    font-family: 'Lora', serif;
+    font-size: 20px;
+    font-size: 1rem;
+    margin-bottom: 4px;
 }
