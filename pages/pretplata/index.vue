@@ -8,7 +8,7 @@
       ></theader>
     </div>
     <!-- Above header banner -->
-    <div class="full relative darkened-bg birati-stranu-widget">
+    <div v-if="canLogIn" class="full relative darkened-bg birati-stranu-widget">
       <div class="container column-full-pad mobile-full-pad flex relative">
         <p
           class="full center-text column-top-pad mobile-top-pad birati-stranu-title"
