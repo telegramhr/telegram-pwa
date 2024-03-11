@@ -43,7 +43,7 @@ export default {
   name: 'IntextNew',
   data() {
     return {
-      show: false,
+      show: true,
       termId: null,
       oldPrice: 78,
       newPrice: 99,
@@ -69,12 +69,12 @@ export default {
     },
     load(e) {
       if (e.detail) {
-        this.topBar = e.detail.title
+        this.topBar = e.detail.topBar
         this.subtitle = e.detail.subtitle
-        this.termDurationText = e.detail.subtitle
-        this.packName = e.detail.subtitle
-        this.newPrice = e.detail.subtitle
-        this.oldPrice = e.detail.subtitle
+        this.termDurationText = e.detail.termDurationText
+        this.packName = e.detail.packName
+        this.newPrice = e.detail.newPrice
+        this.oldPrice = e.detail.oldPrice
         if (e.detail.termId) {
           this.termId = e.detail.termId
         }
