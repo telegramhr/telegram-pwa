@@ -1,6 +1,6 @@
 <template>
   <div v-show="show" class="full center" data-nosnippet>
-    <app-link class="full flex zgt-salebox" @click.prevent="checkout">
+    <a class="full flex zgt-salebox" @click.prevent="checkout">
       <div class="full center zgts-topbar">
         <div>{{ topBar }}</div>
       </div>
@@ -34,7 +34,7 @@
           ></font-awesome-icon>
         </div>
       </div>
-    </app-link>
+    </a>
   </div>
 </template>
 
