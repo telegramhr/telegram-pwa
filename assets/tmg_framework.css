@@ -183,6 +183,9 @@ img {
     align-items: center;
     align-content: center;
 }
+.vertical-center {
+    align-content: center;
+}
 .hide {
     display: none !important;
 }
@@ -274,6 +277,15 @@ span.ib {
     }
     .mobile-two-thirds {
         width: 66.66%;
+    }
+    .mobile-fourth {
+        width: 24.99%;
+    }
+    .mobile-thirty {
+        width: 29.99%;
+    }
+    .mobile-forty {
+        width: 39.99%;
     }
     .yt-embed {
         height: 51.5vw;

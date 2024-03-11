@@ -1,5 +1,5 @@
 <template>
-  <div :class="['main-container', 'flex', 'category-page', 'category-kultura']">
+  <div :class="['main-container', 'flex', 'category-kultura']">
     <template>
       <!-- TG Multiverse header -->
       <div class="full flex relative single-article">
@@ -20,288 +20,331 @@
           </div>
         </client-only>
       </div>
-      <!-- Category header -->
-      <div class="full flex relative">
+      <!-- Actual new TG multiverse header -->
+      <nav class="full center relative nayos nayos-multiverse stretch">
         <div
-          class="container flex stretch mobile-side-pad relative mobile-top-pad column-top-pad"
+          class="container flex stretch relative column-horizontal-pad mobile-side-pad"
         >
-          <div class="full column-horizontal-pad">
-            <div class="full cantha-separator"></div>
+          <div class="third flex vertical-center mobile-thirty">
+            <a
+              :aria-expanded="$store.state.header.showSideMenu.toString()"
+              aria-label="Prikaži lijevi meni"
+              aria-controls="sidebar"
+              @click.prevent="$store.commit('header/updateMenu', 'side')"
+            >
+              <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon>
+            </a>
           </div>
-          <div
-            class="two-thirds flex-responsive column-full-pad special-category-title"
-          >
-            <h1 class="full">
-              <img src="@/assets/img/tg_square_logo_black.svg" alt="Telegram" />
-              <img src="@/assets/img/tg_kultura_logo.svg" alt="Kultura" />
+          <app-link to="/" class="third mobile-forty center nayos-logos">
+            <img
+              src="@/assets/img/telegram_logo_black.svg"
+              alt="Telegram logo"
+            />
+            <img
+              src="@/assets/img/telegram_logo_white.svg"
+              alt="Telegram logo"
+              class="dark-mode-only"
+            />
+          </app-link>
+          <div class="third center align-children-end mobile-thirty">
+            <app-link
+              v-show="canLogIn"
+              id="pretplatite se - header"
+              to="/pretplata"
+              class="newbtn"
+              >Pretplatite se</app-link
+            >
+            <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun">
+              <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
+            </app-link>
+            <a
+              class="desktop-only column-mini-left-pad"
+              aria-label="Prikaži tražilicu"
+              :aria-expanded="$store.state.header.showSearchMenu.toString()"
+              aria-controls="search"
+              @click.prevent="$store.commit('header/updateMenu', 'search')"
+            >
+              <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon>
+            </a>
+          </div>
+        </div>
+      </nav>
+      <!-- Cantha header -->
+      <div class="full relative cantha-header">
+        <div
+          class="container flex relative column-top-pad column-horizontal-pad"
+        >
+          <div class="full center relative">
+            <a
+              class="cantha-menubtn"
+              aria-label="Prikaži lijevi meni"
+              :aria-expanded="$store.state.header.showSideMenu.toString()"
+              aria-controls="sidebar"
+              @click.prevent="$store.commit('header/updateMenu', 'side')"
+            >
+              <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon
+            ></a>
+            <app-link to="/telesport" class="logo">
               <img
-                src="@/assets/img/tg_square_logo_white.svg"
-                class="dark-mode-only"
-                alt="Telegram"
-              />
+                src="@/assets/img/tg_kultura_logo.svg"
+                class="light-mode-only"
+                alt="Kultura" />
+              <img
+                src="@/assets/img/tg_kultura_logo.svg"
+                class="contrast-mode-only"
+                alt="Kultura" />
               <img
                 src="@/assets/img/tg_kultura_logo_negative.svg"
                 class="dark-mode-only"
                 alt="Kultura"
-              />
-              <span class="hide">Telegram Kultura</span>
-            </h1>
-            <div class="full cantha-block-title relative flex">
-              <nav class="full menu flex" role="menu">
-                <app-link role="menuitem" to="/tema/kazaliste"
-                  >Kazalište</app-link
-                >
-                <app-link role="menuitem" to="/tema/film"
-                  >Filmovi i serije</app-link
-                >
-                <app-link role="menuitem" to="/tema/knjizevnost"
-                  >Knjige</app-link
-                >
-                <app-link role="menuitem" to="/tema/glazba">Glazba</app-link>
-                <app-link role="menuitem" to="/tema/videoigre"
-                  >Videoigre</app-link
-                >
-              </nav>
-            </div>
+            /></app-link>
+            <a
+              aria-label="Prikaži tražilicu"
+              class="cantha-searchbtn"
+              :aria-expanded="$store.state.header.showSearchMenu.toString()"
+              aria-controls="search"
+              @click.prevent="$store.commit('header/updateMenu', 'search')"
+            >
+              <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon>
+            </a>
           </div>
-          <app-link
-            v-if="!$store.state.user.access"
-            to="/pretplata"
-            class="third desktop-only column-full-pad special-category-widget right-text relative"
+          <div
+            class="full column-horizontal-pad center-text desktop-only site-subtitle"
           >
-            <img
-              src="@/assets/img/tg_pretplata_main_vizual_mini.jpg"
-              class="img-as-bg"
-              aria-hidden="true"
-            />
-            <p class="full animate">
-              <span class="ib">Podržite Telegram za neograničeno čitanje </span
-              ><span class="ib"
-                >i popuste na top knjige, predstave i izložbe</span
-              >
-            </p>
-            <div class="full flex align-children-end">
-              <div class="flex newbtn animate clickable">Pretplatite se</div>
-            </div>
-          </app-link>
-          <app-link
-            v-if="$store.state.user.access"
-            to="/klub"
-            class="third desktop-only column-full-pad special-category-widget right-text relative"
-          >
-            <img
-              src="@/assets/img/tg_pretplata_main_vizual_mini.jpg"
-              class="img-as-bg"
-              aria-hidden="true"
-            />
-            <p class="full animate">
-              <span class="ib">Hvala Vam što podržavate Telegram. </span
-              ><span class="ib"
-                >Uživajte u popustima na knjige, predstave i izložbe</span
-              >
-            </p>
-            <div class="full flex align-children-end">
-              <div class="flex newbtn animate clickable">Pogledajte ponude</div>
-            </div>
-          </app-link>
-          <div class="full column-horizontal-pad desktop-only">
-            <div class="full column-top-border"></div>
+            Uvijek je nužno odabrati kulturu
+          </div>
+          <div class="full mobile-side-pad">
+            <div class="full desktop-only cantha-separator"></div>
           </div>
         </div>
       </div>
-      <!-- Veliki blok - intro -->
-      <div class="full relative">
+      <!-- New subnav no red -->
+      <div class="full cantha-block-title relative flex">
         <div
-          class="container flex relative stretch block-kaineng mobile-top-pad"
+          class="container mobile-side-pad flex relative column-horizontal-pad"
         >
-          <div class="full flex stretch column-top-pad mobile-side-pad">
-            <div
-              class="three-fourths flex-responsive column-horizontal-pad flex split-articles big-split no-mobile-stretch-split alt-big-break center-text column-right-border"
+          <nav class="menu desktop-only flex" role="menu">
+            <app-link role="menuitem" to="/tema/kazaliste">Kazalište</app-link>
+            <app-link role="menuitem" to="/tema/film"
+              >Filmovi i serije</app-link
             >
-              <standard
-                v-for="post in posts.slice(0, 1)"
-                :key="post.id"
-                :post="post"
-              ></standard>
+            <app-link role="menuitem" to="/tema/knjizevnost">Knjige</app-link>
+            <app-link role="menuitem" to="/tema/glazba">Glazba</app-link>
+            <app-link role="menuitem" to="/tema/videoigre">Videoigre</app-link>
+          </nav>
+          <div class="flex desktop-only">
+            <client-only>
+              <!--<a
+              v-show="canLogIn"
+              class="newbtn newbtn-empty"
+              @click.prevent="manageLogin"
+              >Prijava</a
+            >
+            <app-link
+              v-show="!$store.state.user.access"
+              id="pretplatite se - header"
+              to="/pretplata"
+              class="newbtn"
+              >Pretplatite se</app-link
+            >
+            <app-link
+              v-show="!canLogIn"
+              to="/moj-racun"
+              class="newbtn newbtn-empty"
+              aria-label="Moj račun"
+            >
+              Moj račun
+            </app-link> -->
+              <app-link
+                id="pretplatite se - header"
+                to="/pretplata"
+                class="newbtn"
+                >Pretplatite se</app-link
+              >
+            </client-only>
+          </div>
+        </div>
+      </div>
+      <!-- Intro block: G1 + comments -->
+      <div class="full relative">
+        <div class="container flex relative stretch cantha-intro-block">
+          <!-- Billboard 1
+        <client-only>
+          <div v-show="!hasPremium" class="full relative m-order-2">
+            <div class="full flex column-horizontal-pad desktop-only">
+              <div class="full flex relative column-bottom-border"></div>
+            </div>
+            <div class="full center relative">
+              <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
+            </div>
+          </div>
+        </client-only> -->
+          <div
+            class="full flex column-horizontal-pad column-bottom-pad desktop-only"
+          >
+            <div class="full flex relative column-bottom-border"></div>
+          </div>
+          <!-- G1 -->
+          <div
+            class="three-fourths featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad mobile-order-1 m-order-1"
+          >
+            <featured-alt
+              v-if="posts[0]"
+              :key="`featured-${posts[0].id}`"
+              :post="posts[0]"
+            ></featured-alt>
+          </div>
+          <!-- latest -->
+          <client-only>
+            <div
+              class="fourth flex-responsive mobile-side-pad column-right-pad flex relative m-order-3 no-last-border-mobile"
+            >
+              <div class="full flex relative latest-line-feed">
+                <latest></latest>
+              </div>
+            </div>
+          </client-only>
+          <div class="full column-full-pad desktop-only">
+            <div class="full column-top-border"></div>
+          </div>
+          <!-- rest of Gs -->
+          <div
+            class="full flex cantha-small-block mobile-side-pad stretch m-order-5 column-bottom-pad"
+          >
+            <div
+              v-for="post in posts.slice(1, 4)"
+              :key="`featured${post.id}`"
+              class="third flex-responsive column-right-border column-horizontal-pad"
+            >
+              <medium :post="post"></medium>
+            </div>
+          </div>
+          <!-- Billboard 2
+        <div class="full center m-order-6">
+          <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
+        </div> -->
+          <!-- Teme -->
+          <div
+            class="full flex mobile-side-pad stretch secondary-gs-block m-order-8"
+          >
+            <div class="full column-horizontal-pad column-bottom-pad flex">
+              <div class="full column-top-border"></div>
             </div>
             <div
-              class="fourth flex-responsive column-horizontal-pad smaller-featured-title"
+              class="three-fourths flex-responsive flex stretch column-horizontal-pad article-amnytas mobile-bottom-pad column-right-border"
             >
               <featured
-                v-for="post in posts.slice(1, 2)"
+                v-for="post in posts.slice(4, 5)"
                 :key="post.id"
                 :post="post"
               ></featured>
             </div>
-          </div>
-          <div class="full flex stretch">
-            <div class="full flex column-full-pad mobile-side-pad">
-              <div class="full column-top-border"></div>
-            </div>
             <div
-              v-for="post in posts.slice(2, 3)"
-              :key="post.id"
-              class="third flex-responsive column-right-border stretch mobile-side-pad"
-            >
-              <div
-                class="full flex column-horizontal-pad no-mob-articlepad-border"
-              >
-                <featured :post="post"></featured>
-              </div>
-            </div>
-            <app-link
-              v-if="!$store.state.user.access"
-              to="/pretplata"
-              class="full flex mobile-only darkened-bg mobile-full-pad special-category-pretplata relative"
-            >
-              <img
-                src="@/assets/img/tg_pretplata_main_vizual_mini.jpg"
-                class="img-as-bg"
-                aria-hidden="true"
-              />
-              <div class="full nothtwo center-text">
-                <span class="ib"
-                  >Podržite Telegram za neograničeno čitanje </span
-                ><span class="ib"
-                  >i popuste na top knjige, predstave i izložbe</span
-                >
-              </div>
-              <div class="full center">
-                <div class="flex newbtn huge-newbtn animate clickable">
-                  Pretplatite se
-                </div>
-              </div>
-            </app-link>
-            <div
-              v-for="post in posts.slice(3, 5)"
-              :key="post.id"
-              class="third flex-responsive column-right-border stretch mobile-side-pad"
-            >
-              <div class="full flex column-horizontal-pad">
-                <featured :post="post"></featured>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Prekid klub -->
-      <client-only>
-        <div class="full relative">
-          <klub-offers></klub-offers>
-        </div>
-      </client-only>
-      <!-- Amnytas rubrika -->
-      <div class="full relative">
-        <div class="container flex relative stretch mobile-top-pad">
-          <div class="full column-horizontal-pad column-bottom-pad">
-            <div class="full column-bottom-border"></div>
-          </div>
-          <div
-            class="three-fourths flex-responsive flex stretch mobile-side-pad column-horizontal-pad article-amnytas mobile-bottom-pad column-right-border"
-          >
-            <featured
-              v-for="post in posts.slice(5, 6)"
-              :key="post.id"
-              :post="post"
-            ></featured>
-          </div>
-          <div
-            class="fourth flex-responsive column-horizontal-pad smaller-featured-title mobile-side-pad"
-          >
-            <featured
-              v-for="post in posts.slice(6, 7)"
-              :key="post.id"
-              :post="post"
-            ></featured>
-          </div>
-          <div class="full column-full-pad">
-            <div class="full column-bottom-border"></div>
-          </div>
-          <div
-            class="three-fourths flex-responsive flex stretch mobile-side-pad column-horizontal-pad article-amnytas mobile-bottom-pad column-right-border"
-          >
-            <featured
-              v-for="post in posts.slice(7, 8)"
-              :key="post.id"
-              :post="post"
-            ></featured>
-          </div>
-          <div
-            class="fourth flex-responsive column-horizontal-pad smaller-featured-title mobile-side-pad"
-          >
-            <featured
-              v-for="post in posts.slice(8, 9)"
-              :key="post.id"
-              :post="post"
-            ></featured>
-          </div>
-          <div class="full column-full-pad">
-            <div class="full column-bottom-border"></div>
-          </div>
-          <div
-            class="three-fourths flex-responsive flex stretch mobile-side-pad column-horizontal-pad article-amnytas mobile-bottom-pad column-right-border"
-          >
-            <featured
-              v-for="post in posts.slice(9, 10)"
-              :key="post.id"
-              :post="post"
-            ></featured>
-          </div>
-          <div
-            class="fourth flex-responsive column-horizontal-pad smaller-featured-title mobile-side-pad"
-          >
-            <featured
-              v-for="post in posts.slice(10, 11)"
-              :key="post.id"
-              :post="post"
-            ></featured>
-          </div>
-        </div>
-      </div>
-      <!-- Echovald rubrika -->
-      <!--<div class="full flex">
-        <div
-          class="container flex relative block-echovald stretch mobile-side-pad"
-        >
-          <div
-            class="full column-horizontal-pad column-bottom-pad desktop-only"
-          >
-            <div class="full column-top-border"></div>
-          </div>
-          <div class="three-fourths flex-responsive flex stretch">
-            <div class="half flex-responsive flex column-horizontal-pad">
-              <featured
-                v-for="post in posts.slice(7, 8)"
-                :key="post.id"
-                :post="post"
-              />
-            </div>
-            <div
-              class="half super-sidebar flex column-horizontal-pad column-left-border column-right-border flex-responsive split-articles"
+              class="fourth flex-responsive column-horizontal-pad flex relative"
             >
               <medium
-                v-for="post in posts.slice(8, 11)"
+                v-for="post in posts.slice(5, 6)"
+                :key="post.id"
+                :post="post"
+              ></medium>
+            </div>
+            <div class="full column-horizontal-pad column-top-pad flex">
+              <div class="full column-top-border column-bottom-pad"></div>
+            </div>
+            <div
+              class="three-fourths flex-responsive flex stretch column-horizontal-pad article-amnytas mobile-bottom-pad column-right-border"
+            >
+              <featured
+                v-for="post in posts.slice(6, 7)"
+                :key="post.id"
+                :post="post"
+              ></featured>
+            </div>
+            <div
+              class="fourth flex-responsive column-horizontal-pad flex relative"
+            >
+              <medium
+                v-for="post in posts.slice(7, 8)"
                 :key="post.id"
                 :post="post"
               ></medium>
             </div>
           </div>
+          <!-- Još vijesti -->
+          <div class="full relative cantha-more-news m-order-10">
+            <div
+              class="container flex cantha-small-block mobile-side-pad relative stretch column-top-pad"
+            >
+              <div class="full column-horizontal-pad flex column-bottom-pad">
+                <div
+                  class="full flex column-top-border mobile-top-border"
+                ></div>
+              </div>
+              <div class="full flex stretch relative no-last-border-mobile">
+                <div
+                  v-for="post in posts.slice(8, 12)"
+                  :key="post.id"
+                  class="fourth flex-responsive column-right-border column-horizontal-pad"
+                >
+                  <standard :post="post"></standard>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Telegram preporuka -->
+      <div
+        class="full relative darkened-bg column-top-margin column-bottom-margin column-bottom-pad mobile-vertical-pad"
+      >
+        <div
+          class="container mobile-side-pad flex relative stretch column-vertical-pad"
+        >
+          <div class="full flex column-horizontal-pad">
+            <div
+              class="noththree full center-text column-vertical-pad subsection-title"
+            >
+              Telegram preporuka
+            </div>
+          </div>
           <div
-            class="fourth flex-responsive column-horizontal-pad desktop-mini-force"
+            class="three-fourths flex-responsive column-horizontal-pad flex split-articles big-split no-mobile-stretch-split alt-big-break center-text column-right-border"
           >
             <standard
-              v-for="post in posts.slice(11, 15)"
+              v-for="post in posts.slice(6, 7)"
               :key="post.id"
               :post="post"
             ></standard>
           </div>
-          <client-only>
-            <div class="full relative center">
-              <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
-            </div>
-          </client-only>
+          <div class="full column-full-pad tablet-only">
+            <div class="full column-bottom-border"></div>
+          </div>
+          <div
+            class="fourth flex-responsive column-horizontal-pad mini-article-list"
+          >
+            <trending :id="1"></trending>
+          </div>
         </div>
-      </div>-->
+      </div>
+      <!-- Standard 1/4 block -->
+      <div class="full relative">
+        <div
+          class="container flex cantha-small-block mobile-side-pad relative stretch"
+        >
+          <div class="full column-full-pad">
+            <div class="full column-bottom-border"></div>
+          </div>
+          <div class="full flex stretch relative no-last-border-mobile">
+            <div
+              v-for="post in posts.slice(7, 11)"
+              :key="post.id"
+              class="fourth flex-responsive column-right-border column-horizontal-pad"
+            >
+              <standard :post="post"></standard>
+            </div>
+          </div>
+        </div>
+      </div>
       <!-- Standard 1/4 block -->
       <div class="full relative">
         <div
@@ -314,13 +357,22 @@
             <div
               v-for="post in posts.slice(11, 15)"
               :key="post.id"
-              class="fourth flex-responsive column-right-border column-horizontal-pad column-botton-margin"
+              class="fourth flex-responsive column-right-border column-horizontal-pad"
             >
               <standard :post="post"></standard>
             </div>
           </div>
+          <div class="full center column-full-pad mobile-bottom-pad">
+            <div class="newbtn huge-newbtn clickable">Učitaj više</div>
+          </div>
         </div>
       </div>
+      <!-- Prekid klub -->
+      <client-only>
+        <div class="full relative">
+          <klub-offers></klub-offers>
+        </div>
+      </client-only>
       <tfooter></tfooter>
     </template>
   </div>

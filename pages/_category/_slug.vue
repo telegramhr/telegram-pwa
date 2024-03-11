@@ -49,65 +49,109 @@
         <div v-if="post.image.author" class="meta-foto">
           FOTO: {{ post.image.author | parseCat }}
         </div>
-        <div class="mobile-only full center mobile-pa-nav relative flex">
-          <a
-            :aria-expanded="$store.state.header.showSideMenu.toString()"
-            aria-label="Prikaži lijevi meni"
-            aria-controls="sidebar"
-            @click.prevent="$store.commit('header/updateMenu', 'side')"
+        <!-- Actual new TG multiverse header -->
+        <nav
+          class="full center relative nayos stretch column-horizontal-pad mobile-side-pad"
+        >
+          <div class="third flex vertical-center mobile-thirty">
+            <a
+              :aria-expanded="$store.state.header.showSideMenu.toString()"
+              aria-label="Prikaži lijevi meni"
+              aria-controls="sidebar"
+              @click.prevent="$store.commit('header/updateMenu', 'side')"
+            >
+              <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon>
+            </a>
+          </div>
+          <app-link
+            to="/"
+            class="third mobile-forty center nayos-logos telegram-only"
           >
-            <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon
-          ></a>
-          <app-link to="/" class="logo">
+            <img
+              src="@/assets/img/telegram_logo_black.svg"
+              alt="Telegram logo"
+            />
             <img
               src="@/assets/img/telegram_logo_white.svg"
               alt="Telegram logo"
+              class="dark-mode-only"
             />
           </app-link>
-          <app-link to="/super1" class="logo superone-mobilepanav-logo">
+          <app-link
+            to="/super1"
+            class="third mobile-forty center nayos-logos superone-only"
+          >
+            <img
+              src="@/assets/img/s1_logo_clean_noline.svg"
+              alt="Super1 logo"
+            />
+
             <img
               src="@/assets/img/s1_logo_clean_noline_white.svg"
               alt="Super1 logo"
+              class="dark-mode-only"
             />
           </app-link>
-          <app-link to="/pitanje-zdravlja" class="logo pz-mobilepanav-logo">
+          <a
+            href="https://telesport.telegram.hr"
+            class="third mobile-forty center nayos-logos telesport-only"
+          >
+            <img
+              src="@/assets/img/telesport_logo_black.svg"
+              alt="Telesport logo"
+            />
+
+            <img
+              src="@/assets/img/telesport_logo_white.svg"
+              alt="Telesport logo"
+              class="dark-mode-only"
+            />
+          </a>
+          <app-link
+            to="/pitanje-zdravlja"
+            class="third mobile-forty center nayos-logos pz-only"
+          >
+            <img
+              src="@/assets/img/pz_logo_normal.svg"
+              alt="PitanjeZdravlja logo"
+            />
+
             <img
               src="@/assets/img/pz_logo_negative.svg"
               alt="PitanjeZdravlja logo"
+              class="dark-mode-only"
             />
           </app-link>
-          <app-link to="/openspace" class="logo os-mobilepanav-logo">
+          <app-link
+            to="/openspace"
+            class="third mobile-forty center nayos-logos os-only"
+          >
+            <img
+              src="@/assets/img/openspace_logo_normal.svg"
+              alt="openspace logo"
+              loading="lazy"
+            />
+
             <img
               src="@/assets/img/openspace_logo_negative.svg"
               alt="openspace logo"
+              class="dark-mode-only"
+              loading="lazy"
             />
           </app-link>
-          <a
-            v-show="canLogIn"
-            class="mob-nav-otherbtn mobile-only"
-            @click.prevent="$store.dispatch('user/login')"
-          >
-            <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
-          ></a>
-          <app-link
-            v-show="!canLogIn"
-            class="mobile-only mob-nav-otherbtn"
-            to="/moj-racun"
-            aria-label="Moj račun"
-          >
-            <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
-          ></app-link>
-          <a
-            href="#"
-            aria-label="Prikaži tražilicu"
-            :aria-expanded="$store.state.header.showSearchMenu.toString()"
-            aria-controls="search"
-            class="mobile-only mob-nav-otherbtn mob-nav-search"
-            @click.prevent="$store.commit('header/updateMenu', 'search')"
-          >
-            <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon
-          ></a>
-        </div>
+          <div class="third center align-children-end mobile-thirty">
+            <app-link
+              v-show="canLogIn"
+              id="pretplatite se - header"
+              to="/pretplata"
+              class="newbtn"
+              >Pretplatite se</app-link
+            >
+            <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun">
+              <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
+            </app-link>
+          </div>
+        </nav>
         <img
           v-if="post.image.full"
           class="article-head-image"
