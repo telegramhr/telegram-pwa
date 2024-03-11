@@ -355,6 +355,7 @@
                   </div>
                 </portal>
                 <intext></intext>
+                <intext-new></intext-new>
                 <linker
                   v-if="!hasPremium && hasLinker"
                   type="text-only"
