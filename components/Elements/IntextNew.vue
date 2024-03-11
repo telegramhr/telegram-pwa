@@ -1,6 +1,6 @@
 <template>
   <div v-show="show" class="full center" data-nosnippet>
-    <a class="full flex zgt-salebox" @click.prevent="checkout">
+    <a class="full flex zgt-salebox" @click.prevent="start">
       <div class="full center zgts-topbar">
         <div>{{ topBar }}</div>
       </div>
@@ -44,7 +44,7 @@ export default {
   data() {
     return {
       show: true,
-      termId: null,
+      termId: 'TMQDTT4IEHY0',
       oldPrice: 78,
       newPrice: 99,
       packName: 'Telegram Premium (bez oglasa)',
