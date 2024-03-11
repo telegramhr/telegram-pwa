@@ -13514,3 +13514,63 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     font-size: 1rem;
     margin-bottom: 4px;
 }
+.zgt-salebox {
+    background-color: white;
+    border: 1px solid #c8c8c8;
+    margin-top: 1.2rem;
+    padding: 1.2rem 0.6rem;
+}
+.zgts-topbar > div {
+    padding: 0.4rem 0.8rem;
+    background-color: #ae3737;
+    font-family: 'Barlow', sans-serif;
+    font-size: 20px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    margin-top: -2.4rem;
+    margin-bottom: 0.8rem;
+    z-index: 5;
+}
+.zgt-salebox .sub-price {
+    font-size: 48px;
+    font-size: 2.4rem;
+}
+.zgts-subtitle {
+    font-size: 26px;
+    font-size: 1.3rem;
+    font-family: 'Lora', serif;
+    margin-top: 0.1rem;
+    margin-bottom: 0.15rem;
+}
+.zgts-separator {
+    width: 3rem;
+    height: 0.2rem;
+    background-color: black;
+    margin: 0.8rem;
+}
+.zgt-salebox p, .zgt-salebox .overtitle {
+    font-family: 'Barlow', sans-serif;
+    font-size: 20px;
+    font-size: 1rem;
+}
+.zgt-salebox p {
+    width: 70%;
+}
+.zgt-salebox .overtitle {
+    font-weight: 700;
+}
+.zgt-salebox .newbtn {
+    background-color: black;
+    line-height: 1em;
+    padding: 12px 16px;
+    padding-top: 11px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+.zgt-salebox .remp-icon-list {
+    font-size: 26px;
+    font-size: 1.3rem;
+}

@@ -266,6 +266,7 @@
                 više djece te djecu s poteškoćama u razvoju”, nastavlja
                 Bartulović.
               </p>
+              <intext-new></intext-new>
               <!--<quiz :data="questions"></quiz>-->
               <div class="banner-intext center intext">
                 <div class="full flex">
