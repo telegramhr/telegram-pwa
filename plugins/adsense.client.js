@@ -58,6 +58,25 @@ export default ({ app, store }) => {
       pubID: '921fe99d-b739-4d25-b89d-df067f627a6a',
       adServer: 'googletag',
     })
+
+    window.googletag = window.googletag || {}
+    window.googletag.cmd = window.googletag.cmd || []
+    window.ybConfiguration = window.ybConfiguration || {}
+    window.ybConfiguration = Object.assign({}, window.ybConfiguration, {
+      integrationMethod: 'open_tag',
+    })
+    ;(function (y, i, e, L, D) {
+      y.Yieldbird = y.Yieldbird || {}
+      y.Yieldbird.cmd = y.Yieldbird.cmd || []
+      i.cmd.push(function () {
+        i.pubads().disableInitialLoad()
+      })
+      L = e.createElement('script')
+      L.async = true
+      L.src = '//cdn.qwtag.com/4bb2cc20-cc9a-4302-abf4-e7a722ec5e40/qw.js'
+      D = e.getElementsByTagName('script')[0]
+      ;(D.parentNode || e.head).insertBefore(L, D)
+    })(window, window.googletag, document)
   }
   function q(c, r) {
     window.apstag._Q.push([c, r])
