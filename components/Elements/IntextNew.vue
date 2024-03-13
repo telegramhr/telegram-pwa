@@ -1,6 +1,9 @@
 <template>
   <div v-show="show" class="full center" data-nosnippet>
-    <a class="full flex zgt-salebox" @click.prevent="start">
+    <div class="full flex zgt-salebox relative">
+      <div v-if="softwall" class="getmeouttahere-btn center clickable">
+        <font-awesome-icon :icon="['fas', 'times']"></font-awesome-icon>
+      </div>
       <div class="full center zgts-topbar">
         <div>{{ topBar }}</div>
       </div>
@@ -20,8 +23,16 @@
           {{ subtitle }}
         </p>
       </div>
-      <div class="full center">
-        <div class="newbtn huge-newbtn center-text">Pretplatite se</div>
+      <div class="full center even-out-btns">
+        <a class="newbtn huge-newbtn center-text" @click.prevent="start"
+          >Pretplatite se</a
+        >
+        <div
+          v-if="softwall"
+          class="newbtn huge-newbtn altbtn center-text clickable"
+        >
+          Nastavite čitati
+        </div>
       </div>
       <div class="full center">
         <div class="flex remp-icon-list">
@@ -34,7 +45,12 @@
           ></font-awesome-icon>
         </div>
       </div>
-    </a>
+      <!--<div v-if="softwall" class="full center">
+        <div class="newbtn huge-newbtn center-text nothanks-btn">
+          Nastavite čitati besplatno
+        </div>
+      </div>-->
+    </div>
   </div>
 </template>
 
@@ -45,12 +61,13 @@ export default {
     return {
       show: true,
       termId: 'TMQDTT4IEHY0',
-      oldPrice: 78,
-      newPrice: 99,
+      oldPrice: 99,
+      newPrice: 78,
       packName: 'Telegram Premium (bez oglasa)',
       termDurationText: 'za 12 mjeseci',
       subtitle: 'Uzmite odmah i iskoristite staru cijenu',
       topBar: 'Samo do 01.04.',
+      softwall: false,
     }
   },
   mounted() {
