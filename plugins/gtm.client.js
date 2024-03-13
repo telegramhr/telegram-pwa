@@ -19,7 +19,6 @@ export default ({ app }) => {
   window.googlefc.callbackQueue.push({
     CONSENT_API_READY: () =>
       __tcfapi('addEventListener', 2.2, (data, success) => {
-        console.log('Consent data', data)
         gtag('consent', 'update', {
           ad_storage: data.purpose.consents[1] ? 'granted' : 'denied',
           analytics_storage: data.purpose.consents[3] ? 'granted' : 'denied',
