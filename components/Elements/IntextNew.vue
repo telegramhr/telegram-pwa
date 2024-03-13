@@ -95,7 +95,6 @@ export default {
       }
     },
     load(e) {
-      console.log(e.detail)
       if (e.detail) {
         this.topBar = e.detail.topBar
         this.subtitle = e.detail.subtitle
