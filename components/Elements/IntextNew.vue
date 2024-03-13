@@ -1,7 +1,16 @@
 <template>
-  <div v-show="show" class="full center" data-nosnippet>
+  <div
+    v-show="show"
+    class="full center"
+    :class="[softwall ? 'softwall' : '']"
+    data-nosnippet
+  >
     <div class="full flex zgt-salebox relative">
-      <div v-if="softwall" class="getmeouttahere-btn center clickable">
+      <div
+        v-if="softwall"
+        class="getmeouttahere-btn center clickable"
+        @click="show = false"
+      >
         <font-awesome-icon :icon="['fas', 'times']"></font-awesome-icon>
       </div>
       <div class="full center zgts-topbar">
@@ -30,6 +39,7 @@
         <div
           v-if="softwall"
           class="newbtn huge-newbtn altbtn center-text clickable"
+          @click="show = false"
         >
           Nastavite čitati
         </div>
@@ -59,7 +69,7 @@ export default {
   name: 'IntextNew',
   data() {
     return {
-      show: true,
+      show: false,
       termId: 'TMQDTT4IEHY0',
       oldPrice: 99,
       newPrice: 78,
@@ -85,6 +95,7 @@ export default {
       }
     },
     load(e) {
+      console.log(e.detail)
       if (e.detail) {
         this.topBar = e.detail.topBar
         this.subtitle = e.detail.subtitle
@@ -92,11 +103,12 @@ export default {
         this.packName = e.detail.packName
         this.newPrice = e.detail.newPrice
         this.oldPrice = e.detail.oldPrice
+        this.softwall = e.detail.softwall ?? false
         if (e.detail.termId) {
           this.termId = e.detail.termId
         }
       }
-      this.triggerShow('load')
+      this.triggerShow()
     },
     checkout(termId) {
       if (this.$store.state.user.token) {
@@ -165,24 +177,43 @@ export default {
         },
       ])
     },
-    triggerShow(type) {
+    triggerShow() {
       if (this.show) {
         return
       }
       const el = document.getElementById('piano-content')
       if (el) {
         this.show = true
-        el.parentNode.removeChild(el)
-        document
-          .querySelector('#article-content p:last-child')
-          .classList.add('premium-fade-out')
-        if (document.getElementById('new_pretplata')) {
-          document.getElementById('new_pretplata').classList.add('hide')
+        if (!this.softwall) {
+          el.parentNode.removeChild(el)
+          document
+            .querySelector('#article-content p:last-child')
+            .classList.add('premium-fade-out')
         }
-      } else if (this.type === 'load') {
-        setTimeout(this.load, 500)
       }
     },
   },
 }
 </script>
+
+<style scoped>
+.softwall {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  box-sizing: border-box;
+  overflow: hidden;
+  max-width: 100% !important;
+}
+.zgt-salebox {
+  max-width: 710px;
+}
+</style>
