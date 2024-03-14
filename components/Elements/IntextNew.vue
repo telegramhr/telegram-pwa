@@ -1,67 +1,71 @@
 <template>
-  <div
-    v-show="show"
-    class="full center"
-    :class="[softwall ? 'softwall' : '']"
-    data-nosnippet
-  >
-    <div class="full flex zgt-salebox relative">
-      <div
-        v-if="softwall"
-        class="getmeouttahere-btn center clickable"
-        @click="show = false"
-      >
-        <font-awesome-icon :icon="['fas', 'times']"></font-awesome-icon>
-      </div>
-      <div class="full center zgts-topbar">
-        <div>{{ topBar }}</div>
-      </div>
-      <div class="full center-text noththree overtitle">
-        {{ packName }}
-      </div>
-      <div class="full center-text sub-price bold">
-        <span v-if="oldPrice" class="faded strikethrough">{{ oldPrice }}€</span>
-        {{ newPrice }}€
-      </div>
-      <div class="full center-text zgts-subtitle">{{ termDurationText }}</div>
-      <div class="full center">
-        <div class="zgts-separator"></div>
-      </div>
-      <div class="full center">
-        <p class="full center-text">
-          {{ subtitle }}
-        </p>
-      </div>
-      <div class="full center even-out-btns">
-        <a class="newbtn huge-newbtn center-text" @click.prevent="start"
-          >Pretplatite se</a
-        >
+  <transition name="fade">
+    <div
+      v-show="show"
+      class="full center"
+      :class="[softwall ? 'softwall' : '']"
+      data-nosnippet
+    >
+      <div class="full flex zgt-salebox relative">
         <div
           v-if="softwall"
-          class="newbtn huge-newbtn altbtn center-text clickable"
+          class="getmeouttahere-btn center clickable"
           @click="show = false"
         >
-          Nastavite čitati
+          <font-awesome-icon :icon="['fas', 'times']"></font-awesome-icon>
         </div>
-      </div>
-      <div class="full center">
-        <div class="flex remp-icon-list">
-          <font-awesome-icon :icon="['fab', 'cc-visa']"></font-awesome-icon>
-          <font-awesome-icon
-            :icon="['fab', 'cc-mastercard']"
-          ></font-awesome-icon>
-          <font-awesome-icon
-            :icon="['fab', 'cc-diners-club']"
-          ></font-awesome-icon>
+        <div class="full center zgts-topbar">
+          <div>{{ topBar }}</div>
         </div>
-      </div>
-      <!--<div v-if="softwall" class="full center">
+        <div class="full center-text noththree overtitle">
+          {{ packName }}
+        </div>
+        <div class="full center-text sub-price bold">
+          <span v-if="oldPrice" class="faded strikethrough"
+            >{{ oldPrice }}€</span
+          >
+          {{ newPrice }}€
+        </div>
+        <div class="full center-text zgts-subtitle">{{ termDurationText }}</div>
+        <div class="full center">
+          <div class="zgts-separator"></div>
+        </div>
+        <div class="full center">
+          <p class="full center-text">
+            {{ subtitle }}
+          </p>
+        </div>
+        <div class="full center even-out-btns">
+          <a class="newbtn huge-newbtn center-text" @click.prevent="start"
+            >Pretplatite se</a
+          >
+          <div
+            v-if="softwall"
+            class="newbtn huge-newbtn altbtn center-text clickable"
+            @click="show = false"
+          >
+            Nastavite čitati
+          </div>
+        </div>
+        <div class="full center">
+          <div class="flex remp-icon-list">
+            <font-awesome-icon :icon="['fab', 'cc-visa']"></font-awesome-icon>
+            <font-awesome-icon
+              :icon="['fab', 'cc-mastercard']"
+            ></font-awesome-icon>
+            <font-awesome-icon
+              :icon="['fab', 'cc-diners-club']"
+            ></font-awesome-icon>
+          </div>
+        </div>
+        <!--<div v-if="softwall" class="full center">
         <div class="newbtn huge-newbtn center-text nothanks-btn">
           Nastavite čitati besplatno
         </div>
       </div>-->
+      </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -214,5 +218,14 @@ export default {
 }
 .zgt-salebox {
   max-width: 710px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
