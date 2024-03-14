@@ -1,37 +1,39 @@
 <template>
   <client-only>
-    <div
-      v-show="!shouldHide"
-      :class="[
-        'flex',
-        'full',
-        'center',
-        'sticky-banner',
-        bannerClass === 'takeover' ? 'sticky-fade' : '',
-        bannerClass === 'ticker-right' ? 'sticky-right' : '',
-        bannerClass === 'ticker-left' ? 'sticky-left' : '',
-      ]"
-      data-nosnippet
-    >
-      <div class="relative">
-        <div id="telegram_sticky" :class="bannerClass"></div>
-        <a
-          v-show="showClose"
-          href="#"
-          :class="[
-            bannerClass === 'ticker' ? 'ticker-exit' : '',
-            bannerClass === 'takeover' ? 'takeover-exit' : '',
-            bannerClass === 'ticker-right' ? 'ticker-right-exit' : '',
-          ]"
-          @click.prevent="shouldHide = true"
-          ><font-awesome-icon
-            :icon="['fas', 'times-circle']"
-            size="3x"
-            style="color: #ae3736"
-          ></font-awesome-icon
-        ></a>
+    <transition name="fade">
+      <div
+        v-show="!shouldHide"
+        :class="[
+          'flex',
+          'full',
+          'center',
+          'sticky-banner',
+          bannerClass === 'takeover' ? 'sticky-fade' : '',
+          bannerClass === 'ticker-right' ? 'sticky-right' : '',
+          bannerClass === 'ticker-left' ? 'sticky-left' : '',
+        ]"
+        data-nosnippet
+      >
+        <div class="relative">
+          <div id="telegram_sticky" :class="bannerClass"></div>
+          <a
+            v-show="showClose"
+            href="#"
+            :class="[
+              bannerClass === 'ticker' ? 'ticker-exit' : '',
+              bannerClass === 'takeover' ? 'takeover-exit' : '',
+              bannerClass === 'ticker-right' ? 'ticker-right-exit' : '',
+            ]"
+            @click.prevent="shouldHide = true"
+            ><font-awesome-icon
+              :icon="['fas', 'times-circle']"
+              size="3x"
+              style="color: #ae3736"
+            ></font-awesome-icon
+          ></a>
+        </div>
       </div>
-    </div>
+    </transition>
   </client-only>
 </template>
 
@@ -141,5 +143,13 @@ export default {
 #telegram_sticky iframe,
 #telegram_sticky img {
   margin: 0 auto;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
