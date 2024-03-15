@@ -74,7 +74,7 @@ export default {
   data() {
     return {
       show: false,
-      termId: 'TMQDTT4IEHY0',
+      termId: false,
       oldPrice: 99,
       newPrice: 78,
       packName: 'Telegram Premium (bez oglasa)',
@@ -107,9 +107,7 @@ export default {
         this.newPrice = e.detail.newPrice
         this.oldPrice = e.detail.oldPrice
         this.softwall = e.detail.softwall ?? false
-        if (e.detail.termId) {
-          this.termId = e.detail.termId
-        }
+        this.termId = e.detail.termId
       }
       this.triggerShow()
     },
