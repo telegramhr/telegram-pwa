@@ -40,6 +40,7 @@
             v-for="post in posts.slice(8, 12)"
             :key="'super-' + post.id"
             :post="post"
+            :no-date="zone === 'kultura'"
           ></mini>
         </div>
         <div class="full column-full-pad">

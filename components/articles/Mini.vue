@@ -13,7 +13,7 @@
         <span class="meta-author">
           {{ post.authors.length ? 'Piše ' + post.authors[0].name : '' }}</span
         >
-        <span v-if="post.time" class="meta-date">{{
+        <span v-if="!noDate && post.time" class="meta-date">{{
           post.timem | parseTime
         }}</span>
       </div>
@@ -26,6 +26,11 @@
 export default {
   name: 'Mini',
   props: {
+    noDate: {
+      required: false,
+      type: Boolean,
+      default: false,
+    },
     post: {
       required: true,
       type: Object,
