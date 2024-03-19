@@ -8,7 +8,65 @@
       ></theader>
     </div>
     <!-- Above header banner -->
-    <div v-if="canLogIn" class="full relative darkened-bg birati-stranu-widget">
+    <div
+      v-if="!$store.state.user.access"
+      class="full center relative dark-mode pretplata-bf pretplata-blue clickable"
+      @click.prevent="checkout('TM5P57VYH7GT')"
+    >
+      <div class="container flex relative">
+        <div
+          class="half flex-responsive mobile-full-pad column-full-pad column-top-margin column-bottom-margin flex relative stretch"
+        >
+          <div class="full flex overtitle-parent">
+            <div class="overtitle noththree">
+              <span>Najveća akcija godine</span>
+            </div>
+          </div>
+          <div class="full nothtwo">
+            <span>Izbori na</span> <span>Telegramu</span>
+          </div>
+          <p class="full highlight-pitch">
+            <span class="ib"
+              >Prijelomne izbore pratite uz najbolje analize,</span
+            >
+            <span class="ib">najtočnije vijesti i najneovisnije novinare</span>
+          </p>
+          <div class="full undertitle bigger-undertitle">
+            <span class="strikethrough faded">7,99€</span> 1,99€
+          </div>
+          <p class="full smaller-text faded">
+            prva tri mjeseca samo 1,99€ mjesečno
+          </p>
+          <div class="full flex">
+            <div class="flex newbtn huge-newbtn animate">Kupite odmah</div>
+          </div>
+          <div class="full pretplata-benefits desktop-only">
+            <p class="full animate bold">
+              <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+              Otkažite u bilo kojem trenutku
+            </p>
+            <p class="full animate">
+              <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+              Neograničeno čitanje Telegrama
+            </p>
+            <p class="full animate">
+              <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+              Podrška neovisnim novinarstvu
+            </p>
+            <p class="full animate">
+              <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
+              Posebni popusti i pogodnosti
+            </p>
+          </div>
+        </div>
+        <img
+          src="@/assets/img/tg_visual_pretplata_izbori_alt.jpg"
+          alt="Andrej Plenković i Zoran Milanović"
+          class="absolute-half-img"
+        />
+      </div>
+    </div>
+    <!--<div v-if="canLogIn" class="full relative darkened-bg birati-stranu-widget">
       <div class="container column-full-pad mobile-full-pad flex relative">
         <p
           class="full center-text column-top-pad mobile-top-pad birati-stranu-title"
@@ -21,7 +79,7 @@
           Pretplatite se kako biste osigurali dosadašnje, niže cijene
         </p>
       </div>
-    </div>
+    </div>-->
     <div id="pretplata-selector" class="full flex">
       <div class="full flex relative">
         <div

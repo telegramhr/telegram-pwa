@@ -12520,12 +12520,24 @@ input:checked ~ .input-hidden {
 }
 .pretplata-blue .bigger-undertitle {
     margin-bottom: 4px;
+    margin-top: 0px;
+    font-size: 44px;
+    font-size: 2.2rem;
 }
 .pretplata-blue .huge-newbtn {
     margin-top: 16px;
 }
 .pretplata-blue .nothtwo {
-    margin-bottom: 16px;
+    font-family: 'Barlow', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 80px;
+    font-size: 4rem;
+    line-height: 1em;
+    text-shadow: 0px 0px 5px #304769;
+    margin-bottom: 0px;
+    position: relative;
+    left: -5px;
 }
 .pretplata-blue .nothtwo span {
     display: inline-block;
@@ -12536,6 +12548,13 @@ input:checked ~ .input-hidden {
 .pretplata-page .pretplata-blue .huge-newbtn {
     padding: 8px 12px;
 }
+.pretplata-bf .noththree {
+    border-bottom: 2px solid #ae3737;
+    font-size: 24px;
+    font-size: 1.2rem;
+    padding-bottom: 3px;
+}
+
 @media screen and (min-width: 767px) {
     .pretplata-blue .container {
         padding-top: 2vw;
@@ -12545,36 +12564,35 @@ input:checked ~ .input-hidden {
         z-index: 99;
     }
     .pretplata-blue .absolute-half-img {
-        width: 430px;
+        width: 66%;
         height: auto;
         position: absolute;
         bottom: 0px;
         right: -10px;
     }
-    .pretplata-blue .nothtwo {
-        font-size: 48px;
-        font-size: 2.4rem;
-    }
     .pretplata-blue .sixty {
         z-index: 5;
+    }
+    .pretplata-blue p.highlight-pitch {
+        margin-top: 16px;
+        margin-bottom: 16px;
     }
 }
 @media screen and (max-width: 767px) {
     .pretplata-blue .absolute-half-img {
-        width: 78%;
+        width: 100%;
         height: auto;
-        position: absolute;
+        position: relative;
         bottom: 0px;
-        right: -4%;
-    }
-    .pretplata-blue .bigger-undertitle {
-        font-size: 24px;
-        font-size: 1.2rem;
+        right: 0px;
+        z-index: 1;
+        margin-top: -10%;
     }
     .pretplata-blue .bigger-undertitle span.mobile-only {
         display: inline;
     }
     .pretplata-blue .container::before {
+        display: none;
         content: " ";
         position: absolute;
         z-index: 3;
@@ -12594,8 +12612,11 @@ input:checked ~ .input-hidden {
         font-size: 4.4vw;
     }
     .pretplata-blue .nothtwo {
-        font-size: 8vw;
-        margin-bottom: 8px;
+        font-size: 14vw;
+        margin-bottom: 0px;
+    }
+    .homepage .pretplata-blue .nohtwo {
+        margin-bottom: 0px;
     }
     .pretplata-blue .sixty {
         margin-bottom: 0px;
