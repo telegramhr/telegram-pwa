@@ -981,6 +981,11 @@ export default {
           price: 1.99,
           gtm: 'standard',
         },
+        TM5P57VYH7GT: {
+          title: 'Telegram Mjesečna Pretplata promo',
+          price: 1.99,
+          gtm: 'standard-monthly-trial',
+        },
       },
     }
   },
@@ -1036,6 +1041,7 @@ export default {
           'TMYTVOS7AU82',
           'TMXMTLO3DSSC',
           'TM2QQCNWT3K1',
+          'TM5P57VYH7GT',
         ],
       })
       window.tp.push([
@@ -1092,6 +1098,9 @@ export default {
           case 'mrak':
             this.checkout('TM2QQCNWT3K1')
             break
+          case 'izbori':
+            this.checkout('TM5P57VYH7GT')
+            break;
         }
       }
     })

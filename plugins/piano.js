@@ -22,23 +22,4 @@ export default function ({ route }) {
       },
     ])
   }
-
-  // Adblock
-  /* document.cookie =
-    '__adblocker=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/'
-  window.setNptTechAdblockerCookie = function (adblocker) {
-    const d = new Date()
-    d.setTime(d.getTime() + 60 * 5 * 1000)
-    document.cookie =
-      '__adblocker=' +
-      (adblocker ? 'true' : 'false') +
-      '; expires=' +
-      d.toUTCString() +
-      '; path=/'
-  }
-  const script = document.createElement('script')
-  script.setAttribute('async', true)
-  script.setAttribute('src', '//www.npttech.com/advertising.js')
-  script.setAttribute('onerror', 'setNptTechAdblockerCookie(true);')
-  document.getElementsByTagName('head')[0].appendChild(script) */
 }
