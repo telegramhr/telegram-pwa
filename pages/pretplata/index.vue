@@ -1100,7 +1100,7 @@ export default {
             break
           case 'izbori':
             this.checkout('TM5P57VYH7GT')
-            break;
+            break
         }
       }
     })
