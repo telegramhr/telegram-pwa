@@ -157,12 +157,6 @@
                     ></font-awesome-icon>
                     verificirani profil u komentarima
                   </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    surfanje s manje oglasa
-                  </p>
                 </div>
                 <div class="full center btn-parent" @click="checkout(one)">
                   <div class="btn animate">Odaberi</div>
@@ -262,12 +256,6 @@
                       :icon="['fas', 'check']"
                     ></font-awesome-icon>
                     verificirani profil u komentarima
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    surfanje s manje oglasa
                   </p>
                 </div>
                 <div class="full center btn-parent" @click="checkout(three)">
