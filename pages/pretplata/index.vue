@@ -1096,7 +1096,7 @@ export default {
             this.checkout('TM5P57VYH7GT')
             break
           case 'upgrade-py':
-            this.checkout('TMMP593NCIAN')
+            this.checkout('TMMP593NCIAN', 1)
             break
         }
       }
@@ -1106,7 +1106,7 @@ export default {
     canLogIn() {
       return this.$store.state.user.exp * 1000 < new Date().getTime()
     },
-    checkout(termId) {
+    checkout(termId, upgrade) {
       this.$gtm.push({ ecommerce: null }) // Clear the previous ecommerce object.
       this.$gtm.push({
         event: 'productClick',
@@ -1134,7 +1134,11 @@ export default {
         'user-type': this.$store.state.user.type,
       })
       if (this.$store.state.user.token) {
-        this.checkout2(termId, -1)
+        if (upgrade) {
+          this.upgrade(termId)
+        } else {
+          this.checkout2(termId, -1)
+        }
       } else {
         const _that = this
         window.tp.push([
@@ -1146,12 +1150,35 @@ export default {
               loggedIn(data) {
                 _that.$store.dispatch('user/setUser', data.user)
                 // window.location.reload()
-                _that.checkout2(termId, -2)
+                if (upgrade) {
+                  _that.upgrade(termId)
+                } else {
+                  _that.checkout2(termId, -2)
+                }
               },
             })
           },
         ])
       }
+    },
+    upgrade(termId) {
+      const _that = this
+      window.tp.push([
+        'init',
+        () => {
+          window.tp.offer.show({
+            offerId: 'OF5JVPQYFLE1',
+            templateId: 'OTXWXSOL0WWS',
+            displayMode: 'modal',
+            checkoutFlowId: 'CFWVU8QFJ39D',
+            targetedTermId: termId,
+            closeOnLogout: true,
+            complete: (data) => {
+              _that.$store.dispatch('user/checkAccess')
+            },
+          })
+        },
+      ])
     },
     checkout2(termId, back) {
       const _that = this
