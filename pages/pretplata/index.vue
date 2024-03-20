@@ -974,6 +974,11 @@ export default {
           price: 1.99,
           gtm: 'standard-monthly-trial',
         },
+        TMMP593NCIAN: {
+          title: 'Telegram Premium Godišnja Pretplata (upgrade)',
+          price: 99,
+          gtm: 'premium-annual-upgrade',
+        },
       },
     }
   },
@@ -1030,6 +1035,7 @@ export default {
           'TMXMTLO3DSSC',
           'TM2QQCNWT3K1',
           'TM5P57VYH7GT',
+          'TMMP593NCIAN',
         ],
       })
       window.tp.push([
