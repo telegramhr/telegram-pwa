@@ -35,7 +35,7 @@
               Besplatna dostava po cijeloj Hrvatskoj
             </div>
             <div class="full center btn-parent newbook-btn">
-              <!--<div
+              <div
                 v-if="$store.state.user.email"
                 class="newbtn clickable huge-newbtn animate"
                 @click="buy"
@@ -48,8 +48,8 @@
                 @click="login"
               >
                 Kupite
-              </div>-->
-              <div class="newbtn clickable huge-newbtn animate">Rasprodano</div>
+              </div>
+              <!--<div class="newbtn clickable huge-newbtn animate">Rasprodano</div>-->
             </div>
           </div>
         </div>
