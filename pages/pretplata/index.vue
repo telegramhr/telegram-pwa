@@ -1089,6 +1089,9 @@ export default {
           case 'izbori':
             this.checkout('TM5P57VYH7GT')
             break
+          case 'upgrade-py':
+            this.checkout('TMMP593NCIAN')
+            break
         }
       }
     })
