@@ -1163,6 +1163,7 @@ export default {
     },
     upgrade(termId) {
       const _that = this
+      console.log('upgrade', termId)
       window.tp.push([
         'init',
         () => {
@@ -1172,6 +1173,7 @@ export default {
             displayMode: 'modal',
             checkoutFlowId: 'CFWVU8QFJ39D',
             targetedTermId: termId,
+            termId,
             closeOnLogout: true,
             complete: (data) => {
               _that.$store.dispatch('user/checkAccess')
