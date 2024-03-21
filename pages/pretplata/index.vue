@@ -1057,12 +1057,6 @@ export default {
         'user-type': this.$store.state.user.type,
       })
 
-      if (this.$route.query.promo_code === 'XUETUP3') {
-        this.checkout(this.three)
-      }
-      if (this.$route.query.promo_code === 'RHXAYAVF') {
-        this.checkout(this.three)
-      }
       if (this.$route.query.checkout) {
         switch (this.$route.query.checkout) {
           case 'sm':
@@ -1161,20 +1155,26 @@ export default {
         ])
       }
     },
-    upgrade(termId) {
+    async upgrade(termId) {
       const _that = this
-      console.log('upgrade', termId)
+      const term = await this.$axios.$get(
+        '/pretplate/term/' + this.$store.state.user.uid
+      )
+      if (!term) {
+        return
+      }
       window.tp.push([
         'init',
         () => {
+          // window.tp.api.user.get().then((user) => {});
           window.tp.offer.show({
-            offerId: 'OF5JVPQYFLE1',
+            offerId: 'OFFY1ZO333EV',
             templateId: 'OTXWXSOL0WWS',
             displayMode: 'modal',
             checkoutFlowId: 'CFWVU8QFJ39D',
-            targetedTermId: termId,
             termId,
             closeOnLogout: true,
+            targetedTermId: term.term,
             complete: (data) => {
               _that.$store.dispatch('user/checkAccess')
             },
