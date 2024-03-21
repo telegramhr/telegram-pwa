@@ -1047,15 +1047,6 @@ export default {
           }
         },
       ])
-      this.$gtm.push({
-        event: 'subscription-funnel',
-        'subscription-category': 'subscription-new',
-        'subscription-action': 'viewed',
-        'article-title': this.$store.state.history.title,
-        'article-category': this.$store.state.history.category,
-        'article-author': this.$store.state.history.author,
-        'user-type': this.$store.state.user.type,
-      })
 
       if (this.$route.query.checkout) {
         switch (this.$route.query.checkout) {
@@ -1092,6 +1083,9 @@ export default {
           case 'upgrade-py':
             this.checkout('TMMP593NCIAN', 1)
             break
+          case 'upgrade':
+            this.checkout('', 1)
+            break
         }
       }
     })
@@ -1101,32 +1095,6 @@ export default {
       return this.$store.state.user.exp * 1000 < new Date().getTime()
     },
     checkout(termId, upgrade) {
-      this.$gtm.push({ ecommerce: null }) // Clear the previous ecommerce object.
-      this.$gtm.push({
-        event: 'productClick',
-        ecommerce: {
-          click: {
-            products: [
-              {
-                name: this.terms[termId].title,
-                id: termId,
-                price: this.terms[termId].price,
-              },
-            ],
-          },
-        },
-      })
-      this.$gtm.push({
-        event: 'subscription-funnel',
-        'subscription-category': 'subscription-new',
-        'subscription-action': 'selected',
-        'subscription-type': this.terms[termId].gtm,
-        'subscription-value': this.terms[termId].price,
-        'article-title': this.$store.state.history.title,
-        'article-category': this.$store.state.history.category,
-        'article-author': this.$store.state.history.author,
-        'user-type': this.$store.state.user.type,
-      })
       if (this.$store.state.user.token) {
         if (upgrade) {
           this.upgrade(termId)
@@ -1172,9 +1140,9 @@ export default {
             templateId: 'OTXWXSOL0WWS',
             displayMode: 'modal',
             checkoutFlowId: 'CFWVU8QFJ39D',
-            termId,
+            termId: termId || term.termId,
             closeOnLogout: true,
-            targetedTermId: term.term,
+            targetedTermId: term.targetedTermId,
             complete: (data) => {
               _that.$store.dispatch('user/checkAccess')
             },
@@ -1206,40 +1174,6 @@ export default {
                 content_ids: data.termId,
                 currency: data.chargeCurrency,
                 value: data.chargeAmount,
-              })
-              _that.$gtm.push({
-                event: 'subscription-funnel',
-                'subscription-category': 'subscription-new',
-                'subscription-action': data.promotionId
-                  ? 'purchased-with-coupon'
-                  : 'purchased',
-                'subscription-type': _that.terms[data.termId].gtm,
-                'subscription-value': data.chargeAmount,
-                'article-title': this.$store.state.history.title,
-                'article-category': this.$store.state.history.category,
-                'article-author': this.$store.state.history.author,
-                'user-type': this.$store.state.user.type,
-              })
-              _that.$gtm.push({ ecommerce: null })
-              _that.$gtm.push({
-                ecommerce: {
-                  purchase: {
-                    actionField: {
-                      id: data.termConversionId,
-                      affiliation: 'Telegram.hr',
-                      revenue: data.chargeAmount,
-                      tax: data.chargeAmount - data.chargeAmount / 1.05,
-                    },
-                    products: [
-                      {
-                        id: data.termId,
-                        name: _that.terms[data.termId].title,
-                        quantity: 1,
-                        price: _that.terms[data.termId].price,
-                      },
-                    ],
-                  },
-                },
               })
               window.marfeel.cmd.push([
                 'compass',
