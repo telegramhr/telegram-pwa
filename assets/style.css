@@ -13703,6 +13703,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     margin-top: 14px;
     margin-bottom: 4px;
 }
+.dark-mode .darkened-bg.pretplata-subs-special {
+    background-color: #e8dacd;
+    color: black;
+}
+
 @media screen and (max-width: 1080px) {
     .pretplata-subs-special .nothtwo {
         font-size: 9vw;
