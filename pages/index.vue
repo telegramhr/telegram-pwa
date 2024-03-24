@@ -51,24 +51,6 @@
             <div class="full flex">
               <div class="flex newbtn huge-newbtn animate">Kupite odmah</div>
             </div>
-            <!--<div class="full pretplata-benefits desktop-only">
-              <p class="full animate bold">
-                <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-                Otkažite u bilo kojem trenutku
-              </p>
-              <p class="full animate">
-                <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-                Neograničeno čitanje Telegrama
-              </p>
-              <p class="full animate">
-                <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-                Podrška neovisnim novinarstvu
-              </p>
-              <p class="full animate">
-                <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-                Posebni popusti i pogodnosti
-              </p>
-            </div>-->
           </div>
           <img
             src="@/assets/img/tg_visual_pretplata_izbori_alt.jpg"
@@ -77,6 +59,53 @@
           />
         </div>
       </div>
+      <a
+        v-if="$store.state.user.access"
+        href="https://www.telegram.hr/tema/hrvatska-andreja-plenkovica/"
+        class="full center relative pretplata-subs-special darkened-bg"
+      >
+        <div class="container flex relative relative">
+          <div
+            class="half flex-responsive flex column-full-pad mobile-full-pad"
+          >
+            <div class="full flex overtitle-parent">
+              <div class="overtitle noththree">
+                <span>Izborni serijal</span>
+              </div>
+            </div>
+            <div class="full nothtwo">
+              <span class="ib">Kakva je Hrvatska</span>
+              <span class="ib">Andreja Plenkovića</span>
+            </div>
+            <p class="full highlight-pitch">
+              <span class="ib"
+                >Telegramovi analitičari donose dubinsku reviziju
+                ekonomskih,</span
+              >
+              <span class="ib"
+                >socijalnih, demografskih i političkih rezultata HDZ-ove
+                vlasti</span
+              >
+            </p>
+            <div class="nothfive full flex article-meta">
+              <span class="meta-author"
+                ><i>Pišu</i> Jagoda Marić, Jasmin Klarić i Irena Frlan
+                Gašparović</span
+              >
+            </div>
+          </div>
+          <img
+            src="@/assets/img/tg_visual_izbori_promo_mobile.jpg"
+            alt="Premijer Andrej Plenković i Telegramovi analitičari Jagoda Marić, Jasmin Klarić i Irena Frlan Gašparović"
+            class="absolute-half-img mobile-only"
+          />
+          <img
+            src="@/assets/img/tg_visual_izbori_promo.jpg"
+            alt="Premijer Andrej Plenković i Telegramovi analitičari Jagoda Marić, Jasmin Klarić i Irena Frlan Gašparović"
+            class="absolute-half-img desktop-only"
+          />
+        </div>
+      </a>
     </client-only>
     <!--<app-link
       v-if="canLogIn"
