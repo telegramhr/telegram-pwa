@@ -1138,7 +1138,6 @@ export default {
       window.tp.push([
         'init',
         () => {
-          // window.tp.api.user.get().then((user) => {});
           window.tp.offer.show({
             offerId: 'OFFY1ZO333EV',
             templateId: 'OTXWXSOL0WWS',
