@@ -13663,3 +13663,80 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         margin-bottom: 0.4rem;
     }
 }
+
+.pretplata-subs-special .absolute-half-img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: auto;
+    height: 100%;
+    z-index: 1;
+}
+.pretplata-subs-special .half {
+    z-index: 3;
+}
+
+.pretplata-subs-special .nothtwo {
+    font-size: 48px;
+    font-size: 2.4rem;
+    font-family: 'Lora', serif;
+    line-height: 1.15em;
+    margin-bottom: 12px;
+}
+
+.pretplata-subs-special .noththree.overtitle {
+    font-size: 20px;
+    font-size: 1rem;
+    padding: 4px 10px 5px;
+    background-color: #ae3737;
+    color: white;
+    margin-bottom: 8px;
+}
+.pretplata-subs-special .highlight-pitch {
+    font-family: 'Barlow', sans-serif;
+    font-size: 18px;
+    font-size: 0.9rem;
+}
+.pretplata-subs-special .article-meta {
+    font-size: 14px;
+    font-size: 0.7rem;
+    margin-top: 14px;
+    margin-bottom: 4px;
+}
+.dark-mode .darkened-bg.pretplata-subs-special {
+    background-color: #e8dacd;
+    color: black;
+}
+
+@media screen and (max-width: 1080px) {
+    .pretplata-subs-special .nothtwo {
+        font-size: 9vw;
+    }
+    .pretplata-subs-special .highlight-pitch span.ib {
+        display: inline;
+    }
+    .pretplata-subs-special .half.flex-responsive {
+        width: 100%;
+    }
+    .pretplata-subs-special .absolute-half-img {
+        position: relative;
+        width: 100%;
+        height: auto;
+        margin-top: -28vw;
+    }
+    .pretplata-subs-special .highlight-pitch {
+        font-size: 16px;
+        font-size: 0.8rem;
+    }
+    .pretplata-subs-special .article-meta {
+        font-size: 3vw;
+    }
+    .pretplata-subs-special .noththree.overtitle {
+        font-size: 16px;
+        font-size: 0.8rem;
+        margin-top: 8px;
+    }
+    .pretplata-subs-special .article-meta {
+        width: 57%;
+    }
+}
