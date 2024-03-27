@@ -878,8 +878,20 @@ export default {
         }
       }
       tp.push(['setContentIsNative', this.post.post_type === 'partneri'])
-      if (this.post.category_slug.includes('superone')) {
-        tp.push(['setCustomVariable', 'isPaywall', 'never'])
+      if (this.post.paywall === 'always' && this.$route.query.gift_token) {
+        // verify token
+        this.$axios
+          .post('/pretplate/api/gift-article/verify', {
+            token: this.$route.query.gift_token,
+            url: this.post.permalink,
+          })
+          .then((res) => {
+            if (res.status === 200) {
+              tp.push(['setCustomVariable', 'isPaywall', 'gift'])
+            } else {
+              tp.push(['setCustomVariable', 'isPaywall', this.post.paywall])
+            }
+          })
       } else {
         tp.push(['setCustomVariable', 'isPaywall', this.post.paywall])
       }
