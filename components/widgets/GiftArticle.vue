@@ -34,31 +34,58 @@ export default {
       if (this.hasGifted.length) {
         this.link = this.hasGifted[0].link
         this.showGiftSubmenu = !this.showGiftSubmenu
-        return
+        return encodeURIComponent(this.link)
       }
-      await this.$axios
+      return await this.$axios
         .$post('/pretplate/api/gift-article/', {
           url: this.$route.fullPath,
         })
         .then((res) => {
           this.link = res.link
           this.$store.commit('gifts/updateAvailable', res)
-          this.showGiftSubmenu = !this.showGiftSubmenu
-        })
-        .catch((err) => {
-          console.log(err)
+          return encodeURIComponent(res.link)
         })
     },
-    copyLink() {
-      navigator.clipboard.writeText(this.link)
+    async copyLink() {
+      const link = await this.getLink()
+      await navigator.clipboard.writeText(link)
     },
-    fbShare() {
+    async fbShare() {
+      const link = await this.getLink()
       /* global FB */
-      FB.ui({ method: 'share', href: this.link }, function (response) {})
+      FB.ui(
+        {
+          method: 'share',
+          href: link,
+        },
+        function (response) {}
+      )
     },
-    twitterShare() {
-      const url = `https://twitter.com/intent/tweet?url=${this.link}`
+    async twitterShare() {
+      const link = await this.getLink()
+      const url = `https://twitter.com/intent/tweet?url=${link}&text=Ovaj Telegram članak poklon je pretplatnika i možete ga pročitati besplatno.`
       window.open(url, '_blank')
+    },
+    async whatsappShare() {
+      const link = await this.getLink()
+      const url = `https://api.whatsapp.com/send?text=Ovaj Telegram članak poklon je pretplatnika i možete ga pročitati besplatno. ${link}`
+      window.open(url, '_blank')
+    },
+    async telegramShare() {
+      const link = await this.getLink()
+      const url = `https://t.me/share/url?url=${link}&text=Ovaj Telegram članak poklon je pretplatnika i možete ga pročitati besplatno.`
+      window.open(url, '_blank')
+    },
+    async viberShare() {
+      const link = await this.getLink()
+      const url = `viber://forward?text=Ovaj Telegram članak poklon je pretplatnika i možete ga pročitati besplatno. ${link}`
+      window.open(url, '_blank')
+    },
+    async emailShare() {
+      const link = await this.getLink()
+      console.log(link)
+      const url = `mailto:?subject=Ovaj Telegram članak poklon je pretplatnika i možete ga pročitati besplatno.&body=${link}`
+      window.open(url, 'top')
     },
   },
 }
@@ -69,7 +96,7 @@ export default {
     class="flex relative article-gift-button"
     :class="{ 'float-right': position === 'footer' }"
   >
-    <label class="clickable" @click="getLink"
+    <label class="clickable" @click="showGiftSubmenu = !showGiftSubmenu"
       ><font-awesome-icon
         :icon="['far', 'gift']"
         class="animate"
@@ -77,7 +104,7 @@ export default {
       <span>Poklonite članak</span></label
     >
     <div v-show="showGiftSubmenu" class="article-gift-submenu flex">
-      <template v-if="userGifts.available && link">
+      <template v-if="userGifts.available">
         <p class="full gift-submenu-title">Poklonite članak</p>
         <p class="full gift-submenu-description">
           Kao pretplatnik možete nekom pokloniti članke koji su zaključani.
@@ -107,6 +134,46 @@ export default {
             class="animate"
           ></font-awesome-icon>
           Podijeli na X (Twitter)
+        </div>
+        <div
+          class="full gift-submenu-item clickable animate"
+          @click="whatsappShare"
+        >
+          <font-awesome-icon
+            :icon="['fab', 'whatsapp']"
+            class="animate"
+          ></font-awesome-icon>
+          Podijeli na WhatsApp
+        </div>
+        <div
+          class="full gift-submenu-item clickable animate"
+          @click="viberShare"
+        >
+          <font-awesome-icon
+            :icon="['fab', 'viber']"
+            class="animate"
+          ></font-awesome-icon>
+          Podijeli na Viber
+        </div>
+        <div
+          class="full gift-submenu-item clickable animate"
+          @click="telegramShare"
+        >
+          <font-awesome-icon
+            :icon="['fab', 'telegram-plane']"
+            class="animate"
+          ></font-awesome-icon>
+          Podijeli na Telegram
+        </div>
+        <div
+          class="full gift-submenu-item clickable animate"
+          @click="emailShare"
+        >
+          <font-awesome-icon
+            :icon="['fad', 'envelope-open-text']"
+            class="animate"
+          ></font-awesome-icon>
+          Podijeli emailom
         </div>
       </template>
       <template v-else>

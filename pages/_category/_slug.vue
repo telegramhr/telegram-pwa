@@ -288,6 +288,7 @@
                         this.$store.state.user.access &&
                         post.paywall === 'always'
                       "
+                      :key="`gift-${post.id}`"
                     ></gift-article>
                   </client-only>
                   <a href="#" @click.prevent="fbShare"
@@ -419,6 +420,7 @@
                         this.$store.state.user.access &&
                         post.paywall === 'always'
                       "
+                      :key="`gift-${post.id}`"
                       position="footer"
                     ></gift-article>
                   </client-only>

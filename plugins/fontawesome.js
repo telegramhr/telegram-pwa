@@ -39,6 +39,9 @@ import {
   faCcMastercard,
   faCcDinersClub,
   faGoogle,
+  faWhatsapp,
+  faViber,
+  faTelegramPlane,
 } from '@fortawesome/free-brands-svg-icons'
 
 import {
@@ -111,7 +114,10 @@ library.add(
   faCcDinersClub,
   faGoogle,
   faGift,
-  faLink
+  faLink,
+  faWhatsapp,
+  faViber,
+  faTelegramPlane
 )
 
 // Register the component globally
