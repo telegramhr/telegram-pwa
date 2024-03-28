@@ -13754,7 +13754,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     margin-right: 0.3rem;
 }
 .article-gift-submenu {
-    display: none;
+    display: flex;
     font-family: 'Barlow', sans-serif;
     position: absolute;
     top: 36px;

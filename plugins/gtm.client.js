@@ -1,6 +1,7 @@
 export default ({ app }) => {
   window.dataLayer = window.dataLayer || []
   function gtag() {
+    console.log(arguments)
     window.dataLayer.push(arguments)
   }
   gtag('consent', 'default', {
@@ -27,4 +28,17 @@ export default ({ app }) => {
         })
       }),
   })
+
+  // adblock detection
+  const googleAdUrl =
+    'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
+  try {
+    fetch(new Request(googleAdUrl)).catch(() => {
+      console.log('Adblock detected fetch')
+      gtag({ event: 'adblock' })
+    }) // use the event name you created in Step 1 here
+  } catch (e) {
+    console.log('Adblock detected catch')
+    gtag({ event: 'adblock' })
+  }
 }
