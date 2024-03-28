@@ -413,7 +413,15 @@
                       ></font-awesome-icon
                     ></a>
                   </div>
-                  <gift-article position="footer"></gift-article>
+                  <client-only>
+                    <gift-article
+                      v-if="
+                        this.$store.state.user.access &&
+                        post.paywall === 'always'
+                      "
+                      position="footer"
+                    ></gift-article>
+                  </client-only>
                 </div>
                 <client-only>
                   <comments v-if="post.id" :post="post"></comments>
@@ -813,6 +821,7 @@ export default {
     this.$nextTick(() => {
       this.getPost()
       window.addEventListener('scroll', this.handleScroll)
+      window.addEventListener('piano_gift', this.gift)
       if (this.$route.params.category === 'l') {
         window.history.replaceState({}, null, this.post.permalink)
       }
@@ -820,9 +829,20 @@ export default {
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.handleScroll)
+    window.removeEventListener('piano_gift', this.gift)
     this.comments_embed = null
   },
   methods: {
+    gift() {
+      const _that = this
+      const tp = window.tp || []
+      tp.push([
+        'init',
+        () => {
+          _that.$store.dispatch('user/login')
+        },
+      ])
+    },
     handleScroll() {
       const walls = document.getElementsByClassName('wallpaper-banners')
       const bill =
@@ -907,17 +927,25 @@ export default {
             } else {
               tp.push(['setCustomVariable', 'isPaywall', this.post.paywall])
             }
+            tp.push([
+              'init',
+              function () {
+                window.tp.experience.execute()
+                window.tp.enableGACrossDomainLinking()
+              },
+            ])
           })
       } else {
         tp.push(['setCustomVariable', 'isPaywall', this.post.paywall])
+        tp.push([
+          'init',
+          function () {
+            window.tp.experience.execute()
+            window.tp.enableGACrossDomainLinking()
+          },
+        ])
       }
-      tp.push([
-        'init',
-        function () {
-          window.tp.experience.execute()
-          window.tp.enableGACrossDomainLinking()
-        },
-      ])
+
       const _that = this
       window.marfeel.cmd.push([
         'compass',
