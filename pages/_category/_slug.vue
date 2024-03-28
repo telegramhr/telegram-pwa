@@ -835,11 +835,17 @@ export default {
   methods: {
     gift() {
       const _that = this
-      const tp = window.tp || []
-      tp.push([
+      window.tp.push([
         'init',
         () => {
-          _that.$store.dispatch('user/login')
+          window.tp.pianoId.show({
+            screen: 'register',
+            width: window.innerWidth > 720 ? 600 : 375,
+            showCloseButton: false,
+            loggedIn(data) {
+              _that.$store.dispatch('user/setUser', data.user)
+            },
+          })
         },
       ])
     },
@@ -916,7 +922,7 @@ export default {
           })
           .then((res) => {
             if (res.status === 200) {
-              tp.push(['setCustomVariable', 'isPaywall', 'gift'])
+              window.tp.push(['setCustomVariable', 'isPaywall', 'gift'])
               window.marfeel = window.marfeel || { cmd: [] }
               window.marfeel.cmd.push([
                 'compass',
@@ -925,9 +931,13 @@ export default {
                 },
               ])
             } else {
-              tp.push(['setCustomVariable', 'isPaywall', this.post.paywall])
+              window.tp.push([
+                'setCustomVariable',
+                'isPaywall',
+                this.post.paywall,
+              ])
             }
-            tp.push([
+            window.tp.push([
               'init',
               function () {
                 window.tp.experience.execute()

@@ -1106,7 +1106,7 @@ footer .copyright, footer .conversion-notice {
 .single-article .single-article-body p {
     margin-bottom: 15px;
 }
-.single-article .single-article-body p a, .single-article .single-article-body ul a {
+.single-article .single-article-body p a, .single-article .single-article-body ul a, .single-article .single-article-body ol a {
     color: #ae3737;
     text-decoration: underline;
     text-decoration-color: #ae3737;
