@@ -282,6 +282,55 @@
                   >{{ post.recommendations }} preporuka</span
                 >
                 <div class="sidebar-social flex">
+                  <!--<div
+                    v-if="
+                      this.$store.state.user.access && post.paywall === 'always'
+                    "
+                    class="flex relative article-gift-button"
+                  >
+                    <label for="article-head-gift" class="clickable"
+                      ><font-awesome-icon
+                        :icon="['far', 'gift']"
+                        class="animate"
+                      ></font-awesome-icon>
+                      <span>Poklonite članak</span></label
+                    >
+                    <input
+                      id="article-head-gift"
+                      class="hide"
+                      type="checkbox"
+                      name="article-head-gift"
+                    />
+                    <div class="article-gift-submenu flex">
+                      <p class="full gift-submenu-title">Poklonite članak</p>
+                      <p class="full gift-submenu-description">
+                        Kao pretplatnik možete nekom pokloniti članke koji su
+                        zaključani. Imate još <b>1/10</b> članaka za podijeliti
+                        ovaj mjesec.
+                      </p>
+                      <div class="full gift-submenu-item clickable animate">
+                        <font-awesome-icon
+                          :icon="['fas', 'link']"
+                          class="animate"
+                        ></font-awesome-icon>
+                        Kopiraj link
+                      </div>
+                      <div class="full gift-submenu-item clickable animate">
+                        <font-awesome-icon
+                          :icon="['fab', 'facebook-f']"
+                          class="animate"
+                        ></font-awesome-icon>
+                        Podijeli na Facebook
+                      </div>
+                      <div class="full gift-submenu-item clickable animate">
+                        <font-awesome-icon
+                          :icon="['fab', 'x-twitter']"
+                          class="animate"
+                        ></font-awesome-icon>
+                        Podijeli na X (Twitter)
+                      </div>
+                    </div>
+                  </div>-->
                   <a href="#" @click.prevent="fbShare"
                     ><font-awesome-icon
                       :icon="['fab', 'facebook-f']"
@@ -405,6 +454,55 @@
                       ></font-awesome-icon
                     ></a>
                   </div>
+                  <!--<div
+                    v-if="
+                      this.$store.state.user.access && post.paywall === 'always'
+                    "
+                    class="flex float-right relative article-gift-button"
+                  >
+                    <label for="article-footer-gift" class="clickable"
+                      ><font-awesome-icon
+                        :icon="['far', 'gift']"
+                        class="animate"
+                      ></font-awesome-icon>
+                      Poklonite članak</label
+                    >
+                    <input
+                      id="article-footer-gift"
+                      class="hide"
+                      type="checkbox"
+                      name="article-footer-gift"
+                    />
+                    <div class="article-gift-submenu flex">
+                      <p class="full gift-submenu-title">Poklonite članak</p>
+                      <p class="full gift-submenu-description">
+                        Kao pretplatnik možete nekom pokloniti članke koji su
+                        zaključani. Imate još <b>1/10</b> članaka za podijeliti
+                        ovaj mjesec.
+                      </p>
+                      <div class="full gift-submenu-item clickable animate">
+                        <font-awesome-icon
+                          :icon="['fas', 'link']"
+                          class="animate"
+                        ></font-awesome-icon>
+                        Kopiraj link
+                      </div>
+                      <div class="full gift-submenu-item clickable animate">
+                        <font-awesome-icon
+                          :icon="['fab', 'facebook-f']"
+                          class="animate"
+                        ></font-awesome-icon>
+                        Podijeli na Facebook
+                      </div>
+                      <div class="full gift-submenu-item clickable animate">
+                        <font-awesome-icon
+                          :icon="['fab', 'x-twitter']"
+                          class="animate"
+                        ></font-awesome-icon>
+                        Podijeli na X (Twitter)
+                      </div>
+                    </div>
+                  </div>-->
                 </div>
                 <client-only>
                   <comments v-if="post.id" :post="post"></comments>

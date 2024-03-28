@@ -12,6 +12,7 @@ import {
   faCheck,
   faTimesCircle,
   faBriefcase,
+  faLink,
 } from '@fortawesome/pro-solid-svg-icons'
 import {
   faUserLock,
@@ -50,6 +51,7 @@ import {
   faBuildingColumns,
   faCreditCardFront,
   faStars,
+  faGift,
 } from '@fortawesome/pro-regular-svg-icons'
 
 import {
@@ -107,7 +109,9 @@ library.add(
   faCcVisa,
   faCcMastercard,
   faCcDinersClub,
-  faGoogle
+  faGoogle,
+  faGift,
+  faLink
 )
 
 // Register the component globally
