@@ -174,7 +174,8 @@
             class="full flex superone-story column-vertical-pad center-text"
           >
             <h2 class="full animate">
-              <b>{{ breaks[0].overtitle }}</b> {{ breaks[0].title }}
+              <b>{{ breaks[0].overtitle | parseCat }}</b>
+              {{ breaks[0].portal_title | parseCat }}
             </h2>
             <h2 class="full animate faded">
               {{ breaks[0].subtitle }}
