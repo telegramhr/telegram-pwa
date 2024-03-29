@@ -284,10 +284,7 @@
                 <div class="sidebar-social flex">
                   <client-only>
                     <gift-article
-                      v-if="
-                        this.$store.state.user.access &&
-                        post.paywall === 'always'
-                      "
+                      v-if="post.paywall === 'always'"
                       :key="`gift-${post.id}`"
                     ></gift-article>
                   </client-only>
@@ -416,10 +413,7 @@
                   </div>
                   <client-only>
                     <gift-article
-                      v-if="
-                        this.$store.state.user.access &&
-                        post.paywall === 'always'
-                      "
+                      v-if="post.paywall === 'always'"
                       :key="`gift-${post.id}`"
                       position="footer"
                     ></gift-article>

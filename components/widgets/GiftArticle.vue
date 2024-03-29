@@ -25,7 +25,7 @@ export default {
     },
   },
   mounted() {
-    if (this.position === 'header') {
+    if (this.position === 'header' && this.$store.state.user.access) {
       this.$store.dispatch('gifts/getUserGifts')
     }
   },
@@ -108,7 +108,14 @@ export default {
       <span>Poklonite članak</span></label
     >
     <div v-show="showGiftSubmenu" class="article-gift-submenu flex">
-      <template v-if="userGifts.available">
+      <template v-if="!$store.state.user.access">
+        <p class="full gift-submenu-title">Samo za pretplatnike</p>
+        <p class="full gift-submenu-description">
+          Pretplatnici Telegrama mogu besplatno pokloniti 10 članaka mjesečno.
+          Pretplatite se ili prijavite u svoj račun.
+        </p>
+      </template>
+      <template v-else-if="userGifts.available">
         <p class="full gift-submenu-title">Poklonite članak</p>
         <p class="full gift-submenu-description">
           Kao pretplatnik možete nekom pokloniti članke koji su zaključani.
