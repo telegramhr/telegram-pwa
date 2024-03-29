@@ -34,7 +34,7 @@ export default {
       if (this.hasGifted.length) {
         this.link = this.hasGifted[0].link
         this.showGiftSubmenu = !this.showGiftSubmenu
-        return encodeURIComponent(this.link)
+        return this.link
       }
       return await this.$axios
         .$post('/pretplate/api/gift-article/', {
@@ -43,7 +43,7 @@ export default {
         .then((res) => {
           this.link = res.link
           this.$store.commit('gifts/updateAvailable', res)
-          return encodeURIComponent(res.link)
+          return res.link
         })
     },
     async copyLink() {
@@ -62,28 +62,32 @@ export default {
       )
     },
     async twitterShare() {
-      const link = await this.getLink()
+      let link = await this.getLink()
+      link = encodeURIComponent(link)
       const url = `https://twitter.com/intent/tweet?url=${link}&text=Ovaj Telegram članak poklon je pretplatnika i možete ga pročitati besplatno.`
       window.open(url, '_blank')
     },
     async whatsappShare() {
-      const link = await this.getLink()
+      let link = await this.getLink()
+      link = encodeURIComponent(link)
       const url = `https://api.whatsapp.com/send?text=Ovaj Telegram članak poklon je pretplatnika i možete ga pročitati besplatno. ${link}`
       window.open(url, '_blank')
     },
     async telegramShare() {
-      const link = await this.getLink()
+      let link = await this.getLink()
+      link = encodeURIComponent(link)
       const url = `https://t.me/share/url?url=${link}&text=Ovaj Telegram članak poklon je pretplatnika i možete ga pročitati besplatno.`
       window.open(url, '_blank')
     },
     async viberShare() {
-      const link = await this.getLink()
+      let link = await this.getLink()
+      link = encodeURIComponent(link)
       const url = `viber://forward?text=Ovaj Telegram članak poklon je pretplatnika i možete ga pročitati besplatno. ${link}`
       window.open(url, '_blank')
     },
     async emailShare() {
-      const link = await this.getLink()
-      console.log(link)
+      let link = await this.getLink()
+      link = encodeURIComponent(link)
       const url = `mailto:?subject=Ovaj Telegram članak poklon je pretplatnika i možete ga pročitati besplatno.&body=${link}`
       window.open(url, 'top')
     },
