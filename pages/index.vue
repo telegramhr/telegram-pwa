@@ -62,7 +62,7 @@
       <a
         v-if="$store.state.user.access"
         href="https://www.telegram.hr/tema/hrvatska-andreja-plenkovica/"
-        class="full center relative pretplata-subs-special darkened-bg"
+        class="full center relative pretplata-subs-special darkened-bg desktop-only"
       >
         <div class="container flex relative relative">
           <div
