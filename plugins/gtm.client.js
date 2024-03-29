@@ -29,14 +29,16 @@ export default ({ app }) => {
       }),
   })
 
-  // adblock detection
-  const googleAdUrl =
-    'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
-  try {
-    fetch(new Request(googleAdUrl)).catch(() => {
+  app.router.afterEach((to, from, next) => {
+    const googleAdUrl =
+      'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
+    try {
+      fetch(new Request(googleAdUrl)).catch(() => {
+        window.dataLayer.push({ event: 'adblock' })
+      }) // use the event name you created in Step 1 here
+    } catch (e) {
       window.dataLayer.push({ event: 'adblock' })
-    }) // use the event name you created in Step 1 here
-  } catch (e) {
-    window.dataLayer.push({ event: 'adblock' })
-  }
+    }
+    next()
+  })
 }
