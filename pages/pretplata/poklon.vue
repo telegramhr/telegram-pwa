@@ -34,7 +34,7 @@
             <div class="full flex overtitle-parent">
               <div class="noththree overtitle">Standard</div>
             </div>
-            <div class="full sub-price bold">62€</div>
+            <div class="full sub-price bold">79€</div>
             <div class="nothfour full center-text undertitle">
               godišnja pretplata
             </div>
@@ -70,7 +70,7 @@
             <div class="full flex overtitle-parent">
               <div class="noththree overtitle">Premium</div>
             </div>
-            <div class="full sub-price bold">78€</div>
+            <div class="full sub-price bold">99€</div>
             <div class="nothfour full center-text undertitle">
               godišnja pretplata
             </div>
@@ -287,33 +287,18 @@ export default {
   data() {
     return {
       promo_code: '',
-      terms: {
-        TM1LSJL22UJP: {
-          title: 'Telegram Standard Poklon',
-          price: 62.11,
-          gtm: 'standard-annual-gift',
-        },
-        TMMT1WONB6S8: {
-          title: 'Telegram Premium Poklon',
-          price: 78.04,
-          gtm: 'premium-annual-gift',
-        },
-      },
     }
   },
   computed: {
     one() {
-      return 'TM1LSJL22UJP'
+      return 'TME7S4G6QLSN'
     },
     two() {
-      return 'TMMT1WONB6S8'
+      return 'TMLHUVNF0ITI'
     },
   },
   mounted() {
     window.fbq = window.fbq || function () {}
-    window.fbq('track', 'ViewContent', {
-      content_ids: ['TM1LSJL22UJP', 'TMMT1WONB6S8'],
-    })
     window.tp.push([
       'addHandler',
       'checkoutComplete',
@@ -323,15 +308,6 @@ export default {
         }
       },
     ])
-    this.$gtm.push({
-      event: 'subscription-funnel',
-      'subscription-category': 'subscription-gift',
-      'subscription-action': 'viewed',
-      'article-title': this.$store.state.history.title,
-      'article-category': this.$store.state.history.category,
-      'article-author': this.$store.state.history.author,
-      'user-type': this.$store.state.user.type,
-    })
     if (this.$route.query.promo_code) {
       this.promo_code = this.$route.query.promo_code
       this.checkout(this.two)
@@ -343,17 +319,6 @@ export default {
       this.checkout(this.two)
     },
     checkout(termId) {
-      this.$gtm.push({
-        event: 'subscription-funnel',
-        'subscription-category': 'subscription-gift',
-        'subscription-action': 'selected',
-        'subscription-type': this.terms[termId].gtm,
-        'subscription-value': this.terms[termId].price,
-        'article-title': this.$store.state.history.title,
-        'article-category': this.$store.state.history.category,
-        'article-author': this.$store.state.history.author,
-        'user-type': this.$store.state.user.type,
-      })
       if (this.$store.state.user.token) {
         this.checkout2(termId, -1)
       } else {
@@ -393,61 +358,6 @@ export default {
                 content_ids: [termId],
                 currency: 'EUR',
                 value: this.terms[termId].price,
-              })
-              _that.$gtm.push({
-                event: 'subscription-funnel',
-                'subscription-category': 'subscription-gift',
-                'subscription-action': data.promotionId
-                  ? 'purchased-with-coupon'
-                  : 'purchased',
-                'subscription-type': _that.terms[data.termId].gtm,
-                'subscription-value': data.chargeAmount,
-                'article-title': this.$store.state.history.title,
-                'article-category': this.$store.state.history.category,
-                'article-author': this.$store.state.history.author,
-                'user-type': this.$store.state.user.type,
-              })
-              _that.$gtm.push({ ecommerce: null })
-              _that.$gtm.push({
-                ecommerce: {
-                  purchase: {
-                    actionField: {
-                      id: data.termConversionId,
-                      affiliation: 'Telegram.hr',
-                      revenue: data.chargeAmount,
-                      tax: data.chargeAmount - data.chargeAmount / 1.05,
-                    },
-                    products: [
-                      {
-                        id: data.termId,
-                        name: _that.terms[data.termId].title,
-                        quantity: 1,
-                        price: _that.terms[data.termId].price,
-                      },
-                    ],
-                  },
-                },
-              })
-              _that.$gtm.push({ ecommerce: null })
-              _that.$gtm.push({
-                ecommerce: {
-                  purchase: {
-                    actionField: {
-                      id: data.termConversionId,
-                      affiliation: 'Telegram.hr',
-                      revenue: data.chargeAmount,
-                      tax: data.chargeAmount - data.chargeAmount / 1.05,
-                    },
-                    products: [
-                      {
-                        id: data.termId,
-                        name: _that.terms[data.termId].title,
-                        quantity: 1,
-                        price: _that.terms[data.termId].price,
-                      },
-                    ],
-                  },
-                },
               })
             },
           })

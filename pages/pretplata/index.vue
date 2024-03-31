@@ -128,14 +128,8 @@
                 <div class="full flex overtitle-parent">
                   <div class="noththree overtitle">Standard</div>
                 </div>
-                <div class="full sub-price bold">6,49€</div>
+                <div class="full sub-price bold">7,99€</div>
                 <div class="nothfour full center-text undertitle">Mjesečno</div>
-                <div class="full flex pretplata-minibox darkened-bg">
-                  <p class="full bold">Uskoro 7,99€</p>
-                  <p class="full">
-                    Pretplatite se do 01.04. i zadržite staru cijenu
-                  </p>
-                </div>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
                     <font-awesome-icon
@@ -172,14 +166,8 @@
                 <div class="full flex overtitle-parent">
                   <div class="noththree overtitle">Premium</div>
                 </div>
-                <div class="full sub-price bold">9,10€</div>
+                <div class="full sub-price bold">9,99€</div>
                 <div class="nothfour full center-text undertitle">Mjesečno</div>
-                <div class="full flex pretplata-minibox darkened-bg">
-                  <p class="full bold">Uskoro 9,99€</p>
-                  <p class="full">
-                    Pretplatite se do 01.04. i zadržite staru cijenu
-                  </p>
-                </div>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
                     <font-awesome-icon
@@ -228,14 +216,8 @@
                 <div class="full flex overtitle-parent">
                   <div class="noththree overtitle">Standard</div>
                 </div>
-                <div class="full sub-price bold">62€</div>
+                <div class="full sub-price bold">79€</div>
                 <div class="nothfour full center-text undertitle">godišnje</div>
-                <div class="full flex pretplata-minibox darkened-bg">
-                  <p class="full bold">Uskoro 79€</p>
-                  <p class="full">
-                    Pretplatite se do 01.04. i zadržite staru cijenu
-                  </p>
-                </div>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
                     <font-awesome-icon
@@ -272,14 +254,8 @@
                 <div class="full flex overtitle-parent">
                   <div class="noththree overtitle">Premium</div>
                 </div>
-                <div class="full sub-price bold">78€</div>
+                <div class="full sub-price bold">99€</div>
                 <div class="nothfour full center-text undertitle">godišnje</div>
-                <div class="full flex pretplata-minibox darkened-bg">
-                  <p class="full bold">Uskoro 99€</p>
-                  <p class="full">
-                    Pretplatite se do 01.04. i zadržite staru cijenu
-                  </p>
-                </div>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
                     <font-awesome-icon
@@ -912,136 +888,25 @@ export default {
   data() {
     return {
       promo_code: '',
-      terms: {
-        TMJHR6Y8K4QA: {
-          title: 'Telegram Mjesečna Pretplata',
-          price: 6.49,
-          gtm: 'standard-monthly',
-        },
-        TMY8ORHQG44A: {
-          title: 'Telegram Premium Mjesečna Pretplata',
-          price: 9.16,
-          gtm: 'premium-monthly',
-        },
-        TM8RZKGESM1T: {
-          title: 'Telegram Godišnja Pretplata',
-          price: 62.11,
-          gtm: 'standard-annual',
-        },
-        TMQDTT4IEHY0: {
-          title: 'Telegram Premium Godišnja Pretplata',
-          price: 78.04,
-          gtm: 'premium-annual',
-        },
-        TMWPGMUCMX45: {
-          title: 'Telegram Mjesečna Pretplata (Trial)',
-          price: 6.49,
-          gtm: 'standard-monthly-trial',
-        },
-        TM15W5K9EVY4: {
-          title: 'Telegram Mjesečna Pretplat (PBF)',
-          price: 6.49,
-          gtm: 'standard-monthly-pbf',
-        },
-        TMWKY7BX6TFX: {
-          title: 'Telegram Standard pretplata (BF)',
-          price: 62,
-          gtm: 'standard-annual-bf',
-        },
-        TML20R6ZYA0X: {
-          title: 'Telegram Godišnja Pretplata (2 godine)',
-          price: 158,
-          gtm: 'standard-annual-2y',
-        },
-        TMYNBHMX6JBL: {
-          title: 'Akcija u sprezi',
-          price: 1,
-          gtm: 'akcija-sprega',
-        },
-        TMYTVOS7AU82: {
-          title: 'Božićna akcija',
-          price: 1.99,
-          gtm: 'bozicna-akcija',
-        },
-        TMXMTLO3DSSC: {
-          title: 'Superizborna godina',
-          price: 29,
-          gtm: 'superizborna-godina',
-        },
-        TM2QQCNWT3K1: {
-          title: 'Hrvatska tone u mrak',
-          price: 1.99,
-          gtm: 'standard',
-        },
-        TM5P57VYH7GT: {
-          title: 'Telegram Mjesečna Pretplata promo',
-          price: 1.99,
-          gtm: 'standard-monthly-trial',
-        },
-        TMMP593NCIAN: {
-          title: 'Telegram Premium Godišnja Pretplata (upgrade)',
-          price: 99,
-          gtm: 'premium-annual-upgrade',
-        },
-      },
     }
   },
   computed: {
     one() {
-      if (process.client) {
-        return 'TMJHR6Y8K4QA'
-      }
-      return ''
+      return 'TMU7ZSVF7C88'
     },
     two() {
-      if (process.client) {
-        return 'TMY8ORHQG44A'
-      }
-      return ''
+      return 'TMDN8RUGRHCF'
     },
     three() {
-      if (process.client) {
-        return 'TM8RZKGESM1T'
-      }
-      return ''
+      return 'TMMVDE0R01YY'
     },
     four() {
-      if (process.client) {
-        return 'TMQDTT4IEHY0'
-      }
-      return ''
-    },
-    five() {
-      return 'TM15W5K9EVY4'
-    },
-    bozic() {
-      return 'TMYTVOS7AU82'
-    },
-    izbori() {
-      return 'TMXMTLO3DSSC'
+      return 'TMMP593NCIAN'
     },
   },
   mounted() {
     this.$nextTick(() => {
       this.promo_code = this.$route.query.promo_code
-      window.fbq = window.fbq || function () {}
-      window.fbq('track', 'ViewContent', {
-        content_ids: [
-          'TMJHR6Y8K4QA',
-          'TMY8ORHQG44A',
-          'TM8RZKGESM1T',
-          'TMQDTT4IEHY0',
-          'TMWPGMUCMX45',
-          'TM15W5K9EVY4',
-          'TMWKY7BX6TFX',
-          'TMYNBHMX6JBL',
-          'TMYTVOS7AU82',
-          'TMXMTLO3DSSC',
-          'TM2QQCNWT3K1',
-          'TM5P57VYH7GT',
-          'TMMP593NCIAN',
-        ],
-      })
       window.tp.push([
         'addHandler',
         'checkoutComplete',
@@ -1065,27 +930,6 @@ export default {
             break
           case 'py':
             this.checkout(this.four)
-            break
-          case 'two-year':
-            this.checkout('TML20R6ZYA0X')
-            break
-          case 'plenkovic':
-            this.checkout('TMYNBHMX6JBL')
-            break
-          case 'bozic':
-            this.checkout(this.bozic)
-            break
-          case 'superizborna':
-            this.checkout(this.izbori)
-            break
-          case 'mrak':
-            this.checkout('TM2QQCNWT3K1')
-            break
-          case 'izbori':
-            this.checkout('TM5P57VYH7GT')
-            break
-          case 'upgrade-py':
-            this.checkout('TMMP593NCIAN', 1)
             break
           case 'upgrade':
             this.checkout('', 1)
@@ -1156,16 +1000,11 @@ export default {
     checkout2(termId, back) {
       const _that = this
       window.fbq = window.fbq || function () {}
-      window.fbq('track', 'InitiateCheckout', {
-        content_ids: [termId],
-        currency: 'EUR',
-        value: this.terms[termId].price,
-      })
       window.tp.push([
         'init',
         () => {
           window.tp.offer.show({
-            offerId: 'OF5JVPQYFLE1',
+            offerId: 'OFFY1ZO333EV',
             termId,
             templateId: 'OTXWXSOL0WWS',
             checkoutFlowId: 'CF65KTMVQXXX',
