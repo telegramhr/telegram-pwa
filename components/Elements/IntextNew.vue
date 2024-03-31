@@ -143,7 +143,7 @@ export default {
         'init',
         () => {
           window.tp.offer.show({
-            offerId: 'OF5JVPQYFLE1',
+            offerId: 'OFFY1ZO333EV',
             termId,
             templateId: 'OTXWXSOL0WWS',
             checkoutFlowId: 'CF65KTMVQXXX',
