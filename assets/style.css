@@ -13768,6 +13768,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     border: 1px solid #c8c8c8;
     text-align: left;
 }
+.contrast-mode .article-gift-submenu, .contrast-mode .article-gift-submenu::before {
+    background-color: #eeeeee;
+}
+.dark-mode .article-gift-submenu, .dark-mode .article-gift-submenu::before { 
+    background-color: #121212;
+    color: white;
+    border-color: #555;
+}
+.dark-mode .gift-submenu-item {
+    border-color: #555;
+}
 .article-gift-submenu::before {
     content: " ";
     position: absolute;
