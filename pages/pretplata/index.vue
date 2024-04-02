@@ -934,6 +934,9 @@ export default {
           case 'upgrade':
             this.checkout('', 1)
             break
+          case 'izbori':
+            this.checkout('TM5P57VYH7GT')
+            break
         }
       }
     })
