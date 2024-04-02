@@ -1,3 +1,11 @@
+/* Austin News */
+@font-face {
+  font-family: 'Austin News';
+  font-style: normal;
+  font-weight: 700;
+  src: url('~assets/fonts/AustinNewsHeadline-Bold-Trial.woff2') format('woff2');
+}
+
 /* lora-regular - latin-ext_latin */
 @font-face {
   font-family: 'Lora';

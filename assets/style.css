@@ -13058,3 +13058,9 @@ header {
         padding: 4px 6px;
     }
 }
+
+.article h2 {
+    font-family: 'Austin News';
+    font-style: normal;
+    font-weight: 700;
+}
