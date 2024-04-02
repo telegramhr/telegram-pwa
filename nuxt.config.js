@@ -76,6 +76,7 @@ export default {
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
+    '@/assets/css/fonts.css',
     '@/assets/tmg_framework.css',
     '@/assets/style.css',
     'vue-slick-carousel/dist/vue-slick-carousel.css',
