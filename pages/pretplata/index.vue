@@ -1061,6 +1061,8 @@ export default {
           case 'superizborna':
             this.checkout(this.izbori)
             break
+          case 'old-sm':
+            this.oldCheckout('TMJHR6Y8K4QA')
         }
       }
     })
@@ -1069,33 +1071,7 @@ export default {
     canLogIn() {
       return this.$store.state.user.exp * 1000 < new Date().getTime()
     },
-    checkout(termId) {
-      this.$gtm.push({ ecommerce: null }) // Clear the previous ecommerce object.
-      this.$gtm.push({
-        event: 'productClick',
-        ecommerce: {
-          click: {
-            products: [
-              {
-                name: this.terms[termId].title,
-                id: termId,
-                price: this.terms[termId].price,
-              },
-            ],
-          },
-        },
-      })
-      this.$gtm.push({
-        event: 'subscription-funnel',
-        'subscription-category': 'subscription-new',
-        'subscription-action': 'selected',
-        'subscription-type': this.terms[termId].gtm,
-        'subscription-value': this.terms[termId].price,
-        'article-title': this.$store.state.history.title,
-        'article-category': this.$store.state.history.category,
-        'article-author': this.$store.state.history.author,
-        'user-type': this.$store.state.user.type,
-      })
+    oldCheckout(termId) {
       if (this.$store.state.user.token) {
         this.checkout2(termId, -1)
       } else {
@@ -1109,12 +1085,109 @@ export default {
               loggedIn(data) {
                 _that.$store.dispatch('user/setUser', data.user)
                 // window.location.reload()
-                _that.checkout2(termId, -2)
+                _that.oldCheckout2(termId, -2)
               },
             })
           },
         ])
       }
+    },
+    checkout(termId) {
+      if (this.$store.state.user.token) {
+        this.checkout2(termId, -1)
+      } else {
+        const _that = this
+        window.tp.push([
+          'init',
+          () => {
+            window.tp.pianoId.show({
+              screen: 'register',
+              width: window.innerWidth > 720 ? 600 : 375,
+              loggedIn(data) {
+                _that.$store.dispatch('user/setUser', data.user)
+                // window.location.reload()
+                _that.oldCheckout2(termId, -2)
+              },
+            })
+          },
+        ])
+      }
+    },
+    oldCheckout2(termId, back) {
+      const _that = this
+      window.tp.push([
+        'init',
+        () => {
+          window.tp.offer.show({
+            offerId: 'OF5JVPQYFLE1',
+            termId,
+            templateId: 'OTXWXSOL0WWS',
+            checkoutFlowId: 'CF65KTMVQXXX',
+            promoCode: this.promo_code,
+            closeOnLogout: true,
+            complete: (data) => {
+              _that.$store.dispatch('user/checkAccess')
+              window.fbq('track', 'Purchase', {
+                content_ids: data.termId,
+                currency: data.chargeCurrency,
+                value: data.chargeAmount,
+              })
+              _that.$gtm.push({
+                event: 'subscription-funnel',
+                'subscription-category': 'subscription-new',
+                'subscription-action': data.promotionId
+                  ? 'purchased-with-coupon'
+                  : 'purchased',
+                'subscription-type': _that.terms[data.termId].gtm,
+                'subscription-value': data.chargeAmount,
+                'article-title': this.$store.state.history.title,
+                'article-category': this.$store.state.history.category,
+                'article-author': this.$store.state.history.author,
+                'user-type': this.$store.state.user.type,
+              })
+              _that.$gtm.push({ ecommerce: null })
+              _that.$gtm.push({
+                ecommerce: {
+                  purchase: {
+                    actionField: {
+                      id: data.termConversionId,
+                      affiliation: 'Telegram.hr',
+                      revenue: data.chargeAmount,
+                      tax: data.chargeAmount - data.chargeAmount / 1.05,
+                    },
+                    products: [
+                      {
+                        id: data.termId,
+                        name: _that.terms[data.termId].title,
+                        quantity: 1,
+                        price: _that.terms[data.termId].price,
+                      },
+                    ],
+                  },
+                },
+              })
+              window.marfeel.cmd.push([
+                'compass',
+                function (compass) {
+                  compass.trackConversion('subscribe')
+                },
+              ])
+              window.fbq('track', 'Subscribe', {
+                currency: data.chargeCurrency,
+                value: data.chargeAmount,
+              })
+              window.PianoESP &&
+              typeof window.PianoESP.handleUserDataPromise === 'function' &&
+              window.PianoESP.handleUserDataPromise({
+                email: _that.$store.state.user.email,
+                squads: [2128, 2555, 2554, 10670, 10671],
+              }).then(() => {
+                _that.$router.go(back)
+              })
+            },
+          })
+        },
+      ])
     },
     checkout2(termId, back) {
       const _that = this
