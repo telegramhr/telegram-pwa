@@ -938,7 +938,7 @@ export default {
             this.checkout('TM5P57VYH7GT')
             break
           case 'old-sm':
-            this.checkout('TMJHR6Y8K4QA')
+            this.oldCheckout('TMJHR6Y8K4QA')
             break
         }
       }
