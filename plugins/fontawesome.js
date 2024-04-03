@@ -61,6 +61,7 @@ import {
   faMinusSquare,
   faPlusSquare,
   faArrowRight,
+  faBell,
 } from '@fortawesome/pro-light-svg-icons'
 
 // This is important, we are going to let Nuxt.js worry about the CSS
@@ -117,7 +118,8 @@ library.add(
   faLink,
   faWhatsapp,
   faViber,
-  faTelegramPlane
+  faTelegramPlane,
+  faBell
 )
 
 // Register the component globally

@@ -14,6 +14,25 @@
         :headline="post.portal_title"
         :post="post"
       ></theader>
+      <client-only>
+        <app-link
+          v-if="!$store.state.user.access"
+          class="full center relative pretplata-mini-blue"
+          to="/pretplata"
+        >
+          <div
+            class="container center column-full-pad relative mobile-full-pad"
+          >
+            <div>
+              <font-awesome-icon :icon="['fal', 'bell']"></font-awesome-icon>
+              Specijalna izborna ponuda: pretplata na Telegram samo
+              <span class="strikethrough faded">7.99 EUR</span>
+              <b>1,99 EUR</b> mjesečno
+            </div>
+            <div class="newbtn huge-newbtn center-text">Pogledajte ponudu</div>
+          </div>
+        </app-link>
+      </client-only>
       <div v-show="related_posts" class="full related-header-widget">
         <div class="container flex desktop-only column-vertical-pad">
           <div
