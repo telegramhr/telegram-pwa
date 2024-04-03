@@ -937,6 +937,9 @@ export default {
           case 'izbori':
             this.checkout('TM5P57VYH7GT')
             break
+          case 'old-sm':
+            this.checkout('TMJHR6Y8K4QA')
+            break
         }
       }
     })
@@ -968,6 +971,27 @@ export default {
                 } else {
                   _that.checkout2(termId, -2)
                 }
+              },
+            })
+          },
+        ])
+      }
+    },
+    oldCheckout(termId) {
+      if (this.$store.state.user.token) {
+        this.oldCheckout2(termId, -1)
+      } else {
+        const _that = this
+        window.tp.push([
+          'init',
+          () => {
+            window.tp.pianoId.show({
+              screen: 'register',
+              width: window.innerWidth > 720 ? 600 : 375,
+              loggedIn(data) {
+                _that.$store.dispatch('user/setUser', data.user)
+                // window.location.reload()
+                _that.oldCheckout2(termId, -2)
               },
             })
           },
@@ -1008,6 +1032,49 @@ export default {
         () => {
           window.tp.offer.show({
             offerId: 'OFFY1ZO333EV',
+            termId,
+            templateId: 'OTXWXSOL0WWS',
+            checkoutFlowId: 'CF65KTMVQXXX',
+            promoCode: this.promo_code,
+            closeOnLogout: true,
+            complete: (data) => {
+              _that.$store.dispatch('user/checkAccess')
+              window.fbq('track', 'Purchase', {
+                content_ids: data.termId,
+                currency: data.chargeCurrency,
+                value: data.chargeAmount,
+              })
+              window.marfeel.cmd.push([
+                'compass',
+                function (compass) {
+                  compass.trackConversion('subscribe')
+                },
+              ])
+              window.fbq('track', 'Subscribe', {
+                currency: data.chargeCurrency,
+                value: data.chargeAmount,
+              })
+              window.PianoESP &&
+                typeof window.PianoESP.handleUserDataPromise === 'function' &&
+                window.PianoESP.handleUserDataPromise({
+                  email: _that.$store.state.user.email,
+                  squads: [2128, 2555, 2554, 10670, 10671],
+                }).then(() => {
+                  _that.$router.go(back)
+                })
+            },
+          })
+        },
+      ])
+    },
+    oldCheckout2(termId, back) {
+      const _that = this
+      window.fbq = window.fbq || function () {}
+      window.tp.push([
+        'init',
+        () => {
+          window.tp.offer.show({
+            offerId: 'OF5JVPQYFLE1',
             termId,
             templateId: 'OTXWXSOL0WWS',
             checkoutFlowId: 'CF65KTMVQXXX',
