@@ -16,7 +16,7 @@
       <theader></theader>
     </div>
     <!-- Stocks -->
-    <div class="full center stocks-parent desktop-only">
+    <div class="full center stocks-parent darkened-bg desktop-only">
       <div class="container flex column-horizontal-pad">
         <client-only>
           <stocks></stocks>

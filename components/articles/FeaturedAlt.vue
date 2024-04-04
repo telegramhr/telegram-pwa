@@ -26,14 +26,23 @@
         :tracker="post.trackerPermalink"
         :aria-labelledby="'featured-' + post.id"
       >
-        <div class="full flex">
+        <!--<div class="full flex">
           <div
-            class="overtitle"
+            class="overtitle overtitle-live"
             :class="{ noththree: true, dynamicOvertitle: post.overtitle_tag }"
           >
             <span v-if="post.overtitle_tag" class="dynamic-overtitle-element">{{
               post.overtitle_tag
             }}</span>
+            <span>{{ parsedOvertitle }}</span>
+          </div>
+        </div>-->
+        <div class="full flex">
+          <div
+            class="overtitle overtitle-live"
+            :class="{ noththree: true, dynamicOvertitle: true }"
+          >
+            <span class="dynamic-overtitle-element">Uživo</span>
             <span>{{ parsedOvertitle }}</span>
           </div>
         </div>

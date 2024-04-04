@@ -68,13 +68,8 @@
             class="third mobile-forty center nayos-logos telegram-only"
           >
             <img
-              src="@/assets/img/telegram_logo_black.svg"
-              alt="Telegram logo"
-            />
-            <img
               src="@/assets/img/telegram_logo_white.svg"
               alt="Telegram logo"
-              class="dark-mode-only"
             />
           </app-link>
           <app-link
@@ -82,14 +77,8 @@
             class="third mobile-forty center nayos-logos superone-only"
           >
             <img
-              src="@/assets/img/s1_logo_clean_noline.svg"
-              alt="Super1 logo"
-            />
-
-            <img
               src="@/assets/img/s1_logo_clean_noline_white.svg"
               alt="Super1 logo"
-              class="dark-mode-only"
             />
           </app-link>
           <a
@@ -97,14 +86,8 @@
             class="third mobile-forty center nayos-logos telesport-only"
           >
             <img
-              src="@/assets/img/telesport_logo_black.svg"
-              alt="Telesport logo"
-            />
-
-            <img
               src="@/assets/img/telesport_logo_white.svg"
               alt="Telesport logo"
-              class="dark-mode-only"
             />
           </a>
           <app-link
@@ -112,14 +95,8 @@
             class="third mobile-forty center nayos-logos pz-only"
           >
             <img
-              src="@/assets/img/pz_logo_normal.svg"
-              alt="PitanjeZdravlja logo"
-            />
-
-            <img
               src="@/assets/img/pz_logo_negative.svg"
               alt="PitanjeZdravlja logo"
-              class="dark-mode-only"
             />
           </app-link>
           <app-link
@@ -127,15 +104,8 @@
             class="third mobile-forty center nayos-logos os-only"
           >
             <img
-              src="@/assets/img/openspace_logo_normal.svg"
-              alt="openspace logo"
-              loading="lazy"
-            />
-
-            <img
               src="@/assets/img/openspace_logo_negative.svg"
               alt="openspace logo"
-              class="dark-mode-only"
               loading="lazy"
             />
           </app-link>

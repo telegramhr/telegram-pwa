@@ -779,7 +779,6 @@ h2.section-title {
     text-transform: uppercase;
     font-size: 14px;
     font-size: 0.7rem;
-    color: white;
     justify-content: space-between;
     padding-top: 0px;
     padding-bottom: 1px;
@@ -6952,7 +6951,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .cantha-header .logo {
     width: 70%;
-    max-width: 340px;
+    max-width: 380px;
 }
 .dark-mode .cantha-header .logo img {
     display: none;
@@ -7031,7 +7030,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     width: auto;
     margin: 0px 4px;
     padding-bottom: 1.5px;
-    color: white;
     font-weight: 600;
 }
 .stock-market img {
@@ -7434,8 +7432,11 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 
 @media screen and (max-width: 767px) {
-    .homepage {
+    .main-container {
         padding-top: 42px;
+    }
+    .main-container.single-article-premium {
+        padding-top: 0px;
     }
     .cantha-header {
         z-index: 1;
@@ -12977,12 +12978,8 @@ header {
 }
 
 .stocks-parent {
-    background-color: #212121;
     height: 50px;
     z-index: 100;
-}
-.dark-mode .stocks-parent {
-    background-color: #121212;
 }
 .superone-home-header {
     z-index: 100;
@@ -13056,5 +13053,45 @@ header {
         font-size: 11px;
         font-size: 0.55rem;
         padding: 4px 6px;
+    }
+}
+
+.overtitle-live {
+    position: relative;
+    padding-left: 2.2em;
+}
+.overtitle-live::before {
+    content: " ";
+    position: absolute;
+    top: 0.2em;
+    left: 0.45em;
+    width: 0.85em;
+    height: 0.85em;
+    border-radius: 1em;
+    background-color: #ae3737;
+    animation: live_dot 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+    z-index: 3;
+}
+.overtitle-live::after {
+    content: " ";
+    position: absolute;
+    top: -0.25em;
+    left: 0em;
+    width: 1.6em;
+    height: 1.6em;
+    border-radius: 0.8em;
+    border: 1px solid #c8c8c8;
+    z-index: 1;
+}
+
+@keyframes live_dot {
+    0% {
+        background-color: #ae3737;
+    }
+    20% {
+        background-color: #ae3737;
+    }
+    100% {
+        background-color: #999999;
     }
 }
