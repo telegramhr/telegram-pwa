@@ -43,7 +43,7 @@
             <div class="full flex">
               <div class="flex newbtn huge-newbtn animate">Kupite odmah</div>
             </div>
-            <div class="full pretplata-benefits desktop-only">
+            <div class="full pretplata-benefits">
               <p class="full animate bold">
                 <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
                 Otkažite u bilo kojem trenutku
