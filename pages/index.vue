@@ -17,10 +17,10 @@
     </div>
     <!-- Above header banner -->
     <client-only>
-      <div
+      <app-link
         v-if="!$store.state.user.access"
+        to="/pretplata"
         class="full center relative dark-mode pretplata-bf pretplata-blue clickable"
-        @click.prevent="checkout('TM5P57VYH7GT')"
       >
         <div class="container flex relative">
           <div
@@ -49,7 +49,9 @@
               prva tri mjeseca samo 1,99€ mjesečno
             </p>
             <div class="full flex">
-              <div class="flex newbtn huge-newbtn animate">Kupite odmah</div>
+              <div class="flex newbtn huge-newbtn animate">
+                Pogledajte ponudu
+              </div>
             </div>
           </div>
           <img
@@ -58,7 +60,7 @@
             class="absolute-half-img"
           />
         </div>
-      </div>
+      </app-link>
       <a
         v-if="$store.state.user.access"
         href="https://www.telegram.hr/tema/hrvatska-andreja-plenkovica/"
