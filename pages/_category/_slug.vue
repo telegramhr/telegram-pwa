@@ -16,7 +16,10 @@
       ></theader>
       <client-only>
         <app-link
-          v-if="!$store.state.user.access"
+          v-if="
+            !$store.state.user.access &&
+            (!categoryClass.includes('superone') || post.type !== 'premium')
+          "
           class="full center relative pretplata-mini-blue"
           to="/pretplata"
         >
@@ -26,7 +29,7 @@
             <div>
               <font-awesome-icon :icon="['fal', 'bell']"></font-awesome-icon>
               Specijalna izborna ponuda: pretplata na Telegram samo
-              <span class="strikethrough faded">7.99 EUR</span>
+              <span class="strikethrough faded">7,99 EUR</span>
               <b>1,99 EUR</b> mjesečno
             </div>
             <div class="newbtn huge-newbtn center-text">Pogledajte ponudu</div>
