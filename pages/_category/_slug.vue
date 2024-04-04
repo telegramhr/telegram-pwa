@@ -18,7 +18,7 @@
         <app-link
           v-if="
             !$store.state.user.access &&
-            (!categoryClass.includes('superone') || post.type !== 'premium')
+            !(categoryClass.includes('superone') || post.type === 'premium')
           "
           class="full center relative pretplata-mini-blue"
           to="/pretplata"
