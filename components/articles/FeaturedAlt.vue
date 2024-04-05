@@ -28,12 +28,17 @@
       >
         <div class="full flex">
           <div
-            class="overtitle"
-            :class="{ noththree: true, dynamicOvertitle: post.overtitle_tag }"
+            class="overtitle noththree"
+            :class="{
+              dynamicOvertitle: post.overtitle_tag || post.live,
+              overtitleLive: post.live,
+            }"
           >
-            <span v-if="post.overtitle_tag" class="dynamic-overtitle-element">{{
-              post.overtitle_tag
-            }}</span>
+            <span
+              v-if="post.overtitle_tag || post.live"
+              class="dynamic-overtitle-element"
+              >{{ post.live ? 'Uživo' : post.overtitle_tag }}</span
+            >
             <span>{{ parsedOvertitle }}</span>
           </div>
         </div>

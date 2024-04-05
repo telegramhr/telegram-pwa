@@ -5,9 +5,16 @@
     <div class="container flex relative column-vertical-pad">
       <div class="full flex column-horizontal-pad mobile-side-pad">
         <div
+          v-if="type == 'tg'"
           class="noththree full center-text column-vertical-pad subsection-title"
         >
           Telegram komentari
+        </div>
+        <div
+          v-if="type == 'ts'"
+          class="noththree full center-text column-vertical-pad subsection-title"
+        >
+          Telesport komentari
         </div>
       </div>
       <div
