@@ -246,8 +246,8 @@
               </div>
             </div>
             <p class="full bold remp-subtitle faded">4) Unesite podatke</p>
-            <div class="full flex relative remp-halfpad">
-              <div class="half flex flex-responsive remp-miniboxes">
+            <div id="login" class="full flex relative remp-halfpad">
+              <!-- <div class="half flex flex-responsive remp-miniboxes">
                 <input
                   id="pretplata-email"
                   type="text"
@@ -379,7 +379,7 @@
                     Tekst za bankovnu uplatu.
                   </p>
                 </div>
-              </div>
+              </div>-->
             </div>
             <div class="full flex relative column-top-pad mobile-top-pad">
               <div class="full flex">
@@ -525,6 +525,21 @@ export default {
         return 'mjesec'
       }
     },
+  },
+  mounted() {
+    this.$nextTick(() => {
+      window.tp.push([
+        'init',
+        () => {
+          window.tp.pianoId.show({
+            screen: 'register',
+            width: window.innerWidth > 720 ? 600 : 375,
+            displayMode: 'inline',
+            containerSelector: '#login',
+          })
+        },
+      ])
+    })
   },
   methods: {
     canLogIn() {
