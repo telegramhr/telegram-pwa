@@ -4159,9 +4159,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .single-article {
         font-size: 18px;
         font-size: 0.9rem;
+        padding-top: 50px;
+    }
+    .single-article-premium {
+        padding-top: 0px;
     }
     .related-header-widget {
-        padding-top: 50px;
         background-color: rgba(0,0,0,0.05);
     }
     .dark-mode .related-header-widget {
