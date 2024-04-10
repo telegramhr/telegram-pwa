@@ -15,6 +15,14 @@
     <div class="full flex">
       <theader></theader>
     </div>
+    <!-- Stocks -->
+    <div class="full center stocks-parent desktop-only">
+      <div class="container flex column-horizontal-pad">
+        <client-only>
+          <stocks></stocks>
+        </client-only>
+      </div>
+    </div>
     <!-- Above header banner -->
     <client-only>
       <app-link
@@ -128,14 +136,6 @@
         </div>
       </div>
     </app-link>-->
-    <!-- Stocks -->
-    <div class="full center stocks-parent darkened-bg desktop-only">
-      <div class="container flex column-horizontal-pad">
-        <client-only>
-          <stocks></stocks>
-        </client-only>
-      </div>
-    </div>
     <!-- Cantha header -->
     <div class="full relative cantha-header">
       <div class="container flex relative column-top-pad column-horizontal-pad">

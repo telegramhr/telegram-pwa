@@ -84,7 +84,7 @@
             >
               <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon
             ></a>
-            <app-link to="/telesport" class="logo">
+            <app-link to="/nesto/kultura" class="logo">
               <img
                 src="@/assets/img/tg_kultura_logo.svg"
                 class="light-mode-only"
