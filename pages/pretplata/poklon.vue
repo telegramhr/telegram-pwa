@@ -314,10 +314,6 @@ export default {
     }
   },
   methods: {
-    promo() {
-      this.promo_code = 'OU1FMSFRMS'
-      this.checkout(this.two)
-    },
     checkout(termId) {
       if (this.$store.state.user.token) {
         this.checkout2(termId, -1)
@@ -336,12 +332,6 @@ export default {
     },
     checkout2(termId, back) {
       const _that = this
-      window.fbq = window.fbq || function () {}
-      window.fbq('track', 'InitiateCheckout', {
-        content_ids: [termId],
-        currency: 'EUR',
-        value: this.terms[termId].price,
-      })
       window.tp.push([
         'init',
         () => {
@@ -354,11 +344,6 @@ export default {
             closeOnLogout: true,
             complete: (data) => {
               _that.$store.dispatch('user/checkAccess')
-              window.fbq('track', 'Purchase', {
-                content_ids: [termId],
-                currency: 'EUR',
-                value: this.terms[termId].price,
-              })
             },
           })
         },

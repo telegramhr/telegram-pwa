@@ -940,7 +940,13 @@ export default {
           case 'old-sm':
             this.oldCheckout('TMJHR6Y8K4QA')
             break
+          case 'term':
+            this.checkout(this.$route.query.term)
+            break
         }
+      }
+      if (this.$route.query.term) {
+        this.checkout(this.$route.query.term)
       }
     })
   },
