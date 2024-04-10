@@ -945,6 +945,9 @@ export default {
             break
         }
       }
+      if (this.$route.query.term) {
+        this.checkout(this.$route.query.term)
+      }
     })
   },
   methods: {
