@@ -13582,3 +13582,14 @@ header {
     background-color: #999999;
   }
 }
+
+.wp-block-columns {
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  max-width: 100vw;
+  position: relative;
+  right: 50%;
+  width: 100vw;
+  gap: 20px;
+}
