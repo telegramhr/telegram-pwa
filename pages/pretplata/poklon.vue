@@ -315,6 +315,14 @@ export default {
     if (this.$route.query.term) {
       this.checkout(this.$route.query.term)
     }
+    if (this.$route.query.checkout) {
+      switch (this.$route.query.checkout) {
+        case 'izbori':
+          this.promo_code = 'VFGKTV3QZY'
+          this.checkout('TM2DHAF8NF3Z')
+          break
+      }
+    }
   },
   methods: {
     checkout(termId) {
