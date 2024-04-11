@@ -14,7 +14,20 @@
       height="505"
     />
     <div class="full flex desktop-only">
-      <div class="noththree overtitle">{{ parsedOvertitle }}</div>
+      <div
+        class="overtitle noththree"
+        :class="{
+          'dynamic-overtitle': post.overtitle_tag || post.live,
+          'overtitle-live': post.live,
+        }"
+      >
+        <span
+          v-if="post.overtitle_tag || post.live"
+          class="dynamic-overtitle-element"
+          >{{ post.live ? 'Uživo' : post.overtitle_tag }}</span
+        >
+        <span>{{ parsedOvertitle }}</span>
+      </div>
     </div>
     <h2 :id="'standard-' + post.id" class="full">
       {{ post.portal_title | parseCat }}
