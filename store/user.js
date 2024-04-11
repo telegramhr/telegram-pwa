@@ -53,7 +53,13 @@ export const mutations = {
 
 export const actions = {
   setUser({ commit, dispatch }, data) {
-    commit('setUser', data)
+    return new Promise((resolve) => {
+      commit('setUser', data)
+      window.tp.api.callApi('/access/list', {}, function (response) {
+        dispatch('setAccess', { data: response.data, user: data.user })
+        resolve()
+      })
+    })
   },
   getCoralToken({ commit, state }) {
     return new Promise((resolve) => {
