@@ -298,31 +298,32 @@ export default {
     },
   },
   mounted() {
-    window.fbq = window.fbq || function () {}
-    window.tp.push([
-      'addHandler',
-      'checkoutComplete',
-      function (conversion) {
-        if (conversion.rid === '') {
-          this.$store.commit('user/setTerm', true)
-        }
-      },
-    ])
-    if (this.$route.query.promo_code) {
-      this.promo_code = this.$route.query.promo_code
-      this.checkout(this.two)
-    }
-    if (this.$route.query.term) {
-      this.checkout(this.$route.query.term)
-    }
-    if (this.$route.query.checkout) {
-      switch (this.$route.query.checkout) {
-        case 'izbori':
-          this.promo_code = 'VFGKTV3QZY'
-          this.checkout('TM2DHAF8NF3Z')
-          break
+    this.$nextTick(() => {
+      window.fbq = window.fbq || function () {}
+      window.tp.push([
+        'addHandler',
+        'checkoutComplete',
+        function (conversion) {
+          if (conversion.rid === '') {
+            this.$store.commit('user/setTerm', true)
+          }
+        },
+      ])
+      if (this.$route.query.promo_code) {
+        this.promo_code = this.$route.query.promo_code
+        this.checkout(this.two)
       }
-    }
+      if (this.$route.query.term) {
+        this.checkout(this.$route.query.term)
+      }
+      if (this.$route.query.checkout) {
+        switch (this.$route.query.checkout) {
+          case 'izbori':
+            this.checkout('TM2DHAF8NF3Z')
+            break
+        }
+      }
+    })
   },
   methods: {
     checkout(termId) {
@@ -336,9 +337,8 @@ export default {
             window.tp.pianoId.show({
               screen: 'register',
               width: window.innerWidth > 720 ? 600 : 375,
-              loggedIn(data) {
-                _that.$store.dispatch('user/setUser', data.user)
-                // window.location.reload()
+              async loggedIn(data) {
+                await _that.$store.dispatch('user/setUser', data.user)
                 _that.checkout2(termId, -2)
               },
             })
@@ -347,7 +347,6 @@ export default {
       }
     },
     checkout2(termId, back) {
-      const _that = this
       window.tp.push([
         'init',
         () => {
@@ -356,7 +355,10 @@ export default {
             termId,
             templateId: 'OTXWXSOL0WWS',
             checkoutFlowId: 'CF65KTMVQXXX',
-            promoCode: this.promo_code,
+            promoCode:
+              termId === 'TM2DHAF8NF3Z' && this.$store.state.user.access
+                ? 'VFGKTV3QZY'
+                : this.promo_code,
             closeOnLogout: true,
           })
         },
