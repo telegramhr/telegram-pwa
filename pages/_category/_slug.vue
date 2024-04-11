@@ -157,8 +157,8 @@
             <div
               class="noththree overtitle"
               :class="{
-                dynamicOvertitle: post.live,
-                overtitleLive: post.live,
+                'dynamic-overtitle': post.live,
+                'overtitle-live': post.live,
               }"
             >
               <span v-if="post.live" class="dynamic-overtitle-element">{{
@@ -199,7 +199,16 @@
           >
             <div class="full column article-head column-top-pad flex">
               <div class="full flex overtitle-parent relative">
-                <div class="noththree overtitle">
+                <div
+                  class="noththree overtitle"
+                  :class="{
+                    'dynamic-overtitle': post.live,
+                    'overtitle-live': post.live,
+                  }"
+                >
+                  <span v-if="post.live" class="dynamic-overtitle-element">{{
+                    'Uživo'
+                  }}</span>
                   <AppLink :to="'/' + post.category_link">
                     {{ parsedOvertitle }}
                   </AppLink>
@@ -651,6 +660,7 @@ export default {
           partner: '',
         },
         quiz: null,
+        live: false,
       },
       related_posts: [],
       hasLinker: false,

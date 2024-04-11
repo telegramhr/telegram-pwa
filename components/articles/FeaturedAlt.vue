@@ -30,8 +30,8 @@
           <div
             class="overtitle noththree"
             :class="{
-              dynamicOvertitle: post.overtitle_tag || post.live,
-              overtitleLive: post.live,
+              'dynamic-overtitle': post.overtitle_tag || post.live,
+              'overtitle-live': post.live,
             }"
           >
             <span
