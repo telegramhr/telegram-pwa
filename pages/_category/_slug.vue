@@ -154,7 +154,16 @@
         />
         <div class="full flex article-head">
           <div class="full flex overtitle-parent">
-            <div class="noththree overtitle">
+            <div
+              class="noththree overtitle"
+              :class="{
+                dynamicOvertitle: post.live,
+                overtitleLive: post.live,
+              }"
+            >
+              <span v-if="post.live" class="dynamic-overtitle-element">{{
+                'Uživo'
+              }}</span>
               <AppLink :to="'/' + post.category_link">
                 {{ parsedOvertitle }}
               </AppLink>
