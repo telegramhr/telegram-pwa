@@ -55,10 +55,6 @@
                 <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
                 verificirani profil u komentarima
               </p>
-              <p class="full animate">
-                <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-                surfanje s manje oglasa
-              </p>
             </div>
             <div class="full center btn-parent" @click="checkout(one)">
               <div class="btn animate">Odaberi</div>
@@ -298,20 +294,32 @@ export default {
     },
   },
   mounted() {
-    window.fbq = window.fbq || function () {}
-    window.tp.push([
-      'addHandler',
-      'checkoutComplete',
-      function (conversion) {
-        if (conversion.rid === '') {
-          this.$store.commit('user/setTerm', true)
+    this.$nextTick(() => {
+      window.fbq = window.fbq || function () {}
+      window.tp.push([
+        'addHandler',
+        'checkoutComplete',
+        function (conversion) {
+          if (conversion.rid === '') {
+            this.$store.commit('user/setTerm', true)
+          }
+        },
+      ])
+      if (this.$route.query.promo_code) {
+        this.promo_code = this.$route.query.promo_code
+        this.checkout(this.two)
+      }
+      if (this.$route.query.term) {
+        this.checkout(this.$route.query.term)
+      }
+      if (this.$route.query.checkout) {
+        switch (this.$route.query.checkout) {
+          case 'izbori':
+            this.checkout('TM2DHAF8NF3Z')
+            break
         }
-      },
-    ])
-    if (this.$route.query.promo_code) {
-      this.promo_code = this.$route.query.promo_code
-      this.checkout(this.two)
-    }
+      }
+    })
   },
   methods: {
     checkout(termId) {
@@ -319,19 +327,22 @@ export default {
         this.checkout2(termId, -1)
       } else {
         const _that = this
-        window.tp.pianoId.show({
-          screen: 'register',
-          width: window.innerWidth > 720 ? 600 : 375,
-          loggedIn(data) {
-            _that.$store.dispatch('user/setUser', data.user)
-            // window.location.reload()
-            _that.checkout2(termId, -2)
+        window.tp.push([
+          'init',
+          () => {
+            window.tp.pianoId.show({
+              screen: 'register',
+              width: window.innerWidth > 720 ? 600 : 375,
+              async loggedIn(data) {
+                await _that.$store.dispatch('user/setUser', data.user)
+                _that.checkout2(termId, -2)
+              },
+            })
           },
-        })
+        ])
       }
     },
     checkout2(termId, back) {
-      const _that = this
       window.tp.push([
         'init',
         () => {
@@ -340,11 +351,8 @@ export default {
             termId,
             templateId: 'OTXWXSOL0WWS',
             checkoutFlowId: 'CF65KTMVQXXX',
-            promoCode: this.promo_code,
+            promoCode: 'VFGKTV3QZY',
             closeOnLogout: true,
-            complete: (data) => {
-              _that.$store.dispatch('user/checkAccess')
-            },
           })
         },
       ])

@@ -54,7 +54,7 @@
               </p>
               <p class="full animate">
                 <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-                Podrška neovisnim novinarstvu
+                Podrška neovisnom novinarstvu
               </p>
               <p class="full animate">
                 <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
@@ -944,6 +944,9 @@ export default {
             this.checkout(this.$route.query.term)
             break
         }
+      }
+      if (this.$route.query.term) {
+        this.checkout(this.$route.query.term)
       }
     })
   },
