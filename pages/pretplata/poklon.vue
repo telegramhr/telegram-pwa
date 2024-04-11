@@ -312,6 +312,9 @@ export default {
       this.promo_code = this.$route.query.promo_code
       this.checkout(this.two)
     }
+    if (this.$route.query.term) {
+      this.checkout(this.$route.query.term)
+    }
   },
   methods: {
     checkout(termId) {
