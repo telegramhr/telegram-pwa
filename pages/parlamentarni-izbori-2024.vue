@@ -5,15 +5,29 @@ export default {
     return {
       counted: 0,
       age: 0,
-      results: {
+      dip: false,
+      izlazne: false,
+      ankete: {
         total: {
           hdz: {
-            mandati: 0,
-            postotak: 0,
+            mandati: 60,
+            postotak: 30,
           },
-          rijeke_pravde: {
-            mandati: 0,
-            postotak: 0,
+          sdp: {
+            mandati: 44,
+            postotak: 20,
+          },
+          domovinski: {
+            mandati: 14,
+            postotak: 10,
+          },
+          mozemo: {
+            mandati: 9,
+            postotak: 10,
+          },
+          most: {
+            mandati: 9,
+            postotak: 10,
           },
         },
         1: {
@@ -23,34 +37,287 @@ export default {
               mandati: 0,
               postotak: 0,
             },
-            rijeke_pravde: {
+            sdp: {
+              mandati: 0,
+              postotak: 0,
+            },
+            mozemo: {
+              mandati: 0,
+              postotak: 0,
+            },
+            most: {
+              mandati: 0,
+              postotak: 0,
+            },
+          },
+        },
+        2: {
+          counted: 0,
+          party: {
+            hdz: {
+              mandati: 0,
+              postotak: 0,
+            },
+            sdp: {
+              mandati: 0,
+              postotak: 0,
+            },
+            mozemo: {
+              mandati: 0,
+              postotak: 0,
+            },
+            most: {
+              mandati: 0,
+              postotak: 0,
+            },
+          },
+        },
+        3: {
+          counted: 0,
+          party: {
+            hdz: {
+              mandati: 0,
+              postotak: 0,
+            },
+            sdp: {
+              mandati: 0,
+              postotak: 0,
+            },
+            mozemo: {
+              mandati: 0,
+              postotak: 0,
+            },
+            most: {
+              mandati: 0,
+              postotak: 0,
+            },
+          },
+        },
+        4: {
+          counted: 0,
+          party: {
+            hdz: {
+              mandati: 0,
+              postotak: 0,
+            },
+            sdp: {
+              mandati: 0,
+              postotak: 0,
+            },
+            mozemo: {
+              mandati: 0,
+              postotak: 0,
+            },
+            most: {
+              mandati: 0,
+              postotak: 0,
+            },
+          },
+        },
+        5: {
+          counted: 0,
+          party: {
+            hdz: {
+              mandati: 0,
+              postotak: 0,
+            },
+            sdp: {
+              mandati: 0,
+              postotak: 0,
+            },
+            mozemo: {
+              mandati: 0,
+              postotak: 0,
+            },
+            most: {
+              mandati: 0,
+              postotak: 0,
+            },
+          },
+        },
+        6: {
+          counted: 0,
+          party: {
+            hdz: {
+              mandati: 0,
+              postotak: 0,
+            },
+            sdp: {
+              mandati: 0,
+              postotak: 0,
+            },
+            mozemo: {
+              mandati: 0,
+              postotak: 0,
+            },
+            most: {
+              mandati: 0,
+              postotak: 0,
+            },
+          },
+        },
+        7: {
+          counted: 0,
+          party: {
+            hdz: {
+              mandati: 0,
+              postotak: 0,
+            },
+            sdp: {
+              mandati: 0,
+              postotak: 0,
+            },
+            mozemo: {
+              mandati: 0,
+              postotak: 0,
+            },
+            most: {
+              mandati: 0,
+              postotak: 0,
+            },
+          },
+        },
+        8: {
+          counted: 0,
+          party: {
+            hdz: {
+              mandati: 0,
+              postotak: 0,
+            },
+            sdp: {
+              mandati: 0,
+              postotak: 0,
+            },
+            mozemo: {
+              mandati: 0,
+              postotak: 0,
+            },
+            most: {
+              mandati: 0,
+              postotak: 0,
+            },
+          },
+        },
+        9: {
+          counted: 0,
+          party: {
+            hdz: {
+              mandati: 0,
+              postotak: 0,
+            },
+            sdp: {
+              mandati: 0,
+              postotak: 0,
+            },
+            mozemo: {
+              mandati: 0,
+              postotak: 0,
+            },
+            most: {
+              mandati: 0,
+              postotak: 0,
+            },
+          },
+        },
+        10: {
+          counted: 0,
+          party: {
+            hdz: {
+              mandati: 0,
+              postotak: 0,
+            },
+            sdp: {
+              mandati: 0,
+              postotak: 0,
+            },
+            mozemo: {
+              mandati: 0,
+              postotak: 0,
+            },
+            most: {
+              mandati: 0,
+              postotak: 0,
+            },
+          },
+        },
+        11: {
+          counted: 0,
+          party: {
+            hdz: {
+              mandati: 0,
+              postotak: 0,
+            },
+            sdp: {
+              mandati: 0,
+              postotak: 0,
+            },
+          },
+        },
+        12: {
+          counted: 0,
+          party: {
+            hdz: {
+              mandati: 0,
+              postotak: 0,
+            },
+            sdp: {
               mandati: 0,
               postotak: 0,
             },
           },
         },
       },
+      opisi_izbornih: {
+        1: 'I. izborna jedinica obuhvaća centar i sjeverno-zapadni dio Grada Zagreba kao i dijelove Zagrebačke županije uključujući Veliku Goricu. ',
+        2: 'II. izborna jedinica obuhvaća istočni dio Grada Zagreba, istočni dio Zagrebačke županije, dio Koprivničko-križevačke županije, te cijelu Bjelovarsko-bilogorsku županiju.',
+        3: 'III. izborna jedinica obuhvaća Krapinsko-zagorsku županiju, Varaždinsku županiju, i Međimursku županiju, kao i dijelove Zagrebačke županije.',
+        4: 'IV. izborna jedinica obuhvaća Virovitičko-podravsku županiju i Osječko-baranjsku županiju te dijelove Koprivničko-križevačke županije',
+        5: 'V. izborna jedinica obuhvaća Požeško-slavonsku županiju, Brodsko-posavsku županiju, Vukovarsko-srijemsku županiju, te dijelove Sisačko-moslavačke županije.',
+        6: 'VI. izborna jedinica obuhvaća južni i jugo-zapadni dio Grada Zagreba te jugo-istočni dio Zagrebačke županije uključujući Samobor.',
+        7: 'VII izborna jedinica obuhvaća Karlovačku županiju, Ličko-senjsku županiju, te dijelove Sisačko-moslavačke, Primorsko-goranske i Zadarske županije.',
+        8: 'VIII izborna jedinica obuhvaća Istarsku županiju te dijelove Primorsko-goranske županije uključujući Rijeku.',
+        9: 'IX izborna jedinica obuhvaća Šibensko-kninsku županiju, te dijelove Splitsko-dalmatinske i Zadarske županije uključujući Zadar.',
+        10: 'X izborna jedinica obuhvaća Dubrovačko-neretvansku županiju te dijelove Splitsko-dalmatinske županije uključujući Split.',
+        11: 'XI izborna jedinica je za izbor zastupnika u Hrvatski sabor koje biraju hrvatski državljani koji nemaju prebivalište u Republici Hrvatskoj.',
+        12: 'XII izborna jedinica obuhvaća cjelokupno područje Republike Hrvatske u kojoj pripadnici nacionalnih manjina u Republici Hrvatskoj biraju svoje zastupnike u Hrvatski sabor.',
+      },
       map: {
         1: {
-          alt: 'RESTART - Davor Bernardić',
-          title: 'Restart koalicija',
-          class: 'rijeka_pravde',
+          alt: 'Rijeke pravde - Davor Bernardić',
+          title: 'Rijeke pravde',
+          class: 'sdp',
+          lider:
+            'https://www.telegram.hr/wp-content/themes/telegram2-desktop/templates/native/izbori/2020_parlamentarni/img/lider_hdz.gif',
         },
         20: {
           alt: 'HDZ - Andrej Plenković',
           title: 'HDZ',
           class: 'hdz',
-        },
-        /* 19: {
-          alt: 'Domovinski pokret',
-          title: 'Domovinski pokret',
-          class: 'domovinski',
+          lider:
+            'https://www.telegram.hr/wp-content/themes/telegram2-desktop/templates/native/izbori/2020_parlamentarni/img/lider_hdz.gif',
         },
         2: {
           alt: 'Možemo - Tomislav Tomašević',
           title: 'Možemo!',
           class: 'mozemo',
+          lider:
+            'https://www.telegram.hr/wp-content/themes/telegram2-desktop/templates/native/izbori/2020_parlamentarni/img/lider_mozemo.gif',
         },
+        18: {
+          alt: 'MOST - Božo Petrov',
+          title: 'Most',
+          class: 'most',
+          lider:
+            'https://www.telegram.hr/wp-content/themes/telegram2-desktop/templates/native/izbori/2020_parlamentarni/img/lider_most.gif',
+        },
+        19: {
+          alt: 'Domovinski pokret',
+          title: 'Domovinski pokret',
+          class: 'domovinski',
+          lider:
+            'https://www.telegram.hr/wp-content/themes/telegram2-desktop/templates/native/izbori/2020_parlamentarni/img/lider_hdz.gif',
+        },
+        /* 
         15: {
           alt: 'Nezavisna lista Stipe Petrina',
           title: 'Nezavisna lista Stipe Petrina',
@@ -97,38 +364,74 @@ export default {
       },
     }
   },
+  computed: {
+    resultState() {
+      if (this.dip) {
+        return 'dip'
+      } else if (this.izlazne) {
+        return 'izlazne'
+      } else {
+        return 'preview'
+      }
+    },
+    results() {
+      if (this.dip) {
+        return this.dip
+      } else if (this.izlazne) {
+        return this.izlazne
+      } else {
+        return this.ankete
+      }
+    },
+  },
 }
 </script>
 
 <template>
-  <div class="main-container flex">
-    <div class="hero full flex relative" style="background-image: url('')">
-      <a href="https://telegram.hr/" class="header-logos center full">
-        <img src="assets/img/telegram_logo_white.svg" alt="Telegram Logo" />
-      </a>
-      <div class="hero-title full">
-        <div class="container flex relative">
-          <div class="full flex flex-responsive">
-            <h1 class="full">Izbori 2020.</h1>
-            <h2 class="full">
-              Uz Telegram pratite rezultate uživo cijelu izbornu noć.
-            </h2>
-          </div>
+  <div class="main-container flex izbori-page">
+    <!-- TG Multiverse header -->
+    <div class="full flex relative single-article">
+      <client-only>
+        <theader headline="Izbori 2024"></theader>
+      </client-only>
+    </div>
+    <div class="full flex relative izbori-header">
+      <div class="container flex relative stretch">
+        <div class="half center flex-wrap flex-responsive">
+          <h1 class="full">Izbori 2024.</h1>
+          <p class="full highlight-pitch">
+            <span class="ib">Uz Telegram pratite rezultate</span>
+            <span class="ib">uživo kroz cijelu izbornu noć.</span>
+          </p>
+        </div>
+        <div class="half center flex-responsive">
+          <img
+            src="@/assets/img/tg_vizual_izbori_2024.jpg"
+            alt="Kandidati za premijera vodećih pet stranaka na parlamentarnim izborima 2024: Andrej Plenković, Zoran Milanović, Ivan Penava, Nikola Grmoja, i Sandra Benčić"
+          />
         </div>
       </div>
     </div>
     <section class="full flex">
-      <div class="container flex relative">
-        <h2 class="full">Uživo: rezultati izbora</h2>
+      <div class="container flex relative column-top-pad">
+        <h2 v-if="resultState == 'dip'" class="full">
+          Uživo: rezultati izbora
+        </h2>
+        <h2 v-if="resultState == 'izlazne'" class="full">
+          Uživo: rezultati izlaznih anketa
+        </h2>
+        <h2 v-if="resultState == 'preview'" class="full">
+          Analiza: prosjek predizbornih anketa
+        </h2>
         <div class="mini-data">
           <span id="data-counted-total"
             >Prebrojano {{ counted }}% glasova. </span
           ><span id="data-age">Podaci ažurirani u {{ age }}h. </span
           ><!--<span id="data-refresh">Pokušati ćemo ažurirati podatke za 15 sekundi.</span>-->
         </div>
-        <div class="full flex relative">
-          <div class="restart-line">
-            <span>{{ results.total.rijeke_pravde.mandati }}</span> Rijeke pravde
+        <div class="full flex relative result-line-legend">
+          <div class="sdp-line">
+            <span>{{ results.total.sdp.mandati }}</span> Rijeke pravde
           </div>
           <div class="hdz-line">
             HDZ <span>{{ results.total.hdz.mandati }}</span>
@@ -159,18 +462,18 @@ export default {
               <div>Glasova</div>
               <div></div>
             </div>
-            <div v-for="party in map" :key="party.class">
-              <div
-                :class="['full', 'row', 'flex', 'animate', party.class]"
-                :style="{ order: 100 - results.total[party.class].mandati }"
-              >
-                <div><img :src="party.lider" />{{ party.title }}</div>
-                <div class="mandati">
-                  {{ results.total[party.class].mandati }}
-                </div>
-                <div class="postotak">
-                  {{ results.total[party.class].postotak }}%
-                </div>
+            <div
+              v-for="party in map"
+              :key="party.class"
+              :class="['full', 'row', 'flex', 'animate', party.class]"
+              :style="{ order: 100 - results.total[party.class].mandati }"
+            >
+              <div><img :src="party.lider" />{{ party.title }}</div>
+              <div class="mandati">
+                {{ results.total[party.class].mandati }}
+              </div>
+              <div class="postotak">
+                {{ results.total[party.class].postotak }}%
               </div>
               <div></div>
             </div>
@@ -198,7 +501,7 @@ export default {
                     >Prebrojano {{ results[i]['counted'] }}% glasova.
                   </span>
                 </div>
-                {{ opisi_izbornih[$i] }}
+                {{ opisi_izbornih[i] }}
               </div>
               <div class="third flex-responsive center karta-<?php echo $i ?>">
                 <!-- TODO: <?php echo file_get_contents($native_path.'img/karta.svg') ?> -->
@@ -217,60 +520,12 @@ export default {
                 :class="['full', 'row', 'flex', party, 'animate']"
                 :style="{ order: 100 - values.mandati }"
               >
-                <div>
-                  <img
-                    src="<?php echo $native_path .'img/lider_'.$party.'.gif' ?>"
-                  />{{ party.title }}
-                </div>
+                <div><img :src="party.lider" />{{ party.title }}</div>
                 <div class="mandati">{{ values.mandati }}</div>
                 <div class="postotak">{{ values.postotak }}%</div>
                 <div></div>
               </div>
             </div>
-          </div>
-          <div class="half flex-responsive flex">
-            <div class="full flex">
-              <div class="two-thirds">
-                <h4 class="full">11. izborna jedinica</h4>
-                <div class="full mini-data">
-                  <span id="data-counted-11"
-                    >Prebrojano {{ results[11].counted }}% glasova.
-                  </span>
-                </div>
-                XI. izborna jedinica je zasebna izborna jedinica za izbor
-                zastupnika koje biraju hrvatski državljani koji nemaju
-                prebivalište u Republici Hrvatskoj.
-              </div>
-            </div>
-            <!--<div class="result-table full flex result-table-11">
-      <div class="full row flex">
-        <div>Lista</div>
-        <div>Mandata</div>
-        <div>Glasova</div>
-        <div></div>
-      </div>
-      <?php foreach ($results[11]['party'] as $party : $values) { ?>
-      <div class="full row flex <?php echo $party ?> animate" style="order: <?php echo (100-$values["mandati"]) ?>">
-      <div>
-        <?php
-						            $neededObject = array_filter(
-							            $map,
-							            function ($e) use (&$party) {
-								            return $e['class'] == $party;
-							            }
-						            );
-                                    if (sizeof($neededObject)) {
-                                        $neededObject = array_pop($neededObject);
-                                        ?>
-        <img src="<?php echo $native_path .'img/lider_'.$party.'.gif' ?>" alt="<?php echo $neededObject['alt'] ?>"><?php echo $neededObject['title'] ?>
-        <?php } else {
-							            echo $party;
-						            }?>
-      </div>
-      <div class="mandati"><?php echo $values["mandati"] ?></div>
-      <div class="postotak"><?php echo $values["postotak"] ?>%</div>
-      <div></div>
-    </div>-->
           </div>
         </div>
       </div>

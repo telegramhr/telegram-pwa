@@ -13593,3 +13593,377 @@ header {
   width: 100vw;
   gap: 20px;
 }
+
+/* Izbori */
+
+.izbori-header {
+    background-color: #304769;
+    position: relative;
+    color: white;
+}
+
+.result-line-legend {
+    font-family: 'Barlow', sans-serif;
+}
+
+.izbori-header h1 {
+    font-family: 'Barlow', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 100px;
+    font-size: 5rem;
+    line-height: 1em;
+    margin-bottom: 0px;
+    position: relative;
+    left: -5px;
+    margin-bottom: 8px;
+}
+
+.izbori-header p {
+    font-family: 'Barlow', sans-serif;
+    font-size: 24px;
+    font-size: 1.2rem;
+}
+
+
+.izbori-page h2 {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 48px;
+    line-height: 48px;
+    margin-bottom: 8px;
+    text-align: left;
+    text-transform: none;
+}
+
+.izbori-page h3 {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 32px;
+}
+
+.izbori-page h4 {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 24px;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.izbori-page #notification {
+    position: fixed;
+    opacity: 0;
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+    color: white;
+    background-image: linear-gradient(to right, #2855e9, #5374f2);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    padding: 24px;
+}
+
+.izbori-page .mini-data {
+    font-size: 14px;
+    color: #999999;
+    padding: 4px;
+    padding-left: 2px;
+    position: relative;
+    height: 32px;
+}
+
+.izbori-page .mini-data img {
+    width: 20px;
+    height: 20px;
+    animation-name: spin;
+    animation-duration: 1000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    display: inline-block;
+    position: relative;
+    margin-right: 8px;
+    bottom: -6px;
+}
+
+.izbori-page .izborne-jedinice .mini-data {
+    padding-left: 0px;
+}
+
+.izbori-page .result-table {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+    text-align: right;
+    font-size: 18px;
+}
+
+.izbori-page .result-table .row {
+    border: 1px solid #bbbbbb;
+    border-top: none;
+    flex-wrap: nowrap;
+    position: relative;
+}
+
+.izbori-page .result-table .row div {
+    padding: 14px 4px;
+    padding-bottom: 13px;
+}
+
+.izbori-page .result-table .row:first-child {
+    font-size: 12px;
+    color: #aaaaaa;
+    border: none;
+    border-bottom: 1px solid #bbbbbb;
+}
+
+.izbori-page .result-table .row div:nth-child(1) {
+    text-align: left;
+    width: 59.99%;
+    position: relative;
+    padding-left: 58px;
+}
+
+.izbori-page .result-table .row:first-child div:first-child {
+    padding-left: 4px;
+}
+
+.izbori-page .result-table .row div:nth-child(2) {
+    width: 12.99%;
+}
+
+.izbori-page .result-table .row div:nth-child(3) {
+    width: 9.99%;
+}
+
+.izbori-page .result-table .row div:nth-child(4) {
+    width: 16.99%;
+}
+
+.izbori-page .result-table .row div:nth-child(1) img {
+    display: inline-block;
+    position: absolute;
+    top: 4px;
+    left: 8px;
+    width: 40px;
+    height: 40px;
+    background-color: #bbbbbb;
+    border-radius: 20px;
+    filter: grayscale(100%);
+}
+
+.izbori-page .result-table .row div:nth-child(3) {
+    font-weight: 700;
+}
+
+.izbori-page .result-table .row:first-child div:nth-child(3) {
+    font-weight: 400;
+}
+
+.izbori-page .result-table .row div:first-child::before {
+    content: ' ';
+    width: 4px;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+.izbori-page .sdp div::before,
+.izbori-page .result-line .sdp::before {
+    background-color: #a8353b;
+}
+
+.izbori-page .hdz div::before,
+.izbori-page .result-line .hdz::before {
+    background-color: #3550a8;
+}
+
+.izbori-page .domovinski div::before,
+.izbori-page .result-line .domovinski::before {
+    background-color: #444760;
+}
+
+.izbori-page .most div::before,
+.izbori-page .result-line .most::before {
+    background-color: #358ea8;
+}
+
+.izbori-page .mozemo div::before,
+.izbori-page .result-line .mozemo::before {
+    background-color: #35a843;
+}
+
+.izbori-page .dosta div::before,
+.izbori-page .result-line .dosta::before {
+    background-color: #e8d63d;
+}
+
+.izbori-page .reformisti div::before,
+.izbori-page .result-line .reformisti::before {
+    background-color: #e89319;
+}
+
+.izbori-page .hns div::before,
+.izbori-page .result-line .hns::before {
+    background-color: rgb(186, 97, 0);
+}
+
+.izbori-page .kerum div::before,
+.izbori-page .result-line .kerum::before {
+    background-color: #2ae8cf;
+}
+
+.izbori-page .petrina div::before,
+.izbori-page .result-line .petrina::before {
+    background-color: #126358;
+}
+
+.izbori-page .simp div::before,
+.izbori-page .result-line .simp::before {
+    background-color: #9e47ff;
+}
+
+.izbori-page .manjine div::before {
+    background-color: #bbbbbb;
+}
+
+.izbori-page .izborne-jedinice>.half {
+    padding-right: 16px;
+    padding-bottom: 32px;
+}
+
+.izbori-page .izborne-jedinice .half:nth-child(2n) {
+    padding-right: 0px;
+    padding-left: 16px;
+}
+
+.izbori-page .white-space {
+    margin-top: 64px;
+    margin-bottom: 24px;
+}
+
+/* Result line */
+
+.izbori-page .result-line {
+    margin-top: 92px;
+    height: 24px;
+    flex-wrap: nowrap;
+    position: relative;
+    background-color: #bbbbbb;
+}
+
+.izbori-page .result-line>div {
+    height: 100%;
+    position: relative;
+}
+
+.izbori-page .result-line>div::before {
+    content: ' ';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+.izbori-page .result-line .hdz,
+.izbori-page .result-line .domovinski,
+.izbori-page .result-line .most {
+    align-self: flex-end;
+}
+
+.izbori-page .result-line .slaganje-vlade {
+    width: 0.2%;
+    background-color: white;
+    position: absolute;
+    height: 100%;
+    left: 49.9%;
+    top: 0px;
+    z-index: 5;
+}
+
+.izbori-page .result-line-text {
+    font-size: 14px;
+    color: #999999;
+    margin-top: 16px;
+    margin-bottom: 48px;
+    font-family: 'Barlow', sans-serif;
+}
+
+.izbori-page .hrvatska-izborne {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.izbori-page .sdp-line,
+.izbori-page .hdz-line {
+    font-size: 32px;
+    font-weight: 700;
+    position: absolute;
+    bottom: -92px;
+}
+
+.izbori-page .sdp-line span,
+.izbori-page .hdz-line span {
+    font-size: 48px;
+}
+
+.izbori-page .sdp-line {
+    color: #a8353b;
+    left: 0;
+}
+
+.izbori-page .hdz-line {
+    color: #3550a8;
+    right: 0;
+    text-align: right;
+}
+
+@media screen and (max-width: 1023px) {
+    .izbori-page h2 {
+        font-size: 36px;
+        line-height: 36px;
+    }
+
+    .izbori-page h3 {
+        font-size: 24px;
+    }
+
+    .izbori-page h4 {
+        font-size: 20px;
+    }
+
+    .izbori-page .result-table .row div:nth-child(2) {
+        width: 19.99%;
+    }
+
+    .izbori-page .result-table .row div:nth-child(3) {
+        width: 14.99%;
+    }
+
+    .izbori-page .result-table .row div:nth-child(4) {
+        width: 4.99%;
+    }
+
+    .izbori-page .izborne-jedinice>.half {
+        padding-right: 0px;
+    }
+
+    .izbori-page .izborne-jedinice .half:nth-child(2n) {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+}
