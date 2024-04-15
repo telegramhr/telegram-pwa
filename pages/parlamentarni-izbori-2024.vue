@@ -283,18 +283,16 @@ export default {
       },
       map: {
         1: {
-          alt: 'Rijeke pravde - Davor Bernardić',
+          alt: 'Rijeke pravde - Zoran Milanović',
           title: 'Rijeke pravde',
           class: 'sdp',
-          lider:
-            'https://www.telegram.hr/wp-content/themes/telegram2-desktop/templates/native/izbori/2020_parlamentarni/img/lider_hdz.gif',
+          lider: require('assets/img/extras/izbori_2024/lider_sdp.png'),
         },
         20: {
           alt: 'HDZ - Andrej Plenković',
           title: 'HDZ',
           class: 'hdz',
-          lider:
-            'https://www.telegram.hr/wp-content/themes/telegram2-desktop/templates/native/izbori/2020_parlamentarni/img/lider_hdz.gif',
+          lider: require('assets/img/extras/izbori_2024/lider_hdz.png'),
         },
         2: {
           alt: 'Možemo - Tomislav Tomašević',
@@ -317,7 +315,7 @@ export default {
           lider:
             'https://www.telegram.hr/wp-content/themes/telegram2-desktop/templates/native/izbori/2020_parlamentarni/img/lider_hdz.gif',
         },
-        /* 
+        /*
         15: {
           alt: 'Nezavisna lista Stipe Petrina',
           title: 'Nezavisna lista Stipe Petrina',
@@ -485,8 +483,7 @@ export default {
             </div>
           </div>
           <div class="half flex-responsive center main-karta">
-            <!--{{ 'img/karta.svg' }} -->
-            <!-- TODO: this map -->
+            <karta></karta>
           </div>
         </div>
         <h3 class="full white-space">Po izbornim jedinicama</h3>
@@ -504,7 +501,7 @@ export default {
                 {{ opisi_izbornih[i] }}
               </div>
               <div class="third flex-responsive center karta-<?php echo $i ?>">
-                <!-- TODO: <?php echo file_get_contents($native_path.'img/karta.svg') ?> -->
+                <Karta></Karta>
               </div>
             </div>
             <div class="result-table full flex result-table-<?php echo $i ?>">
