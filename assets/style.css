@@ -297,7 +297,7 @@ h2, .sub-price, .offer-title {
     left: 0px;
     top: 0px;
 }
-.restart div::before, .result-line .restart::before {
+.sdp div::before, .result-line .sdp::before {
     background-color: #a8353b;
 }
 .hdz div::before, .result-line .hdz::before {
@@ -13781,57 +13781,57 @@ header {
 }
 
 .izbori-page .sdp div::before,
-.izbori-page .result-line .sdp::before {
+.result-line .sdp::before {
     background-color: #a8353b;
 }
 
 .izbori-page .hdz div::before,
-.izbori-page .result-line .hdz::before {
+.result-line .hdz::before {
     background-color: #3550a8;
 }
 
 .izbori-page .domovinski div::before,
-.izbori-page .result-line .domovinski::before {
+.result-line .domovinski::before {
     background-color: #444760;
 }
 
 .izbori-page .most div::before,
-.izbori-page .result-line .most::before {
+.result-line .most::before {
     background-color: #358ea8;
 }
 
 .izbori-page .mozemo div::before,
-.izbori-page .result-line .mozemo::before {
+.result-line .mozemo::before {
     background-color: #35a843;
 }
 
 .izbori-page .dosta div::before,
-.izbori-page .result-line .dosta::before {
+.result-line .dosta::before {
     background-color: #e8d63d;
 }
 
 .izbori-page .reformisti div::before,
-.izbori-page .result-line .reformisti::before {
+.result-line .reformisti::before {
     background-color: #e89319;
 }
 
 .izbori-page .hns div::before,
-.izbori-page .result-line .hns::before {
+.result-line .hns::before {
     background-color: rgb(186, 97, 0);
 }
 
 .izbori-page .kerum div::before,
-.izbori-page .result-line .kerum::before {
+.result-line .kerum::before {
     background-color: #2ae8cf;
 }
 
 .izbori-page .petrina div::before,
-.izbori-page .result-line .petrina::before {
+.result-line .petrina::before {
     background-color: #126358;
 }
 
 .izbori-page .simp div::before,
-.izbori-page .result-line .simp::before {
+.result-line .simp::before {
     background-color: #9e47ff;
 }
 
@@ -13856,7 +13856,7 @@ header {
 
 /* Result line */
 
-.izbori-page .result-line {
+.result-line {
     margin-top: 92px;
     height: 24px;
     flex-wrap: nowrap;
@@ -13864,12 +13864,12 @@ header {
     background-color: #bbbbbb;
 }
 
-.izbori-page .result-line>div {
+.result-line>div {
     height: 100%;
     position: relative;
 }
 
-.izbori-page .result-line>div::before {
+.result-line>div::before {
     content: ' ';
     width: 100%;
     height: 100%;
@@ -13878,13 +13878,13 @@ header {
     top: 0px;
 }
 
-.izbori-page .result-line .hdz,
-.izbori-page .result-line .domovinski,
-.izbori-page .result-line .most {
+.result-line .hdz,
+.result-line .domovinski,
+.result-line .most {
     align-self: flex-end;
 }
 
-.izbori-page .result-line .slaganje-vlade {
+.result-line .slaganje-vlade {
     width: 0.2%;
     background-color: white;
     position: absolute;
@@ -13894,7 +13894,7 @@ header {
     z-index: 5;
 }
 
-.izbori-page .result-line-text {
+.result-line-text {
     font-size: 14px;
     color: #999999;
     margin-top: 16px;
@@ -13908,25 +13908,25 @@ header {
     object-fit: contain;
 }
 
-.izbori-page .sdp-line,
-.izbori-page .hdz-line {
+.sdp-line,
+.hdz-line {
     font-size: 32px;
     font-weight: 700;
     position: absolute;
     bottom: -92px;
 }
 
-.izbori-page .sdp-line span,
-.izbori-page .hdz-line span {
+.sdp-line span,
+.hdz-line span {
     font-size: 48px;
 }
 
-.izbori-page .sdp-line {
+.sdp-line {
     color: #a8353b;
     left: 0;
 }
 
-.izbori-page .hdz-line {
+.hdz-line {
     color: #3550a8;
     right: 0;
     text-align: right;
@@ -13965,5 +13965,102 @@ header {
     .izbori-page .izborne-jedinice .half:nth-child(2n) {
         padding-right: 0px;
         padding-left: 0px;
+    }
+}
+
+
+.pretplata-subs-special .absolute-half-offset {
+    right: -5%;
+    z-index: 1;
+}
+.pretplata-subs-special .sixty {
+    z-index: 5;
+    position: relative;
+}
+.pretplata-subs-special .result-line {
+    margin-top: 64px;
+}
+.pretplata-subs-special .result-line-text {
+    margin-bottom: 32px;
+}
+.pretplata-subs-special .sdp-line, .pretplata-subs-special .hdz-line {
+    bottom: -64px;
+}
+.pretplata-subs-special .noththree.overtitle.overtitle-live {
+    padding-left: 2.2em;
+    background-color: transparent;
+    color: #ae3737;
+    padding-top: 0px;
+    font-weight: bold;
+    position: relative;
+    left: -0.2rem;
+}
+@media screen and (max-width: 1023px) {
+    .election-special-widget {
+        z-index: 5;
+    }
+    .election-special-widget .highlight-pitch {
+        padding-bottom: 0rem;
+    }
+    .election-special-widget .highlight-pitch.mobile-bottom-pad {
+        padding-bottom: 6vw;
+        font-size: 14px;
+        font-size: 0.7rem;
+        color: #999999;
+    }
+    .sdp-line, .hdz-line {
+        font-size: 14px;
+        font-size: 0.7rem;
+    }
+    .sdp-line span, .hdz-line span {
+        font-size: 5vw;
+    }
+    .result-table .row > div {
+        padding: 4px;
+    }
+    .result-table {
+        font-size: 14px;
+        font-size: 0.7rem;
+    }
+    .result-table .row > div:nth-child(1) img {
+        top: 2px;
+        width: 21px;
+        height: 21px;
+    }
+    .result-table .row > div:nth-child(4) {
+        display: none;
+    }
+    .result-table .row > div:nth-child(3) {
+        width: 26.99%;
+        padding-right: 12px;
+    }
+    .result-table .row > div:nth-child(1) {
+        padding-left: 36px;
+    }
+    .pretplata-subs-special .result-line-text {
+        margin-top: -34px;
+        margin-bottom: 24px;
+    }
+    .pretplata-subs-special .result-line {
+        margin-top: 7vw;
+        height: 16px;
+    }
+    .pretplata-subs-special .sdp-line, .pretplata-subs-special .hdz-line {
+        bottom: -7vw;
+    }
+    .pretplata-subs-special .noththree.overtitle.overtitle-live {
+        left: -0.1em;
+        font-size: 14px;
+        font-size: 0.7rem;
+        margin-bottom: 0px;
+    }
+    .pretplata-subs-special #data-counted-total {
+        padding-right: 0.2em;
+    }
+    .pretplata-subs-special .overtitle-parent .newbtn {
+        padding: 4px 8px;
+    }
+    .pretplata-subs-special .result-table {
+        margin-top: 8px;
     }
 }
