@@ -24,7 +24,7 @@
       </div>
     </div>
     <!-- Above header banner -->
-    <client-only>
+    <!--<client-only>
       <app-link
         v-if="!$store.state.user.access"
         to="/pretplata"
@@ -116,7 +116,7 @@
           />
         </div>
       </a>
-    </client-only>
+    </client-only>-->
     <!--<app-link
       v-if="canLogIn"
       to="/pretplata"

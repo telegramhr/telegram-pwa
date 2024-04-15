@@ -7,14 +7,14 @@
   >
     <div class="noththree full center-text column-full-pad subsection-title">
       <div class="full center jgl-line">
-        <div class="flex center">
+        <div class="flex center" style="background: transparent">
           <img
-            src="@/assets/img/extras/partner_logos/telemach.png"
+            src="@/assets/img/extras/partner_logos/Solgar_logo.png"
             alt="JGL logo"
             loading="lazy"
           />
           <img
-            src="@/assets/img/extras/partner_logos/telemach.png"
+            src="@/assets/img/extras/partner_logos/Solgar_logo.png"
             class="dark-mode-only"
             alt="JGL logo"
             loading="lazy"
@@ -160,21 +160,21 @@ export default {
 
 <style>
 .jgl-line {
-  background-color: #000000;
+  background-color: #c9a668;
 }
 
 .jgl-line > div {
   padding-left: 7px;
-  /*background-color: #fcf1e7;*/
+  background-color: #fcf1e7;
   width: 200px;
 }
-/*
+
 .contrast-mode .jgl-line > div {
   background-color: white;
 }
 .dark-mode .jgl-line > div {
   background-color: #212121;
-}*/
+}
 
 .noththree.subsection-title .jgl-line img {
   height: 40px;
@@ -186,7 +186,7 @@ export default {
 }
 
 #offer-premium-jgl .dark-mode .slick-slide {
-  border-right: 1px solid #212121;
+  border-right: 1px solid #c9a668;
 }
 
 #offer-premium-jgl .article-pad {
