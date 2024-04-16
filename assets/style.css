@@ -312,6 +312,15 @@ h2, .sub-price, .offer-title {
 .mozemo div::before, .result-line .mozemo::before {
     background-color: #35a843;
 }
+.ids div::before, .result-line .ids::before {
+    background-color: #00a2b3;
+}
+.fokus div::before, .result-line .fokus::before {
+    background-color: #126358;
+}
+.nps div::before, .result-line .nps::before {
+    background-color: #a27431;
+}
 .dosta div::before, .result-line .dosta::before {
     background-color: #e8d63d;
 }
@@ -13677,7 +13686,8 @@ header {
 }
 
 .izbori-page .mini-data {
-    font-size: 14px;
+    font-size: 16px;
+    font-size: 0.8rem;
     color: #999999;
     padding: 4px;
     padding-left: 2px;
@@ -13806,6 +13816,16 @@ header {
     background-color: #35a843;
 }
 
+.izbori-page .ids div::before,
+.result-line .ids::before {
+    background-color: #00a2b3;
+}
+
+.izbori-page .fokus div::before,
+.result-line .fokus::before {
+    background-color: #2a2d70;
+}
+
 .izbori-page .dosta div::before,
 .result-line .dosta::before {
     background-color: #e8d63d;
@@ -13828,6 +13848,11 @@ header {
 
 .izbori-page .petrina div::before,
 .result-line .petrina::before {
+    background-color: #126358;
+}
+
+.izbori-page .fokus div::before,
+.result-line .fokus::before {
     background-color: #126358;
 }
 
@@ -14001,6 +14026,31 @@ header {
     position: relative;
     left: -0.2rem;
 }
+.izbori-page h1 {
+    font-size: 64px;
+    font-size: 3.2rem;
+    font-family: 'Lora', serif;
+    line-height: 1.15em;
+    margin-bottom: 12px;
+}
+.izborne-jedinice .smaller-text {
+    font-size: 14px;
+    font-size: 0.7rem;
+}
+.izbori-page .overtitle-live {
+    font-size: 24px;
+    font-size: 1.2rem;
+    color: #ae3737;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+.izbori-page .overtitle-live::before {
+    top: 0.15em;
+    left: 0.4em;
+    width: 0.9em;
+    height: 0.9em;
+    border-radius: 1em;
+}
 @media screen and (max-width: 1023px) {
     .election-special-widget {
         z-index: 5;
@@ -14025,13 +14075,13 @@ header {
         padding: 4px;
     }
     .result-table {
-        font-size: 14px;
-        font-size: 0.7rem;
+        font-size: 15px;
+        font-size: 0.75rem;
     }
     .result-table .row > div:nth-child(1) img {
         top: 2px;
-        width: 21px;
-        height: 21px;
+        width: 22px;
+        height: 22px;
     }
     .result-table .row > div:nth-child(4) {
         display: none;
@@ -14045,9 +14095,9 @@ header {
     }
     .pretplata-subs-special .result-line-text {
         margin-top: -34px;
-        margin-bottom: 24px;
+        margin-bottom: 40px;
     }
-    .result-line {
+    .result-line, .pretplata-subs-special .result-line {
         margin-top: 7vw;
         height: 16px;
     }
@@ -14072,8 +14122,13 @@ header {
     .izbori-header h1 {
         font-size: 3rem;
     }
+    .izbori-page h1 {
+        font-size: 2rem;
+    }
+    .izbori-page .mini-data {
+        font-size: 0.65rem;
+    }
 }
-
 .izborna-karta .cls-1 {
     fill: #999;
 }
@@ -14106,8 +14161,4 @@ header {
 }
 .karta-10 #_10_izborna .cls-1 {
     fill: black;
-}
-.izborne-jedinice .smaller-text {
-    font-size: 14px;
-    font-size: 0.7rem;
 }

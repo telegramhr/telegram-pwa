@@ -18,7 +18,7 @@
             to="/parlamentarni-izbori-2024"
             class="flex newbtn toprightbtn animate mobile-only"
           >
-            Pratite detalje
+            Svi detalji
           </NuxtLink>
         </div>
         <div class="full nothtwo desktop-only">Izbori 2024</div>
@@ -39,13 +39,15 @@
         >
           <span id="data-age">Podaci ažurirani u {{ dip.age }}h. </span>
         </p>
-        <p v-else>Podaci izlaznih anketa</p>
+        <p v-else class="full highlight-pitch column-bottom-pad desktop-only">
+          Podaci preuzeti s IPSOS izlaznih anketa.
+        </p>
         <div class="full flex relative desktop-only">
           <NuxtLink
             to="/parlamentarni-izbori-2024"
             class="flex newbtn huge-newbtn animate"
           >
-            Pogledajte sve
+            Svi detalji
           </NuxtLink>
         </div>
       </div>
@@ -67,7 +69,9 @@
             :style="{ order: 100 - dip.total[party.class].mandati }"
           >
             <div><img :src="party.lider" />{{ party.title }}</div>
-            <div class="mandati">{{ dip.total[party.class].mandati }}</div>
+            <div class="mandati">
+              <span v-if="!dip.dip">~</span>{{ dip.total[party.class].mandati }}
+            </div>
             <div class="postotak">{{ dip.total[party.class].postotak }}</div>
             <div></div>
           </div>
@@ -127,7 +131,10 @@
         </span>
         <span id="data-age">Podaci ažurirani u {{ dip.age }}h. </span>
       </p>
-      <p v-else>
+      <p
+        v-else
+        class="full highlight-pitch center mobile-bottom-pad mobile-only"
+      >
         <span>Podaci izlazni anketa</span>
       </p>
     </div>

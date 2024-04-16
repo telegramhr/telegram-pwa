@@ -70,33 +70,17 @@ export default {
         <theader headline="Izbori 2024"></theader>
       </client-only>
     </div>
-    <div class="full flex relative izbori-header">
-      <div
-        class="container flex relative stretch column-horizontal-pad mobile-side-pad mobile-top-pad"
-      >
-        <div class="half center flex-wrap flex-responsive">
-          <h1 class="full">Izbori 2024.</h1>
-          <p class="full highlight-pitch">
-            <span class="ib">Uz Telegram pratite rezultate</span>
-            <span class="ib">uživo kroz cijelu izbornu noć.</span>
-          </p>
-        </div>
-        <div class="half center flex-responsive">
-          <img
-            src="@/assets/img/tg_vizual_izbori_2024.jpg"
-            alt="Kandidati za premijera vodećih pet stranaka na parlamentarnim izborima 2024: Andrej Plenković, Zoran Milanović, Ivan Penava, Nikola Grmoja, i Sandra Benčić"
-          />
-        </div>
-      </div>
-    </div>
-    <section v-if="dip" class="full flex">
+    <section v-if="dip" class="full flex mobile-top-pad">
       <div class="container flex relative column-full-pad mobile-full-pad">
-        <h2 v-if="resultState === 'dip'" class="full">
-          Uživo: rezultati izbora
-        </h2>
-        <h2 v-if="resultState === 'izlazne'" class="full">
-          Uživo: rezultati izlaznih anketa
-        </h2>
+        <div class="overtitle noththree overtitle-live">
+          <span>Uživo</span>
+        </div>
+        <h1 v-if="resultState === 'dip'" class="full">
+          Službeni rezultati izbora
+        </h1>
+        <h1 v-if="resultState === 'izlazne'" class="full">
+          Rezultati izlaznih anketa
+        </h1>
         <div class="mini-data">
           <span id="data-counted-total"
             >Prebrojano {{ dip.counted }}% glasova. </span
@@ -154,6 +138,7 @@ export default {
                   <img v-if="party.lider" :src="party.lider" />{{ party.title }}
                 </div>
                 <div class="mandati">
+                  <span v-if="resultState === 'izlazne'">~</span>
                   {{ results.total[party.class].mandati }}
                 </div>
                 <div class="postotak">
