@@ -82,7 +82,7 @@ export const getters = {
       if (state.dip[i]?.winner) {
         fills[i] = state.dip[i].winner
       } else {
-        fills[i] = 'none'
+        fills[i] = 'gray'
       }
     }
     return fills
