@@ -13744,11 +13744,12 @@ header {
 }
 
 .izbori-page .result-table .row div:nth-child(3) {
-    width: 9.99%;
+    width: 26.99%;
+    padding-right: 12px;
 }
 
 .izbori-page .result-table .row div:nth-child(4) {
-    width: 16.99%;
+    display: none;
 }
 
 .izbori-page .result-table .row div:nth-child(1) img {
@@ -13934,8 +13935,13 @@ header {
 
 @media screen and (max-width: 1023px) {
     .izbori-page h2 {
-        font-size: 36px;
-        line-height: 36px;
+        font-size: 30px;
+        font-size: 1.5rem;
+        line-height: 1em;
+    }
+
+    .izbori-page .izbori-header {
+        padding-top: 8vw;
     }
 
     .izbori-page h3 {
@@ -14041,11 +14047,11 @@ header {
         margin-top: -34px;
         margin-bottom: 24px;
     }
-    .pretplata-subs-special .result-line {
+    .result-line {
         margin-top: 7vw;
         height: 16px;
     }
-    .pretplata-subs-special .sdp-line, .pretplata-subs-special .hdz-line {
+    .sdp-line, .hdz-line {
         bottom: -7vw;
     }
     .pretplata-subs-special .noththree.overtitle.overtitle-live {
@@ -14063,4 +14069,45 @@ header {
     .pretplata-subs-special .result-table {
         margin-top: 8px;
     }
+    .izbori-header h1 {
+        font-size: 3rem;
+    }
+}
+
+.izborna-karta .cls-1 {
+    fill: #999;
+}
+.karta-1 #_1_izborna .cls-1 {
+    fill: black;
+}
+.karta-2 #_2_izborna .cls-1 {
+    fill: black;
+}
+.karta-3 #_3_izborna .cls-1 {
+    fill: black;
+}
+.karta-4 #_4_izborna .cls-1 {
+    fill: black;
+}
+.karta-5 #_5_izborna .cls-1 {
+    fill: black;
+}
+.karta-6 #_6_izborna .cls-1 {
+    fill: black;
+}
+.karta-7 #_7_izborna .cls-1 {
+    fill: black;
+}
+.karta-8 #_8_izborna .cls-1 {
+    fill: black;
+}
+.karta-9 #_9_izborna .cls-1 {
+    fill: black;
+}
+.karta-10 #_10_izborna .cls-1 {
+    fill: black;
+}
+.izborne-jedinice .smaller-text {
+    font-size: 14px;
+    font-size: 0.7rem;
 }

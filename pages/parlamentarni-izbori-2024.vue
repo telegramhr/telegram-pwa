@@ -339,7 +339,9 @@ export default {
       </client-only>
     </div>
     <div class="full flex relative izbori-header">
-      <div class="container flex relative stretch">
+      <div
+        class="container flex relative stretch column-horizontal-pad mobile-side-pad mobile-top-pad"
+      >
         <div class="half center flex-wrap flex-responsive">
           <h1 class="full">Izbori 2024.</h1>
           <p class="full highlight-pitch">
@@ -356,7 +358,7 @@ export default {
       </div>
     </div>
     <section class="full flex">
-      <div class="container flex relative column-top-pad">
+      <div class="container flex relative column-full-pad mobile-full-pad">
         <h2 v-if="resultState == 'dip'" class="full">
           Uživo: rezultati izbora
         </h2>
@@ -398,7 +400,9 @@ export default {
           76 mandata za većinu
         </div>
         <div class="full flex">
-          <div class="half flex-responsive flex result-table total-results">
+          <div
+            class="half flex-responsive flex result-table total-results column-right-pad"
+          >
             <div class="full row flex">
               <div>Lista</div>
               <div>Mandata</div>
@@ -411,7 +415,9 @@ export default {
               :class="['full', 'row', 'flex', 'animate', party.class]"
               :style="{ order: 100 - results.total[party.class].mandati }"
             >
-              <div><img :src="party.lider" />{{ party.title }}</div>
+              <div>
+                <img v-if="party.lider" :src="party.lider" />{{ party.title }}
+              </div>
               <div class="mandati">
                 {{ results.total[party.class].mandati }}
               </div>
@@ -427,7 +433,7 @@ export default {
               <div></div>
             </div>
           </div>
-          <div class="half flex-responsive center main-karta">
+          <div class="half flex-responsive center main-karta column-left-pad">
             <karta></karta>
           </div>
         </div>
@@ -443,13 +449,13 @@ export default {
                     >Prebrojano {{ results[i]['counted'] }}% glasova.
                   </span>
                 </div>
-                {{ opisi_izbornih[i] }}
+                <p class="smaller-text">{{ opisi_izbornih[i] }}</p>
               </div>
-              <div class="third flex-responsive center karta-<?php echo $i ?>">
+              <div :class="['third', 'center', 'izborna-karta', 'karta-' + i]">
                 <Karta></Karta>
               </div>
             </div>
-            <div class="result-table full flex result-table-<?php echo $i ?>">
+            <div :class="['full', 'result-table', 'flex', 'result-table-' + i]">
               <div class="full row flex">
                 <div>Lista</div>
                 <div>Mandata</div>
@@ -472,5 +478,6 @@ export default {
         </div>
       </div>
     </section>
+    <tfooter></tfooter>
   </div>
 </template>
