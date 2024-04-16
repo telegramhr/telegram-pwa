@@ -219,6 +219,16 @@ export default {
             </div>
           </div>
         </template>
+        <div v-if="dip.dip" class="mini-data">
+          <span
+            >Podaci su preuzeti od Državnog izbornog povjerenstva. Sirove
+            podatke možete pregledati
+            <a href="https://www.telegram.hr/izbori-podaci/">ovdje.</a></span
+          >
+        </div>
+        <div v-if="dip.ankete" class="mini-data">
+          <span>Podaci su preuzeti s IPSOS izlaznih anketa </span>
+        </div>
       </div>
     </section>
     <tfooter></tfooter>

@@ -25,20 +25,27 @@
         <p class="full highlight-pitch column-mini-bottom-pad desktop-only">
           Pratite rezultate uživo kroz cijelu izbornu noć.
         </p>
-        <p class="full highlight-pitch column-mini-bottom-pad desktop-only">
+        <p
+          v-if="dip.dip"
+          class="full highlight-pitch column-mini-bottom-pad desktop-only"
+        >
           <span id="data-counted-total"
             >Prebrojano {{ dip.counted }}% glasova.</span
           >
         </p>
-        <p class="full highlight-pitch column-bottom-pad desktop-only">
+        <p
+          v-if="dip.dip"
+          class="full highlight-pitch column-bottom-pad desktop-only"
+        >
           <span id="data-age">Podaci ažurirani u {{ dip.age }}h. </span>
         </p>
+        <p v-else>Podaci izlaznih anketa</p>
         <div class="full flex relative desktop-only">
           <NuxtLink
             to="/parlamentarni-izbori-2024"
             class="flex newbtn huge-newbtn animate"
           >
-            Pratite detalje uživo
+            Pogledajte sve
           </NuxtLink>
         </div>
       </div>
@@ -111,11 +118,17 @@
           76 <span class="desktop-only">mandata</span> za većinu
         </div>
       </div>
-      <p class="full highlight-pitch center mobile-bottom-pad mobile-only">
+      <p
+        v-if="dip.dip"
+        class="full highlight-pitch center mobile-bottom-pad mobile-only"
+      >
         <span id="data-counted-total"
           >Prebrojano {{ dip.counted }}% glasova.
         </span>
         <span id="data-age">Podaci ažurirani u {{ dip.age }}h. </span>
+      </p>
+      <p v-else>
+        <span>Podaci izlazni anketa</span>
       </p>
     </div>
   </div>
