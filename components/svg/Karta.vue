@@ -1,6 +1,24 @@
 <script>
 export default {
   name: 'Karta',
+  props: {
+    fills: {
+      type: Array,
+      required: false,
+      default() {
+        return ['', '']
+      },
+    },
+  },
+  data() {
+    return {
+      map: {
+        hdz: '#3550a8',
+        sdp: '#a8353b',
+        none: '#000',
+      },
+    }
+  },
 }
 </script>
 
@@ -365,3 +383,36 @@ export default {
     </g>
   </svg>
 </template>
+
+<style scoped>
+.main-karta #_1_izborna .cls-1 {
+  fill: v-bind(map[fills[1]]]);
+}
+.main-karta #_2_izborna .cls-1 {
+  fill: v-bind(map[fills[2]]);
+}
+.main-karta #_3_izborna .cls-1 {
+  fill: v-bind(map[fills[3]]);
+}
+.main-karta #_4_izborna .cls-1 {
+  fill: v-bind(map[fills[4]]);
+}
+.main-karta #_5_izborna .cls-1 {
+  fill: v-bind(map[fills[5]]);
+}
+.main-karta #_6_izborna .cls-1 {
+  fill: v-bind(map[fills[6]]);
+}
+.main-karta #_7_izborna .cls-1 {
+  fill: v-bind(map[fills[7]]);
+}
+.main-karta #_8_izborna .cls-1 {
+  fill: v-bind(map[fills[8]]);
+}
+.main-karta #_9_izborna .cls-1 {
+  fill: v-bind(map[fills[9]]);
+}
+.main-karta #_10_izborna .cls-1 {
+  fill: v-bind(map[fills[10]]);
+}
+</style>
