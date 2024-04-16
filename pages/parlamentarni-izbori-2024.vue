@@ -287,10 +287,10 @@ export default {
   },
   computed: {
     map() {
-      return this.$store.state.izbori.map;
+      return this.$store.state.izbori.map
     },
     dip() {
-      return this.$store.state.izbori.dip;
+      return this.$store.state.izbori.dip
     },
     resultState() {
       if (this.dip) {

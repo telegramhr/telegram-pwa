@@ -38,6 +38,7 @@
         </div>
       </div>
       <div
+        v-if="dip"
         class="third flex-responsive column-horizontal-pad mobile-side-pad flex result-table total-results"
       >
         <div class="full row flex">
@@ -46,83 +47,20 @@
           <div>Glasova</div>
           <div></div>
         </div>
-        <div class="full row flex animate sdp" style="order: 56">
-          <div>
-            <img
-              src="https://www.telegram.hr/wp-content/themes/telegram2-desktop/templates/native/izbori/2020_parlamentarni/img/lider_hdz.gif"
-            />Rijeke pravde
+        <template v-for="party in map">
+          <div
+            v-if="dip.total[party.class].mandati"
+            :key="party.class"
+            class="full row flex animate"
+            :class="party.class"
+            :style="{ order: 100 - dip.total[party.class].mandati }"
+          >
+            <div><img :src="party.lider" />{{ party.title }}</div>
+            <div class="mandati">{{ dip.total[party.class].mandati }}</div>
+            <div class="postotak">{{ dip.total[party.class].postotak }}</div>
+            <div></div>
           </div>
-          <div class="mandati">44</div>
-          <div class="postotak">20%</div>
-          <div></div>
-        </div>
-        <div class="full row flex animate mozemo" style="order: 91">
-          <div>
-            <img
-              src="https://www.telegram.hr/wp-content/themes/telegram2-desktop/templates/native/izbori/2020_parlamentarni/img/lider_mozemo.gif"
-            />Možemo!
-          </div>
-          <div class="mandati">9</div>
-          <div class="postotak">10%</div>
-          <div></div>
-        </div>
-        <div class="full row flex animate most" style="order: 91">
-          <div>
-            <img
-              src="https://www.telegram.hr/wp-content/themes/telegram2-desktop/templates/native/izbori/2020_parlamentarni/img/lider_most.gif"
-            />Most
-          </div>
-          <div class="mandati">9</div>
-          <div class="postotak">10%</div>
-          <div></div>
-        </div>
-        <div class="full row flex animate domovinski" style="order: 86">
-          <div>
-            <img
-              src="https://www.telegram.hr/wp-content/themes/telegram2-desktop/templates/native/izbori/2020_parlamentarni/img/lider_hdz.gif"
-            />Domovinski pokret
-          </div>
-          <div class="mandati">14</div>
-          <div class="postotak">10%</div>
-          <div></div>
-        </div>
-        <div class="full row flex animate hdz" style="order: 40">
-          <div>
-            <img
-              src="https://www.telegram.hr/wp-content/themes/telegram2-desktop/templates/native/izbori/2020_parlamentarni/img/lider_hdz.gif"
-            />HDZ
-          </div>
-          <div class="mandati">60</div>
-          <div class="postotak">30%</div>
-          <div></div>
-        </div>
-        <div
-          class="full row flex manjine animate desktop-only"
-          style="order: 100"
-        >
-          <div>IDS</div>
-          <div class="mandati">2</div>
-          <div class="postotak">5%</div>
-          <div></div>
-        </div>
-        <div
-          class="full row flex manjine animate desktop-only"
-          style="order: 100"
-        >
-          <div>NPS</div>
-          <div class="mandati">1</div>
-          <div class="postotak">5%</div>
-          <div></div>
-        </div>
-        <div
-          class="full row flex manjine animate desktop-only"
-          style="order: 100"
-        >
-          <div>Fokus</div>
-          <div class="mandati">1</div>
-          <div class="postotak">5%</div>
-          <div></div>
-        </div>
+        </template>
         <div
           class="full row flex manjine animate desktop-only"
           style="order: 100"
@@ -497,47 +435,33 @@
         </svg>
       </div>
       <div class="full flex relative column-horizontal-pad mobile-side-pad">
-        <!-- TODO: CONNECT -->
-        <!--<div class="mini-data">
-            <span id="data-counted-total"
-              >Prebrojano {{ counted }}% glasova. </span
-            ><span id="data-age">Podaci ažurirani u {{ age }}h. </span
-            ><span id="data-refresh">Pokušati ćemo ažurirati podatke za 15 sekundi.</span>
-          </div>
-          <div class="full flex relative result-line-legend">
-            <div class="sdp-line">
-              <span>{{ results.total.sdp.mandati }}</span> Rijeke pravde
-            </div>
-            <div class="hdz-line">
-              HDZ <span>{{ results.total.hdz.mandati }}</span>
-            </div>
-          </div>
-          <div class="result-line full flex">
-            <div class="slaganje-vlade"></div>
-            <div
-              v-for="party in map"
-              :key="party.class"
-              :class="['animate', party.class]"
-              :style="{
-                width:
-                  Math.round(results.total[party.class].mandati / 151, 4) * 100 +
-                  '%',
-              }"
-            ></div>
-          </div>-->
-        <!-- TODO: REMOVE, TEMPORARY -->
+        <div class="mini-data">
+          <span id="data-counted-total"
+            >Prebrojano {{ dip.counted }}% glasova. </span
+          ><span id="data-age">Podaci ažurirani u {{ dip.age }}h. </span
+          ><span id="data-refresh"
+            >Pokušati ćemo ažurirati podatke za 15 sekundi.</span
+          >
+        </div>
         <div class="full flex relative result-line-legend">
-          <div class="sdp-line"><span>44</span> Rijeke pravde</div>
-          <div class="hdz-line">HDZ <span>60</span></div>
+          <div class="sdp-line">
+            <span>{{ dip.total.sdp.mandati }}</span> Rijeke pravde
+          </div>
+          <div class="hdz-line">
+            HDZ <span>{{ dip.total.hdz.mandati }}</span>
+          </div>
         </div>
         <div class="result-line full flex">
           <div class="slaganje-vlade"></div>
-          <div class="animate sdp" style="width: 28%"></div>
-          <div class="animate mozemo" style="width: 9%"></div>
-          <div class="animate most" style="width: 9%"></div>
-          <div class="animate domovinski" style="width: 12%"></div>
-          <div class="manjine animate" style="width: 5.3%"></div>
-          <div class="animate hdz" style="width: 36.7%"></div>
+          <div
+            v-for="party in map"
+            :key="party.class"
+            :class="['animate', party.class]"
+            :style="{
+              width:
+                Math.round(dip.total[party.class].mandati / 151, 4) * 100 + '%',
+            }"
+          ></div>
         </div>
         <div class="full result-line-text center-text">
           76 <span class="desktop-only">mandata</span> za većinu
@@ -548,43 +472,55 @@
         <span id="data-age">Podaci ažurirani u 0:00h. </span>
       </p>
     </div>
-    <style>
-      .main-karta #_1_izborna .cls-1 {
-        fill: #3550a8;
-      }
-      .main-karta #_2_izborna .cls-1 {
-        fill: #3550a8;
-      }
-      .main-karta #_3_izborna .cls-1 {
-        fill: #3550a8;
-      }
-      .main-karta #_4_izborna .cls-1 {
-        fill: #3550a8;
-      }
-      .main-karta #_5_izborna .cls-1 {
-        fill: #3550a8;
-      }
-      .main-karta #_6_izborna .cls-1 {
-        fill: #3550a8;
-      }
-      .main-karta #_7_izborna .cls-1 {
-        fill: #3550a8;
-      }
-      .main-karta #_8_izborna .cls-1 {
-        fill: #a8353b;
-      }
-      .main-karta #_9_izborna .cls-1 {
-        fill: #3550a8;
-      }
-      .main-karta #_10_izborna .cls-1 {
-        fill: #3550a8;
-      }
-    </style>
   </div>
 </template>
 
 <script>
 export default {
   name: 'ElectionWidget',
+  computed: {
+    map() {
+      return this.$store.state.izbori.map
+    },
+    dip() {
+      return this.$store.state.izbori.dip
+    },
+  },
+  mounted() {
+    this.$store.dispatch('izbori/getData')
+  },
 }
 </script>
+
+<style>
+.main-karta #_1_izborna .cls-1 {
+  fill: #3550a8;
+}
+.main-karta #_2_izborna .cls-1 {
+  fill: #3550a8;
+}
+.main-karta #_3_izborna .cls-1 {
+  fill: #3550a8;
+}
+.main-karta #_4_izborna .cls-1 {
+  fill: #3550a8;
+}
+.main-karta #_5_izborna .cls-1 {
+  fill: #3550a8;
+}
+.main-karta #_6_izborna .cls-1 {
+  fill: #3550a8;
+}
+.main-karta #_7_izborna .cls-1 {
+  fill: #3550a8;
+}
+.main-karta #_8_izborna .cls-1 {
+  fill: #a8353b;
+}
+.main-karta #_9_izborna .cls-1 {
+  fill: #3550a8;
+}
+.main-karta #_10_izborna .cls-1 {
+  fill: #3550a8;
+}
+</style>
