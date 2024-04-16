@@ -14,12 +14,12 @@
             <span class="desktop-only">Rezultati uživo</span>
             <span class="mobile-only">Rezultati izbora uživo</span>
           </div>
-          <a
-            href="https://www.telegram.hr/parlamentarni-izbori-2024"
+          <NuxtLink
+            to="/parlamentarni-izbori-2024"
             class="flex newbtn toprightbtn animate mobile-only"
           >
             Pratite detalje
-          </a>
+          </NuxtLink>
         </div>
         <div class="full nothtwo desktop-only">Izbori 2024</div>
         <p class="full highlight-pitch column-mini-bottom-pad desktop-only">
@@ -34,12 +34,12 @@
           <span id="data-age">Podaci ažurirani u {{ dip.age }}h. </span>
         </p>
         <div class="full flex relative desktop-only">
-          <a
-            href="https://www.telegram.hr/parlamentarni-izbori-2024"
+          <NuxtLink
+            to="/parlamentarni-izbori-2024"
             class="flex newbtn huge-newbtn animate"
           >
             Pratite detalje uživo
-          </a>
+          </NuxtLink>
         </div>
       </div>
       <div
@@ -78,7 +78,7 @@
       <div
         class="third flex-responsive column-horizontal-pad center main-karta desktop-only"
       >
-        <karta :fills="fills"></karta>
+        <karta show="all"></karta>
       </div>
       <div class="full flex relative column-horizontal-pad mobile-side-pad">
         <div class="full flex relative result-line-legend">
@@ -132,15 +132,7 @@ export default {
       return this.$store.state.izbori.dip
     },
     fills() {
-      const fills = []
-      for (let i = 1; i < 12; i++) {
-        if (this.dip[i].winner) {
-          fills[i] = this.dip[i].winner
-        } else {
-          fills[i] = 'none'
-        }
-      }
-      return fills
+      return this.$store.getters['izbori/fills']
     },
   },
   mounted() {

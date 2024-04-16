@@ -62,14 +62,29 @@ export const state = () => ({
 export const mutations = {
   setData(state, gifts) {
     state.dip = gifts
+    state.update = new Date().getTime()
   },
 }
 
 export const actions = {
   async getData({ commit, state }) {
-    // if (state.updated < new Date().getTime() - 1000 * 60 * 5) {
-    const gifts = await this.$axios.$get('/api/izbori/2024')
-    commit('setData', gifts)
-    // }
+    if (state.updated < new Date().getTime() - 1000 * 60 * 5) {
+      const gifts = await this.$axios.$get('/api/izbori/2024')
+      commit('setData', gifts)
+    }
+  },
+}
+
+export const getters = {
+  fills(state) {
+    const fills = []
+    for (let i = 1; i < 12; i++) {
+      if (state.dip[i].winner) {
+        fills[i] = state.dip[i].winner
+      } else {
+        fills[i] = 'none'
+      }
+    }
+    return fills
   },
 }

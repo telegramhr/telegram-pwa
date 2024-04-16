@@ -1,9 +1,6 @@
 <script>
 export default {
   name: 'ParlamentarniIzbori2024',
-  fetch() {
-    this.$store.dispatch('izbori/getData')
-  },
   data() {
     return {
       counted: 0,
@@ -311,6 +308,9 @@ export default {
       }
     },
   },
+  mounted() {
+    this.$store.dispatch('izbori/getData')
+  },
   methods: {
     lider(key) {
       for (const k in Object.keys(this.map)) {
@@ -318,6 +318,7 @@ export default {
           return this.map[k].lider
         }
       }
+      return false
     },
     partyName(key) {
       for (const k in Object.keys(this.map)) {
@@ -325,6 +326,7 @@ export default {
           return this.map[k].title
         }
       }
+      return false
     },
   },
 }
@@ -357,7 +359,7 @@ export default {
         </div>
       </div>
     </div>
-    <section class="full flex">
+    <section v-if="dip" class="full flex">
       <div class="container flex relative column-full-pad mobile-full-pad">
         <h2 v-if="resultState == 'dip'" class="full">
           Uživo: rezultati izbora
@@ -391,8 +393,13 @@ export default {
             :class="['animate', party.class]"
             :style="{
               width:
-                Math.round(results.total[party.class].mandati / 151, 4) * 100 +
-                '%',
+                Math.round(
+                  ((party.class === 'manjine'
+                    ? 8
+                    : dip.total[party.class].mandati) /
+                    151) *
+                    100
+                ) + '%',
             }"
           ></div>
         </div>
@@ -409,23 +416,25 @@ export default {
               <div>Glasova</div>
               <div></div>
             </div>
-            <div
-              v-for="party in map"
-              :key="party.class"
-              :class="['full', 'row', 'flex', 'animate', party.class]"
-              :style="{ order: 100 - results.total[party.class].mandati }"
-            >
-              <div>
-                <img v-if="party.lider" :src="party.lider" />{{ party.title }}
+            <template v-for="party in map">
+              <div
+                v-if="party.class !== 'manjine'"
+                :key="party.class"
+                :class="['full', 'row', 'flex', 'animate', party.class]"
+                :style="{ order: 100 - results.total[party.class].mandati }"
+              >
+                <div>
+                  <img v-if="party.lider" :src="party.lider" />{{ party.title }}
+                </div>
+                <div class="mandati">
+                  {{ results.total[party.class].mandati }}
+                </div>
+                <div class="postotak">
+                  {{ results.total[party.class].postotak }}%
+                </div>
+                <div></div>
               </div>
-              <div class="mandati">
-                {{ results.total[party.class].mandati }}
-              </div>
-              <div class="postotak">
-                {{ results.total[party.class].postotak }}%
-              </div>
-              <div></div>
-            </div>
+            </template>
             <div class="full row flex manjine animate" style="order: 100">
               <div>Zastupnici manjina</div>
               <div class="mandati">8</div>
@@ -434,12 +443,11 @@ export default {
             </div>
           </div>
           <div class="half flex-responsive center main-karta column-left-pad">
-            <karta></karta>
+            <karta show="all"></karta>
           </div>
         </div>
         <h3 class="full white-space">Po izbornim jedinicama</h3>
         <div class="full flex relative izborne-jedinice">
-          <!-- TODO: v-for per izborna jedinica -->
           <div v-for="i in 11" :key="i" class="half flex-responsive flex">
             <div class="full flex">
               <div class="two-thirds">
@@ -451,8 +459,8 @@ export default {
                 </div>
                 <p class="smaller-text">{{ opisi_izbornih[i] }}</p>
               </div>
-              <div :class="['third', 'center', 'izborna-karta', 'karta-' + i]">
-                <Karta></Karta>
+              <div :class="['third', 'center']">
+                <karta :show="i"></karta>
               </div>
             </div>
             <div :class="['full', 'result-table', 'flex', 'result-table-' + i]">
@@ -468,7 +476,11 @@ export default {
                 :class="['full', 'row', 'flex', key, 'animate']"
                 :style="{ order: 100 - parseFloat(values.postotak) }"
               >
-                <div><img :src="lider(key)" />{{ partyName(key) }}</div>
+                <div>
+                  <img v-if="!!lider(key)" :src="lider(key)" />{{
+                    !!partyName(key) ? partyName(key) : values.name
+                  }}
+                </div>
                 <div class="mandati">{{ values.mandati }}</div>
                 <div class="postotak">{{ values.postotak }}%</div>
                 <div></div>
