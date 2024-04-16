@@ -1,14 +1,13 @@
 <script>
 export default {
   name: 'ParlamentarniIzbori2024',
-  async fetch() {
-    this.dip = await this.$axios.$get('/api/izbori/2024')
+  fetch() {
+    this.$store.dispatch('izbori/getData')
   },
   data() {
     return {
       counted: 0,
       age: 0,
-      dip: false,
       izlazne: false,
       ankete: {
         total: {
@@ -284,41 +283,15 @@ export default {
         11: 'XI izborna jedinica je za izbor zastupnika u Hrvatski sabor koje biraju hrvatski državljani koji nemaju prebivalište u Republici Hrvatskoj.',
         12: 'XII izborna jedinica obuhvaća cjelokupno područje Republike Hrvatske u kojoj pripadnici nacionalnih manjina u Republici Hrvatskoj biraju svoje zastupnike u Hrvatski sabor.',
       },
-      map: {
-        1: {
-          alt: 'Rijeke pravde - Zoran Milanović',
-          title: 'Rijeke pravde',
-          class: 'sdp',
-          lider: require('assets/img/extras/izbori_2024/lider_sdp.png'),
-        },
-        20: {
-          alt: 'HDZ - Andrej Plenković',
-          title: 'HDZ',
-          class: 'hdz',
-          lider: require('assets/img/extras/izbori_2024/lider_hdz.png'),
-        },
-        2: {
-          alt: 'Možemo - Tomislav Tomašević',
-          title: 'Možemo!',
-          class: 'mozemo',
-          lider: require('assets/img/extras/izbori_2024/lider_mozemo.png'),
-        },
-        18: {
-          alt: 'MOST - Božo Petrov',
-          title: 'Most',
-          class: 'most',
-          lider: require('assets/img/extras/izbori_2024/lider_most.png'),
-        },
-        19: {
-          alt: 'Domovinski pokret',
-          title: 'Domovinski pokret',
-          class: 'domovinski',
-          lider: require('assets/img/extras/izbori_2024/lider_domovinski.png'),
-        },
-      },
     }
   },
   computed: {
+    map() {
+      return this.$store.state.izbori.map;
+    },
+    dip() {
+      return this.$store.state.izbori.dip;
+    },
     resultState() {
       if (this.dip) {
         return 'dip'
