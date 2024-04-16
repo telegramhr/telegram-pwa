@@ -79,7 +79,7 @@ export const getters = {
   fills(state) {
     const fills = []
     for (let i = 1; i < 12; i++) {
-      if (state.dip[i].winner) {
+      if (state.dip[i]?.winner) {
         fills[i] = state.dip[i].winner
       } else {
         fills[i] = 'none'

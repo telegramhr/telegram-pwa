@@ -5,267 +5,6 @@ export default {
     return {
       counted: 0,
       age: 0,
-      izlazne: false,
-      ankete: {
-        total: {
-          hdz: {
-            mandati: 60,
-            postotak: 30,
-          },
-          sdp: {
-            mandati: 44,
-            postotak: 20,
-          },
-          domovinski: {
-            mandati: 14,
-            postotak: 10,
-          },
-          mozemo: {
-            mandati: 9,
-            postotak: 10,
-          },
-          most: {
-            mandati: 9,
-            postotak: 10,
-          },
-        },
-        1: {
-          counted: 0,
-          party: {
-            hdz: {
-              mandati: 0,
-              postotak: 0,
-            },
-            sdp: {
-              mandati: 0,
-              postotak: 0,
-            },
-            mozemo: {
-              mandati: 0,
-              postotak: 0,
-            },
-            most: {
-              mandati: 0,
-              postotak: 0,
-            },
-          },
-        },
-        2: {
-          counted: 0,
-          party: {
-            hdz: {
-              mandati: 0,
-              postotak: 0,
-            },
-            sdp: {
-              mandati: 0,
-              postotak: 0,
-            },
-            mozemo: {
-              mandati: 0,
-              postotak: 0,
-            },
-            most: {
-              mandati: 0,
-              postotak: 0,
-            },
-          },
-        },
-        3: {
-          counted: 0,
-          party: {
-            hdz: {
-              mandati: 0,
-              postotak: 0,
-            },
-            sdp: {
-              mandati: 0,
-              postotak: 0,
-            },
-            mozemo: {
-              mandati: 0,
-              postotak: 0,
-            },
-            most: {
-              mandati: 0,
-              postotak: 0,
-            },
-          },
-        },
-        4: {
-          counted: 0,
-          party: {
-            hdz: {
-              mandati: 0,
-              postotak: 0,
-            },
-            sdp: {
-              mandati: 0,
-              postotak: 0,
-            },
-            mozemo: {
-              mandati: 0,
-              postotak: 0,
-            },
-            most: {
-              mandati: 0,
-              postotak: 0,
-            },
-          },
-        },
-        5: {
-          counted: 0,
-          party: {
-            hdz: {
-              mandati: 0,
-              postotak: 0,
-            },
-            sdp: {
-              mandati: 0,
-              postotak: 0,
-            },
-            mozemo: {
-              mandati: 0,
-              postotak: 0,
-            },
-            most: {
-              mandati: 0,
-              postotak: 0,
-            },
-          },
-        },
-        6: {
-          counted: 0,
-          party: {
-            hdz: {
-              mandati: 0,
-              postotak: 0,
-            },
-            sdp: {
-              mandati: 0,
-              postotak: 0,
-            },
-            mozemo: {
-              mandati: 0,
-              postotak: 0,
-            },
-            most: {
-              mandati: 0,
-              postotak: 0,
-            },
-          },
-        },
-        7: {
-          counted: 0,
-          party: {
-            hdz: {
-              mandati: 0,
-              postotak: 0,
-            },
-            sdp: {
-              mandati: 0,
-              postotak: 0,
-            },
-            mozemo: {
-              mandati: 0,
-              postotak: 0,
-            },
-            most: {
-              mandati: 0,
-              postotak: 0,
-            },
-          },
-        },
-        8: {
-          counted: 0,
-          party: {
-            hdz: {
-              mandati: 0,
-              postotak: 0,
-            },
-            sdp: {
-              mandati: 0,
-              postotak: 0,
-            },
-            mozemo: {
-              mandati: 0,
-              postotak: 0,
-            },
-            most: {
-              mandati: 0,
-              postotak: 0,
-            },
-          },
-        },
-        9: {
-          counted: 0,
-          party: {
-            hdz: {
-              mandati: 0,
-              postotak: 0,
-            },
-            sdp: {
-              mandati: 0,
-              postotak: 0,
-            },
-            mozemo: {
-              mandati: 0,
-              postotak: 0,
-            },
-            most: {
-              mandati: 0,
-              postotak: 0,
-            },
-          },
-        },
-        10: {
-          counted: 0,
-          party: {
-            hdz: {
-              mandati: 0,
-              postotak: 0,
-            },
-            sdp: {
-              mandati: 0,
-              postotak: 0,
-            },
-            mozemo: {
-              mandati: 0,
-              postotak: 0,
-            },
-            most: {
-              mandati: 0,
-              postotak: 0,
-            },
-          },
-        },
-        11: {
-          counted: 0,
-          party: {
-            hdz: {
-              mandati: 0,
-              postotak: 0,
-            },
-            sdp: {
-              mandati: 0,
-              postotak: 0,
-            },
-          },
-        },
-        12: {
-          counted: 0,
-          party: {
-            hdz: {
-              mandati: 0,
-              postotak: 0,
-            },
-            sdp: {
-              mandati: 0,
-              postotak: 0,
-            },
-          },
-        },
-      },
       opisi_izbornih: {
         1: 'I. izborna jedinica obuhvaća centar i sjeverno-zapadni dio Grada Zagreba kao i dijelove Zagrebačke županije uključujući Veliku Goricu. ',
         2: 'II. izborna jedinica obuhvaća istočni dio Grada Zagreba, istočni dio Zagrebačke županije, dio Koprivničko-križevačke županije, te cijelu Bjelovarsko-bilogorsku županiju.',
@@ -290,22 +29,13 @@ export default {
       return this.$store.state.izbori.dip
     },
     resultState() {
-      if (this.dip) {
-        return 'dip'
-      } else if (this.izlazne) {
+      if (this.dip.ankete) {
         return 'izlazne'
-      } else {
-        return 'preview'
       }
+      return 'dip'
     },
     results() {
-      if (this.dip) {
-        return this.dip
-      } else if (this.izlazne) {
-        return this.izlazne
-      } else {
-        return this.ankete
-      }
+      return this.$store.state.izbori.dip
     },
   },
   mounted() {
@@ -361,19 +91,16 @@ export default {
     </div>
     <section v-if="dip" class="full flex">
       <div class="container flex relative column-full-pad mobile-full-pad">
-        <h2 v-if="resultState == 'dip'" class="full">
+        <h2 v-if="resultState === 'dip'" class="full">
           Uživo: rezultati izbora
         </h2>
-        <h2 v-if="resultState == 'izlazne'" class="full">
+        <h2 v-if="resultState === 'izlazne'" class="full">
           Uživo: rezultati izlaznih anketa
-        </h2>
-        <h2 v-if="resultState == 'preview'" class="full">
-          Analiza: prosjek predizbornih anketa
         </h2>
         <div class="mini-data">
           <span id="data-counted-total"
-            >Prebrojano {{ counted }}% glasova. </span
-          ><span id="data-age">Podaci ažurirani u {{ age }}h. </span
+            >Prebrojano {{ dip.counted }}% glasova. </span
+          ><span id="data-age">Podaci ažurirani u {{ dip.age }}h. </span
           ><!--<span id="data-refresh">Pokušati ćemo ažurirati podatke za 15 sekundi.</span>-->
         </div>
         <div class="full flex relative result-line-legend">
@@ -446,48 +173,52 @@ export default {
             <karta show="all"></karta>
           </div>
         </div>
-        <h3 class="full white-space">Po izbornim jedinicama</h3>
-        <div class="full flex relative izborne-jedinice">
-          <div v-for="i in 11" :key="i" class="half flex-responsive flex">
-            <div class="full flex">
-              <div class="two-thirds">
-                <h4 class="full">{{ i }}. izborna jedinica</h4>
-                <div class="full mini-data">
-                  <span :id="`data-counted-${i}`"
-                    >Prebrojano {{ results[i]['counted'] }}% glasova.
-                  </span>
+        <template v-if="dip.dip">
+          <h3 class="full white-space">Po izbornim jedinicama</h3>
+          <div class="full flex relative izborne-jedinice">
+            <div v-for="i in 11" :key="i" class="half flex-responsive flex">
+              <div class="full flex">
+                <div class="two-thirds">
+                  <h4 class="full">{{ i }}. izborna jedinica</h4>
+                  <div class="full mini-data">
+                    <span :id="`data-counted-${i}`"
+                      >Prebrojano {{ results[i]['counted'] }}% glasova.
+                    </span>
+                  </div>
+                  <p class="smaller-text">{{ opisi_izbornih[i] }}</p>
                 </div>
-                <p class="smaller-text">{{ opisi_izbornih[i] }}</p>
-              </div>
-              <div :class="['third', 'center']">
-                <karta :show="i"></karta>
-              </div>
-            </div>
-            <div :class="['full', 'result-table', 'flex', 'result-table-' + i]">
-              <div class="full row flex">
-                <div>Lista</div>
-                <div>Mandata</div>
-                <div>Glasova</div>
-                <div></div>
+                <div :class="['third', 'center']">
+                  <karta :show="i"></karta>
+                </div>
               </div>
               <div
-                v-for="(values, key) in results[i].party"
-                :key="key"
-                :class="['full', 'row', 'flex', key, 'animate']"
-                :style="{ order: 100 - parseFloat(values.postotak) }"
+                :class="['full', 'result-table', 'flex', 'result-table-' + i]"
               >
-                <div>
-                  <img v-if="!!lider(key)" :src="lider(key)" />{{
-                    !!partyName(key) ? partyName(key) : values.name
-                  }}
+                <div class="full row flex">
+                  <div>Lista</div>
+                  <div>Mandata</div>
+                  <div>Glasova</div>
+                  <div></div>
                 </div>
-                <div class="mandati">{{ values.mandati }}</div>
-                <div class="postotak">{{ values.postotak }}%</div>
-                <div></div>
+                <div
+                  v-for="(values, key) in results[i].party"
+                  :key="key"
+                  :class="['full', 'row', 'flex', key, 'animate']"
+                  :style="{ order: 100 - parseFloat(values.postotak) }"
+                >
+                  <div>
+                    <img v-if="!!lider(key)" :src="lider(key)" />{{
+                      !!partyName(key) ? partyName(key) : values.name
+                    }}
+                  </div>
+                  <div class="mandati">{{ values.mandati }}</div>
+                  <div class="postotak">{{ values.postotak }}%</div>
+                  <div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </template>
       </div>
     </section>
     <tfooter></tfooter>
