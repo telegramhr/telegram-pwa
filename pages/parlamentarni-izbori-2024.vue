@@ -1,6 +1,9 @@
 <script>
 export default {
   name: 'ParlamentarniIzbori2024',
+  async fetch() {
+    this.dip = await this.$axios.$get('/api/izbori/2024')
+  },
   data() {
     return {
       counted: 0,
@@ -298,67 +301,20 @@ export default {
           alt: 'Možemo - Tomislav Tomašević',
           title: 'Možemo!',
           class: 'mozemo',
-          lider:
-            'https://www.telegram.hr/wp-content/themes/telegram2-desktop/templates/native/izbori/2020_parlamentarni/img/lider_mozemo.gif',
+          lider: require('assets/img/extras/izbori_2024/lider_mozemo.png'),
         },
         18: {
           alt: 'MOST - Božo Petrov',
           title: 'Most',
           class: 'most',
-          lider:
-            'https://www.telegram.hr/wp-content/themes/telegram2-desktop/templates/native/izbori/2020_parlamentarni/img/lider_most.gif',
+          lider: require('assets/img/extras/izbori_2024/lider_most.png'),
         },
         19: {
           alt: 'Domovinski pokret',
           title: 'Domovinski pokret',
           class: 'domovinski',
-          lider:
-            'https://www.telegram.hr/wp-content/themes/telegram2-desktop/templates/native/izbori/2020_parlamentarni/img/lider_hdz.gif',
+          lider: require('assets/img/extras/izbori_2024/lider_domovinski.png'),
         },
-        /*
-        15: {
-          alt: 'Nezavisna lista Stipe Petrina',
-          title: 'Nezavisna lista Stipe Petrina',
-          class: 'petrina',
-        },
-        7: {
-          alt: 'SSIP - Dalija Orešković',
-          title: 'Pametno / Fokus / SSIP',
-          class: 'simp',
-        },
-        16: {
-          alt: 'HGS - Željko Kerum',
-          title: 'HGS',
-          class: 'kerum',
-        },
-        12: {
-          alt: 'HNS - Predrag Štromar',
-          title: 'HNS',
-          class: 'hns',
-        },
-        11: {
-          alt: 'Dosta Pljačke - Vilibor Sinčić',
-          title: 'Dosta pljačke koalicija',
-          class: 'dosta',
-        },
-        9: {
-          alt: 'Narodna stranka reformisti - Radimir Čačić',
-          title: 'Narodna stranka - Reformisti',
-          class: 'reformisti',
-        },
-        17: {
-          alt: '365 - Milan Bandić',
-          class: 365,
-          title: '365 - Stranka Rada i Solidarnosti',
-        },
-        18: {
-          alt: 'MOST - Božo Petrov',
-          title: 'MOST',
-          class: 'most',
-        },
-        10: {
-          class: 'manjine',
-        }, */
       },
     }
   },
@@ -379,6 +335,22 @@ export default {
         return this.izlazne
       } else {
         return this.ankete
+      }
+    },
+  },
+  methods: {
+    lider(key) {
+      for (const k in Object.keys(this.map)) {
+        if (this.map[k] && this.map[k].class === key) {
+          return this.map[k].lider
+        }
+      }
+    },
+    partyName(key) {
+      for (const k in Object.keys(this.map)) {
+        if (this.map[k] && this.map[k].class === key) {
+          return this.map[k].title
+        }
       }
     },
   },
@@ -489,7 +461,7 @@ export default {
         <h3 class="full white-space">Po izbornim jedinicama</h3>
         <div class="full flex relative izborne-jedinice">
           <!-- TODO: v-for per izborna jedinica -->
-          <div v-for="i in 1" :key="i" class="half flex-responsive flex">
+          <div v-for="i in 11" :key="i" class="half flex-responsive flex">
             <div class="full flex">
               <div class="two-thirds">
                 <h4 class="full">{{ i }}. izborna jedinica</h4>
@@ -512,12 +484,12 @@ export default {
                 <div></div>
               </div>
               <div
-                v-for="(values, party) in results[i].party"
-                :key="party"
-                :class="['full', 'row', 'flex', party, 'animate']"
-                :style="{ order: 100 - values.mandati }"
+                v-for="(values, key) in results[i].party"
+                :key="key"
+                :class="['full', 'row', 'flex', key, 'animate']"
+                :style="{ order: 100 - parseFloat(values.postotak) }"
               >
-                <div><img :src="party.lider" />{{ party.title }}</div>
+                <div><img :src="lider(key)" />{{ partyName(key) }}</div>
                 <div class="mandati">{{ values.mandati }}</div>
                 <div class="postotak">{{ values.postotak }}%</div>
                 <div></div>
