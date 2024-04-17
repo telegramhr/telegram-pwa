@@ -30,7 +30,7 @@
           class="full highlight-pitch column-mini-bottom-pad desktop-only"
         >
           <span id="data-counted-total"
-            >Prebrojano {{ dip.counted }}% glasova.</span
+            >Prebrojano {{ dip.counted }}% biračkih mjesta.</span
           >
         </p>
         <p
