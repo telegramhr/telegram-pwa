@@ -31,25 +31,25 @@ export const state = () => ({
       class: 'nps',
       lider: require('assets/img/extras/izbori_2024/lider_nos.png'),
     },
-    10: {
+    6: {
       alt: 'manjine',
       title: 'Manjine',
       class: 'manjine',
       lider: '',
     },
-    18: {
+    7: {
       alt: 'MOST',
       title: 'Most',
       class: 'most',
       lider: require('assets/img/extras/izbori_2024/lider_most.png'),
     },
-    19: {
+    8: {
       alt: 'Domovinski pokret',
       title: 'Domovinski pokret',
       class: 'domovinski',
       lider: require('assets/img/extras/izbori_2024/lider_domovinski.png'),
     },
-    20: {
+    9: {
       alt: 'HDZ - Andrej Plenković',
       title: 'HDZ',
       class: 'hdz',

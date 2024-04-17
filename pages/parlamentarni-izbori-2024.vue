@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     lider(key) {
-      for (const k in Object.keys(this.map)) {
+      for (let k = 1; k < 10; k++) {
         if (this.map[k] && this.map[k].class === key) {
           return this.map[k].lider
         }
@@ -200,7 +200,7 @@ export default {
                   <p class="smaller-text">{{ opisi_izbornih[i] }}</p>
                 </div>
                 <div :class="['third', 'center']">
-                  <karta :show="i"></karta>
+                  <karta :show="i.toString()"></karta>
                 </div>
               </div>
               <div
