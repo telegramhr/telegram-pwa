@@ -127,7 +127,7 @@
         class="full highlight-pitch center mobile-bottom-pad mobile-only"
       >
         <span id="data-counted-total"
-          >Prebrojano {{ dip.counted }}% glasova.
+          >Prebrojano {{ dip.counted }}% biračkih mjesta.
         </span>
         <span id="data-age">Podaci ažurirani u {{ dip.age }}h. </span>
       </p>
