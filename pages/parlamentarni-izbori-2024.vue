@@ -194,7 +194,7 @@ export default {
                   <h4 class="full">{{ i }}. izborna jedinica</h4>
                   <div class="full mini-data">
                     <span :id="`data-counted-${i}`"
-                      >Prebrojano {{ results[i]['counted'] }}% glasova.
+                      >Prebrojano {{ results[i]['counted'] }}% biračkih mjesta.
                     </span>
                   </div>
                   <p class="smaller-text">{{ opisi_izbornih[i] }}</p>
