@@ -68,10 +68,8 @@ export const mutations = {
 
 export const actions = {
   async getData({ commit, state }) {
-    if (state.updated < new Date().getTime() - 1000 * 60 * 5) {
-      const gifts = await this.$axios.$get('/api/izbori/2024')
-      commit('setData', gifts)
-    }
+    const gifts = await this.$axios.$get('/api/izbori/2024')
+    commit('setData', gifts)
   },
 }
 

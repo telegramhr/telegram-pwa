@@ -60,9 +60,9 @@
           <div>Glasova</div>
           <div></div>
         </div>
-        <template>
+        <template v-for="party in map">
           <div
-            v-for="party in map"
+            v-if="dip.total[party.class]"
             :key="party.class"
             class="full row flex animate"
             :class="party.class"
