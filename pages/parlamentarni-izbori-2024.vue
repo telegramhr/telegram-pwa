@@ -212,7 +212,7 @@ export default {
           >
         </div>
         <div v-if="dip.ankete" class="mini-data">
-          <span>Podaci su preuzeti s IPSOS izlaznih anketa </span>
+          <span>Podaci su s izlaznih anketa.</span>
         </div>
       </div>
     </section>

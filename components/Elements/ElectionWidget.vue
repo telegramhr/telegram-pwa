@@ -40,7 +40,7 @@
           <span id="data-age">Podaci ažurirani u {{ dip.age }}h. </span>
         </p>
         <p v-else class="full highlight-pitch column-bottom-pad desktop-only">
-          Podaci preuzeti s IPSOS izlaznih anketa.
+          Podaci izlaznih anketa.
         </p>
         <div class="full flex relative desktop-only">
           <NuxtLink
@@ -60,9 +60,9 @@
           <div>Glasova</div>
           <div></div>
         </div>
-        <template v-for="party in map">
+        <template>
           <div
-            v-if="dip.total[party.class]?.mandati"
+            v-for="party in map"
             :key="party.class"
             class="full row flex animate"
             :class="party.class"
