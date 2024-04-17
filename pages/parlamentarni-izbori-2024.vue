@@ -110,7 +110,7 @@ export default {
         </h1>
         <div class="mini-data">
           <span id="data-counted-total"
-            >Prebrojano {{ dip.counted }}% glasova. </span
+            >Prebrojano {{ dip.counted }}% biračkih mjesta. </span
           ><span id="data-age">Podaci ažurirani u {{ dip.age }}h. </span
           ><!--<span id="data-refresh">Pokušati ćemo ažurirati podatke za 15 sekundi.</span>-->
         </div>
