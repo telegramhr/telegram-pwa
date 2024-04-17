@@ -59,6 +59,9 @@ export default {
       return false
     },
   },
+  head: {
+    title: 'Rezultati izbora za Sabor 2024.',
+  },
 }
 </script>
 

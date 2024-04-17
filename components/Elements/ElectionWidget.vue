@@ -18,7 +18,7 @@
             to="/parlamentarni-izbori-2024"
             class="flex newbtn toprightbtn animate mobile-only"
           >
-            Svi detalji
+            Svi rezultati
           </NuxtLink>
         </div>
         <div class="full nothtwo desktop-only">Izbori 2024</div>
