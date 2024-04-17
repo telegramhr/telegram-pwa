@@ -112,7 +112,7 @@
                   ((party.class === 'manjine'
                     ? 8
                     : dip.total[party.class].mandati) /
-                    151) *
+                    148) *
                     100
                 ) + '%',
             }"
