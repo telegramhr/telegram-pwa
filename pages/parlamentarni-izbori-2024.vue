@@ -62,6 +62,28 @@ export default {
   head() {
     return {
       title: 'Rezultati izbora za Sabor 2024.',
+      meta: [
+        {
+          hid: 'og:type',
+          property: 'og:type',
+          content: 'article',
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'Rezultati izbora za Sabor 2024.',
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: require('~/assets/img/tg_vizual_izbori_2024.jpg'),
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: 'https://www.telegram.hr/parlamentarni-izbori-2024',
+        },
+      ],
     }
   },
 }

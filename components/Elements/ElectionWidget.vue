@@ -72,7 +72,7 @@
             <div class="mandati">
               <span v-if="!dip.dip">~</span>{{ dip.total[party.class].mandati }}
             </div>
-            <div class="postotak">{{ dip.total[party.class].postotak }}</div>
+            <div class="postotak">{{ dip.total[party.class].postotak }}%</div>
             <div></div>
           </div>
         </template>
