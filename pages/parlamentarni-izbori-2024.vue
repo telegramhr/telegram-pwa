@@ -136,8 +136,10 @@ export default {
                     ? 8
                     : dip.total[party.class].mandati) /
                     151) *
-                    100
-                ) + '%',
+                    10000
+                ) /
+                  100 +
+                '%',
             }"
           ></div>
         </div>
