@@ -7,7 +7,7 @@
   >
     <div class="noththree full center-text column-full-pad subsection-title">
       <div class="full center jgl-line">
-        <div class="flex center" style="background: transparent">
+        <div class="flex center">
           <img
             src="@/assets/img/extras/partner_logos/Solgar_logo.png"
             alt="JGL logo"
