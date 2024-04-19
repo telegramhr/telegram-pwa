@@ -425,15 +425,15 @@
     <div class="full relative">
       <sport></sport>
     </div>
-    <!-- Velika rubrika: Kultura -->
-    <div class="full relative">
-      <category-zone zone="kultura"></category-zone>
-    </div>
-    <!-- Widget autori -->
-    <commentary-alt type="tg"></commentary-alt>
     <!-- Super1 -->
     <div class="full relative">
       <super1></super1>
+    </div>
+    <!-- Widget autori -->
+    <commentary-alt type="tg"></commentary-alt>
+    <!-- Velika rubrika: Kultura -->
+    <div class="full relative">
+      <category-zone zone="kultura"></category-zone>
     </div>
     <!-- Pretplatnici čitaju -->
     <div class="full relative">
