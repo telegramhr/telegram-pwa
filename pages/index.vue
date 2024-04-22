@@ -23,9 +23,6 @@
         </client-only>
       </div>
     </div>
-    <client-only>
-      <election-widget></election-widget>
-    </client-only>
     <!-- Above header banner -->
     <!--<client-only>
       <app-link
