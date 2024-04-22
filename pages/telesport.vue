@@ -1,5 +1,5 @@
 <template>
-  <div class="main-container flex telesport">
+  <div class="main-container flex telesport ts-home">
     <!-- TG Multiverse header -->
     <div class="full flex">
       <theader></theader>
@@ -87,11 +87,6 @@
             <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon>
           </a>
         </div>
-        <div
-          class="full column-horizontal-pad center-text desktop-only site-subtitle"
-        >
-          A sada... nešto sasvim drugačije. Telegramov sportski kanal.
-        </div>
         <div class="full mobile-side-pad">
           <div class="full desktop-only cantha-separator"></div>
         </div>
@@ -170,13 +165,13 @@
         </div>
         <!-- G1 -->
         <div
-          class="three-fourths flex-responsive flex stretch column-horizontal-pad article-amnytas mobile-bottom-pad"
+          class="three-fourths featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad mobile-order-1 m-order-1"
         >
-          <featured
+          <featured-alt
             v-if="posts[0]"
             :key="`featured-${posts[0].id}`"
             :post="posts[0]"
-          ></featured>
+          ></featured-alt>
         </div>
         <!-- latest -->
         <client-only>
@@ -208,12 +203,14 @@
           <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
         </div> -->
         <!-- Teme -->
-        <div class="full flex mobile-side-pad stretch secondary-gs-block">
+        <div
+          class="full flex mobile-side-pad stretch secondary-gs-block m-order-8"
+        >
           <div class="full column-horizontal-pad column-bottom-pad flex">
             <div class="full column-top-border"></div>
           </div>
           <div
-            class="three-fourths flex-responsive flex stretch column-horizontal-pad article-amnytas mobile-bottom-pad column-right-border"
+            class="three-fourths flex-responsive column-horizontal-pad column-right-border flex relative featured-split smaller-featured-split show-one-related"
           >
             <featured
               v-for="post in posts.slice(4, 5)"
@@ -234,7 +231,7 @@
             <div class="full column-top-border column-bottom-pad"></div>
           </div>
           <div
-            class="three-fourths flex-responsive flex stretch column-horizontal-pad article-amnytas mobile-bottom-pad column-right-border"
+            class="three-fourths flex-responsive column-horizontal-pad column-right-border flex relative featured-split smaller-featured-split show-one-related"
           >
             <featured
               v-for="post in posts.slice(6, 7)"
@@ -501,6 +498,9 @@ export default {
         description: 'Prvi regionalni sportski boutique portal.',
         publisher: this.$store.state.header.publisher,
       }
+    },
+    canLogIn() {
+      return this.$store.state.user.exp * 1000 < new Date().getTime()
     },
   },
   methods: {
