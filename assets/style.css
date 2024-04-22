@@ -13362,8 +13362,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .gift-submenu-item:last-child {
     border-bottom: none;
 }
-.gift-submenu-item:hover {
-    color: #ae3737;
+@media screen and (min-width: 1024px) {
+    .gift-submenu-item:hover {
+        color: #ae3737;
+    }
 }
 @media screen and (max-width: 767px) {
     .article-meta .article-gift-button span {
