@@ -139,6 +139,20 @@
               aria-label="Koristi tamnu temu"
               >Aa</label
             >
+            <input
+              id="domoljub-theme"
+              v-model="color_theme"
+              type="radio"
+              class="hide"
+              name="theme-selector"
+              value="domoljub"
+            />
+            <label
+              for="domoljub-theme"
+              class="theme-preview domoljub-theme-preview animate"
+              aria-label="Koristi domoljubnu temu"
+              >U domovinskom duhu</label
+            >
           </div>
           <div class="full flex fontsize-previews">
             <input

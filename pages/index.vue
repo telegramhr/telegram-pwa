@@ -138,6 +138,49 @@
     </app-link>-->
     <!-- Cantha header -->
     <div class="full relative cantha-header">
+      <!-- Actual new TG multiverse header -->
+      <nav
+        class="full center relative nayos nayos-multiverse stretch u-domovinskom-duhu"
+      >
+        <div
+          class="container flex stretch relative column-horizontal-pad mobile-side-pad"
+        >
+          <div class="third flex vertical-center mobile-thirty">
+            <a
+              :aria-expanded="$store.state.header.showSideMenu.toString()"
+              aria-label="Prikaži lijevi meni"
+              aria-controls="sidebar"
+              @click.prevent="$store.commit('header/updateMenu', 'side')"
+            >
+              <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon>
+            </a>
+          </div>
+          <app-link to="/" class="third mobile-forty center nayos-logos">
+            <img src="@/assets/img/brzojav.svg" alt="Telegram logo" />
+          </app-link>
+          <div class="third center align-children-end mobile-thirty">
+            <app-link
+              v-show="canLogIn"
+              id="pretplatite se - header"
+              to="/pretplata"
+              class="newbtn"
+              >Pretplatite se</app-link
+            >
+            <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun">
+              <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
+            </app-link>
+            <a
+              class="desktop-only column-mini-left-pad"
+              aria-label="Prikaži tražilicu"
+              :aria-expanded="$store.state.header.showSearchMenu.toString()"
+              aria-controls="search"
+              @click.prevent="$store.commit('header/updateMenu', 'search')"
+            >
+              <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon>
+            </a>
+          </div>
+        </div>
+      </nav>
       <div class="container flex relative column-top-pad column-horizontal-pad">
         <div class="full center relative desktop-only">
           <a
@@ -152,7 +195,12 @@
           <app-link to="/" class="logo" @click="$fetch"
             ><img
               src="@/assets/img/telegram_logo_black.svg"
-              alt="Telegram logo" />
+              alt="Telegram logo"
+              class="not-safe-for-domoljub" />
+            <img
+              src="@/assets/img/brzojav.svg"
+              alt="Telegram logo"
+              class="u-domovinskom-duhu" />
             <img
               src="@/assets/img/telegram_logo_white.svg"
               alt="Telegram logo"
@@ -170,9 +218,15 @@
         </div>
         <app-link
           to="/pretplata/odabrati-stranu"
-          class="full column-horizontal-pad center-text desktop-only site-subtitle"
+          class="full column-horizontal-pad center-text desktop-only site-subtitle not-safe-for-domoljub"
         >
           Nekad je nužno odabrati stranu
+        </app-link>
+        <app-link
+          to="/pretplata/"
+          class="full column-horizontal-pad center-text desktop-only site-subtitle u-domovinskom-duhu"
+        >
+          U domovinskom duhu
         </app-link>
         <div class="full mobile-side-pad">
           <div class="full desktop-only cantha-separator"></div>
