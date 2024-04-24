@@ -13,8 +13,12 @@
     --palette-divider: #c8c8c8;
 }
 
-.fancy-rubrika *, .contrast-mode *, .domoljub-mode * {
+.fancy-rubrika *, .contrast-mode * {
     --tg-primary-background-color: #ffffff;
+}
+
+.domoljub-mode * {
+  --tg-primary-background-color: #f1f6fc;;
 }
 
 .super1 * {
