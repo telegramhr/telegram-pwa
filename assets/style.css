@@ -11731,7 +11731,11 @@ input:checked ~ .input-hidden {
         font-size: .8rem;
     }
     .latest-feed-btn {
-        padding-top: 2vw;
+        padding-top: 16px;
+    }
+    .latest-line-feed .latest-feed-btn::before {
+        top: 30px;
+        height: 20px;
     }
     .reorder-echovald .three-fourths, .reorder-echovald .full {
         order: 1;
