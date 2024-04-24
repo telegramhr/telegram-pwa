@@ -46,6 +46,13 @@
           >
             Nastavite čitati
           </div>
+          <div
+            v-else
+            class="newbtn huge-newbtn altbtn center-text clickable"
+            @click.prevent="login"
+          >
+            Već imam pretplatu
+          </div>
         </div>
         <div class="full center">
           <div class="flex remp-icon-list">

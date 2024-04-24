@@ -534,22 +534,24 @@ export default {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/super1/',
+          content: 'https://www.telegram.hr/telesport/',
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: 'https://www.pwa.telegram.hr/img/s1_share_home.jpg',
+          content: 'https://www.telegram.hr/img/ts_share.jpg',
         },
         {
           hid: 'description',
           name: 'description',
-          content: 'Lifestyle pokret stvarnih žena.',
+          content:
+            'Pratite domaća, regionalna i svjetska sportska događanja uz kolumne sportskih stručnjaka, komentare i detaljne analize novinara na jednom mjestu!',
         },
         {
           hid: 'og:description',
           property: 'og:description',
-          content: 'Lifestyle pokret stvarnih žena.',
+          content:
+            'Pratite domaća, regionalna i svjetska sportska događanja uz kolumne sportskih stručnjaka, komentare i detaljne analize novinara na jednom mjestu!',
         },
       ],
       script: [
