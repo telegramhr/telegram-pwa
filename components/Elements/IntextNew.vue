@@ -49,7 +49,7 @@
           <div
             v-else
             class="newbtn huge-newbtn altbtn center-text clickable"
-            @click.prevent="login"
+            @click.prevent="$store.dispatch('user/login')"
           >
             Već imam pretplatu
           </div>
