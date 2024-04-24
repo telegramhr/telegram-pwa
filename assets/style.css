@@ -10998,7 +10998,7 @@ label.payment-tile svg {
 .latest-line-feed .latest-feed-btn::before {
     content: " ";
     border-top: 1px solid #c8c8c8;
-    background-color: #fcf1e7;
+    background-color: var(--tg-primary-background-color);
     position: absolute;
     z-index: 2;
     top: 15px;
@@ -11008,7 +11008,6 @@ label.payment-tile svg {
 }
 .dark-mode .latest-line-feed .latest-feed-btn::before {
     border-top-color: #333;
-    background-color: #212121;
 }
 .latest-line-feed .latest-feed-btn .newbtn {
     z-index: 5;
@@ -11026,14 +11025,10 @@ label.payment-tile svg {
     height: 16px;
     z-index: 5;
     border: 1px solid #c8c8c8;
-    background-color: #fcf1e7;
+    background-color: var(--tg-primary-background-color);
 }
 .dark-mode .latest-line-feed .article::before {
     border-color: #333;
-    background-color: #212121;
-}
-.contrast-mode .latest-line-feed .article::before {
-    background-color: white;
 }
 .latest-line-feed .article::after {
     content: " ";
