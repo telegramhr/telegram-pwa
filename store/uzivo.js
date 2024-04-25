@@ -15,6 +15,8 @@ export const state = () => ({
 export const mutations = {
   setPosts(state, data) {
     state.posts[data.category] = data.data
+    state.page[data.category] = 2
+    state.lastUpdate = new Date().getTime()
   },
   addPosts(state, data) {
     state.posts[data.category].push(...data.data)
@@ -24,7 +26,7 @@ export const mutations = {
 
 export const actions = {
   async getPosts({ commit, state }) {
-    if (state.lastUpdate < new Date().getTime() - 1000 * 60 * 10) {
+    if (state.lastUpdate < new Date().getTime() - 1000 * 60 * 1) {
       await this.$axios.$get(`/api/uzivo/najnovije/`).then((data) => {
         commit('setPosts', { category: 'najnovije', data })
       })
