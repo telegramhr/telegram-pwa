@@ -5859,6 +5859,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     position: relative;
     padding: 5px 10px;
     padding-top: 4px;
+    padding-left: 1.5rem;
     cursor: pointer;
     width: auto;
     margin-bottom: 8px;
@@ -5870,9 +5871,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     content: ' ';
     position: absolute;
     left: 0;
-    top: 0;
-    height: 100%;
-    width: 2px;
+    top: 0.4rem;
+    height: 0.6rem;
+    width: 0.6rem;
     background: #c8c8c8;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
@@ -5880,14 +5881,18 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     -o-transition: all 0.3s;
     transition: all 0.3s;
     z-index: -1;
+    border: 0.2rem solid #c8c8c8;
+    border-radius: 0.5rem;
 }
+.native-quiz label span svg {
+    top: 0.2rem;
+    position: relative;
+  }
 .native-quiz label span:hover::before {
-    background: #ae3737;
-    width: 4px;
+    background: #c29898;
 }
 .native-quiz label input[type=radio]:checked~span::before {
     background: #ae3737;
-    width: 6px;
 }
 .native-quiz textarea {
     height: 91px;
@@ -11731,7 +11736,11 @@ input:checked ~ .input-hidden {
         font-size: .8rem;
     }
     .latest-feed-btn {
-        padding-top: 2vw;
+        padding-top: 16px;
+    }
+    .latest-line-feed .latest-feed-btn::before {
+        top: 30px;
+        height: 20px;
     }
     .reorder-echovald .three-fourths, .reorder-echovald .full {
         order: 1;
@@ -13249,7 +13258,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     color: black;
 }
 
+
 @media screen and (max-width: 1080px) {
+    .pretplata-subs-special {
+        z-index: 5;
+    }
     .pretplata-subs-special .nothtwo {
         font-size: 9vw;
     }
