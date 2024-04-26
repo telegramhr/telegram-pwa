@@ -14,7 +14,7 @@
         :headline="post.portal_title"
         :post="post"
       ></theader>
-      <client-only>
+      <!--<client-only>
         <app-link
           v-if="
             !$store.state.user.access &&
@@ -35,9 +35,11 @@
             <div class="newbtn huge-newbtn center-text">Pogledajte ponudu</div>
           </div>
         </app-link>
-      </client-only>
+      </client-only>-->
       <!-- Do not enable until fixed version above is removed and visibility rules are adjusted -->
-      <!--<hometop-simple></hometop-simple>-->
+      <client-only>
+        <hometop-simple></hometop-simple>
+      </client-only>
       <div v-show="related_posts" class="full related-header-widget">
         <div class="container flex desktop-only column-vertical-pad">
           <div
