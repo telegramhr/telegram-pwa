@@ -36,6 +36,8 @@
           </div>
         </app-link>
       </client-only>
+      <!-- Do not enable until fixed version above is removed and visibility rules are adjusted -->
+      <!--<hometop-simple></hometop-simple>-->
       <div v-show="related_posts" class="full related-header-widget">
         <div class="container flex desktop-only column-vertical-pad">
           <div

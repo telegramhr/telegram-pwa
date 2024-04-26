@@ -136,6 +136,8 @@
         </div>
       </div>
     </app-link>-->
+    <!-- Do not enable until fixed version above is removed and visibility rules are adjusted -->
+    <!-- <hometop-simple></hometop-simple> -->
     <!-- Cantha header -->
     <div class="full relative cantha-header">
       <!-- Actual new TG multiverse header -->
