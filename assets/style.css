@@ -13484,7 +13484,7 @@ header {
   border-bottom: 1px solid #c8c8c8;
   height: 50px;
 }
-.fancy-rubrika .nayos {
+.fancy-rubrika .nayos, .contrast-mode .nayos {
   background-color: white;
 }
 .dark-mode .nayos, .dark-mode .fancy-rubrika .nayos, .dark-mode.fancy-rubrika .nayos {
@@ -14269,4 +14269,10 @@ header {
         background: transparent;
         border-bottom: none;
     }
+    .domoljub-mode .homepage .birati-stranu-widget {
+        padding-top: 42px;
+    }
+}
+.birati-stranu-subtitle span.faded.strikethrough {
+    margin-right: 0.3em;
 }
