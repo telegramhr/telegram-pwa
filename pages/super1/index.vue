@@ -100,7 +100,9 @@
     <!-- G1 + super se čita -->
     <section class="full flex relative">
       <div class="container flex relative stretch column-bottom-pad">
-        <div class="three-fourths flex flex-responsive relative">
+        <div
+          class="three-fourths flex flex-responsive relative superone-preporuka super-g-one"
+        >
           <div class="full flex column-horizontal-pad">
             <superfeat
               v-for="post in posts.slice(0, 1)"
@@ -109,7 +111,7 @@
             ></superfeat>
           </div>
         </div>
-        <div
+        <!--<div
           class="fourth flex mini-article-list mobile-side-pad flex-responsive column-horizontal-pad align-children-bottom"
         >
           <div class="noththree full overtitle super-minititle">
@@ -122,7 +124,7 @@
               :post="post"
             ></mini>
           </div>
-        </div>
+        </div>-->
       </div>
     </section>
     <!-- G2-G4 -->

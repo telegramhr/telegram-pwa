@@ -13,12 +13,12 @@
     --palette-divider: #c8c8c8;
 }
 
-.fancy-rubrika *, .contrast-mode * {
-    --tg-primary-background-color: #ffffff;
+.domoljub-mode * {
+    --tg-primary-background-color: #f1f6fc;;
 }
 
-.domoljub-mode * {
-  --tg-primary-background-color: #f1f6fc;;
+.fancy-rubrika *, .contrast-mode *, .fancy-rubrika.domoljub-mode * {
+    --tg-primary-background-color: #ffffff;
 }
 
 .super1 * {
@@ -14192,6 +14192,9 @@ header {
 .domoljub-mode, .domoljub-mode .author-segment, .domoljub-mode .banner-separator > div, .domoljub-mode .cantha-header, .domoljub-mode .meta-foto, .domoljub-mode .header-billboard, .domoljub-mode .nayos {
     background-color: #f1f6fc;
 }
+.domoljub-mode.fancy-rubrika, .domoljub-mode.fancy-rubrika .nayos {
+    background-color: #ffffff;
+}
 .domoljub-mode .darkened-bg {
     background-color: #dbe9f4;
 }
@@ -14275,4 +14278,7 @@ header {
 }
 .birati-stranu-subtitle span.faded.strikethrough {
     margin-right: 0.3em;
+}
+.superone .super-g-one > .full {
+    border: none;
 }
