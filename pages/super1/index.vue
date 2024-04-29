@@ -55,15 +55,15 @@
         <div class="full center">
           <app-link to="/super1" class="logo"
             ><img
-              src="@/assets/img/s1_logo_clean_alt.svg"
+              src="@/assets/img/s1_logo_clean_noline.svg"
               class="light-mode-only"
               alt="Super1 logo" />
             <img
-              src="@/assets/img/s1_logo_clean_alt.svg"
+              src="@/assets/img/s1_logo_clean_noline.svg"
               class="contrast-mode-only"
               alt="Super1 logo" />
             <img
-              src="@/assets/img/s1_logo_clean_negative_alt.svg"
+              src="@/assets/img/s1_logo_clean_noline_white.svg"
               alt="Super1 logo"
               class="dark-mode-only"
           /></app-link>
