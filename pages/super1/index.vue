@@ -287,7 +287,7 @@ export default {
   async fetch() {
     await this.$store.dispatch('s1/pullPosts')
     await this.$store.dispatch('s1/pullBreaks')
-    await this.$store.dispatch('category/mostRead', { category: 'super1' })
+    // await this.$store.dispatch('category/mostRead', { category: 'super1' })
   },
   data() {
     return {
