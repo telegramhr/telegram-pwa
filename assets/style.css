@@ -8522,6 +8522,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         left: 0px;
     }
 }
+@media screen and (min-width: 1024px) {
+    .superone .super-g-one.three-fourths .article-superfeat h2 {
+        font-size: 40px;
+        font-size: 2rem;
+    }
+}
 @media screen and (max-width: 767px) {
     .superone .three-fourths .article-superfeat h2 {
         font-size: 26px;
