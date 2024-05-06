@@ -259,19 +259,30 @@
     <div
       v-show="$store.state.header.showSearchMenu"
       id="search"
-      class="search-menu-activate sticky-search-menu search-menu animate full center"
+      class="search-menu-activate sticky-search-menu search-menu animate full flex"
     >
-      <form class="relative" action="" method="get" @submit.prevent="search">
-        <input
-          v-model="search_term"
-          type="text"
-          placeholder="Pretražite Telegram..."
-          aria-label="Pretražite Telegram"
-        />
-        <button type="submit" class="animate" @click.prevent="search">
-          <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon>
-        </button>
-      </form>
+      <div class="full flex relative">
+        <div
+          class="sticky-search-exit center clickable"
+          aria-label="Zatvori tražilicu"
+          :aria-expanded="$store.state.header.showSearchMenu.toString()"
+          aria-controls="search"
+          @click.prevent="$store.commit('header/updateMenu', 'search')"
+        >
+          <font-awesome-icon :icon="['fas', 'times']"></font-awesome-icon>
+        </div>
+        <form class="relative" action="" method="get" @submit.prevent="search">
+          <input
+            v-model="search_term"
+            type="text"
+            placeholder="Pretražite Telegram..."
+            aria-label="Pretražite Telegram"
+          />
+          <button type="submit" class="animate" @click.prevent="search">
+            <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon>
+          </button>
+        </form>
+      </div>
     </div>
     <!-- New navbar -->
     <header
@@ -396,23 +407,6 @@
           </div>
         </div>
       </nav>
-      <div
-        v-show="$store.state.header.showSearchMenu"
-        id="search"
-        class="search-menu-activate search-menu animate full center"
-      >
-        <form class="relative" action="" method="get" @submit.prevent="search">
-          <input
-            v-model="search_term"
-            type="text"
-            placeholder="Pretražite Telegram..."
-            aria-label="Pretražite Telegram"
-          />
-          <button type="submit" class="animate" @click.prevent="search">
-            <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon>
-          </button>
-        </form>
-      </div>
     </header>
   </div>
 </template>

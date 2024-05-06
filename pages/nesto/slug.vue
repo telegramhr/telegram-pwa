@@ -1,5 +1,13 @@
 <template>
-  <div :class="['main-container', 'flex', 'single-article', typeClass]">
+  <div
+    :class="[
+      'main-container',
+      'flex',
+      'telesport',
+      'single-article',
+      typeClass,
+    ]"
+  >
     <client-only>
       <theader
         :id="post.id"
