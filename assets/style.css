@@ -12168,6 +12168,9 @@ input:checked ~ .input-hidden {
     line-height: 1em;
     padding-top: 0px;
 }
+.single-article .pretplata-blue .container {
+    align-items: flex-end;
+}
 
 @media screen and (min-width: 767px) {
     .pretplata-blue .third-forced-size {
@@ -12207,6 +12210,13 @@ input:checked ~ .input-hidden {
         background: linear-gradient(to top, rgba(48, 71, 105, 1), rgba(48, 71, 105, 0));
         z-index: 2;
     }
+    .single-article .pretplata-blue .pb-topover {
+        margin-top: -24vw;
+    }
+    .single-article .pretplata-blue .pb-topover::before {
+        top: -32vw;
+        height: 55vw;
+    }
     .pretplata-blue .pb-topover > * {
         z-index: 3;
         position: relative;
@@ -12218,6 +12228,12 @@ input:checked ~ .input-hidden {
         bottom: 0px;
         right: 0px;
         z-index: 1;
+    }
+    .single-article .pretplata-blue .third.m-order-3 {
+        margin-top: -2vw;
+    }
+    .single-article .pretplata-blue .huge-newbtn {
+        margin-top: 0px;
     }
     .pretplata-blue .bigger-undertitle span.mobile-only {
         display: inline;
@@ -12231,6 +12247,9 @@ input:checked ~ .input-hidden {
     .pretplata-blue .nothtwo {
         font-size: 14vw;
         margin-bottom: 0px;
+    }
+    .single-article .pretplata-blue .nothtwo {
+        font-size: 9.4vw;
     }
     .homepage .pretplata-blue .nohtwo {
         margin-bottom: 0px;

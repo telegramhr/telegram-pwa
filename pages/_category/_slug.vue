@@ -40,7 +40,71 @@
       <client-only>
         <hometop-simple></hometop-simple>
       </client-only>
-      <div v-show="related_posts" class="full related-header-widget">
+      <!-- Above header banner manual -->
+      <client-only>
+        <a
+          v-if="!$store.state.user.access && post.type != 'premium'"
+          class="full center relative dark-mode pretplata-bf pretplata-blue"
+          @click.prevent="checkout('TMGTX339375P')"
+        >
+          <div class="container flex relative">
+            <div
+              class="third mobile-side-pad column-full-pad flex-responsive flex relative stretch mobile-top-pad pb-topover m-order-2"
+            >
+              <p class="full nothtwo">Podržite Telegram i Doru Kršul</p>
+              <div class="full flex relative desktop-only">
+                <div class="flex newbtn huge-newbtn animate clickable">
+                  Pretplatite se
+                </div>
+              </div>
+            </div>
+            <div class="third flex flex-responsive m-order-1">
+              <img
+                src="@/assets/img/tg_visual_2024_05_pretplata.jpg"
+                alt="Premijer Andrej Plenković"
+              />
+            </div>
+            <div
+              class="third mobile-side-pad column-full-pad flex-responsive flex relative stretch m-order-3"
+            >
+              <div class="full mobile-half center pb-stickerbox flex-wrap">
+                <div>2 za 1</div>
+                <div class="full center-text">Akcija traje do 15.5.</div>
+              </div>
+              <div
+                class="full mobile-half center flex-wrap pb-combo mobile-only"
+              >
+                <div class="nothtwo">99€</div>
+                <p>
+                  <span class="ib">Pretplata bez oglasa </span
+                  ><span class="ib">2 godine za cijenu 1!</span>
+                </p>
+              </div>
+              <div
+                class="full mobile-half center flex-wrap pb-combo desktop-only"
+              >
+                <div class="nothtwo">99€</div>
+                <p>
+                  <span class="ib">2 godine Premium </span
+                  ><span class="ib">pretplate bez oglasa</span>
+                  <span class="ib">za cijenu 1 godine!</span>
+                </p>
+              </div>
+              <div
+                class="full center relative mobile-only column-bottom-margin"
+              >
+                <div class="flex newbtn huge-newbtn animate clickable">
+                  Pretplatite se
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </client-only>
+      <div
+        v-show="related_posts && $store.state.user.access"
+        class="full related-header-widget"
+      >
         <div class="container flex desktop-only column-vertical-pad">
           <div
             v-for="rpost in related_posts"
