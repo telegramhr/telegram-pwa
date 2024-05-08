@@ -12108,19 +12108,19 @@ input:checked ~ .input-hidden {
     font-family: 'Barlow', sans-serif;
     text-transform: uppercase;
     font-weight: 700;
-    font-size: 80px;
-    font-size: 4rem;
+    font-size: 64px;
+    font-size: 3.2rem;
     line-height: 1em;
-    text-shadow: 0px 0px 5px #304769;
     margin-bottom: 0px;
     position: relative;
-    left: -5px;
+    font-weight: 900;
 }
 .pretplata-blue .nothtwo span {
     display: inline-block;
 }
 .pretplata-blue .pretplata-benefits {
     margin-top: 16px;
+    margin-bottom: 0px;
 }
 .pretplata-page .pretplata-blue .huge-newbtn {
     padding: 8px 12px;
@@ -12131,11 +12131,49 @@ input:checked ~ .input-hidden {
     font-size: 1.2rem;
     padding-bottom: 3px;
 }
+.pretplata-blue .pb-combo .nothtwo {
+    width: 8.5rem;
+    padding-bottom: 0.1em;
+    font-size: 4.8rem;
+}
+.pretplata-blue .pb-combo p {
+    width: 9.5rem;
+    padding: 0.2rem;
+    padding-left: 0.4rem;
+    padding-top: 0.15rem;
+}
+.pretplata-blue .pretplata-benefits p svg {
+    margin-right: 0.3rem;
+}
+.pretplata-blue p.pb-semititle {
+    font-size: 31px;
+    font-size: 1.55rem;
+    margin-top: 0.4rem;
+    margin-bottom: 0.8rem;
+}
+.pretplata-blue .pb-stickerbox {
+    color: #ae3737;
+    font-family: 'Barlow', sans-serif;
+    font-size: 1rem;
+    transform: rotate(-5deg);
+    padding: 1.2rem;
+    padding-bottom: 0.8rem;
+}
+.pretplata-blue .pb-stickerbox > div:first-child {
+    font-weight: 900;
+    padding: 0.3rem;
+    border: 0.15rem solid #ae3737;
+    margin-bottom: 0.2rem;
+    font-size: 3.2rem;
+    line-height: 1em;
+    padding-top: 0px;
+}
 
 @media screen and (min-width: 767px) {
-    .pretplata-blue .container {
-        padding-top: 2vw;
-        padding-bottom: 2vw;
+    .pretplata-blue .third-forced-size {
+        width: 420px;
+        text-shadow: 0px 0px 15px #304769;
+        z-index: 10;
     }
     .pretplata-blue {
         z-index: 99;
@@ -12156,6 +12194,23 @@ input:checked ~ .input-hidden {
     }
 }
 @media screen and (max-width: 767px) {
+    .pretplata-blue .pb-topover {
+        margin-top: -16vw;
+    }
+    .pretplata-blue .pb-topover::before {
+        content: " ";
+        position: absolute;
+        top: -24vw;
+        left: 0px;
+        height: 40vw;
+        width: 100%;
+        background: linear-gradient(to top, rgba(48, 71, 105, 1), rgba(48, 71, 105, 0));
+        z-index: 2;
+    }
+    .pretplata-blue .pb-topover > * {
+        z-index: 3;
+        position: relative;
+    }
     .pretplata-blue .absolute-half-img {
         width: 100%;
         height: auto;
@@ -12163,30 +12218,15 @@ input:checked ~ .input-hidden {
         bottom: 0px;
         right: 0px;
         z-index: 1;
-        margin-top: -10%;
     }
     .pretplata-blue .bigger-undertitle span.mobile-only {
         display: inline;
-    }
-    .pretplata-blue .container::before {
-        display: none;
-        content: " ";
-        position: absolute;
-        z-index: 3;
-        top: 0;
-        left: 30%;
-        width: 50%;
-        height: 100%;
-        background: linear-gradient(to right, rgb(48,71,105,1), rgb(48,71,105,0));
     }
     .pretplata-blue .pretplata-benefits {
         margin-bottom: 0px;
     }
     .pretplata-blue .pretplata-benefits p, .pretplata-blue .smaller-text {
         font-size: 3.6vw;
-    }
-    .pretplata-blue p {
-        font-size: 4.4vw;
     }
     .pretplata-blue .nothtwo {
         font-size: 14vw;
@@ -12195,14 +12235,32 @@ input:checked ~ .input-hidden {
     .homepage .pretplata-blue .nohtwo {
         margin-bottom: 0px;
     }
-    .pretplata-blue .sixty {
-        margin-bottom: 0px;
-    }
-    .homepage .pretplata-blue .sixty {
-        margin-bottom: -15vw;
-    }
     .homepage .pretplata-blur .nothtwo {
         font-size: 8vw;
+    }
+    .pretplata-blue .pb-combo .nothtwo {
+        margin-bottom: 0px;
+    }
+    .pretplata-blue p.pb-semititle {
+        font-size: 7vw;
+        margin-bottom: 0.2rem;
+    }
+    .pretplata-blue .huge-newbtn {
+        margin-top: 0.4rem;
+        margin-bottom: 0.4rem;
+    }
+    .pretplata-blue .pb-combo {
+        text-align: center;
+    }
+    .pretplata-blue .pb-stickerbox, .pretplata-blue .pb-combo p {
+        font-size: 0.7rem;
+    }
+    .pretplata-blue .pb-combo p {
+        padding: 0rem;
+    }
+    .pretplata-blue .pb-stickerbox > div:first-child, .pretplata-blue .pb-combo .nothtwo {
+        font-size: 2rem;
+        width: auto;
     }
 }
 

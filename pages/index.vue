@@ -23,11 +23,14 @@
         </client-only>
       </div>
     </div>
-    <!-- Above header banner -->
-    <!-- Do not enable until fixed version above is removed and visibility rules are adjusted -->
+    <!-- Above header banner Piano -->
     <client-only>
       <hometop-simple></hometop-simple>
     </client-only>
+    <!-- Above header banner manual
+    <client-only>
+      <hometop-blue v-if="!$store.state.user.access"></hometop-blue>
+    </client-only> -->
     <!-- Cantha header -->
     <div class="full relative cantha-header">
       <!-- Actual new TG multiverse header -->
