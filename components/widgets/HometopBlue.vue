@@ -1,7 +1,7 @@
 <template>
-  <app-link
-    to="/pretplata"
+  <a
     class="full center relative dark-mode pretplata-bf pretplata-blue"
+    @click.prevent="checkout('TMGTX339375P')"
   >
     <div class="container flex relative">
       <img
@@ -46,11 +46,71 @@
         </div>
       </div>
     </div>
-  </app-link>
+  </a>
 </template>
 
 <script>
 export default {
   name: 'HometopBlue',
+  methods: {
+    checkout(termId) {
+      if (this.$store.state.user.token) {
+        this.checkout2(termId, -1)
+      } else {
+        const _that = this
+        window.tp.pianoId.show({
+          screen: 'register',
+          width: window.innerWidth > 720 ? 600 : 375,
+          loggedIn(data) {
+            _that.$store.dispatch('user/setUser', data.user)
+            // window.location.reload()
+            _that.checkout2(termId, -2)
+          },
+        })
+      }
+    },
+    checkout2(termId, back) {
+      const _that = this
+      window.fbq = window.fbq || function () {}
+      window.tp.push([
+        'init',
+        () => {
+          window.tp.offer.show({
+            offerId: 'OFFY1ZO333EV',
+            termId,
+            templateId: 'OTXWXSOL0WWS',
+            checkoutFlowId: 'CF65KTMVQXXX',
+            closeOnLogout: true,
+            complete: (data) => {
+              _that.$store.dispatch('user/checkAccess')
+              window.marfeel.cmd.push([
+                'compass',
+                function (compass) {
+                  compass.trackConversion('subscribe')
+                },
+              ])
+              window.fbq('track', 'Purchase', {
+                content_ids: data.termId,
+                currency: data.chargeCurrency,
+                value: data.chargeAmount,
+              })
+              window.fbq('track', 'Subscribe', {
+                currency: data.chargeCurrency,
+                value: data.chargeAmount,
+              })
+              window.PianoESP &&
+                typeof window.PianoESP.handleUserDataPromise === 'function' &&
+                window.PianoESP.handleUserDataPromise({
+                  email: _that.$store.state.user.email,
+                  squads: [2128, 2555, 2554, 10670, 10671],
+                }).then(() => {
+                  _that.$router.go(back)
+                })
+            },
+          })
+        },
+      ])
+    },
+  },
 }
 </script>

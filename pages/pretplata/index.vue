@@ -7,7 +7,7 @@
         headline="Pretplatite se i podržite naše bespoštedno novinarstvo."
       ></theader>
     </div>
-    <!-- Above header banner
+    <!-- Above header banner -->
     <client-only>
       <div
         v-if="!$store.state.user.access"
@@ -58,7 +58,7 @@
           </div>
         </div>
       </div>
-    </client-only> -->
+    </client-only>
     <!--<div v-if="canLogIn" class="full relative darkened-bg birati-stranu-widget">
       <div class="container column-full-pad mobile-full-pad flex relative">
         <p
