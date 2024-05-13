@@ -5,7 +5,7 @@
     data-nosnippet
   >
     <div class="full flex mobile-side-pad">
-      <div v-if="id" :data-wid="id" class="lwdgt column-full-pad"></div>
+      <div v-if="id" :id="`midasWidget_${id}`" class="column-full-pad"></div>
     </div>
   </div>
 </template>

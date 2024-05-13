@@ -486,10 +486,11 @@
                   </div>
                 </portal>
                 <intext-new></intext-new>
-                <linker
+                <midas
                   v-if="!hasPremium && hasLinker"
+                  :key="post.id"
                   type="text-only"
-                ></linker>
+                ></midas>
                 <div
                   v-if="
                     !hasPremium &&
@@ -553,10 +554,10 @@
         </div>
         <client-only>
           <div v-if="!hasPremium && hasLinker" class="full">
-            <linker type="standard-16"></linker>
+            <midas :key="post.id" type="standard-16"></midas>
           </div>
           <div v-if="!hasPremium && hasLinker" class="container flex center">
-            <linker type="ecomm"></linker>
+            <midas :key="post.id" type="ecomm"></midas>
           </div>
           <keep-reading
             v-if="
@@ -1553,13 +1554,6 @@ export default {
           item,
       })
     })
-    if (!this.hasPremium && this.hasLinker) {
-      script.push({
-        hid: 'linker',
-        src: 'https://d.linker.hr/lw.js',
-        async: true,
-      })
-    }
     return {
       script,
     }

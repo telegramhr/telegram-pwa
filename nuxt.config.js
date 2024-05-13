@@ -69,7 +69,7 @@ export default {
   },
 
   router: {
-    middleware: ['piano', 'gemius', 'dotmetrics', 'linker'],
+    middleware: ['piano', 'gemius', 'dotmetrics'],
   },
 
   loading: '~/components/loading.vue',
@@ -253,9 +253,6 @@ export default {
     },
     optimization: {
       minimize: true,
-      splitChunks: {
-        maxSize: 0,
-      },
     },
     babel: {
       plugins: [['@babel/plugin-proposal-private-methods', { loose: true }]],
