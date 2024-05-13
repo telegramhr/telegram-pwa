@@ -113,11 +113,15 @@ export default {
   methods: {
     loadMidas() {
       if (this.id && this.type === 'ecomm') {
+        let category = this.$route.params.category
+        if (this.$route.fullPath.includes('super1')) {
+          category = 'super1'
+        }
         const script = document.createElement('script')
         const ids = Object.keys(this.ids[this.$route.params.category])
           .map((value) => {
             if (value !== 'intext') {
-              return this.ids[this.$route.params.category][value]
+              return this.ids[category][value]
             }
           })
           .join('-')
@@ -127,7 +131,7 @@ export default {
           .getElementById(`midasWidget__${this.id}`)
           .insertAdjacentElement('afterend', script)
         const script2 = document.createElement('script')
-        const intext = this.ids[this.$route.params.category].intext
+        const intext = this.ids[category].intext
         script2.src = `https://cdn2.midas-network.com/Scripts/midasWidget-11-524-${intext}.js`
         script2.async = true
         document
