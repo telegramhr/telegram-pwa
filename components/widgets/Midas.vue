@@ -130,13 +130,12 @@ export default {
         const script = document.createElement('script')
         const main = this.ids[category].main ?? ''
         const ids = Object.keys(this.ids[category])
-          .map((value) => {
-            if (value !== 'intext' && value !== 'main') {
-              return this.ids[category][value]
-            }
+          .filter((value) => {
+            return value !== 'intext' && value !== 'main'
           })
+          .map((value) => this.ids[category][value])
           .join('-')
-        script.src = `https://cdn2.midas-network.com/Scripts/midasWidget-11-${main}${ids}.js`
+        script.src = `https://cdn2.midas-network.com/Scripts/midasWidget-11-${main}-${ids}.js`
         script.async = true
         document
           .getElementById(`midasWidget__${this.id}`)
