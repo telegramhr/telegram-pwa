@@ -101,6 +101,9 @@ export default {
       if (this.$store.getters['user/hasPremium']) {
         return 0
       }
+      if (this.$route.fullPath.includes('super1')) {
+        return this.ids.super1[this.type] ?? false
+      }
       return this.ids[this.$route.params.category][this.type] ?? false
     },
   },
