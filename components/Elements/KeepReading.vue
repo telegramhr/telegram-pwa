@@ -31,7 +31,7 @@
         ></div>-->
       </div>
     </div>
-    <linker v-else type="standard-4"></linker>
+    <midas v-else :key="p" type="standard-4"></midas>
   </div>
 </template>
 
