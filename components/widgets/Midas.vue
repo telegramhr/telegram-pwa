@@ -114,6 +114,12 @@ export default {
       if (this.$route.fullPath.includes('super1')) {
         return this.ids.super1[this.type] ?? false
       }
+      if (this.$route.fullPath.includes('pitanje-zdravlja')) {
+        return this.ids['pitanje-zdravlja'][this.type] ?? false
+      }
+      if (this.$route.fullPath.includes('openspace')) {
+        return this.ids.openspace[this.type] ?? false
+      }
       return this.ids[this.$route.params.category][this.type] ?? false
     },
   },
@@ -126,6 +132,12 @@ export default {
         let category = this.$route.params.category
         if (this.$route.fullPath.includes('super1')) {
           category = 'super1'
+        }
+        if (this.$route.fullPath.includes('pitanje-zdravlja')) {
+          category = 'pitanje-zdravlja'
+        }
+        if (this.$route.fullPath.includes('openspace')) {
+          category = 'openspace'
         }
         const script = document.createElement('script')
         const main = this.ids[category].main ?? ''
