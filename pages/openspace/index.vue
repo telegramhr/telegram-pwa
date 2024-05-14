@@ -172,6 +172,7 @@
             </div>
             <ostest></ostest>-->
           <!--<opportunities></opportunities>-->
+          <go-digital></go-digital>
         </section>
         <div class="three-fourths flex-responsive flex">
           <section
@@ -183,17 +184,21 @@
               :post="post"
             ></featured>
             <div class="full flex split-articles column-top-pad">
-              <template v-for="post in featured.slice(5, 8)">
-                <medium :key="post.id" :post="post"></medium>
-              </template>
+              <medium
+                v-for="post in featured.slice(5, 8)"
+                :key="post.id"
+                :post="post"
+              ></medium>
             </div>
           </section>
           <section
             class="third flex-responsive flex mobile-side-pad column-horizontal-pad"
           >
-            <template v-for="post in featured.slice(8, 11)">
-              <medium :key="post.id" :post="post"></medium>
-            </template>
+            <medium
+              v-for="post in featured.slice(8, 11)"
+              :key="post.id"
+              :post="post"
+            ></medium>
           </section>
         </div>
       </div>
@@ -257,6 +262,9 @@ export default {
     }
   },
   computed: {
+    canLogIn() {
+      return this.$store.state.user.exp * 1000 < new Date().getTime()
+    },
     readMore() {
       if (this.hasMore) {
         return `https://www.telegram.hr/openspace/?page=${this.page + 1}`
