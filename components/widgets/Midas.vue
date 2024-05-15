@@ -48,11 +48,11 @@ export default {
           main: 468,
         },
         kultura: {
-          intext: '524-11460',
+          intext: '524-11461',
           'text-only': 11456,
           'standard-16': 11457,
-          ecomm: 11459,
-          'standard-4': 11458,
+          ecomm: 11460,
+          'standard-4': 11459,
           main: 468,
         },
         zivot: {

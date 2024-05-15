@@ -18,7 +18,7 @@ export default {
 </script>
 
 <template>
-  <div v-if="posts">
+  <div v-if="posts.length">
     <a href="https://godigital.hrvatskitelekom.hr/" target="_blank">
       <img
         src="~/assets/img/extras/partner_widgets/go-digital-2.png"
