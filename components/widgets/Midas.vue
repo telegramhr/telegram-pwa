@@ -24,7 +24,8 @@ export default {
     return {
       ids: {
         vijesti: {
-          intext: '524-11430',
+          intextMain: 524,
+          intext: '11430',
           'text-only': 11426,
           'standard-16': 11427,
           ecomm: 11429,
@@ -32,7 +33,8 @@ export default {
           main: 468,
         },
         'politika-kriminal': {
-          intext: '524-11435',
+          intextMain: 524,
+          intext: 11435,
           'text-only': 11431,
           'standard-16': 11432,
           ecomm: 11434,
@@ -40,7 +42,8 @@ export default {
           main: 468,
         },
         'biznis-tech': {
-          intext: '524-11445',
+          intextMain: 524,
+          intext: 11445,
           'text-only': 11441,
           'standard-16': 11442,
           ecomm: 11444,
@@ -48,7 +51,8 @@ export default {
           main: 468,
         },
         kultura: {
-          intext: '524-11461',
+          intextMain: 524,
+          intext: 11461,
           'text-only': 11456,
           'standard-16': 11457,
           ecomm: 11460,
@@ -56,7 +60,8 @@ export default {
           main: 468,
         },
         zivot: {
-          intext: '524-11455',
+          intextMain: 524,
+          intext: 11455,
           'text-only': 11451,
           'standard-16': 11452,
           ecomm: 11454,
@@ -64,7 +69,8 @@ export default {
           main: 468,
         },
         'velike-price': {
-          intext: '524-11450',
+          intextMain: 524,
+          intext: 11450,
           'text-only': 11446,
           'standard-16': 11447,
           ecomm: 11449,
@@ -72,7 +78,8 @@ export default {
           main: 468,
         },
         komentari: {
-          intext: '524-11440',
+          intextMain: 524,
+          intext: 11440,
           'text-only': 11436,
           'standard-16': 11437,
           ecomm: 11439,
@@ -80,7 +87,8 @@ export default {
           main: 468,
         },
         openspace: {
-          intext: '524-11476',
+          intextMain: 524,
+          intext: 11476,
           'text-only': 11472,
           'standard-16': 11473,
           ecomm: 11475,
@@ -88,7 +96,8 @@ export default {
           main: 468,
         },
         'pitanje-zdravlja': {
-          intext: '524-11481',
+          intextMain: 524,
+          intext: 11481,
           'text-only': 11477,
           'standard-16': 11478,
           ecomm: 11480,
@@ -96,7 +105,8 @@ export default {
           main: 468,
         },
         super1: {
-          intext: '786-11471',
+          intextMain: 786,
+          intext: 11471,
           'text-only': 11467,
           'standard-16': 11468,
           ecomm: 11470,
@@ -142,11 +152,11 @@ export default {
         }
         const script2 = document.createElement('script')
         const intext = this.ids[category].intext
-        script2.src = `https://cdn2.midas-network.com/Scripts/midasWidget-11-${intext}.js`
+        const intextMain = this.ids[category].intextMain
+        script2.src = `https://cdn2.midas-network.com/Scripts/midasWidget-11-${intextMain}-${intext}.js`
         script2.async = true
-        const ids = this.id.split('-')
         document
-          .getElementById(`midasWidget__${ids[1]}`)
+          .getElementById(`midasWidget__${this.id}`)
           .insertAdjacentElement('afterend', script2)
       }
     },
@@ -166,7 +176,9 @@ export default {
         const main = this.ids[category].main ?? ''
         const ids = Object.keys(this.ids[category])
           .filter((value) => {
-            return value !== 'intext' && value !== 'main'
+            return (
+              value !== 'intext' && value !== 'main' && value !== 'intextMain'
+            )
           })
           .map((value) => this.ids[category][value])
           .join('-')
@@ -175,7 +187,14 @@ export default {
         document
           .getElementById(`midasWidget__${this.id}`)
           .insertAdjacentElement('afterend', script)
-        this.loadIntext()
+        const script2 = document.createElement('script')
+        const intext = this.ids[category].intext
+        const intextMain = this.ids[category].intextMain
+        script2.src = `https://cdn2.midas-network.com/Scripts/midasWidget-11-${intextMain}-${intext}.js`
+        script2.async = true
+        document
+          .getElementById(`midasWidget__${this.id}`)
+          .insertAdjacentElement('afterend', script2)
       }
     },
   },
