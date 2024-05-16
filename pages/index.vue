@@ -27,10 +27,6 @@
     <client-only>
       <hometop-simple></hometop-simple>
     </client-only>
-    <!-- Above header banner manual-->
-    <client-only>
-      <hometop-blue v-if="!$store.state.user.access"></hometop-blue>
-    </client-only>
     <!-- Cantha header -->
     <div class="full relative cantha-header">
       <!-- Actual new TG multiverse header -->
