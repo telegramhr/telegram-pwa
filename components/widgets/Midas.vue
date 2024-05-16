@@ -125,8 +125,30 @@ export default {
   },
   mounted() {
     this.loadMidas()
+    this.loadIntext()
   },
   methods: {
+    loadIntext() {
+      if (this.id && this.type === 'intext') {
+        let category = this.$route.params.category
+        if (this.$route.fullPath.includes('super1')) {
+          category = 'super1'
+        }
+        if (this.$route.fullPath.includes('pitanje-zdravlja')) {
+          category = 'pitanje-zdravlja'
+        }
+        if (this.$route.fullPath.includes('openspace')) {
+          category = 'openspace'
+        }
+        const script2 = document.createElement('script')
+        const intext = this.ids[category].intext
+        script2.src = `https://cdn2.midas-network.com/Scripts/midasWidget-11-${intext}.js`
+        script2.async = true
+        document
+          .getElementById(`midasWidget__${this.id}`)
+          .insertAdjacentElement('afterend', script2)
+      }
+    },
     loadMidas() {
       if (this.id && this.type === 'ecomm') {
         let category = this.$route.params.category
@@ -152,13 +174,7 @@ export default {
         document
           .getElementById(`midasWidget__${this.id}`)
           .insertAdjacentElement('afterend', script)
-        const script2 = document.createElement('script')
-        const intext = this.ids[category].intext
-        script2.src = `https://cdn2.midas-network.com/Scripts/midasWidget-11-${intext}.js`
-        script2.async = true
-        document
-          .getElementById(`midasWidget__${this.id}`)
-          .insertAdjacentElement('afterend', script2)
+        this.loadIntext()
       }
     },
   },

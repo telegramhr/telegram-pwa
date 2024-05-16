@@ -485,10 +485,15 @@
                     <offers-premium></offers-premium>
                   </div>
                 </portal>
-                <intext-new></intext-new>
+                <intext-new @show="showMidasIntext = true"></intext-new>
+                <midas
+                  v-if="showMidasIntext && hasLinker"
+                  :key="`midas-intext-${post.id}`"
+                  type="intext"
+                ></midas>
                 <midas
                   v-if="!hasPremium && hasLinker"
-                  :key="post.id"
+                  :key="`midas-text-${post.id}`"
                   type="text-only"
                 ></midas>
                 <div
@@ -554,10 +559,10 @@
         </div>
         <client-only>
           <div v-if="!hasPremium && hasLinker" class="full">
-            <midas :key="post.id" type="standard-16"></midas>
+            <midas :key="`midas-16-${post.id}`" type="standard-16"></midas>
           </div>
           <div v-if="!hasPremium && hasLinker" class="container flex center">
-            <midas :key="post.id" type="ecomm"></midas>
+            <midas :key="`midas-ecoom-${post.id}`" type="ecomm"></midas>
           </div>
           <keep-reading
             v-if="
@@ -684,6 +689,7 @@ export default {
   },
   data() {
     return {
+      showMidasIntext: false,
       showQuiz: false,
       comments: false,
       comments_embed: null,

@@ -198,6 +198,7 @@ export default {
             .querySelector('#article-content p:last-child')
             .classList.add('premium-fade-out')
         }
+        this.$emit('show')
       }
     },
   },
