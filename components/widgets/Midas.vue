@@ -144,8 +144,9 @@ export default {
         const intext = this.ids[category].intext
         script2.src = `https://cdn2.midas-network.com/Scripts/midasWidget-11-${intext}.js`
         script2.async = true
+        const ids = this.id.split('-')
         document
-          .getElementById(`midasWidget__${this.id}`)
+          .getElementById(`midasWidget__${ids[1]}`)
           .insertAdjacentElement('afterend', script2)
       }
     },
