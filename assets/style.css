@@ -3306,6 +3306,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .article img {
         aspect-ratio: 4/3;
     }
+    #offer-premium .article img {
+        aspect-ratio: auto;
+    }
     .mini-pretplata {
         order: 1;
         font-size: 14px;
