@@ -179,7 +179,7 @@
             class="fourth flex-responsive mobile-side-pad column-right-pad flex relative no-last-border-mobile"
           >
             <div class="full flex relative latest-line-feed">
-              <latest></latest>
+              <latest category="sport"></latest>
             </div>
           </div>
         </client-only>
@@ -288,7 +288,7 @@
           class="three-fourths flex-responsive column-horizontal-pad flex split-articles big-split no-mobile-stretch-split alt-big-break center-text column-right-border"
         >
           <standard
-            v-for="post in posts.slice(6, 7)"
+            v-for="post in breaks.slice(0, 1)"
             :key="post.id"
             :post="post"
           ></standard>
@@ -316,7 +316,7 @@
             class="three-fourths flex-responsive flex stretch column-horizontal-pad article-amnytas mobile-bottom-pad column-right-border"
           >
             <featured
-              v-for="post in posts.slice(4, 5)"
+              v-for="post in posts.slice(12, 13)"
               :key="post.id"
               :post="post"
             ></featured>
@@ -325,7 +325,7 @@
             class="fourth flex-responsive column-horizontal-pad flex relative"
           >
             <medium
-              v-for="post in posts.slice(5, 6)"
+              v-for="post in posts.slice(13, 14)"
               :key="post.id"
               :post="post"
             ></medium>
@@ -337,7 +337,7 @@
             class="three-fourths flex-responsive flex stretch column-horizontal-pad article-amnytas mobile-bottom-pad column-right-border"
           >
             <featured
-              v-for="post in posts.slice(6, 7)"
+              v-for="post in posts.slice(14, 15)"
               :key="post.id"
               :post="post"
             ></featured>
@@ -346,7 +346,7 @@
             class="fourth flex-responsive column-horizontal-pad flex relative"
           >
             <medium
-              v-for="post in posts.slice(7, 8)"
+              v-for="post in posts.slice(15, 16)"
               :key="post.id"
               :post="post"
             ></medium>
@@ -363,7 +363,7 @@
       >
         <div class="full flex stretch relative no-last-border-mobile">
           <div
-            v-for="post in posts.slice(7, 11)"
+            v-for="post in morePosts.slice(1, 4)"
             :key="post.id"
             class="fourth flex-responsive column-right-border column-horizontal-pad"
           >
@@ -382,7 +382,7 @@
         </div>
         <div class="full flex stretch relative no-last-border-mobile">
           <div
-            v-for="post in posts.slice(11, 15)"
+            v-for="post in morePosts.slice(4, 8)"
             :key="post.id"
             class="fourth flex-responsive column-right-border column-horizontal-pad"
           >
@@ -444,51 +444,23 @@
 <script>
 export default {
   async fetch() {
-    await this.$axios
-      .get('https://telesport.telegram.hr/wp-json/telegram/pwa2/v1/portal/2')
-      .then((res) => {
-        this.posts = res.data.posts
-      })
+    await this.$store.dispatch('ts/pullPosts')
+    await this.$store.dispatch('ts/pullBreaks')
   },
   data() {
     return {
       loading: false,
       hasMore: true,
-      featured: [],
-      posts: [],
-      page: 2,
-      slider_settings: {
-        infinite: true,
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        arrows: false,
-        autoplay: true,
-        responsive: [
-          {
-            breakpoint: 1024,
-            settings: {
-              slidesToShow: 3,
-            },
-          },
-          {
-            breakpoint: 767,
-            settings: {
-              centerMode: true,
-              slidesToShow: 2,
-            },
-          },
-          {
-            breakpoint: 600,
-            settings: {
-              slidesToShow: 1,
-              centerMode: true,
-            },
-          },
-        ],
-      },
+      morePosts: [],
     }
   },
   computed: {
+    posts() {
+      return this.$store.state.ts.posts
+    },
+    breaks() {
+      return this.$store.state.ts.breaks
+    },
     jsonld() {
       return {
         '@context': 'https://schema.org',
@@ -501,22 +473,6 @@ export default {
     },
     canLogIn() {
       return this.$store.state.user.exp * 1000 < new Date().getTime()
-    },
-  },
-  methods: {
-    loadMore() {
-      this.loading = true
-      this.$axios
-        .get(
-          'https://telesport.telegram.hr/wp-json/telegram/pwa2/v1/portal/2/page/' +
-            this.page
-        )
-        .then((res) => {
-          this.posts = [...this.posts, ...res.data.posts]
-          this.loading = false
-          this.page++
-          this.showMore = true
-        })
     },
   },
   head() {

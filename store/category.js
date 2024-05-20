@@ -244,6 +244,16 @@ export const state = () => ({
       extraClass: 'superone shopping-vodic fancy-rubrika',
       canonical: '/super1/shopping-vodic/',
     },
+    telesport: {
+      name: 'Telesport',
+      description: '',
+      posts: [],
+      mostRead: [],
+      updated: null,
+      updated_most: null,
+      extraClass: 'telesport fancy-rubrika',
+      canonical: '/telesport/',
+    },
   },
   morePosts: {
     'politika-kriminal': {

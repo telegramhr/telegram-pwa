@@ -1,7 +1,6 @@
 export default ({ app }) => {
   window.dataLayer = window.dataLayer || []
   function gtag() {
-    console.log(arguments)
     window.dataLayer.push(arguments)
   }
   gtag('consent', 'default', {

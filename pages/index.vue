@@ -360,7 +360,7 @@
     <client-only>
       <div v-if="!hasPremium" class="full relative">
         <partner-special position="tg"></partner-special>
-        <jgl-premium></jgl-premium>
+        <!--<jgl-premium></jgl-premium>-->
       </div>
     </client-only>
     <!-- Sport -->

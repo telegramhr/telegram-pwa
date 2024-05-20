@@ -41,13 +41,15 @@
 <script>
 export default {
   name: 'Latest',
+  props: {
+    category: {
+      type: String,
+      required: false,
+      default: 'najnovije',
+    },
+  },
   async fetch() {
     await this.$store.dispatch('uzivo/getPosts')
-  },
-  data() {
-    return {
-      category: 'najnovije',
-    }
   },
   computed: {
     posts() {
