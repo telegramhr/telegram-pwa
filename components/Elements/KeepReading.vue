@@ -1,7 +1,6 @@
 <template>
   <div class="full">
     <div
-      v-if="this.$store.getters['user/hasPremium']"
       class="container flex relative block-related cantha-related standard-block stretch"
     >
       <div class="full column-horizontal-pad column-top-pad mobile-side-pad">
@@ -15,23 +14,17 @@
         </div>
       </div>
       <div class="full flex mobile-side-pad">
-        <template v-for="post in posts.slice(0, 8)">
-          <div :key="post.id" class="fourth flex-responsive flex">
-            <div class="full flex column-horizontal-pad">
-              <standard-no-h :post="post"></standard-no-h>
-            </div>
+        <div
+          v-for="post in posts.slice(0, 8)"
+          :key="post.id"
+          class="fourth flex-responsive flex"
+        >
+          <div class="full flex column-horizontal-pad">
+            <standard-no-h :post="post"></standard-no-h>
           </div>
-        </template>
-        <!--<div
-          v-if="!$store.getters['user/hasPremium']"
-          class="lwdgt"
-          :data-wid="id"
-          data-infinite="true"
-          data-cycles="20"
-        ></div>-->
+        </div>
       </div>
     </div>
-    <midas v-else :key="p" type="standard-4"></midas>
   </div>
 </template>
 
@@ -61,14 +54,6 @@ export default {
       loading: false,
       posts: [],
     }
-  },
-  computed: {
-    id() {
-      if (this.category.includes('superone')) {
-        return 659
-      }
-      return 542
-    },
   },
   mounted() {
     if (this.$store.getters['user/hasPremium']) {
