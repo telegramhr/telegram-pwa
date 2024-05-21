@@ -107,9 +107,53 @@
           <app-link role="menuitem" to="/telesport" class="animate"
             >Analize</app-link
           >
-          <app-link role="menuitem" to="/telesport" class="animate"
-            >Kolumne</app-link
-          >
+          <div class="cantha-fake-menuitem">
+            <app-link role="menuitem" to="/telesport" class="animate"
+              >Kolumne
+            </app-link>
+            <div class="cantha-submenu flex">
+              <a
+                href="https://telesport.telegram.hr/kolumne/covjek-koji-je-buljio-u-ekran/"
+                >Čovjek koji je buljio u ekran</a
+              >
+              <a href="https://telesport.telegram.hr/kolumne/drop-shot/"
+                >Drop Shot</a
+              >
+              <a href="https://telesport.telegram.hr/kolumne/gol-u-gostima/"
+                >Gol u gostima</a
+              >
+              <a href="https://telesport.telegram.hr/kolumne/juris/">Juriš</a>
+              <a href="https://telesport.telegram.hr/kolumne/laboratorij/"
+                >Laboratorij</a
+              >
+              <a href="https://telesport.telegram.hr/kolumne/na-posudbi/"
+                >Na posudbi</a
+              >
+              <a href="https://telesport.telegram.hr/kolumne/na-suncu-i-sjeni/"
+                >Na suncu i sjeni</a
+              >
+              <a href="https://telesport.telegram.hr/kolumne/nogomet-narodu/"
+                >Nogomet narodu</a
+              >
+              <a href="https://telesport.telegram.hr/kolumne/punchlines/"
+                >Punchlines</a
+              >
+              <a href="https://telesport.telegram.hr/kolumne/topnicki-dnevnici/"
+                >Topnički dnevnici</a
+              >
+              <a
+                href="https://telesport.telegram.hr/kolumne/teorija-ravne-lopte/"
+                >Teorija ravne lopte</a
+              >
+              <a
+                href="https://telesport.telegram.hr/kolumne/aljosa-s-druge-strane-ogledala/"
+                >Aljoša s druge strane ogledala</a
+              >
+              <a href="https://telesport.telegram.hr/kolumne/price-iz-davnine/"
+                >Priče iz davnine</a
+              >
+            </div>
+          </div>
         </nav>
         <div class="flex desktop-only">
           <client-only>
