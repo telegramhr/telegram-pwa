@@ -402,11 +402,6 @@
                 </portal>
                 <intext-new @show="showMidasIntext = true"></intext-new>
                 <midas
-                  v-if="showMidasIntext && hasLinker"
-                  :key="`midas-intext-${post.id}`"
-                  type="intext"
-                ></midas>
-                <midas
                   v-if="!hasPremium && hasLinker"
                   :key="`midas-text-${post.id}`"
                   type="text-only"
