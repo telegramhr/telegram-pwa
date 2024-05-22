@@ -4135,6 +4135,11 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         margin-left: auto !important;
         margin-right: auto !important;
     }
+  .single-article .single-article-body > #article-content .wp-block-columns {
+      max-width: 100vw !important;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+  }
     .shopping-vodic.superone .single-article .single-article-body > #article-content > figure.wp-block-image, .superone .article-head > *, .superone .single-article-body > *, .superone .single-article-body > #article-content > *, .superone .single-article-body > #article-content > #piano-content > *, .superone .single-article .single-article-body > #article-content > figure.wp-block-image {
         max-width: 605px;
     }
