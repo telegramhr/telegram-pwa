@@ -13668,7 +13668,7 @@ header {
   left: 0;
   color: white;
 }
-.domoljub-mode .premium-article-head .nayos, .domoljub-mode.fancy-rubrika .premium-article-head .nayos {
+.domoljub-mode .premium-article-head .nayos, .domoljub-mode.fancy-rubrika .premium-article-head .nayos, .dark-mode.fancy-rubrika .premium-article-head .nayos  {
     background: linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0));
 }
 .dark-mode .premium-article-head .nayos-logos img {
