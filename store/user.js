@@ -101,7 +101,9 @@ export const actions = {
             'compass',
             function (compass) {
               compass.setUserType(id)
-              compass.setSiteUserId(data.user.uid)
+              if (data.user) {
+                compass.setSiteUserId(data.user.uid)
+              }
             },
           ])
         }
@@ -117,7 +119,9 @@ export const actions = {
             'compass',
             function (compass) {
               compass.setUserType(2)
-              compass.setSiteUserId(data.user.uid)
+              if (data.user) {
+                compass.setSiteUserId(data.user.uid)
+              }
             },
           ])
         }
