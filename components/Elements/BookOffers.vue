@@ -28,7 +28,7 @@
             <div class="nothfour full">Boris Dežulović</div>
             <div class="noththree full overtitle">19,99€</div>
             <div class="full center">
-              <div class="newbtn">Pogledajte više</div>
+              <div class="newbtn">Kupite</div>
             </div>
           </div>
         </app-link>
@@ -50,7 +50,7 @@
               <span class="faded strikethrough">19,99€</span> 14,99€
             </div>
             <div class="full center">
-              <div class="newbtn">Pogledajte više</div>
+              <div class="newbtn">Kupite</div>
             </div>
           </div>
         </app-link>
@@ -72,7 +72,7 @@
               <span class="faded strikethrough">23,76€</span> 15,79€
             </div>
             <div class="full center">
-              <div class="newbtn">Pogledajte više</div>
+              <div class="newbtn">Kupite</div>
             </div>
           </div>
         </app-link>
@@ -94,7 +94,7 @@
               <span class="faded strikethrough">19,78€</span> 13,14€
             </div>
             <div class="full center">
-              <div class="newbtn">Pogledajte više</div>
+              <div class="newbtn">Kupite</div>
             </div>
           </div>
         </app-link>
