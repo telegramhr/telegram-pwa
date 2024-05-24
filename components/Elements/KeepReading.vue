@@ -56,9 +56,7 @@ export default {
     }
   },
   mounted() {
-    if (this.$store.getters['user/hasPremium']) {
-      this.loadPosts()
-    }
+    this.loadPosts()
   },
   methods: {
     loadPosts() {
