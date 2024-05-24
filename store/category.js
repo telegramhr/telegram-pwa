@@ -351,6 +351,9 @@ export const mutations = {
 export const actions = {
   pullPosts({ commit, dispatch, state }, payload) {
     return new Promise((resolve) => {
+      if (state.categories[payload.category] === undefined) {
+        resolve()
+      }
       if (
         state.categories[payload.category].updated + 10 * 60 * 1000 <
         new Date().getTime()

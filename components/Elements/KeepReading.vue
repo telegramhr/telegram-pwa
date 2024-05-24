@@ -1,5 +1,5 @@
 <template>
-  <div class="full">
+  <div v-if="posts" class="full">
     <div
       class="container flex relative block-related cantha-related standard-block stretch"
     >
@@ -50,60 +50,25 @@ export default {
   },
   data() {
     return {
-      page: 1,
+      page: 2,
       loading: false,
-      posts: [],
+      // posts: [],
     }
   },
   computed: {
-    widgetId() {
-      if (this.category.includes('super1')) {
-        return 'd3bfbc5e544578957e2854362a8f903e5a3477b9'
+    posts() {
+      if (this.$store.state.category.categories[this.category] === undefined) {
+        return []
       }
-      return 'eb43035256b53a5328fa62b38d8d96bde4e44037'
+      return this.$store.state.category.categories[this.category].posts.filter(
+        (post) => post.permalink !== this.permalink
+      )
     },
   },
   mounted() {
-    this.loadPosts()
+    this.$store.dispatch('category/pullPosts', { category: this.category })
   },
   methods: {
-    loadPosts() {
-      if (!this.$storageAvailable) {
-        return
-      }
-      this.$axios
-        .post('https://api.cxense.com/public/widget/data', {
-          widgetId: this.widgetId,
-          context: {
-            url: this.permalink,
-          },
-          user: {
-            ids: {
-              usi: this.$cookies.get('cX_P'),
-              gru: this.$store.state.user.uid,
-            },
-          },
-        })
-        .then((res) => {
-          const items = res.data.items.map((item) => {
-            return item['recs-articleid']
-          })
-          this.$axios.get('/api/keep/' + items).then((r) => {
-            this.posts = r.data
-            this.posts.forEach((post, index) => {
-              if (res.data.items[index]) {
-                post.trackerPermalink = res.data.items[index].click_url.replace(
-                  'http://api.cxense.com/public/widget/click/',
-                  ''
-                )
-              }
-            })
-          })
-        })
-        .catch(() => {
-          // TODO: error logging
-        })
-    },
     loadMore() {
       if (this.category) {
         this.loading = true

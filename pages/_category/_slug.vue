@@ -478,7 +478,7 @@
             v-if="
               post.category_slug && post.category_slug !== 'promo' && hasLinker
             "
-            :category="post.category_slug"
+            :category="$route.params.category"
             :p="Number(post.id)"
             :permalink="post.permalink"
           ></keep-reading>
