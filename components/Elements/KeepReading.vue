@@ -55,6 +55,14 @@ export default {
       posts: [],
     }
   },
+  computed: {
+    widgetId() {
+      if (this.category.includes('super1')) {
+        return 'd3bfbc5e544578957e2854362a8f903e5a3477b9'
+      }
+      return 'eb43035256b53a5328fa62b38d8d96bde4e44037'
+    },
+  },
   mounted() {
     this.loadPosts()
   },
@@ -65,12 +73,9 @@ export default {
       }
       this.$axios
         .post('https://api.cxense.com/public/widget/data', {
-          widgetId: 'eb43035256b53a5328fa62b38d8d96bde4e44037',
+          widgetId: this.widgetId,
           context: {
             url: this.permalink,
-            categories: {
-              taxonomy: this.category,
-            },
           },
           user: {
             ids: {
