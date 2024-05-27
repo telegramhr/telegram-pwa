@@ -475,9 +475,6 @@
             <midas :key="`midas-ecoom-${post.id}`" type="ecomm"></midas>
           </div>
           <keep-reading
-            v-if="
-              post.category_slug && post.category_slug !== 'promo' && hasLinker
-            "
             :category="$route.params.category"
             :p="Number(post.id)"
             :permalink="post.permalink"
