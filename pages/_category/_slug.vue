@@ -406,7 +406,7 @@
                   :key="`midas-text-${post.id}`"
                   type="text-only"
                 ></midas>
-                <!--<div
+                <div
                   v-if="
                     !hasPremium &&
                     !post.category_slug.includes('superone') &&
@@ -416,7 +416,7 @@
                   style="max-width: 1201px"
                 >
                   <jgl-premium></jgl-premium>
-                </div>-->
+                </div>
               </client-only>
               <!-- Article footer -->
               <div
