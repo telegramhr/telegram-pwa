@@ -9,14 +9,14 @@
       <div class="full center jgl-line">
         <div class="flex center">
           <img
-            src="@/assets/img/extras/partner_logos/Solgar_logo.png"
-            alt="JGL logo"
+            src="@/assets/img/extras/partner_logos/favbet.png"
+            alt="logo"
             loading="lazy"
           />
           <img
-            src="@/assets/img/extras/partner_logos/Solgar_logo.png"
+            src="@/assets/img/extras/partner_logos/favbet.png"
             class="dark-mode-only"
-            alt="JGL logo"
+            alt="logo"
             loading="lazy"
           />
         </div>
@@ -44,7 +44,7 @@
           >
             <img
               :src="post.slika"
-              alt="JGL promo"
+              alt="TG promo"
               loading="lazy"
               width="400"
               height="400"
@@ -55,7 +55,7 @@
             <h2 :id="'standard-' + post.id" class="full">
               {{ post.opis }}
             </h2>
-            <div class="newbtn">Kupi odmah</div>
+            <div class="newbtn">{{ post.cta }}</div>
           </a>
         </div>
       </VueSlickCarousel>
@@ -84,9 +84,15 @@
 <script>
 export default {
   name: 'JglPremium',
+  props: {
+    site: {
+      type: String,
+      required: true,
+      default: 'tg',
+    },
+  },
   data() {
     return {
-      shop: 'jgl',
       timestamp: Date.now(),
       slider_settings: {
         infinite: true,
@@ -124,7 +130,7 @@ export default {
       const preview = this.$route.query.webshop
         ? this.$route.query.webshop
         : 'production'
-      return this.$store.state.promos.offers[this.shop][preview]
+      return this.$store.state.promos.offers[this.site][preview]
     },
   },
   mounted() {
@@ -132,12 +138,12 @@ export default {
       ? this.$route.query.webshop
       : 'production'
     this.$store.dispatch('promos/pullOffers', {
-      shop: this.shop,
+      shop: this.site,
       preview,
     })
     this.$gtm.push({
       event: 'webshop-widget',
-      'webshop-category': 'telemach-premium',
+      'webshop-category': this.site + '-premium',
       'webshop-action': 'view',
       'webshop-label': 'impression',
       'webshop-value': 1,
@@ -147,7 +153,7 @@ export default {
     trackClick(link) {
       this.$gtm.push({
         event: 'webshop-widget',
-        'webshop-category': 'telemach-premium',
+        'webshop-category': this.site + '-premium',
         'webshop-action': 'click',
         'webshop-label': 'click',
         'webshop-value': 1,
@@ -160,7 +166,7 @@ export default {
 
 <style>
 .jgl-line {
-  background-color: #c9a668;
+  background-color: #fd267e;
 }
 
 .jgl-line > div {
@@ -186,7 +192,7 @@ export default {
 }
 
 #offer-premium-jgl .dark-mode .slick-slide {
-  border-right: 1px solid #c9a668;
+  border-right: 1px solid #fd267e;
 }
 
 #offer-premium-jgl .article-pad {
