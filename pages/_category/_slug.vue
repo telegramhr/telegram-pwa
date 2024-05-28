@@ -415,7 +415,9 @@
                   class="full"
                   style="max-width: 1201px"
                 >
-                  <jgl-premium></jgl-premium>
+                  <jgl-premium
+                    :site="post.category.includes('telesport') ? 'ts' : 'tg'"
+                  ></jgl-premium>
                 </div>
               </client-only>
               <!-- Article footer -->
