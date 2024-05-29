@@ -169,8 +169,11 @@ export default {
   background-color: #fd267e;
 }
 
+.overtitle {
+  color: #fd267e;
+}
+/*
 .jgl-line > div {
-  padding-left: 7px;
   background-color: #fcf1e7;
   width: 200px;
 }
@@ -180,7 +183,7 @@ export default {
 }
 .dark-mode .jgl-line > div {
   background-color: #212121;
-}
+}*/
 
 .noththree.subsection-title .jgl-line img {
   height: 40px;
