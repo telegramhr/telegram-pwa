@@ -538,6 +538,25 @@ export default {
       return this.$store.state.user.exp * 1000 < new Date().getTime()
     },
   },
+  mounted() {
+    this.loadAds()
+  },
+  methods: {
+    loadAds() {
+      if (this.$route.query.reset_token) {
+        window.tp.push([
+          'init',
+          function () {
+            window.tp.pianoId.show({
+              displayMode: 'modal',
+              screen: 'new_password',
+            })
+          },
+        ])
+      }
+      this.$store.dispatch('ads/initAds', { route: this.$route })
+    },
+  },
   head() {
     return {
       title: 'Telesport.hr',
