@@ -1,5 +1,16 @@
 <template>
   <div class="main-container flex telesport ts-home">
+    <!-- Wallpapers -->
+    <client-only>
+      <div v-if="!$mobile" class="container wallpaper-banners animate">
+        <div class="wallpaper-left">
+          <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
+        </div>
+        <div class="wallpaper-right">
+          <ad-unit id="telegram_dekstop_wallpaper_right"></ad-unit>
+        </div>
+      </div>
+    </client-only>
     <!-- TG Multiverse header -->
     <div class="full flex">
       <theader></theader>
@@ -191,7 +202,7 @@
     <!-- Intro block: G1 + comments -->
     <div class="full relative">
       <div class="container flex relative stretch cantha-intro-block">
-        <!-- Billboard 1
+        <!-- Billboard 1 -->
         <client-only>
           <div v-show="!hasPremium" class="full relative m-order-2">
             <div class="full flex column-horizontal-pad desktop-only">
@@ -201,7 +212,7 @@
               <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
             </div>
           </div>
-        </client-only> -->
+        </client-only>
         <div
           class="full flex column-horizontal-pad column-bottom-pad desktop-only"
         >
@@ -242,10 +253,10 @@
             <medium :post="post"></medium>
           </div>
         </div>
-        <!-- Billboard 2
+        <!-- Billboard 2 -->
         <div class="full center m-order-6">
           <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
-        </div> -->
+        </div>
         <!-- Teme -->
         <div
           class="full flex mobile-side-pad stretch secondary-gs-block m-order-8"
@@ -314,6 +325,11 @@
         </div>
       </div>
     </div>
+    <client-only>
+      <div v-if="!hasPremium" class="full relative">
+        <jgl-premium site="ts"></jgl-premium>
+      </div>
+    </client-only>
     <!-- Telesport preporuka -->
     <div
       class="full relative darkened-bg column-top-margin column-bottom-margin column-bottom-pad mobile-vertical-pad"
@@ -499,6 +515,9 @@ export default {
     }
   },
   computed: {
+    hasPremium() {
+      return this.$store.getters['user/hasPremium']
+    },
     posts() {
       return this.$store.state.ts.posts
     },

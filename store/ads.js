@@ -27,7 +27,9 @@ export const state = () => ({
         'category',
         'category-slug',
         'super1',
+        'telesport',
         'super1-category',
+        'telesport-category',
         'nesto-slug',
         'fotogalerije-category',
         'fotogalerije-category-slug',
@@ -36,6 +38,7 @@ export const state = () => ({
         'autor-autor',
         'tema-tema',
         'super1-category-slug',
+        'telesport-category-slug',
         'pitanje-zdravlja-category-slug',
         'openspace-category-slug',
         'pitanje-zdravlja-category',
@@ -140,6 +143,8 @@ export const state = () => ({
         'category',
         'super1',
         'super1-category',
+        'telesport',
+        'telesport-category',
         'pitanje-zdravlja-category',
         'openspace-category',
       ],
@@ -184,6 +189,8 @@ export const state = () => ({
         'category',
         'super1',
         'super1-category',
+        'telesport',
+        'telesport-category',
         'pitanje-zdravlja-category',
         'openspace-category',
       ],
@@ -228,6 +235,8 @@ export const state = () => ({
         'super1',
         'category',
         'super1-category',
+        'telesport',
+        'telesport-category',
         'pitanje-zdravlja-category',
         'openspace-category',
       ],
@@ -362,6 +371,9 @@ export const state = () => ({
         'super1',
         'super1-category',
         'super1-category-slug',
+        'telesport',
+        'telesport-category',
+        'telesport-category-slug',
         'nesto-slug',
         'fotogalerije-category',
         'fotogalerije-category-slug',
@@ -393,6 +405,9 @@ export const state = () => ({
         'super1',
         'super1-category',
         'super1-category-slug',
+        'telesport',
+        'telesport-category',
+        'telesport-category-slug',
         'nesto-slug',
         'nesto-slug',
         'fotogalerije-category',
@@ -418,6 +433,8 @@ export const state = () => ({
         'pitanje-zdravlja-category',
         'openspace-category',
         'super1-category',
+        'telesport-category',
+        'telesport-category-slug',
       ],
       desktop: [
         [1, 1],
@@ -552,6 +569,8 @@ export const state = () => ({
         'pitanje-zdravlja-category',
         'openspace-category',
         'super1-category',
+        'telesport-category',
+        'telesport-category-slug',
       ],
       desktop: [
         [1, 1],
@@ -685,6 +704,8 @@ export const state = () => ({
         'pitanje-zdravlja-category',
         'openspace-category',
         'super1-category',
+        'telesport-category',
+        'telesport-category-slug',
       ],
       desktop: [
         [1, 1],
@@ -814,6 +835,8 @@ export const state = () => ({
         'pitanje-zdravlja-category',
         'openspace-category',
         'super1-category',
+        'telesport-category',
+        'telesport-category-slug',
       ],
       desktop: [
         [1, 1],
@@ -943,6 +966,8 @@ export const state = () => ({
         'pitanje-zdravlja-category',
         'openspace-category',
         'super1-category',
+        'telesport-category',
+        'telesport-category-slug',
       ],
       desktop: [
         [1, 1],
@@ -1051,6 +1076,8 @@ export const state = () => ({
         'pitanje-zdravlja-category',
         'openspace-category',
         'super1-category',
+        'telesport-category',
+        'telesport-category-slug',
       ],
       desktop: [
         [1, 1],
@@ -1168,6 +1195,9 @@ export const state = () => ({
         'openspace-category-slug',
         'pitanje-zdravlja-category',
         'openspace-category',
+        'telesport-category',
+        'telesport-category-slug',
+        'telesport',
       ],
       mobile: [
         [1, 1],
@@ -1211,6 +1241,9 @@ export const state = () => ({
         'openspace-category-slug',
         'pitanje-zdravlja-category',
         'openspace-category',
+        'telesport-category',
+        'telesport-category-slug',
+        'telesport',
       ],
       mobile: [
         [1, 1],
@@ -1341,12 +1374,17 @@ export const actions = {
           targeting.wp_post_type = ['category']
           targeting.post_category = ['super1']
           break
+        case 'telesport':
+          targeting.wp_post_type = ['category']
+          targeting.post_category = ['telesport']
+          break
         case 'tema':
           targeting.wp_post_type = ['archive']
           targeting.post_category = [route.params.slug]
           break
         case 'category-slug':
         case 'super1-category-slug':
+        case 'telesport-category-slug':
         case 'openspace-category-slug':
         case 'pitanje-zdravlja-category-slug':
         case 'nesto-slug':
@@ -1359,6 +1397,8 @@ export const actions = {
             targeting.post_category.push('pitanje-zdravlja')
           } else if (route.name.includes('super1')) {
             targeting.post_category.push('super1')
+          } else if (route.name.includes('telesport')) {
+            targeting.post_category.push('telesport')
           } else {
             targeting.post_category.push(route.params.category)
           }
