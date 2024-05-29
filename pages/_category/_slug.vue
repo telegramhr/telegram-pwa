@@ -18,6 +18,7 @@
       <client-only>
         <hometop-simple></hometop-simple>
       </client-only>
+      <ad-unit id="telegram_background"></ad-unit>
       <!-- Above header banner manual -->
       <div
         v-show="related_posts && $store.state.user.access"
