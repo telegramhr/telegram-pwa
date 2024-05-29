@@ -41,6 +41,7 @@ export default {
         class: [
           theme === 'contrast' ? 'contrast-mode' : '',
           theme === 'dark' ? 'dark-mode' : '',
+          theme === 'domoljub' ? 'domoljub-mode' : '',
           premium === 'BR92VTWM' ? 'logged-in-premium' : '',
         ],
       },

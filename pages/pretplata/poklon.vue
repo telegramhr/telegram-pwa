@@ -314,7 +314,8 @@ export default {
       }
       if (this.$route.query.checkout) {
         switch (this.$route.query.checkout) {
-          case 'izbori':
+          case 'piano_test':
+            this.promo_code = 'BOKKFRYNLG'
             this.checkout('TM2DHAF8NF3Z')
             break
         }
@@ -351,7 +352,7 @@ export default {
             termId,
             templateId: 'OTXWXSOL0WWS',
             checkoutFlowId: 'CF65KTMVQXXX',
-            promoCode: 'VFGKTV3QZY',
+            promoCode: this.promo_code,
             closeOnLogout: true,
           })
         },

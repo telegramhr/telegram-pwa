@@ -23,121 +23,55 @@
         </client-only>
       </div>
     </div>
-    <!-- Above header banner -->
+    <!-- Above header banner Piano -->
     <client-only>
-      <app-link
-        v-if="!$store.state.user.access"
-        to="/pretplata"
-        class="full center relative dark-mode pretplata-bf pretplata-blue clickable"
-      >
-        <div class="container flex relative">
-          <div
-            class="half flex-responsive mobile-full-pad column-full-pad column-top-margin column-bottom-margin flex relative stretch"
-          >
-            <div class="full flex overtitle-parent">
-              <div class="overtitle noththree">
-                <span>Najveća akcija godine</span>
-              </div>
-            </div>
-            <div class="full nothtwo">
-              <span>Izbori na</span> <span>Telegramu</span>
-            </div>
-            <p class="full highlight-pitch">
-              <span class="ib"
-                >Prijelomne izbore pratite uz najbolje analize,</span
-              >
-              <span class="ib"
-                >najtočnije vijesti i najneovisnije novinare</span
-              >
-            </p>
-            <div class="full undertitle bigger-undertitle">
-              <span class="strikethrough faded">7,99€</span> 1,99€
-            </div>
-            <p class="full smaller-text faded">
-              prva tri mjeseca samo 1,99€ mjesečno
-            </p>
-            <div class="full flex">
-              <div class="flex newbtn huge-newbtn animate">
-                Pogledajte ponudu
-              </div>
-            </div>
-          </div>
-          <img
-            src="@/assets/img/tg_visual_pretplata_izbori_alt.jpg"
-            alt="Andrej Plenković i Zoran Milanović"
-            class="absolute-half-img"
-          />
-        </div>
-      </app-link>
-      <a
-        v-if="$store.state.user.access"
-        href="https://www.telegram.hr/tema/hrvatska-andreja-plenkovica/"
-        class="full center relative pretplata-subs-special darkened-bg desktop-only"
-      >
-        <div class="container flex relative relative">
-          <div
-            class="half flex-responsive flex column-full-pad mobile-full-pad"
-          >
-            <div class="full flex overtitle-parent">
-              <div class="overtitle noththree">
-                <span>Izborni serijal</span>
-              </div>
-            </div>
-            <div class="full nothtwo">
-              <span class="ib">Kakva je Hrvatska</span>
-              <span class="ib">Andreja Plenkovića</span>
-            </div>
-            <p class="full highlight-pitch">
-              <span class="ib"
-                >Telegramovi analitičari donose dubinsku reviziju
-                ekonomskih,</span
-              >
-              <span class="ib"
-                >socijalnih, demografskih i političkih rezultata HDZ-ove
-                vlasti</span
-              >
-            </p>
-            <div class="nothfive full flex article-meta">
-              <span class="meta-author"
-                ><i>Pišu</i> Jagoda Marić, Jasmin Klarić i Irena Frlan
-                Gašparović</span
-              >
-            </div>
-          </div>
-          <img
-            src="@/assets/img/tg_visual_izbori_promo_mobile.jpg"
-            alt="Premijer Andrej Plenković i Telegramovi analitičari Jagoda Marić, Jasmin Klarić i Irena Frlan Gašparović"
-            class="absolute-half-img mobile-only"
-          />
-          <img
-            src="@/assets/img/tg_visual_izbori_promo.jpg"
-            alt="Premijer Andrej Plenković i Telegramovi analitičari Jagoda Marić, Jasmin Klarić i Irena Frlan Gašparović"
-            class="absolute-half-img desktop-only"
-          />
-        </div>
-      </a>
+      <hometop-simple></hometop-simple>
     </client-only>
-    <!--<app-link
-      v-if="canLogIn"
-      to="/pretplata"
-      class="full relative darkened-bg birati-stranu-widget"
-    >
-      <div class="container column-full-pad mobile-full-pad flex relative">
-        <p
-          class="full center-text column-top-pad mobile-top-pad birati-stranu-title"
-        >
-          Od 01.04. nove cijene pretplate
-        </p>
-        <p class="full center-text birati-stranu-subtitle">
-          Pretplatite se kako biste osigurali dosadašnje, niže cijene
-        </p>
-        <div class="full center column-vertical-pad mobile-vertical-pad">
-          <div class="newbtn huge-newbtn">Pretplatite se</div>
-        </div>
-      </div>
-    </app-link>-->
     <!-- Cantha header -->
     <div class="full relative cantha-header">
+      <!-- Actual new TG multiverse header -->
+      <nav
+        class="full center relative nayos nayos-multiverse stretch u-domovinskom-duhu"
+      >
+        <div
+          class="container flex stretch relative column-horizontal-pad mobile-side-pad"
+        >
+          <div class="third flex vertical-center mobile-thirty">
+            <a
+              :aria-expanded="$store.state.header.showSideMenu.toString()"
+              aria-label="Prikaži lijevi meni"
+              aria-controls="sidebar"
+              @click.prevent="$store.commit('header/updateMenu', 'side')"
+            >
+              <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon>
+            </a>
+          </div>
+          <app-link to="/" class="third mobile-forty center nayos-logos">
+            <img src="@/assets/img/brzojav.svg" alt="Telegram logo" />
+          </app-link>
+          <div class="third center align-children-end mobile-thirty">
+            <app-link
+              v-show="canLogIn"
+              id="pretplatite se - header"
+              to="/pretplata"
+              class="newbtn"
+              >Pretplatite se</app-link
+            >
+            <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun">
+              <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
+            </app-link>
+            <a
+              class="desktop-only column-mini-left-pad"
+              aria-label="Prikaži tražilicu"
+              :aria-expanded="$store.state.header.showSearchMenu.toString()"
+              aria-controls="search"
+              @click.prevent="$store.commit('header/updateMenu', 'search')"
+            >
+              <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon>
+            </a>
+          </div>
+        </div>
+      </nav>
       <div class="container flex relative column-top-pad column-horizontal-pad">
         <div class="full center relative desktop-only">
           <a
@@ -152,7 +86,12 @@
           <app-link to="/" class="logo" @click="$fetch"
             ><img
               src="@/assets/img/telegram_logo_black.svg"
-              alt="Telegram logo" />
+              alt="Telegram logo"
+              class="not-safe-for-domoljub" />
+            <img
+              src="@/assets/img/brzojav.svg"
+              alt="Telegram logo"
+              class="u-domovinskom-duhu" />
             <img
               src="@/assets/img/telegram_logo_white.svg"
               alt="Telegram logo"
@@ -170,9 +109,15 @@
         </div>
         <app-link
           to="/pretplata/odabrati-stranu"
-          class="full column-horizontal-pad center-text desktop-only site-subtitle"
+          class="full column-horizontal-pad center-text desktop-only site-subtitle not-safe-for-domoljub"
         >
           Nekad je nužno odabrati stranu
+        </app-link>
+        <app-link
+          to="/pretplata/"
+          class="full column-horizontal-pad center-text desktop-only site-subtitle u-domovinskom-duhu"
+        >
+          U domovinskom duhu
         </app-link>
         <div class="full mobile-side-pad">
           <div class="full desktop-only cantha-separator"></div>
@@ -422,15 +367,15 @@
     <div class="full relative">
       <sport></sport>
     </div>
-    <!-- Velika rubrika: Kultura -->
-    <div class="full relative">
-      <category-zone zone="kultura"></category-zone>
-    </div>
-    <!-- Widget autori -->
-    <commentary-alt type="tg"></commentary-alt>
     <!-- Super1 -->
     <div class="full relative">
       <super1></super1>
+    </div>
+    <!-- Widget autori -->
+    <commentary-alt type="tg"></commentary-alt>
+    <!-- Velika rubrika: Kultura -->
+    <div class="full relative">
+      <category-zone zone="kultura"></category-zone>
     </div>
     <!-- Pretplatnici čitaju -->
     <div class="full relative">
@@ -493,44 +438,10 @@
     <div class="full relative">
       <os-homepage></os-homepage>
     </div>
-    <!-- Book widget Bili libar 2 -->
-    <app-link
-      to="/knjiga/boris-dezulovic-bili-libar-2"
-      class="full flex relative center mobile-side-pad darkened-bg column-full-pad shoo-bottom"
-    >
-      <div class="container relative flex stretch">
-        <div class="forty tablet-full flex flex-responsive center">
-          <div class="full center-text newbook-overtitle">Telegram naklada</div>
-          <h2 class="full center-text newbook-title newbook-title-smaller">
-            BILI LIBAR 2
-          </h2>
-          <div class="full center-text newbook-author">Boris Dežulović</div>
-          <p class="full center-text newbook-intro">
-            Veliki Telegramov hit dobio je nastavak, s 12 još raskošnijih, još
-            čudesnijih i luđih priča o jednom nogometnom klubu. I, naravno, ne
-            samo o njemu.
-          </p>
-        </div>
-
-        <div class="forty tablet-full flex flex-responsive center">
-          <img
-            src="@/assets/img/tg_book_clean_dezulovic2.png"
-            alt="Naslovnica nove knjige Borisa Dežulovića 'BILI LIBAR 2'"
-          />
-        </div>
-        <div class="fifth tablet-full flex flex-responsive center">
-          <div class="full relative center-text newbook-price">19,99€</div>
-          <div class="full relative center-text neat-numbers">
-            (150,61 kn)
-            <br />
-            Besplatna dostava po cijeloj Hrvatskoj
-          </div>
-          <div class="full center btn-parent newbook-btn">
-            <div class="newbtn clickable huge-newbtn animate">Kupite</div>
-          </div>
-        </div>
-      </div>
-    </app-link>
+    <!-- Book widget -->
+    <div class="full relative">
+      <book-offers></book-offers>
+    </div>
     <!-- Rubrike -->
     <div class="full relative">
       <div class="container flex relative block-5 standard-block">
@@ -615,62 +526,7 @@ export default {
   },
   methods: {
     checkout(termId) {
-      if (this.$store.state.user.token) {
-        this.checkout2(termId, -1)
-      } else {
-        const _that = this
-        window.tp.pianoId.show({
-          screen: 'register',
-          width: window.innerWidth > 720 ? 600 : 375,
-          loggedIn(data) {
-            _that.$store.dispatch('user/setUser', data.user)
-            // window.location.reload()
-            _that.checkout2(termId, -2)
-          },
-        })
-      }
-    },
-    checkout2(termId, back) {
-      const _that = this
-      window.fbq = window.fbq || function () {}
-      window.tp.push([
-        'init',
-        () => {
-          window.tp.offer.show({
-            offerId: 'OFFY1ZO333EV',
-            termId,
-            templateId: 'OTXWXSOL0WWS',
-            checkoutFlowId: 'CF65KTMVQXXX',
-            closeOnLogout: true,
-            complete: (data) => {
-              _that.$store.dispatch('user/checkAccess')
-              window.marfeel.cmd.push([
-                'compass',
-                function (compass) {
-                  compass.trackConversion('subscribe')
-                },
-              ])
-              window.fbq('track', 'Purchase', {
-                content_ids: data.termId,
-                currency: data.chargeCurrency,
-                value: data.chargeAmount,
-              })
-              window.fbq('track', 'Subscribe', {
-                currency: data.chargeCurrency,
-                value: data.chargeAmount,
-              })
-              window.PianoESP &&
-                typeof window.PianoESP.handleUserDataPromise === 'function' &&
-                window.PianoESP.handleUserDataPromise({
-                  email: _that.$store.state.user.email,
-                  squads: [2128, 2555, 2554, 10670, 10671],
-                }).then(() => {
-                  _that.$router.go(back)
-                })
-            },
-          })
-        },
-      ])
+      this.$piano.start(termId, -1)
     },
     manageLogin() {
       if (this.canLogIn) {

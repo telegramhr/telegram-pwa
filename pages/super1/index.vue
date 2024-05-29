@@ -55,15 +55,15 @@
         <div class="full center">
           <app-link to="/super1" class="logo"
             ><img
-              src="@/assets/img/s1_logo_clean_alt.svg"
+              src="@/assets/img/s1_logo_clean_noline.svg"
               class="light-mode-only"
               alt="Super1 logo" />
             <img
-              src="@/assets/img/s1_logo_clean_alt.svg"
+              src="@/assets/img/s1_logo_clean_noline.svg"
               class="contrast-mode-only"
               alt="Super1 logo" />
             <img
-              src="@/assets/img/s1_logo_clean_negative_alt.svg"
+              src="@/assets/img/s1_logo_clean_noline_white.svg"
               alt="Super1 logo"
               class="dark-mode-only"
           /></app-link>
@@ -100,7 +100,9 @@
     <!-- G1 + super se čita -->
     <section class="full flex relative">
       <div class="container flex relative stretch column-bottom-pad">
-        <div class="three-fourths flex flex-responsive relative">
+        <div
+          class="three-fourths flex flex-responsive relative superone-preporuka super-g-one"
+        >
           <div class="full flex column-horizontal-pad">
             <superfeat
               v-for="post in posts.slice(0, 1)"
@@ -109,7 +111,7 @@
             ></superfeat>
           </div>
         </div>
-        <div
+        <!--<div
           class="fourth flex mini-article-list mobile-side-pad flex-responsive column-horizontal-pad align-children-bottom"
         >
           <div class="noththree full overtitle super-minititle">
@@ -122,7 +124,7 @@
               :post="post"
             ></mini>
           </div>
-        </div>
+        </div>-->
       </div>
     </section>
     <!-- G2-G4 -->
@@ -285,7 +287,7 @@ export default {
   async fetch() {
     await this.$store.dispatch('s1/pullPosts')
     await this.$store.dispatch('s1/pullBreaks')
-    await this.$store.dispatch('category/mostRead', { category: 'super1' })
+    // await this.$store.dispatch('category/mostRead', { category: 'super1' })
   },
   data() {
     return {

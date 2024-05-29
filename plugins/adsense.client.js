@@ -1,11 +1,5 @@
 export default ({ app, store }) => {
   if (store.state.user.access !== 'BR92VTWM') {
-    // linker
-    const l = document.createElement('script')
-    l.src = 'https://linker.hr/lw.js'
-    l.async = true
-    document.head.appendChild(l)
-
     // adsense
     const s = document.createElement('script')
     s.src =

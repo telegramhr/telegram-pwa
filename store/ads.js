@@ -1178,6 +1178,7 @@ export const state = () => ({
         [320, 200],
         [200, 250],
         [320, 480],
+        [250, 280],
       ],
       desktop: [
         [900, 600],
@@ -1393,6 +1394,20 @@ export const actions = {
       if (route.query.reload) {
         window.googletag.pubads().setTargeting('reload', '1')
       }
+      let cookie = this.$cookies.get('ab_test')
+      if (!cookie) {
+        const value = Math.floor(Math.random() * 100) + 1
+        if (value <= 50) {
+          cookie = 'a'
+        } else {
+          cookie = 'b'
+        }
+        this.$cookies.set('ab_test', cookie, {
+          path: '/',
+          maxAge: 60 * 60 * 24 * 90,
+        })
+      }
+      window.googletag.pubads().setTargeting('ab_test', cookie)
       window.googletag.pubads().enableSingleRequest()
       window.googletag.pubads().collapseEmptyDivs()
       window.googletag.pubads().disableInitialLoad()

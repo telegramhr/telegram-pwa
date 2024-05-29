@@ -1,7 +1,6 @@
 export default ({ app }) => {
   window.dataLayer = window.dataLayer || []
   function gtag() {
-    console.log(arguments)
     window.dataLayer.push(arguments)
   }
   gtag('consent', 'default', {
@@ -29,7 +28,7 @@ export default ({ app }) => {
       }),
   })
 
-  app.router.afterEach((to, from, next) => {
+  app.router.afterEach((to, from) => {
     const googleAdUrl =
       'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
     try {
@@ -39,6 +38,5 @@ export default ({ app }) => {
     } catch (e) {
       window.dataLayer.push({ event: 'adblock' })
     }
-    next()
   })
 }

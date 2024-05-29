@@ -244,6 +244,16 @@ export const state = () => ({
       extraClass: 'superone shopping-vodic fancy-rubrika',
       canonical: '/super1/shopping-vodic/',
     },
+    telesport: {
+      name: 'Telesport',
+      description: '',
+      posts: [],
+      mostRead: [],
+      updated: null,
+      updated_most: null,
+      extraClass: 'telesport fancy-rubrika',
+      canonical: '/telesport/',
+    },
   },
   morePosts: {
     'politika-kriminal': {
@@ -341,6 +351,9 @@ export const mutations = {
 export const actions = {
   pullPosts({ commit, dispatch, state }, payload) {
     return new Promise((resolve) => {
+      if (state.categories[payload.category] === undefined) {
+        resolve()
+      }
       if (
         state.categories[payload.category].updated + 10 * 60 * 1000 <
         new Date().getTime()

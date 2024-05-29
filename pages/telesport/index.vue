@@ -1,5 +1,5 @@
 <template>
-  <div class="main-container flex telesport">
+  <div class="main-container flex telesport ts-home">
     <!-- TG Multiverse header -->
     <div class="full flex">
       <theader></theader>
@@ -87,11 +87,6 @@
             <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon>
           </a>
         </div>
-        <div
-          class="full column-horizontal-pad center-text desktop-only site-subtitle"
-        >
-          A sada... nešto sasvim drugačije. Telegramov sportski kanal.
-        </div>
         <div class="full mobile-side-pad">
           <div class="full desktop-only cantha-separator"></div>
         </div>
@@ -112,9 +107,53 @@
           <app-link role="menuitem" to="/telesport" class="animate"
             >Analize</app-link
           >
-          <app-link role="menuitem" to="/telesport" class="animate"
-            >Kolumne</app-link
-          >
+          <div class="cantha-fake-menuitem">
+            <app-link role="menuitem" to="/telesport" class="animate"
+              >Kolumne
+            </app-link>
+            <div class="cantha-submenu flex">
+              <a
+                href="https://telesport.telegram.hr/kolumne/covjek-koji-je-buljio-u-ekran/"
+                >Čovjek koji je buljio u ekran</a
+              >
+              <a href="https://telesport.telegram.hr/kolumne/drop-shot/"
+                >Drop Shot</a
+              >
+              <a href="https://telesport.telegram.hr/kolumne/gol-u-gostima/"
+                >Gol u gostima</a
+              >
+              <a href="https://telesport.telegram.hr/kolumne/juris/">Juriš</a>
+              <a href="https://telesport.telegram.hr/kolumne/laboratorij/"
+                >Laboratorij</a
+              >
+              <a href="https://telesport.telegram.hr/kolumne/na-posudbi/"
+                >Na posudbi</a
+              >
+              <a href="https://telesport.telegram.hr/kolumne/na-suncu-i-sjeni/"
+                >Na suncu i sjeni</a
+              >
+              <a href="https://telesport.telegram.hr/kolumne/nogomet-narodu/"
+                >Nogomet narodu</a
+              >
+              <a href="https://telesport.telegram.hr/kolumne/punchlines/"
+                >Punchlines</a
+              >
+              <a href="https://telesport.telegram.hr/kolumne/topnicki-dnevnici/"
+                >Topnički dnevnici</a
+              >
+              <a
+                href="https://telesport.telegram.hr/kolumne/teorija-ravne-lopte/"
+                >Teorija ravne lopte</a
+              >
+              <a
+                href="https://telesport.telegram.hr/kolumne/aljosa-s-druge-strane-ogledala/"
+                >Aljoša s druge strane ogledala</a
+              >
+              <a href="https://telesport.telegram.hr/kolumne/price-iz-davnine/"
+                >Priče iz davnine</a
+              >
+            </div>
+          </div>
         </nav>
         <div class="flex desktop-only">
           <client-only>
@@ -170,13 +209,13 @@
         </div>
         <!-- G1 -->
         <div
-          class="three-fourths flex-responsive flex stretch column-horizontal-pad article-amnytas mobile-bottom-pad"
+          class="three-fourths featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad mobile-order-1 m-order-1"
         >
-          <featured
+          <featured-alt
             v-if="posts[0]"
             :key="`featured-${posts[0].id}`"
             :post="posts[0]"
-          ></featured>
+          ></featured-alt>
         </div>
         <!-- latest -->
         <client-only>
@@ -184,7 +223,7 @@
             class="fourth flex-responsive mobile-side-pad column-right-pad flex relative no-last-border-mobile"
           >
             <div class="full flex relative latest-line-feed">
-              <latest></latest>
+              <latest category="sport"></latest>
             </div>
           </div>
         </client-only>
@@ -208,12 +247,14 @@
           <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
         </div> -->
         <!-- Teme -->
-        <div class="full flex mobile-side-pad stretch secondary-gs-block">
+        <div
+          class="full flex mobile-side-pad stretch secondary-gs-block m-order-8"
+        >
           <div class="full column-horizontal-pad column-bottom-pad flex">
             <div class="full column-top-border"></div>
           </div>
           <div
-            class="three-fourths flex-responsive flex stretch column-horizontal-pad article-amnytas mobile-bottom-pad column-right-border"
+            class="three-fourths flex-responsive column-horizontal-pad column-right-border flex relative featured-split smaller-featured-split show-one-related"
           >
             <featured
               v-for="post in posts.slice(4, 5)"
@@ -234,7 +275,7 @@
             <div class="full column-top-border column-bottom-pad"></div>
           </div>
           <div
-            class="three-fourths flex-responsive flex stretch column-horizontal-pad article-amnytas mobile-bottom-pad column-right-border"
+            class="three-fourths flex-responsive column-horizontal-pad column-right-border flex relative featured-split smaller-featured-split show-one-related"
           >
             <featured
               v-for="post in posts.slice(6, 7)"
@@ -291,7 +332,7 @@
           class="three-fourths flex-responsive column-horizontal-pad flex split-articles big-split no-mobile-stretch-split alt-big-break center-text column-right-border"
         >
           <standard
-            v-for="post in posts.slice(6, 7)"
+            v-for="post in breaks.slice(0, 1)"
             :key="post.id"
             :post="post"
           ></standard>
@@ -319,7 +360,7 @@
             class="three-fourths flex-responsive flex stretch column-horizontal-pad article-amnytas mobile-bottom-pad column-right-border"
           >
             <featured
-              v-for="post in posts.slice(4, 5)"
+              v-for="post in posts.slice(12, 13)"
               :key="post.id"
               :post="post"
             ></featured>
@@ -328,7 +369,7 @@
             class="fourth flex-responsive column-horizontal-pad flex relative"
           >
             <medium
-              v-for="post in posts.slice(5, 6)"
+              v-for="post in posts.slice(13, 14)"
               :key="post.id"
               :post="post"
             ></medium>
@@ -340,7 +381,7 @@
             class="three-fourths flex-responsive flex stretch column-horizontal-pad article-amnytas mobile-bottom-pad column-right-border"
           >
             <featured
-              v-for="post in posts.slice(6, 7)"
+              v-for="post in posts.slice(14, 15)"
               :key="post.id"
               :post="post"
             ></featured>
@@ -349,7 +390,7 @@
             class="fourth flex-responsive column-horizontal-pad flex relative"
           >
             <medium
-              v-for="post in posts.slice(7, 8)"
+              v-for="post in posts.slice(15, 16)"
               :key="post.id"
               :post="post"
             ></medium>
@@ -366,7 +407,7 @@
       >
         <div class="full flex stretch relative no-last-border-mobile">
           <div
-            v-for="post in posts.slice(7, 11)"
+            v-for="post in morePosts.slice(1, 4)"
             :key="post.id"
             class="fourth flex-responsive column-right-border column-horizontal-pad"
           >
@@ -385,7 +426,7 @@
         </div>
         <div class="full flex stretch relative no-last-border-mobile">
           <div
-            v-for="post in posts.slice(11, 15)"
+            v-for="post in morePosts.slice(4, 8)"
             :key="post.id"
             class="fourth flex-responsive column-right-border column-horizontal-pad"
           >
@@ -447,51 +488,23 @@
 <script>
 export default {
   async fetch() {
-    await this.$axios
-      .get('https://telesport.telegram.hr/wp-json/telegram/pwa2/v1/portal/2')
-      .then((res) => {
-        this.posts = res.data.posts
-      })
+    await this.$store.dispatch('ts/pullPosts')
+    await this.$store.dispatch('ts/pullBreaks')
   },
   data() {
     return {
       loading: false,
       hasMore: true,
-      featured: [],
-      posts: [],
-      page: 2,
-      slider_settings: {
-        infinite: true,
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        arrows: false,
-        autoplay: true,
-        responsive: [
-          {
-            breakpoint: 1024,
-            settings: {
-              slidesToShow: 3,
-            },
-          },
-          {
-            breakpoint: 767,
-            settings: {
-              centerMode: true,
-              slidesToShow: 2,
-            },
-          },
-          {
-            breakpoint: 600,
-            settings: {
-              slidesToShow: 1,
-              centerMode: true,
-            },
-          },
-        ],
-      },
+      morePosts: [],
     }
   },
   computed: {
+    posts() {
+      return this.$store.state.ts.posts
+    },
+    breaks() {
+      return this.$store.state.ts.breaks
+    },
     jsonld() {
       return {
         '@context': 'https://schema.org',
@@ -502,21 +515,8 @@ export default {
         publisher: this.$store.state.header.publisher,
       }
     },
-  },
-  methods: {
-    loadMore() {
-      this.loading = true
-      this.$axios
-        .get(
-          'https://telesport.telegram.hr/wp-json/telegram/pwa2/v1/portal/2/page/' +
-            this.page
-        )
-        .then((res) => {
-          this.posts = [...this.posts, ...res.data.posts]
-          this.loading = false
-          this.page++
-          this.showMore = true
-        })
+    canLogIn() {
+      return this.$store.state.user.exp * 1000 < new Date().getTime()
     },
   },
   head() {
@@ -534,22 +534,24 @@ export default {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/super1/',
+          content: 'https://www.telegram.hr/telesport/',
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: 'https://www.pwa.telegram.hr/img/s1_share_home.jpg',
+          content: 'https://www.telegram.hr/img/ts_share.jpg',
         },
         {
           hid: 'description',
           name: 'description',
-          content: 'Lifestyle pokret stvarnih žena.',
+          content:
+            'Pratite domaća, regionalna i svjetska sportska događanja uz kolumne sportskih stručnjaka, komentare i detaljne analize novinara na jednom mjestu!',
         },
         {
           hid: 'og:description',
           property: 'og:description',
-          content: 'Lifestyle pokret stvarnih žena.',
+          content:
+            'Pratite domaća, regionalna i svjetska sportska događanja uz kolumne sportskih stručnjaka, komentare i detaljne analize novinara na jednom mjestu!',
         },
       ],
       script: [

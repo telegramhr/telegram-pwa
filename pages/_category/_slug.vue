@@ -14,29 +14,15 @@
         :headline="post.portal_title"
         :post="post"
       ></theader>
+      <!-- Do not enable until fixed version above is removed and visibility rules are adjusted -->
       <client-only>
-        <app-link
-          v-if="
-            !$store.state.user.access &&
-            !(categoryClass.includes('superone') || post.type === 'premium')
-          "
-          class="full center relative pretplata-mini-blue"
-          to="/pretplata"
-        >
-          <div
-            class="container center column-full-pad relative mobile-full-pad"
-          >
-            <div>
-              <font-awesome-icon :icon="['fal', 'bell']"></font-awesome-icon>
-              Specijalna izborna ponuda: pretplata na Telegram samo
-              <span class="strikethrough faded">7,99 EUR</span>
-              <b>1,99 EUR</b> mjesečno
-            </div>
-            <div class="newbtn huge-newbtn center-text">Pogledajte ponudu</div>
-          </div>
-        </app-link>
+        <hometop-simple></hometop-simple>
       </client-only>
-      <div v-show="related_posts" class="full related-header-widget">
+      <!-- Above header banner manual -->
+      <div
+        v-show="related_posts && $store.state.user.access"
+        class="full related-header-widget"
+      >
         <div class="container flex desktop-only column-vertical-pad">
           <div
             v-for="rpost in related_posts"
@@ -414,12 +400,13 @@
                     <offers-premium></offers-premium>
                   </div>
                 </portal>
-                <intext-new></intext-new>
-                <linker
+                <intext-new @show="showMidasIntext = true"></intext-new>
+                <midas
                   v-if="!hasPremium && hasLinker"
+                  :key="`midas-text-${post.id}`"
                   type="text-only"
-                ></linker>
-                <!--<div
+                ></midas>
+                <div
                   v-if="
                     !hasPremium &&
                     !post.category_slug.includes('superone') &&
@@ -428,8 +415,10 @@
                   class="full"
                   style="max-width: 1201px"
                 >
-                  <jgl-premium></jgl-premium>
-                </div>-->
+                  <jgl-premium
+                    :site="post.category.includes('telesport') ? 'ts' : 'tg'"
+                  ></jgl-premium>
+                </div>
               </client-only>
               <!-- Article footer -->
               <div
@@ -482,16 +471,13 @@
         </div>
         <client-only>
           <div v-if="!hasPremium && hasLinker" class="full">
-            <linker type="standard-16"></linker>
+            <midas :key="`midas-16-${post.id}`" type="standard-16"></midas>
           </div>
           <div v-if="!hasPremium && hasLinker" class="container flex center">
-            <linker type="ecomm"></linker>
+            <midas :key="`midas-ecoom-${post.id}`" type="ecomm"></midas>
           </div>
           <keep-reading
-            v-if="
-              post.category_slug && post.category_slug !== 'promo' && hasLinker
-            "
-            :category="post.category_slug"
+            :category="$route.params.category"
             :p="Number(post.id)"
             :permalink="post.permalink"
           ></keep-reading>
@@ -612,6 +598,7 @@ export default {
   },
   data() {
     return {
+      showMidasIntext: false,
       showQuiz: false,
       comments: false,
       comments_embed: null,
@@ -1023,6 +1010,9 @@ export default {
     triggerAnalytics() {
       this.$dotmetrics.postLoad(this.post.category_slug)
     },
+    checkout(termId) {
+      this.$piano.start(termId, -1)
+    },
     getPost() {
       if (this.post && this.post.id) {
         if (process.client) {
@@ -1424,13 +1414,6 @@ export default {
           item,
       })
     })
-    if (!this.hasPremium && this.hasLinker) {
-      script.push({
-        hid: 'linker',
-        src: 'https://d.linker.hr/lw.js',
-        async: true,
-      })
-    }
     return {
       script,
     }

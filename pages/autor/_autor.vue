@@ -7,51 +7,59 @@
     </div>
     <div
       v-if="author.id"
-      class="container relative mobile-side-pad column-full-pad"
+      class="container flex smaller-container relative mobile-side-pad stretch column-top-pad"
     >
-      <div class="full center flex column-bottom-border">
-        <div
-          class="three-fourths flex-responsive flex author-segment stretch"
-          style="margin-top: 48px"
-        >
-          <div class="author-segment-image">
-            <img :src="author.image.url" :alt="author.image.alt" />
-          </div>
-          <div class="author-segment-header center">
-            <div class="full">
-              <h2 class="full author-segment-name">
-                {{ author.name }}
-              </h2>
-              <div class="noththree author-segment-title">
-                {{ author.byline }}
-              </div>
+      <div
+        class="two-thirds flex-responsive flex author-segment column-full-pad mobile-full-pad m-order-2"
+      >
+        <div class="author-segment-header center">
+          <div class="full">
+            <h2 class="full author-segment-name">
+              {{ author.name }}
+            </h2>
+            <div class="noththree author-segment-title">
+              {{ author.byline }}
             </div>
           </div>
-          <div class="bold full">Biografija autora</div>
-          <p class="full">
-            {{ author.description }}
-          </p>
-          <div class="full flex">
-            <app-link to="/dojave" class="subtle-btn animate"
-              >Kontaktiraj autora</app-link
-            >
-          </div>
-          <div v-if="author.newsletter_list" class="full flex">
-            <div class="bold full">Newsletter autora</div>
-            <subscribe-button
-              v-if="author.newsletter_list"
-              :mlid="author.newsletter_list"
-              :title="author.name"
-              :free="false"
-            ></subscribe-button>
-          </div>
+        </div>
+        <div class="bold full">Biografija autora</div>
+        <p class="full">
+          {{ author.description }}
+        </p>
+        <div class="full flex">
+          <app-link to="/dojave" class="subtle-btn animate"
+            >Kontaktiraj autora</app-link
+          >
+        </div>
+        <div v-if="author.newsletter_list" class="full flex">
+          <div class="bold full">Newsletter autora</div>
+          <subscribe-button
+            v-if="author.newsletter_list"
+            :mlid="author.newsletter_list"
+            :title="author.name"
+            :free="false"
+          ></subscribe-button>
+        </div>
+      </div>
+      <div
+        class="third flex-responsive flex column-full-pad mobile-full-pad m-order-1"
+      >
+        <div class="full mobile-half author-segment-image darkened-bg relative">
+          <img :src="author.image.url" :alt="author.image.alt" />
         </div>
       </div>
     </div>
     <div v-if="posts.length" class="full flex">
       <div class="container flex relative native-block stretch mobile-side-pad">
-        <div class="full column-horizontal-pad flex">
-          <h2 class="full flex section-title">Članci autora</h2>
+        <div class="full column-horizontal-pad column-top-pad">
+          <div class="full cantha-separator"></div>
+        </div>
+        <div class="full flex column-horizontal-pad">
+          <div
+            class="noththree full center-text column-vertical-pad subsection-title"
+          >
+            Članci autora
+          </div>
         </div>
         <div
           v-for="post in posts"

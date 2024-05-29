@@ -1,7 +1,6 @@
 <template>
-  <div class="full">
+  <div v-if="posts" class="full">
     <div
-      v-if="this.$store.getters['user/hasPremium']"
       class="container flex relative block-related cantha-related standard-block stretch"
     >
       <div class="full column-horizontal-pad column-top-pad mobile-side-pad">
@@ -15,23 +14,17 @@
         </div>
       </div>
       <div class="full flex mobile-side-pad">
-        <template v-for="post in posts.slice(0, 8)">
-          <div :key="post.id" class="fourth flex-responsive flex">
-            <div class="full flex column-horizontal-pad">
-              <standard-no-h :post="post"></standard-no-h>
-            </div>
+        <div
+          v-for="post in posts.slice(0, 8)"
+          :key="post.id"
+          class="fourth flex-responsive flex"
+        >
+          <div class="full flex column-horizontal-pad">
+            <standard-no-h :post="post"></standard-no-h>
           </div>
-        </template>
-        <!--<div
-          v-if="!$store.getters['user/hasPremium']"
-          class="lwdgt"
-          :data-wid="id"
-          data-infinite="true"
-          data-cycles="20"
-        ></div>-->
+        </div>
       </div>
     </div>
-    <linker v-else type="standard-4"></linker>
   </div>
 </template>
 
@@ -57,65 +50,25 @@ export default {
   },
   data() {
     return {
-      page: 1,
+      page: 2,
       loading: false,
-      posts: [],
+      // posts: [],
     }
   },
   computed: {
-    id() {
-      if (this.category.includes('superone')) {
-        return 659
+    posts() {
+      if (this.$store.state.category.categories[this.category] === undefined) {
+        return []
       }
-      return 542
+      return this.$store.state.category.categories[this.category].posts.filter(
+        (post) => post.permalink !== this.permalink
+      )
     },
   },
   mounted() {
-    if (this.$store.getters['user/hasPremium']) {
-      this.loadPosts()
-    }
+    this.$store.dispatch('category/pullPosts', { category: this.category })
   },
   methods: {
-    loadPosts() {
-      if (!this.$storageAvailable) {
-        return
-      }
-      this.$axios
-        .post('https://api.cxense.com/public/widget/data', {
-          widgetId: 'eb43035256b53a5328fa62b38d8d96bde4e44037',
-          context: {
-            url: this.permalink,
-            categories: {
-              taxonomy: this.category,
-            },
-          },
-          user: {
-            ids: {
-              usi: this.$cookies.get('cX_P'),
-              gru: this.$store.state.user.uid,
-            },
-          },
-        })
-        .then((res) => {
-          const items = res.data.items.map((item) => {
-            return item['recs-articleid']
-          })
-          this.$axios.get('/api/keep/' + items).then((r) => {
-            this.posts = r.data
-            this.posts.forEach((post, index) => {
-              if (res.data.items[index]) {
-                post.trackerPermalink = res.data.items[index].click_url.replace(
-                  'http://api.cxense.com/public/widget/click/',
-                  ''
-                )
-              }
-            })
-          })
-        })
-        .catch(() => {
-          // TODO: error logging
-        })
-    },
     loadMore() {
       if (this.category) {
         this.loading = true
