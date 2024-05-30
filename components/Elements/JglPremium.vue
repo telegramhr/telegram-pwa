@@ -169,7 +169,7 @@ export default {
   background-color: #fd267e;
 }
 
-.overtitle {
+#offer-premium-jgl .overtitle {
   color: #fd267e;
 }
 /*
