@@ -254,6 +254,46 @@ export const state = () => ({
       extraClass: 'telesport fancy-rubrika',
       canonical: '/telesport/',
     },
+    'price-telesport': {
+      name: 'Priče',
+      description: '',
+      posts: [],
+      mostRead: [],
+      updated: null,
+      updated_most: null,
+      extraClass: 'telesport fancy-rubrika',
+      canonical: '/telesport/telesport-price/',
+    },
+    analize: {
+      name: 'Analize',
+      description: '',
+      posts: [],
+      mostRead: [],
+      updated: null,
+      updated_most: null,
+      extraClass: 'telesport fancy-rubrika',
+      canonical: '/telesport/analize/',
+    },
+    'na-prvu': {
+      name: 'Na prvu',
+      description: '',
+      posts: [],
+      mostRead: [],
+      updated: null,
+      updated_most: null,
+      extraClass: 'telesport fancy-rubrika',
+      canonical: '/telesport/na-prvu/',
+    },
+    kolumne: {
+      name: 'Kolumne',
+      description: '',
+      posts: [],
+      mostRead: [],
+      updated: null,
+      updated_most: null,
+      extraClass: 'telesport fancy-rubrika',
+      canonical: '/telesport/kolumne/',
+    },
   },
   morePosts: {
     'politika-kriminal': {
@@ -321,6 +361,70 @@ export const state = () => ({
       page: 2,
     },
     qatar: {
+      posts: [],
+      page: 2,
+    },
+    'leksikon-zdravlja': {
+      posts: [],
+      page: 2,
+    },
+    price: {
+      posts: [],
+      page: 2,
+    },
+    lifestyle: {
+      posts: [],
+      page: 2,
+    },
+    novosti: {
+      posts: [],
+      page: 2,
+    },
+    super1: {
+      posts: [],
+      page: 2,
+    },
+    beauty: {
+      posts: [],
+      page: 2,
+    },
+    design: {
+      posts: [],
+      page: 2,
+    },
+    life: {
+      posts: [],
+      page: 2,
+    },
+    look: {
+      posts: [],
+      page: 2,
+    },
+    power: {
+      posts: [],
+      page: 2,
+    },
+    'shopping-vodic': {
+      posts: [],
+      page: 2,
+    },
+    telesport: {
+      posts: [],
+      page: 2,
+    },
+    'price-telesport': {
+      posts: [],
+      page: 2,
+    },
+    analize: {
+      posts: [],
+      page: 2,
+    },
+    'na-prvu': {
+      posts: [],
+      page: 2,
+    },
+    kolumne: {
       posts: [],
       page: 2,
     },
