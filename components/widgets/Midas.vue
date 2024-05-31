@@ -137,7 +137,7 @@ export default {
         return this.ids.super1[this.type] ?? false
       }
       if (this.$route.fullPath.includes('telesport')) {
-        return this.ids.super1[this.type] ?? false
+        return this.ids.telesport[this.type] ?? false
       }
       if (this.$route.fullPath.includes('pitanje-zdravlja')) {
         return this.ids['pitanje-zdravlja'][this.type] ?? false
