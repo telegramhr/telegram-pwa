@@ -113,6 +113,15 @@ export default {
           'standard-4': 11469,
           main: 469,
         },
+        telesport: {
+          intextMain: 787,
+          intext: 11466,
+          'text-only': 11462,
+          'standard-16': 11463,
+          ecomm: 11465,
+          'standard-4': 11464,
+          main: 1863,
+        },
       },
     }
   },
@@ -125,6 +134,9 @@ export default {
         return false
       }
       if (this.$route.fullPath.includes('super1')) {
+        return this.ids.super1[this.type] ?? false
+      }
+      if (this.$route.fullPath.includes('telesport')) {
         return this.ids.super1[this.type] ?? false
       }
       if (this.$route.fullPath.includes('pitanje-zdravlja')) {
