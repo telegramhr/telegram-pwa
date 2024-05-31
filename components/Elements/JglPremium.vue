@@ -172,6 +172,10 @@ export default {
 #offer-premium-jgl .overtitle {
   color: #fd267e;
 }
+
+#offer-premium-jgl .newbtn {
+  background-color: #fd267e;
+}
 /*
 .jgl-line > div {
   background-color: #fcf1e7;
