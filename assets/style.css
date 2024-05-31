@@ -13744,7 +13744,9 @@ header {
   gap: 20px;
 }
 
-.wp-block-columns img.size-full {
+.wp-block-columns img.size-full,
+.wp-block-columns .size-full img
+{
   max-width: 100% !important;
 }
 
