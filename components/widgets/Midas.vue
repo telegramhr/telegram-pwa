@@ -121,6 +121,9 @@ export default {
       if (this.$store.getters['user/hasPremium']) {
         return 0
       }
+      if (this.$route.fullPath.includes('preview')) {
+        return false
+      }
       if (this.$route.fullPath.includes('super1')) {
         return this.ids.super1[this.type] ?? false
       }

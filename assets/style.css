@@ -13744,6 +13744,11 @@ header {
   gap: 20px;
 }
 
+.wp-block-columns img.size-full {
+  max-width: 100% !important;
+}
+
+
 /* Izbori */
 
 .izbori-header {
