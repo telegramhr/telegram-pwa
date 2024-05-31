@@ -165,6 +165,9 @@ export default {
         if (this.$route.fullPath.includes('openspace')) {
           category = 'openspace'
         }
+        if (this.$route.fullPath.includes('telesport')) {
+          category = 'telesport'
+        }
         const script2 = document.createElement('script')
         const intext = this.ids[category].intext
         const intextMain = this.ids[category].intextMain
@@ -186,6 +189,9 @@ export default {
         }
         if (this.$route.fullPath.includes('openspace')) {
           category = 'openspace'
+        }
+        if (this.$route.fullPath.includes('telesport')) {
+          category = 'telesport'
         }
         const script = document.createElement('script')
         const main = this.ids[category].main ?? ''
