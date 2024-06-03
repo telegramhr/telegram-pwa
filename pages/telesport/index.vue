@@ -129,50 +129,43 @@
             </app-link>
             <div class="cantha-submenu flex">
               <a
-                href="https://telesport.telegram.hr/kolumne/covjek-koji-je-buljio-u-ekran/"
+                href="https://www.telegram.hr/tema/covjek-koji-je-buljio-u-ekran/"
                 >Čovjek koji je buljio u ekran</a
               >
-              <a href="https://telesport.telegram.hr/kolumne/drop-shot/"
-                >Drop Shot</a
-              >
-              <a href="https://telesport.telegram.hr/kolumne/gol-u-gostima/"
+              <a href="https://www.telegram.hr/tema/drop-shot/">Drop Shot</a>
+              <a href="https://www.telegram.hr/tema/gol-u-gostima/"
                 >Gol u gostima</a
               >
-              <a href="https://telesport.telegram.hr/kolumne/juris/">Juriš</a>
-              <a href="https://telesport.telegram.hr/kolumne/laboratorij/"
+              <a href="https://www.telegram.hr/tema/juris/">Juriš</a>
+              <a href="https://www.telegram.hr/tema/laboratorij/"
                 >Laboratorij</a
               >
-              <a href="https://telesport.telegram.hr/kolumne/na-posudbi/"
-                >Na posudbi</a
-              >
-              <a href="https://telesport.telegram.hr/kolumne/na-suncu-i-sjeni/"
+              <a href="https://www.telegram.hr/tema/na-posudbi/">Na posudbi</a>
+              <a href="https://www.telegram.hr/tema/na-suncu-i-sjeni/"
                 >Na suncu i sjeni</a
               >
-              <a href="https://telesport.telegram.hr/kolumne/nogomet-narodu/"
+              <a href="https://www.telegram.hr/tema/nogomet-narodu/"
                 >Nogomet narodu</a
               >
-              <a href="https://telesport.telegram.hr/kolumne/punchlines/"
-                >Punchlines</a
-              >
-              <a href="https://telesport.telegram.hr/kolumne/topnicki-dnevnici/"
+              <a href="https://www.telegram.hr/tema/punchlines/">Punchlines</a>
+              <a href="https://www.telegram.hr/tema/topnicki-dnevnici/"
                 >Topnički dnevnici</a
               >
-              <a
-                href="https://telesport.telegram.hr/kolumne/teorija-ravne-lopte/"
+              <a href="https://www.telegram.hr/tema/teorija-ravne-lopte/"
                 >Teorija ravne lopte</a
               >
               <a
-                href="https://telesport.telegram.hr/kolumne/aljosa-s-druge-strane-ogledala/"
+                href="https://www.telegram.hr/tema/aljosa-s-druge-strane-ogledala/"
                 >Aljoša s druge strane ogledala</a
               >
-              <a href="https://telesport.telegram.hr/kolumne/price-iz-davnine/"
+              <a href="https://www.telegram.hr/tema/price-iz-davnine/"
                 >Priče iz davnine</a
               >
             </div>
           </div>
           <app-link
             role="menuitem"
-            to="/telesport"
+            to="/tema/euro24/"
             class="animate flex highlight-tile"
             >Euro 24
             <img src="@/assets/img/logo_favbet_magenta.svg" alt="Favbet logo"
@@ -180,7 +173,7 @@
         </nav>
         <div class="flex desktop-only">
           <client-only>
-            <!--<a
+            <a
               v-show="canLogIn"
               class="newbtn newbtn-empty"
               @click.prevent="manageLogin"
@@ -200,13 +193,7 @@
               aria-label="Moj račun"
             >
               Moj račun
-            </app-link> -->
-            <app-link
-              id="pretplatite se - header"
-              to="/pretplata"
-              class="newbtn"
-              >Pretplatite se</app-link
-            >
+            </app-link>
           </client-only>
         </div>
       </div>
@@ -362,7 +349,7 @@
           class="three-fourths flex-responsive column-horizontal-pad flex split-articles big-split no-mobile-stretch-split alt-big-break center-text column-right-border"
         >
           <standard
-            v-for="post in posts.slice(0, 1)"
+            v-for="post in breaks.slice(0, 1)"
             :key="post.id"
             :post="post"
           ></standard>
