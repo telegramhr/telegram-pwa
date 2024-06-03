@@ -14410,16 +14410,19 @@ header {
     border: none;
 }
 
+.cantha-fake-menuitem {
+    position: relative;
+}
 .cantha-submenu {
     display: none;
     position: absolute;
-    bottom: -266px;
-    left: 111px;
     z-index: 100;
     width: 220px;
-    padding: 0.6rem 0.8rem;
+    padding: 12px 16px;
     height: auto;
     background-color: var(--tg-secondary-background-color);
+    bottom: -282px;
+    left: -80px;
 }
 .cantha-submenu::before {
     content: " ";
@@ -14444,7 +14447,8 @@ header {
     display: flex;
     width: 100%;
     margin-right: 0px;
-    margin-bottom: 0.1rem;
+    margin-bottom: 2px;
+    font-size: 14px;
 }
 .cantha-block-title .menu .cantha-fake-menuitem:hover .cantha-submenu {
     display: flex;
