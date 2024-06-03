@@ -338,7 +338,7 @@
             />
           </app-link>
           <a
-            href="https://telesport.telegram.hr"
+            href="/telesport"
             class="third mobile-forty center nayos-logos telesport-only"
           >
             <img
