@@ -173,7 +173,9 @@
               <img :src="post.promo.logo" :alt="post.promo.partner" />
             </div>
           </div>
-          <h1 class="full">{{ post.portal_title | parseCat }}</h1>
+          <h1 class="full">
+            {{ post.single_title ?? post.portal_title | parseCat }}
+          </h1>
           <h2 class="full">{{ post.subtitle | parseCat }}</h2>
         </div>
       </div>
@@ -235,7 +237,7 @@
                   parsedOvertitle
                 }}</b>
                 <h1 class="full">
-                  {{ post.portal_title | parseCat }}
+                  {{ post.single_title ?? post.portal_title | parseCat }}
                 </h1>
               </div>
               <h2 class="full">
@@ -598,6 +600,8 @@ export default {
   },
   data() {
     return {
+      portal_title: '',
+      single_title: '',
       showMidasIntext: false,
       showQuiz: false,
       comments: false,
