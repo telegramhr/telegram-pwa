@@ -30,6 +30,15 @@ export const actions = {
       }
     })
   },
+  pullEuro({ commit, dispatch, state }) {
+    return new Promise((resolve) => {
+      this.$axios.get('/api/ts/zone/ts-euro24').then((res) => {
+        commit('setBreaks', res.data)
+        dispatch('posts/setPosts', res.data, { root: true })
+        resolve()
+      })
+    })
+  },
   pullBreaks({ commit, dispatch, state }) {
     return new Promise((resolve) => {
       this.$axios.get('/api/ts/zone/ts-breaks').then((res) => {

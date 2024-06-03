@@ -360,7 +360,13 @@
         <div
           class="fourth flex-responsive column-horizontal-pad mini-article-list"
         >
-          <trending :id="1"></trending>
+          <div class="full flex">
+            <mini
+              v-for="post in breaks.slice(1, 5)"
+              :key="post.id"
+              :post="post"
+            ></mini>
+          </div>
         </div>
       </div>
     </div>
@@ -539,7 +545,7 @@
 export default {
   async fetch() {
     await this.$store.dispatch('ts/pullPosts')
-    await this.$store.dispatch('ts/pullBreaks')
+    await this.$store.dispatch('ts/pullEuro')
   },
   data() {
     return {
