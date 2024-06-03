@@ -27,6 +27,13 @@
     --tg-primary-highlight-color: #111111;
 }
 
+.telesport * {
+    --tg-primary-highlight-color: #376cae;
+}
+.favbet * {
+    --tg-primary-highlight-color: #ff267e;
+}
+
 .pitanje-zdravlja * {
     --tg-primary-highlight-color: #0a80c5;
 }
@@ -895,13 +902,13 @@ h2.section-title {
     padding: 12px;
 }
 .sport-block .block-title, .sport-block .dynamic-overtitle-element, .sport-block .widget, .sport-block .widget::before, .sport-block .komentar .komentar-image, .sport-block .subtle-btn-parent:hover .subtle-btn, .sport-block .loader-square div, .sport-block .newbtn {
-    background-color: #376cae;
+    background-color: var(--tg-primary-highlight-color);
 }
 .sport-block .meta-preporuke, .sport-block .noththree.overtitle, .sport-block .article-mini .meta-date, .sport-block .related-articles .nothfive, .sport-block .komentar-quotation {
-    color: #376cae;
+    color: var(--tg-primary-highlight-color);
 }
 .sport-block h2.section-title {
-    border-bottom-color: #376cae;
+    border-bottom-color: var(--tg-primary-highlight-color);
 }
 .super1-block .block-title, .super1-block .dynamic-overtitle-element, .super1-block .widget, .super1-block .widget::before, .super1-block .komentar .komentar-image, .super1-block .subtle-btn-parent:hover .subtle-btn, .super1-block .loader-square div, .super1-block .newbtn {
     background-color: #CC3366;
@@ -4018,7 +4025,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         background-color: #CC3366;
     }
     .sport-block .widget .btn {
-        background-color: #376cae;
+        background-color: var(--tg-primary-highlight-color);
     }
     .widget svg {
         color: #c1b9b1;
@@ -10529,24 +10536,24 @@ label.payment-tile svg {
     font-weight: 700;
 }
 .telesport.single-article .single-article-body p a, .telesport.single-article .single-article-body ul a, .telesport.single-article .single-article-body ol a {
-    color: #376cae;
-    text-decoration-color: #376cae;
+    color: var(--tg-primary-highlight-color);
+    text-decoration-color: var(--tg-primary-highlight-color);
 }
 .sport-slash {
-    color: #376cae;
+    color: var(--tg-primary-highlight-color);
     font-weight: 900;
 }
 .contrast-mode .sport-slash {
     color: #223344;
 }
 .telesport .block-title, .telesport .dynamic-overtitle-element, .telesport .widget, .telesport .widget::before, .telesport .komentar .komentar-image, .telesport .subtle-btn-parent:hover .subtle-btn, .telesport .loader-square div, .telesport .newbtn {
-    background-color: #376cae;
+    background-color: var(--tg-primary-highlight-color);
 }
 .telesport .meta-preporuke, .telesport .noththree.overtitle, .telesport .article-mini .meta-date, .telesport .related-articles .nothfive, .telesport .komentar-quotation {
-    color: #376cae;
+    color: var(--tg-primary-highlight-color);
 }
 .telesport h2.section-title {
-    border-bottom-color: #376cae;
+    border-bottom-color: var(--tg-primary-highlight-color);
 }
 .ts-home-header {
     padding-bottom: 24px;
@@ -10583,7 +10590,7 @@ label.payment-tile svg {
 }
 .ts-home-header nav a:hover {
     opacity: 1;
-    color: #376cae;
+    color: var(--tg-primary-highlight-color);
 }
 .telesport .featured-split.biggest-font .article-featured .noththree.overtitle {
     display: none;
@@ -13541,22 +13548,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   margin-bottom: 0.8rem;
 }
 .telesport .cantha-header .cantha-menubtn, .telesport .cantha-header .cantha-searchbtn {
-  top: 24px;
+  top: 18px;
 }
 .telesport .latest-line-feed .article::after {
-  background-color: #376cae;
+  background-color: var(--tg-primary-highlight-color);
 }
 .telesport .time-overtitle span:last-child {
-  color: #376cae;
-}
-.telesport .featured-split.biggest-font .article-pad {
-    text-align: center;
-}
-.telesport .featured-split.biggest-font .article-featured .article-meta {
-    justify-content: center;
+  color: var(--tg-primary-highlight-color);
 }
 .telesport .latest-articles-header > .third.active-latest-header::before {
-    background-color: #376cae;
+    background-color: var(--tg-primary-highlight-color);
 }
 
 @media screen and (max-width: 767px) {
@@ -14447,4 +14448,58 @@ header {
 }
 .cantha-block-title .menu .cantha-fake-menuitem:hover .cantha-submenu {
     display: flex;
+}
+
+.favbet-section, .dark-mode .favbet-section {
+    background-color: #000055;
+    color: white;
+}
+.favbet-section * {
+    --tg-primary-highlight-color: #ff267e;
+}
+.favbet-section .noththree.subsection-title img {
+    height: 16px;
+    width: auto;
+    display: inline-block;
+    position: relative;
+    bottom: -2.5px;
+    margin-right: 0px;
+    margin-left: 4px;
+}
+.favbet-section .noththree.subsection-title {
+    color: #ff267e;
+}
+.highlight-tile {
+    background-color: #ff267e;
+    color: #000055;
+    padding-left: 0.4em;
+    padding-right: 0.4em;
+}
+.cantha-block-title .menu a.highlight-tile {
+    opacity: 1;
+}
+.highlight-tile img {
+    width: 76px;
+    width: 5em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    margin-left: 0.4em;
+}
+.brought-by {
+    position: absolute;
+    top: -12px;
+    right: 48px;
+    height: 100%;
+    width: 200px;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+}
+.brought-by span {
+    opacity: .7;
+}
+.brought-by img {
+    height: 1.4em;
+    margin-left: 0.4em;
 }

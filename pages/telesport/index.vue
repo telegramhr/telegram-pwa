@@ -88,6 +88,10 @@
               alt="Telesport logo"
               class="dark-mode-only"
           /></app-link>
+          <div class="center desktop-only brought-by">
+            <span>Powered by</span>
+            <img src="@/assets/img/logo_favbet_magenta.svg" alt="Favbet logo" />
+          </div>
           <a
             aria-label="Prikaži tražilicu"
             class="cantha-searchbtn"
@@ -104,6 +108,7 @@
       </div>
     </div>
     <!-- New subnav no red -->
+    <!-- TODO: link to proper categories -->
     <div class="full cantha-block-title relative flex">
       <div
         class="container mobile-side-pad flex relative column-horizontal-pad"
@@ -165,6 +170,13 @@
               >
             </div>
           </div>
+          <app-link
+            role="menuitem"
+            to="/telesport"
+            class="animate flex highlight-tile"
+            >Euro 24
+            <img src="@/assets/img/logo_favbet_magenta.svg" alt="Favbet logo"
+          /></app-link>
         </nav>
         <div class="flex desktop-only">
           <client-only>
@@ -330,7 +342,42 @@
         <jgl-premium site="ts"></jgl-premium>
       </div>
     </client-only>
-    <!-- Telesport preporuka -->
+    <!-- Euro 24 -->
+    <!-- TODO: link to proper zone/API/whatever -->
+    <div
+      class="full relative darkened-bg column-top-margin column-bottom-margin column-bottom-pad mobile-vertical-pad favbet-section dark-mode"
+    >
+      <div
+        class="container mobile-side-pad flex relative stretch column-vertical-pad"
+      >
+        <div class="full flex column-horizontal-pad">
+          <div
+            class="noththree full center-text column-vertical-pad subsection-title"
+          >
+            Euro 24
+            <img src="@/assets/img/logo_favbet_blue.svg" alt="Favbet logo" />
+          </div>
+        </div>
+        <div
+          class="three-fourths flex-responsive column-horizontal-pad flex split-articles big-split no-mobile-stretch-split alt-big-break center-text column-right-border"
+        >
+          <standard
+            v-for="post in posts.slice(0, 1)"
+            :key="post.id"
+            :post="post"
+          ></standard>
+        </div>
+        <div class="full column-full-pad tablet-only">
+          <div class="full column-bottom-border"></div>
+        </div>
+        <div
+          class="fourth flex-responsive column-horizontal-pad mini-article-list"
+        >
+          <trending :id="1"></trending>
+        </div>
+      </div>
+    </div>
+    <!-- Telesport preporuka
     <div
       class="full relative darkened-bg column-top-margin column-bottom-margin column-bottom-pad mobile-vertical-pad"
     >
@@ -362,7 +409,7 @@
           <trending :id="1"></trending>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- Teme -->
     <div class="full relative">
       <div class="container flex relative stretch">
