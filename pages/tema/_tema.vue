@@ -276,6 +276,17 @@ export default {
         (this.$route.query.page ? parseInt(this.$route.query.page) + 1 : 2)
       )
     },
+    extraClass() {
+      if (this.posts.length) {
+        if (this.posts[0].category_slug.includes('telesport')) {
+          return 'telesport'
+        }
+        if (this.posts[0].category_slug.includes('super1')) {
+          return 'superone fancy-rubrika'
+        }
+      }
+      return ''
+    },
   },
   mounted() {
     this.$nextTick(() => {
@@ -345,6 +356,9 @@ export default {
       ]
     }
     return {
+      bodyAttrs: {
+        class: [this.$store.state.theme.theme, this.extraClass],
+      },
       title:
         `${this.cat} - Najnovije vijesti` +
         (this.page > 1 ? ` - ${this.page}. stranica` : ''),
