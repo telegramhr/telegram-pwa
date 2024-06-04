@@ -131,37 +131,31 @@
               >Kolumne
             </app-link>
             <div class="cantha-submenu flex">
-              <app-link href="/tema/akademska-cetvrt/"
-                >Akademska četvrt</app-link
-              >
-              <app-link href="/tema/lahmentiranje">Lahmentiranje</app-link>
-              <app-link href="/tema/covjek-koji-je-buljio-u-ekran/"
+              <app-link to="/tema/akademska-cetvrt/">Akademska četvrt</app-link>
+              <app-link to="/tema/lahmentiranje">Lahmentiranje</app-link>
+              <app-link to="/tema/covjek-koji-je-buljio-u-ekran/"
                 >Čovjek koji je buljio u ekran</app-link
               >
               >
-              <app-link href="/tema/drop-shot/">Drop Shot</app-link>
-              <app-link href="/tema/gol-u-gostima/">Gol u gostima</app-link>
-              <app-link href="/tema/juris/">Juriš</app-link>
-              <app-link href="/tema/laboratorij/">Laboratorij</app-link>
-              <app-link href="/tema/na-posudbi/">Na posudbi</app-link>
-              <app-link href="/tema/na-suncu-i-sjeni/"
-                >Na suncu i sjeni</app-link
-              >
-              <app-link href="/tema/nogomet-narodu/">Nogomet narodu</app-link>
-              <app-link href="/tema/punchlines/">Punchlines</app-link>
-              <app-link href="/tema/topnicki-dnevnici/"
+              <app-link to="/tema/drop-shot/">Drop Shot</app-link>
+              <app-link to="/tema/gol-u-gostima/">Gol u gostima</app-link>
+              <app-link to="/tema/juris/">Juriš</app-link>
+              <app-link to="/tema/laboratorij/">Laboratorij</app-link>
+              <app-link to="/tema/na-posudbi/">Na posudbi</app-link>
+              <app-link to="/tema/na-suncu-i-sjeni/">Na suncu i sjeni</app-link>
+              <app-link to="/tema/nogomet-narodu/">Nogomet narodu</app-link>
+              <app-link to="/tema/punchlines/">Punchlines</app-link>
+              <app-link to="/tema/topnicki-dnevnici/"
                 >Topnički dnevnici</app-link
               >
-              <app-link href="/tema/teorija-ravne-lopte/"
+              <app-link to="/tema/teorija-ravne-lopte/"
                 >Teorija ravne lopte</app-link
               >
-              <app-link href="/tema/aljosa-s-druge-strane-ogledala/"
+              <app-link to="/tema/aljosa-s-druge-strane-ogledala/"
                 >Aljoša s druge strane ogledala</app-link
               >
               >
-              <app-link href="/tema/price-iz-davnine/"
-                >Priče iz davnine</app-link
-              >
+              <app-link to="/tema/price-iz-davnine/">Priče iz davnine</app-link>
             </div>
           </div>
           <app-link
