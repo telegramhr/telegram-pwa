@@ -251,7 +251,7 @@ export const state = () => ({
       mostRead: [],
       updated: null,
       updated_most: null,
-      extraClass: 'telesport fancy-rubrika',
+      extraClass: 'telesport',
       canonical: '/telesport/',
     },
     'price-telesport': {
@@ -261,7 +261,7 @@ export const state = () => ({
       mostRead: [],
       updated: null,
       updated_most: null,
-      extraClass: 'telesport fancy-rubrika',
+      extraClass: 'telesport',
       canonical: '/telesport/telesport-price/',
     },
     analize: {
@@ -271,7 +271,7 @@ export const state = () => ({
       mostRead: [],
       updated: null,
       updated_most: null,
-      extraClass: 'telesport fancy-rubrika',
+      extraClass: 'telesport',
       canonical: '/telesport/analize/',
     },
     'na-prvu': {
@@ -281,7 +281,7 @@ export const state = () => ({
       mostRead: [],
       updated: null,
       updated_most: null,
-      extraClass: 'telesport fancy-rubrika',
+      extraClass: 'telesport',
       canonical: '/telesport/na-prvu/',
     },
     kolumne: {
@@ -291,7 +291,7 @@ export const state = () => ({
       mostRead: [],
       updated: null,
       updated_most: null,
-      extraClass: 'telesport fancy-rubrika',
+      extraClass: 'telesport',
       canonical: '/telesport/kolumne/',
     },
   },

@@ -114,17 +114,20 @@
         class="container mobile-side-pad flex relative column-horizontal-pad"
       >
         <nav class="menu desktop-only flex" role="menu">
-          <app-link role="menuitem" to="/telesport" class="animate"
+          <app-link role="menuitem" to="/telesport/na-prvu" class="animate"
             >Na prvu</app-link
           >
-          <app-link role="menuitem" to="/telesport" class="animate"
+          <app-link
+            role="menuitem"
+            to="/telesport/price-telesport"
+            class="animate"
             >Priče</app-link
           >
-          <app-link role="menuitem" to="/telesport" class="animate"
+          <app-link role="menuitem" to="/telesport/analize" class="animate"
             >Analize</app-link
           >
           <div class="cantha-fake-menuitem">
-            <app-link role="menuitem" to="/telesport" class="animate"
+            <app-link role="menuitem" to="/telesport/kolumne" class="animate"
               >Kolumne
             </app-link>
             <div class="cantha-submenu flex">
