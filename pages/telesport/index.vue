@@ -136,7 +136,6 @@
               <app-link to="/tema/covjek-koji-je-buljio-u-ekran/"
                 >Čovjek koji je buljio u ekran</app-link
               >
-              >
               <app-link to="/tema/drop-shot/">Drop Shot</app-link>
               <app-link to="/tema/gol-u-gostima/">Gol u gostima</app-link>
               <app-link to="/tema/juris/">Juriš</app-link>
@@ -153,7 +152,6 @@
               >
               <app-link to="/tema/aljosa-s-druge-strane-ogledala/"
                 >Aljoša s druge strane ogledala</app-link
-              >
               >
               <app-link to="/tema/price-iz-davnine/">Priče iz davnine</app-link>
             </div>
@@ -456,7 +454,7 @@
       >
         <div class="full flex stretch relative no-last-border-mobile">
           <div
-            v-for="post in morePosts.slice(1, 4)"
+            v-for="post in morePosts.slice(0, 4)"
             :key="post.id"
             class="fourth flex-responsive column-right-border column-horizontal-pad"
           >
@@ -481,9 +479,6 @@
           >
             <standard :post="post"></standard>
           </div>
-        </div>
-        <div class="full center column-full-pad mobile-bottom-pad">
-          <div class="newbtn huge-newbtn clickable">Učitaj više</div>
         </div>
       </div>
     </div>
@@ -529,6 +524,26 @@
         </app-link>
       </div>
     </div>
+    <div class="full relative">
+      <div
+        class="container flex cantha-small-block mobile-side-pad relative stretch"
+      >
+        <div class="full flex stretch relative no-last-border-mobile">
+          <div
+            v-for="post in morePosts.slice(8)"
+            :key="post.id"
+            class="fourth flex-responsive column-right-border column-horizontal-pad"
+          >
+            <standard :post="post"></standard>
+          </div>
+        </div>
+        <div class="full center column-full-pad mobile-bottom-pad">
+          <div class="newbtn huge-newbtn clickable" @click="loadMore">
+            Učitaj više
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Footer -->
     <tfooter></tfooter>
   </div>
@@ -545,6 +560,7 @@ export default {
       loading: false,
       hasMore: true,
       morePosts: [],
+      page: 1,
     }
   },
   computed: {
@@ -573,20 +589,16 @@ export default {
   },
   mounted() {
     this.loadAds()
+    this.loadMore()
   },
   methods: {
+    loadMore() {
+      this.$axios.$get('/api/ts/more/' + this.page).then((res) => {
+        this.morePosts = [...this.morePosts, ...res]
+        this.page++
+      })
+    },
     loadAds() {
-      if (this.$route.query.reset_token) {
-        window.tp.push([
-          'init',
-          function () {
-            window.tp.pianoId.show({
-              displayMode: 'modal',
-              screen: 'new_password',
-            })
-          },
-        ])
-      }
       this.$store.dispatch('ads/initAds', { route: this.$route })
     },
   },
