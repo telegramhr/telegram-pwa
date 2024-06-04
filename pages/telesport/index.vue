@@ -131,38 +131,36 @@
               >Kolumne
             </app-link>
             <div class="cantha-submenu flex">
-              <a
-                href="https://www.telegram.hr/tema/covjek-koji-je-buljio-u-ekran/"
-                >Čovjek koji je buljio u ekran</a
+              <app-link href="/tema/akademska-cetvrt/"
+                >Akademska četvrt</app-link
               >
-              <a href="https://www.telegram.hr/tema/drop-shot/">Drop Shot</a>
-              <a href="https://www.telegram.hr/tema/gol-u-gostima/"
-                >Gol u gostima</a
+              <app-link href="/tema/lahmentiranje">Lahmentiranje</app-link>
+              <app-link href="/tema/covjek-koji-je-buljio-u-ekran/"
+                >Čovjek koji je buljio u ekran</app-link
               >
-              <a href="https://www.telegram.hr/tema/juris/">Juriš</a>
-              <a href="https://www.telegram.hr/tema/laboratorij/"
-                >Laboratorij</a
               >
-              <a href="https://www.telegram.hr/tema/na-posudbi/">Na posudbi</a>
-              <a href="https://www.telegram.hr/tema/na-suncu-i-sjeni/"
-                >Na suncu i sjeni</a
+              <app-link href="/tema/drop-shot/">Drop Shot</app-link>
+              <app-link href="/tema/gol-u-gostima/">Gol u gostima</app-link>
+              <app-link href="/tema/juris/">Juriš</app-link>
+              <app-link href="/tema/laboratorij/">Laboratorij</app-link>
+              <app-link href="/tema/na-posudbi/">Na posudbi</app-link>
+              <app-link href="/tema/na-suncu-i-sjeni/"
+                >Na suncu i sjeni</app-link
               >
-              <a href="https://www.telegram.hr/tema/nogomet-narodu/"
-                >Nogomet narodu</a
+              <app-link href="/tema/nogomet-narodu/">Nogomet narodu</app-link>
+              <app-link href="/tema/punchlines/">Punchlines</app-link>
+              <app-link href="/tema/topnicki-dnevnici/"
+                >Topnički dnevnici</app-link
               >
-              <a href="https://www.telegram.hr/tema/punchlines/">Punchlines</a>
-              <a href="https://www.telegram.hr/tema/topnicki-dnevnici/"
-                >Topnički dnevnici</a
+              <app-link href="/tema/teorija-ravne-lopte/"
+                >Teorija ravne lopte</app-link
               >
-              <a href="https://www.telegram.hr/tema/teorija-ravne-lopte/"
-                >Teorija ravne lopte</a
+              <app-link href="/tema/aljosa-s-druge-strane-ogledala/"
+                >Aljoša s druge strane ogledala</app-link
               >
-              <a
-                href="https://www.telegram.hr/tema/aljosa-s-druge-strane-ogledala/"
-                >Aljoša s druge strane ogledala</a
               >
-              <a href="https://www.telegram.hr/tema/price-iz-davnine/"
-                >Priče iz davnine</a
+              <app-link href="/tema/price-iz-davnine/"
+                >Priče iz davnine</app-link
               >
             </div>
           </div>
@@ -569,7 +567,7 @@ export default {
       return {
         '@context': 'https://schema.org',
         '@type': 'Website',
-        url: 'https://www.telegram.hr/telesport',
+        url: '/telesport',
         name: 'Telesport.hr',
         description: 'Prvi regionalni sportski boutique portal.',
         publisher: this.$store.state.header.publisher,
@@ -613,12 +611,12 @@ export default {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/telesport/',
+          content: '/telesport/',
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: 'https://www.telegram.hr/img/ts_share.jpg',
+          content: '/img/ts_share.jpg',
         },
         {
           hid: 'description',
