@@ -253,13 +253,11 @@
           </div>
         </div>
         <!-- Billboard 2 -->
-        <div class="full center m-order-6">
+        <div class="full center">
           <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
         </div>
         <!-- Teme -->
-        <div
-          class="full flex mobile-side-pad stretch secondary-gs-block m-order-8"
-        >
+        <div class="full flex mobile-side-pad stretch secondary-gs-block">
           <div class="full column-horizontal-pad column-bottom-pad flex">
             <div class="full column-top-border"></div>
           </div>
@@ -406,9 +404,7 @@
     <!-- Teme -->
     <div class="full relative">
       <div class="container flex relative stretch">
-        <div
-          class="full flex mobile-side-pad stretch secondary-gs-block m-order-8"
-        >
+        <div class="full flex mobile-side-pad stretch secondary-gs-block">
           <div class="full column-horizontal-pad column-bottom-pad flex">
             <div class="full column-top-border"></div>
           </div>
