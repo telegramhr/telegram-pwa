@@ -230,7 +230,7 @@
         <!-- latest -->
         <client-only>
           <div
-            class="fourth flex-responsive mobile-side-pad column-right-pad flex relative no-last-border-mobile"
+            class="fourth flex-responsive mobile-side-pad column-right-pad flex relative no-last-border-mobile m-order-2"
           >
             <div class="full flex relative latest-line-feed">
               <latest category="sport"></latest>
@@ -242,7 +242,7 @@
         </div>
         <!-- rest of Gs -->
         <div
-          class="full flex cantha-small-block mobile-side-pad stretch column-bottom-pad"
+          class="full flex cantha-small-block mobile-side-pad stretch column-bottom-pad m-order-3"
         >
           <div
             v-for="post in posts.slice(1, 4)"
@@ -253,11 +253,13 @@
           </div>
         </div>
         <!-- Billboard 2 -->
-        <div class="full center">
+        <div class="full center m-order-4">
           <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
         </div>
         <!-- Teme -->
-        <div class="full flex mobile-side-pad stretch secondary-gs-block">
+        <div
+          class="full flex mobile-side-pad stretch secondary-gs-block m-order-4"
+        >
           <div class="full column-horizontal-pad column-bottom-pad flex">
             <div class="full column-top-border"></div>
           </div>
@@ -302,7 +304,7 @@
           </div>
         </div>
         <!-- Još vijesti -->
-        <div class="full relative cantha-more-news">
+        <div class="full relative cantha-more-news m-order-4">
           <div
             class="container flex cantha-small-block mobile-side-pad relative stretch column-top-pad"
           >
