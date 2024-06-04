@@ -44,7 +44,6 @@
 
 .dark-mode *, .dark-mode .fancy-rubrika * {
     --tg-primary-background-color: #212121;
-    --tg-primary-highlight-color: #ae3737;
     --tg-primary-text-color: #ffffff;
     --tg-secondary-background-color: #121212;
     --palette-divider: #555555;
@@ -1023,9 +1022,9 @@ footer .copyright, footer .conversion-notice {
     margin-bottom: 15px;
 }
 .single-article .single-article-body p a, .single-article .single-article-body ul a, .single-article .single-article-body ol a {
-    color: #ae3737;
+    color: var(--tg-primary-highlight-color);
     text-decoration: underline;
-    text-decoration-color: #ae3737;
+    text-decoration-color: var(--tg-primary-highlight-color);
 }
 .single-article .single-article-body a:hover {
     text-decoration-color: rgba(0, 0, 0, 0) !important;
@@ -1509,10 +1508,10 @@ figure img {
     font-weight: 300;
     padding-right: 2px;
     color: #777;
-    border-bottom: 1px solid #ae3737;
+    border-bottom: 1px solid var(--tg-primary-highlight-color);
 }
 .article-tags > a:hover {
-    color: #ae3737;
+    color: var(--tg-primary-highlight-color);
     border-bottom: 1px solid transparent;
 }
 .social-circle-buttons a {
@@ -1529,7 +1528,7 @@ figure img {
     top: -2px;
 }
 .social-circle-buttons a:hover {
-    background-color: #ae3737;
+    background-color: var(--tg-primary-highlight-color);
 }
 .classic-btn {
     padding: 8px 32px;
@@ -10549,6 +10548,9 @@ label.payment-tile svg {
 .telesport .block-title, .telesport .dynamic-overtitle-element, .telesport .widget, .telesport .widget::before, .telesport .komentar .komentar-image, .telesport .subtle-btn-parent:hover .subtle-btn, .telesport .loader-square div, .telesport .newbtn {
     background-color: var(--tg-primary-highlight-color);
 }
+.telesport .newbtn-empty {
+    background-color: transparent;
+}
 .telesport .meta-preporuke, .telesport .noththree.overtitle, .telesport .article-mini .meta-date, .telesport .related-articles .nothfive, .telesport .komentar-quotation {
     color: var(--tg-primary-highlight-color);
 }
@@ -14454,7 +14456,7 @@ header {
     display: flex;
 }
 
-.favbet-section, .dark-mode .favbet-section {
+.favbet-section, .dark-mode .favbet-section, .contrast-mode .favbet-section, .domoljub-mode .favbet-section {
     background-color: #000055;
     color: white;
 }
