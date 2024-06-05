@@ -2839,8 +2839,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     height: 8px;
     right: 4px;
     transform: rotate(-45deg);
-    border-left: 4px solid #ae3737;
-    border-bottom: 4px solid #ae3737;
+    border-left: 4px solid var(--tg-primary-highlight-color);
+    border-bottom: 4px solid var(--tg-primary-highlight-color);
     opacity: 0.5;
 }
 .pretplata-faq details[open] > summary::before {
@@ -2944,6 +2944,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .pretplata-packbox .btn:hover {
     background-color: #dc4646;
+}
+.telesport .pretplata-packbox .btn {
+    background-color: #376cae;
+}
+.telesport .pretplata-packbox .btn:hover {
+    background-color: #4a92ea;
 }
 .pretplata-packbox .overtitle {
     font-size: 14px;
@@ -10538,6 +10544,7 @@ label.payment-tile svg {
 }
 .dark-mode .telesport *, .dark-mode.telesport * {
     --tg-primary-background-color: #171d21;
+    --tg-secondary-background-color: #121517;
 }
 .dark-mode .telesport .cantha-header, .dark-mode.telesport .cantha-header {
     background: #171d21;
@@ -12570,7 +12577,7 @@ input:checked ~ .input-hidden {
     background-color: #999;
 }
 .remp-pretplata .pretplata-packboxes input:checked ~ label.pretplata-packbox .btn, .remp-pretplata .pretplata-packboxes input:checked ~ label.pretplata-packbox:hover .btn {
-    background-color: #ae3737;
+    background-color: var(--tg-primary-highlight-color);
 }
 .remp-new-input {
     border: none;
