@@ -492,7 +492,7 @@
           <div
             v-for="post in morePosts.slice(8)"
             :key="post.id"
-            class="fourth flex-responsive column-right-border column-horizontal-pad"
+            class="fourth flex-responsive column-right-border column-horizontal-pad column-top-margin"
           >
             <standard :post="post"></standard>
           </div>
