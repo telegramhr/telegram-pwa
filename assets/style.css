@@ -4954,7 +4954,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     opacity: .5;
 }
 .article-head-newsletter b {
-    color: #ae3737;
+    color: var(--tg-primary-highlight-color);
 }
 .article-newsletter-feature {
     flex-wrap: nowrap;
@@ -10044,11 +10044,11 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 0.85rem;
 }
 .link-look-alike {
-    color: #ae3737;
+    color: var(--tg-primary-highlight-color);
     text-decoration: underline;
     text-decoration-color: currentcolor;
-    -webkit-text-decoration-color: #ae3737;
-    text-decoration-color: #ae3737;
+    -webkit-text-decoration-color: var(--tg-primary-highlight-color);;
+    text-decoration-color: var(--tg-primary-highlight-color);;
 }
 .link-look-alike:hover {
     -webkit-text-decoration-color: rgba(0, 0, 0, 0) !important;
@@ -10527,8 +10527,23 @@ label.payment-tile svg {
 
 /* Telesport */
 
+
 .dark-mode.telesport {
     background: #171d21;
+    --tg-primary-background-color: #171d21;
+}
+.dark-mode .telesport {
+    background: #171d21;
+    --tg-primary-background-color: #171d21;
+}
+.dark-mode .telesport *, .dark-mode.telesport * {
+    --tg-primary-background-color: #171d21;
+}
+.dark-mode .telesport .cantha-header, .dark-mode.telesport .cantha-header {
+    background: #171d21;
+}
+.dark-mode .telesport .darkened-bg, .dark-mode.telesport .darkened-bg, .dark-mode .telesport .nayos, .dark-mode.telesport .nayos{
+    background-color: #121517;
 }
 .telesport .article h2, .telesport.single-article h1 {
     font-family: 'Barlow', sans-serif;
@@ -13420,7 +13435,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .article-gift-button label {
     padding: 0.2rem 0.5rem;
     margin-top: -0.2rem;
-    background-color: #ae3737;
+    background-color: var(--tg-primary-highlight-color);
     color: white;
     font-weight: bold;
     text-transform: none;
@@ -14456,7 +14471,7 @@ header {
     display: flex;
 }
 
-.favbet-section, .dark-mode .favbet-section, .contrast-mode .favbet-section, .domoljub-mode .favbet-section {
+.favbet-section, .dark-mode .favbet-section, .dark-mode .telesport .favbet-section, .dark-mode.telesport .favbet-section, .contrast-mode .favbet-section, .domoljub-mode .favbet-section {
     background-color: #000055;
     color: white;
 }
