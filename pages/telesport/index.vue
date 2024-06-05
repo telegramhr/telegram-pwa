@@ -471,7 +471,9 @@
         <div class="full column-full-pad">
           <div class="full column-bottom-border"></div>
         </div>
-        <div class="full flex stretch relative no-last-border-mobile">
+        <div
+          class="full flex stretch relative no-last-border-mobile column-bottom-pad"
+        >
           <div
             v-for="post in morePosts.slice(4, 8)"
             :key="post.id"
@@ -482,48 +484,44 @@
         </div>
       </div>
     </div>
-    <!-- Prekid knjiga -->
-    <div class="full relative">
-      <div class="container flex relative column-horizontal-pad">
-        <app-link
-          to="/knjiga/boris-dezulovic-bili-libar"
-          class="full cantha-break break-dezulovic mobile-side-pad flex relative stretch"
-        >
-          <div class="forty column-full-pad center flex-responsive">
-            <div class="full flex article">
-              <div class="noththree full overtitle">Posebna akcija</div>
-              <h2 class="full">
-                Telegram predstavlja: Bili libar, nova knjiga Borisa Dežulovića
-              </h2>
-              <div class="nothfour full">
-                Naručite još danas i osigurajte svoj primjera, uz posebnu cijenu
-                za pretplatnike
-              </div>
-            </div>
+    <!-- Book widget Bili libar 2 -->
+    <app-link
+      to="/knjiga/boris-dezulovic-bili-libar-2"
+      class="full flex relative center mobile-side-pad darkened-bg column-full-pad shoo-bottom"
+    >
+      <div class="container relative flex stretch">
+        <div class="forty tablet-full flex flex-responsive center">
+          <div class="full center-text newbook-overtitle">Telegram naklada</div>
+          <h2 class="full center-text newbook-title newbook-title-smaller">
+            BILI LIBAR 2
+          </h2>
+          <div class="full center-text newbook-author">Boris Dežulović</div>
+          <p class="full center-text newbook-intro">
+            Veliki Telegramov hit dobio je nastavak, s 12 još raskošnijih, još
+            čudesnijih i luđih priča o jednom nogometnom klubu. I, naravno, ne
+            samo o njemu.
+          </p>
+        </div>
+
+        <div class="forty tablet-full flex flex-responsive center">
+          <img
+            src="@/assets/img/tg_book_clean_dezulovic2.png"
+            alt="Naslovnica nove knjige Borisa Dežulovića 'BILI LIBAR 2'"
+          />
+        </div>
+        <div class="fifth tablet-full flex flex-responsive center">
+          <div class="full relative center-text newbook-price">19,99€</div>
+          <div class="full relative center-text neat-numbers">
+            (150,61 kn)
+            <br />
+            Besplatna dostava po cijeloj Hrvatskoj
           </div>
-          <div class="sixty stretch flex flex-responsive">
-            <div class="two-thirds column-top-pad center flex-responsive">
-              <img
-                src="@/assets/img/tg_knjiga_vizual_dezulovic.png"
-                alt="Portret Borisa Dežulovića i naslovnica njegove knjige 'Bili Libar'"
-              />
-            </div>
-            <div class="third center column-horizontal-pad flex-responsive">
-              <div class="full column-left-pad flex article">
-                <h2 class="full relative center-text">
-                  <span class="faded strikethrough">149 kn</span> 99 kn
-                </h2>
-                <div class="nothfour full center-text">
-                  (<span class="faded strikethrough">19,78€</span> 13,14€)
-                  <br />
-                  posebna cijena za Telegramove pretplatnike!
-                </div>
-              </div>
-            </div>
+          <div class="full center btn-parent newbook-btn">
+            <div class="newbtn clickable huge-newbtn animate">Kupite</div>
           </div>
-        </app-link>
+        </div>
       </div>
-    </div>
+    </app-link>
     <div class="full relative">
       <div
         class="container flex cantha-small-block mobile-side-pad relative stretch"
