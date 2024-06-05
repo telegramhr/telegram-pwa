@@ -10,14 +10,6 @@
     <!-- Above header banner -->
     <div id="pretplata-selector" class="full flex">
       <div class="full flex relative">
-        <div
-          class="container relative flex mobile-side-pad stretch column-full-pad"
-        >
-          <h1 class="full center-text">Nekad je nužno odabrati stranu</h1>
-          <p class="full center-text pretplata-tagline">
-            Pretplatite se i podržite naše bespoštedno novinarstvo.
-          </p>
-        </div>
         <div class="full flex">
           <div class="container relative flex pretplata-packs mobile-side-pad">
             <input
