@@ -484,6 +484,26 @@
         </div>
       </div>
     </div>
+    <div class="full relative">
+      <div
+        class="container flex cantha-small-block mobile-side-pad relative stretch"
+      >
+        <div class="full flex stretch relative no-last-border-mobile">
+          <div
+            v-for="post in morePosts.slice(8)"
+            :key="post.id"
+            class="fourth flex-responsive column-right-border column-horizontal-pad"
+          >
+            <standard :post="post"></standard>
+          </div>
+        </div>
+        <div class="full center column-full-pad mobile-bottom-pad">
+          <div class="newbtn huge-newbtn clickable" @click="loadMore">
+            Učitaj više
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Book widget Bili libar 2 -->
     <app-link
       to="/knjiga/boris-dezulovic-bili-libar-2"
@@ -522,26 +542,6 @@
         </div>
       </div>
     </app-link>
-    <div class="full relative">
-      <div
-        class="container flex cantha-small-block mobile-side-pad relative stretch"
-      >
-        <div class="full flex stretch relative no-last-border-mobile">
-          <div
-            v-for="post in morePosts.slice(8)"
-            :key="post.id"
-            class="fourth flex-responsive column-right-border column-horizontal-pad"
-          >
-            <standard :post="post"></standard>
-          </div>
-        </div>
-        <div class="full center column-full-pad mobile-bottom-pad">
-          <div class="newbtn huge-newbtn clickable" @click="loadMore">
-            Učitaj više
-          </div>
-        </div>
-      </div>
-    </div>
     <!-- Footer -->
     <tfooter></tfooter>
   </div>

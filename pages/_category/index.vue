@@ -138,11 +138,6 @@
           </div>
         </div>
       </div>
-      <client-only>
-        <div class="full relative center">
-          <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
-        </div>
-      </client-only>
       <!-- Read more widget -->
       <div v-if="hasMore" class="full flex relative">
         <div class="container flex relative column-full-pad">
@@ -160,6 +155,11 @@
           </div>
         </div>
       </div>
+      <client-only>
+        <div class="full relative center">
+          <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
+        </div>
+      </client-only>
       <tfooter></tfooter>
     </template>
     <template v-if="$fetchState.error">
