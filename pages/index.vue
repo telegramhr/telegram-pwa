@@ -142,9 +142,7 @@
           <app-link role="menuitem" to="/kultura">Kultura</app-link>
           <app-link role="menuitem" to="/openspace">Openspace</app-link>
           <app-link to="/super1" role="menuitem">Super1</app-link>
-          <a href="https://telesport.telegram.hr" role="menuitem">
-            Telesport
-          </a>
+          <app-link to="/telesport" role="menuitem"> Telesport </app-link>
           <app-link role="menuitem" to="/pitanje-zdravlja"
             >PitanjeZdravlja</app-link
           >

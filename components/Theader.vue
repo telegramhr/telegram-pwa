@@ -199,10 +199,10 @@
             >
           </div>
           <div class="noththree">Kanali</div>
-          <app-link role="menuitem" to="/super1">Super1</app-link>
-          <a role="menuitem" href="https://telesport.telegram.hr">Telesport</a>
-          <app-link role="menuitem" to="/openspace">Openspace</app-link>
-          <app-link role="menuitem" to="/pitanje-zdravlja"
+          <app-link role="menuitem" to="/super1/">Super1</app-link>
+          <app-link role="menuitem" to="/telesport/">Telesport</app-link>
+          <app-link role="menuitem" to="/openspace/">Openspace</app-link>
+          <app-link role="menuitem" to="/pitanje-zdravlja/"
             >PitanjeZdravlja</app-link
           >
         </div>

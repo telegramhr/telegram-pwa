@@ -89,15 +89,15 @@
               alt="Super1 logo"
             />
           </app-link>
-          <a
-            href="https://telesport.telegram.hr"
+          <app-link
+            to="/telesport/"
             class="third mobile-forty center nayos-logos telesport-only"
           >
             <img
               src="@/assets/img/telesport_logo_white.svg"
               alt="Telesport logo"
             />
-          </a>
+          </app-link>
           <app-link
             to="/pitanje-zdravlja"
             class="third mobile-forty center nayos-logos pz-only"

@@ -61,7 +61,7 @@
           class="fifth column-full-pad flex tablet-half mobile-half mobile-side-pad footer-list mobile-bottom-pad"
         >
           <p class="full bold column-mini-bottom-pad">Magazin</p>
-          <a href="https://telesport.telegram.hr/" class="full">Telesport</a>
+          <app-link to="/telesport/" class="full">Telesport</app-link>
           <app-link to="/super1" class="full">Super1</app-link>
           <app-link to="/pitanje-zdravlja" class="full"
             >PitanjeZdravlja</app-link
