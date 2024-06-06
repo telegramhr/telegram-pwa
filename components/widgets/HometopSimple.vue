@@ -2,6 +2,7 @@
   <a
     v-if="showA"
     class="full relative darkened-bg birati-stranu-widget"
+    style="min-height: 200px"
     @click.prevent="start"
   >
     <client-only>
