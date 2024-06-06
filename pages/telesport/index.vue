@@ -42,7 +42,7 @@
           <app-link
             v-show="canLogIn"
             id="pretplatite se - header"
-            to="/pretplata"
+            to="/pretplata/telesport/"
             class="newbtn"
             >Pretplatite se</app-link
           >
@@ -175,7 +175,7 @@
             <app-link
               v-show="!$store.state.user.access"
               id="pretplatite se - header"
-              to="/pretplata"
+              to="/pretplata/telesport/"
               class="newbtn"
               >Pretplatite se</app-link
             >
