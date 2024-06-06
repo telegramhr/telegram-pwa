@@ -27,10 +27,17 @@
           <div class="full column-full-pad">
             <div class="full cantha-separator"></div>
           </div>
-          <div class="full column-horizontal-pad">
+          <div class="full column-horizontal-pad relative">
             <h1 class="full center-text">
               Članci na temu {{ cat | parseCat }}
             </h1>
+            <div class="center desktop-only brought-by">
+              <span>Powered by</span>
+              <img
+                src="@/assets/img/logo_favbet_magenta.svg"
+                alt="Favbet logo"
+              />
+            </div>
           </div>
           <div
             class="full column-horizontal-pad column-top-pad mobile-side-pad"

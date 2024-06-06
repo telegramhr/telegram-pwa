@@ -14515,7 +14515,7 @@ header {
 }
 .brought-by {
     position: absolute;
-    top: -12px;
+    top: 0px;
     right: 48px;
     height: 100%;
     width: 200px;
@@ -14523,6 +14523,9 @@ header {
     text-transform: uppercase;
     font-family: 'Barlow', sans-serif;
     font-weight: 600;
+}
+.homepage .brought-by {
+    top: -12px;
 }
 .brought-by span {
     opacity: .7;

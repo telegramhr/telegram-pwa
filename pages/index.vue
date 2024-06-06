@@ -146,6 +146,13 @@
           <app-link role="menuitem" to="/pitanje-zdravlja"
             >PitanjeZdravlja</app-link
           >
+          <app-link
+            role="menuitem"
+            to="/tema/uefa-euro-2024/"
+            class="animate flex highlight-tile"
+            >Euro 24
+            <img src="@/assets/img/logo_favbet_magenta.svg" alt="Favbet logo"
+          /></app-link>
         </nav>
         <div class="flex desktop-only">
           <client-only>
