@@ -323,7 +323,6 @@
       </div>
     </client-only>
     <!-- Euro 24 -->
-    <!-- TODO: link to proper zone/API/whatever -->
     <div
       class="full relative darkened-bg column-top-margin column-bottom-margin column-bottom-pad mobile-vertical-pad favbet-section dark-mode"
     >
@@ -396,6 +395,11 @@
         </div>
       </div>
     </div> -->
+    <div class="full relative cantha-billboard">
+      <div class="full center">
+        <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
+      </div>
+    </div>
     <!-- Teme -->
     <div class="full relative">
       <div class="container flex relative stretch">
@@ -447,6 +451,11 @@
     </div>
     <!-- Widget autori -->
     <commentary-alt type="ts"></commentary-alt>
+    <div class="full relative cantha-billboard">
+      <div class="full center">
+        <ad-unit id="telegram_desktop_billboard_v4"></ad-unit>
+      </div>
+    </div>
     <!-- Standard 1/4 block -->
     <div class="full relative">
       <div
