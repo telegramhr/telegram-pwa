@@ -640,6 +640,9 @@ export const actions = {
         case 'tema':
           targeting.wp_post_type = ['archive']
           targeting.post_category = [route.params.slug]
+          if (route.params.slug === 'uefa-euro-2024') {
+            targeting.post_category = [route.params.slug, 'tema']
+          }
           break
         case 'category-slug':
         case 'super1-category-slug':
