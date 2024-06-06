@@ -115,11 +115,7 @@ export const state = () => ({
     },
     telegram_desktop_billboard_v4: {
       upc: false,
-      routes: [
-        'index',
-        'super1',
-        'telesport',
-      ],
+      routes: ['index', 'super1', 'telesport'],
       mobile: [
         [1, 1],
         [300, 50],
