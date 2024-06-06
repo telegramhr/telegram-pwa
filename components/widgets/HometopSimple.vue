@@ -43,18 +43,26 @@ export default {
     }
   },
   mounted() {
+    if (
+      this.$route.name.includes('super1') ||
+      this.$route.name.includes('telesport')
+    ) {
+      this.showA = false
+    }
     this.$nextTick(() => {
       window.addEventListener('piano_header', this.load)
-      setTimeout(() => {
-        if (this.$store.state.user.access) {
+      if (this.showA) {
+        setTimeout(() => {
+          if (this.$store.state.user.access) {
+            this.showA = false
+            return
+          }
+          if (this.show) {
+            return
+          }
           this.showA = false
-          return
-        }
-        if (this.show) {
-          return
-        }
-        this.showA = false
-      }, 1000)
+        }, 1000)
+      }
     })
   },
   destroyed() {
