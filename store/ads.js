@@ -633,11 +633,12 @@ export const actions = {
           targeting.wp_post_type = ['home']
           targeting.post_category = ['telesport']
           break
-        case 'tema':
+        case 'tema-tema':
           targeting.wp_post_type = ['archive']
           targeting.post_category = [route.params.slug]
           if (route.params.slug === 'uefa-euro-2024') {
             targeting.post_category = [route.params.slug, 'tema']
+            targeting.wp_post_type = ['archive', 'category']
           }
           break
         case 'category-slug':
