@@ -28,10 +28,19 @@
             <div class="full cantha-separator"></div>
           </div>
           <div class="full column-horizontal-pad relative">
-            <h1 class="full center-text">
+            <h1
+              v-if="$route.params.tema === 'uefa-euro-2024'"
+              class="full center-text"
+            >
+              {{ cat | parseCat }}
+            </h1>
+            <h1 v-else class="full center-text">
               Članci na temu {{ cat | parseCat }}
             </h1>
-            <div class="center desktop-only brought-by">
+            <div
+              v-if="$route.params.tema === 'uefa-euro-2024'"
+              class="center desktop-only brought-by"
+            >
               <span>Powered by</span>
               <img
                 src="@/assets/img/logo_favbet_magenta.svg"

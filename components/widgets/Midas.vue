@@ -29,7 +29,6 @@ export default {
           'text-only': 11426,
           'standard-16': 11427,
           ecomm: 11429,
-          'standard-4': 11428,
           main: 468,
         },
         'politika-kriminal': {
@@ -38,7 +37,6 @@ export default {
           'text-only': 11431,
           'standard-16': 11432,
           ecomm: 11434,
-          'standard-4': 11433,
           main: 468,
         },
         'biznis-tech': {
@@ -47,7 +45,6 @@ export default {
           'text-only': 11441,
           'standard-16': 11442,
           ecomm: 11444,
-          'standard-4': 11443,
           main: 468,
         },
         kultura: {
@@ -56,7 +53,6 @@ export default {
           'text-only': 11456,
           'standard-16': 11457,
           ecomm: 11460,
-          'standard-4': 11459,
           main: 468,
         },
         zivot: {
@@ -65,7 +61,6 @@ export default {
           'text-only': 11451,
           'standard-16': 11452,
           ecomm: 11454,
-          'standard-4': 11453,
           main: 468,
         },
         'velike-price': {
@@ -74,7 +69,6 @@ export default {
           'text-only': 11446,
           'standard-16': 11447,
           ecomm: 11449,
-          'standard-4': 11448,
           main: 468,
         },
         komentari: {
@@ -83,7 +77,6 @@ export default {
           'text-only': 11436,
           'standard-16': 11437,
           ecomm: 11439,
-          'standard-4': 11438,
           main: 468,
         },
         openspace: {
@@ -92,7 +85,6 @@ export default {
           'text-only': 11472,
           'standard-16': 11473,
           ecomm: 11475,
-          'standard-4': 11474,
           main: 468,
         },
         'pitanje-zdravlja': {
@@ -101,7 +93,6 @@ export default {
           'text-only': 11477,
           'standard-16': 11478,
           ecomm: 11480,
-          'standard-4': 11479,
           main: 468,
         },
         super1: {
@@ -110,7 +101,6 @@ export default {
           'text-only': 11467,
           'standard-16': 11468,
           ecomm: 11470,
-          'standard-4': 11469,
           main: 469,
         },
         telesport: {
@@ -119,7 +109,6 @@ export default {
           'text-only': 11462,
           'standard-16': 11463,
           ecomm: 11465,
-          'standard-4': 11464,
           main: 1863,
         },
       },
