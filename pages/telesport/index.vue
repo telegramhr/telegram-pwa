@@ -169,7 +169,7 @@
             <a
               v-show="canLogIn"
               class="newbtn newbtn-empty"
-              @click.prevent="manageLogin"
+              @click.prevent="$store.dispatch('user/login')"
               >Prijava</a
             >
             <app-link
