@@ -157,7 +157,8 @@ export default {
       if (this.id && this.type === 'intext') {
         let category = this.$route.params.category
         if (this.$route.fullPath.includes('super1')) {
-          category = 'super1'
+          return false
+          // category = 'super1'
         }
         if (this.$route.fullPath.includes('pitanje-zdravlja')) {
           category = 'pitanje-zdravlja'
