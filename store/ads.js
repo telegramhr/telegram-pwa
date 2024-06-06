@@ -630,11 +630,11 @@ export const actions = {
           targeting.post_category.push('openspace')
           break
         case 'super1':
-          targeting.wp_post_type = ['category']
+          targeting.wp_post_type = ['home']
           targeting.post_category = ['super1']
           break
         case 'telesport':
-          targeting.wp_post_type = ['category']
+          targeting.wp_post_type = ['home']
           targeting.post_category = ['telesport']
           break
         case 'tema':
