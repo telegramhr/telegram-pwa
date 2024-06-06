@@ -52,12 +52,6 @@ export default {
   },
   computed: {
     parsedOvertitle() {
-      if (this.post.category_slug.includes('superone')) {
-        return 'Super1'
-      }
-      if (this.post.category_slug.includes('telesport')) {
-        return 'Sport'
-      }
       return this.$options.filters.parseCat(
         this.post.overtitle ? this.post.overtitle : this.post.category
       )
