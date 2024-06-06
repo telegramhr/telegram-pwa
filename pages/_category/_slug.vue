@@ -15,9 +15,7 @@
         :post="post"
       ></theader>
       <!-- Do not enable until fixed version above is removed and visibility rules are adjusted -->
-      <client-only>
-        <hometop-simple></hometop-simple>
-      </client-only>
+      <hometop-simple></hometop-simple>
       <!-- Above header banner manual -->
       <div
         v-show="related_posts && $store.state.user.access"
