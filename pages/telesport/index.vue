@@ -1,5 +1,5 @@
 <template>
-  <div class="main-container flex telesport ts-home">
+  <div class="main-container flex telesport ts-home favbet">
     <!-- Wallpapers -->
     <client-only>
       <div v-if="!$mobile" class="container wallpaper-banners animate">
@@ -76,15 +76,15 @@
           ></a>
           <app-link to="/telesport" class="logo"
             ><img
-              src="@/assets/img/telesport_logo_black.svg"
+              src="@/assets/img/telesport_logo_pink_black.svg"
               class="light-mode-only"
               alt="Telesport logo" />
             <img
-              src="@/assets/img/telesport_logo_black.svg"
+              src="@/assets/img/telesport_logo_pink_black.svg"
               class="contrast-mode-only"
               alt="Telesport logo" />
             <img
-              src="@/assets/img/telesport_logo_white.svg"
+              src="@/assets/img/telesport_logo_pink_white.svg"
               alt="Telesport logo"
               class="dark-mode-only"
           /></app-link>
