@@ -94,8 +94,12 @@
           </div>
         </div>
       </div>
+      <jgl-premium
+        v-if="$route.params.tema === 'uefa-euro-2024'"
+        site="telesport"
+      ></jgl-premium>
       <!-- Prekid newsletter -->
-      <div class="full relative">
+      <div v-else class="full relative">
         <div class="container flex relative">
           <div class="full column-full-pad">
             <div class="full column-bottom-border"></div>
