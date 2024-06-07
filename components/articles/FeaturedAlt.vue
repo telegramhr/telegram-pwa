@@ -7,7 +7,6 @@
     <app-link
       class="full flex"
       :to="post.permalink + (utm ? '?' + utm : '')"
-      :tracker="post.trackerPermalink"
       :aria-labelledby="'featured-' + post.id"
     >
       <img
@@ -23,7 +22,6 @@
       <app-link
         class="full flex"
         :to="post.permalink + (utm ? '?' + utm : '')"
-        :tracker="post.trackerPermalink"
         :aria-labelledby="'featured-' + post.id"
       >
         <div class="full flex">

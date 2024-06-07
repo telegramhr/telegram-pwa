@@ -2,7 +2,6 @@
   <app-link
     class="full flex article-standard article relative"
     :to="permalink"
-    :tracker="post.trackerPermalink"
     role="article"
     :aria-labelledby="'standard-' + post.id"
   >

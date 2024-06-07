@@ -575,24 +575,6 @@ export const actions = {
     window.googletag.cmd = window.googletag.cmd || []
     window.googletag.reloadedSlots = window.googletag.reloadedSlots || []
     const route = payload.route || null
-    if (!route.name.includes('super1')) {
-      window.ybConfiguration = window.ybConfiguration || {}
-      window.ybConfiguration = Object.assign({}, window.ybConfiguration, {
-        integrationMethod: 'open_tag',
-      })
-      ;(function (y, i, e, L, D) {
-        y.Yieldbird = y.Yieldbird || {}
-        y.Yieldbird.cmd = y.Yieldbird.cmd || []
-        i.cmd.push(function () {
-          i.pubads().disableInitialLoad()
-        })
-        L = e.createElement('script')
-        L.async = true
-        L.src = '//cdn.qwtag.com/4bb2cc20-cc9a-4302-abf4-e7a722ec5e40/qw.js'
-        D = e.getElementsByTagName('script')[0]
-        ;(D.parentNode || e.head).insertBefore(L, D)
-      })(window, window.googletag, document)
-    }
     // set targeting
     const targeting = {
       wp_post_type: [],

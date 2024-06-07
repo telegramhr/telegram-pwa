@@ -6,7 +6,6 @@
     <app-link
       class="full flex square-img"
       :to="post.permalink"
-      :tracker="post.trackerPermalink"
       :aria-labelledby="'featured-' + post.id"
     >
       <img
@@ -20,7 +19,6 @@
       <app-link
         class="full flex"
         :to="post.permalink"
-        :tracker="post.trackerPermalink"
         :aria-labelledby="'featured-' + post.id"
       >
         <h2 :id="'featured-' + post.id" class="full animate">
