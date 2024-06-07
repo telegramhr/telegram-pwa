@@ -295,7 +295,7 @@ export default {
     extraClass() {
       if (this.posts.length) {
         if (this.posts[0].category_slug.includes('telesport')) {
-          return 'telesport'
+          return 'telesport favbet'
         }
         if (this.posts[0].category_slug.includes('super1')) {
           return 'superone fancy-rubrika'
