@@ -490,7 +490,7 @@
             :permalink="post.permalink"
           ></keep-reading>
         </client-only>
-        <ticker></ticker>
+        <!--<ticker></ticker>-->
       </div>
     </template>
     <template v-if="$fetchState.error || post.title === 'Objava ne postoji'">
