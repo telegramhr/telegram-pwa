@@ -61,7 +61,7 @@ export default {
             return
           }
           this.showA = false
-        }, 1000)
+        }, 500)
       }
     })
   },
