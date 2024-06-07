@@ -94,58 +94,64 @@
           </div>
         </div>
       </div>
-      <jgl-premium
-        v-if="$route.params.tema === 'uefa-euro-2024'"
-        site="telesport"
-      ></jgl-premium>
-      <!-- Prekid newsletter -->
-      <div v-else class="full relative">
-        <div class="container flex relative">
-          <div class="full column-full-pad">
-            <div class="full column-bottom-border"></div>
-          </div>
-          <div class="full flex column-horizontal-pad">
-            <app-link
-              to="/newsletters"
-              class="full cantha-break mobile-side-pad flex relative stretch"
-            >
-              <div class="third column-full-pad center flex-responsive">
-                <div class="full flex article">
-                  <div class="noththree full overtitle">Posebne pogodnosti</div>
-                  <h2 class="full">
-                    Specijalni newsletteri za Telegramove pretplatnike.
-                  </h2>
-                  <div class="nothfour full">
-                    Najbolje od Telegrama, svaki dan u vašem inboxu.
-                  </div>
-                </div>
-              </div>
-              <div class="two-thirds stretch flex flex-responsive">
-                <div class="two-thirds column-full-pad center flex-responsive">
-                  <img
-                    src="@/assets/img/tg_newsletter_visual.png"
-                    alt="Kolekcija Telegramovih newslettera"
-                  />
-                </div>
-                <div class="third center flex-responsive">
+      <client-only>
+        <jgl-premium
+          v-if="$route.params.tema === 'uefa-euro-2024'"
+          site="ts"
+        ></jgl-premium>
+        <!-- Prekid newsletter -->
+        <div v-else class="full relative">
+          <div class="container flex relative">
+            <div class="full column-full-pad">
+              <div class="full column-bottom-border"></div>
+            </div>
+            <div class="full flex column-horizontal-pad">
+              <app-link
+                to="/newsletters"
+                class="full cantha-break mobile-side-pad flex relative stretch"
+              >
+                <div class="third column-full-pad center flex-responsive">
                   <div class="full flex article">
-                    <div class="full center">
-                      <div class="newbtn">Prijavite se</div>
+                    <div class="noththree full overtitle">
+                      Posebne pogodnosti
                     </div>
-                    <div class="nothfour full center-text">
-                      Odaberite tematske i autorske newslettere koje želite
-                      primati.
+                    <h2 class="full">
+                      Specijalni newsletteri za Telegramove pretplatnike.
+                    </h2>
+                    <div class="nothfour full">
+                      Najbolje od Telegrama, svaki dan u vašem inboxu.
                     </div>
                   </div>
                 </div>
-              </div>
-            </app-link>
-          </div>
-          <div class="full column-full-pad">
-            <div class="full column-bottom-border"></div>
+                <div class="two-thirds stretch flex flex-responsive">
+                  <div
+                    class="two-thirds column-full-pad center flex-responsive"
+                  >
+                    <img
+                      src="@/assets/img/tg_newsletter_visual.png"
+                      alt="Kolekcija Telegramovih newslettera"
+                    />
+                  </div>
+                  <div class="third center flex-responsive">
+                    <div class="full flex article">
+                      <div class="full center">
+                        <div class="newbtn">Prijavite se</div>
+                      </div>
+                      <div class="nothfour full center-text">
+                        Odaberite tematske i autorske newslettere koje želite
+                        primati.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </app-link>
+            </div>
+            <div class="full column-full-pad">
+              <div class="full column-bottom-border"></div>
+            </div>
           </div>
         </div>
-      </div>
+      </client-only>
       <!-- Echovald rubrika -->
       <div class="full flex">
         <div
