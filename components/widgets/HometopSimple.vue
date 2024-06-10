@@ -1,25 +1,31 @@
 <template>
   <a
-    v-if="show"
+    v-if="showA"
     class="full relative darkened-bg birati-stranu-widget"
+    style="min-height: 200px"
     @click.prevent="start"
   >
-    <div class="container column-full-pad mobile-full-pad flex relative">
-      <p
-        class="full center-text column-top-pad mobile-top-pad birati-stranu-title"
+    <client-only>
+      <div
+        v-if="show"
+        class="container column-full-pad mobile-full-pad flex relative"
       >
-        {{ title }}
-      </p>
-      <p class="full center-text birati-stranu-subtitle">
-        <span v-if="secondarySubtitle" class="strikethrough faded">{{
-          secondarySubtitle
-        }}</span
-        >{{ subtitle }}
-      </p>
-      <div class="full center column-vertical-pad mobile-vertical-pad">
-        <div class="newbtn huge-newbtn">{{ cta }}</div>
+        <p
+          class="full center-text column-top-pad mobile-top-pad birati-stranu-title"
+        >
+          {{ title }}
+        </p>
+        <p class="full center-text birati-stranu-subtitle">
+          <span v-if="secondarySubtitle" class="strikethrough faded">{{
+            secondarySubtitle
+          }}</span
+          >{{ subtitle }}
+        </p>
+        <div class="full center column-vertical-pad mobile-vertical-pad">
+          <div class="newbtn huge-newbtn">{{ cta }}</div>
+        </div>
       </div>
-    </div>
+    </client-only>
   </a>
 </template>
 
@@ -33,10 +39,31 @@ export default {
       subtitle: '12.99€ plati više dobij isto',
       cta: 'Pretplatite se',
       show: false,
+      showA: true,
     }
   },
   mounted() {
-    window.addEventListener('piano_header', this.load)
+    if (
+      this.$route.name.includes('super1') ||
+      this.$route.name.includes('telesport')
+    ) {
+      this.showA = false
+    }
+    this.$nextTick(() => {
+      window.addEventListener('piano_header', this.load)
+      if (this.showA) {
+        setTimeout(() => {
+          if (this.$store.state.user.access) {
+            this.showA = false
+            return
+          }
+          if (this.show) {
+            return
+          }
+          this.showA = false
+        }, 500)
+      }
+    })
   },
   destroyed() {
     window.removeEventListener('piano_header', this.load)
@@ -57,6 +84,7 @@ export default {
         this.cta = e.detail.cta
         this.termId = e.detail.termId
         this.show = true
+        this.showA = true
       }
     },
     checkout(termId) {

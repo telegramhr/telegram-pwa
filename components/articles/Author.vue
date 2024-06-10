@@ -5,7 +5,6 @@
     <app-link
       class="full flex article-featured article relative"
       :to="post.permalink"
-      :tracker="post.trackerPermalink"
       role="article"
       :aria-labelledby="'standard-' + post.id"
     >

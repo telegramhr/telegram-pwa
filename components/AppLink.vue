@@ -12,11 +12,6 @@ export default {
       required: true,
       type: String,
     },
-    tracker: {
-      required: false,
-      type: String,
-      default: '',
-    },
   },
   methods: {
     linkProperties(route) {
@@ -38,11 +33,6 @@ export default {
         to: {
           path:
             route + (route.at(-1) !== '/' && !route.includes('?') ? '/' : ''),
-          query: this.tracker
-            ? {
-                tracker: this.tracker,
-              }
-            : {},
         },
       }
     },

@@ -27,6 +27,13 @@
     --tg-primary-highlight-color: #111111;
 }
 
+.telesport * {
+    --tg-primary-highlight-color: #376cae;
+}
+.favbet * {
+    --tg-primary-highlight-color: #ff267e;
+}
+
 .pitanje-zdravlja * {
     --tg-primary-highlight-color: #0a80c5;
 }
@@ -37,7 +44,6 @@
 
 .dark-mode *, .dark-mode .fancy-rubrika * {
     --tg-primary-background-color: #212121;
-    --tg-primary-highlight-color: #ae3737;
     --tg-primary-text-color: #ffffff;
     --tg-secondary-background-color: #121212;
     --palette-divider: #555555;
@@ -895,13 +901,13 @@ h2.section-title {
     padding: 12px;
 }
 .sport-block .block-title, .sport-block .dynamic-overtitle-element, .sport-block .widget, .sport-block .widget::before, .sport-block .komentar .komentar-image, .sport-block .subtle-btn-parent:hover .subtle-btn, .sport-block .loader-square div, .sport-block .newbtn {
-    background-color: #376cae;
+    background-color: var(--tg-primary-highlight-color);
 }
 .sport-block .meta-preporuke, .sport-block .noththree.overtitle, .sport-block .article-mini .meta-date, .sport-block .related-articles .nothfive, .sport-block .komentar-quotation {
-    color: #376cae;
+    color: var(--tg-primary-highlight-color);
 }
 .sport-block h2.section-title {
-    border-bottom-color: #376cae;
+    border-bottom-color: var(--tg-primary-highlight-color);
 }
 .super1-block .block-title, .super1-block .dynamic-overtitle-element, .super1-block .widget, .super1-block .widget::before, .super1-block .komentar .komentar-image, .super1-block .subtle-btn-parent:hover .subtle-btn, .super1-block .loader-square div, .super1-block .newbtn {
     background-color: #CC3366;
@@ -1016,9 +1022,9 @@ footer .copyright, footer .conversion-notice {
     margin-bottom: 15px;
 }
 .single-article .single-article-body p a, .single-article .single-article-body ul a, .single-article .single-article-body ol a {
-    color: #ae3737;
+    color: var(--tg-primary-highlight-color);
     text-decoration: underline;
-    text-decoration-color: #ae3737;
+    text-decoration-color: var(--tg-primary-highlight-color);
 }
 .single-article .single-article-body a:hover {
     text-decoration-color: rgba(0, 0, 0, 0) !important;
@@ -1502,10 +1508,10 @@ figure img {
     font-weight: 300;
     padding-right: 2px;
     color: #777;
-    border-bottom: 1px solid #ae3737;
+    border-bottom: 1px solid var(--tg-primary-highlight-color);
 }
 .article-tags > a:hover {
-    color: #ae3737;
+    color: var(--tg-primary-highlight-color);
     border-bottom: 1px solid transparent;
 }
 .social-circle-buttons a {
@@ -1522,7 +1528,7 @@ figure img {
     top: -2px;
 }
 .social-circle-buttons a:hover {
-    background-color: #ae3737;
+    background-color: var(--tg-primary-highlight-color);
 }
 .classic-btn {
     padding: 8px 32px;
@@ -2833,8 +2839,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     height: 8px;
     right: 4px;
     transform: rotate(-45deg);
-    border-left: 4px solid #ae3737;
-    border-bottom: 4px solid #ae3737;
+    border-left: 4px solid var(--tg-primary-highlight-color);
+    border-bottom: 4px solid var(--tg-primary-highlight-color);
     opacity: 0.5;
 }
 .pretplata-faq details[open] > summary::before {
@@ -2938,6 +2944,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .pretplata-packbox .btn:hover {
     background-color: #dc4646;
+}
+.telesport .pretplata-packbox .btn {
+    background-color: #376cae;
+}
+.telesport .pretplata-packbox .btn:hover {
+    background-color: #4a92ea;
 }
 .pretplata-packbox .overtitle {
     font-size: 14px;
@@ -4018,7 +4030,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         background-color: #CC3366;
     }
     .sport-block .widget .btn {
-        background-color: #376cae;
+        background-color: var(--tg-primary-highlight-color);
     }
     .widget svg {
         color: #c1b9b1;
@@ -4948,7 +4960,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     opacity: .5;
 }
 .article-head-newsletter b {
-    color: #ae3737;
+    color: var(--tg-primary-highlight-color);
 }
 .article-newsletter-feature {
     flex-wrap: nowrap;
@@ -10038,11 +10050,11 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 0.85rem;
 }
 .link-look-alike {
-    color: #ae3737;
+    color: var(--tg-primary-highlight-color);
     text-decoration: underline;
     text-decoration-color: currentcolor;
-    -webkit-text-decoration-color: #ae3737;
-    text-decoration-color: #ae3737;
+    -webkit-text-decoration-color: var(--tg-primary-highlight-color);;
+    text-decoration-color: var(--tg-primary-highlight-color);;
 }
 .link-look-alike:hover {
     -webkit-text-decoration-color: rgba(0, 0, 0, 0) !important;
@@ -10521,32 +10533,51 @@ label.payment-tile svg {
 
 /* Telesport */
 
+
 .dark-mode.telesport {
     background: #171d21;
+    --tg-primary-background-color: #171d21;
+}
+.dark-mode .telesport {
+    background: #171d21;
+    --tg-primary-background-color: #171d21;
+}
+.dark-mode .telesport *, .dark-mode.telesport * {
+    --tg-primary-background-color: #171d21;
+    --tg-secondary-background-color: #121517;
+}
+.dark-mode .telesport .cantha-header, .dark-mode.telesport .cantha-header {
+    background: #171d21;
+}
+.dark-mode .telesport .darkened-bg, .dark-mode.telesport .darkened-bg, .dark-mode .telesport .nayos, .dark-mode.telesport .nayos{
+    background-color: #121517;
 }
 .telesport .article h2, .telesport.single-article h1 {
     font-family: 'Barlow', sans-serif;
     font-weight: 700;
 }
 .telesport.single-article .single-article-body p a, .telesport.single-article .single-article-body ul a, .telesport.single-article .single-article-body ol a {
-    color: #376cae;
-    text-decoration-color: #376cae;
+    color: var(--tg-primary-highlight-color);
+    text-decoration-color: var(--tg-primary-highlight-color);
 }
 .sport-slash {
-    color: #376cae;
+    color: var(--tg-primary-highlight-color);
     font-weight: 900;
 }
 .contrast-mode .sport-slash {
     color: #223344;
 }
 .telesport .block-title, .telesport .dynamic-overtitle-element, .telesport .widget, .telesport .widget::before, .telesport .komentar .komentar-image, .telesport .subtle-btn-parent:hover .subtle-btn, .telesport .loader-square div, .telesport .newbtn {
-    background-color: #376cae;
+    background-color: var(--tg-primary-highlight-color);
+}
+.telesport .newbtn-empty {
+    background-color: transparent;
 }
 .telesport .meta-preporuke, .telesport .noththree.overtitle, .telesport .article-mini .meta-date, .telesport .related-articles .nothfive, .telesport .komentar-quotation {
-    color: #376cae;
+    color: var(--tg-primary-highlight-color);
 }
 .telesport h2.section-title {
-    border-bottom-color: #376cae;
+    border-bottom-color: var(--tg-primary-highlight-color);
 }
 .ts-home-header {
     padding-bottom: 24px;
@@ -10583,7 +10614,7 @@ label.payment-tile svg {
 }
 .ts-home-header nav a:hover {
     opacity: 1;
-    color: #376cae;
+    color: var(--tg-primary-highlight-color);
 }
 .telesport .featured-split.biggest-font .article-featured .noththree.overtitle {
     display: none;
@@ -12546,7 +12577,7 @@ input:checked ~ .input-hidden {
     background-color: #999;
 }
 .remp-pretplata .pretplata-packboxes input:checked ~ label.pretplata-packbox .btn, .remp-pretplata .pretplata-packboxes input:checked ~ label.pretplata-packbox:hover .btn {
-    background-color: #ae3737;
+    background-color: var(--tg-primary-highlight-color);
 }
 .remp-new-input {
     border: none;
@@ -13411,7 +13442,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .article-gift-button label {
     padding: 0.2rem 0.5rem;
     margin-top: -0.2rem;
-    background-color: #ae3737;
+    background-color: var(--tg-primary-highlight-color);
     color: white;
     font-weight: bold;
     text-transform: none;
@@ -13541,22 +13572,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   margin-bottom: 0.8rem;
 }
 .telesport .cantha-header .cantha-menubtn, .telesport .cantha-header .cantha-searchbtn {
-  top: 24px;
+  top: 18px;
 }
 .telesport .latest-line-feed .article::after {
-  background-color: #376cae;
+  background-color: var(--tg-primary-highlight-color);
 }
 .telesport .time-overtitle span:last-child {
-  color: #376cae;
-}
-.telesport .featured-split.biggest-font .article-pad {
-    text-align: center;
-}
-.telesport .featured-split.biggest-font .article-featured .article-meta {
-    justify-content: center;
+  color: var(--tg-primary-highlight-color);
 }
 .telesport .latest-articles-header > .third.active-latest-header::before {
-    background-color: #376cae;
+    background-color: var(--tg-primary-highlight-color);
 }
 
 @media screen and (max-width: 767px) {
@@ -13743,6 +13768,16 @@ header {
   width: 100vw;
   gap: 20px;
 }
+
+.wp-block-columns img.size-full,
+.wp-block-columns .size-full img
+{
+  max-width: 100% !important;
+  margin: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+}
+
 
 /* Izbori */
 
@@ -14399,16 +14434,19 @@ header {
     border: none;
 }
 
+.cantha-fake-menuitem {
+    position: relative;
+}
 .cantha-submenu {
     display: none;
     position: absolute;
-    bottom: -266px;
-    left: 111px;
     z-index: 100;
     width: 220px;
-    padding: 0.6rem 0.8rem;
+    padding: 12px 16px;
     height: auto;
     background-color: var(--tg-secondary-background-color);
+    bottom: -320px;
+    left: -80px;
 }
 .cantha-submenu::before {
     content: " ";
@@ -14433,8 +14471,77 @@ header {
     display: flex;
     width: 100%;
     margin-right: 0px;
-    margin-bottom: 0.1rem;
+    margin-bottom: 2px;
+    font-size: 14px;
 }
 .cantha-block-title .menu .cantha-fake-menuitem:hover .cantha-submenu {
     display: flex;
+}
+
+.favbet-section, .dark-mode .favbet-section, .dark-mode .telesport .favbet-section, .dark-mode.telesport .favbet-section, .contrast-mode .favbet-section, .domoljub-mode .favbet-section {
+    background-color: #000055;
+    color: white;
+}
+.favbet-section * {
+    --tg-primary-highlight-color: #ff267e;
+}
+.favbet-section .noththree.subsection-title img {
+    height: 16px;
+    width: auto;
+    display: inline-block;
+    position: relative;
+    bottom: -2.5px;
+    margin-right: 0px;
+    margin-left: 4px;
+}
+.favbet-section .noththree.subsection-title {
+    color: #ff267e;
+}
+.highlight-tile {
+    background-color: #ff267e;
+    color: #000055;
+    padding-left: 0.4em;
+    padding-right: 0.4em;
+}
+.cantha-block-title .menu a.highlight-tile {
+    opacity: 1;
+}
+.highlight-tile img {
+    width: 76px;
+    width: 5em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    margin-left: 0.4em;
+}
+.brought-by {
+    position: absolute;
+    top: 0px;
+    right: 48px;
+    height: 100%;
+    width: 200px;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+}
+.homepage .brought-by {
+    top: -12px;
+}
+.brought-by span {
+    opacity: .7;
+}
+.brought-by img {
+    height: 1.4em;
+    margin-left: 0.4em;
+}
+#telegram_background {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+}
+.have-background {
+    background-color: var(--tg-primary-background-color);
 }

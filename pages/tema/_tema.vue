@@ -27,10 +27,26 @@
           <div class="full column-full-pad">
             <div class="full cantha-separator"></div>
           </div>
-          <div class="full column-horizontal-pad">
-            <h1 class="full center-text">
+          <div class="full column-horizontal-pad relative">
+            <h1
+              v-if="$route.params.tema === 'uefa-euro-2024'"
+              class="full center-text"
+            >
+              {{ cat | parseCat }}
+            </h1>
+            <h1 v-else class="full center-text">
               Članci na temu {{ cat | parseCat }}
             </h1>
+            <div
+              v-if="$route.params.tema === 'uefa-euro-2024'"
+              class="center desktop-only brought-by"
+            >
+              <span>Powered by</span>
+              <img
+                src="@/assets/img/logo_favbet_magenta.svg"
+                alt="Favbet logo"
+              />
+            </div>
           </div>
           <div
             class="full column-horizontal-pad column-top-pad mobile-side-pad"
@@ -78,54 +94,64 @@
           </div>
         </div>
       </div>
-      <!-- Prekid newsletter -->
-      <div class="full relative">
-        <div class="container flex relative">
-          <div class="full column-full-pad">
-            <div class="full column-bottom-border"></div>
-          </div>
-          <div class="full flex column-horizontal-pad">
-            <app-link
-              to="/newsletters"
-              class="full cantha-break mobile-side-pad flex relative stretch"
-            >
-              <div class="third column-full-pad center flex-responsive">
-                <div class="full flex article">
-                  <div class="noththree full overtitle">Posebne pogodnosti</div>
-                  <h2 class="full">
-                    Specijalni newsletteri za Telegramove pretplatnike.
-                  </h2>
-                  <div class="nothfour full">
-                    Najbolje od Telegrama, svaki dan u vašem inboxu.
-                  </div>
-                </div>
-              </div>
-              <div class="two-thirds stretch flex flex-responsive">
-                <div class="two-thirds column-full-pad center flex-responsive">
-                  <img
-                    src="@/assets/img/tg_newsletter_visual.png"
-                    alt="Kolekcija Telegramovih newslettera"
-                  />
-                </div>
-                <div class="third center flex-responsive">
+      <client-only>
+        <jgl-premium
+          v-if="$route.params.tema === 'uefa-euro-2024'"
+          site="ts"
+        ></jgl-premium>
+        <!-- Prekid newsletter -->
+        <div v-else class="full relative">
+          <div class="container flex relative">
+            <div class="full column-full-pad">
+              <div class="full column-bottom-border"></div>
+            </div>
+            <div class="full flex column-horizontal-pad">
+              <app-link
+                to="/newsletters"
+                class="full cantha-break mobile-side-pad flex relative stretch"
+              >
+                <div class="third column-full-pad center flex-responsive">
                   <div class="full flex article">
-                    <div class="full center">
-                      <div class="newbtn">Prijavite se</div>
+                    <div class="noththree full overtitle">
+                      Posebne pogodnosti
                     </div>
-                    <div class="nothfour full center-text">
-                      Odaberite tematske i autorske newslettere koje želite
-                      primati.
+                    <h2 class="full">
+                      Specijalni newsletteri za Telegramove pretplatnike.
+                    </h2>
+                    <div class="nothfour full">
+                      Najbolje od Telegrama, svaki dan u vašem inboxu.
                     </div>
                   </div>
                 </div>
-              </div>
-            </app-link>
-          </div>
-          <div class="full column-full-pad">
-            <div class="full column-bottom-border"></div>
+                <div class="two-thirds stretch flex flex-responsive">
+                  <div
+                    class="two-thirds column-full-pad center flex-responsive"
+                  >
+                    <img
+                      src="@/assets/img/tg_newsletter_visual.png"
+                      alt="Kolekcija Telegramovih newslettera"
+                    />
+                  </div>
+                  <div class="third center flex-responsive">
+                    <div class="full flex article">
+                      <div class="full center">
+                        <div class="newbtn">Prijavite se</div>
+                      </div>
+                      <div class="nothfour full center-text">
+                        Odaberite tematske i autorske newslettere koje želite
+                        primati.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </app-link>
+            </div>
+            <div class="full column-full-pad">
+              <div class="full column-bottom-border"></div>
+            </div>
           </div>
         </div>
-      </div>
+      </client-only>
       <!-- Echovald rubrika -->
       <div class="full flex">
         <div
@@ -276,6 +302,17 @@ export default {
         (this.$route.query.page ? parseInt(this.$route.query.page) + 1 : 2)
       )
     },
+    extraClass() {
+      if (this.posts.length) {
+        if (this.posts[0].category_slug.includes('telesport')) {
+          return 'telesport favbet'
+        }
+        if (this.posts[0].category_slug.includes('super1')) {
+          return 'superone fancy-rubrika'
+        }
+      }
+      return ''
+    },
   },
   mounted() {
     this.$nextTick(() => {
@@ -345,6 +382,9 @@ export default {
       ]
     }
     return {
+      bodyAttrs: {
+        class: [this.$store.state.theme.theme, this.extraClass],
+      },
       title:
         `${this.cat} - Najnovije vijesti` +
         (this.page > 1 ? ` - ${this.page}. stranica` : ''),

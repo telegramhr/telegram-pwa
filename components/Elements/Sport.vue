@@ -4,7 +4,7 @@
       <div class="full mobile-side-pad column-horizontal-pad">
         <div class="full cantha-separator"></div>
       </div>
-      <a href="https://telesport.telegram.hr" class="full flex relative">
+      <app-link to="/telesport" class="full flex relative">
         <div class="full flex column-horizontal-pad">
           <div
             class="noththree full center-text column-vertical-pad subsection-title ts-subsection-logo"
@@ -22,7 +22,7 @@
             />
           </div>
         </div>
-      </a>
+      </app-link>
       <div
         class="full block-echovald mobile-side-pad flex relative reorder-echovald column-bottom-pad"
       >
@@ -68,11 +68,11 @@
             <standard :post="post"></standard>
           </div>
         </div>
-        <a
-          href="https://telesport.telegram.hr/"
+        <app-link
+          to="/telesport/"
           class="full mobile-only center new-homeblock-link"
         >
-          Još članaka</a
+          Još članaka</app-link
         >
       </div>
     </div>
@@ -83,11 +83,9 @@
 export default {
   name: 'Sport',
   async fetch() {
-    await this.$axios
-      .get('https://telesport.telegram.hr/wp-json/telegram/pwa2/v1/portal/2')
-      .then((res) => {
-        this.posts = res.data.posts
-      })
+    await this.$axios.$get('/api/ts/zone/ts-tgfront/').then((res) => {
+      this.posts = res
+    })
   },
   data() {
     return {
@@ -96,22 +94,6 @@ export default {
       page: 2,
       posts: [],
     }
-  },
-  methods: {
-    loadMore() {
-      this.loading = true
-      this.$axios
-        .get(
-          'https://telesport.telegram.hr/wp-json/telegram/pwa2/v1/portal/2/page/' +
-            this.page
-        )
-        .then((res) => {
-          this.posts = [...this.posts, ...res.data.posts]
-          this.loading = false
-          this.page++
-          this.showMore = true
-        })
-    },
   },
 }
 </script>

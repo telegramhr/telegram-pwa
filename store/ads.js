@@ -27,7 +27,9 @@ export const state = () => ({
         'category',
         'category-slug',
         'super1',
+        'telesport',
         'super1-category',
+        'telesport-category',
         'nesto-slug',
         'fotogalerije-category',
         'fotogalerije-category-slug',
@@ -36,102 +38,12 @@ export const state = () => ({
         'autor-autor',
         'tema-tema',
         'super1-category-slug',
+        'telesport-category-slug',
         'pitanje-zdravlja-category-slug',
         'openspace-category-slug',
         'pitanje-zdravlja-category',
         'openspace-category',
       ],
-      pbjs: {
-        desktop: {
-          sizes: [[970, 250]],
-          bids: [
-            {
-              bidder: 'iprom',
-              params: {
-                id: 't30769k9tyez1my7',
-                dimension: '970x250',
-              },
-            },
-            {
-              bidder: 'sovrn',
-              params: {
-                tagid: [929050],
-              },
-            },
-            {
-              bidder: 'luponmedia',
-              params: {
-                siteId: 4396,
-                keyId: 'uid_telegramhr',
-              },
-            },
-            {
-              bidder: 'contentexchange',
-              params: {
-                placementId: '2218',
-                adFormat: 'banner',
-              },
-            },
-            {
-              bidder: 'smilewanted',
-              params: {
-                zoneId: 'telegram.hr_hb_display',
-                bidfloor: 0.0,
-              },
-            },
-          ],
-        },
-        mobile: {
-          sizes: [
-            [300, 250],
-            [336, 280],
-            [300, 600],
-          ],
-          bids: [
-            {
-              bidder: 'iprom',
-              params: {
-                id: 't30769k9tyez1my7',
-                dimension: '300x250',
-              },
-            },
-            {
-              bidder: 'sovrn',
-              params: {
-                tagid: [950915],
-              },
-            },
-            {
-              bidder: 'luponmedia',
-              params: {
-                siteId: 4396,
-                keyId: 'uid_telegramhr',
-              },
-            },
-            {
-              bidder: 'contentexchange',
-              params: {
-                placementId: '2217',
-                adFormat: 'banner',
-              },
-            },
-            {
-              bidder: 'contentexchange',
-              params: {
-                placementId: '2215',
-                adFormat: 'banner',
-              },
-            },
-            {
-              bidder: 'smilewanted',
-              params: {
-                zoneId: 'telegram.hr_hb_display',
-                bidfloor: 0.0,
-              },
-            },
-          ],
-        },
-      },
     },
     telegram_desktop_billboard_v2: {
       upc: false,
@@ -140,6 +52,8 @@ export const state = () => ({
         'category',
         'super1',
         'super1-category',
+        'telesport',
+        'telesport-category',
         'pitanje-zdravlja-category',
         'openspace-category',
       ],
@@ -164,18 +78,6 @@ export const state = () => ({
         [1200, 250],
         [1200, 500],
       ],
-      pbjs: {
-        desktop: {
-          sizes: [[970, 250]],
-        },
-        mobile: {
-          sizes: [
-            [300, 250],
-            [336, 280],
-            [300, 600],
-          ],
-        },
-      },
     },
     telegram_desktop_billboard_v3: {
       upc: false,
@@ -184,6 +86,8 @@ export const state = () => ({
         'category',
         'super1',
         'super1-category',
+        'telesport',
+        'telesport-category',
         'pitanje-zdravlja-category',
         'openspace-category',
       ],
@@ -208,29 +112,10 @@ export const state = () => ({
         [1200, 250],
         [1200, 500],
       ],
-      pbjs: {
-        desktop: {
-          sizes: [[970, 250]],
-        },
-        mobile: {
-          sizes: [
-            [300, 250],
-            [336, 280],
-            [300, 600],
-          ],
-        },
-      },
     },
     telegram_desktop_billboard_v4: {
       upc: false,
-      routes: [
-        'index',
-        'super1',
-        'category',
-        'super1-category',
-        'pitanje-zdravlja-category',
-        'openspace-category',
-      ],
+      routes: ['index', 'super1', 'telesport'],
       mobile: [
         [1, 1],
         [300, 50],
@@ -252,97 +137,6 @@ export const state = () => ({
         [1200, 250],
         [1200, 500],
       ],
-      pbjs: {
-        desktop: {
-          sizes: [[970, 250]],
-          bids: [
-            {
-              bidder: 'iprom',
-              params: {
-                id: 't30769k9tyez1my7',
-                dimension: '970x250',
-              },
-            },
-            {
-              bidder: 'sovrn',
-              params: {
-                tagid: [929563],
-              },
-            },
-            {
-              bidder: 'luponmedia',
-              params: {
-                siteId: 4396,
-                keyId: 'uid_telegramhr',
-              },
-            },
-            {
-              bidder: 'contentexchange',
-              params: {
-                placementId: '2218',
-                adFormat: 'banner',
-              },
-            },
-            {
-              bidder: 'smilewanted',
-              params: {
-                zoneId: 'telegram.hr_hb_display',
-                bidfloor: 0.0,
-              },
-            },
-          ],
-        },
-        mobile: {
-          sizes: [
-            [300, 250],
-            [336, 280],
-            [300, 600],
-          ],
-          bids: [
-            {
-              bidder: 'iprom',
-              params: {
-                id: 't30769k9tyez1my7',
-                dimension: '300x250',
-              },
-            },
-            {
-              bidder: 'sovrn',
-              params: {
-                tagid: [950916],
-              },
-            },
-            {
-              bidder: 'luponmedia',
-              params: {
-                siteId: 4396,
-                keyId: 'uid_telegramhr',
-              },
-            },
-            {
-              bidder: 'contentexchange',
-              params: {
-                placementId: '2215',
-                adFormat: 'banner',
-              },
-            },
-            {
-              bidder: 'contentexchange',
-              params: {
-                placementId: '2217',
-                adFormat: 'banner',
-              },
-            },
-            {
-              bidder: 'smilewanted',
-              params: {
-                zoneId: 'telegram.hr_hb_display',
-                bidfloor: 0.0,
-              },
-            },
-          ],
-        },
-      },
     },
     telegram_desktop_wallpaper_left: {
       upc: false,
@@ -362,6 +156,9 @@ export const state = () => ({
         'super1',
         'super1-category',
         'super1-category-slug',
+        'telesport',
+        'telesport-category',
+        'telesport-category-slug',
         'nesto-slug',
         'fotogalerije-category',
         'fotogalerije-category-slug',
@@ -393,6 +190,9 @@ export const state = () => ({
         'super1',
         'super1-category',
         'super1-category-slug',
+        'telesport',
+        'telesport-category',
+        'telesport-category-slug',
         'nesto-slug',
         'nesto-slug',
         'fotogalerije-category',
@@ -418,6 +218,8 @@ export const state = () => ({
         'pitanje-zdravlja-category',
         'openspace-category',
         'super1-category',
+        'telesport-category',
+        'telesport-category-slug',
       ],
       desktop: [
         [1, 1],
@@ -442,104 +244,6 @@ export const state = () => ({
         [300, 600],
         [320, 250],
       ],
-      pbjs: {
-        desktop: {
-          sizes: [[970, 250]],
-          bids: [
-            {
-              bidder: 'iprom',
-              params: {
-                id: 't30769k9tyez1my7',
-                dimension: '970x250',
-              },
-            },
-            {
-              bidder: 'sovrn',
-              params: {
-                tagid: [969220],
-              },
-            },
-            {
-              bidder: 'iprom',
-              params: {
-                id: '1ac5399de31649f8',
-                dimension: '970x250',
-              },
-            },
-            {
-              bidder: 'luponmedia',
-              params: {
-                siteId: 4396,
-                keyId: 'uid_telegramhr',
-              },
-            },
-            {
-              bidder: 'contentexchange',
-              params: {
-                placementId: '2218',
-                adFormat: 'banner',
-              },
-            },
-            {
-              bidder: 'smilewanted',
-              params: {
-                zoneId: 'telegram.hr_hb_display',
-                bidfloor: 0.0,
-              },
-            },
-          ],
-        },
-        mobile: {
-          sizes: [
-            [300, 250],
-            [336, 280],
-            [300, 600],
-          ],
-          bids: [
-            {
-              bidder: 'iprom',
-              params: {
-                id: 't30769k9tyez1my7',
-                dimension: '300x250',
-              },
-            },
-            {
-              bidder: 'sovrn',
-              params: {
-                tagid: [929094],
-              },
-            },
-            {
-              bidder: 'luponmedia',
-              params: {
-                siteId: 4396,
-                keyId: 'uid_telegramhr',
-              },
-            },
-            {
-              bidder: 'contentexchange',
-              params: {
-                placementId: '2217',
-                adFormat: 'banner',
-              },
-            },
-            {
-              bidder: 'contentexchange',
-              params: {
-                placementId: '2215',
-                adFormat: 'banner',
-              },
-            },
-            {
-              bidder: 'smilewanted',
-              params: {
-                zoneId: 'telegram.hr_hb_display',
-                bidfloor: 0.0,
-              },
-            },
-          ],
-        },
-      },
     },
     telegram_desktop_intext_v2: {
       upc: false,
@@ -552,6 +256,8 @@ export const state = () => ({
         'pitanje-zdravlja-category',
         'openspace-category',
         'super1-category',
+        'telesport-category',
+        'telesport-category-slug',
       ],
       desktop: [
         [1, 1],
@@ -575,104 +281,6 @@ export const state = () => ({
         [300, 600],
         [320, 250],
       ],
-      pbjs: {
-        desktop: {
-          sizes: [[970, 250]],
-          bids: [
-            {
-              bidder: 'iprom',
-              params: {
-                id: 't30769k9tyez1my7',
-                dimension: '970x250',
-              },
-            },
-            {
-              bidder: 'sovrn',
-              params: {
-                tagid: [969220],
-              },
-            },
-            {
-              bidder: 'iprom',
-              params: {
-                id: '1ac5399de31649f8',
-                dimension: '970x250',
-              },
-            },
-            {
-              bidder: 'luponmedia',
-              params: {
-                siteId: 4396,
-                keyId: 'uid_telegramhr',
-              },
-            },
-            {
-              bidder: 'contentexchange',
-              params: {
-                placementId: '2218',
-                adFormat: 'banner',
-              },
-            },
-            {
-              bidder: 'smilewanted',
-              params: {
-                zoneId: 'telegram.hr_hb_display',
-                bidfloor: 0.0,
-              },
-            },
-          ],
-        },
-        mobile: {
-          sizes: [
-            [300, 250],
-            [336, 280],
-            [300, 600],
-          ],
-          bids: [
-            {
-              bidder: 'iprom',
-              params: {
-                id: 't30769k9tyez1my7',
-                dimension: '300x250',
-              },
-            },
-            {
-              bidder: 'sovrn',
-              params: {
-                tagid: [929094],
-              },
-            },
-            {
-              bidder: 'luponmedia',
-              params: {
-                siteId: 4396,
-                keyId: 'uid_telegramhr',
-              },
-            },
-            {
-              bidder: 'contentexchange',
-              params: {
-                placementId: '2217',
-                adFormat: 'banner',
-              },
-            },
-            {
-              bidder: 'contentexchange',
-              params: {
-                placementId: '2215',
-                adFormat: 'banner',
-              },
-            },
-            {
-              bidder: 'smilewanted',
-              params: {
-                zoneId: 'telegram.hr_hb_display',
-                bidfloor: 0.0,
-              },
-            },
-          ],
-        },
-      },
     },
     telegram_desktop_intext_v3: {
       upc: false,
@@ -685,6 +293,8 @@ export const state = () => ({
         'pitanje-zdravlja-category',
         'openspace-category',
         'super1-category',
+        'telesport-category',
+        'telesport-category-slug',
       ],
       desktop: [
         [1, 1],
@@ -708,100 +318,6 @@ export const state = () => ({
         [300, 600],
         [320, 250],
       ],
-      pbjs: {
-        desktop: {
-          sizes: [
-            [300, 250],
-            [970, 250],
-          ],
-          bids: [
-            {
-              bidder: 'iprom',
-              params: {
-                id: 't30769k9tyez1my7',
-                dimension: '970x250',
-              },
-            },
-            {
-              bidder: 'sovrn',
-              params: {
-                tagid: [950917],
-              },
-            },
-            {
-              bidder: 'luponmedia',
-              params: {
-                siteId: 4396,
-                keyId: 'uid_telegramhr',
-              },
-            },
-            {
-              bidder: 'contentexchange',
-              params: {
-                placementId: '2218',
-                adFormat: 'banner',
-              },
-            },
-            {
-              bidder: 'smilewanted',
-              params: {
-                zoneId: 'telegram.hr_hb_display',
-                bidfloor: 0.0,
-              },
-            },
-          ],
-        },
-        mobile: {
-          sizes: [
-            [300, 250],
-            [336, 280],
-            [300, 600],
-          ],
-          bids: [
-            {
-              bidder: 'iprom',
-              params: {
-                id: 't30769k9tyez1my7',
-                dimension: '300x250',
-              },
-            },
-            {
-              bidder: 'sovrn',
-              params: {
-                tagid: [950917],
-              },
-            },
-            {
-              bidder: 'luponmedia',
-              params: {
-                siteId: 4396,
-                keyId: 'uid_telegramhr',
-              },
-            },
-            {
-              bidder: 'contentexchange',
-              params: {
-                placementId: '2215',
-                adFormat: 'banner',
-              },
-            },
-            {
-              bidder: 'contentexchange',
-              params: {
-                placementId: '2217',
-                adFormat: 'banner',
-              },
-            },
-            {
-              bidder: 'smilewanted',
-              params: {
-                zoneId: 'telegram.hr_hb_display',
-                bidfloor: 0.0,
-              },
-            },
-          ],
-        },
-      },
     },
     telegram_desktop_intext_v4: {
       upc: false,
@@ -814,6 +330,8 @@ export const state = () => ({
         'pitanje-zdravlja-category',
         'openspace-category',
         'super1-category',
+        'telesport-category',
+        'telesport-category-slug',
       ],
       desktop: [
         [1, 1],
@@ -837,100 +355,6 @@ export const state = () => ({
         [300, 600],
         [320, 250],
       ],
-      pbjs: {
-        desktop: {
-          sizes: [
-            [300, 250],
-            [970, 250],
-          ],
-          bids: [
-            {
-              bidder: 'iprom',
-              params: {
-                id: 't30769k9tyez1my7',
-                dimension: '970x250',
-              },
-            },
-            {
-              bidder: 'sovrn',
-              params: {
-                tagid: [950918],
-              },
-            },
-            {
-              bidder: 'luponmedia',
-              params: {
-                siteId: 4396,
-                keyId: 'uid_telegramhr',
-              },
-            },
-            {
-              bidder: 'contentexchange',
-              params: {
-                placementId: '2218',
-                adFormat: 'banner',
-              },
-            },
-            {
-              bidder: 'smilewanted',
-              params: {
-                zoneId: 'telegram.hr_hb_display',
-                bidfloor: 0.0,
-              },
-            },
-          ],
-        },
-        mobile: {
-          sizes: [
-            [300, 250],
-            [336, 280],
-            [300, 600],
-          ],
-          bids: [
-            {
-              bidder: 'iprom',
-              params: {
-                id: 't30769k9tyez1my7',
-                dimension: '300x250',
-              },
-            },
-            {
-              bidder: 'sovrn',
-              params: {
-                tagid: [950918],
-              },
-            },
-            {
-              bidder: 'luponmedia',
-              params: {
-                siteId: 4396,
-                keyId: 'uid_telegramhr',
-              },
-            },
-            {
-              bidder: 'contentexchange',
-              params: {
-                placementId: '2217',
-                adFormat: 'banner',
-              },
-            },
-            {
-              bidder: 'contentexchange',
-              params: {
-                placementId: '2215',
-                adFormat: 'banner',
-              },
-            },
-            {
-              bidder: 'smilewanted',
-              params: {
-                zoneId: 'telegram.hr_hb_display',
-                bidfloor: 0.0,
-              },
-            },
-          ],
-        },
-      },
     },
     telegram_desktop_intext_v5: {
       upc: false,
@@ -943,6 +367,8 @@ export const state = () => ({
         'pitanje-zdravlja-category',
         'openspace-category',
         'super1-category',
+        'telesport-category',
+        'telesport-category-slug',
       ],
       desktop: [
         [1, 1],
@@ -966,79 +392,6 @@ export const state = () => ({
         [300, 600],
         [320, 250],
       ],
-      pbjs: {
-        desktop: {
-          sizes: [
-            [300, 250],
-            [970, 250],
-          ],
-          bids: [
-            {
-              bidder: 'iprom',
-              params: {
-                id: 't30769k9tyez1my7',
-                dimension: '970x250',
-              },
-            },
-            {
-              bidder: 'sovrn',
-              params: {
-                tagid: [950919],
-              },
-            },
-            {
-              bidder: 'luponmedia',
-              params: {
-                siteId: 4396,
-                keyId: 'uid_telegramhr',
-              },
-            },
-            {
-              bidder: 'smilewanted',
-              params: {
-                zoneId: 'telegram.hr_hb_display',
-                bidfloor: 0.0,
-              },
-            },
-          ],
-        },
-        mobile: {
-          sizes: [
-            [300, 250],
-            [336, 280],
-            [300, 600],
-          ],
-          bids: [
-            {
-              bidder: 'iprom',
-              params: {
-                id: 't30769k9tyez1my7',
-                dimension: '300x250',
-              },
-            },
-            {
-              bidder: 'sovrn',
-              params: {
-                tagid: [950919],
-              },
-            },
-            {
-              bidder: 'luponmedia',
-              params: {
-                siteId: 4396,
-                keyId: 'uid_telegramhr',
-              },
-            },
-            {
-              bidder: 'smilewanted',
-              params: {
-                zoneId: 'telegram.hr_hb_display',
-                bidfloor: 0.0,
-              },
-            },
-          ],
-        },
-      },
     },
     telegram_desktop_intext_v6: {
       upc: false,
@@ -1051,6 +404,8 @@ export const state = () => ({
         'pitanje-zdravlja-category',
         'openspace-category',
         'super1-category',
+        'telesport-category',
+        'telesport-category-slug',
       ],
       desktop: [
         [1, 1],
@@ -1074,79 +429,6 @@ export const state = () => ({
         [300, 600],
         [320, 250],
       ],
-      pbjs: {
-        desktop: {
-          sizes: [
-            [300, 250],
-            [970, 250],
-          ],
-          bids: [
-            {
-              bidder: 'iprom',
-              params: {
-                id: 't30769k9tyez1my7',
-                dimension: '970x250',
-              },
-            },
-            {
-              bidder: 'sovrn',
-              params: {
-                tagid: [950920],
-              },
-            },
-            {
-              bidder: 'luponmedia',
-              params: {
-                siteId: 4396,
-                keyId: 'uid_telegramhr',
-              },
-            },
-            {
-              bidder: 'smilewanted',
-              params: {
-                zoneId: 'telegram.hr_hb_display',
-                bidfloor: 0.0,
-              },
-            },
-          ],
-        },
-        mobile: {
-          sizes: [
-            [300, 250],
-            [336, 280],
-            [300, 600],
-          ],
-          bids: [
-            {
-              bidder: 'iprom',
-              params: {
-                id: 't30769k9tyez1my7',
-                dimension: '300x250',
-              },
-            },
-            {
-              bidder: 'sovrn',
-              params: {
-                tagid: [950920],
-              },
-            },
-            {
-              bidder: 'luponmedia',
-              params: {
-                siteId: 4396,
-                keyId: 'uid_telegramhr',
-              },
-            },
-            {
-              bidder: 'smilewanted',
-              params: {
-                zoneId: 'telegram.hr_hb_display',
-                bidfloor: 0.0,
-              },
-            },
-          ],
-        },
-      },
     },
     telegram_background: {
       upc: 4,
@@ -1192,6 +474,9 @@ export const state = () => ({
         'openspace-category-slug',
         'pitanje-zdravlja-category',
         'openspace-category',
+        'telesport-category',
+        'telesport-category-slug',
+        'telesport',
       ],
       mobile: [
         [1, 1],
@@ -1235,6 +520,9 @@ export const state = () => ({
         'openspace-category-slug',
         'pitanje-zdravlja-category',
         'openspace-category',
+        'telesport-category',
+        'telesport-category-slug',
+        'telesport',
       ],
       mobile: [
         [1, 1],
@@ -1311,24 +599,6 @@ export const actions = {
     window.googletag.cmd = window.googletag.cmd || []
     window.googletag.reloadedSlots = window.googletag.reloadedSlots || []
     const route = payload.route || null
-    if (!route.name.includes('super1')) {
-      window.ybConfiguration = window.ybConfiguration || {}
-      window.ybConfiguration = Object.assign({}, window.ybConfiguration, {
-        integrationMethod: 'open_tag',
-      })
-      ;(function (y, i, e, L, D) {
-        y.Yieldbird = y.Yieldbird || {}
-        y.Yieldbird.cmd = y.Yieldbird.cmd || []
-        i.cmd.push(function () {
-          i.pubads().disableInitialLoad()
-        })
-        L = e.createElement('script')
-        L.async = true
-        L.src = '//cdn.qwtag.com/4bb2cc20-cc9a-4302-abf4-e7a722ec5e40/qw.js'
-        D = e.getElementsByTagName('script')[0]
-        ;(D.parentNode || e.head).insertBefore(L, D)
-      })(window, window.googletag, document)
-    }
     // set targeting
     const targeting = {
       wp_post_type: [],
@@ -1362,15 +632,24 @@ export const actions = {
           targeting.post_category.push('openspace')
           break
         case 'super1':
-          targeting.wp_post_type = ['category']
+          targeting.wp_post_type = ['home']
           targeting.post_category = ['super1']
           break
-        case 'tema':
+        case 'telesport':
+          targeting.wp_post_type = ['home']
+          targeting.post_category = ['telesport']
+          break
+        case 'tema-tema':
           targeting.wp_post_type = ['archive']
-          targeting.post_category = [route.params.slug]
+          targeting.post_category = [route.params.tema]
+          if (route.params.tema === 'uefa-euro-2024') {
+            targeting.post_category = [route.params.tema, 'telesport']
+            targeting.wp_post_type = ['archive', 'category']
+          }
           break
         case 'category-slug':
         case 'super1-category-slug':
+        case 'telesport-category-slug':
         case 'openspace-category-slug':
         case 'pitanje-zdravlja-category-slug':
         case 'nesto-slug':
@@ -1383,6 +662,8 @@ export const actions = {
             targeting.post_category.push('pitanje-zdravlja')
           } else if (route.name.includes('super1')) {
             targeting.post_category.push('super1')
+          } else if (route.name.includes('telesport')) {
+            targeting.post_category.push('telesport')
           } else {
             targeting.post_category.push(route.params.category)
           }
@@ -1482,83 +763,6 @@ export const actions = {
       }
       commit('setSlots')
     })
-    if (window.prebid === 'prebid') {
-      window.pbjs = window.pbjs || {}
-      window.pbjs.que = window.pbjs.que || []
-      window.pbjs.que.push(() => {
-        window.pbjs.setConfig({
-          ortb2: {
-            site: {
-              content: {
-                language: 'hr',
-              },
-            },
-          },
-          performanceMetrics: false,
-          debug: false,
-          enableSendAllBids: true,
-          priceGranularity: 'low',
-          consentManagement: {
-            gdpr: {
-              cmpApi: 'iab',
-              defaultGdprScope: true,
-            },
-          },
-          userSync: {
-            iframeEnabled: true,
-            userIds: [
-              {
-                name: 'pubCommonId',
-                storage: {
-                  name: '_pubcid',
-                  type: 'cookie',
-                  expires: 365,
-                },
-                params: {
-                  pixelUrl: '/wp-json/pubcid/v1/extend/',
-                },
-              },
-            ],
-            filterSettings: {
-              iframe: {
-                bidders: '*',
-                filter: 'include',
-              },
-              image: {
-                bidders: '*',
-                filter: 'include',
-              },
-            },
-          },
-        })
-        // const prefix = state.prefix
-        const sizes = this.$mobile ? 'mobile' : 'desktop'
-        let unit
-        for (const i of Object.keys(state.units)) {
-          if (i in state.units && state.units[i].pbjs) {
-            unit = state.units[i]
-            if (!unit.pbjs[sizes].sizes) {
-              continue
-            }
-            if (route && !unit.routes.includes(route.name)) {
-              continue
-            }
-            if (!document.getElementById(i)) {
-              continue
-            }
-            window.pbjs.addAdUnits({
-              code: i,
-              mediaTypes: {
-                banner: {
-                  sizes: unit.pbjs[sizes].sizes,
-                },
-              },
-              bids: unit.pbjs[sizes].bids,
-            })
-          }
-        }
-      })
-    }
     dispatch('displaySlots')
   },
   displaySlots({ dispatch, state }) {

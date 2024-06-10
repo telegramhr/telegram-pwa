@@ -79,7 +79,7 @@ export const actions = {
   },
   setAccess({ commit, dispatch, state }, data) {
     return new Promise((resolve) => {
-      if (data.data.length) {
+      if (data?.data.length) {
         this.$cookies.set('tmg_access', data.data[0].resource.rid, {
           path: '/',
           domain: '.telegram.hr',
