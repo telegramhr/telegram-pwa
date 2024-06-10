@@ -14545,3 +14545,13 @@ header {
 .have-background {
     background-color: var(--tg-primary-background-color);
 }
+
+.scroll-down {
+  display: block;
+  color: white;
+  font-size: 24px;
+  margin: 0 auto;
+  top: 600px;
+  position: absolute;
+  left: 32%;
+}

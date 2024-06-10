@@ -886,7 +886,14 @@ export const actions = {
               el.style.minHeight = 0 + 'px'
             }
             if (name.includes('background') && !event.isEmpty) {
-              document.getElementById('article-body').style.marginTop = '100vh'
+              document.getElementById('article-body').style.marginTop = '700px'
+              document.getElementsByClassName(
+                'wallpaper-banners'
+              )[0].style.display = 'none'
+              const scroll = document.createElement('div')
+              scroll.classList.add('scroll-down')
+              scroll.innerHTML = 'Spusti za sadržaj'
+              el.append(scroll)
             }
           }
           if (!event.isEmpty) {
