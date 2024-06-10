@@ -1,5 +1,5 @@
 <template>
-  <div class="full flex relative">
+  <div class="full flex relative have-background">
     <footer class="full flex">
       <div class="container flex">
         <div

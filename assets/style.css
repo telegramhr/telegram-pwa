@@ -14534,3 +14534,14 @@ header {
     height: 1.4em;
     margin-left: 0.4em;
 }
+#telegram_background {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+}
+.have-background {
+    background-color: var(--tg-primary-background-color);
+}

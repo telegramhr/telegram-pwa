@@ -17,18 +17,20 @@
       <!-- Do not enable until fixed version above is removed and visibility rules are adjusted -->
       <hometop-simple></hometop-simple>
       <!-- Above header banner manual -->
-      <div
-        v-show="related_posts && $store.state.user.access"
-        class="full related-header-widget"
-      >
-        <div class="container flex desktop-only column-vertical-pad">
-          <div
-            v-for="rpost in related_posts"
-            :key="rpost.id"
-            class="third flex"
-          >
-            <div class="full flex column-horizontal-pad">
-              <standard-no-h :post="rpost"></standard-no-h>
+      <div class="full flex have-background relative">
+        <div
+          v-show="related_posts && $store.state.user.access"
+          class="full related-header-widget"
+        >
+          <div class="container flex desktop-only column-vertical-pad">
+            <div
+              v-for="rpost in related_posts"
+              :key="rpost.id"
+              class="third flex"
+            >
+              <div class="full flex column-horizontal-pad">
+                <standard-no-h :post="rpost"></standard-no-h>
+              </div>
             </div>
           </div>
         </div>
@@ -36,7 +38,7 @@
       <client-only>
         <div
           v-if="!$mobile && $route.name === 'category-slug'"
-          class="full center header-billboard"
+          class="full center header-billboard have-background"
         >
           <div v-if="!$mobile" class="container wallpaper-banners animate">
             <div class="wallpaper-left">
@@ -185,7 +187,7 @@
         <div class="full flex">
           <article
             id="article-body"
-            class="container column-full-pad flex relative mobile-side-pad"
+            class="container column-full-pad flex relative mobile-side-pad have-background"
           >
             <div class="full column article-head column-top-pad flex">
               <div class="full flex overtitle-parent relative">
@@ -478,16 +480,20 @@
           </article>
         </div>
         <client-only>
-          <div v-if="!hasPremium && hasLinker" class="full">
+          <div v-if="!hasPremium && hasLinker" class="full have-background">
             <midas :key="`midas-16-${post.id}`" type="standard-16"></midas>
           </div>
-          <div v-if="!hasPremium && hasLinker" class="container flex center">
+          <div
+            v-if="!hasPremium && hasLinker"
+            class="container flex center have-background"
+          >
             <midas :key="`midas-ecoom-${post.id}`" type="ecomm"></midas>
           </div>
           <keep-reading
             :category="$route.params.category"
             :p="Number(post.id)"
             :permalink="post.permalink"
+            class="have-background"
           ></keep-reading>
         </client-only>
         <!--<ticker></ticker>-->
