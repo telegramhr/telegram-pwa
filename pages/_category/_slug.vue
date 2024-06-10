@@ -1132,6 +1132,11 @@ export default {
         type: 'text/css',
         href: 'https://www.telegram.hr/wp-includes/css/dist/block-library/style.min.css',
       },
+      {
+        hid: 'shortlink',
+        rel: 'shortlink',
+        href: `https://www.telegram.hr/l/${this.post.id}`,
+      },
     ]
     let script = [
       {
