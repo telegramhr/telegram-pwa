@@ -34,7 +34,7 @@ export default {
       if (this.$store.getters['user/hasPremium']) {
         return 0
       }
-      return this.$mobile ? '250px' : '250px'
+      return '250px'
     },
   },
   mounted() {

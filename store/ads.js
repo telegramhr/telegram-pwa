@@ -885,6 +885,9 @@ export const actions = {
             } else {
               el.style.minHeight = 0 + 'px'
             }
+            if (name.includes('background') && !event.isEmpty) {
+              document.getElementById('article-body').style.marginTop = '100vh'
+            }
           }
           if (!event.isEmpty) {
             window.marfeel.cmd.push([
