@@ -15,9 +15,7 @@
         :post="post"
       ></theader>
       <!-- Do not enable until fixed version above is removed and visibility rules are adjusted -->
-      <client-only>
-        <hometop-simple></hometop-simple>
-      </client-only>
+      <hometop-simple></hometop-simple>
       <ad-unit id="telegram_background"></ad-unit>
       <!-- Above header banner manual -->
       <div class="full flex have-background relative">
