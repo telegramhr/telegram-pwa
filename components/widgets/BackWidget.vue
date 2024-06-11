@@ -35,6 +35,9 @@ export default {
       if (this.$route.fullPath.includes('super1')) {
         url = '/super1/?utm_campaign=back_widget'
       }
+      if (this.$route.fullPath.includes('telesport')) {
+        url = '/telesport/?utm_campaign=back_widget'
+      }
       const final = window.location.href
       window.history.replaceState({ backWidget: true }, 'Telegram.hr', url)
       window.history.pushState(
@@ -63,7 +66,9 @@ export default {
           url.hostname.includes('facebook') ||
           url.hostname.includes('quicksearchbox') ||
           url.hostname.includes('linker') ||
-          url.hostname.includes('upday')
+          url.hostname.includes('upday') ||
+          url.hostname.includes('news.google') ||
+          url.hostname.includes('news.url.google')
         ) {
           return true
         }
