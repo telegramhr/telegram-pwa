@@ -14555,3 +14555,50 @@ header {
   position: absolute;
   left: 32%;
 }
+
+.cantha-header-special {
+    position: absolute;
+    top: 0px;
+    right: 3.2rem;
+    height: 100%;
+    width: 13.5rem;
+    padding-left: 2.5rem;
+    font-size: 0.6rem;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+}
+
+.cantha-header-special img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 6rem;
+    z-index: 2;
+}
+
+.cantha-header-special .darkened-bg {
+    text-align: right;
+    padding: 0.2rem 0.4rem;
+    padding-left: 2rem;
+    border-right: 0.1rem solid var(--tg-primary-highlight-color);
+    z-index: 1;
+}
+.cantha-header-special p.bold {
+    font-size: 0.7rem;
+    font-family: 'Lora', serif;
+    line-height: 1.2em;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: none;
+    margin-bottom: 0.2rem;
+}
+.cantha-header .cantha-separator {
+    z-index: 3;
+    position: relative;
+}
+
+@media screen and (max-width: 1023px) {
+    .cantha-header-special {
+        display: none;
+    }
+}
