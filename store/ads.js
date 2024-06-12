@@ -798,6 +798,10 @@ export const actions = {
     })
   },
   initPBJS({ dispatch, state }) {
+    if (state.route.includes('telesport')) {
+      dispatch('initAdserver')
+      return
+    }
     window.pbjs = window.pbjs || {}
     window.pbjs.que = window.pbjs.que || []
     window.pbjs.que.push(() => {
