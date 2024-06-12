@@ -73,6 +73,28 @@
         </div>
       </nav>
       <div class="container flex relative column-top-pad column-horizontal-pad">
+        <app-link
+          to="/pretplata/"
+          class="cantha-header-special center desktop-only"
+        >
+          <div class="full darkened-bg flex">
+            <p class="full bold">
+              <span class="ib">Telegramova Dora Kršul: </span
+              ><span class="ib">Novinarka godine 2024.</span>
+            </p>
+            <p class="full smaller-text all-caps faded">
+              <span v-show="!$store.state.user.access" class="ib"
+                >pretplatite se na </span
+              ><span v-show="$store.state.user.access" class="ib"
+                >hvala što podržavate </span
+              ><span class="ib">najkvalitetniji portal</span>
+            </p>
+          </div>
+          <img
+            src="@/assets/img/extras/people/dora_nagrada.png"
+            alt="Dora Kršul na dodjeli nagrade za novinarku godine"
+          />
+        </app-link>
         <div class="full center relative desktop-only">
           <a
             class="cantha-menubtn"
@@ -140,12 +162,8 @@
           <app-link role="menuitem" to="/velike-price">Velike priče</app-link>
           <app-link role="menuitem" to="/zivot">Život</app-link>
           <app-link role="menuitem" to="/kultura">Kultura</app-link>
-          <app-link role="menuitem" to="/openspace">Openspace</app-link>
           <app-link to="/super1" role="menuitem">Super1</app-link>
           <app-link to="/telesport" role="menuitem"> Telesport </app-link>
-          <app-link role="menuitem" to="/pitanje-zdravlja"
-            >PitanjeZdravlja</app-link
-          >
           <app-link
             role="menuitem"
             to="/tema/uefa-euro-2024/"
