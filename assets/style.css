@@ -14445,7 +14445,7 @@ header {
     padding: 12px 16px;
     height: auto;
     background-color: var(--tg-secondary-background-color);
-    bottom: -320px;
+    top: 1.6rem;
     left: -80px;
 }
 .cantha-submenu::before {
@@ -14596,9 +14596,41 @@ header {
     z-index: 3;
     position: relative;
 }
+.cantha-block-title .menu .cantha-submenu > a.mobile-only {
+    display: none;
+}
 
 @media screen and (max-width: 1023px) {
     .cantha-header-special {
         display: none;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .cantha-block-title .menu {
+        width: 100%;
+    }
+    .cantha-block-title .menu a {
+        margin-right: 0.4rem;
+        padding-top: 0.1rem;
+    }
+    .cantha-fake-menuitem {
+        padding-top: 0.05rem;
+    }
+    .cantha-fake-menuitem a {
+        display: none;
+    }
+    .cantha-fake-menuitem label {
+        margin-right: 0.4rem;
+        padding-top: 0.05rem;
+        font-size: 0.65rem;
+        border-bottom: 2px solid transparent;
+        opacity: .75;
+    }
+    .cantha-fake-menuitem input:checked ~ .cantha-submenu {
+        display: flex;
+    }
+    .cantha-block-title .menu .cantha-submenu > a.mobile-only {
+        display: flex;
     }
 }

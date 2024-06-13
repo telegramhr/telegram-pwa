@@ -113,7 +113,7 @@
       <div
         class="container mobile-side-pad flex relative column-horizontal-pad"
       >
-        <nav class="menu desktop-only flex" role="menu">
+        <nav class="menu flex" role="menu">
           <app-link role="menuitem" to="/telesport/na-prvu" class="animate"
             >Na prvu</app-link
           >
@@ -130,7 +130,17 @@
             <app-link role="menuitem" to="/telesport/kolumne" class="animate"
               >Kolumne
             </app-link>
+            <input
+              id="open-cantha-submenu"
+              type="checkbox"
+              name="open-cantha-submenu"
+              class="hide"
+            />
+            <label for="open-cantha-submenu" class="mobile-only">Kolumne</label>
             <div class="cantha-submenu flex">
+              <app-link to="/telesport/kolumne" class="mobile-only"
+                >Sve kolumne</app-link
+              >
               <app-link to="/tema/akademska-cetvrt/">Akademska četvrt</app-link>
               <app-link to="/tema/lahmentiranje">Lahmentiranje</app-link>
               <app-link to="/tema/covjek-koji-je-buljio-u-ekran/"
