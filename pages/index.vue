@@ -80,7 +80,7 @@
           <div class="full darkened-bg flex">
             <p class="full bold">
               <span class="ib">Telegramova Dora Kršul: </span
-              ><span class="ib">Novinarka godine 2024.</span>
+              ><span class="ib">Novinarka godine 2023.</span>
             </p>
             <p class="full smaller-text all-caps faded">
               <span v-show="!$store.state.user.access" class="ib"
