@@ -14536,11 +14536,11 @@ header {
 }
 #telegram_background {
     position: fixed;
-    z-index: -1;
     top: 0;
-    left: 0;
+    left: 50%;
     width: 1920px;
     height: 1080px;
+    margin-left: -960px;
 }
 .have-background {
     background-color: var(--tg-primary-background-color);
