@@ -16,7 +16,6 @@
       ></theader>
       <!-- Do not enable until fixed version above is removed and visibility rules are adjusted -->
       <hometop-simple></hometop-simple>
-      <ad-unit id="telegram_background"></ad-unit>
       <!-- Above header banner manual -->
       <div class="full flex have-background relative">
         <div
@@ -186,6 +185,7 @@
       </div>
       <div class="full relative">
         <div class="full flex">
+          <ad-unit id="telegram_background"></ad-unit>
           <article
             id="article-body"
             class="container column-full-pad flex relative mobile-side-pad have-background"

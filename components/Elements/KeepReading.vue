@@ -1,7 +1,7 @@
 <template>
   <div v-if="posts" class="full">
     <div
-      class="container flex relative block-related cantha-related standard-block stretch"
+      class="container flex relative block-related cantha-related standard-block stretch have-background"
     >
       <div class="full column-horizontal-pad column-top-pad mobile-side-pad">
         <div class="full cantha-separator"></div>

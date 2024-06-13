@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="id"
-    class="container flex relative block-related cantha-related standard-block stretch"
+    class="container flex relative block-related cantha-related standard-block stretch have-background"
     data-nosnippet
   >
     <div class="full flex mobile-side-pad">
