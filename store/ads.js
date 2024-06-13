@@ -893,7 +893,7 @@ export const actions = {
               el.style.minHeight = 0 + 'px'
             }
             if (name.includes('background') && !event.isEmpty) {
-              document.getElementById('article-body').style.marginTop = '700px'
+              document.getElementById('article-body').style.marginTop = '470px'
               document.getElementsByClassName(
                 'wallpaper-banners'
               )[0].style.display = 'none'
