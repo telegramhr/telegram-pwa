@@ -608,6 +608,7 @@ export const actions = {
       post_slug: [],
       post_tag: [],
       post_category: [],
+      site: 'telegram',
     }
     if (payload.category_slug) {
       targeting.post_category = payload.category_slug.split(' ')
@@ -625,22 +626,37 @@ export const actions = {
         case 'super1-category':
           targeting.wp_post_type = ['category']
           targeting.post_category.push('super1')
+          targeting.site = 'super1'
           break
         case 'pitanje-zdravlja-category':
           targeting.wp_post_type = ['category']
           targeting.post_category.push('pitanje-zdravlja')
+          targeting.site = 'pitanjezdravlja'
           break
         case 'openspace-category':
           targeting.wp_post_type = ['category']
           targeting.post_category.push('openspace')
+          targeting.site = 'openspace'
           break
         case 'super1':
           targeting.wp_post_type = ['home']
           targeting.post_category = ['super1']
+          targeting.site = 'super1'
           break
         case 'telesport':
           targeting.wp_post_type = ['home']
           targeting.post_category = ['telesport']
+          targeting.site = 'telesport'
+          break
+        case 'openspace':
+          targeting.wp_post_type = ['home']
+          targeting.post_category = ['openspace']
+          targeting.site = 'openspace'
+          break
+        case 'pitanjezdravlja':
+          targeting.wp_post_type = ['home']
+          targeting.post_category = ['pitanjezdravlja']
+          targeting.site = 'pitanjezdravlja'
           break
         case 'tema-tema':
           targeting.wp_post_type = ['archive']
@@ -661,12 +677,16 @@ export const actions = {
           targeting.post_slug = [route.params.slug]
           if (route.name.includes('openspace')) {
             targeting.post_category.push('openspace')
+            targeting.site = 'openspace'
           } else if (route.name.includes('pitanje-zdravlja')) {
             targeting.post_category.push('pitanje-zdravlja')
+            targeting.site = 'pitanjezdravlja'
           } else if (route.name.includes('super1')) {
             targeting.post_category.push('super1')
+            targeting.site = 'super1'
           } else if (route.name.includes('telesport')) {
             targeting.post_category.push('telesport')
+            targeting.site = 'telesport'
           } else {
             targeting.post_category.push(route.params.category)
           }
