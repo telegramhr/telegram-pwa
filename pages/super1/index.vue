@@ -353,6 +353,13 @@ export default {
           rel: 'manifest',
           href: '/s1_fav/site.webmanifest',
         },
+        {
+          hid: 'feed',
+          rel: 'alternate',
+          type: 'application/rss+xml',
+          title: 'Telesport.hr',
+          href: 'https://www.telegram.hr/feed/telesport/',
+        },
       ],
       meta: [
         { hid: 'og:type', name: 'og:type', content: 'website' },

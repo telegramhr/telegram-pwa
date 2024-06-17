@@ -405,6 +405,13 @@ export default {
           'https://www.telegram.hr/pitanje-zdravlja/' +
           (this.page > 1 ? `?page=${this.page}` : ''),
       },
+      {
+        hid: 'feed',
+        rel: 'alternate',
+        type: 'application/rss+xml',
+        title: 'PitanjeZdravlja.hr',
+        href: 'https://www.telegram.hr/feed/pitanje-zdravlja/',
+      },
     ]
     if (this.page > 1) {
       link.push({

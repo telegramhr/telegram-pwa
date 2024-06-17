@@ -307,6 +307,13 @@ export default {
           'https://www.telegram.hr/openspace/' +
           (this.page > 1 ? `?page=${this.page}` : ''),
       },
+      {
+        hid: 'feed',
+        rel: 'alternate',
+        type: 'application/rss+xml',
+        title: 'Openspace.hr',
+        href: 'https://www.telegram.hr/feed/openspace/',
+      },
     ]
     if (this.hasMore) {
       link.push({

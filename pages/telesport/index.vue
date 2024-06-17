@@ -662,6 +662,20 @@ export default {
           json: this.jsonld,
         },
       ],
+      link: [
+        {
+          hid: 'feed',
+          rel: 'alternate',
+          type: 'application/rss+xml',
+          title: 'Telesport.hr',
+          href: 'https://www.telegram.hr/feed/telesport/',
+        },
+        {
+          hid: 'canonical',
+          rel: 'canonical',
+          href: 'https://www.telegram.hr/telesport/',
+        },
+      ],
     }
   },
 }

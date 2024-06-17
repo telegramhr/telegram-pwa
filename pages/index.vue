@@ -596,6 +596,14 @@ export default {
           json: this.jsonld,
         },
       ],
+      link: [
+        {
+          rel: 'alternate',
+          type: 'application/rss+xml',
+          title: 'Telegram.hr',
+          href: 'https://www.telegram.hr/feed/',
+        },
+      ],
     }
   },
 }
