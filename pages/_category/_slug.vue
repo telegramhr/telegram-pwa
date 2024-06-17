@@ -427,7 +427,9 @@
                   style="max-width: 1201px"
                 >
                   <jgl-premium
-                    :site="post.category.includes('telesport') ? 'ts' : 'tg'"
+                    :site="
+                      post.category_slug.includes('telesport') ? 'ts' : 'tg'
+                    "
                   ></jgl-premium>
                 </div>
               </client-only>
