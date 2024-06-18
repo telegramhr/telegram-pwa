@@ -922,6 +922,9 @@ export const actions = {
               scroll.innerHTML = 'Spusti za sadržaj'
               el.append(scroll)
             }
+            if (name.includes('background') && event.isEmpty) {
+              el.style.display = 'none'
+            }
           }
           if (!event.isEmpty) {
             window.marfeel.cmd.push([
