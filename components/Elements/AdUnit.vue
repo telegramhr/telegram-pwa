@@ -39,6 +39,9 @@ export default {
   },
   mounted() {
     if (this.$store.getters['user/hasPremium']) {
+      this.$nextTick(() => {
+        this.$el.style.display = 'none'
+      })
       return
     }
     this.$nextTick(() => {
