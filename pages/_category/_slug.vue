@@ -385,13 +385,6 @@
                 v-html="post.content"
               ></div>
               <client-only>
-                <euro-standings
-                  v-if="
-                    post.tags.filter((item) => {
-                      return item.slug === 'euro-2024'
-                    })
-                  "
-                ></euro-standings>
                 <portal v-if="showQuiz" selector="#quiz-container">
                   <quiz
                     v-if="post.quiz"
