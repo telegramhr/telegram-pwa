@@ -923,7 +923,6 @@ export const actions = {
               el.append(scroll)
             }
             if (name.includes('background') && event.isEmpty) {
-              console.log('empty')
               el.style.display = 'none'
             }
           }
