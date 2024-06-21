@@ -11117,14 +11117,14 @@ label.payment-tile svg {
 }
 
 @media screen and (min-width: 767px) {
-    .category-page .latest-line-feed .article .time-overtitle {
+    .category-page .latest-line-feed .article .time-overtitle, .single-article-body .latest-line-feed .article .time-overtitle {
         font-size: 16px;
         font-size: 0.8rem;
     }
     .latest-line-feed-pad {
         padding-left: 108px;
     }
-    .category-page .latest-line-feed .article .time-overtitle span:first-child {
+    .category-page .latest-line-feed .article .time-overtitle span:first-child, .single-article-body .latest-line-feed .article .time-overtitle span:first-child {
         position: absolute;
         top: -4px;
         left: -108px;
@@ -11146,14 +11146,14 @@ label.payment-tile svg {
         font-size: 24px;
         font-size: 1.2rem;
     }
-    .category-page .latest-line-feed .article .time-overtitle span:last-child {
+    .category-page .latest-line-feed .article .time-overtitle span:last-child, .single-article-body .latest-line-feed .article .time-overtitle span:last-child {
         padding-left: 0px;
     }
     .latest-line-feed .latest-feed-btn::before {
         left: -1px;
         width: 28px;
     }
-    .category-page .latest-line-feed .latest-feed-btn::before {
+    .category-page .latest-line-feed .latest-feed-btn::before, .single-article-body .latest-line-feed .latest-feed-btn::before {
         left: -25px;
     }
     .latest-line-feed .article:first-child::before {
@@ -11162,13 +11162,13 @@ label.payment-tile svg {
     .latest-line-feed .article:first-child::after {
         top: 5px;
     }
-    .category-page .latest-line-feed .article::before {
+    .category-page .latest-line-feed .article::before, .single-article-body .latest-line-feed .article::before {
         top: -4px;
         left: -39px;
         width: 28px;
         height: 28px;
     }
-    .category-page .latest-line-feed .article::after {
+    .category-page .latest-line-feed .article::after, .single-article-body .latest-line-feed .article::after {
         top: 6px;
         left: -29px;
         width: 10px;
@@ -11220,17 +11220,17 @@ label.payment-tile svg {
     .latest-line-feed .noththree.subsection-title {
         padding-bottom: 1vw;
     }
-    .category-page .latest-line-feed {
+    .category-page .latest-line-feed , .single-article-body .latest-line-feed{
         margin-bottom: 4vw;
         margin-top: 4vw;
     }
-    .category-page .latest-line-feed .article:first-child::before {
+    .category-page .latest-line-feed .article:first-child::before , .single-article-body .latest-line-feed .article:first-child::before {
         top: 0px;
     }
-    .category-page .latest-line-feed .article:first-child::after {
+    .category-page .latest-line-feed .article:first-child::after, .single-article-body .latest-line-feed .article:first-child::after {
         top: 5px;
     }
-    .category-page .latest-line-feed .article:first-child {
+    .category-page .latest-line-feed .article:first-child, .single-article-body .latest-line-feed .article:first-child {
         padding-top: 0px;
     }
 }
@@ -13229,6 +13229,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .zgt-salebox {
     background-color: white;
     border: 1px solid #c8c8c8;
+    color: black;
     margin-top: 1.2rem;
     margin-bottom: 1.2rem;
     padding: 1.2rem 0.6rem;
@@ -13236,10 +13237,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .dark-mode .zgt-salebox {
     background-color: #121212;
     border: 1px solid #555;
+    color: white;
 }
 .zgts-topbar > div {
     padding: 0.4rem 0.8rem;
-    background-color: #ae3737;
+    background-color: var(--tg-primary-highlight-color);
     font-family: 'Barlow', sans-serif;
     font-size: 20px;
     font-size: 1rem;
@@ -13253,6 +13255,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .zgt-salebox .sub-price {
     font-size: 48px;
     font-size: 2.4rem;
+}
+.zgt-salebox .noththree.overtitle {
+    color: black;
 }
 .zgts-subtitle {
     font-size: 26px;
@@ -14633,4 +14638,121 @@ header {
     .cantha-block-title .menu .cantha-submenu > a.mobile-only {
         display: flex;
     }
+}
+.single-article-body .latest-line-feed .nothtwo {
+    font-size: 24px;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+.single-article-body .latest-line-feed .nothfour {
+    margin-bottom: 8px;
+}
+.single-article-body .latest-line-feed .article .nothfive {
+    padding-bottom: 24px;
+    position: relative;
+}
+.single-article-body .latest-line-feed .article .nothfive::after {
+    content: "Pročitaj više";
+    position: absolute;
+    top: 36px;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    font-size: 0.7rem;
+    padding: 6px 10px;
+    padding-top: 5px;
+    background-color: #ae3737;
+    border-radius: 2px;
+    color: white;
+    text-transform: none;
+    line-height: 1.2em;
+}
+
+/* Single article live */
+
+.single-article-body .latest-line-feed .article-medium-alt h2 {
+    margin-top: 4px;
+    margin-bottom: 8px;
+}
+@media screen and (min-width: 767px) {
+    .single-article-body .latest-line-feed {
+        padding-left: 86px;
+        margin-top: 30px;
+    }
+    .single-article-body .latest-line-feed .article .time-overtitle span:last-child {
+        margin-top: -4px;
+    }
+}
+
+.single-article-body .latest-line-feed .article .highlighted-newsbit {
+    position: unset;
+}
+.single-article-body .latest-line-feed .article .highlighted-newsbit::before {
+    content: " ";
+    position: absolute;
+    top: -18px;
+    left: -24px;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, var(--tg-secondary-background-color), var(--tg-primary-background-color));
+    z-index: -1;
+}
+@media screen and (max-width: 767px) {
+    .single-article-body .latest-line-feed .article .time-overtitle {
+        margin-top: -4px;
+    }
+    .single-article-body .latest-line-feed .nothfour {
+        font-size: 16px;
+        font-size: 0.8rem;
+        line-height: 1.2em;
+    }
+    .single-article-body .latest-line-feed .article .highlighted-newsbit::before {
+        top: -1vw;
+        left: 0;
+    }
+    .single-article-body .latest-line-feed .nothtwo {
+        font-size: 20px;
+        font-size: 1rem;
+    }
+    .single-article-body .latest-line-feed .split-articles .article-medium:last-child {
+        border-bottom: none;
+    }
+    .single-article-body .latest-line-feed {
+        border-bottom: none;
+        margin-top: 4vw;
+    }
+}
+.live-article-refresh {
+    position: fixed;
+    bottom: 64px;
+    left: 0px;
+    z-index: 101;
+}
+.live-article-refresh a {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    font-size: 0.7rem;
+    padding: 6px 10px;
+    padding-top: 5px;
+    background-color: var(--tg-secondary-background-color);
+    border-radius: 2px;
+    text-transform: none;
+    line-height: 1.2em;
+    border: 1px solid #c8c8c8;
+}
+.dark-mode .live-article-refresh a {
+    border-color: #555;
+}
+.live-article-refresh a span {
+    display: inline-block;
+    position: relative;
+    top: 0.05em;
+    width: 0.85em;
+    height: 0.85em;
+    border-radius: 1em;
+    margin-right: 0.6em;
+    background-color: #ae3737;
+    animation: live_dot 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+    background-color: var(--tg-primary-highlight-color);
 }
