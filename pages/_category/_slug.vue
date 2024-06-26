@@ -402,7 +402,6 @@
                 <portal
                   v-if="
                     !hasPremium &&
-                    !post.category_slug.includes('superone') &&
                     !(post.disable_ads && post.disable_ads.includes('spar'))
                   "
                   selector="#intext_premium"
