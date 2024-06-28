@@ -921,6 +921,9 @@ export const actions = {
               scroll.classList.add('scroll-down')
               scroll.innerHTML = 'Spusti za sadržaj'
               el.append(scroll)
+              document.getElementsByClassName(
+                'related-header-widget'
+              )[0].style.display = 'none'
             }
             if (name.includes('background') && event.isEmpty) {
               el.style.display = 'none'
