@@ -392,7 +392,19 @@
               class="newbtn"
               >Pretplatite se</app-link
             >
-            <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun">
+            <app-link
+              v-show="!canLogIn"
+              id="Poklonite pretplatu - header"
+              to="/pretplata/poklon"
+              class="newbtn desktop-only"
+              >Poklonite pretplatu</app-link
+            >
+            <app-link
+              v-show="!canLogIn"
+              class="column-mini-left-pad"
+              to="/moj-racun"
+              aria-label="Moj račun"
+            >
               <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
             </app-link>
             <a

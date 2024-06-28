@@ -32,7 +32,7 @@
             id="pretplatite se - header"
             to="/pretplata"
             class="newbtn"
-            >Pretplatite se</app-link
+            >Kupite pretplatu</app-link
           >
           <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun">
             <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
@@ -103,49 +103,6 @@
         <h1 class="column-left-pad full">Još priča</h1>
       </div>
     </div>
-    <div class="full flex relative os-about-section">
-      <div class="container column-vertical-pad mobile-side-pad flex">
-        <h2 class="full flex column-horizontal-pad os-elevate-title">
-          Što je Pitanje zdravlja?
-        </h2>
-        <div class="full flex relative">
-          <div
-            class="third column-horizontal-pad flex-responsive column-right-border"
-          >
-            <div class="noththree full os-about-subtitle">
-              <span>Kritički progovaramo</span
-              ><span> o zdravstvenim temama</span>
-            </div>
-            <p>
-              Obrađujemo zdravstvene teme iz svih kuteva, koristimo relevantne
-              izvore podataka i otvaramo diskusiju s čitateljima.
-            </p>
-          </div>
-          <div
-            class="third column-horizontal-pad flex-responsive column-right-border"
-          >
-            <div class="noththree full os-about-subtitle">
-              <span>Pomažemo u razvoju</span
-              ><span> zdravstvene pismenosti građana</span>
-            </div>
-            <p>
-              Educiramo, informiramo i demistificiramo. Zdravstvene teme
-              objašnjavamo laički. Pomažemo vam da steknete kontrolu nad svojim
-              zdravstvenim stanjem.
-            </p>
-          </div>
-          <div class="third column-horizontal-pad flex-responsive">
-            <div class="noththree full os-about-subtitle">
-              <span>Dajemo točne odgovore</span><span> na vaša pitanja</span>
-            </div>
-            <p>
-              Pitanje zdravlja je pravo mjesto za informacije o zdravstvenim
-              temama. Kritički obrađujemo teme koje vas zanimaju.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
     <div class="full flex relative pz-specials-widget hide">
       <div class="container flex relative">
         <div class="fourth flex-responsive column-full-pad mobile-side-pad">
@@ -188,38 +145,63 @@
     </div>
     <div v-if="featured.length" class="full relative">
       <div class="container flex relative block-2 standard-block stretch">
-        <section
-          class="fourth flex flex-responsive column-horizontal-pad mobile-side-pad"
-        >
-          <h2 class="full flex section-title">Najnovije</h2>
-          <latest-alt
-            v-show="!$mobile"
-            :portal="1"
-            category="pitanje-zdravlja"
-          ></latest-alt>
-          <div class="full flex desktop-only">
-            <h2 class="full flex section-title">Newsletter</h2>
-            <newsletter></newsletter>
+        <div class="full flex mobile-side-pad stretch secondary-gs-block">
+          <div class="full column-full-pad flex">
+            <div class="full column-top-border"></div>
           </div>
-        </section>
-        <div class="three-fourths flex-responsive flex">
-          <section
-            class="two-thirds flex-responsive flex mobile-side-pad column-horizontal-pad column-right-border column-left-border"
+          <div
+            class="three-fourths flex-responsive column-horizontal-pad column-right-border flex relative featured-split show-one-related"
           >
-            <featured :key="featured[4].id" :post="featured[4]"></featured>
-            <div class="full flex split-articles column-top-pad">
-              <template v-for="post in featured.slice(5, 8)">
-                <medium :key="post.id" :post="post"></medium>
-              </template>
+            <featured
+              v-for="post in featured.slice(4, 5)"
+              :key="post.id"
+              :post="post"
+            ></featured>
+          </div>
+          <div
+            class="fourth flex-responsive column-horizontal-pad flex relative"
+          >
+            <medium
+              v-for="post in featured.slice(5, 6)"
+              :key="post.id"
+              :post="post"
+            ></medium>
+          </div>
+          <div class="full column-horizontal-pad column-top-pad flex">
+            <div class="full column-top-border column-bottom-pad"></div>
+          </div>
+          <div
+            class="three-fourths flex-responsive column-horizontal-pad column-right-border flex relative featured-split show-one-related"
+          >
+            <featured
+              v-for="post in featured.slice(6, 7)"
+              :key="post.id"
+              :post="post"
+            ></featured>
+          </div>
+          <div
+            class="fourth flex-responsive column-horizontal-pad flex relative"
+          >
+            <medium
+              v-for="post in featured.slice(7, 8)"
+              :key="post.id"
+              :post="post"
+            ></medium>
+          </div>
+          <div class="full column-full-pad">
+            <div class="full flex column-top-border mobile-top-border"></div>
+          </div>
+          <div
+            class="full flex stretch relative no-last-border-mobile cantha-small-block"
+          >
+            <div
+              v-for="post in featured.slice(8, 12)"
+              :key="post.id"
+              class="fourth flex-responsive column-right-border column-horizontal-pad"
+            >
+              <standard :post="post"></standard>
             </div>
-          </section>
-          <section
-            class="third flex-responsive flex mobile-side-pad column-horizontal-pad"
-          >
-            <template v-for="post in featured.slice(8, 11)">
-              <medium :key="post.id" :post="post"></medium>
-            </template>
-          </section>
+          </div>
         </div>
       </div>
     </div>
@@ -261,11 +243,13 @@
       </div>
     </div>
     <div class="full flex">
-      <div class="container flex relative native-block stretch mobile-side-pad">
+      <div
+        class="container flex relative native-block stretch mobile-side-pad cantha-small-block"
+      >
         <div
           v-for="post in posts"
           :key="post.id"
-          class="fourth flex-responsive column-full-pad"
+          class="fourth flex-responsive column-right-border column-horizontal-pad column-bottom-margin"
         >
           <standard :post="post"></standard>
         </div>
@@ -287,6 +271,49 @@
               <div></div>
               <div></div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="full flex relative os-about-section">
+      <div class="container column-vertical-pad mobile-side-pad flex">
+        <h2 class="full flex column-horizontal-pad os-elevate-title">
+          Što je Pitanje zdravlja?
+        </h2>
+        <div class="full flex relative">
+          <div
+            class="third column-horizontal-pad flex-responsive column-right-border"
+          >
+            <div class="noththree full os-about-subtitle">
+              <span>Kritički progovaramo</span
+              ><span> o zdravstvenim temama</span>
+            </div>
+            <p>
+              Obrađujemo zdravstvene teme iz svih kuteva, koristimo relevantne
+              izvore podataka i otvaramo diskusiju s čitateljima.
+            </p>
+          </div>
+          <div
+            class="third column-horizontal-pad flex-responsive column-right-border"
+          >
+            <div class="noththree full os-about-subtitle">
+              <span>Pomažemo u razvoju</span
+              ><span> zdravstvene pismenosti građana</span>
+            </div>
+            <p>
+              Educiramo, informiramo i demistificiramo. Zdravstvene teme
+              objašnjavamo laički. Pomažemo vam da steknete kontrolu nad svojim
+              zdravstvenim stanjem.
+            </p>
+          </div>
+          <div class="third column-horizontal-pad flex-responsive">
+            <div class="noththree full os-about-subtitle">
+              <span>Dajemo točne odgovore</span><span> na vaša pitanja</span>
+            </div>
+            <p>
+              Pitanje zdravlja je pravo mjesto za informacije o zdravstvenim
+              temama. Kritički obrađujemo teme koje vas zanimaju.
+            </p>
           </div>
         </div>
       </div>

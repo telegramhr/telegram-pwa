@@ -6036,7 +6036,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     opacity: 1;
 }
 .pz-hero {
-    padding-top: 80px;
+    padding-top: 24px;
 }
 .pitanje-zdravlja .related-articles {
     display: none;
@@ -6070,8 +6070,8 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-weight: 300;
 }
 .pz-hero h1 {
-    font-size: 68px;
-    font-size: 3.4rem;
+    font-size: 50px;
+    font-size: 2.5rem;
     text-transform: uppercase;
     font-family: 'Barlow', sans-serif;
     font-weight: 300;
@@ -6130,10 +6130,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 28px;
     font-size: 1.4rem;
     line-height: 1.1em;
-}
-.pitanje-zdravlja .block-2 .article-featured h2 {
-    font-size: 30px;
-    font-size: 1.5rem;
 }
 .pitanje-zdravlja .article-standard h2 {
     font-size: 24px;
@@ -6343,6 +6339,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 
 
 @media screen and (min-width: 767px) {
+    .pitanje-zdravlja .block-2 .article-featured h2 {
+        font-size: 30px;
+        font-size: 1.5rem;
+    }
     .single-article.pitanje-zdravlja h1 {
         font-size: 40px;
         font-size: 2rem;
@@ -6383,7 +6383,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         padding: 12px;
     }
     .pz-hero h1 {
-        font-size: 8.6vw;
+        font-size: 7.6vw;
     }
     .pz-fancy-slide h2,
     .pz-fancy-title {
@@ -6463,7 +6463,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 @media screen and (max-width: 767px) {
     .pz-hero {
-        padding-top: 36px;
+        padding-top: 4vw;
     }
     .page-header-nav a {
         font-size: 16px;
@@ -6472,12 +6472,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     }
     .pitanje-zdravlja .page-header-nav {
         margin: 0 auto;
-        width: 97%;
+        width: 83%;
     }
     .pitanje-zdravlja .page-header-nav a {
         font-size: 3.5vw;
-        margin: 4vw;
-        margin-top: 2vw;
+        margin: 2vw;
+        margin-top: 1vw;
     }
     .openspace .page-header-nav {
         margin: 0 auto;
