@@ -24,10 +24,16 @@ export default {
     if (process.server) {
       font = this.$cookies.get('tmg_font')
       theme = this.$cookies.get('tmg_theme')
+      if (theme === 'domoljub') {
+        this.$cookies.get('tmg_theme')
+      }
       premium = this.$cookies.get('tmg_access')
     } else {
       font = this.$store.state.theme.font
       theme = this.$store.state.theme.theme
+      if (theme === 'domoljub' && !this.$store.state.theme.update) {
+        this.$store.dispatch('theme/setTheme', { type: 'light', app: this })
+      }
       premium = this.$store.state.user.access
     }
     return {

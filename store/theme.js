@@ -1,6 +1,7 @@
 export const state = () => ({
   theme: 'regular',
   font: 'normal',
+  update: false,
 })
 
 export const mutations = {
@@ -9,6 +10,7 @@ export const mutations = {
       value = 'regular'
     }
     state.theme = value
+    state.update = new Date()
   },
   setFont(state, value) {
     if (!value) {
