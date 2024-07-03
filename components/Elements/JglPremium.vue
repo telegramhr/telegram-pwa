@@ -77,6 +77,9 @@
           class="animate"
         ></font-awesome-icon>
       </div>
+      <p class="full offer-disclaimer center-text">
+        18+ Igraj odgovorno. Igre na sreću mogu izazvati ovisnost.
+      </p>
     </div>
   </div>
 </template>

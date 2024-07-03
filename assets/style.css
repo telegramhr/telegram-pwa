@@ -1962,12 +1962,12 @@ figure img {
     order: 3;
 }
 .offer-disclaimer {
-    font-size: 12px;
-    font-size: 0.6rem;
+    font-size: 14px;
+    font-size: 1rem;
     padding: 0px 24px;
-    opacity: .7;
     font-style: italic;
     order: 4;
+  font-weight: bold;
 }
 .gallery figcaption {
     padding-top: 4px;
