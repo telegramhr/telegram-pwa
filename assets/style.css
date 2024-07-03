@@ -13099,47 +13099,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .reorder-echovald .new-homeblock-link {
     order: 3;
 }
-@media print {
-  .banner-slot {
-    display: none;
-  }
-
-  .offers-widget {
-    display: none;
-  }
-  .cxenseignore {
-    display: none;
-  }
-  header {
-    display: none;
-  }
-
-  #coral_thread {
-    display: none;
-  }
-  p, figure, img {
-    overflow: visible;
-    page-break-inside: avoid;
-  }
-
-  .related-header-widget {
-    display: none;
-  }
-
-  @page {
-    size: A4;
-    margin: 1.5cm;
-    @bottom-center {
-      content: counter(page) "/" counter(pages);
-    }
-  }
-  .cantha-related {
-    display: none;
-  }
-  .nothfive {
-    overflow: visible;
-  }
-}
 
 .blue-intext, .dark-mode .blue-intext {
     background-color: #304769;
@@ -14762,4 +14721,52 @@ header {
     background-color: #ae3737;
     animation: live_dot 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
     background-color: var(--tg-primary-highlight-color);
+}
+@media print {
+  .banner-slot {
+    display: none;
+  }
+
+  .offers-widget, #intext_premium {
+    display: none;
+  }
+  #midasWidget__11461 {
+    display: none;
+  }
+  .cxenseignore {
+    display: none;
+  }
+  header {
+    display: none !important;
+  }
+
+  nav {
+    display: none !important;
+  }
+
+  #coral_thread {
+    display: none;
+  }
+  p, figure, img {
+    overflow: visible !important;
+    break-inside: avoid-page !important;
+  }
+
+  .related-header-widget {
+    display: none;
+  }
+
+  @page {
+    size: A4;
+    margin: 1.5cm;
+    @bottom-center {
+      content: counter(page) "/" counter(pages);
+    }
+  }
+  .cantha-related {
+    display: none;
+  }
+  .nothfive {
+    overflow: visible;
+  }
 }
