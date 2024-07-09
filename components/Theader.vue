@@ -393,7 +393,7 @@
               >Pretplatite se</app-link
             >
             <app-link
-              v-show="!canLogIn"
+              v-show="!canLogIn && !$route.fullPath.includes('super1')"
               id="Poklonite pretplatu - header"
               to="/pretplata/poklon"
               class="newbtn desktop-only"
