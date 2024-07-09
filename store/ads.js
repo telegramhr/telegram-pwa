@@ -897,6 +897,9 @@ export const actions = {
               document
                 .getElementById(event.slot.getSlotElementId() + '-info')
                 .classList.remove('hide')
+              document
+                .getElementById(event.slot.getSlotElementId() + '-info2')
+                .classList.remove('hide')
             }
             if (name.includes('billboard_v1')) {
               if (event.isEmpty && !_that.$mobile) {
