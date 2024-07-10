@@ -14770,3 +14770,88 @@ header {
     overflow: visible;
   }
 }
+.smaller-packbox {
+    text-align: left;
+    padding-left: 50px;
+    max-width: 435px;
+    cursor: pointer;
+    margin-top: 0px;
+    margin-bottom: 24px;
+}
+.smaller-packbox:hover {
+    border-color: #666;
+}
+.smaller-packbox .overtitle {
+    margin: 0px;
+}
+.pretplata-page .smaller-packbox .sub-price {
+    font-size: 48px;
+    font-size: 2.4rem;
+}
+.smaller-packbox .smaller-packbox-radio {
+    position: absolute;
+    height: 100%;
+    width: 36px;
+    left: 0px;
+    top: 0px;
+}
+.pretplata-packboxes input:checked ~ label.smaller-packbox {
+    border-color: #ae3737;
+}
+.pretplata-packboxes input:checked ~ label.smaller-packbox .remp-radio-indicator div::before {
+    opacity: 1;
+    background-color: #ae3737;
+}
+.smaller-packbox .sub-price span {
+    font-weight: 400;
+}
+.noborder-packbox {
+    border: none;
+    margin-top: 0px;
+    margin-bottom: 8px;
+    padding: 0px;
+    max-width: 435px;
+}
+.pretplata-packboxes .huge-newbtn {
+    margin-top: 0px;
+    margin-bottom: 0.8rem;
+    width: 100%;
+    max-width: 435px;
+    text-align: center;
+}
+.pretplata-packboxes .huge-newbtn svg {
+    margin-right: 0.1em;
+}
+.pretplata-packboxes .huge-newbtn svg:first-of-type {
+    margin-left: 0.4em;
+}
+.bigger-sticcer {
+    background-color: #e5c473;
+    color: #111;
+    position: absolute;
+    top: -24px;
+    transform: rotate(15deg);
+    right: -24px;
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    padding: 5px;
+    padding-right: 5px;
+    font-size: 10px;
+    font-size: 0.6rem;
+    opacity: 1;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 767px) {
+    .pretplata-page .smaller-packbox .sub-price {
+        font-size: 32px;
+        font-size: 1.6rem;
+    }
+    .bigger-sticcer {
+        right: -12px;
+    }
+}
