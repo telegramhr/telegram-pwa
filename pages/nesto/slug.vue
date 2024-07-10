@@ -281,7 +281,7 @@
                   <div
                     class="full center banner-separator relative mobile-only"
                   >
-                    <div><span>Članak se nastavlja ispod oglasa</span></div>
+                    <div><span>Želim čitati bez oglasa</span></div>
                   </div>
                   <div class="full center">
                     <div id="telegram_desktop_intext_v3" class="banner-slot">

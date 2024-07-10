@@ -38,13 +38,11 @@ export default {
     },
   },
   mounted() {
-    if (this.$store.getters['user/hasPremium']) {
-      this.$nextTick(() => {
-        this.$el.style.display = 'none'
-      })
-      return
-    }
     this.$nextTick(() => {
+      if (this.$store.getters['user/hasPremium']) {
+        // this.$el.style.display = 'none'
+        return
+      }
       if (this.id === 'telegram_back_widget') {
         window.googletag.cmd.push(() => {
           window.googletag

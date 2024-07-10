@@ -16,6 +16,12 @@ export const state = () => ({
       posts: [],
       updated: null,
     },
+    s1_client: {
+      client: '',
+      posts: [],
+      updated: null,
+      active: false,
+    },
   },
 })
 
@@ -25,11 +31,18 @@ export const mutations = {
     state.updated = new Date().getTime()
   },
   setWidget(state, data) {
-    state.widget[data.payload].url = data.res.url
-    state.widget[data.payload].image = data.res.image
-    state.widget[data.payload].color = data.res.color
-    state.widget[data.payload].posts = data.res.posts
-    state.widget[data.payload].updated = new Date().getTime()
+    if (data.payload === 's1_client') {
+      state.widget[data.payload].active = data.res.active
+      state.widget[data.payload].client = data.res.client
+      state.widget[data.payload].posts = data.res.posts
+      state.widget[data.payload].updated = new Date().getTime()
+    } else {
+      state.widget[data.payload].url = data.res.url
+      state.widget[data.payload].image = data.res.image
+      state.widget[data.payload].color = data.res.color
+      state.widget[data.payload].posts = data.res.posts
+      state.widget[data.payload].updated = new Date().getTime()
+    }
   },
 }
 

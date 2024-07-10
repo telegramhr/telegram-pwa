@@ -144,7 +144,8 @@
       <super-shopping></super-shopping>
       <!-- Special widget -->
       <div v-if="!hasPremium" class="full relative">
-        <partner-special position="s1"></partner-special>
+        <super-partneri-client></super-partneri-client>
+        <!--<partner-special position="s1"></partner-special>-->
       </div>
     </client-only>
     <div class="full relative">
