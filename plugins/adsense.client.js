@@ -14,12 +14,35 @@ export default ({ app, store }) => {
     g.async = true
     g.defer = true
     document.head.appendChild(g)
-    const defractal = document.createElement('script')
-    defractal.async = true
-    defractal.defer = true
-    defractal.src =
-      'https://cdn.defractal.com/scripts/defractal-7-00770051-F494-429B-A1AF-2D4AB7F53D99js'
-    document.head.appendChild(defractal)
+    let cookie = this.$cookies.get('ab_test')
+    if (!cookie) {
+      const value = Math.floor(Math.random() * 100) + 1
+      if (value <= 50) {
+        cookie = 'a'
+      } else {
+        cookie = 'b'
+      }
+      this.$cookies.set('ab_test', cookie, {
+        path: '/',
+        maxAge: 60 * 60 * 24 * 90,
+      })
+    }
+    if (cookie === 'a') {
+      const adp = document.createElement('script')
+      adp.src = '//cdn.adpushup.com/46439/adpushup.js'
+      adp.crossOrigin = 'anonymous'
+      adp.type = 'text/javascript'
+      adp.async = true
+      document.head.appendChild(adp)
+      window.adpushup = window.adpushup || { que: [] }
+    } else {
+      const defractal = document.createElement('script')
+      defractal.async = true
+      defractal.defer = true
+      defractal.src =
+        'https://cdn.defractal.com/scripts/defractal-7-00770051-F494-429B-A1AF-2D4AB7F53D99js'
+      document.head.appendChild(defractal)
+    }
     app.$gtm.push({
       event: 'reload-script',
       provider: 'defractal',
@@ -55,6 +78,7 @@ export default ({ app, store }) => {
       adServer: 'googletag',
     })
   }
+
   function q(c, r) {
     window.apstag._Q.push([c, r])
   }

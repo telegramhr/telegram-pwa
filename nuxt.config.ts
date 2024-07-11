@@ -1,5 +1,6 @@
-export default {
-  // Global page headers (https://go.nuxtjs.dev/config-head)
+import { defineNuxtConfig } from '@nuxt/bridge'
+export default defineNuxtConfig({
+  bridge: false,
   globalName: 'telegram',
   modern: 'client',
   telemetry: false,
@@ -203,7 +204,7 @@ export default {
     credentials: true,
     proxy: true,
   },
-
+  /*
   proxy: {
     '/api': {
       target: 'https://www.telegram.hr/wp-json/telegram/pwa/v1/',
@@ -224,7 +225,7 @@ export default {
           '$1?api_key=V2rR5WTQbQyHEqCMvFEaUGU3ZNVkt4s6hnvmCz9dXt9aUwzMaUmXAhVzmv83',
       },
     },
-  },
+  }, */
 
   purgeCSS: {
     enabled: false,
@@ -258,4 +259,4 @@ export default {
       plugins: [['@babel/plugin-proposal-private-methods', { loose: true }]],
     },
   },
-}
+})
