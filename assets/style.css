@@ -14840,11 +14840,29 @@ header {
     text-align: center;
     padding: 5px;
     padding-right: 5px;
-    font-size: 10px;
+    font-size: 12px;
     font-size: 0.6rem;
     opacity: 1;
     overflow: hidden;
 }
+.alt-bigger-sticcer {
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    padding: 5px;
+    padding-right: 5px;
+    font-size: 12px;
+    font-size: 0.6rem;
+    top: -40px;
+    right: -40px;
+}
+.pretplata-packboxes input:checked ~ label.smaller-packbox {
+    border-color: #ae3737;
+}
+.pretplata-packboxes input:checked ~ label.smaller-packbox.faded {
+    opacity: 1;
+}
+
 
 @media screen and (max-width: 767px) {
     .pretplata-page .smaller-packbox .sub-price {
@@ -14852,6 +14870,16 @@ header {
         font-size: 1.6rem;
     }
     .bigger-sticcer {
+        right: -12px;
+    }
+    .alt-bigger-sticcer {
+        width: 64px;
+        height: 64px;
+        border-radius: 32px;
+        padding: 4px;
+        font-size: 10px;
+        font-size: 0.5rem;
+        top: -24px;
         right: -12px;
     }
 }
