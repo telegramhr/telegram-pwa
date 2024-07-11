@@ -97,6 +97,7 @@
               <div
                 v-if="subscription_package === 'pretplata-special'"
                 class="full center"
+                @click="checkout(two)"
               >
                 <div class="newbtn clickable huge-newbtn animate">
                   Kupite pretplatu
@@ -360,6 +361,9 @@ export default {
   },
   computed: {
     one() {
+      return 'TMU7ZSVF7C88'
+    },
+    two() {
       return 'TMYNBHMX6JBL'
     },
   },
