@@ -360,16 +360,7 @@ export default {
   },
   computed: {
     one() {
-      return 'TMU7ZSVF7C88'
-    },
-    two() {
-      return 'TMDN8RUGRHCF'
-    },
-    three() {
-      return 'TMMVDE0R01YY'
-    },
-    four() {
-      return 'TMMP593NCIAN'
+      return 'TMYNBHMX6JBL'
     },
   },
   mounted() {
@@ -384,35 +375,6 @@ export default {
           }
         },
       ])
-
-      if (this.$route.query.checkout) {
-        switch (this.$route.query.checkout) {
-          case 'sm':
-            this.checkout(this.one)
-            break
-          case 'sy':
-            this.checkout(this.two)
-            break
-          case 'pm':
-            this.checkout(this.three)
-            break
-          case 'py':
-            this.checkout(this.four)
-            break
-          case 'upgrade':
-            this.checkout('', 1)
-            break
-          case 'izbori':
-            this.checkout('TM5P57VYH7GT')
-            break
-          case 'term':
-            this.checkout(this.$route.query.term)
-            break
-        }
-      }
-      if (this.$route.query.term) {
-        this.checkout(this.$route.query.term)
-      }
     })
   },
   methods: {
