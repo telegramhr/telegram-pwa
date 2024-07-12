@@ -722,6 +722,9 @@ export const actions = {
       if (route.query.reload) {
         window.googletag.pubads().setTargeting('reload', '1')
       }
+      if (route.query.utm_campaign === 'back_widget') {
+        window.googletag.pubads().setTargeting('source', 'backwidget')
+      }
       let cookie = this.$cookies.get('ab_test')
       if (!cookie) {
         const value = Math.floor(Math.random() * 100) + 1
