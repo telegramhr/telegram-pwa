@@ -100,8 +100,13 @@ export default {
   methods: {
     start() {
       if (this.termId) {
-        this.checkout(this.termId)
-      } else if (this.$route.path.includes('telesport')) {
+        if (this.termId.includes('pretplata')) {
+          this.$router.push(this.termId)
+        } else {
+          this.checkout(this.termId)
+        }
+      }
+      else if (this.$route.path.includes('telesport')) {
         this.$router.push('/pretplata/telesport')
       } else {
         this.$router.push('/pretplata')
