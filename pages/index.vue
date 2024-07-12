@@ -73,7 +73,7 @@
         </div>
       </nav>
       <div class="container flex relative column-top-pad column-horizontal-pad">
-        <app-link
+        <!--<app-link
           to="/pretplata/"
           class="cantha-header-special center desktop-only"
         >
@@ -94,7 +94,7 @@
             src="@/assets/img/extras/people/dora_nagrada.png"
             alt="Dora Kršul na dodjeli nagrade za novinarku godine"
           />
-        </app-link>
+        </app-link>-->
         <div class="full center relative desktop-only">
           <a
             class="cantha-menubtn"
