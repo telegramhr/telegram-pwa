@@ -88,7 +88,11 @@ export default {
       }
     },
     checkout(termId) {
-      this.$piano.start(termId)
+      if (termId.includes('pretplata')) {
+        this.$router.push(termId)
+      } else {
+        this.$piano.start(termId)
+      }
     },
   },
 }
