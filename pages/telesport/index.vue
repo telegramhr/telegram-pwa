@@ -343,7 +343,7 @@
           <div
             class="noththree full center-text column-vertical-pad subsection-title"
           >
-            Euro 24
+            Olimpijske igre
             <img src="@/assets/img/logo_favbet_blue.svg" alt="Favbet logo" />
           </div>
         </div>
