@@ -168,7 +168,7 @@
             role="menuitem"
             to="/tema/olimpijske-igre-2024/"
             class="animate flex highlight-tile"
-            >Olimpijske igre
+            >Olympics The Game by
             <img src="@/assets/img/logo_favbet_magenta.svg" alt="Favbet logo"
           /></app-link>
         </nav>
