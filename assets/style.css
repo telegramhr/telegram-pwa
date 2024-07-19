@@ -3487,7 +3487,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .mobile-top-border {
         border-top: 1px solid #c8c8c8;
     }
-    .dark-mode .mobile-top-border {
+    .mobile-bottom-border {
+        border-bottom: 1px solid #c8c8c8;
+    }
+    .dark-mode .mobile-top-border, .dark-mode .mobile-bottom-border {
         border-color: #555;
     }
     .single-article {
@@ -14882,4 +14885,190 @@ header {
         top: -24px;
         right: -12px;
     }
+}
+.alternative-single .donation-form .nothfour {
+    font-size: 0.9rem;
+    margin-bottom: -8px;
+}
+.alternative-single .donation-form > .column-full-pad:first-child {
+    display: none;
+}
+.alternative-single .single-article-body h2 {
+    margin-bottom: 16px;
+    margin-top: 48px;
+}
+.alternative-single .offers-widget .cantha-separator, .alternative-single .offers-widget .noththree.subsection-title {
+    display: none;
+}
+.alternative-single .single-article-body .check span {
+    top: -5px;
+}
+.alternative-single .newbtn {
+    line-height: 1em;
+}
+.alternative-single .donation-form label {
+    margin-top: 0px;
+}
+.alternative-single h1 {
+    font-size: 28px;
+    font-size: 1.4rem;
+}
+.minicard > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3.2rem;
+    height: 3.2rem;
+}
+.minicard {
+    min-height: 3.2rem;
+    padding: 0.4rem;
+    padding-left: 3.4rem;
+    padding-right: 1.6rem;
+    margin-bottom: 0.4rem;
+}
+.newsletter-minicard {
+    padding-left: 4rem;
+}
+.minicard-input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    padding-bottom: 0.2rem;
+    padding-top: 0.1rem;
+}
+.minicard-title {
+    font-family: 'Barlow', sans-serif;
+    font-size: 20px;
+    font-size: 1rem;
+    line-height: 1em;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+}
+.minicard-text {
+    font-family: 'Barlow', sans-serif;
+    font-size: 16px;
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+@media screen and (min-width: 767px) {
+    .alternative-single h1 {
+        font-size: 32px;
+        font-size: 1.6rem;
+    }
+    .alternating-padding {
+        padding-left: 0.2rem;
+    }
+    .alternating-padding:nth-child(odd) {
+        padding-left: 0rem;
+        padding-right: 0.2rem;
+    }
+}
+.gigantic-newbtn {
+    font-size: 20px;
+    font-size: 1rem;
+    padding: 12px 20px;
+    padding-top: 11px;
+    padding: 0.6rem 1rem;
+    padding-top: 0.55rem;
+}
+.donation-form .darkened-input {
+    background-color: #e8dacd;
+    padding: 0.4rem 0.6rem;
+    outline: none;
+    border: none;
+    font-family: 'Barlow', sans-serif;
+    font-size: 20px;
+    font-size: 1rem;
+}
+.single-article .single-article-body .bigger-bottom-pretplata-promo p, .single-article .single-article-body .cantha-break p {
+    font-family: 'Barlow', sans-serif;
+    font-size: 18px;
+    font-size: 0.9rem;
+    line-height: 1.2em;
+    margin-bottom: 0px;
+}
+.single-article .single-article-body .bigger-bottom-pretplata-promo {
+    margin-bottom: 0.8rem;
+}
+.single-article-body .bottom-pretplata-promo .klub-header img {
+    width: 50%;
+    max-width: 300px;
+}
+.alternative-single .single-article-body .cantha-break h2 {
+    margin-top: 0px;
+    margin-bottom: 8px;
+}
+.single-article .single-article-body .cantha-break .newbtn {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 16px;
+    font-size: 0.8rem;
+}
+@media screen and (max-width: 767px) {
+    .single-article-body .bottom-pretplata-promo .klub-header {
+      margin-top: -30vw;
+      margin-bottom: -8vw;
+    }
+    .single-article-body .klub-header .small-top-margin {
+        margin-top: 4vw;
+    }
+    .newsletter-minicard > img {
+        width: 4rem;
+        height: 4rem;
+    }
+    .newsletter-minicard {
+        min-height: 4rem;
+        padding-left: 4.8rem;
+        padding-right: 2rem;
+    }
+    .alternative-single .single-article-body h2 {
+        margin-top: 32px;
+        line-height: 1.2em;
+        font-size: 1.2rem;
+        margin-bottom: 0.6rem;
+    }
+}
+.alternative-single .donation-select .fourth:nth-child(1) {
+    padding-right: 0.3rem;
+}
+.alternative-single .donation-select .fourth:nth-child(2) {
+    padding-left: 0.033rem;
+    padding-right: 0.166rem;
+}
+.alternative-single .donation-select .fourth:nth-child(3) {
+    padding-right: 0.033rem;
+    padding-left: 0.166rem;
+}
+.alternative-single .donation-select .fourth:nth-child(4) {
+    padding-left: 0.3rem;
+}
+
+.alternative-single .donation-select label.darkened-bg {
+    font-family: 'Barlow', sans-serif;
+    font-size: 18px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #666;
+    border: 1px solid #e8dacd;
+    margin-bottom: 0.333rem;
+}
+.alternative-single .donation-select label.darkened-bg svg {
+    margin-right: 0.4rem;
+}
+.alternative-single .donation-select input:checked ~ label.darkened-bg {
+    background-color: #ae3737;
+    color: white;
+    opacity: 1;
+    border: 1px solid #ae3737;
+}
+.alternative-single .donation-select {
+    flex-wrap: wrap;
+}
+
+.alternative-single .donation-select button.newbtn {
+    border: none;
+    outline: none;
+    margin-top: 0.4rem;
 }
