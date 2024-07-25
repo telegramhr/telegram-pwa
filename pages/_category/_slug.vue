@@ -385,6 +385,17 @@
                 v-html="post.content"
               ></div>
               <client-only>
+                <portal
+                  v-if="
+                    !hasPremium &&
+                    !(post.disable_ads && post.disable_ads.includes('spar'))
+                  "
+                  selector="#intext_premium"
+                >
+                  <div class="full">
+                    <offers-premium></offers-premium>
+                  </div>
+                </portal>
                 <portal v-if="showQuiz" selector="#quiz-container">
                   <quiz
                     v-if="post.quiz"
@@ -399,17 +410,7 @@
                 >
                   <gallery :gallery="gallery"></gallery>
                 </portal>
-                <portal
-                  v-if="
-                    !hasPremium &&
-                    !(post.disable_ads && post.disable_ads.includes('spar'))
-                  "
-                  selector="#intext_premium"
-                >
-                  <div class="full">
-                    <offers-premium></offers-premium>
-                  </div>
-                </portal>
+
                 <intext-new @show="showMidasIntext = true"></intext-new>
                 <midas
                   v-if="!hasPremium && hasLinker"
