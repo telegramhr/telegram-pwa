@@ -623,20 +623,45 @@ export const actions = {
         case 'fotogalerije-category':
           targeting.wp_post_type = ['category']
           break
+        case 'telesport-category':
+          targeting.wp_post_type = ['category']
+          targeting.post_category.push('telesport')
+          targeting.site = 'telesport'
+          if (payload.tags) {
+            targeting.post_tag = payload.tags.map((tag) => tag.slug)
+            targeting.wp_post_type = ['single']
+            targeting.post_category.push(route.params.category)
+          }
+          break
         case 'super1-category':
           targeting.wp_post_type = ['category']
           targeting.post_category.push('super1')
           targeting.site = 'super1'
+          if (payload.tags) {
+            targeting.post_tag = payload.tags.map((tag) => tag.slug)
+            targeting.wp_post_type = ['single']
+            targeting.post_category.push(route.params.category)
+          }
           break
         case 'pitanje-zdravlja-category':
           targeting.wp_post_type = ['category']
           targeting.post_category.push('pitanje-zdravlja')
           targeting.site = 'pitanjezdravlja'
+          if (payload.tags) {
+            targeting.post_tag = payload.tags.map((tag) => tag.slug)
+            targeting.wp_post_type = ['single']
+            targeting.post_category.push(route.params.category)
+          }
           break
         case 'openspace-category':
           targeting.wp_post_type = ['category']
           targeting.post_category.push('openspace')
           targeting.site = 'openspace'
+          if (payload.tags) {
+            targeting.post_tag = payload.tags.map((tag) => tag.slug)
+            targeting.wp_post_type = ['single']
+            targeting.post_category.push(route.params.category)
+          }
           break
         case 'super1':
           targeting.wp_post_type = ['home']
