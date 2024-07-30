@@ -950,6 +950,11 @@ export default {
         tracker: 'init trackEvent trackPageview trackCommerce',
         iota: 'init',
       }
+      function mock(fn) {
+        return function () {
+          this._.push([fn, arguments])
+        }
+      }
 
       Object.keys(mockFuncs).forEach(function (key) {
         if (!window.remplib[key]) {
@@ -960,11 +965,7 @@ export default {
 
           for (i = 0; i < funcs.length; i++) {
             fn = funcs[i]
-            window.remplib[key][fn] = (fn) => {
-              return function () {
-                this._.push([fn, arguments])
-              }
-            }
+            window.remplib[key][fn] = mock(fn)
           }
         }
       })
@@ -991,7 +992,7 @@ export default {
           },
         },
         article: {
-          id: this.post.id,
+          id: this.post.id.toString(),
           category: this.post.category,
           locked: this.post.paywall === 'always',
           tags: this.post.tags.map((tag) => {
@@ -1013,7 +1014,6 @@ export default {
           url: 'https://campaign.telegram.hr',
         },
       }
-
       window.remplib.tracker.init(rempConfig)
       window.remplib.campaign.init(rempConfig)
     },
