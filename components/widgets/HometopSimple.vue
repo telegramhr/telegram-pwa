@@ -39,7 +39,7 @@ export default {
       subtitle: '12.99€ plati više dobij isto',
       cta: 'Pretplatite se',
       show: false,
-      showA: true,
+      showA: false,
     }
   },
   mounted() {
