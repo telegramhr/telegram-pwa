@@ -1,5 +1,5 @@
 <template>
-  <div v-if="posts" class="full">
+  <div v-if="posts" id="keep-reading" class="full">
     <div
       class="container flex relative block-related cantha-related standard-block stretch have-background"
     >
