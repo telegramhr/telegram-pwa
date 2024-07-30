@@ -185,7 +185,9 @@
       </div>
       <div class="full relative">
         <div class="full flex">
-          <ad-unit id="telegram_background"></ad-unit>
+          <client-only>
+            <ad-unit id="telegram_background"></ad-unit>
+          </client-only>
           <article
             id="article-body"
             class="container column-full-pad flex relative mobile-side-pad have-background"

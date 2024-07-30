@@ -40,7 +40,7 @@ export default {
   mounted() {
     this.$nextTick(() => {
       if (this.$store.getters['user/hasPremium']) {
-        // this.$el.style.display = 'none'
+        this.$el.style.display = 'none'
         return
       }
       if (this.id === 'telegram_back_widget') {
