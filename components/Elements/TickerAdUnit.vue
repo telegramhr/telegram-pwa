@@ -81,7 +81,7 @@ export default {
     this.$watch(
       () => this.$route.path,
       (to) => {
-        if (to.includes('pretplata')) {
+        if (to.includes('pretplata') || to.includes('moj-racun')) {
           this.shouldHide = true
         }
       }
