@@ -1,4 +1,4 @@
-export default ({ app, store }) => {
+export default ({ app, store, route }) => {
   if (store.state.user.access !== 'BR92VTWM') {
     // adsense
     const s = document.createElement('script')
@@ -29,10 +29,10 @@ export default ({ app, store }) => {
     }
     if (
       cookie === 'a' &&
-      !app.route.name.includes('super1') &&
-      !app.route.name.includes('telesport') &&
-      !app.route.name.includes('openspace') &&
-      !app.route.name.includes('pitanje-zdravlja')
+      !route.name.includes('super1') &&
+      !route.name.includes('telesport') &&
+      !route.name.includes('openspace') &&
+      !route.name.includes('pitanje-zdravlja')
     ) {
       const adp = document.createElement('script')
       adp.src = '//cdn.adpushup.com/46439/adpushup.js'
