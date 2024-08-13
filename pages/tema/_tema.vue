@@ -29,7 +29,10 @@
           </div>
           <div class="full column-horizontal-pad relative">
             <h1
-              v-if="$route.params.tema === 'uefa-euro-2024' || $route.params.tema === 'olimpijske-igre-2024'"
+              v-if="
+                $route.params.tema === 'uefa-euro-2024' ||
+                $route.params.tema === 'olimpijske-igre-2024'
+              "
               class="full center-text"
             >
               {{ cat | parseCat }}
@@ -38,7 +41,11 @@
               Članci na temu {{ cat | parseCat }}
             </h1>
             <div
-              v-if="$route.params.tema === 'uefa-euro-2024' || $route.params.tema === 'olimpijske-igre-2024'"
+              v-if="
+                $route.params.tema === 'uefa-euro-2024' ||
+                $route.params.tema === 'olimpijske-igre-2024' ||
+                $route.params.tems === 'budi-u-igri-uz-favbet'
+              "
               class="center desktop-only brought-by"
             >
               <span>Powered by</span>
@@ -96,7 +103,11 @@
       </div>
       <client-only>
         <jgl-premium
-          v-if="$route.params.tema === 'uefa-euro-2024' || $route.params.tema === 'olimpijske-igre-2024'"
+          v-if="
+            $route.params.tema === 'uefa-euro-2024' ||
+            $route.params.tema === 'olimpijske-igre-2024' ||
+            $route.params.tema === 'budi-u-igri-uz-favbet'
+          "
           site="ts"
         ></jgl-premium>
         <!-- Prekid newsletter -->

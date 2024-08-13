@@ -166,9 +166,9 @@
           <app-link to="/telesport" role="menuitem"> Telesport </app-link>
           <app-link
             role="menuitem"
-            to="/tema/olimpijske-igre-2024/"
+            to="/tema/budi-u-igri-uz-favbet/"
             class="animate flex highlight-tile"
-            >Olympics The Game by
+            >Budi u igri uz
             <img src="@/assets/img/logo_favbet_magenta.svg" alt="Favbet logo"
           /></app-link>
         </nav>
