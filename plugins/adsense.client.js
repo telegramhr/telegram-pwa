@@ -27,7 +27,7 @@ export default ({ app, store, route }) => {
         maxAge: 60 * 60 * 24 * 90,
       })
     }
-    if (
+    /* if (
       cookie === 'a' &&
       !route.name.includes('super1') &&
       !route.name.includes('telesport') &&
@@ -41,14 +41,14 @@ export default ({ app, store, route }) => {
       adp.async = true
       document.head.appendChild(adp)
       window.adpushup = window.adpushup || { que: [] }
-    } else {
-      const defractal = document.createElement('script')
-      defractal.async = true
-      defractal.defer = true
-      defractal.src =
-        'https://cdn.defractal.com/scripts/defractal-7-00770051-F494-429B-A1AF-2D4AB7F53D99js'
-      document.head.appendChild(defractal)
-    }
+    } else { */
+    const defractal = document.createElement('script')
+    defractal.async = true
+    defractal.defer = true
+    defractal.src =
+      'https://cdn.defractal.com/scripts/defractal-7-00770051-F494-429B-A1AF-2D4AB7F53D99js'
+    document.head.appendChild(defractal)
+    // }
     app.$gtm.push({
       event: 'reload-script',
       provider: 'defractal',
