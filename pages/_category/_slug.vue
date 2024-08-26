@@ -423,7 +423,7 @@
                   v-if="
                     !hasPremium &&
                     !post.category_slug.includes('superone') &&
-                    !(post.disable_ads && post.disable_ads.includes('spar'))
+                    !(post.disable_ads && post.disable_ads.includes('all'))
                   "
                   class="full"
                   style="max-width: 1201px"
