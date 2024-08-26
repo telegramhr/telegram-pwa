@@ -14781,6 +14781,9 @@ header {
     margin-top: 0px;
     margin-bottom: 24px;
 }
+.extend-me-papa .smaller-packbox, .extend-me-papa .noborder-packbox, .extend-me-papa.pretplata-packboxes .huge-newbtn {
+    max-width: 520px;
+}
 .smaller-packbox:hover {
     border-color: #666;
 }
@@ -14919,6 +14922,7 @@ header {
     left: 0;
     width: 3.2rem;
     height: 3.2rem;
+    object-fit: cover;
 }
 .minicard {
     min-height: 3.2rem;
@@ -15071,4 +15075,10 @@ header {
     border: none;
     outline: none;
     margin-top: 0.4rem;
+}
+@media screen and (min-width: 767px) {
+    .pretplata-page h1.relax-a-lil-aight {
+      font-size: 48px;
+      font-size: 2.4rem;
+    }
 }
