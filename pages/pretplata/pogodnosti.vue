@@ -71,10 +71,11 @@
                 <img
                   src="https://www.telegram.hr/wp-content/uploads/2018/07/tg_klaric.png"
                   aria-hidden="true"
+                  class="newsletter-minicard-bg-1"
                 />
                 <div class="full minicard-title">Jasmin Klarić</div>
                 <div class="full minicard-text">
-                  Puni članci Telegramovog političkog analitičara
+                  Kolumne i analize vodećeg političkog analitičara
                 </div>
                 <newsletter-subscribe :mlid="2596"></newsletter-subscribe>
               </div>
@@ -85,10 +86,11 @@
                 <img
                   src="https://www.telegram.hr/wp-content/uploads/2019/09/dora-krsul.png"
                   aria-hidden="true"
+                  class="newsletter-minicard-bg-2"
                 />
                 <div class="full minicard-title">Dora Kršul</div>
                 <div class="full minicard-text">
-                  Puni članci specijalizirani za školstvo i akademsku zajednicu
+                  Članci novinarke godine, specijalizirana za školstvo
                 </div>
                 <newsletter-subscribe :mlid="2566"></newsletter-subscribe>
               </div>
@@ -99,10 +101,11 @@
                 <img
                   src="https://www.telegram.hr/wp-content/uploads/2017/09/drago_hedl-1.png"
                   aria-hidden="true"
+                  class="newsletter-minicard-bg-3"
                 />
                 <div class="full minicard-title">Drago Hedl</div>
                 <div class="full minicard-text">
-                  Puni članci jednog od najnagrađivanijih hrvatskih novinara
+                  Istrage jednog od najnagrađivanijih hrvatskih novinara
                 </div>
                 <newsletter-subscribe :mlid="2564"></newsletter-subscribe>
               </div>
@@ -114,6 +117,109 @@
               >
                 <div class="full center-text minicard-text">
                   Pogledajte sve newslettere
+                </div>
+              </app-link>
+            </div>
+            <h2 class="nothtwo full">
+              Želite li naručiti neki od Telegramovih bestsellera?
+            </h2>
+            <p class="full">Publicistički hitovi naših najboljih autora:</p>
+            <div class="full flex relative">
+              <app-link
+                target="_blank"
+                to="/knjiga/boris-dezulovic-bili-libar-2"
+                class="half flex flex-responsive alternating-padding"
+              >
+                <div class="full minicard darkened-bg flex relative">
+                  <img
+                    src="@/assets/img/tg_book_clean_dezulovic2.png"
+                    alt="Naslovnica knjige Borisa Dežulovića 'Bili libar 2'"
+                    loading="lazy"
+                  />
+                  <div class="full minicard-title">Bili libar 2</div>
+                  <div class="full minicard-text">Boris Dežulović</div>
+
+                  <div class="minicard-input center column-mini-horizontal-pad">
+                    <font-awesome-icon
+                      :icon="['far', 'angle-right']"
+                      class="animate"
+                    ></font-awesome-icon>
+                  </div>
+                </div>
+              </app-link>
+              <app-link
+                target="_blank"
+                to="/knjiga/aleksandar-stankovic-depra"
+                class="half flex flex-responsive alternating-padding"
+              >
+                <div class="full minicard darkened-bg flex relative">
+                  <img
+                    src="@/assets/img/tg_book_clean_stankovic.png"
+                    alt="Naslovnica nove knjige Aleksandra Stankovića 'Depra'"
+                    loading="lazy"
+                  />
+                  <div class="full minicard-title">Depra</div>
+                  <div class="full minicard-text">Aleksandar Stanković</div>
+
+                  <div class="minicard-input center column-mini-horizontal-pad">
+                    <font-awesome-icon
+                      :icon="['far', 'angle-right']"
+                      class="animate"
+                    ></font-awesome-icon>
+                  </div>
+                </div>
+              </app-link>
+              <app-link
+                target="_blank"
+                to="/knjiga/rajko-grlic-neispricane-price"
+                class="half flex flex-responsive alternating-padding"
+              >
+                <div class="full minicard darkened-bg flex relative">
+                  <img
+                    src="@/assets/img/tg_book_clean_grlic.png"
+                    alt="Naslovnica knjige Rajka Grlića 'Neispričane priče'"
+                    loading="lazy"
+                  />
+                  <div class="full minicard-title">Neispričane priče</div>
+                  <div class="full minicard-text">Rajko Grlić</div>
+
+                  <div class="minicard-input center column-mini-horizontal-pad">
+                    <font-awesome-icon
+                      :icon="['far', 'angle-right']"
+                      class="animate"
+                    ></font-awesome-icon>
+                  </div>
+                </div>
+              </app-link>
+              <app-link
+                target="_blank"
+                to="/knjiga/boris-dezulovic-bili-libar"
+                class="half flex flex-responsive alternating-padding"
+              >
+                <div class="full minicard darkened-bg flex relative">
+                  <img
+                    src="@/assets/img/tg_book_clean_dezulovic.png"
+                    alt="Naslovnica knjige Borisa Dežulovića 'Bili libar'"
+                    loading="lazy"
+                  />
+                  <div class="full minicard-title">Bili libar</div>
+                  <div class="full minicard-text">Boris Dežulović</div>
+
+                  <div class="minicard-input center column-mini-horizontal-pad">
+                    <font-awesome-icon
+                      :icon="['far', 'angle-right']"
+                      class="animate"
+                    ></font-awesome-icon>
+                  </div>
+                </div>
+              </app-link>
+              <app-link
+                to="/knjige"
+                target="_blank"
+                class="full darkened-bg center column-mini-vertical-pad"
+              >
+                <div class="full center-text minicard-text">
+                  Pogledajte sve knjige
                 </div>
               </app-link>
             </div>
@@ -270,109 +376,6 @@
                 </div>
               </div>
             </app-link>
-            <h2 class="nothtwo full">
-              Želite li naručiti neki od Telegramovih bestsellera?
-            </h2>
-            <p class="full">Publicistički hitovi naših najboljih autora:</p>
-            <div class="full flex relative">
-              <app-link
-                target="_blank"
-                to="/knjiga/boris-dezulovic-bili-libar-2"
-                class="half flex flex-responsive alternating-padding"
-              >
-                <div class="full minicard darkened-bg flex relative">
-                  <img
-                    src="@/assets/img/tg_book_clean_dezulovic2.png"
-                    alt="Naslovnica knjige Borisa Dežulovića 'Bili libar 2'"
-                    loading="lazy"
-                  />
-                  <div class="full minicard-title">Bili libar 2</div>
-                  <div class="full minicard-text">Boris Dežulović</div>
-
-                  <div class="minicard-input center column-mini-horizontal-pad">
-                    <font-awesome-icon
-                      :icon="['far', 'angle-right']"
-                      class="animate"
-                    ></font-awesome-icon>
-                  </div>
-                </div>
-              </app-link>
-              <app-link
-                target="_blank"
-                to="/knjiga/aleksandar-stankovic-depra"
-                class="half flex flex-responsive alternating-padding"
-              >
-                <div class="full minicard darkened-bg flex relative">
-                  <img
-                    src="@/assets/img/tg_book_clean_stankovic.png"
-                    alt="Naslovnica nove knjige Aleksandra Stankovića 'Depra'"
-                    loading="lazy"
-                  />
-                  <div class="full minicard-title">Depra</div>
-                  <div class="full minicard-text">Aleksandar Stanković</div>
-
-                  <div class="minicard-input center column-mini-horizontal-pad">
-                    <font-awesome-icon
-                      :icon="['far', 'angle-right']"
-                      class="animate"
-                    ></font-awesome-icon>
-                  </div>
-                </div>
-              </app-link>
-              <app-link
-                target="_blank"
-                to="/knjiga/rajko-grlic-neispricane-price"
-                class="half flex flex-responsive alternating-padding"
-              >
-                <div class="full minicard darkened-bg flex relative">
-                  <img
-                    src="@/assets/img/tg_book_clean_grlic.png"
-                    alt="Naslovnica knjige Rajka Grlića 'Neispričane priče'"
-                    loading="lazy"
-                  />
-                  <div class="full minicard-title">Neispričane priče</div>
-                  <div class="full minicard-text">Rajko Grlić</div>
-
-                  <div class="minicard-input center column-mini-horizontal-pad">
-                    <font-awesome-icon
-                      :icon="['far', 'angle-right']"
-                      class="animate"
-                    ></font-awesome-icon>
-                  </div>
-                </div>
-              </app-link>
-              <app-link
-                target="_blank"
-                to="/knjiga/boris-dezulovic-bili-libar"
-                class="half flex flex-responsive alternating-padding"
-              >
-                <div class="full minicard darkened-bg flex relative">
-                  <img
-                    src="@/assets/img/tg_book_clean_dezulovic.png"
-                    alt="Naslovnica knjige Borisa Dežulovića 'Bili libar'"
-                    loading="lazy"
-                  />
-                  <div class="full minicard-title">Bili libar</div>
-                  <div class="full minicard-text">Boris Dežulović</div>
-
-                  <div class="minicard-input center column-mini-horizontal-pad">
-                    <font-awesome-icon
-                      :icon="['far', 'angle-right']"
-                      class="animate"
-                    ></font-awesome-icon>
-                  </div>
-                </div>
-              </app-link>
-              <app-link
-                to="/knjige"
-                target="_blank"
-                class="full darkened-bg center column-mini-vertical-pad"
-              >
-                <div class="full center-text minicard-text">
-                  Pogledajte sve knjige
-                </div>
-              </app-link>
-            </div>
             <div class="full flex">
               <h2 class="full">
                 Znate li za ove pogodnosti uključene u vašu pretplatu?
@@ -428,7 +431,7 @@
     </div>
     <div class="full center column-full-pad column-bottom-margin">
       <app-link to="/" class="newbtn huge-newbtn gigantic-newbtn"
-        >Počnite koristiti Telegram</app-link
+        >Nastavite čitati</app-link
       >
     </div>
     <tfooter></tfooter>
