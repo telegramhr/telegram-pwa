@@ -89,11 +89,7 @@ export default function ({ route, store }, inject) {
                 email: _that.$store.state.user.email,
                 squads: [2128, 2555, 2554, 10670, 10671],
               }).then(() => {
-                if (back) {
-                  _that.$router.go(back)
-                } else {
-                  _that.$router.refresh()
-                }
+                  _that.$router.push('/pretplata/dobrodosli')
               })
             },
           })
