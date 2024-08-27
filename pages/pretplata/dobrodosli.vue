@@ -223,7 +223,7 @@ export default {
       {
         hid: 'canonical',
         rel: 'canonical',
-        href: 'https://www.telegram.hr/pretplata/uspjeh/',
+        href: 'https://www.telegram.hr/pretplata/dobrodosli/',
       },
     ]
     return {

@@ -47,7 +47,7 @@
             Nastavite čitati
           </div>
           <div
-            v-else
+            v-else-if="!$store.state.user.token"
             class="newbtn huge-newbtn altbtn center-text clickable"
             @click.prevent="login"
           >
