@@ -35,17 +35,7 @@
                 <div class="full minicard-text">
                   pregled najvažnijih vijesti, analiza i tema
                 </div>
-                <div class="minicard-input center">
-                  <input id="dnevni" type="checkbox" class="cbx" checked />
-                  <label class="check" for="dnevni">
-                    <svg width="18px" height="18px" viewBox="0 0 18 18">
-                      <path
-                        d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
-                      ></path>
-                      <polyline points="1 9 7 14 15 4"></polyline>
-                    </svg>
-                  </label>
-                </div>
+                <newsletter-subscribe :mlid="2128" free></newsletter-subscribe>
               </div>
               <div
                 class="full minicard newsletter-minicard darkened-bg flex relative"
@@ -58,20 +48,10 @@
                 <div class="full minicard-text">
                   naši najbolji tekstovi, personalizirani za Vas
                 </div>
-                <div class="minicard-input center">
-                  <input id="propustili" type="checkbox" class="cbx" checked />
-                  <label class="check" for="propustili">
-                    <svg width="18px" height="18px" viewBox="0 0 18 18">
-                      <path
-                        d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
-                      ></path>
-                      <polyline points="1 9 7 14 15 4"></polyline>
-                    </svg>
-                  </label>
-                </div>
+                <newsletter-subscribe :mlid="2554" free></newsletter-subscribe>
               </div>
               <div
-                class="full minicard newsletter-minicard darkened-bg flex relative"
+                class="full minicard newsletter-minicard darkened-bg flex relative column-bottom-margin"
               >
                 <img
                   src="@/assets/img/tg_newsletter_avatars_vikend.jpg"
@@ -82,19 +62,10 @@
                   izvrsno štivo tijekom vikenda
                 </div>
 
-                <div class="minicard-input center">
-                  <input id="vikend" type="checkbox" class="cbx" checked />
-                  <label class="check" for="vikend">
-                    <svg width="18px" height="18px" viewBox="0 0 18 18">
-                      <path
-                        d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
-                      ></path>
-                      <polyline points="1 9 7 14 15 4"></polyline>
-                    </svg>
-                  </label>
-                </div>
+                <newsletter-subscribe :mlid="2555" free></newsletter-subscribe>
               </div>
               <div
+                v-if="!onlyTS"
                 class="full minicard newsletter-minicard darkened-bg flex relative"
               >
                 <img
@@ -105,19 +76,10 @@
                 <div class="full minicard-text">
                   Puni članci Telegramovog političkog analitičara
                 </div>
-                <div class="minicard-input center">
-                  <input id="klaric" type="checkbox" class="cbx" />
-                  <label class="check" for="klaric">
-                    <svg width="18px" height="18px" viewBox="0 0 18 18">
-                      <path
-                        d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
-                      ></path>
-                      <polyline points="1 9 7 14 15 4"></polyline>
-                    </svg>
-                  </label>
-                </div>
+                <newsletter-subscribe :mlid="2596"></newsletter-subscribe>
               </div>
               <div
+                v-if="!onlyTS"
                 class="full minicard newsletter-minicard darkened-bg flex relative"
               >
                 <img
@@ -128,19 +90,10 @@
                 <div class="full minicard-text">
                   Puni članci specijalizirani za školstvo i akademsku zajednicu
                 </div>
-                <div class="minicard-input center">
-                  <input id="krsul" type="checkbox" class="cbx" />
-                  <label class="check" for="krsul">
-                    <svg width="18px" height="18px" viewBox="0 0 18 18">
-                      <path
-                        d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
-                      ></path>
-                      <polyline points="1 9 7 14 15 4"></polyline>
-                    </svg>
-                  </label>
-                </div>
+                <newsletter-subscribe :mlid="2566"></newsletter-subscribe>
               </div>
               <div
+                v-if="!onlyTS"
                 class="full minicard newsletter-minicard darkened-bg flex relative"
               >
                 <img
@@ -151,19 +104,10 @@
                 <div class="full minicard-text">
                   Puni članci jednog od najnagrađivanijih hrvatskih novinara
                 </div>
-                <div class="minicard-input center">
-                  <input id="hedl" type="checkbox" class="cbx" />
-                  <label class="check" for="hedl">
-                    <svg width="18px" height="18px" viewBox="0 0 18 18">
-                      <path
-                        d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
-                      ></path>
-                      <polyline points="1 9 7 14 15 4"></polyline>
-                    </svg>
-                  </label>
-                </div>
+                <newsletter-subscribe :mlid="2564"></newsletter-subscribe>
               </div>
               <app-link
+                v-if="!onlyTS"
                 target="_blank"
                 to="/newsletters"
                 class="full darkened-bg center column-mini-vertical-pad"
@@ -186,7 +130,7 @@
                     id="price-10"
                     v-model="price"
                     value="10"
-                    name="price-10"
+                    name="price"
                     type="radio"
                     class="hide"
                   />
@@ -197,7 +141,7 @@
                     id="price-25"
                     v-model="price"
                     value="25"
-                    name="price-25"
+                    name="price"
                     type="radio"
                     class="hide"
                   />
@@ -208,7 +152,7 @@
                     id="price-50"
                     v-model="price"
                     value="50"
-                    name="price-50"
+                    name="price"
                     type="radio"
                     class="hide"
                   />
@@ -219,7 +163,7 @@
                     id="price-100"
                     v-model="price"
                     value="100"
-                    name="price-100"
+                    name="price"
                     type="radio"
                     class="hide"
                   />
@@ -286,11 +230,12 @@
                 <p class="small-top-margin">IBAN: HR4723600001503346846</p>
                 <p>Telegram Media Grupa d.o.o.</p>
                 <p>Iznos: {{ price }},00 €</p>
-                <!--<p v-if="number">Model plaćanja: 00</p>
+                <p v-if="number">Model plaćanja: 00</p>
                 <p v-if="number">Poziv na broj: {{ number }}</p>
                 <p>Opis plaćanja: Donacija - {{ name }}</p>
-                <p v-if="code"><img :src="'data:image/png;base64,' + code" /></p>
-                <button @click="submitBank">Generiraj kod za plaćanje</button>-->
+                <p v-if="code">
+                  <img :src="'data:image/png;base64,' + code" />
+                </p>
               </div>
             </div>
             <p class="full small-top-margin">
@@ -491,27 +436,230 @@
 </template>
 
 <script>
+import braintree from 'braintree-web'
+
 export default {
   name: 'PretplataUspjeh',
   data() {
     return {
       price: 0,
       nacinPlacanja: 'none',
+      access: {},
+      thankyou: false,
+      error: false,
+      name:
+        this.$store.state.user.first_name +
+        ' ' +
+        this.$store.state.user.last_name,
+      email: this.$store.state.user.email,
+      note: '',
+      token: '',
+      deviceData: null,
+      hostedInstance: null,
+      threeDS: null,
+      number: false,
+      code: false,
     }
+  },
+  computed: {
+    onlyTS() {
+      if (
+        this.$store.state.user.access === 'TMI0ZHT4IEYE' ||
+        this.$store.state.user.access === 'TM823EJ8Z8O5' ||
+        this.$store.state.user.access === 'TM9H28SXGG2N'
+      ) {
+        return true
+      }
+      return false
+    },
+  },
+  watch: {
+    nacinPlacanja(val) {
+      if (val === 'kreditna-kartica' && !this.hostedInstance) {
+        this.getToken()
+      }
+      if (val === 'bankovna-uplata' && !this.number) {
+        this.submitBank()
+      }
+    },
   },
   mounted() {
     this.$store.dispatch('newsletters/checkAccess', this.$route.query.email)
+  },
+  methods: {
+    submitBank() {
+      this.$axios
+        .get('/pretplate/sanctum/csrf-cookie', {
+          withCredentials: true,
+        })
+        .then(() => {
+          this.$axios
+            .post(
+              '/pretplate/donation',
+              {
+                name: this.name,
+                email: this.email,
+                note: this.note,
+                amount: this.price,
+                type: 'bank',
+              },
+              { withCredentials: true }
+            )
+            .then((res) => {
+              this.number = res.data.number
+              this.code = res.data.code
+            })
+        })
+    },
+    getToken() {
+      if (this.price) {
+        this.$axios.get('/pretplate/braintree/client/1').then((res) => {
+          this.token = res.data.token
+          braintree.client
+            .create({
+              authorization: res.data.token,
+            })
+            .then((clientInstance) => {
+              return Promise.all([
+                braintree.hostedFields.create({
+                  client: clientInstance,
+                  styles: {
+                    input: {
+                      'font-family': '"Barlow", sans-serif',
+                      'font-size': '20px',
+                      'font-weight': '700',
+                      height: '38px',
+                      color: '#111',
+                    },
+                    'input.invalid': {
+                      color: '#ae3737',
+                    },
+                    'input.valid': {
+                      color: '#35a843',
+                    },
+                  },
+                  fields: {
+                    number: {
+                      selector: '#credit-card',
+                      placeholder: '1111 1111 1111 1111',
+                    },
+                    cvv: {
+                      selector: '#cvv',
+                      placeholder: '111',
+                    },
+                    expirationDate: {
+                      selector: '#expiration-date',
+                      placeholder: 'MM/YYYY',
+                    },
+                  },
+                }),
+                braintree.threeDSecure.create({
+                  authorization: res.data.token,
+                  version: 2,
+                }),
+                braintree.dataCollector.create({
+                  client: clientInstance,
+                }),
+              ])
+            })
+            .then((instances) => {
+              this.hostedInstance = instances[0]
+              this.threeDS = instances[1]
+              this.deviceData = instances[2].deviceData
+            })
+        })
+      }
+    },
+    close() {
+      this.error = false
+      this.$emit('close')
+    },
+    submit() {
+      this.hostedInstance
+        .tokenize({
+          cardholderName: this.name,
+          billingAddress: {
+            postalCode: this.postal_code,
+            streetAddress: this.address,
+            locality: this.city,
+          },
+        })
+        .then((payload) => {
+          return this.threeDS.verifyCard({
+            onLookupComplete: (data, next) => {
+              next()
+            },
+            amount: this.price,
+            nonce: payload.nonce,
+            bin: payload.details.bin,
+            email: this.$store.state.user.email,
+            challengeRequested: true,
+            billingAddress: {
+              streetAddress: this.address,
+              postalCode: this.postal_code,
+            },
+          })
+        })
+        .then((payload) => {
+          if (!payload.liabilityShifted) {
+            this.error =
+              '3DS autorizacija kartice nije prošla. Probajte ponovo.'
+          } else {
+            this.nonce = payload.nonce
+            this.submitToServer()
+          }
+        })
+    },
+    order() {
+      if (!(this.name && this.address && this.city && this.postal_code)) {
+        return
+      }
+      if (this.token) {
+        this.submit()
+      } else {
+        this.submitToServer()
+      }
+    },
+    submitToServer() {
+      this.$axios
+        .get('/pretplate/sanctum/csrf-cookie', {
+          withCredentials: true,
+        })
+        .then(() => {
+          this.$axios
+            .post(
+              '/pretplate/donation',
+              {
+                name: this.name,
+                email: this.email,
+                uid: this.$store.state.user.uid,
+                nonce: this.nonce,
+                amount: this.price,
+                deviceData: this.deviceData,
+                note: this.note,
+                type: 'credit',
+              },
+              { withCredentials: true }
+            )
+            .then(() => {
+              this.thankyou = true
+            })
+            .catch(() => {
+              this.error = 'Plaćanje nije uspjelo. Probajte ponovo.'
+            })
+        })
+    },
   },
   head() {
     const link = [
       {
         hid: 'canonical',
         rel: 'canonical',
-        href: 'https://www.telegram.hr/pretplata/uspjeh/',
+        href: 'https://www.telegram.hr/pretplata/pogodnosti/',
       },
     ]
     return {
-      title: 'Telegram Pretplata - Uspjeh',
+      title: 'Telegram Pretplata - Pogodnosti',
       titleTemplate: '%s | Telegram.hr',
       meta: [
         {
@@ -530,7 +678,7 @@ export default {
           hid: 'og:title',
           name: 'og:title',
           property: 'og:title',
-          content: 'Telegram Pretplata - Uspjeh',
+          content: 'Telegram Pretplata - Pogodnosti',
         },
         {
           hid: 'og:image',
@@ -543,7 +691,7 @@ export default {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/pretplata/uspjeh/',
+          content: 'https://www.telegram.hr/pretplata/pogodnosti/',
         },
       ],
       link,

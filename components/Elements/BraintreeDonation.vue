@@ -171,6 +171,12 @@ import braintree from 'braintree-web'
 
 export default {
   name: 'BraintreeDonation',
+  props: {
+    initPrice: {
+      type: Number,
+      default: 100,
+    },
+  },
   data() {
     return {
       access: {},
@@ -189,7 +195,7 @@ export default {
       threeDS: null,
       number: false,
       code: false,
-      price: 100,
+      price: this.initPrice,
     }
   },
   mounted() {

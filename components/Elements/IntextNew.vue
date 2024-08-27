@@ -102,6 +102,7 @@ export default {
       this.$store.dispatch('user/login')
     },
     start() {
+      this.$store.commit('pretplata/setLastArticle', this.$route.path)
       if (this.termId) {
         if (this.termId.includes('pretplata')) {
           this.$router.push(this.termId)

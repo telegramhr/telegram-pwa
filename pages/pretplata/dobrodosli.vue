@@ -37,17 +37,7 @@
                 <div class="full minicard-text">
                   pregled najvažnijih vijesti, analiza i tema
                 </div>
-                <div class="minicard-input center">
-                  <input id="dnevni" type="checkbox" class="cbx" checked />
-                  <label class="check" for="dnevni">
-                    <svg width="18px" height="18px" viewBox="0 0 18 18">
-                      <path
-                        d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
-                      ></path>
-                      <polyline points="1 9 7 14 15 4"></polyline>
-                    </svg>
-                  </label>
-                </div>
+                <newsletter-subscribe :mlid="2128" free></newsletter-subscribe>
               </div>
               <div
                 class="full minicard newsletter-minicard darkened-bg flex relative"
@@ -60,17 +50,7 @@
                 <div class="full minicard-text">
                   naši najbolji tekstovi, personalizirani za Vas
                 </div>
-                <div class="minicard-input center">
-                  <input id="propustili" type="checkbox" class="cbx" checked />
-                  <label class="check" for="propustili">
-                    <svg width="18px" height="18px" viewBox="0 0 18 18">
-                      <path
-                        d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
-                      ></path>
-                      <polyline points="1 9 7 14 15 4"></polyline>
-                    </svg>
-                  </label>
-                </div>
+                <newsletter-subscribe :mlid="2554" free></newsletter-subscribe>
               </div>
               <div
                 class="full minicard newsletter-minicard darkened-bg flex relative column-bottom-margin"
@@ -84,19 +64,10 @@
                   izvrsno štivo tijekom vikenda
                 </div>
 
-                <div class="minicard-input center">
-                  <input id="vikend" type="checkbox" class="cbx" checked />
-                  <label class="check" for="vikend">
-                    <svg width="18px" height="18px" viewBox="0 0 18 18">
-                      <path
-                        d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
-                      ></path>
-                      <polyline points="1 9 7 14 15 4"></polyline>
-                    </svg>
-                  </label>
-                </div>
+                <newsletter-subscribe :mlid="2555" free></newsletter-subscribe>
               </div>
               <div
+                v-if="!onlyTS"
                 class="full minicard newsletter-minicard darkened-bg flex relative"
               >
                 <img
@@ -107,19 +78,10 @@
                 <div class="full minicard-text">
                   Puni članci Telegramovog političkog analitičara
                 </div>
-                <div class="minicard-input center">
-                  <input id="klaric" type="checkbox" class="cbx" />
-                  <label class="check" for="klaric">
-                    <svg width="18px" height="18px" viewBox="0 0 18 18">
-                      <path
-                        d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
-                      ></path>
-                      <polyline points="1 9 7 14 15 4"></polyline>
-                    </svg>
-                  </label>
-                </div>
+                <newsletter-subscribe :mlid="2596"></newsletter-subscribe>
               </div>
               <div
+                v-if="!onlyTS"
                 class="full minicard newsletter-minicard darkened-bg flex relative"
               >
                 <img
@@ -130,19 +92,10 @@
                 <div class="full minicard-text">
                   Puni članci specijalizirani za školstvo i akademsku zajednicu
                 </div>
-                <div class="minicard-input center">
-                  <input id="krsul" type="checkbox" class="cbx" />
-                  <label class="check" for="krsul">
-                    <svg width="18px" height="18px" viewBox="0 0 18 18">
-                      <path
-                        d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
-                      ></path>
-                      <polyline points="1 9 7 14 15 4"></polyline>
-                    </svg>
-                  </label>
-                </div>
+                <newsletter-subscribe :mlid="2566"></newsletter-subscribe>
               </div>
               <div
+                v-if="!onlyTS"
                 class="full minicard newsletter-minicard darkened-bg flex relative"
               >
                 <img
@@ -153,19 +106,10 @@
                 <div class="full minicard-text">
                   Puni članci jednog od najnagrađivanijih hrvatskih novinara
                 </div>
-                <div class="minicard-input center">
-                  <input id="hedl" type="checkbox" class="cbx" />
-                  <label class="check" for="hedl">
-                    <svg width="18px" height="18px" viewBox="0 0 18 18">
-                      <path
-                        d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
-                      ></path>
-                      <polyline points="1 9 7 14 15 4"></polyline>
-                    </svg>
-                  </label>
-                </div>
+                <newsletter-subscribe :mlid="2564"></newsletter-subscribe>
               </div>
               <app-link
+                v-if="!onlyTS"
                 target="_blank"
                 to="/newsletters"
                 class="full darkened-bg center column-mini-vertical-pad"
@@ -184,7 +128,6 @@
                 popusta.
               </p>
               <app-link
-                target="_blank"
                 to="/pretplata/pogodnosti"
                 class="full darkened-bg center column-mini-vertical-pad"
               >
@@ -198,7 +141,9 @@
       </div>
     </div>
     <div class="full center column-full-pad column-bottom-margin">
-      <app-link to="/" class="newbtn huge-newbtn gigantic-newbtn"
+      <app-link
+        :to="$store.state.pretplata.lastArticle ?? '/'"
+        class="newbtn huge-newbtn gigantic-newbtn"
         >Počnite koristiti Telegram</app-link
       >
     </div>
@@ -215,6 +160,18 @@ export default {
       nacinPlacanja: 'none',
     }
   },
+  computed: {
+    onlyTS() {
+      if (
+        this.$store.state.access === 'TMI0ZHT4IEYE' ||
+        this.$store.state.access === 'TM823EJ8Z8O5' ||
+        this.$store.state.access === 'TM9H28SXGG2N'
+      ) {
+        return true
+      }
+      return false
+    },
+  },
   mounted() {
     this.$store.dispatch('newsletters/checkAccess', this.$route.query.email)
   },
@@ -227,7 +184,7 @@ export default {
       },
     ]
     return {
-      title: 'Telegram Pretplata - Uspjeh',
+      title: 'Telegram Pretplata - Dobrodošli',
       titleTemplate: '%s | Telegram.hr',
       meta: [
         {
@@ -246,7 +203,7 @@ export default {
           hid: 'og:title',
           name: 'og:title',
           property: 'og:title',
-          content: 'Telegram Pretplata - Uspjeh',
+          content: 'Telegram Pretplata - Dobrodošli',
         },
         {
           hid: 'og:image',
@@ -259,7 +216,7 @@ export default {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/pretplata/uspjeh/',
+          content: 'https://www.telegram.hr/pretplata/dobrodosli/',
         },
       ],
       link,
