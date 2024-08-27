@@ -73,10 +73,11 @@
                 <img
                   src="https://www.telegram.hr/wp-content/uploads/2018/07/tg_klaric.png"
                   aria-hidden="true"
+                  class="newsletter-minicard-bg-1"
                 />
                 <div class="full minicard-title">Jasmin Klarić</div>
                 <div class="full minicard-text">
-                  Puni članci Telegramovog političkog analitičara
+                  Kolumne i analize vodećeg političkog analitičara
                 </div>
                 <newsletter-subscribe :mlid="2596"></newsletter-subscribe>
               </div>
@@ -87,10 +88,11 @@
                 <img
                   src="https://www.telegram.hr/wp-content/uploads/2019/09/dora-krsul.png"
                   aria-hidden="true"
+                  class="newsletter-minicard-bg-2"
                 />
                 <div class="full minicard-title">Dora Kršul</div>
                 <div class="full minicard-text">
-                  Puni članci specijalizirani za školstvo i akademsku zajednicu
+                  Članci novinarke godine, specijalizirana za školstvo
                 </div>
                 <newsletter-subscribe :mlid="2566"></newsletter-subscribe>
               </div>
@@ -101,10 +103,11 @@
                 <img
                   src="https://www.telegram.hr/wp-content/uploads/2017/09/drago_hedl-1.png"
                   aria-hidden="true"
+                  class="newsletter-minicard-bg-3"
                 />
                 <div class="full minicard-title">Drago Hedl</div>
                 <div class="full minicard-text">
-                  Puni članci jednog od najnagrađivanijih hrvatskih novinara
+                  Istrage jednog od najnagrađivanijih hrvatskih novinara
                 </div>
                 <newsletter-subscribe :mlid="2564"></newsletter-subscribe>
               </div>
@@ -144,7 +147,7 @@
       <app-link
         :to="$store.state.pretplata.lastArticle ?? '/'"
         class="newbtn huge-newbtn gigantic-newbtn"
-        >Počnite koristiti Telegram</app-link
+        >Nastavite čitati</app-link
       >
     </div>
     <tfooter></tfooter>
@@ -184,7 +187,7 @@ export default {
       },
     ]
     return {
-      title: 'Telegram Pretplata - Dobrodošli',
+      title: 'Telegram Pretplata - Uspjeh',
       titleTemplate: '%s | Telegram.hr',
       meta: [
         {
@@ -203,7 +206,7 @@ export default {
           hid: 'og:title',
           name: 'og:title',
           property: 'og:title',
-          content: 'Telegram Pretplata - Dobrodošli',
+          content: 'Telegram Pretplata - Uspjeh',
         },
         {
           hid: 'og:image',

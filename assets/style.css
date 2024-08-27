@@ -15082,3 +15082,12 @@ header {
       font-size: 2.4rem;
     }
 }
+.newsletter-minicard-bg-1 {
+    background-image: url('@/assets/img/green_paper.jpg');
+}
+.newsletter-minicard-bg-2 {
+    background-image: url('@/assets/img/blue_paper.jpg');
+}
+.newsletter-minicard-bg-3 {
+    background-image: url('@/assets/img/yellow_paper.jpg');
+}
