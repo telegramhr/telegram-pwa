@@ -49,7 +49,7 @@
           <div
             v-else
             class="newbtn huge-newbtn altbtn center-text clickable"
-            @click.prevent="$store.dispatch('user/login')"
+            @click.prevent="login"
           >
             Već imam pretplatu
           </div>
@@ -98,6 +98,9 @@ export default {
     window.removeEventListener('piano_intext_new', this.load)
   },
   methods: {
+    login() {
+      this.$store.dispatch('user/login')
+    },
     start() {
       if (this.termId) {
         if (this.termId.includes('pretplata')) {
@@ -105,8 +108,7 @@ export default {
         } else {
           this.checkout(this.termId)
         }
-      }
-      else if (this.$route.path.includes('telesport')) {
+      } else if (this.$route.path.includes('telesport')) {
         this.$router.push('/pretplata/telesport')
       } else {
         this.$router.push('/pretplata')
