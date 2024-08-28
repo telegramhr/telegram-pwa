@@ -396,6 +396,10 @@
     </div>
     <!-- Widget autori -->
     <commentary-alt type="tg"></commentary-alt>
+    <!-- Velika rubrika: Zivot -->
+    <div class="full relative">
+      <category-zone zone="zivot"></category-zone>
+    </div>
     <!-- Velika rubrika: Kultura -->
     <div class="full relative">
       <category-zone zone="kultura"></category-zone>
