@@ -39,7 +39,7 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      if (this.$store.getters['user/hasPremium']) {
+      if (this.$store.getters['user/hasPremium'] && this.$el) {
         this.$el.style.display = 'none'
         return
       }
