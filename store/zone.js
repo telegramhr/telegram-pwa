@@ -2,8 +2,14 @@ export const state = () => ({
   kultura: {
     posts: [],
     updated: null,
-    link: '/kultura',
+    link: '/kultura/',
     title: 'Kultura',
+  },
+  zivot: {
+    posts: [],
+    updated: null,
+    link: '/zivot/',
+    title: 'Život',
   },
 })
 
