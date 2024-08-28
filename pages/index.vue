@@ -435,10 +435,6 @@
         </div>
       </div>
     </div>
-    <!-- PitanjeZdravlja -->
-    <div class="full relative">
-      <pitanje-zdravlja></pitanje-zdravlja>
-    </div>
     <!-- Prekid klub -->
     <client-only>
       <div class="full relative">
@@ -475,7 +471,7 @@
           <client-only>
             <category slug="zivot"></category>
             <category slug="biznis-tech"></category>
-            <category slug="kultura"></category>
+            <category slug="pitanje-zdravlja"></category>
             <category slug="velike-price"></category>
           </client-only>
         </div>
