@@ -111,15 +111,13 @@
               </div>
               <div class="half flex relative">
                 <input
-                  id="redzepovic"
+                  id="silvana"
                   v-model="autorType"
-                  :value="'redzepovic'"
+                  :value="'silvana'"
                   type="radio"
                   name="autorType"
                 />
-                <label class="clickable animate" for="redzepovic"
-                  >Redžepović</label
-                >
+                <label class="clickable animate" for="silvana">Menđušić</label>
               </div>
               <div class="half flex relative">
                 <input
@@ -133,13 +131,15 @@
               </div>
               <div class="half flex relative">
                 <input
-                  id="jurican"
+                  id="redzepovic"
                   v-model="autorType"
-                  :value="'jurican'"
+                  :value="'redzepovic'"
                   type="radio"
                   name="autorType"
                 />
-                <label class="clickable animate" for="jurican">Juričan</label>
+                <label class="clickable animate" for="redzepovic"
+                  >Redžepović</label
+                >
               </div>
               <div class="half flex relative">
                 <input
@@ -160,6 +160,16 @@
                   name="autorType"
                 />
                 <label class="clickable animate" for="jakovina">Jakovina</label>
+              </div>
+              <div class="half flex relative">
+                <input
+                  id="hrdalo"
+                  v-model="autorType"
+                  :value="'hrdalo'"
+                  type="radio"
+                  name="autorType"
+                />
+                <label class="clickable animate" for="hrdalo">Hrdalo</label>
               </div>
             </div>
             <div v-show="selected === 'krug'" class="full flex relative">
@@ -387,18 +397,18 @@
           height="1680"
         />
         <img
-          v-if="selected === 'autor' && autorType === 'redzepovic'"
-          id="redzepovic-overlay"
+          v-if="selected === 'autor' && autorType === 'silvana'"
+          id="silvana-overlay"
           class="generator-img-overlay"
-          src="@/assets/img/extras/naslovne/tg_dajmi_overlay_redzepovic.png"
+          src="@/assets/img/extras/naslovne/tg_dajmi_overlay_mendusic.png"
           width="2664"
           height="1680"
         />
         <img
-          v-if="selected === 'autor' && autorType === 'jurican'"
-          id="jurican-overlay"
+          v-if="selected === 'autor' && autorType === 'redzepovic'"
+          id="redzepovic-overlay"
           class="generator-img-overlay"
-          src="@/assets/img/extras/naslovne/tg_dajmi_overlay_jurican.png"
+          src="@/assets/img/extras/naslovne/tg_dajmi_overlay_redzepovic.png"
           width="2664"
           height="1680"
         />
@@ -414,7 +424,7 @@
           v-if="selected === 'autor' && autorType === 'jasmin'"
           id="jasmin-overlay"
           class="generator-img-overlay"
-          src="@/assets/img/extras/naslovne/tg_dajmi_overlay_jasmin.png"
+          src="@/assets/img/extras/naslovne/tg_dajmi_overlay_klaric.png"
           width="2664"
           height="1680"
         />
@@ -423,6 +433,14 @@
           id="jakovina-overlay"
           class="generator-img-overlay"
           src="@/assets/img/extras/naslovne/tg_dajmi_overlay_jakovina.png"
+          width="2664"
+          height="1680"
+        />
+        <img
+          v-if="selected === 'autor' && autorType === 'hrdalo'"
+          id="hrdalo-overlay"
+          class="generator-img-overlay"
+          src="@/assets/img/extras/naslovne/tg_dajmi_overlay_hrdalo.png"
           width="2664"
           height="1680"
         />

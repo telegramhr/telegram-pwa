@@ -9453,20 +9453,20 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     object-fit: cover;
 }
 #generator-krug.gorelijevo {
-    top: 100px;
-    left: 200px;
+    top: 150px;
+    left: 300px;
 }
 #generator-krug.goredesno {
-    top: 100px;
-    right: 200px;
+    top: 150px;
+    right: 300px;
 }
 #generator-krug.doljelijevo {
-    bottom: 100px;
-    left: 200px;
+    bottom: 150px;
+    left: 300px;
 }
 #generator-krug.doljedesno {
-    bottom: 100px;
-    right: 200px;
+    bottom: 150px;
+    right: 300px;
 }
 .trebam-hitno .third {
     padding: 24px;
