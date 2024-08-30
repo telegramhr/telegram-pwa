@@ -171,6 +171,18 @@
                 />
                 <label class="clickable animate" for="hrdalo">Hrdalo</label>
               </div>
+              <div class="half flex relative">
+                <input
+                  id="markovina"
+                  v-model="autorType"
+                  :value="'markovina'"
+                  type="radio"
+                  name="autorType"
+                />
+                <label class="clickable animate" for="markovina"
+                  >Markovina</label
+                >
+              </div>
             </div>
             <div v-show="selected === 'krug'" class="full flex relative">
               <h2 class="full center-text">U krug stavi:</h2>
@@ -441,6 +453,14 @@
           id="hrdalo-overlay"
           class="generator-img-overlay"
           src="@/assets/img/extras/naslovne/tg_dajmi_overlay_hrdalo.png"
+          width="2664"
+          height="1680"
+        />
+        <img
+          v-if="selected === 'autor' && autorType === 'markovina'"
+          id="markovina-overlay"
+          class="generator-img-overlay"
+          src="@/assets/img/extras/naslovne/tg_dajmi_overlay_markovina.png"
           width="2664"
           height="1680"
         />
