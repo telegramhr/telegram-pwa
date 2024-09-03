@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>{{ data.question }}</h2>
+    <h2 v-html="data.question"></h2>
     <label>Ime i prezime</label>
     <input v-model="name" type="text" />
     <label>Email</label>
