@@ -216,7 +216,7 @@
               {{ breaks[0].portal_title | parseCat }}
             </h2>
             <h2 class="full animate faded">
-              {{ breaks[0].subtitle }}
+              {{ breaks[0].subtitle | parseCat }}
             </h2>
           </app-link>
         </div>
