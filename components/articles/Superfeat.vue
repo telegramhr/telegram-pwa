@@ -22,7 +22,7 @@
         :aria-labelledby="'featured-' + post.id"
       >
         <h2 :id="'featured-' + post.id" class="full animate">
-          <b>{{ parsedOvertitle }}</b> {{ post.portal_title | parseCat }}
+          <b>{{ parsedOvertitle }}</b> {{ post.single_title | parseCat }}
         </h2>
         <div class="nothfive full flex article-meta">
           <span v-if="post.authors.length" class="meta-author"
