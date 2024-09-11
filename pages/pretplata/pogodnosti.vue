@@ -214,7 +214,7 @@
                 </div>
               </app-link>
               <app-link
-                to="/knjige"
+                to="/knjiga"
                 target="_blank"
                 class="full darkened-bg center column-mini-vertical-pad"
               >
