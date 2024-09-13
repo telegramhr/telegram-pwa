@@ -13,6 +13,7 @@ import {
   faTimesCircle,
   faBriefcase,
   faLink,
+  faStar as faStarSolid,
 } from '@fortawesome/pro-solid-svg-icons'
 import {
   faUserLock,
@@ -55,6 +56,7 @@ import {
   faCreditCardFront,
   faStars,
   faGift,
+  faStar,
 } from '@fortawesome/pro-regular-svg-icons'
 
 import {
@@ -119,7 +121,9 @@ library.add(
   faWhatsapp,
   faViber,
   faTelegramPlane,
-  faBell
+  faBell,
+  faStar,
+  faStarSolid
 )
 
 // Register the component globally
