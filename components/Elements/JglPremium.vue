@@ -50,7 +50,9 @@
               height="400"
             />
             <div class="full flex desktop-only">
-              <div class="noththree overtitle">{{ post.naslov | parseCat }}</div>
+              <div class="noththree overtitle">
+                {{ post.naslov | parseCat }}
+              </div>
             </div>
             <h2 :id="'standard-' + post.id" class="full">
               {{ post.opis | parseCat }}
