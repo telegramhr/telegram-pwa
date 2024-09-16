@@ -11,20 +11,168 @@
     <div id="pretplata-selector" class="full flex">
       <div class="full flex relative">
         <div
-          class="container relative flex mobile-side-pad stretch column-full-pad"
+          class="container relative flex mobile-full-pad stretch column-full-pad"
         >
-          <h1 class="full center-text">Nažalost, ova akcija je istekla.</h1>
+          <div class="full just-overtitle center-text">
+            Vremenski ograničena ponuda!
+          </div>
+          <h1 class="full center-text">
+            Propuštate vijesti koje čine razliku? Otključajte ih za samo 2,29€
+            mjesečno!
+          </h1>
           <p class="full center-text pretplata-tagline">
-            Čini se da ste kliknuli na link promocije ili akcije koja više nije
-            važeća. Ne brinite, redovno imamo nove ponude! Posjetite Telegram
-            kako biste otkrili najnovije popuste i pogodnosti.
+            Isprobajte Telegram uz popust prva 3 mjeseca i postanite dio
+            informirane zajednice!
           </p>
-          <div
-            class="full center column-full-pad column-bottom-margin mobile-vertical-pad"
-          >
-            <app-link to="/" class="newbtn huge-newbtn gigantic-newbtn"
-              >Nastavite čitati</app-link
-            >
+        </div>
+        <div class="full flex">
+          <div class="container relative flex pretplata-packs mobile-side-pad">
+            <div class="full flex center pretplata-packboxes">
+              <div class="full center">
+                <input
+                  id="pretplata-month"
+                  v-model="subscription_package"
+                  type="radio"
+                  name="pretplata-month"
+                  class="hide"
+                  value="pretplata-month"
+                />
+                <label
+                  for="pretplata-month"
+                  class="half animate faded flex-responsive flex relative pretplata-packbox smaller-packbox stretch monochrome-highlight-color"
+                >
+                  <div class="smaller-packbox-radio">
+                    <div class="remp-radio-indicator center">
+                      <div class="monochrome-highlight-color"></div>
+                    </div>
+                  </div>
+                  <div class="full sub-price bold">
+                    7,99€<span> mjesečno</span>
+                  </div>
+                  <div class="full remp-special-note column-mini-top-pad">
+                    standardna cijena Telegram pretplate
+                  </div>
+                </label>
+              </div>
+              <div class="full center">
+                <input
+                  id="pretplata-special"
+                  v-model="subscription_package"
+                  type="radio"
+                  name="pretplata-special"
+                  class="hide"
+                  value="pretplata-special"
+                />
+                <label
+                  for="pretplata-special"
+                  class="half animate flex-responsive flex relative pretplata-packbox smaller-packbox stretch monochrome-highlight-color"
+                >
+                  <div class="best-price-sticker alt-bigger-sticcer animate">
+                    Uštedite<br />73%
+                  </div>
+                  <div class="smaller-packbox-radio">
+                    <div class="remp-radio-indicator center">
+                      <div class="monochrome-highlight-color"></div>
+                    </div>
+                  </div>
+                  <div class="full sub-price bold">
+                    2,29€<span> mjesečno</span>
+                  </div>
+                  <div class="full remp-special-note column-mini-top-pad">
+                    prva tri mjeseca, nakon toga 7,99€ mjesečno
+                  </div>
+                </label>
+              </div>
+              <div
+                v-if="subscription_package === 'pretplata-month'"
+                class="full center"
+              >
+                <div
+                  class="newbtn clickable huge-newbtn animate"
+                  @click="checkout(one)"
+                >
+                  Kupite pretplatu
+                  <font-awesome-icon
+                    :icon="['fab', 'cc-visa']"
+                  ></font-awesome-icon>
+                  <font-awesome-icon
+                    :icon="['fab', 'cc-mastercard']"
+                  ></font-awesome-icon>
+                  <font-awesome-icon
+                    :icon="['fab', 'cc-diners-club']"
+                  ></font-awesome-icon>
+                </div>
+              </div>
+              <div
+                v-if="subscription_package === 'pretplata-special'"
+                class="full center"
+                @click="checkout(two)"
+              >
+                <div class="newbtn clickable huge-newbtn green-newbtn animate">
+                  Kupite pretplatu
+                  <font-awesome-icon
+                    :icon="['fab', 'cc-visa']"
+                  ></font-awesome-icon>
+                  <font-awesome-icon
+                    :icon="['fab', 'cc-mastercard']"
+                  ></font-awesome-icon>
+                  <font-awesome-icon
+                    :icon="['fab', 'cc-diners-club']"
+                  ></font-awesome-icon>
+                </div>
+              </div>
+              <div class="full center hide">
+                <div class="flex remp-icon-list column-bottom-pad">
+                  <font-awesome-icon
+                    :icon="['fab', 'cc-visa']"
+                  ></font-awesome-icon>
+                  <font-awesome-icon
+                    :icon="['fab', 'cc-mastercard']"
+                  ></font-awesome-icon>
+                  <font-awesome-icon
+                    :icon="['fab', 'cc-diners-club']"
+                  ></font-awesome-icon>
+                </div>
+              </div>
+              <div class="full center">
+                <div
+                  class="half flex-responsive flex relative stretch pretplata-packbox noborder-packbox"
+                >
+                  <div class="full pretplata-benefits">
+                    <p class="full animate bold">
+                      <font-awesome-icon
+                        :icon="['fas', 'check']"
+                      ></font-awesome-icon>
+                      možete otkazati u bilo kojem trenutku
+                    </p>
+                    <p class="full animate">
+                      <font-awesome-icon
+                        :icon="['fas', 'check']"
+                      ></font-awesome-icon>
+                      neograničeno čitanje Telegrama
+                    </p>
+                    <p class="full animate">
+                      <font-awesome-icon
+                        :icon="['fas', 'check']"
+                      ></font-awesome-icon>
+                      najbolji autori i tekstovi u Hrvatskoj
+                    </p>
+                    <p class="full animate">
+                      <font-awesome-icon
+                        :icon="['fas', 'check']"
+                      ></font-awesome-icon>
+                      limitirana ponuda, uskoro ističe
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <a
+                href="mailto:pretplata@telegram.hr"
+                class="full center-text undertitle"
+                >Trebat će vam R1 račun ili želite ponudu za pravne osobe?
+                Javite nam se.</a
+              >
+            </div>
           </div>
         </div>
       </div>

@@ -14812,7 +14812,7 @@ header {
 }
 .pretplata-packboxes input:checked ~ label.smaller-packbox .remp-radio-indicator div::before {
     opacity: 1;
-    background-color: #ae3737;
+    background-color: var(--tg-primary-highlight-color);
 }
 .smaller-packbox .sub-price span {
     font-weight: 400;
@@ -14869,7 +14869,7 @@ header {
     right: -40px;
 }
 .pretplata-packboxes input:checked ~ label.smaller-packbox {
-    border-color: #ae3737;
+    border-color: var(--tg-primary-highlight-color);
 }
 .pretplata-packboxes input:checked ~ label.smaller-packbox.faded {
     opacity: 1;
@@ -15106,4 +15106,8 @@ header {
     letter-spacing: normal;
     text-transform: none;
     color: var(--tg-primary-highlight-color);
+}
+
+.monochrome-highlight-color {
+    --tg-primary-highlight-color: #333333;
 }
