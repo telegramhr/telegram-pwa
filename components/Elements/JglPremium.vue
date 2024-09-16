@@ -223,8 +223,8 @@ export default {
 }
 
 @media screen and (max-width: 767px) {
-  .article img {
-    aspect-ratio: 1/1;
+  #offer-premium-jgl .article img {
+    aspect-ratio: 1/1 !important;
   }
 }
 </style>
