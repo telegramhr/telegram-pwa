@@ -10037,6 +10037,12 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         top: 8px;
     }
 }
+@media screen and (max-width: 1248px) {
+    .sticky-banner .takeover-exit {
+        right: auto;
+        left: 50%;
+    }
+}
 
 /* New mini pretplata */
 
@@ -15090,4 +15096,14 @@ header {
 }
 .newsletter-minicard-bg-3 {
     background-image: url('@/assets/img/yellow_paper.jpg');
+}
+
+.bigger-text {
+    font-size: 1.5em;
+}
+.just-overtitle {
+    font-weight: 700;
+    letter-spacing: normal;
+    text-transform: none;
+    color: var(--tg-primary-highlight-color);
 }
