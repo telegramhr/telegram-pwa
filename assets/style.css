@@ -2864,6 +2864,9 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     margin-bottom: 48px;
     text-align: center;
 }
+.pretplata-packbox {
+    border-color: #555;
+}
 .pretplata-page .pretplata-packbox .sub-price {
     font-size: 72px;
     font-size: 3.6rem;
@@ -15110,4 +15113,7 @@ header {
 
 .monochrome-highlight-color {
     --tg-primary-highlight-color: #333333;
+}
+.dark-mode .monochrome-highlight-color {
+    --tg-primary-highlight-color: #ffffff;
 }
