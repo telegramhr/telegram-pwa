@@ -15117,3 +15117,27 @@ header {
 .dark-mode .monochrome-highlight-color {
     --tg-primary-highlight-color: #ffffff;
 }
+
+.pretplata-expiring {
+    position: fixed;
+    z-index: 101;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background-color: #fcf1e7;
+    border-top: 1px solid #c8c8c8;
+}
+.contrast-mode .pretplata-expiring, .domoljub-mode .pretplata-expiring {
+    background-color: white;
+}
+.dark-mode .pretplata-expiring {
+    background-color: #121212;
+    border-bottom-color: #555;
+}
+.pretplata-expiring details {
+    margin-top: 0px;
+}
+.pretplata-expiring summary {
+    margin-bottom: 0px;
+}
