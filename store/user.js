@@ -161,6 +161,7 @@ export const actions = {
       dispatch('newsletters/clearAccess', null, { root: true })
     }
     commit('logout')
+    this.$router.push('/')
   },
   login({ commit, dispatch }) {
     window.tp.pianoId.show({
