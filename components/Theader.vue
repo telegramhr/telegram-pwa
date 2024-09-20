@@ -384,6 +384,23 @@
               loading="lazy"
             />
           </app-link>
+          <app-link
+            to="/igre"
+            class="third mobile-forty center nayos-logos games-only"
+          >
+            <img
+              src="@/assets/img/t_games_normal.svg"
+              alt="Telegram games logo"
+              loading="lazy"
+            />
+
+            <img
+              src="@/assets/img/t_games_negative.svg"
+              alt="Telegram games logo"
+              class="dark-mode-only"
+              loading="lazy"
+            />
+          </app-link>
           <div class="third center align-children-end mobile-thirty">
             <app-link
               v-show="canLogIn"

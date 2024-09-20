@@ -91,29 +91,90 @@
             </div>
           </div>
         </div>
+        <div class="full column-horizontal-pad pretplata-page">
+          <p
+            class="full center-text pretplata-tagline column-top-pad mobile-vertical-pad"
+          >
+            Vaši prijatelji igraju
+          </p>
+        </div>
+        <div
+          class="third flex-responsive flex relative column-full-pad mobile-full-pad"
+        >
+          <div class="tg-game-card column-mini-vertical-pad center flex-wrap">
+            <div class="third flex column-mini-horizontal-pad">
+              <img
+                src="https://images.telegram.hr/dh_7jSDHLNDkNbirTNA9l9x-lvF-PtA_RnRbh3qzBOY/preset:author/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMTgvMDcvdGdfa2xhcmljLnBuZw.webp"
+                alt="Jasmin Klarić"
+                class="tg-game-avatar darkened-bg"
+              />
+            </div>
+            <div class="two-thirds flex">
+              <div class="full barlow bold">Jasmin Klarić</div>
+              <div class="full minicard-text">Danas: Hexagram</div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="third flex-responsive flex relative column-full-pad mobile-full-pad"
+        >
+          <div class="tg-game-card column-mini-vertical-pad center flex-wrap">
+            <div class="third flex column-mini-horizontal-pad">
+              <img
+                src="https://images.telegram.hr/7eSaxH6IFu3wzHNXirmUqjpItPKZPIqNnc1tteo7l2U/preset:author/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjAvMTEvdGcta2F0YXJpbmEta25lemV2aWMucG5n.webp"
+                alt="Katarina Knežević Metelko"
+                class="tg-game-avatar darkened-bg"
+              />
+            </div>
+            <div class="two-thirds flex">
+              <div class="full barlow bold">Katarina Knežević Metelko</div>
+              <div class="full minicard-text">Jučer: Geogram</div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="third flex-responsive flex relative column-full-pad mobile-full-pad"
+        >
+          <div class="tg-game-card column-mini-vertical-pad center flex-wrap">
+            <div class="third flex column-mini-horizontal-pad">
+              <img
+                src="https://images.telegram.hr/7Czs3QS7-PUc3XrGExwYPFME7QqzW9tSUIfxvzRCCsA/preset:author/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMTcvMDYvZGl2by1kdXJvdmljLTItMi0xLnBuZw.webp"
+                alt="Đivo Đurović"
+                class="tg-game-avatar darkened-bg"
+              />
+            </div>
+            <div class="two-thirds flex">
+              <div class="full barlow bold">Đivo Đurović</div>
+              <div class="full minicard-text">Prije 5 dana: Statika</div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="half flex-responsive flex relative column-full-pad mobile-full-pad"
+        >
+          <div class="full minicard-text column-mini-bottom-margin">
+            Upišite nečiji kod kako bi ih dodali kao prijatelja:
+          </div>
+          <input
+            type="text"
+            placeholder="Prijateljev kod"
+            aria-label="Prijateljev kod"
+            class="darkened-bg subtle-input full"
+          />
+        </div>
+        <div
+          class="half flex-responsive flex relative column-full-pad mobile-full-pad"
+        >
+          <div class="full minicard-text column-mini-bottom-margin">
+            Podijelite svoj kod da vas mogu dodati kao prijatelja:
+          </div>
+          <div class="darkened-bg fake-subtle-input full">1234-5678-9012</div>
+        </div>
       </div>
     </div>
     <tfooter></tfooter>
   </div>
 </template>
-
-<style scoped>
-.tg-game-card {
-  border: 1px solid #c8c8c8;
-  border-radius: 4px;
-}
-.tg-game-header img {
-  max-width: 30%;
-  margin-bottom: 1rem;
-  aspect-ratio: 1/1;
-  object-fit: contain;
-  object-position: center center;
-}
-.tg-game-title {
-  font-weight: 900;
-  font-size: 1.2rem;
-}
-</style>
 
 <script>
 export default {

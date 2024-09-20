@@ -12726,6 +12726,9 @@ input:checked ~ .input-hidden {
     padding-right: 0.6rem;
     padding-left: 0.6rem;
 }
+.column-mini-full-pad {
+    padding: 0.6rem;
+}
 .column-mini-bottom-margin {
     margin-bottom: 0.6rem;
 }
@@ -12767,6 +12770,9 @@ input:checked ~ .input-hidden {
 .locked-newbtn {
     background-color: #666;
     cursor: not-allowed;
+}
+.subtle-newbtn {
+    background-color: #666;
 }
 .remp-social-logbtn {
     background-color: rgba(0,0,0,0.05);
@@ -13620,7 +13626,7 @@ header {
 
 /* Multiverse displays */
 
-.superone-only, .telesport-only, .os-only, .pz-only {
+.superone-only, .telesport-only, .os-only, .pz-only, .games-only {
   display: none;
 }
 .dark-mode .nayos-logos img {
@@ -13629,7 +13635,7 @@ header {
 .dark-mode .nayos-logos img.dark-mode-only {
   display: block;
 }
-.superone .telegram-only, .telesport .telegram-only, .openspace .telegram-only, .pitanje-zdravlja .telegram-only {
+.superone .telegram-only, .telesport .telegram-only, .openspace .telegram-only, .pitanje-zdravlja .telegram-only, .tg-games .telegram-only {
   display: none;
 }
 .superone .superone-only {
@@ -13640,6 +13646,9 @@ header {
 }
 .openspace .os-only {
   display: flex;
+}
+.tg-games .games-only {
+    display: flex;
 }
 .pitanje-zdravlja .pz-only {
   display: flex;
@@ -15097,4 +15106,140 @@ header {
 
 .bigger-text {
     font-size: 1.5em;
+}
+
+/* Games */
+
+.tg-game-card {
+    border: 1px solid #c8c8c8;
+    border-radius: 4px;
+}
+
+.tg-game-header img {
+    max-width: 30%;
+    margin-bottom: 1rem;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    object-position: center center;
+}
+
+.tg-game-title {
+    font-weight: 900;
+    font-size: 1.2rem;
+}
+
+.tg-game-avatar {
+    border-radius: 50%;
+}
+
+.barlow {
+    font-family: 'Barlow', sans-serif;
+}
+
+.subtle-input,
+.fake-subtle-input {
+    font-size: 18px;
+    font-size: 0.9rem;
+    font-family: 'Barlow', sans-serif;
+    border: 1px solid #c8c8c8;
+    border-radius: 0.1rem;
+    padding: 0.4rem;
+}
+
+.tg-game-hero {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.tg-game-hero img {
+    width: 40%;
+    max-width: 8rem;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    object-position: center center;
+}
+
+.geogram-bg {
+    background: rgb(224, 224, 224);
+}
+
+/* Geogram */
+
+.round-border {
+    border-radius: 0.1rem;
+}
+
+#geogram-locator {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #ae3737;
+    z-index: 10;
+    transform: translate(-50%, -50%);
+}
+
+#geogram-solution {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #37ae37;
+    z-index: 9;
+    transform: translate(-50%, -50%);
+}
+
+#geogram-map {
+    position: relative;
+    width: 100%;
+    background: rgb(224, 224, 224);
+}
+
+#geogram-map img {
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.mystery-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25%;
+    height: 100%;
+    z-index: 5;
+    backdrop-filter: blur(40px);
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    perspective: 1000;
+    transform: translate3d(0, 0, 0);
+    transform: translateZ(0);
+    -webkit-backdrop-filter: blur(40px);
+    background: rgba(224, 224, 224, 0.5);
+}
+
+.mystery-cover:last-child {
+    left: auto;
+    right: 0;
+}
+
+.line-drawing {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    /* Ensure the SVG does not interfere with map interactions */
+}
+
+.game-stars>svg {
+    font-size: 4rem;
+    color: #f1c40f;
+}
+
+.game-stars {
+    margin-top: -3.4rem;
+}
+.tg-games .nayos .nayos-logos.games-only img {
+    height: 30px;
 }

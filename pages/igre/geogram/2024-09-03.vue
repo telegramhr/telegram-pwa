@@ -9,7 +9,7 @@
       <div
         class="container relative flex mobile-side-pad stretch column-full-pad"
       >
-        <h1 v-if="!$mobile" class="full center-text">Geogram | 01.09.2024.</h1>
+        <h1 v-if="!$mobile" class="full center-text">Geogram | 03.09.2024.</h1>
       </div>
     </div>
     <div class="full flex relative">
@@ -20,7 +20,7 @@
           <div id="geogram-mystery" class="full flex relative round-border">
             <div v-if="!hintUsed && !showSolution" class="mystery-cover"></div>
             <img
-              src="@/assets/img/games/geogram/geogram_3.jpg"
+              src="@/assets/img/games/geogram/geogram_1.jpg"
               aria-hidden="true"
             />
             <div v-if="!hintUsed && !showSolution" class="mystery-cover"></div>
@@ -185,10 +185,11 @@ export default {
   name: 'Geogram',
   data() {
     return {
-      geogramImage: '@/assets/img/games/geogram/geogram_1.jpg',
-      geogramLocation: 'Kamen Brela, znan i kao Šakan kamen',
-      geogramAuthor: 'Zvonimir Barisin, Pixsell',
-      mapcoords: `43°22'19.8"N 16°55'20.3"E`,
+      geogramImage: '@/assets/img/games/geogram/geogram_3.jpg',
+      geogramLocation:
+        'Novi Vinodolski, pogled s južne gradske plaže na otočić San Marino',
+      geogramAuthor: 'Marijan Mikolić',
+      mapcoords: `45°07'17.7"N, 14°48'07.3"E`,
       finalScore: 0,
       locatorPosition: {
         top: '50', // Initial position
