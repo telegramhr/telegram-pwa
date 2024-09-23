@@ -68,7 +68,7 @@
                   class="half animate flex-responsive flex relative pretplata-packbox smaller-packbox stretch monochrome-highlight-color"
                 >
                   <div class="best-price-sticker alt-bigger-sticcer animate">
-                    Uštedite<br />73%
+                    Uštedite<br />71%
                   </div>
                   <div class="smaller-packbox-radio">
                     <div class="remp-radio-indicator center">
