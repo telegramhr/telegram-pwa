@@ -485,6 +485,7 @@
     <div class="full relative shoo-bottom">
       <pretplatnici-widget></pretplatnici-widget>
     </div>
+    <intext-new></intext-new>
     <tfooter></tfooter>
   </div>
 </template>
