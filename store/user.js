@@ -156,12 +156,12 @@ export const actions = {
       path: '/',
       domain: '.telegram.hr',
     })
-    if (state.first_name) {
+    if (state.uid) {
       window.tp.pianoId.logout()
       dispatch('newsletters/clearAccess', null, { root: true })
     }
     commit('logout')
-    this.$router.push('/')
+    // this.$router.push('/')
   },
   login({ commit, dispatch }) {
     window.tp.pianoId.show({

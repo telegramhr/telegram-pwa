@@ -36,9 +36,9 @@
           </p>
         </div>
         <div class="full center even-out-btns">
-          <a class="newbtn huge-newbtn center-text" @click.prevent="start"
-            >Pretplatite se</a
-          >
+          <a class="newbtn huge-newbtn center-text" @click.prevent="start">{{
+            cta
+          }}</a>
           <div
             v-if="softwall"
             class="newbtn huge-newbtn altbtn center-text clickable"
@@ -89,6 +89,8 @@ export default {
       subtitle: 'Uzmite odmah i iskoristite staru cijenu',
       topBar: 'Samo do 01.04.',
       softwall: false,
+      cta: 'Pretplatite se',
+      cta_link: '',
     }
   },
   mounted() {
@@ -109,6 +111,8 @@ export default {
         } else {
           this.checkout(this.termId)
         }
+      } else if (this.cta_link) {
+        window.open(this.cta_link, '_blank')
       } else if (this.$route.path.includes('telesport')) {
         this.$router.push('/pretplata/telesport')
       } else {
@@ -125,6 +129,8 @@ export default {
         this.oldPrice = e.detail.oldPrice
         this.softwall = e.detail.softwall ?? false
         this.termId = e.detail.termId
+        this.cta = e.detail.cta ?? 'Pretplatite se'
+        this.cta_link = e.detail.cta_link ?? ''
       }
       this.triggerShow()
     },

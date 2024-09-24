@@ -9,9 +9,9 @@
         {{ subtitle }}
       </p>
       <div class="full center">
-        <app-link :id="id" to="/pretplata" class="btn animate"
-          >Pretplatite se</app-link
-        >
+        <app-link :id="id" :to="cta_link" class="btn animate">{{
+          cta
+        }}</app-link>
         <div
           v-show="$store.state.user.access"
           class="btn animate"
@@ -35,6 +35,8 @@ export default {
       title: 'Bespoštedno novinarstvo koje gura društvo naprijed.',
       subtitle:
         'Za neograničeno čitanje Telegrama i podršku istraživačkim serijalima, pretplatite se na Telegram.',
+      cta: 'Pretplatite se',
+      cta_link: '/pretplata',
     }
   },
   mounted() {
@@ -49,6 +51,12 @@ export default {
         this.id = e.detail.id
         this.title = e.detail.title
         this.subtitle = e.detail.subtitle
+        if (e.detail.cta) {
+          this.cta = e.detail.cta
+        }
+        if (e.detail.cta_link) {
+          this.cta_link = e.detail.cta_link
+        }
       }
       this.shown = true
     },
