@@ -142,6 +142,10 @@ export default {
         return
       }
       const el = document.getElementById('piano-content')
+      if (this.softwall) {
+        this.show = true
+        this.$emit('show')
+      }
       if (el) {
         this.show = true
         if (!this.softwall) {
@@ -150,7 +154,6 @@ export default {
             .querySelector('#article-content p:last-child')
             .classList.add('premium-fade-out')
         }
-        this.$emit('show')
       }
     },
   },
