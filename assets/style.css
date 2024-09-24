@@ -15126,14 +15126,14 @@ header {
     width: 100%;
     height: auto;
     background-color: #fcf1e7;
-    border-top: 1px solid #c8c8c8;
+    border-top: 1px solid #555555;
 }
 .contrast-mode .pretplata-expiring, .domoljub-mode .pretplata-expiring {
     background-color: white;
 }
 .dark-mode .pretplata-expiring {
     background-color: #121212;
-    border-bottom-color: #555;
+    border-top-color: #c8c8c8;
 }
 .pretplata-expiring details {
     margin-top: 0px;
