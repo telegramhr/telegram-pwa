@@ -13230,6 +13230,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .zgt-salebox .noththree.overtitle {
     color: black;
 }
+.dark-mode .zgt-salebox .noththree.overtitle {
+    color: white;
+}
 .zgts-subtitle {
     font-size: 26px;
     font-size: 1.3rem;
