@@ -148,6 +148,7 @@
         </div>
       </div>
     </footer>
+    <pretplata-expiring></pretplata-expiring>
   </div>
 </template>
 
