@@ -11,6 +11,11 @@
       >
         <div class="full center column-horizontal-pad mobile-full-pad">
           <img src="@/assets/img/games/tg_icon_geogram.svg" alt="Geogram" />
+          <img
+            src="@/assets/img/games/tg_icon_geogram_negative.svg"
+            alt="Geogram"
+            class="dark-mode-only"
+          />
         </div>
         <h1 class="full center-text">Geogram</h1>
         <p class="full center-text pretplata-tagline column-bottom-pad">

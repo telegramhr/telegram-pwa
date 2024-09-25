@@ -15144,6 +15144,10 @@ header {
     border: 1px solid #c8c8c8;
     border-radius: 0.1rem;
     padding: 0.4rem;
+    color: #111;
+}
+.dark-mode .subtle-input, .dark-mode .fake-subtle-input {
+    color: #eee;
 }
 
 .tg-game-hero {
@@ -15242,4 +15246,13 @@ header {
 }
 .tg-games .nayos .nayos-logos.games-only img {
     height: 30px;
+}
+.dark-mode .tg-game-header img, .dark-mode .tg-game-hero img {
+    display: none;
+}
+.dark-mode .tg-game-header img.dark-mode-only, .dark-mode .tg-game-hero img.dark-mode-only {
+    display: flex;
+}
+.dark-mode .tg-game-card {
+    border-color: #555;
 }

@@ -27,8 +27,13 @@
               class="full darkened-bg tg-game-header center flex-wrap column-full-pad mobile-full-pad"
             >
               <img
-                src="@/assets/img/games/tg_icon_hexagram_alt.svg"
+                src="@/assets/img/games/tg_icon_hexagram.svg"
                 alt="Hexagram"
+              />
+              <img
+                src="@/assets/img/games/tg_icon_hexagram_negative.svg"
+                alt="Hexagram"
+                class="dark-mode-only"
               />
               <div class="full tg-game-title center-text">Hexagram</div>
             </div>
@@ -54,6 +59,11 @@
               class="full darkened-bg tg-game-header center flex-wrap column-full-pad mobile-full-pad"
             >
               <img src="@/assets/img/games/tg_icon_statika.svg" alt="Statika" />
+              <img
+                src="@/assets/img/games/tg_icon_statika_negative.svg"
+                alt="Hexagram"
+                class="dark-mode-only"
+              />
               <div class="full tg-game-title center-text">Statika</div>
             </div>
             <div class="full flex column-full-pad mobile-full-pad">
@@ -76,6 +86,11 @@
               class="full darkened-bg tg-game-header center flex-wrap column-full-pad mobile-full-pad"
             >
               <img src="@/assets/img/games/tg_icon_geogram.svg" alt="Geogram" />
+              <img
+                src="@/assets/img/games/tg_icon_geogram_negative.svg"
+                alt="Hexagram"
+                class="dark-mode-only"
+              />
               <div class="full tg-game-title center-text">Geogram</div>
             </div>
             <div class="full flex column-full-pad mobile-full-pad">
