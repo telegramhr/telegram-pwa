@@ -150,7 +150,13 @@
               <span v-if="post.live" class="dynamic-overtitle-element">{{
                 'Uživo'
               }}</span>
-              <AppLink :to="'/' + post.category_link">
+              <AppLink
+                :to="
+                  post.overtitle_link
+                    ? post.overtitle_link
+                    : '/' + post.category_link
+                "
+              >
                 {{ parsedOvertitle }}
               </AppLink>
               <client-only>
@@ -204,7 +210,13 @@
                   <span v-if="post.live" class="dynamic-overtitle-element">{{
                     'Uživo'
                   }}</span>
-                  <AppLink :to="'/' + post.category_link">
+                  <AppLink
+                    :to="
+                      post.overtitle_link
+                        ? post.overtitle_link
+                        : '/' + post.category_link
+                    "
+                  >
                     {{ parsedOvertitle }}
                   </AppLink>
                 </div>
@@ -644,6 +656,7 @@ export default {
         ],
         overtitle: '',
         overtitle_tag: '',
+        overtitle_link: '',
         title: '',
         subtitle: '',
         content: '',
