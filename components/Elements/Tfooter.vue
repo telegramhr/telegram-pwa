@@ -148,7 +148,7 @@
         </div>
       </div>
     </footer>
-    <pretplata-expiring></pretplata-expiring>
+    <pretplata-expiring :key="$route.fullPath"></pretplata-expiring>
   </div>
 </template>
 
