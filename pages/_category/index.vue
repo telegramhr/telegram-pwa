@@ -413,6 +413,9 @@ export default {
   mounted() {
     this.$nextTick(function () {
       this.$store.dispatch('ads/initAds', { route: this.$route })
+      if (this.$route.fullPath.includes('super1')) {
+        window.tp.push(['setCustomVariable', 'isPaywall', 'never'])
+      }
     })
   },
   methods: {

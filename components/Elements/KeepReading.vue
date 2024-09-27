@@ -56,6 +56,15 @@ export default {
     }
   },
   computed: {
+    title() {
+      if (this.$route.fullPath.includes('super1')) {
+        return 'Ostanite uz Super1'
+      }
+      if (this.$route.fullPath.includes('telesport')) {
+        return 'Ostanite uz Telesport'
+      }
+      return 'Ostanite uz Telegram'
+    },
     posts() {
       if (this.$store.state.category.categories[this.category] === undefined) {
         return []
