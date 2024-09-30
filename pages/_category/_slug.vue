@@ -490,7 +490,10 @@
                   </client-only>
                 </div>
                 <client-only>
-                  <comments v-if="post.id" :post="post"></comments>
+                  <comments
+                    v-if="post.id && !post.category_slug.includes('superone')"
+                    :post="post"
+                  ></comments>
                 </client-only>
               </div>
             </div>
