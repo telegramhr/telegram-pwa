@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import {
   faPodcast,
   faAngleRight,
+  faArrowLeft,
   faTimes,
   faRss,
   faFire,
@@ -56,6 +57,7 @@ import {
   faCreditCardFront,
   faStars,
   faGift,
+  faCircleQuestion,
   faStar,
 } from '@fortawesome/pro-regular-svg-icons'
 
@@ -123,7 +125,9 @@ library.add(
   faTelegramPlane,
   faBell,
   faStar,
-  faStarSolid
+  faStarSolid,
+  faArrowLeft,
+  faCircleQuestion
 )
 
 // Register the component globally

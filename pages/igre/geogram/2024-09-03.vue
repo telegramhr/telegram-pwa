@@ -9,11 +9,57 @@
       <div
         class="container relative flex mobile-side-pad stretch column-full-pad"
       >
-        <h1 v-if="!$mobile" class="full center-text">Geogram | 03.09.2024.</h1>
+        <app-link to="/igre/geogram/" class="game-topbar-left animate"
+          ><font-awesome-icon :icon="['fas', 'arrow-left']"></font-awesome-icon
+        ></app-link>
+        <h1 class="full center-text smaller-mobile-h1">
+          Geogram | 03.09.2024.
+        </h1>
+        <div
+          class="game-topbar-right clickable animate"
+          @click="showTutorial = !showTutorial"
+        >
+          <font-awesome-icon
+            :icon="['far', 'circle-question']"
+          ></font-awesome-icon>
+        </div>
       </div>
     </div>
     <div class="full flex relative">
       <div class="container flex relative mobile-side-pad">
+        <div
+          v-show="showTutorial"
+          class="full flex relative column-full-pad mobile-vertical-pad"
+        >
+          <div
+            class="full flex just-border tg-game-mini-tutorial column-vertical-pad mobile-side-pad barlow"
+          >
+            <div
+              class="half flex-responsive column-horizontal-pad mobile-vertical-pad column-right-border mobile-bottom-border"
+            >
+              <p class="full bold nano-bottom-pad">
+                Prepoznajte lokaciju i označite ju na karti
+              </p>
+              <p class="full">
+                Fotografija je snimljena negdje u Hrvatskoj - iskoristite
+                prepoznatljive elemente poput arhitekture, flore, ili poznatih
+                znamenitosti kako bi označili što precizniju lokaciju.
+              </p>
+            </div>
+            <div
+              class="half flex-responsive column-horizontal-pad mobile-vertical-pad"
+            >
+              <p class="full bold nano-bottom-pad">
+                Dobijte bodove ovisno koliko ste blizu
+              </p>
+              <p class="full">
+                Kada predate svoj rezultat, pokazati ćemo vam točnu lokaciju na
+                kojoj je fotografija snimljena te će te dobiti bodove ovisno o
+                tome koliko ste blizu bili.
+              </p>
+            </div>
+          </div>
+        </div>
         <div
           class="half column-full-pad mobile-vertical-pad flex flex-responsive relative"
         >
@@ -31,14 +77,20 @@
             class="full center-text center newbtn huge-newbtn clickable column-top-margin"
             @click="geogramHint"
           >
-            Otkrij više (-20% bodova)
+            Otkrijte još
           </div>
           <div
             v-if="hintUsed && !showSolution"
             id="geogram-used-hint"
             class="full center-text center newbtn huge-newbtn newbtn-empty darkened-bg column-top-margin"
           >
-            Iskoristili ste hint (-20% bodova)
+            Cijela fotografija otkrivena
+          </div>
+          <div
+            v-if="!hintUsed && !showSolution"
+            class="full nano-top-pad minicard-text center-text faded barlow"
+          >
+            Ako vam otkrijemo još fotografije, gubite 20% bodova
           </div>
         </div>
         <div
@@ -111,16 +163,19 @@
             class="full center-text center newbtn huge-newbtn clickable column-top-margin"
             @click="geogramSubmit"
           >
-            Predaj rješenje
+            Odaberite lokaciju
           </div>
         </div>
       </div>
     </div>
-    <div class="full flex relative column-bottom-pad">
+    <div
+      v-if="showSolution"
+      id="after-game"
+      class="full flex relative column-bottom-pad"
+    >
       <div class="container flex smaller-container relative">
         <div
-          v-if="showSolution"
-          class="full flex column-full-pad column-margin-top mobile-top-pad"
+          class="full flex column-full-pad column-margin-top mobile-top-pad mobile-side-pad"
         >
           <div
             class="full darkened-bg round-border column-full-pad mobile-full-pad column-top-margin"
@@ -166,13 +221,213 @@
             </p>
           </div>
         </div>
-        <div class="full flex column-full-pad column-top-margin mobile-top-pad">
-          <app-link
-            to="/igre/geogram/"
-            class="full center-text center newbtn huge-newbtn subtle-newbtn clickable"
+        <div class="full flex relative">
+          <p
+            class="full center-text games-tagline column-top-pad mobile-vertical-pad column-mini-bottom-pad mobile-side-pad"
           >
-            Povratak na izbornik
-          </app-link>
+            Rezultati vaših prijatelja
+          </p>
+          <div
+            class="third flex-responsive flex relative column-full-pad mobile-full-pad"
+          >
+            <div class="tg-game-card column-mini-vertical-pad center flex-wrap">
+              <div class="third mobile-fourth flex column-mini-horizontal-pad">
+                <img
+                  src="https://images.telegram.hr/dh_7jSDHLNDkNbirTNA9l9x-lvF-PtA_RnRbh3qzBOY/preset:author/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMTgvMDcvdGdfa2xhcmljLnBuZw.webp"
+                  alt="Jasmin Klarić"
+                  class="tg-game-avatar darkened-bg"
+                />
+              </div>
+              <div class="two-thirds mobile-three-fourths flex">
+                <div class="full barlow bold">Jasmin Klarić</div>
+                <div class="full minicard-text">57 bodova</div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="third flex-responsive flex relative column-full-pad mobile-full-pad"
+          >
+            <div class="tg-game-card column-mini-vertical-pad center flex-wrap">
+              <div class="third mobile-fourth flex column-mini-horizontal-pad">
+                <img
+                  src="https://images.telegram.hr/7eSaxH6IFu3wzHNXirmUqjpItPKZPIqNnc1tteo7l2U/preset:author/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjAvMTEvdGcta2F0YXJpbmEta25lemV2aWMucG5n.webp"
+                  alt="Katarina Knežević Metelko"
+                  class="tg-game-avatar darkened-bg"
+                />
+              </div>
+              <div class="two-thirds mobile-three-fourths flex">
+                <div class="full barlow bold">Katarina Knežević Metelko</div>
+                <div class="full minicard-text">98 bodova</div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="third flex-responsive flex relative column-full-pad mobile-full-pad"
+          >
+            <div class="tg-game-card column-mini-vertical-pad center flex-wrap">
+              <div class="third mobile-fourth flex column-mini-horizontal-pad">
+                <img
+                  src="https://images.telegram.hr/7Czs3QS7-PUc3XrGExwYPFME7QqzW9tSUIfxvzRCCsA/preset:author/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMTcvMDYvZGl2by1kdXJvdmljLTItMi0xLnBuZw.webp"
+                  alt="Đivo Đurović"
+                  class="tg-game-avatar darkened-bg"
+                />
+              </div>
+              <div class="two-thirds mobile-three-fourths flex">
+                <div class="full barlow bold">Đivo Đurović</div>
+                <div class="full minicard-text">7 bodova</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p
+          class="full center-text games-tagline big-games-tagline column-top-pad mobile-top-pad mobile-side-pad"
+        >
+          Nastavite igrati
+        </p>
+        <p
+          class="full center-text games-tagline column-mini-bottom-pad mobile-side-pad mobile-bottom-pad"
+        >
+          <span class="ib">Sve razine Geograma, </span>
+          <span class="ib">dostupne samo za pretplatnike</span>
+        </p>
+        <div
+          class="third flex-responsive flex relative column-full-pad mobile-full-pad"
+        >
+          <div class="full flex tg-game-card">
+            <div class="full flex relative">
+              <div class="mystery-cover"></div>
+              <img
+                src="@/assets/img/games/geogram/geogram_1.jpg"
+                aria-hidden="true"
+              />
+              <div class="mystery-cover"></div>
+            </div>
+            <div class="full flex column-full-pad mobile-full-pad">
+              <app-link
+                to="/igre/geogram/2024-09-01/"
+                class="full newbtn center center-text huge-newbtn column-mini-bottom-margin"
+              >
+                Igrajte
+              </app-link>
+              <div class="full minicard-text center-text nano-top-pad">
+                03.09.2024.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="third flex-responsive flex relative column-full-pad mobile-full-pad"
+        >
+          <div class="full flex tg-game-card">
+            <div class="full flex relative">
+              <div class="mystery-cover"></div>
+              <img
+                src="@/assets/img/games/geogram/geogram_2.jpg"
+                aria-hidden="true"
+              />
+              <div class="mystery-cover"></div>
+            </div>
+            <div class="full flex column-full-pad mobile-full-pad">
+              <app-link
+                to="/igre/geogram/2024-09-02/"
+                class="full newbtn center center-text huge-newbtn column-mini-bottom-margin"
+              >
+                Igrajte
+              </app-link>
+              <div class="full minicard-text center-text nano-top-pad">
+                02.09.2024.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="third flex-responsive flex relative column-full-pad mobile-full-pad"
+        >
+          <div class="full flex tg-game-card">
+            <div class="full flex relative">
+              <div class="mystery-cover"></div>
+              <img
+                src="@/assets/img/games/geogram/geogram_3.jpg"
+                aria-hidden="true"
+              />
+              <div class="mystery-cover"></div>
+            </div>
+            <div class="full flex column-full-pad mobile-full-pad">
+              <app-link
+                to="/igre/geogram/2024-09-01/"
+                class="full newbtn center center-text huge-newbtn column-mini-bottom-margin"
+              >
+                Igrajte
+              </app-link>
+              <div class="full minicard-text center-text nano-top-pad">
+                01.09.2024.
+              </div>
+            </div>
+          </div>
+        </div>
+        <p
+          class="full center-text games-tagline column-top-pad column-mini-bottom-pad mobile-side-pad mobile-bottom-pad"
+        >
+          Druge Telegramove igre
+        </p>
+        <div
+          class="half flex-responsive flex relative column-full-pad mobile-full-pad"
+        >
+          <div class="full flex tg-game-card">
+            <div
+              class="full darkened-bg tg-game-header center flex-wrap column-full-pad mobile-full-pad"
+            >
+              <img
+                src="@/assets/img/games/tg_icon_hexagram.svg"
+                alt="Hexagram"
+              />
+              <img
+                src="@/assets/img/games/tg_icon_hexagram_negative.svg"
+                alt="Hexagram"
+                class="dark-mode-only"
+              />
+              <div class="full tg-game-title center-text">Hexagram</div>
+            </div>
+            <div class="full flex column-full-pad mobile-full-pad">
+              <a
+                href="https://pwa.telegram.hr/igre/hexagram/01-06-2024"
+                target="_blank"
+                class="full newbtn center center-text huge-newbtn column-mini-bottom-margin"
+              >
+                Igrajte
+              </a>
+              <div class="full minicard-text center-text">
+                Pronađite riječi u mreži slova i iskoristite svaki šesterokut.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="half flex-responsive flex relative column-full-pad mobile-full-pad"
+        >
+          <div class="full flex tg-game-card">
+            <div
+              class="full darkened-bg tg-game-header center flex-wrap column-full-pad mobile-full-pad"
+            >
+              <img src="@/assets/img/games/tg_icon_statika.svg" alt="Statika" />
+              <img
+                src="@/assets/img/games/tg_icon_statika_negative.svg"
+                alt="Hexagram"
+                class="dark-mode-only"
+              />
+              <div class="full tg-game-title center-text">Statika</div>
+            </div>
+            <div class="full flex column-full-pad mobile-full-pad">
+              <div
+                class="full newbtn center center-text huge-newbtn column-mini-bottom-margin"
+              >
+                Igrajte
+              </div>
+              <div class="full minicard-text center-text">
+                Slažite riječi jedne na drugu u što duljem lancu.
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -185,6 +440,7 @@ export default {
   name: 'Geogram',
   data() {
     return {
+      showTutorial: false,
       geogramImage: '@/assets/img/games/geogram/geogram_3.jpg',
       geogramLocation:
         'Novi Vinodolski, pogled s južne gradske plaže na otočić San Marino',
@@ -328,6 +584,11 @@ export default {
         lng: longitude,
       }
       this.showSolution = true
+      this.$nextTick(() => {
+        document.getElementById('after-game').scrollIntoView({
+          behavior: 'smooth',
+        })
+      })
     },
     geogramHint() {
       this.hintUsed = 1

@@ -18,7 +18,9 @@
           />
         </div>
         <h1 class="full center-text">Geogram</h1>
-        <p class="full center-text pretplata-tagline column-bottom-pad">
+        <p
+          class="full center-text pretplata-tagline column-bottom-pad mobile-bottom-pad"
+        >
           Pogodite lokaciju neke fotografije iz Hrvatske
         </p>
         <div class="full center column-mini-bottom-pad many-btns">
@@ -26,14 +28,14 @@
             to="/igre/geogram/2024-09-03/"
             class="newbtn center center-text huge-newbtn column-mini-bottom-margin"
           >
-            Igraj najnovije
+            Igrajte današnju
           </app-link>
-          <app-link
-            to="/igre/geogram/arhiva/"
+          <a
+            href="#arhiva"
             class="newbtn center center-text huge-newbtn subtle-newbtn column-mini-bottom-margin"
           >
-            Igraj arhivu
-          </app-link>
+            Pogledajte prethodne
+          </a>
         </div>
         <div class="full center-text faded minicard-text column-bottom-pad">
           Arhiva je dostupna pretplatnicima
@@ -111,7 +113,7 @@
             Kako igrati
           </p>
         </div>
-        <div class="full flex relative stretch">
+        <div class="full flex relative stretch barlow">
           <div class="half flex-responsive column-full-pad">
             <img
               src="@/assets/img/grey_placeholder_square.png"
@@ -121,28 +123,28 @@
           <div class="half center flex-responsive column-full-pad">
             <div class="full flex">
               <div class="full bigger-text bold column-mini-bottom-pad">
-                Prepoznajte lokaciju i označite ju na karti
+                <span class="ib">Prepoznajte lokaciju </span
+                ><span class="ib">i označite ju na karti</span>
               </div>
               <p>
-                Lorem Ipsum is dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book.
+                Fotografija je snimljena negdje u Hrvatskoj - iskoristite
+                prepoznatljive elemente poput arhitekture, flore, ili poznatih
+                znamenitosti kako bi označili što precizniju lokaciju.
               </p>
             </div>
           </div>
         </div>
-        <div class="full flex relative stretch">
+        <div class="full flex relative stretch barlow">
           <div class="half center flex-responsive column-full-pad m-order-2">
             <div class="full flex">
               <div class="full bigger-text bold column-mini-bottom-pad">
-                Dobijte bodove ovisno o tome koliko ste blizu
+                <span class="ib">Dobijte bodove </span
+                ><span class="ib">ovisno koliko ste blizu</span>
               </div>
               <p>
-                Lorem Ipsum is dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book.
+                Kada predate svoj rezultat, pokazati ćemo vam točnu lokaciju na
+                kojoj je fotografija snimljena te će te dobiti bodove ovisno o
+                tome koliko ste blizu bili.
               </p>
             </div>
           </div>
@@ -151,6 +153,103 @@
               src="@/assets/img/grey_placeholder_square.png"
               aria-hidden="true"
             />
+          </div>
+        </div>
+        <div
+          id="arhiva"
+          class="full flex relative column-vertical-pad pretplata-page"
+        >
+          <div class="full flex pretplata-page">
+            <p
+              class="full center-text pretplata-tagline column-top-pad mobile-vertical-pad column-mini-bottom-pad"
+            >
+              Sve razine Geograma, dostupne samo za pretplatnike
+            </p>
+          </div>
+          <div
+            class="third flex-responsive flex relative column-full-pad mobile-full-pad"
+          >
+            <div class="full flex tg-game-card">
+              <div class="full flex relative">
+                <div class="mystery-cover"></div>
+                <img
+                  src="@/assets/img/games/geogram/geogram_1.jpg"
+                  aria-hidden="true"
+                />
+                <div class="mystery-cover"></div>
+              </div>
+              <div class="full flex column-full-pad mobile-full-pad">
+                <app-link
+                  to="/igre/geogram/2024-09-01/"
+                  class="full newbtn center center-text huge-newbtn column-mini-bottom-margin"
+                >
+                  Igrajte
+                </app-link>
+                <div class="full minicard-text center-text nano-top-pad">
+                  03.09.2024.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="third flex-responsive flex relative column-full-pad mobile-full-pad"
+          >
+            <div class="full flex tg-game-card">
+              <div class="full flex relative">
+                <div class="mystery-cover"></div>
+                <img
+                  src="@/assets/img/games/geogram/geogram_2.jpg"
+                  aria-hidden="true"
+                />
+                <div class="mystery-cover"></div>
+              </div>
+              <div class="full flex column-full-pad mobile-full-pad">
+                <app-link
+                  to="/igre/geogram/2024-09-02/"
+                  class="full newbtn center center-text huge-newbtn column-mini-bottom-margin"
+                >
+                  Igrajte
+                </app-link>
+                <div class="full minicard-text center-text nano-top-pad">
+                  02.09.2024.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="third flex-responsive flex relative column-full-pad mobile-full-pad"
+          >
+            <div class="full flex tg-game-card">
+              <div class="full flex relative">
+                <div class="mystery-cover"></div>
+                <img
+                  src="@/assets/img/games/geogram/geogram_3.jpg"
+                  aria-hidden="true"
+                />
+                <div class="mystery-cover"></div>
+              </div>
+              <div class="full flex column-full-pad mobile-full-pad">
+                <app-link
+                  to="/igre/geogram/2024-09-01/"
+                  class="full newbtn center center-text huge-newbtn column-mini-bottom-margin"
+                >
+                  Igrajte
+                </app-link>
+                <div class="full minicard-text center-text nano-top-pad">
+                  01.09.2024.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="full flex column-full-pad column-top-margin mobile-top-pad"
+          >
+            <app-link
+              to="/igre/"
+              class="full center-text center newbtn huge-newbtn subtle-newbtn clickable"
+            >
+              Povratak na izbornik igara
+            </app-link>
           </div>
         </div>
       </div>

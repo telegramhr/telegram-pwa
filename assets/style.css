@@ -15124,7 +15124,7 @@ header {
 }
 
 .tg-game-title {
-    font-weight: 900;
+    font-weight: 700;
     font-size: 1.2rem;
 }
 
@@ -15240,7 +15240,6 @@ header {
     font-size: 4rem;
     color: #f1c40f;
 }
-
 .game-stars {
     margin-top: -3.4rem;
 }
@@ -15255,4 +15254,103 @@ header {
 }
 .dark-mode .tg-game-card {
     border-color: #555;
+}
+
+.game-topbar-left, .game-topbar-right {
+    position: absolute;
+    bottom: 2.2rem;
+    opacity: 0.5;
+}
+.game-topbar-left:hover, .game-topbar-right:hover {
+    opacity: 1;
+}
+.game-topbar-left {
+    left: 1.2rem;
+}
+.game-topbar-right {
+    right: 1.2rem;
+}
+.game-topbar-left svg, .game-topbar-right svg {
+    width: 1.6rem;
+    height: 1.6rem;
+}
+.nano-right-pad {
+    padding-right: 0.2rem;
+}
+.nano-left-pad {
+    padding-left: 0.2rem;
+}
+.nano-top-pad {
+    padding-top: 0.2rem;
+}
+.nano-bottom-pad {
+    padding-bottom: 0.2rem;
+}
+.huge-newbtn svg {
+    position: relative;
+    bottom: -.05em;
+}
+.just-border {
+    border: 1px solid #c8c8c8;
+}
+.dark-mode .just-border {
+    border-color: #555;
+}
+.tg-games h1, .tg-game-title  {
+    font-family: 'Barlow', sans-serif;
+}
+.tg-games #after-game {
+    padding-top: 100px;
+    margin-top: -50px;
+}
+.games-tagline {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+    opacity: .7;
+    font-size: 24px;
+    font-size: 1.2rem;
+    margin-top: 8px;
+}
+.big-games-tagline {
+    opacity: 1;
+    font-size: 32px;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 767px) {
+    .tg-game-mini-tutorial .column-right-border {
+        border-right: none;
+    }
+    .game-stars > svg {
+        font-size: 2rem;
+    }
+    .game-stars {
+        margin-top: -1.8rem;
+    }
+    .pretplata-page .smaller-mobile-h1 {
+        font-size: 24px;
+        font-size: 1.2rem;
+    }
+    .game-topbar-left, .game-topbar-right {
+        bottom: 0.75rem;
+    }
+    .game-topbar-left svg, .game-topbar-right svg {
+        width: 0.8rem;
+        height: 0.8rem;
+    }
+    .game-topbar-left {
+        left: 0.8rem;
+    }
+    .game-topbar-right {
+        right: 0.8rem;
+    }
+    .games-tagline {
+        font-size: 20px;
+        font-size: 1rem;
+    }
+    .big-games-tagline {
+        font-size: 32px;
+        font-size: 1.6rem;
+    }
 }

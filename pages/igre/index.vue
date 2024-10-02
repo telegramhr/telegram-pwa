@@ -7,13 +7,39 @@
     </div>
     <div class="full flex relative pretplata-page">
       <div
-        class="container smaller-container relative flex mobile-side-pad stretch column-full-pad"
+        class="container smaller-container relative flex mobile-side-pad stretch column-full-pad mobile-bottom-pad"
       >
-        <h1 class="full center-text">Telegram Igre</h1>
+        <h1 class="full center-text hide">Telegram Igre</h1>
+        <div class="full center relative">
+          <div
+            class="fourth mobile-half flex-responsive flex relative column-top-pad mobile-top-pad column-mini-bottom-pad"
+          >
+            <img
+              src="@/assets/img/t_games_normal.svg"
+              alt="Telegram games logo"
+              class="light-mode-only mobile-top-pad"
+              loading="lazy"
+            />
+            <img
+              src="@/assets/img/t_games_normal.svg"
+              alt="Telegram games logo"
+              class="contrast-mode-only mobile-top-pad"
+              loading="lazy"
+            />
+
+            <img
+              src="@/assets/img/t_games_negative.svg"
+              alt="Telegram games logo"
+              class="dark-mode-only mobile-top-pad"
+              loading="lazy"
+            />
+          </div>
+        </div>
         <p
-          class="full center-text pretplata-tagline column-bottom-pad column-bottom-border mobile-vertical-pad mobile-bottom-border"
+          class="full center-text pretplata-tagline column-bottom-pad column-bottom-border mobile-bottom-pad mobile-bottom-border"
         >
-          Zabavne i intelektualne igre u produkciji Telegrama
+          <span class="ib">Izazovne igre i zagonetke </span
+          ><span class="ib">u produkciji Telegrama</span>
         </p>
       </div>
     </div>
@@ -43,7 +69,7 @@
                 target="_blank"
                 class="full newbtn center center-text huge-newbtn column-mini-bottom-margin"
               >
-                Igraj
+                Igrajte
               </a>
               <div class="full minicard-text center-text">
                 Pronađite riječi u mreži slova i iskoristite svaki šesterokut.
@@ -70,7 +96,7 @@
               <div
                 class="full newbtn center center-text huge-newbtn column-mini-bottom-margin"
               >
-                Igraj
+                Igrajte
               </div>
               <div class="full minicard-text center-text">
                 Slažite riječi jedne na drugu u što duljem lancu.
@@ -98,7 +124,7 @@
                 to="/igre/geogram"
                 class="full newbtn center center-text huge-newbtn column-mini-bottom-margin"
               >
-                Igraj
+                Igrajte
               </app-link>
               <div class="full minicard-text center-text">
                 Pogodite lokaciju neke fotografije iz Hrvatske
