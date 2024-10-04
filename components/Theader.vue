@@ -310,14 +310,11 @@
           </div>
           <app-link
             to="/"
-            class="third mobile-forty center nayos-logos telegram-only"
+            class="third mobile-forty center nayos-logos telegram-only the-big-t"
           >
+            <img src="@/assets/img/t_logo.svg" alt="Telegram logo" />
             <img
-              src="@/assets/img/telegram_logo_black.svg"
-              alt="Telegram logo"
-            />
-            <img
-              src="@/assets/img/telegram_logo_white.svg"
+              src="@/assets/img/t_logo.svg"
               alt="Telegram logo"
               class="dark-mode-only"
             />
@@ -413,12 +410,12 @@
               v-show="!canLogIn && !$route.fullPath.includes('super1')"
               id="Poklonite pretplatu - header"
               to="/pretplata/poklon"
-              class="newbtn desktop-only"
+              class="newbtn"
               >Poklonite pretplatu</app-link
             >
             <app-link
               v-show="!canLogIn"
-              class="column-mini-left-pad"
+              class="column-mini-left-pad desktop-only"
               to="/moj-racun"
               aria-label="Moj račun"
             >

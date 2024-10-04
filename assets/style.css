@@ -7764,7 +7764,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         padding-top: 4vw;
     }
     .featured-split.biggest-font .article-featured {
-        padding-top: 2vw;
+        padding-top: 0px;
     }
     .komentar > img.mobile-only {
         display: none;
@@ -10486,7 +10486,7 @@ label.payment-tile svg {
 }
 
 @media screen and (max-width: 767px) {
-    .main-container.s1-home, .main-container.pz-homepage, .main-container.os-home, .main-container.ts-home {
+    .main-container.s1-home, .main-container.pz-homepage, .main-container.os-home, .main-container.ts-home, .main-container.homepage {
         padding-top: 0px;
     }
     .superone-home-header {
@@ -13608,6 +13608,9 @@ header {
 .nayos .nayos-logos img {
   height: 18px;
 }
+.nayos .nayos-logos.the-big-t img {
+    height: 26px;
+}
 
 .stocks-parent {
   height: 50px;
@@ -15352,5 +15355,16 @@ header {
     .big-games-tagline {
         font-size: 32px;
         font-size: 1.6rem;
+    }
+}
+
+/* The T */
+
+@media screen and (max-width: 767px) {
+    .homepage header nav.nayos .third {
+        width: 39.99%;
+    }
+    .homepage header nav.nayos .third.nayos-logos {
+        width: 19.99%;
     }
 }

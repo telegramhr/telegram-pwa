@@ -38,8 +38,7 @@
         <p
           class="full center-text pretplata-tagline column-bottom-pad column-bottom-border mobile-bottom-pad mobile-bottom-border"
         >
-          <span class="ib">Izazovne igre i zagonetke </span
-          ><span class="ib">u produkciji Telegrama</span>
+          Izazovne igre i zagonetke u produkciji Telegrama
         </p>
       </div>
     </div>
