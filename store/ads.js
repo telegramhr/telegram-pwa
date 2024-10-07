@@ -1,8 +1,43 @@
+import html2canvas from 'html2canvas'
+
 export const state = () => ({
   init: false,
   slots: false,
   prefix: '/1092744/telegram/',
   units: {
+    telegram_top_ticker: {
+      upc: false,
+      mobile: [
+        [1, 1],
+        [300, 50],
+      ],
+      desktop: [
+        [1, 1],
+        [300, 50],
+      ],
+      routes: [
+        'index',
+        'category',
+        'category-slug',
+        'super1',
+        'telesport',
+        'super1-category',
+        'telesport-category',
+        'nesto-slug',
+        'fotogalerije-category',
+        'fotogalerije-category-slug',
+        'category',
+        'search',
+        'autor-autor',
+        'tema-tema',
+        'super1-category-slug',
+        'telesport-category-slug',
+        'pitanje-zdravlja-category-slug',
+        'openspace-category-slug',
+        'pitanje-zdravlja-category',
+        'openspace-category',
+      ],
+    },
     telegram_desktop_billboard_v1: {
       upc: false,
       mobile: [
@@ -483,6 +518,7 @@ export const state = () => ({
       ],
       mobile: [
         [1, 1],
+        [2, 2],
         [300, 50],
         [300, 100],
         [320, 50],
@@ -493,6 +529,7 @@ export const state = () => ({
         [250, 280],
       ],
       desktop: [
+        [2, 2],
         [900, 600],
         [728, 90],
         [970, 90],
@@ -915,6 +952,26 @@ export const actions = {
     const _that = this
     window.googletag.cmd.push(function () {
       window.googletag.pubads().refresh()
+      window.googletag.pubads().addEventListener('slotOnload', (event) => {
+        const slot = event.slot
+
+        if (slot === 'telegram_sticky' && event.size[0] === 2) {
+          const height = window.innerHeight
+          const width = window.innerWidth
+          const el = document.createElement('div')
+          el.id = 'animated_takeover'
+          const image = document.createElement('img')
+          html2canvas(document.querySelector('body'), {
+            width,
+            height,
+            scale: 1,
+          }).then((canvas) => {
+            image.src = canvas.toDataURL('image/jpeg', 0.7)
+            el.append(image)
+            window.document.body.append(el)
+          })
+        }
+      })
       window.googletag
         .pubads()
         .addEventListener('slotRenderEnded', function (event) {
