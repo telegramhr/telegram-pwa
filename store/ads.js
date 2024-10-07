@@ -521,6 +521,7 @@ export const state = () => ({
         [2, 2],
         [300, 50],
         [300, 100],
+        [350, 100],
         [320, 50],
         [320, 150],
         [320, 200],
@@ -952,26 +953,6 @@ export const actions = {
     const _that = this
     window.googletag.cmd.push(function () {
       window.googletag.pubads().refresh()
-      window.googletag.pubads().addEventListener('slotOnload', (event) => {
-        const slot = event.slot
-
-        if (slot === 'telegram_sticky' && event.size[0] === 2) {
-          const height = window.innerHeight
-          const width = window.innerWidth
-          const el = document.createElement('div')
-          el.id = 'animated_takeover'
-          const image = document.createElement('img')
-          html2canvas(document.querySelector('body'), {
-            width,
-            height,
-            scale: 1,
-          }).then((canvas) => {
-            image.src = canvas.toDataURL('image/jpeg', 0.7)
-            el.append(image)
-            window.document.body.append(el)
-          })
-        }
-      })
       window.googletag
         .pubads()
         .addEventListener('slotRenderEnded', function (event) {
@@ -1000,6 +981,11 @@ export const actions = {
             } else {
               el.style.minHeight = 0 + 'px'
             }
+            /* if (name === 'telegram_sticky') {
+              const el = document.createElement('div')
+              el.id = 'animated_takeover'
+              window.document.body.append(el)
+            } */
             if (name.includes('background') && !event.isEmpty) {
               document.getElementById('article-body').style.marginTop = '470px'
               document.getElementsByClassName(

@@ -243,7 +243,7 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
-    // cache: true,
+    cache: true,
     // parallel: true,
     // hardSource: true,
     indicator: false,
@@ -253,7 +253,7 @@ export default {
       },
     },
     optimization: {
-      minimize: true,
+      minimize: false,
     },
     babel: {
       plugins: [['@babel/plugin-proposal-private-methods', { loose: true }]],
