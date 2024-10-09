@@ -1453,7 +1453,7 @@ figure img {
     width: 200px;
     height: 100%;
     position: fixed;
-    left: -101%;
+    right: -101%;
     z-index: 299;
     top: 0;
     background-color: #333;
@@ -1489,7 +1489,7 @@ figure img {
     margin-bottom: 4px;
 }
 .side-menu-activate {
-    left: 0%;
+    right: 0%;
 }
 .side-menu .half > * {
     width: 100%;
@@ -4328,7 +4328,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         padding-top: 38px;
         width: 220px;
         height: 100%;
-        left: -301px;
+        right: -301px;
         background-image: none;
         align-items: flex-start;
     }
@@ -4341,7 +4341,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         left: 24px;
     }
     .side-menu-activate {
-        left: 0px;
+        right: 0px;
     }
     .single-article .block-title h1 {
         font-size: 36px;
@@ -13606,10 +13606,19 @@ header {
   border-bottom-color: #555;
 }
 .nayos .nayos-logos img {
-  height: 18px;
+  height: 22px;
+}
+.telesport .nayos-multiverse.nayos .nayos-logos img {
+    height: 30px;
+}
+.telesport .nayos-multiverse.nayos .the-big-t img {
+    height: 50px;
 }
 .nayos .nayos-logos.the-big-t img {
-    height: 26px;
+    height: 50px;
+}
+.pitanje-zdravlja header .nayos .third, .pitanje-zdravlja header .nayos .two-thirds {
+    width: 49.99%;
 }
 
 .stocks-parent {
@@ -15355,16 +15364,5 @@ header {
     .big-games-tagline {
         font-size: 32px;
         font-size: 1.6rem;
-    }
-}
-
-/* The T */
-
-@media screen and (max-width: 767px) {
-    .homepage header nav.nayos .third {
-        width: 39.99%;
-    }
-    .homepage header nav.nayos .third.nayos-logos {
-        width: 19.99%;
     }
 }

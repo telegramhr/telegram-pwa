@@ -186,6 +186,9 @@ img {
 .vertical-center {
     align-content: center;
 }
+.alt-vertical-center {
+    align-items: center;
+}
 .hide {
     display: none !important;
 }

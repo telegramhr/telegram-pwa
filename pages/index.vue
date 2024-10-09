@@ -19,35 +19,48 @@
     <nav
       class="full center relative nayos nayos-multiverse stretch mobile-only"
     >
-      <div
-        class="container flex stretch relative column-horizontal-pad mobile-side-pad"
-      >
-        <div class="third flex vertical-center mobile-thirty">
-          <a
-            :aria-expanded="$store.state.header.showSideMenu.toString()"
-            aria-label="Prikaži lijevi meni"
-            aria-controls="sidebar"
-            @click.prevent="$store.commit('header/updateMenu', 'side')"
-          >
-            <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon>
-          </a>
+      <div class="container flex stretch relative column-horizontal-pad">
+        <div
+          class="two-thirds flex alt-vertical-center vertical-center mobile-side-pad"
+        >
+          <div class="flex nayos-logos">
+            <img
+              src="@/assets/img/telegram_logo_black.svg"
+              alt="Telegram logo"
+            />
+            <img
+              src="@/assets/img/telegram_logo_white.svg"
+              alt="Telegram logo"
+              class="dark-mode-only"
+            />
+          </div>
         </div>
-        <app-link to="/" class="third mobile-forty center nayos-logos">
-          <img src="@/assets/img/telegram_logo_black.svg" alt="Telegram logo" />
-          <img
-            src="@/assets/img/telegram_logo_white.svg"
-            alt="Telegram logo"
-            class="dark-mode-only"
-          />
-        </app-link>
-        <div class="third center align-children-end mobile-thirty">
+        <div class="third center align-children-end mobile-side-pad">
+          <app-link
+            v-show="!canLogIn"
+            class="column-mini-left-pad desktop-only"
+            to="/moj-racun"
+            aria-label="Moj račun"
+          >
+            <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
+          </app-link>
           <a
+            class="desktop-only column-mini-left-pad"
             aria-label="Prikaži tražilicu"
             :aria-expanded="$store.state.header.showSearchMenu.toString()"
             aria-controls="search"
             @click.prevent="$store.commit('header/updateMenu', 'search')"
           >
             <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon>
+          </a>
+          <a
+            class="column-mini-left-pad"
+            :aria-expanded="$store.state.header.showSideMenu.toString()"
+            aria-label="Prikaži lijevi meni"
+            aria-controls="sidebar"
+            @click.prevent="$store.commit('header/updateMenu', 'side')"
+          >
+            <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon>
           </a>
         </div>
       </div>
