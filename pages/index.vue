@@ -15,7 +15,7 @@
     <div class="full flex">
       <theader></theader>
     </div>
-    <!-- Actual new TG multiverse header -->
+    <!-- Actual new TG multiverse header
     <nav
       class="full center relative nayos nayos-multiverse stretch mobile-only"
     >
@@ -64,7 +64,7 @@
           </a>
         </div>
       </div>
-    </nav>
+    </nav> -->
     <!-- Stocks -->
     <div class="full center stocks-parent desktop-only">
       <div class="container flex column-horizontal-pad">
@@ -78,7 +78,7 @@
       <hometop-simple></hometop-simple>
     </client-only>
     <!-- Cantha header -->
-    <div class="full relative cantha-header">
+    <div class="full relative cantha-header mobile-side-pad">
       <!-- Actual new TG multiverse header -->
       <nav
         class="full center relative nayos nayos-multiverse stretch u-domovinskom-duhu"
@@ -145,16 +145,16 @@
             alt="Dora Kršul na dodjeli nagrade za novinarku godine"
           />
         </app-link>-->
-        <div class="full center relative desktop-only">
+        <div class="full center relative">
           <a
-            class="cantha-menubtn"
-            aria-label="Prikaži lijevi meni"
-            :aria-expanded="$store.state.header.showSideMenu.toString()"
-            aria-controls="sidebar"
-            @click.prevent="$store.commit('header/updateMenu', 'side')"
+            aria-label="Prikaži tražilicu"
+            class="cantha-searchbtn"
+            :aria-expanded="$store.state.header.showSearchMenu.toString()"
+            aria-controls="search"
+            @click.prevent="$store.commit('header/updateMenu', 'search')"
           >
-            <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon
-          ></a>
+            <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon>
+          </a>
           <app-link to="/" class="logo" @click="$fetch"
             ><img
               src="@/assets/img/telegram_logo_black.svg"
@@ -169,15 +169,16 @@
               alt="Telegram logo"
               class="dark-mode-only"
           /></app-link>
+
           <a
-            aria-label="Prikaži tražilicu"
-            class="cantha-searchbtn"
-            :aria-expanded="$store.state.header.showSearchMenu.toString()"
-            aria-controls="search"
-            @click.prevent="$store.commit('header/updateMenu', 'search')"
+            class="cantha-menubtn"
+            aria-label="Prikaži lijevi meni"
+            :aria-expanded="$store.state.header.showSideMenu.toString()"
+            aria-controls="sidebar"
+            @click.prevent="$store.commit('header/updateMenu', 'side')"
           >
-            <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon>
-          </a>
+            <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon
+          ></a>
         </div>
         <app-link
           to="/pretplata/odabrati-stranu"

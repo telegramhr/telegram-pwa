@@ -62,14 +62,16 @@
           class="full center relative nayos stretch column-horizontal-pad mobile-side-pad"
         >
           <div class="third flex vertical-center mobile-thirty">
-            <a
-              :aria-expanded="$store.state.header.showSideMenu.toString()"
-              aria-label="Prikaži lijevi meni"
-              aria-controls="sidebar"
-              @click.prevent="$store.commit('header/updateMenu', 'side')"
+            <app-link
+              v-show="canLogIn"
+              id="pretplatite se - header"
+              to="/pretplata"
+              class="newbtn"
+              >Pretplatite se</app-link
             >
-              <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon>
-            </a>
+            <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun">
+              <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
+            </app-link>
           </div>
           <app-link
             to="/"
@@ -118,16 +120,14 @@
             />
           </app-link>
           <div class="third center align-children-end mobile-thirty">
-            <app-link
-              v-show="canLogIn"
-              id="pretplatite se - header"
-              to="/pretplata"
-              class="newbtn"
-              >Pretplatite se</app-link
+            <a
+              :aria-expanded="$store.state.header.showSideMenu.toString()"
+              aria-label="Prikaži lijevi meni"
+              aria-controls="sidebar"
+              @click.prevent="$store.commit('header/updateMenu', 'side')"
             >
-            <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun">
-              <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
-            </app-link>
+              <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon>
+            </a>
           </div>
         </nav>
         <img
