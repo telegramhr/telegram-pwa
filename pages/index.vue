@@ -398,11 +398,15 @@
     <commentary-alt type="tg"></commentary-alt>
     <!-- Velika rubrika: Zivot -->
     <div class="full relative column-bottom-pad">
-      <category-zone zone="zivot"></category-zone>
+      <client-only>
+        <category-zone zone="zivot"></category-zone>
+      </client-only>
     </div>
     <!-- Velika rubrika: Kultura -->
     <div class="full relative">
-      <category-zone zone="kultura"></category-zone>
+      <client-only>
+        <category-zone zone="kultura"></category-zone>
+      </client-only>
     </div>
     <!-- Pretplatnici čitaju -->
     <div class="full relative">
@@ -463,7 +467,9 @@
     </div>
     <!-- Book widget -->
     <div class="full relative">
-      <book-offers></book-offers>
+      <client-only>
+        <book-offers></book-offers>
+      </client-only>
     </div>
     <!-- Rubrike -->
     <div class="full relative">
