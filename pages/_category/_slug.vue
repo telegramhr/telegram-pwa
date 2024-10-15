@@ -992,7 +992,7 @@ export default {
       script.async = true
       script.src = 'https://campaign.telegram.hr/assets/lib/js/remplib.js'
       document.getElementsByTagName('head')[0].appendChild(script)
-
+      /*
       const script2 = document.createElement('script')
       script2.type = 'text/javascript'
       script2.async = true
@@ -1033,7 +1033,7 @@ export default {
         },
       }
       window.remplib.tracker.init(rempConfig)
-      window.remplib.campaign.init(rempConfig)
+      window.remplib.campaign.init(rempConfig) */
     },
     loadPiano() {
       const tp = window.tp || []
