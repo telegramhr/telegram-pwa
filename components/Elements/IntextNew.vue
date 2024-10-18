@@ -47,7 +47,7 @@
             Nastavite čitati
           </div>-->
           <div
-            v-if="!$store.state.user.token"
+            v-if="!softwall && !$store.state.user.token"
             class="newbtn huge-newbtn altbtn center-text clickable"
             @click.prevent="login"
           >
