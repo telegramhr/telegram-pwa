@@ -39,15 +39,15 @@
           <a class="newbtn huge-newbtn center-text" @click.prevent="start">{{
             cta
           }}</a>
-          <div
+          <!--<div
             v-if="softwall"
             class="newbtn huge-newbtn altbtn center-text clickable"
             @click="show = false"
           >
             Nastavite čitati
-          </div>
+          </div>-->
           <div
-            v-else-if="!$store.state.user.token"
+            v-if="!$store.state.user.token"
             class="newbtn huge-newbtn altbtn center-text clickable"
             @click.prevent="login"
           >
