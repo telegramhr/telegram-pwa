@@ -447,6 +447,11 @@
                   ></jgl-premium>
                 </div>
               </client-only>
+              <div
+                id="marfeel_sidebar"
+                class="marfeel-sidebar"
+                data-nosnippet
+              ></div>
               <!-- Article footer -->
               <div
                 class="full relative single-article-footer flex column-top-pad"
