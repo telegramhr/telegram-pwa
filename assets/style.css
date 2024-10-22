@@ -13624,7 +13624,7 @@ header {
 .stocks-parent {
   height: 50px;
   z-index: 100;
-  background-color: #212121;
+  background-color: #333333;
   border-bottom: none;
   color: #fff;
 }
@@ -15389,12 +15389,16 @@ header {
 .nayos .signup-btn:hover {
     background-color: transparent;
 }
+.red-nayos, .dark-mode .red-nayos, .contrast-mode .red-nayos, .domoljub-mode .red-nayos {
+    background-color: var(--tg-primary-highlight-color);
+    color: white;
+    border-bottom: none;
+}
+.red-nayos .nayos-logos img {
+    height: 24px;
+}
 @media screen and (max-width: 767px) {
-    .red-nayos {
-        background-color: var(--tg-primary-highlight-color);
-        color: white;
-    }
-    .red-nayos .nayos-logos.the-big-t img {
+    .red-nayos .nayos-logos img {
         height: 22px;
     }
 }

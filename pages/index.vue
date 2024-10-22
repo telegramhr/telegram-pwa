@@ -33,16 +33,15 @@
         <div
           class="three-fourths flex alt-vertical-center vertical-center mobile-side-pad"
         >
-          <div class="flex nayos-logos the-big-t">
+          <div class="flex nayos-logos">
             <img
-              src="@/assets/img/tg_logo_box_whiteonred.svg"
+              src="@/assets/img/telegram_logo_white.svg"
               alt="Telegram logo"
-              class="desktop-only"
             />
             <img
               src="@/assets/img/telegram_logo_white.svg"
               alt="Telegram logo"
-              class="mobile-only"
+              class="dark-mode-only"
             />
           </div>
         </div>
