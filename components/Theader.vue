@@ -296,14 +296,16 @@
     >
       <nav class="full center relative nayos stretch">
         <div class="container flex stretch relative column-horizontal-pad">
-          <app-link to="/" class="third nayos-logos telegram-only the-big-t">
-            <img src="@/assets/img/t_logo.svg" alt="Telegram logo" />
-            <img
-              src="@/assets/img/t_logo.svg"
-              alt="Telegram logo"
-              class="dark-mode-only"
-            />
-          </app-link>
+          <div class="third flex nayos-logos telegram-only the-big-t">
+            <app-link to="/" class="flex">
+              <img src="@/assets/img/t_logo.svg" alt="Telegram logo" />
+              <img
+                src="@/assets/img/t_logo.svg"
+                alt="Telegram logo"
+                class="dark-mode-only"
+              />
+            </app-link>
+          </div>
           <app-link
             to="/super1"
             class="third mobile-side-pad nayos-logos alt-vertical-center superone-only"

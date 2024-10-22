@@ -15389,3 +15389,12 @@ header {
 .nayos .signup-btn:hover {
     background-color: transparent;
 }
+@media screen and (max-width: 767px) {
+    .red-nayos {
+        background-color: var(--tg-primary-highlight-color);
+        color: white;
+    }
+    .red-nayos .nayos-logos.the-big-t img {
+        height: 22px;
+    }
+}

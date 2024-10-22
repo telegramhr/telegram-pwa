@@ -15,27 +15,38 @@
     <div class="full flex">
       <theader></theader>
     </div>
-    <!-- Actual new TG multiverse header
-    <nav
-      class="full center relative nayos nayos-multiverse stretch mobile-only"
-    >
+    <!-- Stocks -->
+    <div class="full center stocks-parent desktop-only">
+      <div class="container flex column-horizontal-pad">
+        <client-only>
+          <stocks></stocks>
+        </client-only>
+      </div>
+    </div>
+    <!-- Above header banner Piano -->
+    <client-only>
+      <hometop-simple></hometop-simple>
+    </client-only>
+    <!-- Actual new TG multiverse header -->
+    <nav class="full center relative nayos nayos-multiverse stretch red-nayos">
       <div class="container flex stretch relative column-horizontal-pad">
         <div
-          class="two-thirds flex alt-vertical-center vertical-center mobile-side-pad"
+          class="three-fourths flex alt-vertical-center vertical-center mobile-side-pad"
         >
-          <div class="flex nayos-logos">
+          <div class="flex nayos-logos the-big-t">
             <img
-              src="@/assets/img/telegram_logo_black.svg"
+              src="@/assets/img/tg_logo_box_whiteonred.svg"
               alt="Telegram logo"
+              class="desktop-only"
             />
             <img
               src="@/assets/img/telegram_logo_white.svg"
               alt="Telegram logo"
-              class="dark-mode-only"
+              class="mobile-only"
             />
           </div>
         </div>
-        <div class="third center align-children-end mobile-side-pad">
+        <div class="fourth center align-children-end mobile-side-pad">
           <app-link
             v-show="!canLogIn"
             class="column-mini-left-pad desktop-only"
@@ -64,140 +75,7 @@
           </a>
         </div>
       </div>
-    </nav> -->
-    <!-- Stocks -->
-    <div class="full center stocks-parent desktop-only">
-      <div class="container flex column-horizontal-pad">
-        <client-only>
-          <stocks></stocks>
-        </client-only>
-      </div>
-    </div>
-    <!-- Above header banner Piano -->
-    <client-only>
-      <hometop-simple></hometop-simple>
-    </client-only>
-    <!-- Cantha header -->
-    <div class="full relative cantha-header mobile-side-pad">
-      <!-- Actual new TG multiverse header -->
-      <nav
-        class="full center relative nayos nayos-multiverse stretch u-domovinskom-duhu"
-      >
-        <div
-          class="container flex stretch relative column-horizontal-pad mobile-side-pad"
-        >
-          <div class="third flex vertical-center mobile-thirty">
-            <a
-              :aria-expanded="$store.state.header.showSideMenu.toString()"
-              aria-label="Prikaži lijevi meni"
-              aria-controls="sidebar"
-              @click.prevent="$store.commit('header/updateMenu', 'side')"
-            >
-              <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon>
-            </a>
-          </div>
-          <app-link to="/" class="third mobile-forty center nayos-logos">
-            <img src="@/assets/img/brzojav.svg" alt="Telegram logo" />
-          </app-link>
-          <div class="third center align-children-end mobile-thirty">
-            <app-link
-              v-show="canLogIn"
-              id="pretplatite se - header"
-              to="/pretplata"
-              class="newbtn"
-              >Pretplatite se</app-link
-            >
-            <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun">
-              <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
-            </app-link>
-            <a
-              class="desktop-only column-mini-left-pad"
-              aria-label="Prikaži tražilicu"
-              :aria-expanded="$store.state.header.showSearchMenu.toString()"
-              aria-controls="search"
-              @click.prevent="$store.commit('header/updateMenu', 'search')"
-            >
-              <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon>
-            </a>
-          </div>
-        </div>
-      </nav>
-      <div class="container flex relative column-top-pad column-horizontal-pad">
-        <!--<app-link
-          to="/pretplata/"
-          class="cantha-header-special center desktop-only"
-        >
-          <div class="full darkened-bg flex">
-            <p class="full bold">
-              <span class="ib">Telegramova Dora Kršul: </span
-              ><span class="ib">Novinarka godine 2023.</span>
-            </p>
-            <p class="full smaller-text all-caps faded">
-              <span v-show="!$store.state.user.access" class="ib"
-                >pretplatite se na </span
-              ><span v-show="$store.state.user.access" class="ib"
-                >hvala što podržavate </span
-              ><span class="ib">najkvalitetniji portal</span>
-            </p>
-          </div>
-          <img
-            src="@/assets/img/extras/people/dora_nagrada.png"
-            alt="Dora Kršul na dodjeli nagrade za novinarku godine"
-          />
-        </app-link>-->
-        <div class="full center relative">
-          <a
-            aria-label="Prikaži tražilicu"
-            class="cantha-searchbtn"
-            :aria-expanded="$store.state.header.showSearchMenu.toString()"
-            aria-controls="search"
-            @click.prevent="$store.commit('header/updateMenu', 'search')"
-          >
-            <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon>
-          </a>
-          <app-link to="/" class="logo" @click="$fetch"
-            ><img
-              src="@/assets/img/telegram_logo_black.svg"
-              alt="Telegram logo"
-              class="not-safe-for-domoljub" />
-            <img
-              src="@/assets/img/brzojav.svg"
-              alt="Telegram logo"
-              class="u-domovinskom-duhu" />
-            <img
-              src="@/assets/img/telegram_logo_white.svg"
-              alt="Telegram logo"
-              class="dark-mode-only"
-          /></app-link>
-
-          <a
-            class="cantha-menubtn"
-            aria-label="Prikaži lijevi meni"
-            :aria-expanded="$store.state.header.showSideMenu.toString()"
-            aria-controls="sidebar"
-            @click.prevent="$store.commit('header/updateMenu', 'side')"
-          >
-            <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon
-          ></a>
-        </div>
-        <app-link
-          to="/pretplata/odabrati-stranu"
-          class="full column-horizontal-pad center-text desktop-only site-subtitle not-safe-for-domoljub"
-        >
-          Nekad je nužno odabrati stranu
-        </app-link>
-        <app-link
-          to="/pretplata/"
-          class="full column-horizontal-pad center-text desktop-only site-subtitle u-domovinskom-duhu"
-        >
-          U domovinskom duhu
-        </app-link>
-        <div class="full mobile-side-pad">
-          <div class="full desktop-only cantha-separator"></div>
-        </div>
-        <breaking></breaking>
-      </div>
-    </div>
+    </nav>
     <!-- New subnav no red -->
     <div class="full cantha-block-title relative flex">
       <div
