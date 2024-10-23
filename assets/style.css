@@ -15401,4 +15401,8 @@ header {
     .red-nayos .nayos-logos img {
         height: 22px;
     }
+    .red-nayos {
+        border-top: 32px solid #333;
+        height: 80px;
+    }
 }
