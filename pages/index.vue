@@ -16,8 +16,8 @@
       <theader></theader>
     </div>
     <!-- Stocks -->
-    <div class="full center stocks-parent desktop-only">
-      <div class="container flex column-horizontal-pad">
+    <div class="full center stocks-parent">
+      <div class="container flex column-horizontal-pad mobile-side-pad">
         <client-only>
           <stocks></stocks>
         </client-only>
@@ -31,7 +31,7 @@
     <nav class="full center relative nayos nayos-multiverse stretch red-nayos">
       <div class="container flex stretch relative column-horizontal-pad">
         <div
-          class="three-fourths flex alt-vertical-center vertical-center mobile-side-pad"
+          class="sixty flex alt-vertical-center vertical-center mobile-side-pad"
         >
           <div class="flex nayos-logos">
             <img
@@ -45,7 +45,14 @@
             />
           </div>
         </div>
-        <div class="fourth center align-children-end mobile-side-pad">
+        <div class="forty center align-children-end mobile-side-pad">
+          <app-link
+            v-show="canLogIn"
+            id="pretplatite se - header"
+            to="/pretplata"
+            class="newbtn"
+            >Pretplatite se</app-link
+          >
           <app-link
             v-show="!canLogIn"
             class="column-mini-left-pad desktop-only"
@@ -80,7 +87,7 @@
       <div
         class="container mobile-side-pad flex relative column-horizontal-pad"
       >
-        <nav class="menu desktop-only flex" role="menu">
+        <nav class="menu flex" role="menu">
           <app-link role="menuitem" to="/vijesti">Vijesti</app-link>
           <app-link role="menuitem" to="/politika-kriminal"
             >Politika & Kriminal</app-link
@@ -95,7 +102,7 @@
           <app-link
             role="menuitem"
             to="/tema/budi-u-igri-uz-favbet/"
-            class="animate flex highlight-tile"
+            class="animate flex highlight-tile desktop-only"
             >Budi u igri uz
             <img src="@/assets/img/logo_favbet_magenta.svg" alt="Favbet logo"
           /></app-link>

@@ -15401,8 +15401,37 @@ header {
     .red-nayos .nayos-logos img {
         height: 22px;
     }
-    .red-nayos {
-        border-top: 32px solid #333;
-        height: 80px;
+    .stocks-parent {
+        height: auto;
+    }
+    .stock-market {
+        margin: 0px;
+        margin-right: 0.4rem;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+    .stonk-widget::-webkit-scrollbar {
+        display: none;
+    }
+    .stonk-widget {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .red-nayos .newbtn {
+        border: 1px solid white;
+    }
+    .homepage .cantha-block-title nav.menu {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        white-space: nowrap;
+        justify-content: flex-start;
+    }
+    .homepage .cantha-block-title nav.menu::-webkit-scrollbar {
+        display: none;
+    }
+    .homepage .cantha-block-title nav.menu {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
     }
 }
