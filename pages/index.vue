@@ -398,15 +398,11 @@
     <commentary-alt type="tg"></commentary-alt>
     <!-- Velika rubrika: Zivot -->
     <div class="full relative column-bottom-pad">
-      <client-only>
-        <category-zone zone="zivot"></category-zone>
-      </client-only>
+      <category-zone zone="zivot"></category-zone>
     </div>
     <!-- Velika rubrika: Kultura -->
     <div class="full relative">
-      <client-only>
-        <category-zone zone="kultura"></category-zone>
-      </client-only>
+      <category-zone zone="kultura"></category-zone>
     </div>
     <!-- Pretplatnici čitaju -->
     <div class="full relative">
@@ -478,12 +474,10 @@
           <div class="full cantha-separator"></div>
         </div>
         <div class="full flex">
-          <client-only>
-            <category slug="zivot"></category>
-            <category slug="biznis-tech"></category>
-            <category slug="pitanje-zdravlja"></category>
-            <category slug="velike-price"></category>
-          </client-only>
+          <category slug="zivot"></category>
+          <category slug="biznis-tech"></category>
+          <category slug="pitanje-zdravlja"></category>
+          <category slug="velike-price"></category>
         </div>
       </div>
     </div>
