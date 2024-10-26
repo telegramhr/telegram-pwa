@@ -39,8 +39,9 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      if (this.$store.getters['user/hasPremium'] && this.$el) {
-        this.$el.style.display = 'none'
+      const el = document.getElementById(this.id)
+      if (this.$store.getters['user/hasPremium'] && el) {
+        el.style.display = 'none'
         return
       }
       if (this.id === 'telegram_back_widget') {
