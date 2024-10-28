@@ -2236,6 +2236,9 @@ figure img {
     margin-left: -50vw;
     margin-right: -50vw;
 }
+.single-article figure.aligncenter {
+    display: block;
+}
 .gallery-body .article-head p:first-child {
     padding-top: 24px;
     border-top: 1px solid #444;

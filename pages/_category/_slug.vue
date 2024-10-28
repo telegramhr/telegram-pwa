@@ -965,6 +965,12 @@ export default {
       ) {
         this.hasLinker = true
       }
+      if (this.hasPremium) {
+        const midas = document.getElementById('intext_midas')
+        if (midas) {
+          midas.style.display = 'none'
+        }
+      }
     },
     loadRemp() {
       window.remplib = window.remplib || {}
