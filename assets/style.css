@@ -1117,7 +1117,6 @@ footer .copyright, footer .conversion-notice {
 }
 .premium-article-head {
     position: relative;
-    z-index: 100;
 }
 figure .fa-search-plus {
     color: white;
@@ -3647,9 +3646,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         bottom: -18px;
         right: 8px;
     }
-    .single-article-premium {
-        padding-top: 0px;
-    }
     .dynamic-header {
         top: -26px;
     }
@@ -4232,9 +4228,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
         font-size: 18px;
         font-size: 0.9rem;
         padding-top: 50px;
-    }
-    .single-article-premium {
-        padding-top: 0px;
     }
     .related-header-widget {
         background-color: rgba(0,0,0,0.05);
@@ -7498,10 +7491,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 
 @media screen and (max-width: 767px) {
     .main-container {
-        padding-top: 42px;
-    }
-    .main-container.single-article-premium {
-        padding-top: 0px;
+        padding-top: 50px;
     }
     .cantha-header {
         z-index: 1;
@@ -13675,7 +13665,7 @@ header {
   background-color: transparent;
   border-bottom: none;
   height: auto;
-  padding-top: 8px;
+  padding-top: 24px;
   background: linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0));
   padding-bottom: 48px;
   position: absolute;
@@ -13698,6 +13688,7 @@ header {
     padding: 6px 8px;
   }
   .premium-article-head .nayos {
+    padding-top: 4vw;
     padding-bottom: 20vw;
   }
   .superone .nayos .newbtn.desktop-only {
