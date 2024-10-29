@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 27.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Layer_1" xmlns:serif="http://www.serif.com/"
-	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1920 1920"
-	 style="enable-background:new 0 0 1920 1920;" xml:space="preserve">
-<path d="M1002.1,0l774.8,447.4v894.6l-774.8,447.4l-774.7-447.4V447.4L1002.1,0L1002.1,0z M1776,1396.3v76.3L1001.2,1920
-	l-106.6-61.5l-0.7,0.4l-774.8-447.4V516.9l59-34v884.6l774.7,447.3h0.2l49.1,28.3L1776,1396.3L1776,1396.3z"/>
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1642.6 1894.8"
+	 style="enable-background:new 0 0 1642.6 1894.8;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#000000;stroke-width:75;stroke-miterlimit:10;}
+	.st1{stroke:#000000;stroke-width:4.9421;stroke-miterlimit:10;}
+</style>
+<polygon class="st0" points="887.3,43.3 1603,456.6 1603,1283.1 887.3,1696.4 171.6,1283.1 171.6,456.6 "/>
+<polygon class="st1" points="1640.2,1374.2 1640.2,1449.6 874.4,1891.9 769,1831.1 768.3,1831.5 2.5,1389.3 2.5,505 60.8,471.4 
+	60.8,1345.8 826.5,1787.9 826.7,1787.9 875.3,1815.9 "/>
 </svg>

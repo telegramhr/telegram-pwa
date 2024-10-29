@@ -7,13 +7,38 @@
     </div>
     <div class="full flex relative pretplata-page">
       <div
-        class="container smaller-container relative flex mobile-side-pad stretch column-full-pad"
+        class="container smaller-container relative flex mobile-side-pad stretch column-full-pad mobile-bottom-pad"
       >
-        <h1 class="full center-text">Telegram Igre</h1>
+        <h1 class="full center-text hide">Telegram Igre</h1>
+        <div class="full center relative">
+          <div
+            class="fourth mobile-half flex-responsive flex relative column-top-pad mobile-top-pad column-mini-bottom-pad"
+          >
+            <img
+              src="@/assets/img/t_games_normal.svg"
+              alt="Telegram games logo"
+              class="light-mode-only mobile-top-pad"
+              loading="lazy"
+            />
+            <img
+              src="@/assets/img/t_games_normal.svg"
+              alt="Telegram games logo"
+              class="contrast-mode-only mobile-top-pad"
+              loading="lazy"
+            />
+
+            <img
+              src="@/assets/img/t_games_negative.svg"
+              alt="Telegram games logo"
+              class="dark-mode-only mobile-top-pad"
+              loading="lazy"
+            />
+          </div>
+        </div>
         <p
-          class="full center-text pretplata-tagline column-bottom-pad column-bottom-border mobile-vertical-pad mobile-bottom-border"
+          class="full center-text pretplata-tagline column-bottom-pad column-bottom-border mobile-bottom-pad mobile-bottom-border"
         >
-          Zabavne i intelektualne igre u produkciji Telegrama
+          Izazovne igre i zagonetke u produkciji Telegrama
         </p>
       </div>
     </div>
@@ -27,8 +52,13 @@
               class="full darkened-bg tg-game-header center flex-wrap column-full-pad mobile-full-pad"
             >
               <img
-                src="@/assets/img/games/tg_icon_hexagram_alt.svg"
+                src="@/assets/img/games/tg_icon_hexagram.svg"
                 alt="Hexagram"
+              />
+              <img
+                src="@/assets/img/games/tg_icon_hexagram_negative.svg"
+                alt="Hexagram"
+                class="dark-mode-only"
               />
               <div class="full tg-game-title center-text">Hexagram</div>
             </div>
@@ -38,7 +68,7 @@
                 target="_blank"
                 class="full newbtn center center-text huge-newbtn column-mini-bottom-margin"
               >
-                Igraj
+                Igrajte
               </a>
               <div class="full minicard-text center-text">
                 Pronađite riječi u mreži slova i iskoristite svaki šesterokut.
@@ -54,13 +84,18 @@
               class="full darkened-bg tg-game-header center flex-wrap column-full-pad mobile-full-pad"
             >
               <img src="@/assets/img/games/tg_icon_statika.svg" alt="Statika" />
+              <img
+                src="@/assets/img/games/tg_icon_statika_negative.svg"
+                alt="Hexagram"
+                class="dark-mode-only"
+              />
               <div class="full tg-game-title center-text">Statika</div>
             </div>
             <div class="full flex column-full-pad mobile-full-pad">
               <div
                 class="full newbtn center center-text huge-newbtn column-mini-bottom-margin"
               >
-                Igraj
+                Igrajte
               </div>
               <div class="full minicard-text center-text">
                 Slažite riječi jedne na drugu u što duljem lancu.
@@ -76,6 +111,11 @@
               class="full darkened-bg tg-game-header center flex-wrap column-full-pad mobile-full-pad"
             >
               <img src="@/assets/img/games/tg_icon_geogram.svg" alt="Geogram" />
+              <img
+                src="@/assets/img/games/tg_icon_geogram_negative.svg"
+                alt="Hexagram"
+                class="dark-mode-only"
+              />
               <div class="full tg-game-title center-text">Geogram</div>
             </div>
             <div class="full flex column-full-pad mobile-full-pad">
@@ -83,7 +123,7 @@
                 to="/igre/geogram"
                 class="full newbtn center center-text huge-newbtn column-mini-bottom-margin"
               >
-                Igraj
+                Igrajte
               </app-link>
               <div class="full minicard-text center-text">
                 Pogodite lokaciju neke fotografije iz Hrvatske
@@ -91,29 +131,90 @@
             </div>
           </div>
         </div>
+        <div class="full column-horizontal-pad pretplata-page">
+          <p
+            class="full center-text pretplata-tagline column-top-pad mobile-vertical-pad"
+          >
+            Vaši prijatelji igraju
+          </p>
+        </div>
+        <div
+          class="third flex-responsive flex relative column-full-pad mobile-full-pad"
+        >
+          <div class="tg-game-card column-mini-vertical-pad center flex-wrap">
+            <div class="third flex column-mini-horizontal-pad">
+              <img
+                src="https://images.telegram.hr/dh_7jSDHLNDkNbirTNA9l9x-lvF-PtA_RnRbh3qzBOY/preset:author/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMTgvMDcvdGdfa2xhcmljLnBuZw.webp"
+                alt="Jasmin Klarić"
+                class="tg-game-avatar darkened-bg"
+              />
+            </div>
+            <div class="two-thirds flex">
+              <div class="full barlow bold">Jasmin Klarić</div>
+              <div class="full minicard-text">Danas: Hexagram</div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="third flex-responsive flex relative column-full-pad mobile-full-pad"
+        >
+          <div class="tg-game-card column-mini-vertical-pad center flex-wrap">
+            <div class="third flex column-mini-horizontal-pad">
+              <img
+                src="https://images.telegram.hr/7eSaxH6IFu3wzHNXirmUqjpItPKZPIqNnc1tteo7l2U/preset:author/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjAvMTEvdGcta2F0YXJpbmEta25lemV2aWMucG5n.webp"
+                alt="Katarina Knežević Metelko"
+                class="tg-game-avatar darkened-bg"
+              />
+            </div>
+            <div class="two-thirds flex">
+              <div class="full barlow bold">Katarina Knežević Metelko</div>
+              <div class="full minicard-text">Jučer: Geogram</div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="third flex-responsive flex relative column-full-pad mobile-full-pad"
+        >
+          <div class="tg-game-card column-mini-vertical-pad center flex-wrap">
+            <div class="third flex column-mini-horizontal-pad">
+              <img
+                src="https://images.telegram.hr/7Czs3QS7-PUc3XrGExwYPFME7QqzW9tSUIfxvzRCCsA/preset:author/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMTcvMDYvZGl2by1kdXJvdmljLTItMi0xLnBuZw.webp"
+                alt="Đivo Đurović"
+                class="tg-game-avatar darkened-bg"
+              />
+            </div>
+            <div class="two-thirds flex">
+              <div class="full barlow bold">Đivo Đurović</div>
+              <div class="full minicard-text">Prije 5 dana: Statika</div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="half flex-responsive flex relative column-full-pad mobile-full-pad"
+        >
+          <div class="full minicard-text column-mini-bottom-margin">
+            Upišite nečiji kod kako bi ih dodali kao prijatelja:
+          </div>
+          <input
+            type="text"
+            placeholder="Prijateljev kod"
+            aria-label="Prijateljev kod"
+            class="darkened-bg subtle-input full"
+          />
+        </div>
+        <div
+          class="half flex-responsive flex relative column-full-pad mobile-full-pad"
+        >
+          <div class="full minicard-text column-mini-bottom-margin">
+            Podijelite svoj kod da vas mogu dodati kao prijatelja:
+          </div>
+          <div class="darkened-bg fake-subtle-input full">1234-5678-9012</div>
+        </div>
       </div>
     </div>
     <tfooter></tfooter>
   </div>
 </template>
-
-<style scoped>
-.tg-game-card {
-  border: 1px solid #c8c8c8;
-  border-radius: 4px;
-}
-.tg-game-header img {
-  max-width: 30%;
-  margin-bottom: 1rem;
-  aspect-ratio: 1/1;
-  object-fit: contain;
-  object-position: center center;
-}
-.tg-game-title {
-  font-weight: 900;
-  font-size: 1.2rem;
-}
-</style>
 
 <script>
 export default {

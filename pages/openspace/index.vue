@@ -5,28 +5,22 @@
     </div>
     <!-- Actual new TG multiverse header -->
     <nav class="full center relative nayos nayos-multiverse stretch">
-      <div
-        class="container flex stretch relative column-horizontal-pad mobile-side-pad"
-      >
-        <div class="third flex vertical-center mobile-thirty">
-          <a
-            :aria-expanded="$store.state.header.showSideMenu.toString()"
-            aria-label="Prikaži lijevi meni"
-            aria-controls="sidebar"
-            @click.prevent="$store.commit('header/updateMenu', 'side')"
-          >
-            <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon>
-          </a>
-        </div>
-        <app-link to="/" class="third mobile-forty center nayos-logos">
-          <img src="@/assets/img/telegram_logo_black.svg" alt="Telegram logo" />
+      <div class="container flex stretch relative column-horizontal-pad">
+        <app-link
+          to="/"
+          class="third flex alt-vertical-center nayos-logos the-big-t"
+        >
+          <img src="@/assets/img/t_logo.svg" alt="Telegram logo" />
           <img
-            src="@/assets/img/telegram_logo_white.svg"
+            src="@/assets/img/t_logo.svg"
             alt="Telegram logo"
             class="dark-mode-only"
           />
         </app-link>
-        <div class="third center align-children-end mobile-thirty">
+        <div class="two-thirds center align-children-end mobile-side-pad">
+          <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
+            >Prijava</a
+          >
           <app-link
             v-show="canLogIn"
             id="pretplatite se - header"
@@ -34,7 +28,19 @@
             class="newbtn"
             >Pretplatite se</app-link
           >
-          <app-link v-show="!canLogIn" to="/moj-racun" aria-label="Moj račun">
+          <app-link
+            v-show="!canLogIn && !$route.fullPath.includes('super1')"
+            id="Poklonite pretplatu - header"
+            to="/pretplata/poklon"
+            class="newbtn"
+            >Poklonite pretplatu</app-link
+          >
+          <app-link
+            v-show="!canLogIn"
+            class="column-mini-left-pad desktop-only"
+            to="/moj-racun"
+            aria-label="Moj račun"
+          >
             <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
           </app-link>
           <a
@@ -45,6 +51,15 @@
             @click.prevent="$store.commit('header/updateMenu', 'search')"
           >
             <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon>
+          </a>
+          <a
+            class="column-mini-left-pad"
+            :aria-expanded="$store.state.header.showSideMenu.toString()"
+            aria-label="Prikaži lijevi meni"
+            aria-controls="sidebar"
+            @click.prevent="$store.commit('header/updateMenu', 'side')"
+          >
+            <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon>
           </a>
         </div>
       </div>

@@ -295,36 +295,20 @@
       }"
     >
       <nav class="full center relative nayos stretch">
-        <div
-          class="container flex stretch relative column-horizontal-pad mobile-side-pad"
-        >
-          <div class="third flex vertical-center mobile-thirty">
-            <a
-              :aria-expanded="$store.state.header.showSideMenu.toString()"
-              aria-label="Prikaži lijevi meni"
-              aria-controls="sidebar"
-              @click.prevent="$store.commit('header/updateMenu', 'side')"
-            >
-              <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon>
-            </a>
+        <div class="container flex stretch relative column-horizontal-pad">
+          <div class="third flex nayos-logos telegram-only the-big-t">
+            <app-link to="/" class="flex">
+              <img src="@/assets/img/t_logo.svg" alt="Telegram logo" />
+              <img
+                src="@/assets/img/t_logo.svg"
+                alt="Telegram logo"
+                class="dark-mode-only"
+              />
+            </app-link>
           </div>
           <app-link
-            to="/"
-            class="third mobile-forty center nayos-logos telegram-only"
-          >
-            <img
-              src="@/assets/img/telegram_logo_black.svg"
-              alt="Telegram logo"
-            />
-            <img
-              src="@/assets/img/telegram_logo_white.svg"
-              alt="Telegram logo"
-              class="dark-mode-only"
-            />
-          </app-link>
-          <app-link
             to="/super1"
-            class="third mobile-forty center nayos-logos superone-only"
+            class="third mobile-side-pad nayos-logos alt-vertical-center superone-only"
           >
             <img
               src="@/assets/img/s1_logo_clean_noline.svg"
@@ -339,7 +323,7 @@
           </app-link>
           <a
             href="/telesport"
-            class="third mobile-forty center nayos-logos telesport-only"
+            class="third nayos-logos alt-vertical-center telesport-only"
           >
             <img
               src="@/assets/img/telesport_logo_black.svg"
@@ -354,7 +338,7 @@
           </a>
           <app-link
             to="/pitanje-zdravlja"
-            class="third mobile-forty center nayos-logos pz-only"
+            class="third mobile-side-pad nayos-logos alt-vertical-center pz-only"
           >
             <img
               src="@/assets/img/pz_logo_normal.svg"
@@ -369,7 +353,7 @@
           </app-link>
           <app-link
             to="/openspace"
-            class="third mobile-forty center nayos-logos os-only"
+            class="third mobile-side-pad nayos-logos alt-vertical-center os-only"
           >
             <img
               src="@/assets/img/openspace_logo_normal.svg"
@@ -384,7 +368,27 @@
               loading="lazy"
             />
           </app-link>
-          <div class="third center align-children-end mobile-thirty">
+          <app-link
+            to="/igre"
+            class="third mobile-side-pad nayos-logos alt-vertical-center games-only"
+          >
+            <img
+              src="@/assets/img/t_games_normal.svg"
+              alt="Telegram games logo"
+              loading="lazy"
+            />
+
+            <img
+              src="@/assets/img/t_games_negative.svg"
+              alt="Telegram games logo"
+              class="dark-mode-only"
+              loading="lazy"
+            />
+          </app-link>
+          <div class="two-thirds center align-children-end mobile-side-pad">
+            <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
+              >Prijava</a
+            >
             <app-link
               v-show="canLogIn"
               id="pretplatite se - header"
@@ -396,12 +400,12 @@
               v-show="!canLogIn && !$route.fullPath.includes('super1')"
               id="Poklonite pretplatu - header"
               to="/pretplata/poklon"
-              class="newbtn desktop-only"
+              class="newbtn"
               >Poklonite pretplatu</app-link
             >
             <app-link
               v-show="!canLogIn"
-              class="column-mini-left-pad"
+              class="column-mini-left-pad desktop-only"
               to="/moj-racun"
               aria-label="Moj račun"
             >
@@ -415,6 +419,15 @@
               @click.prevent="$store.commit('header/updateMenu', 'search')"
             >
               <font-awesome-icon :icon="['far', 'search']"></font-awesome-icon>
+            </a>
+            <a
+              class="column-mini-left-pad"
+              :aria-expanded="$store.state.header.showSideMenu.toString()"
+              aria-label="Prikaži lijevi meni"
+              aria-controls="sidebar"
+              @click.prevent="$store.commit('header/updateMenu', 'side')"
+            >
+              <font-awesome-icon :icon="['far', 'bars']"></font-awesome-icon>
             </a>
           </div>
         </div>
