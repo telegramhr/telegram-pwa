@@ -523,13 +523,44 @@ export default {
   },
   head() {
     return {
-      title: 'Telegram.hr',
+      title: 'Telegram - najnovije vijesti, komentari, eseji i analize',
       script: [
         {
           vmid: 'schema-ld',
           hid: 'schema-ld',
           type: 'application/ld+json',
           json: this.jsonld,
+        },
+      ],
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Najnovije vijesti, komentari, eseji i analize.',
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: 'Najnovije vijesti, komentari, eseji i analize.',
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          property: 'og:title',
+          content: 'Telegram.hr',
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          property: 'og:image',
+          content:
+            'https://www.telegram.hr/wp-content/uploads/2024/10/tg-main-meta.png',
+        },
+        {
+          hid: 'og:url',
+          name: 'og:url',
+          property: 'og:url',
+          content: 'https://www.telegram.hr/',
         },
       ],
       link: [

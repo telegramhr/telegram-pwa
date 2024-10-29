@@ -2184,7 +2184,7 @@ figure img {
     display: flex;
     position: absolute;
     left: -300px;
-    top: 0px;
+    top: 50px;
     width: 300px;
     height: auto;
     overflow: hidden;
