@@ -1,0 +1,908 @@
+{
+    "Date": {
+        "Year": 2024,
+        "Month": 6,
+        "Day": 1
+    },
+    "GameTileDatas": [
+        {
+            "MyHex": {
+                "Q": -3,
+                "R": -2,
+                "S": 5
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": -3,
+                "R": -1,
+                "S": 4
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": -3,
+                "R": 0,
+                "S": 3
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": -3,
+                "R": 1,
+                "S": 2
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": -3,
+                "R": 2,
+                "S": 1
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": -3,
+                "R": 3,
+                "S": 0
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": -3,
+                "R": 4,
+                "S": -1
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": -3,
+                "R": 5,
+                "S": -2
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": -3,
+                "R": 6,
+                "S": -3
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": -2,
+                "R": -3,
+                "S": 5
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": -2,
+                "R": -2,
+                "S": 4
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": -2,
+                "R": -1,
+                "S": 3
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": -2,
+                "R": 0,
+                "S": 2
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": -2,
+                "R": 1,
+                "S": 1
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": -2,
+                "R": 2,
+                "S": 0
+            },
+            "MyTileType": 0,
+            "MyLetter": 80
+        },
+        {
+            "MyHex": {
+                "Q": -2,
+                "R": 3,
+                "S": -1
+            },
+            "MyTileType": 0,
+            "MyLetter": 80
+        },
+        {
+            "MyHex": {
+                "Q": -2,
+                "R": 4,
+                "S": -2
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": -2,
+                "R": 5,
+                "S": -3
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": -1,
+                "R": -3,
+                "S": 4
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": -1,
+                "R": -2,
+                "S": 3
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": -1,
+                "R": -1,
+                "S": 2
+            },
+            "MyTileType": 0,
+            "MyLetter": 66
+        },
+        {
+            "MyHex": {
+                "Q": -1,
+                "R": 0,
+                "S": 1
+            },
+            "MyTileType": 0,
+            "MyLetter": 86
+        },
+        {
+            "MyHex": {
+                "Q": -1,
+                "R": 1,
+                "S": 0
+            },
+            "MyTileType": 0,
+            "MyLetter": 82
+        },
+        {
+            "MyHex": {
+                "Q": -1,
+                "R": 2,
+                "S": -1
+            },
+            "MyTileType": 0,
+            "MyLetter": 79
+        },
+        {
+            "MyHex": {
+                "Q": -1,
+                "R": 3,
+                "S": -2
+            },
+            "MyTileType": 0,
+            "MyLetter": 75
+        },
+        {
+            "MyHex": {
+                "Q": -1,
+                "R": 4,
+                "S": -3
+            },
+            "MyTileType": 0,
+            "MyLetter": 83
+        },
+        {
+            "MyHex": {
+                "Q": -1,
+                "R": 5,
+                "S": -4
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": 0,
+                "R": -4,
+                "S": 4
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": 0,
+                "R": -3,
+                "S": 3
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": 0,
+                "R": -2,
+                "S": 2
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": 0,
+                "R": -1,
+                "S": 1
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": 0,
+                "R": 0,
+                "S": 0
+            },
+            "MyTileType": 0,
+            "MyLetter": 82
+        },
+        {
+            "MyHex": {
+                "Q": 0,
+                "R": 1,
+                "S": -1
+            },
+            "MyTileType": 0,
+            "MyLetter": 83
+        },
+        {
+            "MyHex": {
+                "Q": 0,
+                "R": 2,
+                "S": -2
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": 0,
+                "R": 3,
+                "S": -3
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": 0,
+                "R": 4,
+                "S": -4
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": 1,
+                "R": -4,
+                "S": 3
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": 1,
+                "R": -3,
+                "S": 2
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": 1,
+                "R": -2,
+                "S": 1
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": 1,
+                "R": -1,
+                "S": 0
+            },
+            "MyTileType": 0,
+            "MyLetter": 75
+        },
+        {
+            "MyHex": {
+                "Q": 1,
+                "R": 0,
+                "S": -1
+            },
+            "MyTileType": 0,
+            "MyLetter": 65
+        },
+        {
+            "MyHex": {
+                "Q": 1,
+                "R": 1,
+                "S": -2
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": 1,
+                "R": 2,
+                "S": -3
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": 1,
+                "R": 3,
+                "S": -4
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": 1,
+                "R": 4,
+                "S": -5
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": 2,
+                "R": -5,
+                "S": 3
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": 2,
+                "R": -4,
+                "S": 2
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": 2,
+                "R": -3,
+                "S": 1
+            },
+            "MyTileType": 0,
+            "MyLetter": 90
+        },
+        {
+            "MyHex": {
+                "Q": 2,
+                "R": -2,
+                "S": 0
+            },
+            "MyTileType": 2,
+            "MyLetter": 79
+        },
+        {
+            "MyHex": {
+                "Q": 2,
+                "R": -1,
+                "S": -1
+            },
+            "MyTileType": 0,
+            "MyLetter": 78
+        },
+        {
+            "MyHex": {
+                "Q": 2,
+                "R": 0,
+                "S": -2
+            },
+            "MyTileType": 0,
+            "MyLetter": 381
+        },
+        {
+            "MyHex": {
+                "Q": 2,
+                "R": 1,
+                "S": -3
+            },
+            "MyTileType": 0,
+            "MyLetter": 65
+        },
+        {
+            "MyHex": {
+                "Q": 2,
+                "R": 2,
+                "S": -4
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": 2,
+                "R": 3,
+                "S": -5
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": 3,
+                "R": -5,
+                "S": 2
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": 3,
+                "R": -4,
+                "S": 1
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": 3,
+                "R": -3,
+                "S": 0
+            },
+            "MyTileType": 0,
+            "MyLetter": 83
+        },
+        {
+            "MyHex": {
+                "Q": 3,
+                "R": -2,
+                "S": -1
+            },
+            "MyTileType": 0,
+            "MyLetter": 73
+        },
+        {
+            "MyHex": {
+                "Q": 3,
+                "R": -1,
+                "S": -2
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": 3,
+                "R": 0,
+                "S": -3
+            },
+            "MyTileType": 0,
+            "MyLetter": 69
+        },
+        {
+            "MyHex": {
+                "Q": 3,
+                "R": 1,
+                "S": -4
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": 3,
+                "R": 2,
+                "S": -5
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": 3,
+                "R": 3,
+                "S": -6
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": 4,
+                "R": -6,
+                "S": 2
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": 4,
+                "R": -5,
+                "S": 1
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": 4,
+                "R": -4,
+                "S": 0
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": 4,
+                "R": -3,
+                "S": -1
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": 4,
+                "R": -2,
+                "S": -2
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": 4,
+                "R": -1,
+                "S": -3
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": 4,
+                "R": 0,
+                "S": -4
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": 4,
+                "R": 1,
+                "S": -5
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        },
+        {
+            "MyHex": {
+                "Q": 4,
+                "R": 2,
+                "S": -6
+            },
+            "MyTileType": 0,
+            "MyLetter": 32
+        }
+    ],
+    "WordShapeDatas": [
+        {
+            "MyTileDatas": [
+                {
+                    "MyHex": {
+                        "Q": -1,
+                        "R": 0,
+                        "S": 1
+                    },
+                    "State": 0
+                },
+                {
+                    "MyHex": {
+                        "Q": 0,
+                        "R": 0,
+                        "S": 0
+                    },
+                    "State": 0
+                },
+                {
+                    "MyHex": {
+                        "Q": 1,
+                        "R": 0,
+                        "S": -1
+                    },
+                    "State": 0
+                },
+                {
+                    "MyHex": {
+                        "Q": 2,
+                        "R": 0,
+                        "S": -2
+                    },
+                    "State": 0
+                },
+                {
+                    "MyHex": {
+                        "Q": 3,
+                        "R": 0,
+                        "S": -3
+                    },
+                    "State": 0
+                }
+            ],
+            "MyWord": "VRAŽE"
+        },
+        {
+            "MyTileDatas": [
+                {
+                    "MyHex": {
+                        "Q": -2,
+                        "R": 2,
+                        "S": 0
+                    },
+                    "State": 0
+                },
+                {
+                    "MyHex": {
+                        "Q": -1,
+                        "R": 1,
+                        "S": 0
+                    },
+                    "State": 0
+                },
+                {
+                    "MyHex": {
+                        "Q": 0,
+                        "R": 0,
+                        "S": 0
+                    },
+                    "State": 2
+                },
+                {
+                    "MyHex": {
+                        "Q": 1,
+                        "R": -1,
+                        "S": 0
+                    },
+                    "State": 0
+                },
+                {
+                    "MyHex": {
+                        "Q": 2,
+                        "R": -2,
+                        "S": 0
+                    },
+                    "State": 0
+                },
+                {
+                    "MyHex": {
+                        "Q": 3,
+                        "R": -3,
+                        "S": 0
+                    },
+                    "State": 0
+                }
+            ],
+            "MyWord": "PRKOS"
+        },
+        {
+            "MyTileDatas": [
+                {
+                    "MyHex": {
+                        "Q": 2,
+                        "R": -3,
+                        "S": 1
+                    },
+                    "State": 0
+                },
+                {
+                    "MyHex": {
+                        "Q": 2,
+                        "R": -2,
+                        "S": 0
+                    },
+                    "State": 0
+                },
+                {
+                    "MyHex": {
+                        "Q": 2,
+                        "R": -1,
+                        "S": -1
+                    },
+                    "State": 0
+                },
+                {
+                    "MyHex": {
+                        "Q": 2,
+                        "R": 0,
+                        "S": -2
+                    },
+                    "State": 2
+                },
+                {
+                    "MyHex": {
+                        "Q": 2,
+                        "R": 1,
+                        "S": -3
+                    },
+                    "State": 0
+                }
+            ],
+            "MyWord": "ZONA"
+        },
+        {
+            "MyTileDatas": [
+                {
+                    "MyHex": {
+                        "Q": -1,
+                        "R": -1,
+                        "S": 2
+                    },
+                    "State": 0
+                },
+                {
+                    "MyHex": {
+                        "Q": -1,
+                        "R": 0,
+                        "S": 1
+                    },
+                    "State": 2
+                },
+                {
+                    "MyHex": {
+                        "Q": -1,
+                        "R": 1,
+                        "S": 0
+                    },
+                    "State": 2
+                },
+                {
+                    "MyHex": {
+                        "Q": -1,
+                        "R": 2,
+                        "S": -1
+                    },
+                    "State": 0
+                },
+                {
+                    "MyHex": {
+                        "Q": -1,
+                        "R": 3,
+                        "S": -2
+                    },
+                    "State": 0
+                },
+                {
+                    "MyHex": {
+                        "Q": -1,
+                        "R": 4,
+                        "S": -3
+                    },
+                    "State": 0
+                }
+            ],
+            "MyWord": "BOKS"
+        },
+        {
+            "MyTileDatas": [
+                {
+                    "MyHex": {
+                        "Q": -2,
+                        "R": 3,
+                        "S": -1
+                    },
+                    "State": 0
+                },
+                {
+                    "MyHex": {
+                        "Q": -1,
+                        "R": 2,
+                        "S": -1
+                    },
+                    "State": 2
+                },
+                {
+                    "MyHex": {
+                        "Q": 0,
+                        "R": 1,
+                        "S": -1
+                    },
+                    "State": 0
+                },
+                {
+                    "MyHex": {
+                        "Q": 1,
+                        "R": 0,
+                        "S": -1
+                    },
+                    "State": 2
+                },
+                {
+                    "MyHex": {
+                        "Q": 2,
+                        "R": -1,
+                        "S": -1
+                    },
+                    "State": 2
+                },
+                {
+                    "MyHex": {
+                        "Q": 3,
+                        "R": -2,
+                        "S": -1
+                    },
+                    "State": 0
+                }
+            ],
+            "MyWord": "PSI"
+        }
+    ]
+}

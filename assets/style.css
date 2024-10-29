@@ -12738,6 +12738,9 @@ input:checked ~ .input-hidden {
     padding-right: 0.6rem;
     padding-left: 0.6rem;
 }
+.column-mini-bottom-margin {
+    margin-bottom: 0.6rem;
+}
 .remp-select {
     border: none;
     outline: none;
