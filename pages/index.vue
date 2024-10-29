@@ -33,7 +33,7 @@
         <div
           class="sixty flex alt-vertical-center vertical-center mobile-side-pad"
         >
-          <div class="flex nayos-logos">
+          <a href="https://www.telegram.hr" class="flex nayos-logos">
             <img
               src="@/assets/img/telegram_logo_white.svg"
               alt="Telegram logo"
@@ -43,7 +43,7 @@
               alt="Telegram logo"
               class="dark-mode-only"
             />
-          </div>
+          </a>
         </div>
         <div class="forty center align-children-end mobile-side-pad">
           <app-link
