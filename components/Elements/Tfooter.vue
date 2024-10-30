@@ -50,7 +50,6 @@
           <app-link to="/tema/rat-u-ukrajini/" class="full"
             >Rat u Ukrajini</app-link
           >
-          <app-link to="/tema/koronavirus/" class="full">Koronavirus</app-link>
           <app-link to="/tema/hrvatska/" class="full">Hrvatska</app-link>
           <app-link to="/tema/zagreb/" class="full">Zagreb</app-link>
           <app-link to="/tema/split/" class="full">Split</app-link>
