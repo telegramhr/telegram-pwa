@@ -76,7 +76,7 @@
                     </div>
                   </div>
                   <div class="full sub-price bold">
-                    2,29€<span> mjesečno</span>
+                    2,29€<span> 4-tjedno</span>
                   </div>
                   <div class="full remp-special-note column-mini-top-pad">
                     prva tri mjeseca, nakon toga 7,99€ mjesečno
