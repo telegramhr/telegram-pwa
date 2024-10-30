@@ -9,8 +9,8 @@ export const state = () => ({
     logo: {
       '@type': 'ImageObject',
       url: `https://www.telegram.hr/icon.png`,
-      width: 512,
-      height: 512,
+      width: 1024,
+      height: 1024,
     },
     address: {
       '@type': 'PostalAddress',
