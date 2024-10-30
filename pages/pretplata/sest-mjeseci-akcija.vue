@@ -40,7 +40,7 @@
                     <div class="remp-radio-indicator center"><div></div></div>
                   </div>
                   <div class="full sub-price bold">
-                    7,99€<span> 4 tjedna</span>
+                    7,99€<span>svaka 4 tjedna</span>
                   </div>
                   <div class="full remp-special-note column-mini-top-pad">
                     standardna cijena Telegram pretplate
