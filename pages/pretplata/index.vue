@@ -35,7 +35,7 @@
                   class="togglemonth"
                   onclick="document.getElementById('yeartoggle').checked = false;"
                 >
-                  Mjesečno
+                  4-tjedno
                 </div>
                 <div
                   class="toggleyear"
@@ -53,7 +53,7 @@
                   <div class="noththree overtitle">Standard</div>
                 </div>
                 <div class="full sub-price bold">7,99€</div>
-                <div class="nothfour full center-text undertitle">Mjesečno</div>
+                <div class="nothfour full center-text undertitle">4-tjedno</div>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
                     <font-awesome-icon
@@ -91,7 +91,7 @@
                   <div class="noththree overtitle">Premium</div>
                 </div>
                 <div class="full sub-price bold">9,99€</div>
-                <div class="nothfour full center-text undertitle">Mjesečno</div>
+                <div class="nothfour full center-text undertitle">4-tjedno</div>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
                     <font-awesome-icon
@@ -659,7 +659,7 @@
             Kako da se pretplatim na Telegram?
           </summary>
           <p>
-            Vrlo jednostavno, samo odaberite jedan od gore ponuđenih mjesečnih
+            Vrlo jednostavno, samo odaberite jedan od gore ponuđenih 4-tjednih
             ili godišnjih paketa, a sustav će Vas dalje sam voditi kroz vrlo
             kratak i jednostavan proces registracije i kupnje.
           </p>
@@ -668,9 +668,9 @@
           <summary class="full relative">Koliko košta pretplata?</summary>
           <p>
             Cijena pretplate ovisi o paketu koji odaberete. Možete se
-            pretplatiti na mjesečnoj ili godišnjoj bazi i to na samo jedan ili
+            pretplatiti na 4-tjednoj ili godišnjoj bazi i to na samo jedan ili
             više naših portala. Kako bismo Vam izašli u susret, pripremili smo
-            povoljnu premium opciju mjesečne pretplate, kao i još povoljnije
+            povoljnu premium opciju 4-tjedne pretplate, kao i još povoljnije
             godišnje pretplate.
           </p>
         </details>
@@ -766,7 +766,7 @@
             Kako se obnavlja jednom kupljena pretplata?
           </summary>
           <p>
-            Sve mjesečne i godišnje pretplate automatski se obnavljaju po svom
+            Sve 4-tjedne i godišnje pretplate automatski se obnavljaju po svom
             isteku na isti vremenski period kako Vi ne biste morali brinuti o
             tome. Ukoliko želite isključiti automatsku obnovu, to možete
             jednostavno napraviti jednim klikom u korisničkom sučelju.
@@ -816,13 +816,13 @@ export default {
   },
   computed: {
     one() {
-      return 'TMU7ZSVF7C88'
+      return 'TMUU78JAKLK7'
     },
     two() {
       return 'TMDN8RUGRHCF'
     },
     three() {
-      return 'TMMVDE0R01YY'
+      return 'TMGE7VQFC1QO'
     },
     four() {
       return 'TMMP593NCIAN'

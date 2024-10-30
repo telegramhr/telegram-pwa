@@ -27,7 +27,7 @@
                   class="togglemonth"
                   onclick="document.getElementById('yeartoggle').checked = false;"
                 >
-                  Mjesečno
+                  4-tjedno
                 </div>
                 <div
                   class="toggleyear"
@@ -45,7 +45,7 @@
                   <div class="noththree overtitle">Standard</div>
                 </div>
                 <div class="full sub-price bold">3,99€</div>
-                <div class="nothfour full center-text undertitle">Mjesečno</div>
+                <div class="nothfour full center-text undertitle">4-tjedno</div>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
                     <font-awesome-icon
@@ -83,7 +83,7 @@
                   <div class="noththree overtitle">Premium</div>
                 </div>
                 <div class="full sub-price bold">9,99€</div>
-                <div class="nothfour full center-text undertitle">Mjesečno</div>
+                <div class="nothfour full center-text undertitle">4-tjedno</div>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
                     <font-awesome-icon
@@ -418,13 +418,13 @@ export default {
   },
   computed: {
     one() {
-      return 'TM823EJ8Z8O5'
+      return 'TMBE39XTDDLB'
     },
     two() {
       return 'TMDN8RUGRHCF'
     },
     three() {
-      return 'TM9H28SXGG2N'
+      return 'TMGE7VQFC1QO'
     },
     four() {
       return 'TMMP593NCIAN'

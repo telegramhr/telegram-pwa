@@ -47,7 +47,7 @@
                     </div>
                   </div>
                   <div class="full sub-price bold">
-                    7,99€<span> mjesečno</span>
+                    7,99€<span> 4-tjedno</span>
                   </div>
                   <div class="full remp-special-note column-mini-top-pad">
                     standardna cijena Telegram pretplate
@@ -192,10 +192,10 @@ export default {
   },
   computed: {
     one() {
-      return 'TMU7ZSVF7C88'
+      return 'TMUU78JAKLK7'
     },
     two() {
-      return 'TMIF8PGPXVWC'
+      return 'TMD3P2EXTN7K'
     },
   },
   mounted() {
