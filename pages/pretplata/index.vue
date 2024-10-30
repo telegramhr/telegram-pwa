@@ -35,7 +35,7 @@
                   class="togglemonth"
                   onclick="document.getElementById('yeartoggle').checked = false;"
                 >
-                  4-tjedno
+                  4 tjedna
                 </div>
                 <div
                   class="toggleyear"
@@ -53,7 +53,7 @@
                   <div class="noththree overtitle">Standard</div>
                 </div>
                 <div class="full sub-price bold">7,99€</div>
-                <div class="nothfour full center-text undertitle">4-tjedno</div>
+                <div class="nothfour full center-text undertitle">4 tjedna</div>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
                     <font-awesome-icon
@@ -91,7 +91,7 @@
                   <div class="noththree overtitle">Premium</div>
                 </div>
                 <div class="full sub-price bold">9,99€</div>
-                <div class="nothfour full center-text undertitle">4-tjedno</div>
+                <div class="nothfour full center-text undertitle">4 tjedna</div>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
                     <font-awesome-icon
@@ -668,7 +668,7 @@
           <summary class="full relative">Koliko košta pretplata?</summary>
           <p>
             Cijena pretplate ovisi o paketu koji odaberete. Možete se
-            pretplatiti na 4-tjednoj ili godišnjoj bazi i to na samo jedan ili
+            pretplatiti na 4 tjednaj ili godišnjoj bazi i to na samo jedan ili
             više naših portala. Kako bismo Vam izašli u susret, pripremili smo
             povoljnu premium opciju 4-tjedne pretplate, kao i još povoljnije
             godišnje pretplate.

@@ -27,7 +27,7 @@
                   class="togglemonth"
                   onclick="document.getElementById('yeartoggle').checked = false;"
                 >
-                  4-tjedno
+                  4 tjedna
                 </div>
                 <div
                   class="toggleyear"
@@ -45,7 +45,7 @@
                   <div class="noththree overtitle">Standard</div>
                 </div>
                 <div class="full sub-price bold">3,99€</div>
-                <div class="nothfour full center-text undertitle">4-tjedno</div>
+                <div class="nothfour full center-text undertitle">4 tjedna</div>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
                     <font-awesome-icon
@@ -83,7 +83,7 @@
                   <div class="noththree overtitle">Premium</div>
                 </div>
                 <div class="full sub-price bold">9,99€</div>
-                <div class="nothfour full center-text undertitle">4-tjedno</div>
+                <div class="nothfour full center-text undertitle">4 tjedna</div>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
                     <font-awesome-icon
