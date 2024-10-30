@@ -352,6 +352,23 @@
                   <gallery :gallery="gallery"></gallery>
                 </portal>
 
+                <portal
+                  v-for="box in post.compare_boxes"
+                  :key="box.id"
+                  :selector="`#compare-box-${box.id}`"
+                >
+                  <img-comparison-slider>
+                    <!-- eslint-disable vue/no-deprecated-slot-attribute -->
+                    <img slot="first" style="width: 100%" :src="box.img1.url" />
+                    <img
+                      slot="second"
+                      style="width: 100%"
+                      :src="box.img2.url"
+                    />
+                    <!-- eslint-enable -->
+                  </img-comparison-slider>
+                </portal>
+
                 <intext-new @show="showMidasIntext = true"></intext-new>
                 <midas
                   v-if="!hasPremium && hasLinker"
@@ -517,7 +534,6 @@
 import { Portal } from '@linusborg/vue-simple-portal'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-
 export default {
   name: 'Slug',
   scrollToTop: true,
