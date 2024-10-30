@@ -14,7 +14,7 @@
           class="container relative flex mobile-side-pad stretch column-full-pad"
         >
           <h1 class="full center-text relax-a-lil-aight">
-            Platite 6 mjeseci, dobijete još 6 mjeseci na poklon
+            Platite pola godine, još pola godine dajemo GRATIS!
           </h1>
           <p class="full center-text pretplata-tagline">
             Posebna akcija za najkvalitetniji hrvatski portal
@@ -391,7 +391,7 @@ export default {
   },
   head() {
     return {
-      title: 'Telegram.hr Pretplata',
+      title: 'Platite pola godine, još pola godine dajemo GRATIS!',
       meta: [
         {
           hid: 'description',
@@ -407,7 +407,7 @@ export default {
           hid: 'og:title',
           name: 'og:title',
           property: 'og:title',
-          content: 'Telegram.hr Pretplata',
+          content: 'Platite pola godine, još pola godine dajemo GRATIS!',
         },
         {
           hid: 'og:image',
