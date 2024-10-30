@@ -28,8 +28,11 @@
             />
             <div class="full center yeartoggle-parent">
               <label class="relative">
-                <div class="best-price-sticker animate hide">
-                  Najbolja <br />vrijednost
+                <div
+                  class="best-price-sticker green-sticker animate"
+                  onclick="document.getElementById('yeartoggle').checked = true;"
+                >
+                  Uštedite <br />24%
                 </div>
                 <div
                   class="togglemonth"
@@ -93,7 +96,9 @@
                   <div class="noththree overtitle">Premium</div>
                 </div>
                 <div class="full sub-price bold">9,99€</div>
-                <div class="nothfour full center-text undertitle">svaka 4 tjedna</div>
+                <div class="nothfour full center-text undertitle">
+                  svaka 4 tjedna
+                </div>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
                     <font-awesome-icon
