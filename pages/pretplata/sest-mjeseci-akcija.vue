@@ -61,13 +61,13 @@
                   class="half animate flex-responsive flex relative pretplata-packbox smaller-packbox stretch"
                 >
                   <div class="best-price-sticker alt-bigger-sticcer animate">
-                    Uštedite<br />48 eura
+                    Uštedite<br />52 eura
                   </div>
                   <div class="smaller-packbox-radio">
                     <div class="remp-radio-indicator center"><div></div></div>
                   </div>
                   <div class="full sub-price bold">
-                    <span>Akcija </span> 6 + 6 mjeseci
+                    <span>Akcija </span> 6 + 6
                   </div>
                   <div class="full remp-special-note column-mini-top-pad">
                     platite 6 mjeseci, dobijete još 6 mjeseci
