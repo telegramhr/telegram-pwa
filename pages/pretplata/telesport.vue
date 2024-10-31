@@ -85,7 +85,9 @@
                   <div class="noththree overtitle">Premium</div>
                 </div>
                 <div class="full sub-price bold">9,99€</div>
-                <div class="nothfour full center-text undertitle">svaka 4 tjedna</div>
+                <div class="nothfour full center-text undertitle">
+                  svaka 4 tjedna
+                </div>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
                     <font-awesome-icon

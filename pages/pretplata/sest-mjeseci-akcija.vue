@@ -70,7 +70,7 @@
                     <span>Akcija </span> 6 + 6
                   </div>
                   <div class="full remp-special-note column-mini-top-pad">
-                    platite 6 mjeseci, dobijete još 6 mjeseci
+                    Platite pola godine, a pola vam dajemo GRATIS
                   </div>
                 </label>
               </div>

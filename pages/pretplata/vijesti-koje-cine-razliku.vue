@@ -17,12 +17,11 @@
             Vremenski ograničena ponuda!
           </div>
           <h1 class="full center-text">
-            Propuštate vijesti koje čine razliku? Otključajte ih za samo 2,29€
-            mjesečno!
+            Propuštate vijesti koje čine razliku? Otključajte ih za samo 2,29€!
           </h1>
           <p class="full center-text pretplata-tagline">
-            Isprobajte Telegram uz popust prva 3 mjeseca i postanite dio
-            informirane zajednice!
+            Isprobajte Telegram uz 71% popusta i postanite dio informirane
+            zajednice!
           </p>
         </div>
         <div class="full flex">
@@ -47,7 +46,7 @@
                     </div>
                   </div>
                   <div class="full sub-price bold">
-                    7,99€<span> 4 tjedna</span>
+                    7,99€<span> svaka 4 tjedna</span>
                   </div>
                   <div class="full remp-special-note column-mini-top-pad">
                     standardna cijena Telegram pretplate
@@ -79,7 +78,7 @@
                     2,29€<span>svaka 4 tjedna</span>
                   </div>
                   <div class="full remp-special-note column-mini-top-pad">
-                    prva tri mjeseca, nakon toga 7,99€ mjesečno
+                    prva tri mjeseca, nakon toga 7,99€
                   </div>
                 </label>
               </div>

@@ -93,7 +93,9 @@
                   <div class="noththree overtitle">Premium</div>
                 </div>
                 <div class="full sub-price bold">9,99€</div>
-                <div class="nothfour full center-text undertitle">svaka 4 tjedna</div>
+                <div class="nothfour full center-text undertitle">
+                  svaka 4 tjedna
+                </div>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
                     <font-awesome-icon
@@ -661,7 +663,7 @@
             Kako da se pretplatim na Telegram?
           </summary>
           <p>
-            Vrlo jednostavno, samo odaberite jedan od gore ponuđenih 4-tjednih
+            Vrlo jednostavno, samo odaberite jedan od gore ponuđenih mjesečnih
             ili godišnjih paketa, a sustav će Vas dalje sam voditi kroz vrlo
             kratak i jednostavan proces registracije i kupnje.
           </p>
@@ -671,9 +673,7 @@
           <p>
             Cijena pretplate ovisi o paketu koji odaberete. Možete se
             pretplatiti na mjesečnoj ili godišnjoj bazi i to na samo jedan ili
-            više naših portala. Kako bismo Vam izašli u susret, pripremili smo
-            povoljnu premium opciju 4-tjedne pretplate, kao i još povoljnije
-            godišnje pretplate.
+            više naših portala.
           </p>
         </details>
         <details class="full flex relative">
@@ -682,7 +682,7 @@
           </summary>
           <p>
             Najisplativija opcija je godišnja premium pretplata: u njoj za samo
-            6,50 eura mjesečno (godišnji iznos naplaćuje se jednokratno)
+            8,25 eura mjesečno (godišnji iznos naplaćuje se jednokratno)
             dobivate godinu dana neograničenog čitanja Telegrama i Telesporta
             bez oglasa, nove funkcionalnosti koje ćemo uvoditi i popust na
             knjigu jednog od naših autora.
@@ -700,9 +700,10 @@
             Mogu li nekome pokloniti pretplatu?
           </summary>
           <p>
-            Dapače, upravo je u tijeku Božićna akcija darivanja. Samo posjetite
-            <app-link to="/pretplata/poklon">ovu stranicu</app-link> i pratite
-            korake za jedan od najoriginalnijih poklona ovog Božića.
+            Naravno, na
+            <app-link to="/pretplata/poklon">ovoj stranici</app-link> možete
+            svojim najmilijima pokloniti punu godinu čitanja najkvalitetnijih
+            Telegram članaka.
           </p>
         </details>
         <details class="full flex relative">
@@ -768,7 +769,7 @@
             Kako se obnavlja jednom kupljena pretplata?
           </summary>
           <p>
-            Sve 4-tjedne i godišnje pretplate automatski se obnavljaju po svom
+            Sve mjesečne i godišnje pretplate automatski se obnavljaju po svom
             isteku na isti vremenski period kako Vi ne biste morali brinuti o
             tome. Ukoliko želite isključiti automatsku obnovu, to možete
             jednostavno napraviti jednim klikom u korisničkom sučelju.
