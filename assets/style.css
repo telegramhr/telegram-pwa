@@ -3025,7 +3025,11 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     right: 0;
     width: 64px;
     height: 8px;
-    background-color: #c8ab64;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+.green-sticker {
+    background-color: #37ae37;
+    color: white;
 }
 .togglemonth {
     background-color: rgba(0, 0, 0, 0);
@@ -10414,6 +10418,9 @@ label.payment-tile svg {
 @media screen and (max-width: 1024px) {
     .best-price-sticker {
         right: -16px;
+    }
+    .pretplata-page .best-price-sticker {
+        right: -36px;
     }
 }
 #guide-category-container {

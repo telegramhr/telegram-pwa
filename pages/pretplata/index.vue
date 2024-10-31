@@ -28,8 +28,11 @@
             />
             <div class="full center yeartoggle-parent">
               <label class="relative">
-                <div class="best-price-sticker animate hide">
-                  Najbolja <br />vrijednost
+                <div
+                  class="best-price-sticker green-sticker animate"
+                  onclick="document.getElementById('yeartoggle').checked = true;"
+                >
+                  Uštedite <br />24%
                 </div>
                 <div
                   class="togglemonth"

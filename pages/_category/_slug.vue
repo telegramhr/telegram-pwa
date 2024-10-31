@@ -94,8 +94,8 @@
                   class="fancy-overtitle-premium"
                 >
                   <img
-                    src="@/assets/img/tg_monogram_logo_white.svg"
-                    alt="Telegram monogram logo (TG)"
+                    src="@/assets/img/t_logo.svg"
+                    alt="Telegram monogram logo (T)"
                   />
                   Samo za pretplatnike
                 </span>
@@ -155,8 +155,8 @@
                     class="fancy-overtitle-premium"
                   >
                     <img
-                      src="@/assets/img/tg_monogram_logo_white.svg"
-                      alt="Telegram monogram logo (TG)"
+                      src="@/assets/img/t_logo.svg"
+                      alt="Telegram monogram logo (T)"
                     />
                     Samo za pretplatnike
                   </span>
