@@ -50,6 +50,10 @@ export default function ({ route, store }, inject) {
                   compass.trackConversion('register')
                 },
               ])
+                window.fbq('track', 'Subscribe', {
+                  currency: data.chargeCurrency,
+                  value: data.chargeAmount,
+                })
             },
           })
         },
@@ -79,10 +83,7 @@ export default function ({ route, store }, inject) {
                 currency: data.chargeCurrency,
                 value: data.chargeAmount,
               })
-              window.fbq('track', 'Subscribe', {
-                currency: data.chargeCurrency,
-                value: data.chargeAmount,
-              })
+
               window.PianoESP &&
               typeof window.PianoESP.handleUserDataPromise === 'function' &&
               window.PianoESP.handleUserDataPromise({
