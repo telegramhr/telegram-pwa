@@ -864,8 +864,8 @@ export default {
           case 'upgrade':
             this.checkout('', 1)
             break
-          case 'izbori':
-            this.checkout('TM5P57VYH7GT')
+          case 'two-year':
+            this.checkout('TMZNIFUC488C')
             break
           case 'term':
             this.checkout(this.$route.query.term)
