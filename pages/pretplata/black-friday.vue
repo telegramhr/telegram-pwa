@@ -38,7 +38,7 @@
             class="flex newbtn huge-newbtn animate clickable"
             @click="checkout('TMH4A5EB08L8')"
           >
-            Iskoristi ponudu!
+            Iskoristite ponudu!
           </div>
         </div>
       </div>
@@ -121,7 +121,7 @@
         </div>
         <div class="full darkened-bg column-full-pad mobile-full-pad">
           <div class="nothtwo full center-text pretplata-subtitle">
-            Iskoristi ovu ponudu sada i uživaj 2 godine u Premium sadržaju bez
+            Iskoristite ovu ponudu sada i uživaj 2 godine u Premium sadržaju bez
             reklama!
           </div>
           <div class="full sub-price center-text giant-text">
@@ -133,7 +133,7 @@
               class="flex newbtn huge-newbtn animate clickable"
               @click="checkout('TMH4A5EB08L8')"
             >
-              Iskoristi ponudu!
+              Iskoristite ponudu!
             </div>
           </div>
         </div>
@@ -325,14 +325,14 @@
       >
         <div class="full darkened-bg column-full-pad mobile-full-pad">
           <div class="nothtwo full center-text pretplata-subtitle">
-            Pretplati se sada i iskoristi 2 za 1 ponudu!
+            Pretplati se sada i iskoristite 2 za 1 ponudu!
           </div>
           <div class="full center">
             <div
               class="flex newbtn huge-newbtn animate clickable"
               @click="checkout('TMH4A5EB08L8')"
             >
-              Iskoristi ponudu!
+              Iskoristite ponudu!
             </div>
           </div>
         </div>
