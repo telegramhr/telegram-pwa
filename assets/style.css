@@ -2725,6 +2725,13 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 1.9rem;
     margin-bottom: 16px;
 }
+.pretplata-subtitle {
+    font-size: 32px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+    line-height: 1.25em;
+}
 .pretplata-page p {
     font-size: 20px;
     font-size: 1rem;
@@ -3442,6 +3449,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     .pretplata-page h2, .pretplata-page .single-article-body h2 {
         font-size: 30px;
         font-size: 1.5rem;
+    }
+    .pretplata-subtitle {
+        font-size: 24px;
+        font-size: 1.2rem;
     }
     .pretplata-faq summary, .pretplata-page p.pretplata-tagline {
         font-size: 20px;
@@ -11057,6 +11068,9 @@ label.payment-tile svg {
 .smaller-container {
     max-width: 888px;
 }
+.smallest-container {
+    max-width: 710px;
+}
 .latest-line-feed .article {
     padding-left: 8px;
     border-bottom: none;
@@ -15485,5 +15499,75 @@ header {
     .homepage .cantha-block-title nav.menu {
         -ms-overflow-style: none;
         scrollbar-width: none;
+    }
+}
+
+/* Countdown */
+
+.countdown-day-block {
+    width: 96px;
+    flex-wrap: wrap;
+}
+.countdown-day-block-longer {
+    width: 144px;
+}
+.countdown-tiles {
+    flex-wrap: nowrap;
+    font-family: 'Barlow', sans-serif;
+}
+.countdown-tile {
+    color: white;
+    padding: 10px;
+    background: var(--tg-primary-highlight-color);
+    border-radius: 5px;
+    height: 69px;
+    width: 40px;
+    font-size: 38px;
+    margin-right: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+.countdown-day-divider {
+    font-size: 38px;
+    margin-left: 8px;
+    margin-right: 16px;
+    margin-top: -24px;
+}
+.countdown-subtitle {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-size: 0.7rem;
+    opacity: .7;
+    padding-top: 4px;
+    font-family: 'Barlow', sans-serif;
+}
+.countdown-element {
+    margin-bottom: 24px;
+    z-index: 10;
+}
+.bigger-pretplata-benefits p {
+    font-size: 1rem;
+}
+.bigger-pretplata-benefits p svg {
+    margin-right: 0.2rem;
+}
+.giant-text {
+    font-size: 3.2rem;
+    font-size: 64px;
+}
+@media screen and (max-width: 767px) {
+    .countdown-tile {
+        height: 46px;
+        width: 30px;
+        font-size: 20px;
+        margin-right: 4px;
+        text-align: center;
+        font-weight: bold;
+    }
+    .countdown-day-divider {
+        font-size: 20px;
+        margin-left: 4px;
+        margin-right: 8px;
+        margin-top: -25px;
     }
 }
