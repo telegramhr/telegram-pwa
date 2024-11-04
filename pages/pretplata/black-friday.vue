@@ -36,7 +36,7 @@
         <div class="full center column-bottom-pad">
           <div
             class="flex newbtn huge-newbtn animate clickable"
-            @click="checkout('TMZNIFUC488C')"
+            @click="checkout('TMH4A5EB08L8')"
           >
             Iskoristi ponudu!
           </div>
@@ -131,7 +131,7 @@
           <div class="full center">
             <div
               class="flex newbtn huge-newbtn animate clickable"
-              @click="checkout('TMZNIFUC488C')"
+              @click="checkout('TMH4A5EB08L8')"
             >
               Iskoristi ponudu!
             </div>
@@ -330,7 +330,7 @@
           <div class="full center">
             <div
               class="flex newbtn huge-newbtn animate clickable"
-              @click="checkout('TMZNIFUC488C')"
+              @click="checkout('TMH4A5EB08L8')"
             >
               Iskoristi ponudu!
             </div>
@@ -393,7 +393,7 @@ export default {
   mounted() {
     this.$nextTick(() => {
       if (this.$route.query.checkout) {
-        this.checkout('TMZNIFUC488C')
+        this.checkout('TMH4A5EB08L8')
       }
     })
     // Countdown
