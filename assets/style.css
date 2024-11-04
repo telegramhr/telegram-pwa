@@ -1941,6 +1941,7 @@ figure img {
     opacity: .4;
     text-align: right;
     background-color: #fcf1e7;
+    z-index: 99;
 }
 .single-article-premium .premium-article-head > .meta-foto {
     padding: 0px;
