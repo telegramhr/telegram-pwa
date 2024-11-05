@@ -309,6 +309,18 @@ h2, .sub-price, .offer-title {
     left: 0px;
     top: 0px;
 }
+.us-reps div::before, .result-line .us-reps::before {
+    background-color: #a8353b;
+}
+.us-dems div::before, .result-line .us-dems::before {
+    background-color: #3550a8;
+}
+.us-rep-flip div::before, .result-line .us-rep-flip::before {
+    background-color: #e89319;
+}
+.us-dem-flip div::before, .result-line .us-dem-flip::before {
+    background-color: #9e47ff;
+}
 .sdp div::before, .result-line .sdp::before {
     background-color: #a8353b;
 }
@@ -14133,7 +14145,7 @@ header {
 }
 
 .sdp-line,
-.hdz-line {
+.hdz-line, .dem-line, .rep-line {
     font-size: 32px;
     font-weight: 700;
     position: absolute;
@@ -14141,7 +14153,7 @@ header {
 }
 
 .sdp-line span,
-.hdz-line span {
+.hdz-line span, .dem-line span, .rep-line span {
     font-size: 48px;
 }
 
@@ -14154,6 +14166,55 @@ header {
     color: #3550a8;
     right: 0;
     text-align: right;
+}
+
+.dem-line {
+    color: #3550a8;
+    left: 0;
+}
+
+.rep-line {
+    color: #a8353b;
+    right: 0;
+    text-align: right;
+}
+
+.us-dems-text {
+    color: #3550a8;
+}
+.us-reps-text {
+    color: #a8353b;
+}
+.dem-line img, .rep-line img {
+    width: 200px;
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.rep-line img {
+    left: auto;
+    right: 0px;
+}
+.dem-line {
+    padding-left: 150px;
+}
+.rep-line {
+    padding-right: 150px;
+}
+
+@media screen and (max-width: 767px) {
+    .dem-line img, .rep-line img {
+        width: 18vw;
+        max-width: 18vw;
+        bottom: 37px;
+    }
+    .dem-line {
+        padding-left: 0;
+    }
+    .rep-line {
+        padding-right: 0;
+    }
 }
 
 @media screen and (max-width: 1023px) {
@@ -14215,6 +14276,9 @@ header {
 .pretplata-subs-special .sdp-line, .pretplata-subs-special .hdz-line {
     bottom: -64px;
 }
+.pretplata-subs-special .dem-line, .pretplata-subs-special .rep-line {
+    bottom: -64px;
+}
 .pretplata-subs-special .noththree.overtitle.overtitle-live {
     padding-left: 2.2em;
     background-color: transparent;
@@ -14262,11 +14326,11 @@ header {
         font-size: 0.7rem;
         color: #999999;
     }
-    .sdp-line, .hdz-line {
+    .sdp-line, .hdz-line, .dem-line, .rep-line {
         font-size: 14px;
         font-size: 0.7rem;
     }
-    .sdp-line span, .hdz-line span {
+    .sdp-line span, .hdz-line span, .dem-line span, .rep-line span {
         font-size: 5vw;
     }
     .result-table .row > div {
