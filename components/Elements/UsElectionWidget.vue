@@ -31,13 +31,13 @@
           <span class="dot us-reps-bg"></span>Rezultati Trump
         </div>
         <div
-          v-if="this.somewhereFlipped"
+          v-if="somewhereFlipped"
           class="flex mobile-full relative column-mini-horizontal-pad column-mini-top-pad"
         >
           <span class="dot us-dem-flip-bg"></span>Preokret za Harris
         </div>
         <div
-          v-if="this.somewhereFlipped"
+          v-if="somewhereFlipped"
           class="flex mobile-full relative column-mini-horizontal-pad column-mini-top-pad"
         >
           <span class="dot us-rep-flip-bg"></span>Preokret za Trumpa
@@ -121,6 +121,9 @@
 <script>
 export default {
   name: 'UsElectionWidget',
+  async fetch() {
+    await this.getData()
+  },
   data() {
     return {
       somewhereFlipped: false,
@@ -592,6 +595,11 @@ export default {
         }
       })
       return combinedData
+    },
+  },
+  methods: {
+    async getData() {
+      this.real = await this.$axios.$get('/api/izbori/us')
     },
   },
 }
