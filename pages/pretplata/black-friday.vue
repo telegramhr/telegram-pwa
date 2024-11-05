@@ -425,6 +425,7 @@ export default {
   },
   methods: {
     checkout(termId) {
+      console.log(termId)
       this.$piano.start(termId)
     },
   },
