@@ -2,16 +2,49 @@
   <div
     class="full flex relative pretplata-subs-special column-full-pad mobile-full-pad darkened-bg election-special-widget"
   >
-    <div class="full center relative">
+    <div class="full center relative m-order-1">
       <div class="overtitle noththree overtitle-live">
-        <span class="desktop-only">Rezultati uživo</span>
-        <span class="mobile-only">Rezultati američkih izbora uživo</span>
+        <span class="desktop-only">Rezultati uskoro</span>
+        <span class="mobile-only">Rezultati američkih izbora uskoro</span>
       </div>
     </div>
-    <div class="full nothtwo desktop-only center-text">
+    <div class="full nothtwo desktop-only center-text m-order-1">
       Američki izbori 2024
     </div>
-    <div class="full flex relative">
+    <div class="full center election-legend m-order-2">
+      <div
+        class="two-thirds center flex-responsive flex-wrap barlow mobile-top-pad"
+      >
+        <div class="flex relative column-mini-horizontal-pad">
+          <span class="dot us-dems-bg"></span>Rezultati Harris
+        </div>
+        <div class="flex relative column-mini-horizontal-pad">
+          <span class="dot us-dems-bg faded"></span>Ankete Harris
+        </div>
+        <div class="flex relative column-mini-horizontal-pad">
+          <span class="dot gray-bg"></span>Neodlučeno
+        </div>
+        <div class="flex relative column-mini-horizontal-pad">
+          <span class="dot us-reps-bg faded"></span>Ankete Trump
+        </div>
+        <div class="flex relative column-mini-horizontal-pad">
+          <span class="dot us-reps-bg"></span>Rezultati Trump
+        </div>
+        <div
+          v-if="this.somewhereFlipped"
+          class="flex mobile-full relative column-mini-horizontal-pad column-mini-top-pad"
+        >
+          <span class="dot us-dem-flip-bg"></span>Preokret za Harris
+        </div>
+        <div
+          v-if="this.somewhereFlipped"
+          class="flex mobile-full relative column-mini-horizontal-pad column-mini-top-pad"
+        >
+          <span class="dot us-rep-flip-bg"></span>Preokret za Trumpa
+        </div>
+      </div>
+    </div>
+    <div class="full flex relative m-order-1">
       <div class="full flex relative result-line-legend">
         <div class="dem-line">
           <img src="@/assets/img/extras/izbori_usa/harris.png" />
@@ -32,16 +65,14 @@
           :style="{
             width: (state.votes / 538) * 100 + '%',
             order: state.order,
-            opacity: state.real ? (state.called ? 1 : 0.75) : 0.5,
+            opacity: state.real ? (state.called ? 1 : 0.75) : 0.25,
           }"
         ></div>
       </div>
-      <div
-        class="full center-text barlow faded column-mini-top-pad column-bottom-pad"
-      >
+      <div class="full center-text faded barlow column-mini-top-pad">
         270 <span class="desktop-only">elektora</span> za većinu
       </div>
-      <div class="full flex relative barlow desktop-only">
+      <div class="full flex relative barlow desktop-only column-top-pad hide">
         <div
           v-for="state in Object.keys(highlighted)"
           :key="state"
@@ -74,13 +105,14 @@
           </p>
         </div>
       </div>
-      <p
-        class="full highlight-pitch column-top-pad desktop-only faded barlow center-text"
-      >
+      <!--<p class="full column-top-pad desktop-only faded barlow center-text">
         <span id="data-counted-total"
           >Prebrojano {{ results.counted }}% biračkih mjesta.</span
         >
         <span id="data-age">Podaci ažurirani u {{ results.age }}h. </span>
+      </p>-->
+      <p class="full column-top-pad faded barlow center-text">
+        Prvi rezultati očekuju se tijekom noći
       </p>
     </div>
   </div>
@@ -91,6 +123,7 @@ export default {
   name: 'UsElectionWidget',
   data() {
     return {
+      somewhereFlipped: false,
       polls: {
         DC: {
           votes: 3,
@@ -430,24 +463,18 @@ export default {
         },
       },
       real: {
-        MA: {
+        /* MA: {
           dem: 66.9,
           rep: 31.6,
-          percentReporting: 15,
-          called: false,
+          percentReporting: 98,
+          called: true,
         },
         IA: {
           dem: 51.9,
           rep: 48.6,
           percentReporting: 75,
           called: true,
-        },
-        MI: {
-          dem: 49.8,
-          rep: 50.2,
-          percentReporting: 25,
-          called: false,
-        },
+        }, */
       },
       highlighted: {
         PA: true,
@@ -467,7 +494,7 @@ export default {
         states: {},
         dem: 0,
         rep: 0,
-        counted: 0,
+        counted: 1,
         age: '2024-11-05 12:00:00',
       }
       Object.keys(this.polls).forEach((state) => {
@@ -500,6 +527,7 @@ export default {
           ) */
           if (this.polls[state].dem < this.polls[state].rep) {
             combinedData.states[state].flip = true
+            this.somewhereFlipped = true
           }
           if (this.real[state].called) {
             combinedData.dem += this.polls[state].votes
@@ -507,6 +535,7 @@ export default {
         } else {
           if (this.polls[state].dem > this.polls[state].rep) {
             combinedData.states[state].flip = true
+            this.somewhereFlipped = true
           }
           if (this.real[state].called) {
             combinedData.rep += this.polls[state].votes

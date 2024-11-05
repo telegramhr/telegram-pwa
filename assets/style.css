@@ -14185,6 +14185,21 @@ header {
 .us-reps-text {
     color: #a8353b;
 }
+.us-dems-bg {
+    background-color: #3550a8;
+}
+.us-dem-flip-bg {
+    background-color: #9e47ff;
+}
+.us-rep-flip-bg {
+    background-color: #e89319;
+}
+.gray-bg {
+    background-color: #bbbbbb
+}
+.us-reps-bg {
+    background-color: #a8353b;
+}
 .dem-line img, .rep-line img {
     width: 200px;
     display: inline-block;
@@ -14202,18 +14217,34 @@ header {
 .rep-line {
     padding-right: 150px;
 }
+.dot {
+    width: 1em;
+    height: 1em;
+    border-radius: 1em;
+    display: inline-block;
+    margin-right: 0.4em;
+    top: 0.15em;
+    position: relative;
+}
+.super-faded {
+    opacity: .25;
+}
 
 @media screen and (max-width: 767px) {
     .dem-line img, .rep-line img {
         width: 18vw;
         max-width: 18vw;
-        bottom: 37px;
+        bottom: 32px;
     }
     .dem-line {
         padding-left: 0;
     }
     .rep-line {
         padding-right: 0;
+    }
+    .election-legend {
+        font-size: 12px;
+        font-size: 0.6rem;
     }
 }
 
