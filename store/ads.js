@@ -277,6 +277,7 @@ export const state = () => ({
         [300, 100],
         [300, 50],
         [300, 600],
+        [320, 600],
         [320, 250],
       ],
     },
@@ -315,6 +316,7 @@ export const state = () => ({
         [300, 50],
         [300, 600],
         [320, 250],
+        [320, 600],
       ],
     },
     telegram_desktop_intext_v3: {
@@ -352,6 +354,7 @@ export const state = () => ({
         [300, 50],
         [300, 600],
         [320, 250],
+        [320, 600],
       ],
     },
     telegram_desktop_intext_v4: {
@@ -389,6 +392,7 @@ export const state = () => ({
         [300, 50],
         [300, 600],
         [320, 250],
+        [320, 600],
       ],
     },
     telegram_desktop_intext_v5: {
@@ -426,6 +430,7 @@ export const state = () => ({
         [300, 50],
         [300, 600],
         [320, 250],
+        [320, 600],
       ],
     },
     telegram_desktop_intext_v6: {
