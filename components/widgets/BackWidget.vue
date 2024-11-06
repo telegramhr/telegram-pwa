@@ -31,12 +31,21 @@ export default {
   },
   methods: {
     init() {
-      let url = '/pretplata/black-friday/?utm_campaign=back_widget'
+      let url = ''
+      if (this.$store.state.user.access) {
+        url = '/?utm_campaign=back_widget'
+      } else {
+        url = '/pretplata/black-friday/?utm_campaign=back_widget'
+      }
       if (this.$route.fullPath.includes('super1')) {
         url = '/super1/?utm_campaign=back_widget'
       }
       if (this.$route.fullPath.includes('telesport')) {
-        url = '/pretplata/black-friday/?utm_campaign=back_widget'
+        if (this.$store.state.user.access) {
+          url = '/telesport/?utm_campaign=back_widget'
+        } else {
+          url = '/pretplata/black-friday/?utm_campaign=back_widget'
+        }
       }
       const final = window.location.href
       window.history.replaceState({ backWidget: true }, 'Telegram.hr', url)
