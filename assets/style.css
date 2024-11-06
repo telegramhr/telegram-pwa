@@ -15667,3 +15667,27 @@ header {
         margin-top: -25px;
     }
 }
+
+@media screen and (max-width: 767px) {
+    .pretplata-subs-special .dem-line, .pretplata-subs-special .rep-line {
+        bottom: -80px;
+    }
+    .election-legend .column-mini-horizontal-pad {
+        padding-top: 8px;
+    }
+}
+@media screen and (max-width: 440px) {
+    .pretplata-subs-special .dem-line, .pretplata-subs-special .rep-line {
+        bottom: -72px;
+    }
+}
+@media screen and (max-width: 360px) {
+    .pretplata-subs-special .dem-line, .pretplata-subs-special .rep-line {
+        bottom: -64px;
+    }
+}
+
+.dark-mode .darkened-bg.us-election-widget {
+    background-color: #121212;
+    color: white;
+}

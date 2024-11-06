@@ -1,11 +1,11 @@
 <template>
   <div
-    class="full flex relative pretplata-subs-special column-full-pad mobile-full-pad darkened-bg election-special-widget"
+    class="full flex relative pretplata-subs-special column-full-pad mobile-full-pad darkened-bg election-special-widget us-election-widget"
   >
     <div class="full center relative m-order-1">
       <div class="overtitle noththree overtitle-live">
-        <span class="desktop-only">Rezultati live</span>
-        <span class="mobile-only">Rezultati američkih izbora live</span>
+        <span class="desktop-only">Rezultati uživo</span>
+        <span class="mobile-only">Rezultati američkih izbora uživo</span>
       </div>
     </div>
     <div class="full nothtwo desktop-only center-text m-order-1">
@@ -47,7 +47,7 @@
     <div class="full flex relative m-order-1">
       <div class="full flex relative result-line-legend">
         <div class="dem-line">
-          <img src="@/assets/img/extras/izbori_usa/harris.png" />
+          <img src="@/assets/img/extras/izbori_usa/harris_l.png" />
           <span>{{ results.dem }}</span> Harris
         </div>
         <div class="rep-line">
@@ -111,8 +111,7 @@
           >Prebrojano {{ results.counted }}% biračkih mjesta.</span
         >
         <span id="data-age">Podaci ažurirani u {{ results.age }}h. </span>
-      </p>
-      <p class="full column-top-pad faded barlow center-text"></p>-->
+      </p>-->
     </div>
   </div>
 </template>
