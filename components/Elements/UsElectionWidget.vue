@@ -60,13 +60,14 @@
         <div
           v-for="state in results.states"
           :key="state.name"
-          :state-name="state.name"
+          :data-state="state.name"
           :class="['animate', state.class]"
           :style="{
             width: (state.votes / 538) * 100 + '%',
             order: state.order,
             opacity: state.real ? (state.called ? 1 : 0.75) : 0.25,
           }"
+          :aria-label="state.name"
         ></div>
       </div>
       <div class="full center-text faded barlow column-mini-top-pad">
@@ -513,27 +514,19 @@ export default {
       // go through all real data and for each state (index of array) add any results to the correct combinedData array
       Object.keys(this.real).forEach((state) => {
         combinedData.states[state].real = true
-        combinedData.states[state].dem = this.real[state].dem
-        combinedData.states[state].rep = this.real[state].rep
+        combinedData.states[state].dem =
+          this.real[state].dem ?? this.real[state].votesDem
+        combinedData.states[state].rep =
+          this.real[state].rep ?? this.real[state].votesRep
         combinedData.states[state].percentReporting =
           this.real[state].percentReporting
-        if (this.real[state].dem > this.real[state].rep) {
-          /* console.log(
-            this.real[state].dem +
-              ' > ' +
-              this.real[state].rep +
-              '(D' +
-              this.polls[state].dem +
-              ', R' +
-              this.polls[state].rep +
-              ')'
-          ) */
+        if (this.real[state].votesDem > this.real[state].votesRep) {
           if (this.polls[state].dem < this.polls[state].rep) {
             combinedData.states[state].flip = true
             this.somewhereFlipped = true
           }
           if (this.real[state].called) {
-            combinedData.dem += this.polls[state].votes
+            combinedData.dem += this.real[state].votesDem
           }
         } else {
           if (this.polls[state].dem > this.polls[state].rep) {
@@ -541,7 +534,7 @@ export default {
             this.somewhereFlipped = true
           }
           if (this.real[state].called) {
-            combinedData.rep += this.polls[state].votes
+            combinedData.rep += this.real[state].votesRep
           }
         }
       })
@@ -551,47 +544,48 @@ export default {
             combinedData.states[state].class = 'us-dem-flip'
             if (combinedData.states[state].real) {
               combinedData.states[state].order =
-                '2' + Math.round(combinedData.states[state].rep)
+                '2' + Math.round(combinedData.states[state].votesRep)
             } else {
               combinedData.states[state].order =
-                '4' + Math.round(combinedData.states[state].rep)
+                '4' + Math.round(combinedData.states[state].votesRep)
             }
           } else {
             combinedData.states[state].class = 'us-dems'
             if (combinedData.states[state].real) {
               combinedData.states[state].order =
-                '1' + Math.round(combinedData.states[state].rep)
+                '1' + Math.round(combinedData.states[state].votesRep)
             } else {
               combinedData.states[state].order =
-                '3' + Math.round(combinedData.states[state].rep)
+                '3' + Math.round(combinedData.states[state].votesRep)
             }
           }
         } else if (combinedData.states[state].flip) {
           combinedData.states[state].class = 'us-rep-flip'
           if (combinedData.states[state].real) {
             combinedData.states[state].order =
-              '7' + Math.round(combinedData.states[state].rep)
+              '7' + Math.round(combinedData.states[state].votesRep)
           } else {
             combinedData.states[state].order =
-              '9' + Math.round(combinedData.states[state].rep)
+              '9' + Math.round(combinedData.states[state].votesRep)
           }
         } else {
           combinedData.states[state].class = 'us-reps'
           if (combinedData.states[state].real) {
             combinedData.states[state].order =
-              '8' + Math.round(combinedData.states[state].rep)
+              '8' + Math.round(combinedData.states[state].votesRep)
           } else {
             combinedData.states[state].order =
-              '6' + Math.round(combinedData.states[state].rep)
+              '6' + Math.round(combinedData.states[state].votesRep)
           }
         }
         const tempDifference = Math.abs(
-          combinedData.states[state].dem - combinedData.states[state].rep
+          combinedData.states[state].votesDem -
+            combinedData.states[state].votesRep
         )
         if (!combinedData.states[state].real && tempDifference < 3) {
           combinedData.states[state].class = 'us-tossup'
           combinedData.states[state].order =
-            '5' + Math.round(combinedData.states[state].rep)
+            '5' + Math.round(combinedData.states[state].votesRep)
         }
       })
       return combinedData
