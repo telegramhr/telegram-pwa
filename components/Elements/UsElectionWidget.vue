@@ -111,10 +111,8 @@
           >Prebrojano {{ results.counted }}% biračkih mjesta.</span
         >
         <span id="data-age">Podaci ažurirani u {{ results.age }}h. </span>
-      </p>-->
-      <p class="full column-top-pad faded barlow center-text">
-        Prvi rezultati očekuju se tijekom noći
       </p>
+      <p class="full column-top-pad faded barlow center-text"></p>-->
     </div>
   </div>
 </template>
