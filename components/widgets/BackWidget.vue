@@ -31,12 +31,12 @@ export default {
   },
   methods: {
     init() {
-      let url = '/?utm_campaign=back_widget'
+      let url = '/pretplata/black-friday/?utm_campaign=back_widget'
       if (this.$route.fullPath.includes('super1')) {
         url = '/super1/?utm_campaign=back_widget'
       }
       if (this.$route.fullPath.includes('telesport')) {
-        url = '/telesport/?utm_campaign=back_widget'
+        url = '/pretplata/black-friday/?utm_campaign=back_widget'
       }
       const final = window.location.href
       window.history.replaceState({ backWidget: true }, 'Telegram.hr', url)
