@@ -4,8 +4,8 @@
   >
     <div class="full center relative m-order-1">
       <div class="overtitle noththree overtitle-live">
-        <span class="desktop-only">Rezultati uskoro</span>
-        <span class="mobile-only">Rezultati američkih izbora uskoro</span>
+        <span class="desktop-only">Rezultati live</span>
+        <span class="mobile-only">Rezultati američkih izbora live</span>
       </div>
     </div>
     <div class="full nothtwo desktop-only center-text m-order-1">
