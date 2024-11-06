@@ -232,22 +232,10 @@ export default {
           rep: 43.4,
         },
         ME: {
-          votes: 2,
+          votes: 4,
           name: 'Maine',
           dem: 50.3,
           rep: 41.7,
-        },
-        ME1: {
-          votes: 1,
-          name: 'Maine Distrikt 1',
-          dem: 58,
-          rep: 35.3,
-        },
-        ME2: {
-          votes: 1,
-          name: 'Maine Distrikt 2',
-          dem: 42.7,
-          rep: 48.7,
         },
         NH: {
           votes: 4,
@@ -364,28 +352,10 @@ export default {
           rep: 48,
         },
         NE: {
-          votes: 2,
+          votes: 3,
           name: 'Nebraska',
           dem: 40,
           rep: 55,
-        },
-        NE1: {
-          votes: 1,
-          name: 'Nebraska Distrikt 1',
-          dem: 44,
-          rep: 50,
-        },
-        NE2: {
-          votes: 1,
-          name: 'Nebraska Distrikt 2',
-          dem: 53,
-          rep: 43,
-        },
-        NE3: {
-          votes: 1,
-          name: 'Nebraska Distrikt 3',
-          dem: 23,
-          rep: 71,
         },
         MS: {
           votes: 6,
@@ -520,6 +490,7 @@ export default {
       // go through all real data and for each state (index of array) add any results to the correct combinedData array
       Object.keys(this.real).forEach((state) => {
         combinedData.states[state].real = true
+        combinedData.states[state].called = this.real[state].called
         combinedData.states[state].dem = this.real[state].votesDem
         combinedData.states[state].rep = this.real[state].votesRep
         combinedData.states[state].percentReporting =
@@ -582,10 +553,7 @@ export default {
               '6' + Math.round((combinedData.states[state].rep / 538) * 100)
           }
         }
-        const tempDifference = Math.abs(
-          combinedData.states[state].dem - combinedData.states[state].rep
-        )
-        if (!combinedData.states[state].real && tempDifference < 3) {
+        if (!combinedData.states[state].real) {
           combinedData.states[state].class = 'us-tossup'
           combinedData.states[state].order =
             '5' + Math.round(combinedData.states[state].rep)
