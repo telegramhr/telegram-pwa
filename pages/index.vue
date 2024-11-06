@@ -487,6 +487,7 @@ export default {
         this.$router.push('/?reload=1')
       }, 300000)
     })
+    this.$store.dispatch('breaking/pullPosts')
   },
   beforeDestroy() {
     clearInterval(this.reloadInterval)
