@@ -76,6 +76,7 @@ export default {
   methods: {
     load() {
       if (this.$route.fullPath.contains('super1')) {
+        this.shown = false
         return
       }
       if (this.$store.state.user.access || this.shown) {
