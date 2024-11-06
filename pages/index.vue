@@ -170,7 +170,9 @@
         <div
           class="full flex column-horizontal-pad column-bottom-pad mobile-order-1 m-order-1"
         >
-          <us-election-widget></us-election-widget>
+          <client-only>
+            <us-election-widget></us-election-widget>
+          </client-only>
         </div>
         <!-- G1 -->
         <div

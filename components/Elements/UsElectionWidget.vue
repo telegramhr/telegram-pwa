@@ -505,8 +505,14 @@ export default {
         combinedData.states[state] = {
           name: this.polls[state].name,
           votes: this.polls[state].votes,
-          dem: this.polls[state].dem,
-          rep: this.polls[state].rep,
+          dem:
+            this.polls[state].dem > this.polls[state].rep
+              ? this.polls[state].votes
+              : 0,
+          rep:
+            this.polls[state].rep > this.polls[state].dem
+              ? this.polls[state].votes
+              : 0,
           called: false,
           flip: false,
         }
@@ -514,10 +520,8 @@ export default {
       // go through all real data and for each state (index of array) add any results to the correct combinedData array
       Object.keys(this.real).forEach((state) => {
         combinedData.states[state].real = true
-        combinedData.states[state].dem =
-          this.real[state].dem ?? this.real[state].votesDem
-        combinedData.states[state].rep =
-          this.real[state].rep ?? this.real[state].votesRep
+        combinedData.states[state].dem = this.real[state].votesDem
+        combinedData.states[state].rep = this.real[state].votesRep
         combinedData.states[state].percentReporting =
           this.real[state].percentReporting
         if (this.real[state].votesDem > this.real[state].votesRep) {
@@ -544,48 +548,47 @@ export default {
             combinedData.states[state].class = 'us-dem-flip'
             if (combinedData.states[state].real) {
               combinedData.states[state].order =
-                '2' + Math.round(combinedData.states[state].votesRep)
+                '2' + Math.round((combinedData.states[state].rep / 538) * 100)
             } else {
               combinedData.states[state].order =
-                '4' + Math.round(combinedData.states[state].votesRep)
+                '4' + Math.round((combinedData.states[state].rep / 538) * 100)
             }
           } else {
             combinedData.states[state].class = 'us-dems'
             if (combinedData.states[state].real) {
               combinedData.states[state].order =
-                '1' + Math.round(combinedData.states[state].votesRep)
+                '1' + Math.round((combinedData.states[state].rep / 538) * 100)
             } else {
               combinedData.states[state].order =
-                '3' + Math.round(combinedData.states[state].votesRep)
+                '3' + Math.round((combinedData.states[state].rep / 538) * 100)
             }
           }
         } else if (combinedData.states[state].flip) {
           combinedData.states[state].class = 'us-rep-flip'
           if (combinedData.states[state].real) {
             combinedData.states[state].order =
-              '7' + Math.round(combinedData.states[state].votesRep)
+              '7' + Math.round((combinedData.states[state].rep / 538) * 100)
           } else {
             combinedData.states[state].order =
-              '9' + Math.round(combinedData.states[state].votesRep)
+              '9' + Math.round((combinedData.states[state].rep / 538) * 100)
           }
         } else {
           combinedData.states[state].class = 'us-reps'
           if (combinedData.states[state].real) {
             combinedData.states[state].order =
-              '8' + Math.round(combinedData.states[state].votesRep)
+              '8' + Math.round((combinedData.states[state].rep / 538) * 100)
           } else {
             combinedData.states[state].order =
-              '6' + Math.round(combinedData.states[state].votesRep)
+              '6' + Math.round((combinedData.states[state].rep / 538) * 100)
           }
         }
         const tempDifference = Math.abs(
-          combinedData.states[state].votesDem -
-            combinedData.states[state].votesRep
+          combinedData.states[state].dem - combinedData.states[state].rep
         )
         if (!combinedData.states[state].real && tempDifference < 3) {
           combinedData.states[state].class = 'us-tossup'
           combinedData.states[state].order =
-            '5' + Math.round(combinedData.states[state].votesRep)
+            '5' + Math.round(combinedData.states[state].rep)
         }
       })
       return combinedData
