@@ -8542,7 +8542,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 
 .superone .instagram-media {
-    max-width: 888px;
+    max-width: 888px !important;
 }
 
 @media screen and (min-width: 767px) {
