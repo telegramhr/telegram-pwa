@@ -166,14 +166,6 @@
         >
           <div class="full flex relative column-bottom-border"></div>
         </div>
-        <!-- US election -->
-        <div
-          class="full flex column-horizontal-pad column-bottom-pad mobile-order-1 m-order-1"
-        >
-          <client-only>
-            <us-election-widget></us-election-widget>
-          </client-only>
-        </div>
         <!-- G1 -->
         <div
           class="three-fourths featured-split biggest-font flex-responsive column-horizontal-pad flex split-articles mobile-side-pad mobile-order-1 m-order-1"
