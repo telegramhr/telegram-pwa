@@ -8541,6 +8541,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     margin-bottom: 4px;
 }
 
+.superone .instagram-media {
+    max-width: 888px;
+}
+
 @media screen and (min-width: 767px) {
     .super-sidebar .article .nothfour {
         display: none;
