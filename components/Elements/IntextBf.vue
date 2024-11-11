@@ -93,16 +93,16 @@ export default {
       termDurationText: 'za 12 mjeseci',
       subtitle: 'Uzmite odmah i iskoristite staru cijenu',
       topBar: 'Samo do 01.04.',
-      softwall: false,
+      softwall: true,
       cta: 'Pretplatite se',
       cta_link: '',
     }
   },
   mounted() {
-    window.addEventListener('piano_intext_new', this.load)
+    window.addEventListener('piano_intext_bf', this.load)
   },
   destroyed() {
-    window.removeEventListener('piano_intext_new', this.load)
+    window.removeEventListener('piano_intext_bf', this.load)
   },
   methods: {
     login() {

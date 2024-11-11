@@ -370,6 +370,7 @@
                 </portal>
 
                 <intext-new @show="showMidasIntext = true"></intext-new>
+                <intext-bf @show="showMidasIntext = true"></intext-bf>
                 <midas
                   v-if="!hasPremium && hasLinker"
                   :key="`midas-text-${post.id}`"
