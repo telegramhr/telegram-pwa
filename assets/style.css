@@ -11826,6 +11826,9 @@ input:checked ~ .input-hidden {
 .column-bottom-margin {
     margin-bottom: 24px;
 }
+.column-right-margin {
+    margin-right: 24px;
+}
 @media screen and (max-width: 767px) {
     .column-top-margin {
         margin-top: 4vw;
@@ -12694,6 +12697,10 @@ input:checked ~ .input-hidden {
     margin-left: 4px;
     color: #666;
 }
+.dark-zgt-salebox .remp-icon-list svg {
+    margin-left: 0px;
+    margin-right: 4px;
+}
 .remp-radio-indicator {
     height: 100%;
     width: 36px;
@@ -13245,10 +13252,19 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     margin-bottom: 1.2rem;
     padding: 1.2rem 0.6rem;
 }
-.dark-mode .zgt-salebox {
+.dark-mode .zgt-salebox, .dark-zgt-salebox {
     background-color: #121212;
     border: 1px solid #555;
     color: white;
+}
+.dark-zgt-salebox {
+    padding: 1.2rem;
+}
+.dark-zgt-salebox > * {
+    z-index: 5;
+}
+.dark-zgt-salebox > .img-as-bg {
+    z-index:1;
 }
 .zgts-topbar > div {
     padding: 0.4rem 0.8rem;
@@ -13270,7 +13286,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .zgt-salebox .noththree.overtitle {
     color: black;
 }
-.dark-mode .zgt-salebox .noththree.overtitle {
+.dark-mode .zgt-salebox .noththree.overtitle, .dark-zgt-salebox .noththree.overtitle {
     color: white;
 }
 .zgts-subtitle {
@@ -13308,6 +13324,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     text-transform: uppercase;
     font-weight: 700;
     margin-bottom: 0.5rem;
+}
+.dark-zgt-salebox .newbtn {
+    background-color: var(--tg-primary-highlight-color);
 }
 .dark-mode .zgt-salebox .newbtn {
     color: black;
