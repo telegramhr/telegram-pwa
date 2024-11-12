@@ -26,6 +26,7 @@
     <!-- Above header banner Piano -->
     <client-only>
       <hometop-simple></hometop-simple>
+      <hometop-bf></hometop-bf>
     </client-only>
     <!-- Actual new TG multiverse header -->
     <nav class="full center relative nayos nayos-multiverse stretch red-nayos">
