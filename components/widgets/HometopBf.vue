@@ -74,6 +74,8 @@ export default {
   name: 'HometopBf',
   data() {
     return {
+      show: false,
+      showA: false,
       title:
         'Platite 1 godinu Premium pretplate bez reklama i dobivate 2 godine!',
       cta: 'Iskoristite ponudu!',
