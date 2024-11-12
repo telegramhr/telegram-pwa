@@ -11964,6 +11964,10 @@ input:checked ~ .input-hidden {
         font-size: 40px;
         font-size: 2rem;
     }
+    .homepage .pretplata-bf .nothtwo {
+        font-size: 32px;
+        font-size: 1.6rem;
+    }
     .pretplata-bf .nothone span {
         font-size: 120px;
         font-size: 6rem;
@@ -13445,8 +13449,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     .pretplata-subs-special {
         z-index: 5;
     }
+    .homepage .pretplata-subs-special {
+        z-index: 100;
+    }
     .pretplata-subs-special .nothtwo {
         font-size: 9vw;
+    }
+    .pretplata-bf-special .nothtwo {
+        font-size: 7vw;
+    }
+    .pretplata-bf-special .countdown-element {
+        margin-bottom: 3vw;
     }
     .pretplata-subs-special .highlight-pitch span.ib {
         display: inline;
