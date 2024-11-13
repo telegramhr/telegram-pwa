@@ -14,8 +14,10 @@
         :headline="post.portal_title"
         :post="post"
       ></theader>
-      <!-- Do not enable until fixed version above is removed and visibility rules are adjusted -->
-      <hometop-simple></hometop-simple>
+      <client-only>
+        <hometop-simple></hometop-simple>
+        <hometop-bf></hometop-bf>
+      </client-only>
       <!-- Above header banner manual -->
       <div class="full flex have-background relative">
         <div

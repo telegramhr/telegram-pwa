@@ -1,5 +1,6 @@
 <template>
   <app-link
+    v-if="showA"
     to="/pretplata/black-friday"
     class="full center relative pretplata-subs-special darkened-bg"
   >
@@ -27,7 +28,7 @@
         </div>
         <div class="half flex-responsive flex relative align-children-end">
           <p class="full center-text column-vertical-pad barlow faded">
-            Ponuda je ograničena. Požurite!
+            {{ subtitle }}
           </p>
           <div class="full center countdown-element relative mobile-top-pad">
             <div class="countdown-day-block center">
@@ -73,16 +74,29 @@ export default {
   name: 'HometopBf',
   data() {
     return {
+      show: false,
+      showA: false,
       title:
         'Platite 1 godinu Premium pretplate bez reklama i dobivate 2 godine!',
       cta: 'Iskoristite ponudu!',
       overtitle: 'Black Friday na Telegramu',
+      subtitle: 'Ponuda je ograničena. Požurite!',
     }
   },
   mounted() {
     this.$nextTick(() => {
-      if (this.$route.query.checkout) {
-        this.checkout('TMH4A5EB08L8')
+      window.addEventListener('piano_header_bf', this.load)
+      if (this.showA) {
+        setTimeout(() => {
+          if (this.$store.state.user.access) {
+            this.showA = false
+            return
+          }
+          if (this.show) {
+            return
+          }
+          this.showA = false
+        }, 500)
       }
     })
     // Countdown
@@ -125,6 +139,20 @@ export default {
         clearInterval(x)
       }
     }, 1000)
+  },
+  destroyed() {
+    window.removeEventListener('piano_header', this.load)
+  },
+  methods: {
+    load(e) {
+      if (e.detail) {
+        this.title = e.detail.title
+        this.subtitle = e.detail.subtitle
+        this.cta = e.detail.cta
+        this.show = true
+        this.showA = true
+      }
+    },
   },
 }
 </script>
