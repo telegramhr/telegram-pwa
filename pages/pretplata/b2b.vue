@@ -105,7 +105,7 @@
             </div>
           </div>
           <div
-            v-if="expandForm"
+            v-if="expandForm && !submitted"
             class="full flex relative column-vertical-pad column-bottom-margin"
           >
             <p class="full bold column-top-margin">
@@ -116,6 +116,7 @@
             </div>
             <input
               id="subjekt-ime"
+              v-model="company"
               type="text"
               class="full remp-new-input"
               placeholder="Ime subjekta"
@@ -125,6 +126,7 @@
             </div>
             <input
               id="subjekt-adresa"
+              v-model="address"
               type="text"
               class="full remp-new-input"
               placeholder="Adresa"
@@ -134,6 +136,7 @@
             </div>
             <input
               id="subjekt-oib"
+              v-model="oib"
               type="text"
               class="full remp-new-input"
               placeholder="OIB"
@@ -165,6 +168,7 @@
             </div>
             <input
               id="subjekt-email"
+              v-model="email"
               type="text"
               class="full remp-new-input"
               placeholder="E-mail"
@@ -174,15 +178,31 @@
             </div>
             <input
               id="subjekt-email"
+              v-model="phone"
               type="text"
               class="full remp-new-input"
               placeholder="Telefonski broj"
             />
             <div class="full flex relative mobile-top-pad column-top-pad">
-              <div class="full newbtn huge-newbtn center-text clickable">
+              <div
+                class="full newbtn huge-newbtn center-text clickable"
+                @click="submit"
+              >
                 Pošalji upit za ponudu
               </div>
             </div>
+          </div>
+          <div
+            v-if="submitted"
+            class="full flex relative column-vertical-pad column-bottom-margin center"
+          >
+            <p>Hvala vam!</p>
+            <p>Vaš upit je uspješno proslijeđen! Javit ćemo vam se povratno.</p>
+            <p>
+              U slučaju dodatnih pitanja stojimo na raspolaganju putem e-mail
+              adrese pretplata@telegram.hr.
+            </p>
+            <p>Vaš Telegram!</p>
           </div>
           <div
             class="full flex relative pretplata-faq column-top-pad mobile-top-pad hide"
@@ -388,6 +408,12 @@ export default {
     return {
       teamSize: 0,
       expandForm: false,
+      email: '',
+      company: '',
+      address: '',
+      oib: '',
+      phone: '',
+      submitted: false,
     }
   },
   computed: {
@@ -447,68 +473,21 @@ export default {
           return 99
       }
     },
-    one() {
-      return 'TMUU78JAKLK7'
-    },
-    two() {
-      return 'TMGE7VQFC1QO'
-    },
-    three() {
-      return 'TMMVDE0R01YY'
-    },
-    four() {
-      return 'TMMP593NCIAN'
-    },
-  },
-  mounted() {
-    this.$nextTick(() => {
-      this.promo_code = this.$route.query.promo_code
-      window.tp.push([
-        'addHandler',
-        'checkoutComplete',
-        function (conversion) {
-          if (conversion.rid === '') {
-            this.$store.commit('user/setTerm', true)
-          }
-        },
-      ])
-
-      if (this.$route.query.checkout) {
-        switch (this.$route.query.checkout) {
-          case 'sm':
-            this.checkout(this.one)
-            break
-          case 'sy':
-            this.checkout(this.two)
-            break
-          case 'pm':
-            this.checkout(this.three)
-            break
-          case 'py':
-            this.checkout(this.four)
-            break
-          case 'upgrade':
-            this.checkout('', 1)
-            break
-          case 'two-year':
-            this.checkout('TMZNIFUC488C')
-            break
-          case 'term':
-            this.checkout(this.$route.query.term)
-            break
-        }
-      }
-      if (this.$route.query.term) {
-        this.checkout(this.$route.query.term)
-      }
-    })
   },
   methods: {
-    canLogIn() {
-      return this.$store.state.user.exp * 1000 < new Date().getTime()
-    },
-    checkout(termId, upgrade) {
-      this.$piano.start(termId)
+    submit() {
+      this.$axios
+        .post('/pretplate/api/b2b', {
+          email: this.email,
+          company: this.company,
+          address: this.address,
+          oib: this.oib,
+          phone: this.phone,
+          teamSize: this.teamSize,
+        })
+        .then(() => {
+          this.submitted = true
+        })
     },
   },
   head() {
@@ -542,14 +521,14 @@ export default {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/pretplata/',
+          content: 'https://www.telegram.hr/pretplata/b2b',
         },
       ],
       link: [
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: 'https://www.telegram.hr/pretplata/',
+          href: 'https://www.telegram.hr/pretplata/b2b',
         },
       ],
       script: [
