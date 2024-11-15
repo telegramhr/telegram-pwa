@@ -74,6 +74,7 @@ export default {
   name: 'HometopBf',
   data() {
     return {
+      counter: null,
       show: false,
       showA: false,
       title:
@@ -99,51 +100,54 @@ export default {
         }, 500)
       }
     })
-    // Countdown
-    const countDownDate = new Date('Nov 30, 2024 23:59:59').getTime()
-    const x = setInterval(function () {
-      const now = new Date().getTime()
-      const distance = countDownDate - now
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24))
-      const hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      )
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000)
-
-      const day2 = Math.floor((days % 100) / 10)
-      const day3 = Math.floor(days % 10)
-
-      const hour1 = Math.floor(hours / 10)
-      const hour2 = Math.floor(hours % 10)
-
-      const min1 = Math.floor(minutes / 10)
-      const min2 = Math.floor(minutes % 10)
-
-      const sec1 = Math.floor(seconds / 10)
-      const sec2 = Math.floor(seconds % 10)
-
-      document.getElementById('cd-day-2').innerHTML = day2
-      document.getElementById('cd-day-3').innerHTML = day3
-
-      document.getElementById('cd-hour-1').innerHTML = hour1
-      document.getElementById('cd-hour-2').innerHTML = hour2
-
-      document.getElementById('cd-min-1').innerHTML = min1
-      document.getElementById('cd-min-2').innerHTML = min2
-
-      document.getElementById('cd-sec-1').innerHTML = sec1
-      document.getElementById('cd-sec-2').innerHTML = sec2
-      if (distance < 0) {
-        clearInterval(x)
-      }
-    }, 1000)
   },
   destroyed() {
     window.removeEventListener('piano_header', this.load)
+    this.counter = null
   },
   methods: {
+    createCounter() {
+      // Countdown
+      const countDownDate = new Date('Nov 30, 2024 23:59:59').getTime()
+      this.counter = setInterval(function () {
+        const now = new Date().getTime()
+        const distance = countDownDate - now
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24))
+        const hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        )
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000)
+
+        const day2 = Math.floor((days % 100) / 10)
+        const day3 = Math.floor(days % 10)
+
+        const hour1 = Math.floor(hours / 10)
+        const hour2 = Math.floor(hours % 10)
+
+        const min1 = Math.floor(minutes / 10)
+        const min2 = Math.floor(minutes % 10)
+
+        const sec1 = Math.floor(seconds / 10)
+        const sec2 = Math.floor(seconds % 10)
+
+        document.getElementById('cd-day-2').innerHTML = day2
+        document.getElementById('cd-day-3').innerHTML = day3
+
+        document.getElementById('cd-hour-1').innerHTML = hour1
+        document.getElementById('cd-hour-2').innerHTML = hour2
+
+        document.getElementById('cd-min-1').innerHTML = min1
+        document.getElementById('cd-min-2').innerHTML = min2
+
+        document.getElementById('cd-sec-1').innerHTML = sec1
+        document.getElementById('cd-sec-2').innerHTML = sec2
+        if (distance < 0) {
+          clearInterval(x)
+        }
+      }, 1000)
+    },
     load(e) {
       if (e.detail) {
         this.title = e.detail.title
@@ -151,6 +155,7 @@ export default {
         this.cta = e.detail.cta
         this.show = true
         this.showA = true
+        this.createCounter()
       }
     },
   },
