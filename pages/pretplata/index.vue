@@ -229,11 +229,9 @@
                   <div class="btn animate">Odaberi</div>
                 </div>
               </div>
-              <a
-                href="mailto:pretplata@telegram.hr"
-                class="full center-text undertitle"
+              <app-link to="/pretplata/b2b/" class="full center-text undertitle"
                 >Trebat će vam R1 račun ili želite ponudu za pravne osobe?
-                Javite nam se.</a
+                Javite nam se.</app-link
               >
             </div>
           </div>

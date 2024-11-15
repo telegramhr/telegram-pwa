@@ -122,8 +122,12 @@
         >
           <p class="full bold column-mini-bottom-pad">Plus</p>
 
-          <app-link to="/pretplata/" class="full">Pretplata za fizičke korisnike</app-link>
-          <app-link to="/pretplata/b2b/" class="full">Pretplata za poslovne korisnike</app-link>
+          <app-link to="/pretplata/" class="full"
+            >Pretplata za fizičke korisnike</app-link
+          >
+          <app-link to="/pretplata/b2b/" class="full"
+            >Pretplata za poslovne korisnike</app-link
+          >
           <app-link to="/dojave/" class="full">Pošaljite nam vijest</app-link>
           <app-link to="/stranica/impressum/" class="full">Impressum</app-link>
           <app-link to="/stranica/oglasavanje/" class="full"
