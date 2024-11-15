@@ -474,7 +474,7 @@ export default {
       }
     },
     label() {
-      switch (this.teamSize) {
+      switch (parseInt(this.teamSize)) {
         case 1:
           return '1-član'
         case 2:
