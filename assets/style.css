@@ -2894,6 +2894,10 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 3.6rem;
     margin-bottom: 0px;
 }
+.pretplata-page .chill-packbox .sub-price {
+    font-size: 48px;
+    font-size: 2.4rem;
+}
 .pretplata-packboxes .undertitle {
     font-family: 'Barlow', sans-serif;
     font-weight: 600;
@@ -3037,6 +3041,7 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     font-size: 0.5rem;
     opacity: 1;
     overflow: hidden;
+    line-height: 1.25em;
 }
 .best-price-sticker::before {
     content: ' ';
@@ -10450,6 +10455,10 @@ label.payment-tile svg {
     .pretplata-page .best-price-sticker {
         right: -36px;
     }
+    .pretplata-page .chill-packbox .best-price-sticker {
+        right: -8px;
+        top: -36px;
+    }
 }
 #guide-category-container {
   max-width: 1200px !important;
@@ -12693,6 +12702,10 @@ input:checked ~ .input-hidden {
     font-family: 'Barlow', sans-serif;
     font-weight: normal;
     color: #666;
+}
+.chill-packbox .remp-special-note {
+    font-size: 15px;
+    font-size: 0.75rem;
 }
 .remp-icon-list {
     padding-top: 1.5px;
@@ -14963,6 +14976,12 @@ header {
     cursor: pointer;
     margin-top: 0px;
     margin-bottom: 24px;
+}
+.chill-packbox {
+    max-width: 100%;
+    text-align: left;
+    margin: 0px;
+    margin-top: 48px;
 }
 .extend-me-papa .smaller-packbox, .extend-me-papa .noborder-packbox, .extend-me-papa.pretplata-packboxes .huge-newbtn {
     max-width: 520px;
