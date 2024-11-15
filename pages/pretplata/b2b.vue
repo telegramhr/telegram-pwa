@@ -473,9 +473,46 @@ export default {
           return 99
       }
     },
+    label() {
+      switch (this.teamSize) {
+        case 1:
+          return '1-član'
+        case 2:
+          return '2-člana'
+        case 3:
+          return '3-člana'
+        case 4:
+          return '4-5 članova'
+        case 5:
+          return '6-7 članova'
+        case 6:
+          return '8-10 članova'
+        case 7:
+          return '11-15 članova'
+        case 8:
+          return '16-20 članova'
+        case 9:
+          return '21-30 članova'
+        case 10:
+          return '31-40 članova'
+        case 11:
+          return '41-50 članova'
+        default:
+          return '1-član'
+      }
+    },
   },
   methods: {
     submit() {
+      if (
+        !this.email ||
+        !this.company ||
+        !this.address ||
+        !this.oib ||
+        !this.phone
+      ) {
+        return
+      }
       this.$axios
         .post('/pretplate/api/b2b', {
           email: this.email,
@@ -483,7 +520,7 @@ export default {
           address: this.address,
           oib: this.oib,
           phone: this.phone,
-          teamSize: this.teamSize,
+          teamSize: this.label,
         })
         .then(() => {
           this.submitted = true
