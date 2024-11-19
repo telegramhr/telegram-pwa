@@ -229,7 +229,17 @@
                   <div class="btn animate">Odaberi</div>
                 </div>
               </div>
-              <app-link to="/pretplata/b2b/" class="full center-text undertitle bold"
+            </div>
+            <div
+              class="full center flex-wrap column-full-pad column-top-margin column-bottom-margin mobile-full-pad"
+            >
+              <p class="full center-text column-mini-bottom-pad">
+                Predstavljate poduzeće? Iskoristite posebnu ponudu s popustom na
+                količinu
+              </p>
+              <app-link
+                to="/pretplata/b2b/"
+                class="newbtn huge-newbtn altbtn animate center-text"
                 >Pretplata za poslovne korisnike</app-link
               >
             </div>
