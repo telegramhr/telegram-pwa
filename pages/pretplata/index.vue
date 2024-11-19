@@ -229,7 +229,7 @@
                   <div class="btn animate">Odaberi</div>
                 </div>
               </div>
-              <app-link to="/pretplata/b2b/" class="full center-text undertitle"
+              <app-link to="/pretplata/b2b/" class="full center-text undertitle bold"
                 >Pretplata za poslovne korisnike</app-link
               >
             </div>
