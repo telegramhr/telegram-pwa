@@ -104,8 +104,9 @@
               Zatražite ponudu
             </div>
           </div>
-          <div
+          <form
             v-if="expandForm && !submitted"
+            @submit.prevent="submit"
             class="full flex relative column-vertical-pad column-bottom-margin"
           >
             <p class="full bold column-top-margin">
@@ -120,6 +121,9 @@
               type="text"
               class="full remp-new-input"
               placeholder="Ime subjekta"
+              required
+              oninvalid="this.setCustomValidity('Polje je obavezno')"
+              oninput="this.setCustomValidity('')"
             />
             <div class="full remp-special-note column-mini-top-pad">
               Adresa subjekta:
@@ -130,6 +134,9 @@
               type="text"
               class="full remp-new-input"
               placeholder="Adresa"
+              required
+              oninvalid="this.setCustomValidity('Polje je obavezno')"
+              oninput="this.setCustomValidity('')"
             />
             <div class="full remp-special-note column-mini-top-pad">
               OIB subjekta:
@@ -140,6 +147,10 @@
               type="text"
               class="full remp-new-input"
               placeholder="OIB"
+              required
+              pattern="[0-9]{11}"
+              oninvalid="this.setCustomValidity('Polje je obavezno i samo brojke')"
+              oninput="this.setCustomValidity('')"
             />
             <div class="full remp-special-note column-mini-top-pad">
               Veličina tima:
@@ -169,9 +180,12 @@
             <input
               id="subjekt-email"
               v-model="email"
-              type="text"
+              type="email"
               class="full remp-new-input"
               placeholder="E-mail"
+              required
+              oninvalid="this.setCustomValidity('Polje je obavezno')"
+              oninput="this.setCustomValidity('')"
             />
             <div class="full remp-special-note column-mini-top-pad">
               Telefonski kontakt:
@@ -182,16 +196,20 @@
               type="text"
               class="full remp-new-input"
               placeholder="Telefonski broj"
+              required
+              pattern="[0-9]"
+              oninvalid="this.setCustomValidity('Polje je obavezno i samo brojke')"
+              oninput="this.setCustomValidity('')"
             />
             <div class="full flex relative mobile-top-pad column-top-pad">
-              <div
+              <button
+                type="submit"
                 class="full newbtn huge-newbtn center-text clickable"
-                @click="submit"
               >
                 Pošalji upit za ponudu
-              </div>
+              </button>
             </div>
-          </div>
+          </form>
           <div
             v-if="submitted"
             class="full flex relative column-vertical-pad column-bottom-margin center"

@@ -230,8 +230,7 @@
                 </div>
               </div>
               <app-link to="/pretplata/b2b/" class="full center-text undertitle"
-                >Trebat će vam R1 račun ili želite ponudu za pravne osobe?
-                Javite nam se.</app-link
+                >Pretplata za poslovne korisnike</app-link
               >
             </div>
           </div>
