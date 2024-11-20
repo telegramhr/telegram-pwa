@@ -197,7 +197,7 @@
               class="full remp-new-input"
               placeholder="Telefonski broj"
               required
-              pattern="[0-9]"
+              pattern="[0-9]+"
               oninvalid="this.setCustomValidity('Polje je obavezno i samo brojke')"
               oninput="this.setCustomValidity('')"
             />
