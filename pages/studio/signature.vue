@@ -77,9 +77,9 @@ export default {
             "
           >
             <tr>
-              <td rowspan="2">
+              <td rowspan="2" style="vertical-align: middle; padding: 5px">
                 <img
-                  :src="$icon(144)"
+                  src="/icon.png"
                   height="37.5"
                   width="37.5"
                   alt="Telegram logo"
@@ -112,7 +112,7 @@ export default {
             <tr>
               <td style="font-weight: bold">E</td>
               <td style="color: #ee1d3a; letter-spacing: 1px">
-                {{ email }}
+                <a href="mailto:{{ email }}">{{ email }}</a>
               </td>
             </tr>
             <tr>
