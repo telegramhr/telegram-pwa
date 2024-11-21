@@ -78,7 +78,8 @@ export default {
     },
   },
   mounted() {
-    document.addEventListener('tmg_no_close', (e) => {
+    window.addEventListener('tmg_no_close', (e) => {
+      console.log('no close')
       this.showClose = false
     })
     this.$watch(
