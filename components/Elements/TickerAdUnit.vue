@@ -78,6 +78,9 @@ export default {
     },
   },
   mounted() {
+    document.addEventListener('tmg_no_close', (e) => {
+      this.showClose = false
+    })
     this.$watch(
       () => this.$route.path,
       (to) => {
