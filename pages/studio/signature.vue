@@ -45,7 +45,8 @@ export default {
           return 'www.telesport.hr'
         default:
           return 'www.telegram.hr'
-    }
+      }
+    },
   },
   methods: {
     selectElementContents() {
