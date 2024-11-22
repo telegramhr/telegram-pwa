@@ -103,7 +103,7 @@ export default {
                 <br />Frane Petračića 4 | Zagreb
               </td>
             </tr>
-            <tr>
+            <tr v-if="mobitel">
               <td style="font-weight: bold">M</td>
               <td style="letter-spacing: 1px">
                 {{ mobitel }}
