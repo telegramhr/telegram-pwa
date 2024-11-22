@@ -7,6 +7,44 @@ export default {
       titula: '',
       mobitel: '',
       email: '',
+      portal: 'telegram',
+    }
+  },
+  computed: {
+    portalLink() {
+      switch (this.portal) {
+        case 'telegram':
+          return 'https://www.telegram.hr'
+        case 'super1':
+          return 'https://www.super1.hr'
+        case 'telesport':
+          return 'https://www.telesport.hr'
+        default:
+          return 'https://www.telegram.hr'
+      }
+    },
+    portalImage() {
+      switch (this.portal) {
+        case 'telegram':
+          return '/icon.png'
+        case 'super1':
+          return '/s1_fav/apple-touch-icon.png'
+        case 'telesport':
+          return '/icon.png'
+        default:
+          return '/icon.png'
+      }
+    },
+    portalTitle() {
+      switch (this.portal) {
+        case 'telegram':
+          return 'www.telegram.hr'
+        case 'super1':
+          return 'www.super1.hr'
+        case 'telesport':
+          return 'www.telesport.hr'
+        default:
+          return 'www.telegram.hr'
     }
   },
   methods: {
@@ -63,6 +101,13 @@ export default {
 
         <label for="email">Email</label>
         <input id="email" v-model="email" type="text" name="email" />
+
+        <label for="portal">Portal</label>
+        <select id="portal" v-model="portal" name="portal">
+          <option value="telegram">Telegram</option>
+          <option value="super1">Super1</option>
+          <!--<option value="telesport">Telesport</option>-->
+        </select>
       </div>
 
       <hr />
@@ -79,7 +124,7 @@ export default {
             <tr>
               <td rowspan="2" style="vertical-align: middle; padding: 5px">
                 <img
-                  src="/icon.png"
+                  :src="portalImage"
                   height="37.5"
                   width="37.5"
                   alt="Telegram logo"
@@ -118,9 +163,7 @@ export default {
             <tr>
               <td style="font-weight: bold">W</td>
               <td style="color: #ee1d3a; letter-spacing: 1px">
-                <a href="http://www.telegramgrupa.hr" target="_blank"
-                  >www.telegram.hr</a
-                >
+                <a :href="portalLink" target="_blank">{{ portalTitle }}</a>
               </td>
             </tr>
           </table>
