@@ -32,7 +32,7 @@
               :post="post"
               mrf-location="homepage"
               :mrf-widget="zone"
-              :mrf-position="index + 2"
+              :mrf-position="(index + 2).toString()"
             ></medium>
           </div>
         </div>
@@ -49,7 +49,7 @@
             :no-date="zone === 'kultura'"
             mrf-location="homepage"
             :mrf-widget="zone"
-            :mrf-position="index + 9"
+            :mrf-position="(index + 9).toString()"
           ></mini>
         </div>
         <div class="full column-full-pad">
@@ -57,7 +57,7 @@
         </div>
         <div class="full flex cantha-small-block remove-last-mobile-border">
           <div
-            v-for="post in posts.slice(4, 8)"
+            v-for="(post, index) in posts.slice(4, 8)"
             :key="'super-' + post.id"
             class="fourth flex-responsive column-right-border column-horizontal-pad"
           >
@@ -65,7 +65,7 @@
               :post="post"
               mrf-location="homepage"
               :mrf-widget="zone"
-              :mrf-position="index + 5"
+              :mrf-position="(index + 5).toString()"
             ></standard>
           </div>
         </div>

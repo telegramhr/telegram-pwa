@@ -206,7 +206,7 @@
               :post="post"
               mrf-location="homepage"
               mrf-widget="featured"
-              :mrf-position="index + 2"
+              :mrf-position="(index + 2).toString()"
             ></medium>
           </div>
         </div>
@@ -230,7 +230,7 @@
               :post="post"
               mrf-location="homepage"
               mrf-widget="featured"
-              :mrf-position="index + 5"
+              :mrf-position="(index + 5).toString()"
             ></featured>
           </div>
           <div
@@ -242,7 +242,7 @@
               :post="post"
               mrf-location="homepage"
               mrf-widget="featured"
-              :mrf-position="index + 6"
+              :mrf-position="(index + 6).toString()"
             ></medium>
           </div>
           <div class="full column-horizontal-pad column-top-pad flex">
@@ -257,7 +257,7 @@
               :post="post"
               mrf-location="homepage"
               mrf-widget="featured"
-              :mrf-position="index + 7"
+              :mrf-position="(index + 7).toString()"
             ></featured>
           </div>
           <div
@@ -269,7 +269,7 @@
               :post="post"
               mrf-location="homepage"
               mrf-widget="featured"
-              :mrf-position="index + 8"
+              :mrf-position="(index + 8).toString()"
             ></medium>
           </div>
         </div>
@@ -291,7 +291,7 @@
                   :post="post"
                   mrf-location="homepage"
                   mrf-widget="featured"
-                  :mrf-position="index + 9"
+                  :mrf-position="(index + 9).toString()"
                 ></standard>
               </div>
             </div>
