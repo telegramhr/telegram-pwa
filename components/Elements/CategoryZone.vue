@@ -18,15 +18,21 @@
               v-for="post in posts.slice(0, 1)"
               :key="'super-' + post.id"
               :post="post"
+              mrf-location="homepage"
+              :mrf-widget="zone"
+              mrf-position="1"
             />
           </div>
           <div
             class="half super-sidebar flex column-horizontal-pad column-left-border column-right-border flex-responsive split-articles"
           >
             <medium
-              v-for="post in posts.slice(1, 4)"
+              v-for="(post, index) in posts.slice(1, 4)"
               :key="'super-' + post.id"
               :post="post"
+              mrf-location="homepage"
+              :mrf-widget="zone"
+              :mrf-position="index + 2"
             ></medium>
           </div>
         </div>
@@ -37,10 +43,13 @@
           class="fourth flex-responsive desktop-only column-horizontal-pad tablet-fix"
         >
           <mini
-            v-for="post in posts.slice(8, 12)"
+            v-for="(post, index) in posts.slice(8, 12)"
             :key="'super-' + post.id"
             :post="post"
             :no-date="zone === 'kultura'"
+            mrf-location="homepage"
+            :mrf-widget="zone"
+            :mrf-position="index + 9"
           ></mini>
         </div>
         <div class="full column-full-pad">
@@ -52,7 +61,12 @@
             :key="'super-' + post.id"
             class="fourth flex-responsive column-right-border column-horizontal-pad"
           >
-            <standard :post="post"></standard>
+            <standard
+              :post="post"
+              mrf-location="homepage"
+              :mrf-widget="zone"
+              :mrf-position="index + 5"
+            ></standard>
           </div>
         </div>
         <app-link :to="link" class="full mobile-only center new-homeblock-link">

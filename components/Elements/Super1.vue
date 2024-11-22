@@ -29,6 +29,9 @@
               v-for="post in posts.slice(0, 1)"
               :key="'super-' + post.id"
               :post="post"
+              mrf-location="homepage"
+              mrf-widget="super1"
+              mrf-position="main"
             />
           </div>
           <div
@@ -38,6 +41,9 @@
               v-for="post in posts.slice(1, 4)"
               :key="'super-' + post.id"
               :post="post"
+              mrf-location="homepage"
+              mrf-widget="super1"
+              mrf-position="other"
             ></medium>
           </div>
         </div>
@@ -51,6 +57,9 @@
             v-for="post in posts.slice(8, 12)"
             :key="'super-' + post.id"
             :post="post"
+            mrf-location="homepage"
+            mrf-widget="super1"
+            mrf-position="other"
           ></mini>
         </div>
         <div class="full column-full-pad">
@@ -62,7 +71,12 @@
             :key="'super-' + post.id"
             class="fourth flex-responsive column-right-border column-horizontal-pad"
           >
-            <standard :post="post"></standard>
+            <standard
+              :post="post"
+              mrf-location="homepage"
+              mrf-widget="super1"
+              mrf-position="other"
+            ></standard>
           </div>
         </div>
         <app-link

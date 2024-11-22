@@ -1,5 +1,8 @@
 <template>
-  <div class="full flex relative mobile-bottom-pad">
+  <div
+    class="full flex relative mobile-bottom-pad"
+    data-mrf-recirculation="homepage-najnovije"
+  >
     <div class="full flex latest-articles-header mobile-only stretch">
       <div
         class="third flex center animate"

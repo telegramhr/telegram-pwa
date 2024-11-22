@@ -1,6 +1,7 @@
 <template>
   <div
     class="container cantha-small-block flex relative native-block stretch mobile-side-pad column-top-pad"
+    data-mrf-recirculation="homepage-openspace"
   >
     <div class="full column-horizontal-pad">
       <div class="full cantha-separator"></div>

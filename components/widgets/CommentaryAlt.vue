@@ -5,13 +5,13 @@
     <div class="container flex relative column-vertical-pad">
       <div class="full flex column-horizontal-pad mobile-side-pad">
         <div
-          v-if="type == 'tg'"
+          v-if="type === 'tg'"
           class="noththree full center-text column-vertical-pad subsection-title"
         >
           Telegram komentari
         </div>
         <div
-          v-if="type == 'ts'"
+          v-if="type === 'ts'"
           class="noththree full center-text column-vertical-pad subsection-title"
         >
           Telesport komentari
@@ -33,6 +33,8 @@
           v-for="post in posts.slice(1, 5)"
           :key="post.id"
           :post="post"
+          :mrf-location="type === 'tg' ? 'homepage' : 'telesport'"
+          mrf-widget="komentari"
         ></komentar>
       </div>
     </div>

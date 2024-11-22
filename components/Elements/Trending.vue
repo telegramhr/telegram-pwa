@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="noththree full overtitle column-bottom-pad">Upravo se čita</div>
-    <div class="full flex">
+    <div class="full flex" data-mrf-recirculation="homepage-upravo">
       <mini
         v-for="post in posts.slice(0, 4)"
         :key="post.id"

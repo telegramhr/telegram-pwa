@@ -1,6 +1,7 @@
 <template>
   <section
     class="fourth flex-responsive column-horizontal-pad column-right-border classic-category flex mobile-side-pad"
+    :data-mrf-recirculation="`homepage-category-${slug}`"
   >
     <div class="full mobile-only">
       <div class="full cantha-separator"></div>

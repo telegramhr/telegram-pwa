@@ -32,6 +32,9 @@
               v-for="post in posts.slice(0, 1)"
               :key="'sport-' + post.id"
               :post="post"
+              mrf-location="homepage"
+              mrf-widget="telesport"
+              mrf-position="main"
             />
           </div>
           <div
@@ -41,6 +44,9 @@
               v-for="post in posts.slice(1, 4)"
               :key="'sport-' + post.id"
               :post="post"
+              mrf-location="homepage"
+              mrf-widget="telesport"
+              mrf-position="other"
             ></medium>
           </div>
         </div>
@@ -54,6 +60,9 @@
             v-for="post in posts.slice(8, 13)"
             :key="post.id"
             :post="post"
+            mrf-location="homepage"
+            mrf-widget="telesport"
+            mrf-position="other"
           ></standard>
         </div>
         <div class="full column-full-pad desktop-only">
@@ -65,7 +74,12 @@
             :key="'sport-' + post.id"
             class="fourth flex-responsive column-right-border column-horizontal-pad"
           >
-            <standard :post="post"></standard>
+            <standard
+              :post="post"
+              mrf-location="homepage"
+              mrf-widget="telesport"
+              mrf-position="other"
+            ></standard>
           </div>
         </div>
         <app-link

@@ -4,6 +4,7 @@
     :to="post.permalink"
     role="article"
     :aria-labelledby="'standard-' + post.id"
+    :data-mrf-recirculation="recirculation"
   >
     <img
       :srcset="srcset"
@@ -68,6 +69,21 @@ export default {
         }
       },
     },
+    mrfLocation: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    mrfPosition: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    mrfWidget: {
+      type: String,
+      required: false,
+      default: '',
+    },
   },
   data() {
     return {
@@ -84,6 +100,19 @@ export default {
     }
   },
   computed: {
+    recirculation() {
+      let output = ''
+      if (this.mrfLocation) {
+        output += this.mrfLocation
+      }
+      if (this.mrfWidget) {
+        output += `-${this.mrfWidget}`
+      }
+      if (this.mrfPosition) {
+        output += `-${this.mrfPosition}`
+      }
+      return output
+    },
     parsedOvertitle() {
       return this.$options.filters.parseCat(
         this.post.overtitle ? this.post.overtitle : this.post.category

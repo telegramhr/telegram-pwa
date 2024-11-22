@@ -175,6 +175,9 @@
             v-if="posts[0]"
             :key="`featured-${posts[0].id}`"
             :post="posts[0]"
+            mrf-location="homepage"
+            mrf-widget="featured"
+            mrf-position="1"
           ></featured-alt>
         </div>
         <!-- latest -->
@@ -195,11 +198,16 @@
           class="full flex cantha-small-block mobile-side-pad stretch m-order-5 column-bottom-pad"
         >
           <div
-            v-for="post in posts.slice(1, 4)"
+            v-for="(post, index) in posts.slice(1, 4)"
             :key="`featured${post.id}`"
             class="third flex-responsive column-right-border column-horizontal-pad"
           >
-            <medium :post="post"></medium>
+            <medium
+              :post="post"
+              mrf-location="homepage"
+              mrf-widget="featured"
+              :mrf-position="index + 2"
+            ></medium>
           </div>
         </div>
         <!-- Billboard 2 -->
@@ -217,18 +225,24 @@
             class="three-fourths flex-responsive column-horizontal-pad column-right-border flex relative featured-split smaller-featured-split show-one-related"
           >
             <featured
-              v-for="post in posts.slice(4, 5)"
+              v-for="(post, index) in posts.slice(4, 5)"
               :key="post.id"
               :post="post"
+              mrf-location="homepage"
+              mrf-widget="featured"
+              :mrf-position="index + 5"
             ></featured>
           </div>
           <div
             class="fourth flex-responsive column-horizontal-pad flex relative"
           >
             <medium
-              v-for="post in posts.slice(5, 6)"
+              v-for="(post, index) in posts.slice(5, 6)"
               :key="post.id"
               :post="post"
+              mrf-location="homepage"
+              mrf-widget="featured"
+              :mrf-position="index + 6"
             ></medium>
           </div>
           <div class="full column-horizontal-pad column-top-pad flex">
@@ -238,18 +252,24 @@
             class="three-fourths flex-responsive column-horizontal-pad column-right-border flex relative featured-split smaller-featured-split show-one-related"
           >
             <featured
-              v-for="post in posts.slice(6, 7)"
+              v-for="(post, index) in posts.slice(6, 7)"
               :key="post.id"
               :post="post"
+              mrf-location="homepage"
+              mrf-widget="featured"
+              :mrf-position="index + 7"
             ></featured>
           </div>
           <div
             class="fourth flex-responsive column-horizontal-pad flex relative"
           >
             <medium
-              v-for="post in posts.slice(7, 8)"
+              v-for="(post, index) in posts.slice(7, 8)"
               :key="post.id"
               :post="post"
+              mrf-location="homepage"
+              mrf-widget="featured"
+              :mrf-position="index + 8"
             ></medium>
           </div>
         </div>
@@ -263,11 +283,16 @@
             </div>
             <div class="full flex stretch relative no-last-border-mobile">
               <div
-                v-for="post in posts.slice(8, 12)"
+                v-for="(post, index) in posts.slice(8, 12)"
                 :key="post.id"
                 class="fourth flex-responsive column-right-border column-horizontal-pad"
               >
-                <standard :post="post"></standard>
+                <standard
+                  :post="post"
+                  mrf-location="homepage"
+                  mrf-widget="featured"
+                  :mrf-position="index + 9"
+                ></standard>
               </div>
             </div>
           </div>
@@ -297,7 +322,12 @@
           v-if="breaks[0]"
           class="three-fourths flex-responsive column-horizontal-pad flex split-articles big-split no-mobile-stretch-split alt-big-break center-text column-right-border"
         >
-          <standard :key="breaks[0].id" :post="breaks[0]"></standard>
+          <standard
+            :key="breaks[0].id"
+            :post="breaks[0]"
+            mrf-location="homepage"
+            mrf-widget="preporuka"
+          ></standard>
         </div>
         <div class="full column-full-pad tablet-only">
           <div class="full column-bottom-border"></div>
@@ -359,7 +389,12 @@
           v-if="breaks[1]"
           class="full column-horizontal-pad flex split-articles big-split alt-big-break center-text"
         >
-          <standard :key="breaks[1].id" :post="breaks[1]"></standard>
+          <standard
+            :key="breaks[1].id"
+            :post="breaks[1]"
+            mrf-location="homepage"
+            mrf-widget="citaju"
+          ></standard>
         </div>
         <div class="full flex cantha-small-block stretch column-top-pad">
           <div class="full flex column-horizontal-pad column-bottom-pad">
@@ -370,7 +405,11 @@
             :key="post.id"
             class="third flex-responsive column-right-border column-horizontal-pad"
           >
-            <medium :post="post"></medium>
+            <medium
+              :post="post"
+              mrf-location="homepage"
+              mrf-widget="citaju"
+            ></medium>
           </div>
         </div>
       </div>

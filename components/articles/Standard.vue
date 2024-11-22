@@ -4,6 +4,7 @@
     :to="permalink"
     role="article"
     :aria-labelledby="'standard-' + post.id"
+    :data-mrf-recirculation="recirculation"
   >
     <img
       :srcset="srcset"
@@ -80,8 +81,36 @@ export default {
         }
       },
     },
+    mrfLocation: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    mrfPosition: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    mrfWidget: {
+      type: String,
+      required: false,
+      default: '',
+    },
   },
   computed: {
+    recirculation() {
+      let output = ''
+      if (this.mrfLocation) {
+        output += this.mrfLocation
+      }
+      if (this.mrfWidget) {
+        output += `-${this.mrfWidget}`
+      }
+      if (this.mrfPosition) {
+        output += `-${this.mrfPosition}`
+      }
+      return output
+    },
     permalink() {
       if (this.utm.source || this.utm.campaign) {
         return `${this.post.permalink}?utm_medium=Internal&utm_source=${this.utm.source}&utm_campaign=${this.utm.campaign}`

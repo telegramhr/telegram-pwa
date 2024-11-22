@@ -158,7 +158,7 @@ export default {
             <tr>
               <td style="font-weight: bold">E</td>
               <td style="color: #ee1d3a; letter-spacing: 1px">
-                <a href="mailto:{{ email }}">{{ email }}</a>
+                <a :href="`mailto:${email}`">{{ email }}</a>
               </td>
             </tr>
             <tr>
