@@ -373,6 +373,12 @@
 
                 <intext-new @show="showMidasIntext = true"></intext-new>
                 <intext-bf @show="showMidasIntext = true"></intext-bf>
+                <div
+                  v-if="!hasPremium && hasLinker"
+                  class="container flex center have-background"
+                >
+                  <midas :key="`midas-ecoom-${post.id}`" type="ecomm"></midas>
+                </div>
                 <midas
                   v-if="!hasPremium && hasLinker"
                   :key="`midas-text-${post.id}`"
@@ -1126,8 +1132,11 @@ export default {
           })
         }
         if (this.post.content.indexOf('data-aos')) {
-          AOS.init({
-            once: true,
+          this.$nextTick(() => {
+            AOS.init()
+            setTimeout(() => {
+              AOS.refresh()
+            }, 1000)
           })
         }
       } else {
