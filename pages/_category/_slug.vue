@@ -377,7 +377,7 @@
                   v-if="!hasPremium && hasLinker"
                   class="container flex center have-background"
                 >
-                  <midas :key="`midas-ecoom-${post.id}`" type="ecomm"></midas>
+                  <midas :key="`midas-ecoom-${post.id}`" type="ecomm2"></midas>
                 </div>
                 <midas
                   v-if="!hasPremium && hasLinker"

@@ -122,6 +122,9 @@ export default {
       if (this.$route.fullPath.includes('preview')) {
         return false
       }
+      if (this.type === 'ecomm2') {
+        return 11679
+      }
       if (this.$route.fullPath.includes('super1')) {
         return this.ids.super1[this.type] ?? false
       }
@@ -202,6 +205,14 @@ export default {
         const intext = this.ids[category].intext
         const intextMain = this.ids[category].intextMain
         script2.src = `https://cdn2.midas-network.com/Scripts/midasWidget-11-${intextMain}-${intext}.js`
+        script2.async = true
+        document
+          .getElementById(`midasWidget__${this.id}`)
+          .insertAdjacentElement('afterend', script2)
+      }
+      if (this.id && this.type === 'ecomm2') {
+        const script2 = document.createElement('script')
+        script2.src = `https://cdn2.midas-network.com/Scripts/midasWidget-11-468-11679.js`
         script2.async = true
         document
           .getElementById(`midasWidget__${this.id}`)
