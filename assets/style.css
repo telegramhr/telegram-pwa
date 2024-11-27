@@ -15746,3 +15746,48 @@ header {
     background-color: #121212;
     color: white;
 }
+
+.pretplata-blue .smaller-nothtwo {
+    font-size: 2.3rem;
+}
+.pretplata-pres {
+    z-index: 50;
+}
+.pretplata-pres .container {
+    min-height: 450px;
+}
+.pretplata-pres .huge-newbtn {
+    margin-top: 0px;
+}
+.pretplata-pres p {
+    font-size: 1.4rem;
+}
+
+.full-width-packs .smaller-packbox, .full-width-packs .noborder-packbox, .full-width-packs.pretplata-packboxes .huge-newbtn {
+    max-width: 100%;
+}
+.full-width-packs .pretplata-packbox {
+    margin: 0px;
+    margin-bottom: 32px;
+}
+@media screen and (max-width: 767px) {
+    .single-article .pretplata-pres .smaller-nothtwo {
+      font-size: 7.2vw;
+      margin-bottom: 8px;
+    }
+    .pretplata-pres p {
+        font-size: 1.2rem;
+    }
+    .pretplata-pres .container {
+        min-height: auto;
+    }
+    .fix-sticker .best-price-sticker {
+        right: -8px;
+        top: -36px;
+    }
+}
+@media screen and (min-width: 767px) {
+    .pretplata-pres .absolute-half-img {
+      right: -24px;
+    }
+}
