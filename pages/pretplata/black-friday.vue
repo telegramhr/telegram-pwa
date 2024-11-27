@@ -50,7 +50,7 @@
             >Uživajte u ekskluzivnim člancima, analizama i reportažama bez
             reklama.
           </span>
-          <span class="ib">Ponuda je ograničena. Požurite!</span>
+          <span class="ib" style="font-weight: bold">Ponuda se bliži kraju! Požurite!</span>
         </p>
         <div
           class="full countdown-element center column-top-pad mobile-top-pad relative"
