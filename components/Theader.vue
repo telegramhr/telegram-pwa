@@ -396,7 +396,11 @@
             <app-link
               v-show="canLogIn"
               id="pretplatite se - header"
-              to="/pretplata"
+              :to="
+                $route.fullPath.includes('telesport')
+                  ? '/pretplata/telesport/'
+                  : '/pretplata/'
+              "
               class="newbtn"
               >Pretplatite se</app-link
             >
