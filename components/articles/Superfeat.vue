@@ -107,7 +107,9 @@ export default {
       )
     },
     srcset() {
-      let set = `${this.post.image.url}`
+      let set = `${
+        this.post.image.url2 ? this.post.image.url2 : this.post.image.url
+      } 1x`
       if (this.post.image.url2) {
         set += `, ${this.post.image.url2} 2x`
       }
