@@ -11,7 +11,7 @@
     >
       <img
         :srcset="srcset"
-        :src="post.image.url"
+        :src="post.image.url2 ? post.image.url2 : post.image.url"
         :alt="post.image.alt"
         loading="lazy"
       />
