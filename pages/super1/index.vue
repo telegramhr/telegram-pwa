@@ -131,9 +131,12 @@
         >
           <div class="full flex column-horizontal-pad">
             <superfeat
-              v-for="post in posts.slice(0, 1)"
+              v-for="(post, index) in posts.slice(0, 1)"
               :key="'super-' + post.id"
               :post="post"
+              mrf-location="super1"
+              mrf-widget="featured"
+              :mrf-position="(index + 1).toString()"
             ></superfeat>
           </div>
         </div>
@@ -157,11 +160,17 @@
     <section class="full flex relative">
       <div class="container flex relative">
         <div
-          v-for="post in posts.slice(1, 4)"
+          v-for="(post, index) in posts.slice(1, 4)"
           :key="post.id"
           class="third flex-responsive flex column-full-pad"
         >
-          <superfeat :key="post.id" :post="post"></superfeat>
+          <superfeat
+            :key="post.id"
+            :post="post"
+            mrf-location="super1"
+            mrf-widget="featured"
+            :mrf-position="(index + 2).toString()"
+          ></superfeat>
         </div>
       </div>
     </section>
@@ -185,9 +194,12 @@
         <div class="three-fourths flex flex-responsive relative">
           <div class="full flex column-horizontal-pad">
             <superfeat
-              v-for="post in posts.slice(4, 5)"
+              v-for="(post, index) in posts.slice(4, 5)"
               :key="'super-' + post.id"
               :post="post"
+              mrf-location="super1"
+              mrf-widget="featured"
+              :mrf-position="(index + 5).toString()"
             ></superfeat>
           </div>
         </div>
@@ -196,9 +208,12 @@
         >
           <div class="full flex">
             <superfeat
-              v-for="post in posts.slice(5, 6)"
+              v-for="(post, index) in posts.slice(5, 6)"
               :key="'super-' + post.id"
               :post="post"
+              mrf-location="super1"
+              mrf-widget="featured"
+              :mrf-position="(index + 6).toString()"
             ></superfeat>
           </div>
         </div>
@@ -208,11 +223,17 @@
     <section class="full flex relative">
       <div class="container flex relative">
         <div
-          v-for="post in posts.slice(6, 9)"
+          v-for="(post, index) in posts.slice(6, 9)"
           :key="post.id"
           class="third flex-responsive flex column-full-pad"
         >
-          <superfeat :key="post.id" :post="post"></superfeat>
+          <superfeat
+            :key="post.id"
+            :post="post"
+            mrf-location="super1"
+            mrf-widget="featured"
+            :mrf-position="(index + 7).toString()"
+          ></superfeat>
         </div>
       </div>
     </section>
@@ -236,6 +257,7 @@
           <app-link
             :to="breaks[0].permalink"
             class="full flex superone-story column-vertical-pad center-text"
+            data-mrf-recirculation="super1-story"
           >
             <h2 class="full animate">
               <b>{{ breaks[0].overtitle | parseCat }}</b>
@@ -286,6 +308,8 @@
             <superfeat
               :key="'super-' + breaks[1].id"
               :post="breaks[1]"
+              mrf-location="super1"
+              mrf-widget="preporuka"
             ></superfeat>
           </div>
         </div>

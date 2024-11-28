@@ -23,6 +23,9 @@
               v-for="post in posts.slice(0, 1)"
               :key="'super-' + post.id"
               :post="post"
+              mrf-location="super1"
+              :mrf-widget="category"
+              mrf-position="1"
             ></superfeat>
           </div>
         </div>
@@ -32,7 +35,10 @@
           <div class="noththree full overtitle super-minititle">
             {{ title }} najčitanije
           </div>
-          <div class="full flex">
+          <div
+            class="full flex"
+            :data-mrf-recirculation="`super1-${category}-najcitanije`"
+          >
             <mini
               v-for="post in mostRead.slice(0, 6)"
               :key="post.id"
@@ -43,11 +49,17 @@
       </div>
       <div class="full flex relative">
         <div
-          v-for="post in posts.slice(1, 4)"
+          v-for="(post, index) in posts.slice(1, 4)"
           :key="post.id"
           class="third flex-responsive flex column-full-pad"
         >
-          <superfeat :key="post.id" :post="post"></superfeat>
+          <superfeat
+            :key="post.id"
+            :post="post"
+            mrf-location="super1"
+            :mrf-widget="category"
+            :mrf-position="(index + 2).toString()"
+          ></superfeat>
         </div>
       </div>
     </div>

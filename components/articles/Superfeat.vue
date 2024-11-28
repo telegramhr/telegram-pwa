@@ -2,6 +2,7 @@
   <div
     class="full flex article-featured article-superfeat article relative"
     role="article"
+    :data-mrf-recirculation="recirculation"
   >
     <app-link
       class="full flex square-img"
@@ -65,6 +66,21 @@ export default {
         }
       },
     },
+    mrfLocation: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    mrfPosition: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    mrfWidget: {
+      type: String,
+      required: false,
+      default: '',
+    },
   },
   data() {
     return {
@@ -72,6 +88,19 @@ export default {
     }
   },
   computed: {
+    recirculation() {
+      let output = ''
+      if (this.mrfLocation) {
+        output += this.mrfLocation
+      }
+      if (this.mrfWidget) {
+        output += `-${this.mrfWidget}`
+      }
+      if (this.mrfPosition) {
+        output += `-${this.mrfPosition}`
+      }
+      return output
+    },
     parsedOvertitle() {
       return this.$options.filters.parseCat(
         this.post.overtitle ? this.post.overtitle : this.post.category
