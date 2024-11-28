@@ -24,7 +24,11 @@
             <app-link
               v-show="!$store.state.user.access"
               id="pretplatite se - burger menu"
-              to="/pretplata"
+              :to="
+                $route.fullPath.includes('telesport')
+                  ? '/pretplata/telesport/'
+                  : '/pretplata'
+              "
               class="signup-btn sub-btn"
               >Pretplatite se</app-link
             >
