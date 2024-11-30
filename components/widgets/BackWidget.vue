@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     init() {
-      let url = '/pretplata/black-friday/?utm_campaign=back_widget'
+      let url = '/?utm_campaign=back_widget'
 
       if (this.$route.fullPath.includes('super1')) {
         url = '/super1/?utm_campaign=back_widget'
