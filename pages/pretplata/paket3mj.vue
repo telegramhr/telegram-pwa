@@ -388,10 +388,10 @@ export default {
   },
   computed: {
     one() {
-      return 'TMUU78JAKLK7'
+      return 'TMO09AOBTMDA'
     },
     two() {
-      return 'TM8Y5PX576YR'
+      return 'TM5HVXSFSS47'
     },
   },
   mounted() {
