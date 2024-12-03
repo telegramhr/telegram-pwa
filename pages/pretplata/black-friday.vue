@@ -30,112 +30,10 @@
           />
         </div>
         <div class="full nothtwo center-text">
-          <span class="ib">Platite 1 godinu Premium pretplate </span>
-          <span class="ib">bez reklama i dobivate 2 godine!</span>
-        </div>
-        <div class="full center column-bottom-pad">
-          <div
-            class="flex newbtn huge-newbtn animate clickable"
-            @click="checkout('TMH4A5EB08L8')"
-          >
-            Iskoristite ponudu!
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="full center flex">
-      <div class="container smallest-container flex relative mobile-side-pad">
-        <p class="full center-text column-top-pad column-top-margin">
           <span class="ib"
-            >Uživajte u ekskluzivnim člancima, analizama i reportažama bez
-            reklama.
-          </span>
-          <span class="ib" style="font-weight: bold">Ponuda se bliži kraju! Požurite!</span>
-        </p>
-        <div
-          class="full countdown-element center column-top-pad mobile-top-pad relative"
-        >
-          <div class="countdown-day-block center">
-            <div class="countdown-tiles flex">
-              <div id="cd-day-2" class="countdown-tile">0</div>
-              <div id="cd-day-3" class="countdown-tile">0</div>
-            </div>
-            <div class="countdown-subtitle">dana</div>
-          </div>
-          <div class="countdown-day-divider center">:</div>
-          <div class="countdown-day-block center">
-            <div class="countdown-tiles flex">
-              <div id="cd-hour-1" class="countdown-tile">0</div>
-              <div id="cd-hour-2" class="countdown-tile">0</div>
-            </div>
-            <div class="countdown-subtitle">sati</div>
-          </div>
-          <div class="countdown-day-divider center">:</div>
-          <div class="countdown-day-block center">
-            <div class="countdown-tiles flex">
-              <div id="cd-min-1" class="countdown-tile">0</div>
-              <div id="cd-min-2" class="countdown-tile">0</div>
-            </div>
-            <div class="countdown-subtitle">minuta</div>
-          </div>
-          <div class="countdown-day-divider center">:</div>
-          <div class="countdown-day-block center">
-            <div class="countdown-tiles flex">
-              <div id="cd-sec-1" class="countdown-tile">0</div>
-              <div id="cd-sec-2" class="countdown-tile">0</div>
-            </div>
-            <div class="countdown-subtitle">sekundi</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="full flex pretplata-faq">
-      <div
-        class="container relative flex mobile-side-pad column-full-pad single-article-body"
-      >
-        <div class="nothtwo full pretplata-subtitle">
-          Zašto odabrati Telegram Premium?
-        </div>
-        <div class="full pretplata-benefits bigger-pretplata-benefits">
-          <p class="full animate">
-            <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-            Neograničeni pristup ekskluzivnim člancima i istraživačkim
-            reportažama
-          </p>
-          <p class="full animate">
-            <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-            Neograničeni pristup Telesportu
-          </p>
-          <p class="full animate">
-            <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-            Čitanje bez reklama – neprekinuto iskustvo
-          </p>
-          <p class="full animate">
-            <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-            Specijalni popusti Telegram kluba
-          </p>
-          <p class="full animate">
-            <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-            Posebni sadržaji dostupni samo pretplatnicima
-          </p>
-        </div>
-        <div class="full darkened-bg column-full-pad mobile-full-pad">
-          <div class="nothtwo full center-text pretplata-subtitle">
-            Iskoristite ovu ponudu sada i uživaj 2 godine u Premium sadržaju bez
-            reklama!
-          </div>
-          <div class="full sub-price center-text giant-text">
-            <span class="strikethrough faded">198€</span>
-            <b class="column-mini-left-pad">99€</b>
-          </div>
-          <div class="full center">
-            <div
-              class="flex newbtn huge-newbtn animate clickable"
-              @click="checkout('TMH4A5EB08L8')"
-            >
-              Iskoristite ponudu!
-            </div>
-          </div>
+            >Nažalost, Black Friday ponuda je istekla. No, za vas smo dostupni
+            putem e mail adrese: pretplata@telegram.hr. Vaš Telegram</span
+          >
         </div>
       </div>
     </div>
@@ -376,56 +274,9 @@ export default {
       }
     },
   },
-  mounted() {
-    this.$nextTick(() => {
-      if (this.$route.query.checkout) {
-        this.checkout('TMH4A5EB08L8')
-      }
-    })
-    // Countdown
-    const countDownDate = new Date('Nov 30, 2024 23:59:59').getTime()
-    const x = setInterval(function () {
-      const now = new Date().getTime()
-      const distance = countDownDate - now
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24))
-      const hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      )
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000)
-
-      const day2 = Math.floor((days % 100) / 10)
-      const day3 = Math.floor(days % 10)
-
-      const hour1 = Math.floor(hours / 10)
-      const hour2 = Math.floor(hours % 10)
-
-      const min1 = Math.floor(minutes / 10)
-      const min2 = Math.floor(minutes % 10)
-
-      const sec1 = Math.floor(seconds / 10)
-      const sec2 = Math.floor(seconds % 10)
-
-      document.getElementById('cd-day-2').innerHTML = day2
-      document.getElementById('cd-day-3').innerHTML = day3
-
-      document.getElementById('cd-hour-1').innerHTML = hour1
-      document.getElementById('cd-hour-2').innerHTML = hour2
-
-      document.getElementById('cd-min-1').innerHTML = min1
-      document.getElementById('cd-min-2').innerHTML = min2
-
-      document.getElementById('cd-sec-1').innerHTML = sec1
-      document.getElementById('cd-sec-2').innerHTML = sec2
-      if (distance < 0) {
-        clearInterval(x)
-      }
-    }, 1000)
-  },
   methods: {
     checkout(termId) {
-      this.$piano.start(termId)
+      // this.$piano.start(termId)
     },
   },
   head() {
