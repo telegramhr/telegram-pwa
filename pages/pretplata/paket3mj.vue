@@ -387,10 +387,10 @@ export default {
     }
   },
   computed: {
-    one() {
+    two() {
       return 'TMO09AOBTMDA'
     },
-    two() {
+    one() {
       return 'TM5HVXSFSS47'
     },
   },
