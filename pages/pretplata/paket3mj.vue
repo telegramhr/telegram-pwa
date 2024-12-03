@@ -24,7 +24,14 @@
               Budite u toku s najvažnijim političkim trenucima.
             </p>
             <div class="full flex relative column-top-pad mobile-top-pad">
-              <div class="flex newbtn huge-newbtn animate clickable">
+              <div
+                class="flex newbtn huge-newbtn animate clickable"
+                @click="
+                  checkout(
+                    subscription_package === 'pretplata-special' ? one : two
+                  )
+                "
+              >
                 Iskoristite ponudu
               </div>
             </div>
