@@ -15791,3 +15791,19 @@ header {
       right: -24px;
     }
 }
+
+.blue-zgt-salebox .zgts-title {
+    font-family: 'Barlow', sans-serif;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    line-height: 1.1em;
+}
+@media screen and (max-width: 767px) {
+    .blue-zgt-salebox .zgts-title {
+        font-size: 1.3rem;
+    }
+    .blue-zgt-salebox p {
+        width: 100%;
+    }
+}
