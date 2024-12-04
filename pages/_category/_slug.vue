@@ -372,7 +372,7 @@
                 </portal>
 
                 <intext-new @show="showMidasIntext = true"></intext-new>
-                <intext-bf @show="showMidasIntext = true"></intext-bf>
+                <intext-promo-pack @show="showMidasIntext = true"></intext-promo-pack>
                 <div
                   v-if="!hasPremium && hasLinker"
                   class="container flex center have-background"
