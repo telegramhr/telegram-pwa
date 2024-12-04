@@ -13,13 +13,16 @@
           Ostanite uz Telegram
         </div>
       </div>
-      <div class="full flex mobile-side-pad">
+      <div class="full flex mobile-side-pad" data-mar>
         <div
           v-for="post in posts.slice(0, 8)"
           :key="post.id"
           class="fourth flex-responsive flex"
         >
-          <div class="full flex column-horizontal-pad">
+          <div
+            class="full flex column-horizontal-pad"
+            data-mrf-recirculation="single-keep-reading"
+          >
             <standard-no-h :post="post"></standard-no-h>
           </div>
         </div>

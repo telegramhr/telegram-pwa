@@ -24,7 +24,7 @@
           v-show="related_posts && $store.state.user.access"
           class="full related-header-widget"
         >
-          <div class="container flex desktop-only column-vertical-pad">
+          <div class="container flex desktop-only column-vertical-pad" data-mrf-recirculation="single-related">
             <div
               v-for="rpost in related_posts"
               :key="rpost.id"

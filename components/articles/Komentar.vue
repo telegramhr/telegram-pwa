@@ -4,6 +4,7 @@
     class="full flex komentar relative"
     role="article"
     :aria-labelledby="'komentar-' + post.id"
+    :data-mrf-recirculation="recirculation"
   >
     <img
       :srcset="srcset"
@@ -75,8 +76,36 @@ export default {
         }
       },
     },
+    mrfLocation: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    mrfPosition: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    mrfWidget: {
+      type: String,
+      required: false,
+      default: '',
+    },
   },
   computed: {
+    recirculation() {
+      let output = ''
+      if (this.mrfLocation) {
+        output += this.mrfLocation
+      }
+      if (this.mrfWidget) {
+        output += `-${this.mrfWidget}`
+      }
+      if (this.mrfPosition) {
+        output += `-${this.mrfPosition}`
+      }
+      return output
+    },
     srcset() {
       let set = `${this.post.image.url}`
       if (this.post.image.url2) {

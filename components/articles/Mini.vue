@@ -4,6 +4,7 @@
     :to="post.permalink"
     role="article"
     :aria-labelledby="'mini-' + post.id"
+    :data-mrf-recirculation="recirculation"
   >
     <div class="full flex article-pad">
       <h2 :id="'mini-' + post.id" class="full animate">
@@ -49,6 +50,36 @@ export default {
           time: 0,
         }
       },
+    },
+    mrfLocation: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    mrfPosition: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    mrfWidget: {
+      type: String,
+      required: false,
+      default: '',
+    },
+  },
+  computed: {
+    recirculation() {
+      let output = ''
+      if (this.mrfLocation) {
+        output += this.mrfLocation
+      }
+      if (this.mrfWidget) {
+        output += `-${this.mrfWidget}`
+      }
+      if (this.mrfPosition) {
+        output += `-${this.mrfPosition}`
+      }
+      return output
     },
   },
 }
