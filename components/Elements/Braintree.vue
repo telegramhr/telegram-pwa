@@ -24,7 +24,12 @@
             <p v-if="number">Model plaćanja: 00</p>
             <p v-if="number">Poziv na broj: {{ number }}</p>
             <p>Opis plaćanja: Narudžba - {{ number }}</p>
-            <p v-if="code"><img :src="'data:image/png;base64,' + code" /></p>
+            <p v-if="code">
+              <img
+                :src="'data:image/png;base64,' + code"
+                style="background-color: white"
+              />
+            </p>
           </div>
         </div>
         <div
