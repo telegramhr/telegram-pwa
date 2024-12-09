@@ -17,6 +17,15 @@
           <h2 class="full center-text">
             Hvala na narudžbi. Uskoro ćete primiti email s potvrdom narudžbe.
           </h2>
+          <div v-if="payment_type === 'bank'">
+            <p class="small-top-margin">IBAN: HR4723600001503346846</p>
+            <p>Telegram Media Grupa d.o.o.</p>
+            <p>Iznos: {{ price }} €</p>
+            <p v-if="number">Model plaćanja: 00</p>
+            <p v-if="number">Poziv na broj: {{ number }}</p>
+            <p>Opis plaćanja: Narudžba - {{ number }}</p>
+            <p v-if="code"><img :src="'data:image/png;base64,' + code" /></p>
+          </div>
         </div>
         <div
           v-if="!thankyou && !error"
@@ -100,7 +109,13 @@
             step="1"
             name="quantity"
           />
-          <template v-if="charge">
+          <button v-if="!payment_type" @click="payment_type = 'card'">
+            Platite karticom
+          </button>
+          <button v-if="!payment_type" @click="payment_type = 'bank'">
+            Platite internet bankarstvom
+          </button>
+          <template v-if="payment_type === 'card' && token">
             <label>Broj kartice</label>
             <div id="credit-card" class="hosted-field"></div>
             <label>CVV (kontrolni broj)</label>
@@ -108,9 +123,6 @@
             <label>Datum isteka</label>
             <div id="expiration-date" class="hosted-field"></div>
             <button @click="submit">Platite {{ charge }} €</button>
-          </template>
-          <template v-else>
-            <button @click="order">Naručite</button>
           </template>
         </div>
       </div>
@@ -156,6 +168,9 @@ export default {
       deviceData: null,
       hostedInstance: null,
       threeDS: null,
+      payment_type: null,
+      number: null,
+      code: null,
     }
   },
   computed: {
@@ -163,10 +178,15 @@ export default {
       return (this.price * this.quantity).toFixed(2)
     },
   },
-  mounted() {
-    if (this.price) {
-      this.getToken()
-    }
+  watch: {
+    payment_type(val) {
+      if (!this.token && val === 'card') {
+        this.getToken()
+      }
+      if (val === 'bank') {
+        this.order()
+      }
+    },
   },
   methods: {
     getToken() {
@@ -260,7 +280,6 @@ export default {
         })
         .then((payload) => {
           if (!payload.liabilityShifted) {
-            console.log('Liability did not shift', payload)
             this.error =
               '3DS autorizacija kartice nije prošla. Probajte ponovo.'
           } else {
@@ -281,7 +300,7 @@ export default {
       ) {
         return
       }
-      if (this.token) {
+      if (this.token && this.payment_type === 'card') {
         this.submit()
       } else {
         this.submitToServer()
@@ -316,11 +335,16 @@ export default {
                 amount: this.charge,
                 deviceData: this.deviceData,
                 quantity: this.quantity,
+                payment_type: this.payment_type,
               },
               { withCredentials: true }
             )
-            .then(() => {
+            .then((res) => {
               this.thankyou = true
+              if (res.data.number) {
+                this.number = res.data.number
+                this.code = res.data.code
+              }
             })
             .catch(() => {
               this.error = 'Plaćanje nije uspjelo. Probajte ponovo.'
