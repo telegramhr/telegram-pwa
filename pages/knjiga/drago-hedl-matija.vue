@@ -177,7 +177,7 @@ export default {
   methods: {
     getPrice() {
       this.$axios
-        .get('/pretplate/get_price/?book=aco', {
+        .get('/pretplate/get_price/?book=matija', {
           withCredentials: true,
         })
         .then((res) => {
