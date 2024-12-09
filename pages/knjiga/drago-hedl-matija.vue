@@ -235,7 +235,7 @@ export default {
           name: 'og:url',
           property: 'og:url',
           content:
-            'https://www.telegram.hr/knjiga/aleksandar-stankovic-Matija/',
+            'https://www.telegram.hr/knjiga/drago-held-matija/',
         },
         {
           hid: 'fb:app_id',
@@ -258,7 +258,7 @@ export default {
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: 'https://www.telegram.hr/knjiga/aleksandar-stankovic-Matija/',
+          href: 'https://www.telegram.hr/knjiga/drago-hedl-matija/',
         },
       ],
     }
