@@ -103,7 +103,7 @@
     </div>
     <div class="full center">
       <img
-        src="https://www.telegram.hr/wp-content/uploads/2017/09/hedl-fixed.png"
+        src="@/assets/img/extras/people/hedl_book.png"
         alt="Autor knjige Drago Hedl"
         class="bookauthor-headtop"
       />
@@ -122,7 +122,7 @@
     </div>
     <div class="full flex relative single-article-body">
       <div class="container relative mobile-side-pad column-full-pad">
-        <p>
+        <p class="full center-text">
           Kao posvećeni neimar tuge Drago Hedl je u sebi sabrao rubno iskustvo
           oca koji se suočava sa drastičnim činom gubitka sina, iz sebe izbacio
           i napisao „Matiju“. Knjiga je to željeznog novinarskog dokumentarizma
