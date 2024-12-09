@@ -101,6 +101,13 @@
         </div>
       </div>
     </div>
+    <div class="full center">
+      <img
+        src="@/assets/img/extras/people/hedl_book.png"
+        alt="Autor knjige Drago Hedl"
+        class="bookauthor-headtop"
+      />
+    </div>
     <div class="full flex relative book-quote">
       <div class="container relative mobile-side-pad column-full-pad">
         <div class="full center-text">
