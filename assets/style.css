@@ -15807,3 +15807,13 @@ header {
         width: 100%;
     }
 }
+.newbook-btn svg {
+    margin-left: 0.1rem;
+}
+.newbook-btn .huge-newbtn {
+    padding: 8px 16px;
+    padding-top: 7px;
+}
+.bigger-newbook-price {
+    font-size: 2.4rem;
+}
