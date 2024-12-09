@@ -45,6 +45,15 @@
                 @click="buy"
               >
                 {{ price ? 'Kupite' : 'Naručite' }}
+                <font-awesome-icon
+                  :icon="['fab', 'cc-visa']"
+                ></font-awesome-icon>
+                <font-awesome-icon
+                  :icon="['fab', 'cc-mastercard']"
+                ></font-awesome-icon>
+                <font-awesome-icon
+                  :icon="['fab', 'cc-diners-club']"
+                ></font-awesome-icon>
               </div>
               <div
                 v-else
