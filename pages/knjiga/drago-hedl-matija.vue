@@ -203,14 +203,14 @@ export default {
           hid: 'description',
           name: 'description',
           content:
-            'Poznati novinar i voditelj godinama boluje od depresije, a sada je, u ovoj knjizi, prvi put odlučio progovoriti o svojoj borbi s tom bolesti',
+            'Knjiga Matija, žanrovski najbliža dnevniku, tragična je Hedlova priča o samoubojstvu sina Matije, doktora biokemije i znanstvenog suradnika na američkom Yaleu',
         },
         {
           hid: 'og:description',
           name: 'og:description',
           property: 'og:description',
           content:
-            'Poznati novinar i voditelj godinama boluje od depresije, a sada je, u ovoj knjizi, prvi put odlučio progovoriti o svojoj borbi s tom bolesti',
+            'Knjiga Matija, žanrovski najbliža dnevniku, tragična je Hedlova priča o samoubojstvu sina Matije, doktora biokemije i znanstvenog suradnika na američkom Yaleu',
         },
         {
           hid: 'og:type',
@@ -228,14 +228,13 @@ export default {
           hid: 'og:image',
           name: 'og:image',
           property: 'og:image',
-          content: 'https://www.telegram.hr/img/tg_share_stankovic.jpg',
+          content: 'https://www.telegram.hr/img/tg_share_hedl.jpg',
         },
         {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content:
-            'https://www.telegram.hr/knjiga/drago-held-matija/',
+          content: 'https://www.telegram.hr/knjiga/drago-hedl-matija/',
         },
         {
           hid: 'fb:app_id',
