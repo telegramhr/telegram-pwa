@@ -37,6 +37,9 @@
           class="full flex column-full-pad mobile-side-pad"
         >
           <h2 class="full center-text">Unesite podatke za dostavu</h2>
+          <div v-if="required" class="nothfour full center-text">
+            Sva polja su obavezna.
+          </div>
           <div class="nothfour full center-text">
             Dostava ove knjige je besplatna.
           </div>
@@ -157,6 +160,7 @@ export default {
       access: {},
       thankyou: false,
       error: false,
+      required: false,
       quantity: 1,
       name:
         this.$store.state.user.first_name +
@@ -303,8 +307,10 @@ export default {
           this.phone
         )
       ) {
+        this.required = true
         return
       }
+      this.required = false
       if (this.token && this.payment_type === 'card') {
         this.submit()
       } else {
