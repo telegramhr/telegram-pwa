@@ -12,12 +12,15 @@
         sljedećih do 6 mjeseci
       </p>
       <form
+        v-show="!success"
         id="telemach-promo"
         class="full flex relative column-mini-horizontal-pad"
+        @submit.prevent="submit"
       >
         <div class="fourth column-mini-horizontal-pad flex-responsive flex">
           <input
             id="name"
+            v-model="name"
             type="text"
             name="name"
             placeholder="Ime i prezime"
@@ -28,6 +31,7 @@
         <div class="fourth column-mini-horizontal-pad flex-responsive flex">
           <input
             id="email"
+            v-model="email"
             type="email"
             name="email"
             placeholder="Email"
@@ -38,7 +42,8 @@
         <div class="fourth column-mini-horizontal-pad flex-responsive flex">
           <input
             id="telefon"
-            type="telefon"
+            v-model="phone"
+            type="tel"
             name="name"
             placeholder="Telefon"
             required
@@ -67,6 +72,14 @@
           voditelju obrade.
         </div>
       </form>
+      <div
+        v-show="success"
+        class="full flex column-vertical-pad darkened-bg mobile-full-pad"
+      >
+        <div class="full nothtwo bold column-horizontal-pad">
+          Hvala na prijavi!
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -74,5 +87,35 @@
 <script>
 export default {
   name: 'PromoTelemach',
+  data() {
+    return {
+      name: '',
+      email: '',
+      phone: '',
+      success: false,
+    }
+  },
+  methods: {
+    submit() {
+      if (!this.name || !this.email || !this.phone) {
+        return
+      }
+      this.$axios.get(
+        '/gscripts/AKfycbzXtM7mN5WqKOLZcoXWi2_iKeP15I2v9NCv4LKFKLO4BEiHml_Sq7pckEDHJbBwqovr',
+        {
+          params: {
+            name: this.name,
+            email: this.email,
+            phone: this.phone,
+          },
+        }
+      )
+      this.name = ''
+      this.email = ''
+      this.phone = ''
+
+      this.success = true
+    },
+  },
 }
 </script>

@@ -331,6 +331,7 @@
                 v-html="post.content"
               ></div>
               <client-only>
+                <promo-telemach></promo-telemach>
                 <portal
                   v-if="
                     !hasPremium &&

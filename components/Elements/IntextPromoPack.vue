@@ -92,6 +92,7 @@ export default {
       softwall: true,
       cta: 'Pretplatite se',
       cta_link: '',
+      termDurationText: '3 mjeseca',
     }
   },
   mounted() {
