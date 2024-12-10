@@ -214,6 +214,12 @@
         <div class="full center m-order-6">
           <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
         </div>
+        <!-- Telemach Promo
+        <div class="full relative">
+          <div class="container flex relative stretch column-horizontal-pad">
+            <promo-telemach></promo-telemach>
+          </div>
+        </div> -->
         <!-- Teme -->
         <div
           class="full flex mobile-side-pad stretch secondary-gs-block m-order-8"
@@ -436,12 +442,52 @@
     <div class="full relative">
       <os-homepage></os-homepage>
     </div>
-    <!-- Book widget -->
+    <!-- Books widget
     <div class="full relative">
       <client-only>
         <book-offers></book-offers>
       </client-only>
-    </div>
+    </div> -->
+    <!-- Book widget Matija -->
+    <app-link
+      to="/knjiga/drago-hedl-matija"
+      class="full flex relative center mobile-side-pad darkened-bg column-full-pad shoo-bottom"
+    >
+      <div class="container relative flex stretch">
+        <div class="forty tablet-full flex flex-responsive center">
+          <div class="full center-text newbook-overtitle">Telegram naklada</div>
+          <h2 class="full center-text newbook-title newbook-title-smaller">
+            Matija
+          </h2>
+          <div class="full center-text newbook-author">Drago Hedl</div>
+          <p class="full center-text newbook-intro">
+            Knjiga Matija, žanrovski najbliža dnevniku, tragična je Hedlova
+            priča o samoubojstvu sina Matije, doktora biokemije i znanstvenog
+            suradnika na američkom Yaleu.
+          </p>
+        </div>
+
+        <div class="forty tablet-full flex flex-responsive center">
+          <img
+            src="@/assets/img/tg_book_mockup_hedl.png"
+            alt="Naslovnica nove knjige Drage Hedla 'Matija'"
+          />
+        </div>
+        <div class="fifth tablet-full flex flex-responsive center">
+          <div
+            class="full relative center-text newbook-price bigger-newbook-price"
+          >
+            24,99€
+          </div>
+          <div class="full relative center-text neat-numbers">
+            Besplatna dostava po cijeloj Hrvatskoj
+          </div>
+          <div class="full center btn-parent newbook-btn">
+            <div class="newbtn clickable huge-newbtn animate">Kupite</div>
+          </div>
+        </div>
+      </div>
+    </app-link>
     <!-- Rubrike -->
     <div class="full relative">
       <div class="container flex relative block-5 standard-block">
