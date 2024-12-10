@@ -5,6 +5,7 @@ export default {
     return {
       show: false,
       interval: null,
+      midas: false,
     }
   },
   computed: {
@@ -27,16 +28,26 @@ export default {
   },
   methods: {
     init() {
-      let url = '/?utm_campaign=back_widget'
-
-      if (this.$route.fullPath.includes('super1')) {
-        url = '/super1/?utm_campaign=back_widget'
-      }
-      if (this.$route.fullPath.includes('telesport')) {
-        url = '/telesport/?utm_campaign=back_widget'
-      }
+      const referrer = document.referrer
       const final = window.location.href
-      url = final + '#back-widget'
+      let url = final
+      if (referrer) {
+        const urlRef = new URL(referrer)
+        if (urlRef.hostname.includes('midas')) {
+          url = final + '#back-widget'
+          this.midas = true
+        } else {
+          url = '/?utm_campaign=back_widget'
+
+          if (this.$route.fullPath.includes('super1')) {
+            url = '/super1/?utm_campaign=back_widget'
+          }
+          if (this.$route.fullPath.includes('telesport')) {
+            url = '/telesport/?utm_campaign=back_widget'
+          }
+        }
+      }
+
       window.history.replaceState({ backWidget: true }, 'Telegram.hr', url)
       window.history.pushState(
         { backWidgetInitialized: true },
@@ -53,7 +64,9 @@ export default {
           eventAction: 'back-widget',
           eventLabel: 'back-widget',
         })
-        this.show = true
+        if (this.midas) {
+          this.show = true
+        }
       }
     },
     checkReferrer() {
@@ -96,7 +109,7 @@ export default {
           <featured-alt
             :key="`featured-${post.id}`"
             :post="post"
-            utm="utm_campaign=back_widget"
+            utm="utm_campaign=midas-backwidget"
             @clicked="show = false"
           ></featured-alt>
           <AdUnit
