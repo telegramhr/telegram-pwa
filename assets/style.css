@@ -15817,3 +15817,43 @@ header {
 .bigger-newbook-price {
     font-size: 2.4rem;
 }
+form#telemach-promo input[type=submit].newbtn {
+    outline: none;
+    border: none;
+    font-size: 0.9rem;
+    border: 1px solid #c8c8c8;
+    border-radius: 0.1rem;
+}
+.homepage .partner-new-promo .darkened-bg {
+    padding: 2.4rem 1.2rem;
+}
+.homepage .partner-new-promo .nothtwo {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+}
+.homepage .partner-new-promo p {
+    font-size: 1rem;
+    margin-bottom: 1.6rem;
+    opacity: .7;
+}
+.partner-new-promo .smaller-text {
+    font-size: 0.55rem;
+    margin-top: 0.4rem;
+    line-height: 0.65rem;
+}
+.partner-new-promo .smaller-text a {
+    color: var(--tg-primary-highlight-color);
+    font-weight: 700;
+}
+.dark-mode .partner-new-promo .subtle-input {
+    color: black;
+}
+@media screen and (max-width: 767px) {
+    .partner-new-promo form {
+        padding: 0px;
+    }
+    .partner-new-promo .column-mini-horizontal-pad {
+        padding: 0px;
+        margin-bottom: 0.2rem;
+    }
+}
