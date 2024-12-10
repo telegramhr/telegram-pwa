@@ -331,12 +331,6 @@
                 v-html="post.content"
               ></div>
               <client-only>
-                <promo-telemach
-                  v-if="
-                    !hasPremium &&
-                    !(post.disable_ads && post.disable_ads.includes('all'))
-                  "
-                ></promo-telemach>
                 <portal
                   v-if="
                     !hasPremium &&
@@ -404,11 +398,15 @@
                   class="full"
                   style="max-width: 1201px"
                 >
-                  <jgl-premium
-                    :site="
-                      post.category_slug.includes('telesport') ? 'ts' : 'tg'
-                    "
-                  ></jgl-premium>
+                  <portal selector="promo-telemach">
+                    <promo-telemach
+                      v-if="
+                        !hasPremium &&
+                        !(post.disable_ads && post.disable_ads.includes('all'))
+                      "
+                    ></promo-telemach>
+                  </portal>
+                  <div id="promo-telemach"></div>
                 </div>
               </client-only>
               <div
@@ -469,6 +467,9 @@
           </article>
         </div>
         <client-only>
+          <jgl-premium
+            :site="post.category_slug.includes('telesport') ? 'ts' : 'tg'"
+          ></jgl-premium>
           <div v-if="!hasPremium && hasLinker" class="full have-background">
             <midas :key="`midas-16-${post.id}`" type="standard-16"></midas>
           </div>
