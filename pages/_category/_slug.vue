@@ -398,6 +398,7 @@
                   class="full"
                   style="max-width: 1201px"
                 >
+                  <div id="promo-telemach"></div>
                   <portal selector="promo-telemach">
                     <promo-telemach
                       v-if="
@@ -406,7 +407,7 @@
                       "
                     ></promo-telemach>
                   </portal>
-                  <div id="promo-telemach"></div>
+
                 </div>
               </client-only>
               <div
