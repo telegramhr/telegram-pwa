@@ -331,7 +331,12 @@
                 v-html="post.content"
               ></div>
               <client-only>
-                <promo-telemach></promo-telemach>
+                <promo-telemach
+                  v-if="
+                    !hasPremium &&
+                    !(post.disable_ads && post.disable_ads.includes('all'))
+                  "
+                ></promo-telemach>
                 <portal
                   v-if="
                     !hasPremium &&
