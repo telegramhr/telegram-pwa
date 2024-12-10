@@ -11,6 +11,12 @@ export const state = () => ({
     link: '/zivot/',
     title: 'Život',
   },
+  'back-widget': {
+    posts: [],
+    updated: null,
+    link: '/back-widget/',
+    title: 'Back Widget',
+  },
 })
 
 export const mutations = {

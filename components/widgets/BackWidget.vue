@@ -9,16 +9,12 @@ export default {
   },
   computed: {
     posts() {
-      if (this.$route.fullPath.includes('super1')) {
-        return this.$store.state.category.categories.super1.mostRead
-      }
-      return this.$store.state.mostread.posts
+      return this.$store.state.zone['back-widget'].posts
     },
   },
   mounted() {
     if (this.$mobile && this.checkReferrer()) {
-      // this.$store.dispatch('mostread/pullPosts')
-      // this.$store.dispatch('category/mostRead', { category: 'super1' })
+      this.$store.dispatch('zone/pullPosts', { zone: 'back-widget' })
       window.addEventListener('load', this.init)
       window.addEventListener('popstate', this.listener)
     }
@@ -40,6 +36,7 @@ export default {
         url = '/telesport/?utm_campaign=back_widget'
       }
       const final = window.location.href
+      url = final + '#back-widget'
       window.history.replaceState({ backWidget: true }, 'Telegram.hr', url)
       window.history.pushState(
         { backWidgetInitialized: true },
@@ -56,6 +53,7 @@ export default {
           eventAction: 'back-widget',
           eventLabel: 'back-widget',
         })
+        this.show = true
       }
     },
     checkReferrer() {
@@ -90,7 +88,6 @@ export default {
         class="noththree full center-text column-vertical-pad subsection-title"
       >
         Nastavite čitati
-        {{ $route.fullPath.includes('super1') ? 'Super1' : 'Telegram' }}
       </div>
     </div>
     <div class="full relative">
