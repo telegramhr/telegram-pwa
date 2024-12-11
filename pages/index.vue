@@ -462,7 +462,7 @@
           <div class="full center-text newbook-author">Drago Hedl</div>
           <p class="full center-text newbook-intro">
             Knjiga Matija, žanrovski najbliža dnevniku, tragična je Hedlova
-            priča o samoubojstvu sina Matije, doktora biokemije i znanstvenog
+            priča o suicidu sina Matije, doktora biokemije i znanstvenog
             suradnika na američkom Yaleu.
           </p>
         </div>

@@ -18,7 +18,7 @@
             </div>
             <p class="full center-text newbook-intro">
               Knjiga Matija, žanrovski najbliža dnevniku, tragična je Hedlova
-              priča o samoubojstvu sina Matije, doktora biokemije i znanstvenog
+              priča o suicidu sina Matije, doktora biokemije i znanstvenog
               suradnika na američkom Yaleu.
             </p>
           </div>
@@ -214,14 +214,14 @@ export default {
           hid: 'description',
           name: 'description',
           content:
-            'Knjiga Matija, žanrovski najbliža dnevniku, tragična je Hedlova priča o samoubojstvu sina Matije, doktora biokemije i znanstvenog suradnika na američkom Yaleu',
+            'Knjiga Matija, žanrovski najbliža dnevniku, tragična je Hedlova priča o suicidu sina Matije, doktora biokemije i znanstvenog suradnika na američkom Yaleu.',
         },
         {
           hid: 'og:description',
           name: 'og:description',
           property: 'og:description',
           content:
-            'Knjiga Matija, žanrovski najbliža dnevniku, tragična je Hedlova priča o samoubojstvu sina Matije, doktora biokemije i znanstvenog suradnika na američkom Yaleu',
+            'Knjiga Matija, žanrovski najbliža dnevniku, tragična je Hedlova priča o suicidu sina Matije, doktora biokemije i znanstvenog suradnika na američkom Yaleu.',
         },
         {
           hid: 'og:type',
