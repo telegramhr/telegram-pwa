@@ -3,7 +3,6 @@
     v-if="posts.length && posts[0].link"
     id="offer-premium-jgl"
     class="container cantha-small-block flex relative native-block offers-widget column-top-pad stretch mobile-side-pad"
-    style="max-width: 1201px"
   >
     <div class="noththree full center-text column-full-pad subsection-title">
       <div class="full center jgl-line">
