@@ -389,7 +389,7 @@
                   :key="`midas-text-${post.id}`"
                   type="text-only"
                 ></midas>
-                <!--<div id="promo-telemach"></div>-->
+                <div id="promo-telemach"></div>
                 <portal selector="#promo-telemach">
                   <promo-telemach v-if="!hasPremium"></promo-telemach>
                 </portal>
