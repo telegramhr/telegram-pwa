@@ -389,26 +389,10 @@
                   :key="`midas-text-${post.id}`"
                   type="text-only"
                 ></midas>
-                <div
-                  v-if="
-                    !hasPremium &&
-                    !post.category_slug.includes('superone') &&
-                    !(post.disable_ads && post.disable_ads.includes('all'))
-                  "
-                  class="full"
-                  style="max-width: 1201px"
-                >
-                  <div id="promo-telemach"></div>
-                  <portal selector="promo-telemach">
-                    <promo-telemach
-                      v-if="
-                        !hasPremium &&
-                        !(post.disable_ads && post.disable_ads.includes('all'))
-                      "
-                    ></promo-telemach>
-                  </portal>
-
-                </div>
+                <!--<div id="promo-telemach"></div>-->
+                <portal selector="#promo-telemach">
+                  <promo-telemach v-if="!hasPremium"></promo-telemach>
+                </portal>
               </client-only>
               <div
                 id="marfeel_sidebar"
@@ -468,9 +452,19 @@
           </article>
         </div>
         <client-only>
-          <jgl-premium
-            :site="post.category_slug.includes('telesport') ? 'ts' : 'tg'"
-          ></jgl-premium>
+          <div
+            v-if="
+              !hasPremium &&
+              !post.category_slug.includes('superone') &&
+              !(post.disable_ads && post.disable_ads.includes('all'))
+            "
+            class="full"
+          >
+            <jgl-premium
+              :site="post.category_slug.includes('telesport') ? 'ts' : 'tg'"
+            ></jgl-premium>
+          </div>
+
           <div v-if="!hasPremium && hasLinker" class="full have-background">
             <midas :key="`midas-16-${post.id}`" type="standard-16"></midas>
           </div>
