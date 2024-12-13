@@ -10,7 +10,7 @@
         class="full flex zgt-salebox dark-zgt-salebox blue-zgt-salebox relative"
       >
         <img
-          src="@/assets/img/tg_visual_2023_xmasbg_green.jpg"
+          src="@/assets/img/tg_black_friday_bg.jpg"
           alt="Kolaž naslovnih fotografija raznih istraživačkih specijala Telegrama"
           class="img-as-bg"
         />
@@ -62,8 +62,8 @@
           class="half flex-responsive column-full-pad mobile-bottom-pad flex relative m-order-1"
         >
           <img
-            src="@/assets/img/tg_gifts_pretplata_clean.png"
-            alt="Dvije crvene poklon kartice s Telegram logom na sebi"
+            src="@/assets/img/tg_mockup_combo.png"
+            alt="Razni uređaji na raznim stranicama Telegrama"
           />
         </div>
         <!--<div v-if="softwall" class="full center">
