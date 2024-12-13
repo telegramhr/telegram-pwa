@@ -55,6 +55,7 @@ export default {
     return {
       page: 2,
       loading: false,
+      cat: this.category,
       // posts: [],
     }
   },
@@ -69,16 +70,19 @@ export default {
       return 'Ostanite uz Telegram'
     },
     posts() {
-      if (this.$store.state.category.categories[this.category] === undefined) {
+      if (this.$store.state.category.categories[this.cat] === undefined) {
         return []
       }
-      return this.$store.state.category.categories[this.category].posts.filter(
+      return this.$store.state.category.categories[this.cat].posts.filter(
         (post) => post.permalink !== this.permalink
       )
     },
   },
   mounted() {
-    this.$store.dispatch('category/pullPosts', { category: this.category })
+    if (this.category === 'partneri' || this.category === 'promo') {
+      this.cat = 'vijesti'
+    }
+    this.$store.dispatch('category/pullPosts', { category: this.cat })
   },
   methods: {
     loadMore() {
@@ -86,14 +90,14 @@ export default {
         this.loading = true
         if (this.page === 1) {
           this.$store
-            .dispatch('category/pullPosts', { category: this.category })
+            .dispatch('category/pullPosts', { category: this.cat })
             .then(() => {
               this.loading = false
               this.page++
             })
         } else {
           this.$store
-            .dispatch('category/loadMore', { category: this.category })
+            .dispatch('category/loadMore', { category: this.cat })
             .then(() => {
               this.loading = false
               this.page++
