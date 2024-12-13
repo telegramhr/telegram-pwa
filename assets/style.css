@@ -15857,3 +15857,15 @@ form#telemach-promo input[type=submit].newbtn {
         margin-bottom: 0.2rem;
     }
 }
+.xmas-subtitle {
+    font-family: 'Lora', serif;
+    font-weight: bold;
+    font-size: 36px;
+    font-size: 1.8rem;
+}
+@media screen and (max-width: 767px) {
+    .xmas-subtitle {
+        font-size: 24px;
+        font-size: 1.2rem;
+    }
+}

@@ -7,26 +7,45 @@
         headline="Poklonite Telegram pretplatu, poklon koji se otvara svaki dan"
       ></theader>
     </div>
+    <div
+      class="full flex relative center mobile-side-pad newbook-xmas newbook-gifting column-full-pad dark-mode"
+    >
+      <img
+        src="@/assets/img/tg_visual_2023_xmasbg_green.jpg"
+        class="img-as-bg"
+        aria-hidden="true"
+      />
+      <img
+        class="ps-xmas1"
+        src="@/assets/img/tg_xmas_1.png"
+        aria-hidden="true"
+      />
+      <img
+        class="ps-xmas2"
+        src="@/assets/img/tg_xmas_2.png"
+        aria-hidden="true"
+      />
+      <div class="container relative flex stretch">
+        <div
+          class="two-thirds tablet-full flex flex-responsive center m-order-2"
+        >
+          <div class="full nothtwo xmas-subtitle">
+            Darujte svojim najmilijima Telegram pretplatu, poklon koji se otvara
+            svaki dan uz 50% niže cijene do kraja godine
+          </div>
+        </div>
+        <div class="third tablet-full flex flex-responsive center m-order-1">
+          <img
+            src="@/assets/img/tg_gifts_pretplata_clean.png"
+            alt="Dvije crvene poklon kartice s Telegram logom na sebi"
+          />
+        </div>
+      </div>
+    </div>
     <div class="full flex pretplata-page-content">
       <div class="full flex relative">
         <div
-          class="container relative flex mobile-side-pad stretch column-full-pad"
-        >
-          <h1 class="full center-text">
-            Poklonite Telegram pretplatu, <br />poklon koji se otvara svaki dan
-          </h1>
-          <p class="full center-text smaller-pretplata-tagline">
-            Neovisno poklanjate li roditeljima, prijateljima ili poslovnim
-            partnerima, Telegram poklon pretplata omogućuje 365 dana
-            neograničenog pristupa svim našim specijalima, velikim pričama,
-            komentarima i analizama. Najbolji uvid u sve što je važno, za one
-            koji su vama važni.
-          </p>
-        </div>
-      </div>
-      <div class="full flex relative">
-        <div
-          class="container center relative mobile-side-pad pretplata-packs pretplata-packboxes"
+          class="container center flex-wrap relative mobile-side-pad pretplata-packs pretplata-packboxes"
         >
           <div
             class="half flex-responsive flex relative pretplata-packbox stretch"
@@ -34,7 +53,9 @@
             <div class="full flex overtitle-parent">
               <div class="noththree overtitle">Standard</div>
             </div>
-            <div class="full sub-price bold">79€</div>
+            <div class="full sub-price bold">
+              <span class="strikethrough faded">79€</span> 39€
+            </div>
             <div class="nothfour full center-text undertitle">
               godišnja pretplata
             </div>
@@ -66,7 +87,9 @@
             <div class="full flex overtitle-parent">
               <div class="noththree overtitle">Premium</div>
             </div>
-            <div class="full sub-price bold">99€</div>
+            <div class="full sub-price bold">
+              <span class="strikethrough faded">99€</span> 49€
+            </div>
             <div class="nothfour full center-text undertitle">
               godišnja pretplata
             </div>
