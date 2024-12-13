@@ -310,10 +310,10 @@ export default {
   },
   computed: {
     one() {
-      return 'TME7S4G6QLSN'
+      return 'TMNV693T7TDP'
     },
     two() {
-      return 'TMLHUVNF0ITI'
+      return 'TMPHUR99TSFE'
     },
   },
   mounted() {
