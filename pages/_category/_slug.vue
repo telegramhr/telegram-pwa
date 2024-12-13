@@ -391,7 +391,15 @@
                 ></midas>
                 <div id="promo-telemach"></div>
                 <portal selector="#promo-telemach">
-                  <promo-telemach v-if="!hasPremium"></promo-telemach>
+                  <promo-telemach
+                    v-if="
+                      !hasPremium &&
+                      !(
+                        $route.path.includes('partneri') ||
+                        $route.path.includes('promo')
+                      )
+                    "
+                  ></promo-telemach>
                 </portal>
               </client-only>
               <div
