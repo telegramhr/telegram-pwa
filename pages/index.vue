@@ -214,7 +214,7 @@
         <div class="full center m-order-6">
           <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
         </div>
-        
+
         <!-- Teme -->
         <div
           class="full flex mobile-side-pad stretch secondary-gs-block m-order-8"
@@ -363,12 +363,12 @@
     </div>
     <!-- Widget autori -->
     <commentary-alt type="tg"></commentary-alt>
-<!-- Telemach Promo -->
-        <div class="full relative">
-          <div class="container flex relative stretch column-horizontal-pad">
-            <promo-telemach></promo-telemach>
-          </div>
-        </div>
+    <!-- Telemach Promo -->
+    <div class="full relative" v-if="!hasPremium">
+      <div class="container flex relative stretch column-horizontal-pad">
+        <promo-telemach></promo-telemach>
+      </div>
+    </div>
     <!-- Velika rubrika: Zivot -->
     <div class="full relative column-bottom-pad">
       <category-zone zone="zivot"></category-zone>
