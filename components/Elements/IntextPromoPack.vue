@@ -86,13 +86,13 @@ export default {
       oldPrice: 99,
       newPrice: 78,
       maintitle:
-        '3 mjeseca ekskluzivnih vijesti uz Telegram – već od 5€ mjesečno!',
-      subtitle: 'Budite u toku s najvažnijim političkim trenucima.',
-      topBar: 'Posebna ponuda',
+        '',
+      subtitle: '',
+      topBar: '',
       softwall: true,
       cta: 'Pretplatite se',
       cta_link: '',
-      termDurationText: '3 mjeseca',
+      termDurationText: '',
     }
   },
   mounted() {
