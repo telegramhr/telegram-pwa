@@ -392,7 +392,9 @@
                 <div
                   v-if="
                     !$route.path.includes('partneri') &&
-                    !$route.path.includes('promo')
+                    !$route.path.includes('promo') &&
+                    post.disable_ads &&
+                    post.disable_ads.includes('all')
                   "
                   id="promo-telemach"
                 ></div>
