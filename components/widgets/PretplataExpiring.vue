@@ -3,7 +3,11 @@
     <div
       class="container smaller-container flex column-full-pad mobile-full-pad pretplata-faq"
     >
-      <div class="getmeouttahere-btn center clickable" @click="show = false">
+      <div
+        v-if="!canLogIn"
+        class="getmeouttahere-btn center clickable"
+        @click="close"
+      >
         <font-awesome-icon :icon="['fas', 'times']"></font-awesome-icon>
       </div>
       <details class="full flex relative">
@@ -46,6 +50,11 @@ export default {
       cta_link: '/moj-racun',
     }
   },
+  computed: {
+    canLogIn() {
+      return this.$store.state.user.exp * 1000 < new Date().getTime()
+    },
+  },
   mounted() {
     window.addEventListener('piano_expiring', this.load)
   },
@@ -53,10 +62,17 @@ export default {
     window.removeEventListener('piano_expiring', this.load)
   },
   methods: {
+    close() {
+      this.show = false
+      this.$cookies.set('piano_expiring', 'closed', {
+        expires: new Date(new Date().getTime() + 1000 * 60 * 60 * 24),
+      })
+    },
     login() {
       this.$store.dispatch('user/login')
     },
     load(e) {
+      if (this.$cookies.get('piano_expiring') === 'closed') return
       if (e.detail) {
         this.line1 = e.detail.line1 ?? this.line1
         this.line2 = e.detail.line2 ?? this.line2
