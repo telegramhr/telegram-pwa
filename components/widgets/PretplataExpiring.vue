@@ -3,6 +3,9 @@
     <div
       class="container smaller-container flex column-full-pad mobile-full-pad pretplata-faq"
     >
+      <div class="getmeouttahere-btn center clickable" @click="show = false">
+        <font-awesome-icon :icon="['fas', 'times']"></font-awesome-icon>
+      </div>
       <details class="full flex relative">
         <summary class="full relative">
           {{ line1 }}
