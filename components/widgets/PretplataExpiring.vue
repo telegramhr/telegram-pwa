@@ -4,7 +4,7 @@
       class="container smaller-container flex column-full-pad mobile-full-pad pretplata-faq"
     >
       <div
-        v-if="!canLogIn"
+        v-show="!canLogIn"
         class="getmeouttahere-btn center clickable"
         @click="close"
       >
