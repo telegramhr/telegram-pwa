@@ -129,7 +129,7 @@ export default {
         this.oldPrice = e.detail.oldPrice
         this.softwall = e.detail.softwall ?? false
         this.termId = e.detail.termId
-        this.cta = e.detail.cta ?? ''
+        this.cta = e.detail.cta ?? 'Pretplatite se'
         this.cta_link = e.detail.cta_link ?? ''
       }
       this.triggerShow()
