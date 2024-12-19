@@ -465,7 +465,7 @@
               !post.category_slug.includes('superone') &&
               !(post.disable_ads && post.disable_ads.includes('all'))
             "
-            class="full"
+            class="full has-background"
           >
             <jgl-premium
               :site="post.category_slug.includes('telesport') ? 'ts' : 'tg'"
