@@ -13,7 +13,6 @@
       <ticker-special></ticker-special>
       <back-widget></back-widget>
     </client-only>
-    <div class="remp-banner"></div>
   </div>
 </template>
 

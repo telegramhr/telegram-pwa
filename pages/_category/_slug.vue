@@ -330,6 +330,7 @@
                 @click="handleClick"
                 v-html="post.content"
               ></div>
+              <div class="remp-banner"></div>
               <client-only>
                 <portal
                   v-if="
