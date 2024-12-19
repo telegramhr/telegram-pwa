@@ -1,5 +1,3 @@
-import html2canvas from 'html2canvas'
-
 export const state = () => ({
   init: false,
   slots: false,
@@ -620,6 +618,7 @@ export const actions = {
       // clean old stuff from previous request
       window.pbjs.que.push(() => {
         window.pbjs.removeAdUnit()
+        // window.pbjs.clearAllAuctions()
       })
       window.googletag.cmd.push(() => {
         window.googletag.destroySlots()
@@ -899,9 +898,11 @@ export const actions = {
     }
     window.pbjs = window.pbjs || {}
     window.pbjs.que = window.pbjs.que || []
+    console.log('Prebid bids are requested')
     window.pbjs.que.push(() => {
       window.pbjs.rp.requestBids({
         callback() {
+          console.log('Prebid bids are back')
           window.googletag.cmd.push(function () {
             window.pbjs.setTargetingForGPTAsync()
             window.pbjs.requestManager.prebid = true

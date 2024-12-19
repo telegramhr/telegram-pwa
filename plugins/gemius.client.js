@@ -29,5 +29,7 @@ export default ({ route }, inject) => {
       } catch (e) {}
     })(document, 'script')
   }
-  init()
+  if (new Date().getFullYear() < 2025) {
+    init()
+  }
 }

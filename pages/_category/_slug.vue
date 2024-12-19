@@ -330,6 +330,7 @@
                 @click="handleClick"
                 v-html="post.content"
               ></div>
+              <div class="remp-banner"></div>
               <client-only>
                 <portal
                   v-if="
@@ -465,7 +466,7 @@
               !post.category_slug.includes('superone') &&
               !(post.disable_ads && post.disable_ads.includes('all'))
             "
-            class="full"
+            class="full has-background"
           >
             <jgl-premium
               :site="post.category_slug.includes('telesport') ? 'ts' : 'tg'"
