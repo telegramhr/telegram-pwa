@@ -15889,3 +15889,22 @@ form#telemach-promo input[type=submit].newbtn {
         right: -0.4rem;
     }
 }
+
+.pretplata-page-promo {
+    margin-top: 1.2rem;
+    max-width: 716px;
+    font-size: 1.4rem;
+    background-color: #37ae37;
+    color: white;
+}
+.packbox-top-promo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0.4rem;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+.packbox-promo-pad {
+    padding-top: 2.4rem;
+}

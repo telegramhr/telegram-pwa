@@ -17,6 +17,13 @@
           <p class="full center-text pretplata-tagline">
             Pretplatite se i podržite naše bespoštedno novinarstvo.
           </p>
+          <div class="full flex center column-top-pad">
+            <div class="full column-full-pad darkened-bg pretplata-page-promo">
+              <div class="full center-text barlow">
+                Vremenski ograničena ponuda: <b>prvi mjesec GRATIS!</b>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="full flex">
           <div class="container relative flex pretplata-packs mobile-side-pad">
@@ -50,14 +57,19 @@
             </div>
             <div class="full flex center pretplata-packboxes">
               <div
-                class="half flex-responsive flex relative pretplata-packbox stretch"
+                class="half flex-responsive flex relative pretplata-packbox packbox-promo-pad stretch"
               >
+                <div
+                  class="packbox-top-promo full center-text bold barlow darkened-bg"
+                >
+                  Prvi mjesec gratis
+                </div>
                 <div class="full flex overtitle-parent">
                   <div class="noththree overtitle">Standard</div>
                 </div>
                 <div class="full sub-price bold">7,99€</div>
                 <div class="nothfour full center-text undertitle">
-                  svaka 4 tjedna
+                  svaka 4 tjedna<br />nakon besplatnog mjeseca
                 </div>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
@@ -90,14 +102,19 @@
                 </div>
               </div>
               <div
-                class="half flex-responsive flex relative pretplata-packbox stretch"
+                class="half flex-responsive flex relative pretplata-packbox packbox-promo-pad stretch"
               >
+                <div
+                  class="packbox-top-promo full center-text bold barlow darkened-bg"
+                >
+                  Prvi mjesec gratis
+                </div>
                 <div class="full flex overtitle-parent">
                   <div class="noththree overtitle">Premium</div>
                 </div>
                 <div class="full sub-price bold">9,99€</div>
                 <div class="nothfour full center-text undertitle">
-                  svaka 4 tjedna
+                  svaka 4 tjedna<br />nakon besplatnog mjeseca
                 </div>
                 <div class="full pretplata-benefits">
                   <p class="full animate">
@@ -142,8 +159,13 @@
                 </div>
               </div>
               <div
-                class="half flex-responsive flex relative pretplata-packbox stretch"
+                class="half flex-responsive flex relative pretplata-packbox packbox-promo-pad stretch"
               >
+                <div
+                  class="packbox-top-promo full center-text bold barlow darkened-bg"
+                >
+                  13 mjeseci umjesto 12
+                </div>
                 <div class="full flex overtitle-parent">
                   <div class="noththree overtitle">Standard</div>
                 </div>
@@ -180,8 +202,13 @@
                 </div>
               </div>
               <div
-                class="half flex-responsive flex relative pretplata-packbox stretch"
+                class="half flex-responsive flex relative pretplata-packbox packbox-promo-pad stretch"
               >
+                <div
+                  class="packbox-top-promo full center-text bold barlow darkened-bg"
+                >
+                  13 mjeseci umjesto 12
+                </div>
                 <div class="full flex overtitle-parent">
                   <div class="noththree overtitle">Premium</div>
                 </div>

@@ -1,13 +1,5 @@
 <template>
-  <div
-    :class="[
-      'main-container',
-      'flex',
-      'telesport',
-      'single-article',
-      typeClass,
-    ]"
-  >
+  <div :class="['main-container', 'flex', 'single-article', typeClass]">
     <client-only>
       <theader
         :id="post.id"
@@ -274,7 +266,7 @@
                 više djece te djecu s poteškoćama u razvoju”, nastavlja
                 Bartulović.
               </p>
-              <intext-new></intext-new>
+              <intext-promo-free-month></intext-promo-free-month>
               <!--<quiz :data="questions"></quiz>-->
               <div class="banner-intext center intext">
                 <div class="full flex">
