@@ -4,7 +4,8 @@ export default ({ route }, inject) => {
     if (
       path.includes('politika-kriminal') ||
       path.includes('biznis-tech') ||
-      path.includes('komentari')
+      path.includes('komentari') ||
+      path.includes('vijesti')
     ) {
       dotmetricsId = '15854'
     }
