@@ -499,7 +499,7 @@
           <category slug="zivot"></category>
           <category slug="biznis-tech"></category>
           <category slug="pitanje-zdravlja"></category>
-          <category slug="velike-price"></category>
+          <category slug="telesport"></category>
         </div>
       </div>
     </div>
