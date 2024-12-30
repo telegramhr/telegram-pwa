@@ -441,6 +441,7 @@
         </div>
       </nav>
     </header>
+    <login v-show="showLogin" @close="closeLogin"></login>
   </div>
 </template>
 
@@ -477,6 +478,7 @@ export default {
       dynamicHeader: false,
       hideDynamicHeader: false,
       search_term: '',
+      showLogin: false,
     }
   },
   computed: {
@@ -528,9 +530,11 @@ export default {
     this.$store.dispatch('stocks/pullStocks')
     this.$store.dispatch('user/checkAccess')
     this.$store.dispatch('theme/loadTheme')
-    this.triggerLogin()
   },
   methods: {
+    closeLogin() {
+      this.showLogin = false
+    },
     clearFC() {
       if (process.client) {
         this.$store.dispatch('user/checkAdmin')
@@ -569,18 +573,7 @@ export default {
     },
     login() {
       this.maybeCloseSide()
-      this.$store.dispatch('user/login')
-    },
-    triggerLogin() {
-      if (this.$route.query.login && !this.$store.state.user.email) {
-        const tp = window.tp || []
-        tp.push([
-          'init',
-          () => {
-            this.login()
-          },
-        ])
-      }
+      this.showLogin = true
     },
     logout() {
       this.maybeCloseSide()

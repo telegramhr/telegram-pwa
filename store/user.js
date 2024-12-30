@@ -15,11 +15,10 @@ export const state = () => ({
 
 export const mutations = {
   setUser(state, data) {
-    state.first_name = data.firstName
-    state.last_name = data.lastName
-    state.email = data.email
-    state.exp = data.exp
-    state.uid = data.uid
+    state.first_name = data.user.first_name
+    state.last_name = data.user.last_name
+    state.email = data.user.email
+    state.uid = data.user.uuid
     state.type = 'registered'
   },
   logout(state) {
@@ -79,16 +78,10 @@ export const actions = {
   },
   setAccess({ commit, dispatch, state }, data) {
     return new Promise((resolve) => {
-      if (data?.data.length) {
-        this.$cookies.set('tmg_access', data.data[0].resource.rid, {
-          path: '/',
-          domain: '.telegram.hr',
-          maxAge: 10 * 24 * 3600,
-        })
-        commit('setTerm', {
-          rid: data.data[0].resource.rid,
-          expiry_date: data.data[0].expire_date,
-        })
+      if (data?.length) {
+        if (data.access.includes('telegram_premium')) {
+          commit('setTerm', data)
+        }
         if (window.fbq) {
           window.fbq('trackCustom', 'HasSubscription', { value: 1 })
         }
@@ -129,22 +122,16 @@ export const actions = {
     })
   },
   checkAccess({ state, dispatch }) {
-    window.tp.push([
-      'init',
-      function () {
-        const user = window.tp.pianoId.getUser()
-        if (user) {
-          dispatch('setUser', user)
-          window.tp.api.callApi('/access/list', {}, function (response) {
-            if (response.data) {
-              dispatch('setAccess', { data: response.data, user })
-            }
-          })
-        } else {
-          dispatch('logout')
-        }
-      },
-    ])
+    this.$axios
+      .$get('https://pretplata.telegram.hr/api/v1/users/subscriptions')
+      .then((res) => {
+        res.forEach((sub) => {
+          const end = new Date(sub.end_at)
+          if (end > new Date()) {
+            dispatch('setAccess', { data: res })
+          }
+        })
+      })
   },
   checkAdmin({ commit }) {
     if (document.cookie.includes('wordpress_test_cookie')) {
@@ -163,21 +150,25 @@ export const actions = {
     commit('logout')
     // this.$router.push('/')
   },
-  login({ commit, dispatch }) {
-    window.tp.pianoId.show({
-      screen: 'login',
-      loggedIn(data) {
-        dispatch('setUser', data.user)
-        commit('setToken', data.token)
-        window.tp.api.callApi('/access/list', {}, function (response) {
-          dispatch('setAccess', { data: response.data, user: data.user }).then(
-            () => {
-              window.location.reload()
-            }
-          )
-        })
-      },
-    })
+  login({ commit, dispatch }, payload) {
+    this.$axios
+      .$post(
+        'https://pretplata.telegram.hr/api/v1/users/login',
+        {
+          email: payload.email,
+          password: payload.password,
+        },
+        {
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+        }
+      )
+      .then((res) => {
+        commit('setUser', res)
+        this.$cookies.set('n_token', res.access.token, {})
+        dispatch('checkAccess')
+      })
   },
 }
 

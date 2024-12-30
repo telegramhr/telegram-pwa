@@ -148,6 +148,7 @@ export default {
       }
     },
     checkout(termId) {
+      return
       if (this.$store.state.user.token) {
         this.checkout2(termId)
       } else {

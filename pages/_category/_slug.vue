@@ -870,6 +870,7 @@ export default {
   },
   methods: {
     gift() {
+      return
       const _that = this
       window.tp.push([
         'init',
