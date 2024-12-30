@@ -363,12 +363,6 @@
     </div>
     <!-- Widget autori -->
     <commentary-alt type="tg"></commentary-alt>
-    <!-- Telemach Promo -->
-    <div class="full relative" v-if="!hasPremium">
-      <div class="container flex relative stretch column-horizontal-pad">
-        <promo-telemach></promo-telemach>
-      </div>
-    </div>
     <!-- Velika rubrika: Zivot -->
     <div class="full relative column-bottom-pad">
       <category-zone zone="zivot"></category-zone>

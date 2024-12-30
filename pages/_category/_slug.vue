@@ -390,17 +390,6 @@
                   :key="`midas-text-${post.id}`"
                   type="text-only"
                 ></midas>
-                <div
-                  v-if="
-                    !$route.path.includes('partneri') &&
-                    !$route.path.includes('promo') &&
-                    !(post.disable_ads && post.disable_ads.includes('all'))
-                  "
-                  id="promo-telemach"
-                ></div>
-                <portal selector="#promo-telemach">
-                  <promo-telemach v-if="!hasPremium"></promo-telemach>
-                </portal>
               </client-only>
               <div
                 id="marfeel_sidebar"
