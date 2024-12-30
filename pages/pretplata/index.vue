@@ -13,7 +13,12 @@
         <div
           class="container relative flex mobile-side-pad stretch column-full-pad"
         >
-          <h1 class="full center-text">Nekad je nužno odabrati stranu</h1>
+          <h1 class="full center-text">
+            Poštovani, kupovina je trenutno isključena zbog migracije sustava za
+            pretplatu. Hvala na razumijevanju.
+          </h1>
+        </div>
+        <!--  <h1 class="full center-text">Nekad je nužno odabrati stranu</h1>
           <p class="full center-text pretplata-tagline">
             Pretplatite se i podržite naše bespoštedno novinarstvo.
           </p>
@@ -271,7 +276,7 @@
               >
             </div>
           </div>
-        </div>
+        </div>-->
       </div>
     </div>
     <!-- Klub widget -->
