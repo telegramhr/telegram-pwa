@@ -918,7 +918,10 @@ export default {
   },
   methods: {
     canLogIn() {
-      return this.$store.getters['user/canLogIn']
+      return this.$store.state.user.exp * 1000 < new Date().getTime()
+    },
+    checkout(termId, upgrade) {
+      this.$piano.start(termId)
     },
   },
   head() {
