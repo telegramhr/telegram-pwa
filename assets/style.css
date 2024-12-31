@@ -15918,3 +15918,33 @@ form#telemach-promo input[type=submit].newbtn {
     margin-top: 0px;
     padding-top: 0px;
 }
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+.form-group label {
+    font-family: 'Barlow', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+}
+
+.form-group input[type=text], .form-group input[type=email], .form-group input[type=password] {
+    font-family: 'Barlow', sans-serif;
+    font-size: 1.2rem;
+    padding: 0.4rem;
+    border: 1px solid #c8c8c8;
+    border-radius: 0.1rem;
+    width: 100%;
+}
+
+.form-group input[type=submit] {
+    font-family: 'Barlow', sans-serif;
+    font-size: 1.2rem;
+    padding: 0.4rem;
+    border: 1px solid #c8c8c8;
+    border-radius: 0.1rem;
+    background-color: #ae3737;
+    color: white;
+    width: 100%;
+}
