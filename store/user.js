@@ -132,12 +132,14 @@ export const actions = {
         },
       })
       .then((res) => {
-        res.forEach((sub) => {
-          const end = new Date(sub.end_at)
-          if (end > new Date()) {
-            dispatch('setAccess', { data: res })
-          }
-        })
+        if (res.status === 'ok') {
+          res.subscriptions.forEach((sub) => {
+            const end = new Date(sub.end_at)
+            if (end > new Date()) {
+              dispatch('setAccess', { data: res })
+            }
+          })
+        }
       })
   },
   checkAdmin({ commit }) {
@@ -173,6 +175,7 @@ export const actions = {
         this.$cookies.set('n_token', res.access.token, {})
         dispatch('checkAccess')
         commit('openModal')
+        window.location.reload()
       })
       .catch((err) => {
         throw new Error(err)
