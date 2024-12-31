@@ -556,7 +556,7 @@ export default {
   },
   methods: {
     canLogIn() {
-      return this.$store.state.user.exp * 1000 < new Date().getTime()
+      return this.$store.getters['user/canLogIn']
     },
     fakeCheckout() {
       if (this.term != null && this.payment != null && this.payment != null) {

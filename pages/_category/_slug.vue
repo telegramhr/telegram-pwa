@@ -674,7 +674,7 @@ export default {
       return this.$store.getters['user/hasPremium']
     },
     canLogIn() {
-      return this.$store.state.user.exp * 1000 < new Date().getTime()
+      return this.$store.getters['user/canLogIn']
     },
     jsonld() {
       const images = [
@@ -857,7 +857,6 @@ export default {
     this.$nextTick(() => {
       this.getPost()
       window.addEventListener('scroll', this.handleScroll)
-      window.addEventListener('piano_gift', this.gift)
       if (this.$route.params.category === 'l') {
         window.history.replaceState({}, null, this.post.permalink)
       }
@@ -865,27 +864,9 @@ export default {
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.handleScroll)
-    window.removeEventListener('piano_gift', this.gift)
     this.comments_embed = null
   },
   methods: {
-    gift() {
-      return
-      const _that = this
-      window.tp.push([
-        'init',
-        () => {
-          window.tp.pianoId.show({
-            screen: 'register',
-            width: window.innerWidth > 720 ? 600 : 375,
-            showCloseButton: false,
-            loggedIn(data) {
-              _that.$store.dispatch('user/setUser', data.user)
-            },
-          })
-        },
-      ])
-    },
     handleScroll() {
       const walls = document.getElementsByClassName('wallpaper-banners')
       const bill =
@@ -1004,32 +985,6 @@ export default {
       window.remplib.campaign.init(rempConfig)
     },
     loadPiano() {
-      const tp = window.tp || []
-      if (this.post.tags.length) {
-        tp.push([
-          'setTags',
-          this.post.tags.map((tag) => {
-            return tag.slug
-          }),
-        ])
-      }
-      tp.push([
-        'setContentCreated',
-        new Date(this.post.time * 1000).toISOString(),
-      ])
-      tp.push(['setContentSection', this.post.category])
-      if (this.post.authors.length) {
-        if (this.post.authors.length > 1) {
-          if (this.post.authors[1].name === 'Hina') {
-            tp.push(['setContentAuthor', this.post.authors[1].name])
-          } else {
-            tp.push(['setContentAuthor', this.post.authors[0].name])
-          }
-        } else {
-          tp.push(['setContentAuthor', this.post.authors[0].name])
-        }
-      }
-      tp.push(['setContentIsNative', this.post.post_type === 'partneri'])
       if (this.post.paywall === 'always' && this.$route.query.gift_token) {
         // verify token
         this.$axios
@@ -1039,7 +994,6 @@ export default {
           })
           .then((res) => {
             if (res.status === 200) {
-              window.tp.push(['setCustomVariable', 'isPaywall', 'gift'])
               window.marfeel = window.marfeel || { cmd: [] }
               window.marfeel.cmd.push([
                 'compass',
@@ -1047,32 +1001,9 @@ export default {
                   compass.setPageVar('gifted', 'true')
                 },
               ])
-            } else {
-              window.tp.push([
-                'setCustomVariable',
-                'isPaywall',
-                this.post.paywall,
-              ])
             }
-            window.tp.push([
-              'init',
-              function () {
-                window.tp.experience.execute()
-                window.tp.enableGACrossDomainLinking()
-              },
-            ])
           })
-      } else {
-        tp.push(['setCustomVariable', 'isPaywall', this.post.paywall])
-        tp.push([
-          'init',
-          function () {
-            window.tp.experience.execute()
-            window.tp.enableGACrossDomainLinking()
-          },
-        ])
       }
-
       const _that = this
       window.marfeel.cmd.push([
         'compass',
@@ -1088,9 +1019,6 @@ export default {
     },
     triggerAnalytics() {
       this.$dotmetrics.postLoad(this.post.category_slug)
-    },
-    checkout(termId) {
-      this.$piano.start(termId, -1)
     },
     getPost() {
       if (this.post && this.post.id) {

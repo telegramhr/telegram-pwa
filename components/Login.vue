@@ -1,5 +1,5 @@
 <template>
-  <div id="book-pay-popup" class="center">
+  <div v-show="show" id="login-popup" class="center">
     <div class="flex relative">
       <div class="full flex book-popup-content">
         <div class="full center book-popup-header">
@@ -14,11 +14,14 @@
             class="full infotext center-text"
             style="margin-top: 4vw; margin-bottom: 4vw"
           >
-            Samo pretplatnici imaju pristup aplikaciji. Kliknite
-            <a href="https://www.telegram.hr/pretplata" target="_blank"
-              >ovdje</a
+            Prijavite se kako biste nastavili s radom.<br />
+            Zbog promjene sustava za pretplatu, potrebno je namjestiti novu
+            lozinku.
+            <a
+              href="https://pretplata.telegram.hr/social-login/social-sign/request-password"
+              class="clickable"
+              >Zatražite novu ovdje</a
             >
-            ako nemate pretplatu.
           </p>
           <label for="name">Email adresa</label>
           <input id="email" v-model="email" type="email" name="name" />
@@ -32,7 +35,7 @@
           <p class="full infotext center-text">
             {{ error }}
           </p>
-          <button class="newbtn clickable" @click="login">Prijava</button>
+          <button class="newbtn clickable" type="submit">Prijava</button>
         </form>
       </div>
     </div>
@@ -40,7 +43,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'Login',
   data() {
@@ -50,29 +52,31 @@ export default {
       error: '',
     }
   },
+  computed: {
+    show() {
+      return this.$store.state.user.showModal
+    },
+  },
   methods: {
     login() {
       this.$store
-        .dispatch('user/login', {
+        .dispatch('user/loginSubmit', {
           email: this.email,
           password: this.password,
-        })
-        .then(() => {
-          this.$emit('close')
         })
         .catch(() => {
           this.error = 'Neispravni podaci za prijavu.'
         })
     },
     close() {
-      this.$emit('close')
+      this.$store.dispatch('user/login')
     },
   },
 }
 </script>
 
 <style>
-#book-pay-popup {
+#login-popup {
   position: fixed;
   top: 0;
   left: 0;
@@ -82,18 +86,18 @@ export default {
   background-color: rgba(0, 0, 0, 0.5);
   padding: 24px;
 }
-#book-pay-popup h2 {
+#login-popup h2 {
   letter-spacing: -0.05em;
   font-size: 36px;
   font-size: 1.8rem;
 }
-#book-pay-popup > div {
+#login-popup > div {
   border: 1px solid #c8c8c8;
   background-color: #fcf1e7;
   width: 100%;
   max-width: 480px;
 }
-.dark-mode #book-pay-popup > div {
+.dark-mode #login-popup > div {
   border: 1px solid #c8c8c8;
   background-color: #121212;
   color: white;
@@ -108,7 +112,7 @@ export default {
   height: 100px;
   margin-bottom: -50px;
 }
-#book-pay-popup input {
+#login-popup input {
   width: 100%;
   font-size: 16px;
   background: none;
@@ -120,11 +124,11 @@ export default {
   padding-bottom: 4px;
   border-bottom: 1px solid #c8c8c8;
 }
-.dark-mode #book-pay-popup input {
+.dark-mode #login-popup input {
   border-color: #555;
   color: #efefef;
 }
-#book-pay-popup label {
+#login-popup label {
   opacity: 0.7;
   font-size: 14px;
   font-size: 0.7rem;
@@ -144,7 +148,7 @@ export default {
   border-color: #555;
   color: #efefef;
 }
-#book-pay-popup button {
+#login-popup button {
   padding: 8px 32px;
   text-align: center;
   display: block;
@@ -160,7 +164,7 @@ export default {
   z-index: 200;
   cursor: pointer;
 }
-#book-pay-popup textarea {
+#login-popup textarea {
   width: 100%;
   height: 80px;
   border: 1px solid #c8c8c8;
@@ -171,11 +175,11 @@ export default {
   color: #666;
   font-size: 16px;
 }
-.dark-mode #book-pay-popup textarea {
+.dark-mode #login-popup textarea {
   border-color: #555;
   color: #efefef;
 }
-#book-pay-popup small {
+#login-popup small {
   margin-top: 16px;
 }
 #close-book-popup {
@@ -194,13 +198,13 @@ export default {
 }
 
 @media screen and (max-height: 1100px) {
-  #book-pay-popup .book-popup-content {
+  #login-popup .book-popup-content {
     max-height: 90vh;
     overflow-y: scroll;
   }
 }
 @media screen and (max-width: 1024px) {
-  #book-pay-popup {
+  #login-popup {
     padding: 4vw;
   }
   #close-book-popup {

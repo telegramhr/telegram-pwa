@@ -523,7 +523,7 @@ export default {
       return this.$store.getters['user/hasPremium']
     },
     canLogIn() {
-      return this.$store.state.user.exp * 1000 < new Date().getTime()
+      return this.$store.getters['user/canLogIn']
     },
     posts() {
       return this.$store.state.featured.posts
@@ -566,9 +566,6 @@ export default {
     clearInterval(this.reloadInterval)
   },
   methods: {
-    checkout(termId) {
-      this.$piano.start(termId, -1)
-    },
     manageLogin() {
       if (this.canLogIn) {
         this.$store.dispatch('user/login')
@@ -583,17 +580,6 @@ export default {
       })
     },
     loadAds() {
-      if (this.$route.query.reset_token) {
-        window.tp.push([
-          'init',
-          function () {
-            window.tp.pianoId.show({
-              displayMode: 'modal',
-              screen: 'new_password',
-            })
-          },
-        ])
-      }
       this.$store.dispatch('ads/initAds', { route: this.$route })
     },
     loadMore() {

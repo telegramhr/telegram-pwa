@@ -293,7 +293,7 @@ export default {
       )
     },
     canLogIn() {
-      return this.$store.state.user.exp * 1000 < new Date().getTime()
+      return this.$store.getters['user/canLogIn']
     },
     jsonld() {
       const images = [this.post.image.url]

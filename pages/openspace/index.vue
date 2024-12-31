@@ -278,7 +278,7 @@ export default {
   },
   computed: {
     canLogIn() {
-      return this.$store.state.user.exp * 1000 < new Date().getTime()
+      return this.$store.getters['user/canLogIn']
     },
     readMore() {
       if (this.hasMore) {

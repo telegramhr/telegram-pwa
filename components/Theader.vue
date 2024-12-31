@@ -441,7 +441,7 @@
         </div>
       </nav>
     </header>
-    <login v-show="showLogin" @close="closeLogin"></login>
+    <login></login>
   </div>
 </template>
 
@@ -478,12 +478,11 @@ export default {
       dynamicHeader: false,
       hideDynamicHeader: false,
       search_term: '',
-      showLogin: false,
     }
   },
   computed: {
     canLogIn() {
-      return this.$store.state.user.exp * 1000 < new Date().getTime()
+      return this.$store.getters['user/canLogIn']
     },
     color_theme: {
       get() {
