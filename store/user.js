@@ -121,6 +121,9 @@ export const actions = {
     })
   },
   checkAccess({ state, dispatch }) {
+    if (!state.token) {
+      return
+    }
     this.$axios
       .$get('https://pretplata.telegram.hr/api/v1/users/subscriptions', {
         headers: {

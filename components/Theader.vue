@@ -572,7 +572,7 @@ export default {
     },
     login() {
       this.maybeCloseSide()
-      this.showLogin = true
+      this.$store.dispatch('user/login')
     },
     logout() {
       this.maybeCloseSide()

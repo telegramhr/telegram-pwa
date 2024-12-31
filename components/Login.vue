@@ -63,6 +63,18 @@ export default {
       return this.$store.state.user.showModal
     },
   },
+  mounted() {
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        this.close()
+      }
+    })
+    document.addEventListener('click', (e) => {
+      if (e.target.id === 'login-popup') {
+        this.close()
+      }
+    })
+  },
   methods: {
     login() {
       this.$store
