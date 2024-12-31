@@ -14,13 +14,11 @@
             class="full infotext center-text"
             style="margin-top: 4vw; margin-bottom: 4vw"
           >
-            Prijavite se kako biste nastavili s radom.<br />
-            Zbog promjene sustava za pretplatu, potrebno je namjestiti novu
-            lozinku.
+            Prijavite se kako biste nastavili s radom.
             <a
               href="https://pretplata.telegram.hr/social-login/social-sign/request-password"
               class="clickable"
-              >Zatražite novu ovdje</a
+              >Zatražite novu lozinku ovdje</a
             >
           </p>
           <label for="name">Email adresa</label>
@@ -36,6 +34,14 @@
             {{ error }}
           </p>
           <button class="newbtn clickable" type="submit">Prijava</button>
+          <small class="full center-text">
+            <a
+              href="https://pretplata.telegram.hr/social-login/social-sign/request-password"
+              class="clickable"
+              style="color: #ae3737"
+              >Zatražite novu lozinku ovdje</a
+            >
+          </small>
         </form>
       </div>
     </div>

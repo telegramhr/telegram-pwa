@@ -81,9 +81,9 @@ export const actions = {
   },
   setAccess({ commit, dispatch, state }, data) {
     return new Promise((resolve) => {
-      if (data?.length) {
-        if (data.access.includes('telegram_premium')) {
-          commit('setTerm', data)
+      if (data) {
+        if (data.data.access.includes('telegram_premium')) {
+          commit('setTerm', data.data.access)
         }
         if (window.fbq) {
           window.fbq('trackCustom', 'HasSubscription', { value: 1 })
@@ -97,9 +97,7 @@ export const actions = {
             'compass',
             function (compass) {
               compass.setUserType(id)
-              if (data.user) {
-                compass.setSiteUserId(data.user.uid)
-              }
+              compass.setSiteUserId(state.uid)
             },
           ])
         }
@@ -115,9 +113,7 @@ export const actions = {
             'compass',
             function (compass) {
               compass.setUserType(2)
-              if (data.user) {
-                compass.setSiteUserId(data.user.uid)
-              }
+              compass.setSiteUserId(state.uid)
             },
           ])
         }
@@ -136,7 +132,7 @@ export const actions = {
           res.subscriptions.forEach((sub) => {
             const end = new Date(sub.end_at)
             if (end > new Date()) {
-              dispatch('setAccess', { data: res })
+              dispatch('setAccess', { data: sub })
             }
           })
         }

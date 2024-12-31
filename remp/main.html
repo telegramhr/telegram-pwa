@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {{ html}}
-    <link rel="stylesheet" href="https://kit.fontawesome.com/4878256e09.css" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/1e037861de.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=IBM+Plex+Mono:wght@500;600&family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap">
     <link rel="stylesheet" href="https://www.telegram.hr/assets/tmg_framework.css">
     <link rel="stylesheet" href="https://www.telegram.hr/assets/style.css">
@@ -726,8 +726,8 @@
                 </div>
             </div>
         </form>
-        {{ snippetSnippetNeedHelp | raw }}
-        {{ snippetSnippetTelegramFooter | raw }}
+        {{ snippetNeedHelp | raw }}
+        {{ snippetTelegramFooter | raw }}
     </div>
 </div>
 <script>
@@ -751,6 +751,7 @@
             nonce: null,
             token: null,
             dropin: null,
+            terms: false,
             form: document.getElementById('form'),
             loggedIn: {{ isLogged ? true : false }},
     funnel_id: "{{ funnel.id }}",
@@ -912,7 +913,11 @@
         },
         price() {
             if (this.term === 'pretplata-mjesecno') {
-                return 0;
+                if (this.pack === 'pretplata-standard') {
+                    return 7.99
+                } else {
+                    return 9.99
+                }
             }
             if (this.pack === 'pretplata-standard') {
                 return 79
