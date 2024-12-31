@@ -182,6 +182,9 @@ export const actions = {
 
 export const getters = {
   hasPremium(state) {
+    if (!state.access) {
+      return false
+    }
     return (
       state.access === 'BR92VTWM' || state.access.includes('telegram_premium')
     )
