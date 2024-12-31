@@ -5,22 +5,23 @@ export const state = () => ({
   email: '',
   token: '',
   exp: 0,
-  access: null,
+  access: [],
   updated: null,
   admin: false,
   type: 'not-registered',
   coral_token: false,
   coral_update: null,
+  showModal: false,
 })
 
 export const mutations = {
   setUser(state, data) {
-    state.first_name = data.firstName
-    state.last_name = data.lastName
-    state.email = data.email
-    state.exp = data.exp
-    state.uid = data.uid
+    state.first_name = data.user.first_name
+    state.last_name = data.user.last_name
+    state.email = data.user.email
+    state.uid = data.user.uuid
     state.type = 'registered'
+    state.token = data.access.token
   },
   logout(state) {
     state.uid = 0
@@ -34,9 +35,7 @@ export const mutations = {
     state.type = 'not-registered'
   },
   setTerm(state, data) {
-    state.access = data.rid
-    state.expiry_date = data.expiry_date
-    state.type = 'subscribed'
+    state.access = [...data]
     state.updated = new Date().getTime()
   },
   setToken(state, token) {
@@ -48,6 +47,9 @@ export const mutations = {
   setCoral(state, token) {
     state.coral_token = token
     state.coral_update = new Date().getTime()
+  },
+  openModal(state) {
+    state.showModal = !state.showModal
   },
 }
 
@@ -79,16 +81,10 @@ export const actions = {
   },
   setAccess({ commit, dispatch, state }, data) {
     return new Promise((resolve) => {
-      if (data?.data.length) {
-        this.$cookies.set('tmg_access', data.data[0].resource.rid, {
-          path: '/',
-          domain: '.telegram.hr',
-          maxAge: 10 * 24 * 3600,
-        })
-        commit('setTerm', {
-          rid: data.data[0].resource.rid,
-          expiry_date: data.data[0].expire_date,
-        })
+      if (data?.length) {
+        if (data.access.includes('telegram_premium')) {
+          commit('setTerm', data)
+        }
         if (window.fbq) {
           window.fbq('trackCustom', 'HasSubscription', { value: 1 })
         }
@@ -129,22 +125,20 @@ export const actions = {
     })
   },
   checkAccess({ state, dispatch }) {
-    window.tp.push([
-      'init',
-      function () {
-        const user = window.tp.pianoId.getUser()
-        if (user) {
-          dispatch('setUser', user)
-          window.tp.api.callApi('/access/list', {}, function (response) {
-            if (response.data) {
-              dispatch('setAccess', { data: response.data, user })
-            }
-          })
-        } else {
-          dispatch('logout')
-        }
-      },
-    ])
+    this.$axios
+      .$get('https://pretplata.telegram.hr/api/v1/users/subscriptions', {
+        headers: {
+          Authorization: `Bearer ${state.token}`,
+        },
+      })
+      .then((res) => {
+        res.forEach((sub) => {
+          const end = new Date(sub.end_at)
+          if (end > new Date()) {
+            dispatch('setAccess', { data: res })
+          }
+        })
+      })
   },
   checkAdmin({ commit }) {
     if (document.cookie.includes('wordpress_test_cookie')) {
@@ -152,37 +146,47 @@ export const actions = {
     }
   },
   logout({ commit, dispatch, state }) {
-    this.$cookies.remove('tmg_access', {
-      path: '/',
-      domain: '.telegram.hr',
-    })
+    this.$cookies.remove('tmg_access')
+    this.$cookies.remove('n_token')
     if (state.uid) {
-      window.tp.pianoId.logout()
       dispatch('newsletters/clearAccess', null, { root: true })
     }
     commit('logout')
     // this.$router.push('/')
   },
   login({ commit, dispatch }) {
-    window.tp.pianoId.show({
-      screen: 'login',
-      loggedIn(data) {
-        dispatch('setUser', data.user)
-        commit('setToken', data.token)
-        window.tp.api.callApi('/access/list', {}, function (response) {
-          dispatch('setAccess', { data: response.data, user: data.user }).then(
-            () => {
-              window.location.reload()
-            }
-          )
-        })
-      },
-    })
+    commit('openModal')
+  },
+  loginSubmit({ commit, dispatch }, payload) {
+    const data = new FormData()
+    data.append('email', payload.email)
+    data.append('password', payload.password)
+    data.append('source', 'api')
+    this.$axios
+      .$post('https://pretplata.telegram.hr/api/v1/users/login', data, {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      })
+      .then((res) => {
+        commit('setUser', res)
+        this.$cookies.set('n_token', res.access.token, {})
+        dispatch('checkAccess')
+        commit('openModal')
+      })
+      .catch((err) => {
+        throw new Error(err)
+      })
   },
 }
 
 export const getters = {
   hasPremium(state) {
-    return state.access === 'BR92VTWM'
+    return (
+      state.access === 'BR92VTWM' || state.access.includes('telegram_premium')
+    )
+  },
+  canLogIn(state) {
+    return !state.token
   },
 }

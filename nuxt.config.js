@@ -69,7 +69,7 @@ export default {
   },
 
   router: {
-    middleware: ['piano', 'gemius', 'dotmetrics'],
+    middleware: ['gemius', 'dotmetrics'],
   },
 
   loading: '~/components/loading.vue',
@@ -89,10 +89,7 @@ export default {
     { src: '@/plugins/filters.js' },
     { src: '@/plugins/persisted.client.js' },
     { src: '@/plugins/vue-slick-carousel.js' },
-    { src: '@/plugins/piano-cxense.js', ssr: false },
-    { src: '@/plugins/piano.js', ssr: false },
     { src: '@/plugins/mobile.js' },
-    { src: '@/plugins/cxtrack.js', ssr: false },
     { src: '@/plugins/fontawesome.js' },
     { src: '@/plugins/gemius.client.js' },
     { src: '@/plugins/dotmetrics.client.js' },

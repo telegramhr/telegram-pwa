@@ -441,6 +441,7 @@
         </div>
       </nav>
     </header>
+    <login></login>
   </div>
 </template>
 
@@ -481,7 +482,7 @@ export default {
   },
   computed: {
     canLogIn() {
-      return this.$store.state.user.exp * 1000 < new Date().getTime()
+      return this.$store.getters['user/canLogIn']
     },
     color_theme: {
       get() {
@@ -528,9 +529,11 @@ export default {
     this.$store.dispatch('stocks/pullStocks')
     this.$store.dispatch('user/checkAccess')
     this.$store.dispatch('theme/loadTheme')
-    this.triggerLogin()
   },
   methods: {
+    closeLogin() {
+      this.showLogin = false
+    },
     clearFC() {
       if (process.client) {
         this.$store.dispatch('user/checkAdmin')
@@ -569,18 +572,7 @@ export default {
     },
     login() {
       this.maybeCloseSide()
-      this.$store.dispatch('user/login')
-    },
-    triggerLogin() {
-      if (this.$route.query.login && !this.$store.state.user.email) {
-        const tp = window.tp || []
-        tp.push([
-          'init',
-          () => {
-            this.login()
-          },
-        ])
-      }
+      this.showLogin = true
     },
     logout() {
       this.maybeCloseSide()

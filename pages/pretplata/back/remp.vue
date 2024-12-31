@@ -247,7 +247,7 @@
             </div>
             <p class="full bold remp-subtitle faded">4) Unesite podatke</p>
             <div id="login" class="full flex relative remp-halfpad">
-              <!-- <div class="half flex flex-responsive remp-miniboxes">
+              <div class="half flex flex-responsive remp-miniboxes">
                 <input
                   id="pretplata-email"
                   type="text"
@@ -379,7 +379,7 @@
                     Tekst za bankovnu uplatu.
                   </p>
                 </div>
-              </div>-->
+              </div>
             </div>
             <div class="full flex relative column-top-pad mobile-top-pad">
               <div class="full flex">
@@ -498,6 +498,19 @@ export default {
         return '78'
       }
     },
+    price() {
+      if (this.pack === 'pretplata-standard') {
+        if (this.term === 'pretplata-mjesecno') {
+          return 6.49
+        } else {
+          return 62
+        }
+      } else if (this.term === 'pretplata-mjesecno') {
+        return 9.1
+      } else {
+        return 78
+      }
+    },
     monthlyPrice() {
       if (this.pack === 'pretplata-standard') {
         if (this.term === 'pretplata-mjesecno') {
@@ -543,7 +556,7 @@ export default {
   },
   methods: {
     canLogIn() {
-      return this.$store.state.user.exp * 1000 < new Date().getTime()
+      return this.$store.getters['user/canLogIn']
     },
     fakeCheckout() {
       if (this.term != null && this.payment != null && this.payment != null) {
