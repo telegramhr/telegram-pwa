@@ -210,15 +210,16 @@ export const actions = {
           })
           .then((res) => {
             if (res.data.id) {
+              const data2 = new FormData()
+              data2.append('user_id', res.data.id)
+              data2.append('password', payload.password)
               this.$axios
                 .post(
                   'https://pretplata.telegram.hr/api/v1/users/update',
-                  {
-                    user: res.data.id,
-                    password: payload.password,
-                  },
+                  data2,
                   {
                     headers: {
+                      'Content-Type': 'application/x-www-form-urlencoded',
                       Authorization: `Bearer ff4a16187c0fc0cc0267b95410c4f55a`,
                     },
                   }

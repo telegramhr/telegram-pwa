@@ -74,7 +74,7 @@ export default {
   },
   mounted() {
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
+      if (e.key === 'Escape' && this.show) {
         this.close()
       }
     })
