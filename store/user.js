@@ -176,8 +176,58 @@ export const actions = {
         commit('openModal')
         window.location.reload()
       })
-      .catch((err) => {
-        throw new Error(err)
+      .catch(() => {
+        dispatch('loginPiano', payload)
+      })
+  },
+  loginPiano({ commit, dispatch }, payload) {
+    this.$axios
+      .post(
+        'https://api.piano.io/id/api/v1/publisher/login',
+        {},
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          params: {
+            email: payload.email,
+            password: payload.password,
+            aid: 'QuTHmVhFpu',
+            api_token: 'KWnqgtqMFjyU3l5NXhvfDTsHWp0NY2ceQF8R5Cb9',
+          },
+        }
+      )
+      .then(() => {
+        // update user in remp
+        // get user
+        const data = new FormData()
+        data.append('email', payload.email)
+        this.$axios
+          .post('https://pretplata.telegram.hr//api/v2/users/email', data, {
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+          })
+          .then((res) => {
+            if (res.data.id) {
+              this.$axios
+                .post(
+                  'https://pretplata.telegram.hr/api/v1/users/update',
+                  {
+                    user: res.data.id,
+                    password: payload.password,
+                  },
+                  {
+                    headers: {
+                      Authorization: `Bearer vZ2qNWnVcZn00Q4PVL8MtJSy9xDlKmk`,
+                    },
+                  }
+                )
+                .then((res) => {
+                  dispatch('loginSubmit', payload)
+                })
+            }
+          })
       })
   },
 }
