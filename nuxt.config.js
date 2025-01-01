@@ -91,7 +91,6 @@ export default {
     { src: '@/plugins/vue-slick-carousel.js' },
     { src: '@/plugins/mobile.js' },
     { src: '@/plugins/fontawesome.js' },
-    { src: '@/plugins/gemius.client.js' },
     { src: '@/plugins/dotmetrics.client.js' },
     { src: '@/plugins/marfeel.client.js' },
     { src: '@/plugins/adsense.client.js', ssr: false },
