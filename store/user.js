@@ -219,7 +219,7 @@ export const actions = {
                   },
                   {
                     headers: {
-                      Authorization: `Bearer vZ2qNWnVcZn00Q4PVL8MtJSy9xDlKmk`,
+                      Authorization: `Bearer ff4a16187c0fc0cc0267b95410c4f55a`,
                     },
                   }
                 )

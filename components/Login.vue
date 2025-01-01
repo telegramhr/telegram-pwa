@@ -15,12 +15,18 @@
             style="margin-top: 4vw; margin-bottom: 4vw"
           >
             Prijavite se kako biste nastavili s radom.
-            <a
-              href="https://pretplata.telegram.hr/social-login/social-sign/request-password"
-              class="clickable"
-              >Zatražite novu lozinku ovdje</a
-            >
           </p>
+          <!--<div class="full flex column-mini-left-pad">
+            <a
+              :href="`https://pretplata.telegram.hr/social-login/social-sign/sign?social_provider_key=facebook&success_login_url=${path}`"
+              class="full center remp-social-logbtn animate"
+            >
+              <font-awesome-icon
+                :icon="['fab', 'facebook-f']"
+              ></font-awesome-icon>
+              Facebook
+            </a>
+          </div>-->
           <label for="name">Email adresa</label>
           <input id="email" v-model="email" type="email" name="name" />
           <label for="address">Lozinka</label>
@@ -61,6 +67,9 @@ export default {
   computed: {
     show() {
       return this.$store.state.user.showModal
+    },
+    path() {
+      return encodeURI(`https://www.telegram.hr${this.$route.fullPath}`)
     },
   },
   mounted() {
