@@ -40,7 +40,10 @@
           <div v-if="required" class="nothfour full center-text">
             Sva polja su obavezna.
           </div>
-          <div class="nothfour full center-text">
+          <div v-if="book === 't-magazin'" class="nothfour full center-text">
+            Dostava magazina je besplatna
+          </div>
+          <div v-else class="nothfour full center-text">
             Dostava ove knjige je besplatna.
           </div>
           <label for="name">Ime i prezime</label>
