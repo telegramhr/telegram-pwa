@@ -7,7 +7,7 @@
     </div>
     <div class="full flex relative reset-flex-order">
       <div
-        class="full flex relative center mobile-side-pad darkened-bg column-full-pad"
+        class="full flex relative center mobile-side-pad darkened-bg column-full-pad mobile-top-pad"
       >
         <div class="container relative flex stretch">
           <div class="thirty tablet-full flex flex-responsive center m-order-2">
@@ -28,12 +28,19 @@
           </div>
 
           <div
-            class="half tablet-full column-full-pad mobile-vertical-pad flex flex-responsive center m-order-1 relative"
+            class="half tablet-full column-full-pad mobile-full-pad flex flex-responsive center m-order-1 relative"
           >
-            <img
-              src="@/assets/img/tg_book_mockup_magazin_wsticker.png"
-              alt="Naslovnica T Magazina"
-            />
+            <div class="flex relative">
+              <img
+                src="@/assets/img/tg_book_cover_magazin.jpg"
+                alt="Naslovnica T Magazina"
+                class="t-magazine-cover"
+              />
+              <div class="highlight-sticker center flex-wrap left-top-sticker">
+                <span class="full center-text superbold">132</span
+                ><span class="full center-text">stranice</span>
+              </div>
+            </div>
           </div>
           <div class="fifth tablet-full flex flex-responsive center m-order-2">
             <div
