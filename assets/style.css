@@ -15918,6 +15918,16 @@ form#telemach-promo input[type=submit].newbtn {
     margin-top: 0px;
     padding-top: 0px;
 }
+.no-margin-book-quote img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.no-margin-book-quote p {
+    margin-top: 2.8rem;
+    margin-bottom: 3.2rem;
+}
 
 .form-group {
     margin-bottom: 1.2rem;
@@ -15947,4 +15957,13 @@ form#telemach-promo input[type=submit].newbtn {
     background-color: #ae3737;
     color: white;
     width: 100%;
+}
+@media screen and (max-width: 767px) {
+    .single-article.t-magazin h1.newbook-title-smaller {
+        font-size: 2.4rem;
+    }
+    .t-magazin .newbook-author {
+        font-family: 'Barlow', sans-serif;
+        font-size: 1.2rem;
+    }
 }

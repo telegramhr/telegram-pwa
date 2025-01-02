@@ -1,5 +1,5 @@
 <template>
-  <div class="main-container flex single-article reset-flex-order">
+  <div class="main-container flex single-article reset-flex-order t-magazin">
     <div class="full flex">
       <theader
         headline="T Magazin - Specijalno izdanje portala Telegram"
@@ -27,9 +27,11 @@
             </p>
           </div>
 
-          <div class="half tablet-full flex flex-responsive center m-order-1">
+          <div
+            class="half tablet-full column-full-pad mobile-vertical-pad flex flex-responsive center m-order-1 relative"
+          >
             <img
-              src="@/assets/img/tg_book_mockup_magazin.png"
+              src="@/assets/img/tg_book_mockup_magazin_wsticker.png"
               alt="Naslovnica T Magazina"
             />
           </div>
@@ -90,9 +92,8 @@
           </p>
           <p class="full center-text book-page-highlights column-bottom-pad">
             <b>NIKAD VIĐENI MIROSLAV KRLEŽA:</b> Nepoznati detalji iz života i
-            dosad neobjavljene fotografije, iz čuvene zbirke velikog novinara,
-            autora i Krležinog prijatelja Enesa Čengića + životni intervju
-            Silvane Čengić Voljevica, čuvarice obiteljske kulturne baštine
+            dosad neobjavljene fotografije, iz čuvene zbirke autora i Krležinog
+            prijatelja Enesa Čengića
           </p>
           <p class="full center-text book-page-highlights column-bottom-pad">
             <b>DOSJE BORAS:</b> Tajni nalaz inspekcije Sveučilišta u Zagrebu:
@@ -161,13 +162,6 @@
             JASENOVCU:</b
           >
           "Samo plitke neznalice kazat će da je film kontroverzan"
-        </p>
-        <p class="center-text bold">
-          Izdavač: Telegram Media Grupa<br />
-          Broj stranica: 132<br />
-          Godina izdanja: 2024.<br />
-          Dimenzije: A4<br />
-          Urednik: Miran Pavić <br />
         </p>
       </div>
     </div>
