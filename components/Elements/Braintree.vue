@@ -55,6 +55,7 @@
             placeholder="Ime i prezime"
             required
           />
+          <label for="email">Email</label>
           <input
             id="name"
             v-model="email"
