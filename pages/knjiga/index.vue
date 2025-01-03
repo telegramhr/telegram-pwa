@@ -17,15 +17,11 @@
         <h1 v-if="$mobile" class="full center-text">
           Telegramove hit knjige po posebnoj cijeni za pretplatnike.
         </h1>
-        <p class="full center-text pretplata-tagline desktop-only">
-          'Depra' Aleksandra Stankovića, 'Bili libar' i 'Bili Libar 2' Borisa
-          Dežulovića, 'O Zagrebu' Zrinke Paladino <br />i 'Neispričane priče'
-          Rajka Grlića, s besplatnom dostavom na kućnu adresu unutar Hrvatske.
-        </p>
-        <p class="full center-text pretplata-tagline mobile-only">
-          'Depra' Aleksandra Stankovića, 'Bili libar' i 'Bili Libar 2' Borisa
-          Dežulovića, 'O Zagrebu' Zrinke Paladino i 'Neispričane priče' Rajka
-          Grlića, s besplatnom dostavom na kućnu adresu unutar Hrvatske.
+        <p class="full center-text pretplata-tagline">
+          'Matija' Drage Hedla, 'Depra' Aleksandra Stankovića, 'Bili libar' i
+          'Bili Libar 2' Borisa Dežulovića, 'O Zagrebu' Zrinke Paladino i
+          'Neispričane priče' Rajka Grlića, s besplatnom dostavom na kućnu
+          adresu unutar Hrvatske.
         </p>
       </div>
     </div>
@@ -33,6 +29,29 @@
       <div
         class="container flex relative mobile-side-pad pretplata-packboxes smaller-booksel column-vertical-pad"
       >
+        <div class="half flex flex-responsive column-full-pad">
+          <app-link
+            to="/knjiga/drago-hedl-matija"
+            class="full flex knjiga-hero pretplata-packbox relative column-full-pad"
+          >
+            <div class="full flex knjiga-cover knjiga-cover-3d">
+              <img
+                src="@/assets/img/tg_book_mockup_hedl.png"
+                alt="Naslovnica knjige Drage Hedla 'Matija'"
+              />
+            </div>
+            <div class="full flex knjiga-features">
+              <div class="full relative center-text big-book-price bold">
+                Matija
+              </div>
+              <div class="nothfour full relative center-text">Drago Hedl</div>
+              <div class="nothfour full relative center-text bold">24,99€</div>
+              <div class="full center btn-parent">
+                <div class="btn animate">Pogledajte više</div>
+              </div>
+            </div>
+          </app-link>
+        </div>
         <div class="half flex flex-responsive column-full-pad">
           <app-link
             to="/knjiga/boris-dezulovic-bili-libar-2"
@@ -214,13 +233,13 @@ export default {
           hid: 'description',
           name: 'description',
           content:
-            'Depra Aleksandra Stankovića, Igla, pila, ravnalo Sanje Modrić, Bili libar Borisa Dežulovića, O Zagrebu Zrinke Paladino i Neispričane priče Rajka Grlića.',
+            'Matija Drage Hedla, Depra Aleksandra Stankovića, Igla, pila, ravnalo Sanje Modrić, Bili libar Borisa Dežulovića, O Zagrebu Zrinke Paladino i Neispričane priče Rajka Grlića.',
         },
         {
           hid: 'og:description',
           property: 'og:description',
           content:
-            'Depra Aleksandra Stankovića, Igla, pila, ravnalo Sanje Modrić, Bili libar Borisa Dežulovića, O Zagrebu Zrinke Paladino i Neispričane priče Rajka Grlića.',
+            'Matija Drage Hedla, Depra Aleksandra Stankovića, Igla, pila, ravnalo Sanje Modrić, Bili libar Borisa Dežulovića, O Zagrebu Zrinke Paladino i Neispričane priče Rajka Grlića.',
         },
         {
           hid: 'og:type',
@@ -236,8 +255,7 @@ export default {
           hid: 'og:image',
           name: 'og:image',
           property: 'og:image',
-          content:
-            'https://www.telegram.hr/img/tg_naslovna_2023_12_06_book.jpg',
+          content: 'https://www.telegram.hr/img/tg_share_books.jpg',
         },
         {
           hid: 'og:url',
