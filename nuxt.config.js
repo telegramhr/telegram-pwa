@@ -210,6 +210,10 @@ export default {
       target: 'https://pretplate.telegram.hr',
       pathRewrite: { '^/pretplate/': '' },
     },
+    '/pretplata': {
+      target: 'https://pretplata.telegram.hr',
+      pathRewrite: { '^/pretplata/': '' },
+    },
     '/gscripts': {
       target: 'https://script.google.com/macros/s/',
       pathRewrite: { '^/gscripts/([^?]*)(.*)': '$1/exec$2' },
