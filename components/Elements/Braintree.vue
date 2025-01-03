@@ -55,6 +55,14 @@
             placeholder="Ime i prezime"
             required
           />
+          <input
+            id="name"
+            v-model="email"
+            type="email"
+            name="email"
+            placeholder="Email"
+            required
+          />
           <label for="address">Adresa</label>
           <input
             id="address"
@@ -169,6 +177,7 @@ export default {
         this.$store.state.user.first_name +
         ' ' +
         this.$store.state.user.last_name,
+      email: this.$store.state.user.email,
       address: '',
       address2: '',
       city: '',
@@ -282,7 +291,7 @@ export default {
             amount: this.charge,
             nonce: payload.nonce,
             bin: payload.details.bin,
-            email: this.$store.state.user.email,
+            email: this.email,
             challengeRequested: true,
             billingAddress: {
               streetAddress: this.address,
@@ -332,7 +341,7 @@ export default {
               {
                 book: this.book,
                 name: this.name,
-                email: this.$store.state.user.email,
+                email: this.email,
                 uid: this.$store.state.user.uid,
                 shipping: {
                   name: this.name,

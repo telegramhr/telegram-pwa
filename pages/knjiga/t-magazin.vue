@@ -54,28 +54,8 @@
               Besplatna dostava po cijeloj Hrvatskoj
             </div>
             <div class="full center btn-parent newbook-btn mobile-bottom-pad">
-              <div
-                v-if="$store.state.user.email"
-                class="newbtn clickable huge-newbtn animate"
-                @click="buy"
-              >
+              <div class="newbtn clickable huge-newbtn animate" @click="buy">
                 {{ price ? 'Kupite' : 'Naručite' }}
-                <font-awesome-icon
-                  :icon="['fab', 'cc-visa']"
-                ></font-awesome-icon>
-                <font-awesome-icon
-                  :icon="['fab', 'cc-mastercard']"
-                ></font-awesome-icon>
-                <font-awesome-icon
-                  :icon="['fab', 'cc-diners-club']"
-                ></font-awesome-icon>
-              </div>
-              <div
-                v-else
-                class="newbtn clickable huge-newbtn animate"
-                @click="login"
-              >
-                Kupite
                 <font-awesome-icon
                   :icon="['fab', 'cc-visa']"
                 ></font-awesome-icon>
@@ -214,9 +194,6 @@ export default {
     },
     close() {
       this.showModal = false
-    },
-    login() {
-      this.$store.dispatch('user/login')
     },
   },
   head() {

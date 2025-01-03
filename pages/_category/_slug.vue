@@ -15,6 +15,7 @@
         :post="post"
       ></theader>
       <client-only>
+        <breaking></breaking>
         <hometop-simple></hometop-simple>
         <hometop-bf></hometop-bf>
       </client-only>
