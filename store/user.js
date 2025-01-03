@@ -203,7 +203,7 @@ export const actions = {
         const data = new FormData()
         data.append('email', payload.email)
         this.$axios
-          .post('https://pretplata.telegram.hr//api/v2/users/email', data, {
+          .post('https://pretplata.telegram.hr/api/v2/users/email', data, {
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded',
             },

@@ -1,5 +1,5 @@
 export default ({ app, store, route }) => {
-  if (store.state.user.access !== 'BR92VTWM') {
+  if (!store.getters['user/hasPremium']) {
     // adsense
     const s = document.createElement('script')
     s.src =
