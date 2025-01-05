@@ -19,10 +19,6 @@ export default {
       { name: 'twitter:dnt', content: 'on' },
       { name: 'twitter:widgets:csp', content: 'on' },
       { property: 'fb:pages', content: '688325737947866' },
-      {
-        name: 'google-site-verification',
-        content: 'Laeir-LCi9jxATGNiq0pzM6SKn0DeAWNa5f_vsvYKdA',
-      },
     ],
     link: [
       { hid: 'canonical', rel: 'canonical', href: 'https://www.telegram.hr/' },
@@ -37,35 +33,12 @@ export default {
     ],
     script: [
       {
-        vmid: 'recaptcha',
-        src: 'https://www.google.com/recaptcha/api.js?render=6Le4Y0caAAAAAI_E2k1sgXvWuXR8cViLC-iJIpEq',
-      },
-      {
-        vmid: 'recaptcha-inner',
-        hid: 'recaptcha-inner',
-        innerHTML:
-          "grecaptcha.ready(function() { grecaptcha.execute('6Le4Y0caAAAAAI_E2k1sgXvWuXR8cViLC-iJIpEq', {action: 'homepage'}).then(function(token) {}); });",
-      },
-      {
-        hid: 'piano',
-        src: 'https://cdn.tinypass.com/api/tinypass.min.js',
-        async: true,
-      },
-      {
-        hid: 'cxense',
-        src: 'https://cdn.cxense.com/cx.cce.js',
-        async: true,
-      },
-      {
         hid: 'coral',
         src: 'https://talk.telegram.hr/assets/js/embed.js',
         async: false,
         defer: true,
       },
     ],
-    __dangerouslyDisableSanitizersByTagID: {
-      'recaptcha-inner': ['innerHTML'],
-    },
   },
 
   router: {
