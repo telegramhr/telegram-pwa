@@ -3,6 +3,7 @@
     <transition name="fade">
       <div
         v-show="!shouldHide"
+        id="telegram_sticky_back"
         :class="[
           'flex',
           'full',
@@ -79,8 +80,12 @@ export default {
   },
   mounted() {
     window.addEventListener('tmg_no_close', (e) => {
-      console.log('no close')
       this.showClose = false
+    })
+    document.addEventListener('click', (e) => {
+      if (e.target.id === 'telegram_sticky_back') {
+        this.close()
+      }
     })
     this.$watch(
       () => this.$route.path,
