@@ -57,10 +57,6 @@ export const actions = {
   setUser({ commit, dispatch }, data) {
     return new Promise((resolve) => {
       commit('setUser', data)
-      window.tp.api.callApi('/access/list', {}, function (response) {
-        dispatch('setAccess', { data: response.data, user: data.user })
-        resolve()
-      })
     })
   },
   getCoralToken({ commit, state }) {

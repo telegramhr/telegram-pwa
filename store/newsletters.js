@@ -78,17 +78,7 @@ export const actions = {
     })
   },
   subscribe({ rootState, commit, state, dispatch }, payload) {
-    if (!rootState.user.email) {
-      // no user, prompt to login
-      window.tp.pianoId.show({
-        screen: 'register',
-        width: window.innerWidth > 720 ? 600 : 375,
-        loggedIn(data) {
-          dispatch('user/setUser', data.user, { root: true })
-          dispatch('subscribe', payload)
-        },
-      })
-    } else if (payload.free || rootState.user.access) {
+    if (payload.free || rootState.user.access) {
       this.$axios
         .post('/subs/', {
           email: rootState.user.email,

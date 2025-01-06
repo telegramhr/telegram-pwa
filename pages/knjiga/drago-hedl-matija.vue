@@ -41,10 +41,7 @@
               Besplatna dostava po cijeloj Hrvatskoj
             </div>
             <div class="full center btn-parent newbook-btn mobile-bottom-pad">
-              <div
-                class="newbtn clickable huge-newbtn animate"
-                @click="buy"
-              >
+              <div class="newbtn clickable huge-newbtn animate" @click="buy">
                 {{ price ? 'Kupite' : 'Naručite' }}
                 <font-awesome-icon
                   :icon="['fab', 'cc-visa']"

@@ -375,7 +375,6 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.$store.dispatch('ads/initAds', { route: this.$route })
-      window.tp.push(['setCustomVariable', 'isPaywall', 'never'])
     })
   },
   head() {
