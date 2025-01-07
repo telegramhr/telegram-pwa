@@ -18,7 +18,6 @@
 
 <script>
 export default {
-  middleware: 'piano',
   head() {
     let font, theme, premium
     if (process.server) {
