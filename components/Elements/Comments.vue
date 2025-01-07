@@ -28,7 +28,6 @@ export default {
         events.onAny((eventName, data) => {
           if (
             eventName === 'showAuthPopup' ||
-            eventName === 'loginPrompt' ||
             (eventName === 'createCommentFocus' && !this.$store.state.user.uid)
           ) {
             this.$store.dispatch('user/login')
