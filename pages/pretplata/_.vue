@@ -876,16 +876,6 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.promo_code = this.$route.query.promo_code
-      window.tp.push([
-        'addHandler',
-        'checkoutComplete',
-        function (conversion) {
-          if (conversion.rid === '') {
-            this.$store.commit('user/setTerm', true)
-          }
-        },
-      ])
-
       if (this.$route.query.checkout) {
         switch (this.$route.query.checkout) {
           case 'sm':
@@ -921,7 +911,7 @@ export default {
       return this.$store.state.user.exp * 1000 < new Date().getTime()
     },
     checkout(termId, upgrade) {
-      this.$piano.start(termId)
+      // this.$piano.start(termId)
     },
   },
   head() {
