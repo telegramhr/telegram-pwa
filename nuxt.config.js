@@ -187,16 +187,13 @@ export default {
       target: 'https://pretplata.telegram.hr',
       pathRewrite: { '^/pretplata/': '' },
     },
+    '/mailer': {
+      target: 'https://mailer.telegram.hr',
+      pathRewrite: { '^/mailer/': '' },
+    },
     '/gscripts': {
       target: 'https://script.google.com/macros/s/',
       pathRewrite: { '^/gscripts/([^?]*)(.*)': '$1/exec$2' },
-    },
-    '/subs': {
-      target: 'https://api-esp.piano.io/tracker/securesub/',
-      pathRewrite: {
-        '^/subs/(.*)':
-          '$1?api_key=V2rR5WTQbQyHEqCMvFEaUGU3ZNVkt4s6hnvmCz9dXt9aUwzMaUmXAhVzmv83',
-      },
     },
   },
 

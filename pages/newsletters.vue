@@ -47,7 +47,7 @@
                 odlaze ministri i objašnjavaju kontekst dnevnih događaja.
               </p>
               <subscribe-button
-                :mlid="2128"
+                mlid="dnevni"
                 title="Dnevni Telegram"
               ></subscribe-button>
             </div>
@@ -75,7 +75,7 @@
                 kako ne biste propustili nešto važno.
               </p>
               <subscribe-button
-                :mlid="2554"
+                mlid="Možda ste propustili"
                 title="Možda ste propustili"
               ></subscribe-button>
             </div>
@@ -105,7 +105,7 @@
                 štivo tijekom vikenda.
               </p>
               <subscribe-button
-                :mlid="2555"
+                mlid="Vikend na Telegramu"
                 title="Vikend na Telegramu"
               ></subscribe-button>
             </div>
@@ -150,7 +150,7 @@
                     društvene pojave.
                   </p>
                   <subscribe-button
-                    :mlid="2560"
+                    mlid="Sanja Modrić"
                     :free="false"
                     title="Sanja Modrić"
                   ></subscribe-button>
@@ -181,7 +181,7 @@
                     uvidom u stvarne odnose i agende.
                   </p>
                   <subscribe-button
-                    :mlid="2596"
+                    mlid="Jasmin Klarić"
                     :free="false"
                     title="Jasmin Klarić"
                   ></subscribe-button>
@@ -212,7 +212,7 @@
                     HSLS-a i poduzetnika.
                   </p>
                   <subscribe-button
-                    :mlid="2559"
+                    mlid="Goranko Fižulić"
                     :free="false"
                     title="Goranko Fižulić"
                   ></subscribe-button>
@@ -244,7 +244,7 @@
                     politike.
                   </p>
                   <subscribe-button
-                    :mlid="2561"
+                    mlid="Đivo Đurović"
                     :free="false"
                     title="Đivo Đurović"
                   ></subscribe-button>
@@ -274,7 +274,7 @@
                     komentira politička, kulturna i društvena zbivanja.
                   </p>
                   <subscribe-button
-                    :mlid="2563"
+                    mlid="Dragan Markovina"
                     :free="false"
                     title="Dragan Markovina"
                   ></subscribe-button>
@@ -317,7 +317,7 @@
                     svakodnevno otkriva nove afere moćnika.
                   </p>
                   <subscribe-button
-                    :mlid="2564"
+                    mlid="Drago Hedl"
                     :free="false"
                     title="Drago Hedl"
                   ></subscribe-button>
@@ -347,71 +347,9 @@
                     donosi istraživačke serijale i ljudske sudbine
                   </p>
                   <subscribe-button
-                    :mlid="9962"
+                    mlid="Silvana Menđušić"
                     :free="false"
                     title="Silvana Menđušić"
-                  ></subscribe-button>
-                </div>
-              </div>
-            </div>
-            <div class="third flex-responsive column-full-pad flex stretch">
-              <div class="full newsletter-listing flex relative stretch">
-                <div class="full flex newsletter-header">
-                  <div class="newsletter-avatar">
-                    <img
-                      src="https://www.telegram.hr/wp-content/uploads/2017/09/ana_raic_3.png"
-                      aria-hidden="true"
-                    />
-                  </div>
-                  <div class="full relative">
-                    <div class="noththree full overtitle">Redovito</div>
-                    <h2 class="full newsletter-title">Ana Raić Knežević</h2>
-                    <div class="noththree full subtitle">
-                      Puni članci autora
-                    </div>
-                  </div>
-                </div>
-                <div class="full flex newsletter-box">
-                  <p class="full newsletter-intro">
-                    Telegramova novinarka za crnu kroniku, kriminal i korupciju,
-                    s ekskluzivnim informacijama i istraživačkim radom koji
-                    događajima daje puni kontekst.
-                  </p>
-                  <subscribe-button
-                    :mlid="2565"
-                    :free="false"
-                    title="Ana Raić Knežević"
-                  ></subscribe-button>
-                </div>
-              </div>
-            </div>
-            <div class="third flex-responsive column-full-pad flex stretch">
-              <div class="full newsletter-listing flex relative stretch">
-                <div class="full flex newsletter-header">
-                  <div class="newsletter-avatar">
-                    <img
-                      src="https://www.telegram.hr/wp-content/uploads/2019/01/tg-andrej.png"
-                      aria-hidden="true"
-                    />
-                  </div>
-                  <div class="full relative">
-                    <div class="noththree full overtitle">Redovito</div>
-                    <h2 class="full newsletter-title">Andrej Dimitrijević</h2>
-                    <div class="noththree full subtitle">
-                      Puni članci autora
-                    </div>
-                  </div>
-                </div>
-                <div class="full flex newsletter-box">
-                  <p class="full newsletter-intro">
-                    Proglašen HND-ovim istraživačkim i internetskim novinarom
-                    godine zbog serijala o imovini ministara Kuščevića i
-                    Kujundžića, marljivo kopa afere.
-                  </p>
-                  <subscribe-button
-                    :mlid="2597"
-                    :free="false"
-                    title="Andrej Dimitrijević"
                   ></subscribe-button>
                 </div>
               </div>
@@ -441,7 +379,7 @@
                     Geodetskom fakultetu.
                   </p>
                   <subscribe-button
-                    :mlid="2566"
+                    mlid="Dora Kršul"
                     :free="false"
                     title="Dora Kršul"
                   ></subscribe-button>
@@ -472,7 +410,7 @@
                     o filmu, društvu, obitelji i gastronomiji.
                   </p>
                   <subscribe-button
-                    :mlid="2642"
+                    mlid="Rajko Grlić"
                     :free="false"
                     title="Rajko Grlić"
                   ></subscribe-button>
@@ -503,7 +441,7 @@
                     politike.
                   </p>
                   <subscribe-button
-                    :mlid="2599"
+                    mlid="Zrinka Paladino"
                     :free="false"
                     title="Zrinka Paladino"
                   ></subscribe-button>
@@ -534,7 +472,7 @@
                     velike životne priče, intervjue, vijesti i analize.
                   </p>
                   <subscribe-button
-                    :mlid="2567"
+                    mlid="Mladen Pleše"
                     :free="false"
                     title="Mladen Pleše"
                   ></subscribe-button>
@@ -567,7 +505,7 @@
                     donosi dubinske analize i priče.
                   </p>
                   <subscribe-button
-                    :mlid="2568"
+                    mlid="Irena Frlan Gašparović"
                     :free="false"
                     title="Irena Frlan Gašparović"
                   ></subscribe-button>
@@ -598,7 +536,7 @@
                     recenzije, intervjue, najave i analize.
                   </p>
                   <subscribe-button
-                    :mlid="2600"
+                    mlid="Davor Špišić"
                     :free="false"
                     title="Davor Špišić"
                   ></subscribe-button>
@@ -639,7 +577,7 @@
                   & kriminal.
                 </p>
                 <subscribe-button
-                  :mlid="2626"
+                  mlid="Politika i Kriminal"
                   title="Politika & Kriminal"
                 ></subscribe-button>
               </div>
@@ -666,7 +604,7 @@
                   kolumni.
                 </p>
                 <subscribe-button
-                  :mlid="2627"
+                  mlid="Komentari"
                   title="Komentari"
                 ></subscribe-button>
               </div>
@@ -693,7 +631,7 @@
                   tech.
                 </p>
                 <subscribe-button
-                  :mlid="2628"
+                  mlid="Biznis & Tech"
                   title="Biznis & Tech"
                 ></subscribe-button>
               </div>
@@ -718,7 +656,7 @@
                 <p class="full newsletter-intro">
                   Tjedni odabir najboljih Telegramovih priča iz rubrike Život.
                 </p>
-                <subscribe-button :mlid="2629" title="Život"></subscribe-button>
+                <subscribe-button mlid="Život" title="Život"></subscribe-button>
               </div>
             </div>
           </div>
@@ -745,7 +683,7 @@
                   priče.
                 </p>
                 <subscribe-button
-                  :mlid="2630"
+                  mlid="Velike priče"
                   :free="false"
                   title="Velike priče"
                 ></subscribe-button>

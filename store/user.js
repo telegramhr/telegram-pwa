@@ -1,4 +1,5 @@
 export const state = () => ({
+  id: 0,
   uid: '',
   first_name: '',
   last_name: '',
@@ -16,6 +17,7 @@ export const state = () => ({
 
 export const mutations = {
   setUser(state, data) {
+    state.id = data.user.id
     state.first_name = data.user.first_name
     state.last_name = data.user.last_name
     state.email = data.user.email
@@ -24,6 +26,7 @@ export const mutations = {
     state.token = data.access.token
   },
   logout(state) {
+    state.id = 0
     state.uid = 0
     state.first_name = ''
     state.last_name = ''
