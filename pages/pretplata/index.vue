@@ -1178,7 +1178,7 @@ export default {
           },
         })
         .then(() => {
-          window.location.href = 'https://www.telegram.hr/pretplata/dobrodosli'
+          this.$router.push('/pretplata/dobrodosli')
         })
         .catch((err) => {
           console.log(err)
