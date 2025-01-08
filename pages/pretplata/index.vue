@@ -202,7 +202,7 @@
                           type="radio"
                           name="pretplata-placanje"
                           class="hide"
-                          value="braintree_recurrent_default"
+                          value="braintree_default_recurrent"
                         />
                         <label
                           for="pretplata-kartica"
@@ -352,7 +352,7 @@
                     </div>
                     <div class="half flex flex-responsive remp-miniboxes">
                       <div
-                        v-if="payment === 'braintree_recurrent_default'"
+                        v-if="payment === 'braintree_default_recurrent'"
                         id="pretplata-kartica-broj"
                         class="full flex relative"
                       >
@@ -995,7 +995,7 @@ export default {
   data() {
     return {
       show_msg: '',
-      payment: 'braintree_recurrent_default',
+      payment: 'braintree_default_recurrent',
       pack: null,
       term: 'pretplata-godisnje',
       promo_code: '',
