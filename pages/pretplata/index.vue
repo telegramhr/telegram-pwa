@@ -244,12 +244,12 @@
                       </div>
                     </div>
                   </div>
-                  <p v-if="loggedIn" class="full bold remp-subtitle faded">
+                  <p v-show="loggedIn" class="full bold remp-subtitle faded">
                     4) Unesite podatke
                   </p>
                   <div id="login" class="full flex relative remp-halfpad">
                     <div class="half flex flex-responsive remp-miniboxes">
-                      <template v-if="!loggedIn">
+                      <template v-show="!loggedIn">
                         <input
                           id="pretplata-email"
                           v-model="email"
