@@ -124,7 +124,7 @@ export const actions = {
       return
     }
     this.$axios
-      .$get('/pretplata/api/v1/users/subscriptions', {
+      .$get('/crm/api/v1/users/subscriptions', {
         headers: {
           Authorization: `Bearer ${state.token}`,
         },
@@ -163,7 +163,7 @@ export const actions = {
     data.append('password', payload.password)
     data.append('source', 'api')
     this.$axios
-      .$post('/pretplata/api/v1/users/login', data, {
+      .$post('/crm/api/v1/users/login', data, {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
@@ -202,7 +202,7 @@ export const actions = {
         const data = new FormData()
         data.append('email', payload.email)
         this.$axios
-          .post('/pretplata/api/v2/users/email', data, {
+          .post('/crm/api/v2/users/email', data, {
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded',
             },
@@ -213,7 +213,7 @@ export const actions = {
               data2.append('user_id', res.data.id)
               data2.append('password', payload.password)
               this.$axios
-                .post('/pretplata/api/v1/users/update', data2, {
+                .post('/crm/api/v1/users/update', data2, {
                   headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                     Authorization: `Bearer ff4a16187c0fc0cc0267b95410c4f55a`,

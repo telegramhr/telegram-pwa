@@ -13,270 +13,379 @@
         <div
           class="container relative flex mobile-side-pad stretch column-full-pad"
         >
-          <h1 class="full center-text">
-            Poštovani, kupovina je trenutno isključena zbog migracije sustava za
-            pretplatu. Hvala na razumijevanju.
-          </h1>
-        </div>
-        <!--  <h1 class="full center-text">Nekad je nužno odabrati stranu</h1>
-          <p class="full center-text pretplata-tagline">
-            Pretplatite se i podržite naše bespoštedno novinarstvo.
-          </p>
-          <div class="full flex center column-top-pad">
-            <div class="full column-full-pad darkened-bg pretplata-page-promo">
-              <div class="full center-text barlow">
-                Vremenski ograničena ponuda: <b>prvi mjesec GRATIS!</b>
+          <div class="full flex remp-pretplata">
+            <div class="full flex relative">
+              <div class="full flex">
+                <div
+                  class="container relative flex pretplata-packs mobile-side-pad column-horizontal-pad"
+                >
+                  <p class="full bold remp-subtitle faded">
+                    1) Odaberite pretplatu
+                  </p>
+                  <div
+                    class="full flex center pretplata-packboxes remp-halfpad"
+                  >
+                    <div
+                      class="half flex-responsive flex relative stretch mobile-bottom-pad"
+                    >
+                      <input
+                        id="pretplata-standard"
+                        v-model="pack"
+                        type="radio"
+                        value="pretplata-standard"
+                        name="pretplata-paket"
+                        class="hide"
+                      />
+                      <label
+                        for="pretplata-standard"
+                        class="full flex relative pretplata-packbox animate clickable"
+                      >
+                        <div class="full flex mobile-third relative">
+                          <div class="full flex overtitle-parent">
+                            <div class="noththree overtitle">Standard</div>
+                          </div>
+                          <div class="full sub-price bold">7,99€</div>
+                          <div class="nothfour full center-text undertitle">
+                            Mjesečno
+                          </div>
+                        </div>
+                        <div class="full pretplata-benefits mobile-two-thirds">
+                          <p class="full animate">
+                            <i class="fa-solid fa-check"></i>
+                            neograničeno čitanje Telegrama
+                          </p>
+                          <p class="full animate">
+                            <i class="fa-solid fa-check"></i>
+                            posebni popusti i pogodnosti
+                          </p>
+                          <p class="full animate">
+                            <i class="fa-solid fa-check"></i>
+                            specijalni newsletteri
+                          </p>
+                          <p class="full animate">
+                            <i class="fa-solid fa-check"></i>
+                            surfanje s manje oglasa
+                          </p>
+                        </div>
+                        <div class="full center btn-parent">
+                          <div class="btn animate">
+                            <span class="input-reverse">Odaberi</span
+                            ><span class="input-expand">Odabrano</span>
+                          </div>
+                        </div>
+                      </label>
+                    </div>
+                    <div
+                      class="half flex-responsive flex relative stretch mobile-bottom-pad"
+                    >
+                      <input
+                        id="pretplata-premium"
+                        v-model="pack"
+                        type="radio"
+                        name="pretplata-paket"
+                        class="hide"
+                        value="pretplata-premium"
+                      />
+                      <label
+                        for="pretplata-premium"
+                        class="full flex relative pretplata-packbox animate clickable"
+                      >
+                        <div class="full flex mobile-third relative">
+                          <div class="full flex overtitle-parent">
+                            <div class="noththree overtitle">
+                              Premium <span class="ib">(bez oglasa)</span>
+                            </div>
+                          </div>
+                          <div class="full sub-price bold">9,99€</div>
+                          <div class="nothfour full center-text undertitle">
+                            Mjesečno
+                          </div>
+                        </div>
+                        <div class="full pretplata-benefits mobile-two-thirds">
+                          <p class="full animate">
+                            <i class="fa-solid fa-check"></i>
+                            neograničeno čitanje Telegrama
+                          </p>
+                          <p class="full animate">
+                            <i class="fa-solid fa-check"></i>
+                            neograničeno čitanje Telesporta
+                          </p>
+                          <p class="full animate">
+                            <i class="fa-solid fa-check"></i>
+                            posebni popusti i pogodnosti
+                          </p>
+                          <p class="full animate">
+                            <i class="fa-solid fa-check"></i>
+                            specijalni newsletteri
+                          </p>
+                          <p class="full animate">
+                            <i class="fa-solid fa-check"></i>
+                            surfanje bez oglasa
+                          </p>
+                        </div>
+                        <div class="full center btn-parent">
+                          <div class="btn animate">
+                            <span class="input-reverse">Odaberi</span
+                            ><span class="input-expand">Odabrano</span>
+                          </div>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    class="full flex relative remp-halfpad pretplata-packboxes"
+                  >
+                    <div class="half flex flex-responsive remp-miniboxes">
+                      <p class="full remp-subtitle bold faded">
+                        2) Odaberite trajanje pretplate
+                      </p>
+                      <div class="full relative flex">
+                        <input
+                          id="pretplata-godisnje"
+                          v-model="term"
+                          type="radio"
+                          name="pretplata-termin"
+                          class="hide"
+                          value="pretplata-godisnje"
+                        />
+                        <label
+                          for="pretplata-godisnje"
+                          class="full center relative remp-minibox animate clickable"
+                        >
+                          <div class="remp-radio-indicator center">
+                            <div></div>
+                          </div>
+                          <div class="full">
+                            Godišnje
+                            <span class="highlight-text">20% popusta</span>
+                          </div>
+                          <div class="full remp-special-note">
+                            {{ interimYearPrice }}€ za godinu dana unaprijed
+                          </div>
+                        </label>
+                      </div>
+                      <div class="full relative flex">
+                        <input
+                          id="pretplata-mjesecno"
+                          v-model="term"
+                          type="radio"
+                          name="pretplata-termin"
+                          class="hide"
+                          value="pretplata-mjesecno"
+                        />
+                        <label
+                          for="pretplata-mjesecno"
+                          class="full flex relative remp-minibox animate clickable"
+                        >
+                          <div class="remp-radio-indicator center">
+                            <div></div>
+                          </div>
+                          <div class="full">Mjesečno</div>
+                          <div class="full remp-special-note">
+                            {{ interimMonthPrice }}€/mj, možete otkazati kad god
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="half flex flex-responsive remp-miniboxes">
+                      <div class="full relative flex">
+                        <p class="full bold remp-subtitle faded">
+                          3) Odaberite način plaćanja
+                        </p>
+                        <input
+                          id="pretplata-kartica"
+                          v-model="payment"
+                          type="radio"
+                          name="pretplata-placanje"
+                          class="hide"
+                          value="braintree_recurrent_default"
+                        />
+                        <label
+                          for="pretplata-kartica"
+                          class="full flex relative remp-minibox animate clickable"
+                        >
+                          <div class="remp-radio-indicator center">
+                            <div></div>
+                          </div>
+                          <div>Kartica</div>
+                          <div class="flex remp-icon-list">
+                            <i class="fa-brands fa-cc-visa"></i>
+                            <i class="fa-brands fa-cc-mastercard"></i>
+                            <i class="fa-brands fa-cc-diners-club"></i>
+                          </div>
+                          <div class="full remp-special-note">
+                            Visa, Mastercard ili Diners
+                          </div>
+                        </label>
+                      </div>
+                      <div class="full relative flex">
+                        <input
+                          id="pretplata-uplata"
+                          v-model="payment"
+                          type="radio"
+                          name="pretplata-placanje"
+                          class="hide"
+                          value="pretplata-uplata"
+                        />
+                        <!--<label
+                          for="pretplata-uplata"
+                          class="full flex relative remp-minibox animate clickable"
+                        >
+                          <div class="remp-radio-indicator center"><div></div></div>
+                          <div class="full">Bankovna uplata</div>
+                          <div class="full remp-special-note">
+                            Izdat ćemo vam uplatnicu
+                          </div>
+                        </label>-->
+                      </div>
+                    </div>
+                  </div>
+                  <p class="full bold remp-subtitle faded">
+                    4) Unesite podatke
+                  </p>
+                  <div id="login" class="full flex relative remp-halfpad">
+                    <div class="half flex flex-responsive remp-miniboxes">
+                      <template v-if="!loggedIn">
+                        <input
+                          id="pretplata-email"
+                          v-model="email"
+                          type="text"
+                          class="full remp-new-input"
+                          placeholder="Upišite email"
+                          name="email"
+                        />
+                        <input
+                          v-if="showPassword"
+                          id="pretplata-password"
+                          v-model="password"
+                          type="password"
+                          class="full remp-new-input"
+                          placeholder="Upišite lozinku"
+                          name="password"
+                        />
+                        <p class="full remp-mini-text center-text faded">ili</p>
+                        <div class="full flex relative">
+                          <div
+                            v-show="false"
+                            class="half flex column-mini-right-pad"
+                          >
+                            <div class="full center remp-social-logbtn animate">
+                              <i class="fa-brands fa-google"></i>
+                              Google
+                            </div>
+                          </div>
+                          <div class="half flex column-mini-left-pad">
+                            <a
+                              href="https://pretplata.telegram.hr/social-login/social-sign/sign?social_provider_key=facebook&success_login_url=%3AApplication%3ADefault%3Adefault"
+                              class="full center remp-social-logbtn animate"
+                            >
+                              <i class="fa-brands fa-facebook-f"></i>
+                              Facebook
+                            </a>
+                          </div>
+                          <p class="full remp-mini-text center-text faded hide">
+                            Privremeno ćemo vas preusmjeriti na stranicu
+                            odabranog davatelja usluga kako bi povezali račune.
+                          </p>
+                        </div>
+                      </template>
+                      <template v-else>
+                        <p class="full remp-mini-text center-text faded">
+                          Prijavljeni ste kao {{ email }}
+                        </p>
+                      </template>
+                      <div
+                        class="full flex column-top-pad mobile-bottom-pad mobile-top-pad"
+                      >
+                        <input
+                          id="terms"
+                          v-model="terms"
+                          type="checkbox"
+                          class="cbx"
+                          name="terms"
+                        />
+                        <label for="terms" class="check flex full">
+                          <svg width="18px" height="18px" viewBox="0 0 18 18">
+                            <path
+                              d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
+                            ></path>
+                            <polyline points="1 9 7 14 15 4"></polyline>
+                          </svg>
+                          <span
+                            >Prihvaćam
+                            <a
+                              target="_blank"
+                              href="https://www.telegram.hr/stranica/uvjeti-koristenja/"
+                              class="highlight-text"
+                              >uvjete korištenja</a
+                            ></span
+                          >
+                        </label>
+                      </div>
+                    </div>
+                    <div class="half flex flex-responsive remp-miniboxes">
+                      <div
+                        v-if="payment === 'braintree_recurrent_default'"
+                        id="pretplata-kartica-broj"
+                        class="full flex relative"
+                      >
+                        <div id="dropin-container" class="full"></div>
+                        <p class="full remp-mini-text center-text faded hide">
+                          Vaši podaci za plaćanje biti će enkriptirani i sigurno
+                          spremljeni po najvišim sigurnosnim standardima.
+                        </p>
+                      </div>
+                      <div
+                        v-if="payment === 'pretplata-uplata'"
+                        class="full flex relative"
+                      >
+                        <p class="full smaller-text faded">
+                          Tekst za bankovnu uplatu.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="full flex relative column-top-pad mobile-top-pad">
+                    <div class="full flex">
+                      <div
+                        v-if="pack === null"
+                        class="full newbtn huge-newbtn center-text clickable locked-newbtn"
+                      >
+                        Odaberite pretplatu
+                      </div>
+                      <div
+                        v-if="pack && !dropin"
+                        class="full newbtn huge-newbtn center-text clickable locked-newbtn"
+                        @click="submit"
+                      >
+                        Popunite podatke kartice
+                      </div>
+                      <div
+                        v-if="pack && email && dropin"
+                        class="full newbtn huge-newbtn center-text clickable green-newbtn"
+                        @click="submit"
+                      >
+                        Dovršite kupnju
+                        <span v-if="term != null && pack != null">
+                          za {{ totalPrice }}€
+                        </span>
+                      </div>
+                    </div>
+                    <div
+                      v-if="show_msg == 'error-not-finished'"
+                      class="full remp-final-calc highlight-text column-mini-top-pad column-mini-bottom-pad center-text bold"
+                    >
+                      Ispunite sve korake kako bi dovršili kupnju.
+                    </div>
+                    <p class="full remp-mini-text center-text faded">
+                      Pretplatu možete otkazati u bilo kojem trenutku.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="full flex">
-          <div class="container relative flex pretplata-packs mobile-side-pad">
-            <input
-              id="yeartoggle"
-              type="checkbox"
-              class="yeartoggle"
-              name="yeartoggle"
-            />
-            <div class="full center yeartoggle-parent">
-              <label class="relative">
-                <div
-                  class="best-price-sticker green-sticker animate"
-                  onclick="document.getElementById('yeartoggle').checked = true;"
-                >
-                  Uštedite <br />24%
-                </div>
-                <div
-                  class="togglemonth"
-                  onclick="document.getElementById('yeartoggle').checked = false;"
-                >
-                  Mjesečno
-                </div>
-                <div
-                  class="toggleyear"
-                  onclick="document.getElementById('yeartoggle').checked = true;"
-                >
-                  Godišnje
-                </div>
-              </label>
-            </div>
-            <div class="full flex center pretplata-packboxes">
-              <div
-                class="half flex-responsive flex relative pretplata-packbox packbox-promo-pad stretch"
-              >
-                <div
-                  class="packbox-top-promo full center-text bold barlow darkened-bg"
-                >
-                  Prvi mjesec gratis
-                </div>
-                <div class="full flex overtitle-parent">
-                  <div class="noththree overtitle">Standard</div>
-                </div>
-                <div class="full sub-price bold">7,99€</div>
-                <div class="nothfour full center-text undertitle">
-                  svaka 4 tjedna<br />nakon besplatnog mjeseca
-                </div>
-                <div class="full pretplata-benefits">
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    neograničeno čitanje Telegrama
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    posebni popusti i pogodnosti
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    specijalni newsletteri
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    verificirani profil u komentarima
-                  </p>
-                </div>
-                <div class="full center btn-parent" @click="checkout(one)">
-                  <div class="btn animate">Odaberi</div>
-                </div>
-              </div>
-              <div
-                class="half flex-responsive flex relative pretplata-packbox packbox-promo-pad stretch"
-              >
-                <div
-                  class="packbox-top-promo full center-text bold barlow darkened-bg"
-                >
-                  Prvi mjesec gratis
-                </div>
-                <div class="full flex overtitle-parent">
-                  <div class="noththree overtitle">Premium</div>
-                </div>
-                <div class="full sub-price bold">9,99€</div>
-                <div class="nothfour full center-text undertitle">
-                  svaka 4 tjedna<br />nakon besplatnog mjeseca
-                </div>
-                <div class="full pretplata-benefits">
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    neograničeno čitanje Telegrama
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    neograničeno čitanje Telesporta
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    posebni popusti i pogodnosti
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    specijalni newsletteri
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    verificirani profil u komentarima
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    surfanje bez oglasa
-                  </p>
-                </div>
-                <div class="full center btn-parent" @click="checkout(two)">
-                  <div class="btn animate">Odaberi</div>
-                </div>
-              </div>
-              <div
-                class="half flex-responsive flex relative pretplata-packbox packbox-promo-pad stretch"
-              >
-                <div
-                  class="packbox-top-promo full center-text bold barlow darkened-bg"
-                >
-                  13 mjeseci umjesto 12
-                </div>
-                <div class="full flex overtitle-parent">
-                  <div class="noththree overtitle">Standard</div>
-                </div>
-                <div class="full sub-price bold">79€</div>
-                <div class="nothfour full center-text undertitle">godišnje</div>
-                <div class="full pretplata-benefits">
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    neograničeno čitanje Telegrama
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    posebni popusti i pogodnosti
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    specijalni newsletteri
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    verificirani profil u komentarima
-                  </p>
-                </div>
-                <div class="full center btn-parent" @click="checkout(three)">
-                  <div class="btn animate">Odaberi</div>
-                </div>
-              </div>
-              <div
-                class="half flex-responsive flex relative pretplata-packbox packbox-promo-pad stretch"
-              >
-                <div
-                  class="packbox-top-promo full center-text bold barlow darkened-bg"
-                >
-                  13 mjeseci umjesto 12
-                </div>
-                <div class="full flex overtitle-parent">
-                  <div class="noththree overtitle">Premium</div>
-                </div>
-                <div class="full sub-price bold">99€</div>
-                <div class="nothfour full center-text undertitle">godišnje</div>
-                <div class="full pretplata-benefits">
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    neograničeno čitanje Telegrama
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    neograničeno čitanje Telesporta
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    posebni popusti i pogodnosti
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    specijalni newsletteri
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    verificirani profil u komentarima
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    surfanje bez oglasa
-                  </p>
-                </div>
-                <div class="full center btn-parent" @click="checkout(four)">
-                  <div class="btn animate">Odaberi</div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="full center flex-wrap column-full-pad column-top-margin column-bottom-margin mobile-full-pad"
-            >
-              <p class="full center-text column-mini-bottom-pad">
-                Predstavljate poduzeće? Iskoristite posebnu ponudu s popustom na
-                količinu
-              </p>
-              <app-link
-                to="/pretplata/b2b/"
-                class="newbtn huge-newbtn altbtn animate center-text"
-                >Pretplata za poslovne korisnike</app-link
-              >
-            </div>
-          </div>
-        </div>-->
       </div>
     </div>
     <!-- Klub widget -->
@@ -852,30 +961,228 @@
 </template>
 
 <script>
+/* global braintree */
+import { useDebounceFn } from '@vueuse/core'
 export default {
   name: 'Pretplata',
   data() {
     return {
+      show_msg: '',
+      payment: null,
+      pack: null,
+      term: 'pretplata-godisnje',
       promo_code: '',
+      email: this.$store.state.user.email,
+      password: '',
+      showPassword: false,
+      hostedInstance: null,
+      threeDS: null,
+      deviceData: null,
+      nonce: null,
+      token: null,
+      dropin: null,
+      terms: false,
+      funnel_url_key: 'main',
+      auth: 0,
     }
   },
   computed: {
-    one() {
-      return 'TMQK078B822H'
+    interimMonthPrice() {
+      if (this.pack === 'pretplata-premium') {
+        return '9,99'
+      } else {
+        return '7,99'
+      }
     },
-    two() {
-      return 'TMQITDB1JTZG'
+    interimYearPrice() {
+      if (this.pack === 'pretplata-premium') {
+        return '99'
+      } else {
+        return '79'
+      }
     },
-    three() {
-      return 'TMGGAFGV5P2U'
+    price() {
+      if (this.term === 'pretplata-mjesecno') {
+        if (this.pack === 'pretplata-standard') {
+          return 7.99
+        } else {
+          return 9.99
+        }
+      }
+      if (this.pack === 'pretplata-standard') {
+        return 79
+      } else {
+        return 99
+      }
     },
-    four() {
-      return 'TMM8UY2UYSDI'
+    totalPrice() {
+      if (this.pack === 'pretplata-standard') {
+        if (this.term === 'pretplata-mjesecno') {
+          return '7,99'
+        } else {
+          return '79'
+        }
+      } else if (this.term === 'pretplata-mjesecno') {
+        return '9,99'
+      } else {
+        return '99'
+      }
     },
-  },
-  methods: {
+    subscription_type() {
+      if (this.pack === 'pretplata-standard') {
+        if (this.term === 'pretplata-mjesecno') {
+          return 'telegram_standard_mjesecna_pretplata_2024'
+        } else {
+          return 'telegram_standard_godisnja_pretplata_2024'
+        }
+      } else if (this.term === 'pretplata-mjesecno') {
+        return 'telegram_premium_mjesecna_pretplata_2024'
+      } else {
+        return 'telegram_premium_godisnja_pretplata_2024'
+      }
+    },
+    loggedIn() {
+      return !!this.$store.state.user.id
+    },
     canLogIn() {
       return this.$store.getters['user/canLogIn']
+    },
+  },
+  watch: {
+    payment(value) {
+      if (this.email) {
+        this.getToken()
+      }
+    },
+    email: useDebounceFn(function (value) {
+      const _this = this
+      const data = new FormData()
+      data.append('email', value)
+      this.$axios
+        .post('/crm/api/v2/users/email', data, {
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+        })
+        .then(function (response) {
+          if (response.data.status && response.data.status === 'taken') {
+            _this.showPassword = true
+            this.getToken()
+          } else if (response.data.status === 'error') {
+            if (response.data.code === 'email_missing') {
+              return
+            }
+            _this.show_msg = 'error-not-finished'
+          } else {
+            _this.showPassword = false
+            this.getToken()
+          }
+        })
+        .catch(function () {
+          _this.showPassword = true
+          this.getToken()
+        })
+    }, 1000),
+  },
+  methods: {
+    checkout() {
+      if (this.token) {
+        document.getElementById('form').submit()
+      } else {
+        this.submit()
+      }
+    },
+    getToken() {
+      const _this = this
+      this.$axios
+        .get('/crm/api/v1/braintree/token', {
+          params: {
+            email: _this.email,
+          },
+        })
+        .then((res) => {
+          _this.token = res.data.token
+          const dropinContainer = document.getElementById('dropin-container')
+          braintree.client
+            .create({
+              authorization: res.data.token,
+            })
+            .then((clientInstance) => {
+              braintree.dataCollector
+                .create({
+                  client: clientInstance,
+                })
+                .then(function (dataCollectorInstance) {
+                  _this.deviceData = dataCollectorInstance.deviceData
+                })
+
+              dropinContainer.innerHTML = ''
+              braintree.dropin
+                .create({
+                  authorization: res.data.token,
+                  container: dropinContainer,
+                  card: {
+                    cardholderName: {
+                      required: true,
+                    },
+                  },
+                })
+                .then((dropinInstance) => {
+                  _this.dropin = dropinInstance
+                })
+                .catch((error) => {
+                  throw error
+                })
+            })
+            .catch((error) => {
+              throw error
+            })
+        })
+    },
+    submit() {
+      const _this = this
+      if (this.nonce) {
+        _this.submitForm()
+        return
+      }
+      if (!this.dropin) {
+        this.getToken()
+      } else {
+        _this.dropin.requestPaymentMethod(function (err, payload) {
+          if (err) {
+            alert(err)
+            return
+          }
+
+          _this.nonce = payload.nonce
+          this.submitForm()
+        })
+      }
+    },
+    submitForm() {
+      const data = new FormData()
+      data.append('payment_metadata[payment_method_nonce]', this.nonce)
+      data.append('payment_metadata[device_data]', this.deviceData)
+      data.append('subscription_type', this.subscription_type)
+      data.append('payment_gateway', this.payment)
+      data.append('auth', this.showPassword ? 1 : 0)
+      data.append('email', this.email)
+      data.append('password', this.password)
+      data.append('allow_redirect', false)
+      data.append('price', this.price)
+      data.append('funnel_url_key', this.funnel_url_key)
+      this.$axios
+        .post('/crm/sales-funnel/sales-funnel-frontend/submit', data, {
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+        })
+        .then(() => {
+          window.location.href = 'https://www.telegram.hr/pretplata/dobrodosli'
+        })
+        .catch((err) => {
+          console.log(err)
+        })
     },
   },
   head() {
@@ -1044,6 +1351,21 @@ export default {
               ],
             },
           ],
+        },
+        {
+          src: 'https://js.braintreegateway.com/web/dropin/1.33.0/js/dropin.min.js',
+          async: true,
+          defer: true,
+        },
+        {
+          src: 'https://js.braintreegateway.com/web/3.85.2/js/client.min.js',
+          async: true,
+          defer: true,
+        },
+        {
+          src: 'https://js.braintreegateway.com/web/3.85.2/js/data-collector.min.js',
+          async: true,
+          defer: true,
         },
       ],
     }

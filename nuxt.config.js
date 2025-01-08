@@ -78,6 +78,7 @@ export default {
     '@nuxtjs/eslint-module',
     'nuxt-purgecss',
     '@nuxtjs/dotenv',
+    '@vueuse/nuxt',
     // '@nuxtjs/google-fonts',
   ],
 
@@ -183,9 +184,9 @@ export default {
       target: 'https://pretplate.telegram.hr',
       pathRewrite: { '^/pretplate/': '' },
     },
-    '/pretplata': {
+    '/crm': {
       target: 'https://pretplata.telegram.hr',
-      pathRewrite: { '^/pretplata/': '' },
+      pathRewrite: { '^/crm/': '' },
     },
     '/mailer': {
       target: 'https://mailer.telegram.hr',
@@ -227,6 +228,13 @@ export default {
     },
     babel: {
       plugins: [['@babel/plugin-proposal-private-methods', { loose: true }]],
+    },
+    extend(config) {
+      config.module.rules.push({
+        test: /\.mjs$/,
+        include: /node_modules/,
+        type: 'javascript/auto',
+      })
     },
   },
 }

@@ -16,7 +16,7 @@
           >
             Prijavite se kako biste nastavili s radom.
           </p>
-          <!--<div class="full flex column-mini-left-pad">
+          <div class="full flex column-mini-left-pad">
             <a
               :href="`https://pretplata.telegram.hr/social-login/social-sign/sign?social_provider_key=facebook&success_login_url=${path}`"
               class="full center remp-social-logbtn animate"
@@ -26,7 +26,7 @@
               ></font-awesome-icon>
               Facebook
             </a>
-          </div>-->
+          </div>
           <label for="name">Email adresa</label>
           <input id="email" v-model="email" type="email" name="name" />
           <label for="address">Lozinka</label>

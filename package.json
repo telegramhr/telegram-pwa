@@ -23,6 +23,8 @@
     "@nuxtjs/gtm": "^2.4.0",
     "@nuxtjs/onesignal": "^3.0.0-beta.16",
     "@nuxtjs/pwa": "^3.3.4",
+    "@vueuse/core": "^11.3.0",
+    "@vueuse/nuxt": "^8.9.4",
     "aos": "^3.0.0-beta.6",
     "braintree-web": "^3.76.3",
     "cookie-universal-nuxt": "^2.1.4",

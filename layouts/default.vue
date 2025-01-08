@@ -47,7 +47,7 @@ export default {
           theme === 'contrast' ? 'contrast-mode' : '',
           theme === 'dark' ? 'dark-mode' : '',
           theme === 'domoljub' ? 'domoljub-mode' : '',
-          premium === 'BR92VTWM' ? 'logged-in-premium' : '',
+          this.$store.getters['user/hasPremium'] ? 'logged-in-premium' : '',
         ],
       },
     }
