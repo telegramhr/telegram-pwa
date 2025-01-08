@@ -161,7 +161,7 @@
                           </div>
                           <div class="full">
                             Godišnje
-                            <span class="highlight-text">20% popusta</span>
+                            <span class="highlight-text">24% popusta</span>
                           </div>
                           <div class="full remp-special-note">
                             {{ interimYearPrice }}€ za godinu dana unaprijed
@@ -184,7 +184,7 @@
                           <div class="remp-radio-indicator center">
                             <div></div>
                           </div>
-                          <div class="full">Mjesečno</div>
+                          <div class="full">4 tjedna</div>
                           <div class="full remp-special-note">
                             {{ interimMonthPrice }}€/mj, možete otkazati kad god
                           </div>
@@ -244,7 +244,7 @@
                       </div>
                     </div>
                   </div>
-                  <p class="full bold remp-subtitle faded">
+                  <p v-if="loggedIn" class="full bold remp-subtitle faded">
                     4) Unesite podatke
                   </p>
                   <div id="login" class="full flex relative remp-halfpad">
@@ -995,7 +995,7 @@ export default {
   data() {
     return {
       show_msg: '',
-      payment: null,
+      payment: 'braintree_recurrent_default',
       pack: null,
       term: 'pretplata-mjesecno',
       promo_code: '',
