@@ -997,7 +997,7 @@ export default {
       show_msg: '',
       payment: 'braintree_recurrent_default',
       pack: null,
-      term: 'pretplata-mjesecno',
+      term: 'pretplata-godisnje',
       promo_code: '',
       email: this.$store.state.user.email,
       password: '',
@@ -1012,6 +1012,87 @@ export default {
       privacy: false,
       funnel_url_key: 'main',
       auth: 0,
+      translations: {
+        payingWith: 'Plaćate s {{paymentSource}}',
+        chooseAnotherWayToPay: 'Odaberite drugi način plaćanja',
+        chooseAWayToPay: 'Odaberite način plaćanja',
+        otherWaysToPay: 'Drugi načini plaćanja',
+        edit: 'Uredi',
+        doneEditing: 'Završi',
+        editPaymentMethods: 'Edit payment methods',
+        CreditCardDeleteConfirmationMessage:
+          'Delete {{secondaryIdentifier}} card ending in {{identifier}}?',
+        PayPalAccountDeleteConfirmationMessage:
+          'Delete PayPal account {{identifier}}?',
+        VenmoAccountDeleteConfirmationMessage:
+          'Are you sure you want to delete Venmo account with username {{identifier}}?',
+        genericDeleteConfirmationMessage:
+          'Are you sure you want to delete this payment method?',
+        deleteCancelButton: 'Cancel',
+        deleteConfirmationButton: 'Delete',
+        // Errors
+        fieldEmptyForCvv: 'Please fill out a CVV.',
+        fieldEmptyForExpirationDate: 'Please fill out an expiration date.',
+        fieldEmptyForCardholderName: 'Please fill out a cardholder name.',
+        fieldEmptyForNumber: 'Please fill out a card number.',
+        fieldEmptyForPostalCode: 'Please fill out a postal code.',
+        fieldInvalidForCardholderName: 'This cardholder name is not valid.',
+        fieldInvalidForCvv: 'This security code is not valid.',
+        fieldInvalidForExpirationDate: 'This expiration date is not valid.',
+        fieldInvalidForNumber: 'This card number is not valid.',
+        fieldInvalidForPostalCode: 'This postal code is not valid.',
+        fieldTooLongForCardholderName:
+          'Cardholder name must be less than 256 characters.',
+        noticeOfCollection:
+          'By paying with my card, I agree to the PayPal Privacy Statement.',
+        genericError: 'Something went wrong on our end.',
+        hostedFieldsTokenizationFailOnDuplicateError:
+          'This credit card already exists as a saved payment method.',
+        hostedFieldsFailedTokenizationError:
+          'Please check your information and try again.',
+        hostedFieldsTokenizationCvvVerificationFailedError:
+          'Credit card verification failed. Please check your information and try again.',
+        hostedFieldsTokenizationNetworkErrorError:
+          'Network error. Please try again.',
+        hostedFieldsFieldsInvalidError:
+          'Please check your information and try again.',
+        paypalButtonMustBeUsed:
+          'Use the PayPal button to continue with your payment.',
+        venmoButtonMustBeUsed:
+          'Use the Venmo button to continue with your payment.',
+        applePayButtonMustBeUsed:
+          'Use the Apple Pay button to continue with your payment.',
+        paypalAccountTokenizationFailedError:
+          'Something went wrong adding the PayPal account. Please try again.',
+        paypalFlowFailedError:
+          'Something went wrong connecting to PayPal. Please try again.',
+        paypalTokenizationRequestActiveError:
+          'PayPal payment authorization is already in progress.',
+        applePayTokenizationError:
+          'A network error occurred while processing the Apple Pay payment. Please try again.',
+        applePayActiveCardError:
+          'Add a supported card to your Apple Pay wallet.',
+        vaultManagerPaymentMethodDeletionError:
+          'Unable to delete payment method, try again.',
+        venmoCanceledError:
+          'Something went wrong. Ensure you have the most recent version of the Venmo app installed on your device and your browser supports switching to Venmo.',
+        venmoAppFailedError: 'The Venmo app could not be found on your device.',
+        unsupportedCardTypeError:
+          'This card type is not supported. Please try another card.',
+        // Card form
+        cardholderNameLabel: 'Ime na kartici',
+        cardNumberLabel: 'Broj kartice',
+        cvvLabel: 'CVV',
+        cvvThreeDigitLabelSubheading: '(3 znamenke)',
+        cvvFourDigitLabelSubheading: '(4 znamenke)',
+        expirationDateLabel: 'Datum isteka',
+        expirationDateLabelSubheading: '(MM/GG)',
+        cardholderNamePlaceholder: 'Ime na kartici',
+        expirationDatePlaceholder: 'MM/GG',
+        postalCodeLabel: 'Poštanski broj',
+        saveCardLabel: 'Spremi karticu',
+        payWithCard: 'Plati karticom',
+      },
     }
   },
   computed: {
@@ -1163,11 +1244,7 @@ export default {
                 .create({
                   authorization: res.data.token,
                   container: dropinContainer,
-                  card: {
-                    cardholderName: {
-                      required: true,
-                    },
-                  },
+                  translations: _this.translations,
                 })
                 .then((dropinInstance) => {
                   _this.dropin = dropinInstance
