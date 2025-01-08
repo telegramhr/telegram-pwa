@@ -86,6 +86,10 @@ export default {
   },
   methods: {
     login() {
+      if (!this.email || !this.password) {
+        this.error = 'Molimo unesite email i lozinku.'
+        return
+      }
       this.$store
         .dispatch('user/loginSubmit', {
           email: this.email,
