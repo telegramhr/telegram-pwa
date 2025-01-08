@@ -44,7 +44,9 @@
                           <div class="full flex overtitle-parent">
                             <div class="noththree overtitle">Standard</div>
                           </div>
-                          <div class="full sub-price bold">7,99€</div>
+                          <div class="full sub-price bold">
+                            {{ standardPrice }}€
+                          </div>
                           <div class="nothfour full center-text undertitle">
                             Mjesečno
                           </div>
@@ -96,7 +98,9 @@
                               Premium <span class="ib">(bez oglasa)</span>
                             </div>
                           </div>
-                          <div class="full sub-price bold">9,99€</div>
+                          <div class="full sub-price bold">
+                            {{ premiumPrice }}€
+                          </div>
                           <div class="nothfour full center-text undertitle">
                             Mjesečno
                           </div>
@@ -276,7 +280,7 @@
                           </div>
                           <div class="half flex column-mini-left-pad">
                             <a
-                              href="https://pretplata.telegram.hr/social-login/social-sign/sign?social_provider_key=facebook&success_login_url=%3AApplication%3ADefault%3Adefault"
+                              href="https://pretplata.telegram.hr/social-login/social-sign/sign?social_provider_key=facebook&success_login_url=https://www.telegram.hr/pretplata/"
                               class="full center remp-social-logbtn animate"
                             >
                               <i class="fa-brands fa-facebook-f"></i>
@@ -288,11 +292,6 @@
                             odabranog davatelja usluga kako bi povezali račune.
                           </p>
                         </div>
-                      </template>
-                      <template v-else>
-                        <p class="full remp-mini-text center-text faded">
-                          Prijavljeni ste kao {{ email }}
-                        </p>
                       </template>
                       <div
                         class="full flex column-top-pad mobile-bottom-pad mobile-top-pad"
@@ -318,6 +317,34 @@
                               href="https://www.telegram.hr/stranica/uvjeti-koristenja/"
                               class="highlight-text"
                               >uvjete korištenja</a
+                            ></span
+                          >
+                        </label>
+                      </div>
+                      <div
+                        class="full flex column-top-pad mobile-bottom-pad mobile-top-pad"
+                      >
+                        <input
+                          id="privacy"
+                          v-model="privacy"
+                          type="checkbox"
+                          class="cbx"
+                          name="privacy"
+                        />
+                        <label for="privacy" class="check flex full">
+                          <svg width="18px" height="18px" viewBox="0 0 18 18">
+                            <path
+                              d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
+                            ></path>
+                            <polyline points="1 9 7 14 15 4"></polyline>
+                          </svg>
+                          <span
+                            >Prihvaćam
+                            <a
+                              target="_blank"
+                              href="https://www.telegram.hr/stranica/pravila-privantnosti/"
+                              class="highlight-text"
+                              >pravila privatnosti</a
                             ></span
                           >
                         </label>
@@ -970,7 +997,7 @@ export default {
       show_msg: '',
       payment: null,
       pack: null,
-      term: 'pretplata-godisnje',
+      term: 'pretplata-mjesecno',
       promo_code: '',
       email: this.$store.state.user.email,
       password: '',
@@ -982,6 +1009,7 @@ export default {
       token: null,
       dropin: null,
       terms: false,
+      privacy: false,
       funnel_url_key: 'main',
       auth: 0,
     }
@@ -999,6 +1027,20 @@ export default {
         return '99'
       } else {
         return '79'
+      }
+    },
+    standardPrice() {
+      if (this.term === 'pretplata-mjesecno') {
+        return '7,99'
+      } else {
+        return '79'
+      }
+    },
+    premiumPrice() {
+      if (this.term === 'pretplata-mjesecno') {
+        return '9,99'
+      } else {
+        return '99'
       }
     },
     price() {
@@ -1067,7 +1109,7 @@ export default {
         .then(function (response) {
           if (response.data.status && response.data.status === 'taken') {
             _this.showPassword = true
-            this.getToken()
+            _this.getToken()
           } else if (response.data.status === 'error') {
             if (response.data.code === 'email_missing') {
               return
@@ -1075,12 +1117,12 @@ export default {
             _this.show_msg = 'error-not-finished'
           } else {
             _this.showPassword = false
-            this.getToken()
+            _this.getToken()
           }
         })
         .catch(function () {
           _this.showPassword = true
-          this.getToken()
+          _this.getToken()
         })
     }, 1000),
   },

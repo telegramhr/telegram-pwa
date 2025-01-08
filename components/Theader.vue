@@ -527,41 +527,15 @@ export default {
   mounted() {
     this.clearFC()
     this.$store.dispatch('stocks/pullStocks')
-    this.$store.dispatch('user/checkAccess')
+    this.$nextTick(() => {
+      this.$store.dispatch('user/checkAccess')
+    })
     this.$store.dispatch('theme/loadTheme')
   },
   methods: {
-    closeLogin() {
-      this.showLogin = false
-    },
     clearFC() {
       if (process.client) {
         this.$store.dispatch('user/checkAdmin')
-      }
-    },
-    handleScroll() {
-      if (window.scrollY) {
-        this.dynamicHeader = true
-        this.hideDynamicHeader = window.scrollY > this.previousScroll
-      } else {
-        this.dynamicHeader = false
-        this.hideDynamicHeader = false
-      }
-      this.previousScroll = window.scrollY
-    },
-    debounce(func, wait, immediate) {
-      let timeout
-      return function () {
-        const context = this
-        const args = arguments
-        const later = function () {
-          timeout = null
-          if (!immediate) func.apply(context, args)
-        }
-        const callNow = immediate && !timeout
-        clearTimeout(timeout)
-        timeout = setTimeout(later, wait)
-        if (callNow) func.apply(context, args)
       }
     },
     search() {

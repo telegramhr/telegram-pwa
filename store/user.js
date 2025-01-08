@@ -23,7 +23,9 @@ export const mutations = {
     state.email = data.user.email
     state.uid = data.user.uuid
     state.type = 'registered'
-    state.token = data.access.token
+    if (data.access) {
+      state.token = data.access.token
+    }
   },
   logout(state) {
     state.id = 0
@@ -119,10 +121,26 @@ export const actions = {
       }
     })
   },
-  checkAccess({ state, dispatch }) {
+  checkAccess({ state, dispatch, commit }) {
+    console.log('checkAccess')
     if (!state.token) {
-      return
+      const cookie = this.$cookies.get('n_token')
+      console.log(cookie)
+      if (cookie) {
+        this.setToken(cookie)
+      } else {
+        return
+      }
     }
+    this.$axios
+      .$get('/crm/api/v1/user/info', {
+        headers: {
+          Authorization: `Bearer ${state.token}`,
+        },
+      })
+      .then((res) => {
+        commit('setUser', res)
+      })
     this.$axios
       .$get('/crm/api/v1/users/subscriptions', {
         headers: {
