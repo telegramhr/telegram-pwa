@@ -422,6 +422,33 @@
           </div>
         </div>
       </div>
+      <form
+        id="form"
+        action="sales-funnel/sales-funnel-frontend/submit"
+        method="post"
+      >
+        <input
+          v-model="nonce"
+          type="hidden"
+          name="payment_metadata[payment_method_nonce]"
+        />
+        <input
+          v-model="deviceData"
+          type="hidden"
+          name="payment_metadata[device_data]"
+        />
+        <input
+          v-model="subscription_type"
+          type="hidden"
+          name="subscription_type"
+        />
+        <input v-model="payment" type="hidden" name="payment_gateway" />
+        <input v-model="this.showPassword" type="hidden" name="auth" />
+        <input v-model="email" type="hidden" name="email" />
+        <input v-model="password" type="hidden" name="password" />
+        <input v-model="price" type="hidden" name="price" />
+        <input v-model="funnel_url_key" type="hidden" name="funnel_url_key" />
+      </form>
     </div>
     <!-- Klub widget -->
     <app-link
@@ -1287,6 +1314,8 @@ export default {
       }
     },
     submitForm() {
+      document.getElementById('form').submit()
+      /*
       const data = new FormData()
       data.append('payment_metadata[payment_method_nonce]', this.nonce)
       data.append('payment_metadata[device_data]', this.deviceData)
@@ -1296,7 +1325,7 @@ export default {
       data.append('email', this.email)
       data.append('password', this.password)
       data.append('allow_redirect', false)
-      data.append('price', this.price)
+      data.append('', this.price)
       data.append('funnel_url_key', this.funnel_url_key)
       this.$axios
         .post('/crm/sales-funnel/sales-funnel-frontend/submit', data, {
@@ -1310,7 +1339,7 @@ export default {
         })
         .catch((err) => {
           console.log(err)
-        })
+        }) */
     },
   },
   head() {
