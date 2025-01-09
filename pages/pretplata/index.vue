@@ -48,7 +48,11 @@
                             {{ standardPrice }}€
                           </div>
                           <div class="nothfour full center-text undertitle">
-                            Mjesečno
+                            {{
+                              term === 'pretplata-godisnje'
+                                ? 'Godišnje'
+                                : 'Mjesečno'
+                            }}
                           </div>
                         </div>
                         <div class="full pretplata-benefits mobile-two-thirds">
@@ -102,7 +106,11 @@
                             {{ premiumPrice }}€
                           </div>
                           <div class="nothfour full center-text undertitle">
-                            Mjesečno
+                            {{
+                              term === 'pretplata-godisnje'
+                                ? 'Godišnje'
+                                : 'Mjesečno'
+                            }}
                           </div>
                         </div>
                         <div class="full pretplata-benefits mobile-two-thirds">
@@ -1274,7 +1282,7 @@ export default {
           }
 
           _this.nonce = payload.nonce
-          this.submitForm()
+          _this.submitForm()
         })
       }
     },
@@ -1295,6 +1303,7 @@ export default {
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
           },
+          followRedirects: false,
         })
         .then(() => {
           this.$router.push('/pretplata/dobrodosli')
