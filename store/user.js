@@ -74,7 +74,7 @@ export const actions = {
         resolve(state.coral_token)
         return
       }
-      this.$axios.get(`/pretplate/coral/token/${state.uid}`).then((res) => {
+      this.$axios.get(`/pretplate/coral/token/${state.token}`).then((res) => {
         commit('setCoral', res.data)
         resolve(res.data)
       })

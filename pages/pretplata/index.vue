@@ -424,7 +424,7 @@
       </div>
       <form
         id="form"
-        action="sales-funnel/sales-funnel-frontend/submit"
+        action="https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/submit"
         method="post"
       >
         <input
@@ -443,7 +443,7 @@
           name="subscription_type"
         />
         <input v-model="payment" type="hidden" name="payment_gateway" />
-        <input v-model="this.showPassword" type="hidden" name="auth" />
+        <input v-model="showPassword" type="hidden" name="auth" />
         <input v-model="email" type="hidden" name="email" />
         <input v-model="password" type="hidden" name="password" />
         <input v-model="price" type="hidden" name="price" />
@@ -1309,7 +1309,6 @@ export default {
           }
 
           _this.nonce = payload.nonce
-          _this.submitForm()
         })
       }
     },
