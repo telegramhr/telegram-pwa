@@ -242,6 +242,9 @@ export const actions = {
                 })
             }
           })
+          .catch(() => {
+            throw new Error('Email i/ili lozinka nisu ispravni')
+          })
       })
   },
 }
