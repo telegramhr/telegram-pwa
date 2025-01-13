@@ -51,7 +51,7 @@
         <app-link
           v-show="!canLogIn"
           class="mobile-only mob-nav-otherbtn"
-          to="/moj-racun"
+          to="https://pretplata.telegram.hr/subscriptions/subscriptions/my"
           aria-label="Moj račun"
         >
           <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon

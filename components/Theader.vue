@@ -35,8 +35,8 @@
             <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
               >Prijava</a
             >
-            <app-link v-show="!canLogIn" to="/moj-racun" class="signup-btn"
-              >Moj račun</app-link
+            <a v-show="!canLogIn" href="https://pretplata.telegram.hr/subscriptions/subscriptions/my" class="signup-btn"
+              >Moj račun</a
             >
             <a v-show="!canLogIn" class="signup-btn" @click.prevent="logout"
               >Odjava</a
@@ -411,14 +411,14 @@
               class="newbtn"
               >Poklonite pretplatu</app-link
             >
-            <app-link
+            <a
               v-show="!canLogIn"
               class="column-mini-left-pad desktop-only"
-              to="/moj-racun"
+              href="https://pretplata.telegram.hr/subscriptions/subscriptions/my"
               aria-label="Moj račun"
             >
               <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
-            </app-link>
+            </a>
             <a
               class="desktop-only column-mini-left-pad"
               aria-label="Prikaži tražilicu"

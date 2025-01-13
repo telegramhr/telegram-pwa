@@ -54,14 +54,14 @@
             class="newbtn"
             >Pretplatite se</app-link
           >
-          <app-link
+          <a
             v-show="!canLogIn"
             class="column-mini-left-pad desktop-only"
-            to="/moj-racun"
+            href="https://pretplata.telegram.hr/subscriptions/subscriptions/my"
             aria-label="Moj račun"
           >
             <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
-          </app-link>
+          </a>
           <a
             class="desktop-only column-mini-left-pad"
             aria-label="Prikaži tražilicu"
@@ -123,14 +123,14 @@
               class="newbtn"
               >Pretplatite se</app-link
             >
-            <app-link
+            <a
               v-show="!canLogIn"
-              to="/moj-racun"
+              href="https://pretplata.telegram.hr/subscriptions/subscriptions/my"
               class="newbtn newbtn-empty"
               aria-label="Moj račun"
             >
               Moj račun
-            </app-link>
+            </a>
           </client-only>
         </div>
       </div>

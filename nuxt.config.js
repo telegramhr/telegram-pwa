@@ -196,10 +196,6 @@ export default {
       target: 'https://script.google.com/macros/s/',
       pathRewrite: { '^/gscripts/([^?]*)(.*)': '$1/exec$2' },
     },
-    '/moj-racun': {
-      target:
-        'https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main',
-    },
   },
 
   purgeCSS: {

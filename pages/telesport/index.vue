@@ -54,7 +54,7 @@
           <app-link
             v-show="!canLogIn"
             class="column-mini-left-pad desktop-only"
-            to="/moj-racun"
+            to="https://pretplata.telegram.hr/subscriptions/subscriptions/my"
             aria-label="Moj račun"
           >
             <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
@@ -210,7 +210,7 @@
             >
             <app-link
               v-show="!canLogIn"
-              to="/moj-racun"
+              to="https://pretplata.telegram.hr/subscriptions/subscriptions/my"
               class="newbtn newbtn-empty"
               aria-label="Moj račun"
             >
