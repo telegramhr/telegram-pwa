@@ -913,41 +913,7 @@ export default {
     },
     loadRemp() {
       window.remplib = window.remplib || {}
-      const mockFuncs = {
-        campaign: 'init',
-        tracker: 'init trackEvent trackPageview trackCommerce',
-        iota: 'init',
-      }
-      function mock(fn) {
-        return function () {
-          this._.push([fn, arguments])
-        }
-      }
 
-      Object.keys(mockFuncs).forEach(function (key) {
-        if (!window.remplib[key]) {
-          let fn
-          let i
-          const funcs = mockFuncs[key].split(' ')
-          window.remplib[key] = { _: [] }
-
-          for (i = 0; i < funcs.length; i++) {
-            fn = funcs[i]
-            window.remplib[key][fn] = mock(fn)
-          }
-        }
-      })
-      const script = document.createElement('script')
-      script.type = 'text/javascript'
-      script.async = true
-      script.src = 'https://campaign.telegram.hr/assets/lib/js/remplib.js'
-      document.getElementsByTagName('head')[0].appendChild(script)
-
-      const script2 = document.createElement('script')
-      script2.type = 'text/javascript'
-      script2.async = true
-      script2.src = 'https://beam.telegram.hr/assets/lib/js/remplib.js'
-      document.getElementsByTagName('head')[0].appendChild(script2)
       const rempConfig = {
         token: 'd4fa2928-7d6a-4f6c-ac95-1f5a1ddd1702',
         cookieDomain: '.telegram.hr',

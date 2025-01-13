@@ -38,6 +38,16 @@ export default {
         async: false,
         defer: true,
       },
+      {
+        hid: 'remplib-camp',
+        src: 'https://campaign.telegram.hr/assets/lib/js/remplib.js',
+        async: true,
+      },
+      {
+        hid: 'remplib-beam',
+        src: 'https://beam.telegram.hr/assets/lib/js/remplib.js',
+        async: true,
+      }
     ],
   },
 

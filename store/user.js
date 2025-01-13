@@ -122,12 +122,10 @@ export const actions = {
     })
   },
   checkAccess({ state, dispatch, commit }) {
-    console.log('checkAccess')
     if (!state.token) {
       const cookie = this.$cookies.get('n_token')
-      console.log(cookie)
       if (cookie) {
-        this.setToken(cookie)
+        commit('setToken', cookie)
       } else {
         return
       }
