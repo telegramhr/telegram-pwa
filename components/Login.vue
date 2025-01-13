@@ -1,6 +1,9 @@
 <template>
   <div v-show="show" id="login-popup" class="center">
     <div class="flex relative">
+      <div id="close-book-popup" class="center center-text" @click="close">
+        <font-awesome-icon :icon="['fas', 'times']"></font-awesome-icon>
+      </div>
       <div class="full flex book-popup-content">
         <div class="full center book-popup-header">
           <img :src="$icon(144)" alt="Telegram Logo" />
