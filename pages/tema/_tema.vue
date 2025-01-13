@@ -44,7 +44,8 @@
               v-if="
                 $route.params.tema === 'uefa-euro-2024' ||
                 $route.params.tema === 'olimpijske-igre-2024' ||
-                $route.params.tems === 'budi-u-igri-uz-favbet'
+                $route.params.tems === 'budi-u-igri-uz-favbet' ||
+                $route.params.tems === 'svjetsko-rukometno-prvenstvo-uz-favbet'
               "
               class="center desktop-only brought-by"
             >
@@ -106,7 +107,8 @@
           v-if="
             $route.params.tema === 'uefa-euro-2024' ||
             $route.params.tema === 'olimpijske-igre-2024' ||
-            $route.params.tema === 'budi-u-igri-uz-favbet'
+            $route.params.tema === 'budi-u-igri-uz-favbet' ||
+            $route.params.tema === 'svjetsko-rukometno-prvenstvo-uz-favbet'
           "
           site="ts"
         ></jgl-premium>

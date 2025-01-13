@@ -102,9 +102,9 @@
           <app-link to="/telesport" role="menuitem"> Telesport </app-link>
           <app-link
             role="menuitem"
-            to="/tema/budi-u-igri-uz-favbet/"
+            to="/tema/svjetsko-rukometno-prvenstvo-uz-favbet/"
             class="animate flex highlight-tile desktop-only"
-            >Budi u igri uz
+            >Svjetsko rukometno prvenstvo uz
             <img src="@/assets/img/logo_favbet_magenta.svg" alt="Favbet logo"
           /></app-link>
         </nav>

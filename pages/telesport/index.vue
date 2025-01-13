@@ -187,9 +187,9 @@
           </div>
           <app-link
             role="menuitem"
-            to="/tema/budi-u-igri-uz-favbet/"
+            to="/tema/svjetsko-rukometno-prvenstvo-uz-favbet/"
             class="animate flex highlight-tile"
-            >Budi u igri uz
+            >Svjetsko rukometno prvenstvo uz
             <img src="@/assets/img/logo_favbet_magenta.svg" alt="Favbet logo"
           /></app-link>
         </nav>
@@ -362,7 +362,7 @@
           <div
             class="noththree full center-text column-vertical-pad subsection-title"
           >
-            Budi u igri uz
+            Svjetsko rukometno prvenstvo uz
             <img src="@/assets/img/logo_favbet_blue.svg" alt="Favbet logo" />
           </div>
         </div>
