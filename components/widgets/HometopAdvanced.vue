@@ -1,6 +1,6 @@
 <template>
   <app-link
-    to="/pretplata"
+    to="https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main"
     class="full center relative pretplata-subs-special darkened-bg"
   >
     <!-- Just a template, no composer connection required -->

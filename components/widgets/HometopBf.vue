@@ -1,7 +1,7 @@
 <template>
   <app-link
     v-if="showA"
-    to="/pretplata/black-friday"
+    to="https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main"
     class="full center relative pretplata-subs-special darkened-bg"
   >
     <div

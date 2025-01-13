@@ -118,6 +118,7 @@ export const actions = {
       })
   },
   clearAccess({ commit }) {
+    this.$cookies.remove('n_token')
     commit('clearAccess')
   },
 }

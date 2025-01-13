@@ -162,8 +162,12 @@ export const actions = {
     }
   },
   logout({ commit, dispatch, state }) {
-    this.$cookies.remove('tmg_access')
-    this.$cookies.remove('n_token')
+    this.$cookies.remove('n_token', {
+      domain: '.telegram.hr',
+      path: '/',
+      maxAge: 60 * 60 * 24 * 365,
+      sameSite: 'lax',
+    })
     if (state.uid) {
       dispatch('newsletters/clearAccess', null, { root: true })
     }
@@ -186,7 +190,12 @@ export const actions = {
       })
       .then((res) => {
         commit('setUser', res)
-        this.$cookies.set('n_token', res.access.token, {})
+        this.$cookies.set('n_token', res.access.token, {
+          domain: '.telegram.hr',
+          path: '/',
+          maxAge: 60 * 60 * 24 * 365,
+          sameSite: 'lax',
+        })
         dispatch('checkAccess')
         commit('openModal')
         window.location.reload()

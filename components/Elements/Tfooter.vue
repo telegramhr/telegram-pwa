@@ -122,7 +122,7 @@
         >
           <p class="full bold column-mini-bottom-pad">Plus</p>
 
-          <app-link to="/pretplata/" class="full"
+          <app-link to="https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main" class="full"
             >Pretplata za fizičke korisnike</app-link
           >
           <app-link to="/pretplata/b2b/" class="full"

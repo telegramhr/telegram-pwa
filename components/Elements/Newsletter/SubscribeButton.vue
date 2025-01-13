@@ -10,7 +10,7 @@
     </div>
     <app-link
       v-else-if="!$store.state.user.access && !free"
-      to="/pretplata"
+      to="https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main"
       class="btn newbtn newsletter-not-available animate"
     >
       Dostupno samo za pretplatnike

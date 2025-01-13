@@ -19,7 +19,7 @@
         >
           Pretplatite se
         </a>
-        <app-link v-else :id="id" to="/pretplata" class="newbtn huge-newbtn"
+        <app-link v-else :id="id" to="https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main" class="newbtn huge-newbtn"
           >Pretplatite se</app-link
         >
       </div>

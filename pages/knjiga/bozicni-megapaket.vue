@@ -63,7 +63,7 @@
               </div>
               <app-link
                 v-show="!$store.state.user.uid"
-                to="/pretplata"
+                to="https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main"
                 class="special-sub-cta full relative center-text"
               >
                 Za pristup sniženoj cijeni, <br />
@@ -88,7 +88,7 @@
         <h2 class="full relative">Paket sadrži:</h2>
         <h2 class="full relative">1. Godišnja premium pretplata na Telegram</h2>
         <p>
-          <app-link to="/pretplata"
+          <app-link to="https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main"
             >Redovna cijena: 588 kn (78,04€) godišnje</app-link
           >
         </p>

@@ -795,7 +795,7 @@
           >
             <app-link
               v-show="canLogIn"
-              to="/pretplata"
+              to="https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main"
               class="newbtn huge-newbtn animate"
               >Pretplatite se</app-link
             >

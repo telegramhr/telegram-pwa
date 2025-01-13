@@ -57,7 +57,7 @@
               </div>
               <app-link
                 v-show="!$store.state.user.uid"
-                to="/pretplata"
+                to="https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main"
                 class="special-sub-cta full relative center-text"
               >
                 Za pristup sniženoj cijeni, <br />

@@ -27,7 +27,7 @@
               :to="
                 $route.fullPath.includes('telesport')
                   ? '/pretplata/telesport/'
-                  : '/pretplata'
+                  : 'https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main'
               "
               class="signup-btn sub-btn"
               >Pretplatite se</app-link
@@ -245,7 +245,7 @@
         </div>
         <div class="half" role="menu">
           <div class="noththree">Info</div>
-          <app-link role="menuitem" to="/pretplata">Pretplata</app-link>
+          <app-link role="menuitem" to="https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main">Pretplata</app-link>
           <app-link role="menuitem" to="/klub">Klub</app-link>
           <app-link role="menuitem" to="/knjiga">Knjige</app-link>
           <app-link role="menuitem" to="/stranica/impressum"
@@ -399,7 +399,7 @@
               :to="
                 $route.fullPath.includes('telesport')
                   ? '/pretplata/telesport/'
-                  : '/pretplata/'
+                  : 'https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main'
               "
               class="newbtn"
               >Pretplatite se</app-link

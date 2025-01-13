@@ -1,7 +1,7 @@
 <template>
   <div data-nosnippet>
     <app-link
-      to="/pretplata"
+      to="https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main"
       class="full flex stretch relative mini-pretplata mini-pretplata-new"
     >
       <p>
