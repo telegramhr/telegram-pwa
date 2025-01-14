@@ -947,6 +947,9 @@ export default {
         },
         campaign: {
           url: 'https://campaign.telegram.hr',
+          pageviewAttributes: {
+            locked: this.post.paywall,
+          },
         },
       }
       window.remplib.tracker.init(rempConfig)
