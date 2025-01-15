@@ -117,7 +117,7 @@ export default {
       } else if (this.$route.path.includes('telesport')) {
         this.$router.push('/pretplata/telesport')
       } else {
-        this.$router.push('/pretplata')
+        this.$router.push('https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main')
       }
     },
     load(e) {

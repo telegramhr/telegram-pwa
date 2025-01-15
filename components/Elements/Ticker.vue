@@ -36,7 +36,7 @@ export default {
       subtitle:
         'Za neograničeno čitanje Telegrama i podršku istraživačkim serijalima, pretplatite se na Telegram.',
       cta: 'Pretplatite se',
-      cta_link: '/pretplata',
+      cta_link: 'https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main',
     }
   },
   mounted() {
