@@ -916,7 +916,7 @@ export default {
       const rempConfig = {
         token: 'd4fa2928-7d6a-4f6c-ac95-1f5a1ddd1702',
         signedIn: !!this.$store.state.user.access.length,
-        userId: this.$store.state.user.uid,
+        userId: this.$store.state.user.uid ?? '',
         cookieDomain: '.telegram.hr',
         storage: 'local_storage',
         storageExpiration: {
