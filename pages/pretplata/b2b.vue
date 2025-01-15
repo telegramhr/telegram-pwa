@@ -52,7 +52,10 @@
           </select>
           <div v-if="teamSize" class="full flex relative">
             <div class="full flex pretplata-packbox chill-packbox relative">
-              <div class="best-price-sticker alt-bigger-sticcer animate">
+              <div
+                v-if="discount > 0"
+                class="best-price-sticker alt-bigger-sticcer animate"
+              >
                 Uštedite<br />{{ discount }}%
               </div>
               <div class="full sub-price bold">{{ price }}€ za 12 mjeseci</div>
