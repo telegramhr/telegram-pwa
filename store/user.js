@@ -198,7 +198,7 @@ export const actions = {
         })
         dispatch('checkAccess')
         commit('openModal')
-        window.location.reload()
+        setTimeout(() => window.location.reload(), 1000)
       })
       .catch(() => {
         dispatch('loginPiano', payload)
@@ -207,17 +207,16 @@ export const actions = {
   loginPiano({ commit, dispatch }, payload) {
     this.$axios
       .post(
-        'https://api.piano.io/id/api/v1/publisher/login',
-        {},
+        '/piano/id/api/v1/publisher/identity/login',
+        {
+          email: payload.email,
+          password: payload.password,
+          aid: 'QuTHmVhFpu',
+        },
         {
           headers: {
             'Content-Type': 'application/json',
-          },
-          params: {
-            email: payload.email,
-            password: payload.password,
-            aid: 'QuTHmVhFpu',
-            api_token: 'KWnqgtqMFjyU3l5NXhvfDTsHWp0NY2ceQF8R5Cb9',
+            Authorization: 'KWnqgtqMFjyU3l5NXhvfDTsHWp0NY2ceQF8R5Cb9',
           },
         }
       )

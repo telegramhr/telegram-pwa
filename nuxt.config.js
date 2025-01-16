@@ -47,7 +47,7 @@ export default {
         hid: 'remplib-beam',
         src: 'https://beam.telegram.hr/assets/lib/js/remplib.js',
         async: true,
-      }
+      },
     ],
   },
 
@@ -206,6 +206,10 @@ export default {
     '/gscripts': {
       target: 'https://script.google.com/macros/s/',
       pathRewrite: { '^/gscripts/([^?]*)(.*)': '$1/exec$2' },
+    },
+    '/piano': {
+      target: 'https://api.piano.io/',
+      pathRewrite: { '^/piano/': '' },
     },
   },
 
