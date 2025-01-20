@@ -127,6 +127,7 @@ export const actions = {
       if (cookie) {
         commit('setToken', cookie)
       } else {
+        commit('logout')
         return
       }
     }

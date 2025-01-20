@@ -37,9 +37,7 @@ export default {
     })
     if (this.$store.state.user.uid) {
       this.$store.dispatch('user/getCoralToken').then((token) => {
-        embed.login(
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzY5NjgyNjgsIm5iZiI6MTczNjk2ODI2OCwiZXhwIjoxNzM5NTYwMjY4LCJ1c2VyIjp7ImlkIjoiZGYwN2QzYmUtMjY1OC00ZDk4LTlmYmUtNDRhMTVjODM0N2Y2IiwiZW1haWwiOiJ2YW5qYWxpc2pha0BpY2xvdWQuY29tIiwidXNlcm5hbWUiOiJ2YW5qYSBsaXNqYWsgIiwidXJsIjoiaHR0cHM6Ly90ZWxlZ3JhbS5oci9tb2otcmFjdW4vIiwicm9sZSI6Ik1FTUJFUiJ9fQ.cj7zW4jnEziC5jLrEkeYfxojVyfKZZ4n74UG3cxcZhI'
-        )
+        embed.login(token)
       })
     }
   },
