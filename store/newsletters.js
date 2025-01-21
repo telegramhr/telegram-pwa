@@ -1,7 +1,7 @@
 import Vue from 'vue'
 
 export const state = () => ({
-  api_key: '97a55449-2b35-4a24-865b-9e608a9eca0f',
+  api_key1: '97a55449-2b35-4a24-865b-9e608a9eca0f',
   lists: {},
   updated: null,
 })
@@ -38,7 +38,6 @@ export const actions = {
     if (!email) {
       return
     }
-    console.log(state.api_key)
     this.$axios
       .$post(
         '/mailer/api/v1/users/user-preferences',
@@ -48,7 +47,7 @@ export const actions = {
         },
         {
           headers: {
-            Authorization: `Bearer ${state.api_key}`,
+            Authorization: `Bearer ${state.api_key1}`,
           },
         }
       )
@@ -70,7 +69,7 @@ export const actions = {
             user_id: rootState.user.id,
             list_code: payload.mlid,
           },
-          { headers: { Authorization: `Bearer ${state.api_key}` } }
+          { headers: { Authorization: `Bearer ${state.api_key1}` } }
         )
         .then(() => {
           commit('hasSub', payload.mlid)
@@ -103,7 +102,7 @@ export const actions = {
             list_code: payload.mlid,
           },
         },
-        { headers: { Authorization: `Bearer ${state.api_key}` } }
+        { headers: { Authorization: `Bearer ${state.api_key1}` } }
       )
       .then(() => {
         commit('unSub', payload.mlid)
