@@ -140,6 +140,9 @@ export const actions = {
       .then((res) => {
         commit('setUser', res)
       })
+      .catch(() => {
+        commit('logout')
+      })
     this.$axios
       .$get('/crm/api/v1/users/subscriptions', {
         headers: {
