@@ -69,12 +69,12 @@ export const actions = {
       if (
         state.coral_token &&
         state.coral_update &&
-        state.coral_update > new Date().getTime() - 24 * 3600000
+        state.coral_update > new Date().getTime() - 3600000
       ) {
         resolve(state.coral_token)
         return
       }
-      this.$axios.get(`/pretplate/coral/token/${state.token}`).then((res) => {
+      this.$axios.get(`/pretplate/coral/token2/${state.email}`).then((res) => {
         commit('setCoral', res.data)
         resolve(res.data)
       })

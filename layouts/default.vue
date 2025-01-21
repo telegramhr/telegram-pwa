@@ -19,21 +19,19 @@
 <script>
 export default {
   head() {
-    let font, theme, premium
+    let font, theme
     if (process.server) {
       font = this.$cookies.get('tmg_font')
       theme = this.$cookies.get('tmg_theme')
       if (theme === 'domoljub') {
         theme = 'regular'
       }
-      premium = this.$cookies.get('tmg_access')
     } else {
       font = this.$store.state.theme.font
       theme = this.$store.state.theme.theme
       if (theme === 'domoljub' && !this.$store.state.theme.update) {
         this.$store.dispatch('theme/setTheme', { type: 'regular', app: this })
       }
-      premium = this.$store.state.user.access
     }
     return {
       htmlAttrs: {
