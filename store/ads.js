@@ -604,6 +604,23 @@ export const mutations = {
 
 export const actions = {
   initAds({ state, commit, dispatch, rootState }, payload) {
+    // check if we should even show any ads
+    if (payload.options && payload.options.includes('all')) {
+      return
+    }
+    if (
+      rootState.user.access &&
+      rootState.user.access.includes('telegram_premium')
+    ) {
+      // remove intext banners
+      const b = document.getElementsByClassName('banner-slot')
+      for (const box in b) {
+        if (box.id && box.id.includes('intext')) {
+          box.parentElement.parentElement.classList.add('hide')
+        }
+      }
+      return
+    }
     window.googletag = window.googletag || {}
     window.googletag.cmd = window.googletag.cmd || []
     window.googletag.reloadedSlots = window.googletag.reloadedSlots || []
@@ -624,20 +641,7 @@ export const actions = {
         window.googletag.destroySlots()
       })
     }
-    // check if we should even show any ads
-    if (payload.options && payload.options.includes('all')) {
-      return
-    }
-    /* if (rootState.user.access?.includes('telegram_premium')) {
-      // remove intext banners
-      const b = document.getElementsByClassName('banner-slot')
-      for (const box in b) {
-        if (box.id && box.id.includes('intext')) {
-          box.parentElement.parentElement.classList.add('hide')
-        }
-      }
-      return
-    } */
+
     dispatch('setupTargeting', payload)
   },
   setupTargeting({ state, commit, dispatch, rootState }, payload) {

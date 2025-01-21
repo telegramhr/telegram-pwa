@@ -39,6 +39,35 @@ export default {
         defer: true,
       },
       {
+        hid: 'remplib',
+        innerHTML:
+          'function mock(fn) {\n' +
+          '    return function () {\n' +
+          '      this._.push([fn, arguments])\n' +
+          '    }\n' +
+          '  }\n' +
+          '  window.remplib = window.remplib || {}\n' +
+          '  const mockFuncs = {\n' +
+          "    campaign: 'init',\n" +
+          "    tracker: 'init trackEvent trackPageview trackCommerce',\n" +
+          "    iota: 'init',\n" +
+          '  }\n' +
+          '\n' +
+          '  Object.keys(mockFuncs).forEach(function (key) {\n' +
+          '    if (!window.remplib[key]) {\n' +
+          '      let fn\n' +
+          '      let i\n' +
+          "      const funcs = mockFuncs[key].split(' ')\n" +
+          '      window.remplib[key] = { _: [] }\n' +
+          '\n' +
+          '      for (i = 0; i < funcs.length; i++) {\n' +
+          '        fn = funcs[i]\n' +
+          '        window.remplib[key][fn] = mock(fn)\n' +
+          '      }\n' +
+          '    }\n' +
+          '  })',
+      },
+      {
         hid: 'remplib-camp',
         src: 'https://campaign.telegram.hr/assets/lib/js/remplib.js',
         async: true,
@@ -49,6 +78,9 @@ export default {
         async: true,
       },
     ],
+    __dangerouslyDisableSanitizersByTagID: {
+      remplib: ['innerHTML'],
+    },
   },
 
   router: {
@@ -68,6 +100,7 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
+    { src: '@/plugins/remp.js', ssr: false },
     { src: '@/plugins/axios.js', ssr: false },
     { src: '@/plugins/filters.js' },
     { src: '@/plugins/persisted.client.js' },
@@ -78,7 +111,6 @@ export default {
     { src: '@/plugins/marfeel.client.js' },
     { src: '@/plugins/adsense.client.js', ssr: false },
     { src: '@/plugins/gtm.client.js', ssr: false },
-    { src: '@/plugins/remp.js', ssr: false },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)

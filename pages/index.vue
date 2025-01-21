@@ -136,7 +136,7 @@
       </div>
     </div>
     <!-- Intro block: G1 + comments -->
-    <div class="full relative">
+    <div v-if="posts.length" class="full relative">
       <div class="container flex relative stretch cantha-intro-block">
         <!-- Billboard 1 -->
         <client-only>

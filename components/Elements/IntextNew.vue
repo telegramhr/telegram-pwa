@@ -8,7 +8,7 @@
     >
       <div class="full flex zgt-salebox relative">
         <div
-          v-if="softwall"
+          v-show="softwall"
           class="getmeouttahere-btn center clickable"
           @click="show = false"
         >
@@ -47,7 +47,7 @@
             Nastavite čitati
           </div>-->
           <div
-            v-if="!softwall && !$store.state.user.token"
+            v-show="!softwall && !$store.state.user.token"
             class="newbtn huge-newbtn altbtn center-text clickable"
             @click.prevent="login"
           >
@@ -116,7 +116,8 @@ export default {
       } else if (this.$route.path.includes('telesport')) {
         this.$router.push('/pretplata/telesport')
       } else {
-        document.location.href = 'https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main'
+        document.location.href =
+          'https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main'
       }
     },
     load(e) {
