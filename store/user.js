@@ -38,6 +38,7 @@ export const mutations = {
     state.access = false
     state.coral_token = false
     state.type = 'not-registered'
+    state.token = ''
   },
   setTerm(state, data) {
     state.access = [...data]
@@ -122,14 +123,12 @@ export const actions = {
     })
   },
   checkAccess({ state, dispatch, commit }) {
-    if (!state.token) {
-      const cookie = this.$cookies.get('n_token')
-      if (cookie) {
-        commit('setToken', cookie)
-      } else {
-        commit('logout')
-        return
-      }
+    const cookie = this.$cookies.get('n_token')
+    if (cookie) {
+      commit('setToken', cookie)
+    } else {
+      commit('logout')
+      return
     }
     this.$axios
       .$get('/crm/api/v1/user/info', {
