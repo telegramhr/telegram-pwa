@@ -35,7 +35,10 @@
             <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
               >Prijava</a
             >
-            <a v-show="!canLogIn" href="https://pretplata.telegram.hr/subscriptions/subscriptions/my" class="signup-btn"
+            <a
+              v-show="!canLogIn"
+              href="https://pretplata.telegram.hr/subscriptions/subscriptions/my"
+              class="signup-btn"
               >Moj račun</a
             >
             <a v-show="!canLogIn" class="signup-btn" @click.prevent="logout"
@@ -245,7 +248,11 @@
         </div>
         <div class="half" role="menu">
           <div class="noththree">Info</div>
-          <app-link role="menuitem" to="https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main">Pretplata</app-link>
+          <app-link
+            role="menuitem"
+            to="https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main"
+            >Pretplata</app-link
+          >
           <app-link role="menuitem" to="/klub">Klub</app-link>
           <app-link role="menuitem" to="/knjiga">Knjige</app-link>
           <app-link role="menuitem" to="/stranica/impressum"
@@ -500,18 +507,6 @@ export default {
         this.$store.dispatch('theme/setFont', { type: value, app: this })
       },
     },
-    date() {
-      return new Intl.DateTimeFormat('hr-HR', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      }).format(new Date())
-    },
-    stock_key() {
-      const keys = Object.keys(this.$store.state.stocks.stocks)
-      return keys[Math.floor(Math.random() * keys.length)]
-    },
     showBreaking() {
       return !(
         (this.post.category_slug &&
@@ -525,19 +520,14 @@ export default {
     },
   },
   mounted() {
-    this.clearFC()
     this.$store.dispatch('stocks/pullStocks')
     this.$nextTick(() => {
       this.$store.dispatch('user/checkAccess')
+      this.$store.dispatch('user/checkAdmin')
     })
     this.$store.dispatch('theme/loadTheme')
   },
   methods: {
-    clearFC() {
-      if (process.client) {
-        this.$store.dispatch('user/checkAdmin')
-      }
-    },
     search() {
       if (this.search_term) {
         this.maybeCloseSide()

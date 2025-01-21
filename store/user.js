@@ -130,6 +130,9 @@ export const actions = {
       commit('logout')
       return
     }
+    if (state.updated && state.updated > new Date().getTime() - 600 * 1000) {
+      return
+    }
     this.$axios
       .$get('/crm/api/v1/user/info', {
         headers: {
@@ -160,7 +163,7 @@ export const actions = {
       })
   },
   checkAdmin({ commit }) {
-    if (document.cookie.includes('wordpress_test_cookie')) {
+    if (this.$cookies.get('wordpress_test_cookie')) {
       commit('setAdmin')
     }
   },
