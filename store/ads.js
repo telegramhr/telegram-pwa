@@ -628,7 +628,7 @@ export const actions = {
     if (payload.options && payload.options.includes('all')) {
       return
     }
-    if (rootState.user.access?.includes('telegram_premium')) {
+    /* if (rootState.user.access?.includes('telegram_premium')) {
       // remove intext banners
       const b = document.getElementsByClassName('banner-slot')
       for (const box in b) {
@@ -637,7 +637,7 @@ export const actions = {
         }
       }
       return
-    }
+    } */
     dispatch('setupTargeting', payload)
   },
   setupTargeting({ state, commit, dispatch, rootState }, payload) {
