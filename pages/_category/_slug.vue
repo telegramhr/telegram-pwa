@@ -380,12 +380,6 @@
                 <intext-promo-pack
                   @show="showMidasIntext = true"
                 ></intext-promo-pack>
-                <div
-                  v-if="!hasPremium && hasLinker"
-                  class="container flex center have-background"
-                >
-                  <midas :key="`midas-ecoom-${post.id}`" type="ecomm2"></midas>
-                </div>
                 <midas
                   v-if="!hasPremium && hasLinker"
                   :key="`midas-text-${post.id}`"
