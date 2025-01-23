@@ -557,6 +557,12 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.loadAds()
+      if (
+        this.$store.state.user.access &&
+        this.$store.state.user.access.includes('telegram_premium')
+      ) {
+        return
+      }
       this.reloadInterval = setInterval(() => {
         this.$router.push('/?reload=1')
       }, 300000)
