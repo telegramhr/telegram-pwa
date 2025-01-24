@@ -1242,6 +1242,11 @@ export default {
         })
     }, 1000),
   },
+  mounted() {
+    this.$nextTick(() => {
+      document.location.href = 'https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main'
+    })
+  },
   methods: {
     checkout() {
       if (this.token) {
