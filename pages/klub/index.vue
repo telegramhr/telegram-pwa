@@ -560,8 +560,8 @@
               </div>
               <div class="full flex center klub-qr">
                 <img
-                  v-if="user.uid"
-                  :src="`https://pretplate.telegram.hr/qrcode/${user.uid}`"
+                  v-if="user.id"
+                  :src="`https://pretplate.telegram.hr/qrcode/${user.id}`"
                 />
               </div>
               <img

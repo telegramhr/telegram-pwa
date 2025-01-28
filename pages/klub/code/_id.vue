@@ -8,7 +8,7 @@
             <p class="full center-text">
               {{ user.name }}
             </p>
-            <p class="full center-text">ID {{ id }}</p>
+            <p class="full center-text">ID {{ user.uid }}</p>
             <p class="full center-text">
               Datum isteka:
               {{
@@ -46,6 +46,8 @@ export default {
       user: {
         expiry_date: '',
         name: '',
+        uid: '',
+        id: '',
       },
     }
   },

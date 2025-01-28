@@ -1,7 +1,11 @@
-<!doctype html>
-<html lang="hr" dir="ltr">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>Kupite pretplatu</title>
+  <meta charset="UTF-8">
+  <title><!doctype html>
+    <html lang="hr" dir="ltr">
+    <head>
+    <title>Kupite pretplatu</title>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,11 +18,6 @@
   <script src=" https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js "></script>
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <link rel="canonical" href="{{ canonicalUrl }}" />
-
-  <!-- Braintree script -->
-  <script src="https://js.braintreegateway.com/web/dropin/1.33.0/js/dropin.min.js" data-locale="hr_HR"></script>
-  <script src="https://js.braintreegateway.com/web/3.85.2/js/client.min.js"></script>
-  <script src="https://js.braintreegateway.com/web/3.85.2/js/data-collector.min.js"></script>
 </head>
 
 <body>
@@ -51,7 +50,7 @@
               <a
                 v-show="!loggedIn"
                 id="pretplatite se - burger menu"
-                href="https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main"
+                href="/pretplata"
                 class="signup-btn sub-btn"
               >Pretplatite se</a
               >
@@ -222,7 +221,7 @@
             </div>
             <div class="half" role="menu">
               <div class="noththree">Info</div>
-              <a href="https://www.telegram.hrhttps://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main">Pretplata</a>
+              <a href="https://www.telegram.hr/pretplata">Pretplata</a>
               <a href="https://www.telegram.hr/klub">Klub</a>
               <a href="https://www.telegram.hr/knjiga">Knjige</a>
               <a href="https://www.telegram.hr/stranica/impressum"
@@ -339,7 +338,7 @@
                 <a
                   v-show="!loggedIn"
                   id="pretplatite se - header"
-                  href="https://www.telegram.hrhttps://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main"
+                  href="https://www.telegram.hr/pretplata"
                   class="newbtn"
                 >Pretplatite se</a
                 >
@@ -375,10 +374,8 @@
 
     <form id="form" action="/sales-funnel/sales-funnel-frontend/submit" method="post" class="full flex remp-pretplata">
       <input type="hidden" name="funnel_url_key" value="{{ funnel.url_key }}">
-      <input type="hidden" name="payment_metadata[payment_method_nonce]" :value="this.nonce">
-      <input type="hidden" name="payment_metadata[device_data]" :value="this.deviceData">
       <input type="hidden" name="subscription_type" :value="this.subscription_type">
-      <input type="hidden" name="payment_gateway" :value="payment">
+      <input type="hidden" name="payment_gateway" value="stripe_recurrent">
       <input type="hidden" name="auth" :value="this.showPassword ? 1 : 0">
       <input type="hidden" name="price" :value="this.price">
       <div class="full flex remp-pretplata">
@@ -388,8 +385,7 @@
               class="container relative flex pretplata-packs mobile-side-pad column-horizontal-pad"
             >
               <h1 class="full center-text">
-                Pridružite se tisućama pretplatnika i podržite neovisno novinarstvo -
-                odaberite Telegram
+                Pridružite se tisućama pretplatnika i podržite neovisno novinarstvo - odaberite Telegram
               </h1>
               <p class="full bold remp-subtitle faded">
                 1) Odaberite pretplatu
@@ -581,7 +577,7 @@
                       type="radio"
                       name="pretplata-placanje"
                       class="hide"
-                      value="braintree_default_recurrent"
+                      value="stripe_recurrent"
                     />
                     <label
                       for="pretplata-kartica"
@@ -608,9 +604,9 @@
                       type="radio"
                       name="pretplata-placanje"
                       class="hide"
-                      value="bank_transfer"
+                      value="pretplata-uplata"
                     />
-                    <label
+                    <!--<label
                       for="pretplata-uplata"
                       class="full flex relative remp-minibox animate clickable"
                     >
@@ -619,7 +615,7 @@
                       <div class="full remp-special-note">
                         Izdat ćemo vam uplatnicu
                       </div>
-                    </label>
+                    </label>-->
                   </div>
                 </div>
               </div>
@@ -768,7 +764,7 @@
                     Popunite sve podatke
                   </div>
                   <div
-                    v-if="pack && email && dropin"
+                    v-if="pack && email"
                     class="full newbtn huge-newbtn center-text clickable green-newbtn"
                     @click="submit"
                   >
@@ -807,7 +803,7 @@
       color_theme: 'regular',
       font_size: 'normal',
       show_msg: '',
-      payment: 'braintree_default_recurrent',
+      payment: 'stripe_recurrent',
       pack: 'pretplata-standard',
       term: 'pretplata-godisnje',
       promo_code: '',
@@ -854,67 +850,9 @@
     }
   },
   methods: {
-    getToken() {
-      const _this = this
-      axios
-        .get('/api/v1/braintree/token', {
-          params: {
-            email: _this.email,
-          },
-        })
-        .then((res) => {
-          _this.token = res.data.token
-          const dropinContainer = document.getElementById('dropin-container')
-          braintree.client
-            .create({
-              authorization: res.data.token,
-            })
-            .then((clientInstance) => {
-              braintree.dataCollector
-                .create({
-                  client: clientInstance,
-                })
-                .then(function (dataCollectorInstance) {
-                  _this.deviceData = dataCollectorInstance.deviceData
-                })
-
-              dropinContainer.innerHTML = ''
-              braintree.dropin
-                .create({
-                  authorization: res.data.token,
-                  container: dropinContainer,
-                  translations: _this.translations,
-                })
-                .then((dropinInstance) => {
-                  _this.dropin = dropinInstance
-                })
-                .catch((error) => {
-                  throw error
-                })
-            })
-            .catch((error) => {
-              throw error
-            })
-        })
-    },
     submit() {
       const _this = this
-      if (this.nonce || this.payment === 'bank_transfer') {
         _this.submitForm()
-        return
-      }
-      if (!this.dropin) {
-        this.getToken()
-      } else {
-        _this.dropin.requestPaymentMethod(function (err, payload) {
-          if (err) {
-            alert(err)
-            return
-          }
-
-          _this.nonce = payload.nonce
-        })
-      }
     },
     checkout() {
       if (this.token) {
@@ -924,7 +862,7 @@
       }
     },
     submitForm() {
-      if (!this.terms || !this.privacy || !this.email || !this.payment || !this.pack || !this.term || (this.showPassword && !this.password)) {
+      if (!this.terms || !this.privacy || !this.email || !this.payment || !this.pack || !this.term || (this.showPassword && !this.password) ) {
         this.show_msg = 'error-not-finished'
         return
       }
@@ -1002,10 +940,10 @@
       }
     },
     standardPrice() {
-        return '7,99'
+      return '7,99'
     },
     premiumPrice() {
-        return '9,99'
+      return '9,99'
     },
     price() {
       if (this.term === 'pretplata-mjesecno') {
@@ -1050,5 +988,11 @@
   },
   })
 </script>
+</body>
+</html>
+</title>
+</head>
+<body>
+
 </body>
 </html>
