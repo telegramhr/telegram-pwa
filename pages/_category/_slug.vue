@@ -644,6 +644,7 @@ export default {
       },
       related_posts: [],
       hasLinker: false,
+      giftValid: false,
     }
   },
   computed: {
@@ -923,7 +924,7 @@ export default {
         article: {
           id: this.post.id.toString(),
           category: this.post.category,
-          locked: this.post.paywall === 'always',
+          locked: !this.giftValid && this.post.paywall === 'always',
           tags: this.post.tags.map((tag) => {
             return tag.slug
           }),
@@ -966,6 +967,7 @@ export default {
                   compass.setPageVar('gifted', 'true')
                 },
               ])
+              this.giftValid = true
             }
           })
       }
@@ -995,8 +997,8 @@ export default {
         }
         this.$store.commit('history/setData', this.post)
         this.triggerAnalytics()
-        this.loadRemp()
         this.loadPiano()
+        this.loadRemp()
         this.loadAds()
         if (typeof FB !== 'undefined') {
           FB.XFBML.parse()

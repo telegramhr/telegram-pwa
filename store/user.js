@@ -39,6 +39,7 @@ export const mutations = {
     state.coral_token = false
     state.type = 'not-registered'
     state.token = ''
+    state.updated = null
   },
   setTerm(state, data) {
     state.access = [...data]
@@ -84,9 +85,7 @@ export const actions = {
   setAccess({ commit, dispatch, state }, data) {
     return new Promise((resolve) => {
       if (data) {
-        if (data.data.access.includes('telegram_premium')) {
-          commit('setTerm', data.data.access)
-        }
+        commit('setTerm', data.data.access)
         if (window.fbq) {
           window.fbq('trackCustom', 'HasSubscription', { value: 1 })
         }
@@ -122,13 +121,16 @@ export const actions = {
       }
     })
   },
-  checkAccess({ state, dispatch, commit }) {
-    const cookie = this.$cookies.get('n_token')
-    if (cookie) {
-      commit('setToken', cookie)
-    } else {
-      commit('logout')
-      return
+  checkAccess({ state, dispatch, commit }, token) {
+    if (!token) {
+      const cookie = this.$cookies.get('n_token')
+      if (cookie) {
+        commit('setToken', cookie)
+        token = cookie
+      } else {
+        commit('logout')
+        return
+      }
     }
     if (state.updated && state.updated > new Date().getTime() - 600 * 1000) {
       return
@@ -136,7 +138,7 @@ export const actions = {
     this.$axios
       .$get('/crm/api/v1/user/info', {
         headers: {
-          Authorization: `Bearer ${state.token}`,
+          Authorization: `Bearer ${token}`,
         },
       })
       .then((res) => {
@@ -148,7 +150,7 @@ export const actions = {
     this.$axios
       .$get('/crm/api/v1/users/subscriptions', {
         headers: {
-          Authorization: `Bearer ${state.token}`,
+          Authorization: `Bearer ${token}`,
         },
       })
       .then((res) => {
@@ -202,9 +204,11 @@ export const actions = {
           maxAge: 60 * 60 * 24 * 365,
           sameSite: 'lax',
         })
-        dispatch('checkAccess')
+        dispatch('checkAccess', res.access.token)
         commit('openModal')
-        setTimeout(() => window.location.reload(), 1000)
+        setTimeout(() => {
+          window.location.reload()
+        }, 2000)
       })
       .catch(() => {
         dispatch('loginPiano', payload)
