@@ -1,5 +1,13 @@
 export const state = () => ({
   categories: {
+    karijere: {
+      name: 'Karijere',
+      description: '',
+      posts: [],
+      updated: null,
+      extraClass: 'karijere',
+      canonical: '/karijere/',
+    },
     'more-news': {
       name: 'Politika & Kriminal',
       description: '',

@@ -225,7 +225,7 @@ export default {
           this.hasMore = false
         }
       })
-      .catch(() => {
+      .catch((e) => {
         if (process.server) {
           this.$telegram.context.res.statusCode = 404
         }
