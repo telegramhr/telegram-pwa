@@ -55,7 +55,7 @@
                 class="signup-btn sub-btn"
               >Pretplatite se</a
               >
-              <a v-show="!loggedIn" class="signup-btn" @click.prevent="login"
+              <a v-show="!loggedIn" class="signup-btn" href="https://pretplata.telegram.hr/"
               >Prijava</a
               >
               <a v-show="loggedIn" href="https://pretplata.telegram.hr/subscriptions/subscriptions/my" class="signup-btn"
@@ -601,7 +601,7 @@
                       </div>
                     </label>
                   </div>
-                  <div class="full relative flex">
+                  <!--<div class="full relative flex">
                     <input
                       id="pretplata-uplata"
                       v-model="payment"
@@ -620,7 +620,7 @@
                         Izdat ćemo vam uplatnicu
                       </div>
                     </label>
-                  </div>
+                  </div>-->
                 </div>
               </div>
               <p v-show="!loggedIn" class="full bold remp-subtitle faded">
@@ -646,7 +646,7 @@
                       placeholder="Upišite lozinku"
                       name="password"
                     />
-                    <small>Ukoliko niste registrirani korisnik, na navedenu email adresu ćete zaprimiti pristupne podatke.</small>
+                    <small v-show="!showPassword">Ukoliko niste registrirani korisnik, na navedenu email adresu ćete zaprimiti pristupne podatke.</small>
                     <p class="full remp-mini-text center-text faded">ili</p>
                     <div class="full flex relative">
                       <div
@@ -795,7 +795,6 @@
         </div>
       </div>
     </form>
-    {{ snippetNeedHelp | raw }}
     {{ snippetTelegramFooter | raw }}
   </div>
 </div>
@@ -947,7 +946,6 @@
           'Content-Type': 'application/x-www-form-urlencoded',
         }
       }).then(function (response) {
-        console.log(response.data.status);
         if (response.data.status && response.data.status === 'taken') {
           console.log(response.data);
           _this.showPassword = true;
@@ -960,7 +958,7 @@
           _this.showPassword = false;
         }
       }).catch(function (error) {
-        _this.showPassword = true;
+        _this.showPassword = false;
       })
     }, 1000)
   },

@@ -26,7 +26,7 @@
               id="pretplatite se - burger menu"
               :to="
                 $route.fullPath.includes('telesport')
-                  ? '/pretplata/telesport/'
+                  ? 'https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=telesport'
                   : 'https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main'
               "
               class="signup-btn sub-btn"
@@ -405,7 +405,7 @@
               id="pretplatite se - header"
               :to="
                 $route.fullPath.includes('telesport')
-                  ? '/pretplata/telesport/'
+                  ? 'https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=telesport'
                   : 'https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main'
               "
               class="newbtn"
