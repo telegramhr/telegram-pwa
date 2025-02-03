@@ -42,7 +42,18 @@
           <p class="full infotext center-text">
             {{ error }}
           </p>
-          <button class="newbtn clickable" type="submit">Prijava</button>
+          <div class="full center relative clickable">
+            <button v-show="!loading" class="newbtn clickable" type="submit">
+              Prijava
+            </button>
+            <div v-show="loading" class="full center cool-loader">
+              <div class="loader-square">
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+          </div>
           <small class="full center-text">
             <a
               href="https://pretplata.telegram.hr/social-login/social-sign/request-password"
@@ -64,7 +75,7 @@ export default {
     return {
       email: '',
       password: '',
-      error: '',
+      loading: false,
     }
   },
   computed: {
@@ -73,6 +84,9 @@ export default {
     },
     path() {
       return encodeURI(`https://www.telegram.hr${this.$route.fullPath}`)
+    },
+    error() {
+      return this.$store.state.user.error
     },
   },
   mounted() {
@@ -90,17 +104,18 @@ export default {
   methods: {
     login() {
       if (!this.email || !this.password) {
-        this.error = 'Molimo unesite email i lozinku.'
+        this.$store.commit('user/setError', 'Molimo unesite email i lozinku.')
         return
       }
-      this.$store
-        .dispatch('user/loginSubmit', {
+      this.loading = true
+      try {
+        this.$store.dispatch('user/loginSubmit', {
           email: this.email,
           password: this.password,
         })
-        .catch(() => {
-          this.error = 'Neispravni podaci za prijavu.'
-        })
+      } finally {
+        this.loading = false
+      }
     },
     close() {
       this.$store.dispatch('user/login')

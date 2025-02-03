@@ -13,6 +13,7 @@ export const state = () => ({
   coral_token: false,
   coral_update: null,
   showModal: false,
+  error: '',
 })
 
 export const mutations = {
@@ -26,6 +27,7 @@ export const mutations = {
     if (data.access) {
       state.token = data.access.token
     }
+    state.error = ''
   },
   logout(state) {
     state.id = 0
@@ -40,6 +42,7 @@ export const mutations = {
     state.type = 'not-registered'
     state.token = ''
     state.updated = null
+    state.error = ''
   },
   setTerm(state, data) {
     state.access = [...data]
@@ -57,6 +60,9 @@ export const mutations = {
   },
   openModal(state) {
     state.showModal = !state.showModal
+  },
+  setError(state, error) {
+    state.error = error
   },
 }
 
@@ -258,9 +264,9 @@ export const actions = {
                 })
             }
           })
-          .catch(() => {
-            throw new Error('Email i/ili lozinka nisu ispravni')
-          })
+      })
+      .catch(() => {
+        commit('setError', 'Email i/ili lozinka nisu ispravni')
       })
   },
 }
