@@ -2630,13 +2630,13 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 }
 .single-article .single-article-body #article-content > p.premium-fade-out {
     position: relative;
-    margin-bottom: -30px;
+    margin-bottom: -24px;
 }
 .single-article .single-article-body #article-content > p.premium-fade-out::before {
     content: ' ';
     background: linear-gradient(to top, rgba(252,241,231, 1), rgba(252,241,231, 0));
     width: 100%;
-    height: 150px;
+    height: 200px;
     z-index: 5;
     position: absolute;
     bottom: 0;
@@ -13269,6 +13269,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     margin-bottom: 1.2rem;
     padding: 1.2rem 0.6rem;
 }
+.alt-salebox {
+    padding: 0px;
+    z-index: 5;
+}
+.alt-salebox .even-out-btns .newbtn {
+    margin-left: 0px;
+}
 .dark-mode .zgt-salebox, .dark-zgt-salebox {
     background-color: #121212;
     border: 1px solid #555;
@@ -13299,6 +13306,18 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .zgt-salebox .sub-price {
     font-size: 48px;
     font-size: 2.4rem;
+}
+.alt-salebox .sub-price {
+    font-weight: normal;
+    font-size: 32px;
+    font-size: 1.6rem;
+}
+.alt-salebox .remp-icon-list svg {
+    margin-left: 0px;
+    margin-right: 4px;
+}
+.alt-salebox .remp-icon-list {
+    margin-right: 12px;
 }
 .zgt-salebox .noththree.overtitle {
     color: black;
@@ -15999,4 +16018,33 @@ form#telemach-promo input[type=submit].newbtn {
 }
 .t-magazine-cover {
     max-height: 600px;
+}
+.raise-salebox-visual {
+    margin-top: -64px;
+}
+.alt-salebox .green-newbtn {
+    background-color: #37ae37;
+    border: 1px solid #37ae37;
+}
+.salebox-lockbox {
+    position: absolute;
+    top: -36px;
+    z-index: 99;
+}
+.salebox-lockbox svg {
+    position: relative;
+    top: -0.05em;
+    margin-right: 0.2rem;
+}
+.alt-salebox p {
+    width: 100%;
+}
+@media screen and (max-width: 767px) {
+    .salebox-lockbox {
+        top: -9vw;
+        font-size: 4vw;
+    }
+    .raise-salebox-visual {
+        margin-top: 0px;
+    }
 }

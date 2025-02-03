@@ -59,6 +59,7 @@ import {
   faGift,
   faCircleQuestion,
   faStar,
+  faLockKeyhole,
 } from '@fortawesome/pro-regular-svg-icons'
 
 import {
@@ -127,7 +128,8 @@ library.add(
   faStar,
   faStarSolid,
   faArrowLeft,
-  faCircleQuestion
+  faCircleQuestion,
+  faLockKeyhole
 )
 
 // Register the component globally
