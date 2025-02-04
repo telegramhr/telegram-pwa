@@ -383,15 +383,15 @@
                   type="text-only"
                 ></midas>
               </client-only>
-              <div
-                id="marfeel_sidebar"
-                class="marfeel-sidebar"
-                data-nosnippet
-              ></div>
               <!-- Article footer -->
               <div
                 class="full relative single-article-footer flex column-top-pad"
               >
+                <div
+                  id="marfeel_sidebar"
+                  class="marfeel-sidebar"
+                  data-nosnippet
+                ></div>
                 <div class="half flex-responsive article-tags">
                   <app-link
                     v-for="tag in post.tags"
