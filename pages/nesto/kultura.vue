@@ -47,10 +47,10 @@
             >
             <app-link
               v-show="!canLogIn && !$route.fullPath.includes('super1')"
-              id="Poklonite pretplatu - header"
-              to="/pretplata/poklon"
+              id="Kupite magazin - header"
+              to="/knjiga/t-magazin"
               class="newbtn"
-              >Poklonite pretplatu</app-link
+              >Kupite magazin</app-link
             >
             <a
               v-show="!canLogIn"
