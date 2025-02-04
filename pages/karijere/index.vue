@@ -19,87 +19,34 @@
       <div
         class="container flex relative mobile-side-pad pretplata-packboxes smaller-booksel column-vertical-pad"
       >
-        <div class="half flex flex-responsive column-full-pad">
+        <div
+          v-for="post in posts"
+          :key="post.id"
+          class="half flex flex-responsive column-full-pad"
+        >
           <app-link
-            to="/"
+            :to="post.permalink"
             class="full flex knjiga-hero pretplata-packbox relative column-full-pad"
           >
             <div class="full flex knjiga-cover knjiga-cover-3d job-cover">
               <img
-                src="https://www.telegram.hr/wp-content/uploads/2024/10/tg-main-meta.png"
+                :src="
+                  post.image?.full?.url ??
+                  'https://www.telegram.hr/wp-content/uploads/2024/10/tg-main-meta.png'
+                "
                 aria-hidden="true"
               />
             </div>
             <div class="full flex knjiga-features">
               <div class="full relative center-text big-book-price bold">
-                Junior dizajner
+                {{ post.title }}
               </div>
               <div class="nothfour full relative center-text">
-                Pridruži se Telegramovom kreativnom timu i sudjeluj u izradi
-                grafika, landing pageova i ostalih vizualnih materijala
-                Telegramovih digitalnih i tiskanih izdanja.
+                {{ post.excerpt }}
               </div>
-              <div class="nothfour full relative center-text bold">
+              <!--<div class="nothfour full relative center-text bold">
                 Do 21.03.2025.
-              </div>
-              <div class="full center btn-parent">
-                <div class="btn animate">Pogledajte više</div>
-              </div>
-            </div>
-          </app-link>
-        </div>
-        <div class="half flex flex-responsive column-full-pad">
-          <app-link
-            to="/"
-            class="full flex knjiga-hero pretplata-packbox relative column-full-pad"
-          >
-            <div class="full flex knjiga-cover knjiga-cover-3d job-cover">
-              <img
-                src="https://www.telegram.hr/wp-content/uploads/2024/10/tg-main-meta.png"
-                aria-hidden="true"
-              />
-            </div>
-            <div class="full flex knjiga-features">
-              <div class="full relative center-text big-book-price bold">
-                Junior dizajner
-              </div>
-              <div class="nothfour full relative center-text">
-                Pridruži se Telegramovom kreativnom timu i sudjeluj u izradi
-                grafika, landing pageova i ostalih vizualnih materijala
-                Telegramovih digitalnih i tiskanih izdanja.
-              </div>
-              <div class="nothfour full relative center-text bold">
-                Do 21.03.2025.
-              </div>
-              <div class="full center btn-parent">
-                <div class="btn animate">Pogledajte više</div>
-              </div>
-            </div>
-          </app-link>
-        </div>
-        <div class="half flex flex-responsive column-full-pad">
-          <app-link
-            to="/"
-            class="full flex knjiga-hero pretplata-packbox relative column-full-pad"
-          >
-            <div class="full flex knjiga-cover knjiga-cover-3d job-cover">
-              <img
-                src="https://www.telegram.hr/wp-content/uploads/2024/10/tg-main-meta.png"
-                aria-hidden="true"
-              />
-            </div>
-            <div class="full flex knjiga-features">
-              <div class="full relative center-text big-book-price bold">
-                Junior dizajner
-              </div>
-              <div class="nothfour full relative center-text">
-                Pridruži se Telegramovom kreativnom timu i sudjeluj u izradi
-                grafika, landing pageova i ostalih vizualnih materijala
-                Telegramovih digitalnih i tiskanih izdanja.
-              </div>
-              <div class="nothfour full relative center-text bold">
-                Do 21.03.2025.
-              </div>
+              </div>-->
               <div class="full center btn-parent">
                 <div class="btn animate">Pogledajte više</div>
               </div>
@@ -116,6 +63,38 @@
 <script>
 export default {
   name: 'Karijere',
+  async fetch() {
+    if (!this.$store.state.category.categories.karijere) {
+      if (process.server) {
+        this.$telegram.context.res.statusCode = 404
+        throw new Error('Kategorija ne postoji')
+      }
+      return
+    }
+    const page = this.$route.query.page ? parseInt(this.$route.query.page) : 1
+    await this.$axios
+      .get(`/api/category/karijere/page/${page}`)
+      .then((res) => {
+        this.posts = res.data.posts
+        this.description = res.data.description
+        if (res.data.posts.length < 20) {
+          this.hasMore = false
+        }
+      })
+      .catch((e) => {
+        if (process.server) {
+          this.$telegram.context.res.statusCode = 404
+        }
+        throw new Error('Kategorija ne postoji')
+      })
+  },
+  data() {
+    return {
+      posts: [],
+      description: '',
+      hasMore: true,
+    }
+  },
   head() {
     const link = [
       {
