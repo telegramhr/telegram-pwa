@@ -185,7 +185,7 @@
             role="menuitem"
             to="/tema/budi-u-igri-uz-favbet/"
             class="animate flex highlight-tile"
-            >Budi uz
+            >Budi u igri uz
             <img src="@/assets/img/logo_favbet_magenta.svg" alt="Favbet logo"
           /></app-link>
         </nav>
@@ -358,7 +358,7 @@
           <div
             class="noththree full center-text column-vertical-pad subsection-title"
           >
-            Budi uz
+            Budi u igri uz
             <img src="@/assets/img/logo_favbet_blue.svg" alt="Favbet logo" />
           </div>
         </div>

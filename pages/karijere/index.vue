@@ -31,7 +31,7 @@
             <div class="full flex knjiga-cover knjiga-cover-3d job-cover">
               <img
                 :src="
-                  post.image?.full?.url ??
+                  post.image?.jpg ??
                   'https://www.telegram.hr/wp-content/uploads/2024/10/tg-main-meta.png'
                 "
                 aria-hidden="true"
@@ -42,7 +42,7 @@
                 {{ post.title }}
               </div>
               <div class="nothfour full relative center-text">
-                {{ post.excerpt }}
+                {{ post.description }}
               </div>
               <!--<div class="nothfour full relative center-text bold">
                 Do 21.03.2025.
