@@ -44,9 +44,12 @@
               <div class="nothfour full relative center-text">
                 {{ post.description }}
               </div>
-              <!--<div class="nothfour full relative center-text bold">
-                Do 21.03.2025.
-              </div>-->
+              <div
+                v-if="post.ends_at"
+                class="nothfour full relative center-text bold"
+              >
+                Do {{ post.ends_at }}
+              </div>
               <div class="full center btn-parent">
                 <div class="btn animate">Pogledajte više</div>
               </div>
