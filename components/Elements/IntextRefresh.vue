@@ -14,7 +14,10 @@
         >
           <font-awesome-icon :icon="['fas', 'times']"></font-awesome-icon>
         </div>
-        <div class="full salebox-lockbox center-text barlow bold">
+        <div
+          v-show="topBar"
+          class="full salebox-lockbox center-text barlow bold"
+        >
           <font-awesome-icon :icon="['far', 'lock-keyhole']" /> {{ topBar }}
         </div>
         <div
@@ -70,12 +73,12 @@
           class="forty flex flex-responsive mobile-full-pad center raise-salebox-visual m-order-1"
         >
           <img
-            src="@/assets/img/tg_mockup_mobile_standard.png"
+            :src="desktop_image"
             alt="Mobiteli na raznim stranicama Telegrama"
             class="desktop-only"
           />
           <img
-            src="@/assets/img/tg_mockup_combo.png"
+            :src="mobile_image"
             alt="Uređaji na raznim stranicama Telegrama"
             class="mobile-only"
           />
@@ -106,13 +109,15 @@ export default {
       softwall: false,
       cta: 'Kupite pretplatu',
       cta_link: '',
+      desktop_image: require('@/assets/img/tg_mockup_mobile_standard.png'),
+      mobile_image: require('@/assets/img/tg_mockup_combo.png'),
     }
   },
   mounted() {
-    window.addEventListener('piano_intext_new', this.load)
+    window.addEventListener('remp_intext_new', this.load)
   },
   destroyed() {
-    window.removeEventListener('piano_intext_new', this.load)
+    window.removeEventListener('remp_intext_new', this.load)
   },
   methods: {
     login() {
@@ -122,14 +127,15 @@ export default {
       this.$store.commit('pretplata/setLastArticle', this.$route.path)
       if (this.termId) {
         if (this.termId.includes('pretplata')) {
-          this.$router.push(this.termId)
+          document.location.href = this.termId
         } else {
           this.checkout(this.termId)
         }
       } else if (this.cta_link) {
         window.open(this.cta_link, '_blank')
       } else if (this.$route.path.includes('telesport')) {
-        this.$router.push('/pretplata/telesport')
+        document.loacation.href =
+          'https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=telesport'
       } else {
         document.location.href =
           'https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main'
@@ -147,6 +153,12 @@ export default {
         this.termId = e.detail.termId
         this.cta = e.detail.cta ?? 'Pretplatite se'
         this.cta_link = e.detail.cta_link ?? ''
+        if (e.detail.desktop_image) {
+          this.desktop_image = e.detail.desktop_image
+        }
+        if (e.detail.mobile_image) {
+          this.mobile_image = e.detail.mobile_image
+        }
       }
       this.triggerShow()
     },

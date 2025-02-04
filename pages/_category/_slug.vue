@@ -376,10 +376,7 @@
                   </img-comparison-slider>
                 </portal>
 
-                <intext-new @show="showMidasIntext = true"></intext-new>
-                <intext-promo-pack
-                  @show="showMidasIntext = true"
-                ></intext-promo-pack>
+                <intext-refresh @show="showMidasIntext = true"></intext-refresh>
                 <midas
                   v-if="!hasPremium && hasLinker"
                   :key="`midas-text-${post.id}`"
