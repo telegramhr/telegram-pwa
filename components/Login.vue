@@ -22,6 +22,7 @@
           <div class="full flex column-mini-left-pad">
             <a
               :href="`https://pretplata.telegram.hr/social-login/social-sign/sign?social_provider_key=facebook&success_login_url=${path}`"
+              @click="close"
               class="full center remp-social-logbtn animate"
             >
               <font-awesome-icon
