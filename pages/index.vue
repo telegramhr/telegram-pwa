@@ -494,7 +494,7 @@
           <category slug="zivot"></category>
           <category slug="biznis-tech"></category>
           <category slug="pitanje-zdravlja"></category>
-          <category slug="telesport"></category>
+          <category slug="velike-price"></category>
         </div>
       </div>
     </div>
