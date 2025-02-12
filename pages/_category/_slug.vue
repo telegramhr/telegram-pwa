@@ -878,12 +878,6 @@ export default {
       }
     },
     loadAds() {
-      if (
-        this.post.category_slug &&
-        this.post.category_slug.includes('openspace')
-      ) {
-        return
-      }
       this.$store.dispatch('ads/initAds', {
         route: this.$route,
         options: this.post.disable_ads,
