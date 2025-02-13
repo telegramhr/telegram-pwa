@@ -557,6 +557,7 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.loadAds()
+      this.loadRemp()
       if (
         this.$store.state.user.access &&
         this.$store.state.user.access.includes('telegram_premium')
@@ -573,6 +574,35 @@ export default {
     clearInterval(this.reloadInterval)
   },
   methods: {
+    loadRemp() {
+      window.remplib = window.remplib || {}
+      const rempConfig = {
+        token: 'd4fa2928-7d6a-4f6c-ac95-1f5a1ddd1702',
+        signedIn: !!this.$store.state.user.access.length,
+        userId: this.$store.state.user.id.toString() ?? '',
+        cookieDomain: '.telegram.hr',
+        storage: 'local_storage',
+        storageExpiration: {
+          default: 15,
+          keys: {
+            browser_id: 1051200,
+            campaigns: 1051200,
+          },
+        },
+        tracker: {
+          url: 'https://tracker.telegram.hr',
+          timeSpent: {
+            enabled: true,
+          },
+          canonicalUrl: 'https://tracker.telegram.hr',
+        },
+        campaign: {
+          url: 'https://campaign.telegram.hr',
+        },
+      }
+      window.remplib.tracker.init(rempConfig)
+      window.remplib.campaign.init(rempConfig)
+    },
     manageLogin() {
       if (this.canLogIn) {
         this.$store.dispatch('user/login')
