@@ -16051,3 +16051,75 @@ form#telemach-promo input[type=submit].newbtn {
 .job-cover {
     margin-bottom: 24px;
 }
+.checkout-table .bold {
+    font-size: 24px;
+    font-size: 1.2rem;
+}
+.column-tiny-bottom-pad {
+    margin-bottom: 0.2rem;
+}
+.check span.terms-tweak {
+    top: -5.5px;
+}
+.pretplata-duo .pretplata-blue {
+    color: white;
+}
+.pretplata-duo .pretplata-packboxes {
+    max-width: 580px;
+}
+.pretplata-duo .smaller-packbox .sub-price {
+    font-size: 32px;
+    font-size: 1.6rem;
+    margin-bottom: 0.2rem;
+}
+.pretplata-duo label.smaller-packbox {
+    opacity: .75;
+    border-width: 0.2rem;
+    border-color: rgba(255, 255, 255, 0.25);
+    margin-bottom: 1.2rem;
+    margin-top: 1.2rem;
+}
+.pretplata-duo .remp-radio-indicator div {
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.pretplata-duo .pretplata-packboxes input:checked ~ label.smaller-packbox {
+    opacity: 1;
+}
+.pretplata-duo-title {
+    font-size: 32px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'Barlow', sans-serif;
+}
+.pretplata-duo-text {
+    font-size: 20px;
+    font-size: 1rem;
+}
+.pretplata-duo-text .smaller-text {
+    font-size: 16px;
+    font-size: 0.8rem;
+}
+.force-stretch {
+    align-items: stretch !important;
+}
+
+@media screen and (max-width: 767px) {
+    .pretplata-duo-title {
+        font-size: 24px;
+        font-size: 1.2rem;
+    }
+    .pretplata-duo .smaller-packbox .sub-price {
+        font-size: 24px;
+        font-size: 1.2rem;
+    }
+    .pretplata-duo-text {
+        font-size: 18px;
+        font-size: 0.9rem;
+    }
+    .pretplata-duo-text .smaller-text {
+        font-size: 14px;
+        font-size: 0.7rem;
+    }
+}
