@@ -16052,8 +16052,8 @@ form#telemach-promo input[type=submit].newbtn {
     margin-bottom: 24px;
 }
 .checkout-table .bold {
-    font-size: 24px;
-    font-size: 1.2rem;
+    font-size: 22px;
+    font-size: 1.1rem;
 }
 .column-tiny-bottom-pad {
     margin-bottom: 0.2rem;
@@ -16170,4 +16170,33 @@ form#telemach-promo input[type=submit].newbtn {
         padding: 1.2rem;
         padding-top: 2.4rem;
     }
+}
+.inline-input {
+    display: inline-block;
+    font-family: 'Barlow', sans-serif;
+    width: 2.6rem;
+    background: none;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    margin-left: 0.4rem;
+    padding: 0px 0.3rem;
+}
+.checkout-bold {
+    font-size: 22px;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+.checkout-more-btn, .checkout-less-btn {
+    position: absolute;
+    right: 0px;
+    width: 0.8rem;
+    opacity: .5;
+}
+.checkout-more-btn:hover, .checkout-less-btn:hover {
+    opacity: 1;
+}
+.checkout-more-btn {
+    top: -0.2rem;
+}
+.checkout-less-btn {
+    bottom: -0.2rem;
 }
