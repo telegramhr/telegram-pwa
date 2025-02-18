@@ -5,6 +5,8 @@ import {
   faPodcast,
   faAngleRight,
   faArrowLeft,
+  faAngleUp,
+  faAngleDown,
   faTimes,
   faRss,
   faFire,
@@ -129,7 +131,9 @@ library.add(
   faStarSolid,
   faArrowLeft,
   faCircleQuestion,
-  faLockKeyhole
+  faLockKeyhole,
+  faAngleUp,
+  faAngleDown
 )
 
 // Register the component globally
