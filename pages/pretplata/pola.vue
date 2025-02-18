@@ -7,19 +7,27 @@
         headline="Pretplatite se i podržite naše bespoštedno novinarstvo."
       ></theader>
     </div>
+    <div class="full flex">
+      <div class="container relative flex mobile-side-pad column-full-pad">
+        <h1 class="full center-text column-top-pad smaller-h1">
+          Posebna ponuda na Telegramu! <br />Čitajte Telegram cijelu godinu uz
+          50% popusta!
+        </h1>
+      </div>
+    </div>
     <!-- Special half element -->
     <div class="full flex relative stretch pretplata-duo">
       <div
-        class="half flex flex-responsive relative center pretplata-blue column-full-pad mobile-full-pad"
+        class="full center-text relative column-bottom-pad mobile-bottom-pad pretplata-duo-overtitle"
+      >
+        Vremenski ograničena ponuda
+      </div>
+      <div
+        class="half flex flex-responsive relative center pretplata-blue column-full-pad mobile-side-pad mobile-top-pad"
       >
         <div
           class="full flex center pretplata-packboxes full-width-packs column-vertical-pad"
         >
-          <div
-            class="full center-text relative column-bottom-pad mobile-bottom-pad pretplata-duo-title"
-          >
-            Vremenski ograničena ponuda
-          </div>
           <div class="full center">
             <input
               id="pretplata-regular"
@@ -40,11 +48,23 @@
                 <div class="remp-radio-indicator center"><div></div></div>
               </div>
               <div class="full sub-price bold">
-                Standard: 39€<span> u prvoj godini</span>
+                Standard: <span class="faded strikethrough">79€</span> 39€<span>
+                  u prvoj godini</span
+                >
               </div>
-              <div class="full barlow faded">
-                neograničeno čitanje Telegrama, specijalni newsletteri i posebni
-                popusti u sklopu Telegram kluba
+              <div class="full pretplata-benefits">
+                <p class="full animate">
+                  <font-awesome-icon
+                    :icon="['fas', 'check']"
+                  ></font-awesome-icon>
+                  neograničeno čitanje Telegrama
+                </p>
+                <p class="full animate">
+                  <font-awesome-icon
+                    :icon="['fas', 'check']"
+                  ></font-awesome-icon>
+                  specijalni newsletteri i posebne pogodnosti
+                </p>
               </div>
             </label>
           </div>
@@ -68,11 +88,29 @@
                 <div class="remp-radio-indicator center"><div></div></div>
               </div>
               <div class="full sub-price bold">
-                Premium: 49€<span> u prvoj godini</span>
+                Premium: <span class="faded strikethrough">99€</span> 49€<span>
+                  u prvoj godini</span
+                >
               </div>
-              <div class="full barlow faded">
-                neograničeno čitanje Telegrama i Telesporta bez reklama,
-                specijalni newsletteri i posebni popusti u sklopu Telegram kluba
+              <div class="full pretplata-benefits">
+                <p class="full animate">
+                  <font-awesome-icon
+                    :icon="['fas', 'check']"
+                  ></font-awesome-icon>
+                  neograničeno čitanje Telegrama i Telesporta
+                </p>
+                <p class="full animate">
+                  <font-awesome-icon
+                    :icon="['fas', 'check']"
+                  ></font-awesome-icon>
+                  čitanje bez reklama
+                </p>
+                <p class="full animate">
+                  <font-awesome-icon
+                    :icon="['fas', 'check']"
+                  ></font-awesome-icon>
+                  specijalni newsletteri i posebne pogodnosti
+                </p>
               </div>
             </label>
           </div>

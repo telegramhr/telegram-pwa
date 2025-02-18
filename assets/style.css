@@ -16063,9 +16063,10 @@ form#telemach-promo input[type=submit].newbtn {
 }
 .pretplata-duo .pretplata-blue {
     color: white;
+    padding: 2.4rem 1.2rem;
 }
 .pretplata-duo .pretplata-packboxes {
-    max-width: 580px;
+    max-width: 600px;
 }
 .pretplata-duo .smaller-packbox .sub-price {
     font-size: 32px;
@@ -16073,7 +16074,6 @@ form#telemach-promo input[type=submit].newbtn {
     margin-bottom: 0.2rem;
 }
 .pretplata-duo label.smaller-packbox {
-    opacity: .75;
     border-width: 0.2rem;
     border-color: rgba(255, 255, 255, 0.25);
     margin-bottom: 1.2rem;
@@ -16081,10 +16081,6 @@ form#telemach-promo input[type=submit].newbtn {
 }
 .pretplata-duo .remp-radio-indicator div {
     border-color: rgba(255, 255, 255, 0.25);
-}
-
-.pretplata-duo .pretplata-packboxes input:checked ~ label.smaller-packbox {
-    opacity: 1;
 }
 .pretplata-duo-title {
     font-size: 32px;
@@ -16104,7 +16100,42 @@ form#telemach-promo input[type=submit].newbtn {
 .force-stretch {
     align-items: stretch !important;
 }
-
+.pretplata-duo .pretplata-blue .pretplata-packboxes input:checked ~ label.smaller-packbox {
+    border-color: #e5c473;
+}
+.pretplata-duo .pretplata-blue .pretplata-packboxes input:checked ~ label.smaller-packbox .remp-radio-indicator div::before {
+    background-color: #e5c473;
+}
+.pretplata-duo-overtitle {
+    position: absolute;
+    width: 30%;
+    background-color: var(--tg-primary-highlight-color);
+    z-index: 5;
+    padding: 0.4rem;
+    font-size: 24px;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'Barlow', sans-serif;
+    top: -1rem;
+    left: 35%;
+}
+.pretplata-duo {
+    margin-top: 48px;
+}
+.pretplata-duo .pretplata-blue .pretplata-benefits p {
+    color: white;
+}
+@media screen and (min-width: 767px) {
+    .pretplata-page .smaller-h1 {
+        font-size: 48px;
+        font-size: 2.4rem;
+    }
+    .pretplata-duo .pretplata-blue {
+        z-index: 3;
+    }
+}
 @media screen and (max-width: 767px) {
     .pretplata-duo-title {
         font-size: 24px;
@@ -16115,11 +16146,28 @@ form#telemach-promo input[type=submit].newbtn {
         font-size: 1.2rem;
     }
     .pretplata-duo-text {
-        font-size: 18px;
-        font-size: 0.9rem;
+        font-size: 16px;
+        font-size: 0.8rem;
     }
     .pretplata-duo-text .smaller-text {
         font-size: 14px;
         font-size: 0.7rem;
+    }
+    .pretplata-duo-overtitle {
+        width: 85vw;
+        left: 7.5vw;
+        font-size: 5vw;
+    }
+    .pretplata-duo label.smaller-packbox {
+        margin-bottom: 0.8rem;
+        margin-top: 1.2rem;
+    }
+    .pretplata-page .smaller-h1 {
+        font-size: 28px;
+        font-size: 1.4rem;
+    }
+    .pretplata-duo .pretplata-blue {
+        padding: 1.2rem;
+        padding-top: 2.4rem;
     }
 }
