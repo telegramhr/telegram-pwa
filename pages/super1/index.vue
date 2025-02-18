@@ -183,6 +183,43 @@
         <!--<partner-special position="s1"></partner-special>-->
       </div>
     </client-only>
+
+    <section v-if="secret.length" class="full flex relative">
+      <div class="container flex relative">
+        <div class="full center relative superone-st-bottompad">
+          <div class="noththree flex superone-section-title">
+            <img
+              src="@/assets/img/s1_logo_clean_noline.svg"
+              alt="Super1 logo"
+              loading="lazy"
+            />
+            <img
+              src="@/assets/img/s1_logo_clean_noline_white.svg"
+              alt="Super1 logo"
+              class="dark-mode-only"
+              loading="lazy"
+            />
+            Secret dinner
+          </div>
+        </div>
+        <div class="full flex relative">
+          <div
+            v-for="(post, index) in secret"
+            :key="post.id"
+            class="third flex-responsive flex column-full-pad"
+          >
+            <superfeat
+              :key="post.id"
+              :post="post"
+              mrf-location="super1"
+              mrf-widget="secret-dinner"
+              :mrf-position="(index + 1).toString()"
+            ></superfeat>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <div class="full relative">
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
@@ -338,6 +375,7 @@ export default {
   async fetch() {
     await this.$store.dispatch('s1/pullPosts')
     await this.$store.dispatch('s1/pullBreaks')
+    await this.$store.dispatch('s1/pullBreaks2')
     // await this.$store.dispatch('category/mostRead', { category: 'super1' })
   },
   data() {
@@ -357,6 +395,9 @@ export default {
     },
     breaks() {
       return this.$store.state.s1.breaks
+    },
+    secret() {
+      return this.$store.state.s1.breaks2
     },
     mostRead() {
       return this.$store.state.category.categories.super1.mostRead
