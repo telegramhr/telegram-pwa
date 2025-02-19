@@ -35,7 +35,8 @@
               type="radio"
               name="pretplata-pack"
               class="hide"
-              value="pretplata-regular"
+              value2="Telegram_Standard_Godišnja_Pretplata_50%_popust_za prvu godinu"
+              value="3_mjeseca_po_1euro"
             />
             <label
               for="pretplata-regular"
@@ -75,7 +76,7 @@
               type="radio"
               name="pretplata-pack"
               class="hide"
-              value="pretplata-premium"
+              value="Telegram_Premium_Godišnja_Pretplata_50%_popust_za prvu godinu"
             />
             <label
               for="pretplata-premium"
@@ -142,7 +143,7 @@
             <div
               class="half flex flex-responsive remp-miniboxes column-horizontal-pad mobile-bottom-pad"
             >
-              <template>
+              <template v-if="!this.$store.state.user.email">
                 <input
                   id="pretplata-email"
                   v-model="email"
@@ -160,6 +161,13 @@
                   placeholder="Upišite lozinku"
                   name="password"
                 />
+                <button
+                  v-if="showPassword"
+                  class="full newbtn huge-newbtn center-text clickable"
+                  @click="login"
+                >
+                  Prijavi se
+                </button>
                 <p
                   class="full remp-mini-text center-text faded column-mini-vertical-pad"
                 >
@@ -174,7 +182,7 @@
                   </div>
                   <div class="full flex">
                     <a
-                      href="https://pretplata.telegram.hr/social-login/social-sign/sign?social_provider_key=facebook&success_login_url=https://www.telegram.hr/pretplata/"
+                      href="https://pretplata.telegram.hr/social-login/social-sign/sign?social_provider_key=facebook&success_login_url=https://www.telegram.hr/pretplata/pola"
                       class="full center remp-social-logbtn animate"
                     >
                       <i class="fa-brands fa-facebook-f"></i>
@@ -247,38 +255,60 @@
             <div
               class="half flex flex-responsive remp-miniboxes column-horizontal-pad mobile-bottom-pad"
             >
-              <input
-                id="kartica"
-                type="text"
-                class="full remp-new-input"
-                placeholder="Broj kartice"
-                name="kartica"
-              />
               <div
-                class="full barlow smaller-text faded center-text column-mini-top-pad"
-              >
-                i ostalo itd. itd.
-              </div>
+                id="credit-card"
+                class="full remp-new-input hosted-field"
+              ></div>
+              <div id="cvv" class="full remp-new-input hosted-field"></div>
+              <div
+                id="expiration-date"
+                class="full remp-new-input hosted-field"
+              ></div>
             </div>
-            <div
+            <form
               class="full flex column-horizontal-pad column-top-pad mobile-top-pad"
+              method="post"
+              action="https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/submit"
             >
+              <input type="hidden" name="funnel_url_key" :value="url_key" />
+              <input
+                type="hidden"
+                name="payment_metadata[payment_method_nonce]"
+                :value="nonce"
+              />
+              <input
+                type="hidden"
+                name="payment_metadata[device_data]"
+                :value="deviceData"
+              />
+              <input
+                type="hidden"
+                name="subscription_type"
+                :value="subscription_package"
+              />
+              <input type="hidden" name="payment_gateway" :value="payment" />
+              <input type="hidden" name="price" :value="price" />
+              <input type="hidden" name="email" :value="email" />
               <div
+                v-if="!buyable"
                 class="full newbtn huge-newbtn center-text clickable locked-newbtn"
               >
                 Dovršite kupnju
               </div>
               <div
+                v-if="!buyable"
                 class="full barlow smaller-text faded center-text column-mini-top-pad"
               >
                 Ispunite sve korake iznad kako bi dovršili kupnju.
               </div>
-              <div
-                class="full newbtn huge-newbtn center-text clickable green-newbtn hide"
+              <button
+                v-if="buyable"
+                type="submit"
+                class="full newbtn huge-newbtn center-text clickable green-newbtn"
               >
                 Dovršite kupnju
-              </div>
-            </div>
+              </button>
+            </form>
           </div>
         </div>
       </div>
@@ -522,19 +552,182 @@
 </template>
 
 <script>
+import _ from 'lodash'
+import braintree from 'braintree-web'
 export default {
   name: 'Pretplata',
   data() {
     return {
       subscription_package: null,
+      email: this.$store.state.user.email,
+      password: '',
+      terms: false,
+      privacy: false,
+      showPassword: false,
+      nonce: '',
+      deviceData: '',
+      payment: 'braintree_default_recurrent',
+      url_key: 'half-off-2025',
+      translations: {
+        payingWith: 'Plaćate s {{paymentSource}}',
+        chooseAnotherWayToPay: 'Odaberite drugi način plaćanja',
+        chooseAWayToPay: 'Odaberite način plaćanja',
+        otherWaysToPay: 'Drugi načini plaćanja',
+        edit: 'Uredi',
+        doneEditing: 'Završi',
+        // Card form
+        cardholderNameLabel: 'Ime na kartici',
+        cardNumberLabel: 'Broj kartice',
+        cvvLabel: 'CVV',
+        cvvThreeDigitLabelSubheading: '(3 znamenke)',
+        cvvFourDigitLabelSubheading: '(4 znamenke)',
+        expirationDateLabel: 'Datum isteka',
+        expirationDateLabelSubheading: '(MM/GG)',
+        cardholderNamePlaceholder: 'Ime na kartici',
+        expirationDatePlaceholder: 'MM/GG',
+        postalCodeLabel: 'Poštanski broj',
+        saveCardLabel: 'Spremi karticu',
+        payWithCard: 'Plati karticom',
+      },
     }
   },
+  computed: {
+    buyable() {
+      if (this.email && this.terms && this.privacy) {
+        return true
+      }
+      return false
+    },
+    price() {
+      if (this.subscription_package === '3_mjeseca_po_1euro') {
+        return 1
+      }
+      if (
+        this.subscription_package ===
+        'Telegram_Standard_Godišnja_Pretplata_50%_popust_za prvu godinu'
+      ) {
+        return 39
+      }
+      return 49
+    },
+  },
+  watch: {
+    email: _.debounce(function (value) {
+      const _this = this
+      const formData = new FormData()
+      formData.append('email', value)
+      this.$axios
+        .post('/crm/api/v2/users/email', formData, {
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+        })
+        .then((response) => {
+          if (response.data.status && response.data.status === 'taken') {
+            _this.showPassword = true
+          } else if (response.data.status === 'error') {
+            if (response.data.code === 'email_missing') {
+              return
+            }
+            _this.show_msg = 'error-not-finished'
+          } else {
+            _this.showPassword = false
+            this.getToken()
+          }
+        })
+        .catch(() => {
+          _this.showPassword = false
+          this.getToken()
+        })
+    }, 1000),
+    subscription_package(value) {
+      if (this.$store.state.user.email) {
+        this.getToken()
+      }
+    },
+  },
+  methods: {
+    login() {
+      if (!this.showPassword) {
+        return
+      }
+      this.$store.dispatch('user/loginSubmit', {
+        email: this.email,
+        password: this.password,
+      })
+    },
+    getToken() {
+      const _this = this
+      this.$axios
+        .get('/crm/api/v1/braintree/token', {
+          params: {
+            email: _this.email,
+          },
+        })
+        .then((res) => {
+          _this.token = res.data.token
+          braintree.client
+            .create({
+              authorization: res.data.token,
+            })
+            .then((clientInstance) => {
+              return Promise.all([
+                braintree.hostedFields.create({
+                  client: clientInstance,
+                  styles: {
+                    input: {
+                      'font-size': '16px',
+                      color: '#666',
+                    },
+                    'input.invalid': {
+                      color: '#ae3737',
+                    },
+                    'input.valid': {
+                      color: '#35a843',
+                    },
+                  },
+                  fields: {
+                    number: {
+                      selector: '#credit-card',
+                      placeholder: 'Broj kartice',
+                    },
+                    cvv: {
+                      selector: '#cvv',
+                      placeholder: 'CVV sigurnosni kod',
+                    },
+                    expirationDate: {
+                      selector: '#expiration-date',
+                      placeholder: 'MM/GGGG',
+                    },
+                  },
+                }),
+                /* braintree.threeDSecure.create({
+                  authorization: res.data.token,
+                  version: 2,
+                }), */
+                braintree.dataCollector.create({
+                  client: clientInstance,
+                }),
+              ])
+            })
+            .then((instances) => {
+              this.instance = instances[0]
+              // this.threeDS = instances[1]
+              this.deviceData = instances[2].deviceData
+            })
+            .catch((err) => {
+              console.error(err)
+            })
+        })
+    },
+  },
+
   head() {
     const link = [
       {
         hid: 'canonical',
         rel: 'canonical',
-        href: 'https://www.telegram.hr/',
+        href: 'https://www.telegram.hr/pretplata/pola',
       },
     ]
     return {

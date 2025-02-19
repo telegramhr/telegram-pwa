@@ -61,6 +61,9 @@ export const mutations = {
   openModal(state) {
     state.showModal = !state.showModal
   },
+  closeModal(state) {
+    state.showModal = false
+  },
   setError(state, error) {
     state.error = error
   },
@@ -211,7 +214,7 @@ export const actions = {
           sameSite: 'lax',
         })
         dispatch('checkAccess', res.access.token)
-        commit('openModal')
+        commit('closeModal')
         setTimeout(() => {
           window.location.reload()
         }, 2000)
