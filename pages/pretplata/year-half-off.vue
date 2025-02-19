@@ -35,7 +35,7 @@
               type="radio"
               name="pretplata-pack"
               class="hide"
-              value2="Telegram_Standard_Godišnja_Pretplata_50%_popust_za prvu godinu"
+              value="Telegram_Standard_Godišnja_Pretplata_50%_popust_za prvu godinu"
             />
             <label
               for="pretplata-regular"
