@@ -36,7 +36,6 @@
               name="pretplata-pack"
               class="hide"
               value2="Telegram_Standard_Godišnja_Pretplata_50%_popust_za prvu godinu"
-              value="3_mjeseca_po_1euro"
             />
             <label
               for="pretplata-regular"
