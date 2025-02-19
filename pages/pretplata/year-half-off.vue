@@ -256,16 +256,23 @@
               class="half flex flex-responsive remp-miniboxes column-horizontal-pad mobile-bottom-pad"
             >
               <div
+                v-show="token"
                 id="credit-card"
                 class="full remp-new-input hosted-field"
               ></div>
-              <div id="cvv" class="full remp-new-input hosted-field"></div>
               <div
+                v-show="token"
+                id="cvv"
+                class="full remp-new-input hosted-field"
+              ></div>
+              <div
+                v-show="token"
                 id="expiration-date"
                 class="full remp-new-input hosted-field"
               ></div>
             </div>
             <form
+              id="payment-form"
               class="full flex column-horizontal-pad column-top-pad mobile-top-pad"
               method="post"
               action="https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/submit"
@@ -289,6 +296,7 @@
               <input type="hidden" name="payment_gateway" :value="payment" />
               <input type="hidden" name="price" :value="price" />
               <input type="hidden" name="email" :value="email" />
+              <input type="hidden" name="auth" :value="0" />
               <div
                 v-if="!buyable"
                 class="full newbtn huge-newbtn center-text clickable locked-newbtn"
@@ -303,8 +311,8 @@
               </div>
               <button
                 v-if="buyable"
-                type="submit"
                 class="full newbtn huge-newbtn center-text clickable green-newbtn"
+                @click.prevent="submit"
               >
                 Dovršite kupnju
               </button>
@@ -568,32 +576,24 @@ export default {
       deviceData: '',
       payment: 'braintree_default_recurrent',
       url_key: 'half-off-2025',
-      translations: {
-        payingWith: 'Plaćate s {{paymentSource}}',
-        chooseAnotherWayToPay: 'Odaberite drugi način plaćanja',
-        chooseAWayToPay: 'Odaberite način plaćanja',
-        otherWaysToPay: 'Drugi načini plaćanja',
-        edit: 'Uredi',
-        doneEditing: 'Završi',
-        // Card form
-        cardholderNameLabel: 'Ime na kartici',
-        cardNumberLabel: 'Broj kartice',
-        cvvLabel: 'CVV',
-        cvvThreeDigitLabelSubheading: '(3 znamenke)',
-        cvvFourDigitLabelSubheading: '(4 znamenke)',
-        expirationDateLabel: 'Datum isteka',
-        expirationDateLabelSubheading: '(MM/GG)',
-        cardholderNamePlaceholder: 'Ime na kartici',
-        expirationDatePlaceholder: 'MM/GG',
-        postalCodeLabel: 'Poštanski broj',
-        saveCardLabel: 'Spremi karticu',
-        payWithCard: 'Plati karticom',
-      },
+      token: null,
+      creditCard: false,
+      cvv: false,
+      expirationDate: false,
+      instance: null,
     }
   },
   computed: {
     buyable() {
-      if (this.email && this.terms && this.privacy) {
+      if (
+        this.email &&
+        this.terms &&
+        this.privacy &&
+        this.token &&
+        this.creditCard &&
+        this.cvv &&
+        this.expirationDate
+      ) {
         return true
       }
       return false
@@ -711,14 +711,57 @@ export default {
               ])
             })
             .then((instances) => {
-              this.instance = instances[0]
+              _this.instance = instances[0]
+              _this.instance.on('validityChange', function (event) {
+                const field = event.fields[event.emittedBy]
+
+                if (field.isValid || field.isPotentiallyValid) {
+                  switch (event.emittedBy) {
+                    case 'number':
+                      _this.creditCard = true
+                      break
+                    case 'cvv':
+                      _this.cvv = true
+                      break
+                    case 'expirationDate':
+                      _this.expirationDate = true
+                      break
+                    default:
+                      break
+                  }
+                } else {
+                  switch (event.emittedBy) {
+                    case 'number':
+                      _this.creditCard = false
+                      break
+                    case 'cvv':
+                      _this.cvv = false
+                      break
+                    case 'expirationDate':
+                      _this.expirationDate = false
+                      break
+                    default:
+                      break
+                  }
+                }
+              })
               // this.threeDS = instances[1]
-              this.deviceData = instances[2].deviceData
-            })
-            .catch((err) => {
-              console.error(err)
+              _this.deviceData = instances[1].deviceData
             })
         })
+    },
+    submit() {
+      this.loading = true
+      this.instance.tokenize((err, payload) => {
+        if (err) {
+          console.error(err)
+          this.error = 'Kartica je nevaljana'
+          this.loading = false
+          return
+        }
+        this.nonce = payload.nonce
+        setTimeout(() => document.getElementById('payment-form').submit(), 500)
+      })
     },
   },
 
