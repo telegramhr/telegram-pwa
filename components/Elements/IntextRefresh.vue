@@ -134,8 +134,7 @@ export default {
       } else if (this.cta_link) {
         window.open(this.cta_link, '_blank')
       } else if (this.$route.path.includes('telesport')) {
-        document.loacation.href =
-          'https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=telesport'
+        this.$router.push('/pretplata/telesport')
       } else {
         this.$router.push('/pretplata')
       }

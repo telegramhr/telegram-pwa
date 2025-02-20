@@ -17,7 +17,7 @@
             >
               <h1 class="full center-text">
                 Pridružite se tisućama pretplatnika i podržite neovisno
-                novinarstvo - odaberite Telegram
+                novinarstvo - odaberite Telesport
               </h1>
               <p class="full bold remp-subtitle faded">
                 1) Odaberite pretplatu
@@ -52,7 +52,7 @@
                     <div class="full pretplata-benefits mobile-two-thirds">
                       <p class="full animate">
                         <i class="fa-solid fa-check"></i>
-                        neograničeno čitanje Telegrama
+                        neograničeno čitanje Telesporta
                       </p>
                       <p class="full animate">
                         <i class="fa-solid fa-check"></i>
@@ -447,6 +447,7 @@
         </div>
       </div>
     </div>
+
     <pretplata-extra></pretplata-extra>
     <tfooter></tfooter>
   </div>
@@ -475,9 +476,8 @@ export default {
       dropin: null,
       terms: false,
       privacy: false,
-      funnel_url_key: 'main',
       auth: 0,
-      url_key: 'main',
+      url_key: 'telesport',
       creditCard: false,
       cvv: false,
       expirationDate: false,
@@ -503,21 +503,21 @@ export default {
       if (this.pack === 'pretplata-premium') {
         return '9,99'
       } else {
-        return '7,99'
+        return '3,99'
       }
     },
     interimYearPrice() {
       if (this.pack === 'pretplata-premium') {
         return '99'
       } else {
-        return '79'
+        return '39'
       }
     },
     standardPrice() {
       if (this.term === 'pretplata-mjesecno') {
-        return '7,99'
+        return '3,99'
       } else {
-        return '79'
+        return '39'
       }
     },
     premiumPrice() {
@@ -530,13 +530,13 @@ export default {
     price() {
       if (this.term === 'pretplata-mjesecno') {
         if (this.pack === 'pretplata-standard') {
-          return 7.99
+          return 3.99
         } else {
           return 9.99
         }
       }
       if (this.pack === 'pretplata-standard') {
-        return 79
+        return 39
       } else {
         return 99
       }
@@ -547,9 +547,9 @@ export default {
       }
       if (this.pack === 'pretplata-standard') {
         if (this.term === 'pretplata-mjesecno') {
-          return '7,99'
+          return '3,99'
         } else {
-          return '79'
+          return '39'
         }
       } else if (this.term === 'pretplata-mjesecno') {
         return '9,99'
@@ -560,9 +560,9 @@ export default {
     subscription_type() {
       if (this.pack === 'pretplata-standard') {
         if (this.term === 'pretplata-mjesecno') {
-          return 'telegram_standard_mjesecna_pretplata_2024'
+          return 'telesport_mjesecna_pretplata_2024'
         } else {
-          return 'telegram_standard_godisnja_pretplata_2024'
+          return 'telesport_godisnja_pretplata_2024'
         }
       } else if (this.term === 'pretplata-mjesecno') {
         return 'telegram_premium_mjesecna_pretplata_2024'
