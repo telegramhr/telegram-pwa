@@ -696,10 +696,10 @@ export default {
                     },
                   },
                 }),
-                /* braintree.threeDSecure.create({
+                braintree.threeDSecure.create({
                   authorization: res.data.token,
                   version: 2,
-                }), */
+                }),
                 braintree.dataCollector.create({
                   client: clientInstance,
                 }),
@@ -740,8 +740,8 @@ export default {
                   }
                 }
               })
-              // this.threeDS = instances[1]
-              _this.deviceData = instances[1].deviceData
+              _this.threeDS = instances[1]
+              _this.deviceData = instances[2].deviceData
             })
         })
     },
@@ -755,6 +755,7 @@ export default {
             onLookupComplete: (data, next) => {
               next()
             },
+            challengeRequested: true,
             amount: this.price,
             nonce: payload.nonce,
             bin: payload.details.bin,
