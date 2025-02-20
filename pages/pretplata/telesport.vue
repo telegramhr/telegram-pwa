@@ -155,7 +155,7 @@
                       </div>
                       <div class="full">
                         Godišnje
-                        <span class="highlight-text">24% popusta</span>
+                        <span class="highlight-text">19% popusta</span>
                       </div>
                       <div class="full remp-special-note">
                         {{ interimYearPrice }}€ za godinu dana unaprijed
