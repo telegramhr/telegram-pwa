@@ -84,7 +84,7 @@
             <div class="nothfour full bold">1. Pretplatite se.</div>
             <p>
               Posebne ponude Telegram Kluba dostupne su našim pretplatnicima.
-              <app-link to="https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main">Pretplatite se</app-link> ili, ako već
+              <app-link to="/pretplata">Pretplatite se</app-link> ili, ako već
               imate račun, <a @click.prevent="login">prijavite se.</a>
             </p>
           </div>
@@ -173,7 +173,7 @@
                 Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
                 pretplatnicima.
               </p>
-              <app-link to="https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main" class="newbtn huge-newbtn"
+              <app-link to="/pretplata" class="newbtn huge-newbtn"
                 >Pretplatite se</app-link
               >
               <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
@@ -240,7 +240,7 @@
                 Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
                 pretplatnicima.
               </p>
-              <app-link to="https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main" class="newbtn huge-newbtn"
+              <app-link to="/pretplata" class="newbtn huge-newbtn"
                 >Pretplatite se</app-link
               >
               <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
@@ -307,7 +307,7 @@
                 Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
                 pretplatnicima.
               </p>
-              <app-link to="https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main" class="newbtn huge-newbtn"
+              <app-link to="/pretplata" class="newbtn huge-newbtn"
                 >Pretplatite se</app-link
               >
               <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
@@ -374,7 +374,7 @@
                 Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
                 pretplatnicima.
               </p>
-              <app-link to="https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main" class="newbtn huge-newbtn"
+              <app-link to="/pretplata" class="newbtn huge-newbtn"
                 >Pretplatite se</app-link
               >
               <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
@@ -441,7 +441,7 @@
                 Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
                 pretplatnicima.
               </p>
-              <app-link to="https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main" class="newbtn huge-newbtn"
+              <app-link to="/pretplata" class="newbtn huge-newbtn"
                 >Pretplatite se</app-link
               >
               <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"
@@ -508,7 +508,7 @@
                 Pogodnosti Telegram kluba ekskluzivno su dostupne samo našim
                 pretplatnicima.
               </p>
-              <app-link to="https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main" class="newbtn huge-newbtn"
+              <app-link to="/pretplata" class="newbtn huge-newbtn"
                 >Pretplatite se</app-link
               >
               <a class="newbtn newbtn-empty huge-newbtn" @click.prevent="login"

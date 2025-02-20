@@ -42,7 +42,7 @@
         </p>
         <div class="full center">
           <app-link
-            to="https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main"
+            to="/pretplata"
             class="btn animate"
             @click.native="shown = !shown"
             >Pretplatite se</app-link

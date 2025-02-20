@@ -50,7 +50,7 @@
           <app-link
             v-show="canLogIn"
             id="pretplatite se - header"
-            to="https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main"
+            to="/pretplata"
             class="newbtn"
             >Pretplatite se</app-link
           >
@@ -119,7 +119,7 @@
             <app-link
               v-show="!$store.state.user.access"
               id="pretplatite se - header"
-              to="https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main"
+              to="/pretplata"
               class="newbtn"
               >Pretplatite se</app-link
             >

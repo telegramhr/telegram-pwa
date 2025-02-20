@@ -137,8 +137,7 @@ export default {
         document.loacation.href =
           'https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=telesport'
       } else {
-        document.location.href =
-          'https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main'
+        this.$router.push('/pretplata')
       }
     },
     load(e) {

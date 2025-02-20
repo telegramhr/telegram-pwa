@@ -1,7 +1,7 @@
 <template>
   <app-link
     id="pretplatite se - politicki mocnici"
-    to="https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main"
+    to="/pretplata"
     class="full flex stretch relative mini-pretplata"
   >
     <h2 class="full center-text">

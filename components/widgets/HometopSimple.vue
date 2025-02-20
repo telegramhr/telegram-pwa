@@ -73,7 +73,7 @@ export default {
       if (this.termId) {
         this.checkout(this.termId)
       } else {
-        document.location.href = 'https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main'
+        this.$router.push('/pretplata')
       }
     },
     load(e) {

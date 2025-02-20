@@ -1,6 +1,6 @@
 <template>
   <app-link
-    to="https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main"
+    to="/pretplata"
     class="full flex stretch relative mini-pretplata"
     data-nosnippet
   >

@@ -1,7 +1,7 @@
 <template>
   <app-link
     v-if="showA"
-    to="https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/show?funnel=main"
+    to="/pretplata"
     class="full center relative pretplata-subs-special darkened-bg"
   >
     <div
@@ -144,7 +144,7 @@ export default {
         document.getElementById('cd-sec-1').innerHTML = sec1
         document.getElementById('cd-sec-2').innerHTML = sec2
         if (distance < 0) {
-          clearInterval(x)
+          clearInterval(this.counter)
         }
       }, 1000)
     },

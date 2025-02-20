@@ -752,7 +752,6 @@ export default {
       this.loading = true
       this.instance.tokenize((err, payload) => {
         if (err) {
-          console.error(err)
           this.error = 'Kartica je nevaljana'
           this.loading = false
           return
