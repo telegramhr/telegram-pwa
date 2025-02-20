@@ -142,6 +142,9 @@ export default {
       }
     },
     load(e) {
+      if (this.$store.state.user.access?.length) {
+        return
+      }
       if (e.detail) {
         this.topBar = e.detail.topBar
         this.subtitle = e.detail.subtitle
