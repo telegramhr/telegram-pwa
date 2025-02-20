@@ -754,8 +754,7 @@ export default {
           return this.threeDS.verifyCard({
             onLookupComplete: (data, next) => {
               next()
-            },
-            challengeRequested: true,
+            },``
             amount: this.price,
             nonce: payload.nonce,
             bin: payload.details.bin,
