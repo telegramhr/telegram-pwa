@@ -747,15 +747,36 @@ export default {
     },
     submit() {
       this.loading = true
-      this.instance.tokenize((err, payload) => {
-        if (err) {
-          this.error = 'Kartica je nevaljana'
+      this.instance
+        .tokenize()
+        .then((payload) => {
+          return this.threeDS.verifyCard({
+            onLookupComplete: (data, next) => {
+              next()
+            },
+            amount: this.charge,
+            nonce: payload.nonce,
+            bin: payload.details.bin,
+            email: this.email,
+            billingAddress: {
+              streetAddress: this.address,
+              postalCode: this.postal_code,
+            },
+          })
+        })
+        .then((payload) => {
           this.loading = false
-          return
-        }
-        this.nonce = payload.nonce
-        setTimeout(() => document.getElementById('payment-form').submit(), 500)
-      })
+          if (!payload.liabilityShifted) {
+            this.error =
+              '3DS autorizacija kartice nije prošla. Probajte ponovo.'
+          } else {
+            this.nonce = payload.nonce
+            setTimeout(
+              () => document.getElementById('payment-form').submit(),
+              500
+            )
+          }
+        })
     },
   },
 
