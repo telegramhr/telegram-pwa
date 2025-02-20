@@ -1234,10 +1234,10 @@ export default {
                     },
                   },
                 }),
-                /* braintree.threeDSecure.create({
+                braintree.threeDSecure.create({
                   authorization: res.data.token,
                   version: 2,
-                }), */
+                }),
                 braintree.dataCollector.create({
                   client: clientInstance,
                 }),
@@ -1278,22 +1278,39 @@ export default {
                   }
                 }
               })
-              // this.threeDS = instances[1]
-              _this.deviceData = instances[1].deviceData
+              _this.threeDS = instances[1]
+              _this.deviceData = instances[2].deviceData
             })
         })
     },
     submit() {
       this.loading = true
-      this.instance.tokenize((err, payload) => {
-        if (err) {
-          this.error = 'Kartica je nevaljana'
+      this.instance
+        .tokenize()
+        .then((payload) => {
+          return this.threeDS.verifyCard({
+            onLookupComplete: (data, next) => {
+              next()
+            },
+            amount: this.price,
+            nonce: payload.nonce,
+            bin: payload.details.bin,
+            email: this.email,
+          })
+        })
+        .then((payload) => {
           this.loading = false
-          return
-        }
-        this.nonce = payload.nonce
-        setTimeout(() => document.getElementById('payment-form').submit(), 500)
-      })
+          if (!payload.liabilityShifted) {
+            this.error =
+              '3DS autorizacija kartice nije prošla. Probajte ponovo.'
+          } else {
+            this.nonce = payload.nonce
+            setTimeout(
+              () => document.getElementById('payment-form').submit(),
+              500
+            )
+          }
+        })
     },
   },
   head() {
