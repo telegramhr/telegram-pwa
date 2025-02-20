@@ -750,6 +750,7 @@ export default {
       this.instance
         .tokenize()
         .then((payload) => {
+          console.log('tokenize', payload)
           return this.threeDS.verifyCard({
             onLookupComplete: (data, next) => {
               next()
@@ -761,6 +762,7 @@ export default {
           })
         })
         .then((payload) => {
+          console.log('3DS', payload)
           this.loading = false
           if (!payload.liabilityShifted) {
             this.error =
