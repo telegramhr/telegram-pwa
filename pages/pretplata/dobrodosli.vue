@@ -153,7 +153,11 @@
     </div>
     <div class="full center column-full-pad column-bottom-margin">
       <app-link
-        :to="$store.state.pretplata.lastArticle ?? '/'"
+        :to="
+          $store.state.pretplata.lastArticle
+            ? $store.state.pretplata.lastArticle
+            : '/'
+        "
         class="newbtn huge-newbtn gigantic-newbtn"
         >Nastavite čitati</app-link
       >
