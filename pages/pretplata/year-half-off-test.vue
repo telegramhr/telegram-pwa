@@ -758,10 +758,6 @@ export default {
             nonce: payload.nonce,
             bin: payload.details.bin,
             email: this.email,
-            billingAddress: {
-              streetAddress: this.address,
-              postalCode: this.postal_code,
-            },
           })
         })
         .then((payload) => {
