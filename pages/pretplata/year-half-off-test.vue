@@ -754,7 +754,7 @@ export default {
             onLookupComplete: (data, next) => {
               next()
             },
-            amount: this.charge,
+            amount: this.price,
             nonce: payload.nonce,
             bin: payload.details.bin,
             email: this.email,
