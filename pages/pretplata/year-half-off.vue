@@ -319,7 +319,6 @@
         </div>
       </div>
     </div>
-    <pretplata-extra></pretplata-extra>
     <tfooter></tfooter>
   </div>
 </template>
