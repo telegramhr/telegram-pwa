@@ -127,7 +127,7 @@ export default {
       this.$store.commit('pretplata/setLastArticle', this.$route.path)
       if (this.termId) {
         if (this.termId.includes('pretplata')) {
-          document.location.href = this.termId
+          this.$router.push(this.termId)
         } else {
           this.checkout(this.termId)
         }
