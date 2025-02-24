@@ -414,6 +414,7 @@
                   :value="subscription_type"
                 />
                 <input type="hidden" name="payment_gateway" :value="payment" />
+                <input type="hidden" name="customer_id" :value="customerId" />
                 <input type="hidden" name="price" :value="price" />
                 <input type="hidden" name="email" :value="email" />
                 <div
@@ -482,6 +483,7 @@ export default {
       cvv: false,
       expirationDate: false,
       instance: null,
+      customerId: null,
     }
   },
   computed: {
@@ -632,6 +634,7 @@ export default {
         })
         .then((res) => {
           _this.token = res.data.token
+          _this.customerId = res.data.customer_id
           braintree.client
             .create({
               authorization: res.data.token,
