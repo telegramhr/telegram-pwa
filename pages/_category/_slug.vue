@@ -20,27 +20,6 @@
         <hometop-bf></hometop-bf>
       </client-only>
       <!-- Above header banner manual -->
-      <div class="full flex have-background relative">
-        <div
-          v-show="related_posts && $store.state.user.access"
-          class="full related-header-widget"
-        >
-          <div
-            class="container flex desktop-only column-vertical-pad"
-            data-mrf-recirculation="single-related"
-          >
-            <div
-              v-for="rpost in related_posts"
-              :key="rpost.id"
-              class="third flex"
-            >
-              <div class="full flex column-horizontal-pad">
-                <standard-no-h :post="rpost"></standard-no-h>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       <client-only>
         <div
           v-if="!$mobile && $route.name === 'category-slug'"
@@ -565,16 +544,6 @@ export default {
     }
     if (post && post.id) {
       this.post = post
-      await this.$axios.get('/api/related/' + post.id).then((res) => {
-        if (Array.isArray(res.data)) {
-          this.$store.dispatch('posts/setPosts', res.data, { root: true })
-          this.related_posts = res.data
-            .filter((item) => {
-              return item.id !== post.id
-            })
-            .splice(0, 3)
-        }
-      })
     } else {
       this.post.title = 'Objava ne postoji'
       this.post.portal_title = 'Objava ne postoji'
