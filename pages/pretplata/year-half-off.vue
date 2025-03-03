@@ -292,7 +292,12 @@
                 name="subscription_type"
                 :value="subscription_package"
               />
-              <input type="hidden" id="customer_id" name="customer_id" :value="customerId" />
+              <input
+                id="customer_id"
+                type="hidden"
+                name="customer_id"
+                :value="customerId"
+              />
               <input type="hidden" name="payment_gateway" :value="payment" />
               <input type="hidden" name="price" :value="price" />
               <input type="hidden" name="email" :value="email" />
@@ -315,6 +320,12 @@
               >
                 Dovršite kupnju
               </button>
+              <div
+                class="full barlow smaller-text faded center-text column-mini-top-pad"
+              >
+                Nakon isteka prve godine pretplata se automatski obnavlja po
+                punoj cijeni
+              </div>
             </form>
           </div>
         </div>

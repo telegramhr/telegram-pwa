@@ -14,11 +14,10 @@ export default {
     },
   },
   mounted() {
-    if (this.$mobile && this.checkReferrer()) {
-      this.$store.dispatch('zone/pullPosts', { zone: 'back-widget' })
-      window.addEventListener('load', this.init)
-      window.addEventListener('popstate', this.listener)
-    }
+    // if (this.$mobile && this.checkReferrer()) {
+    window.addEventListener('load', this.init)
+    window.addEventListener('popstate', this.listener)
+    // }
   },
   beforeDestroy() {
     if (this.$mobile && this.checkReferrer()) {
@@ -29,7 +28,7 @@ export default {
   methods: {
     init() {
       const final = window.location.href
-      const url = '/izbor/?utm_campaign=back_widget'
+      const url = 'https://www.telegram.hr/izbor/?utm_campaign=back_widget'
 
       window.history.replaceState({ backWidget: true }, 'Telegram.hr', url)
       window.history.pushState(
@@ -68,7 +67,7 @@ export default {
           return true
         }
       }
-      return false
+      return true
     },
   },
 }
