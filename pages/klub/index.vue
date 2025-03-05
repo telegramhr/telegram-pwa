@@ -603,22 +603,29 @@ export default {
       selected_ostalo: '',
       selected_offer: null,
       selected_category: null,
+      user: {
+        access: false,
+        expiry_date: '',
+        first_name: '',
+        last_name: '',
+        token: '',
+        uid: '',
+      },
     }
   },
   computed: {
     canLogIn() {
       return this.$store.getters['user/canLogIn']
     },
-    user() {
-      return this.$store.state.user
-    },
     qr() {
       const img = this.$axios.$get(`/pretplate/qrcode/${this.user.uid}`)
       return img.img
     },
   },
-  mounted() {
-    this.$store.dispatch('newsletters/checkAccess', this.$route.query.email)
+  async mounted() {
+    if (this.$store.state.user.token) {
+      this.user = await this.$axios.$get(`/pretplate/check/${this.id}`)
+    }
   },
   methods: {
     login() {
