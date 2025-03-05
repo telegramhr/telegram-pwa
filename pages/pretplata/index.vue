@@ -46,7 +46,11 @@
                         {{ standardPrice }}€
                       </div>
                       <div class="nothfour full center-text undertitle">
-                        Mjesečno
+                        {{
+                          term === 'pretplata-mjesecno'
+                            ? 'Mjesečno'
+                            : 'Godišnje'
+                        }}
                       </div>
                     </div>
                     <div class="full pretplata-benefits mobile-two-thirds">
@@ -98,7 +102,11 @@
                       </div>
                       <div class="full sub-price bold">{{ premiumPrice }}€</div>
                       <div class="nothfour full center-text undertitle">
-                        Mjesečno
+                        {{
+                          term === 'pretplata-mjesecno'
+                            ? 'Mjesečno'
+                            : 'Godišnje'
+                        }}
                       </div>
                     </div>
                     <div class="full pretplata-benefits mobile-two-thirds">

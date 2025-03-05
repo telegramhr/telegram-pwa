@@ -1,6 +1,11 @@
 <script>
 export default {
   name: 'PretplataExtra',
+  methods: {
+    canLogIn() {
+      return this.$store.state.auth.loggedIn
+    },
+  },
 }
 </script>
 
