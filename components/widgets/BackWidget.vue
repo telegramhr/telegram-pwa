@@ -14,10 +14,17 @@ export default {
     },
   },
   mounted() {
-    // if (this.$mobile && this.checkReferrer()) {
-    window.addEventListener('load', this.init)
-    window.addEventListener('popstate', this.listener)
-    // }
+    if (this.$mobile && this.checkReferrer()) {
+      window.addEventListener('load', this.init)
+      window.addEventListener('popstate', this.listener)
+    }
+    if (
+      window.location.href ===
+      'https://www.telegram.hr/politika-kriminal/premijer-se-hvali-da-nas-je-spasio-od-vecih-poskupljenja-ekonomisti-na-oprezu-imamo-srece-sto-ove-godine-uskrs-dolazi-malo-kasnije/'
+    ) {
+      window.addEventListener('load', this.init)
+      window.addEventListener('popstate', this.listener)
+    }
   },
   beforeDestroy() {
     if (this.$mobile && this.checkReferrer()) {
@@ -29,13 +36,14 @@ export default {
     init() {
       const final = window.location.href
       const url = 'https://www.telegram.hr/izbor/?utm_campaign=back_widget'
-
+      console.log('backwidget: init')
       window.history.replaceState({ backWidget: true }, 'Telegram.hr', url)
       window.history.pushState(
         { backWidgetInitialized: true },
         document.title,
         final
       )
+      console.log('backwidget: done')
     },
     listener(event) {
       if (event.state.backWidget) {

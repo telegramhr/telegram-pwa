@@ -37,7 +37,7 @@ export const mutations = {
     state.email = ''
     state.token = ''
     state.exp = 0
-    state.access = false
+    state.access = []
     state.coral_token = false
     state.type = 'not-registered'
     state.token = ''
@@ -45,7 +45,11 @@ export const mutations = {
     state.error = ''
   },
   setTerm(state, data) {
-    state.access = [...data]
+    let access = []
+    if (state.access) {
+      access = [...state.access]
+    }
+    state.access = [...access, ...data]
     state.updated = new Date().getTime()
   },
   setToken(state, token) {
