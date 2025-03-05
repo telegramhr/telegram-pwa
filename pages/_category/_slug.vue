@@ -261,7 +261,10 @@
                 <div class="sidebar-social flex">
                   <client-only>
                     <gift-article
-                      v-if="post.paywall === 'always'"
+                      v-if="
+                        post.paywall === 'always' &&
+                        this.$store.state.user.token
+                      "
                       :key="`gift-${post.id}`"
                     ></gift-article>
                   </client-only>

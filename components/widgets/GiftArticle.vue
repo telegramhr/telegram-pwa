@@ -25,7 +25,7 @@ export default {
     },
   },
   mounted() {
-    if (this.position === 'header' && this.$store.state.user.access) {
+    if (this.position === 'header' && this.$store.state.user.token) {
       this.$store.dispatch('gifts/getUserGifts')
     }
   },
