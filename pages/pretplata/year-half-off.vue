@@ -423,6 +423,11 @@ export default {
       }
     },
   },
+  mounted() {
+    this.$nextTick(() => {
+      this.getToken()
+    })
+  },
   methods: {
     login() {
       if (!this.showPassword) {
@@ -434,6 +439,9 @@ export default {
       })
     },
     getToken() {
+      if (this.email === '') {
+        return
+      }
       const _this = this
       this.$axios
         .get('/crm/api/v1/braintree/token', {
