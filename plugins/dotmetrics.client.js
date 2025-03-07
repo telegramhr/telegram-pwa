@@ -55,9 +55,7 @@ export default ({ route }, inject) => {
     }
   }
 
-  if (route.name !== 'category-slug') {
-    load(route.path)
-  }
+  load(route.path)
   inject('dotmetrics', {
     load,
     check,

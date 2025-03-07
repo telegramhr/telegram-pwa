@@ -949,7 +949,11 @@ export default {
       ])
     },
     triggerAnalytics() {
-      this.$dotmetrics.postLoad(this.post.category_slug)
+      if (this.post.category_slug.includes('telesport')) {
+        setTimeout(() => {
+          this.$dotmetrics.postLoad(this.post.category_slug)
+        }, 10000)
+      }
     },
     getPost() {
       if (this.post && this.post.id) {
