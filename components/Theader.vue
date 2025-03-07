@@ -328,8 +328,8 @@
               class="dark-mode-only"
             />
           </app-link>
-          <a
-            href="/telesport"
+          <nuxt-link
+            to="/telesport"
             class="third nayos-logos alt-vertical-center telesport-only"
           >
             <img
@@ -342,7 +342,7 @@
               alt="Telesport logo"
               class="dark-mode-only"
             />
-          </a>
+          </nuxt-link>
           <app-link
             to="/pitanje-zdravlja"
             class="third mobile-side-pad nayos-logos alt-vertical-center pz-only"
