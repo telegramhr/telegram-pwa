@@ -199,7 +199,7 @@
               class="dark-mode-only"
               loading="lazy"
             />
-            Secret dinner
+            Work Break
           </div>
         </div>
         <div class="full flex relative">
