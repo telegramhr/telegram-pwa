@@ -558,6 +558,7 @@ export default {
               '3DS autorizacija kartice nije prošla. Probajte ponovo.'
           } else {
             this.nonce = payload.nonce
+            this.$store.commit('pretplata/setSubscriptionStarted', true)
             setTimeout(
               () => document.getElementById('payment-form').submit(),
               500
