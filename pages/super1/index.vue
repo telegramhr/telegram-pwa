@@ -203,19 +203,25 @@
           </div>
         </div>
         <div class="full flex relative">
-          <div
-            v-for="(post, index) in secret"
-            :key="post.id"
-            class="third flex-responsive flex column-full-pad"
+          <VueSlickCarousel
+            ref="carousel"
+            v-bind="slider_settings"
+            style="display: block; width: 100%"
           >
-            <superfeat
+            <div
+              v-for="(post, index) in secret"
               :key="post.id"
-              :post="post"
-              mrf-location="super1"
-              mrf-widget="secret-dinner"
-              :mrf-position="(index + 1).toString()"
-            ></superfeat>
-          </div>
+              class="third flex-responsive flex column-full-pad"
+            >
+              <superfeat
+                :key="post.id"
+                :post="post"
+                mrf-location="super1"
+                mrf-widget="secret-dinner"
+                :mrf-position="(index + 1).toString()"
+              ></superfeat>
+            </div>
+          </VueSlickCarousel>
         </div>
       </div>
     </section>
@@ -384,9 +390,35 @@ export default {
       hasMore: true,
       featured: [],
       page: 2,
+      slider_settings: {
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        arrows: false,
+        autoplay: true,
+        responsive: [
+          {
+            breakpoint: 767,
+            settings: {
+              centerMode: true,
+              slidesToShow: 2,
+            },
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 1,
+              centerMode: true,
+            },
+          },
+        ],
+      },
     }
   },
   computed: {
+    canLogIn() {
+      return this.$store.getters['user/canLogIn']
+    },
     hasPremium() {
       return this.$store.getters['user/hasPremium']
     },
