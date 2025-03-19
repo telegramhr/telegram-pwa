@@ -16280,7 +16280,7 @@ form#telemach-promo input[type=submit].newbtn {
     z-index: 5;
     position: relative;
 }
-.deset-price:hover span {
+.deset-price:hover span, .deset-price-selected span {
     color: #034C53;
 }
 .deset-price::before {
@@ -16304,7 +16304,7 @@ form#telemach-promo input[type=submit].newbtn {
     transform: skew(-7deg);
     transition: 0.5s all;
 }
-.deset-price:hover::after {
+.deset-price:hover::after, .deset-price-selected::after {
     width: 100%;
 }
 .deset-price-no-hover {
@@ -16408,4 +16408,43 @@ form#telemach-promo input[type=submit].newbtn {
 }
 .column-mega-top-pad {
     padding-top: 2.4rem;
+}
+.deset-price-input {
+    font-family: 'Barlow', sans-serif;
+    background: transparent;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    font-style: italic;
+    color: white;
+    text-align: center;
+    width: 100%;
+    z-index: 10;
+}
+@media screen and (max-width: 767px) {
+    .pretplata-deset .nothtwo {
+        font-size: 1.2rem;
+    }
+    .deset-counter {
+        font-size: 0.75rem;
+        padding-top: 0px;
+        padding-bottom: 10%;
+    }
+    .pretplata-deset .smaller-text {
+        font-size: 0.6rem;
+    }
+    #deset-checkout-btn {
+        padding-bottom: 7px;
+        font-size: 1rem;
+        margin-top: 6vw;
+    }
+    .deset-goal p {
+        font-size: 0.8rem;
+    }
+    .deset-counter svg {
+        bottom: -0.15em;
+    }
+    .deset-goal-header {
+        font-size: 1rem;
+    }
 }
