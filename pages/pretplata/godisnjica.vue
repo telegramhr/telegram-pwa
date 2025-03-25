@@ -55,7 +55,9 @@
               </div>
             </div>
             <div class="third flex column-mini-full-pad">
-              <div class="full deset-price center relative">
+              <div
+                class="full deset-price center relative deset-price-selected"
+              >
                 <span>3€</span>
               </div>
             </div>
@@ -105,7 +107,7 @@
               <div
                 class="full deset-price center relative deset-price-no-hover"
               >
-                <span>0,00€</span>
+                <input type="text" class="deset-price-input" value="0,00€" />
               </div>
             </div>
           </div>
