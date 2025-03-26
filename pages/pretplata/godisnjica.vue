@@ -452,9 +452,6 @@ export default {
   },
   computed: {
     buyable() {
-      if (this.totalPrice === 0 && this.email && this.terms && this.privacy) {
-        return true
-      }
       return !!(
         this.email &&
         this.terms &&
@@ -620,11 +617,6 @@ export default {
     },
     submit() {
       if (!this.buyable) {
-        return
-      }
-      if (this.totalPrice === 0) {
-        this.$store.commit('pretplata/setSubscriptionStarted', true)
-        setTimeout(() => document.getElementById('payment-form').submit(), 500)
         return
       }
       this.loading = true
