@@ -48,39 +48,76 @@
             Čitajte Telegram prvih 10 tjedana po cijeni koju sami odaberete.
             Pridružite se onima koji brinu za budućnost.
           </p>
-          <div class="full flex deset-price-picker column-mini-vertical-pad">
-            <div class="third flex column-mini-full-pad">
-              <div class="full deset-price center relative">
+          <div
+            v-show="screen === 1"
+            class="full flex deset-price-picker column-mini-vertical-pad"
+          >
+            <div
+              class="third flex column-mini-full-pad"
+              @click="totalPrice = 0"
+            >
+              <div
+                class="full deset-price center relative"
+                :class="{ 'deset-price-selected': totalPrice === 0 }"
+              >
                 <span>0€</span>
               </div>
             </div>
-            <div class="third flex column-mini-full-pad">
+            <div
+              class="third flex column-mini-full-pad"
+              @click="totalPrice = 3"
+            >
               <div
-                class="full deset-price center relative deset-price-selected"
+                class="full deset-price center relative"
+                :class="{ 'deset-price-selected': totalPrice === 3 }"
               >
                 <span>3€</span>
               </div>
             </div>
-            <div class="third flex column-mini-full-pad">
-              <div class="full deset-price center relative">
+            <div
+              class="third flex column-mini-full-pad"
+              @click="totalPrice = 5"
+            >
+              <div
+                class="full deset-price center relative"
+                :class="{ 'deset-price-selected': totalPrice === 5 }"
+              >
                 <span>5€</span>
               </div>
               <div class="full deset-price-note center-text smaller-text">
                 naša preporuka
               </div>
             </div>
-            <div class="third flex column-mini-full-pad">
-              <div class="full deset-price center relative">
+            <div
+              class="third flex column-mini-full-pad"
+              @click="totalPrice = 9"
+            >
+              <div
+                class="full deset-price center relative"
+                :class="{ 'deset-price-selected': totalPrice === 9 }"
+              >
                 <span>9€</span>
               </div>
             </div>
-            <div class="third flex column-mini-full-pad">
-              <div class="full deset-price center relative">
+            <div
+              class="third flex column-mini-full-pad"
+              @click="totalPrice = 15"
+            >
+              <div
+                class="full deset-price center relative"
+                :class="{ 'deset-price-selected': totalPrice === 15 }"
+              >
                 <span>15€</span>
               </div>
             </div>
-            <div class="third flex column-mini-full-pad">
-              <div class="full deset-price center relative">
+            <div
+              class="third flex column-mini-full-pad"
+              @click="totalPrice = 25"
+            >
+              <div
+                class="full deset-price center relative"
+                :class="{ 'deset-price-selected': totalPrice === 25 }"
+              >
                 <span>25€</span>
               </div>
               <div class="full deset-price-note center-text smaller-text">
@@ -107,15 +144,211 @@
               <div
                 class="full deset-price center relative deset-price-no-hover"
               >
-                <input type="text" class="deset-price-input" value="0,00€" />
+                <input
+                  v-model="totalPrice"
+                  type="text"
+                  class="deset-price-input"
+                />
               </div>
             </div>
           </div>
           <div
+            v-show="screen === 2"
+            class="full flex deset-price-picker column-mini-vertical-pad"
+          >
+            <p v-show="!loggedIn" class="full bold remp-subtitle faded">
+              4) Unesite podatke
+            </p>
+            <div id="login" class="full flex relative">
+              <div class="half flex flex-responsive remp-miniboxes">
+                <div v-show="!loggedIn">
+                  <input
+                    id="pretplata-email"
+                    v-model="email"
+                    type="text"
+                    class="full remp-new-input"
+                    placeholder="Upišite email"
+                    name="email"
+                  />
+                  <input
+                    v-if="showPassword"
+                    id="pretplata-password"
+                    v-model="password"
+                    type="password"
+                    class="full remp-new-input"
+                    placeholder="Upišite lozinku"
+                    name="password"
+                  />
+                  <small v-show="!showPassword"
+                    >Ukoliko niste registrirani korisnik, na navedenu email
+                    adresu ćete zaprimiti pristupne podatke.</small
+                  >
+                  <button
+                    v-if="showPassword"
+                    class="full newbtn huge-newbtn center-text clickable"
+                    @click="login"
+                  >
+                    Prijavi se
+                  </button>
+                  <p class="full remp-mini-text center-text faded">ili</p>
+                  <div class="full flex relative">
+                    <div v-show="false" class="half flex column-mini-right-pad">
+                      <div class="full center remp-social-logbtn animate">
+                        <i class="fa-brands fa-google"></i>
+                        Google
+                      </div>
+                    </div>
+                    <div class="half flex column-mini-left-pad">
+                      <a
+                        href="https://pretplata.telegram.hr/social-login/social-sign/sign?social_provider_key=facebook&success_login_url=https://www.telegram.hr/pretplata/"
+                        class="full center remp-social-logbtn animate"
+                      >
+                        <i class="fa-brands fa-facebook-f"></i>
+                        Facebook
+                      </a>
+                    </div>
+                    <p class="full remp-mini-text center-text faded hide">
+                      Privremeno ćemo vas preusmjeriti na stranicu odabranog
+                      davatelja usluga kako bi povezali račune.
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="full flex column-top-pad mobile-bottom-pad mobile-top-pad"
+                >
+                  <input
+                    id="terms"
+                    v-model="terms"
+                    type="checkbox"
+                    class="cbx"
+                    name="terms"
+                  />
+                  <label for="terms" class="check flex full">
+                    <svg width="18px" height="18px" viewBox="0 0 18 18">
+                      <path
+                        d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
+                      ></path>
+                      <polyline points="1 9 7 14 15 4"></polyline>
+                    </svg>
+                    <span
+                      >Prihvaćam
+                      <a
+                        target="_blank"
+                        href="https://www.telegram.hr/stranica/uvjeti-koristenja/"
+                        class="highlight-text"
+                        >uvjete korištenja</a
+                      ></span
+                    >
+                  </label>
+                </div>
+                <div
+                  class="full flex column-top-pad mobile-bottom-pad mobile-top-pad"
+                >
+                  <input
+                    id="privacy"
+                    v-model="privacy"
+                    type="checkbox"
+                    class="cbx"
+                    name="privacy"
+                  />
+                  <label for="privacy" class="check flex full">
+                    <svg width="18px" height="18px" viewBox="0 0 18 18">
+                      <path
+                        d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
+                      ></path>
+                      <polyline points="1 9 7 14 15 4"></polyline>
+                    </svg>
+                    <span
+                      >Prihvaćam
+                      <a
+                        target="_blank"
+                        href="https://www.telegram.hr/stranica/pravila-privantnosti/"
+                        class="highlight-text"
+                        >pravila privatnosti</a
+                      ></span
+                    >
+                  </label>
+                </div>
+              </div>
+              <div class="half flex flex-responsive remp-miniboxes">
+                <div
+                  v-if="payment === 'braintree_default_recurrent'"
+                  id="pretplata-kartica-broj"
+                  class="full flex relative"
+                >
+                  <div
+                    v-show="token"
+                    id="credit-card"
+                    class="full remp-new-input hosted-field"
+                  ></div>
+                  <div
+                    v-show="token"
+                    id="cvv"
+                    class="full remp-new-input hosted-field"
+                  ></div>
+                  <div
+                    v-show="token"
+                    id="expiration-date"
+                    class="full remp-new-input hosted-field"
+                  ></div>
+                  <p class="full remp-mini-text center-text faded hide">
+                    Vaši podaci za plaćanje biti će enkriptirani i sigurno
+                    spremljeni po najvišim sigurnosnim standardima.
+                  </p>
+                </div>
+                <div
+                  v-if="payment === 'pretplata-uplata'"
+                  class="full flex relative"
+                >
+                  <p class="full smaller-text faded">
+                    Tekst za bankovnu uplatu.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <form
+              id="payment-form"
+              class="full flex column-horizontal-pad column-top-pad mobile-top-pad"
+              method="post"
+              action="https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/submit"
+            >
+              <input type="hidden" name="funnel_url_key" :value="url_key" />
+              <input
+                type="hidden"
+                name="payment_metadata[payment_method_nonce]"
+                :value="nonce"
+              />
+              <input
+                type="hidden"
+                name="payment_metadata[device_data]"
+                :value="deviceData"
+              />
+              <input
+                type="hidden"
+                name="subscription_type"
+                :value="subscription_type"
+              />
+              <input type="hidden" name="payment_gateway" :value="payment" />
+              <input type="hidden" name="customer_id" :value="customerId" />
+              <input type="hidden" name="price" :value="totalPrice" />
+              <input type="hidden" name="email" :value="email" />
+              <input
+                type="hidden"
+                name="additional_amount"
+                :value="totalPrice"
+              />
+              <input type="hidden" name="additional_type" value="single" />
+            </form>
+          </div>
+          <div
             class="full flex relative column-mini-horizontal-pad column-top-pad"
           >
-            <div id="deset-checkout-btn" class="full center relative">
-              <span>Završite kupnju za 5€</span>
+            <div
+              id="deset-checkout-btn"
+              class="full center relative"
+              @click="finish"
+            >
+              <span>Završite kupnju za {{ totalPrice }}€</span>
             </div>
           </div>
           <p
@@ -184,8 +417,249 @@
 </template>
 
 <script>
+import braintree from 'braintree-web'
+import _ from 'lodash'
 export default {
   name: 'PretplataTen',
+  data() {
+    return {
+      totalPrice: 5,
+      screen: 1,
+      show_msg: '',
+      payment: 'braintree_default_recurrent',
+      pack: null,
+      term: 'Telegram_Premium_-_10_tjedana_za_10 godina_Telegrama',
+      promo_code: '',
+      email: this.$store.state.user.email,
+      password: '',
+      showPassword: false,
+      hostedInstance: null,
+      threeDS: null,
+      deviceData: null,
+      nonce: null,
+      token: null,
+      dropin: null,
+      terms: false,
+      privacy: false,
+      funnel_url_key: 'main',
+      auth: 0,
+      url_key: 'main',
+      creditCard: false,
+      cvv: false,
+      expirationDate: false,
+      instance: null,
+      customerId: null,
+    }
+  },
+  computed: {
+    buyable() {
+      if (
+        this.email &&
+        this.terms &&
+        this.privacy &&
+        this.token &&
+        this.creditCard &&
+        this.cvv &&
+        this.expirationDate
+      ) {
+        return true
+      }
+      return false
+    },
+    subscription_type() {
+      return 'Telegram_Premium_-_10_tjedana_za_10 godina_Telegrama'
+    },
+    loggedIn() {
+      return !!this.$store.state.user.id
+    },
+    canLogIn() {
+      return this.$store.getters['user/canLogIn']
+    },
+  },
+  watch: {
+    email: _.debounce(function (value) {
+      const _this = this
+      const formData = new FormData()
+      formData.append('email', value)
+      this.$axios
+        .post('/crm/api/v2/users/email', formData, {
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+        })
+        .then((response) => {
+          if (response.data.status && response.data.status === 'taken') {
+            _this.showPassword = true
+          } else if (response.data.status === 'error') {
+            if (response.data.code === 'email_missing') {
+              return
+            }
+            _this.show_msg = 'error-not-finished'
+          } else {
+            _this.showPassword = false
+            this.getToken()
+          }
+        })
+        .catch(() => {
+          _this.showPassword = false
+          this.getToken()
+        })
+    }, 1000),
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.getToken()
+    })
+  },
+  methods: {
+    login() {
+      if (!this.showPassword) {
+        return
+      }
+      this.$store.dispatch('user/loginSubmit', {
+        email: this.email,
+        password: this.password,
+      })
+    },
+    getToken() {
+      if (this.email === '') {
+        return
+      }
+      const _this = this
+      this.$axios
+        .get('/crm/api/v1/braintree/token', {
+          params: {
+            email: _this.email,
+          },
+        })
+        .then((res) => {
+          _this.token = res.data.token
+          _this.customerId = res.data.customer_id
+          braintree.client
+            .create({
+              authorization: res.data.token,
+            })
+            .then((clientInstance) => {
+              return Promise.all([
+                braintree.hostedFields.create({
+                  client: clientInstance,
+                  styles: {
+                    input: {
+                      'font-size': '16px',
+                      color: '#666',
+                    },
+                    'input.invalid': {
+                      color: '#ae3737',
+                    },
+                    'input.valid': {
+                      color: '#35a843',
+                    },
+                  },
+                  fields: {
+                    number: {
+                      selector: '#credit-card',
+                      placeholder: 'Broj kartice',
+                    },
+                    cvv: {
+                      selector: '#cvv',
+                      placeholder: 'CVV sigurnosni kod',
+                    },
+                    expirationDate: {
+                      selector: '#expiration-date',
+                      placeholder: 'MM/GGGG',
+                    },
+                  },
+                }),
+                braintree.threeDSecure.create({
+                  authorization: res.data.token,
+                  version: 2,
+                }),
+                braintree.dataCollector.create({
+                  client: clientInstance,
+                }),
+              ])
+            })
+            .then((instances) => {
+              _this.instance = instances[0]
+              _this.instance.on('validityChange', function (event) {
+                const field = event.fields[event.emittedBy]
+
+                if (field.isValid || field.isPotentiallyValid) {
+                  switch (event.emittedBy) {
+                    case 'number':
+                      _this.creditCard = true
+                      break
+                    case 'cvv':
+                      _this.cvv = true
+                      break
+                    case 'expirationDate':
+                      _this.expirationDate = true
+                      break
+                    default:
+                      break
+                  }
+                } else {
+                  switch (event.emittedBy) {
+                    case 'number':
+                      _this.creditCard = false
+                      break
+                    case 'cvv':
+                      _this.cvv = false
+                      break
+                    case 'expirationDate':
+                      _this.expirationDate = false
+                      break
+                    default:
+                      break
+                  }
+                }
+              })
+              _this.threeDS = instances[1]
+              _this.deviceData = instances[2].deviceData
+            })
+        })
+    },
+    submit() {
+      if (!this.buyable) {
+        return
+      }
+      this.loading = true
+      this.instance
+        .tokenize()
+        .then((payload) => {
+          return this.threeDS.verifyCard({
+            onLookupComplete: (data, next) => {
+              next()
+            },
+            amount: this.totalPrice,
+            nonce: payload.nonce,
+            bin: payload.details.bin,
+            email: this.email,
+          })
+        })
+        .then((payload) => {
+          this.loading = false
+          if (!payload.liabilityShifted) {
+            this.error =
+              '3DS autorizacija kartice nije prošla. Probajte ponovo.'
+          } else {
+            this.nonce = payload.nonce
+            this.$store.commit('pretplata/setSubscriptionStarted', true)
+            setTimeout(
+              () => document.getElementById('payment-form').submit(),
+              500
+            )
+          }
+        })
+    },
+    finish() {
+      if (this.screen === 1) {
+        this.screen = 2
+        return
+      }
+      this.submit()
+    },
+  },
   head() {
     const link = [
       {
