@@ -453,7 +453,10 @@ export default {
   },
   computed: {
     buyable() {
-      if (
+      if (this.totalPrice === 0 && this.email && this.terms && this.privacy) {
+        return true
+      }
+      return !!(
         this.email &&
         this.terms &&
         this.privacy &&
@@ -461,10 +464,7 @@ export default {
         this.creditCard &&
         this.cvv &&
         this.expirationDate
-      ) {
-        return true
-      }
-      return false
+      )
     },
     subscription_type() {
       return 'Telegram_Premium_-_10_tjedana_za_10 godina_Telegrama'
@@ -522,7 +522,7 @@ export default {
       })
     },
     getToken() {
-      if (this.email === '') {
+      if (this.email === '' || this.totalPrice === 0) {
         return
       }
       const _this = this
