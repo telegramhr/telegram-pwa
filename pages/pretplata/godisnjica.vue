@@ -623,6 +623,11 @@ export default {
       if (!this.buyable) {
         return
       }
+      if (this.totalPrice === 0) {
+        this.$store.commit('pretplata/setSubscriptionStarted', true)
+        setTimeout(() => document.getElementById('payment-form').submit(), 500)
+        return
+      }
       this.loading = true
       this.instance
         .tokenize()
