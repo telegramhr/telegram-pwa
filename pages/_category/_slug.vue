@@ -818,6 +818,12 @@ export default {
       }
       return set
     },
+    locked() {
+      if (this.giftValid) {
+        return 'never'
+      }
+      return this.post.paywall
+    },
   },
   mounted() {
     this.$nextTick(() => {
@@ -888,7 +894,7 @@ export default {
         article: {
           id: this.post.id.toString(),
           category: this.post.category,
-          locked: !this.giftValid && this.post.paywall === 'always',
+          locked: this.locked,
           tags: this.post.tags.map((tag) => {
             return tag.slug
           }),
