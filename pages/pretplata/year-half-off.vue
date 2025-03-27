@@ -10,18 +10,12 @@
     <div class="full flex">
       <div class="container relative flex mobile-side-pad column-full-pad">
         <h1 class="full center-text column-top-pad smaller-h1">
-          Posebna ponuda na Telegramu! <br />Čitajte Telegram cijelu godinu uz
-          50% popusta!
+          Čitajte Telegram cijelu godinu uz 50% popusta!
         </h1>
       </div>
     </div>
     <!-- Special half element -->
     <div class="full flex relative stretch pretplata-duo">
-      <div
-        class="full center-text relative column-bottom-pad mobile-bottom-pad pretplata-duo-overtitle"
-      >
-        Vremenski ograničena ponuda
-      </div>
       <div
         class="half flex flex-responsive relative center pretplata-blue column-full-pad mobile-side-pad mobile-top-pad"
       >
