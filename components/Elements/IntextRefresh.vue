@@ -163,11 +163,11 @@ export default {
       }
       this.triggerShow()
     },
-    checkout(termId) {
-      this.$piano.start(termId)
-    },
     triggerShow() {
       if (this.show) {
+        return
+      }
+      if (this.$route.query.gift_token) {
         return
       }
       const el = document.getElementById('piano-content')
