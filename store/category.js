@@ -1,5 +1,13 @@
 export const state = () => ({
   categories: {
+    podcastovi: {
+      name: 'Podcastovi',
+      description: '',
+      posts: [],
+      updated: null,
+      extraClass: 'podcastovi',
+      canonical: '/podcastovi/',
+    },
     karijere: {
       name: 'Karijere',
       description: '',
@@ -304,6 +312,10 @@ export const state = () => ({
     },
   },
   morePosts: {
+    podcastovi: {
+      posts: [],
+      page: 2,
+    },
     'politika-kriminal': {
       posts: [],
       page: 2,
