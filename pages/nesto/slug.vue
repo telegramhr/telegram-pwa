@@ -8,6 +8,9 @@
         :search-menu-show="showSearchMenu"
       ></theader>
     </client-only>
+    <client-only>
+      <hometop-ten></hometop-ten>
+    </client-only>
     <div v-if="related_posts" class="full related-header-widget hide">
       <div class="container flex desktop-only column-vertical-pad">
         <div v-for="rpost in related_posts" :key="rpost.id" class="third flex">
@@ -256,7 +259,7 @@
                   i voćnim dodacima – borovnicama i bananama.
                 </li>
               </ol>
-              <p>
+              <p class="premium-fade-out">
                 Hrvatski Telekom je tako ove godine svojim zaposlenicima
                 isplatio božićnicu u iznosu od 1.250 kuna, a kao priznanje za
                 poseban angažman u vrijeme korone, svi zaposlenici dobili su i
@@ -266,7 +269,7 @@
                 više djece te djecu s poteškoćama u razvoju”, nastavlja
                 Bartulović.
               </p>
-              <intext-promo-free-month></intext-promo-free-month>
+              <intext-promo-green></intext-promo-green>
               <!--<quiz :data="questions"></quiz>-->
               <div class="banner-intext center intext">
                 <div class="full flex">

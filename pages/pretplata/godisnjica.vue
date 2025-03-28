@@ -6,7 +6,7 @@
       <theader headline="Proslavite s nama 10 godina Telegrama!"></theader>
     </div>
     <!-- Special half element -->
-    <div class="full flex relative stretch pretplata-deset">
+    <div id="checkout" class="full flex relative stretch pretplata-deset">
       <div
         class="half flex flex-responsive relative center column-full-pad mobile-full-pad"
       >
@@ -154,51 +154,50 @@
           </div>
           <div
             v-show="screen === 2"
-            class="full flex deset-price-picker column-mini-vertical-pad"
+            class="full flex deset-price-picker column-mini-full-pad"
           >
-            <p v-show="!loggedIn" class="full bold remp-subtitle faded">
-              4) Unesite podatke
+            <p v-show="!loggedIn" class="full column-mini-bottom-pad">
+              Unesite svoje podatke:
             </p>
             <div id="login" class="full flex relative">
-              <div class="half flex flex-responsive remp-miniboxes">
-                <div v-show="!loggedIn">
-                  <input
-                    id="pretplata-email"
-                    v-model="email"
-                    type="text"
-                    class="full remp-new-input"
-                    placeholder="Upišite email"
-                    name="email"
-                  />
-                  <input
-                    v-if="showPassword"
-                    id="pretplata-password"
-                    v-model="password"
-                    type="password"
-                    class="full remp-new-input"
-                    placeholder="Upišite lozinku"
-                    name="password"
-                  />
-                  <small v-show="!showPassword"
-                    >Ukoliko niste registrirani korisnik, na navedenu email
-                    adresu ćete zaprimiti pristupne podatke.</small
-                  >
-                  <button
-                    v-if="showPassword"
-                    class="full newbtn huge-newbtn center-text clickable"
-                    @click="login"
-                  >
-                    Prijavi se
-                  </button>
-                  <p class="full remp-mini-text center-text faded">ili</p>
-                  <div class="full flex relative">
-                    <div v-show="false" class="half flex column-mini-right-pad">
-                      <div class="full center remp-social-logbtn animate">
-                        <i class="fa-brands fa-google"></i>
-                        Google
-                      </div>
+              <div class="full flex flex-responsive remp-miniboxes">
+                <div v-show="!loggedIn" class="full flex stretch">
+                  <div class="half flex-responsive flex relative">
+                    <input
+                      id="pretplata-email"
+                      v-model="email"
+                      type="text"
+                      class="full remp-new-input"
+                      placeholder="Upišite email"
+                      name="email"
+                    />
+                    <input
+                      v-if="showPassword"
+                      id="pretplata-password"
+                      v-model="password"
+                      type="password"
+                      class="full remp-new-input"
+                      placeholder="Upišite lozinku"
+                      name="password"
+                    />
+                    <div
+                      v-show="!showPassword"
+                      class="full deset-price-note smaller-text column-mini-bottom-pad hide"
+                    >
+                      Ukoliko niste registrirani korisnik, na navedenu email
+                      adresu ćete zaprimiti pristupne podatke.
                     </div>
-                    <div class="half flex column-mini-left-pad">
+                    <button
+                      v-if="showPassword"
+                      class="full newbtn huge-newbtn center-text clickable"
+                      @click="login"
+                    >
+                      Prijavi se
+                    </button>
+                  </div>
+                  <p class="sixth center flex-responsive relative">ili</p>
+                  <div class="third flex relative">
+                    <div class="full flex">
                       <a
                         href="https://pretplata.telegram.hr/social-login/social-sign/sign?social_provider_key=facebook&success_login_url=https://www.telegram.hr/pretplata/"
                         class="full center remp-social-logbtn animate"
@@ -207,7 +206,15 @@
                         Facebook
                       </a>
                     </div>
-                    <p class="full remp-mini-text center-text faded hide">
+                    <div v-show="false" class="full flex">
+                      <div class="full center remp-social-logbtn animate">
+                        <i class="fa-brands fa-google"></i>
+                        Google
+                      </div>
+                    </div>
+                    <p
+                      class="full deset-price-note smaller-text column-mini-top-pad hide"
+                    >
                       Privremeno ćemo vas preusmjeriti na stranicu odabranog
                       davatelja usluga kako bi povezali račune.
                     </p>
@@ -270,7 +277,9 @@
                   </label>
                 </div>
               </div>
-              <div class="half flex flex-responsive remp-miniboxes">
+              <div
+                class="full flex flex-responsive remp-miniboxes column-top-pad"
+              >
                 <div
                   v-if="payment === 'braintree_default_recurrent'"
                   id="pretplata-kartica-broj"
@@ -348,7 +357,12 @@
               class="full center relative"
               @click="finish"
             >
-              <span>Završite kupnju za {{ totalPrice }}€</span>
+              <span v-show="screen === 1"
+                >Nastavite kupnju za {{ totalPrice }}€</span
+              >
+              <span v-show="screen === 2"
+                >Završite kupnju za {{ totalPrice }}€</span
+              >
             </div>
           </div>
           <p

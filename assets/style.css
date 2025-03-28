@@ -16430,7 +16430,7 @@ form#telemach-promo input[type=submit].newbtn {
         padding-top: 0px;
         padding-bottom: 10%;
     }
-    .pretplata-deset .smaller-text {
+    .pretplata-deset .smaller-text, .green-zgt-salebox .deset-price-note {
         font-size: 0.6rem;
     }
     #deset-checkout-btn {
@@ -16447,4 +16447,77 @@ form#telemach-promo input[type=submit].newbtn {
     .deset-goal-header {
         font-size: 1rem;
     }
+}
+
+.pretplata-deset.pretplata-deset-compact > .half {
+    min-height: auto;
+    justify-content: flex-start;
+}
+.pretplata-deset.pretplata-deset-compact > .half:first-child {
+    justify-content: flex-end;
+}
+.pretplata-deset .remp-new-input {
+    color: white;
+}
+.pretplata-deset .remp-mini-separator span {
+    padding: 0px 0.8rem;
+    background-color: #007074;
+    z-index: 5;
+    position: relative;
+    font-size: 20px;
+    font-size: 1rem;
+    font-family: 'Barlow', sans-serif;
+}
+.pretplata-deset .remp-mini-separator::before {
+    content: " ";
+    border-bottom: 1px solid white;
+    width: 100%;
+    height: 55%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.pretplata-deset .remp-social-logbtn {
+    color: white;
+}
+.pretplata-deset #pretplata-kartica-broj .hosted-field {
+    background: white;
+    margin-bottom: 0.4rem;
+}
+.pretplata-deset .highlight-text {
+    color: white;
+    text-decoration: underline;
+}
+.green-zgt-salebox {
+    background-color: #007074;
+    color: white;
+    font-family: 'Barlow', sans-serif;
+    padding: 0px;
+}
+.green-zgt-salebox .darker-green {
+    background-color: #034C53;
+}
+.green-zgt-salebox .zgts-title {
+    font-size: 24px;
+    font-size: 1.2rem;
+}
+.green-zgt-salebox .deset-box {
+    max-width: 360px;
+}
+.green-zgt-salebox .deset-logo {
+    height: auto;
+}
+.single-article .single-article-body .green-zgt-salebox p {
+    margin-bottom: 0px;
+    margin-top: 0.3rem;
+    width: 100%;
+}
+.green-zgt-salebox .zgts-topbar > div {
+    margin-top: -1.2rem;
+    margin-bottom: 0;
+}
+.green-zgt-salebox .deset-price-note {
+    padding-top: 0.25rem;
+    font-size: 0.8rem;
 }
