@@ -22,7 +22,9 @@
             <div class="full flex deset-counter-bar relative">
               <div style="width: 18.9%"></div>
             </div>
-            <div class="two-thirds flex">189/1000 novih pretplatnika</div>
+            <div class="two-thirds flex">
+              {{ sold }}/1000 novih pretplatnika
+            </div>
             <a
               href="#ciljevi"
               class="third flex bold align-children-end all-caps"
@@ -387,7 +389,9 @@
             <div class="full flex deset-counter-bar relative">
               <div :style="{ width: soldP1 }"></div>
             </div>
-            <font-awesome-icon :icon="['fas', 'check']" />
+            <font-awesome-icon
+              :icon="['fas', sold >= 1000 ? 'check' : 'lock-keyhole']"
+            />
             <span>{{ sold }}/1000</span>
           </div>
           <p class="full column-mini-top-pad">
@@ -403,7 +407,9 @@
             <div class="full flex deset-counter-bar relative">
               <div :style="{ width: soldP2 }"></div>
             </div>
-            <font-awesome-icon :icon="['far', 'lock-keyhole']" />
+            <font-awesome-icon
+              :icon="['fas', sold >= 2000 ? 'check' : 'lock-keyhole']"
+            />
             <span>{{ sold }}/2000</span>
           </div>
           <p class="full column-mini-top-pad">
@@ -419,7 +425,9 @@
             <div class="full flex deset-counter-bar relative">
               <div :style="{ width: soldP3 }"></div>
             </div>
-            <font-awesome-icon :icon="['far', 'lock-keyhole']" />
+            <font-awesome-icon
+              :icon="['fas', sold >= 3000 ? 'check' : 'lock-keyhole']"
+            />
             <span>{{ sold }}/3000</span>
           </div>
           <p class="full column-mini-top-pad">???</p>
@@ -435,6 +443,9 @@ import braintree from 'braintree-web'
 import _ from 'lodash'
 export default {
   name: 'PretplataTen',
+  async fetch() {
+    this.sold = (await this.$axios.get('/api/pretplate')).data.number
+  },
   data() {
     return {
       totalPrice: 5,
@@ -462,6 +473,7 @@ export default {
       expirationDate: false,
       instance: null,
       customerId: null,
+      sold: 0,
     }
   },
   computed: {
@@ -484,9 +496,6 @@ export default {
     },
     canLogIn() {
       return this.$store.getters['user/canLogIn']
-    },
-    sold() {
-      return 100
     },
     soldP1() {
       return (this.sold / 1000) * 100 + '%'
