@@ -390,7 +390,7 @@
               <div :style="{ width: soldP1 }"></div>
             </div>
             <font-awesome-icon
-              :icon="['fas', sold >= 1000 ? 'check' : 'lock-keyhole']"
+              :icon="sold >= 2000 ? ['fas', 'check'] : ['far', 'lock-keyhole']"
             />
             <span>{{ sold }}/1000</span>
           </div>
@@ -408,7 +408,7 @@
               <div :style="{ width: soldP2 }"></div>
             </div>
             <font-awesome-icon
-              :icon="['fas', sold >= 2000 ? 'check' : 'lock-keyhole']"
+              :icon="sold >= 2000 ? ['fas', 'check'] : ['far', 'lock-keyhole']"
             />
             <span>{{ sold }}/2000</span>
           </div>
@@ -426,7 +426,7 @@
               <div :style="{ width: soldP3 }"></div>
             </div>
             <font-awesome-icon
-              :icon="['fas', sold >= 3000 ? 'check' : 'lock-keyhole']"
+              :icon="sold >= 2000 ? ['fas', 'check'] : ['far', 'lock-keyhole']"
             />
             <span>{{ sold }}/3000</span>
           </div>
