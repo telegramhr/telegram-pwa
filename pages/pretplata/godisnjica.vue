@@ -385,10 +385,10 @@
           </div>
           <div class="full flex relative deset-counter-bar-parent">
             <div class="full flex deset-counter-bar relative">
-              <div style="width: 100%"></div>
+              <div :style="{ width: soldP1 }"></div>
             </div>
             <font-awesome-icon :icon="['fas', 'check']" />
-            <span>1000/1000</span>
+            <span>{{ sold }}/1000</span>
           </div>
           <p class="full column-mini-top-pad">
             Otključati ćemo svim čitateljima neograničeni pristup potpunoj
@@ -401,10 +401,10 @@
           </div>
           <div class="full flex relative deset-counter-bar-parent">
             <div class="full flex deset-counter-bar relative">
-              <div style="width: 56.45%"></div>
+              <div :style="{ width: soldP2 }"></div>
             </div>
             <font-awesome-icon :icon="['far', 'lock-keyhole']" />
-            <span>1189/2000</span>
+            <span>{{ sold }}/2000</span>
           </div>
           <p class="full column-mini-top-pad">
             Pokloniti ćemo 500.000 besplatnih impresija reklamama raznih
@@ -417,10 +417,10 @@
           </div>
           <div class="full flex relative deset-counter-bar-parent">
             <div class="full flex deset-counter-bar relative">
-              <div style="width: 26.45%"></div>
+              <div :style="{ width: soldP3 }"></div>
             </div>
             <font-awesome-icon :icon="['far', 'lock-keyhole']" />
-            <span>1189/3000</span>
+            <span>{{ sold }}/3000</span>
           </div>
           <p class="full column-mini-top-pad">???</p>
         </div>
@@ -484,6 +484,18 @@ export default {
     },
     canLogIn() {
       return this.$store.getters['user/canLogIn']
+    },
+    sold() {
+      return 100
+    },
+    soldP1() {
+      return (this.sold / 1000) * 100 + '%'
+    },
+    soldP2() {
+      return (this.sold / 2000) * 100 + '%'
+    },
+    soldP3() {
+      return (this.sold / 3000) * 100 + '%'
     },
   },
   watch: {
