@@ -100,6 +100,7 @@
           <app-link role="menuitem" to="/velike-price">Velike priče</app-link>
           <app-link role="menuitem" to="/zivot">Život</app-link>
           <app-link role="menuitem" to="/kultura">Kultura</app-link>
+          <app-link role="menuitem" to="/podcastovi">Podcastovi</app-link>
         </div>
         <div class="half" role="menu">
           <div class="noththree">Postavke izgleda</div>
