@@ -57,6 +57,20 @@ export default ({ app, store, route }) => {
       pubID: '921fe99d-b739-4d25-b89d-df067f627a6a',
       adServer: 'googletag',
     })
+
+    // refresh
+    if (cookie === 'a') {
+      const refresh = document.createElement('script')
+      refresh.src = 'https://freshatl.azurewebsites.net/js/fresh-atl.js'
+      refresh.async = true
+      document.head.appendChild(refresh)
+    } else {
+      const refresh = document.createElement('script')
+      refresh.src =
+        'https://cdn.defractal.com/scripts/defractal-7-00770051-F494-429B-A1AF-2D4AB7F53D99js'
+      refresh.async = true
+      document.head.appendChild(refresh)
+    }
   }
 
   function q(c, r) {
