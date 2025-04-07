@@ -178,7 +178,7 @@
                       id="pretplata-password"
                       v-model="password"
                       type="password"
-                      class="full remp-new-input"
+                      class="full remp-new-input column-top-margin"
                       placeholder="Upišite lozinku"
                       name="password"
                     />
@@ -381,7 +381,15 @@
       <div
         class="container smallest-container flex column-full-pad mobile-full-pad"
       >
-        <div class="full flex relative deset-goal deset-goal-unlocked">
+        <div
+          :class="{
+            full: true,
+            flex: true,
+            relative: true,
+            'deset-goal': true,
+            'deset-goal-unlocked': sold >= 1000,
+          }"
+        >
           <div class="full flex relative deset-goal-header alt-vertical-center">
             <span>1. cilj</span> 1000 novih pretplatnika
           </div>
@@ -390,16 +398,25 @@
               <div :style="{ width: soldP1 }"></div>
             </div>
             <font-awesome-icon
-              :icon="sold >= 2000 ? ['fas', 'check'] : ['far', 'lock-keyhole']"
+              :icon="sold >= 1000 ? ['fas', 'check'] : ['far', 'lock-keyhole']"
             />
-            <span>{{ sold }}/1000</span>
+            <span v-if="sold >= 1000">Hvala vam!</span>
+            <span v-if="sold < 1000">{{ sold }}/1000</span>
           </div>
           <p class="full column-mini-top-pad">
             Otključati ćemo svim čitateljima neograničeni pristup potpunoj
             10-godišnjoj arhivi Telegramovih analiza, istraga i vijesti.
           </p>
         </div>
-        <div class="full flex relative deset-goal">
+        <div
+          :class="{
+            full: true,
+            flex: true,
+            relative: true,
+            'deset-goal': true,
+            'deset-goal-unlocked': sold >= 2000,
+          }"
+        >
           <div class="full flex relative deset-goal-header alt-vertical-center">
             <span>2. cilj</span> 2000 novih pretplatnika
           </div>
@@ -410,14 +427,23 @@
             <font-awesome-icon
               :icon="sold >= 2000 ? ['fas', 'check'] : ['far', 'lock-keyhole']"
             />
-            <span>{{ sold }}/2000</span>
+            <span v-if="sold >= 2000">Hvala vam!</span>
+            <span v-if="sold < 2000">{{ sold }}/2000</span>
           </div>
           <p class="full column-mini-top-pad">
             Pokloniti ćemo 500.000 besplatnih impresija reklamama raznih
             dobrotvornih organizacija koje operiraju u Hrvatskoj.
           </p>
         </div>
-        <div class="full flex relative deset-goal">
+        <div
+          :class="{
+            full: true,
+            flex: true,
+            relative: true,
+            'deset-goal': true,
+            'deset-goal-unlocked': sold >= 3000,
+          }"
+        >
           <div class="full flex relative deset-goal-header alt-vertical-center">
             <span>3. cilj</span> 3000 novih pretplatnika
           </div>
@@ -426,9 +452,10 @@
               <div :style="{ width: soldP3 }"></div>
             </div>
             <font-awesome-icon
-              :icon="sold >= 2000 ? ['fas', 'check'] : ['far', 'lock-keyhole']"
+              :icon="sold >= 3000 ? ['fas', 'check'] : ['far', 'lock-keyhole']"
             />
-            <span>{{ sold }}/3000</span>
+            <span v-if="sold >= 3000">Hvala vam!</span>
+            <span v-if="sold < 3000">{{ sold }}/3000</span>
           </div>
           <p class="full column-mini-top-pad">???</p>
         </div>
