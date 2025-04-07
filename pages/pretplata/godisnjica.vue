@@ -44,11 +44,10 @@
           <div
             class="full nothtwo column-mini-horizontal-pad column-mini-bottom-pad"
           >
-            Proslavite s nama 10 godina Telegrama! Nastavimo zajedno dalje.
+            Čitajte Telegram idućih 10 tjedana po cijeni koju sami odaberete
           </div>
           <p class="full column-mini-horizontal-pad">
-            Čitajte Telegram prvih 10 tjedana po cijeni koju sami odaberete.
-            Pridružite se onima koji brinu za budućnost.
+            10 godina Telegrama. 10 obećanja za Hrvatsku
           </p>
           <div
             v-show="screen === 1"
