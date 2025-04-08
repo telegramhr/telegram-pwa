@@ -360,6 +360,7 @@
 
                 <intext-refresh></intext-refresh>
                 <intext-promo-pack></intext-promo-pack>
+                <intext-promo-green></intext-promo-green>
                 <midas
                   v-if="!hasPremium && hasLinker"
                   :key="`midas-text-${post.id}`"

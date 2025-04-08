@@ -593,6 +593,11 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
+      if (this.$route.query.amount) {
+        this.totalPrice = this.$route.query.amount
+        this.screen = 2
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      }
       this.getToken()
     })
   },
@@ -750,7 +755,7 @@ export default {
       {
         hid: 'canonical',
         rel: 'canonical',
-        href: 'https://www.telegram.hr/pretplata/godisnjica',
+        href: 'https://www.telegram.hr/pretplata/10-godina-telegrama-ekskluzivna-ponuda',
       },
     ]
     return {
@@ -780,7 +785,8 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/pretplata/godisnjica',
+          content:
+            'https://www.telegram.hr/pretplata/10-godina-telegrama-ekskluzivna-ponuda',
         },
         {
           hid: 'og:image',

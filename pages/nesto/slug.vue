@@ -239,7 +239,6 @@
                 centrom Zagreb, a u sklopu kojeg će kao volonteri imati važnu
                 ulogu”, priča Bartulović.
               </p>
-              <product-guide></product-guide>
               <ol>
                 <li>Bananu usitnite sa vilicom</li>
                 <li>

@@ -51,7 +51,8 @@
             <div class="fourth mobile-half flex column-mini-full-pad">
               <div
                 class="full deset-price center relative"
-                @click="selectedPrice = true"
+                :class="{ 'deset-price-selected': totalPrice === 0 }"
+                @click="totalPrice = 0"
               >
                 <span>0€</span>
               </div>
@@ -59,7 +60,8 @@
             <div class="fourth mobile-half flex column-mini-full-pad">
               <div
                 class="full deset-price center relative"
-                @click="selectedPrice = true"
+                :class="{ 'deset-price-selected': totalPrice === 3 }"
+                @click="totalPrice = 3"
               >
                 <span>3€</span>
               </div>
@@ -67,7 +69,8 @@
             <div class="fourth mobile-half flex column-mini-full-pad">
               <div
                 class="full deset-price center relative"
-                @click="selectedPrice = true"
+                :class="{ 'deset-price-selected': totalPrice === 5 }"
+                @click="totalPrice = 5"
               >
                 <span>5€</span>
               </div>
@@ -78,7 +81,8 @@
             <div class="fourth mobile-half flex column-mini-full-pad">
               <div
                 class="full deset-price center relative"
-                @click="selectedPrice = true"
+                :class="{ 'deset-price-selected': totalPrice === 9 }"
+                @click="totalPrice = 9"
               >
                 <span>9€</span>
               </div>
@@ -86,7 +90,8 @@
             <div class="fourth mobile-half flex column-mini-full-pad">
               <div
                 class="full deset-price center relative"
-                @click="selectedPrice = true"
+                :class="{ 'deset-price-selected': totalPrice === 15 }"
+                @click="totalPrice = 15"
               >
                 <span>15€</span>
               </div>
@@ -94,7 +99,8 @@
             <div class="fourth mobile-half flex column-mini-full-pad">
               <div
                 class="full deset-price center relative"
-                @click="selectedPrice = true"
+                :class="{ 'deset-price-selected': totalPrice === 25 }"
+                @click="totalPrice = 25"
               >
                 <span>25€</span>
               </div>
@@ -113,7 +119,15 @@
               <div
                 class="full deset-price center relative deset-price-no-hover"
               >
-                <input type="text" class="deset-price-input" value="0,00€" />
+                <input
+                  v-model="totalPrice"
+                  type="number"
+                  class="deset-price-input"
+                  step="0.01"
+                  min="0.00"
+                  pattern="[0-9]*"
+                />
+                <span class="deset-price-input-note">€</span>
               </div>
             </div>
           </div>
@@ -122,10 +136,18 @@
           >
             <app-link
               id="deset-checkout-btn"
-              to="/pretplata/godisnjica/#checkout"
+              :to="`/pretplata/10-godina-telegrama-ekskluzivna-ponuda/?amount=${totalPrice}`"
               class="full center relative"
             >
-              <span>{{ cta }}</span>
+              <span
+                >Nastavite kupnju za
+                {{
+                  new Intl.NumberFormat('hr-HR', {
+                    style: 'currency',
+                    currency: 'EUR',
+                  }).format(totalPrice)
+                }}</span
+              >
             </app-link>
             <!--<div
             v-if="softwall"
@@ -151,7 +173,7 @@ export default {
   name: 'IntextPromoPack',
   data() {
     return {
-      show: true,
+      show: false,
       termId: false,
       oldPrice: 99,
       newPrice: 78,
@@ -163,13 +185,14 @@ export default {
       cta: 'Nastavite kupnju za 5€',
       cta_link: '',
       termDurationText: '',
+      totalPrice: 5,
     }
   },
   mounted() {
-    window.addEventListener('piano_intext_bf', this.load)
+    window.addEventListener('intext_ten', this.load)
   },
   destroyed() {
-    window.removeEventListener('piano_intext_bf', this.load)
+    window.removeEventListener('intext_ten', this.load)
   },
   methods: {
     login() {
@@ -205,9 +228,6 @@ export default {
         this.cta_link = e.detail.cta_link ?? ''
       }
       this.triggerShow()
-    },
-    checkout(termId) {
-      this.$piano.start(termId)
     },
     triggerShow() {
       if (this.show) {
