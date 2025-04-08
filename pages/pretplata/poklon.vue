@@ -16,8 +16,7 @@
               class="container relative flex pretplata-packs mobile-side-pad column-horizontal-pad"
             >
               <h1 class="full center-text">
-                Pridružite se tisućama pretplatnika i podržite neovisno
-                novinarstvo - odaberite Telegram
+                Darujte svojim najmilijima Telegram pretplatu
               </h1>
               <p class="full bold remp-subtitle faded">
                 1) Odaberite pretplatu
@@ -46,11 +45,7 @@
                         {{ standardPrice }}€
                       </div>
                       <div class="nothfour full center-text undertitle">
-                        {{
-                          term === 'pretplata-mjesecno'
-                            ? 'Mjesečno'
-                            : 'Godišnje'
-                        }}
+                        Godišnje
                       </div>
                     </div>
                     <div class="full pretplata-benefits mobile-two-thirds">
@@ -102,11 +97,7 @@
                       </div>
                       <div class="full sub-price bold">{{ premiumPrice }}€</div>
                       <div class="nothfour full center-text undertitle">
-                        {{
-                          term === 'pretplata-mjesecno'
-                            ? 'Mjesečno'
-                            : 'Godišnje'
-                        }}
+                        Godišnje
                       </div>
                     </div>
                     <div class="full pretplata-benefits mobile-two-thirds">
@@ -143,54 +134,25 @@
               <div class="full flex relative remp-halfpad pretplata-packboxes">
                 <div class="half flex flex-responsive remp-miniboxes">
                   <p class="full remp-subtitle bold faded">
-                    2) Odaberite trajanje pretplate
+                    2) Unesite podatke
                   </p>
                   <div class="full relative flex">
                     <input
-                      id="pretplata-godisnje"
-                      v-model="term"
-                      type="radio"
-                      name="pretplata-termin"
-                      class="hide"
-                      value="pretplata-godisnje"
+                      id="gift-email"
+                      v-model="gift_email"
+                      type="email"
+                      class="full remp-new-input"
+                      placeholder="Upišite email kome poklanjate"
+                      name="email"
                     />
-                    <label
-                      for="pretplata-godisnje"
-                      class="full center relative remp-minibox animate clickable"
-                    >
-                      <div class="remp-radio-indicator center">
-                        <div></div>
-                      </div>
-                      <div class="full">
-                        Godišnje
-                        <span class="highlight-text">24% popusta</span>
-                      </div>
-                      <div class="full remp-special-note">
-                        {{ interimYearPrice }}€ za godinu dana unaprijed
-                      </div>
-                    </label>
-                  </div>
-                  <div class="full relative flex">
                     <input
-                      id="pretplata-mjesecno"
-                      v-model="term"
-                      type="radio"
-                      name="pretplata-termin"
-                      class="hide"
-                      value="pretplata-mjesecno"
+                      id="gift-date"
+                      v-model="gift_date"
+                      type="date"
+                      class="full remp-new-input"
+                      placeholder="Odaberite datum slanja poklona"
+                      name="date"
                     />
-                    <label
-                      for="pretplata-mjesecno"
-                      class="full flex relative remp-minibox animate clickable"
-                    >
-                      <div class="remp-radio-indicator center">
-                        <div></div>
-                      </div>
-                      <div class="full">4 tjedna</div>
-                      <div class="full remp-special-note">
-                        {{ interimMonthPrice }}€/mj, možete otkazati kad god
-                      </div>
-                    </label>
                   </div>
                 </div>
                 <div class="half flex flex-responsive remp-miniboxes">
@@ -424,7 +386,17 @@
                 <input type="hidden" name="payment_gateway" :value="payment" />
                 <input type="hidden" name="customer_id" :value="customerId" />
                 <input type="hidden" name="price" :value="price" />
-                <input type="hidden" name="email" :value="email" />
+                <input type="hidden" name="payment_metadata[gift]" value="1" />
+                <input
+                  type="hidden"
+                  name="payment_metadata[gift_email]"
+                  :value="gift_email"
+                />
+                <input
+                  type="hidden"
+                  name="payment_metadata[gift_starts_at]"
+                  :value="gift_date"
+                />
                 <div
                   v-if="!buyable"
                   class="full newbtn huge-newbtn center-text clickable locked-newbtn"
@@ -491,6 +463,8 @@ export default {
       expirationDate: false,
       instance: null,
       customerId: null,
+      gift_email: '',
+      gift_date: new Date(),
     }
   },
   computed: {
