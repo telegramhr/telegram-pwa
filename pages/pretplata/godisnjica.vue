@@ -147,9 +147,13 @@
               >
                 <input
                   v-model="totalPrice"
-                  type="text"
+                  type="number"
                   class="deset-price-input"
+                  step="0.01"
+                  min="0.00"
+                  pattern="[0-9]*"
                 />
+                <span class="deset-price-input-note">€</span>
               </div>
             </div>
           </div>
@@ -359,10 +363,22 @@
               @click="finish"
             >
               <span v-show="screen === 1"
-                >Nastavite kupnju za {{ totalPrice }}€</span
+                >Nastavite kupnju za
+                {{
+                  new Intl.NumberFormat('hr-HR', {
+                    style: 'currency',
+                    currency: 'EUR',
+                  }).format(totalPrice)
+                }}</span
               >
               <span v-show="screen === 2"
-                >Završite kupnju za {{ totalPrice }}€</span
+                >Završite kupnju za
+                {{
+                  new Intl.NumberFormat('hr-HR', {
+                    style: 'currency',
+                    currency: 'EUR',
+                  }).format(totalPrice)
+                }}</span
               >
             </div>
           </div>
@@ -474,7 +490,7 @@ export default {
   },
   data() {
     return {
-      totalPrice: 5,
+      price: 5,
       screen: 1,
       show_msg: '',
       payment: 'braintree_default_recurrent',
@@ -503,6 +519,18 @@ export default {
     }
   },
   computed: {
+    totalPrice: {
+      get() {
+        return this.price
+      },
+      set(value) {
+        if (!value || parseFloat(value) < 0 || isNaN(parseFloat(value))) {
+          this.price = 0
+          return
+        }
+        this.price = parseFloat(value).toFixed(2)
+      },
+    },
     buyable() {
       return !!(
         this.email &&

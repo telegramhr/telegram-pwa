@@ -16420,6 +16420,14 @@ form#telemach-promo input[type=submit].newbtn {
     text-align: center;
     width: 100%;
     z-index: 10;
+    -moz-appearance: textfield;
+    -webkit-appearance: textfield;
+}
+.deset-price-input::-webkit-inner-spin-button,
+.deset-price-input::-webkit-outer-spin-button
+{
+    -webkit-appearance: none;
+    margin: 0;
 }
 @media screen and (max-width: 767px) {
     .pretplata-deset > .half {
