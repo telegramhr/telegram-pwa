@@ -750,7 +750,7 @@ export default {
       {
         hid: 'canonical',
         rel: 'canonical',
-        href: 'https://www.telegram.hr/pretplata/10godina',
+        href: 'https://www.telegram.hr/pretplata/godisnjica',
       },
     ]
     return {
@@ -780,7 +780,13 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/',
+          content: 'https://www.telegram.hr/pretplata/godisnjica',
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content:
+            'https://www.telegram.hr/img/Telegram_10_godina_feed_7-2.jpg',
         },
         {
           hid: 'fb:app_id',
