@@ -867,4 +867,7 @@ export default {
   background-color: #ccc !important;
   border-color: #ccc !important;
 }
+.check svg {
+  stroke: #ccc;
+}
 </style>

@@ -168,7 +168,7 @@ export default {
   name: 'IntextPromoPack',
   data() {
     return {
-      show: true,
+      show: false,
       termId: false,
       oldPrice: 99,
       newPrice: 78,
