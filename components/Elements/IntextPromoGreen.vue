@@ -119,14 +119,7 @@
               <div
                 class="full deset-price center relative deset-price-no-hover"
               >
-                <input
-                  v-model="totalPrice"
-                  type="number"
-                  class="deset-price-input"
-                  step="0.01"
-                  min="0.00"
-                  pattern="[0-9]*"
-                />
+                <input v-model="price" type="text" class="deset-price-input" />
                 <span class="deset-price-input-note">€</span>
               </div>
             </div>
@@ -136,7 +129,9 @@
           >
             <app-link
               id="deset-checkout-btn"
-              :to="`/pretplata/10-godina-telegrama-ekskluzivna-ponuda/?amount=${totalPrice}`"
+              :to="`/pretplata/10-godina-telegrama-ekskluzivna-ponuda/?amount=${parseFloat(
+                totalPrice
+              )}`"
               class="full center relative"
             >
               <span
@@ -185,8 +180,25 @@ export default {
       cta: 'Nastavite kupnju za 5€',
       cta_link: '',
       termDurationText: '',
-      totalPrice: 5,
+      price: 5,
     }
+  },
+  computed: {
+    totalPrice: {
+      get() {
+        const price = parseFloat(this.price.toString().replace(',', '.'))
+        if (!price || price === '' || isNaN(price) || price < 0) {
+          return 0
+        }
+        if (price - parseInt(price) > 0) {
+          return parseFloat(price).toFixed(2)
+        }
+        return parseInt(price)
+      },
+      set(value) {
+        this.price = value
+      },
+    },
   },
   mounted() {
     window.addEventListener('intext_ten', this.load)

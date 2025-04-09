@@ -44,10 +44,10 @@
           <div
             class="full nothtwo column-mini-horizontal-pad column-mini-bottom-pad"
           >
-            Čitajte Telegram idućih 10 tjedana po cijeni koju sami odaberete
+            10 obećanja za Hrvatsku
           </div>
           <p class="full column-mini-horizontal-pad">
-            10 godina Telegrama. 10 obećanja za Hrvatsku
+            Telegram s pretplatnicima gura društvo naprijed
           </p>
           <div
             v-show="screen === 1"
@@ -145,14 +145,7 @@
               <div
                 class="full deset-price center relative deset-price-no-hover"
               >
-                <input
-                  v-model="totalPrice"
-                  type="number"
-                  class="deset-price-input"
-                  step="0.01"
-                  min="0.00"
-                  pattern="[0-9]*"
-                />
+                <input v-model="price" type="text" class="deset-price-input" />
                 <span class="deset-price-input-note">€</span>
               </div>
             </div>
@@ -418,10 +411,23 @@
             <span v-if="sold >= 1000">Hvala vam!</span>
             <span v-if="sold < 1000">{{ sold }}/1000</span>
           </div>
-          <p class="full column-mini-top-pad">
-            Otključati ćemo svim čitateljima neograničeni pristup potpunoj
-            10-godišnjoj arhivi Telegramovih analiza, istraga i vijesti.
-          </p>
+          <ul class="goals full column-mini-top-pad">
+            <li>
+              svim čitateljima omogućit ćemo besplatno čitanje arhive prvih 10
+              godina
+            </li>
+            <li>
+              darovat ćemo pretplatu svakom tko prvi put glasa na izborima
+            </li>
+            <li>
+              radikalno ćemo povećati produkciju video formata i audio
+              podcastova
+            </li>
+            <li>
+              napravit ćemo 10 velikih intervjua s ljudima koji još nisu
+              odustali od Hrvatske
+            </li>
+          </ul>
         </div>
         <div
           :class="{
@@ -445,10 +451,20 @@
             <span v-if="sold >= 2000">Hvala vam!</span>
             <span v-if="sold < 2000">{{ sold }}/2000</span>
           </div>
-          <p class="full column-mini-top-pad">
-            Pokloniti ćemo 500.000 besplatnih impresija reklamama raznih
-            dobrotvornih organizacija koje operiraju u Hrvatskoj.
-          </p>
+          <ul class="goals full column-mini-top-pad">
+            <li>
+              donirat ćemo 10 milijuna oglasnih impresija neprofitnim
+              organizacijama i udrugama
+            </li>
+            <li>
+              lansirat ćemo novu mobilnu aplikaciju za lakše praćenje i čitanje
+              Telegrama
+            </li>
+            <li>
+              objavit ćemo 10 dubinskih serijala o ključnim društvenim
+              problemima u Hrvatskoj
+            </li>
+          </ul>
         </div>
         <div
           :class="{
@@ -472,7 +488,19 @@
             <span v-if="sold >= 3000">Hvala vam!</span>
             <span v-if="sold < 3000">{{ sold }}/3000</span>
           </div>
-          <p class="full column-mini-top-pad">???</p>
+          <ul class="goals full column-mini-top-pad">
+            <li>
+              poklonit ćemo 100 godišnjih pretplata umirovljenicima koji nemaju
+              za punu cijenu
+            </li>
+            <li>
+              educirat ćemo mlade novinare za rad u neovisnim i relevantnim
+              medijima
+            </li>
+            <li>
+              organizirat ćemo mjesečne live chatove pretplatnika s redakcijom
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -521,14 +549,17 @@ export default {
   computed: {
     totalPrice: {
       get() {
-        return this.price
+        const price = parseFloat(this.price.toString().replace(',', '.'))
+        if (!price || price === '' || isNaN(price) || price < 0) {
+          return 0
+        }
+        if (price - parseInt(price) > 0) {
+          return parseFloat(price).toFixed(2)
+        }
+        return parseInt(price)
       },
       set(value) {
-        if (!value || parseFloat(value) < 0 || isNaN(parseFloat(value))) {
-          this.price = 0
-          return
-        }
-        this.price = parseFloat(value).toFixed(2)
+        this.price = value
       },
     },
     buyable() {
@@ -820,3 +851,9 @@ export default {
   },
 }
 </script>
+
+<style>
+.goals li:before {
+  content: '✓';
+}
+</style>

@@ -114,14 +114,7 @@
           </div>
           <div class="third flex column-mini-full-pad">
             <div class="full deset-price center relative deset-price-no-hover">
-              <input
-                v-model="totalPrice"
-                type="number"
-                class="deset-price-input"
-                step="0.01"
-                min="0.00"
-                pattern="[0-9]*"
-              />
+              <input v-model="price" type="text" class="deset-price-input" />
               <span class="deset-price-input-note">€</span>
             </div>
           </div>
@@ -132,7 +125,9 @@
         >
           <app-link
             id="deset-checkout-btn"
-            :to="`/pretplata/10-godina-telegrama-ekskluzivna-ponuda/?amount=${totalPrice}`"
+            :to="`/pretplata/10-godina-telegrama-ekskluzivna-ponuda/?amount=${parseFloat(
+              totalPrice
+            )}`"
             class="full center relative"
           >
             <span
@@ -160,7 +155,7 @@ export default {
   data() {
     return {
       sold: 0,
-      totalPrice: 5,
+      price: 5,
       show: false,
       mainTitle: 'Proslavite s nama 10 godina Telegrama!',
       subtitle:
@@ -168,6 +163,21 @@ export default {
     }
   },
   computed: {
+    totalPrice: {
+      get() {
+        const price = parseFloat(this.price.toString().replace(',', '.'))
+        if (!price || price === '' || isNaN(price) || price < 0) {
+          return 0
+        }
+        if (price - parseInt(price) > 0) {
+          return parseFloat(price).toFixed(2)
+        }
+        return parseInt(price)
+      },
+      set(value) {
+        this.price = value
+      },
+    },
     soldP() {
       return (this.sold / this.rounded) * 100 + '%'
     },
@@ -178,27 +188,10 @@ export default {
       if (this.sold > 2000 && this.sold < 3000) {
         return 3000
       }
-      if (this.sold > 3000 && this.sold < 4000) {
-        return 4000
+      if (this.sold > 3000) {
+        return 3000
       }
-      if (this.sold > 4000 && this.sold < 5000) {
-        return 5000
-      }
-      if (this.sold > 5000 && this.sold < 6000) {
-        return 6000
-      }
-      if (this.sold > 6000 && this.sold < 7000) {
-        return 7000
-      }
-      if (this.sold > 7000 && this.sold < 8000) {
-        return 8000
-      }
-      if (this.sold > 8000 && this.sold < 9000) {
-        return 9000
-      }
-      if (this.sold > 9000) {
-        return 10000
-      }
+
       return 1000
     },
   },
