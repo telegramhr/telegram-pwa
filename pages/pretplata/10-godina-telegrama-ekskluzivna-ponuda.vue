@@ -44,10 +44,10 @@
           <div
             class="full nothtwo column-mini-horizontal-pad column-mini-bottom-pad"
           >
-            10 obećanja za Hrvatsku
+            Čitajte Telegram idućih 10 tjedana po cijeni koju sami odaberete
           </div>
           <p class="full column-mini-horizontal-pad">
-            Telegram s pretplatnicima gura društvo naprijed
+            10 godina Telegrama. 10 obećanja za Hrvatsku
           </p>
           <div
             v-show="screen === 1"
@@ -389,6 +389,12 @@
       <div
         class="container smallest-container flex column-full-pad mobile-full-pad"
       >
+        <h2 class="full center-text">
+          10 godina Telegrama. 10 obećanja za Hrvatsku
+        </h2>
+        <h3 class="full center-text" style="margin-bottom: 20px">
+          Čitajte Telegram idućih 10 tjedana po cijeni koju sami odaberete
+        </h3>
         <div
           :class="{
             full: true,
