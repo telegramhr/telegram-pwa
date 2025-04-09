@@ -894,7 +894,7 @@ export default {
         article: {
           id: this.post.id.toString(),
           category: this.post.category,
-          locked: this.locked,
+          locked: this.locked === 'always',
           tags: this.post.tags.map((tag) => {
             return tag.slug
           }),
@@ -913,6 +913,7 @@ export default {
         campaign: {
           url: 'https://campaign.telegram.hr',
           pageviewAttributes: {
+            postType: 'post',
             locked: this.post.paywall,
           },
         },

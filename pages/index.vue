@@ -589,10 +589,6 @@ export default {
             campaigns: 1051200,
           },
         },
-        article: {
-          id: '1',
-          category: 'homepage',
-        },
         tracker: {
           url: 'https://tracker.telegram.hr',
           timeSpent: {
@@ -602,6 +598,9 @@ export default {
         },
         campaign: {
           url: 'https://campaign.telegram.hr',
+          pageviewAttributes: {
+            postType: 'homepage',
+          },
         },
       }
       window.remplib.tracker.init(rempConfig)
