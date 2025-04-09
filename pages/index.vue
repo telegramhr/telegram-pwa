@@ -25,8 +25,7 @@
     </div>
     <!-- Above header banner Piano -->
     <client-only>
-      <hometop-simple></hometop-simple>
-      <hometop-bf></hometop-bf>
+      <hometop-ten></hometop-ten>
     </client-only>
     <!-- Actual new TG multiverse header -->
     <nav class="full center relative nayos nayos-multiverse stretch red-nayos">
@@ -589,6 +588,10 @@ export default {
             browser_id: 1051200,
             campaigns: 1051200,
           },
+        },
+        article: {
+          id: '1',
+          category: 'homepage',
         },
         tracker: {
           url: 'https://tracker.telegram.hr',

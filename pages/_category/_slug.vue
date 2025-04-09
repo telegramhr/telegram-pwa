@@ -16,8 +16,7 @@
       ></theader>
       <client-only>
         <breaking></breaking>
-        <hometop-simple></hometop-simple>
-        <hometop-bf></hometop-bf>
+        <hometop-ten></hometop-ten>
       </client-only>
       <!-- Above header banner manual -->
       <client-only>
