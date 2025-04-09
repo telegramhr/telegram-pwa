@@ -389,11 +389,9 @@
       <div
         class="container smallest-container flex column-full-pad mobile-full-pad"
       >
-        <h2 class="full center-text">
-          10 godina Telegrama. 10 obećanja za Hrvatsku
-        </h2>
+        <h2 class="full center-text">10 obećanja za Hrvatsku</h2>
         <h3 class="full center-text" style="margin-bottom: 20px">
-          Čitajte Telegram idućih 10 tjedana po cijeni koju sami odaberete
+          Telegram s pretplatnicima gura društvo naprijed
         </h3>
         <div
           :class="{
