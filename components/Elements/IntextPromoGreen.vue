@@ -168,7 +168,7 @@ export default {
   name: 'IntextPromoPack',
   data() {
     return {
-      show: false,
+      show: true,
       termId: false,
       oldPrice: 99,
       newPrice: 78,
@@ -283,6 +283,9 @@ export default {
 }
 .zgt-salebox {
   max-width: 710px;
+}
+.zgts-topbar div {
+  background-color: #ae3737 !important;
 }
 
 .fade-enter-active,
