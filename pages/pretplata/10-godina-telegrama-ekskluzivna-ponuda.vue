@@ -353,6 +353,9 @@
             <div
               id="deset-checkout-btn"
               class="full center relative"
+              :class="{
+                'deset-checkout-btn-disabled': !buyable && screen === 2,
+              }"
               @click="finish"
             >
               <span v-show="screen === 1"
@@ -859,5 +862,9 @@ export default {
 <style>
 .goals li:before {
   content: '✓';
+}
+.deset-checkout-btn-disabled:before {
+  background-color: #ccc !important;
+  border-color: #ccc !important;
 }
 </style>
