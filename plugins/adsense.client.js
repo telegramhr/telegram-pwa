@@ -77,10 +77,10 @@ export default ({ app, store, route }) => {
     window.apstag._Q.push([c, r])
   }
 
-  const onetgas = document.createElement('script')
+  /* const onetgas = document.createElement('script')
   onetgas.src =
     'https://get.s-onetag.com/6e633889-6cd5-4683-92df-76d605af6d4b/tag.min.js'
   onetgas.async = true
   onetgas.defer = true
-  document.head.appendChild(onetgas)
+  document.head.appendChild(onetgas) */
 }
