@@ -652,7 +652,7 @@ export default {
         email: this.email,
         password: this.password,
       })
-    },k
+    },
     getToken() {
       if (this.email === '') {
         return
