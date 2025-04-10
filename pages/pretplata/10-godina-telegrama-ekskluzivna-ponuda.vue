@@ -40,7 +40,7 @@
       <div
         class="half flex flex-responsive relative center column-full-pad mobile-full-pad"
       >
-        <div class="full deset-box flex relative">
+        <div v-if="!hasSub" class="full deset-box flex relative">
           <div
             class="full nothtwo column-mini-horizontal-pad column-mini-bottom-pad"
           >
@@ -386,6 +386,14 @@
             pretplate.
           </p>
         </div>
+        <div v-if="hasSub" class="full deset-box flex relative">
+          <div
+            class="full nothtwo column-mini-horizontal-pad column-mini-bottom-pad"
+          >
+            Rođendanska ponuda vrijedi samo za nove pretplatnike. Hvala Vam na
+            podršci! Vaš Telegram
+          </div>
+        </div>
       </div>
     </div>
     <div id="ciljevi" class="full flex relative column-mega-top-pad">
@@ -554,6 +562,9 @@ export default {
     }
   },
   computed: {
+    hasSub() {
+      return !!this.$store.state.user.access.length
+    },
     totalPrice: {
       get() {
         const price = parseFloat(this.price.toString().replace(',', '.'))
