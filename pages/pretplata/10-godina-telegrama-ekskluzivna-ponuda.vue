@@ -656,6 +656,7 @@ export default {
       if (this.$store.state.user.email === '') {
         return
       }
+      this.email = this.$store.state.user.email
       const _this = this
       this.$axios
         .get('/crm/api/v1/braintree/token', {
