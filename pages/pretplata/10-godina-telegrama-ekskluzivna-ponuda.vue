@@ -571,7 +571,7 @@ export default {
     },
     buyable() {
       return !!(
-        this.$store.state.user.email &&
+        this.email &&
         this.terms &&
         this.privacy &&
         this.token &&
@@ -639,6 +639,7 @@ export default {
         this.screen = 2
         window.scrollTo({ top: 0, behavior: 'smooth' })
       }
+      this.email = this.$store.state.user.email
       this.getToken()
     })
   },
