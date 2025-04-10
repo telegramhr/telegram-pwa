@@ -202,6 +202,9 @@ export default {
   },
   methods: {
     load(e) {
+      if (this.$store.state.user.access?.length) {
+        return
+      }
       if (e.detail) {
         this.mainTitle = e.detail.mainTitle
         this.subtitle = e.detail.subtitle
