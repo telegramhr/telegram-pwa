@@ -40,7 +40,10 @@
       <div
         class="half flex flex-responsive relative center column-full-pad mobile-full-pad"
       >
-        <div v-show="!hasSub" class="full deset-box flex relative">
+        <div
+          v-show="screen === 1 || (!hasSub && screen === 2)"
+          class="full deset-box flex relative"
+        >
           <div
             class="full nothtwo column-mini-horizontal-pad column-mini-bottom-pad"
           >
@@ -151,7 +154,7 @@
             </div>
           </div>
           <div
-            v-show="screen === 2"
+            v-show="!hasSub && screen === 2"
             class="full flex deset-price-picker column-mini-full-pad"
           >
             <p v-show="!loggedIn" class="full column-mini-bottom-pad">
@@ -386,7 +389,10 @@
             pretplate.
           </p>
         </div>
-        <div v-show="hasSub" class="full deset-box flex relative">
+        <div
+          v-show="hasSub && screen === 2"
+          class="full deset-box flex relative"
+        >
           <div
             class="full nothtwo column-mini-horizontal-pad column-mini-bottom-pad"
           >
