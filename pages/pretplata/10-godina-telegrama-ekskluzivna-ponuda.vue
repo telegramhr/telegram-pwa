@@ -40,7 +40,7 @@
       <div
         class="half flex flex-responsive relative center column-full-pad mobile-full-pad"
       >
-        <div v-if="!hasSub" class="full deset-box flex relative">
+        <div v-show="!hasSub" class="full deset-box flex relative">
           <div
             class="full nothtwo column-mini-horizontal-pad column-mini-bottom-pad"
           >
@@ -386,7 +386,7 @@
             pretplate.
           </p>
         </div>
-        <div v-if="hasSub" class="full deset-box flex relative">
+        <div v-show="hasSub" class="full deset-box flex relative">
           <div
             class="full nothtwo column-mini-horizontal-pad column-mini-bottom-pad"
           >
@@ -400,13 +400,16 @@
       <div
         class="container smallest-container flex column-full-pad mobile-full-pad"
       >
-        <div
-          class="full center mobile-side-pad column-bottom-margin column-bottom-pad"
-        >
-          <div class="newbtn huge-newbtn center-text">
-            Podijeli ovu ponudu prijatelju
+        <client-only>
+          <div
+            v-if="$mobile"
+            class="full center mobile-side-pad column-bottom-margin column-bottom-pad"
+          >
+            <div class="newbtn huge-newbtn center-text" @click="share">
+              Podijeli ovu ponudu prijatelju
+            </div>
           </div>
-        </div>
+        </client-only>
         <h2 class="full center-text">10 obećanja za Hrvatsku</h2>
         <h3 class="full center-text column-bottom-margin column-bottom-pad">
           Telegram s pretplatnicima gura društvo naprijed
@@ -808,6 +811,13 @@ export default {
         return
       }
       this.submit()
+    },
+    async share() {
+      const shareData = {
+        title: 'Proslavite s nama 10 godina Telegrama!',
+        url: 'https://www.telegram.hr/pretplata/10-godina-telegrama-ekskluzivna-ponuda',
+      }
+      await navigator.share(shareData)
     },
   },
   head() {
