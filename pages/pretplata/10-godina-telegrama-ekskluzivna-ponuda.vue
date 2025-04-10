@@ -396,12 +396,19 @@
         </div>
       </div>
     </div>
-    <div id="ciljevi" class="full flex relative column-mega-top-pad">
+    <div id="ciljevi" class="full flex relative column-top-pad">
       <div
         class="container smallest-container flex column-full-pad mobile-full-pad"
       >
+        <div
+          class="full center mobile-side-pad column-bottom-margin column-bottom-pad"
+        >
+          <div class="newbtn huge-newbtn center-text">
+            Podijeli ovu ponudu prijatelju
+          </div>
+        </div>
         <h2 class="full center-text">10 obećanja za Hrvatsku</h2>
-        <h3 class="full center-text" style="margin-bottom: 20px">
+        <h3 class="full center-text column-bottom-margin column-bottom-pad">
           Telegram s pretplatnicima gura društvo naprijed
         </h3>
         <div
