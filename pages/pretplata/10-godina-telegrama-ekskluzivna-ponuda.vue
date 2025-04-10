@@ -631,7 +631,7 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      if (this.$route.query.amount) {
+      if (this.$route.query.amount !== undefined) {
         this.totalPrice = this.$route.query.amount
         this.screen = 2
         window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -650,7 +650,7 @@ export default {
       })
     },
     getToken() {
-      if (this.email === '' || this.totalPrice === 0) {
+      if (this.email === '') {
         return
       }
       const _this = this

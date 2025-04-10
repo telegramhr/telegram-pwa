@@ -120,7 +120,6 @@
           </div>
         </div>
         <div
-          v-if="totalPrice"
           class="full flex relative column-mini-horizontal-pad column-top-pad"
         >
           <app-link
