@@ -601,6 +601,9 @@ export default {
   },
   watch: {
     email: _.debounce(function (value) {
+      if (!value) {
+        return
+      }
       const _this = this
       const formData = new FormData()
       formData.append('email', value)
