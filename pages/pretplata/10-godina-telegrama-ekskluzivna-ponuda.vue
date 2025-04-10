@@ -652,12 +652,11 @@ export default {
         email: this.email,
         password: this.password,
       })
-    },
+    },k
     getToken() {
-      if (this.$store.state.user.email === '') {
+      if (this.email === '') {
         return
       }
-      this.email = this.$store.state.user.email
       const _this = this
       this.$axios
         .get('/crm/api/v1/braintree/token', {
