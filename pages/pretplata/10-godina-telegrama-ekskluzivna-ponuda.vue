@@ -571,7 +571,7 @@ export default {
     },
     buyable() {
       return !!(
-        this.email &&
+        this.$store.state.user.email &&
         this.terms &&
         this.privacy &&
         this.token &&
@@ -650,7 +650,7 @@ export default {
       })
     },
     getToken() {
-      if (this.email === '') {
+      if (this.$store.state.user.email === '') {
         return
       }
       const _this = this
