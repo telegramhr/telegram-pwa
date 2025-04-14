@@ -545,7 +545,7 @@ import _ from 'lodash'
 export default {
   name: 'PretplataTen',
   async fetch() {
-    // this.sold = (await this.$axios.get('/api/pretplate')).data.number
+    this.sold = (await this.$axios.get('/api/pretplate')).data.number
   },
   data() {
     return {
@@ -626,7 +626,7 @@ export default {
       return (this.sold / 3000) * 100 + '%'
     },
     soldP() {
-      return (this.sold / (this.cilj + 1000)) * 100 + '%'
+      return (this.sold / (this.cilj * 1000)) * 100 + '%'
     },
     cilj() {
       return Math.ceil(this.sold / 1000)
