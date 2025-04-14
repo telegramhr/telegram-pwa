@@ -38,6 +38,14 @@
               name="overlay"
             />
             <label class="clickable animate" for="kolaz">Kolaž trećina</label>
+            <input
+              id="podcast"
+              v-model="selected"
+              :value="'podcast'"
+              type="radio"
+              name="overlay"
+            />
+            <label class="clickable animate" for="podcast">Podcast</label>
           </div>
           <div class="third flex-responsive relative">
             <div
@@ -203,10 +211,17 @@
               Ove fotke:
             </h2>
             <h2
-              v-show="selected != 'empty' && selected != 'kolaz'"
+              v-show="
+                selected != 'podcast' &&
+                selected != 'empty' &&
+                selected != 'kolaz'
+              "
               class="full center-text"
             >
               Na ovo:
+            </h2>
+            <h2 v-show="selected == 'podcast'" class="full center-text">
+              Nek piše:
             </h2>
             <div v-show="selected == 'kolaz'" class="full flex">
               <h2 class="full center-text">U sredinu stavi:</h2>
@@ -336,7 +351,10 @@
                 <div class="fourth right-text faded">Desno</div>
               </div>
             </div>
-            <div v-show="selected != 'kolaz'" class="full center">
+            <div
+              v-show="selected != 'kolaz' && selected != 'podcast'"
+              class="full center"
+            >
               <div class="full generator-file-upload clickable">
                 <div class="file-select">
                   <div id="fileName" class="file-select-button">
@@ -348,6 +366,9 @@
                   <input id="chooseFile" type="file" name="chooseFile" />
                 </div>
               </div>
+            </div>
+            <div v-show="selected == 'podcast'" class="full center">
+              <input v-model="podcastText" type="text" />
             </div>
           </div>
           <div class="third flex-responsive center relative">
@@ -400,6 +421,14 @@
           <div class="kolaz-border-1"></div>
           <div class="kolaz-border-2"></div>
         </div>
+        <img
+          v-if="selected === 'podcast' && podcastType === 'prviglas'"
+          id="prviglas-bg"
+          class="generator-img-background"
+          src="@/assets/img/extras/naslovne/prvi_glas_bg.png"
+          width="2664"
+          height="1680"
+        />
         <img
           v-if="selected === 'autor' && autorType === 'modric'"
           id="modric-overlay"
@@ -472,6 +501,9 @@
             aria-hidden="true"
           />
         </div>
+        <div v-if="selected === 'podcast'" id="podcast-date">
+          {{ podcastText }}
+        </div>
       </div>
     </div>
   </div>
@@ -482,6 +514,11 @@ import html2canvas from 'html2canvas'
 export default {
   name: 'TelegramKlub',
   data() {
+    const tomorrow = new Date(Date.now() + 86400000)
+      .toLocaleDateString('en-GB')
+      .split('/')
+      .map((x, i) => (i < 2 ? x : x.slice(-2)))
+      .join('/')
     return {
       selected: 'autor',
       krugType: 'gorelijevo',
@@ -490,6 +527,8 @@ export default {
       kolazLeftThird: -50,
       kolazRightThird: -50,
       kolazMidThirdPosition: 'xMidYMid slice',
+      podcastType: 'prviglas',
+      podcastText: tomorrow,
     }
   },
   mounted() {

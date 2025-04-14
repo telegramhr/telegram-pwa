@@ -9456,6 +9456,22 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
     position: relative;
     z-index: 5;
 }
+.generator-img-background {
+    position: relative;
+    z-index: 3;
+}
+#podcast-date {
+    font-size: 234px;
+    line-height: 190px;
+    position: absolute;
+    z-index: 5;
+    color: black;
+    right: 288px;
+    bottom: 583px;
+    font-family: 'Bai Jamjuree';
+    font-style: normal;
+    font-weight: 300;
+}
 #generator-img-render img {
     max-width: 2664px;
     width: 2664px;
