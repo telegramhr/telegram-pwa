@@ -20,7 +20,7 @@
           />
           <div class="full flex deset-counter column-top-pad mobile-top-pad">
             <div class="full flex deset-counter-bar relative">
-              <div style="width: 18.9%"></div>
+              <div :style="{ width: soldP1 }"></div>
             </div>
             <div class="two-thirds flex">
               {{ sold }}/1000 novih pretplatnika
