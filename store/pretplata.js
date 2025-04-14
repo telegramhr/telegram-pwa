@@ -9,5 +9,5 @@ export const mutations = {
   },
   setSubscriptionStarted(state, value) {
     state.subscriptionStarted = value
-  }
+  },
 }

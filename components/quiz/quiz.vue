@@ -113,6 +113,9 @@ export default {
       if (this.data.script && !this.submitted) {
         this.submitted = true
         // window.fbq('trackCustom', 'kviz', { content_ids: [this.post] })
+        this.$gtm.push({
+          event: 'quiz-success',
+        })
         this.$axios
           .get('/gscripts/' + this.data.script, {
             params: this.answers,
