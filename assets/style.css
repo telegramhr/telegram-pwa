@@ -12808,7 +12808,7 @@ input:checked ~ .input-hidden {
     padding-left: 0.6rem;
 }
 .column-mini-full-pad {
-    padding: 0.6rem;
+    padding: 0.2rem;
 }
 .column-mini-bottom-margin {
     margin-bottom: 0.6rem;
@@ -13312,7 +13312,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     background-color: var(--tg-primary-highlight-color);
     font-family: 'Barlow', sans-serif;
     font-size: 20px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 700;
     color: white;
     text-transform: uppercase;
@@ -13409,7 +13409,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     height: 2rem;
     background-color: #999;
     color: white;
-    z-index: 5;
+    z-index: 6;
     border-radius: 1rem;
     position: absolute;
     top: -1rem;
@@ -16463,7 +16463,7 @@ form#telemach-promo input[type=submit].newbtn {
     #deset-checkout-btn {
         padding-bottom: 7px;
         font-size: 1rem;
-        margin-top: 6vw;
+        margin-top: 3vw;
     }
     .deset-goal p {
         font-size: 0.8rem;
