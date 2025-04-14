@@ -20,16 +20,16 @@
           />
           <div class="full flex deset-counter column-top-pad mobile-top-pad">
             <div class="full flex deset-counter-bar relative">
-              <div :style="{ width: soldP1 }"></div>
+              <div :style="{ width: soldP }"></div>
             </div>
             <div class="two-thirds flex">
-              {{ sold }}/1000 novih pretplatnika
+              {{ sold }}/{{ cilj * 1000 }} novih pretplatnika
             </div>
             <a
               href="#ciljevi"
               class="third flex bold align-children-end all-caps"
             >
-              1. cilj
+              {{ cilj }}. cilj
               <font-awesome-icon
                 :icon="['far', 'circle-question']"
               ></font-awesome-icon>
@@ -545,7 +545,7 @@ import _ from 'lodash'
 export default {
   name: 'PretplataTen',
   async fetch() {
-    this.sold = (await this.$axios.get('/api/pretplate')).data.number
+    // this.sold = (await this.$axios.get('/api/pretplate')).data.number
   },
   data() {
     return {
@@ -574,7 +574,7 @@ export default {
       expirationDate: false,
       instance: null,
       customerId: null,
-      sold: 0,
+      sold: 1088,
     }
   },
   computed: {
@@ -624,6 +624,12 @@ export default {
     },
     soldP3() {
       return (this.sold / 3000) * 100 + '%'
+    },
+    soldP() {
+      return (this.sold / (this.cilj + 1000)) * 100 + '%'
+    },
+    cilj() {
+      return Math.ceil(this.sold / 1000)
     },
   },
   watch: {
