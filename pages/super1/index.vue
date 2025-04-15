@@ -183,7 +183,47 @@
         <!--<partner-special position="s1"></partner-special>-->
       </div>
     </client-only>
-
+    <section v-if="secret.length" class="full flex relative">
+      <div class="container flex relative">
+        <div class="full center relative superone-st-bottompad">
+          <div class="noththree flex superone-section-title">
+            <img
+              src="@/assets/img/s1_logo_clean_noline.svg"
+              alt="Super1 logo"
+              loading="lazy"
+            />
+            <img
+              src="@/assets/img/s1_logo_clean_noline_white.svg"
+              alt="Super1 logo"
+              class="dark-mode-only"
+              loading="lazy"
+            />
+            RNB Confusion x Super1
+          </div>
+        </div>
+        <div class="full flex relative">
+          <VueSlickCarousel
+            ref="carousel"
+            v-bind="slider_settings"
+            style="display: block; width: 100%"
+          >
+            <div
+              v-for="(post, index) in secret"
+              :key="post.id"
+              class="third flex-responsive flex column-full-pad"
+            >
+              <superfeat
+                :key="post.id"
+                :post="post"
+                mrf-location="super1"
+                mrf-widget="secret-dinner"
+                :mrf-position="(index + 1).toString()"
+              ></superfeat>
+            </div>
+          </VueSlickCarousel>
+        </div>
+      </div>
+    </section>
     <div class="full relative">
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
