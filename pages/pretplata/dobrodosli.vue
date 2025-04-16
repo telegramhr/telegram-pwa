@@ -192,10 +192,10 @@ export default {
           },
         ])
         this.$store.commit('pretplata/setSubscriptionStarted', false)
-        this.$gtm.push({
-          event: 'pretplata-success',
-        })
       }
+      this.$gtm.push({
+        event: 'pretplata-success',
+      })
     })
   },
   head() {
