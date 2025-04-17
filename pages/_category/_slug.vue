@@ -317,7 +317,11 @@
                 <portal
                   v-if="
                     !hasPremium &&
-                    !(post.disable_ads && post.disable_ads.includes('spar'))
+                    !(
+                      post.disable_ads &&
+                      (post.disable_ads.includes('spar') ||
+                        post.disable_ads.includes('all'))
+                    )
                   "
                   selector="#intext_premium"
                 >
