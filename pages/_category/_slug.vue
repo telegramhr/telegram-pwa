@@ -451,6 +451,7 @@
           >
             <midas :key="`midas-ecoom-${post.id}`" type="ecomm"></midas>
           </div>
+          <ad-unit id="telegram_underarticle_v1"></ad-unit>
           <keep-reading
             :category="$route.params.category"
             :p="Number(post.id)"
