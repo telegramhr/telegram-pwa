@@ -34,7 +34,7 @@ export default ({ route }, inject) => {
         ssid,
         ad,
       })
-      if (typeof window.DotMetricsObj !== 'undefined') {
+      if (typeof window.DotMetricsObj !== 'undefined' && window.DotMetricsObj.onAjaxDataUpdate) {
         window.DotMetricsObj.onAjaxDataUpdate()
       }
     }
