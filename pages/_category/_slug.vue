@@ -450,8 +450,8 @@
             class="container flex center have-background"
           >
             <midas :key="`midas-ecoom-${post.id}`" type="ecomm"></midas>
+            <ad-unit id="telegram_underarticle_v1"></ad-unit>
           </div>
-          <ad-unit id="telegram_underarticle_v1"></ad-unit>
           <keep-reading
             :category="$route.params.category"
             :p="Number(post.id)"

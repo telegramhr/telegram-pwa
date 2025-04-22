@@ -484,6 +484,9 @@
         </div>
       </div>
     </app-link>
+    <div class="full center">
+      <ad-unit id="telegram_desktop_billboard_v5"></ad-unit>
+    </div>
     <!-- Rubrike -->
     <div class="full relative">
       <div class="container flex relative block-5 standard-block">

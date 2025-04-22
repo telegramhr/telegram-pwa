@@ -171,6 +171,31 @@ export const state = () => ({
         [1200, 500],
       ],
     },
+    telegram_desktop_billboard_v5: {
+      upc: false,
+      routes: ['index', 'super1', 'telesport'],
+      mobile: [
+        [1, 1],
+        [300, 50],
+        [300, 100],
+        [300, 250],
+        [320, 50],
+        [320, 480],
+        [300, 600],
+        [320, 250],
+      ],
+      desktop: [
+        [1, 1],
+        [660, 350],
+        [660, 500],
+        [970, 250],
+        [970, 500],
+        [1000, 250],
+        [1000, 500],
+        [1200, 250],
+        [1200, 500],
+      ],
+    },
     telegram_desktop_wallpaper_left: {
       upc: false,
       desktop: [
