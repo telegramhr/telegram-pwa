@@ -207,11 +207,14 @@
                         Facebook
                       </a>
                     </div>
-                    <div v-show="false" class="full flex">
-                      <div class="full center remp-social-logbtn animate">
+                    <div class="full flex">
+                      <a
+                        :href="`http://pretplata.telegram.hr/users/google/sign?url=https://www.telegram.hr/pretplata/10-godina-telegrama-ekskluzivna-ponuda`"
+                        class="full center remp-social-logbtn animate"
+                      >
                         <i class="fa-brands fa-google"></i>
                         Google
-                      </div>
+                      </a>
                     </div>
                     <p
                       class="full deset-price-note smaller-text column-mini-top-pad hide"

@@ -22,13 +22,23 @@
           <div class="full flex column-mini-left-pad">
             <a
               :href="`https://pretplata.telegram.hr/social-login/social-sign/sign?social_provider_key=facebook&success_login_url=${path}`"
-              @click="close"
               class="full center remp-social-logbtn animate"
+              @click="close"
             >
               <font-awesome-icon
                 :icon="['fab', 'facebook-f']"
               ></font-awesome-icon>
               Facebook
+            </a>
+          </div>
+          <div class="full flex column-mini-left-pad column-mini-top-pad">
+            <a
+              :href="`http://pretplata.telegram.hr/users/google/sign?url=${path}`"
+              class="full center remp-social-logbtn animate"
+              @click="close"
+            >
+              <font-awesome-icon :icon="['fab', 'google']"></font-awesome-icon>
+              Google
             </a>
           </div>
           <label for="name">Email adresa</label>

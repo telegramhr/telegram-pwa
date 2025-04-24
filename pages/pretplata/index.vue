@@ -282,14 +282,14 @@
                     </button>
                     <p class="full remp-mini-text center-text faded">ili</p>
                     <div class="full flex relative">
-                      <div
-                        v-show="false"
-                        class="half flex column-mini-right-pad"
-                      >
-                        <div class="full center remp-social-logbtn animate">
+                      <div class="half flex column-mini-right-pad">
+                        <a
+                          :href="`http://pretplata.telegram.hr/users/google/sign?url=https://www.telegram.hr/pretplata/`"
+                          class="full center remp-social-logbtn animate"
+                        >
                           <i class="fa-brands fa-google"></i>
                           Google
-                        </div>
+                        </a>
                       </div>
                       <div class="half flex column-mini-left-pad">
                         <a
