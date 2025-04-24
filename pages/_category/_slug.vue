@@ -432,14 +432,14 @@
           <div
             v-if="
               !hasPremium &&
-              !post.category_slug.includes('superone') &&
               !(post.disable_ads && post.disable_ads.includes('all'))
             "
             class="full has-background"
           >
-            <jgl-premium
+            <!--<jgl-premium
               :site="post.category_slug.includes('telesport') ? 'ts' : 'tg'"
-            ></jgl-premium>
+            ></jgl-premium>-->
+            <ad-unit id="telegram_underarticle_v2"></ad-unit>
           </div>
 
           <div v-if="!hasPremium && hasLinker" class="full have-background">
