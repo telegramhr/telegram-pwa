@@ -12,6 +12,12 @@
       <ticker-ad-unit id="telegram_sticky"></ticker-ad-unit>
       <ticker-special></ticker-special>
       <back-widget></back-widget>
+      <div
+        id="g_id_onload"
+        data-client_id="345595854714-ikp5kmgn1thkccvlkerioqkeh5773ndr.apps.googleusercontent.com"
+        :data-login_uri="`http://pretplata.telegram.hr/users/google/sign?url=${$router.fullPath}`"
+        data-auto_select="true"
+      ></div>
     </client-only>
   </div>
 </template>

@@ -77,6 +77,11 @@ export default {
         src: 'https://beam.telegram.hr/assets/lib/js/remplib.js',
         async: true,
       },
+      {
+        hid: 'google',
+        src: 'https://accounts.google.com/gsi/client',
+        async: true,
+      },
     ],
     __dangerouslyDisableSanitizersByTagID: {
       remplib: ['innerHTML'],
