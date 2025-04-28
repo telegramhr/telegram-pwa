@@ -169,17 +169,12 @@ export default {
   data() {
     return {
       show: false,
-      termId: false,
-      oldPrice: 99,
-      newPrice: 78,
       maintitle: 'Proslavite s nama 10 godina Telegrama!',
       subtitle:
         'Čitajte Telegram prvih 10 tjedana po cijeni koju sami odaberete. ',
       topBar: 'Nastavite čitati',
       softwall: false,
       cta: 'Nastavite kupnju za 5€',
-      cta_link: '',
-      termDurationText: '',
       price: 5,
     }
   },
@@ -233,14 +228,7 @@ export default {
       if (e.detail) {
         this.topBar = e.detail.topBar
         this.subtitle = e.detail.subtitle
-        this.termDurationText = e.detail.termDurationText
-        this.packName = e.detail.packName
-        this.newPrice = e.detail.newPrice
-        this.oldPrice = e.detail.oldPrice
-        this.softwall = e.detail.softwall ?? false
-        this.termId = e.detail.termId
-        this.cta = e.detail.cta ?? ''
-        this.cta_link = e.detail.cta_link ?? ''
+        this.maintitle = e.detail.mainTitle
       }
       this.triggerShow()
     },

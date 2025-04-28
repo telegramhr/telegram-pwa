@@ -233,14 +233,8 @@ export default {
       if (e.detail) {
         this.topBar = e.detail.topBar
         this.subtitle = e.detail.subtitle
-        this.termDurationText = e.detail.termDurationText
-        this.packName = e.detail.packName
-        this.newPrice = e.detail.newPrice
-        this.oldPrice = e.detail.oldPrice
+        this.maintitle = e.detail.mainTitle
         this.softwall = e.detail.softwall ?? false
-        this.termId = e.detail.termId
-        this.cta = e.detail.cta ?? ''
-        this.cta_link = e.detail.cta_link ?? ''
       }
       this.triggerShow()
     },
