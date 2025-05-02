@@ -82,7 +82,7 @@
                 <li>Održavanje i podrška 24/7</li>
               </ul>
             </div>
-            <div class="newbtn">Naruči odmah</div>
+            <div class="newbtn">Zatraži ponudu</div>
           </a>
         </div>
         <div class="fourth flex-responsive column-full-pad mobile-side-pad">
@@ -116,7 +116,7 @@
                 <li>Podrška 24/7</li>
               </ul>
             </div>
-            <div class="newbtn">Naruči odmah</div>
+            <div class="newbtn">Saznaj više</div>
           </a>
         </div>
         <div class="fourth flex-responsive column-full-pad mobile-side-pad">
@@ -150,7 +150,7 @@
                 <li>10.9.2025., Čakovec</li>
               </ul>
             </div>
-            <div class="newbtn">Naruči odmah</div>
+            <div class="newbtn">Prijavi se</div>
           </a>
         </div>
       </VueSlickCarousel>
