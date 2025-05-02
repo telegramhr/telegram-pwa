@@ -436,9 +436,7 @@
             "
             class="full has-background"
           >
-            <!--<jgl-premium
-              :site="post.category_slug.includes('telesport') ? 'ts' : 'tg'"
-            ></jgl-premium>-->
+            <h-t-premium></h-t-premium>
             <ad-unit id="telegram_underarticle_v2"></ad-unit>
           </div>
 
