@@ -1,5 +1,5 @@
 <template>
-  <div class="main-container flex telesport ts-home favbet">
+  <div class="main-container flex telesport ts-home">
     <!-- Wallpapers -->
     <client-only>
       <div v-if="!$mobile" class="container wallpaper-banners animate">
@@ -91,22 +91,18 @@
           ></a>
           <app-link to="/telesport" class="logo"
             ><img
-              src="@/assets/img/telesport_logo_pink_black.svg"
+              src="@/assets/img/telesport_logo_black.svg"
               class="light-mode-only"
               alt="Telesport logo" />
             <img
-              src="@/assets/img/telesport_logo_pink_black.svg"
+              src="@/assets/img/telesport_logo_black.svg"
               class="contrast-mode-only"
               alt="Telesport logo" />
             <img
-              src="@/assets/img/telesport_logo_pink_white.svg"
+              src="@/assets/img/telesport_logo_white.svg"
               alt="Telesport logo"
               class="dark-mode-only"
           /></app-link>
-          <div class="center desktop-only brought-by">
-            <span>Powered by</span>
-            <img src="@/assets/img/logo_favbet_magenta.svg" alt="Favbet logo" />
-          </div>
           <a
             aria-label="Prikaži tražilicu"
             class="cantha-searchbtn"
@@ -181,13 +177,6 @@
               <app-link to="/tema/price-iz-davnine/">Priče iz davnine</app-link>
             </div>
           </div>
-          <app-link
-            role="menuitem"
-            to="/tema/budi-u-igri-uz-favbet/"
-            class="animate flex highlight-tile"
-            >Budi u igri uz
-            <img src="@/assets/img/logo_favbet_magenta.svg" alt="Favbet logo"
-          /></app-link>
         </nav>
         <div class="flex desktop-only">
           <client-only>
@@ -349,7 +338,7 @@
     </client-only>
     <!-- Euro 24 -->
     <div
-      class="full relative darkened-bg column-top-margin column-bottom-margin column-bottom-pad mobile-vertical-pad favbet-section dark-mode"
+      class="full relative darkened-bg column-top-margin column-bottom-margin column-bottom-pad mobile-vertical-pad dark-mode"
     >
       <div
         class="container mobile-side-pad flex relative stretch column-vertical-pad"
@@ -358,8 +347,7 @@
           <div
             class="noththree full center-text column-vertical-pad subsection-title"
           >
-            Budi u igri uz
-            <img src="@/assets/img/logo_favbet_blue.svg" alt="Favbet logo" />
+            Budi u igri
           </div>
         </div>
         <div

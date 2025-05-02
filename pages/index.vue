@@ -100,13 +100,6 @@
           <app-link to="/super1" role="menuitem">Super1</app-link>
           <app-link to="/telesport" role="menuitem"> Telesport </app-link>
           <app-link to="/podcastovi" role="menuitem"> Podcastovi </app-link>
-          <app-link
-            role="menuitem"
-            to="/tema/budi-u-igri-uz-favbet/"
-            class="animate flex highlight-tile desktop-only"
-            >Budi u igri uz
-            <img src="@/assets/img/logo_favbet_magenta.svg" alt="Favbet logo"
-          /></app-link>
         </nav>
         <div class="flex desktop-only">
           <client-only>
