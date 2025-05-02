@@ -338,7 +338,7 @@
     </client-only>
     <!-- Euro 24 -->
     <div
-      class="full relative darkened-bg column-top-margin column-bottom-margin column-bottom-pad mobile-vertical-pad dark-mode"
+      class="full relative darkened-bg column-top-margin column-bottom-margin column-bottom-pad mobile-vertical-pad"
     >
       <div
         class="container mobile-side-pad flex relative stretch column-vertical-pad"
