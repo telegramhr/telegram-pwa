@@ -14693,6 +14693,14 @@ header {
     background-color: #000055;
     color: white;
 }
+
+.hnl-section {
+  background-color: #880c0e;
+}
+
+.hnl-section * {
+    --tg-primary-highlight-color: #ffffff;
+}
 .favbet-section * {
     --tg-primary-highlight-color: #ff267e;
 }

@@ -338,7 +338,7 @@
     </client-only>
     <!-- Euro 24 -->
     <div
-      class="full relative darkened-bg column-top-margin column-bottom-margin column-bottom-pad mobile-vertical-pad"
+      class="full relative darkened-bg column-top-margin column-bottom-margin column-bottom-pad mobile-vertical-pad hnl-section dark-mode"
     >
       <div
         class="container mobile-side-pad flex relative stretch column-vertical-pad"
@@ -347,7 +347,7 @@
           <div
             class="noththree full center-text column-vertical-pad subsection-title"
           >
-            Budi u igri
+            HNL
           </div>
         </div>
         <div
