@@ -14694,7 +14694,8 @@ header {
     color: white;
 }
 
-.hnl-section {
+.hnl-section, .dark-mode .hnl-section, .dark-mode .telesport .hnl-section, .dark-mode.telesport .hn-section, .contrast-mode .hn-section, .domoljub-mode .hn-section {
+  {
   background-color: #880c0e;
 }
 
