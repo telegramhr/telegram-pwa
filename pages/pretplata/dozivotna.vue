@@ -349,7 +349,7 @@ export default {
       instance: null,
       customerId: null,
       payment: 'braintree_default_recurrent',
-      subscription_type: 'pretplata-godisnje',
+      subscription_type: 'lifetime_premium_subscription_dozivotna',
       price: 399,
     }
   },
