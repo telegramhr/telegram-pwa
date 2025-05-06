@@ -574,7 +574,7 @@ export default {
         this.screen = 2
         const scr = document.getElementById('scr')
         const top = scr.offsetTop
-        if (top < document.body.scrollTop) {
+        if (top > document.body.scrollTop) {
           window.scrollTo({
             top: top - 50,
             behavior: 'smooth',
