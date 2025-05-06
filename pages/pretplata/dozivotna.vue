@@ -403,6 +403,11 @@ export default {
           this.getToken()
         })
     }, 1000),
+    screen(value) {
+      if (value === 2) {
+        this.getToken()
+      }
+    },
   },
   mounted() {
     this.$nextTick(() => {
@@ -466,7 +471,7 @@ export default {
       })
     },
     getToken() {
-      if (this.email === '') {
+      if (this.screen === 1 || this.email === '') {
         return
       }
       const _this = this
