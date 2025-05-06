@@ -16569,3 +16569,7 @@ button.newbtn {
     outline: none;
     border: none;
 }
+.sepia-salebox {
+    background-color: #fcf1e7;
+    max-width: 710px;
+}
