@@ -16565,3 +16565,7 @@ form#telemach-promo input[type=submit].newbtn {
     padding-top: 0.25rem;
     font-size: 0.8rem;
 }
+button.newbtn {
+    outline: none;
+    border: none;
+}
