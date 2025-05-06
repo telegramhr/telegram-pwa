@@ -252,6 +252,26 @@ export const state = () => ({
       extraClass: 'superone power fancy-rubrika',
       canonical: '/super1/power/',
     },
+    horoskop: {
+      name: 'Horoskop',
+      description: '',
+      posts: [],
+      mostRead: [],
+      updated: null,
+      updated_most: null,
+      extraClass: 'superone horoskop fancy-rubrika',
+      canonical: '/super1/horoskop/',
+    },
+    recepti: {
+      name: 'Recepeti',
+      description: '',
+      posts: [],
+      mostRead: [],
+      updated: null,
+      updated_most: null,
+      extraClass: 'superone recepti fancy-rubrika',
+      canonical: '/super1/recepti/',
+    },
     'shopping-vodic': {
       description: '',
       name: 'Shopping vodič',
@@ -421,6 +441,14 @@ export const state = () => ({
       page: 2,
     },
     power: {
+      posts: [],
+      page: 2,
+    },
+    recepti: {
+      posts: [],
+      page: 2,
+    },
+    horoskop: {
       posts: [],
       page: 2,
     },
