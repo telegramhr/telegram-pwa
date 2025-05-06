@@ -23,6 +23,7 @@
             <div class="full center column-vertical-pad mobile-vertical-pad">
               <div
                 class="newbtn gigantic-newbtn animate green-newbtn clickable"
+                @click="submit"
               >
                 Kupite za 399€. Zauvijek
               </div>
