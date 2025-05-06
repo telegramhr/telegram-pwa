@@ -84,7 +84,7 @@
         </div>
       </div>
     </div>
-    <div class="full flex relative pretplata-page">
+    <div id="scr" class="full flex relative pretplata-page">
       <div
         class="container smaller-container relative flex mobile-side-pad stretch column-full-pad"
       >
@@ -570,10 +570,16 @@ export default {
         })
     },
     submit() {
-      console.log('submit', this.screen)
       if (this.screen === 1) {
-        console.log('screen 1')
         this.screen = 2
+        const scr = document.getElementById('scr')
+        const top = scr.offsetTop
+        if (top < document.body.scrollTop) {
+          window.scrollTo({
+            top: top - 50,
+            behavior: 'smooth',
+          })
+        }
         return
       }
       this.loading = true
