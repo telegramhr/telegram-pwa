@@ -14,18 +14,17 @@
         >
           <div class="full flex relative">
             <h1 class="full center-text">
-              Telegram Premium. Doživotni pristup za samo 399 EUR
+              Samo danas na Telegramu – doživotna pretplata za samo 399 €!
             </h1>
             <p class="full center-text pretplata-tagline">
-              Zbog velikog interesa, nudimo mogućnost da nas podržite uz pristup
-              Premium sadržaju zauvijek – jer ćemo zauvijek biti na strani
-              istine.
+              Iskoristite ovu ekskluzivnu priliku i osigurajte neograničen
+              pristup zauvijek.
             </p>
             <div class="full center column-vertical-pad mobile-vertical-pad">
               <div
                 class="newbtn gigantic-newbtn animate green-newbtn clickable"
               >
-                Uzmite Premium zauvijek
+                Kupite za 399€. Zauvijek
               </div>
             </div>
           </div>
@@ -278,7 +277,7 @@
               class="newbtn gigantic-newbtn animate green-newbtn clickable center-text"
               @click="submit"
             >
-              Uzmite Telegram Premium zauvijek
+              Kupite za 399€. Zauvijek
             </button>
           </div>
           <p
