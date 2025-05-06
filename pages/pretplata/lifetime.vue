@@ -422,7 +422,7 @@ export default {
   methods: {
     createCounter() {
       // Countdown
-      const countDownDate = new Date('May 07, 2025 23:59:59').getTime()
+      const countDownDate = new Date('May 08, 2025 23:59:59').getTime()
       this.counter = setInterval(function () {
         const now = new Date().getTime()
         const distance = countDownDate - now
