@@ -49,9 +49,9 @@
           <app-link
             v-show="canLogIn"
             id="pretplatite se - header"
-            to="/pretplata/10-godina-telegrama-ekskluzivna-ponuda"
+            to="/pretplata/"
             class="newbtn"
-            >Otvorite poklon</app-link
+            >Pretplatite se</app-link
           >
           <a
             v-show="!canLogIn"
