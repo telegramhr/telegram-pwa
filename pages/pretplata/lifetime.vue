@@ -14,11 +14,16 @@
         >
           <div class="full flex relative">
             <h1 class="full center-text">
-              Samo danas na Telegramu – doživotna pretplata za samo 399 €!
+              Samo danas: Doživotna pretplata za samo 399€
+            </h1>
+            <h1 class="full center-text">
+              Jednom platite – Telegram čitate zauvijek
             </h1>
             <p class="full center-text pretplata-tagline">
-              Iskoristite ovu ekskluzivnu priliku i osigurajte neograničen
-              pristup zauvijek.
+              Ne propustite ovu ekskluzivnu priliku koja se više neće ponoviti.
+            </p>
+            <p class="full center-text pretplata-tagline">
+              Osigurajte neograničen pristup bez reklama – zauvijek.
             </p>
             <div class="full center column-vertical-pad mobile-vertical-pad">
               <div
@@ -91,10 +96,10 @@
         <div class="full flex relative column-top-pad mobile-top-pad">
           <h2 class="full center-text">Zajedno gradimo ovu zajednicu</h2>
           <p class="full center-text pretplata-tagline">
-            Vi ste razlog zašto ovo radimo. Hvala vam na svakom shareu, poruci i
-            povjerenju. Ova ponuda je način da vam zahvalimo i omogućimo da nas
-            podržite — jednom, zauvijek.
+            Vi ste razlog zašto ovo radimo. Ovom ponudom želimo Vas pozvati da
+            nas podržite zauvijek.
           </p>
+          <p class="full center-text pretplata-tagline">Zauzvrat vam nudimo:</p>
           <div class="full center column-top-pad mobile-top-pad">
             <div class="full pretplata-benefits" style="max-width: 20rem">
               <p class="full animate">

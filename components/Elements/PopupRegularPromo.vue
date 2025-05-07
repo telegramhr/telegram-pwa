@@ -94,7 +94,7 @@
 
 <script>
 export default {
-  name: 'IntextRegularPromo',
+  name: 'PopupRegularPromo',
   data() {
     return {
       show: true,
@@ -114,10 +114,10 @@ export default {
     }
   },
   mounted() {
-    window.addEventListener('remp_intext_new2', this.load)
+    window.addEventListener('remp_popup_new2', this.load)
   },
   destroyed() {
-    window.removeEventListener('remp_intext_new2', this.load)
+    window.removeEventListener('remp_popup_new2', this.load)
   },
   methods: {
     login() {

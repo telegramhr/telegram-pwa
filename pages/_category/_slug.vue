@@ -362,9 +362,8 @@
                 </portal>
 
                 <intext-refresh></intext-refresh>
-                <intext-promo-pack></intext-promo-pack>
-                <intext-promo-green></intext-promo-green>
-                <popup-promo-green></popup-promo-green>
+                <intext-regular-promo></intext-regular-promo>
+                <popup-regular-promo></popup-regular-promo>
                 <midas
                   v-if="!hasPremium && hasLinker"
                   :key="`midas-text-${post.id}`"
