@@ -40,367 +40,13 @@
       <div
         class="half flex flex-responsive relative center column-full-pad mobile-full-pad"
       >
-        <div
-          v-show="screen === 1 || (!hasSub && screen === 2)"
-          class="full deset-box flex relative"
-        >
+        <div class="full deset-box flex relative">
           <div
             class="full nothtwo column-mini-horizontal-pad column-mini-bottom-pad"
           >
-            Čitajte Telegram idućih 10 tjedana po cijeni koju sami odaberete
-          </div>
-          <p class="full column-mini-horizontal-pad">
-            10 godina Telegrama. 10 obećanja za Hrvatsku
-          </p>
-          <div
-            v-show="screen === 1"
-            class="full flex deset-price-picker column-mini-vertical-pad"
-          >
-            <div
-              class="third flex column-mini-full-pad"
-              @click="totalPrice = 0"
-            >
-              <div
-                class="full deset-price center relative"
-                :class="{ 'deset-price-selected': totalPrice === 0 }"
-              >
-                <span>0€</span>
-              </div>
-            </div>
-            <div
-              class="third flex column-mini-full-pad"
-              @click="totalPrice = 3"
-            >
-              <div
-                class="full deset-price center relative"
-                :class="{ 'deset-price-selected': totalPrice === 3 }"
-              >
-                <span>3€</span>
-              </div>
-            </div>
-            <div
-              class="third flex column-mini-full-pad"
-              @click="totalPrice = 5"
-            >
-              <div
-                class="full deset-price center relative"
-                :class="{ 'deset-price-selected': totalPrice === 5 }"
-              >
-                <span>5€</span>
-              </div>
-              <div class="full deset-price-note center-text smaller-text">
-                naša preporuka
-              </div>
-            </div>
-            <div
-              class="third flex column-mini-full-pad"
-              @click="totalPrice = 9"
-            >
-              <div
-                class="full deset-price center relative"
-                :class="{ 'deset-price-selected': totalPrice === 9 }"
-              >
-                <span>9€</span>
-              </div>
-            </div>
-            <div
-              class="third flex column-mini-full-pad"
-              @click="totalPrice = 15"
-            >
-              <div
-                class="full deset-price center relative"
-                :class="{ 'deset-price-selected': totalPrice === 15 }"
-              >
-                <span>15€</span>
-              </div>
-            </div>
-            <div
-              class="third flex column-mini-full-pad"
-              @click="totalPrice = 25"
-            >
-              <div
-                class="full deset-price center relative"
-                :class="{ 'deset-price-selected': totalPrice === 25 }"
-              >
-                <span>25€</span>
-              </div>
-              <div class="full deset-price-note center-text smaller-text">
-                redovna cijena
-              </div>
-            </div>
-            <div
-              class="two-thirds align-children-end flex column-mini-full-pad"
-            >
-              <span class="deset-price-note smaller-text"
-                >ili unesite iznos:</span
-              >
-            </div>
-            <!--<div class="third flex column-mini-full-pad">
-              <input
-                type="number"
-                min="0.00"
-                max="1000.00"
-                step="0.01"
-                class="deset-input-price"
-              />
-            </div>-->
-            <div class="third flex column-mini-full-pad">
-              <div
-                class="full deset-price center relative deset-price-no-hover"
-              >
-                <input v-model="price" type="text" class="deset-price-input" />
-                <span class="deset-price-input-note">€</span>
-              </div>
-            </div>
-          </div>
-          <div
-            v-show="!hasSub && screen === 2"
-            class="full flex deset-price-picker column-mini-full-pad"
-          >
-            <p v-show="!loggedIn" class="full column-mini-bottom-pad">
-              Unesite svoje podatke:
-            </p>
-            <div id="login" class="full flex relative">
-              <div class="full flex flex-responsive remp-miniboxes">
-                <div v-show="!loggedIn" class="full flex stretch">
-                  <div class="half flex-responsive flex relative">
-                    <input
-                      id="pretplata-email"
-                      v-model="email"
-                      type="text"
-                      class="full remp-new-input"
-                      placeholder="Upišite email"
-                      name="email"
-                    />
-                    <input
-                      v-if="showPassword"
-                      id="pretplata-password"
-                      v-model="password"
-                      type="password"
-                      class="full remp-new-input column-top-margin"
-                      placeholder="Upišite lozinku"
-                      name="password"
-                    />
-                    <div
-                      v-show="!showPassword"
-                      class="full deset-price-note smaller-text column-mini-bottom-pad hide"
-                    >
-                      Ukoliko niste registrirani korisnik, na navedenu email
-                      adresu ćete zaprimiti pristupne podatke.
-                    </div>
-                    <button
-                      v-if="showPassword"
-                      class="full newbtn huge-newbtn center-text clickable"
-                      @click="login"
-                    >
-                      Prijavi se
-                    </button>
-                  </div>
-                  <p class="sixth center flex-responsive relative">ili</p>
-                  <div class="third flex relative">
-                    <div class="full flex">
-                      <a
-                        href="https://pretplata.telegram.hr/social-login/social-sign/sign?social_provider_key=facebook&success_login_url=https://www.telegram.hr/pretplata/"
-                        class="full center remp-social-logbtn animate"
-                      >
-                        <i class="fa-brands fa-facebook-f"></i>
-                        Facebook
-                      </a>
-                    </div>
-                    <div class="full flex">
-                      <a
-                        :href="`http://pretplata.telegram.hr/users/google/sign?url=https://www.telegram.hr/pretplata/10-godina-telegrama-ekskluzivna-ponuda`"
-                        class="full center remp-social-logbtn animate"
-                      >
-                        <i class="fa-brands fa-google"></i>
-                        Google
-                      </a>
-                    </div>
-                    <p
-                      class="full deset-price-note smaller-text column-mini-top-pad hide"
-                    >
-                      Privremeno ćemo vas preusmjeriti na stranicu odabranog
-                      davatelja usluga kako bi povezali račune.
-                    </p>
-                  </div>
-                </div>
-                <div
-                  class="full flex column-top-pad mobile-bottom-pad mobile-top-pad"
-                >
-                  <input
-                    id="terms"
-                    v-model="terms"
-                    type="checkbox"
-                    class="cbx"
-                    name="terms"
-                  />
-                  <label for="terms" class="check flex full">
-                    <svg width="18px" height="18px" viewBox="0 0 18 18">
-                      <path
-                        d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
-                      ></path>
-                      <polyline points="1 9 7 14 15 4"></polyline>
-                    </svg>
-                    <span
-                      >Prihvaćam
-                      <a
-                        target="_blank"
-                        href="https://www.telegram.hr/stranica/uvjeti-koristenja/"
-                        class="highlight-text"
-                        >uvjete korištenja</a
-                      ></span
-                    >
-                  </label>
-                </div>
-                <div
-                  class="full flex column-top-pad mobile-bottom-pad mobile-top-pad"
-                >
-                  <input
-                    id="privacy"
-                    v-model="privacy"
-                    type="checkbox"
-                    class="cbx"
-                    name="privacy"
-                  />
-                  <label for="privacy" class="check flex full">
-                    <svg width="18px" height="18px" viewBox="0 0 18 18">
-                      <path
-                        d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
-                      ></path>
-                      <polyline points="1 9 7 14 15 4"></polyline>
-                    </svg>
-                    <span
-                      >Prihvaćam
-                      <a
-                        target="_blank"
-                        href="https://www.telegram.hr/stranica/pravila-privantnosti/"
-                        class="highlight-text"
-                        >pravila privatnosti</a
-                      ></span
-                    >
-                  </label>
-                </div>
-              </div>
-              <div
-                class="full flex flex-responsive remp-miniboxes column-top-pad"
-              >
-                <div
-                  v-if="payment === 'braintree_default_recurrent'"
-                  id="pretplata-kartica-broj"
-                  class="full flex relative"
-                >
-                  <div
-                    v-show="token"
-                    id="credit-card"
-                    class="full remp-new-input hosted-field"
-                  ></div>
-                  <div
-                    v-show="token"
-                    id="cvv"
-                    class="full remp-new-input hosted-field"
-                  ></div>
-                  <div
-                    v-show="token"
-                    id="expiration-date"
-                    class="full remp-new-input hosted-field"
-                  ></div>
-                  <p class="full remp-mini-text center-text faded hide">
-                    Vaši podaci za plaćanje biti će enkriptirani i sigurno
-                    spremljeni po najvišim sigurnosnim standardima.
-                  </p>
-                </div>
-                <div
-                  v-if="payment === 'pretplata-uplata'"
-                  class="full flex relative"
-                >
-                  <p class="full smaller-text faded">
-                    Tekst za bankovnu uplatu.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <form
-              id="payment-form"
-              class="full flex column-horizontal-pad column-top-pad mobile-top-pad"
-              method="post"
-              action="https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/submit"
-            >
-              <input type="hidden" name="funnel_url_key" :value="url_key" />
-              <input
-                type="hidden"
-                name="payment_metadata[payment_method_nonce]"
-                :value="nonce"
-              />
-              <input
-                type="hidden"
-                name="payment_metadata[device_data]"
-                :value="deviceData"
-              />
-              <input
-                type="hidden"
-                name="subscription_type"
-                :value="subscription_type"
-              />
-              <input type="hidden" name="payment_gateway" :value="payment" />
-              <input type="hidden" name="customer_id" :value="customerId" />
-              <input type="hidden" name="price" :value="totalPrice" />
-              <input type="hidden" name="email" :value="email" />
-              <input
-                type="hidden"
-                name="additional_amount"
-                :value="totalPrice"
-              />
-              <input type="hidden" name="additional_type" value="single" />
-            </form>
-          </div>
-          <div
-            class="full flex relative column-mini-horizontal-pad column-top-pad"
-          >
-            <div
-              id="deset-checkout-btn"
-              class="full center relative"
-              :class="{
-                'deset-checkout-btn-disabled': !buyable && screen === 2,
-              }"
-              @click="finish"
-            >
-              <span v-show="screen === 1"
-                >Nastavite kupnju za
-                {{
-                  new Intl.NumberFormat('hr-HR', {
-                    style: 'currency',
-                    currency: 'EUR',
-                  }).format(totalPrice)
-                }}</span
-              >
-              <span v-show="screen === 2"
-                >Završite kupnju za
-                {{
-                  new Intl.NumberFormat('hr-HR', {
-                    style: 'currency',
-                    currency: 'EUR',
-                  }).format(totalPrice)
-                }}</span
-              >
-            </div>
-          </div>
-          <p
-            class="full center-text smaller-text column-mini-horizontal-pad column-mini-top-pad"
-          >
-            PDV je uključen. Nakon isteka prvih 10 tjedana, pretplata prelazi na
-            mjesečni plan i nastavlja se po 50% sniženoj cijeni mjesečne Premium
-            pretplate.
-          </p>
-        </div>
-        <div
-          v-show="hasSub && screen === 2"
-          class="full deset-box flex relative"
-        >
-          <div
-            class="full nothtwo column-mini-horizontal-pad column-mini-bottom-pad"
-          >
-            Rođendanska ponuda vrijedi samo za nove pretplatnike. Hvala Vam na
-            podršci! Vaš Telegram
+            Telegramova rođendanska ponuda više nije aktivna. Za sve dodatne
+            informacije, molimo da nas kontaktirate putem e-mail adrese
+            <a href="mailto:pretplata@telegram.hr">pretplata@telegram.hr</a>.
           </div>
         </div>
       </div>
@@ -547,9 +193,6 @@ import braintree from 'braintree-web'
 import _ from 'lodash'
 export default {
   name: 'PretplataTen',
-  async fetch() {
-    this.sold = (await this.$axios.get('/api/pretplate')).data.number
-  },
   data() {
     return {
       price: 5,
@@ -577,7 +220,7 @@ export default {
       expirationDate: false,
       instance: null,
       customerId: null,
-      sold: 1088,
+      sold: 3174,
     }
   },
   computed: {
@@ -632,7 +275,7 @@ export default {
       return (this.sold / (this.cilj * 1000)) * 100 + '%'
     },
     cilj() {
-      return Math.ceil(this.sold / 1000)
+      return 3
     },
   },
   watch: {
@@ -675,8 +318,7 @@ export default {
         this.screen = 2
         window.scrollTo({ top: 0, behavior: 'smooth' })
       }
-      this.email = this.$store.state.user.email
-      this.getToken()
+      this.email = this.$store.state.user.emai
     })
   },
   methods: {
