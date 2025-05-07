@@ -97,7 +97,7 @@ export default {
   name: 'IntextRegularPromo',
   data() {
     return {
-      show: true,
+      show: false,
       termId: false,
       oldPrice: false,
       newPrice: false,
