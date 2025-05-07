@@ -13,10 +13,16 @@
           class="half center flex-responsive relative column-full-pad m-order-2"
         >
           <div class="full flex relative">
-            <h1 class="full center-text">
+            <h1
+              class="full center-text"
+              style="font-size: 26px; font-size: 1.4rem"
+            >
               Samo danas: Doživotna pretplata za samo 399€
             </h1>
-            <h1 class="full center-text">
+            <h1
+              class="full center-text"
+              style="font-size: 26px; font-size: 1.4rem"
+            >
               Jednom platite – Telegram čitate zauvijek
             </h1>
             <p class="full center-text pretplata-tagline">
@@ -427,7 +433,8 @@ export default {
   methods: {
     createCounter() {
       // Countdown
-      const countDownDate = new Date('May 08, 2025 23:59:59').getTime()
+      const countDownDate = new Date()
+      countDownDate.setHours(23, 59, 59, 999)
       this.counter = setInterval(function () {
         const now = new Date().getTime()
         const distance = countDownDate - now
