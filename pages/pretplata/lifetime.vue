@@ -15,20 +15,26 @@
           <div class="full flex relative">
             <h1
               class="full center-text"
-              style="font-size: 26px; font-size: 1.4rem"
+              style="font-size: 27px; font-size: 1.5rem"
             >
               Samo danas: Doživotna pretplata za samo 399€
             </h1>
             <h1
               class="full center-text"
-              style="font-size: 26px; font-size: 1.4rem"
+              style="font-size: 27px; font-size: 1.5rem"
             >
               Jednom platite – Telegram čitate zauvijek
             </h1>
-            <p class="full center-text pretplata-tagline">
+            <p
+              class="full center-text pretplata-tagline"
+              style="font-size: 1.1rem"
+            >
               Ne propustite ovu ekskluzivnu priliku koja se više neće ponoviti.
             </p>
-            <p class="full center-text pretplata-tagline">
+            <p
+              class="full center-text pretplata-tagline"
+              style="font-size: 1.1rem"
+            >
               Osigurajte neograničen pristup bez reklama – zauvijek.
             </p>
             <div class="full center column-vertical-pad mobile-vertical-pad">
