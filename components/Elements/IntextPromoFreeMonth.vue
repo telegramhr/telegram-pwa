@@ -78,7 +78,7 @@
 
 <script>
 export default {
-  name: 'IntextPromoPack',
+  name: 'IntextPromoFreeMonth',
   data() {
     return {
       show: true,

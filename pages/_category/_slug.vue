@@ -364,6 +364,7 @@
                 <intext-refresh></intext-refresh>
                 <intext-regular-promo></intext-regular-promo>
                 <popup-regular-promo></popup-regular-promo>
+                <intext-promo-free-month></intext-promo-free-month>
                 <midas
                   v-if="!hasPremium && hasLinker"
                   :key="`midas-text-${post.id}`"
