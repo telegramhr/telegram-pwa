@@ -17,6 +17,11 @@
     <!-- Special half element -->
     <div class="full flex relative stretch pretplata-duo">
       <div
+        class="full center-text relative column-bottom-pad mobile-bottom-pad pretplata-duo-overtitle"
+      >
+        Vremenski ograničena ponuda
+      </div>
+      <div
         class="half flex flex-responsive relative center pretplata-blue column-full-pad mobile-side-pad mobile-top-pad"
       >
         <div
