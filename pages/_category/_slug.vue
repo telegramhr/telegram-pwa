@@ -550,6 +550,17 @@ export default {
       }
     }
     if (post && post.id) {
+      if (
+        post.social.path.replace('https://www.telegram.hr', '') !==
+        this.$route.fullPath
+      ) {
+        this.$telegram.context.res.statusCode = 301
+        this.$telegram.context.res.setHeader(
+          'Location',
+          post.social.path.replace('https://www.telegram.hr', '')
+        )
+        return
+      }
       this.post = post
     } else {
       this.post.title = 'Objava ne postoji'
@@ -607,6 +618,7 @@ export default {
           image: '',
           width: '',
           height: '',
+          path: '',
         },
         disable_ads: [],
         promo: {
