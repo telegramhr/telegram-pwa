@@ -141,6 +141,11 @@
         <!-- Billboard 1 -->
         <client-only>
           <breaking></breaking>
+          <AppLink
+            to="/politika-kriminial/rezultati-lokalnih-izbora-uzivo-pratimo-kako-su-prosli-kandidati-u-gradovima-opcinama-i-zupanijama/"
+            class="mobile-bottom-pad"
+            ><img src="@/assets/img/extras/banner-glasanje.jpg" alt="Banner"
+          /></AppLink>
           <div v-show="!hasPremium" class="full relative m-order-2">
             <div class="full flex column-horizontal-pad desktop-only">
               <div class="full flex relative column-bottom-border"></div>
