@@ -24,6 +24,38 @@
         <div class="fourth flex-responsive column-full-pad mobile-side-pad">
           <a
             class="full flex article-standard article-medium article relative"
+            href="https://poslovni.ht.hr/nis2-sigurnost"
+            target="_blank"
+            rel="sponsored"
+            @click.prevent="trackClick('https://poslovni.ht.hr/nis2-sigurnost')"
+          >
+            <img
+              src="https://www.telegram.hr/wp-content/uploads/2025/05/fotka-1.jpg"
+              alt="TG promo"
+              loading="lazy"
+              width="400"
+              height="400"
+            />
+            <div class="full flex">
+              <div class="noththree overtitle">
+                Osigurajte poslovanje svoje tvrtke protiv kibernetičkih prijetnji uz NIS2 paket
+              </div>
+            </div>
+            <div class="full">
+              <ul class="list">
+                <li>GAP analiza</li>
+                <li>Sigurnosni Operativni Centar (20 licenci)</li>
+                <li>Skeniranje ranjivosti</li>
+                <li>Usluge phishing kampanja (PHISHINGaaS)</li>
+                <li>Cloud Backup</li>
+              </ul>
+            </div>
+            <div class="newbtn">Saznaj više</div>
+          </a>
+        </div>
+        <div class="fourth flex-responsive column-full-pad mobile-side-pad">
+          <a
+            class="full flex article-standard article-medium article relative"
             href="https://poslovni.ht.hr/startup"
             target="_blank"
             rel="sponsored"
@@ -88,6 +120,40 @@
         <div class="fourth flex-responsive column-full-pad mobile-side-pad">
           <a
             class="full flex article-standard article-medium article relative"
+            href="https://poslovni.ht.hr/akademija-poslovni-start"
+            target="_blank"
+            rel="sponsored"
+            @click.prevent="
+              trackClick('https://poslovni.ht.hr/akademija-poslovni-start')
+            "
+          >
+            <img
+              src="https://www.telegram.hr/wp-content/uploads/2025/05/pozicija-4.png"
+              alt="TG promo"
+              loading="lazy"
+              width="400"
+              height="400"
+            />
+            <div class="full flex">
+              <div class="noththree overtitle">
+                Genijalna prilika za poduzetnike: Besplatna akademija u svim
+                većim gradovima Hrvatske
+              </div>
+            </div>
+            <div class="full">
+              <ul class="list">
+                <li>8.5.2025., Slavonski Brod</li>
+                <li>28.5.2025., Zadar</li>
+                <li>11.6.2025., Pula</li>
+                <li>10.9.2025., Čakovec</li>
+              </ul>
+            </div>
+            <div class="newbtn">Prijavi se</div>
+          </a>
+        </div>
+        <div class="fourth flex-responsive column-full-pad mobile-side-pad">
+          <a
+            class="full flex article-standard article-medium article relative"
             href="https://poslovni.ht.hr/startup"
             target="_blank"
             rel="sponsored"
@@ -122,15 +188,15 @@
         <div class="fourth flex-responsive column-full-pad mobile-side-pad">
           <a
             class="full flex article-standard article-medium article relative"
-            href="https://poslovni.ht.hr/akademija-poslovni-start"
+            href="https://poslovni.ht.hr/sigurnosni-operativni-centar"
             target="_blank"
             rel="sponsored"
             @click.prevent="
-              trackClick('https://poslovni.ht.hr/akademija-poslovni-start')
+              trackClick('https://poslovni.ht.hr/sigurnosni-operativni-centar')
             "
           >
             <img
-              src="https://www.telegram.hr/wp-content/uploads/2025/05/pozicija-4.png"
+              src="https://www.telegram.hr/wp-content/uploads/2025/05/fotka-2.jpg"
               alt="TG promo"
               loading="lazy"
               width="400"
@@ -138,19 +204,19 @@
             />
             <div class="full flex">
               <div class="noththree overtitle">
-                Genijalna prilika za poduzetnike: Besplatna akademija u svim
-                većim gradovima Hrvatske
+                Sigurnosni operativni sustav i vrhunska zaštita 24/7, 365 dana u
+                godini
               </div>
             </div>
             <div class="full">
               <ul class="list">
-                <li>7.5.2025., Šibenik</li>
-                <li>28.5.2025., Zadar</li>
-                <li>11.6.2025., Pula</li>
-                <li>10.9.2025., Čakovec</li>
+                <li>Učinkovit nadzor sigurnosnih aktivnosti</li>
+                <li>Iskusni stručnjaci za cyber tehnologije</li>
+                <li>Pravodobno otkrivanje cyber prijetnji</li>
+                <li>NIS2 i Zakon o kibernetičkoj sigurnosti</li>
               </ul>
             </div>
-            <div class="newbtn">Prijavi se</div>
+            <div class="newbtn">Zatraži ponudu</div>
           </a>
         </div>
       </VueSlickCarousel>
