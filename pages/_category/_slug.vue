@@ -551,9 +551,10 @@ export default {
     }
     if (post && post.id) {
       if (
+        process.server &&
         this.$route.params.category !== 'preview' &&
         post.social.path.replace('https://www.telegram.hr', '') !==
-          this.$route.fullPath
+          this.$route.path
       ) {
         this.$telegram.context.res.statusCode = 301
         this.$telegram.context.res.setHeader(

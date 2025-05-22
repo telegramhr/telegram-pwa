@@ -183,16 +183,16 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.$store.dispatch('newsletters/checkAccess')
-      if (this.$store.state.pretplata.subscriptionStarted) {
-        window.marfeel = window.marfeel || { cmd: [] }
-        window.marfeel.cmd.push([
-          'compass',
-          function (compass) {
-            compass.trackConversion('subscribe')
-          },
-        ])
-        this.$store.commit('pretplata/setSubscriptionStarted', false)
-      }
+      // if (this.$store.state.pretplata.subscriptionStarted) {
+      window.marfeel = window.marfeel || { cmd: [] }
+      window.marfeel.cmd.push([
+        'compass',
+        function (compass) {
+          compass.trackConversion('subscribe')
+        },
+      ])
+      this.$store.commit('pretplata/setSubscriptionStarted', false)
+      // }
       this.$gtm.push({
         event: 'pretplata-success',
       })

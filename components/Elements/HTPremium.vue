@@ -38,7 +38,8 @@
             />
             <div class="full flex">
               <div class="noththree overtitle">
-                Osigurajte poslovanje svoje tvrtke protiv kibernetičkih prijetnji uz NIS2 paket
+                Osigurajte poslovanje svoje tvrtke protiv kibernetičkih
+                prijetnji uz NIS2 paket
               </div>
             </div>
             <div class="full">
@@ -245,13 +246,6 @@
 <script>
 export default {
   name: 'HTPremium',
-  props: {
-    site: {
-      type: String,
-      required: true,
-      default: 'tg',
-    },
-  },
   data() {
     return {
       timestamp: Date.now(),
