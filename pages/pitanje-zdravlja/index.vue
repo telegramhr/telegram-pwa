@@ -415,6 +415,7 @@ export default {
       AOS.init({
         once: true,
       })
+      this.$store.dispatch('ads/initAds', { route: this.$route })
     })
   },
   methods: {
