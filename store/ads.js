@@ -827,7 +827,7 @@ export const actions = {
           targeting.post_category = ['openspace']
           targeting.site = 'openspace'
           break
-        case 'pitanjezdravlja':
+        case 'pitanje-zdravlja':
           targeting.wp_post_type = ['home']
           targeting.post_category = ['pitanjezdravlja']
           targeting.site = 'pitanjezdravlja'
