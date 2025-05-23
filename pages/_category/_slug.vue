@@ -21,10 +21,10 @@
       <!-- Above header banner manual -->
       <client-only>
         <div
-          v-if="!$mobile && $route.name === 'category-slug'"
+          v-if="!$mobile && $route.name.includes('category-slug')"
           class="full center header-billboard have-background"
         >
-          <div v-if="!$mobile" class="container wallpaper-banners animate">
+          <div class="container wallpaper-banners animate">
             <div class="wallpaper-left">
               <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
             </div>
