@@ -10,7 +10,8 @@
         <div class="container relative flex stretch">
           <div class="forty tablet-full flex flex-responsive center">
             <div class="full center-text newbook-overtitle">
-              Telegram naklada
+              <span class="dynamic-overtitle-element">2. izdanje</span> Telegram
+              naklada
             </div>
             <h1 class="full center-text newbook-title">Matija</h1>
             <div class="full center-text newbook-author column-mini-top-pad">
@@ -25,8 +26,8 @@
 
           <div class="forty tablet-full flex flex-responsive center">
             <img
-              src="@/assets/img/tg_book_mockup_hedl.png"
-              alt="Naslovnica nove knjige Drage Hedla 'Matija'"
+              src="@/assets/img/tg_book_mockup_hedl_izdanje2.png"
+              alt="Naslovnica nove knjige Drage Hedla 'Matija', drugo izdanje"
             />
           </div>
           <div class="fifth tablet-full flex flex-responsive center">
@@ -131,6 +132,7 @@
         </p>
         <p class="center-text bold">
           Izdavač: Telegram Media Grupa<br />
+          2. izdanje, 2025. <br />
           Uvez: Tvrdi<br />
           Broj stranica: 358<br />
           Godina izdanja: 2024.<br />
