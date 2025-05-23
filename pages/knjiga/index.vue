@@ -36,8 +36,8 @@
           >
             <div class="full flex knjiga-cover knjiga-cover-3d">
               <img
-                src="@/assets/img/tg_book_mockup_hedl.png"
-                alt="Naslovnica knjige Drage Hedla 'Matija'"
+                src="@/assets/img/tg_book_mockup_hedl_izdanje2.png"
+                alt="Naslovnica knjige Drage Hedla 'Matija', drugo izdanje"
               />
             </div>
             <div class="full flex knjiga-features">
