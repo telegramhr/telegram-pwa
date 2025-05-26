@@ -408,7 +408,7 @@
                 <input
                   type="hidden"
                   name="referer"
-                  :value="$store.state.getters['pretplata/link']"
+                  :value="$store.getters['pretplata/link']"
                 />
                 <input type="hidden" name="funnel_url_key" :value="url_key" />
                 <input
