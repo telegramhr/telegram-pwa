@@ -994,6 +994,7 @@ export default {
         this.loadPiano()
         this.loadRemp()
         this.loadAds()
+        this.$store.commit('pretplata/setLastArticle', this.$route.fullPath)
         if (typeof FB !== 'undefined') {
           FB.XFBML.parse()
         }

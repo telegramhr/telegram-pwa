@@ -310,6 +310,14 @@
           method="post"
           action="https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/submit"
         >
+          <input
+            type="hidden"
+            name="referer"
+            :value="
+                    'https://www.telegram.hr/' +
+                    $store.state.pretplata.lastArticle
+                  "
+          />
           <input type="hidden" name="funnel_url_key" :value="url_key" />
           <input
             type="hidden"
