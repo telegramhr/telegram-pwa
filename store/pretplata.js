@@ -11,3 +11,9 @@ export const mutations = {
     state.subscriptionStarted = value
   },
 }
+
+export const getters = {
+  link(state) {
+    return `https://www.telegram.hr?article_id=${state.lastArticle}`
+  },
+}

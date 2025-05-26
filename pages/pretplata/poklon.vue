@@ -370,10 +370,7 @@
                 <input
                   type="hidden"
                   name="referer"
-                  :value="
-                    'https://www.telegram.hr/' +
-                    $store.state.pretplata.lastArticle
-                  "
+                  :value="$store.state.getters['pretplata/link']"
                 />
                 <input type="hidden" name="funnel_url_key" :value="url_key" />
                 <input
