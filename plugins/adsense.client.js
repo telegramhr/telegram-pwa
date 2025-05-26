@@ -83,4 +83,11 @@ export default ({ app, store, route }) => {
   onetgas.async = true
   onetgas.defer = true
   document.head.appendChild(onetgas) */
+
+  window.addEventListener('message', (event) => {
+    if (event.data.action === 'bannerHide') {
+      const unit = event.data.unit.split('/').pop()
+      document.getElementById(unit).parentNode.parentNode.style.display = 'none'
+    }
+  })
 }

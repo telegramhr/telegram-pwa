@@ -437,7 +437,11 @@
             class="full has-background"
           >
             <h-t-premium></h-t-premium>
-            <ad-unit id="telegram_underarticle_v2"></ad-unit>
+            <div>
+              <div>
+                <ad-unit id="telegram_underarticle_v2"></ad-unit>
+              </div>
+            </div>
           </div>
 
           <div v-if="!hasPremium && hasLinker" class="full have-background">
