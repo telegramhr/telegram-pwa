@@ -6043,9 +6043,6 @@ html.large-fontsize, .fontsize-previews .large-fontsize {
 .dark-mode .pitanje-zdravlja.specijal-page, .dark-mode .pitanje-zdravlja.specijal-page .elevate-over-section {
     background-color: #212121;
 }
-.pitanje-zdravlja .header-billboard {
-    display: none;
-}
 .pz-header {
     position: fixed;
     top: 0px;
