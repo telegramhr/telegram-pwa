@@ -14,6 +14,9 @@ export const mutations = {
 
 export const getters = {
   link(state) {
+    if (!state.lastArticle) {
+      return 'https://www.telegram.hr'
+    }
     return `https://www.telegram.hr?article_id=${state.lastArticle}`
   },
 }
