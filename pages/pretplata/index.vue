@@ -488,15 +488,7 @@ export default {
   },
   computed: {
     buyable() {
-      if (
-        this.email &&
-        this.terms &&
-        this.privacy &&
-        this.token &&
-        this.creditCard &&
-        this.cvv &&
-        this.expirationDate
-      ) {
+      if (this.email && this.terms && this.privacy) {
         return true
       }
       return false
