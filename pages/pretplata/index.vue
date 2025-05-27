@@ -475,6 +475,7 @@ export default {
       expirationDate: false,
       instance: null,
       customerId: null,
+      iframeUrl: '',
     }
   },
   computed: {

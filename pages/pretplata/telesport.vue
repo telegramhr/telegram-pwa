@@ -438,6 +438,7 @@
       </div>
     </div>
 
+    <iframe id="TrustPayFrame" :src="iframeUrl"></iframe>
     <pretplata-extra></pretplata-extra>
     <tfooter></tfooter>
   </div>
@@ -472,6 +473,7 @@ export default {
       expirationDate: false,
       instance: null,
       customerId: null,
+      iframeUrl: '',
     }
   },
   computed: {

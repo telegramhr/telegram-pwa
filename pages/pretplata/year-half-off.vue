@@ -337,6 +337,7 @@
         </div>
       </div>
     </div>
+    <iframe id="TrustPayFrame" :src="iframeUrl"></iframe>
     <tfooter></tfooter>
   </div>
 </template>
@@ -363,6 +364,7 @@ export default {
       expirationDate: false,
       instance: null,
       customerId: null,
+      iframeUrl: '',
     }
   },
   computed: {
