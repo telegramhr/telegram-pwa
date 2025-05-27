@@ -388,7 +388,7 @@
                 id="payment-form"
                 class="full flex column-horizontal-pad column-top-pad mobile-top-pad"
                 method="post"
-                action="https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/submit"
+                action="/crm/sales-funnel/sales-funnel-frontend/submit"
               >
                 <input
                   type="hidden"
