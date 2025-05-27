@@ -400,16 +400,6 @@
                 <input type="hidden" name="funnel_url_key" :value="url_key" />
                 <input
                   type="hidden"
-                  name="payment_metadata[payment_method_nonce]"
-                  :value="nonce"
-                />
-                <input
-                  type="hidden"
-                  name="payment_metadata[device_data]"
-                  :value="deviceData"
-                />
-                <input
-                  type="hidden"
                   name="subscription_type"
                   :value="subscription_type"
                 />
