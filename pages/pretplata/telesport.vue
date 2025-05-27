@@ -605,7 +605,7 @@ export default {
       fetch(actionUrl, {
         method: 'POST',
         body: formData,
-        withCredentials: true,
+        credentials: 'include',
       })
         .then((response) => response.json())
         .then((data) => {
@@ -665,6 +665,16 @@ export default {
           hid: 'canonical',
           rel: 'canonical',
           href: 'https://www.telegram.hr/pretplata/',
+        },
+      ],
+      script: [
+        {
+          hid: 'jquery',
+          src: 'https://code.jquery.com/jquery-3.7.1.min.js',
+        },
+        {
+          hid: 'trustpay-popup',
+          src: 'https://mapi.trustpay.eu/mapi5/Scripts/TrustPay/popup.js',
         },
       ],
     }
