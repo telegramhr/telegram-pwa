@@ -390,7 +390,7 @@
                 id="payment-form"
                 class="full flex column-horizontal-pad column-top-pad mobile-top-pad"
                 method="post"
-                action="https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/submit"
+                action="/crm/sales-funnel/sales-funnel-frontend/submit"
               >
                 <input
                   type="hidden"
@@ -406,6 +406,7 @@
                 />
                 <input type="hidden" name="payment_gateway" :value="payment" />
                 <input type="hidden" name="price" :value="price" />
+                <input type="hidden" name="auth" value="1" />
                 <input type="hidden" name="email" :value="email" />
                 <div
                   v-if="!buyable"
@@ -607,7 +608,7 @@ export default {
       fetch(actionUrl, {
         method: 'POST',
         body: formData,
-        withCredentials: true,
+        credentials: 'include',
       })
         .then((response) => response.json())
         .then((data) => {
