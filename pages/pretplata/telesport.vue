@@ -395,6 +395,7 @@
                   name="referer"
                   :value="$store.getters['pretplata/link']"
                 />
+                <input type="hidden" name="allow_redirect" value="1" />
                 <input type="hidden" name="funnel_url_key" :value="url_key" />
                 <input
                   type="hidden"
@@ -403,9 +404,8 @@
                 />
                 <input type="hidden" name="payment_gateway" :value="payment" />
                 <input type="hidden" name="price" :value="price" />
-                <input type="hidden" name="email" :value="email" />
-                <input type="hidden" name="allow_redirect" value="0" />
                 <input type="hidden" name="auth" value="1" />
+                <input type="hidden" name="email" :value="email" />
                 <div
                   v-if="!buyable"
                   class="full newbtn huge-newbtn center-text clickable locked-newbtn"

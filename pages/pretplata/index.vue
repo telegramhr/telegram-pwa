@@ -272,7 +272,7 @@
                       name="password"
                     />
                     <small v-show="!showPassword"
-                      >Ukoliko niste registrirani korisnik, na navedenu email
+                    >Ukoliko niste registrirani korisnik, na navedenu email
                       adresu ćete zaprimiti pristupne podatke.</small
                     >
                     <button
@@ -326,12 +326,12 @@
                         <polyline points="1 9 7 14 15 4"></polyline>
                       </svg>
                       <span
-                        >Prihvaćam
+                      >Prihvaćam
                         <a
                           target="_blank"
                           href="https://www.telegram.hr/stranica/uvjeti-koristenja/"
                           class="highlight-text"
-                          >uvjete korištenja</a
+                        >uvjete korištenja</a
                         ></span
                       >
                     </label>
@@ -354,12 +354,12 @@
                         <polyline points="1 9 7 14 15 4"></polyline>
                       </svg>
                       <span
-                        >Prihvaćam
+                      >Prihvaćam
                         <a
                           target="_blank"
                           href="https://www.telegram.hr/stranica/pravila-privantnosti/"
                           class="highlight-text"
-                          >pravila privatnosti</a
+                        >pravila privatnosti</a
                         ></span
                       >
                     </label>
@@ -397,7 +397,7 @@
                   name="referer"
                   :value="$store.getters['pretplata/link']"
                 />
-                <input type="hidden" name="allow_redirect" value="0" />
+                <input type="hidden" name="allow_redirect" value="1" />
                 <input type="hidden" name="funnel_url_key" :value="url_key" />
                 <input
                   type="hidden"
@@ -433,6 +433,12 @@
                   Pretplatu možete otkazati u bilo kojem trenutku. Pretplata se
                   automatski obnavlja.
                 </p>
+                <p
+                  v-if="show_msg"
+                  class="full remp-mini-text center-text red-text"
+                >
+                  {{ show_msg }}
+                </p>
               </form>
             </div>
           </div>
@@ -446,7 +452,6 @@
 
 <script>
 import _ from 'lodash'
-import braintree from 'braintree-web'
 export default {
   name: 'Pretplata',
   data() {
@@ -581,7 +586,7 @@ export default {
             if (response.data.code === 'email_missing') {
               return
             }
-            _this.show_msg = 'error-not-finished'
+            _this.show_msg = 'Prijavite se kako biste dovršili kupnju.'
           } else {
             _this.showPassword = false
           }
@@ -611,7 +616,9 @@ export default {
         body: formData,
         credentials: 'include',
       })
-        .then((response) => response.json())
+        .then((response) => {
+          return response.json()
+        })
         .then((data) => {
           if (data.status === 'ok') {
             const trustpayIframe = document.getElementById('TrustPayFrame')
@@ -622,11 +629,11 @@ export default {
             /* global openPopup */
             openPopup()
           } else {
-            console.log('Payment error:', data)
+            this.show_msg = 'Došlo je do greške s plaćanjem.'
           }
         })
-        .catch((error) => {
-          console.error('Error:', error)
+        .catch(() => {
+          this.show_msg = 'Došlo je do greške prilikom slanja podataka.'
         })
     },
   },

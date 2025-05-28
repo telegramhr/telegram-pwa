@@ -280,33 +280,17 @@
                 name="referer"
                 :value="$store.getters['pretplata/link']"
               />
+              <input type="hidden" name="allow_redirect" value="1" />
               <input type="hidden" name="funnel_url_key" :value="url_key" />
-              <input
-                type="hidden"
-                name="payment_metadata[payment_method_nonce]"
-                :value="nonce"
-              />
-              <input
-                type="hidden"
-                name="payment_metadata[device_data]"
-                :value="deviceData"
-              />
               <input
                 type="hidden"
                 name="subscription_type"
                 :value="subscription_package"
               />
-              <input
-                id="customer_id"
-                type="hidden"
-                name="customer_id"
-                :value="customerId"
-              />
               <input type="hidden" name="payment_gateway" :value="payment" />
               <input type="hidden" name="price" :value="price" />
-              <input type="hidden" name="email" :value="email" />
               <input type="hidden" name="auth" value="1" />
-              <input type="hidden" name="allow_redirect" value="0" />
+              <input type="hidden" name="email" :value="email" />
               <div
                 v-if="!buyable"
                 class="full newbtn huge-newbtn center-text clickable locked-newbtn"
