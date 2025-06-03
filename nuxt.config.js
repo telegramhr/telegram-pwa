@@ -3,7 +3,6 @@ export default {
   globalName: 'telegram',
   modern: 'client',
   telemetry: false,
-  ssr: false,
   head: {
     title: 'Telegram.hr',
     meta: [
