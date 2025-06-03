@@ -1,3 +1,5 @@
+import { Capacitor } from '@capacitor/core'
+
 export const state = () => ({
   init: false,
   slots: false,
@@ -715,6 +717,9 @@ export const mutations = {
 
 export const actions = {
   initAds({ state, commit, dispatch, rootState }, payload) {
+    if (Capacitor.isNativePlatform()) {
+      return
+    }
     // check if we should even show any ads
     if (payload.options && payload.options.includes('all')) {
       return

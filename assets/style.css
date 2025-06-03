@@ -20,6 +20,8 @@
     --tg-primary-text-color: #111111;
     --tg-secondary-background-color: #e8dacd;
     --palette-divider: #c8c8c8;
+    --safe-area-inset-top: 50px;
+    --safe-area-inset-bottom: 20px;
 }
 
 .domoljub-mode * {
@@ -76,6 +78,8 @@ body {
     background-color: #fcf1e7;
     font-size: 16px;
     font-size: 0.8rem;
+  padding-top: var(--safe-area-inset-top, 0px);
+  padding-bottom: var(--safe-area-inset-bottom, 0px);
 }
 @-moz-document url-prefix() {
     body {
@@ -13715,7 +13719,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 header {
   position: fixed;
-  top: 0;
+  top: var(--safe-area-inset-top, 0px);
   left: 0;
   width: 100%;
   z-index: 99;

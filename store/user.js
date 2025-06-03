@@ -1,3 +1,5 @@
+import { Capacitor } from '@capacitor/core'
+
 export const state = () => ({
   id: 0,
   uid: '',
@@ -178,9 +180,11 @@ export const actions = {
       })
   },
   checkAdmin({ commit }) {
-    if (this.$cookies.get('wordpress_test_cookie')) {
-      commit('setAdmin')
-    }
+    Object.keys(this.$cookies.getAll()).forEach((cookie) => {
+      if (cookie.startsWith('wordpress_logged_in_')) {
+        commit('setAdmin')
+      }
+    })
   },
   logout({ commit, dispatch, state }) {
     this.$cookies.remove('n_token', {
@@ -280,6 +284,9 @@ export const actions = {
 
 export const getters = {
   hasPremium(state) {
+    if (Capacitor.isNativePlatform()) {
+      return true
+    }
     if (!state.access) {
       return false
     }

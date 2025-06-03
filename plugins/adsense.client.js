@@ -1,4 +1,9 @@
+import { Capacitor } from '@capacitor/core'
+
 export default ({ app, store, route }) => {
+  if (Capacitor.isNativePlatform()) {
+    return
+  }
   if (!store.getters['user/hasPremium']) {
     // adsense
     const s = document.createElement('script')
