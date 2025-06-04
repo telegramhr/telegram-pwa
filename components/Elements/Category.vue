@@ -11,15 +11,17 @@
     >
       <app-link :to="link">{{ category | parseCat }}</app-link>
     </div>
-    <div class="full flex relative">
+    <div v-if="posts" class="full flex relative">
       <featured
         v-for="post in posts.slice(0, 1)"
         :key="post.id"
         :post="post"
       ></featured>
-      <template v-for="post in posts.slice(1, 4)">
-        <medium :key="post.id" :post="post"></medium>
-      </template>
+      <medium
+        v-for="post in posts.slice(1, 4)"
+        :key="post.id"
+        :post="post"
+      ></medium>
     </div>
     <app-link :to="link" class="full mobile-only center new-homeblock-link">
       Još članaka</app-link
@@ -42,6 +44,9 @@ export default {
   },
   computed: {
     posts() {
+      if (!this.$store.state.category.categories[this.slug].posts) {
+        return []
+      }
       return this.$store.state.category.categories[this.slug].posts.filter(
         (x) => {
           const t = this.$store.state.featured.posts.filter((y) => {

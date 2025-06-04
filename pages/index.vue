@@ -533,7 +533,7 @@ export default {
       return this.$store.getters['user/canLogIn']
     },
     posts() {
-      return this.$store.state.featured.posts
+      return this.$store.state.featured.posts || []
     },
     breaks() {
       return this.$store.state.featured.breaks

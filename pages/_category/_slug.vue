@@ -200,7 +200,7 @@
                 </client-only>
               </div>
               <div
-                v-if="post.image.url || post.video"
+                v-if="post.type !== 'noimage' && (post.image.url || post.video)"
                 class="full flex article-head-image-parent relative"
               >
                 <template v-if="post.video">
@@ -239,7 +239,10 @@
               </div>
               <!-- eslint-disable-next-line -->
               <p v-if="post.perex" class="perex" v-html="post.perex"></p>
-              <div class="nothfive full flex relative article-meta">
+              <div
+                v-if="post.type !== 'noimage'"
+                class="nothfive full flex relative article-meta"
+              >
                 <app-link
                   v-for="author in post.authors"
                   :key="author.name"
