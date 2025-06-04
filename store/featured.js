@@ -24,7 +24,6 @@ export const actions = {
   pullPosts({ commit, dispatch, state }) {
     return new Promise((resolve) => {
       this.$axios.get('/api/featured').then((res) => {
-        console.log('Featured posts pulled', res.data)
         commit('setPosts', res.data)
         dispatch('posts/setPosts', res.data, { root: true })
         resolve()
