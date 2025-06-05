@@ -80,6 +80,7 @@ export const state = () => ({
         'pitanje-zdravlja-category',
         'pitanje-zdravlja',
         'openspace-category',
+        'izbor',
       ],
     },
     telegram_desktop_billboard_v2: {
