@@ -196,7 +196,11 @@ export default {
           })
           .map((value) => this.ids[category][value])
           .join('-')
-        ids += `-11899`
+        if (this.$route.fullPath.includes('telesport')) {
+          ids += `-11902`
+        } else {
+          ids += `-11899`
+        }
         script.src = `https://cdn2.midas-network.com/Scripts/midasWidget-11-${main}-${ids}.js`
         script.async = true
         document
