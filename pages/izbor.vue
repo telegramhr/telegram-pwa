@@ -36,6 +36,11 @@
               ></standard>
             </div>
           </div>
+          <client-only>
+            <div class="full relative center">
+              <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
+            </div>
+          </client-only>
         </div>
         <div class="full flex mobile-side-pad stretch">
           <div class="full flex column-full-pad">
@@ -104,6 +109,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch('mostread/pullPosts')
+    this.$store.dispatch('ads/initAds', { route: this.$route })
   },
 }
 </script>

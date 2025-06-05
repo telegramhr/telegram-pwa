@@ -180,11 +180,9 @@ export const actions = {
       })
   },
   checkAdmin({ commit }) {
-    Object.keys(this.$cookies.getAll()).forEach((cookie) => {
-      if (cookie.startsWith('wordpress_logged_in_')) {
-        commit('setAdmin')
-      }
-    })
+    if (this.$cookies.get('wp-settings-1')) {
+      commit('setAdmin')
+    }
   },
   logout({ commit, dispatch, state }) {
     this.$cookies.remove('n_token', {
