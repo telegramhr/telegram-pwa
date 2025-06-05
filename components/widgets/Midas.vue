@@ -188,15 +188,15 @@ export default {
         }
         const script = document.createElement('script')
         const main = this.ids[category].main ?? ''
-        const ids = Object.keys(this.ids[category])
+        let ids = Object.keys(this.ids[category])
           .filter((value) => {
             return (
               value !== 'intext' && value !== 'main' && value !== 'intextMain'
             )
           })
           .map((value) => this.ids[category][value])
-        ids.push(11899)
-        ids.join('-')
+          .join('-')
+        ids += `-11899`
         script.src = `https://cdn2.midas-network.com/Scripts/midasWidget-11-${main}-${ids}.js`
         script.async = true
         document

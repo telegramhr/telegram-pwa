@@ -2303,6 +2303,12 @@ figure img {
     left: 0px;
 }
 
+#intext-midas2 .banner-separator > div > span {
+    color: black;
+    font-size: 20px;
+    opacity: 1;
+}
+
 /* Themes */
 
 .side-menu .half .theme-previews, .side-menu .half .fontsize-previews {

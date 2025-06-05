@@ -899,6 +899,10 @@ export default {
         if (midas) {
           midas.style.display = 'none'
         }
+        const midas2 = document.getElementById('intext_midas2')
+        if (midas2) {
+          midas2.style.display = 'none'
+        }
       }
     },
     loadRemp() {
