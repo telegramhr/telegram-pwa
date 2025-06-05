@@ -49,7 +49,7 @@
               <div class="full sub-price bold">
                 Standard: <span class="faded strikethrough">79€</span> 39€<span>
                   u prvoj godini</span
-              >
+                >
               </div>
               <div class="full pretplata-benefits">
                 <p class="full animate">
@@ -89,7 +89,7 @@
               <div class="full sub-price bold">
                 Premium: <span class="faded strikethrough">99€</span> 49€<span>
                   u prvoj godini</span
-              >
+                >
               </div>
               <div class="full pretplata-benefits">
                 <p class="full animate">
@@ -211,12 +211,12 @@
                     <polyline points="1 9 7 14 15 4"></polyline>
                   </svg>
                   <span
-                  >Prihvaćam
+                    >Prihvaćam
                     <a
                       target="_blank"
                       href="https://www.telegram.hr/stranica/uvjeti-koristenja/"
                       class="highlight-text"
-                    >uvjete korištenja</a
+                      >uvjete korištenja</a
                     ></span
                   >
                 </label>
@@ -239,12 +239,12 @@
                     <polyline points="1 9 7 14 15 4"></polyline>
                   </svg>
                   <span
-                  >Prihvaćam
+                    >Prihvaćam
                     <a
                       target="_blank"
                       href="https://www.telegram.hr/stranica/pravila-privatnosti/"
                       class="highlight-text"
-                    >pravila privatnosti</a
+                      >pravila privatnosti</a
                     ></span
                   >
                 </label>
@@ -269,68 +269,70 @@
                 class="full remp-new-input hosted-field"
               ></div>
             </div>
-            <form
-              id="payment-form"
-              class="full flex column-horizontal-pad column-top-pad mobile-top-pad"
-              method="post"
-              :action="`https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/submit?referer=${$store.getters['pretplata/link']}`"
-            >
-              <input
-                type="hidden"
-                name="referer"
-                :value="$store.getters['pretplata/link']"
-              />
-              <input type="hidden" name="funnel_url_key" :value="url_key" />
-              <input
-                type="hidden"
-                name="payment_metadata[payment_method_nonce]"
-                :value="nonce"
-              />
-              <input
-                type="hidden"
-                name="payment_metadata[device_data]"
-                :value="deviceData"
-              />
-              <input
-                type="hidden"
-                name="subscription_type"
-                :value="subscription_package"
-              />
-              <input
-                id="customer_id"
-                type="hidden"
-                name="customer_id"
-                :value="customerId"
-              />
-              <input type="hidden" name="payment_gateway" :value="payment" />
-              <input type="hidden" name="price" :value="price" />
-              <input type="hidden" name="email" :value="email" />
-              <div
-                v-if="!buyable"
-                class="full newbtn huge-newbtn center-text clickable locked-newbtn"
+            <client-only>
+              <form
+                id="payment-form"
+                class="full flex column-horizontal-pad column-top-pad mobile-top-pad"
+                method="post"
+                :action="`https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/submit?referer=${$store.getters['pretplata/link']}`"
               >
-                Dovršite kupnju
-              </div>
-              <div
-                v-if="!buyable"
-                class="full barlow smaller-text faded center-text column-mini-top-pad"
-              >
-                Ispunite sve korake iznad kako bi dovršili kupnju.
-              </div>
-              <button
-                v-if="buyable"
-                class="full newbtn huge-newbtn center-text clickable green-newbtn"
-                @click.prevent="submit"
-              >
-                Dovršite kupnju
-              </button>
-              <div
-                class="full barlow smaller-text faded center-text column-mini-top-pad"
-              >
-                Nakon isteka prve godine pretplata se automatski obnavlja po
-                punoj cijeni
-              </div>
-            </form>
+                <input
+                  type="hidden"
+                  name="referer"
+                  :value="$store.getters['pretplata/link']"
+                />
+                <input type="hidden" name="funnel_url_key" :value="url_key" />
+                <input
+                  type="hidden"
+                  name="payment_metadata[payment_method_nonce]"
+                  :value="nonce"
+                />
+                <input
+                  type="hidden"
+                  name="payment_metadata[device_data]"
+                  :value="deviceData"
+                />
+                <input
+                  type="hidden"
+                  name="subscription_type"
+                  :value="subscription_package"
+                />
+                <input
+                  id="customer_id"
+                  type="hidden"
+                  name="customer_id"
+                  :value="customerId"
+                />
+                <input type="hidden" name="payment_gateway" :value="payment" />
+                <input type="hidden" name="price" :value="price" />
+                <input type="hidden" name="email" :value="email" />
+                <div
+                  v-if="!buyable"
+                  class="full newbtn huge-newbtn center-text clickable locked-newbtn"
+                >
+                  Dovršite kupnju
+                </div>
+                <div
+                  v-if="!buyable"
+                  class="full barlow smaller-text faded center-text column-mini-top-pad"
+                >
+                  Ispunite sve korake iznad kako bi dovršili kupnju.
+                </div>
+                <button
+                  v-if="buyable"
+                  class="full newbtn huge-newbtn center-text clickable green-newbtn"
+                  @click.prevent="submit"
+                >
+                  Dovršite kupnju
+                </button>
+                <div
+                  class="full barlow smaller-text faded center-text column-mini-top-pad"
+                >
+                  Nakon isteka prve godine pretplata se automatski obnavlja po
+                  punoj cijeni
+                </div>
+              </form>
+            </client-only>
           </div>
         </div>
       </div>

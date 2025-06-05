@@ -195,7 +195,8 @@ export default {
             )
           })
           .map((value) => this.ids[category][value])
-          .join('-')
+        ids.push(11899)
+        ids.join('-')
         script.src = `https://cdn2.midas-network.com/Scripts/midasWidget-11-${main}-${ids}.js`
         script.async = true
         document

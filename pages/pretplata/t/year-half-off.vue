@@ -269,54 +269,56 @@
                 class="full remp-new-input hosted-field"
               ></div>
             </div>
-            <form
-              id="payment-form"
-              class="full flex column-horizontal-pad column-top-pad mobile-top-pad"
-              method="post"
-              action="/crm/sales-funnel/sales-funnel-frontend/submit"
-            >
-              <input
-                type="hidden"
-                name="referer"
-                :value="$store.getters['pretplata/link']"
-              />
-              <input type="hidden" name="allow_redirect" value="1" />
-              <input type="hidden" name="funnel_url_key" :value="url_key" />
-              <input
-                type="hidden"
-                name="subscription_type"
-                :value="subscription_package"
-              />
-              <input type="hidden" name="payment_gateway" :value="payment" />
-              <input type="hidden" name="price" :value="price" />
-              <input type="hidden" name="auth" value="1" />
-              <input type="hidden" name="email" :value="email" />
-              <div
-                v-if="!buyable"
-                class="full newbtn huge-newbtn center-text clickable locked-newbtn"
+            <client-only>
+              <form
+                id="payment-form"
+                class="full flex column-horizontal-pad column-top-pad mobile-top-pad"
+                method="post"
+                :action="`/crm/sales-funnel/sales-funnel-frontend/submit?referer=${$store.getters['pretplata/link']}`"
               >
-                Dovršite kupnju
-              </div>
-              <div
-                v-if="!buyable"
-                class="full barlow smaller-text faded center-text column-mini-top-pad"
-              >
-                Ispunite sve korake iznad kako bi dovršili kupnju.
-              </div>
-              <button
-                v-if="buyable"
-                class="full newbtn huge-newbtn center-text clickable green-newbtn"
-                @click.prevent="submit"
-              >
-                Dovršite kupnju
-              </button>
-              <div
-                class="full barlow smaller-text faded center-text column-mini-top-pad"
-              >
-                Nakon isteka prve godine pretplata se automatski obnavlja po
-                punoj cijeni
-              </div>
-            </form>
+                <input
+                  type="hidden"
+                  name="referer"
+                  :value="$store.getters['pretplata/link']"
+                />
+                <input type="hidden" name="allow_redirect" value="1" />
+                <input type="hidden" name="funnel_url_key" :value="url_key" />
+                <input
+                  type="hidden"
+                  name="subscription_type"
+                  :value="subscription_package"
+                />
+                <input type="hidden" name="payment_gateway" :value="payment" />
+                <input type="hidden" name="price" :value="price" />
+                <input type="hidden" name="auth" value="1" />
+                <input type="hidden" name="email" :value="email" />
+                <div
+                  v-if="!buyable"
+                  class="full newbtn huge-newbtn center-text clickable locked-newbtn"
+                >
+                  Dovršite kupnju
+                </div>
+                <div
+                  v-if="!buyable"
+                  class="full barlow smaller-text faded center-text column-mini-top-pad"
+                >
+                  Ispunite sve korake iznad kako bi dovršili kupnju.
+                </div>
+                <button
+                  v-if="buyable"
+                  class="full newbtn huge-newbtn center-text clickable green-newbtn"
+                  @click.prevent="submit"
+                >
+                  Dovršite kupnju
+                </button>
+                <div
+                  class="full barlow smaller-text faded center-text column-mini-top-pad"
+                >
+                  Nakon isteka prve godine pretplata se automatski obnavlja po
+                  punoj cijeni
+                </div>
+              </form>
+            </client-only>
           </div>
         </div>
       </div>

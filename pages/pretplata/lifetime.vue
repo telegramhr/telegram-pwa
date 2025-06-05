@@ -304,38 +304,40 @@
             Ponuda vrijedi još samo danas — iskoristite je dok traje
           </p>
         </div>
-        <form
-          id="payment-form"
-          class="full flex column-horizontal-pad column-top-pad mobile-top-pad"
-          method="post"
-          action="https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/submit"
-        >
-          <input
-            type="hidden"
-            name="referer"
-            :value="$store.getters['pretplata/link']"
-          />
-          <input type="hidden" name="funnel_url_key" :value="url_key" />
-          <input
-            type="hidden"
-            name="payment_metadata[payment_method_nonce]"
-            :value="nonce"
-          />
-          <input
-            type="hidden"
-            name="payment_metadata[device_data]"
-            :value="deviceData"
-          />
-          <input
-            type="hidden"
-            name="subscription_type"
-            :value="subscription_type"
-          />
-          <input type="hidden" name="payment_gateway" :value="payment" />
-          <input type="hidden" name="customer_id" :value="customerId" />
-          <input type="hidden" name="price" :value="price" />
-          <input type="hidden" name="email" :value="email" />
-        </form>
+        <client-only>
+          <form
+            id="payment-form"
+            class="full flex column-horizontal-pad column-top-pad mobile-top-pad"
+            method="post"
+            :action="`https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/submit?referer=${$store.getters['pretplata/link']}`"
+          >
+            <input
+              type="hidden"
+              name="referer"
+              :value="$store.getters['pretplata/link']"
+            />
+            <input type="hidden" name="funnel_url_key" :value="url_key" />
+            <input
+              type="hidden"
+              name="payment_metadata[payment_method_nonce]"
+              :value="nonce"
+            />
+            <input
+              type="hidden"
+              name="payment_metadata[device_data]"
+              :value="deviceData"
+            />
+            <input
+              type="hidden"
+              name="subscription_type"
+              :value="subscription_type"
+            />
+            <input type="hidden" name="payment_gateway" :value="payment" />
+            <input type="hidden" name="customer_id" :value="customerId" />
+            <input type="hidden" name="price" :value="price" />
+            <input type="hidden" name="email" :value="email" />
+          </form>
+        </client-only>
       </div>
     </div>
     <tfooter></tfooter>
