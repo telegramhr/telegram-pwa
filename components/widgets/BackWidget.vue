@@ -36,14 +36,12 @@ export default {
     init() {
       const final = window.location.href
       const url = 'https://www.telegram.hr/izbor/?utm_campaign=back_widget'
-      console.log('backwidget: init')
       window.history.replaceState({ backWidget: true }, 'Telegram.hr', url)
       window.history.pushState(
         { backWidgetInitialized: true },
         document.title,
         final
       )
-      console.log('backwidget: done')
     },
     listener(event) {
       if (event.state.backWidget) {

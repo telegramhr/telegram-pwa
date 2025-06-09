@@ -62,14 +62,16 @@ export default {
       }, 0)
     },
     result() {
-      return this.data.results.filter((result) => {
-        if (
-          this.totalScore >= parseInt(result.score_from) &&
-          this.totalScore <= parseInt(result.score_to)
-        ) {
-          return true
-        }
-      })[0]
+      return (
+        this.data.results.filter((result) => {
+          if (
+            this.totalScore >= parseInt(result.score_from) &&
+            this.totalScore <= parseInt(result.score_to)
+          ) {
+            return true
+          }
+        })[0] ?? { title: '', description: '' }
+      )
     },
     parsedResultsDescription() {
       if (this.result) {
@@ -80,11 +82,10 @@ export default {
   },
   methods: {
     beforeChange(oldSlide, newSlide) {
-      let noSlides = this.data.questions.length
+      let noSlides = this.data.questions.length - 1
       if (this.result) {
         noSlides++
       }
-      noSlides--
       if (newSlide === noSlides && !this.submitted) {
         this.submit()
       }
@@ -123,6 +124,8 @@ export default {
           .catch(() => {
             this.$refs.carousel.next()
           })
+      } else {
+        this.$refs.carousel.next()
       }
     },
   },
