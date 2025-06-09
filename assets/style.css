@@ -22,6 +22,10 @@
     --palette-divider: #c8c8c8;
 }
 
+.lora-text {
+  font-family: 'Lora', serif;
+}
+
 .domoljub-mode * {
     --tg-primary-background-color: #f1f6fc;
     --tg-secondary-background-color: #dbe9f4;
