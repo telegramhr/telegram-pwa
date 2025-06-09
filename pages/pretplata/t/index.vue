@@ -393,11 +393,6 @@
                   method="post"
                   :action="`/crm/sales-funnel/sales-funnel-frontend/submit?referer=${$store.getters['pretplata/link']}`"
                 >
-                  <input
-                    type="hidden"
-                    name="referer"
-                    :value="$store.getters['pretplata/link']"
-                  />
                   <input type="hidden" name="allow_redirect" value="1" />
                   <input type="hidden" name="funnel_url_key" :value="url_key" />
                   <input

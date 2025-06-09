@@ -780,6 +780,10 @@ export const actions = {
     if (route) {
       commit('setRoute', route)
       switch (route.name) {
+        case 'izbor':
+          targeting.wp_post_type = ['archive']
+          targeting.post_category = ['izbor']
+          break
         case 'index':
           targeting.wp_post_type = ['home']
           break

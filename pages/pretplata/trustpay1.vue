@@ -386,61 +386,60 @@
                   </div>
                 </div>
               </div>
-              <client-only>
-                <form
-                  id="payment-form"
-                  class="full flex column-horizontal-pad column-top-pad mobile-top-pad"
-                  method="post"
-                  :action="`/crm/sales-funnel/sales-funnel-frontend/submit?referer=${$store.getters['pretplata/link']}`"
+              <form
+                id="payment-form"
+                class="full flex column-horizontal-pad column-top-pad mobile-top-pad"
+                method="post"
+                action="/crm/sales-funnel/sales-funnel-frontend/submit"
+              >
+                <input
+                  type="hidden"
+                  name="referer"
+                  :value="$store.getters['pretplata/link']"
+                />
+                <input type="hidden" name="allow_redirect" value="1" />
+                <input type="hidden" name="funnel_url_key" :value="url_key" />
+                <input
+                  type="hidden"
+                  name="subscription_type"
+                  :value="subscription_type"
+                />
+                <input type="hidden" name="payment_gateway" :value="payment" />
+                <input type="hidden" name="price" :value="price" />
+                <input type="hidden" name="auth" value="1" />
+                <input type="hidden" name="email" :value="email" />
+                <div
+                  v-if="!buyable"
+                  class="full newbtn huge-newbtn center-text clickable locked-newbtn"
                 >
-                  <input type="hidden" name="allow_redirect" value="1" />
-                  <input type="hidden" name="funnel_url_key" :value="url_key" />
-                  <input
-                    type="hidden"
-                    name="subscription_type"
-                    :value="subscription_type"
-                  />
-                  <input
-                    type="hidden"
-                    name="payment_gateway"
-                    :value="payment"
-                  />
-                  <input type="hidden" name="price" :value="price" />
-                  <input type="hidden" name="auth" value="1" />
-                  <input type="hidden" name="email" :value="email" />
-                  <div
-                    v-if="!buyable"
-                    class="full newbtn huge-newbtn center-text clickable locked-newbtn"
-                  >
-                    Dovršite kupnju
-                    {{ totalPrice ? 'za ' + totalPrice + '€' : '' }}
-                  </div>
-                  <div
-                    v-if="!buyable"
-                    class="full barlow smaller-text faded center-text column-mini-top-pad"
-                  >
-                    Ispunite sve korake iznad kako bi dovršili kupnju.
-                  </div>
-                  <button
-                    v-if="buyable"
-                    class="full newbtn huge-newbtn center-text clickable green-newbtn"
-                    @click.prevent="submit"
-                  >
-                    Dovršite kupnju
-                    {{ totalPrice ? 'za ' + totalPrice + '€' : '' }}
-                  </button>
-                  <p class="full remp-mini-text center-text faded">
-                    Pretplatu možete otkazati u bilo kojem trenutku. Pretplata
-                    se automatski obnavlja.
-                  </p>
-                  <p
-                    v-if="show_msg"
-                    class="full remp-mini-text center-text red-text"
-                  >
-                    {{ show_msg }}
-                  </p>
-                </form>
-              </client-only>
+                  Dovršite kupnju
+                  {{ totalPrice ? 'za ' + totalPrice + '€' : '' }}
+                </div>
+                <div
+                  v-if="!buyable"
+                  class="full barlow smaller-text faded center-text column-mini-top-pad"
+                >
+                  Ispunite sve korake iznad kako bi dovršili kupnju.
+                </div>
+                <button
+                  v-if="buyable"
+                  class="full newbtn huge-newbtn center-text clickable green-newbtn"
+                  @click.prevent="submit"
+                >
+                  Dovršite kupnju
+                  {{ totalPrice ? 'za ' + totalPrice + '€' : '' }}
+                </button>
+                <p class="full remp-mini-text center-text faded">
+                  Pretplatu možete otkazati u bilo kojem trenutku. Pretplata se
+                  automatski obnavlja.
+                </p>
+                <p
+                  v-if="show_msg"
+                  class="full remp-mini-text center-text red-text"
+                >
+                  {{ show_msg }}
+                </p>
+              </form>
             </div>
           </div>
         </div>

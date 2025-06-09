@@ -37,7 +37,7 @@
             </div>
           </div>
           <client-only>
-            <div class="full relative center">
+            <div class="full relative center column-bottom-margin">
               <ad-unit id="telegram_desktop_billboard_v1"></ad-unit>
             </div>
           </client-only>
