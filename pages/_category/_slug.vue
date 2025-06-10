@@ -293,14 +293,16 @@
               </div>
             </div>
             <div class="full relative center single-top-banner">
-              <ad-unit
-                id="telegram_desktop_billboard_v1"
-                :disable="
-                  post.disable_ads.includes('all') ||
-                  (post.category_slug &&
-                    post.category_slug.includes('openspace'))
-                "
-              ></ad-unit>
+              <div>
+                <ad-unit
+                  id="telegram_desktop_billboard_v1"
+                  :disable="
+                    post.disable_ads.includes('all') ||
+                    (post.category_slug &&
+                      post.category_slug.includes('openspace'))
+                  "
+                ></ad-unit>
+              </div>
             </div>
             <div class="full relative single-article-body">
               <client-only>
@@ -455,7 +457,9 @@
             class="container flex center have-background"
           >
             <midas :key="`midas-ecoom-${post.id}`" type="ecomm"></midas>
-            <ad-unit id="telegram_underarticle_v1"></ad-unit>
+            <div>
+              <ad-unit id="telegram_underarticle_v1"></ad-unit>
+            </div>
           </div>
           <keep-reading
             :category="$route.params.category"
