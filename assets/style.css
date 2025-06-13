@@ -2307,13 +2307,6 @@ figure img {
     left: 0px;
 }
 
-#intext_midas2 .banner-separator > div > span {
-    color: black;
-    font-size: 20px;
-    opacity: 1;
-  font-family: 'Lora', serif;
-}
-
 /* Themes */
 
 .side-menu .half .theme-previews, .side-menu .half .fontsize-previews {

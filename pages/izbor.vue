@@ -109,7 +109,9 @@ export default {
   },
   mounted() {
     this.$store.dispatch('mostread/pullPosts')
-    this.$store.dispatch('ads/initAds', { route: this.$route })
+    this.$nextTick(() => {
+      this.$store.dispatch('ads/initAds', { route: this.$route })
+    })
   },
 }
 </script>

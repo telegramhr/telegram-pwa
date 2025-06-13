@@ -758,7 +758,6 @@ export const actions = {
         window.googletag.destroySlots()
       })
     }
-
     dispatch('setupTargeting', payload)
   },
   setupTargeting({ state, commit, dispatch, rootState }, payload) {
@@ -1023,11 +1022,9 @@ export const actions = {
     }
     window.pbjs = window.pbjs || {}
     window.pbjs.que = window.pbjs.que || []
-    console.log('Prebid bids are requested')
     window.pbjs.que.push(() => {
       window.pbjs.rp.requestBids({
         callback() {
-          console.log('Prebid bids are back')
           window.googletag.cmd.push(function () {
             window.pbjs.setTargetingForGPTAsync()
             window.pbjs.requestManager.prebid = true
