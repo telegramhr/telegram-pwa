@@ -370,6 +370,7 @@
                 <intext-regular-promo></intext-regular-promo>
                 <popup-regular-promo></popup-regular-promo>
                 <intext-promo-free-month></intext-promo-free-month>
+                <intext-promo-pack></intext-promo-pack>
                 <midas
                   v-if="!hasPremium && hasLinker"
                   :key="`midas-text-${post.id}`"
@@ -537,10 +538,11 @@
 import { Portal } from '@linusborg/vue-simple-portal'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import IntextPromoPack from '@/components/Elements/IntextPromoGreen.vue'
 export default {
   name: 'Slug',
   scrollToTop: true,
-  components: { Portal },
+  components: { IntextPromoPack, Portal },
   async fetch() {
     if (!this.$route.params.slug && !this.$route.params.category) {
       return
