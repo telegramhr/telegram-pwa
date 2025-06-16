@@ -444,10 +444,13 @@ export default {
       return !this.$store.state.user.id
     },
     login() {
-      this.$store.dispatch('user/login')
+      this.$store.dispatch('user/login', {
+        shouldRedirect: false,
+        callback: this.submit,
+      })
     },
     submit() {
-      if (!this.canLogIn()) {
+      if (this.canLogIn()) {
         this.login()
         return
       }

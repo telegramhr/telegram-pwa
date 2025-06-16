@@ -225,6 +225,9 @@ export const actions = {
         })
         dispatch('checkAccess', res.access.token)
         commit('closeModal')
+        if (payload.callback) {
+          payload.callback()
+        }
         if (state.shouldReload) {
           setTimeout(() => {
             window.location.reload()
