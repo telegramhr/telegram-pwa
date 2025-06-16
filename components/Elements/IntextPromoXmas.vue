@@ -95,10 +95,10 @@ export default {
     }
   },
   mounted() {
-    window.addEventListener('piano_intext_bf', this.load)
+    window.addEventListener('intext_green', this.load)
   },
   destroyed() {
-    window.removeEventListener('piano_intext_bf', this.load)
+    window.removeEventListener('intext_green', this.load)
   },
   methods: {
     login() {
