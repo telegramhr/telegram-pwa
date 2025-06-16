@@ -9,6 +9,7 @@
           <img :src="$icon(144)" alt="Telegram Logo" />
         </div>
         <form
+          v-if="screen === 'login'"
           class="full flex column-full-pad mobile-side-pad"
           @submit.prevent="login"
         >
@@ -67,6 +68,87 @@
           </div>
           <small class="full center-text">
             <a
+              class="clickable"
+              style="color: #ae3737"
+              @click.prevent="screen = 'register'"
+              >Registrirajte se</a
+            ><br />
+            ili<br />
+            <a
+              href="https://pretplata.telegram.hr/social-login/social-sign/request-password"
+              class="clickable"
+              style="color: #ae3737"
+              >Zatražite novu lozinku ovdje</a
+            >
+          </small>
+        </form>
+        <form
+          v-if="screen === 'register'"
+          class="full flex column-full-pad mobile-side-pad"
+          @submit.prevent="register"
+        >
+          <h2 class="full center-text column-top-pad">Registracija</h2>
+          <p
+            class="full infotext center-text"
+            style="margin-top: 4vw; margin-bottom: 4vw"
+          >
+            Registrirajte se kako biste nastavili s radom.
+          </p>
+          <div class="full flex column-mini-left-pad">
+            <a
+              :href="`https://pretplata.telegram.hr/social-login/social-sign/sign?social_provider_key=facebook&success_login_url=${path}`"
+              class="full center remp-social-logbtn animate"
+              @click="close"
+            >
+              <font-awesome-icon
+                :icon="['fab', 'facebook-f']"
+              ></font-awesome-icon>
+              Facebook
+            </a>
+          </div>
+          <div class="full flex column-mini-left-pad column-mini-top-pad">
+            <a
+              :href="`http://pretplata.telegram.hr/users/google/sign?url=${path}`"
+              class="full center remp-social-logbtn animate"
+              @click="close"
+            >
+              <font-awesome-icon :icon="['fab', 'google']"></font-awesome-icon>
+              Google
+            </a>
+          </div>
+          <label for="name">Email adresa</label>
+          <input id="email" v-model="email" type="email" name="name" />
+          <label for="address">Lozinka</label>
+          <input
+            id="password"
+            v-model="password"
+            type="password"
+            name="password"
+          />
+          <p class="full infotext center-text">
+            {{ error }}
+          </p>
+          <div class="full center relative clickable">
+            <button v-show="!loading" class="newbtn clickable" type="submit">
+              Registracija
+            </button>
+            <div v-show="loading" class="full center cool-loader">
+              <div class="loader-square">
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+          </div>
+          <small class="full center-text">
+            <a
+              class="clickable"
+              style="color: #ae3737"
+              @click.prevent="screen = 'login'"
+              >Prijavite se</a
+            ><br />
+            ili<br />
+            <a
               href="https://pretplata.telegram.hr/social-login/social-sign/request-password"
               class="clickable"
               style="color: #ae3737"
@@ -87,6 +169,7 @@ export default {
       email: '',
       password: '',
       loading: false,
+      screen: 'login', // 'login' or 'register'
     }
   },
   computed: {
@@ -101,6 +184,7 @@ export default {
     },
   },
   mounted() {
+    this.screen = this.$store.state.user.screen || 'login'
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && this.show) {
         this.close()
@@ -113,6 +197,21 @@ export default {
     })
   },
   methods: {
+    register() {
+      if (!this.email || !this.password) {
+        this.$store.commit('user/setError', 'Molimo unesite email i lozinku.')
+        return
+      }
+      this.loading = true
+      try {
+        this.$store.dispatch('user/registerSubmit', {
+          email: this.email,
+          password: this.password,
+        })
+      } finally {
+        this.loading = false
+      }
+    },
     login() {
       if (!this.email || !this.password) {
         this.$store.commit('user/setError', 'Molimo unesite email i lozinku.')

@@ -16,6 +16,8 @@ export const state = () => ({
   coral_update: null,
   showModal: false,
   error: '',
+  screen: 'login',
+  shouldReload: true,
 })
 
 export const mutations = {
@@ -64,8 +66,10 @@ export const mutations = {
     state.coral_token = token
     state.coral_update = new Date().getTime()
   },
-  openModal(state) {
+  openModal(state, payload) {
     state.showModal = !state.showModal
+    state.screen = payload?.screen || 'login'
+    state.shouldReload = payload?.shouldReload || true
   },
   closeModal(state) {
     state.showModal = false
@@ -197,10 +201,10 @@ export const actions = {
     commit('logout')
     // this.$router.push('/')
   },
-  login({ commit, dispatch }) {
-    commit('openModal')
+  login({ commit, dispatch }, payload) {
+    commit('openModal', payload)
   },
-  loginSubmit({ commit, dispatch }, payload) {
+  loginSubmit({ commit, dispatch, state }, payload) {
     const data = new FormData()
     data.append('email', payload.email)
     data.append('password', payload.password)
@@ -221,12 +225,42 @@ export const actions = {
         })
         dispatch('checkAccess', res.access.token)
         commit('closeModal')
-        setTimeout(() => {
-          window.location.reload()
-        }, 2000)
+        if (state.shouldReload) {
+          setTimeout(() => {
+            window.location.reload()
+          }, 2000)
+        }
       })
       .catch(() => {
         dispatch('loginPiano', payload)
+      })
+  },
+  registerSubmit({ commit, dispatch, state }, payload) {
+    const data = new FormData()
+    data.append('email', payload.email)
+    data.append('password', payload.password)
+    data.append('source', 'api')
+    this.$axios
+      .$post('/crm/api/v1/users/register', data, {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          Authorization: `Bearer ff4a16187c0fc0cc0267b95410c4f55a`,
+        },
+      })
+      .then((res) => {
+        commit('setUser', res)
+        this.$cookies.set('n_token', res.access.token, {
+          domain: '.telegram.hr',
+          path: '/',
+          maxAge: 60 * 60 * 24 * 365,
+          sameSite: 'lax',
+        })
+        commit('closeModal')
+        if (state.shouldReload) {
+          setTimeout(() => {
+            window.location.reload()
+          }, 2000)
+        }
       })
   },
   loginPiano({ commit, dispatch }, payload) {
