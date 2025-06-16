@@ -519,7 +519,7 @@ export default {
     },
     login() {
       this.maybeCloseSide()
-      this.$store.dispatch('user/login')
+      this.$store.dispatch('user/login', { shouldRedirect: true })
     },
     logout() {
       this.maybeCloseSide()

@@ -18,6 +18,7 @@ export const state = () => ({
   error: '',
   screen: 'login',
   shouldReload: true,
+  callback: null,
 })
 
 export const mutations = {
@@ -69,7 +70,16 @@ export const mutations = {
   openModal(state, payload) {
     state.showModal = !state.showModal
     state.screen = payload?.screen || 'login'
-    state.shouldReload = payload?.shouldReload || true
+    if (payload && Object.keys(payload).includes('shouldReload')) {
+      state.shouldReload = payload.shouldReload
+    } else {
+      state.shouldReload = true
+    }
+    if (payload && Object.keys(payload).includes('callback')) {
+      state.callback = payload.callback
+    } else {
+      state.callback = null
+    }
   },
   closeModal(state) {
     state.showModal = false
@@ -225,8 +235,8 @@ export const actions = {
         })
         dispatch('checkAccess', res.access.token)
         commit('closeModal')
-        if (payload.callback) {
-          payload.callback()
+        if (state.callback) {
+          state.callback()
         }
         if (state.shouldReload) {
           setTimeout(() => {
@@ -259,6 +269,9 @@ export const actions = {
           sameSite: 'lax',
         })
         commit('closeModal')
+        if (state.callback) {
+          state.callback()
+        }
         if (state.shouldReload) {
           setTimeout(() => {
             window.location.reload()
