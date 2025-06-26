@@ -1352,7 +1352,7 @@ figure img {
     margin-bottom: 24px;
 }
 .single-article-premium article .article-head > .perex {
-    display: flex;
+    display: block;
     padding-bottom: 64px;
     margin-top: 0px;
 }

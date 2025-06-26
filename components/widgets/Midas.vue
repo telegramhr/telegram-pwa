@@ -119,7 +119,10 @@ export default {
       if (this.$store.getters['user/hasPremium']) {
         return 0
       }
-      if (this.$route.fullPath.includes('preview')) {
+      if (
+        this.$route.fullPath.includes('preview') ||
+        this.$route.fullPath.includes('podcast')
+      ) {
         return false
       }
       if (this.type === 'ecomm2') {
@@ -162,8 +165,11 @@ export default {
           category = 'telesport'
         }
         const script2 = document.createElement('script')
-        const intext = this.ids[category].intext
-        const intextMain = this.ids[category].intextMain
+        const intext = this.ids[category]?.intext
+        const intextMain = this.ids[category]?.intextMain
+        if (!intext || !intextMain) {
+          return false
+        }
         script2.src = `https://cdn2.midas-network.com/Scripts/midasWidget-11-${intextMain}-${intext}.js`
         script2.async = true
         document
@@ -207,8 +213,11 @@ export default {
           .getElementById(`midasWidget__${this.id}`)
           .insertAdjacentElement('afterend', script)
         const script2 = document.createElement('script')
-        const intext = this.ids[category].intext
-        const intextMain = this.ids[category].intextMain
+        const intext = this.ids[category]?.intext
+        const intextMain = this.ids[category]?.intextMain
+        if (!intext || !intextMain) {
+          return false
+        }
         script2.src = `https://cdn2.midas-network.com/Scripts/midasWidget-11-${intextMain}-${intext}.js`
         script2.async = true
         document
