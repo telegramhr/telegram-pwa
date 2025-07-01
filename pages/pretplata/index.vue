@@ -289,6 +289,7 @@
                           :href="`http://pretplata.telegram.hr/users/google/sign?url=https://www.telegram.hr/pretplata/`"
                           class="full center remp-social-logbtn animate"
                         >
+                          <font-awesome-icon :icon="['fab', 'google']" />
                           <i class="fa-brands fa-google"></i>
                           Google
                         </a>
@@ -298,6 +299,7 @@
                           href="https://pretplata.telegram.hr/social-login/social-sign/sign?social_provider_key=facebook&success_login_url=https://www.telegram.hr/pretplata/"
                           class="full center remp-social-logbtn animate"
                         >
+                          <font-awesome-icon :icon="['fab', 'facebook-f']" />
                           <i class="fa-brands fa-facebook-f"></i>
                           Facebook
                         </a>
