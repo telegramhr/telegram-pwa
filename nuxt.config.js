@@ -3,6 +3,7 @@ export default {
   globalName: 'telegram',
   modern: 'client',
   telemetry: false,
+  // ssr: false,
   head: {
     title: 'Telegram.hr',
     meta: [
@@ -153,6 +154,8 @@ export default {
         showCredit: false,
         cancelButton: 'Ne, hvala',
         cancelButtonText: 'Ne, hvala',
+        autoPrompt: true,
+        delay: { pageViews: 2, timeDelay: 20 },
       },
       notifyButton: {
         enable: false,
