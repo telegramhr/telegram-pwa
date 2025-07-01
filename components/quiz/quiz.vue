@@ -10,12 +10,15 @@
       style="display: block; width: 100%"
       @beforeChange="beforeChange"
     >
-      <div v-for="question in data.questions" :key="question.id">
+      <div v-for="(question, index) in data.questions" :key="question.id">
         <component
           :is="question.type"
           :data="question"
+          :order="index"
           :post="post"
+          :stats="data.stats"
           @answer="getAnswer"
+          @next="nextSlide"
         ></component>
       </div>
       <div v-if="result">
@@ -81,6 +84,9 @@ export default {
     },
   },
   methods: {
+    nextSlide() {
+      this.$refs.carousel.next()
+    },
     beforeChange(oldSlide, newSlide) {
       let noSlides = this.data.questions.length - 1
       if (this.result) {
@@ -108,7 +114,7 @@ export default {
         this.$set(this.answers, 'q' + q, val)
       }
       // advance slide
-      this.$refs.carousel.next()
+      this.nextSlide()
     },
     submit() {
       if (this.data.script && !this.submitted) {
@@ -122,10 +128,10 @@ export default {
             params: this.answers,
           })
           .catch(() => {
-            this.$refs.carousel.next()
+            this.nextSlide()
           })
       } else {
-        this.$refs.carousel.next()
+        this.nextSlide()
       }
     },
   },

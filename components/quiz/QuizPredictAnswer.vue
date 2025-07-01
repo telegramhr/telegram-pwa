@@ -11,22 +11,33 @@
         v-model="answered"
         type="radio"
         :name="'answer-' + data.id + '-' + answer.id"
-        :value="answer.id"
+        :value="answer.text"
       />
       <div
         class="newbtn clickable"
         :style="{
-          backgroundColor: sums[answer.id]
-            ? answered === answer.id
-              ? '#ae3737'
-              : '#888888'
-            : '#888888',
+          backgroundColor: answered === answer.text ? '#ae3737' : '#888888',
         }"
       >
         {{ answer.text | parseCat }}
-        <i v-if="sums[answer.id]"
-          >({{ Math.round((sums[answer.id] * 100) / total) }}%)</i
+        <i v-if="answered && stats[order][answer.text]"
+          >({{ Math.round((stats[order][answer.text] * 100) / total) }}%)</i
         >
+      </div>
+    </label>
+    <label
+      v-if="answered"
+      class="column-right-pad mobile-right-pad"
+      style="justify-content: space-between"
+      @click="$emit('next')"
+    >
+      <div
+        class="newbtn clickable"
+        :style="{
+          backgroundColor: '#ae3737',
+        }"
+      >
+        Sljedeće pitanje
       </div>
     </label>
   </div>
@@ -36,6 +47,17 @@
 export default {
   name: 'QuizPredictAnswer',
   props: {
+    order: {
+      type: Number,
+      required: true,
+    },
+    stats: {
+      type: Array,
+      required: false,
+      default() {
+        return []
+      },
+    },
     data: {
       type: Object,
       required: true,
@@ -52,21 +74,26 @@ export default {
               text: '',
             },
           ],
+          stats: [],
         }
       },
     },
     post: {
-      type: String,
+      type: Number,
       required: true,
     },
   },
   data() {
     return {
       answered: 0,
-      total: 0,
-      sums: [],
       done: false,
+      showNext: false,
     }
+  },
+  computed: {
+    total() {
+      return Object.values(this.stats[this.order]).reduce((a, b) => a + b, 0)
+    },
   },
   watch: {
     answered() {
@@ -83,17 +110,19 @@ export default {
           data: {
             post: this.post,
             answer: this.answered,
+            q: this.data.id,
           },
         })
         .then((res) => {
           // show result
-          this.total = Object.values(res.data).reduce((a, b) => a + b, 0)
-          this.sums = res.data
           this.done = true
+          this.showNext = true
         })
 
       // show hidden-content
-      document.getElementById('hidden-content').style.display = 'block'
+      if (document.getElementById('hidden-content')) {
+        document.getElementById('hidden-content').style.display = 'block'
+      }
     },
   },
 }

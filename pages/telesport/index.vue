@@ -619,8 +619,10 @@ export default {
     },
   },
   mounted() {
-    this.loadAds()
-    this.loadMore()
+    this.$nextTick(() => {
+      this.loadAds()
+      this.loadMore()
+    })
   },
   methods: {
     loadMore() {
