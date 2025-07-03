@@ -183,6 +183,7 @@
                       href="https://pretplata.telegram.hr/social-login/social-sign/sign?social_provider_key=facebook&success_login_url=https://www.telegram.hr/pretplata/pola"
                       class="full center remp-social-logbtn animate"
                     >
+                      <font-awesome-icon :icon="['fab', 'facebook-f']" class ="fb-fill"/>
                       <i class="fa-brands fa-facebook-f"></i>
                       Facebook
                     </a>

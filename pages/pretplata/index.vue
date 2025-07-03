@@ -215,11 +215,17 @@
                       </div>
                       <div>Kartica</div>
                       <div class="flex remp-icon-list">
-                        <i class="fa-brands fa-cc-visa"></i>
-                        <i class="fa-brands fa-cc-mastercard"></i>
-                        <i class="fa-brands fa-cc-diners-club"></i>
-                        <i class="fa-brands fa-apple-pay"></i>
-                        <i class="fa-brands fa-google-pay"></i>
+                        <!-- <font-awesome-icon :icon="['fab', 'cc-visa']" /> -->
+                        <img src="@/assets/img/visa.svg" alt="Visa"/>
+                        <!-- <font-awesome-icon :icon="['fab', 'cc-mastercard']" /> -->
+                        <img src="@/assets/img/mastercard.svg" alt="Mastercard"/>
+                        <!-- <font-awesome-icon :icon="['fab', 'cc-diners-club']" /> -->
+                        <img src="@/assets/img/diners-club.svg" alt = "Diners Club"/>
+                        <!-- <font-awesome-icon :icon="['fab', 'cc-apple-pay']" /> -->
+                        <img src="@/assets/img/apple-pay.svg" alt="Apple pay"/>
+                        <!-- <font-awesome-icon :icon="['fab', 'google-pay']" /> -->
+                        <img src="@/assets/img/google-pay.svg" alt="Google pay"/>
+
                       </div>
                       <div class="full remp-special-note">
                         Visa, Mastercard, Diners, Apple Pay i Google Pay
@@ -289,7 +295,12 @@
                           :href="`http://pretplata.telegram.hr/users/google/sign?url=https://www.telegram.hr/pretplata/`"
                           class="full center remp-social-logbtn animate"
                         >
-                          <font-awesome-icon :icon="['fab', 'google']" />
+                          <!-- <font-awesome-icon :icon="['fab', 'google']" /> -->
+                          <img src="@/assets/img/google-logo.svg" alt="Google Logo"
+                            class ="google-logo"
+                            width="25"
+                            height="8"
+                          />
                           <i class="fa-brands fa-google"></i>
                           Google
                         </a>
@@ -299,7 +310,7 @@
                           href="https://pretplata.telegram.hr/social-login/social-sign/sign?social_provider_key=facebook&success_login_url=https://www.telegram.hr/pretplata/"
                           class="full center remp-social-logbtn animate"
                         >
-                          <font-awesome-icon :icon="['fab', 'facebook-f']" />
+                          <font-awesome-icon :icon="['fab', 'facebook-f']" class="fb-fill" />
                           <i class="fa-brands fa-facebook-f"></i>
                           Facebook
                         </a>
