@@ -216,23 +216,15 @@
                       <div>Kartica</div>
                       <div class="flex remp-icon-list">
                         <!-- <font-awesome-icon :icon="['fab', 'cc-visa']" /> -->
-                        <!-- <img src="https://predplatne.dennikn.sk/layouts/dennikn/img/icons/visa.svg" alt="Visa" -->
-                        <img src="https://www.svgrepo.com/show/452128/visa.svg" alt="Visa"
-
-                          />
+                        <img src="@/assets/img/visa.svg" alt="Visa"/>
                         <!-- <font-awesome-icon :icon="['fab', 'cc-mastercard']" /> -->
-                        <!-- <img src="https://predplatne.dennikn.sk/layouts/dennikn/img/icons/mastercard.svg" alt="Mastercard" -->
-                        <img src="https://www.svgrepo.com/show/452059/mastercard.svg" alt="Mastercard"
-                          />
+                        <img src="@/assets/img/mastercard.svg" alt="Mastercard"/>
                         <!-- <font-awesome-icon :icon="['fab', 'cc-diners-club']" /> -->
-                        <!-- <img src="https://www.svgrepo.com/show/508420/diners-club-international.svg" alt = "Diners Club"/> -->
-                        <img src="https://www.svgrepo.com/show/508420/diners-club-international.svg" alt = "Diners Club"/>
+                        <img src="@/assets/img/diners-club.svg" alt = "Diners Club"/>
                         <!-- <font-awesome-icon :icon="['fab', 'cc-apple-pay']" /> -->
-                        <!-- <img src="https://predplatne.dennikn.sk/layouts/dennikn/img/icons/applepay.svg" alt="Apple pay"/> -->
-                        <img src="https://www.svgrepo.com/show/452157/apple-pay.svg" alt="Apple pay"/>
+                        <img src="@/assets/img/apple-pay.svg" alt="Apple pay"/>
                         <!-- <font-awesome-icon :icon="['fab', 'google-pay']" /> -->
-                        <!-- <img src="https://predplatne.dennikn.sk/layouts/dennikn/img/icons/googlepay.svg" alt="Google pay"/> -->
-                        <img src="https://www.svgrepo.com/show/452222/google-pay.svg" alt="Google pay"/>
+                        <img src="@/assets/img/google-pay.svg" alt="Google pay"/>
 
                       </div>
                       <div class="full remp-special-note">
@@ -304,10 +296,8 @@
                           class="full center remp-social-logbtn animate"
                         >
                           <!-- <font-awesome-icon :icon="['fab', 'google']" /> -->
-                          <img
-                            src="https://www.svgrepo.com/show/303108/google-icon-logo.svg"
+                          <img src="@/assets/img/google-logo.svg" alt="Google Logo"
                             class ="google-logo"
-                            alt="Google Logo"
                             width="25"
                             height="8"
                           />
