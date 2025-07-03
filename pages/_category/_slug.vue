@@ -977,6 +977,9 @@ export default {
             }
           })
       }
+      if (this.post.paywall === 'never') {
+        return
+      }
       const _that = this
       window.marfeel.cmd.push([
         'compass',
