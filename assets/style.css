@@ -3501,7 +3501,7 @@ html.large-fontsize,
 
 .pretplata-page .pretplata-packbox .sub-price {
   font-size: 72px;
-  font-size: 3.6rem;
+  font-size: 3rem;
   margin-bottom: 0px;
 }
 
@@ -13333,8 +13333,10 @@ label.payment-tile svg {
   margin-bottom: 0px;
   margin-top: 8px;
   font-size: 0.8rem;
-  padding: 10px 16px;
+  padding: 8px 16px;
   padding-top: 9px;
+  border-radius: 18px;
+
 }
 
 @media screen and (max-width: 767px) {
@@ -15811,6 +15813,7 @@ input:checked~.input-hidden {
   color: #666;
   font-family: 'Barlow', sans-serif;
   cursor: pointer;
+  border-radius: 8px;
 }
 
 .dark-mode .remp-social-logbtn {
