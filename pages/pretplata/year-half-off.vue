@@ -164,7 +164,7 @@
                   class="full newbtn huge-newbtn center-text clickable"
                   @click="login"
                 >
-                  Prijavi se
+                  Prijavite se
                 </button>
                 <p
                   class="full remp-mini-text center-text faded column-mini-vertical-pad"

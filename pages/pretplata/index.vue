@@ -46,11 +46,12 @@
                         {{ standardPrice }}€
                       </div>
                       <div class="nothfour full center-text undertitle">
-                        {{
+                        <!-- {{
                           term === 'pretplata-mjesecno'
                             ? 'Mjesečno'
                             : 'Godišnje'
-                        }}
+                        }} -->
+                        Mjesečno
                       </div>
                     </div>
                     <div class="full pretplata-benefits mobile-two-thirds">
@@ -102,11 +103,12 @@
                       </div>
                       <div class="full sub-price bold">{{ premiumPrice }}€</div>
                       <div class="nothfour full center-text undertitle">
-                        {{
+                        <!-- {{
                           term === 'pretplata-mjesecno'
                             ? 'Mjesečno'
                             : 'Godišnje'
-                        }}
+                        }} -->
+                        Mjesečno
                       </div>
                     </div>
                     <div class="full pretplata-benefits mobile-two-thirds">
@@ -286,7 +288,7 @@
                       class="full newbtn huge-newbtn center-text clickable"
                       @click="login"
                     >
-                      Prijavi se
+                      Prijavite se
                     </button>
                     <p class="full remp-mini-text center-text faded">ili</p>
                     <div class="full flex relative">
@@ -436,7 +438,7 @@
                   </div>
                   <button
                     v-if="buyable"
-                    class="full newbtn huge-newbtn center-text clickable green-newbtn"
+                    class="ninety newbtn huge-newbtn center-text clickable green-newbtn"
                     @click.prevent="submit"
                   >
                     Dovršite kupnju
@@ -522,14 +524,14 @@ export default {
       if (this.term === 'pretplata-mjesecno') {
         return '7,99'
       } else {
-        return '79'
+        return '7,99'
       }
     },
     premiumPrice() {
       if (this.term === 'pretplata-mjesecno') {
         return '9,99'
       } else {
-        return '99'
+        return '9,99'
       }
     },
     price() {
