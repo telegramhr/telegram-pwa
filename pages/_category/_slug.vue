@@ -975,7 +975,7 @@ export default {
               this.giftValid = true
             }
           })
-      }lug
+      }
       if (this.post.paywall === 'never') {
         return
       }
