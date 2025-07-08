@@ -435,6 +435,9 @@
           </article>
         </div>
         <client-only>
+          <div v-if="!hasPremium && hasLinker" class="full have-background">
+            <midas :key="`midas-16-${post.id}`" type="standard-16"></midas>
+          </div>
           <div
             v-if="
               !hasPremium &&
@@ -448,10 +451,6 @@
                 <ad-unit id="telegram_underarticle_v2"></ad-unit>
               </div>
             </div>
-          </div>
-
-          <div v-if="!hasPremium && hasLinker" class="full have-background">
-            <midas :key="`midas-16-${post.id}`" type="standard-16"></midas>
           </div>
           <div
             v-if="!hasPremium && hasLinker"
@@ -976,18 +975,22 @@ export default {
               this.giftValid = true
             }
           })
-      }
+      }lug
       if (this.post.paywall === 'never') {
         return
       }
       const _that = this
+      console.log('Marfeel sub: ' + this.post.paywall)
       window.marfeel.cmd.push([
         'compass',
         function (compass) {
           if (_that.post.paywall === 'always') {
             compass.setPageVar('closed', 'hard-paywall')
           }
-          if (_that.post.paywall === 'none') {
+          if (
+            _that.post.paywall === 'none' ||
+            _that.post.paywall === 'paragraphs'
+          ) {
             compass.setPageVar('closed', 'dynamic-paywall')
           }
         },
