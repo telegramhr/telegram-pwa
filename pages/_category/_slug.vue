@@ -446,7 +446,7 @@
             class="full has-background"
           >
             <h-t-premium></h-t-premium>
-            <div>
+            <div class="container flex center have-background">
               <div>
                 <ad-unit id="telegram_underarticle_v2"></ad-unit>
               </div>
