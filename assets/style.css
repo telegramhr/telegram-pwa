@@ -15933,17 +15933,18 @@ input:checked~.input-hidden {
   }
 
   .remp-pretplata .pretplata-benefits {
-    padding-left: 0.4rem;
+    padding-left: 0.8rem;
   }
 
   .remp-pretplata .pretplata-benefits p {
     font-size: 14px;
     font-size: 0.7rem;
-    text-align: right;
+    text-align: left;
   }
 
   .remp-pretplata .pretplata-benefits div svg {
-    display: none;
+    /* display: none; */
+    margin-right: 8px;
   }
 
   .remp-pretplata .pretplata-packbox .mobile-third>* {
