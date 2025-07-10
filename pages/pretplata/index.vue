@@ -229,8 +229,6 @@
                         <img src="@/assets/img/visa.svg" alt="Visa"/>
                         <!-- <font-awesome-icon :icon="['fab', 'cc-mastercard']" /> -->
                         <img src="@/assets/img/mastercard.svg" alt="Mastercard"/>
-                        <!-- <font-awesome-icon :icon="['fab', 'cc-diners-club']" /> -->
-                        <img src="@/assets/img/diners-club.svg" alt = "Diners Club"/>
                         <!-- <font-awesome-icon :icon="['fab', 'cc-apple-pay']" /> -->
                         <img src="@/assets/img/apple-pay.svg" alt="Apple pay"/>
                         <!-- <font-awesome-icon :icon="['fab', 'google-pay']" /> -->
@@ -238,7 +236,7 @@
 
                       </div>
                       <div class="full remp-special-note">
-                        Visa, Mastercard, Diners, Apple Pay i Google Pay
+                        Visa, Mastercard, Apple Pay i Google Pay
                       </div>
                     </label>
                   </div>
