@@ -116,7 +116,7 @@ export default {
   },
   computed: {
     id() {
-      if (this.$store.getters['user/hasPremium']) {
+      if (this.$store.getters['user/hasPremium'] && this.type !== 'ecomm') {
         return 0
       }
       if (

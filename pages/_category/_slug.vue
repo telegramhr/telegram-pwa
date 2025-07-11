@@ -452,9 +452,7 @@
               </div>
             </div>
           </div>
-          <div
-            class="container flex center have-background"
-          >
+          <div class="container flex center have-background">
             <midas :key="`midas-ecoom-${post.id}`" type="ecomm"></midas>
             <div>
               <ad-unit id="telegram_underarticle_v1"></ad-unit>
