@@ -194,6 +194,23 @@ export default {
         }
         const script = document.createElement('script')
         const main = this.ids[category].main ?? ''
+        if (this.$store.state.user.access.length) {
+          let ids = ''
+          if (this.$route.fullPath.includes('telesport')) {
+            ids += `11902`
+          } else if (this.$route.fullPath.includes('super1')) {
+            ids += '11933'
+          } else {
+            ids += `11899`
+          }
+          const script = document.createElement('script')
+          script.src = `https://cdn2.midas-network.com/Scripts/midasWidget-11-${main}-${ids}.js`
+          script.async = true
+          document
+            .getElementById(`midasWidget__${this.id}`)
+            .insertAdjacentElement('afterend', script)
+          return false // don't load midas if user has premium
+        }
         let ids = Object.keys(this.ids[category])
           .filter((value) => {
             return (

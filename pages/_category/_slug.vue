@@ -453,7 +453,6 @@
             </div>
           </div>
           <div
-            v-if="!hasPremium && hasLinker"
             class="container flex center have-background"
           >
             <midas :key="`midas-ecoom-${post.id}`" type="ecomm"></midas>
@@ -902,10 +901,6 @@ export default {
         const midas = document.getElementById('intext_midas')
         if (midas) {
           midas.style.display = 'none'
-        }
-        const midas2 = document.getElementById('intext_midas2')
-        if (midas2) {
-          midas2.style.display = 'none'
         }
       }
     },
