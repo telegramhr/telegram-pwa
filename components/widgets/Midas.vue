@@ -178,7 +178,7 @@ export default {
       }
     },
     loadMidas() {
-      if (this.id && this.type === 'ecomm') {
+      if (this.type === 'ecomm') {
         let category = this.$route.params.category
         if (this.$route.fullPath.includes('super1')) {
           category = 'super1'
@@ -210,6 +210,9 @@ export default {
             .getElementById(`midasWidget__${this.id}`)
             .insertAdjacentElement('afterend', script)
           return false // don't load midas if user has premium
+        }
+        if (!this.id) {
+          return false // don't load midas if id is not set
         }
         let ids = Object.keys(this.ids[category])
           .filter((value) => {
