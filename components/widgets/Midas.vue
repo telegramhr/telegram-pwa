@@ -204,6 +204,8 @@ export default {
           .join('-')
         if (this.$route.fullPath.includes('telesport')) {
           ids += `-11902`
+        } else if (this.$route.fullPath.includes('super1')) {
+          ids += '-11933'
         } else {
           ids += `-11899`
         }
