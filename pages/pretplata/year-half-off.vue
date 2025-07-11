@@ -297,24 +297,32 @@
                 <input type="hidden" name="auth" value="1" />
                 <input type="hidden" name="email" :value="email" />
                 <div
-                  v-if="!buyable"
-                  class="full newbtn huge-newbtn center-text clickable locked-newbtn"
-                >
-                  Dovršite kupnju
-                </div>
-                <div
-                  v-if="!buyable"
+                  v-if="!loggedIn"
                   class="full barlow smaller-text faded center-text column-mini-top-pad"
                 >
-                  Ispunite sve korake iznad kako bi dovršili kupnju.
+                  Molimo da se prijavite kako bi dovršili kupnju
                 </div>
-                <button
-                  v-if="buyable"
-                  class="full newbtn huge-newbtn center-text clickable green-newbtn"
-                  @click.prevent="submit"
-                >
-                  Dovršite kupnju
-                </button>
+                <template v-else>
+                  <div
+                    v-if="!buyable"
+                    class="full newbtn huge-newbtn center-text clickable locked-newbtn"
+                  >
+                    Dovršite kupnju
+                  </div>
+                  <div
+                    v-if="!buyable"
+                    class="full barlow smaller-text faded center-text column-mini-top-pad"
+                  >
+                    Ispunite sve korake iznad kako bi dovršili kupnju.
+                  </div>
+                  <button
+                    v-if="buyable"
+                    class="full newbtn huge-newbtn center-text clickable green-newbtn"
+                    @click.prevent="submit"
+                  >
+                    Dovršite kupnju
+                  </button>
+                </template>
                 <div
                   class="full barlow smaller-text faded center-text column-mini-top-pad"
                 >

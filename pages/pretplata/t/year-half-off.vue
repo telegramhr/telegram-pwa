@@ -164,7 +164,7 @@
                   class="full newbtn huge-newbtn center-text clickable"
                   @click="login"
                 >
-                  Prijavi se
+                  Prijavite se
                 </button>
                 <p
                   class="full remp-mini-text center-text faded column-mini-vertical-pad"
@@ -183,6 +183,10 @@
                       href="https://pretplata.telegram.hr/social-login/social-sign/sign?social_provider_key=facebook&success_login_url=https://www.telegram.hr/pretplata/pola"
                       class="full center remp-social-logbtn animate"
                     >
+                      <font-awesome-icon
+                        :icon="['fab', 'facebook-f']"
+                        class="fb-fill"
+                      />
                       <i class="fa-brands fa-facebook-f"></i>
                       Facebook
                     </a>
@@ -293,24 +297,32 @@
                 <input type="hidden" name="auth" value="1" />
                 <input type="hidden" name="email" :value="email" />
                 <div
-                  v-if="!buyable"
-                  class="full newbtn huge-newbtn center-text clickable locked-newbtn"
-                >
-                  Dovršite kupnju
-                </div>
-                <div
-                  v-if="!buyable"
+                  v-if="!loggedIn"
                   class="full barlow smaller-text faded center-text column-mini-top-pad"
                 >
-                  Ispunite sve korake iznad kako bi dovršili kupnju.
+                  Molimo da se prijavite kako bi dovršili kupnju
                 </div>
-                <button
-                  v-if="buyable"
-                  class="full newbtn huge-newbtn center-text clickable green-newbtn"
-                  @click.prevent="submit"
-                >
-                  Dovršite kupnju
-                </button>
+                <template v-else>
+                  <div
+                    v-if="!buyable"
+                    class="full newbtn huge-newbtn center-text clickable locked-newbtn"
+                  >
+                    Dovršite kupnju
+                  </div>
+                  <div
+                    v-if="!buyable"
+                    class="full barlow smaller-text faded center-text column-mini-top-pad"
+                  >
+                    Ispunite sve korake iznad kako bi dovršili kupnju.
+                  </div>
+                  <button
+                    v-if="buyable"
+                    class="full newbtn huge-newbtn center-text clickable green-newbtn"
+                    @click.prevent="submit"
+                  >
+                    Dovršite kupnju
+                  </button>
+                </template>
                 <div
                   class="full barlow smaller-text faded center-text column-mini-top-pad"
                 >

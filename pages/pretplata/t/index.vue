@@ -46,30 +46,45 @@
                         {{ standardPrice }}€
                       </div>
                       <div class="nothfour full center-text undertitle">
-                        {{
+                        <!-- {{
                           term === 'pretplata-mjesecno'
                             ? 'Mjesečno'
                             : 'Godišnje'
-                        }}
+                        }} -->
+                        Mjesečno
                       </div>
                     </div>
                     <div class="full pretplata-benefits mobile-two-thirds">
-                      <p class="full animate">
-                        <i class="fa-solid fa-check"></i>
-                        neograničeno čitanje Telegrama
-                      </p>
-                      <p class="full animate">
-                        <i class="fa-solid fa-check"></i>
-                        posebni popusti i pogodnosti
-                      </p>
-                      <p class="full animate">
-                        <i class="fa-solid fa-check"></i>
-                        specijalni newsletteri
-                      </p>
-                      <p class="full animate">
-                        <i class="fa-solid fa-check"></i>
-                        surfanje s manje oglasa
-                      </p>
+                      <div class="full animate flex no-wrap">
+                        <font-awesome-icon :icon="['fas', 'check']" />
+                        <p class="full">
+                          Neograničeno čitanje <strong>Telegrama</strong> i
+                          pristup arhivi svih članaka
+                        </p>
+                      </div>
+                      <div class="full animate flex no-wrap">
+                        <font-awesome-icon :icon="['fas', 'check']" />
+                        <p class="full">
+                          Ekskluzivni newsletteri s posebnim analizama
+                          nagrađivanih autora
+                        </p>
+                      </div>
+                      <div class="full animate flex no-wrap">
+                        <font-awesome-icon :icon="['fas', 'check']" />
+                        <p class="full">
+                          Surfanje uz <strong>manje reklama</strong>
+                        </p>
+                      </div>
+                      <div class="full animate flex no-wrap">
+                        <font-awesome-icon :icon="['fas', 'check']" />
+                        <p class="full">10 poklon članaka mjesečno</p>
+                      </div>
+                      <div class="full animate flex no-wrap">
+                        <font-awesome-icon :icon="['fas', 'check']" />
+                        <p class="full">
+                          Posebni popusti i pogodnost Telegram Kluba
+                        </p>
+                      </div>
                     </div>
                     <div class="full center btn-parent">
                       <div class="btn animate">
@@ -102,34 +117,53 @@
                       </div>
                       <div class="full sub-price bold">{{ premiumPrice }}€</div>
                       <div class="nothfour full center-text undertitle">
-                        {{
+                        <!-- {{
                           term === 'pretplata-mjesecno'
                             ? 'Mjesečno'
                             : 'Godišnje'
-                        }}
+                        }} -->
+                        Mjesečno
                       </div>
                     </div>
                     <div class="full pretplata-benefits mobile-two-thirds">
-                      <p class="full animate">
-                        <i class="fa-solid fa-check"></i>
-                        neograničeno čitanje Telegrama
-                      </p>
-                      <p class="full animate">
-                        <i class="fa-solid fa-check"></i>
-                        neograničeno čitanje Telesporta
-                      </p>
-                      <p class="full animate">
-                        <i class="fa-solid fa-check"></i>
-                        posebni popusti i pogodnosti
-                      </p>
-                      <p class="full animate">
-                        <i class="fa-solid fa-check"></i>
-                        specijalni newsletteri
-                      </p>
-                      <p class="full animate">
-                        <i class="fa-solid fa-check"></i>
-                        surfanje bez oglasa
-                      </p>
+                      <div class="full animate flex no-wrap">
+                        <font-awesome-icon :icon="['fas', 'check']" />
+                        <p class="full">
+                          Neograničeno čitanje <strong>Telegrama</strong> i
+                          pristup arhivi svih članaka
+                        </p>
+                      </div>
+                      <div class="full animate flex no-wrap">
+                        <font-awesome-icon :icon="['fas', 'check']" />
+                        <p class="full">
+                          Neograničeno čitanje <strong>Telesporta</strong> i
+                          pristup arhivi svih članaka
+                        </p>
+                      </div>
+                      <div class="full animate flex no-wrap">
+                        <font-awesome-icon :icon="['fas', 'check']" />
+                        <p class="full">
+                          Ekskluzivni newsletteri s posebnim analizama
+                          nagrađivanih autora
+                        </p>
+                      </div>
+                      <div class="full animate flex no-wrap">
+                        <font-awesome-icon :icon="['fas', 'check']" />
+                        <p class="full">
+                          Fokus na sadržaj -
+                          <strong>surfanje bez reklama</strong>
+                        </p>
+                      </div>
+                      <div class="full animate flex no-wrap">
+                        <font-awesome-icon :icon="['fas', 'check']" />
+                        <p class="full">10 poklon članaka mjesečno</p>
+                      </div>
+                      <div class="full animate flex no-wrap">
+                        <font-awesome-icon :icon="['fas', 'check']" />
+                        <p class="full">
+                          Posebni popusti i pogodnost Telegram Kluba
+                        </p>
+                      </div>
                     </div>
                     <div class="full center btn-parent">
                       <div class="btn animate">
@@ -215,14 +249,23 @@
                       </div>
                       <div>Kartica</div>
                       <div class="flex remp-icon-list">
-                        <i class="fa-brands fa-cc-visa"></i>
-                        <i class="fa-brands fa-cc-mastercard"></i>
-                        <i class="fa-brands fa-cc-diners-club"></i>
-                        <i class="fa-brands fa-apple-pay"></i>
-                        <i class="fa-brands fa-google-pay"></i>
+                        <!-- <font-awesome-icon :icon="['fab', 'cc-visa']" /> -->
+                        <img src="@/assets/img/visa.svg" alt="Visa" />
+                        <!-- <font-awesome-icon :icon="['fab', 'cc-mastercard']" /> -->
+                        <img
+                          src="@/assets/img/mastercard.svg"
+                          alt="Mastercard"
+                        />
+                        <!-- <font-awesome-icon :icon="['fab', 'cc-apple-pay']" /> -->
+                        <img src="@/assets/img/apple-pay.svg" alt="Apple pay" />
+                        <!-- <font-awesome-icon :icon="['fab', 'google-pay']" /> -->
+                        <img
+                          src="@/assets/img/google-pay.svg"
+                          alt="Google pay"
+                        />
                       </div>
                       <div class="full remp-special-note">
-                        Visa, Mastercard, Diners, Apple Pay i Google Pay
+                        Visa, Mastercard, Apple Pay i Google Pay
                       </div>
                     </label>
                   </div>
@@ -280,7 +323,7 @@
                       class="full newbtn huge-newbtn center-text clickable"
                       @click="login"
                     >
-                      Prijavi se
+                      Prijavite se
                     </button>
                     <p class="full remp-mini-text center-text faded">ili</p>
                     <div class="full flex relative">
@@ -289,6 +332,14 @@
                           :href="`http://pretplata.telegram.hr/users/google/sign?url=https://www.telegram.hr/pretplata/`"
                           class="full center remp-social-logbtn animate"
                         >
+                          <!-- <font-awesome-icon :icon="['fab', 'google']" /> -->
+                          <img
+                            src="@/assets/img/google-logo.svg"
+                            alt="Google Logo"
+                            class="google-logo"
+                            width="25"
+                            height="8"
+                          />
                           <i class="fa-brands fa-google"></i>
                           Google
                         </a>
@@ -298,6 +349,10 @@
                           href="https://pretplata.telegram.hr/social-login/social-sign/sign?social_provider_key=facebook&success_login_url=https://www.telegram.hr/pretplata/"
                           class="full center remp-social-logbtn animate"
                         >
+                          <font-awesome-icon
+                            :icon="['fab', 'facebook-f']"
+                            class="fb-fill"
+                          />
                           <i class="fa-brands fa-facebook-f"></i>
                           Facebook
                         </a>
@@ -416,19 +471,27 @@
                     {{ totalPrice ? 'za ' + totalPrice + '€' : '' }}
                   </div>
                   <div
-                    v-if="!buyable"
+                    v-if="!loggedIn"
                     class="full barlow smaller-text faded center-text column-mini-top-pad"
                   >
-                    Ispunite sve korake iznad kako bi dovršili kupnju.
+                    Molimo da se prijavite kako bi dovršili kupnju
                   </div>
-                  <button
-                    v-if="buyable"
-                    class="full newbtn huge-newbtn center-text clickable green-newbtn"
-                    @click.prevent="submit"
-                  >
-                    Dovršite kupnju
-                    {{ totalPrice ? 'za ' + totalPrice + '€' : '' }}
-                  </button>
+                  <template v-else>
+                    <div
+                      v-if="!buyable"
+                      class="full barlow smaller-text faded center-text column-mini-top-pad"
+                    >
+                      Ispunite sve korake iznad kako bi dovršili kupnju.
+                    </div>
+                    <button
+                      v-if="buyable"
+                      class="ninety newbtn huge-newbtn center-text clickable green-newbtn"
+                      @click.prevent="submit"
+                    >
+                      Dovršite kupnju
+                      {{ totalPrice ? 'za ' + totalPrice + '€' : '' }}
+                    </button>
+                  </template>
                   <p class="full remp-mini-text center-text faded">
                     Pretplatu možete otkazati u bilo kojem trenutku. Pretplata
                     se automatski obnavlja.
@@ -509,14 +572,14 @@ export default {
       if (this.term === 'pretplata-mjesecno') {
         return '7,99'
       } else {
-        return '79'
+        return '7,99'
       }
     },
     premiumPrice() {
       if (this.term === 'pretplata-mjesecno') {
         return '9,99'
       } else {
-        return '99'
+        return '9,99'
       }
     },
     price() {
