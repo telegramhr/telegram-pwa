@@ -40,7 +40,7 @@
                   >
                     <div class="full flex mobile-third relative">
                       <div class="full flex overtitle-parent">
-                        <div class="noththree overtitle">Standard</div>
+                        <div class="noththree overtitle all-caps">Standard</div>
                       </div>
                       <div class="full sub-price bold">
                         {{ standardPrice }}€
@@ -111,8 +111,8 @@
                   >
                     <div class="full flex mobile-third relative">
                       <div class="full flex overtitle-parent">
-                        <div class="noththree overtitle">
-                          Premium <span class="ib">(bez oglasa)</span>
+                        <div class="noththree overtitle all-caps">
+                          Premium <span class="ib all-small">(bez oglasa)</span>
                         </div>
                       </div>
                       <div class="full sub-price bold">{{ premiumPrice }}€</div>

@@ -1066,6 +1066,18 @@ h2.section-title {
   display: none;
 }
 
+/* marefeel layout */
+
+.hipz645:nth-of-type(1) {
+  margin-top: 50px !important;
+}
+
+.hipz645 {
+  border-top: 3px solid black;
+  border-radius: 0px !important;
+  justify-content: center !important;
+}
+
 /* Block title */
 
 .block-title {
