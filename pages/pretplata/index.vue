@@ -57,7 +57,7 @@
                     <div class="full pretplata-benefits mobile-two-thirds">
                       <div class="full animate flex no-wrap">
                         <font-awesome-icon :icon="['fas', 'check']" />
-                        <p class ="full">Neograničeno čitanje <strong>Telegrama</strong> i pristup arhivi svih članka</p>
+                        <p class ="full">Neograničeno čitanje <strong>Telegrama</strong> i pristup arhivi svih članaka</p>
                       </div>
                       <div class="full animate flex no-wrap">
                         <font-awesome-icon :icon="['fas', 'check']" />
@@ -69,7 +69,7 @@
                       </div>
                       <div class="full animate flex no-wrap">
                         <font-awesome-icon :icon="['fas', 'check']" />
-                        <p class ="full">10 poklon članka mjesečno</p>
+                        <p class ="full">10 poklon članaka mjesečno</p>
                       </div>
                       <div class="full animate flex no-wrap">
                         <font-awesome-icon :icon="['fas', 'check']" />
@@ -118,11 +118,11 @@
                     <div class="full pretplata-benefits mobile-two-thirds">
                       <div class="full animate flex no-wrap">
                         <font-awesome-icon :icon="['fas', 'check']" />
-                        <p class = "full">Neograničeno čitanje <strong>Telegrama</strong> i pristup arhivi svih članka</p>
+                        <p class = "full">Neograničeno čitanje <strong>Telegrama</strong> i pristup arhivi svih članaka</p>
                       </div>
                       <div class="full animate flex no-wrap">
                         <font-awesome-icon :icon="['fas', 'check']" />
-                        <p class = "full">Neograničeno čitanje <strong>Telesporta</strong> i pristup arhivi svih članka</p>
+                        <p class = "full">Neograničeno čitanje <strong>Telesporta</strong> i pristup arhivi svih članaka</p>
                       </div>
                       <div class="full animate flex no-wrap">
                         <font-awesome-icon :icon="['fas', 'check']" />
@@ -134,7 +134,7 @@
                       </div>
                       <div class="full animate flex no-wrap">
                         <font-awesome-icon :icon="['fas', 'check']" />
-                        <p class = "full">10 poklon članka mjesečno</p>
+                        <p class = "full">10 poklon članaka mjesečno</p>
                       </div>
                       <div class="full animate flex no-wrap">
                         <font-awesome-icon :icon="['fas', 'check']" />
