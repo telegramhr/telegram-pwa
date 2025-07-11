@@ -55,22 +55,26 @@
                       </div>
                     </div>
                     <div class="full pretplata-benefits mobile-two-thirds">
-                      <p class="full animate">
-                        <i class="fa-solid fa-check"></i>
-                        neograničeno čitanje Telegrama
-                      </p>
-                      <p class="full animate">
-                        <i class="fa-solid fa-check"></i>
-                        posebni popusti i pogodnosti
-                      </p>
-                      <p class="full animate">
-                        <i class="fa-solid fa-check"></i>
-                        specijalni newsletteri
-                      </p>
-                      <p class="full animate">
-                        <i class="fa-solid fa-check"></i>
-                        surfanje s manje oglasa
-                      </p>
+                      <div class="full animate flex no-wrap">
+                        <font-awesome-icon :icon="['fas', 'check']" />
+                        <p class ="full">Neograničeno čitanje <strong>Telegrama</strong> i pristup arhivi svih članaka</p>
+                      </div>
+                      <div class="full animate flex no-wrap">
+                        <font-awesome-icon :icon="['fas', 'check']" />
+                        <p class ="full">Ekskluzivni newsletteri s posebnim analizama nagrađivanih autora</p>
+                      </div>
+                      <div class="full animate flex no-wrap">
+                        <font-awesome-icon :icon="['fas', 'check']" />
+                        <p class ="full">Surfanje uz <strong>manje reklama</strong></p>
+                      </div>
+                      <div class="full animate flex no-wrap">
+                        <font-awesome-icon :icon="['fas', 'check']" />
+                        <p class ="full">10 poklon članaka mjesečno</p>
+                      </div>
+                      <div class="full animate flex no-wrap">
+                        <font-awesome-icon :icon="['fas', 'check']" />
+                        <p class ="full">Posebni popusti i pogodnost Telegram Kluba</p>
+                      </div>
                     </div>
                     <div class="full center btn-parent">
                       <div class="btn animate">
@@ -112,26 +116,30 @@
                       </div>
                     </div>
                     <div class="full pretplata-benefits mobile-two-thirds">
-                      <p class="full animate">
-                        <i class="fa-solid fa-check"></i>
-                        neograničeno čitanje Telegrama
-                      </p>
-                      <p class="full animate">
-                        <i class="fa-solid fa-check"></i>
-                        neograničeno čitanje Telesporta
-                      </p>
-                      <p class="full animate">
-                        <i class="fa-solid fa-check"></i>
-                        posebni popusti i pogodnosti
-                      </p>
-                      <p class="full animate">
-                        <i class="fa-solid fa-check"></i>
-                        specijalni newsletteri
-                      </p>
-                      <p class="full animate">
-                        <i class="fa-solid fa-check"></i>
-                        surfanje bez oglasa
-                      </p>
+                      <div class="full animate flex no-wrap">
+                        <font-awesome-icon :icon="['fas', 'check']" />
+                        <p class = "full">Neograničeno čitanje <strong>Telegrama</strong> i pristup arhivi svih članaka</p>
+                      </div>
+                      <div class="full animate flex no-wrap">
+                        <font-awesome-icon :icon="['fas', 'check']" />
+                        <p class = "full">Neograničeno čitanje <strong>Telesporta</strong> i pristup arhivi svih članaka</p>
+                      </div>
+                      <div class="full animate flex no-wrap">
+                        <font-awesome-icon :icon="['fas', 'check']" />
+                        <p class = "full">Ekskluzivni newsletteri s posebnim analizama nagrađivanih autora</p>
+                      </div>
+                      <div class="full animate flex no-wrap">
+                        <font-awesome-icon :icon="['fas', 'check']" />
+                        <p class = "full">Fokus na sadržaj - <strong>surfanje bez reklama</strong></p>
+                      </div>
+                      <div class="full animate flex no-wrap">
+                        <font-awesome-icon :icon="['fas', 'check']" />
+                        <p class = "full">10 poklon članaka mjesečno</p>
+                      </div>
+                      <div class="full animate flex no-wrap">
+                        <font-awesome-icon :icon="['fas', 'check']" />
+                        <p class = "full">Posebni popusti i pogodnost Telegram Kluba</p>
+                      </div>
                     </div>
                     <div class="full center btn-parent">
                       <div class="btn animate">
@@ -221,8 +229,6 @@
                         <img src="@/assets/img/visa.svg" alt="Visa"/>
                         <!-- <font-awesome-icon :icon="['fab', 'cc-mastercard']" /> -->
                         <img src="@/assets/img/mastercard.svg" alt="Mastercard"/>
-                        <!-- <font-awesome-icon :icon="['fab', 'cc-diners-club']" /> -->
-                        <img src="@/assets/img/diners-club.svg" alt = "Diners Club"/>
                         <!-- <font-awesome-icon :icon="['fab', 'cc-apple-pay']" /> -->
                         <img src="@/assets/img/apple-pay.svg" alt="Apple pay"/>
                         <!-- <font-awesome-icon :icon="['fab', 'google-pay']" /> -->
@@ -230,7 +236,7 @@
 
                       </div>
                       <div class="full remp-special-note">
-                        Visa, Mastercard, Diners, Apple Pay i Google Pay
+                        Visa, Mastercard, Apple Pay i Google Pay
                       </div>
                     </label>
                   </div>
