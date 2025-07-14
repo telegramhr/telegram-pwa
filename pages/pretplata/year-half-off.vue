@@ -381,6 +381,9 @@ export default {
       }
       return 49
     },
+    loggedIn() {
+      return !!this.$store.state.user.id
+    },
   },
   watch: {
     email: _.debounce(function (value) {
