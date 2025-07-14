@@ -314,7 +314,7 @@
                       placeholder="Upišite lozinku"
                       name="password"
                     />
-                    <small v-show="!showPassword"
+                    <small class = "under-pretplata-email" v-show="!showPassword"
                       >Ukoliko niste registrirani korisnik, na navedenu email
                       adresu ćete zaprimiti pristupne podatke.</small
                     >
@@ -472,14 +472,14 @@
                   </div>
                   <div
                     v-if="!loggedIn"
-                    class="full barlow smaller-text faded center-text column-mini-top-pad"
+                    class="full barlow remp-mini-text smaller-text center-text column-mini-top-pad"
                   >
                     Molimo da se prijavite kako bi dovršili kupnju
                   </div>
                   <template v-else>
                     <div
                       v-if="!buyable"
-                      class="full barlow smaller-text faded center-text column-mini-top-pad"
+                      class="full barlow remp-mini-text smaller-text center-text column-mini-top-pad"
                     >
                       Ispunite sve korake iznad kako bi dovršili kupnju.
                     </div>
@@ -492,7 +492,7 @@
                       {{ totalPrice ? 'za ' + totalPrice + '€' : '' }}
                     </button>
                   </template>
-                  <p class="full remp-mini-text center-text faded">
+                  <p class="full remp-mini-text center-text">
                     Pretplatu možete otkazati u bilo kojem trenutku. Pretplata
                     se automatski obnavlja.
                   </p>
