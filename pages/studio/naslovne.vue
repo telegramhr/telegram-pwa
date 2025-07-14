@@ -199,9 +199,7 @@
                   type="radio"
                   name="autorType"
                 />
-                <label class="clickable animate" for="markovina"
-                >Šnajder</label
-                >
+                <label class="clickable animate" for="markovina">Šnajder</label>
               </div>
             </div>
             <div v-show="selected === 'krug'" class="full flex relative">
