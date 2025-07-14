@@ -144,6 +144,9 @@ export default {
     },
   },
   mounted() {
+    if (this.$store.state.user.access.length) {
+      return false // don't load midas if user has premium
+    }
     this.loadMidas()
     this.loadIntext()
   },
@@ -194,7 +197,7 @@ export default {
         }
         const script = document.createElement('script')
         const main = this.ids[category].main ?? ''
-        if (this.$store.state.user.access.length) {
+        /* if (this.$store.state.user.access.length) {
           let ids = ''
           if (this.$route.fullPath.includes('telesport')) {
             ids += `11902`
@@ -209,8 +212,8 @@ export default {
           document
             .getElementById(`midasWidget__${this.id}`)
             .insertAdjacentElement('afterend', script)
-          return false // don't load midas if user has premium
-        }
+          return false  // don't load midas if user has premium
+        } */
         if (!this.id) {
           return false // don't load midas if id is not set
         }

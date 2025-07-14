@@ -242,7 +242,7 @@
                 </template>
               </div>
               <!-- eslint-disable-next-line -->
-              <p v-if="post.perex" class="perex" v-html="post.perex"></p>
+              <p v-if="post.perex" class="perex" v-html="post.perex" itemprop="articleBody"></p>
               <div
                 v-if="post.type !== 'noimage'"
                 class="nothfive full flex relative article-meta"
@@ -257,7 +257,7 @@
                     :src="author.image"
                     :alt="author.name"
                   /><span>Piše</span
-                  ><span class="vcard author" rel="author">{{
+                  ><span class="vcard author" rel="author" itemprop="author">{{
                     author.name
                   }}</span></app-link
                 >
@@ -908,8 +908,12 @@ export default {
       }
       if (this.hasPremium) {
         const midas = document.getElementById('intext_midas')
+        const midas2 = document.getElementById('intext_midas2')
         if (midas) {
           midas.style.display = 'none'
+        }
+        if (midas2) {
+          midas2.style.display = 'none'
         }
       }
     },
