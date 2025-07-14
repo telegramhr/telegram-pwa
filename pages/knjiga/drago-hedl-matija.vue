@@ -42,7 +42,7 @@
               Besplatna dostava po cijeloj Hrvatskoj
             </div>
             <div class="full center btn-parent newbook-btn mobile-bottom-pad">
-              <!--<div class="newbtn clickable huge-newbtn animate" @click="buy">
+              <div class="newbtn clickable huge-newbtn animate" @click="buy">
                 {{ price ? 'Kupite' : 'Naručite' }}
                 <font-awesome-icon
                   :icon="['fab', 'cc-visa']"
@@ -53,8 +53,8 @@
                 <font-awesome-icon
                   :icon="['fab', 'cc-diners-club']"
                 ></font-awesome-icon>
-              </div>-->
-              <div class="newbtn huge-newbtn animate">Trenutno nedostupno</div>
+              </div>
+              <!--<div class="newbtn huge-newbtn animate">Trenutno nedostupno</div>-->
             </div>
           </div>
         </div>
@@ -132,7 +132,7 @@
         </p>
         <p class="center-text bold">
           Izdavač: Telegram Media Grupa<br />
-          2. izdanje, 2025. <br />
+          3. izdanje, 2025. <br />
           Uvez: Tvrdi<br />
           Broj stranica: 358<br />
           Godina izdanja: 2024.<br />
