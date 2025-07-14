@@ -108,6 +108,8 @@
           <article
             id="article-body"
             class="container column-full-pad flex relative mobile-side-pad have-background"
+            itemscope
+            itemtype="http://schema.org/NewsArticle"
           >
             <div class="full column article-head column-top-pad flex">
               <div class="full flex overtitle-parent relative">
@@ -166,7 +168,7 @@
                 <b v-if="categoryClass && categoryClass.includes('superone')">{{
                   parsedOvertitle
                 }}</b>
-                <h1 class="full">
+                <h1 class="full" itemprop="headline">
                   {{
                     post.single_title !== ''
                       ? post.single_title
@@ -183,14 +185,16 @@
                   :key="author.name"
                   :to="author.url"
                   class="meta-author flex"
-                  rel="author"
+                  itemprop="author"
                   ><img
                     v-if="author.image"
                     :src="author.image"
                     :alt="author.name"
                   />
                   <span>Piše</span
-                  ><span class="vcard author">{{ author.name }}</span></app-link
+                  ><span class="vcard author" rel="author">{{
+                    author.name
+                  }}</span></app-link
                 >
                 <client-only>
                   <subscribe-link
@@ -208,7 +212,7 @@
                   <div style="width: 100%" v-html="post.video" />
                 </template>
                 <template v-else>
-                  <picture class="article-head-image">
+                  <picture class="article-head-image" itemprop="image">
                     <source
                       :src="post.image.url"
                       :srcset="srcset"
@@ -248,16 +252,22 @@
                   :key="author.name"
                   :to="author.url"
                   class="meta-author flex desktop-only"
-                  rel="author"
                   ><img
                     v-if="author.image"
                     :src="author.image"
                     :alt="author.name"
                   /><span>Piše</span
-                  ><span class="vcard author">{{ author.name }}</span></app-link
+                  ><span class="vcard author" rel="author">{{
+                    author.name
+                  }}</span></app-link
                 >
-                <span class="meta-date">{{ post.time | parseTime }}</span>
-                <span v-if="post.recommendations" class="meta-preporuke"
+                <time class="meta-date" :datetime="post.time">{{
+                  post.time | parseTime
+                }}</time>
+                <span
+                  v-if="post.recommendations"
+                  class="meta-preporuke"
+                  itemprop="interactionStatistics"
                   >{{ post.recommendations }} preporuka</span
                 >
                 <div class="sidebar-social flex">
@@ -314,6 +324,7 @@
               <div
                 id="article-content"
                 class="cXenseParse mrf-article-body"
+                itemprop="articleBody"
                 @click="handleClick"
                 v-html="post.content"
               ></div>
@@ -1289,15 +1300,10 @@ export default {
         property: 'article:content_tier',
         content: fbPaywall[this.post.paywall],
       },
-      /* {
+      {
         hid: 'twitter:card',
         name: 'twitter:card',
         content: 'summary_large_image',
-      }, */
-      {
-        hid: 'twitter:site',
-        name: 'twitter:site',
-        content: '@TelegramHR',
       },
       {
         hid: 'twitter:widgets:theme',

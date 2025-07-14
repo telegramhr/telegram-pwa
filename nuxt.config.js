@@ -17,8 +17,17 @@ export default {
         name: 'description',
         content: 'Nekad je nužno odabrati stranu',
       },
-      { name: 'twitter:dnt', content: 'on' },
-      { name: 'twitter:widgets:csp', content: 'on' },
+      { hid: 'twitter:dnt', name: 'twitter:dnt', content: 'on' },
+      {
+        hid: 'twitter:widgets:csp',
+        name: 'twitter:widgets:csp',
+        content: 'on',
+      },
+      {
+        hid: 'twitter:site',
+        name: 'twitter:site',
+        content: '@TelegramHR',
+      },
       { property: 'fb:pages', content: '688325737947866' },
     ],
     link: [
