@@ -107,99 +107,21 @@
               class="full flex relative generator-submenu"
             >
               <h2 class="full center-text">Autor je:</h2>
-              <div class="half flex relative">
+              <div
+                v-for="(autor, key) in autori"
+                :key="key"
+                class="half flex relative"
+              >
                 <input
-                  id="modric"
+                  :id="key"
                   v-model="autorType"
-                  :value="'modric'"
+                  :value="key"
                   type="radio"
                   name="autorType"
                 />
-                <label class="clickable animate" for="modric">Modrić</label>
-              </div>
-              <div class="half flex relative">
-                <input
-                  id="silvana"
-                  v-model="autorType"
-                  :value="'silvana'"
-                  type="radio"
-                  name="autorType"
-                />
-                <label class="clickable animate" for="silvana">Menđušić</label>
-              </div>
-              <div class="half flex relative">
-                <input
-                  id="divo"
-                  v-model="autorType"
-                  :value="'divo'"
-                  type="radio"
-                  name="autorType"
-                />
-                <label class="clickable animate" for="divo">Đurović</label>
-              </div>
-              <div class="half flex relative">
-                <input
-                  id="redzepovic"
-                  v-model="autorType"
-                  :value="'redzepovic'"
-                  type="radio"
-                  name="autorType"
-                />
-                <label class="clickable animate" for="redzepovic"
-                  >Redžepović</label
-                >
-              </div>
-              <div class="half flex relative">
-                <input
-                  id="jasmin"
-                  v-model="autorType"
-                  :value="'jasmin'"
-                  type="radio"
-                  name="autorType"
-                />
-                <label class="clickable animate" for="jasmin">Klarić</label>
-              </div>
-              <div class="half flex relative">
-                <input
-                  id="jakovina"
-                  v-model="autorType"
-                  :value="'jakovina'"
-                  type="radio"
-                  name="autorType"
-                />
-                <label class="clickable animate" for="jakovina">Jakovina</label>
-              </div>
-              <div class="half flex relative">
-                <input
-                  id="hrdalo"
-                  v-model="autorType"
-                  :value="'hrdalo'"
-                  type="radio"
-                  name="autorType"
-                />
-                <label class="clickable animate" for="hrdalo">Hrdalo</label>
-              </div>
-              <div class="half flex relative">
-                <input
-                  id="markovina"
-                  v-model="autorType"
-                  :value="'markovina'"
-                  type="radio"
-                  name="autorType"
-                />
-                <label class="clickable animate" for="markovina"
-                  >Markovina</label
-                >
-              </div>
-              <div class="half flex relative">
-                <input
-                  id="snajder"
-                  v-model="autorType"
-                  :value="'snajder'"
-                  type="radio"
-                  name="autorType"
-                />
-                <label class="clickable animate" for="markovina">Šnajder</label>
+                <label class="clickable animate" :for="key">{{
+                  autor.name
+                }}</label>
               </div>
             </div>
             <div v-show="selected === 'krug'" class="full flex relative">
@@ -440,74 +362,10 @@
           height="1680"
         />
         <img
-          v-if="selected === 'autor' && autorType === 'modric'"
-          id="modric-overlay"
+          v-if="selected === 'autor'"
+          id="autor-overlay"
           class="generator-img-overlay"
-          src="@/assets/img/extras/naslovne/tg_dajmi_overlay_modric.png"
-          width="2664"
-          height="1680"
-        />
-        <img
-          v-if="selected === 'autor' && autorType === 'silvana'"
-          id="silvana-overlay"
-          class="generator-img-overlay"
-          src="@/assets/img/extras/naslovne/tg_dajmi_overlay_mendusic.png"
-          width="2664"
-          height="1680"
-        />
-        <img
-          v-if="selected === 'autor' && autorType === 'redzepovic'"
-          id="redzepovic-overlay"
-          class="generator-img-overlay"
-          src="@/assets/img/extras/naslovne/tg_dajmi_overlay_redzepovic.png"
-          width="2664"
-          height="1680"
-        />
-        <img
-          v-if="selected === 'autor' && autorType === 'divo'"
-          id="divo-overlay"
-          class="generator-img-overlay"
-          src="@/assets/img/extras/naslovne/tg_dajmi_overlay_divo.png"
-          width="2664"
-          height="1680"
-        />
-        <img
-          v-if="selected === 'autor' && autorType === 'jasmin'"
-          id="jasmin-overlay"
-          class="generator-img-overlay"
-          src="@/assets/img/extras/naslovne/tg_dajmi_overlay_klaric.png"
-          width="2664"
-          height="1680"
-        />
-        <img
-          v-if="selected === 'autor' && autorType === 'jakovina'"
-          id="jakovina-overlay"
-          class="generator-img-overlay"
-          src="@/assets/img/extras/naslovne/tg_dajmi_overlay_jakovina.png"
-          width="2664"
-          height="1680"
-        />
-        <img
-          v-if="selected === 'autor' && autorType === 'hrdalo'"
-          id="hrdalo-overlay"
-          class="generator-img-overlay"
-          src="@/assets/img/extras/naslovne/tg_dajmi_overlay_hrdalo.png"
-          width="2664"
-          height="1680"
-        />
-        <img
-          v-if="selected === 'autor' && autorType === 'markovina'"
-          id="markovina-overlay"
-          class="generator-img-overlay"
-          src="@/assets/img/extras/naslovne/tg_dajmi_overlay_markovina.png"
-          width="2664"
-          height="1680"
-        />
-        <img
-          v-if="selected === 'autor' && autorType === 'snajder'"
-          id="snajder-overlay"
-          class="generator-img-overlay"
-          src="@/assets/img/extras/naslovne/tg_dajmi_overlay_snajder.png"
+          :src="autori[autorType].image"
           width="2664"
           height="1680"
         />
@@ -547,6 +405,44 @@ export default {
       kolazMidThirdPosition: 'xMidYMid slice',
       podcastType: 'prviglas',
       podcastText: tomorrow,
+      autori: {
+        modric: {
+          name: 'Modrić',
+          image: require('~/assets/img/extras/naslovne/tg_dajmi_overlay_modric.png'),
+        },
+        silvana: {
+          name: 'Menđušić',
+          image: require('~/assets/img/extras/naslovne/tg_dajmi_overlay_mendusic.png'),
+        },
+        redzepovic: {
+          name: 'Redžepović',
+          image: require('~/assets/img/extras/naslovne/tg_dajmi_overlay_redzepovic.png'),
+        },
+        divo: {
+          name: 'Đurović',
+          image: require('~/assets/img/extras/naslovne/tg_dajmi_overlay_divo.png'),
+        },
+        jasmin: {
+          name: 'Klarić',
+          image: require('~/assets/img/extras/naslovne/tg_dajmi_overlay_klaric.png'),
+        },
+        jakovina: {
+          name: 'Jakovina',
+          image: require('~/assets/img/extras/naslovne/tg_dajmi_overlay_jakovina.png'),
+        },
+        hrdalo: {
+          name: 'Hrdalo',
+          image: require('~/assets/img/extras/naslovne/tg_dajmi_overlay_hrdalo.png'),
+        },
+        markovina: {
+          name: 'Markovina',
+          image: require('~/assets/img/extras/naslovne/tg_dajmi_overlay_markovina.png'),
+        },
+        snajder: {
+          name: 'Šnajder',
+          image: require('~/assets/img/extras/naslovne/tg_dajmi_overlay_snajder.png'),
+        },
+      },
     }
   },
   mounted() {
