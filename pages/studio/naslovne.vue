@@ -191,6 +191,18 @@
                   >Markovina</label
                 >
               </div>
+              <div class="half flex relative">
+                <input
+                  id="snajder"
+                  v-model="autorType"
+                  :value="'snajder'"
+                  type="radio"
+                  name="autorType"
+                />
+                <label class="clickable animate" for="markovina"
+                >Šnajder</label
+                >
+              </div>
             </div>
             <div v-show="selected === 'krug'" class="full flex relative">
               <h2 class="full center-text">U krug stavi:</h2>
@@ -490,6 +502,14 @@
           id="markovina-overlay"
           class="generator-img-overlay"
           src="@/assets/img/extras/naslovne/tg_dajmi_overlay_markovina.png"
+          width="2664"
+          height="1680"
+        />
+        <img
+          v-if="selected === 'autor' && autorType === 'snajder'"
+          id="snajder-overlay"
+          class="generator-img-overlay"
+          src="@/assets/img/extras/naslovne/tg_dajmi_overlay_snajder.png"
           width="2664"
           height="1680"
         />
