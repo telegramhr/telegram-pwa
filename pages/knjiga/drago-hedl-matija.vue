@@ -26,7 +26,7 @@
 
           <div class="forty tablet-full flex flex-responsive center">
             <img
-              src="@/assets/img/tg_book_mockup_hedl_izdanje2.png"
+              src="@/assets/img/tg_book_mockup_hedl_izdanje3.png"
               alt="Naslovnica nove knjige Drage Hedla 'Matija', treće izdanje"
             />
           </div>
