@@ -295,7 +295,6 @@
 </template>
 
 <script>
-import braintree from 'braintree-web'
 import _ from 'lodash'
 
 export default {
