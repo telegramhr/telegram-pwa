@@ -46,7 +46,7 @@
             >
           </client-only>
           <client-only>
-            <div v-show="$store.state.user.admin" class="half">
+            <div class="half">
               <div class="noththree">Admin</div>
               <a
                 role="menuitem"
