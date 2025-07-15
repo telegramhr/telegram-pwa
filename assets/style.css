@@ -15585,6 +15585,15 @@ input:checked~.input-hidden {
   font-size: 18px;
   font-size: 0.9rem;
   font-family: 'Barlow', sans-serif;
+  margin-bottom: 0.5rem;
+}
+
+.under-pretplata-email{
+  font-family: 'Barlow', sans-serif;
+  color: #666;
+  font-weight: 400;
+  font-size: 16px;
+
 }
 
 .dark-mode .remp-new-input {
@@ -15594,7 +15603,7 @@ input:checked~.input-hidden {
 
 .remp-pretplata p.remp-mini-note {
   font-size: 14px;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   padding-left: 12px;
   margin-top: 4px;
   margin-bottom: 24px;
@@ -15606,6 +15615,12 @@ input:checked~.input-hidden {
   line-height: 1em;
   margin-top: 0.4rem;
   margin-bottom: 0.4rem;
+  color: #666;
+}
+
+.barlow.remp-mini-text.smaller-text{
+  font-size: 17px;
+  color: #666;
 }
 
 .remp-pretplata .remp-minibox {
