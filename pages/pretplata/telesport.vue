@@ -667,6 +667,7 @@ export default {
       this.$store.dispatch('user/loginSubmit', {
         email: this.email,
         password: this.password,
+        reload: false,
       })
     },
     submit() {
