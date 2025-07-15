@@ -452,7 +452,7 @@
       <div class="container relative flex stretch">
         <div class="forty tablet-full flex flex-responsive center">
           <div class="full center-text newbook-overtitle">
-            <span class="dynamic-overtitle-element">2. izdanje</span> Telegram
+            <span class="dynamic-overtitle-element">3. izdanje</span> Telegram
             naklada
           </div>
           <h2 class="full center-text newbook-title newbook-title-smaller">
@@ -468,7 +468,7 @@
 
         <div class="forty tablet-full flex flex-responsive center">
           <img
-            src="@/assets/img/tg_book_mockup_hedl_izdanje2.png"
+            src="@/assets/img/tg_book_mockup_hedl_izdanje3.png"
             alt="Naslovnica nove knjige Drage Hedla 'Matija', drugo izdanje"
           />
         </div>
