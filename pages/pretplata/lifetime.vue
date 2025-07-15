@@ -284,7 +284,6 @@
               :value="subscription_type"
             />
             <input type="hidden" name="payment_gateway" :value="payment" />
-            <input type="hidden" name="customer_id" :value="customerId" />
             <input type="hidden" name="price" :value="price" />
             <input type="hidden" name="email" :value="email" />
           </form>
