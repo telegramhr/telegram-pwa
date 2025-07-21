@@ -18,13 +18,6 @@ export default {
       window.addEventListener('load', this.init)
       window.addEventListener('popstate', this.listener)
     }
-    if (
-      window.location.href ===
-      'https://www.telegram.hr/politika-kriminal/premijer-se-hvali-da-nas-je-spasio-od-vecih-poskupljenja-ekonomisti-na-oprezu-imamo-srece-sto-ove-godine-uskrs-dolazi-malo-kasnije/'
-    ) {
-      window.addEventListener('load', this.init)
-      window.addEventListener('popstate', this.listener)
-    }
   },
   beforeDestroy() {
     if (this.$mobile && this.checkReferrer()) {
@@ -58,6 +51,9 @@ export default {
       }
     },
     checkReferrer() {
+      if (this.$route.fullPath.includes('super1')) {
+        return false
+      }
       const referrer = document.referrer
       if (referrer) {
         const url = new URL(referrer)
@@ -73,7 +69,7 @@ export default {
           return true
         }
       }
-      return true
+      return false
     },
   },
 }
