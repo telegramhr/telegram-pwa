@@ -957,7 +957,7 @@ export default {
           pageviewAttributes: {
             postType: 'post',
             locked: this.post.paywall,
-            category: this.post.category_slug,
+            isS1: this.post.category_slug.includes('super1') ? '1' : '0',
           },
         },
       }
