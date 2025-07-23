@@ -2,6 +2,7 @@
   "name": "tg",
   "version": "1.0.0",
   "private": true,
+  "author": "Marko Banusic <marko@nezn.am> (https://nezn.am)",
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
