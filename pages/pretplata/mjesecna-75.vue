@@ -199,6 +199,25 @@
               >Trebat će vam R1 račun ili želite ponudu za pravne osobe? Javite
               nam se.</a
             >
+            <client-only>
+              <iframe id="TrustPayFrame" :src="iframeUrl"></iframe>
+              <form
+                id="payment-form"
+                class="full flex column-horizontal-pad column-top-pad mobile-top-pad"
+                method="post"
+                :action="`/crm/sales-funnel/sales-funnel-frontend/submit?referer=${$store.getters['pretplata/link']}`"
+              >
+                <input type="hidden" name="funnel_url_key" :value="url_key" />
+                <input
+                  type="hidden"
+                  name="subscription_type"
+                  :value="subscription_type"
+                />
+                <input type="hidden" name="payment_gateway" :value="payment" />
+                <input type="hidden" name="price" :value="price" />
+                <input type="hidden" name="email" :value="email" />
+              </form>
+            </client-only>
           </div>
         </div>
       </div>
