@@ -39,8 +39,8 @@
               Isprobajte Telegram uz 75% popusta i postanite dio informirane
               zajednice!
             </p>
-            <div class="full center column-vertical-pad mobile-vertical-pad">
-              <div v-if="screen === 2" class="full flex relative">
+            <div class="full column-vertical-pad mobile-vertical-pad">
+              <div v-if="screen === 2" class="full relative">
                 <div class="flex flex-responsive remp-miniboxes">
                   <div v-show="!loggedIn">
                     <input
@@ -156,7 +156,7 @@
                 </div>
               </div>
               <div
-                class="newbtn gigantic-newbtn animate green-newbtn clickable"
+                class="full center-text newbtn gigantic-newbtn animate green-newbtn clickable column-top-margin"
                 @click="submit"
               >
                 Kupite pretplatu
