@@ -355,18 +355,18 @@ export default {
       },
     ]
     return {
-      title: 'Doživotna pretplata',
+      title: 'Mjesečna pretplata za 1,99€',
       titleTemplate: '%s | Telegram.hr',
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: 'Doživotna pretplata',
+          content: 'Mjesečna pretplata za 1,99€',
         },
         {
           hid: 'og:description',
           property: 'og:description',
-          content: 'Doživotna pretplata',
+          content: 'Mjesečna pretplata za 1,99€',
         },
         {
           hid: 'og:type',
@@ -376,17 +376,17 @@ export default {
         {
           hid: 'og:title',
           property: 'og:title',
-          content: 'Doživotna pretplata',
+          content: 'Mjesečna pretplata za 1,99€',
         },
         {
           hid: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/pretplata/lifetime',
+          content: 'https://www.telegram.hr/pretplata/mjesecna-75',
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: require('@/assets/img/tg_mockup_lifetime.png'),
+          content: require('@/assets/img/pretplata/telegram-premium.png'),
         },
         {
           hid: 'fb:app_id',
