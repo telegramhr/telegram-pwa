@@ -260,7 +260,7 @@ export const actions = {
     data.append('password', payload.password)
     data.append('source', 'api')
     this.$axios
-      .$post('/crm/api/v1/users/register', data, {
+      .$post('/crm/api/v1/users/create', data, {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
           Authorization: `Bearer ff4a16187c0fc0cc0267b95410c4f55a`,
