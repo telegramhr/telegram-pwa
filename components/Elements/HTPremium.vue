@@ -220,6 +220,43 @@
             <div class="newbtn">Zatraži ponudu</div>
           </a>
         </div>
+
+        <div class="fourth flex-responsive column-full-pad mobile-side-pad">
+          <a
+            class="full flex article-standard article-medium article relative"
+            href="https://godigital.hrvatskitelekom.hr/pametne-zracne-luke/"
+            target="_blank"
+            rel="sponsored"
+            @click.prevent="
+              trackClick(
+                'https://godigital.hrvatskitelekom.hr/pametne-zracne-luke/'
+              )
+            "
+          >
+            <img
+              src="https://www.telegram.hr/wp-content/uploads/2025/07/ivan-shimko-tcp2k2sypfg-unsplash.jpg"
+              alt="TG promo"
+              loading="lazy"
+              width="400"
+              height="400"
+            />
+            <div class="full flex">
+              <div class="noththree overtitle">
+                Na tri hrvatska aerodroma dolazi kampus 5G mreža
+
+              </div>
+            </div>
+            <div class="full">
+              <ul class="list">
+                <li>kvalitetnija i sigurnija uslugu za putnike i radnike</li>
+                <li>mreža otporna na gužve i opterećenja</li>
+                <li>brže skeniranje prtljage</li>
+                <li>bez zastoja zbog YouTubea ili TikToka</li>
+              </ul>
+            </div>
+            <div class="newbtn">Saznajte više</div>
+          </a>
+        </div>
       </VueSlickCarousel>
       <div
         class="gallery-left center gallery-arrow desktop-only animate"
