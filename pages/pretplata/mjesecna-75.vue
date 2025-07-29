@@ -36,8 +36,8 @@
               <span class="highlight-text">1,99€</span> EUR
             </h1>
             <p class="full pretplata-tagline" style="font-size: 0.9rem">
-              Isprobajte Telegram uz 75% popusta i postanite dio informirane
-              zajednice!
+              Isprobajte Telegram uz 75% popusta u prva 3 mjeseca i postanite
+              dio informirane zajednice!
             </p>
             <div class="full column-vertical-pad mobile-vertical-pad">
               <div v-if="screen === 2" class="full relative">
