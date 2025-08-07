@@ -155,15 +155,15 @@
         <div class="fourth flex-responsive column-full-pad mobile-side-pad">
           <a
             class="full flex article-standard article-medium article relative"
-            href="https://poslovni.ht.hr/startup"
+            href="https://www.telegram.hr/openspace/projekt-od-56-milijuna-eura-i-nova-tehnologija-koja-ce-zauvijek-promijeniti-hrvatske-aerodrome/"
             target="_blank"
             rel="sponsored"
             @click.prevent="
-              trackClick('https://poslovni.ht.hr/magenta-1-business')
+              trackClick('https://www.telegram.hr/openspace/projekt-od-56-milijuna-eura-i-nova-tehnologija-koja-ce-zauvijek-promijeniti-hrvatske-aerodrome/')
             "
           >
             <img
-              src="https://www.telegram.hr/wp-content/uploads/2025/05/pozicija-3.png"
+              src="https://www.telegram.hr/wp-content/uploads/2025/08/pxl-010822-94928211.webp"
               alt="TG promo"
               loading="lazy"
               width="400"
@@ -171,16 +171,15 @@
             />
             <div class="full flex">
               <div class="noththree overtitle">
-                Spojite svoje fiksne i mobilne usluge, a Magenta 1 Business vas
-                nagrađuje mobilnim uređajem
+                Projekt od 5,6 milijuna eura i nova tehnologija koja će zauvijek promijeniti hrvatske aerodrome
               </div>
             </div>
             <div class="full">
               <ul class="list">
-                <li>Timska ušteda</li>
-                <li>Premium uređaji</li>
-                <li>Ekskluzivne ponude</li>
-                <li>Podrška 24/7</li>
+                <li>personalizirane informacije i ponude za putnike</li>
+                <li>veća sigurnost</li>
+                <li>navigacija putnika do izlaza putem aplikacije</li>
+                <li>izgradnja infrastrukture za 5G privatnu mrežu</li>
               </ul>
             </div>
             <div class="newbtn">Saznaj više</div>
