@@ -409,7 +409,7 @@ export default {
 }
 
 #offer-premium-ht .article {
-  min-height: 330px;
+  min-height: 350px;
 }
 
 @media screen and (min-width: 767px) {
