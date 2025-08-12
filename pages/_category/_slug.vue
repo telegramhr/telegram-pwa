@@ -958,7 +958,7 @@ export default {
             postType: 'post',
             locked: this.post.paywall,
             isS1: this.post.category_slug.includes('super1') ? '1' : '0',
-            segment: Math.floor(Math.random() * 4),
+            segment: Math.floor(Math.random() * 4).toString(),
           },
         },
       }
