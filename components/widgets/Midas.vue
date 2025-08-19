@@ -144,7 +144,7 @@ export default {
     },
   },
   mounted() {
-    if (this.$store.state.user.access.length) {
+    if (this.$store.getters['user/hasPremium']) {
       return false // don't load midas if user has premium
     }
     this.loadMidas()
@@ -214,6 +214,7 @@ export default {
             .insertAdjacentElement('afterend', script)
           return false  // don't load midas if user has premium
         } */
+
         if (!this.id) {
           return false // don't load midas if id is not set
         }
