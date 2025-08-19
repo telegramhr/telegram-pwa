@@ -917,6 +917,35 @@ export const actions = {
       if (route.query.utm_campaign === 'back_widget') {
         window.googletag.pubads().setTargeting('source', 'backwidget')
       }
+      // user segments
+      if (rootState.user.access) {
+        window.googletag.pubads().setTargeting('pretplata_active', '1')
+        if (rootState.user.access.includes('telegram_premium')) {
+          window.googletag.pubads().setTargeting('pretplata_premium', '1')
+        } else {
+          window.googletag.pubads().setTargeting('pretplata_premium', '0')
+        }
+        if (rootState.user.access.includes('telesport')) {
+          window.googletag.pubads().setTargeting('pretplata_telesport', '1')
+        } else {
+          window.googletag.pubads().setTargeting('pretplata_telesport', '0')
+        }
+        if (rootState.user.access.includes('telegram')) {
+          window.googletag.pubads().setTargeting('pretplata_telegram', '1')
+        } else {
+          window.googletag.pubads().setTargeting('pretplata_telegram', '0')
+        }
+      } else {
+        window.googletag.pubads().setTargeting('pretplata_active', '0')
+        window.googletag.pubads().setTargeting('pretplata_premium', '0')
+        window.googletag.pubads().setTargeting('pretplata_telesport', '0')
+        window.googletag.pubads().setTargeting('pretplata_telegram', '0')
+      }
+      if (rootState.user.token) {
+        window.googletag.pubads().setTargeting('pretplata_loggedin', '1')
+      } else {
+        window.googletag.pubads().setTargeting('pretplata_loggedin', '0')
+      }
       let cookie = this.$cookies.get('ab_test')
       if (!cookie) {
         const value = Math.floor(Math.random() * 100) + 1
