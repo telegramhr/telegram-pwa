@@ -652,10 +652,12 @@ export default {
             _this.show_msg = 'error-not-finished'
           } else {
             _this.showPassword = false
+            _this.loggedIn = true
           }
         })
         .catch(() => {
           _this.showPassword = false
+          _this.loggedIn = true
         })
     }, 1000),
   },

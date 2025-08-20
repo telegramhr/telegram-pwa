@@ -653,10 +653,12 @@ export default {
             _this.show_msg = 'Prijavite se kako biste dovršili kupnju.'
           } else {
             _this.showPassword = false
+            _this.loggedIn = true
           }
         })
         .catch(() => {
           _this.showPassword = false
+          _this.loggedIn = true
         })
     }, 1000),
   },
