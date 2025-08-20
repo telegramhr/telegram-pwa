@@ -630,38 +630,37 @@ export default {
     },
   },
   watch: {
-    watch: {
-      email: _.debounce(function (value) {
-        const _this = this
-        const formData = new FormData()
-        formData.append('email', value)
-        this.$axios
-          .post('/crm/api/v2/users/email', formData, {
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded',
-            },
-          })
-          .then((response) => {
-            if (response.data.status && response.data.status === 'taken') {
-              _this.showPassword = true
-              _this.canLogIn = true
-            } else if (response.data.status === 'error') {
-              if (response.data.code === 'email_missing') {
-                return
-              }
-              _this.show_msg = 'Prijavite se kako biste dovršili kupnju.'
-              _this.canLogIn = true
-            } else {
-              _this.showPassword = false
-              _this.canLogIn = false
+    email: _.debounce(function (value) {
+      const _this = this
+      const formData = new FormData()
+      formData.append('email', value)
+      this.$axios
+        .post('/crm/api/v2/users/email', formData, {
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+        })
+        .then((response) => {
+          if (response.data.status && response.data.status === 'taken') {
+            _this.showPassword = true
+            _this.canLogIn = true
+          } else if (response.data.status === 'error') {
+            if (response.data.code === 'email_missing') {
+              return
             }
-          })
-          .catch(() => {
+            _this.show_msg = 'Prijavite se kako biste dovršili kupnju.'
+            _this.canLogIn = true
+          } else {
             _this.showPassword = false
             _this.canLogIn = false
-          })
-      }, 1000),
-    },
+          }
+        })
+        .catch(() => {
+          _this.showPassword = false
+          _this.canLogIn = false
+        })
+    }, 1000),
+  },
   methods: {
     login() {
       if (!this.showPassword) {
