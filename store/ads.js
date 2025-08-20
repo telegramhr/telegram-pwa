@@ -919,18 +919,20 @@ export const actions = {
       }
       // user segments
       if (rootState.user.access) {
+        let premium = false
         window.googletag.pubads().setTargeting('pretplata_active', '1')
         if (rootState.user.access.includes('telegram_premium')) {
           window.googletag.pubads().setTargeting('pretplata_premium', '1')
+          premium = true
         } else {
           window.googletag.pubads().setTargeting('pretplata_premium', '0')
         }
-        if (rootState.user.access.includes('telesport')) {
+        if (rootState.user.access.includes('telesport') || premium) {
           window.googletag.pubads().setTargeting('pretplata_telesport', '1')
         } else {
           window.googletag.pubads().setTargeting('pretplata_telesport', '0')
         }
-        if (rootState.user.access.includes('telegram')) {
+        if (rootState.user.access.includes('telegram') || premium) {
           window.googletag.pubads().setTargeting('pretplata_telegram', '1')
         } else {
           window.googletag.pubads().setTargeting('pretplata_telegram', '0')
