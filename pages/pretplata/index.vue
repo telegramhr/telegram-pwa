@@ -471,7 +471,7 @@
                     {{ totalPrice ? 'za ' + totalPrice + '€' : '' }}
                   </div>
                   <div
-                    v-if="!loggedIn"
+                    v-if="!loggedIn && canLogIn"
                     class="full barlow remp-mini-text smaller-text center-text column-mini-top-pad"
                   >
                     Molimo da se prijavite kako bi dovršili kupnju
@@ -545,6 +545,7 @@ export default {
       instance: null,
       customerId: null,
       iframeUrl: '',
+      canLogIn: true,
     }
   },
   computed: {
@@ -628,9 +629,6 @@ export default {
     loggedIn() {
       return !!this.$store.state.user.id
     },
-    canLogIn() {
-      return this.$store.getters['user/canLogIn']
-    },
   },
   watch: {
     email: _.debounce(function (value) {
@@ -646,19 +644,21 @@ export default {
         .then((response) => {
           if (response.data.status && response.data.status === 'taken') {
             _this.showPassword = true
+            _this.canLogIn = true
           } else if (response.data.status === 'error') {
             if (response.data.code === 'email_missing') {
               return
             }
             _this.show_msg = 'Prijavite se kako biste dovršili kupnju.'
+            _this.canLogIn = true
           } else {
             _this.showPassword = false
-            _this.loggedIn = true
+            _this.canLogIn = false
           }
         })
         .catch(() => {
           _this.showPassword = false
-          _this.loggedIn = true
+          _this.canLogIn = false
         })
     }, 1000),
   },

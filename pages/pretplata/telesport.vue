@@ -468,7 +468,7 @@
                   <input type="hidden" name="auth" value="1" />
                   <input type="hidden" name="email" :value="email" />
                   <div
-                    v-if="!loggedIn"
+                    v-if="!loggedIn && canLogIn"
                     class="full barlow smaller-text faded center-text column-mini-top-pad"
                   >
                     Molimo da se prijavite kako bi dovršili kupnju
@@ -544,6 +544,7 @@ export default {
       instance: null,
       customerId: null,
       iframeUrl: '',
+      canLogIn: false,
     }
   },
   computed: {
@@ -627,40 +628,40 @@ export default {
     loggedIn() {
       return !!this.$store.state.user.id
     },
-    canLogIn() {
-      return this.$store.getters['user/canLogIn']
-    },
   },
   watch: {
-    email: _.debounce(function (value) {
-      const _this = this
-      const formData = new FormData()
-      formData.append('email', value)
-      this.$axios
-        .post('/crm/api/v2/users/email', formData, {
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-          },
-        })
-        .then((response) => {
-          if (response.data.status && response.data.status === 'taken') {
-            _this.showPassword = true
-          } else if (response.data.status === 'error') {
-            if (response.data.code === 'email_missing') {
-              return
+    watch: {
+      email: _.debounce(function (value) {
+        const _this = this
+        const formData = new FormData()
+        formData.append('email', value)
+        this.$axios
+          .post('/crm/api/v2/users/email', formData, {
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+          })
+          .then((response) => {
+            if (response.data.status && response.data.status === 'taken') {
+              _this.showPassword = true
+              _this.canLogIn = true
+            } else if (response.data.status === 'error') {
+              if (response.data.code === 'email_missing') {
+                return
+              }
+              _this.show_msg = 'Prijavite se kako biste dovršili kupnju.'
+              _this.canLogIn = true
+            } else {
+              _this.showPassword = false
+              _this.canLogIn = false
             }
-            _this.show_msg = 'error-not-finished'
-          } else {
+          })
+          .catch(() => {
             _this.showPassword = false
-            _this.loggedIn = true
-          }
-        })
-        .catch(() => {
-          _this.showPassword = false
-          _this.loggedIn = true
-        })
-    }, 1000),
-  },
+            _this.canLogIn = false
+          })
+      }, 1000),
+    },
   methods: {
     login() {
       if (!this.showPassword) {
