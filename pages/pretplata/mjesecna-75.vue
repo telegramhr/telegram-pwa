@@ -161,6 +161,7 @@
               >
                 Kupite pretplatu
               </div>
+              <p v-if="show_msg">{{ show_msg }}</p>
             </div>
             <div class="full center column-top-pad mobile-top-pad">
               <div class="half pretplata-benefits">
@@ -257,6 +258,7 @@ export default {
       subscription_type: 'telegram_standard_4_tjedna_pretplata_75_%_popusta',
       price: 1.99,
       iframeUrl: null,
+      show_msg: '',
     }
   },
   computed: {
@@ -320,6 +322,7 @@ export default {
       const form = document.getElementById('payment-form')
       const formData = new FormData(form)
       const actionUrl = form.action
+      this.show_msg = ''
       fetch(actionUrl, {
         method: 'POST',
         body: formData,
