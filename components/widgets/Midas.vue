@@ -196,7 +196,7 @@ export default {
           category = 'telesport'
         }
         const script = document.createElement('script')
-        const main = this.ids[category].main ?? ''
+        const main = this.ids[category]?.main ?? ''
         /* if (this.$store.state.user.access.length) {
           let ids = ''
           if (this.$route.fullPath.includes('telesport')) {

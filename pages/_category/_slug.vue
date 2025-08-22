@@ -1369,6 +1369,12 @@ export default {
       ]
       siteName = 'Super1.hr'
     }
+    const style = [
+      {
+        id: 'global-styles',
+        innerHTML: this.post.styles || '',
+      },
+    ]
     return {
       bodyAttrs: {
         class: [this.$store.state.theme.theme, this.post.category_slug],
@@ -1378,6 +1384,7 @@ export default {
       meta,
       script,
       link,
+      style,
     }
   },
   bodyAppend() {
