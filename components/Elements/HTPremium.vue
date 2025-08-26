@@ -121,15 +121,17 @@
         <div class="fourth flex-responsive column-full-pad mobile-side-pad">
           <a
             class="full flex article-standard article-medium article relative"
-            href="https://poslovni.ht.hr/akademija-poslovni-start"
+            href="https://godigital.hrvatskitelekom.hr/akademija-poslovni-start-varazdin/"
             target="_blank"
             rel="sponsored"
             @click.prevent="
-              trackClick('https://poslovni.ht.hr/akademija-poslovni-start')
+              trackClick(
+                'https://godigital.hrvatskitelekom.hr/akademija-poslovni-start-varazdin/'
+              )
             "
           >
             <img
-              src="https://www.telegram.hr/wp-content/uploads/2025/05/pozicija-4.png"
+              src="https://www.telegram.hr/wp-content/uploads/2025/08/akademija-poslovni-start-varazdin-1200x800-1.jpg"
               alt="TG promo"
               loading="lazy"
               width="400"
@@ -137,16 +139,21 @@
             />
             <div class="full flex">
               <div class="noththree overtitle">
-                Genijalna prilika za poduzetnike: Besplatna akademija u svim
-                većim gradovima Hrvatske
+                Prilika koja se ne propušta: Akademija Poslovni START stiže u
+                Varaždin
               </div>
             </div>
             <div class="full">
               <ul class="list">
-                <li>8.5.2025., Slavonski Brod</li>
-                <li>28.5.2025., Zadar</li>
-                <li>11.6.2025., Pula</li>
-                <li>10.9.2025., Čakovec</li>
+                <li>
+                  besplatna edukacija za male, mikro i srednje poduzetnike
+                </li>
+                <li>datum: 10. rujna u Hotelu Turist</li>
+                <li>
+                  teme: fiskalizacija 2.0, digitalizacija, AI, financiranje
+                </li>
+                <li>umrežavanje i razmjena iskustava</li>
+                <li>atraktivne HONOR nagrade</li>
               </ul>
             </div>
             <div class="newbtn">Prijavi se</div>
@@ -159,7 +166,9 @@
             target="_blank"
             rel="sponsored"
             @click.prevent="
-              trackClick('https://www.telegram.hr/openspace/projekt-od-56-milijuna-eura-i-nova-tehnologija-koja-ce-zauvijek-promijeniti-hrvatske-aerodrome/')
+              trackClick(
+                'https://www.telegram.hr/openspace/projekt-od-56-milijuna-eura-i-nova-tehnologija-koja-ce-zauvijek-promijeniti-hrvatske-aerodrome/'
+              )
             "
           >
             <img
@@ -171,7 +180,8 @@
             />
             <div class="full flex">
               <div class="noththree overtitle">
-                Projekt od 5,6 milijuna eura i nova tehnologija koja će zauvijek promijeniti hrvatske aerodrome
+                Projekt od 5,6 milijuna eura i nova tehnologija koja će zauvijek
+                promijeniti hrvatske aerodrome
               </div>
             </div>
             <div class="full">
@@ -242,7 +252,6 @@
             <div class="full flex">
               <div class="noththree overtitle">
                 Na tri hrvatska aerodroma dolazi kampus 5G mreža
-
               </div>
             </div>
             <div class="full">
