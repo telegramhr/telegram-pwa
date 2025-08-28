@@ -396,6 +396,10 @@
                   automatski obnavlja.
                 </p>
               </form>
+              <!-- Chatbot Component -->
+              <client-only>
+                <Chatbot />
+              </client-only>
             </div>
           </div>
         </div>

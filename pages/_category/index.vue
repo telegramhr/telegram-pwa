@@ -160,6 +160,10 @@
           <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
         </div>
       </client-only>
+      <!-- Chatbot Component -->
+      <client-only>
+        <Chatbot />
+      </client-only>
       <tfooter></tfooter>
     </template>
     <template v-if="$fetchState.error">
