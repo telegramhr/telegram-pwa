@@ -522,7 +522,7 @@ export default {
     return {
       show_msg: '',
       payment: 'trustpay_recurrent',
-      pack: null,
+      pack: 'pretplata-standard',
       term: 'pretplata-godisnje',
       promo_code: '',
       email: this.$store.state.user.email,

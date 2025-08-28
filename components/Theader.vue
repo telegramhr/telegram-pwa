@@ -395,7 +395,9 @@
               >Pretplatite se</app-link
             >
             <app-link
-              v-show="!canLogIn && !$route.fullPath.includes('super1')"
+              v-show="
+                $store.state.user.access?.length && !$route.fullPath.includes('super1')
+              "
               id="pretplata-promo"
               to="/pretplata/poklon/"
               class="newbtn"

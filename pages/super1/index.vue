@@ -40,13 +40,6 @@
             >Pretplatite se</app-link
           >
           <app-link
-            v-show="!canLogIn && !$route.fullPath.includes('super1')"
-            id="pretplata-promo"
-            to="/pretplata/poklon/"
-            class="newbtn"
-          >Poklonite pretplatu</app-link
-          >
-          <app-link
             v-show="!canLogIn"
             class="column-mini-left-pad desktop-only"
             to="https://pretplata.telegram.hr/subscriptions/subscriptions/my"
