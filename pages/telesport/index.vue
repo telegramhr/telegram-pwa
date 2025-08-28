@@ -347,6 +347,10 @@
         <jgl-premium site="ts"></jgl-premium>
       </div>
     </client-only>
+    <!-- Chatbot Component -->
+    <client-only>
+        <Chatbot />
+    </client-only>
     <!-- Euro 24 -->
     <div
       class="full relative darkened-bg column-top-margin column-bottom-margin column-bottom-pad mobile-vertical-pad hnl-section dark-mode"

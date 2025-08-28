@@ -502,6 +502,10 @@
                   </p>
                 </form>
               </client-only>
+                <!-- Chatbot Component -->
+              <client-only>
+                <Chatbot />
+            </client-only>
             </div>
           </div>
         </div>
