@@ -1066,6 +1066,13 @@ h2.section-title {
   display: none;
 }
 
+label[for="gift-email"],
+label[for="gift-date"]{
+  margin-bottom: 0.4rem;
+  margin-top: 0.4rem;
+}
+
+
 /* marefeel layout */
 
 .hipz645:nth-of-type(1) {
