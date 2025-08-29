@@ -395,11 +395,13 @@
               >Pretplatite se</app-link
             >
             <app-link
-              v-show="!canLogIn && !$route.fullPath.includes('super1')"
-              id="Kupite magazin - header"
-              to="/knjiga/t-magazin"
+              v-show="
+                $store.state.user.access?.length && !$route.fullPath.includes('super1')
+              "
+              id="pretplata-promo"
+              to="/pretplata/poklon/"
               class="newbtn"
-              >Kupite magazin</app-link
+              >Poklonite pretplatu</app-link
             >
             <a
               v-show="!canLogIn"
