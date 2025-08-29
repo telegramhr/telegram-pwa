@@ -40,13 +40,6 @@
             >Pretplatite se</app-link
           >
           <app-link
-            v-show="!canLogIn && !$route.fullPath.includes('super1')"
-            id="Kupite magazin - header"
-            to="/knjiga/t-magazin"
-            class="newbtn"
-            >Kupite magazin</app-link
-          >
-          <app-link
             v-show="!canLogIn"
             class="column-mini-left-pad desktop-only"
             to="https://pretplata.telegram.hr/subscriptions/subscriptions/my"

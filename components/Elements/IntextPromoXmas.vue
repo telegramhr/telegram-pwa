@@ -109,8 +109,6 @@ export default {
       if (this.termId) {
         if (this.termId.includes('pretplata')) {
           this.$router.push(this.termId)
-        } else {
-          this.checkout(this.termId)
         }
       } else if (this.cta_link) {
         window.open(this.cta_link, '_blank')
@@ -134,9 +132,6 @@ export default {
         this.cta_link = e.detail.cta_link ?? ''
       }
       this.triggerShow()
-    },
-    checkout(termId) {
-      this.$piano.start(termId)
     },
     triggerShow() {
       if (this.show) {

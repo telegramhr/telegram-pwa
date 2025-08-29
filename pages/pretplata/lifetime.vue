@@ -140,7 +140,7 @@
             Zauvijek ćemo se boriti protiv kriminala i korupcije ali ova prilika
             se neće ponoviti
           </p>
-          <div class="full center flex-wrap column-top-pad mobile-top-pad">
+          <!--<div class="full center flex-wrap column-top-pad mobile-top-pad">
             <div v-if="screen === 2" class="full flex relative">
               <div class="half flex flex-responsive remp-miniboxes">
                 <div v-show="!loggedIn">
@@ -267,6 +267,11 @@
             class="full remp-mini-text column-mini-top-pad column-bottom-pad center-text faded"
           >
             Ponuda vrijedi još samo danas — iskoristite je dok traje
+          </p>-->
+          <p
+            class="full remp-mini-text column-mini-top-pad column-bottom-pad center-text faded"
+          >
+            Ponuda je istekla
           </p>
         </div>
         <client-only>
@@ -371,7 +376,7 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      this.createCounter()
+      // this.createCounter()
     })
   },
   destroyed() {
