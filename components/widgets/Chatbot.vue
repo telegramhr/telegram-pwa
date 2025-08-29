@@ -138,7 +138,7 @@ export default {
       const answer = findAnswer(question);
       messages.value.push({ text: answer, sender: "bot", showFeedback: true });
       nextTick(scrollToBottom);
-    }, 2500); //adjust delay (ms) here
+    }, 2500); // 👈 adjust delay (ms) here
 
   }, 500); // short delay before typing starts
 };
@@ -164,6 +164,7 @@ export default {
 
     if (isMobile) {
     // On mobile: open email client
+    //alert("mailto triggered!");
     window.location.href = "mailto:pretplata@telegram.hr";
     }
   };
