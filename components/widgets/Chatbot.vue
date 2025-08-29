@@ -57,7 +57,8 @@ export default {
   setup() {
     const chatbotOpen = ref(false);
     const messagesContainer = ref(null);
-    const messages = ref([]); // use ref([]) so array ops are reactive
+    const messages = ref([]); 
+    const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
     const hintHidden = ref(false);
 
@@ -65,7 +66,7 @@ export default {
       "kako se mogu pretplatiti na telegram?":
         "<p>Pretplatiti se možete odabirom željene pretplate na našoj <a href='https://www.telegram.hr/pretplata' target='_blank'>prodajnoj stranici</a>.</p><p>Sustav će vas voditi kroz jednostavan postupak registracije i plaćanja karticom.</p><p>Ako pretplatu želite platiti putem bankovnog transfera, javite nam se na <a href='mailto:pretplata@telegram.hr' target='_blank'>pretplata@telegram.hr</a></p>",
       "mogu li se pretplatiti samo na telesport?":
-        "<p>Možete. Pretplata na Telesport dostupna je putem zasebne stranice.<a href='https://www.telegram.hr/pretplata/telesport/' target='_blank'> Link na stranicu</a></p>",
+        "<p>Možete. Pretplata na Telesport dostupna je putem zasebne stranice. <a href='https://www.telegram.hr/pretplata/telesport/' target='_blank'> Link na stranicu</a></p>",
       "imam aktivnu pretplatu, ali ne mogu čitati članke.":
         "<p>Za neograničen pristup sadržaju potrebno je biti prijavljen u svoj korisnički račun.</p><p>Provjerite jeste li prijavljeni na stranici <a href='https://www.telegram.hr' target='_blank'>Telegrama.</a></p>",
       "kako se prijavljujem u svoj korisnički račun?":
@@ -114,20 +115,33 @@ export default {
     };
 
     const askQuestion = (question) => {
-      // user message
-      messages.value.push({ text: `<p>${question}</p>`, sender: "user" });
+    // Push user message
+    messages.value.push({ text: `<p>${question}</p>`, sender: "user" });
+    nextTick(scrollToBottom);
+
+    // Simulate bot typing
+     setTimeout(() => {
+    // Add typing indicator
+    messages.value.push({
+      text: "<span class='typing-dots'><span>.</span><span>.</span><span>.</span></span>",
+      sender: "bot",
+      showFeedback: false,
+      isTyping: true
+    });
+    nextTick(scrollToBottom);
+
+    // After a delay, replace typing message with real answer
+    setTimeout(() => {
+      // remove typing indicator (last message)
+      messages.value.pop();
+
+      const answer = findAnswer(question);
+      messages.value.push({ text: answer, sender: "bot", showFeedback: true });
       nextTick(scrollToBottom);
+    }, 2500); // 👈 adjust delay (ms) here
 
-      // bot reply (simulate delay)
-      setTimeout(async () => {
-        const answer = findAnswer(question);
-        // push bot message with showFeedback property set true
-        messages.value.push({ text: answer, sender: "bot", showFeedback: true });
-        await nextTick();
-        scrollToBottom();
-      }, 500);
-    };
-
+  }, 500); // short delay before typing starts
+};
     const feedbackYes = (index) => {
       const msg = messages.value[index];
       if (!msg) return;
@@ -141,15 +155,19 @@ export default {
     };
 
     const feedbackNo = (index) => {
-      const msg = messages.value[index];
-      if (!msg) return;
-      // hide feedback controls and optionally update text (similar to original)
-      msg.text = "<p>Žao nam je. Otvaramo e-mail klijent...</p>";
-      msg.showFeedback = false;
-      nextTick(scrollToBottom);
-      // then open user's mail client
-      window.location.href = "mailto:pretplata@telegram.hr";
-    };
+    const msg = messages.value[index];
+    if (!msg) return;
+
+    msg.text = "Kontaktirajte nas putem e-maila na <a>pretplata@telegram.hr</a></p>";
+    msg.showFeedback = false;
+    nextTick(scrollToBottom);
+
+    if (isMobile) {
+    // On mobile: open email client
+    alert("mailto triggered!");
+    window.location.href = "mailto:pretplata@telegram.hr";
+    }
+  };
 
     const hideHintOnScroll = () => {
       if (window.scrollY > 50) {
