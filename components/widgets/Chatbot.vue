@@ -164,7 +164,7 @@ export default {
 
     if (isMobile) {
     // On mobile: open email client
-    alert("mailto triggered!");
+    //alert("mailto triggered!");
     window.location.href = "mailto:pretplata@telegram.hr";
     }
   };
