@@ -263,7 +263,7 @@ export const state = () => ({
       canonical: '/super1/horoskop/',
     },
     recepti: {
-      name: 'Recepeti',
+      name: 'Recepti',
       description: '',
       posts: [],
       mostRead: [],
