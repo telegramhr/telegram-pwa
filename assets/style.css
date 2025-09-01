@@ -1067,7 +1067,7 @@ h2.section-title {
 }
 
 label[for="gift-email"],
-label[for="gift-date"]{
+label[for="gift-date"] {
   margin-bottom: 0.4rem;
   margin-top: 0.4rem;
 }
@@ -20253,6 +20253,7 @@ button.newbtn {
   opacity: 1;
   transition: opacity 2s ease;
   font-family: "Barlow";
+  z-index: 100;
 
 }
 
