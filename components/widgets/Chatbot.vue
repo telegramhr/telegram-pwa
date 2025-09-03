@@ -51,10 +51,12 @@
 
 <script>
 import { ref, nextTick, onMounted, onUnmounted } from "vue";
+import { useGtm } from "@gtm-support/vue-gtm"; // Vue-GTM helper
 
 export default {
   name: "Chatbot",
   setup() {
+    const gtm = useGtm(); // 👈 get GTM instance
     const chatbotOpen = ref(false);
     const messagesContainer = ref(null);
     const messages = ref([]); 
@@ -96,13 +98,14 @@ export default {
     };
 
     const trackEvent = (action, label = null) => {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
+      if (!gtm) return; // safety check if plugin isn’t loaded
+      const payload = {
         event: "chatbot_interaction",
-        action,
-        label,
-        timestamp: new Date().toISOString()
-      });
+        "chatbot-action": action,
+        "chatbot-label": label,
+        "chatbot-timestamp": new Date().toISOString()
+      };
+      gtm.push(payload);
     };
 
     const toggleChatbot = async () => {
