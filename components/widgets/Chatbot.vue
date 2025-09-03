@@ -95,9 +95,25 @@ export default {
       }
     };
 
+    const trackEvent = (action, label = null) => {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "chatbot_interaction",
+        action,
+        label,
+        timestamp: new Date().toISOString()
+      });
+    };
+
     const toggleChatbot = async () => {
       chatbotOpen.value = !chatbotOpen.value;
       // show intro the first time it's opened
+      if (chatbotOpen.value) {
+        trackEvent("chat_opened");
+      } else {
+        trackEvent("chat_closed");
+      }
+
       if (chatbotOpen.value && messages.value.length === 0) {
         messages.value.push({
           text: "<p>Poštovani, kako vam možemo pomoći? Kliknite na jedno od pitanja ispod!</p>",
@@ -116,6 +132,8 @@ export default {
 
     const askQuestion = (question) => {
     // Push user message
+    trackEvent("faq_clicked", question);
+
     messages.value.push({ text: `<p>${question}</p>`, sender: "user" });
     nextTick(scrollToBottom);
 
@@ -143,6 +161,7 @@ export default {
   }, 500); // short delay before typing starts
 };
     const feedbackYes = (index) => {
+      trackEvent("feedback_yes", messages.value[index]?.text);
       const msg = messages.value[index];
       if (!msg) return;
       // replace feedback block content with thank you message and hide feedback controls
@@ -155,6 +174,7 @@ export default {
     };
 
     const feedbackNo = (index) => {
+    trackEvent("feedback_no", messages.value[index]?.text);
     const msg = messages.value[index];
     if (!msg) return;
 
