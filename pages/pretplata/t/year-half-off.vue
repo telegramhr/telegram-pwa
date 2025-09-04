@@ -297,7 +297,7 @@
                 <input type="hidden" name="auth" value="1" />
                 <input type="hidden" name="email" :value="email" />
                 <div
-                  v-if="!loggedIn"
+                  v-if="!loggedIn && canLogIn"
                   class="full barlow smaller-text faded center-text column-mini-top-pad"
                 >
                   Molimo da se prijavite kako bi dovršili kupnju
@@ -363,6 +363,7 @@ export default {
       instance: null,
       customerId: null,
       iframeUrl: '',
+      canLogIn: true,
     }
   },
   computed: {
@@ -381,6 +382,9 @@ export default {
       }
       return 49
     },
+    loggedIn() {
+      return !!this.$store.state.user.id
+    },
   },
   watch: {
     email: _.debounce(function (value) {
@@ -396,17 +400,21 @@ export default {
         .then((response) => {
           if (response.data.status && response.data.status === 'taken') {
             _this.showPassword = true
+            _this.canLogIn = true
           } else if (response.data.status === 'error') {
             if (response.data.code === 'email_missing') {
               return
             }
-            _this.show_msg = 'error-not-finished'
+            _this.show_msg = 'Prijavite se kako biste dovršili kupnju.'
+            _this.canLogIn = true
           } else {
             _this.showPassword = false
+            _this.canLogIn = false
           }
         })
         .catch(() => {
           _this.showPassword = false
+          _this.canLogIn = false
         })
     }, 1000),
   },
@@ -418,6 +426,7 @@ export default {
       this.$store.dispatch('user/loginSubmit', {
         email: this.email,
         password: this.password,
+        reload: false,
       })
     },
     submit() {
