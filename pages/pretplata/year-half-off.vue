@@ -450,10 +450,8 @@ export default {
       }
       const _this = this
       this.$axios
-        .get('/crm/api/v1/braintree/token', {
-          params: {
-            email: _this.email,
-          },
+        .post('/crm/api/v1/braintree/token', {
+          email: _this.email,
         })
         .then((res) => {
           _this.token = res.data.token
