@@ -60,11 +60,8 @@ export default {
         if (
           url.hostname.includes('midas') ||
           url.hostname.includes('facebook') ||
-          url.hostname.includes('quicksearchbox') ||
           url.hostname.includes('linker') ||
-          url.hostname.includes('upday') ||
-          url.hostname.includes('news.google') ||
-          url.hostname.includes('news.url.google')
+          url.hostname.includes('upday')
         ) {
           return true
         }
