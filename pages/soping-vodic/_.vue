@@ -446,6 +446,7 @@ export default {
     ]
     const fbPaywall = {
       none: 'metered',
+      paragraphs: 'metered',
       always: 'locked',
       never: 'free',
     }
