@@ -263,7 +263,7 @@ export const actions = {
       .$post('/crm/api/v1/users/create', data, {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
-          Authorization: `Bearer vZ2qNWnVcZn00Q4PVL8MtJSy9xDlKmk`,
+          Authorization: `Bearer ff4a16187c0fc0cc0267b95410c4f55a`,
         },
       })
       .then((res) => {
@@ -321,7 +321,7 @@ export const actions = {
                 .post('/crm/api/v1/users/update', data2, {
                   headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
-                    Authorization: `Bearer vZ2qNWnVcZn00Q4PVL8MtJSy9xDlKmk`,
+                    Authorization: `Bearer ff4a16187c0fc0cc0267b95410c4f55a`,
                   },
                 })
                 .then((res) => {
