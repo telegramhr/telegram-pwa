@@ -3,6 +3,7 @@ export default {
   globalName: 'telegram',
   modern: 'client',
   telemetry: false,
+  ssr: false, // Disable SSR completely
   head: {
     title: 'Telegram.hr',
     meta: [
@@ -207,8 +208,12 @@ export default {
 
   proxy: {
     '/api': {
-      target: 'https://www.telegram.hr/wp-json/telegram/pwa/v1/',
+      target: 'http://localhost:80/wp-json/telegram/pwa/v1/',
       pathRewrite: { '^/api/': '' },
+      changeOrigin: true,
+      headers: {
+        'Host': 'localhost'
+      }
     },
     '/pretplate': {
       target: 'https://pretplate.telegram.hr',

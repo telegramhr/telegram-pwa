@@ -1,0 +1,68 @@
+stages:
+  - build
+  - deploy
+
+variables:
+  DOCKER_DRIVER: overlay2
+  DOCKER_TLS_CERTDIR: ""
+  IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+  IMAGE_TAG_LATEST: $CI_REGISTRY_IMAGE:latest
+
+before_script:
+  - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+
+build:
+  stage: build
+  image: docker:latest
+  services:
+    - docker:dind
+  script:
+    - echo "Building Docker image for branch $CI_COMMIT_REF_NAME"
+    - docker build -t $IMAGE_TAG -t $IMAGE_TAG_LATEST .
+    - docker push $IMAGE_TAG
+    - docker push $IMAGE_TAG_LATEST
+  only:
+    - smartcode-staging
+    - master
+    - main
+  tags:
+    - docker
+
+deploy-staging:
+  stage: deploy
+  image: alpine:latest
+  script:
+    - echo "Deploying to staging environment"
+    - echo "Docker image available at $IMAGE_TAG"
+    - echo "Environment variables can be set at runtime:"
+    - echo "  API_URL - Backend API URL"
+    - echo "  BASE_URL - Application base URL"
+    - echo "  WP_SITE_URL - WordPress site URL"
+    - echo "  CDN_URL - CDN URL for assets"
+    - echo "  GTM_ID - Google Tag Manager ID"
+    - echo "  PM2_INSTANCES - Number of PM2 instances (default: 2)"
+  environment:
+    name: staging
+    url: https://staging.telegram.hr
+  only:
+    - smartcode-staging
+  when: manual
+  tags:
+    - docker
+
+deploy-production:
+  stage: deploy
+  image: alpine:latest
+  script:
+    - echo "Deploying to production environment"
+    - echo "Docker image available at $IMAGE_TAG"
+    - echo "This is a manual deployment step"
+  environment:
+    name: production
+    url: https://telegram.hr
+  only:
+    - master
+    - main
+  when: manual
+  tags:
+    - docker
