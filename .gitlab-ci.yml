@@ -26,7 +26,7 @@ build:
     - master
     - main
   tags:
-    - docker
+    - shared
 
 deploy-staging:
   stage: deploy
@@ -48,7 +48,7 @@ deploy-staging:
     - smartcode-staging
   when: manual
   tags:
-    - docker
+    - shared
 
 deploy-production:
   stage: deploy
@@ -65,4 +65,4 @@ deploy-production:
     - main
   when: manual
   tags:
-    - docker
+    - shared
