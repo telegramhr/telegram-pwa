@@ -6,8 +6,10 @@ WORKDIR /app
 # Copy ONLY package.json (not package-lock.json to avoid auth issues)
 COPY package.json ./
 
-# Remove any .npmrc that might exist and install dependencies
+# Configure Font Awesome Pro token and install dependencies
 RUN rm -f .npmrc /root/.npmrc && \
+    npm config set "@fortawesome:registry" https://npm.fontawesome.com/ && \
+    npm config set "//npm.fontawesome.com/:_authToken" "E5F250AB-978C-4713-A685-FC325371AFB4" && \
     npm install --legacy-peer-deps
 
 # Copy application files
