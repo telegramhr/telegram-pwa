@@ -23,10 +23,6 @@
         </client-only>
       </div>
     </div>
-    <!-- Chatbot Component -->
-    <client-only>
-      <Chatbot />
-    </client-only>
     <!-- Above header banner Piano -->
     <client-only>
       <hometop-ten></hometop-ten>

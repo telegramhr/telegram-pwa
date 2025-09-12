@@ -199,7 +199,7 @@
                       type="date"
                       class="full remp-new-input"
                       placeholder="Odaberite datum slanja poklona"
-                      name="date" 
+                      name="date"
                       style="color: #78726e;"
                     />
                   </div>
@@ -451,10 +451,6 @@
                   automatski obnavlja.
                 </p>
               </form>
-              <!-- Chatbot Component -->
-              <client-only>
-                <Chatbot />
-              </client-only>
             </div>
           </div>
         </div>
