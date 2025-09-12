@@ -1,6 +1,9 @@
 # Build stage
 FROM node:18-alpine AS builder
 
+# Install git (required for some npm packages)
+RUN apk add --no-cache git
+
 WORKDIR /app
 
 # Copy ONLY package.json (not package-lock.json to avoid auth issues)
