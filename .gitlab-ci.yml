@@ -17,10 +17,10 @@ build:
   services:
     - docker:dind
   script:
-    - echo "Building Docker image for branch $CI_COMMIT_REF_NAME"
-    - docker build -t $IMAGE_TAG -t $IMAGE_TAG_LATEST .
-    - docker push $IMAGE_TAG
-    - docker push $IMAGE_TAG_LATEST
+    - 'echo "Building Docker image for branch $CI_COMMIT_REF_NAME"'
+    - 'docker build -t $IMAGE_TAG -t $IMAGE_TAG_LATEST .'
+    - 'docker push $IMAGE_TAG'
+    - 'docker push $IMAGE_TAG_LATEST'
   only:
     - smartcode-staging
     - master
@@ -32,15 +32,15 @@ deploy-staging:
   stage: deploy
   image: alpine:latest
   script:
-    - echo "Deploying to staging environment"
-    - echo "Docker image available at $IMAGE_TAG"
-    - echo "Environment variables can be set at runtime:"
-    - echo "  API_URL - Backend API URL"
-    - echo "  BASE_URL - Application base URL"
-    - echo "  WP_SITE_URL - WordPress site URL"
-    - echo "  CDN_URL - CDN URL for assets"
-    - echo "  GTM_ID - Google Tag Manager ID"
-    - echo "  PM2_INSTANCES - Number of PM2 instances (default: 2)"
+    - 'echo "Deploying to staging environment"'
+    - 'echo "Docker image available at $IMAGE_TAG"'
+    - 'echo "Environment variables can be set at runtime:"'
+    - 'echo "  API_URL - Backend API URL"'
+    - 'echo "  BASE_URL - Application base URL"'
+    - 'echo "  WP_SITE_URL - WordPress site URL"'
+    - 'echo "  CDN_URL - CDN URL for assets"'
+    - 'echo "  GTM_ID - Google Tag Manager ID"'
+    - 'echo "  PM2_INSTANCES - Number of PM2 instances (default: 2)"'
   environment:
     name: staging
     url: https://staging.telegram.hr
@@ -54,9 +54,9 @@ deploy-production:
   stage: deploy
   image: alpine:latest
   script:
-    - echo "Deploying to production environment"
-    - echo "Docker image available at $IMAGE_TAG"
-    - echo "This is a manual deployment step"
+    - 'echo "Deploying to production environment"'
+    - 'echo "Docker image available at $IMAGE_TAG"'
+    - 'echo "This is a manual deployment step"'
   environment:
     name: production
     url: https://telegram.hr
