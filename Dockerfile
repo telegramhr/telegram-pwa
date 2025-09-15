@@ -49,5 +49,9 @@ EXPOSE 3000
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
   CMD node -e "require('http').get('http://localhost:3000/health', (r) => {r.statusCode === 200 ? process.exit(0) : process.exit(1)})"
 
-# Run the application with PM2
-CMD ["pm2-runtime", "ecosystem.config.js"]
+# Copy startup script
+COPY start.sh /app/start.sh
+RUN chmod +x /app/start.sh
+
+# Run the application with PM2 directly
+CMD ["pm2-runtime", "start", "/app/start.sh", "--name", "telegram-pwa", "-i", "2"]
