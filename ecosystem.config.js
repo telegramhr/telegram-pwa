@@ -2,8 +2,8 @@ module.exports = {
   apps: [
     {
       name: 'telegram-pwa',
-      exec_mode: 'cluster',
-      instances: process.env.PM2_INSTANCES || 2,
+      exec_mode: 'fork',
+      instances: 1,
       script: 'npm',
       args: 'start',
       cwd: '/app',

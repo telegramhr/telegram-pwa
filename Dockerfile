@@ -36,6 +36,8 @@ COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package*.json ./
 COPY --from=builder /app/nuxt.config.js ./
 COPY --from=builder /app/ecosystem.config.js ./
+COPY --from=builder /app/server.js ./
+RUN chmod +x ./server.js
 
 # Set environment variables
 ENV HOST=0.0.0.0 \
@@ -49,9 +51,5 @@ EXPOSE 3000
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
   CMD node -e "require('http').get('http://localhost:3000/health', (r) => {r.statusCode === 200 ? process.exit(0) : process.exit(1)})"
 
-# Copy startup script
-COPY start.sh /app/start.sh
-RUN chmod +x /app/start.sh
-
-# Run the application with PM2 directly - use sh interpreter explicitly
-CMD ["pm2-runtime", "start", "/app/start.sh", "--name", "telegram-pwa", "-i", "2", "--interpreter", "sh"]
+# Run the application with PM2 using ecosystem config
+CMD ["pm2-runtime", "start", "ecosystem.config.js"]
