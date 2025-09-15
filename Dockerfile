@@ -53,5 +53,5 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
 COPY start.sh /app/start.sh
 RUN chmod +x /app/start.sh
 
-# Run the application with PM2 directly
-CMD ["pm2-runtime", "start", "/app/start.sh", "--name", "telegram-pwa", "-i", "2"]
+# Run the application with PM2 directly - use sh interpreter explicitly
+CMD ["pm2-runtime", "start", "/app/start.sh", "--name", "telegram-pwa", "-i", "2", "--interpreter", "sh"]
