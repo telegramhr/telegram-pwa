@@ -208,11 +208,11 @@ export default {
 
   proxy: {
     '/api': {
-      target: 'http://localhost:80/wp-json/telegram/pwa/v1/',
+      target: process.env.API_PROXY_TARGET || 'http://localhost:80/wp-json/telegram/pwa/v1/',
       pathRewrite: { '^/api/': '' },
       changeOrigin: true,
       headers: {
-        'Host': 'localhost'
+        'Host': process.env.API_PROXY_HOST || 'localhost'
       }
     },
     '/pretplate': {
