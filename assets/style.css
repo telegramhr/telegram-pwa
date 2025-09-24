@@ -20578,3 +20578,33 @@ button.newbtn {
     left: 20px;
   }
 }
+
+.f32 {
+  color: white;
+}
+
+.f32-darkened-bg {
+    background-color: #1A1C20;
+  }
+
+.f32 .newbook-overtitle {
+  color: white;
+  text-transform: uppercase;
+}
+.f32 .newbook-title-smaller {
+  font-size: 2.5rem;
+  line-height: 2.6rem;
+}
+
+@media (max-width: 728px) {
+    .f32 {
+      text-align: center;
+    }
+  .f32 .newbook-title-smaller {
+    font-size: 2rem;
+    line-height: 2.1rem;
+  }
+  .f32 .button img{
+    margin: 10px auto;
+  }
+}

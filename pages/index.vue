@@ -301,6 +301,35 @@
         </div>
       </div>
     </div>
+    <app-link
+      to="https://knjige.telegram.hr/proizvod/knjige/f32/"
+      class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom"
+    >
+      <div class="container relative flex stretch">
+        <div class="forty tablet-full flex flex-responsive center">
+          <div class="full newbook-overtitle">U prodaji od 06.10.</div>
+
+          <h2 class="full newbook-title newbook-title-smaller">
+            Nova knjiga Ace Stankovića: nastavak mega-hita Depra
+          </h2>
+          <div class="full button">
+            <img
+              src="@/assets/img/extras/knjiga/f32/Button.png"
+              alt="Prednaruci"
+              width="200"
+              style="margin-top: 10px"
+            />
+          </div>
+        </div>
+
+        <div class="sixty tablet-full flex flex-responsive center">
+          <img
+            src="@/assets/img/extras/knjiga/f32/desktop.png"
+            alt="Naslovnica nove knjige"
+          />
+        </div>
+      </div>
+    </app-link>
     <client-only>
       <div v-if="!hasPremium" class="full relative">
         <offers-premium></offers-premium>
