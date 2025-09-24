@@ -88,7 +88,7 @@ export default {
   name: 'IntextPromoNewCustomer',
   data() {
     return {
-      show: true,
+      show: false,
       termId: false,
       oldPrice: 7.99,
       newPrice: 1.99,
