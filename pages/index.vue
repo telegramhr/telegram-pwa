@@ -304,9 +304,10 @@
     <app-link
       to="https://knjige.telegram.hr/proizvod/knjige/f32/"
       class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom"
+      style="padding: 0 24px"
     >
       <div class="container relative flex stretch">
-        <div class="forty tablet-full flex flex-responsive center">
+        <div class="forty flex flex-responsive center">
           <div class="full newbook-overtitle">U prodaji od 06.10.</div>
 
           <h2 class="full newbook-title newbook-title-smaller">
@@ -322,7 +323,7 @@
           </div>
         </div>
 
-        <div class="sixty tablet-full flex flex-responsive center">
+        <div class="sixty flex flex-responsive center">
           <img
             src="@/assets/img/extras/knjiga/f32/desktop.png"
             alt="Naslovnica nove knjige"

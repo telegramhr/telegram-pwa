@@ -20596,7 +20596,7 @@ button.newbtn {
   line-height: 2.6rem;
 }
 
-@media (max-width: 728px) {
+@media (max-width: 1200px) {
     .f32 {
       text-align: center;
     }
