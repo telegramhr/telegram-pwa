@@ -20592,8 +20592,8 @@ button.newbtn {
   text-transform: uppercase;
 }
 .f32 .newbook-title-smaller {
-  font-size: 2.5rem;
-  line-height: 2.6rem;
+  font-size: 2rem;
+  line-height: 2.1rem;
 }
 
 @media (max-width: 1200px) {
