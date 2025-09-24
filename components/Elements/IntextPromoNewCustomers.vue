@@ -102,10 +102,10 @@ export default {
     }
   },
   mounted() {
-    window.addEventListener('intext_green', this.load)
+    window.addEventListener('intext_newcustomer', this.load)
   },
   destroyed() {
-    window.removeEventListener('intext_green', this.load)
+    window.removeEventListener('intext_newcustomer', this.load)
   },
   methods: {
     login() {
