@@ -19,16 +19,13 @@
         <div class="full flex flex-responsive relative m-order-1">
           <div class="third mobile-bottom-pad flex relative m-order-1">
             <img
-                src="@/assets/img/slusalice.webp"
-                class = "more-width"
-                alt="Slušalice"
+              src="@/assets/img/slusalice.webp"
+              class="more-width"
+              alt="Slušalice"
             />
           </div>
           <div class="third mobile-bottom-pad flex relative m-order-1">
-            <img
-                src="@/assets/img/mobitel.webp"
-                alt="Mobitel s Telegramom"
-            />
+            <img src="@/assets/img/mobitel.png" alt="Mobitel s Telegramom" />
           </div>
           <div
             class="third mobile-bottom-pad flex relative m-order-1 mobile-only"
@@ -45,12 +42,10 @@
           <div class="full flex">
             <p class="full">
               {{ subtitle }}
-              <span v-if="oldPrice" class="strikethrough"
-              >{{ oldPrice }}€</span
-            >
-            <span v-if="newPrice" class="green-txt"
-              >{{ newPrice }}€/{{ termDurationText }}</span
-            >
+              <span v-if="oldPrice" class="strikethrough">{{ oldPrice }}€</span>
+              <span v-if="newPrice" class="green-txt"
+                >{{ newPrice }}€/{{ termDurationText }}</span
+              >
             </p>
           </div>
           <div class="full flex">
@@ -90,10 +85,10 @@ export default {
   name: 'IntextPromoNewCustomer',
   data() {
     return {
-      show: true,
+      show: false,
       termId: false,
-      oldPrice: 7.99,
-      newPrice: 1.99,
+      oldPrice: '',
+      newPrice: '',
       maintitle: 'Posebna prilika za nove pretplatnike! ',
       subtitle: 'Isprobajte Telegram za ',
       topBar: '',
@@ -186,9 +181,12 @@ export default {
   max-width: 900px;
   height: 600px;
   padding: 0px;
-  background: linear-gradient(0deg, #304769, #304769),
-  radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.36) 100%);
-
+  background: radial-gradient(
+      circle at center,
+      rgba(0, 0, 0, 0) 0%,
+      rgb(27 33 45) 100%
+    ),
+    rgba(48, 71, 105, 1);
 }
 
 .zgts-title {
@@ -198,7 +196,6 @@ export default {
   line-height: 46.88px;
   letter-spacing: -0.15px;
   text-transform: none;
-
 }
 
 .zgt-salebox p {
@@ -209,7 +206,6 @@ export default {
   line-height: 29.15px;
   letter-spacing: -0.1px;
   margin-top: 15px;
-
 }
 
 span.green-txt {
@@ -225,23 +221,21 @@ span.green-txt {
   font-size: 18px;
   border-radius: 3.65px;
   font-family: Lora;
-
 }
 
 .zgt-salebox .newbtn:hover {
   opacity: 0.85;
 }
 
-.ipad-margin{
+.ipad-margin {
   position: absolute;
   right: -10px;
   bottom: -1px;
 }
 
-.half.column-full-pad{
+.half.column-full-pad {
   margin-left: 2rem;
   margin-top: -4.5rem;
-  
 }
 
 .more-width {
@@ -258,7 +252,7 @@ span.green-txt {
 }
 
 @media screen and (max-width: 900px) {
-  .ipad-margin{
+  .ipad-margin {
     right: 0px;
   }
 }
@@ -288,10 +282,9 @@ span.green-txt {
     text-align: center;
   }
 
-  .half.column-full-pad{
+  .half.column-full-pad {
     margin-left: 0rem;
     margin-top: -2rem;
-  
-}
+  }
 }
 </style>
