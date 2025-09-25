@@ -21,14 +21,11 @@
             <img
               src="@/assets/img/slusalice.webp"
               class="more-width"
-              alt="Dvije crvene poklon kartice s Telegram logom na sebi"
+              alt="Slušalice"
             />
           </div>
           <div class="third mobile-bottom-pad flex relative m-order-1">
-            <img
-              src="@/assets/img/mobitel.webp"
-              alt="Dvije crvene poklon kartice s Telegram logom na sebi"
-            />
+            <img src="@/assets/img/mobitel.png" alt="Mobitel s Telegramom" />
           </div>
           <div
             class="third mobile-bottom-pad flex relative m-order-1 mobile-only"
@@ -42,9 +39,14 @@
           <div class="full zgts-title">
             {{ maintitle }}
           </div>
-          <div class="full zgts-subtitle">{{ termDurationText }}</div>
           <div class="full flex">
-            <p class="full" v-html="subtitle"></p>
+            <p class="full">
+              {{ subtitle }}
+              <span v-if="oldPrice" class="strikethrough">{{ oldPrice }}€</span>
+              <span v-if="newPrice" class="green-txt"
+                >{{ newPrice }}€/{{ termDurationText }}</span
+              >
+            </p>
           </div>
           <div class="full flex">
             <a
@@ -61,10 +63,10 @@
           </div>-->
           </div>
         </div>
-        <div class="half flex relative desktop-only">
+        <div class="half flex relative ipad-margin desktop-only">
           <img
             src="@/assets/img/iPad.webp"
-            class="ipad-margin"
+            class=""
             alt="Tablet s Telegramom"
           />
         </div>
@@ -85,16 +87,15 @@ export default {
     return {
       show: false,
       termId: false,
-      oldPrice: 7.99,
-      newPrice: 1.99,
+      oldPrice: '',
+      newPrice: '',
       maintitle: 'Posebna prilika za nove pretplatnike! ',
-      subtitle:
-        'Isprobajte Telegram<br> za <span class = "strikethrough">7,99€</span> <span class = "green-txt">1,99€/mjesečno</span>',
+      subtitle: 'Isprobajte Telegram za ',
       topBar: '',
       softwall: true,
       cta: 'Iskoristite ponudu',
       cta_link: '',
-      termDurationText: '',
+      termDurationText: 'mjesečno',
     }
   },
   mounted() {
@@ -178,22 +179,33 @@ export default {
 }
 .zgt-salebox {
   max-width: 900px;
-  height: 700px;
-  background-color: #304769;
+  height: 600px;
   padding: 0px;
+  background: radial-gradient(
+      circle at center,
+      rgba(0, 0, 0, 0) 0%,
+      rgb(27 33 45) 100%
+    ),
+    rgba(48, 71, 105, 1);
 }
 
 .zgts-title {
-  font-family: 'Lora';
+  font-family: Lora;
+  font-weight: 600;
+  font-size: 40.4px;
+  line-height: 46.88px;
+  letter-spacing: -0.15px;
   text-transform: none;
-  margin-bottom: 0.4rem;
-  font-size: 44px;
 }
 
 .zgt-salebox p {
-  font-family: 'Lora';
-  font-size: 25px;
-  width: 100%;
+  font-family: Lora;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 25.86px;
+  line-height: 29.15px;
+  letter-spacing: -0.1px;
+  margin-top: 15px;
 }
 
 span.green-txt {
@@ -204,22 +216,30 @@ span.green-txt {
   margin-top: 0.5rem;
   background-color: #1db71d;
   text-transform: none;
-  padding: 16px 1px;
+  padding: 14.6px 0.89px;
   font-weight: 600;
   font-size: 18px;
+  border-radius: 3.65px;
+  font-family: Lora;
 }
 
 .zgt-salebox .newbtn:hover {
   opacity: 0.85;
 }
 
-.more-width {
-  max-width: 120%;
+.ipad-margin {
+  position: absolute;
+  right: -10px;
+  bottom: -1px;
 }
 
-.ipad-margin {
-  margin-top: -14rem;
-  margin-left: 0.5rem;
+.half.column-full-pad {
+  margin-left: 2rem;
+  margin-top: -4.5rem;
+}
+
+.more-width {
+  max-width: 120%;
 }
 
 .fade-enter-active,
@@ -229,6 +249,12 @@ span.green-txt {
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
+}
+
+@media screen and (max-width: 900px) {
+  .ipad-margin {
+    right: 0px;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -242,17 +268,23 @@ span.green-txt {
 
   .column-full-pad {
     padding: 1rem;
-    margin-top: -1rem;
+    margin-top: -2rem;
   }
 
   .zgts-title {
-    font-size: 30px;
     text-align: center;
+    line-height: 1.1rem;
+    font-size: 1.3rem;
   }
 
   .zgt-salebox p {
     font-size: 20px;
     text-align: center;
+  }
+
+  .half.column-full-pad {
+    margin-left: 0rem;
+    margin-top: -2rem;
   }
 }
 </style>
