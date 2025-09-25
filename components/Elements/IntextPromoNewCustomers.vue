@@ -23,7 +23,7 @@
             <img
                 src="@/assets/img/slusalice.webp"
                 class = "more-width"
-                alt="Dvije crvene poklon kartice s Telegram logom na sebi"
+                alt="Slušalice"
             />
             </div>
             <div
@@ -31,7 +31,7 @@
             >
             <img
                 src="@/assets/img/mobitel.webp"
-                alt="Dvije crvene poklon kartice s Telegram logom na sebi"
+                alt="Mobitel s Telegramom"
             />
             </div>
             <div
@@ -47,9 +47,16 @@
           <div class="full zgts-title">
             {{ maintitle }}
           </div>
-          <div class="full zgts-subtitle">{{ termDurationText }}</div>
           <div class="full flex">
-            <p class="full" v-html="subtitle"></p>
+            <p class="full">
+              {{ subtitle }}
+              <span v-if="oldPrice" class="strikethrough"
+              >{{ oldPrice }}€</span
+            >
+            <span v-if="newPrice" class="green-txt"
+              >{{ newPrice }}€/{{ termDurationText }}</span
+            >
+            </p>
           </div>
           <div class="full flex">
             <a class="newbtn full huge-newbtn center-text" @click.prevent="start">{{
@@ -93,12 +100,12 @@ export default {
       oldPrice: 7.99,
       newPrice: 1.99,
       maintitle: 'Posebna prilika za nove pretplatnike! ',
-      subtitle: 'Isprobajte Telegram<br> za <span class = "strikethrough">7,99€</span> <span class = "green-txt">1,99€/mjesečno</span>',
+      subtitle: 'Isprobajte Telegram za ',
       topBar: '',
       softwall: true,
       cta: 'Iskoristite ponudu',
       cta_link: '',
-      termDurationText: '',
+      termDurationText: 'mjesečno',
     }
   },
   mounted() {
@@ -235,6 +242,12 @@ span.green-txt{
   opacity: 0;
 }
 
+@media screen and (max-width: 900px) {
+  .ipad-margin{
+    margin-left: 0rem;
+  }
+}
+
 @media screen and (max-width: 767px) {
   .zgt-salebox{
     height: auto;
@@ -246,7 +259,7 @@ span.green-txt{
 
   .column-full-pad{
     padding: 1rem;
-    margin-top: -1rem;
+    margin-top: -2rem;
   }
 
   .zgts-title{
