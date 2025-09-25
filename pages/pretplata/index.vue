@@ -314,7 +314,7 @@
                       placeholder="Upišite lozinku"
                       name="password"
                     />
-                    <small class = "under-pretplata-email" v-show="!showPassword"
+                    <small v-show="!showPassword" class="under-pretplata-email"
                       >Ukoliko niste registrirani korisnik, na navedenu email
                       adresu ćete zaprimiti pristupne podatke.</small
                     >
@@ -329,7 +329,7 @@
                     <div class="full flex relative">
                       <div class="half flex column-mini-right-pad">
                         <a
-                          :href="`http://pretplata.telegram.hr/users/google/sign?url=https://www.telegram.hr/pretplata/`"
+                          href="http://pretplata.telegram.hr/users/google/sign?url=https://www.telegram.hr/pretplata/"
                           class="full center remp-social-logbtn animate"
                         >
                           <!-- <font-awesome-icon :icon="['fab', 'google']" /> -->
@@ -362,6 +362,19 @@
                         davatelja usluga kako bi povezali račune.
                       </p>
                     </div>
+                  </div>
+                  <div class="full flex">
+                    <p class="full bold column-full-pad faded">
+                      Imate promo kod?
+                    </p>
+                    <input
+                      id="pretplata-promo"
+                      v-model="promo_code"
+                      type="text"
+                      class="full remp-new-input"
+                      placeholder="Upišite promo kod"
+                    />
+                    <a class="newbtn" @click.prevent="checkPromo">Primjeni</a>
                   </div>
                   <div
                     class="full flex column-top-pad mobile-bottom-pad mobile-top-pad"
@@ -463,6 +476,21 @@
                   <input type="hidden" name="price" :value="price" />
                   <input type="hidden" name="auth" value="1" />
                   <input type="hidden" name="email" :value="email" />
+                  <input
+                    v-if="voucher_log_id"
+                    id="voucher_log_id"
+                    type="hidden"
+                    name="payment_metadata[voucher_log_id]"
+                    :value="voucher_log_id"
+                  />
+                  <input
+                    v-if="voucher_log_id"
+                    id="voucher_code"
+                    type="hidden"
+                    name="payment_metadata[voucher_code]"
+                    :value="promo_code"
+                  />
+
                   <div
                     v-if="!buyable"
                     class="full newbtn huge-newbtn center-text clickable locked-newbtn"
@@ -507,7 +535,7 @@
               <client-only>
                 <!-- Chatbot Component -->
                 <Chatbot />
-            </client-only>
+              </client-only>
             </div>
           </div>
         </div>
@@ -550,6 +578,8 @@ export default {
       customerId: null,
       iframeUrl: '',
       canLogIn: true,
+      voucher_log_id: null,
+      discount: null,
     }
   },
   computed: {
@@ -604,6 +634,9 @@ export default {
     totalPrice() {
       if (!this.pack || !this.term) {
         return 0
+      }
+      if (this.discount) {
+        return this.discount.toString().replace(',', ',')
       }
       if (this.pack === 'pretplata-standard') {
         if (this.term === 'pretplata-mjesecno') {
@@ -667,6 +700,34 @@ export default {
     }, 1000),
   },
   methods: {
+    checkPromo() {
+      // check if promo code is valid
+      this.$axios
+        .get('/crm/api/v2/voucher/check', {
+          params: {
+            code: this.promo_code,
+            subscription_type_code: this.subscription_type,
+            include_discounted_amount: true,
+          },
+        })
+        .then((res) => {
+          this.voucher_log_id = res.data.voucher_log_id
+          this.discount = res.data.discounted_amount
+        })
+    },
+    applyPromo() {
+      // check if promo code is valid
+      this.$axios
+        .post('/crm/api/v1/voucher/activate', {
+          code: this.promo_code,
+          subscription_type_code: this.subscription_type,
+          include_discounted_amount: true,
+        })
+        .then((res) => {
+          this.voucher_log_id = res.data.voucher_log_id
+          this.discount = res.data.discounted_amount
+        })
+    },
     login() {
       if (!this.showPassword) {
         return
@@ -677,12 +738,15 @@ export default {
         reload: false,
       })
     },
-    submit() {
+    async submit() {
       this.loading = true
+      if (this.promo_code) {
+        await this.applyPromo()
+      }
       const form = document.getElementById('payment-form')
       const formData = new FormData(form)
       const actionUrl = form.action
-      fetch(actionUrl, {
+      await fetch(actionUrl, {
         method: 'POST',
         body: formData,
         credentials: 'include',
