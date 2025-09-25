@@ -68,10 +68,10 @@
           </div>-->
           </div>
         </div>
-        <div class="half flex relative desktop-only">
+        <div class="half flex relative ipad-margin desktop-only">
           <img
             src="@/assets/img/iPad.webp"
-            class="ipad-margin"
+            class=""
             alt="Tablet s Telegramom"
           />
         </div>
@@ -90,7 +90,7 @@ export default {
   name: 'IntextPromoNewCustomer',
   data() {
     return {
-      show: false,
+      show: true,
       termId: false,
       oldPrice: 7.99,
       newPrice: 1.99,
@@ -184,22 +184,32 @@ export default {
 }
 .zgt-salebox {
   max-width: 900px;
-  height: 700px;
-  background-color: #304769;
+  height: 600px;
   padding: 0px;
+  background: linear-gradient(0deg, #304769, #304769),
+  radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.36) 100%);
+
 }
 
 .zgts-title {
-  font-family: 'Lora';
+  font-family: Lora;
+  font-weight: 600;
+  font-size: 40.4px;
+  line-height: 46.88px;
+  letter-spacing: -0.15px;
   text-transform: none;
-  margin-bottom: 0.4rem;
-  font-size: 44px;
+
 }
 
 .zgt-salebox p {
-  font-family: 'Lora';
-  font-size: 25px;
-  width: 100%;
+  font-family: Lora;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 25.86px;
+  line-height: 29.15px;
+  letter-spacing: -0.1px;
+  margin-top: 15px;
+
 }
 
 span.green-txt {
@@ -210,22 +220,32 @@ span.green-txt {
   margin-top: 0.5rem;
   background-color: #1db71d;
   text-transform: none;
-  padding: 16px 1px;
+  padding: 14.6px 0.89px;
   font-weight: 600;
   font-size: 18px;
+  border-radius: 3.65px;
+  font-family: Lora;
+
 }
 
 .zgt-salebox .newbtn:hover {
   opacity: 0.85;
 }
 
-.more-width {
-  max-width: 120%;
+.ipad-margin{
+  position: absolute;
+  right: -10px;
+  bottom: -1px;
 }
 
-.ipad-margin {
-  margin-top: -14rem;
-  margin-left: 0.5rem;
+.half.column-full-pad{
+  margin-left: 2rem;
+  margin-top: -4.5rem;
+  
+}
+
+.more-width {
+  max-width: 120%;
 }
 
 .fade-enter-active,
@@ -239,7 +259,7 @@ span.green-txt {
 
 @media screen and (max-width: 900px) {
   .ipad-margin{
-    margin-left: 0rem;
+    right: 0px;
   }
 }
 
@@ -258,13 +278,20 @@ span.green-txt {
   }
 
   .zgts-title {
-    font-size: 30px;
     text-align: center;
+    line-height: 1.1rem;
+    font-size: 1.3rem;
   }
 
   .zgt-salebox p {
     font-size: 20px;
     text-align: center;
   }
+
+  .half.column-full-pad{
+    margin-left: 0rem;
+    margin-top: -2rem;
+  
+}
 }
 </style>
