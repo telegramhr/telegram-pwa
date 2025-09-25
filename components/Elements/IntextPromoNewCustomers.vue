@@ -17,33 +17,28 @@
           <font-awesome-icon :icon="['fas', 'times']"></font-awesome-icon>
         </div>
         <div class="full flex flex-responsive relative m-order-1">
-            <div
-            class="third mobile-bottom-pad flex relative m-order-1"
-            >
+          <div class="third mobile-bottom-pad flex relative m-order-1">
             <img
                 src="@/assets/img/slusalice.webp"
                 class = "more-width"
                 alt="Slušalice"
             />
-            </div>
-            <div
-            class="third mobile-bottom-pad flex relative m-order-1"
-            >
+          </div>
+          <div class="third mobile-bottom-pad flex relative m-order-1">
             <img
                 src="@/assets/img/mobitel.webp"
                 alt="Mobitel s Telegramom"
             />
-            </div>
-            <div
+          </div>
+          <div
             class="third mobile-bottom-pad flex relative m-order-1 mobile-only"
-            >
-            <img
-                src="@/assets/img/iPad.webp"
-                alt="Tablet s Telegramom"
-            />
-            </div>
+          >
+            <img src="@/assets/img/iPad.webp" alt="Tablet s Telegramom" />
+          </div>
         </div>
-        <div class="half flex-responsive m-order-2 column-full-pad flex relative">
+        <div
+          class="half flex-responsive m-order-2 column-full-pad flex relative"
+        >
           <div class="full zgts-title">
             {{ maintitle }}
           </div>
@@ -59,9 +54,11 @@
             </p>
           </div>
           <div class="full flex">
-            <a class="newbtn full huge-newbtn center-text" @click.prevent="start">{{
-              cta
-            }}</a>
+            <a
+              class="newbtn full huge-newbtn center-text"
+              @click.prevent="start"
+              >{{ cta }}</a
+            >
             <!--<div
             v-if="softwall"
             class="newbtn huge-newbtn altbtn center-text clickable"
@@ -71,15 +68,13 @@
           </div>-->
           </div>
         </div>
-        <div
-            class="half flex relative desktop-only"
-            >
-            <img
-                src="@/assets/img/iPad.webp"
-                class = "ipad-margin"
-                alt="Tablet s Telegramom"
-            />
-          </div>
+        <div class="half flex relative desktop-only">
+          <img
+            src="@/assets/img/iPad.webp"
+            class="ipad-margin"
+            alt="Tablet s Telegramom"
+          />
+        </div>
         <!--<div v-if="softwall" class="full center">
         <div class="newbtn huge-newbtn center-text nothanks-btn">
           Nastavite čitati besplatno
@@ -134,7 +129,7 @@ export default {
     },
     load(e) {
       if (e.detail) {
-        this.topBar = e.detail.topBar
+        this.maintitle = e.detail.maintitle
         this.subtitle = e.detail.subtitle
         this.termDurationText = e.detail.termDurationText
         this.packName = e.detail.packName
@@ -194,41 +189,41 @@ export default {
   padding: 0px;
 }
 
-.zgts-title{
+.zgts-title {
   font-family: 'Lora';
   text-transform: none;
   margin-bottom: 0.4rem;
   font-size: 44px;
 }
 
-.zgt-salebox p{
+.zgt-salebox p {
   font-family: 'Lora';
   font-size: 25px;
-  width: 100%
+  width: 100%;
 }
 
-span.green-txt{
-  color:#1DB71D;
+span.green-txt {
+  color: #1db71d;
 }
 
-.zgt-salebox .newbtn{
+.zgt-salebox .newbtn {
   margin-top: 0.5rem;
-  background-color: #1DB71D;
+  background-color: #1db71d;
   text-transform: none;
   padding: 16px 1px;
   font-weight: 600;
   font-size: 18px;
 }
 
-.zgt-salebox .newbtn:hover{
+.zgt-salebox .newbtn:hover {
   opacity: 0.85;
 }
 
-.more-width{
+.more-width {
   max-width: 120%;
 }
 
-.ipad-margin{
+.ipad-margin {
   margin-top: -14rem;
   margin-left: 0.5rem;
 }
@@ -249,27 +244,27 @@ span.green-txt{
 }
 
 @media screen and (max-width: 767px) {
-  .zgt-salebox{
+  .zgt-salebox {
     height: auto;
   }
 
-  .more-width{
-    max-width: 100%
+  .more-width {
+    max-width: 100%;
   }
 
-  .column-full-pad{
+  .column-full-pad {
     padding: 1rem;
     margin-top: -2rem;
   }
 
-  .zgts-title{
-  font-size: 30px;
-  text-align: center;
+  .zgts-title {
+    font-size: 30px;
+    text-align: center;
   }
 
-  .zgt-salebox p{
-  font-size: 20px;
-  text-align: center;
+  .zgt-salebox p {
+    font-size: 20px;
+    text-align: center;
   }
 }
 </style>

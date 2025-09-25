@@ -301,6 +301,22 @@
         </div>
       </div>
     </div>
+    <app-link
+      to="https://knjige.telegram.hr/proizvod/knjige/f32/"
+      class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center"
+      style="padding: 0 24px; margin-top: 20px"
+    >
+      <img
+        src="@/assets/img/extras/knjiga/f32/F32_Telegram_Web_Banner_Desktop.png"
+        alt="Naslovnica nove knjige"
+        class="desktop-only"
+      />
+      <img
+        src="@/assets/img/extras/knjiga/f32/F32_Telegram_Web_Banner_Mobile.png"
+        alt="Naslovnica nove knjige"
+        class="mobile-only"
+      />
+    </app-link>
     <client-only>
       <div v-if="!hasPremium" class="full relative">
         <offers-premium></offers-premium>
