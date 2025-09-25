@@ -375,6 +375,12 @@
                       placeholder="Upišite promo kod"
                     />
                     <a class="newbtn" @click.prevent="checkPromo">Primjeni</a>
+                    <p
+                      v-if="promo_error"
+                      class="full remp-mini-text center-text faded hide"
+                    >
+                      {{ promo_error }}
+                    </p>
                   </div>
                   <div
                     class="full flex column-top-pad mobile-bottom-pad mobile-top-pad"
@@ -477,20 +483,23 @@
                   <input type="hidden" name="auth" value="1" />
                   <input type="hidden" name="email" :value="email" />
                   <input
-                    v-if="voucher_log_id"
                     id="voucher_log_id"
                     type="hidden"
                     name="payment_metadata[voucher_log_id]"
                     :value="voucher_log_id"
                   />
                   <input
-                    v-if="voucher_log_id"
                     id="voucher_code"
                     type="hidden"
                     name="payment_metadata[voucher_code]"
                     :value="promo_code"
                   />
-
+                  <p
+                    v-if="discount"
+                    class="full barlow remp-mini-text smaller-text center-text column-mini-top-pad"
+                  >
+                    Ostvarili ste {{ price - discount }}€ popusta
+                  </p>
                   <div
                     v-if="!buyable"
                     class="full newbtn huge-newbtn center-text clickable locked-newbtn"
@@ -580,6 +589,8 @@ export default {
       canLogIn: true,
       voucher_log_id: null,
       discount: null,
+      loadingPromo: false,
+      promo_error: '',
     }
   },
   computed: {
@@ -701,6 +712,8 @@ export default {
   },
   methods: {
     checkPromo() {
+      this.loadingPromo = true
+      this.promo_error = ''
       // check if promo code is valid
       this.$axios
         .get('/crm/api/v2/voucher/check', {
@@ -711,8 +724,12 @@ export default {
           },
         })
         .then((res) => {
-          this.voucher_log_id = res.data.voucher_log_id
+          // this.voucher_log_id = res.data.voucher_log_id
           this.discount = res.data.discounted_amount
+        })
+        .catch(() => {
+          this.promo_error = 'Nismo uspjeli primjeniti kupon'
+          this.loadingPromo = false
         })
     },
     applyPromo() {
@@ -725,7 +742,10 @@ export default {
         })
         .then((res) => {
           this.voucher_log_id = res.data.voucher_log_id
-          this.discount = res.data.discounted_amount
+          // this.discount = res.data.discounted_amount
+        })
+        .then(() => {
+          this.submitForm()
         })
     },
     login() {
@@ -738,15 +758,20 @@ export default {
         reload: false,
       })
     },
-    async submit() {
+    submit() {
       this.loading = true
       if (this.promo_code) {
-        await this.applyPromo()
+        this.applyPromo()
+      } else {
+        this.submitForm()
       }
+    },
+    submitForm() {
       const form = document.getElementById('payment-form')
       const formData = new FormData(form)
+      console.log(formData)
       const actionUrl = form.action
-      await fetch(actionUrl, {
+      fetch(actionUrl, {
         method: 'POST',
         body: formData,
         credentials: 'include',
