@@ -234,7 +234,7 @@ export const actions = {
       .then((res) => {
         commit('setUser', res)
         this.$cookies.set('n_token', res.access.token, {
-          // domain: '.telegram.hr',
+          domain: '.telegram.hr',
           path: '/',
           maxAge: 60 * 60 * 24 * 365,
           sameSite: 'lax',
@@ -269,7 +269,7 @@ export const actions = {
       .then((res) => {
         commit('setUser', res)
         this.$cookies.set('n_token', res.access.token, {
-          // domain: '.telegram.hr',
+          domain: '.telegram.hr',
           path: '/',
           maxAge: 60 * 60 * 24 * 365,
           sameSite: 'lax',
