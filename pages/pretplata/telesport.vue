@@ -376,7 +376,7 @@
                     <a class="newbtn" @click.prevent="checkPromo">Primjeni</a>
                     <p
                       v-show="promo_error"
-                      class="full remp-mini-text center-text faded hide"
+                      class="column-left-pad remp-mini-text center-text"
                     >
                       {{ promo_error }}
                     </p>
@@ -521,10 +521,10 @@
                   </p>
                 </form>
               </client-only>
-                <!-- Chatbot Component -->
+              <!-- Chatbot Component -->
               <client-only>
                 <Chatbot />
-            </client-only>
+              </client-only>
             </div>
           </div>
         </div>
@@ -568,6 +568,10 @@ export default {
       customerId: null,
       iframeUrl: '',
       canLogIn: false,
+      voucher_log_id: null,
+      discount: null,
+      loadingPromo: false,
+      promo_error: '',
     }
   },
   computed: {

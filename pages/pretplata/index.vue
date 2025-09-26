@@ -377,7 +377,7 @@
                     <a class="newbtn" @click.prevent="checkPromo">Primjeni</a>
                     <p
                       v-show="promo_error"
-                      class="full remp-mini-text center-text faded hide"
+                      class="column-left-pad remp-mini-text center-text"
                     >
                       {{ promo_error }}
                     </p>
@@ -728,7 +728,7 @@ export default {
           this.discount = res.data.discounted_amount
         })
         .catch(() => {
-          this.promo_error = 'Nismo uspjeli primjeniti kupon'
+          this.promo_error = 'Promo kod nije važeći'
           this.loadingPromo = false
         })
     },
