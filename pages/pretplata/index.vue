@@ -376,7 +376,7 @@
                     />
                     <a class="newbtn" @click.prevent="checkPromo">Primjeni</a>
                     <p
-                      v-if="promo_error"
+                      v-show="promo_error"
                       class="full remp-mini-text center-text faded hide"
                     >
                       {{ promo_error }}

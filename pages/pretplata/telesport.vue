@@ -362,6 +362,25 @@
                       </p>
                     </div>
                   </div>
+                  <div class="full flex">
+                    <p class="full bold column-full-pad faded">
+                      Imate promo kod?
+                    </p>
+                    <input
+                      id="pretplata-promo"
+                      v-model="promo_code"
+                      type="text"
+                      class="full remp-new-input"
+                      placeholder="Upišite promo kod"
+                    />
+                    <a class="newbtn" @click.prevent="checkPromo">Primjeni</a>
+                    <p
+                      v-show="promo_error"
+                      class="full remp-mini-text center-text faded hide"
+                    >
+                      {{ promo_error }}
+                    </p>
+                  </div>
                   <div
                     class="full flex column-top-pad mobile-bottom-pad mobile-top-pad"
                   >
@@ -666,6 +685,43 @@ export default {
     }, 1000),
   },
   methods: {
+    checkPromo() {
+      this.loadingPromo = true
+      this.promo_error = ''
+      // check if promo code is valid
+      this.$axios
+        .get('/crm/api/v2/voucher/check', {
+          params: {
+            code: this.promo_code,
+            subscription_type_code: this.subscription_type,
+            include_discounted_amount: true,
+          },
+        })
+        .then((res) => {
+          // this.voucher_log_id = res.data.voucher_log_id
+          this.discount = res.data.discounted_amount
+        })
+        .catch(() => {
+          this.promo_error = 'Nismo uspjeli primjeniti kupon'
+          this.loadingPromo = false
+        })
+    },
+    applyPromo() {
+      // check if promo code is valid
+      this.$axios
+        .post('/crm/api/v1/voucher/activate', {
+          code: this.promo_code,
+          subscription_type_code: this.subscription_type,
+          include_discounted_amount: true,
+        })
+        .then((res) => {
+          this.voucher_log_id = res.data.voucher_log_id
+          // this.discount = res.data.discounted_amount
+        })
+        .then(() => {
+          this.submitForm()
+        })
+    },
     login() {
       if (!this.showPassword) {
         return
@@ -677,6 +733,14 @@ export default {
       })
     },
     submit() {
+      this.loading = true
+      if (this.promo_code) {
+        this.applyPromo()
+      } else {
+        this.submitForm()
+      }
+    },
+    submitForm() {
       this.loading = true
       const form = document.getElementById('payment-form')
       const formData = new FormData(form)
