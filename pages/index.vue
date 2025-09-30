@@ -307,12 +307,12 @@
       style="padding: 0 24px; margin-top: 20px"
     >
       <img
-        src="@/assets/img/extras/knjiga/f32/F32_Telegram_Web_Banner_Desktop.png"
+        src="@/assets/img/extras/knjiga/f32/F32_Telegram_Web_Banner_Desktop-02.png"
         alt="Naslovnica nove knjige"
         class="desktop-only"
       />
       <img
-        src="@/assets/img/extras/knjiga/f32/F32_Telegram_Web_Banner_Mobile.png"
+        src="@/assets/img/extras/knjiga/f32/F32_Telegram_Web_Banner_Mobile-02.png"
         alt="Naslovnica nove knjige"
         class="mobile-only"
       />
