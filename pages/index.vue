@@ -100,6 +100,9 @@
           <app-link to="/super1" role="menuitem">Super1</app-link>
           <app-link to="/telesport" role="menuitem"> Telesport </app-link>
           <app-link to="/podcastovi" role="menuitem"> Podcastovi </app-link>
+          <app-link to="https://knjige.telegram.hr" role="menuitem">
+            T knjige
+          </app-link>
           <app-link
             role="menuitem"
             to="/tema/budi-u-igri-uz-favbet/"
