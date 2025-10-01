@@ -34,7 +34,7 @@
           </div>
         </div>
         <div
-          class="half flex-responsive m-order-2 column-full-pad flex relative"
+          class="half flex-responsive m-order-2 column-full-pad flex relative mainText"
         >
           <div class="full zgts-title">
             {{ maintitle }}
@@ -285,6 +285,13 @@ span.green-txt {
   .half.column-full-pad {
     margin-left: 0rem;
     margin-top: -2rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .mainText {
+    position: absolute;
+    z-index: 15;
+    bottom: 0;
   }
 }
 </style>
