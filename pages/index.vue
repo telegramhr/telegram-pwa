@@ -100,6 +100,9 @@
           <app-link to="/super1" role="menuitem">Super1</app-link>
           <app-link to="/telesport" role="menuitem"> Telesport </app-link>
           <app-link to="/podcastovi" role="menuitem"> Podcastovi </app-link>
+          <app-link to="https://knjige.telegram.hr" role="menuitem">
+            T knjige
+          </app-link>
           <app-link
             role="menuitem"
             to="/tema/budi-u-igri-uz-favbet/"
@@ -307,12 +310,12 @@
       style="padding: 0 24px; margin-top: 20px"
     >
       <img
-        src="@/assets/img/extras/knjiga/f32/F32_Telegram_Web_Banner_Desktop.png"
+        src="@/assets/img/extras/knjiga/f32/F32_Telegram_Web_Banner_Desktop-02.png"
         alt="Naslovnica nove knjige"
         class="desktop-only"
       />
       <img
-        src="@/assets/img/extras/knjiga/f32/F32_Telegram_Web_Banner_Mobile.png"
+        src="@/assets/img/extras/knjiga/f32/F32_Telegram_Web_Banner_Mobile-02.png"
         alt="Naslovnica nove knjige"
         class="mobile-only"
       />

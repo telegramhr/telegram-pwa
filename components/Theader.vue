@@ -101,6 +101,9 @@
           <app-link role="menuitem" to="/zivot">Život</app-link>
           <app-link role="menuitem" to="/kultura">Kultura</app-link>
           <app-link role="menuitem" to="/podcastovi">Podcastovi</app-link>
+          <app-link role="menuitem" to="https://knjige.telegram.hr"
+            >T knjige</app-link
+          >
         </div>
         <div class="half" role="menu">
           <div class="noththree">Postavke izgleda</div>
@@ -237,7 +240,7 @@
           <div class="noththree">Info</div>
           <app-link role="menuitem" to="/pretplata">Pretplata</app-link>
           <app-link role="menuitem" to="/klub">Klub</app-link>
-          <app-link role="menuitem" to="/knjiga">Knjige</app-link>
+          <app-link role="menuitem" to="https://knjige.telegram.hr">T knjige</app-link>
           <app-link role="menuitem" to="/stranica/impressum"
             >Impressum</app-link
           >
@@ -396,7 +399,8 @@
             >
             <app-link
               v-show="
-                $store.state.user.access?.length && !$route.fullPath.includes('super1')
+                $store.state.user.access?.length &&
+                !$route.fullPath.includes('super1')
               "
               id="pretplata-promo"
               to="/pretplata/poklon/"
