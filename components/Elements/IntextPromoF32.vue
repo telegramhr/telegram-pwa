@@ -70,7 +70,7 @@ export default {
     return {
       show: false,
       termId: false,
-      maintitle: 'Nova knjiga Ace Stankovića: nastavak mega-hita Depra',
+      maintitle: 'Nova knjiga Ace Stankovića: nastavak mega-hita Depra',
       softwall: true,
       cta: 'Naručite Odmah',
       cta_link: '',
