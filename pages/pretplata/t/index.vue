@@ -40,7 +40,7 @@
                   >
                     <div class="full flex mobile-third relative">
                       <div class="full flex overtitle-parent">
-                        <div class="noththree overtitle">Standard</div>
+                        <div class="noththree overtitle all-caps">Standard</div>
                       </div>
                       <div class="full sub-price bold">
                         {{ standardPrice }}€
@@ -111,8 +111,8 @@
                   >
                     <div class="full flex mobile-third relative">
                       <div class="full flex overtitle-parent">
-                        <div class="noththree overtitle">
-                          Premium <span class="ib">(bez oglasa)</span>
+                        <div class="noththree overtitle all-caps">
+                          Premium <span class="ib all-small">(bez oglasa)</span>
                         </div>
                       </div>
                       <div class="full sub-price bold">{{ premiumPrice }}€</div>
@@ -269,7 +269,7 @@
                       </div>
                     </label>
                   </div>
-                  <!--<div class="full relative flex">
+                  <div class="full relative flex">
                     <input
                       id="pretplata-uplata"
                       v-model="payment"
@@ -288,7 +288,7 @@
                         Izdat ćemo vam uplatnicu
                       </div>
                     </label>
-                  </div>-->
+                  </div>
                 </div>
               </div>
               <p v-show="!loggedIn" class="full bold remp-subtitle faded">
@@ -314,8 +314,8 @@
                       placeholder="Upišite lozinku"
                       name="password"
                     />
-                    <small v-show="!showPassword"
-                      >Ukoliko niste registrirani korisnik, na navedenu email
+                    <small v-show="!showPassword" class="under-pretplata-email"
+                    >Ukoliko niste registrirani korisnik, na navedenu email
                       adresu ćete zaprimiti pristupne podatke.</small
                     >
                     <button
@@ -329,7 +329,7 @@
                     <div class="full flex relative">
                       <div class="half flex column-mini-right-pad">
                         <a
-                          :href="`http://pretplata.telegram.hr/users/google/sign?url=https://www.telegram.hr/pretplata/`"
+                          href="http://pretplata.telegram.hr/users/google/sign?url=https://www.telegram.hr/pretplata/"
                           class="full center remp-social-logbtn animate"
                         >
                           <!-- <font-awesome-icon :icon="['fab', 'google']" /> -->
@@ -363,6 +363,25 @@
                       </p>
                     </div>
                   </div>
+                  <div class="full flex">
+                    <p class="full bold column-full-pad faded">
+                      Imate promo kod?
+                    </p>
+                    <input
+                      id="pretplata-promo"
+                      v-model="promo_code"
+                      type="text"
+                      class="full remp-new-input"
+                      placeholder="Upišite promo kod"
+                    />
+                    <a class="newbtn" @click.prevent="checkPromo">Primjeni</a>
+                    <p
+                      v-show="promo_error"
+                      class="column-left-pad remp-mini-text center-text"
+                    >
+                      {{ promo_error }}
+                    </p>
+                  </div>
                   <div
                     class="full flex column-top-pad mobile-bottom-pad mobile-top-pad"
                   >
@@ -381,12 +400,12 @@
                         <polyline points="1 9 7 14 15 4"></polyline>
                       </svg>
                       <span
-                        >Prihvaćam
+                      >Prihvaćam
                         <a
                           target="_blank"
                           href="https://www.telegram.hr/stranica/uvjeti-koristenja/"
                           class="highlight-text"
-                          >uvjete korištenja</a
+                        >uvjete korištenja</a
                         ></span
                       >
                     </label>
@@ -409,12 +428,12 @@
                         <polyline points="1 9 7 14 15 4"></polyline>
                       </svg>
                       <span
-                        >Prihvaćam
+                      >Prihvaćam
                         <a
                           target="_blank"
                           href="https://www.telegram.hr/stranica/pravila-privantnosti/"
                           class="highlight-text"
-                          >pravila privatnosti</a
+                        >pravila privatnosti</a
                         ></span
                       >
                     </label>
@@ -436,7 +455,8 @@
                     class="full flex relative"
                   >
                     <p class="full smaller-text faded">
-                      Tekst za bankovnu uplatu.
+                      Nakon što dovršite kupnju, na vašu email adresu ćemo
+                      poslati uplatnicu s podacima za uplatu.
                     </p>
                   </div>
                 </div>
@@ -463,6 +483,24 @@
                   <input type="hidden" name="price" :value="price" />
                   <input type="hidden" name="auth" value="1" />
                   <input type="hidden" name="email" :value="email" />
+                  <input
+                    id="voucher_log_id"
+                    type="hidden"
+                    name="payment_metadata[voucher_log_id]"
+                    :value="voucher_log_id"
+                  />
+                  <input
+                    id="voucher_code"
+                    type="hidden"
+                    name="payment_metadata[voucher_code]"
+                    :value="promo_code"
+                  />
+                  <p
+                    v-if="discount"
+                    class="full barlow remp-mini-text smaller-text center-text column-mini-top-pad"
+                  >
+                    Ostvarili ste {{ price - discount }}€ popusta
+                  </p>
                   <div
                     v-if="!buyable"
                     class="full newbtn huge-newbtn center-text clickable locked-newbtn"
@@ -471,15 +509,15 @@
                     {{ totalPrice ? 'za ' + totalPrice + '€' : '' }}
                   </div>
                   <div
-                    v-if="!loggedIn"
-                    class="full barlow smaller-text faded center-text column-mini-top-pad"
+                    v-if="!loggedIn && canLogIn"
+                    class="full barlow remp-mini-text smaller-text center-text column-mini-top-pad"
                   >
                     Molimo da se prijavite kako bi dovršili kupnju
                   </div>
                   <template v-else>
                     <div
                       v-if="!buyable"
-                      class="full barlow smaller-text faded center-text column-mini-top-pad"
+                      class="full barlow remp-mini-text smaller-text center-text column-mini-top-pad"
                     >
                       Ispunite sve korake iznad kako bi dovršili kupnju.
                     </div>
@@ -492,7 +530,7 @@
                       {{ totalPrice ? 'za ' + totalPrice + '€' : '' }}
                     </button>
                   </template>
-                  <p class="full remp-mini-text center-text faded">
+                  <p class="full remp-mini-text center-text">
                     Pretplatu možete otkazati u bilo kojem trenutku. Pretplata
                     se automatski obnavlja.
                   </p>
@@ -503,6 +541,10 @@
                     {{ show_msg }}
                   </p>
                 </form>
+              </client-only>
+              <client-only>
+                <!-- Chatbot Component -->
+                <Chatbot />
               </client-only>
             </div>
           </div>
@@ -522,7 +564,7 @@ export default {
     return {
       show_msg: '',
       payment: 'trustpay_recurrent',
-      pack: null,
+      pack: 'pretplata-standard',
       term: 'pretplata-godisnje',
       promo_code: '',
       email: this.$store.state.user.email,
@@ -545,6 +587,11 @@ export default {
       instance: null,
       customerId: null,
       iframeUrl: '',
+      canLogIn: true,
+      voucher_log_id: null,
+      discount: null,
+      loadingPromo: false,
+      promo_error: '',
     }
   },
   computed: {
@@ -600,6 +647,9 @@ export default {
       if (!this.pack || !this.term) {
         return 0
       }
+      if (this.discount) {
+        return this.discount.toString().replace(',', ',')
+      }
       if (this.pack === 'pretplata-standard') {
         if (this.term === 'pretplata-mjesecno') {
           return '7,99'
@@ -628,9 +678,6 @@ export default {
     loggedIn() {
       return !!this.$store.state.user.id
     },
-    canLogIn() {
-      return this.$store.getters['user/canLogIn']
-    },
   },
   watch: {
     email: _.debounce(function (value) {
@@ -646,21 +693,82 @@ export default {
         .then((response) => {
           if (response.data.status && response.data.status === 'taken') {
             _this.showPassword = true
+            _this.canLogIn = true
           } else if (response.data.status === 'error') {
             if (response.data.code === 'email_missing') {
               return
             }
             _this.show_msg = 'Prijavite se kako biste dovršili kupnju.'
+            _this.canLogIn = true
           } else {
             _this.showPassword = false
+            _this.canLogIn = false
           }
         })
         .catch(() => {
           _this.showPassword = false
+          _this.canLogIn = false
         })
     }, 1000),
   },
   methods: {
+    bankTransfer() {
+      this.$axios
+        .post('/pretplate/api/pretplata/bank', {
+          subscription_type: this.subscription_type,
+          price: this.price,
+          email: this.email,
+          referer: this.$store.getters['pretplata/link'],
+          voucher_log_id: this.voucher_log_id,
+          promo_code: this.promo_code,
+        })
+        .then((response) => {
+          if (response.data.status === 'ok') {
+            this.$router.push(
+              '/pretplata/bank/' + response.data.subscriptions.id
+            )
+          } else {
+            this.show_msg = 'Došlo je do greške s plaćanjem.'
+          }
+        })
+    },
+    checkPromo() {
+      this.loadingPromo = true
+      this.promo_error = ''
+      // check if promo code is valid
+      this.$axios
+        .get('/crm/api/v2/voucher/check', {
+          params: {
+            code: this.promo_code,
+            subscription_type_code: this.subscription_type,
+            include_discounted_amount: true,
+          },
+        })
+        .then((res) => {
+          // this.voucher_log_id = res.data.voucher_log_id
+          this.discount = res.data.discounted_amount
+        })
+        .catch(() => {
+          this.promo_error = 'Promo kod nije važeći'
+          this.loadingPromo = false
+        })
+    },
+    applyPromo() {
+      // check if promo code is valid
+      this.$axios
+        .post('/crm/api/v1/voucher/activate', {
+          code: this.promo_code,
+          subscription_type_code: this.subscription_type,
+          include_discounted_amount: true,
+        })
+        .then((res) => {
+          this.voucher_log_id = res.data.voucher_log_id
+          // this.discount = res.data.discounted_amount
+        })
+        .then(() => {
+          this.submitForm()
+        })
+    },
     login() {
       if (!this.showPassword) {
         return
@@ -668,12 +776,25 @@ export default {
       this.$store.dispatch('user/loginSubmit', {
         email: this.email,
         password: this.password,
+        reload: false,
       })
     },
     submit() {
       this.loading = true
+      if (this.promo_code) {
+        this.applyPromo()
+      } else {
+        this.submitForm()
+      }
+    },
+    submitForm() {
+      if (this.payment === 'bank_transfer') {
+        this.bankTransfer()
+        return
+      }
       const form = document.getElementById('payment-form')
       const formData = new FormData(form)
+      console.log(formData)
       const actionUrl = form.action
       fetch(actionUrl, {
         method: 'POST',
