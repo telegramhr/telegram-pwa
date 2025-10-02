@@ -29,7 +29,7 @@
         <div class="full flex flex-responsive relative">
           <div class="half flex relative autor-margin">
             <img
-              src="@/assets/img/stankovic.webp"
+              src="@/assets/img/autor-stankovic.webp"
               alt="Autor Aleksandar Stanković"
             />
             <!-- <picture>
@@ -37,23 +37,15 @@
               <img src="@/assets/img/stankovic.png" alt="Autor Aleksandar Stanković" class="book-margin" />
             </picture> -->
           </div>
-          <div class="third center relative">
+          <div class="half center relative">
             <img
+              src="@/assets/img/f32-knjige.webp"
               class="book-margin"
-              src="@/assets/img/f32-knjiga.webp"
               alt="Aleksandar Stanković F32 Knjiga"
             />
             <!-- <picture>
-              <source srcset="@/assets/img/f32-knjiga.webp" type="image/webp" />
-              <img src="@/assets/img/f32-knjiga.png" alt="Aleksandar Stanković F32 Knjiga" class="book-margin" />
-            </picture> -->
-            <img
-              src="@/assets/img/f32-knjiga.webp"
-              alt="Aleksandar Stanković F32 Knjiga"
-            />
-            <!-- <picture>
-              <source srcset="@/assets/img/f32-knjiga.webp" type="image/webp" />
-              <img src="@/assets/img/f32-knjiga.png" alt="Aleksandar Stanković F32 Knjiga" class="" />
+              <source srcset="@/assets/img/f32-knjige.webp" type="image/webp" />
+              <img src="@/assets/img/f32-knjige.png" alt="Aleksandar Stanković F32 Knjiga" class="book-margin" />
             </picture> -->
             <img
               class="sticker"
@@ -203,25 +195,15 @@ export default {
   opacity: 0.85;
 }
 
-.book-margin {
-  margin-top: -2rem;
-  margin-right: -6rem;
-  display: inline-block;
-}
-
-.third.center {
-  margin-top: 1rem;
-}
-
 .autor-margin {
   margin-top: -2.9rem;
-  margin-right: -3rem;
+  margin-right: -6rem;
 }
 
 .sticker {
   position: absolute;
-  top: -5rem;
-  right: -3rem;
+  top: -3rem;
+  right: 0rem;
 }
 
 @media screen and (max-width: 1024px) {
@@ -245,18 +227,18 @@ export default {
   }
 
   .book-margin {
-    margin-top: -1rem;
-    margin-right: -6rem;
+    margin-top: 1rem;
   }
 
   .autor-margin {
     margin-top: -0.2rem;
+    margin-right: -5rem;
   }
 
   .sticker {
     position: absolute;
-    top: -3rem;
-    right: -3rem;
+    top: -1.5rem;
+    right: 0rem;
     scale: 0.8;
   }
 
@@ -267,12 +249,15 @@ export default {
 
 @media screen and (max-width: 768px) {
   .book-margin {
-    margin-top: -1rem;
-    margin-right: -3rem;
+    margin-top: 1rem;
   }
 
   .autor-margin {
-    margin-right: 0rem;
+    margin-right: -2rem;
+  }
+  .sticker {
+    margin-right: -2rem;
+    scale: 0.7;
   }
 
   .zgts-title {
@@ -282,12 +267,8 @@ export default {
   }
 
   .zgt-salebox .newbtn {
-    font-size: 19px;
+    font-size: 18px;
     width: auto;
-  }
-
-  .third.center {
-    margin-top: 1rem;
   }
 }
 </style>
