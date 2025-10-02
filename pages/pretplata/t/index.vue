@@ -723,10 +723,8 @@ export default {
           promo_code: this.promo_code,
         })
         .then((response) => {
-          if (response.data.status === 'ok') {
-            this.$router.push(
-              '/pretplata/bank/' + response.data.subscriptions.id
-            )
+          if (response.data.id) {
+            this.$router.push('/pretplata/bank/' + response.data.id)
           } else {
             this.show_msg = 'Došlo je do greške s plaćanjem.'
           }
