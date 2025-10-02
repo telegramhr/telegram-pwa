@@ -315,7 +315,7 @@
                       name="password"
                     />
                     <small v-show="!showPassword" class="under-pretplata-email"
-                    >Ukoliko niste registrirani korisnik, na navedenu email
+                      >Ukoliko niste registrirani korisnik, na navedenu email
                       adresu ćete zaprimiti pristupne podatke.</small
                     >
                     <button
@@ -400,12 +400,12 @@
                         <polyline points="1 9 7 14 15 4"></polyline>
                       </svg>
                       <span
-                      >Prihvaćam
+                        >Prihvaćam
                         <a
                           target="_blank"
                           href="https://www.telegram.hr/stranica/uvjeti-koristenja/"
                           class="highlight-text"
-                        >uvjete korištenja</a
+                          >uvjete korištenja</a
                         ></span
                       >
                     </label>
@@ -428,12 +428,12 @@
                         <polyline points="1 9 7 14 15 4"></polyline>
                       </svg>
                       <span
-                      >Prihvaćam
+                        >Prihvaćam
                         <a
                           target="_blank"
                           href="https://www.telegram.hr/stranica/pravila-privantnosti/"
                           class="highlight-text"
-                        >pravila privatnosti</a
+                          >pravila privatnosti</a
                         ></span
                       >
                     </label>
