@@ -21,29 +21,45 @@
             {{ maintitle }}
           </div>
           <div class="full center">
-            <a class="newbtn huge-newbtn center-text" @click.prevent="start">{{ cta }}</a>
+            <a class="newbtn huge-newbtn center-text" @click.prevent="start">{{
+              cta
+            }}</a>
           </div>
         </div>
         <div class="full flex flex-responsive relative">
           <div class="half flex relative autor-margin">
-            <img src="@/assets/img/stankovic.webp" alt="Autor Aleksandar Stanković"/>
+            <img
+              src="@/assets/img/stankovic.webp"
+              alt="Autor Aleksandar Stanković"
+            />
             <!-- <picture>
               <source srcset="@/assets/img/stankovic.webp" type="image/webp" />
               <img src="@/assets/img/stankovic.png" alt="Autor Aleksandar Stanković" class="book-margin" />
             </picture> -->
           </div>
           <div class="third center relative">
-            <img class = "book-margin" src="@/assets/img/f32-knjiga.webp" alt="Aleksandar Stanković F32 Knjiga" />
+            <img
+              class="book-margin"
+              src="@/assets/img/f32-knjiga.webp"
+              alt="Aleksandar Stanković F32 Knjiga"
+            />
             <!-- <picture>
               <source srcset="@/assets/img/f32-knjiga.webp" type="image/webp" />
               <img src="@/assets/img/f32-knjiga.png" alt="Aleksandar Stanković F32 Knjiga" class="book-margin" />
             </picture> -->
-            <img src="@/assets/img/f32-knjiga.webp" alt="Aleksandar Stanković F32 Knjiga" />
+            <img
+              src="@/assets/img/f32-knjiga.webp"
+              alt="Aleksandar Stanković F32 Knjiga"
+            />
             <!-- <picture>
               <source srcset="@/assets/img/f32-knjiga.webp" type="image/webp" />
               <img src="@/assets/img/f32-knjiga.png" alt="Aleksandar Stanković F32 Knjiga" class="" />
             </picture> -->
-            <img class = "sticker" src="@/assets/img/f32-cijena.webp" alt="Cijena 19,99€" />
+            <img
+              class="sticker"
+              src="@/assets/img/f32-cijena.webp"
+              alt="Cijena 19,99€"
+            />
             <!-- <picture>
               <source srcset="@/assets/img/f32-cijena.webp" type="image/webp" />
               <img src="@/assets/img/f32-cijena.png" alt="Cijena 19,99€" class="" />
@@ -69,10 +85,10 @@ export default {
     }
   },
   mounted() {
-    window.addEventListener('intext_newcustomer', this.load)
+    window.addEventListener('intext_f32', this.load)
   },
   destroyed() {
-    window.removeEventListener('intext_newcustomer', this.load)
+    window.removeEventListener('intext_f32', this.load)
   },
   methods: {
     login() {
@@ -151,9 +167,12 @@ export default {
   max-width: 900px;
   height: 600px;
   padding: 0px;
-  background: radial-gradient(ellipse 110% 132% at center bottom, rgba(74, 74, 74, 0.2) 50% 50%, #1a1c20 51%);
+  background: radial-gradient(
+    ellipse 110% 132% at center bottom,
+    #262626 51% 50%,
+    #1a1c20 51%
+  );
 }
-  
 
 .zgts-title {
   max-width: 454px;
@@ -165,7 +184,6 @@ export default {
   margin: 1.2rem 0rem;
 }
 
-
 .zgt-salebox .newbtn {
   margin-top: 0.5rem;
   background-color: #fffdf2;
@@ -176,7 +194,7 @@ export default {
   border-radius: 3.06px;
   line-height: 29.09px;
   letter-spacing: 1.21px;
-  color: #1A1C20;
+  color: #1a1c20;
   font-weight: 700;
   width: 254px;
 }
@@ -185,34 +203,33 @@ export default {
   opacity: 0.85;
 }
 
-.book-margin{
-    margin-top: -2rem;
-    margin-right: -6rem;
-    display: inline-block;
+.book-margin {
+  margin-top: -2rem;
+  margin-right: -6rem;
+  display: inline-block;
 }
 
-.third.center{
+.third.center {
   margin-top: 1rem;
 }
 
-.autor-margin{
-    margin-top: -2.9rem;
-    margin-right: -3rem;
+.autor-margin {
+  margin-top: -2.9rem;
+  margin-right: -3rem;
 }
 
-.sticker{
-    position: absolute;
-    top: -5rem;
-    right: -3rem;
+.sticker {
+  position: absolute;
+  top: -5rem;
+  right: -3rem;
 }
-
 
 @media screen and (max-width: 1024px) {
   .zgt-salebox {
     height: auto;
   }
 
-  .column-full-pad{
+  .column-full-pad {
     padding: 1rem;
   }
 
@@ -227,36 +244,34 @@ export default {
     text-align: center;
   }
 
-  .book-margin{
+  .book-margin {
     margin-top: -1rem;
     margin-right: -6rem;
   }
 
-  .autor-margin{
+  .autor-margin {
     margin-top: -0.2rem;
-
   }
 
-  .sticker{
+  .sticker {
     position: absolute;
     top: -3rem;
     right: -3rem;
     scale: 0.8;
   }
 
-  .third.center{
+  .third.center {
     margin-top: 2rem;
   }
-
 }
 
 @media screen and (max-width: 768px) {
-    .book-margin{
+  .book-margin {
     margin-top: -1rem;
     margin-right: -3rem;
   }
 
-  .autor-margin{
+  .autor-margin {
     margin-right: 0rem;
   }
 
@@ -271,8 +286,8 @@ export default {
     width: auto;
   }
 
-  .third.center{
+  .third.center {
     margin-top: 1rem;
-}
+  }
 }
 </style>
