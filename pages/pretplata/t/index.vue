@@ -285,7 +285,7 @@
                       <div class="remp-radio-indicator center"><div></div></div>
                       <div class="full">Bankovna uplata</div>
                       <div class="full remp-special-note">
-                        Izdat ćemo vam uplatnicu
+                        Generirat će se uplatnica s podacima za plaćanje
                       </div>
                     </label>
                   </div>
