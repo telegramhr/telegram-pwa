@@ -1,0 +1,245 @@
+/* HERO SECTION */
+.hero-family {
+  height: 860px;
+  width: 100%;
+  background: linear-gradient(180deg, #ae3737 0%, #481717 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding-top: 90px;
+  padding-left: 34px;
+  padding-right: 34px;
+  gap: 132px;
+}
+.hero-family .logo {
+  z-index: 2;
+  max-width: 170px;
+}
+.hero-family .content {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+.hero-family .content .family-icons {
+  max-width: 170px;
+  margin: 0 auto;
+}
+.hero-family-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.hero-family .hero-family-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+.hero-family-info h2 {
+  font-family: 'Lora', serif;
+  color: white;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 36px;
+}
+.hero-family-info p {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 0px;
+  text-align: center;
+  color: white;
+}
+.hero-family-info p > span {
+  font-weight: 700;
+  text-decoration: underline;
+}
+.novo-badge {
+  background-color: black;
+  text-transform: uppercase;
+  color: white;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 16px;
+  width: fit-content;
+  margin: 0 auto;
+}
+.activate-subscription-btn {
+  background-color: #37ae37;
+  font-family: 'Barlow', sans-serif;
+  color: white;
+  border: none;
+  padding: 16px 28px;
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+/* CONTENT SECTION */
+
+.content-family {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 16px 64px 16px;
+  gap: 52px;
+}
+.content-family .title {
+  font-family: 'Lora', serif;
+  color: black;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 36px;
+}
+.content-family .steps {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+.content-family .steps .step {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.content-family .steps .step .step-image {
+  width: 100%;
+  aspect-ratio: 1.426;
+}
+.step .step-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.step-content .step-title {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+}
+
+.step-content .step-title .circle {
+  font-family: 'Lora', serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: black;
+  padding: 10px 12px;
+  background-color: #f1e3d7;
+  border-radius: 100%;
+  aspect-ratio: square;
+}
+.step-content .step-title h4 {
+  font-family: 'Lora', serif;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 24px;
+}
+.step-content .step-description {
+  font-family: 'Lora', serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+.step-content .step-description > span {
+  color: #902e2e;
+  font-weight: 600;
+}
+
+@media (min-width: 1024px) {
+  /* HERO SECTION */
+
+  .hero-family {
+    padding: 80px;
+    gap: 121px;
+  }
+  .hero-family .logo {
+    max-width: 280px;
+  }
+  .hero-family .content .family-icons {
+    max-width: 196px;
+  }
+  .hero-family .content {
+    max-width: 533px;
+    margin: 0 auto;
+    gap: 25px;
+  }
+  .hero-family .hero-family-info {
+    gap: 32px;
+  }
+  .hero-family-wrapper {
+    gap: 32px;
+  }
+  .hero-family-info h2 {
+    font-size: 40px;
+    line-height: 46px;
+  }
+  .novo-badge {
+    font-size: 18px;
+    padding: 12px 24px;
+    border-radius: 24px;
+  }
+  /* CONTENT SECTION */
+  .content-family {
+    padding: 60px 0px 112px 0px;
+    gap: 78px;
+    width: 100%;
+    max-width: 866px;
+    margin: auto;
+  }
+  .content-family .title {
+    font-size: 40px;
+    line-height: 46px;
+    max-width: 700px;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .content-family .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  .content-family .steps .step {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 102px;
+  }
+
+  .content-family .steps .step .step-image {
+    max-width: 400px;
+  }
+  .even {
+    flex-direction: row-reverse !important;
+  }
+  .step .step-content {
+    gap: 20px;
+  }
+  .step-content .step-title {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+    align-items: flex-start;
+  }
+  .step-content .step-title .circle {
+    font-size: 18px;
+    padding: 12px 16px;
+    border-radius: 100%;
+  }
+  .step-content .step-title h4 {
+    font-size: 28px;
+  }
+  .step-content .step-description {
+    font-size: 18px;
+  }
+  .step-content .step-description > span {
+    color: #902e2e;
+    font-weight: 600;
+  }
+}
