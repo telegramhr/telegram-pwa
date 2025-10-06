@@ -1,6 +1,8 @@
 /* HERO SECTION */
 .hero-family {
   height: 860px;
+  position: relative;
+  overflow: hidden;
   width: 100%;
   background: linear-gradient(180deg, #ae3737 0%, #481717 100%);
   display: flex;
@@ -128,7 +130,7 @@
   font-weight: 500;
   font-size: 18px;
   color: black;
-  padding: 10px 12px;
+  padding: 6px 12px;
   background-color: #f1e3d7;
   border-radius: 100%;
   aspect-ratio: square;
