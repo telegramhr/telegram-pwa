@@ -383,6 +383,7 @@
                 <intext-promo-free-month></intext-promo-free-month>
                 <intext-promo-xmas></intext-promo-xmas>
                 <intext-promo-new-customers></intext-promo-new-customers>
+                <intext-promo-f32></intext-promo-f32>
                 <midas
                   v-if="!hasPremium && hasLinker"
                   :key="`midas-text-${post.id}`"
