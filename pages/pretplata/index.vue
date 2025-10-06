@@ -316,7 +316,8 @@
                     />
                     <p
                       v-show="loginError"
-                      class="column-left-pad remp-mini-text center-text red-text">
+                      class="column-left-pad remp-mini-text center-text red-text"
+                    >
                       {{ loginError }}
                     </p>
                     <small v-show="!showPassword" class="under-pretplata-email"
