@@ -269,7 +269,7 @@
                       </div>
                     </label>
                   </div>
-                  <!--<div class="full relative flex">
+                  <div class="full relative flex">
                     <input
                       id="pretplata-uplata"
                       v-model="payment"
@@ -285,10 +285,10 @@
                       <div class="remp-radio-indicator center"><div></div></div>
                       <div class="full">Bankovna uplata</div>
                       <div class="full remp-special-note">
-                        Izdat ćemo vam uplatnicu
+                        Generirat će se uplatnica s podacima za plaćanje
                       </div>
                     </label>
-                  </div>-->
+                  </div>
                 </div>
               </div>
               <p v-show="!loggedIn" class="full bold remp-subtitle faded">
@@ -314,6 +314,11 @@
                       placeholder="Upišite lozinku"
                       name="password"
                     />
+                    <p
+                      v-show="loginError"
+                      class="column-left-pad remp-mini-text center-text red-text">
+                      {{ loginError }}
+                    </p>
                     <small v-show="!showPassword" class="under-pretplata-email"
                       >Ukoliko niste registrirani korisnik, na navedenu email
                       adresu ćete zaprimiti pristupne podatke.</small
@@ -455,7 +460,8 @@
                     class="full flex relative"
                   >
                     <p class="full smaller-text faded">
-                      Tekst za bankovnu uplatu.
+                      Nakon što dovršite kupnju, na vašu email adresu ćemo
+                      poslati uplatnicu s podacima za uplatu.
                     </p>
                   </div>
                 </div>
@@ -594,6 +600,9 @@ export default {
     }
   },
   computed: {
+    loginError() {
+      return this.$store.state.user.error
+    },
     buyable() {
       if (this.email && this.terms && this.privacy) {
         return true
@@ -711,6 +720,24 @@ export default {
     }, 1000),
   },
   methods: {
+    bankTransfer() {
+      this.$axios
+        .post('/pretplate/api/pretplata/bank', {
+          subscription_type: this.subscription_type,
+          price: this.price,
+          email: this.email,
+          referer: this.$store.getters['pretplata/link'],
+          voucher_log_id: this.voucher_log_id,
+          promo_code: this.promo_code,
+        })
+        .then((response) => {
+          if (response.data.id) {
+            this.$router.push('/pretplata/bank/' + response.data.id)
+          } else {
+            this.show_msg = 'Došlo je do greške s plaćanjem.'
+          }
+        })
+    },
     checkPromo() {
       this.loadingPromo = true
       this.promo_error = ''
@@ -767,6 +794,10 @@ export default {
       }
     },
     submitForm() {
+      if (this.payment === 'bank_transfer') {
+        this.bankTransfer()
+        return
+      }
       const form = document.getElementById('payment-form')
       const formData = new FormData(form)
       console.log(formData)

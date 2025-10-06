@@ -130,7 +130,7 @@
   font-weight: 500;
   font-size: 18px;
   color: black;
-  padding: 6px 12px;
+  padding: 6pxgit 12px;
   background-color: #f1e3d7;
   border-radius: 100%;
   aspect-ratio: square;
@@ -151,7 +151,44 @@
   color: #902e2e;
   font-weight: 600;
 }
-
+/* PRETPLATA WRAPPER */
+.pretplata-family-wrapper {
+  background-color: #f1e3d7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 42px 16px 60px 16px;
+  gap: 48px;
+}
+.pretplata-title {
+  font-family: 'Lora', serif;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 28px;
+  text-align: center;
+}
+.pretplata-subtitle {
+  display: none;
+}
+.pretplata-packages {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  max-width: 700px;
+}
+.pretplata-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.pretplata-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: flex-start;
+}
 @media (min-width: 1024px) {
   /* HERO SECTION */
 

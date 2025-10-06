@@ -25,10 +25,9 @@
       >
         <div class="half animate flex-responsive flex relative">
           <p>
-            Broj računa: <br />
-            IBAN: IBAN: HR7323600001101437160 <br />
+            IBAN: HR4723600001503346846 <br />
             Primatelj: Telegram Media Grupa d.o.o. <br />
-            Opis plaćanja: Vaše ime i prezime <br />
+            Opis plaćanja: email vaseg korisničkog računa <br />
             Iznos: {{ price }} EUR <br />
             Model: 00 <br />
             Poziv na broj: {{ reference }} <br />

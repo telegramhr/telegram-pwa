@@ -242,7 +242,12 @@
                 </template>
               </div>
               <!-- eslint-disable-next-line -->
-              <p v-if="post.perex" class="perex" v-html="post.perex" itemprop="articleBody"></p>
+              <p
+                v-if="post.perex"
+                class="perex"
+                v-html="post.perex"
+                itemprop="articleBody"
+              ></p>
               <div
                 v-if="post.type !== 'noimage'"
                 class="nothfive full flex relative article-meta"
@@ -383,6 +388,7 @@
                 <intext-promo-free-month></intext-promo-free-month>
                 <intext-promo-xmas></intext-promo-xmas>
                 <intext-promo-new-customers></intext-promo-new-customers>
+                <intext-promo-f32></intext-promo-f32>
                 <midas
                   v-if="!hasPremium && hasLinker"
                   :key="`midas-text-${post.id}`"
@@ -458,6 +464,9 @@
             class="full has-background"
           >
             <div class="container flex center have-background">
+              <div class="full">
+                <a1-widget></a1-widget>
+              </div>
               <div>
                 <ad-unit id="telegram_underarticle_v2"></ad-unit>
               </div>
