@@ -242,7 +242,12 @@
                 </template>
               </div>
               <!-- eslint-disable-next-line -->
-              <p v-if="post.perex" class="perex" v-html="post.perex" itemprop="articleBody"></p>
+              <p
+                v-if="post.perex"
+                class="perex"
+                v-html="post.perex"
+                itemprop="articleBody"
+              ></p>
               <div
                 v-if="post.type !== 'noimage'"
                 class="nothfive full flex relative article-meta"
@@ -459,6 +464,9 @@
             class="full has-background"
           >
             <div class="container flex center have-background">
+              <div class="full">
+                <a1-widget></a1-widget>
+              </div>
               <div>
                 <ad-unit id="telegram_underarticle_v2"></ad-unit>
               </div>
