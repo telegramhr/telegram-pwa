@@ -136,8 +136,64 @@
           </div>
           <div
             v-if="subscription_package"
-            class="full center flex-wrap relative column-top-pad force-stretch"
+            class="full center flex-wrap relative column-top-pad force-stretch remp-pretplata"
           >
+            <div
+              class="half flex flex-responsive remp-miniboxes column-horizontal-pad mobile-bottom-pad pretplata-packboxes"
+            >
+              <div class="full relative flex">
+                <input
+                  id="pretplata-kartica"
+                  v-model="payment"
+                  type="radio"
+                  name="pretplata-placanje"
+                  class="hide"
+                  value="trustpay_recurrent"
+                />
+                <label
+                  for="pretplata-kartica"
+                  class="full flex relative remp-minibox animate clickable"
+                >
+                  <div class="remp-radio-indicator center">
+                    <div></div>
+                  </div>
+                  <div>Kartica</div>
+                  <div class="flex remp-icon-list">
+                    <!-- <font-awesome-icon :icon="['fab', 'cc-visa']" /> -->
+                    <img src="@/assets/img/visa.svg" alt="Visa" />
+                    <!-- <font-awesome-icon :icon="['fab', 'cc-mastercard']" /> -->
+                    <img src="@/assets/img/mastercard.svg" alt="Mastercard" />
+                    <!-- <font-awesome-icon :icon="['fab', 'cc-apple-pay']" /> -->
+                    <img src="@/assets/img/apple-pay.svg" alt="Apple pay" />
+                    <!-- <font-awesome-icon :icon="['fab', 'google-pay']" /> -->
+                    <img src="@/assets/img/google-pay.svg" alt="Google pay" />
+                  </div>
+                  <div class="full remp-special-note">
+                    Visa, Mastercard, Apple Pay i Google Pay
+                  </div>
+                </label>
+              </div>
+              <div class="full relative flex">
+                <input
+                  id="pretplata-uplata"
+                  v-model="payment"
+                  type="radio"
+                  name="pretplata-placanje"
+                  class="hide"
+                  value="bank_transfer"
+                />
+                <label
+                  for="pretplata-uplata"
+                  class="full flex relative remp-minibox animate clickable"
+                >
+                  <div class="remp-radio-indicator center"><div></div></div>
+                  <div class="full">Bankovna uplata</div>
+                  <div class="full remp-special-note">
+                    Generirat će se uplatnica s podacima za plaćanje
+                  </div>
+                </label>
+              </div>
+            </div>
             <div
               class="half flex flex-responsive remp-miniboxes column-horizontal-pad mobile-bottom-pad"
             >
@@ -254,25 +310,6 @@
                 </label>
               </div>
             </div>
-            <div
-              class="half flex flex-responsive remp-miniboxes column-horizontal-pad mobile-bottom-pad"
-            >
-              <div
-                v-show="token"
-                id="credit-card"
-                class="full remp-new-input hosted-field"
-              ></div>
-              <div
-                v-show="token"
-                id="cvv"
-                class="full remp-new-input hosted-field"
-              ></div>
-              <div
-                v-show="token"
-                id="expiration-date"
-                class="full remp-new-input hosted-field"
-              ></div>
-            </div>
             <client-only>
               <form
                 id="payment-form"
@@ -339,7 +376,11 @@
     <tfooter></tfooter>
   </div>
 </template>
-
+<style>
+.pretplata-packboxes .remp-radio-indicator div {
+  border-color: #666;
+}
+</style>
 <script>
 import _ from 'lodash'
 export default {
@@ -419,6 +460,22 @@ export default {
     }, 1000),
   },
   methods: {
+    bankTransfer() {
+      this.$axios
+        .post('/pretplate/api/pretplata/bank', {
+          subscription_type: this.subscription_package,
+          price: this.price,
+          email: this.email,
+          referer: this.$store.getters['pretplata/link'],
+        })
+        .then((response) => {
+          if (response.data.id) {
+            this.$router.push('/pretplata/bank/' + response.data.id)
+          } else {
+            this.show_msg = 'Došlo je do greške s plaćanjem.'
+          }
+        })
+    },
     login() {
       if (!this.showPassword) {
         return
@@ -430,6 +487,10 @@ export default {
       })
     },
     submit() {
+      if (this.payment === 'bank_transfer') {
+        this.bankTransfer()
+        return
+      }
       this.loading = true
       const form = document.getElementById('payment-form')
       const formData = new FormData(form)
