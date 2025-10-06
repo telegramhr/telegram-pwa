@@ -233,7 +233,6 @@ export default {
       'webshop-category': 'a1-widget',
       'webshop-action': 'view',
       'webshop-label': 'impression',
-      'webshop-value': 1,
     })
   },
   methods: {
@@ -251,7 +250,7 @@ export default {
         'webshop-category': 'a1-widget',
         'webshop-action': 'click',
         'webshop-label': 'click',
-        'webshop-value': 1,
+        'webshop-value': link,
       })
       window.open(link, '_blank')
     },
