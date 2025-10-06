@@ -582,6 +582,8 @@
 </template>
 
 <script>
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import _ from 'lodash'
 export default {
   name: 'PretplataTelegramFamilyPage',
@@ -762,6 +764,12 @@ export default {
           _this.canLogIn = false
         })
     }, 1000),
+  },
+  mounted() {
+    AOS.init({
+      duration: 300,
+      once: true,
+    })
   },
   methods: {
     checkPromo() {
