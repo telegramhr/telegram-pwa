@@ -164,7 +164,7 @@
                   class="full newbtn huge-newbtn center-text clickable"
                   @click="login"
                 >
-                  Prijavi se
+                  Prijavite se
                 </button>
                 <p
                   class="full remp-mini-text center-text faded column-mini-vertical-pad"
@@ -183,6 +183,10 @@
                       href="https://pretplata.telegram.hr/social-login/social-sign/sign?social_provider_key=facebook&success_login_url=https://www.telegram.hr/pretplata/pola"
                       class="full center remp-social-logbtn animate"
                     >
+                      <font-awesome-icon
+                        :icon="['fab', 'facebook-f']"
+                        class="fb-fill"
+                      />
                       <i class="fa-brands fa-facebook-f"></i>
                       Facebook
                     </a>
@@ -274,57 +278,51 @@
                 id="payment-form"
                 class="full flex column-horizontal-pad column-top-pad mobile-top-pad"
                 method="post"
-                :action="`https://pretplata.telegram.hr/sales-funnel/sales-funnel-frontend/submit?referer=${$store.getters['pretplata/link']}`"
+                :action="`/crm/sales-funnel/sales-funnel-frontend/submit?referer=${$store.getters['pretplata/link']}`"
               >
                 <input
                   type="hidden"
                   name="referer"
                   :value="$store.getters['pretplata/link']"
                 />
+                <input type="hidden" name="allow_redirect" value="1" />
                 <input type="hidden" name="funnel_url_key" :value="url_key" />
-                <input
-                  type="hidden"
-                  name="payment_metadata[payment_method_nonce]"
-                  :value="nonce"
-                />
-                <input
-                  type="hidden"
-                  name="payment_metadata[device_data]"
-                  :value="deviceData"
-                />
                 <input
                   type="hidden"
                   name="subscription_type"
                   :value="subscription_package"
                 />
-                <input
-                  id="customer_id"
-                  type="hidden"
-                  name="customer_id"
-                  :value="customerId"
-                />
                 <input type="hidden" name="payment_gateway" :value="payment" />
                 <input type="hidden" name="price" :value="price" />
+                <input type="hidden" name="auth" value="1" />
                 <input type="hidden" name="email" :value="email" />
                 <div
-                  v-if="!buyable"
-                  class="full newbtn huge-newbtn center-text clickable locked-newbtn"
-                >
-                  Dovršite kupnju
-                </div>
-                <div
-                  v-if="!buyable"
+                  v-if="!loggedIn && canLogIn"
                   class="full barlow smaller-text faded center-text column-mini-top-pad"
                 >
-                  Ispunite sve korake iznad kako bi dovršili kupnju.
+                  Molimo da se prijavite kako bi dovršili kupnju
                 </div>
-                <button
-                  v-if="buyable"
-                  class="full newbtn huge-newbtn center-text clickable green-newbtn"
-                  @click.prevent="submit"
-                >
-                  Dovršite kupnju
-                </button>
+                <template v-else>
+                  <div
+                    v-if="!buyable"
+                    class="full newbtn huge-newbtn center-text clickable locked-newbtn"
+                  >
+                    Dovršite kupnju
+                  </div>
+                  <div
+                    v-if="!buyable"
+                    class="full barlow smaller-text faded center-text column-mini-top-pad"
+                  >
+                    Ispunite sve korake iznad kako bi dovršili kupnju.
+                  </div>
+                  <button
+                    v-if="buyable"
+                    class="full newbtn huge-newbtn center-text clickable green-newbtn"
+                    @click.prevent="submit"
+                  >
+                    Dovršite kupnju
+                  </button>
+                </template>
                 <div
                   class="full barlow smaller-text faded center-text column-mini-top-pad"
                 >
@@ -337,13 +335,13 @@
         </div>
       </div>
     </div>
+    <iframe id="TrustPayFrame" :src="iframeUrl"></iframe>
     <tfooter></tfooter>
   </div>
 </template>
 
 <script>
 import _ from 'lodash'
-import braintree from 'braintree-web'
 export default {
   name: 'Pretplata',
   data() {
@@ -356,7 +354,7 @@ export default {
       showPassword: false,
       nonce: '',
       deviceData: '',
-      payment: 'braintree_default_recurrent',
+      payment: 'trustpay_recurrent',
       url_key: 'half-off-2025',
       token: null,
       creditCard: false,
@@ -364,27 +362,18 @@ export default {
       expirationDate: false,
       instance: null,
       customerId: null,
+      iframeUrl: '',
+      canLogIn: true,
     }
   },
   computed: {
     buyable() {
-      if (
-        this.email &&
-        this.terms &&
-        this.privacy &&
-        this.token &&
-        this.creditCard &&
-        this.cvv &&
-        this.expirationDate
-      ) {
+      if (this.email && this.terms && this.privacy) {
         return true
       }
       return false
     },
     price() {
-      if (this.subscription_package === '3_mjeseca_po_1euro') {
-        return 1
-      }
       if (
         this.subscription_package ===
         'Telegram_Standard_Godišnja_Pretplata_50%_popust_za prvu godinu'
@@ -392,6 +381,9 @@ export default {
         return 39
       }
       return 49
+    },
+    loggedIn() {
+      return !!this.$store.state.user.id
     },
   },
   watch: {
@@ -408,31 +400,23 @@ export default {
         .then((response) => {
           if (response.data.status && response.data.status === 'taken') {
             _this.showPassword = true
+            _this.canLogIn = true
           } else if (response.data.status === 'error') {
             if (response.data.code === 'email_missing') {
               return
             }
-            _this.show_msg = 'error-not-finished'
+            _this.show_msg = 'Prijavite se kako biste dovršili kupnju.'
+            _this.canLogIn = true
           } else {
             _this.showPassword = false
-            this.getToken()
+            _this.canLogIn = false
           }
         })
         .catch(() => {
           _this.showPassword = false
-          this.getToken()
+          _this.canLogIn = false
         })
     }, 1000),
-    subscription_package(value) {
-      if (this.$store.state.user.email) {
-        this.getToken()
-      }
-    },
-  },
-  mounted() {
-    this.$nextTick(() => {
-      this.getToken()
-    })
   },
   methods: {
     login() {
@@ -442,132 +426,35 @@ export default {
       this.$store.dispatch('user/loginSubmit', {
         email: this.email,
         password: this.password,
+        reload: false,
       })
-    },
-    getToken() {
-      if (this.email === '') {
-        return
-      }
-      const _this = this
-      this.$axios
-        .post('/crm/api/v1/braintree/token', {
-          email: _this.email,
-        })
-        .then((res) => {
-          _this.token = res.data.token
-          _this.customerId = res.data.customer_id
-          braintree.client
-            .create({
-              authorization: res.data.token,
-            })
-            .then((clientInstance) => {
-              return Promise.all([
-                braintree.hostedFields.create({
-                  client: clientInstance,
-                  styles: {
-                    input: {
-                      'font-size': '16px',
-                      color: '#666',
-                    },
-                    'input.invalid': {
-                      color: '#ae3737',
-                    },
-                    'input.valid': {
-                      color: '#35a843',
-                    },
-                  },
-                  fields: {
-                    number: {
-                      selector: '#credit-card',
-                      placeholder: 'Broj kartice',
-                    },
-                    cvv: {
-                      selector: '#cvv',
-                      placeholder: 'CVV sigurnosni kod',
-                    },
-                    expirationDate: {
-                      selector: '#expiration-date',
-                      placeholder: 'MM/GGGG',
-                    },
-                  },
-                }),
-                braintree.threeDSecure.create({
-                  authorization: res.data.token,
-                  version: 2,
-                }),
-                braintree.dataCollector.create({
-                  client: clientInstance,
-                }),
-              ])
-            })
-            .then((instances) => {
-              _this.instance = instances[0]
-              _this.instance.on('validityChange', function (event) {
-                const field = event.fields[event.emittedBy]
-
-                if (field.isValid || field.isPotentiallyValid) {
-                  switch (event.emittedBy) {
-                    case 'number':
-                      _this.creditCard = true
-                      break
-                    case 'cvv':
-                      _this.cvv = true
-                      break
-                    case 'expirationDate':
-                      _this.expirationDate = true
-                      break
-                    default:
-                      break
-                  }
-                } else {
-                  switch (event.emittedBy) {
-                    case 'number':
-                      _this.creditCard = false
-                      break
-                    case 'cvv':
-                      _this.cvv = false
-                      break
-                    case 'expirationDate':
-                      _this.expirationDate = false
-                      break
-                    default:
-                      break
-                  }
-                }
-              })
-              _this.threeDS = instances[1]
-              _this.deviceData = instances[2].deviceData
-            })
-        })
     },
     submit() {
       this.loading = true
-      this.instance
-        .tokenize()
-        .then((payload) => {
-          return this.threeDS.verifyCard({
-            onLookupComplete: (data, next) => {
-              next()
-            },
-            amount: this.price,
-            nonce: payload.nonce,
-            bin: payload.details.bin,
-            email: this.email,
-          })
-        })
-        .then((payload) => {
-          this.loading = false
-          if (!payload.liabilityShifted) {
-            this.error =
-              '3DS autorizacija kartice nije prošla. Probajte ponovo.'
+      const form = document.getElementById('payment-form')
+      const formData = new FormData(form)
+      const actionUrl = form.action
+      fetch(actionUrl, {
+        method: 'POST',
+        body: formData,
+        credentials: 'include',
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.status === 'ok') {
+            const trustpayIframe = document.getElementById('TrustPayFrame')
+            if (trustpayIframe) {
+              trustpayIframe.src = data.url + '&Localization=hr'
+            }
+            // Open TrustPay Popup
+            /* global openPopup */
+            openPopup()
           } else {
-            this.nonce = payload.nonce
-            this.$store.commit('pretplata/setSubscriptionStarted', true)
-            setTimeout(
-              () => document.getElementById('payment-form').submit(),
-              500
-            )
+            console.log('Payment error:', data)
           }
+        })
+        .catch((error) => {
+          console.error('Error:', error)
         })
     },
   },
@@ -631,6 +518,16 @@ export default {
         },
       ],
       link,
+      script: [
+        {
+          hid: 'jquery',
+          src: 'https://code.jquery.com/jquery-3.7.1.min.js',
+        },
+        {
+          hid: 'trustpay-popup',
+          src: 'https://mapi.trustpay.eu/mapi5/Scripts/TrustPay/popup.js',
+        },
+      ],
     }
   },
 }
