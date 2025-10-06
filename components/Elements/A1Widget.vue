@@ -143,7 +143,7 @@ export default {
             "Igor Vori sasvim osobno: 'Bojim se za svoju djecu. Online nasilje teže je od fizičkih udaraca'",
           description:
             'Legenda hrvatskog rukometa po prvi put o izazovima u odgoju',
-          buttonText: 'Pogledaj video',
+          buttonText: 'Pročitaj više',
           link: 'https://www.telegram.hr/zivot/igor-vori-sasvim-osobno-bojim-se-za-svoju-djecu-online-nasilje-teze-je-od-fizickih-udaraca/',
         },
         {
@@ -153,7 +153,7 @@ export default {
             'Vršnjačko nasilje veća je epidemija od korone, a umjesto počinitelja, kažnjava se žrtve premještajem u drugu školu',
           description:
             'Donosimo priču Ive Jovović, osnivačice Udruge Let koja se već godinama bavi ovim izazovom',
-          buttonText: 'Pogledaj video',
+          buttonText: 'Pročitaj više',
           link: 'https://www.telegram.hr/zivot/vrsnjacko-nasilje-veca-je-epidemija-od-korone-a-umjesto-pocinitelja-kaznjava-se-zrtve-premjestajem-u-drugu-skolu/',
         },
         {
@@ -163,7 +163,7 @@ export default {
             'Fotomontaža učenice na porno sadržaj šokirala razred. Djeca više ne znaju gdje prestaje šala, a počinje nasilje',
           description:
             'Evo kako to izgleda na terenu i zašto škole same ne mogu protiv online nasilja',
-          buttonText: 'Pogledaj video',
+          buttonText: 'Pročitaj više',
           link: 'https://www.telegram.hr/zivot/fotomontaza-ucenice-na-porno-sadrzaj-sokirala-razred-djeca-vise-ne-znaju-gdje-prestaje-sala-a-pocinje-nasilje/',
         },
         {
@@ -182,7 +182,7 @@ export default {
             "Tomislav već 20 godina spašava djecu od nasilja vršnjaka: 'Zbog užasa koji je prošla jedna curica imao sam noćne more'",
           description:
             'Donosimo priču Tomislava Ramljaka, voditelja i jednog od osnivača Centra za nestalu i zlostavljanu djecu',
-          buttonText: 'Pogledaj video',
+          buttonText: 'Pročitaj više',
           link: 'https://www.telegram.hr/zivot/tomislav-vec-20-godina-spasava-djecu-od-nasilja-vrsnjaka-zbog-uzasa-koji-je-prosla-jedna-curica-imao-sam-nocne-more/',
         },
         {
@@ -202,7 +202,7 @@ export default {
             "Potresna ispovijest psihijatrice o online nasilju: 'I ja se nekad osjećam bespomoćno, ali ovo više ne možemo ignorirati'",
           description:
             'Upozorava kako mlade gubimo u svijetu koji ni sami dovoljno ne poznajemo',
-          buttonText: 'Pogledaj video',
+          buttonText: 'Pročitaj više',
           link: 'https://www.telegram.hr/zivot/potresna-ispovijest-psihijatrice-o-online-nasilju-i-ja-se-nekad-osjecam-bespomocno-ali-ovo-vise-ne-mozemo-ignorirati/',
         },
       ],
