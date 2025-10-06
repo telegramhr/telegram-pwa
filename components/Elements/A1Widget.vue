@@ -233,7 +233,6 @@ export default {
       'webshop-category': 'a1-widget',
       'webshop-action': 'view',
       'webshop-label': 'impression',
-      'webshop-value': 1,
     })
   },
   methods: {
