@@ -130,7 +130,7 @@
   font-weight: 500;
   font-size: 18px;
   color: black;
-  padding: 6px 12px;
+  padding: 6pxgit 12px;
   background-color: #f1e3d7;
   border-radius: 100%;
   aspect-ratio: square;
@@ -150,6 +150,213 @@
 .step-content .step-description > span {
   color: #902e2e;
   font-weight: 600;
+}
+/* PRETPLATA WRAPPER */
+.pretplata-family-wrapper {
+  background-color: #f1e3d7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 42px 16px 60px 16px;
+  gap: 48px;
+}
+.pretplata-title {
+  font-family: 'Lora', serif;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 28px;
+  text-align: center;
+}
+.pretplata-subtitle {
+  display: none;
+}
+.pretplata-packages {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  max-width: 700px;
+}
+.pretplata-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.pretplata-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.pretplata-pack {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: 1px solid #6d4726;
+  border-radius: 9px;
+  text-align: center;
+  padding: 36px 28px;
+  margin: 0px !important;
+}
+.pack-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  padding-bottom: 28px;
+}
+.discount-highlight {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+  padding: 4px 8px;
+  color: #478041;
+  background-color: #e5ffe2;
+  border: 1px solid #e5ffe2;
+  border-radius: 4px;
+}
+.pack-title {
+  font-family: 'Lora', serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 24px;
+  text-align: center;
+}
+.pack-price {
+  font-family: 'Lora', serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 18px;
+  color: black;
+}
+.pack-price span {
+  font-weight: 600px;
+  color: #9e9e9e;
+}
+.pack-benefits {
+  border-top: 1px solid #dfdfdf;
+  display: flex;
+  width: 100%;
+  padding-top: 15px;
+  flex-direction: column;
+  gap: 16px;
+}
+.single-benefit {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: left;
+}
+.single-benefit > svg {
+  color: #8d5b31;
+}
+.pack-button-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 36px;
+}
+.choose-btn {
+  width: 100%;
+  background-color: black;
+  font-family: 'Barlow', sans-serif;
+  color: white;
+  border-radius: 2px;
+  padding: 18px 48px;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.pack-button-wrapper span {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: #121212;
+}
+/* PAYMENT WRAPPER */
+.pack-payment-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 28px 0px;
+  border-top: 1px solid #b5b5b5;
+  border-bottom: 1px solid #b5b5b5;
+}
+.pack-duration {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.pack-duration .duration-options {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.pack-duration-title {
+  font-family: Barlow, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  color: #5f5f5f;
+}
+.radio-label {
+  width: 100%;
+  margin-left: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.radio-label .title {
+  font-family: 'Lora', serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 22px;
+  color: black;
+}
+.radio-label .title > span {
+  font-weight: 600;
+  color: #ae3737;
+}
+.radio-label .description {
+  font-family: 'Lora', serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #5f5f5f;
+}
+.outer-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.inner-circle {
+  background-color: white !important;
+  border: 6px solid black !important;
+  width: 9px !important;
+  height: 9px !important;
+}
+
+/* LOGIN WRAPPER */
+.login-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.login-subtitle {
+  display: none;
 }
 
 @media (min-width: 1024px) {
