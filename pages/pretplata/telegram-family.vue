@@ -362,7 +362,7 @@
                   id="pretplata-email"
                   v-model="email"
                   type="text"
-                  class="full remp-new-input"
+                  class="full remp"
                   placeholder="Vaša email adresa"
                   name="email"
                 />
