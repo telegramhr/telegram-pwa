@@ -26,7 +26,7 @@
     </div>
     <div class="content-family">
       <h3 class="title">
-        Jedna pretplata – Tri odvojena računa. Naša najpovoljnija opcija.
+        Jedna pretplata - Tri odvojena računa. Naša najpovoljnija opcija.
       </h3>
       <div class="steps">
         <div
@@ -71,58 +71,64 @@
               for="pretplata-standard"
               class="full flex relative pretplata-pack animate clickable"
             >
-              <div class="pack-header">
-                <span class="discount-highlight">Uštedite 30% u grupi</span>
-                <span class="pack-title">Standard</span>
-                <p class="pack-price">
-                  {{ standardPrice }}€ <span>/ Mjesečno</span>
-                </p>
+              <div class="flex flex-column">
+                <div class="pack-header">
+                  <span class="discount-highlight">Uštedite 30% u grupi</span>
+                  <span class="pack-title">Standard</span>
+                  <p class="pack-price">
+                    {{ standardPrice }}€ <span>/ Mjesečno</span>
+                  </p>
 
-                <p class="pack-price">
-                  {{ standardPriceAnnual }}€ <span>/ Godišnje</span>
-                </p>
-              </div>
-              <div class="pack-benefits">
-                <div class="single-benefit">
-                  <font-awesome-icon
-                    class="benefit-icon"
-                    :icon="['fas', 'check']"
-                  />
-                  <p class="full">
-                    Neograničeno čitanje <strong>Telegrama</strong> i pristup
-                    arhivi svih članaka
+                  <p class="pack-price">
+                    {{ standardPriceAnnual }}€ <span>/ Godišnje</span>
                   </p>
                 </div>
-                <div class="single-benefit">
-                  <font-awesome-icon
-                    class="benefit-icon"
-                    :icon="['fas', 'check']"
-                  />
-                  <p class="full">
-                    Ekskluzivni newsletteri s posebnim analizama nagrađivanih
-                    autora
-                  </p>
-                </div>
-                <div class="single-benefit">
-                  <font-awesome-icon
-                    class="benefit-icon"
-                    :icon="['fas', 'check']"
-                  />
-                  <p class="full">Surfanje uz <strong>manje reklama</strong></p>
-                </div>
-                <div class="single-benefit">
-                  <font-awesome-icon
-                    class="benefit-icon"
-                    :icon="['fas', 'check']"
-                  />
-                  <p class="full">10 poklon članaka mjesečno</p>
-                </div>
-                <div class="single-benefit">
-                  <font-awesome-icon
-                    class="benefit-icon"
-                    :icon="['fas', 'check']"
-                  />
-                  <p class="full">Posebni popusti i pogodnost Telegram Kluba</p>
+                <div class="pack-benefits">
+                  <div class="single-benefit">
+                    <font-awesome-icon
+                      class="benefit-icon"
+                      :icon="['fas', 'check']"
+                    />
+                    <p class="full">
+                      Neograničeno čitanje <strong>Telegrama</strong> i pristup
+                      arhivi svih članaka
+                    </p>
+                  </div>
+                  <div class="single-benefit">
+                    <font-awesome-icon
+                      class="benefit-icon"
+                      :icon="['fas', 'check']"
+                    />
+                    <p class="full">
+                      Ekskluzivni newsletteri s posebnim analizama nagrađivanih
+                      autora
+                    </p>
+                  </div>
+                  <div class="single-benefit">
+                    <font-awesome-icon
+                      class="benefit-icon"
+                      :icon="['fas', 'check']"
+                    />
+                    <p class="full">
+                      Surfanje uz <strong>manje reklama</strong>
+                    </p>
+                  </div>
+                  <div class="single-benefit">
+                    <font-awesome-icon
+                      class="benefit-icon"
+                      :icon="['fas', 'check']"
+                    />
+                    <p class="full">10 poklon članaka mjesečno</p>
+                  </div>
+                  <div class="single-benefit">
+                    <font-awesome-icon
+                      class="benefit-icon"
+                      :icon="['fas', 'check']"
+                    />
+                    <p class="full">
+                      Posebni popusti i pogodnost Telegram Kluba
+                    </p>
+                  </div>
                 </div>
               </div>
               <div class="pack-button-wrapper">
@@ -144,83 +150,84 @@
               for="pretplata-premium"
               class="full flex relative pretplata-pack animate clickable"
             >
-              <div class="pack-header">
-                <span class="discount-highlight">Uštedite 30% u grupi</span>
-                <span class="pack-title">Premium</span>
-                <p class="pack-price">
-                  {{ premiumPrice }}€ <span>/ Mjesečno</span>
-                </p>
+              <div class="flex flex-column">
+                <div class="pack-header">
+                  <span class="discount-highlight">Uštedite 30% u grupi</span>
+                  <span class="pack-title">Premium</span>
+                  <p class="pack-price">
+                    {{ premiumPrice }}€ <span>/ Mjesečno</span>
+                  </p>
 
-                <p class="pack-price">
-                  {{ premiumPriceAnnual }}€ <span>/ Godišnje</span>
-                </p>
+                  <p class="pack-price">
+                    {{ premiumPriceAnnual }}€ <span>/ Godišnje</span>
+                  </p>
+                </div>
+
+                <div class="pack-benefits">
+                  <div class="single-benefit">
+                    <font-awesome-icon
+                      class="benefit-icon"
+                      :icon="['fas', 'check']"
+                    />
+                    <p class="full">Surfanje bez oglasa</p>
+                  </div>
+                  <div class="single-benefit">
+                    <font-awesome-icon
+                      class="benefit-icon"
+                      :icon="['fas', 'check']"
+                    />
+                    <p class="full">
+                      Neograničeno čitanje <strong>Telegrama</strong> i pristup
+                      arhivi svih članaka
+                    </p>
+                  </div>
+                  <div class="single-benefit">
+                    <font-awesome-icon
+                      class="benefit-icon"
+                      :icon="['fas', 'check']"
+                    />
+                    <p class="full">
+                      Neograničeno čitanje <strong>Telesporta</strong> i pristup
+                      arhivi svih članaka
+                    </p>
+                  </div>
+                  <div class="single-benefit">
+                    <font-awesome-icon
+                      class="benefit-icon"
+                      :icon="['fas', 'check']"
+                    />
+                    <p class="full">
+                      Ekskluzivni newsletteri s posebnim analizama nagrađivanih
+                      autora
+                    </p>
+                  </div>
+                  <div class="single-benefit">
+                    <font-awesome-icon
+                      class="benefit-icon"
+                      :icon="['fas', 'check']"
+                    />
+                    <p class="full">
+                      Fokus na sadržaj — <strong>surfanje bez reklama</strong>
+                    </p>
+                  </div>
+                  <div class="single-benefit">
+                    <font-awesome-icon
+                      class="benefit-icon"
+                      :icon="['fas', 'check']"
+                    />
+                    <p class="full">10 poklon članaka mjesečno</p>
+                  </div>
+                  <div class="single-benefit">
+                    <font-awesome-icon
+                      class="benefit-icon"
+                      :icon="['fas', 'check']"
+                    />
+                    <p class="full">
+                      Posebni popusti i pogodnosti Telegram Kluba
+                    </p>
+                  </div>
+                </div>
               </div>
-
-              <div class="pack-benefits">
-                <div class="single-benefit">
-                  <font-awesome-icon
-                    class="benefit-icon"
-                    :icon="['fas', 'check']"
-                  />
-                  <p class="full">Surfanje bez oglasa</p>
-                </div>
-                <div class="single-benefit">
-                  <font-awesome-icon
-                    class="benefit-icon"
-                    :icon="['fas', 'check']"
-                  />
-                  <p class="full">
-                    Neograničeno čitanje <strong>Telegrama</strong> i pristup
-                    arhivi svih članaka
-                  </p>
-                </div>
-                <div class="single-benefit">
-                  <font-awesome-icon
-                    class="benefit-icon"
-                    :icon="['fas', 'check']"
-                  />
-                  <p class="full">
-                    Neograničeno čitanje <strong>Telesporta</strong> i pristup
-                    arhivi svih članaka
-                  </p>
-                </div>
-                <div class="single-benefit">
-                  <font-awesome-icon
-                    class="benefit-icon"
-                    :icon="['fas', 'check']"
-                  />
-                  <p class="full">
-                    Ekskluzivni newsletteri s posebnim analizama nagrađivanih
-                    autora
-                  </p>
-                </div>
-                <div class="single-benefit">
-                  <font-awesome-icon
-                    class="benefit-icon"
-                    :icon="['fas', 'check']"
-                  />
-                  <p class="full">
-                    Fokus na sadržaj — <strong>surfanje bez reklama</strong>
-                  </p>
-                </div>
-                <div class="single-benefit">
-                  <font-awesome-icon
-                    class="benefit-icon"
-                    :icon="['fas', 'check']"
-                  />
-                  <p class="full">10 poklon članaka mjesečno</p>
-                </div>
-                <div class="single-benefit">
-                  <font-awesome-icon
-                    class="benefit-icon"
-                    :icon="['fas', 'check']"
-                  />
-                  <p class="full">
-                    Posebni popusti i pogodnosti Telegram Kluba
-                  </p>
-                </div>
-              </div>
-
               <div class="pack-button-wrapper">
                 <div class="choose-btn">Odaberite premium pretplatu</div>
                 <span>Otkažite u bilo kojem trenutku.</span>
@@ -255,7 +262,8 @@
                   </div>
                   <div class="radio-label">
                     <p class="title">
-                      Godišnje <span class="highlight-text">24% popusta</span>
+                      Godišnja pretplata
+                      <span class="highlight-text">42% </span>popusta
                     </p>
                     <p class="full remp-special-note">
                       {{ interimYearPrice }}€ za godinu dana unaprijed
@@ -285,7 +293,8 @@
                   <div class="radio-label">
                     <p class="title">4 tjedna</p>
                     <p class="description">
-                      {{ interimMonthPrice }}€/mj, možete otkazati kad god
+                      {{ interimMonthPrice }}€/mj, možete otkazati u bilo kojem
+                      trenutku
                     </p>
                   </div>
                 </label>
@@ -356,38 +365,40 @@
         <div v-show="!loggedIn" class="login-wrapper">
           <p class="login-subtitle">Unesite podatke</p>
           <div id="login" class="login-content">
-            <div class="half flex flex-responsive remp-miniboxes">
-              <div v-show="!loggedIn">
-                <input
-                  id="pretplata-email"
-                  v-model="email"
-                  type="text"
-                  class="full remp"
-                  placeholder="Vaša email adresa"
-                  name="email"
-                />
-                <input
-                  v-if="showPassword"
-                  id="pretplata-password"
-                  v-model="password"
-                  type="password"
-                  class="full remp-new-input"
-                  placeholder="Upišite lozinku"
-                  name="password"
-                />
-                <small v-show="!showPassword" class="under-pretplata-email"
-                  >Ukoliko niste registrirani korisnik, na navedenu email adresu
-                  ćete zaprimiti pristupne podatke.</small
-                >
-                <button
-                  v-if="showPassword"
-                  class="full newbtn huge-newbtn center-text clickable"
-                  @click="login"
-                >
-                  Prijavite se
-                </button>
-                <p class="full remp-mini-text center-text faded">ili</p>
-                <div class="full flex relative">
+            <div class="full flex flex-responsive remp-miniboxes">
+              <div v-show="!loggedIn" class="full flex loginContainer">
+                <div class="emailInput">
+                  <input
+                    id="pretplata-email"
+                    v-model="email"
+                    type="text"
+                    class="full remp"
+                    placeholder="Vaša email adresa"
+                    name="email"
+                  />
+                  <input
+                    v-if="showPassword"
+                    id="pretplata-password"
+                    v-model="password"
+                    type="password"
+                    class="full remp-new-input"
+                    placeholder="Upišite lozinku"
+                    name="password"
+                  />
+                  <small v-show="!showPassword" class="under-pretplata-email"
+                    >Ukoliko niste registrirani korisnik, na navedenu email
+                    adresu ćete zaprimiti pristupne podatke.</small
+                  >
+                  <button
+                    v-if="showPassword"
+                    class="full newbtn huge-newbtn center-text clickable"
+                    @click="login"
+                  >
+                    Prijavite se
+                  </button>
+                </div>
+                <p class="remp-mini-text center-text faded">ili</p>
+                <div class="flex relative">
                   <div class="half flex column-mini-right-pad">
                     <a
                       href="http://pretplata.telegram.hr/users/google/sign?url=https://www.telegram.hr/pretplata/"
@@ -405,7 +416,7 @@
                       Google
                     </a>
                   </div>
-                  <div class="half flex column-mini-left-pad">
+                  <div class="half flex column">
                     <a
                       href="https://pretplata.telegram.hr/social-login/social-sign/sign?social_provider_key=facebook&success_login_url=https://www.telegram.hr/pretplata/"
                       class="full center remp-social-logbtn animate"
@@ -425,79 +436,69 @@
                 </div>
               </div>
             </div>
+            <div class="flex termsContainer">
+              <div class="">
+                <input
+                  id="terms"
+                  v-model="terms"
+                  type="checkbox"
+                  class="cbx"
+                  name="terms"
+                />
+                <label for="terms" class="check flex full">
+                  <svg width="18px" height="18px" viewBox="0 0 18 18">
+                    <path
+                      d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
+                    ></path>
+                    <polyline points="1 9 7 14 15 4"></polyline>
+                  </svg>
+                  <span
+                    >Prihvaćam
+                    <a
+                      target="_blank"
+                      href="https://www.telegram.hr/stranica/uvjeti-koristenja/"
+                      class="highlight-text"
+                      >uvjete korištenja</a
+                    ></span
+                  >
+                </label>
+              </div>
+              <div class="">
+                <input
+                  id="privacy"
+                  v-model="privacy"
+                  type="checkbox"
+                  class="cbx"
+                  name="privacy"
+                />
+                <label for="privacy" class="check flex full">
+                  <svg width="18px" height="18px" viewBox="0 0 18 18">
+                    <path
+                      d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
+                    ></path>
+                    <polyline points="1 9 7 14 15 4"></polyline>
+                  </svg>
+                  <span
+                    >Prihvaćam
+                    <a
+                      target="_blank"
+                      href="https://www.telegram.hr/stranica/pravila-privantnosti/"
+                      class="highlight-text"
+                      >pravila privatnosti</a
+                    ></span
+                  >
+                </label>
+              </div>
+              <div class="promo-input-wrapper">
+                <input type="text" placeholder="Promo kod" />
+                <button type="button" @click.prevent="checkPromo">
+                  Primjeni
+                </button>
 
-            <div class="full flex">
-              <p class="full bold column-full-pad faded">Imate promo kod?</p>
-              <input
-                id="pretplata-promo"
-                v-model="promo_code"
-                type="text"
-                class="full remp-new-input"
-                placeholder="Upišite promo kod"
-              />
-              <a class="newbtn" @click.prevent="checkPromo">Primjeni</a>
-              <p
-                v-show="promo_error"
-                class="column-left-pad remp-mini-text center-text"
-              >
-                {{ promo_error }}
-              </p>
-            </div>
-            <div
-              class="full flex column-top-pad mobile-bottom-pad mobile-top-pad"
-            >
-              <input
-                id="terms"
-                v-model="terms"
-                type="checkbox"
-                class="cbx"
-                name="terms"
-              />
-              <label for="terms" class="check flex full">
-                <svg width="18px" height="18px" viewBox="0 0 18 18">
-                  <path
-                    d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
-                  ></path>
-                  <polyline points="1 9 7 14 15 4"></polyline>
-                </svg>
-                <span
-                  >Prihvaćam
-                  <a
-                    target="_blank"
-                    href="https://www.telegram.hr/stranica/uvjeti-koristenja/"
-                    class="highlight-text"
-                    >uvjete korištenja</a
-                  ></span
-                >
-              </label>
-            </div>
-            <div
-              class="full flex column-top-pad mobile-bottom-pad mobile-top-pad"
-            >
-              <input
-                id="privacy"
-                v-model="privacy"
-                type="checkbox"
-                class="cbx"
-                name="privacy"
-              />
-              <label for="privacy" class="check flex full">
-                <svg width="18px" height="18px" viewBox="0 0 18 18">
-                  <path
-                    d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
-                  ></path>
-                  <polyline points="1 9 7 14 15 4"></polyline>
-                </svg>
-                <span
-                  >Prihvaćam
-                  <a
-                    target="_blank"
-                    href="https://www.telegram.hr/stranica/pravila-privantnosti/"
-                    class="highlight-text"
-                    >pravila privatnosti</a
-                  ></span
-                >
-              </label>
+                <p v-show="promo_error" class="">
+                  {{ promo_error }}
+                </p>
+              </div>
             </div>
           </div>
           <div class="half flex flex-responsive remp-miniboxes">
@@ -522,7 +523,7 @@
         <client-only>
           <form
             id="payment-form"
-            class="full flex column-horizontal-pad column-top-pad mobile-top-pad"
+            class="full flex"
             method="post"
             :action="`/crm/sales-funnel/sales-funnel-frontend/submit?referer=${$store.getters['pretplata/link']}`"
           >
@@ -564,22 +565,18 @@
             </div>
             <div
               v-if="!loggedIn && canLogIn"
-              class="full barlow remp-mini-text smaller-text center-text column-mini-top-pad"
+              class="full barlow remp-mini-text center-text"
             >
               Molimo da se prijavite kako bi dovršili kupnju
             </div>
             <template v-else>
               <div
                 v-if="!buyable"
-                class="full barlow remp-mini-text smaller-text center-text column-mini-top-pad"
+                class="full barlow remp-mini-text center-text"
               >
                 Ispunite sve korake iznad kako bi dovršili kupnju.
               </div>
-              <button
-                v-if="buyable"
-                class="ninety newbtn huge-newbtn center-text clickable green-newbtn"
-                @click.prevent="submit"
-              >
+              <button v-if="buyable" class="" @click.prevent="submit">
                 Dovršite kupnju
                 {{ totalPrice ? 'za ' + totalPrice + '€' : '' }}
               </button>
@@ -697,11 +694,25 @@ export default {
         return '16,79'
       }
     },
+    standardPriceAnnual() {
+      if (this.term === 'pretplata-mjesecno') {
+        return '166'
+      } else {
+        return '166'
+      }
+    },
     premiumPrice() {
       if (this.term === 'pretplata-mjesecno') {
         return '20,99'
       } else {
         return '20,99'
+      }
+    },
+    premiumPriceAnnual() {
+      if (this.term === 'pretplata-mjesecno') {
+        return '208'
+      } else {
+        return '208'
       }
     },
     price() {
