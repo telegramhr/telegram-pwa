@@ -630,7 +630,7 @@ export default {
             'Aktivirajte pretplatu i odmah uštedite <span>30%</span>.',
         },
         {
-          image: require('@/assets/img/family-step2.png'),
+          image: require('@/assets/img/pretplata/family/family-step2.png'),
           title: 'Pozovite još 2 člana',
           description: 'Podijelite pretplatu s obitelji ili prijateljima.',
         },
