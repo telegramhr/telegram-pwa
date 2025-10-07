@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div v-if="loading" class="telegram-overlay">
+      <span class="telegram-loader"></span>
+    </div>
     <div class="hero-family center">
       <img class="img-as-bg" :src="hero.background" alt="Hero Background" />
       <img class="logo" :src="hero.logo" alt="Telegram Logo" />
@@ -14,9 +17,11 @@
           <div class="hero-family-info">
             <h2>{{ hero.title }}</h2>
             <p v-html="hero.description"></p>
-            <button class="activate-subscription-btn">
-              Aktivirajte pretplatu
-            </button>
+            <a href="#pretplataWrapper">
+              <button class="activate-subscription-btn">
+                Aktivirajte pretplatu
+              </button>
+            </a>
           </div>
         </div>
       </div>
@@ -48,7 +53,7 @@
       </div>
     </div>
 
-    <div class="pretplata-family-wrapper">
+    <div id="pretplataWrapper" class="pretplata-family-wrapper">
       <h2 class="pretplata-title">
         Dvije vrste pretplate. <br />
         Odabir je vaš.
@@ -259,10 +264,11 @@
                   </div>
                   <div class="radio-label">
                     <p class="title">
-                      Godišnja pretplata
-                      <span class="highlight-text">42% </span>popusta
+                      Godišnja pretplata (<span class="highlight-text"
+                        >42% </span
+                      >popusta)
                     </p>
-                    <p class="full remp-special-note">
+                    <p class="full description">
                       {{ interimYearPrice }}€ za godinu dana unaprijed
                     </p>
                   </div>
@@ -288,7 +294,10 @@
                     </div>
                   </div>
                   <div class="radio-label">
-                    <p class="title">4 tjedna</p>
+                    <p class="title">
+                      4 tjedna (<span class="highlight-text">30% </span>popusta)
+                    </p>
+
                     <p class="description">
                       {{ interimMonthPrice }}€/mj, možete otkazati u bilo kojem
                       trenutku
@@ -394,9 +403,9 @@
                     Prijavite se
                   </button>
                 </div>
-                <p class="remp-mini-text center-text faded">ili</p>
-                <div class="flex relative">
-                  <div class="half flex column-mini-right-pad">
+                <p class="remp-mini-text center-text faded iliText">ili</p>
+                <div class="flex relative loginBtns">
+                  <div class="btnContainer google">
                     <a
                       href="http://pretplata.telegram.hr/users/google/sign?url=https://www.telegram.hr/pretplata/telegram-family"
                       class="full center remp-social-logbtn animate"
@@ -413,7 +422,7 @@
                       Google
                     </a>
                   </div>
-                  <div class="half flex column">
+                  <div class="btnContainer facebook">
                     <a
                       href="https://pretplata.telegram.hr/social-login/social-sign/sign?social_provider_key=facebook&success_login_url=https://www.telegram.hr/pretplata/telegram-family"
                       class="full center remp-social-logbtn animate"
@@ -608,14 +617,14 @@ export default {
     return {
       hero: {
         logo: require('@/assets/img/telegram_logo_white.svg'),
-        background: require('@/assets/img/family-hero-background.png'),
+        background: require('@/assets/img/family-hero-background.webp'),
         title: 'Predstavljamo Telegram Family pretplatu',
         description:
           'Uštedite <span>30%</span> uz Family pretplatu Telegrama. Dijelite pretplatu s još 2 člana obitelji ili prijatelja.',
       },
       steps: [
         {
-          image: require('@/assets/img/family-step1.png'),
+          image: require('@/assets/img/pretplata/family/step1.webp'),
           title: 'Jedna pretplata za sve',
           description:
             'Aktivirajte pretplatu i odmah uštedite <span>30%</span>.',
@@ -626,7 +635,7 @@ export default {
           description: 'Podijelite pretplatu s obitelji ili prijateljima.',
         },
         {
-          image: require('@/assets/img/family-step3.png'),
+          image: require('@/assets/img/pretplata/family/step3.webp'),
           title: 'Svi uživate jednake pogodnosti',
           description:
             'Aktivirajte pretplatu i odmah uštedite <span>30%</span>.',
@@ -646,6 +655,7 @@ export default {
       deviceData: null,
       nonce: null,
       token: null,
+      loading: false,
       dropin: null,
       terms: false,
       privacy: false,
@@ -750,14 +760,14 @@ export default {
     subscription_type() {
       if (this.pack === 'pretplata-standard') {
         if (this.term === 'pretplata-mjesecno') {
-          return 'telegram_standard_4_tjedna_grupna_pretplata_admin'
+          return 'telegram_standard_4_tjedna_family_pretplata_admin'
         } else {
-          return 'telegram_standard_godisnja_grupna_pretplata_admin'
+          return 'telegram_standard_godisnja_family_pretplata_admin'
         }
       } else if (this.term === 'pretplata-mjesecno') {
-        return 'telegram_premium_4_tjedna_grupna_pretplata_admin'
+        return 'telegram_premium_4_tjedna_family_pretplata_admin'
       } else {
-        return 'telegram_premium_godisnja_grupna_pretplata_admin'
+        return 'telegram_premium_godisnja_family_pretplata_admin'
       }
     },
     loggedIn() {
@@ -801,6 +811,19 @@ export default {
       duration: 300,
       once: true,
     })
+    // Listen for TrustPay popup messages
+    this.messageHandler = (event) => {
+      if (event.data === 'popupLoaded') {
+        this.loading = false
+      }
+    }
+    window.addEventListener('message', this.messageHandler, false)
+  },
+  beforeDestroy() {
+    // Clean up the event listener
+    if (this.messageHandler) {
+      window.removeEventListener('message', this.messageHandler, false)
+    }
   },
   methods: {
     bankTransfer() {
@@ -876,7 +899,8 @@ export default {
         this.submitForm()
       }
     },
-    submitForm() {
+    submitForm(retryCount = 0) {
+      this.loading = true
       if (this.payment === 'bank_transfer') {
         this.bankTransfer()
         return
@@ -884,15 +908,12 @@ export default {
       const form = document.getElementById('payment-form')
       const formData = new FormData(form)
 
-      // To see the contents, use this approach:
-      for (const [key, value] of formData.entries()) {
-        console.log(key, value)
-      }
       const actionUrl = form.action
       fetch(actionUrl, {
         method: 'POST',
         body: formData,
         credentials: 'include',
+        redirect: 'follow', // Add this to handle redirects properly
       })
         .then((response) => {
           return response.json()
@@ -900,6 +921,10 @@ export default {
         .then((data) => {
           if (data.status === 'ok') {
             const trustpayIframe = document.getElementById('TrustPayFrame')
+            trustpayIframe.style.opacity = '1'
+            trustpayIframe.style.zIndex = '100'
+            trustpayIframe.style.position = 'fixed'
+            trustpayIframe.style.top = '0'
             if (trustpayIframe) {
               trustpayIframe.src = data.url + '&Localization=hr'
             }
@@ -907,11 +932,22 @@ export default {
             /* global openPopup */
             openPopup()
           } else {
+            this.loading = false
             this.show_msg = 'Došlo je do greške s plaćanjem.'
           }
         })
         .catch(() => {
-          this.show_msg = 'Došlo je do greške prilikom slanja podataka.'
+          // Retry logic: retry once if it's the first attempt
+          if (retryCount === 0) {
+            // Wait a bit before retrying
+            setTimeout(() => {
+              this.submitForm(1) // Retry with count = 1
+            }, 500)
+          } else {
+            // Failed after retry
+            this.loading = false
+            this.show_msg = 'Došlo je do greške prilikom slanja podataka.'
+          }
         })
     },
   },
@@ -971,9 +1007,22 @@ export default {
 }
 </script>
 <style>
+#TrustPayFrame {
+  height: 0;
+}
+.loginBtns {
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+.loginBtns .btnContainer {
+  width: 100%;
+}
+.loginBtns .remp-social-logbtn {
+  width: 100%;
+}
 /* HERO SECTION */
 .hero-family {
-  height: 860px;
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -1135,7 +1184,7 @@ export default {
   align-items: center;
   padding: 42px 16px 60px 16px;
   gap: 48px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 .pretplata-title {
   font-family: 'Lora', serif;
@@ -1225,6 +1274,10 @@ input[type='radio']:checked + label.pretplata-pack .choose-btn {
   font-weight: 600px;
   color: #9e9e9e;
 }
+.iliText {
+  align-self: center;
+  margin-bottom: 14px;
+}
 .pack-benefits {
   border-top: 1px solid #dfdfdf;
   display: flex;
@@ -1256,7 +1309,7 @@ input[type='radio']:checked + label.pretplata-pack .choose-btn {
 }
 .choose-btn {
   width: 100%;
-  background-color: black;
+  background: #b5b5b5;
   font-family: 'Barlow', sans-serif;
   color: white;
   border-radius: 2px;
@@ -1320,10 +1373,11 @@ input[type='radio']:checked + label.pretplata-pack .choose-btn {
   color: #ae3737;
 }
 .radio-label .description {
-  font-family: 'Lora', serif;
+  font-family: 'Barlow';
   font-weight: 400;
   font-size: 16px;
-  line-height: 22px;
+  line-height: 24px;
+  letter-spacing: 0px;
   color: #5f5f5f;
 }
 .outer-circle {
@@ -1379,8 +1433,23 @@ input[type='radio']:checked + label.pretplata-pack .choose-btn {
   height: 48px;
 }
 .termsContainer {
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
+  gap: 22px;
+}
+.termsContainer > div {
+  width: 100% !important;
+}
+.termsContainer span {
+  font-family: 'Barlow';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #000000;
+}
+.termsContainer span .highlight-text {
+  color: #000000;
+  font-weight: 600;
 }
 .promo-input-wrapper button {
   position: absolute;
@@ -1399,7 +1468,6 @@ input[type='radio']:checked + label.pretplata-pack .choose-btn {
 }
 .promo-input-wrapper {
   position: relative;
-  max-width: 300px;
 }
 .promo-input-wrapper p {
   position: absolute;
@@ -1451,13 +1519,63 @@ input[type='radio']:checked + label.pretplata-pack .choose-btn {
 .promo-input-wrapper input[type='text']::placeholder {
   color: #999;
 }
+.telegram-overlay {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  align-content: center;
+  background: rgb(0, 0, 0, 0.5);
+}
+.telegram-loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  border: 10px solid;
+  box-sizing: border-box;
+  animation: animloader 1s linear infinite alternate;
+}
+
+@keyframes animloader {
+  0% {
+    border-color: #ae3737 rgba(255, 255, 255, 0) rgba(255, 255, 255, 0)
+      rgba(255, 255, 255, 0);
+  }
+  33% {
+    border-color: #ae3737 #ae3737 rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
+  }
+  66% {
+    border-color: #ae3737 #ae3737 #ae3737 rgba(255, 255, 255, 0);
+  }
+  100% {
+    border-color: #ae3737 #ae3737 #ae3737 #ae3737;
+  }
+}
 
 @media (min-width: 1024px) {
   /* HERO SECTION */
-
+  .iliText {
+    margin-top: -30px;
+  }
+  .loginBtns {
+    width: 50%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
   .termsContainer {
     flex-direction: row;
     gap: 36px;
+    justify-content: space-between;
+  }
+  .termsContainer > div {
+    width: unset !important;
+  }
+  .promo-input-wrapper {
+    max-width: 300px;
   }
   .hero-family {
     padding: 80px;
@@ -1501,7 +1619,7 @@ input[type='radio']:checked + label.pretplata-pack .choose-btn {
   }
 
   .pretplata-family-wrapper {
-    margin-bottom: 80px;
+    margin-bottom: 60px;
   }
   .pack-duration {
     padding-right: 50px;
