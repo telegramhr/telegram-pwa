@@ -6,12 +6,12 @@
     <div class="hero-family center">
       <div class="overlay"></div>
       <img class="img-as-bg" :src="hero.background" alt="Hero Background" />
-      <img class="logo" :src="hero.logo" alt="Telegram Logo" />
+      <img class="logo" :src="hero.logo" alt="Telesport Logo" />
       <div class="content">
         <img
           class="family-icons"
           src="@/assets/img/family-hero-icons.png"
-          alt="Telegram Family Icons"
+          alt="Telesport Family Icons"
         />
         <div class="hero-family-wrapper">
           <span class="novo-badge">Novo</span>
@@ -613,7 +613,7 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import _ from 'lodash'
 export default {
-  name: 'PretplataTelegramFamilyPage',
+  name: 'PretplataTelesportFamilyPage',
   data() {
     return {
       hero: {
@@ -955,7 +955,7 @@ export default {
   },
   head() {
     return {
-      title: 'Telegram.hr Family Pretplata',
+      title: 'Telesport Family Pretplata',
       meta: [
         {
           hid: 'description',
@@ -971,7 +971,7 @@ export default {
           hid: 'og:title',
           name: 'og:title',
           property: 'og:title',
-          content: 'Telegram.hr Family Pretplata',
+          content: 'Telesport Family Pretplata',
         },
         {
           hid: 'og:image',
@@ -984,14 +984,14 @@ export default {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/pretplata/telegram-family/',
+          content: 'https://www.telegram.hr/pretplata/telesport-family/',
         },
       ],
       link: [
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: 'https://www.telegram.hr/pretplata/telegram-family/',
+          href: 'https://www.telegram.hr/pretplata/telesport-family/',
         },
       ],
       script: [
