@@ -750,14 +750,14 @@ export default {
     subscription_type() {
       if (this.pack === 'pretplata-standard') {
         if (this.term === 'pretplata-mjesecno') {
-          return 'telegram_standard_4_tjedna_pretplata_2024'
+          return 'telegram_standard_4_tjedna_grupna_pretplata_admin'
         } else {
-          return 'telegram_standard_godisnja_pretplata_2024'
+          return 'telegram_standard_godisnja_grupna_pretplata_admin'
         }
       } else if (this.term === 'pretplata-mjesecno') {
-        return 'telegram_premium_4_tjedna_pretplata_2024'
+        return 'telegram_premium_4_tjedna_grupna_pretplata_admin'
       } else {
-        return 'telegram_premium_godisnja_pretplata_2024'
+        return 'telegram_premium_godisnja_grupna_pretplata_admin'
       }
     },
     loggedIn() {
