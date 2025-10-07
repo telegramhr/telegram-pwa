@@ -803,6 +803,24 @@ export default {
     })
   },
   methods: {
+    bankTransfer() {
+      this.$axios
+        .post('/pretplate/api/pretplata/bank', {
+          subscription_type: this.subscription_type,
+          price: this.price,
+          email: this.email,
+          referer: this.$store.getters['pretplata/link'],
+          voucher_log_id: this.voucher_log_id,
+          promo_code: this.promo_code,
+        })
+        .then((response) => {
+          if (response.data.id) {
+            this.$router.push('/pretplata/bank/' + response.data.id)
+          } else {
+            this.show_msg = 'Došlo je do greške s plaćanjem.'
+          }
+        })
+    },
     checkPromo() {
       this.loadingPromo = true
       this.promo_error = ''
