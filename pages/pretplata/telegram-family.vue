@@ -617,14 +617,14 @@ export default {
     return {
       hero: {
         logo: require('@/assets/img/telegram_logo_white.svg'),
-        background: require('@/assets/img/family-hero-background.webp'),
+        background: require('@/assets/img/family-hero-background.png'),
         title: 'Predstavljamo Telegram Family pretplatu',
         description:
           'Uštedite <span>30%</span> uz Family pretplatu Telegrama. Dijelite pretplatu s još 2 člana obitelji ili prijatelja.',
       },
       steps: [
         {
-          image: require('@/assets/img/pretplata/family/step1.webp'),
+          image: require('@/assets/img/pretplata/family/step1.png'),
           title: 'Jedna pretplata za sve',
           description:
             'Aktivirajte pretplatu i odmah uštedite <span>30%</span>.',
@@ -635,7 +635,7 @@ export default {
           description: 'Podijelite pretplatu s obitelji ili prijateljima.',
         },
         {
-          image: require('@/assets/img/pretplata/family/step3.webp'),
+          image: require('@/assets/img/pretplata/family/step3.png'),
           title: 'Svi uživate jednake pogodnosti',
           description:
             'Aktivirajte pretplatu i odmah uštedite <span>30%</span>.',
