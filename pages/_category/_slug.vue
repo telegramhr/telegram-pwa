@@ -245,8 +245,8 @@
               <p
                 v-if="post.perex"
                 class="perex"
-                v-html="post.perex"
                 itemprop="articleBody"
+                v-html="post.perex"
               ></p>
               <div
                 v-if="post.type !== 'noimage'"
@@ -1385,6 +1385,24 @@ export default {
         innerHTML: this.post.styles || '',
       },
     ]
+    if (this.post.additional_scripts) {
+      Object.keys(this.post.additional_scripts).forEach((item) => {
+        script.push({
+          hid: `additional-script-${item}`,
+          src: this.post.additional_scripts[item],
+        })
+      })
+    }
+    if (this.post.additional_styles) {
+      Object.keys(this.post.additional_styles).forEach((item) => {
+        style.push({
+          hid: `additional-style-${item}`,
+          rel: 'stylesheet',
+          type: 'text/css',
+          innerHTML: this.post.additional_styles[item],
+        })
+      })
+    }
     return {
       bodyAttrs: {
         class: [this.$store.state.theme.theme, this.post.category_slug],
