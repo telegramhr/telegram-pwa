@@ -401,7 +401,7 @@
                 <div class="flex relative">
                   <div class="half flex column-mini-right-pad">
                     <a
-                      href="http://pretplata.telegram.hr/users/google/sign?url=https://www.telegram.hr/pretplata/"
+                      href="http://pretplata.telegram.hr/users/google/sign?url=https://www.telegram.hr/pretplata/telegram-family"
                       class="full center remp-social-logbtn animate"
                     >
                       <!-- <font-awesome-icon :icon="['fab', 'google']" /> -->
@@ -418,7 +418,7 @@
                   </div>
                   <div class="half flex column">
                     <a
-                      href="https://pretplata.telegram.hr/social-login/social-sign/sign?social_provider_key=facebook&success_login_url=https://www.telegram.hr/pretplata/"
+                      href="https://pretplata.telegram.hr/social-login/social-sign/sign?social_provider_key=facebook&success_login_url=https://www.telegram.hr/pretplata/telegram-family"
                       class="full center remp-social-logbtn animate"
                     >
                       <font-awesome-icon
@@ -860,9 +860,17 @@ export default {
       }
     },
     submitForm() {
+      if (this.payment === 'bank_transfer') {
+        this.bankTransfer()
+        return
+      }
       const form = document.getElementById('payment-form')
       const formData = new FormData(form)
-      console.log(formData)
+
+      // To see the contents, use this approach:
+      for (const [key, value] of formData.entries()) {
+        console.log(key, value)
+      }
       const actionUrl = form.action
       fetch(actionUrl, {
         method: 'POST',
@@ -892,7 +900,7 @@ export default {
   },
   head() {
     return {
-      title: 'Telegram.hr Pretplata',
+      title: 'Telegram.hr Family Pretplata',
       meta: [
         {
           hid: 'description',
@@ -908,7 +916,7 @@ export default {
           hid: 'og:title',
           name: 'og:title',
           property: 'og:title',
-          content: 'Telegram.hr Pretplata',
+          content: 'Telegram.hr Family Pretplata',
         },
         {
           hid: 'og:image',
@@ -921,14 +929,14 @@ export default {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/pretplata/',
+          content: 'https://www.telegram.hr/pretplata/telegram-family/',
         },
       ],
       link: [
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: 'https://www.telegram.hr/pretplata/',
+          href: 'https://www.telegram.hr/pretplata/telegram-family/',
         },
       ],
       script: [
