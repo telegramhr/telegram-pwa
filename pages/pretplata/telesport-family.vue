@@ -929,3 +929,110 @@ export default {
   },
 }
 </script>
+<style>
+/* HERO SECTION */
+.hero-family-telesport {
+  height: 860px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background: linear-gradient(180deg, #004487 0%, #004487 100%) !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding-top: 80px;
+  padding-left: 34px;
+  padding-right: 34px;
+  gap: 132px;
+}
+.hero-family-telesport .bg-image {
+  mix-blend-mode: screen;
+  opacity: 36%;
+}
+
+.hero-family-telesport .logo {
+  z-index: 2;
+  max-width: 170px;
+}
+.hero-family-telesport .content {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+.hero-family-telesport .content .family-icons {
+  max-width: 170px;
+  margin: 0 auto;
+}
+.hero-family-telesport .hero-family-wrapper-telesport {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.hero-family-telesport .hero-family-info-telesport {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+.hero-family-info-telesport h2 {
+  font-family: 'Lora', serif;
+  color: white;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 36px;
+}
+.hero-family-info-telesport p {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 0px;
+  text-align: center;
+  color: white;
+}
+.hero-family-info-telesport p > span {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+@media (min-width: 1024px) {
+  /* HERO SECTION */
+
+  .hero-family-telesport {
+    padding: 80px;
+    gap: 90px;
+  }
+  .hero-family-telesport .logo {
+    max-width: 218px;
+  }
+  .hero-family-telesport .content .family-icons {
+    max-width: 196px;
+  }
+  .hero-family-telesport .content {
+    max-width: 670px;
+    margin: 0 auto;
+    gap: 28px;
+  }
+  .hero-family-telesport .hero-family-info-telesport {
+    gap: 32px;
+  }
+  .hero-family-wrapper-telesport {
+    gap: 40px;
+  }
+  .hero-family-info-telesport h2 {
+    font-size: 40px;
+    line-height: 46px;
+  }
+  .hero-family-info-telesport p {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .novo-badge {
+    font-size: 18px;
+    padding: 12px 24px;
+    border-radius: 24px;
+  }
+}
+</style>
