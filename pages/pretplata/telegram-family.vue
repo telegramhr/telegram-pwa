@@ -5,9 +5,6 @@
       <img class="logo" :src="hero.logo" alt="Telegram Logo" />
       <div class="content">
         <img
-          data-aos="fade-up"
-          data-aos-delay="200"
-          data-aos-duration="300"
           class="family-icons"
           src="@/assets/img/family-hero-icons.png"
           alt="Telegram Family Icons"
@@ -596,6 +593,8 @@
         </client-only>
       </div>
     </div>
+    <iframe id="TrustPayFrame" :src="iframeUrl"></iframe>
+    <tfooter></tfooter>
   </div>
 </template>
 
@@ -1118,6 +1117,7 @@ export default {
   align-items: center;
   padding: 42px 16px 60px 16px;
   gap: 48px;
+  margin-bottom: 50px;
 }
 .pretplata-title {
   font-family: 'Lora', serif;
@@ -1480,6 +1480,10 @@ input[type='radio']:checked + label.pretplata-pack .choose-btn {
   .loginContainer .emailInput {
     flex: 1;
     max-width: 350px;
+  }
+
+  .pretplata-family-wrapper {
+    margin-bottom: 80px;
   }
   .pack-duration {
     padding-right: 50px;
