@@ -5207,9 +5207,15 @@ html.large-fontsize,
   }
 
   .single-article .single-article-body > #article-content .wp-block-columns {
-    max-width: 100vw !important;
-    margin-left: -50vw !important;
-    margin-right: -50vw !important;
+    max-width: 710px !important;
+    margin-left: -355px !important;
+    margin-right: -355px !important;
+  }
+
+  .single-article .single-article-body > #article-content .full .wp-block-columns {
+    max-width: 90vw !important;
+    margin-left: -45vw !important;
+    margin-right: -45vw !important;
   }
 
   .shopping-vodic.superone
@@ -20869,4 +20875,8 @@ button.newbtn {
   .f32 .button img {
     margin: 10px auto;
   }
+}
+
+.has-x-large-font-size {
+  line-height: 1.5 !important;
 }
