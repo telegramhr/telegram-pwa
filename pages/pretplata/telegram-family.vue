@@ -1155,7 +1155,7 @@ export default {
   font-weight: 500;
   font-size: 18px;
   color: black;
-  padding: 6pxgit 12px;
+  padding: 6px 12px;
   background-color: #f1e3d7;
   border-radius: 100%;
   aspect-ratio: square;
