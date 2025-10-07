@@ -618,7 +618,7 @@ export default {
     return {
       hero: {
         logo: require('@/assets/img/telesport_logo.png'),
-        background: require('@/assets/img/telesport-family-hero.webp'),
+        background: require('@/assets/img/telesport-family-hero.jpg'),
         title:
           'Navijajte zajedno - uštedite 30% uz grupnu pretplatu Telesporta',
         description:
@@ -626,7 +626,7 @@ export default {
       },
       steps: [
         {
-          image: require('@/assets/img/pretplata/family/step1.webp'),
+          image: require('@/assets/img/pretplata/family/step1.png'),
           title: 'Jedna pretplata za sve',
           description:
             'Aktivirajte pretplatu i odmah uštedite <span>30%</span>.',
@@ -637,7 +637,7 @@ export default {
           description: 'Podijelite pretplatu s obitelji ili prijateljima.',
         },
         {
-          image: require('@/assets/img/pretplata/family/step3.webp'),
+          image: require('@/assets/img/pretplata/family/step3.png'),
           title: 'Svi uživate jednake pogodnosti',
           description:
             'Aktivirajte pretplatu i odmah uštedite <span>30%</span>.',
