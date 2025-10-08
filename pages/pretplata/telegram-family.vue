@@ -7,11 +7,7 @@
       <img class="img-as-bg" :src="hero.background" alt="Hero Background" />
       <img class="logo" :src="hero.logo" alt="Telegram Logo" />
       <div class="content">
-        <img
-          class="family-icons"
-          src="@/assets/img/family-hero-icons.png"
-          alt="Telegram Family Icons"
-        />
+        <div ref="lottieContainer" style="width: auto; height: 80px"></div>
         <div class="hero-family-wrapper">
           <span class="novo-badge">Novo</span>
           <div class="hero-family-info">
@@ -368,11 +364,14 @@
             </div>
           </div>
         </div>
-        <div v-show="!loggedIn" class="login-wrapper">
+        <div class="login-wrapper">
           <p class="login-subtitle">Unesite podatke</p>
           <div id="login" class="login-content">
-            <div class="full flex flex-responsive remp-miniboxes">
-              <div v-show="!loggedIn" class="full flex loginContainer">
+            <div
+              v-show="!loggedIn"
+              class="full flex flex-responsive remp-miniboxes"
+            >
+              <div class="full flex loginContainer">
                 <div class="emailInput">
                   <input
                     id="pretplata-email"
@@ -611,10 +610,14 @@
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import _ from 'lodash'
+import lottie from 'lottie-web'
+import animationData from '@/assets/img/pretplata/animation-people.json'
+
 export default {
   name: 'PretplataTelegramFamilyPage',
   data() {
     return {
+      animation: null,
       hero: {
         logo: require('@/assets/img/telegram_logo_white.svg'),
         background: require('@/assets/img/family-hero-background.png'),
@@ -677,7 +680,7 @@ export default {
   },
   computed: {
     buyable() {
-      if (this.email && this.terms && this.privacy) {
+      if ((this.email || this.loggedIn) && this.terms && this.privacy) {
         return true
       }
       return false
@@ -811,6 +814,14 @@ export default {
       duration: 300,
       once: true,
     })
+    this.animation = lottie.loadAnimation({
+      container: this.$refs.lottieContainer, // the DOM element
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      animationData,
+    })
+
     // Listen for TrustPay popup messages
     this.messageHandler = (event) => {
       if (event.data === 'popupLoaded') {
@@ -823,6 +834,9 @@ export default {
     // Clean up the event listener
     if (this.messageHandler) {
       window.removeEventListener('message', this.messageHandler, false)
+    }
+    if (this.animation) {
+      this.animation.destroy()
     }
   },
   methods: {
@@ -1031,6 +1045,7 @@ export default {
   flex-direction: column;
   justify-content: start;
   padding-top: 90px;
+  padding-bottom: 40px;
   padding-left: 34px;
   padding-right: 34px;
   gap: 132px;
@@ -1360,6 +1375,7 @@ input[type='radio']:checked + label.pretplata-pack .choose-btn {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  max-width: fit-content;
 }
 .radio-label .title {
   font-family: 'Lora', serif;
