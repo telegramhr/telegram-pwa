@@ -1,14 +1,13 @@
 <template>
   <div>
     <div class="pack-payment-wrapper">
-      <!-- Trajanje pretplate -->
       <div class="pack-duration">
         <span class="pack-duration-title">Odaberite trajanje pretplate</span>
         <div class="duration-options">
           <div class="full relative flex">
             <input
               id="pretplata-godisnje"
-              v-model="term"
+              v-model="internalPeriod"
               type="radio"
               name="pretplata-termin"
               class="hide"
@@ -18,7 +17,7 @@
               <div class="remp-radio-indicator center">
                 <div class="outer-circle">
                   <div
-                    v-if="term === 'pretplata-godisnje'"
+                    v-if="period === 'pretplata-godisnje'"
                     class="inner-circle"
                   ></div>
                 </div>
@@ -38,7 +37,7 @@
           <div class="full relative flex">
             <input
               id="pretplata-mjesecno"
-              v-model="term"
+              v-model="internalPeriod"
               type="radio"
               name="pretplata-termin"
               class="hide"
@@ -48,7 +47,7 @@
               <div class="remp-radio-indicator center">
                 <div class="outer-circle">
                   <div
-                    v-if="term === 'pretplata-mjesecno'"
+                    v-if="period === 'pretplata-mjesecno'"
                     class="inner-circle"
                   ></div>
                 </div>
@@ -75,7 +74,7 @@
           <div class="full relative flex">
             <input
               id="pretplata-kartica"
-              v-model="payment"
+              v-model="internalPayment"
               type="radio"
               name="pretplata-placanje"
               class="hide"
@@ -102,7 +101,7 @@
           <div class="full relative flex">
             <input
               id="pretplata-uplata"
-              v-model="payment"
+              v-model="internalPayment"
               type="radio"
               name="pretplata-placanje"
               class="hide"
@@ -136,7 +135,7 @@
             <div class="emailInput">
               <input
                 id="pretplata-email"
-                v-model="email"
+                v-model="internalEmail"
                 type="text"
                 class="full remp"
                 placeholder="Vaša email adresa"
@@ -158,7 +157,7 @@
               <button
                 v-if="showPassword"
                 class="full newbtn huge-newbtn center-text clickable"
-                @click="login"
+                @click="$emit('login')"
               >
                 Prijavite se
               </button>
@@ -206,7 +205,7 @@
           <div class="">
             <input
               id="terms"
-              v-model="terms"
+              v-model="internalTerms"
               type="checkbox"
               class="cbx"
               name="terms"
@@ -232,7 +231,7 @@
           <div class="">
             <input
               id="privacy"
-              v-model="privacy"
+              v-model="internalPrivacy"
               type="checkbox"
               class="cbx"
               name="privacy"
@@ -256,8 +255,14 @@
             </label>
           </div>
           <div class="promo-input-wrapper">
-            <input type="text" placeholder="Promo kod" />
-            <button type="button" @click.prevent="checkPromo">Primjeni</button>
+            <input
+              v-model="internalPromo"
+              type="text"
+              placeholder="Promo kod"
+            />
+            <button type="button" @click.prevent="$emit('checkPromo')">
+              Primjeni
+            </button>
 
             <p v-show="promo_error" class="">
               {{ promo_error }}
@@ -313,12 +318,12 @@
         />
         <p
           v-if="discount"
-          class="full barlow remp-mini-text smaller-text center-text column-mini-top-pad"
+          class="full barlow remp-mini-text smaller-text center-text column-mini-top-pad column-mini-bottom-pad"
         >
-          Ostvarili ste {{ price - discount }}€ popusta
+          Ostvarili ste {{ discountAmount }}€ popusta
         </p>
         <div
-          v-if="!buyable"
+          v-if="!buyableComputed"
           class="full newbtn huge-newbtn center-text clickable locked-newbtn"
         >
           Dovršite kupnju
@@ -331,10 +336,17 @@
           Molimo da se prijavite kako bi dovršili kupnju
         </div>
         <template v-else>
-          <div v-if="!buyable" class="full barlow remp-mini-text center-text">
+          <div
+            v-if="!buyableComputed"
+            class="full barlow remp-mini-text center-text"
+          >
             Ispunite sve korake iznad kako bi dovršili kupnju.
           </div>
-          <button v-if="buyable" class="" @click.prevent="submit">
+          <button
+            v-if="buyableComputed"
+            class=""
+            @click.prevent="$emit('submit')"
+          >
             Dovršite kupnju
             {{ totalPrice ? 'za ' + totalPrice + '€' : '' }}
           </button>
@@ -357,9 +369,9 @@
 
 <script>
 export default {
-  name: 'CheckoutWrapper',
+  name: 'PretplataCheckout',
   props: {
-    term: String,
+    period: String,
     payment: String,
     pack: String,
     email: String,
@@ -374,6 +386,12 @@ export default {
     interimMonthPrice: String,
     interimYearPrice: String,
     totalPrice: String,
+    buyable: Boolean,
+    canLogIn: Boolean,
+    voucher_log_id: [String, Number],
+    url_key: String,
+    subscription_type: String,
+    price: [String, Number],
   },
   data() {
     return {
@@ -383,6 +401,14 @@ export default {
     }
   },
   computed: {
+    buyableComputed() {
+      return (
+        this.internalEmail &&
+        this.internalPayment &&
+        this.internalPrivacy &&
+        this.internalTerms
+      )
+    },
     durationOptions() {
       return [
         {
@@ -414,6 +440,59 @@ export default {
           note: 'Generirat ćemo uplatnicu s podacima za plaćanje',
         },
       ]
+    },
+    discountAmount() {
+      const p = parseFloat(this.price) || 0
+      const d = parseFloat(this.discount) || 0
+      return p - d
+    },
+    internalEmail: {
+      get() {
+        return this.email
+      },
+      set(val) {
+        this.$emit('update:email', val)
+      },
+    },
+    internalPeriod: {
+      get() {
+        return this.period
+      },
+      set(val) {
+        this.$emit('update:period', val)
+      },
+    },
+    internalTerms: {
+      get() {
+        return this.terms
+      },
+      set(val) {
+        this.$emit('update:terms', val)
+      },
+    },
+    internalPrivacy: {
+      get() {
+        return this.privacy
+      },
+      set(val) {
+        this.$emit('update:privacy', val)
+      },
+    },
+    internalPayment: {
+      get() {
+        return this.payment
+      },
+      set(val) {
+        this.$emit('update:payment', val)
+      },
+    },
+    internalPromo: {
+      get() {
+        return this.promo_code
+      },
+      set(val) {
+        this.$emit('update:promo_code', val)
+      },
     },
   },
 }

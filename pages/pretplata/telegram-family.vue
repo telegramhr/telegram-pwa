@@ -7,11 +7,7 @@
       <img class="img-as-bg" :src="hero.background" alt="Hero Background" />
       <img class="logo" :src="hero.logo" alt="Telegram Logo" />
       <div class="content">
-        <img
-          class="family-icons"
-          src="@/assets/img/family-hero-icons.png"
-          alt="Telegram Family Icons"
-        />
+        <div ref="lottieContainer" style="width: auto; height: 80px"></div>
         <div class="hero-family-wrapper">
           <span class="novo-badge">Novo</span>
           <div class="hero-family-info">
@@ -67,17 +63,14 @@
             :priceAnnual="standardPriceAnnual"
             discountText="Uštedite 30% u grupi"
             :benefits="[
-              'Surfanje bez oglasa',
               'Neograničeno čitanje <strong>Telegrama</strong> i pristup arhivi svih članaka',
-              'Neograničeno čitanje <strong>Telesporta</strong> i pristup arhivi svih članaka',
               'Ekskluzivni newsletteri s posebnim analizama nagrađivanih autora',
-              'Fokus na sadržaj — <strong>surfanje bez reklama</strong>',
+              'Surfanje uz <strong>manje</strong> reklama',
               '10 poklon članaka mjesečno',
               'Posebni popusti i pogodnosti Telegram Kluba',
             ]"
             buttonText="Odaberite standard pretplatu"
             v-model="pack"
-            @update:modelValue="onPackChange"
           />
           <PretplataBox
             id="pretplata-premium"
@@ -86,25 +79,24 @@
             :priceAnnual="premiumPriceAnnual"
             discountText="Uštedite 30% u grupi"
             :benefits="[
-              'Sve iz standard paketa, plus:',
-              'Pristup <strong>Telegram Premium</strong> sadržaju',
-              'Ekskluzivne analize i intervjui',
-              'Posebne prilike za druženje s autorima',
-              'Pristup posebnim događajima i webinarima',
-              'Prioritetna podrška',
-              'Dodatnih 10 poklon članaka mjesečno (ukupno 20)',
+              'Surfanje bez oglasa',
+              'Neograničeno čitanje <strong>Telegrama</strong> i pristup arhivi svih članaka',
+              'Neograničeno čitanje <strong>Telesporta</strong> i pristup arhivi svih članaka',
+              'Ekskluzivni newsletteri s posebnim analizama nagrađivanih autora',
+              'Fokus na sadržaj — <strong>surfanje bez reklama</strong>',
+              '10 poklon članaka mjesečno',
               'Posebni popusti i pogodnosti Telegram Kluba',
             ]"
             buttonText="Odaberite premium pretplatu"
             v-model="pack"
-            @update:modelValue="onPackChange"
           ></PretplataBox>
         </div>
         <div class="pretplata-checkout">
           <PretplataCheckout
-            :term="term"
+            :period="period"
             :payment="payment"
             :pack="pack"
+            :price="price"
             :email="email"
             :password="password"
             :showPassword="showPassword"
@@ -117,11 +109,12 @@
             :interimMonthPrice="interimMonthPrice"
             :interimYearPrice="interimYearPrice"
             :totalPrice="totalPrice"
-            @update:term="term = $event"
+            @update:period="period = $event"
             @update:payment="payment = $event"
             @update:email="email = $event"
             @update:password="password = $event"
             @update:terms="terms = $event"
+            @update:promo_code="promo_code = $event"
             @update:privacy="privacy = $event"
             @login="login"
             @checkPromo="checkPromo"
@@ -135,13 +128,15 @@
 </template>
 
 <script>
-import AOS from 'aos'
-import 'aos/dist/aos.css'
 import _ from 'lodash'
+import lottie from 'lottie-web'
+import animationData from '@/assets/img/pretplata/animation-people.json'
+
 export default {
   name: 'PretplataTelegramFamilyPage',
   data() {
     return {
+      animation: null,
       hero: {
         logo: require('@/assets/img/telegram_logo_white.svg'),
         background: require('@/assets/img/family-hero-background.png'),
@@ -172,7 +167,7 @@ export default {
       show_msg: '',
       payment: 'trustpay_recurrent',
       pack: 'pretplata-standard',
-      term: 'pretplata-godisnje',
+      period: 'pretplata-godisnje',
       promo_code: '',
       email: this.$store.state.user.email,
       password: '',
@@ -186,12 +181,9 @@ export default {
       dropin: null,
       terms: false,
       privacy: false,
-      funnel_url_key: 'main',
+      funnel_url_key: 'family',
       auth: 0,
-      url_key: 'main',
-      creditCard: false,
-      cvv: false,
-      expirationDate: false,
+      url_key: 'family',
       instance: null,
       customerId: null,
       iframeUrl: '',
@@ -204,7 +196,7 @@ export default {
   },
   computed: {
     buyable() {
-      if (this.email && this.terms && this.privacy) {
+      if ((this.email || this.loggedIn) && this.terms && this.privacy) {
         return true
       }
       return false
@@ -224,35 +216,35 @@ export default {
       }
     },
     standardPrice() {
-      if (this.term === 'pretplata-mjesecno') {
+      if (this.period === 'pretplata-mjesecno') {
         return '16,79'
       } else {
         return '16,79'
       }
     },
     standardPriceAnnual() {
-      if (this.term === 'pretplata-mjesecno') {
+      if (this.period === 'pretplata-mjesecno') {
         return '166'
       } else {
         return '166'
       }
     },
     premiumPrice() {
-      if (this.term === 'pretplata-mjesecno') {
+      if (this.period === 'pretplata-mjesecno') {
         return '20,99'
       } else {
         return '20,99'
       }
     },
     premiumPriceAnnual() {
-      if (this.term === 'pretplata-mjesecno') {
+      if (this.period === 'pretplata-mjesecno') {
         return '208'
       } else {
         return '208'
       }
     },
     price() {
-      if (this.term === 'pretplata-mjesecno') {
+      if (this.period === 'pretplata-mjesecno') {
         if (this.pack === 'pretplata-standard') {
           return 16.79
         } else {
@@ -266,19 +258,19 @@ export default {
       }
     },
     totalPrice() {
-      if (!this.pack || !this.term) {
+      if (!this.pack || !this.period) {
         return 0
       }
       if (this.discount) {
         return this.discount.toString().replace(',', ',')
       }
       if (this.pack === 'pretplata-standard') {
-        if (this.term === 'pretplata-mjesecno') {
+        if (this.period === 'pretplata-mjesecno') {
           return '16,79'
         } else {
           return '166'
         }
-      } else if (this.term === 'pretplata-mjesecno') {
+      } else if (this.period === 'pretplata-mjesecno') {
         return '20,99'
       } else {
         return '208'
@@ -286,12 +278,12 @@ export default {
     },
     subscription_type() {
       if (this.pack === 'pretplata-standard') {
-        if (this.term === 'pretplata-mjesecno') {
+        if (this.period === 'pretplata-mjesecno') {
           return 'telegram_standard_4_tjedna_family_pretplata_admin'
         } else {
           return 'telegram_standard_godisnja_family_pretplata_admin'
         }
-      } else if (this.term === 'pretplata-mjesecno') {
+      } else if (this.period === 'pretplata-mjesecno') {
         return 'telegram_premium_4_tjedna_family_pretplata_admin'
       } else {
         return 'telegram_premium_godisnja_family_pretplata_admin'
@@ -334,11 +326,14 @@ export default {
     }, 1000),
   },
   mounted() {
-    console.log('Mounted pretplata telegram family')
-    AOS.init({
-      duration: 300,
-      once: true,
+    this.animation = lottie.loadAnimation({
+      container: this.$refs.lottieContainer, // the DOM element
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      animationData,
     })
+
     // Listen for TrustPay popup messages
     this.messageHandler = (event) => {
       if (event.data === 'popupLoaded') {
@@ -352,7 +347,11 @@ export default {
     if (this.messageHandler) {
       window.removeEventListener('message', this.messageHandler, false)
     }
+    if (this.animation) {
+      this.animation.destroy()
+    }
   },
+
   methods: {
     bankTransfer() {
       this.$axios
@@ -545,6 +544,7 @@ export default {
   flex-direction: column;
   justify-content: start;
   padding-top: 90px;
+  padding-bottom: 40px;
   padding-left: 34px;
   padding-right: 34px;
   gap: 132px;
@@ -724,124 +724,6 @@ export default {
   flex-direction: column;
   gap: 32px;
   max-width: 870px;
-}
-.pretplata-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  flex: 1 1 0%;
-}
-.pretplata-pack {
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  border: 1px solid #dfdfdf;
-  justify-content: space-between;
-  height: 100%;
-  border-radius: 9px;
-  text-align: center;
-  padding: 36px 28px;
-  margin: 0px !important;
-}
-.pack-header {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
-  padding-bottom: 28px;
-}
-.discount-highlight {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 22px;
-  padding: 4px 8px;
-  color: #478041;
-  background-color: #e5ffe2;
-  border: 1px solid #e5ffe2;
-  border-radius: 4px;
-}
-/* Style label when radio is checked */
-input[type='radio']:checked + label.pretplata-pack {
-  border-color: #6d4726;
-}
-
-/* Style button when radio is checked */
-input[type='radio']:checked + label.pretplata-pack .choose-btn {
-  background-color: #37ae37;
-  color: white;
-}
-.pack-title {
-  font-family: 'Lora', serif;
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 24px;
-  text-align: center;
-}
-.pack-price {
-  font-family: 'Lora', serif;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 18px;
-  color: black;
-}
-.pack-price span {
-  font-weight: 600px;
-  color: #9e9e9e;
-}
-.iliText {
-  align-self: center;
-  margin-bottom: 14px;
-}
-.pack-benefits {
-  border-top: 1px solid #dfdfdf;
-  display: flex;
-  width: 100%;
-  padding-top: 15px;
-  flex-direction: column;
-  gap: 16px;
-}
-.single-benefit {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 6px;
-  font-family: 'Barlow', sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 22px;
-  text-align: left;
-}
-.single-benefit > svg {
-  color: #8d5b31;
-}
-.pack-button-wrapper {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding-top: 36px;
-}
-.choose-btn {
-  width: 100%;
-  background: #b5b5b5;
-  font-family: 'Barlow', sans-serif;
-  color: white;
-  border-radius: 2px;
-  padding: 18px 48px;
-  font-size: 16px;
-  line-height: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-.pack-button-wrapper span {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 14px;
-  color: #121212;
 }
 
 @media (min-width: 1024px) {

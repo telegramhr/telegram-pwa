@@ -10593,7 +10593,14 @@ html.large-fontsize,
 .superone-toppicks .offer-slide .article .article-pad {
   padding-bottom: 0px;
 }
-
+.superone-pilatesBagTitle{
+    flex-direction: column;
+    align-items: center;
+    padding-right: 16px;
+    padding-left: 16px;
+    text-align: center;
+    gap: 8px;
+}
 .s1-toppick-price {
   padding: 4px 16px;
   border: 1px solid black;
@@ -10765,6 +10772,13 @@ html.large-fontsize,
 }
 
 @media screen and (min-width: 767px) {
+  .superone-pilatesBagTitle{
+      flex-direction: row;
+      gap: 0px;
+  }
+  .superone-pilatesBagTitle .spanX{
+    margin-right: 8px;
+  }
   .super-sidebar .article .nothfour {
     display: none;
   }
