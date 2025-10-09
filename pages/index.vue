@@ -305,17 +305,17 @@
       </div>
     </div>
     <app-link
-      to="https://knjige.telegram.hr/proizvod/knjige/f32/"
+      to="https://www.telegram.hr/pretplata/telegram-family"
       class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center"
       style="padding: 0 24px; margin-top: 20px"
     >
       <img
-        src="@/assets/img/extras/knjiga/f32/F32_Telegram_Web_Banner_Desktop-02.png"
+        src="@/assets/img/extras/Family_Pretplata_Banner_Desktop.png"
         alt="Naslovnica nove knjige"
         class="desktop-only"
       />
       <img
-        src="@/assets/img/extras/knjiga/f32/F32_Telegram_Web_Banner_Mobile-02.png"
+        src="@/assets/img/extras/Family_Pretplata_Banner_Mobile.png"
         alt="Naslovnica nove knjige"
         class="mobile-only"
       />

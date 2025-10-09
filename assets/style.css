@@ -20861,36 +20861,6 @@ button.newbtn {
   }
 }
 
-.f32 {
-  color: white;
-}
-
-.f32-darkened-bg {
-  background-color: #1a1c20;
-}
-
-.f32 .newbook-overtitle {
-  color: white;
-  text-transform: uppercase;
-}
-.f32 .newbook-title-smaller {
-  font-size: 2rem;
-  line-height: 2.1rem;
-}
-
-@media (max-width: 1200px) {
-  .f32 {
-    text-align: center;
-  }
-  .f32 .newbook-title-smaller {
-    font-size: 2rem;
-    line-height: 2.1rem;
-  }
-  .f32 .button img {
-    margin: 10px auto;
-  }
-}
-
 .has-x-large-font-size {
   line-height: 1.5 !important;
 }
