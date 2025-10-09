@@ -3,6 +3,7 @@
     class="full flex article-standard article-medium article-medium-alt article relative"
     :to="post.permalink"
     role="article"
+    :data-id="post.id"
     :aria-labelledby="'standard-' + post.id"
   >
     <img

@@ -3,6 +3,7 @@
     :to="post.permalink"
     class="full flex komentar relative"
     role="article"
+    :data-id="post.id"
     :aria-labelledby="'komentar-' + post.id"
     :data-mrf-recirculation="recirculation"
   >

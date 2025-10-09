@@ -2,6 +2,7 @@
   <div
     class="full flex article-featured article-superfeat article relative"
     role="article"
+    :data-id="post.id"
     :data-mrf-recirculation="recirculation"
   >
     <app-link

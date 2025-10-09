@@ -6,6 +6,7 @@
       class="full flex article-featured article relative"
       :to="post.permalink"
       role="article"
+      :data-id="post.id"
       :aria-labelledby="'standard-' + post.id"
     >
       <img :src="author.image" :alt="author.name" loading="lazy" />

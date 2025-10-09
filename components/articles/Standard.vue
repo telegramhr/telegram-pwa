@@ -3,6 +3,7 @@
     class="full flex article-standard article relative"
     :to="permalink"
     role="article"
+    :data-id="post.id"
     :aria-labelledby="'standard-' + post.id"
     :data-mrf-recirculation="recirculation"
   >

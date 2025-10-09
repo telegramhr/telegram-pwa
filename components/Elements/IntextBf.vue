@@ -85,7 +85,7 @@ export default {
   name: 'IntextBf',
   data() {
     return {
-      show: false,
+      show: true,
       termId: false,
       oldPrice: 99,
       newPrice: 78,

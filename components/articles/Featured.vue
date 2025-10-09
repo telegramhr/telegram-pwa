@@ -1,5 +1,9 @@
 <template>
-  <div class="full flex article-featured article" role="article">
+  <div
+    class="full flex article-featured article"
+    role="article"
+    :data-id="post.id"
+  >
     <app-link
       class="full flex"
       :to="post.permalink"
