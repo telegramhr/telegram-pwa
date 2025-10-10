@@ -320,7 +320,7 @@
           v-if="discount"
           class="full barlow remp-mini-text smaller-text center-text column-mini-top-pad column-mini-bottom-pad"
         >
-          Ostvarili ste {{ discountAmount }}€ popusta
+          Ostvarili ste {{ discount }}€ popusta
         </p>
         <div
           v-if="!buyableComputed"
@@ -441,11 +441,7 @@ export default {
         },
       ]
     },
-    discountAmount() {
-      const p = parseFloat(this.price) || 0
-      const d = parseFloat(this.discount) || 0
-      return p - d
-    },
+
     internalEmail: {
       get() {
         return this.email

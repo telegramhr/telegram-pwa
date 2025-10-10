@@ -190,6 +190,7 @@ export default {
       canLogIn: true,
       voucher_log_id: null,
       discount: null,
+      discountedPrice: null,
       loadingPromo: false,
       promo_error: '',
     }
@@ -261,8 +262,8 @@ export default {
       if (!this.pack || !this.period) {
         return 0
       }
-      if (this.discount) {
-        return this.discount.toString().replace(',', ',')
+      if (this.discountedPrice) {
+        return parseFloat(this.discountedPrice).toFixed(2).replace('.', ',')
       }
       if (this.pack === 'pretplata-standard') {
         if (this.period === 'pretplata-mjesecno') {
@@ -294,6 +295,26 @@ export default {
     },
   },
   watch: {
+    pack() {
+      this.discount = null
+      this.promo_error = ''
+      this.discountedPrice = null
+      this.voucher_log_id = null
+      if (this.promo_code && this.promo_code.trim() !== '') {
+        this.checkPromo()
+      }
+    },
+
+    period() {
+      this.discount = null
+      this.discountedPrice = null
+      this.promo_error = ''
+      this.voucher_log_id = null
+      if (this.promo_code && this.promo_code.trim() !== '') {
+        this.checkPromo()
+      }
+    },
+
     email: _.debounce(function (value) {
       const _this = this
       const formData = new FormData()
@@ -385,7 +406,10 @@ export default {
         })
         .then((res) => {
           // this.voucher_log_id = res.data.voucher_log_id
-          this.discount = res.data.discounted_amount
+          this.discountedPrice = res.data.discounted_amount
+          this.discount = (
+            this.price - parseFloat(res.data.discounted_amount)
+          ).toFixed(2)
         })
         .catch(() => {
           this.promo_error = 'Promo kod nije važeći'
@@ -534,6 +558,39 @@ export default {
 }
 </script>
 <style>
+.dark-mode .content-family {
+  background-color: #212121;
+  color: white;
+}
+.dark-mode .content-family .title {
+  color: white;
+}
+.dark-mode .pretplata-family-wrapper {
+  background-color: #212121;
+  color: white;
+}
+.dark-mode .pretplata-content input:checked {
+  border-color: #37ae37;
+}
+.dark-mode .pretplata-pack {
+  background-color: #212121;
+  border-color: #6d4726;
+}
+.dark-mode .pack-price {
+  color: white;
+}
+.dark-mode .pack-button-wrapper span {
+  color: white;
+}
+.dark-mode .radio-label .title {
+  color: white;
+}
+.dark-mode .termsContainer span {
+  color: white;
+}
+.dark-mode .termsContainer span .highlight-text {
+  color: white;
+}
 /* HERO SECTION */
 .hero-family {
   position: relative;
