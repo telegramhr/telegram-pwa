@@ -18,7 +18,6 @@
         data-context="signin"
         data-client_id="345595854714-ikp5kmgn1thkccvlkerioqkeh5773ndr.apps.googleusercontent.com"
         :data-login_uri="`https://pretplata.telegram.hr/users/google/sign?url=https://www.telegram.hr${$router.fullPath}`"
-        data-auto_select="true"
         data-itp_support="true"
       ></div>
     </client-only>
