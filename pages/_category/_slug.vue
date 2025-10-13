@@ -798,10 +798,11 @@ export default {
       }
       const article = {
         '@context': 'https://schema.org',
-        '@type':
-          this.post.category === 'Komentari'
-            ? 'OpinionNewsArticle'
-            : 'NewsArticle',
+        '@type': this.post.live
+          ? 'LiveBlogPosting' // For live/breaking news
+          : this.post.category === 'Komentari'
+          ? 'OpinionNewsArticle'
+          : 'NewsArticle',
         headline: this.$options.filters.parseCat(this.post.title),
         mainEntityOfPage: this.post.social.path,
         datePublished: new Date(this.post.time * 1000).toISOString(),
@@ -820,6 +821,12 @@ export default {
         }),
         keywords: this.post.tags.map((tag) => tag.slug),
         articleSection: [this.$options.filters.parseCat(this.post.category)],
+      }
+      // Add LiveBlogPosting specific fields
+      if (this.post.live) {
+        article.coverageStartTime = new Date(
+          this.post.time * 1000
+        ).toISOString()
       }
       if (this.post.paywall !== 'never') {
         article.isAccessibleForFree = 'False'
