@@ -251,7 +251,7 @@ export const actions = {
         }
       })
       .catch(() => {
-        dispatch('loginPiano', payload)
+        commit('setError', 'Email i/ili lozinka nisu ispravni')
       })
   },
   registerSubmit({ commit, dispatch, state }, payload) {

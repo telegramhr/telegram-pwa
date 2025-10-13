@@ -242,7 +242,12 @@
                 </template>
               </div>
               <!-- eslint-disable-next-line -->
-              <p v-if="post.perex" class="perex" v-html="post.perex" itemprop="articleBody"></p>
+              <p
+                v-if="post.perex"
+                class="perex"
+                itemprop="articleBody"
+                v-html="post.perex"
+              ></p>
               <div
                 v-if="post.type !== 'noimage'"
                 class="nothfive full flex relative article-meta"
@@ -383,6 +388,8 @@
                 <intext-promo-free-month></intext-promo-free-month>
                 <intext-promo-xmas></intext-promo-xmas>
                 <intext-promo-new-customers></intext-promo-new-customers>
+                <intext-promo-f32></intext-promo-f32>
+                <intext-promo-family></intext-promo-family>
                 <midas
                   v-if="!hasPremium && hasLinker"
                   :key="`midas-text-${post.id}`"
@@ -458,6 +465,9 @@
             class="full has-background"
           >
             <div class="container flex center have-background">
+              <div class="full">
+                <a1-widget></a1-widget>
+              </div>
               <div>
                 <ad-unit id="telegram_underarticle_v2"></ad-unit>
               </div>
@@ -788,10 +798,11 @@ export default {
       }
       const article = {
         '@context': 'https://schema.org',
-        '@type':
-          this.post.category === 'Komentari'
-            ? 'OpinionNewsArticle'
-            : 'NewsArticle',
+        '@type': this.post.live
+          ? 'LiveBlogPosting' // For live/breaking news
+          : this.post.category === 'Komentari'
+          ? 'OpinionNewsArticle'
+          : 'NewsArticle',
         headline: this.$options.filters.parseCat(this.post.title),
         mainEntityOfPage: this.post.social.path,
         datePublished: new Date(this.post.time * 1000).toISOString(),
@@ -810,6 +821,12 @@ export default {
         }),
         keywords: this.post.tags.map((tag) => tag.slug),
         articleSection: [this.$options.filters.parseCat(this.post.category)],
+      }
+      // Add LiveBlogPosting specific fields
+      if (this.post.live) {
+        article.coverageStartTime = new Date(
+          this.post.time * 1000
+        ).toISOString()
       }
       if (this.post.paywall !== 'never') {
         article.isAccessibleForFree = 'False'
@@ -1376,6 +1393,24 @@ export default {
         innerHTML: this.post.styles || '',
       },
     ]
+    if (this.post.additional_scripts) {
+      Object.keys(this.post.additional_scripts).forEach((item) => {
+        script.push({
+          hid: `additional-script-${item}`,
+          src: this.post.additional_scripts[item],
+        })
+      })
+    }
+    if (this.post.additional_styles) {
+      Object.keys(this.post.additional_styles).forEach((item) => {
+        style.push({
+          hid: `additional-style-${item}`,
+          rel: 'stylesheet',
+          type: 'text/css',
+          innerHTML: this.post.additional_styles[item],
+        })
+      })
+    }
     return {
       bodyAttrs: {
         class: [this.$store.state.theme.theme, this.post.category_slug],

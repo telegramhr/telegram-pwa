@@ -150,6 +150,9 @@ em,
 .white-bg {
   background-color: white;
 }
+.brown-bg {
+  background-color: #f1e3d7;
+}
 
 .strikethrough {
   text-decoration: line-through;
@@ -316,7 +319,7 @@ img {
   align-self: flex-end;
 }
 
-.reset-flex-order>* {
+.reset-flex-order > * {
   order: initial !important;
 }
 
@@ -342,7 +345,7 @@ span.ib {
 
 .faded-50,
 .faded {
-  opacity: 0.5
+  opacity: 0.5;
 }
 
 .faded-70 {

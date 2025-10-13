@@ -115,6 +115,8 @@ export default {
   css: [
     '@/assets/tmg_framework.css',
     '@/assets/style.css',
+    '@/assets/telegram-family.css',
+    '@/assets/telesport-family.css',
     '@/assets/ads.css',
     'vue-slick-carousel/dist/vue-slick-carousel.css',
     '@fortawesome/fontawesome-svg-core/styles.css',
