@@ -43,13 +43,6 @@ export default {
     ],
     script: [
       {
-        hid: 'tcf-stub',
-        src: '/tcf-stub.js',
-        async: false,
-        defer: false,
-        body: false,
-      },
-      {
         hid: 'coral',
         src: 'https://talk.telegram.hr/assets/js/embed.js',
         async: false,
