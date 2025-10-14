@@ -25,7 +25,6 @@ export default ({ route }, inject) => {
     }
     return dotmetricsId
   }
-
   function load(path) {
     window.dm = window.dm || { AjaxData: [] }
     window.dm.AjaxEvent = function (et, d, ssid, ad) {
@@ -35,13 +34,10 @@ export default ({ route }, inject) => {
         ssid,
         ad,
       })
-      if (typeof window.DotMetricsObj !== 'undefined') {
+      if (typeof window.DotMetricsObj !== 'undefined' && window.DotMetricsObj.onAjaxDataUpdate) {
         window.DotMetricsObj.onAjaxDataUpdate()
       }
     }
-
-    // Load door.js immediately - TCF stub ensures __tcfapi exists
-    // door.js will handle all consent checking internally
     const d = document
     const h = d.getElementsByTagName('head')[0]
     const s = d.createElement('script')
@@ -59,10 +55,7 @@ export default ({ route }, inject) => {
     }
   }
 
-  if (route.name !== 'category-slug') {
-    load(route.path)
-  }
-
+  load(route.path)
   inject('dotmetrics', {
     load,
     check,
