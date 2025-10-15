@@ -142,6 +142,11 @@
           <app-link to="/stranica/pravila-privatnosti" class="full"
             >Pravila privatnosti</app-link
           >
+          <a
+            href="javascript:googlefc.callbackQueue.push(googlefc.showRevocationMessage)"
+            class="full"
+            >Postavke kolačića</a
+          >
         </div>
         <div class="full flex column-horizontal-pad mobile-side-pad">
           <div class="full flex column-top-pad column-top-border"></div>
