@@ -12,6 +12,8 @@ export default ({ app }) => {
       this.isInitialized = false
       this.currentPath = ''
       this.initTimeout = null
+      this.clickHandlerTarget = null
+      this.browserListenersSetup = false
 
       // Debounce navigation events
       this.debouncedReset = this.debounce(this.resetForNewPage.bind(this), 200)
@@ -25,6 +27,8 @@ export default ({ app }) => {
       this.handlePopState = this.handlePopState.bind(this)
       this.handleBeforeUnload = this.handleBeforeUnload.bind(this)
       this.handleMutations = this.handleMutations.bind(this)
+      this.handleClick = this.handleClick.bind(this)
+      this.handleFocus = this.handleFocus.bind(this)
     }
 
     init() {
@@ -35,6 +39,7 @@ export default ({ app }) => {
       this.ensureDataLayer()
       this.setupIntersectionObserver()
       this.setupMutationObserver()
+      this.setupEventListeners() // Re-attach event listeners
 
       // Clear any existing timeout
       if (this.initTimeout) {
@@ -54,6 +59,10 @@ export default ({ app }) => {
       if (typeof window !== 'undefined' && !Array.isArray(window.dataLayer)) {
         window.dataLayer = []
       }
+    }
+
+    getTargetNode() {
+      return document.querySelector('.main-container') || document.body
     }
 
     setupIntersectionObserver() {
@@ -76,11 +85,10 @@ export default ({ app }) => {
       this.mutationObserver = new MutationObserver(this.handleMutations)
 
       // Observe the entire document for changes
-      this.mutationObserver.observe(document.documentElement, {
+      const targetNode = this.getTargetNode()
+      this.mutationObserver.observe(targetNode, {
         childList: true,
         subtree: true,
-        attributes: true,
-        attributeFilter: ['data-id', 'role'], // Only watch relevant attributes
       })
     }
 
@@ -107,14 +115,6 @@ export default ({ app }) => {
               }
             }
           })
-        }
-
-        // Check for attribute changes that might indicate new articles
-        if (mutation.type === 'attributes') {
-          const target = mutation.target
-          if (this.isArticleElement(target)) {
-            shouldCheckForNewArticles = true
-          }
         }
 
         // Check for potential SPA navigation (title changes, etc.)
@@ -184,8 +184,9 @@ export default ({ app }) => {
 
     getArticlePosition(articleElement) {
       if (!this.cachedArticles || this.cachedArticles.length === 0) {
+        const targetNode = this.getTargetNode()
         this.cachedArticles = Array.from(
-          document.querySelectorAll('[role="article"][data-id]')
+          targetNode.querySelectorAll('[role="article"][data-id]')
         )
       }
 
@@ -193,7 +194,8 @@ export default ({ app }) => {
     }
 
     observeArticles() {
-      const articles = document.querySelectorAll('[role="article"][data-id]')
+      const targetNode = this.getTargetNode()
+      const articles = targetNode.querySelectorAll('[role="article"][data-id]')
 
       articles.forEach((article) => {
         const articleId = article.getAttribute('data-id')
@@ -208,18 +210,15 @@ export default ({ app }) => {
 
     observeNewArticles() {
       // Find articles that aren't being observed yet
-      const articles = document.querySelectorAll('[role="article"][data-id]')
+      const targetNode = this.getTargetNode()
+      const articles = targetNode.querySelectorAll('[role="article"][data-id]')
       let newArticlesFound = false
 
       articles.forEach((article) => {
         const articleId = article.getAttribute('data-id')
         if (articleId && !this.trackedArticles.has(article)) {
           // Check if we're already observing this element
-          const isBeingObserved = Array.from(this.trackedArticles).includes(
-            article
-          )
-
-          if (!isBeingObserved) {
+          if (!this.trackedArticles.has(article)) {
             this.observer?.observe(article)
             newArticlesFound = true
           }
@@ -268,40 +267,71 @@ export default ({ app }) => {
     }
 
     resetForNewPage() {
+      console.log('🔄 Resetting for new page:', window.location.pathname)
+
       // Clear tracked articles and cache
       this.trackedArticles.clear()
       this.cachedArticles = null
       this.currentPath = window.location.pathname
 
-      // Reset intersection observer (mutation observer continues running)
+      // Re-setup everything for new page
       this.setupIntersectionObserver()
+      this.setupMutationObserver()
+      this.setupEventListeners() // Re-attach click handlers to new container
 
-      requestAnimationFrame(() => {
-        this.observeArticles()
-      })
+      // Small delay to ensure DOM is ready
+      setTimeout(() => {
+        requestAnimationFrame(() => {
+          this.observeArticles()
+          console.log('📊 Observing articles on new page')
+        })
+      }, 100)
     }
 
     // Route change handlers
     handleRouteChange(to, from) {
       if (to.path !== from.path) {
+        console.log('🔀 Route changed:', from.path, '→', to.path)
+        this.debouncedReset()
+      }
+    }
+
+    checkAndHandleNavigation() {
+      if (window.location.pathname !== this.currentPath) {
         this.debouncedReset()
       }
     }
 
     handlePopState() {
       // Check if URL actually changed (some popstate events don't change URL)
-      if (window.location.pathname !== this.currentPath) {
-        this.debouncedReset()
-      }
+      this.checkAndHandleNavigation()
     }
 
     handleBeforeUnload() {
       this.destroy()
     }
 
-    handleClick = (event) => {
-      const target = event.target
-      console.log(target)
+    handleFocus() {
+      // Check if URL changed while tab was not focused
+      this.checkAndHandleNavigation()
+    }
+
+    handleClick(event) {
+      const articleElement = event.target.closest('[role="article"]')
+
+      if (articleElement) {
+        const dataId = articleElement.getAttribute('data-id')
+
+        const eventData = {
+          event: 'article_click',
+          article_id: dataId,
+          page_url: this.currentPath,
+          timestamp: Date.now(),
+        }
+
+        window.dataLayer.push(eventData)
+        console.log('✅ Article clicked:', eventData)
+      }
     }
 
     // Utility methods
@@ -317,30 +347,49 @@ export default ({ app }) => {
       }
     }
 
-    addEventListeners() {
+    setupEventListeners() {
+      // Remove old listeners first
+      this.removeEventListeners()
+
       if (typeof window === 'undefined') return
 
-      // Click listener
-      document.addEventListener('click', this.handleClick)
+      // Get fresh reference to container
+      const targetNode = this.getTargetNode()
+
+      // Store reference for removal later
+      this.clickHandlerTarget = targetNode
+
+      // Add click listener to current container
+      targetNode.addEventListener('click', this.handleClick, true)
+    }
+
+    setupBrowserListeners() {
+      if (typeof window === 'undefined') return
+      if (this.browserListenersSetup) return
+
       // Browser navigation events (keep as fallback)
       window.addEventListener('popstate', this.handlePopState)
       window.addEventListener('beforeunload', this.handleBeforeUnload)
-
-      // Optional: Listen for focus events to catch tab switches
-      window.addEventListener('focus', () => {
-        // Check if URL changed while tab was not focused
-        if (window.location.pathname !== this.currentPath) {
-          this.debouncedReset()
-        }
-      })
+      window.addEventListener('focus', this.handleFocus)
+      this.browserListenersSetup = true
     }
 
     removeEventListeners() {
       if (typeof window === 'undefined') return
 
+      // Remove click handler from stored target
+      if (this.clickHandlerTarget) {
+        this.clickHandlerTarget.removeEventListener(
+          'click',
+          this.handleClick,
+          true
+        )
+        this.clickHandlerTarget = null
+      }
+
       window.removeEventListener('popstate', this.handlePopState)
       window.removeEventListener('beforeunload', this.handleBeforeUnload)
-      window.removeEventListener('focus', this.handlePopState)
+      window.removeEventListener('focus', this.handleFocus)
     }
   }
 
@@ -367,8 +416,8 @@ export default ({ app }) => {
     app.router.afterEach(articleTracker.handleRouteChange)
   }
 
-  // Setup event listeners
-  articleTracker.addEventListeners()
+  // Setup browser listeners
+  articleTracker.setupBrowserListeners()
 
   // Expose for debugging (only in development)
   if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
