@@ -171,7 +171,7 @@ export default ({ app }) => {
         action: 'view',
         article_id: articleId,
         article_position: position,
-        page_url: window.location.pathname,
+        pageUrl: window.location.pathname,
         timestamp: Date.now(),
       }
 
@@ -329,7 +329,7 @@ export default ({ app }) => {
           action: 'click',
           article_position: position,
           article_id: dataId,
-          page_url: this.currentPath,
+          pageUrl: this.currentPath,
           timestamp: Date.now(),
         }
 
