@@ -167,7 +167,8 @@ export default ({ app }) => {
       const position = this.getArticlePosition(articleElement)
 
       const eventData = {
-        event: 'article_view',
+        event: 'featured_article',
+        action: 'view',
         article_id: articleId,
         article_position: position,
         page_url: window.location.pathname,
@@ -321,9 +322,12 @@ export default ({ app }) => {
 
       if (articleElement) {
         const dataId = articleElement.getAttribute('data-id')
+        const position = this.getArticlePosition(articleElement)
 
         const eventData = {
-          event: 'article_click',
+          event: 'featured_article',
+          action: 'click',
+          article_position: position,
           article_id: dataId,
           page_url: this.currentPath,
           timestamp: Date.now(),
