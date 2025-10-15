@@ -125,6 +125,7 @@ export default {
     { src: '@/plugins/fontawesome.js' },
     { src: '@/plugins/dotmetrics.client.js' },
     { src: '@/plugins/marfeel.client.js' },
+    { src: '@/plugins/ctr.client.js' },
     { src: '@/plugins/adsense.client.js', ssr: false },
     { src: '@/plugins/gtm.client.js', ssr: false },
   ],

@@ -3,6 +3,7 @@
     class="full flex article-mini article relative"
     :to="post.permalink"
     role="article"
+    :data-id="post.id"
     :aria-labelledby="'mini-' + post.id"
   >
     <div class="full flex article-pad">

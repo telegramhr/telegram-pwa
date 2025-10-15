@@ -42,6 +42,7 @@
             rel="sponsored"
             class="full flex article relative"
             role="article"
+            :data-id="post.id"
             @click="trackClick"
           >
             <img

@@ -3,6 +3,7 @@
     :to="post.permalink"
     class="full komentar list-article relative"
     role="article"
+    :data-id="post.id"
     :aria-labelledby="'top-' + post.id"
   >
     <div class="komentar-author relative flex">
