@@ -49,6 +49,12 @@ export default {
         defer: true,
       },
       {
+        hid: 'google-fc',
+        src: 'https://fundingchoicesmessages.google.com/i/pub-2317149376955370?ers=1',
+        async: false,
+        body: false,
+      },
+      {
         hid: 'remplib',
         innerHTML:
           'function mock(fn) {\n' +
