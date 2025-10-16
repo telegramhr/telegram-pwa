@@ -78,6 +78,12 @@ export default {
           '  })',
       },
       {
+        hid: 'gpt',
+        src: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js',
+        async: true,
+        defer: true,
+      },
+      {
         hid: 'remplib-camp',
         src: 'https://campaign.telegram.hr/assets/lib/js/remplib.js',
         async: true,
