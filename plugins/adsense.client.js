@@ -4,6 +4,12 @@ export default ({ app, store, route }) => {
   if (Capacitor.isNativePlatform()) {
     return
   }
+  // gpt
+  const g = document.createElement('script')
+  g.src = 'https://securepubads.g.doubleclick.net/tag/js/gpt.js'
+  g.async = true
+  g.defer = true
+  document.head.appendChild(g)
   if (!store.getters['user/hasPremium']) {
     // adsense
     const s = document.createElement('script')
@@ -13,12 +19,6 @@ export default ({ app, store, route }) => {
     s.crossOrigin = 'anonymous'
     document.head.appendChild(s)
 
-    // gpt
-    const g = document.createElement('script')
-    g.src = 'https://securepubads.g.doubleclick.net/tag/js/gpt.js'
-    g.async = true
-    g.defer = true
-    document.head.appendChild(g)
     let cookie = app.$cookies.get('ab_test')
     if (!cookie) {
       const value = Math.floor(Math.random() * 100) + 1

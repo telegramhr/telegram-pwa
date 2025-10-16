@@ -737,6 +737,11 @@ export const actions = {
           box.parentElement.parentElement.classList.add('hide')
         }
       }
+      window.googletag = window.googletag || { cmd: [] }
+      window.googletag.cmd.push(function () {
+        window.googletag.pubads().enableSingleRequest()
+        window.googletag.enableServices()
+      })
       return
     }
     window.googletag = window.googletag || {}
