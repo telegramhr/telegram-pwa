@@ -217,61 +217,6 @@
         </div>
       </div>
     </section>
-
-    <section class="full flex relative">
-      <div
-        class="container flex relative stretch column-bottom-pad column-horizontal-pad superone-pilatesBag"
-      >
-        <div class="full center relative">
-          <div
-            class="noththree flex superone-section-title superone-pilatesBagTitle"
-          >
-            <img
-              src="@/assets/img/s1_logo_clean_noline.svg"
-              alt="Super1 logo"
-            />
-            <img
-              src="@/assets/img/s1_logo_clean_noline_white.svg"
-              alt="Super1 logo"
-              class="dark-mode-only"
-            />
-            <span class="spanX">x</span> <span>lokomotiva pilates bag</span>
-          </div>
-        </div>
-        <div
-          class="three-fourths superone-preporuka flex flex-responsive relative"
-        >
-          <div class="full flex column-vertical-pad">
-            <div
-              class="full flex article-featured article-superfeat article relative"
-              role="article"
-            >
-              <a
-                class="full flex square-img"
-                href="https://www.telegram.hr/super1/native/lokomotiva-pilates-bag/"
-              >
-                <img
-                  src="https://www.telegram.hr/wp-content/uploads/2025/09/s1-pilates-bag-naslovna.jpg"
-                  alt="S1 pilates bag naslovna"
-                  loading="lazy"
-                />
-              </a>
-              <div class="full flex article-pad mobile-side-pad">
-                <a
-                  class="full flex"
-                  href="https://www.telegram.hr/super1/native/lokomotiva-pilates-bag/"
-                >
-                  <h2 class="full animate">
-                    <b>Calling all #pilatesgirlies: </b>
-                    Predstavljamo vam naš Super1 x Lokomotiva pilates bag
-                  </h2>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
     <div class="full relative">
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>

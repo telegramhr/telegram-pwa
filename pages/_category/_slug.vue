@@ -467,12 +467,12 @@
               :position="'bottom'"
             ></top-articles-bottom-v2>
           </div>
-          <div class="full relative column-top-pad commentsContainer">
+          <div
+            v-if="post.id && !post.category_slug.includes('superone')"
+            class="full relative column-top-pad commentsContainer"
+          >
             <client-only>
-              <comments
-                v-if="post.id && !post.category_slug.includes('superone')"
-                :post="post"
-              ></comments>
+              <comments :post="post"></comments>
             </client-only>
           </div>
         </div>
