@@ -50,13 +50,19 @@
   padding: 0;
   margin: 0;
 }
+.singleArticle:last-of-type {
+  border-bottom: 1px solid #c1baba;
+}
 .singleArticle {
   display: flex;
   flex-direction: row;
   gap: 14px;
+  padding: 16px 0px;
+  border-top: 1px solid #c1baba;
 }
 img {
   width: 120px;
+  object-fit: cover;
 }
 h2 {
   font-family: 'Lora';
@@ -68,6 +74,7 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 20px;
 }
 .singleArticleMeta {
   font-family: 'Barlow';
@@ -78,6 +85,9 @@ h2 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+.singleArticleDate {
+  display: none;
 }
 .singleArticleComments {
   display: flex;
@@ -103,6 +113,9 @@ h2 {
   h2 {
     font-size: 20px;
     line-height: 26px;
+  }
+  .singleArticleDate {
+    display: inline;
   }
 }
 </style>
