@@ -390,16 +390,16 @@
                 <intext-promo-new-customers></intext-promo-new-customers>
                 <intext-promo-f32></intext-promo-f32>
                 <intext-promo-family></intext-promo-family>
+                <midas
+                  v-if="!hasPremium && hasLinker"
+                  :key="`midas-text-${post.id}`"
+                  type="text-only"
+                ></midas>
               </client-only>
               <!-- Article footer -->
               <div
                 class="full relative single-article-footer flex column-top-pad"
               >
-                <div
-                  id="marfeel_sidebar"
-                  class="marfeel-sidebar"
-                  data-nosnippet
-                ></div>
                 <div class="half flex-responsive article-tags">
                   <app-link
                     v-for="tag in post.tags"
