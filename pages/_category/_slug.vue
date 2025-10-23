@@ -443,15 +443,27 @@
                     ></gift-article>
                   </client-only>
                 </div>
-                <client-only>
-                  <comments
-                    v-if="post.id && !post.category_slug.includes('superone')"
-                    :post="post"
-                  ></comments>
-                </client-only>
               </div>
             </div>
           </article>
+          <top-articles-bottom
+            v-if="widgetVariant === 'v1'"
+            :id="post.id"
+            :position="'bottom'"
+          ></top-articles-bottom>
+          <top-articles-bottom-v2
+            v-if="widgetVariant === 'v2'"
+            :id="post.id"
+            :position="'bottom'"
+          ></top-articles-bottom-v2>
+          <div class="full relative column-top-pad commentsContainer">
+            <client-only>
+              <comments
+                v-if="post.id && !post.category_slug.includes('superone')"
+                :post="post"
+              ></comments>
+            </client-only>
+          </div>
         </div>
         <client-only>
           <div v-if="!hasPremium && hasLinker" class="full have-background">
@@ -550,7 +562,13 @@
     <tfooter v-if="post.id || $fetchState.error" :post="post"></tfooter>
   </div>
 </template>
-
+<style scoped>
+.commentsContainer {
+  max-width: 710px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
 <script>
 import { Portal } from '@linusborg/vue-simple-portal'
 import AOS from 'aos'
@@ -612,6 +630,7 @@ export default {
       comments_embed: null,
       showSideMenu: false,
       showSearchMenu: false,
+      widgetVariant: 'v1',
       post: {
         comments_off: false,
         type: '',
@@ -887,6 +906,46 @@ export default {
         window.history.replaceState({}, null, this.post.permalink)
       }
     })
+    this.widgetVariant = this.getWidgetVariant()
+    this.$nextTick(() => {
+      let portal = 'telegram'
+      if (this.post.category_slug.includes('telesport')) {
+        portal = 'telesport'
+      }
+      const container = document.getElementById('article-content')
+      if (!container) return
+
+      const paragraphs = container.querySelectorAll('p')
+      if (paragraphs.length < 2) return
+
+      // avoid duplicate injection
+      if (document.getElementById('top-articles-widget')) return
+
+      // create placeholder div
+      const widgetEl = document.createElement('div')
+      widgetEl.id = 'top-articles-widget'
+      paragraphs[1].insertAdjacentElement('afterend', widgetEl)
+      // Dynamically create and mount <top-articles> using this component’s context
+      if (
+        this.post.category_slug.includes('super1') ||
+        this.post.category_slug.includes('pitanje-zdravlja') ||
+        this.post.category_slug.includes('openspace')
+      )
+        return // do not show widget on super1, openspace, pitanje-zdravlja articles
+      const widget = new this.$root.constructor({
+        parent: this, // inherit current context (so global components are visible)
+        render: (h) =>
+          h('top-articles-intext', {
+            props: {
+              id: this.post.id,
+              portal,
+              position: 'inArticle',
+            },
+          }),
+      })
+
+      widget.$mount(widgetEl)
+    })
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.handleScroll)
@@ -1129,6 +1188,14 @@ export default {
           this.$router.push(to)
         }
       }
+    },
+    getWidgetVariant() {
+      const stored = localStorage.getItem('widgetVersion')
+      if (stored) return stored
+
+      const variant = Math.random() < 0.5 ? 'v1' : 'v2'
+      localStorage.setItem('widgetVersion', variant)
+      return variant
     },
   },
   head() {

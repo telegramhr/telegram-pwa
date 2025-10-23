@@ -162,6 +162,8 @@ export default ({ app }) => {
       this.trackedArticles.add(articleElement)
 
       const articleId = articleElement.getAttribute('data-id')
+      const widgetType = articleElement.getAttribute('data-widget-type')
+      const widgetPosition = articleElement.getAttribute('data-widget-position')
       if (!articleId) return
 
       const position = this.getArticlePosition(articleElement)
@@ -171,6 +173,8 @@ export default ({ app }) => {
         action: 'view',
         article_id: articleId,
         article_position: position,
+        widget_type: widgetType,
+        widget_position: widgetPosition,
         pageUrl: window.location.pathname,
         timestamp: Date.now(),
       }
@@ -323,12 +327,18 @@ export default ({ app }) => {
       if (articleElement) {
         const dataId = articleElement.getAttribute('data-id')
         const position = this.getArticlePosition(articleElement)
+        const widgetType = articleElement.getAttribute('data-widget-type')
+        const widgetPosition = articleElement.getAttribute(
+          'data-widget-position'
+        )
 
         const eventData = {
           event: 'featured_article',
           action: 'click',
           article_position: position,
           article_id: dataId,
+          widget_type: widgetType,
+          widget_position: widgetPosition,
           pageUrl: this.currentPath,
           timestamp: Date.now(),
         }
