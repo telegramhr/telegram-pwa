@@ -454,6 +454,7 @@
                 post.category_slug.includes('openspace')
               )
             "
+            class="full"
           >
             <top-articles-bottom
               v-if="widgetVariant === 'v1'"
