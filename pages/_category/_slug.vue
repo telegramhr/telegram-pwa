@@ -446,16 +446,26 @@
               </div>
             </div>
           </article>
-          <top-articles-bottom
-            v-if="widgetVariant === 'v1'"
-            :id="post.id"
-            :position="'bottom'"
-          ></top-articles-bottom>
-          <top-articles-bottom-v2
-            v-if="widgetVariant === 'v2'"
-            :id="post.id"
-            :position="'bottom'"
-          ></top-articles-bottom-v2>
+          <div
+            v-if="
+              !(
+                post.category_slug.includes('super1') ||
+                post.category_slug.includes('pitanje-zdravlja') ||
+                post.category_slug.includes('openspace')
+              )
+            "
+          >
+            <top-articles-bottom
+              v-if="widgetVariant === 'v1'"
+              :id="post.id"
+              :position="'bottom'"
+            ></top-articles-bottom>
+            <top-articles-bottom-v2
+              v-if="widgetVariant === 'v2'"
+              :id="post.id"
+              :position="'bottom'"
+            ></top-articles-bottom-v2>
+          </div>
           <div class="full relative column-top-pad commentsContainer">
             <client-only>
               <comments
