@@ -104,8 +104,13 @@ h2 {
 @media screen and (min-width: 768px) {
   .singleArticle {
     gap: 32px;
-    border: 1px solid #c1baba;
+    border-left: 1px solid #c1baba;
+    border-right: 1px solid #c1baba;
+    border-top: 1px solid #c1baba;
     padding: 24px;
+  }
+  .singleArticle:last-of-type {
+    border-bottom: 1px solid #c1baba;
   }
   img {
     width: 224px;
