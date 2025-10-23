@@ -390,11 +390,6 @@
                 <intext-promo-new-customers></intext-promo-new-customers>
                 <intext-promo-f32></intext-promo-f32>
                 <intext-promo-family></intext-promo-family>
-                <midas
-                  v-if="!hasPremium && hasLinker"
-                  :key="`midas-text-${post.id}`"
-                  type="text-only"
-                ></midas>
               </client-only>
               <!-- Article footer -->
               <div
