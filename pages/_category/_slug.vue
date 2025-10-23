@@ -573,6 +573,14 @@
   max-width: 710px;
   margin-left: auto;
   margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+@media screen and (min-width: 768px) {
+  .commentsContainer {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
 }
 </style>
 <script>
