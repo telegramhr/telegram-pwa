@@ -5,34 +5,32 @@
       <div v-if="posts.length > 0" class="gridArticles">
         <VueSlickCarousel v-bind="slickOptions">
           <div v-for="(post, index) in posts" :key="index" class="slide-item">
-            <div class="card">
-              <app-link
-                class="singleArticle"
-                :to="getPermalink(post)"
-                role="article"
-                data-widget="inText"
-                :data-id="post.id"
-                :aria-labelledby="'standard-' + post.id"
-                :data-widget-position="index + 1"
-                data-widget-type="bottomV2"
-              >
-                <div class="image-wrapper">
-                  <img
-                    :srcset="getSrcset(post)"
-                    :src="post.image?.url"
-                    :alt="post.image?.alt"
-                    loading="lazy"
-                    width="800"
-                    height="505"
-                  />
-                </div>
-                <div class="content">
-                  <h2 :id="'standard-' + post.id" class="full">
-                    {{ post.portal_title | parseCat }}
-                  </h2>
-                </div>
-              </app-link>
-            </div>
+            <app-link
+              class="card"
+              :to="getPermalink(post)"
+              role="article"
+              data-widget="inText"
+              :data-id="post.id"
+              :aria-labelledby="'standard-' + post.id"
+              :data-widget-position="index + 1"
+              data-widget-type="bottomV2"
+            >
+              <div class="image-wrapper">
+                <img
+                  :srcset="getSrcset(post)"
+                  :src="post.image?.url"
+                  :alt="post.image?.alt"
+                  loading="lazy"
+                  width="800"
+                  height="505"
+                />
+              </div>
+              <div class="content">
+                <h2 :id="'standard-' + post.id" class="full">
+                  {{ post.portal_title | parseCat }}
+                </h2>
+              </div>
+            </app-link>
           </div>
 
           <!-- Custom Previous Arrow -->
@@ -137,6 +135,14 @@ h2 {
 .slick-next:before,
 .slick-prev:before {
   content: none;
+}
+.slick-next,
+.slick-next:focus,
+.slick-next:hover,
+.slick-prev,
+.slick-prev:focus,
+.slick-prev:hover {
+  background: white;
 }
 .prev-arrow,
 .next-arrow {
