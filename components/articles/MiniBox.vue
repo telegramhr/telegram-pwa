@@ -36,6 +36,7 @@
 }
 img {
   width: 120px;
+  object-fit: cover;
 }
 h2 {
   font-weight: 500;
