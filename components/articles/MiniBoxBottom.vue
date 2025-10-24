@@ -10,9 +10,9 @@
     :data-widget-position="widgetPosition"
   >
     <div class="singleArticleText">
-      <h2 :id="'standard-' + post.id" class="full">
-        {{ post.portal_title | parseCat }}
-      </h2>
+      <h3 :id="'standard-' + post.id" class="full">
+        {{ post.portal_title }}
+      </h3>
       <div class="singleArticleMeta">
         <span class="singleArticleAuthor">
           {{ post.authors.length ? post.authors[0].name : '' }}
@@ -33,14 +33,7 @@
         </div>
       </div>
     </div>
-    <img
-      :srcset="srcset"
-      :src="post.image?.url"
-      :alt="post.image?.alt"
-      loading="lazy"
-      width="800"
-      height="505"
-    />
+    <img :src="post.image?.url" :alt="post.image?.alt" loading="lazy" />
   </app-link>
 </template>
 
@@ -64,11 +57,14 @@ img {
   width: 120px;
   object-fit: cover;
 }
-h2 {
+h3 {
   font-family: 'Lora';
   font-weight: 600;
   font-size: 18px;
   line-height: 26px;
+}
+.singleArticle:hover h3 {
+  color: #ae3737;
 }
 .singleArticleText {
   display: flex;
@@ -116,7 +112,7 @@ h2 {
   img {
     width: 224px;
   }
-  h2 {
+  h3 {
     font-size: 20px;
     line-height: 26px;
   }
@@ -138,12 +134,7 @@ export default {
           image: '',
           permalink: '',
           title: '',
-          overtitle: '',
-          subtitle: '',
-          category: '',
           authors: [],
-          recommendations: 1,
-          alt: '',
           time: 0,
         }
       },
@@ -175,19 +166,6 @@ export default {
         return `${this.post.permalink}?utm_medium=Internal&utm_source=${this.utm.source}&utm_campaign=${this.utm.campaign}`
       }
       return this.post.permalink
-    },
-    srcset() {
-      if (!this.post.image) {
-        return ''
-      }
-      let set = `${this.post.image.url}`
-      if (this.post.image.url2) {
-        set += `, ${this.post.image.url2} 2x`
-      }
-      if (this.post.image.url3) {
-        set += `, ${this.post.image.url3} 3x`
-      }
-      return set
     },
     formattedDate() {
       if (!this.post.time) return ''

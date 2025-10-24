@@ -9,17 +9,10 @@
     :data-widget-position="widgetPosition"
     :data-widget-type="widgetType"
   >
-    <img
-      :srcset="srcset"
-      :src="post.image?.url"
-      :alt="post.image?.alt"
-      loading="lazy"
-      width="800"
-      height="505"
-    />
-    <h2 :id="'standard-' + post.id" class="full">
+    <img :src="post.image?.url" :alt="post.image?.alt" loading="lazy" />
+    <h3 :id="'standard-' + post.id" class="full">
       {{ post.portal_title | parseCat }}
-    </h2>
+    </h3>
   </app-link>
 </template>
 
@@ -38,11 +31,14 @@ img {
   width: 120px;
   object-fit: cover;
 }
-h2 {
+h3 {
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
   margin: 0;
+}
+.singleArticle:hover h3 {
+  color: #ae3737;
 }
 @media screen and (min-width: 768px) {
   .singleArticle {
@@ -66,13 +62,7 @@ export default {
           image: '',
           permalink: '',
           title: '',
-          overtitle: '',
-          subtitle: '',
-          category: '',
           authors: [],
-          recommendations: 1,
-          alt: '',
-          time: 0,
         }
       },
     },
@@ -103,19 +93,6 @@ export default {
         return `${this.post.permalink}?utm_medium=Internal&utm_source=${this.utm.source}&utm_campaign=${this.utm.campaign}`
       }
       return this.post.permalink
-    },
-    srcset() {
-      if (!this.post.image) {
-        return ''
-      }
-      let set = `${this.post.image.url}`
-      if (this.post.image.url2) {
-        set += `, ${this.post.image.url2} 2x`
-      }
-      if (this.post.image.url3) {
-        set += `, ${this.post.image.url3} 3x`
-      }
-      return set
     },
   },
 }

@@ -181,8 +181,7 @@ export default ({ app }) => {
 
       try {
         window.dataLayer.push(eventData)
-      } catch (error) {
-      }
+      } catch (error) {}
     }
 
     getArticlePosition(articleElement) {
@@ -270,7 +269,6 @@ export default ({ app }) => {
     }
 
     resetForNewPage() {
-
       // Clear tracked articles and cache
       this.trackedArticles.clear()
       this.cachedArticles = null

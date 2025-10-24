@@ -17,7 +17,6 @@
             >
               <div class="image-wrapper">
                 <img
-                  :srcset="getSrcset(post)"
                   :src="post.image?.url"
                   :alt="post.image?.alt"
                   loading="lazy"
@@ -26,9 +25,9 @@
                 />
               </div>
               <div class="content">
-                <h2 :id="'standard-' + post.id" class="full">
-                  {{ post.portal_title | parseCat }}
-                </h2>
+                <h3 :id="'standard-' + post.id" class="full">
+                  {{ post.portal_title }}
+                </h3>
               </div>
             </app-link>
           </div>
@@ -96,11 +95,14 @@
   font-family: 'barlow', sans-serif;
   margin-bottom: 24px;
 }
-h2 {
+h3 {
   font-family: 'Lora';
   font-weight: 500;
   font-size: 16px;
   line-height: 22px;
+}
+.card:hover h3 {
+  color: #ae3737;
 }
 .gridArticles {
   display: flex;
@@ -231,20 +233,6 @@ export default {
   },
   mounted() {},
   methods: {
-    getSrcset(post) {
-      console.log(post.image)
-      if (post.image) {
-        return ''
-      }
-      let set = `${post.image.url}`
-      if (post.image.url2) {
-        set += `, ${post.image.url2} 2x`
-      }
-      if (post.image.url3) {
-        set += `, ${post.image.url3} 3x`
-      }
-      return set
-    },
     getPermalink(post) {
       if (this.utm.source || this.utm.campaign) {
         return `${post.permalink}?utm_medium=Internal&utm_source=${this.utm.source}&utm_campaign=${this.utm.campaign}`
