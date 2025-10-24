@@ -181,9 +181,7 @@ export default ({ app }) => {
 
       try {
         window.dataLayer.push(eventData)
-        console.log('✅ Article viewed:', eventData)
       } catch (error) {
-        console.warn('Failed to track article view:', error)
       }
     }
 
@@ -272,7 +270,6 @@ export default ({ app }) => {
     }
 
     resetForNewPage() {
-      console.log('🔄 Resetting for new page:', window.location.pathname)
 
       // Clear tracked articles and cache
       this.trackedArticles.clear()
@@ -288,7 +285,6 @@ export default ({ app }) => {
       setTimeout(() => {
         requestAnimationFrame(() => {
           this.observeArticles()
-          console.log('📊 Observing articles on new page')
         })
       }, 100)
     }
@@ -296,7 +292,6 @@ export default ({ app }) => {
     // Route change handlers
     handleRouteChange(to, from) {
       if (to.path !== from.path) {
-        console.log('🔀 Route changed:', from.path, '→', to.path)
         this.debouncedReset()
       }
     }
@@ -344,7 +339,6 @@ export default ({ app }) => {
         }
 
         window.dataLayer.push(eventData)
-        console.log('✅ Article clicked:', eventData)
       }
     }
 

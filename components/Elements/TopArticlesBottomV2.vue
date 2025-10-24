@@ -179,17 +179,9 @@ h2 {
 export default {
   name: 'TopArticlesBottomV2',
   props: {
-    portal: {
-      type: String,
-      default: 'telegram',
-    },
-    position: {
-      type: String,
-      default: 'inArticle',
-    },
-    id: {
-      type: Number,
-      default: 1,
+    posts: {
+      type: Array,
+      default: () => [],
     },
     utm: {
       type: Object,
@@ -204,7 +196,6 @@ export default {
   },
   data() {
     return {
-      posts: [],
       slickOptions: {
         dots: false,
         infinite: true,
@@ -238,24 +229,8 @@ export default {
       },
     }
   },
-  mounted() {
-    this.getPosts()
-  },
+  mounted() {},
   methods: {
-    getPosts() {
-      this.$axios
-        .get('/api/top-articles-ctr/' + this.portal + '/' + this.id)
-        .then((res) => {
-          if (this.position === 'inArticle') {
-            this.posts = res.data.slice(0, 3)
-          } else {
-            this.posts = res.data.slice(3, 8)
-          }
-        })
-        .catch(() => {
-          // TODO: error logging
-        })
-    },
     getSrcset(post) {
       console.log(post.image)
       if (post.image) {

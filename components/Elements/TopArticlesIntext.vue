@@ -55,42 +55,15 @@
 export default {
   name: 'TopArticles',
   props: {
-    portal: {
-      type: String,
-      default: 'telegram',
-    },
-    position: {
-      type: String,
-      default: 'inArticle',
-    },
-    id: {
-      type: Number,
-      default: 1,
+    posts: {
+      type: Array,
+      default: () => [],
     },
   },
   data() {
-    return {
-      posts: [],
-    }
+    return {}
   },
-  mounted() {
-    this.getPosts()
-  },
-  methods: {
-    getPosts() {
-      this.$axios
-        .get('/api/top-articles-ctr/' + this.portal + '/' + this.id)
-        .then((res) => {
-          if (this.position === 'inArticle') {
-            this.posts = res.data.slice(0, 3)
-          } else {
-            this.posts = res.data.slice(3, 8)
-          }
-        })
-        .catch(() => {
-          // TODO: error logging
-        })
-    },
-  },
+  mounted() {},
+  methods: {},
 }
 </script>
