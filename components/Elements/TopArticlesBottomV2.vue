@@ -1,7 +1,7 @@
 <template>
   <div class="containerArticles full">
     <div class="container">
-      <div class="titleArticles">Pročitajte još</div>
+      <h2 class="titleArticles">Pročitajte još</h2>
       <div v-if="posts.length > 0" class="gridArticles">
         <VueSlickCarousel v-bind="slickOptions">
           <div v-for="(post, index) in posts" :key="index" class="slide-item">

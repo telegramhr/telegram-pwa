@@ -1,6 +1,6 @@
 <template>
   <div class="containerArticles">
-    <div class="titleArticles">Upravo se čita</div>
+    <h2 class="titleArticles">Upravo se čita</h2>
     <div class="gridArticles">
       <mini-box
         v-for="(post, index) in posts"

@@ -1,7 +1,7 @@
 <template>
   <div class="containerArticles full">
     <div class="container">
-      <div class="titleArticles">Možda ste propustili</div>
+      <h2 class="titleArticles">Možda ste propustili</h2>
       <div class="gridArticles">
         <mini-box-bottom
           v-for="(post, index) in posts"
