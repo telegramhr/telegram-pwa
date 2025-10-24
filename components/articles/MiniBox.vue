@@ -32,6 +32,7 @@ img {
   object-fit: cover;
 }
 h3 {
+  font-family: 'Lora', 'sans-serif';
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
