@@ -9,7 +9,7 @@
               class="card"
               :to="getPermalink(post)"
               role="article"
-              data-widget="inText"
+              data-widget="bottomV2"
               :data-id="post.id"
               :aria-labelledby="'standard-' + post.id"
               :data-widget-position="index + 1"
