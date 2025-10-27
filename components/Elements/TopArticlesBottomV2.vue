@@ -14,6 +14,7 @@
               :aria-labelledby="'standard-' + post.id"
               :data-widget-position="index + 1"
               data-widget-type="bottomV2"
+              data-mrf-recirculation="TGBottomV2"
             >
               <div class="image-wrapper">
                 <img
@@ -190,7 +191,6 @@ export default {
       required: false,
       default() {
         return {
-          source: '',
           campaign: '',
         }
       },
@@ -235,7 +235,7 @@ export default {
   methods: {
     getPermalink(post) {
       if (this.utm.source || this.utm.campaign) {
-        return `${post.permalink}?utm_medium=Internal&utm_source=${this.utm.source}&utm_campaign=${this.utm.campaign}`
+        return `${post.permalink}?utm_medium=Internal&utm_campaign=${this.utm.campaign}`
       }
       return post.permalink
     },

@@ -9,6 +9,8 @@
           :post="post"
           :widgetPosition="index + 1"
           :widget-type="'bottomV1'"
+          :utm="{ campaign: 'TGbottom' }"
+          :recirculation="'TGBottom'"
         ></mini-box-bottom>
       </div>
     </div>

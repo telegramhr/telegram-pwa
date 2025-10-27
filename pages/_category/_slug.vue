@@ -457,6 +457,7 @@
             ></top-articles-bottom>
             <top-articles-bottom-v2
               v-if="widgetVariant === 'v2'"
+              :utm="{ campaign: 'TGbottomV2' }"
               :posts="top_articles.slice(3)"
             ></top-articles-bottom-v2>
           </div>

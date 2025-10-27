@@ -8,6 +8,7 @@
     :aria-labelledby="'standard-' + post.id"
     :data-widget-type="widgetType"
     :data-widget-position="widgetPosition"
+    :data-mrf-recirculation="recirculation"
   >
     <div class="singleArticleText">
       <h3 :id="'standard-' + post.id" class="full">
@@ -154,16 +155,20 @@ export default {
       required: false,
       default() {
         return {
-          source: '',
           campaign: '',
         }
       },
+    },
+    recirculation: {
+      type: String,
+      required: false,
+      default: '',
     },
   },
   computed: {
     permalink() {
       if (this.utm.source || this.utm.campaign) {
-        return `${this.post.permalink}?utm_medium=Internal&utm_source=${this.utm.source}&utm_campaign=${this.utm.campaign}`
+        return `${this.post.permalink}?utm_medium=Internal&utm_campaign=${this.utm.campaign}`
       }
       return this.post.permalink
     },

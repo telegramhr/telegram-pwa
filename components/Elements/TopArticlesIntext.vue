@@ -8,6 +8,8 @@
         :post="post"
         :widgetPosition="index + 1"
         :widget-type="'inArticle'"
+        :utm="{ campaign: 'TGintext' }"
+        :recirculation="'TGIntext'"
       ></mini-box>
     </div>
   </div>
