@@ -207,7 +207,7 @@ export default {
         },
         {
           image:
-            'https://ssc.a1.hr/documents/10307706/1471860667/GettyImages-2218481870+%281%29.jpg/7c287cb3-e8fd-b7a4-527b-0922134395e7?t=1749710641033',
+            'https://www.a1.hr/documents/d/a1/GettyImages-2218481870-%281%29',
           title:
             "Online nasilja nisu samo 'dječja posla'. Evo kako razlikovati zadirkivanje i cyberbullying",
           description:
@@ -217,7 +217,7 @@ export default {
         },
         {
           image:
-            'https://ssc.a1.hr/documents/10307706/1471657979/GettyImages-1608536867+%281%29.jpg/d8830443-c07d-9999-0d49-65931b366e6c?t=1748337627692',
+            'https://www.a1.hr/documents/d/a1/GettyImages-1608536867-%281%29',
           title:
             'Cyberbullying sve je češći i na Snapchatu. Prepoznajte prve znakove na vrijeme',
           description: 'Poruke nestaju, ali ožiljci ostaju',
@@ -226,7 +226,7 @@ export default {
         },
         {
           image:
-            'https://ssc.a1.hr/documents/10307706/1471657979/GettyImages-1305864134+%281%29.jpg/90ef64cf-4b3c-8b1b-283b-29fefd64ee26?t=1746604431752',
+            'https://www.a1.hr/documents/d/a1/GettyImages-1305864134-%281%29',
           title:
             'Manosfera online svijeta ozbiljno prijeti svim dječacima. Promiče muškost i širi mizoginiju',
           description:
@@ -236,7 +236,7 @@ export default {
         },
         {
           image:
-            'https://ssc.a1.hr/documents/10307706/1471657979/GettyImages-1176301048+%281%29.jpg/664e8390-5c1f-d0f4-0ef6-3e6d38a5b50e?t=1747813290097',
+            'https://www.a1.hr/documents/d/a1/GettyImages-1176301048-%281%29',
           title:
             'Praktični vodič za roditelje: Kako razgovarati s tinejdžerima o cyberbullyingu?',
           description: 'Donosimo konkretne i vrlo korisne savjete',
@@ -245,7 +245,7 @@ export default {
         },
         {
           image:
-            'https://ssc.a1.hr/documents/10307706/1467484765/GettyImages-482727769+%281%29.jpg/71807d34-8e3f-d773-5fff-396a75b835b8?t=1711461897016',
+            'https://www.a1.hr/documents/d/a1/GettyImages-482727769-%281%29',
           title:
             'Prvi znakovi online nasilja kod djece. Evo kako ih prepoznati i zašto ih ne smijete zanemariti',
           description:
@@ -255,7 +255,7 @@ export default {
         },
         {
           image:
-            'https://ssc.a1.hr/documents/10307706/1472505845/GettyImages-1510834165+%281%29.jpg/b0e9f741-5aff-4223-a8f5-2ccc84c553ca?t=1755695692717',
+            'https://www.a1.hr/documents/d/a1/GettyImages-1510834165-%281%29',
           title:
             'Zabrinjavajuće otkriće nove studije: mladi će u prosjeku provesti 25 godina života na mobitelu',
           description:
@@ -265,7 +265,7 @@ export default {
         },
         {
           image:
-            'https://ssc.a1.hr/documents/10307706/1472099793/GettyImages-1171331771+%281%29.jpg/903b7429-5f4e-9e39-b88a-e0db53f75cf5?t=1753087354385',
+            'https://www.a1.hr/documents/d/a1/GettyImages-1171331771-%281%29',
           title:
             'Gorući problem: djeca i mladi sve više stvarna prijateljstva zamjenjuju umjetnom inteligencijom',
           description: 'Kao virtualne prijatelje koriste chatbotove',
