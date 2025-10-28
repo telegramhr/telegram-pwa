@@ -465,6 +465,8 @@
             v-if="
               post.id &&
               !post.category_slug.includes('superone') &&
+              !post.category_slug.includes('pitanje-zdravlja') &&
+              !post.category_slug.includes('openspace') &&
               !post.category_slug.includes('super1')
             "
             class="full relative column-top-pad commentsContainer"
