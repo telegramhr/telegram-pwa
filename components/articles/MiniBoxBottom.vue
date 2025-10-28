@@ -56,6 +56,7 @@
 }
 img {
   width: 120px;
+  height: 95px;
   object-fit: cover;
 }
 h3 {
@@ -112,6 +113,7 @@ h3 {
   }
   img {
     width: 224px;
+    height: 125px;
   }
   h3 {
     font-size: 20px;
