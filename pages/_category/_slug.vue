@@ -462,7 +462,11 @@
             ></top-articles-bottom-v2>
           </div>
           <div
-            v-if="post.id && !post.category_slug.includes('superone')"
+            v-if="
+              post.id &&
+              !post.category_slug.includes('superone') &&
+              !post.category_slug.includes('super1')
+            "
             class="full relative column-top-pad commentsContainer"
           >
             <client-only>
