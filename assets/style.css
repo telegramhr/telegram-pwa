@@ -20864,3 +20864,7 @@ button.newbtn {
 .has-x-large-font-size {
   line-height: 1.5 !important;
 }
+
+.wp-block-pullquote {
+  line-height: 2.5rem;
+}

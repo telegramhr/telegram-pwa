@@ -8,7 +8,6 @@
 html {
   margin: 0;
   padding: 0;
-  border: 0;
   overflow-x: hidden;
 }
 
@@ -65,7 +64,6 @@ nav,
 section {
   margin: 0;
   padding: 0;
-  border: 0;
   font-weight: inherit;
   font-style: inherit;
   font-size: 100%;
