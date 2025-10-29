@@ -1159,7 +1159,7 @@ export default {
       )
         return // do not show widget on super1, openspace, pitanje-zdravlja articles
 
-      if (this.post.intext_related_off) return
+      if (this.post.intext_related_off === '1') return
       const widget = new this.$root.constructor({
         parent: this, // inherit current context (so global components are visible)
         render: (h) =>
