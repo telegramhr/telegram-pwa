@@ -678,6 +678,7 @@ export default {
         overtitle: '',
         overtitle_tag: '',
         overtitle_link: '',
+        intext_related_off: false,
         title: '',
         subtitle: '',
         content: '',
@@ -1157,6 +1158,8 @@ export default {
         this.post.category_slug.includes('openspace')
       )
         return // do not show widget on super1, openspace, pitanje-zdravlja articles
+
+      if (this.post.intext_related_off) return
       const widget = new this.$root.constructor({
         parent: this, // inherit current context (so global components are visible)
         render: (h) =>
