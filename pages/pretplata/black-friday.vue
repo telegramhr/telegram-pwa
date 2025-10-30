@@ -968,8 +968,7 @@ const slickOptions = {
 }
 
 .social-icon:hover {
-  transition: all 0.3s ease-in-out;
-  scale: 1.2;
+  background-color: #f0f0f0;
 }
 
 /* Tablet and Desktop */
