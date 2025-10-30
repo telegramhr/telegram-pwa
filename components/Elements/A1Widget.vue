@@ -205,8 +205,6 @@ export default {
           buttonText: 'Pogledaj video',
           link: 'https://www.telegram.hr/zivot/potresna-ispovijest-psihijatrice-o-online-nasilju-i-ja-se-nekad-osjecam-bespomocno-ali-ovo-vise-ne-mozemo-ignorirati/',
         },
-<<<<<<< HEAD
-=======
         {
           image:
             'https://www.a1.hr/documents/d/a1/GettyImages-2218481870-%281%29',
@@ -274,7 +272,6 @@ export default {
           buttonText: 'Pročitaj više',
           link: 'https://www.a1.hr/boljionline/prirucnik/-/news/5302/zamjena-za-stvarne-prijatelje-sve-vise-usamljene-djece-okrece-se-chatbotima-za-emocionalnu-podrsku',
         },
->>>>>>> fa600b1f9d883bf5220fa79b7d9ead208c8bb6a2
       ],
     }
   },

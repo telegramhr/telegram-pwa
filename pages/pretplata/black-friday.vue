@@ -34,6 +34,56 @@
       </div>
     </div>
 
+    <!-- Countdown Section -->
+    <div class="countdown-section">
+      <div class="countdown-wrapper">
+        <div class="countdown-header">
+          <span class="countdown-label">PONUDA JE VREMENSKI OGRANIČENA</span>
+          <div class="countdown-timer">
+            <div class="timer-box">
+              <span class="timer-value">{{ countdown.days }}</span>
+              <span class="timer-label">Dana</span>
+            </div>
+            <div class="timer-box">
+              <span class="timer-value">{{ countdown.hours }}</span>
+              <span class="timer-label">Sati</span>
+            </div>
+            <div class="timer-box">
+              <span class="timer-value">{{ countdown.minutes }}</span>
+              <span class="timer-label">Minuta</span>
+            </div>
+            <div class="timer-box">
+              <span class="timer-value">{{ countdown.seconds }}</span>
+              <span class="timer-label">Sekundi</span>
+            </div>
+          </div>
+        </div>
+        <div class="countdown-offer">
+          <div class="offer-info">
+            <h3 class="offer-title">Iskoristite ovu ponudu</h3>
+            <p class="offer-subtitle">
+              I uživajte pune 2 godine u Premium sadržaju bez reklama!
+            </p>
+          </div>
+          <div class="offer-box">
+            <div class="offer-heading">
+              <div class="offer-price">
+                <span class="price-strike-text">198</span>
+                <span class="price-current">99€</span>
+              </div>
+              <p class="offer-text">
+                Black Friday cijena 2 godine za cijenu 1!
+              </p>
+            </div>
+            <button class="offer-button">
+              <span>Iskoristite ponudu</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Content Section -->
     <div class="content-section">
       <img
@@ -94,53 +144,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Countdown Section -->
-    <div class="countdown-section">
-      <div class="countdown-wrapper">
-        <div class="countdown-header">
-          <span class="countdown-label">PONUDA JE VREMENSKI OGRANIČENA</span>
-          <div class="countdown-timer">
-            <div class="timer-box">
-              <span class="timer-value">{{ countdown.days }}</span>
-              <span class="timer-label">Dana</span>
-            </div>
-            <div class="timer-box">
-              <span class="timer-value">{{ countdown.hours }}</span>
-              <span class="timer-label">Sati</span>
-            </div>
-            <div class="timer-box">
-              <span class="timer-value">{{ countdown.minutes }}</span>
-              <span class="timer-label">Minuta</span>
-            </div>
-            <div class="timer-box">
-              <span class="timer-value">{{ countdown.seconds }}</span>
-              <span class="timer-label">Sekundi</span>
-            </div>
-          </div>
-        </div>
-        <div class="countdown-offer">
-          <div class="offer-info">
-            <h3 class="offer-title">Iskoristite ovu ponudu</h3>
-            <p class="offer-subtitle">
-              I uživajte pune 2 godine u Premium sadržaju bez reklama!
-            </p>
-          </div>
-          <div class="offer-box">
-            <div class="offer-price">
-              <span class="price-strike-text">198</span>
-              <span class="price-current">99€</span>
-            </div>
-            <p class="offer-text">Black Friday cijena 2 godine za cijenu 1!</p>
-            <button class="offer-button">
-              <span>Iskoristite ponudu</span>
-              <i class="fa-solid fa-arrow-right"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- Testimonials Section -->
     <div class="testimonials-section">
       <div class="testimonials-content">
@@ -382,7 +385,7 @@ onUnmounted(() => {
 .hero-header {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 24px;
 }
 
 .telegram-logo {
@@ -450,7 +453,7 @@ onUnmounted(() => {
 .cta-container {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 12px;
   width: 100%;
   max-width: 171px;
   margin: 0 auto;
@@ -549,8 +552,8 @@ onUnmounted(() => {
 .countdown-section {
   width: 100%;
   overflow: hidden;
-  background: linear-gradient(180deg, #000000 0%, #4f0001 100%);
-  padding: 1rem;
+  background: linear-gradient(180deg, #4f0001 0%, #000000 100%);
+  padding: 0px 16px;
 }
 
 .countdown-wrapper {
@@ -559,9 +562,9 @@ onUnmounted(() => {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  padding: 2rem 0 22px;
+  padding: 48px 0px;
   text-align: center;
-  gap: 3rem;
+  gap: 72px;
 }
 
 .countdown-header {
@@ -569,7 +572,7 @@ onUnmounted(() => {
   flex-direction: column;
   padding: 0 58px;
   text-align: center;
-  gap: 18px;
+  gap: 32px;
 }
 
 .countdown-label {
@@ -611,7 +614,7 @@ onUnmounted(() => {
 .countdown-offer {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 24px;
   text-align: center;
 }
 
@@ -625,6 +628,7 @@ onUnmounted(() => {
   color: white;
   font-weight: 500;
   font-size: 24px;
+  font-family: 'Barlow', sans-serif;
 }
 
 .offer-subtitle {
@@ -642,7 +646,12 @@ onUnmounted(() => {
   gap: 1rem;
   border-radius: 12px;
 }
-
+.offer-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
 .offer-price {
   max-width: 234px;
   margin: 0 auto;
@@ -650,7 +659,8 @@ onUnmounted(() => {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 0.25rem;
+  font-weight: 500;
+  gap: 8px;
 }
 
 .price-strike-text {
@@ -665,8 +675,8 @@ onUnmounted(() => {
   left: 0;
   top: 50%;
   width: 100%;
-  height: 2px;
-  background: #747474;
+  height: 4px;
+  background: #c1000d;
   transform: translateY(-50%) rotate(-15deg);
 }
 
@@ -739,7 +749,7 @@ onUnmounted(() => {
 .testimonials-grid {
   display: flex;
   flex-direction: row;
-  gap: 2rem;
+  gap: 32px;
   max-width: 980px;
   margin: 0 auto;
 }
@@ -749,7 +759,7 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  padding: 1.75rem;
+  padding: 28px;
   width: 100%;
   max-width: 305px;
   background: white;
@@ -939,7 +949,7 @@ onUnmounted(() => {
 @media (min-width: 1024px) {
   .hero-content {
     gap: 76px;
-    padding: 64px 0px 28px;
+    padding: 84px 0px 68px;
   }
 
   .telegram-logo {
@@ -952,7 +962,7 @@ onUnmounted(() => {
   }
 
   .hero-offer {
-    gap: 48px;
+    gap: 32px;
   }
 
   .big-number {
@@ -1006,12 +1016,15 @@ onUnmounted(() => {
   }
 
   .countdown-wrapper {
-    padding: 3rem 0 28px;
+    padding: 48px 0px;
     gap: 72px;
+  }
+  .countdown-offer {
+    gap: 44px;
   }
 
   .countdown-header {
-    gap: 2rem;
+    gap: 32px;
   }
 
   .countdown-label {
@@ -1032,7 +1045,7 @@ onUnmounted(() => {
   }
 
   .offer-info {
-    gap: 1.5rem;
+    gap: 24px;
   }
 
   .offer-title {
@@ -1046,6 +1059,10 @@ onUnmounted(() => {
 
   .offer-box {
     padding: 29px 39px;
+    gap: 16px;
+  }
+  .offer-heading {
+    gap: 28px;
   }
 
   .price-strike-text,
@@ -1066,7 +1083,7 @@ onUnmounted(() => {
 
   .testimonials-section {
     gap: 140px;
-    padding: 4rem 1rem 28px;
+    padding: 64px 16px 28px;
   }
 
   .testimonials-content {
