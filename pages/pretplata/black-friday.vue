@@ -3,12 +3,16 @@
     <!-- Hero Section -->
     <div class="hero-section">
       <div class="hero-background">
-        <img class="hero-image" src="@/assets/img/hero-bg.webp" alt="" />
+        <img
+          class="hero-image"
+          src="@/assets/img/pretplata/hero-bg.webp"
+          alt=""
+        />
       </div>
       <div class="hero-content">
         <div class="hero-header">
           <img
-            src="@/assets/img/telegram-white-logo.webp"
+            src="@/assets/img/pretplata/telegram-white-logo.webp"
             class="telegram-logo"
             alt="Telegram logo"
           />
@@ -87,7 +91,7 @@
     <!-- Content Section -->
     <div class="content-section">
       <img
-        src="@/assets/img/content-background.svg"
+        src="@/assets/img/pretplata/content-background.svg"
         class="content-background"
         alt=""
       />
@@ -97,7 +101,7 @@
           <div class="feature-item">
             <div class="feature-image-wrapper">
               <img
-                src="@/assets/img/content-1.webp"
+                src="@/assets/img/pretplata/content-1.webp"
                 class="feature-image"
                 alt=""
               />
@@ -110,7 +114,7 @@
           <div class="feature-item feature-reverse">
             <div class="feature-image-wrapper">
               <img
-                src="@/assets/img/content-2.webp"
+                src="@/assets/img/pretplata/content-2.webp"
                 class="feature-image"
                 alt=""
               />
@@ -120,7 +124,7 @@
           <div class="feature-item">
             <div class="feature-image-wrapper">
               <img
-                src="@/assets/img/content-3.webp"
+                src="@/assets/img/pretplata/content-3.webp"
                 class="feature-image"
                 alt=""
               />
@@ -132,7 +136,7 @@
           <div class="feature-item feature-reverse">
             <div class="feature-image-wrapper">
               <img
-                src="@/assets/img/content-4.webp"
+                src="@/assets/img/pretplata/content-4.webp"
                 class="feature-image"
                 alt=""
               />
@@ -158,7 +162,11 @@
               čitaocima"
             </p>
             <div class="testimonial-author">
-              <img src="@/assets/img/rade.png" class="author-image" alt="" />
+              <img
+                src="@/assets/img/pretplata/rade.png"
+                class="author-image"
+                alt=""
+              />
               <div class="author-info">
                 <span class="author-name">Rade Šerbedžija</span>
                 <p class="author-title">Pretplatnik i umjetnik</p>
@@ -173,7 +181,11 @@
               razinama"
             </p>
             <div class="testimonial-author">
-              <img src="@/assets/img/emil.png" class="author-image" alt="" />
+              <img
+                src="@/assets/img/pretplata/emil.png"
+                class="author-image"
+                alt=""
+              />
               <div class="author-info">
                 <span class="author-name">Emil Tedeschi</span>
                 <p class="author-title">Pretplatnik i poduzetnik</p>
@@ -188,7 +200,11 @@
               uvijek bavi pravim novinarstvom"
             </p>
             <div class="testimonial-author">
-              <img src="@/assets/img/sever.png" class="author-image" alt="" />
+              <img
+                src="@/assets/img/pretplata/sever.png"
+                class="author-image"
+                alt=""
+              />
               <div class="author-info">
                 <span class="author-name">Maja Sever</span>
                 <p class="author-title">Pretplatnica i novinarka</p>
@@ -209,7 +225,7 @@
                 </p>
                 <div class="testimonial-author">
                   <img
-                    src="@/assets/img/rade.png"
+                    src="@/assets/img/pretplata/rade.png"
                     class="author-image"
                     alt=""
                   />
@@ -230,7 +246,7 @@
                 </p>
                 <div class="testimonial-author">
                   <img
-                    src="@/assets/img/emil.png"
+                    src="@/assets/img/pretplata/emil.png"
                     class="author-image"
                     alt=""
                   />
@@ -251,7 +267,7 @@
                 </p>
                 <div class="testimonial-author">
                   <img
-                    src="@/assets/img/sever.png"
+                    src="@/assets/img/pretplata/sever.png"
                     class="author-image"
                     alt=""
                   />
@@ -270,7 +286,7 @@
       <div class="footer-section">
         <div class="footer-cta">
           <img
-            src="@/assets/img/telegram-white-logo.webp"
+            src="@/assets/img/pretplata/telegram-white-logo.webp"
             class="footer-logo"
             alt="Telegram white logo"
           />
@@ -361,7 +377,6 @@ onUnmounted(() => {
 .hero-background {
   position: absolute;
   width: 100%;
-  height: 100%;
 }
 
 .hero-image {
@@ -378,14 +393,14 @@ onUnmounted(() => {
   flex-direction: column;
   gap: 88px;
   z-index: 10;
-  padding: 84px 0px 72px;
+  padding: 72px 16px 123px;
   position: relative;
 }
 
 .hero-header {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 14px;
 }
 
 .telegram-logo {
@@ -407,7 +422,7 @@ onUnmounted(() => {
 .hero-offer {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 48px;
 }
 
 .offer-numbers {
@@ -416,7 +431,7 @@ onUnmounted(() => {
   gap: 14px;
   align-items: center;
   margin: 0 auto;
-  max-height: 127px;
+  max-height: 78px;
   overflow: hidden;
 }
 
@@ -426,7 +441,7 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-weight: 700;
-  font-size: 110px;
+  font-size: 100px;
 }
 
 .for-text {
@@ -501,15 +516,15 @@ onUnmounted(() => {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  padding: 3.5rem 1rem;
-  gap: 3.5rem;
+  padding: 56px 16px;
+  gap: 56px;
   position: relative;
 }
 
 .content-title {
   font-weight: 500;
-  font-size: 40px;
-  line-height: 3rem;
+  font-size: 24px;
+  line-height: 28px;
   text-align: center;
   color: white;
 }
@@ -517,21 +532,19 @@ onUnmounted(() => {
 .features-list {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 56px;
   text-align: left;
 }
 
 .feature-item {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 32px;
   align-items: center;
 }
 
 .feature-image-wrapper {
   width: 100%;
-  max-width: 250px;
-  aspect-ratio: 1;
 }
 
 .feature-image {
@@ -562,9 +575,9 @@ onUnmounted(() => {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  padding: 48px 0px;
+  padding: 32px 0px;
   text-align: center;
-  gap: 72px;
+  gap: 48px;
 }
 
 .countdown-header {
@@ -572,7 +585,7 @@ onUnmounted(() => {
   flex-direction: column;
   padding: 0 58px;
   text-align: center;
-  gap: 32px;
+  gap: 18px;
 }
 
 .countdown-label {
@@ -591,10 +604,11 @@ onUnmounted(() => {
 }
 
 .timer-box {
+  flex: 1 1 0;
   display: flex;
   flex-direction: column;
   gap: 2px;
-  padding: 3px 5px 6px;
+  padding: 3px 8px 6px;
   text-align: center;
   color: white;
   background: #4f0001;
@@ -621,7 +635,7 @@ onUnmounted(() => {
 .offer-info {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 16px;
 }
 
 .offer-title {
@@ -640,16 +654,16 @@ onUnmounted(() => {
 .offer-box {
   background: white;
   width: 100%;
-  padding: 1.5rem;
+  padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  border-radius: 12px;
+  gap: 20px;
+  border-radius: 6px;
 }
 .offer-heading {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
   align-items: center;
 }
 .offer-price {
@@ -702,11 +716,11 @@ onUnmounted(() => {
   font-weight: 600;
   font-size: 16px;
   padding: 10px;
-  border-radius: 2px;
+  border-radius: 4px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 0.5rem;
+  gap: 4px;
   justify-content: center;
   border: none;
   cursor: pointer;
@@ -722,18 +736,18 @@ onUnmounted(() => {
 .testimonials-section {
   width: 100%;
   overflow: hidden;
-  background: linear-gradient(180deg, #4f0001 0%, #000000 100%);
+  background: linear-gradient(180deg, #000000 0%, #4f0001 100%);
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 151px;
-  padding: 3rem 1rem 76px;
+  padding: 48px 16px 76px;
 }
 
 .testimonials-content {
   display: flex;
   flex-direction: column;
-  gap: 3.5rem;
+  gap: 54px;
   text-align: center;
 }
 
@@ -758,7 +772,7 @@ onUnmounted(() => {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 28px;
   padding: 28px;
   width: 100%;
   max-width: 305px;
@@ -771,7 +785,7 @@ onUnmounted(() => {
 
 .testimonial-card.mobile {
   max-width: 264px;
-  padding: 1.5rem;
+  padding: 24px;
   border-radius: 8px;
 }
 
@@ -790,7 +804,7 @@ onUnmounted(() => {
 .testimonial-author {
   display: flex;
   flex-direction: row;
-  gap: 1rem;
+  gap: 14px;
   align-items: center;
 }
 
@@ -866,7 +880,7 @@ onUnmounted(() => {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 24px;
 }
 
 .footer-logo {
@@ -914,7 +928,7 @@ onUnmounted(() => {
 
 .copyright {
   font-family: 'Inter', sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 16px;
   color: white;
 }
@@ -922,7 +936,7 @@ onUnmounted(() => {
 .social-links {
   display: flex;
   flex-direction: row;
-  gap: 1rem;
+  gap: 16px;
 }
 
 .social-icon {
@@ -955,6 +969,9 @@ onUnmounted(() => {
   .telegram-logo {
     max-width: 288px;
   }
+  .hero-header {
+    gap: 24px;
+  }
 
   .black-friday-label {
     font-size: 22px;
@@ -963,6 +980,9 @@ onUnmounted(() => {
 
   .hero-offer {
     gap: 32px;
+  }
+  .offer-numbers {
+    max-height: 127px;
   }
 
   .big-number {
@@ -1005,6 +1025,10 @@ onUnmounted(() => {
     flex-direction: row;
     gap: 50px;
   }
+  .feature-image-wrapper {
+    max-width: 250px;
+    aspect-ratio: 1;
+  }
 
   .feature-reverse {
     flex-direction: row-reverse;
@@ -1032,7 +1056,7 @@ onUnmounted(() => {
   }
 
   .timer-box {
-    padding: 6px 16px 12px;
+    padding: 6px 20px 12px;
     border-radius: 6px;
   }
 
@@ -1087,7 +1111,7 @@ onUnmounted(() => {
   }
 
   .testimonials-content {
-    gap: 5rem;
+    gap: 80px;
   }
 
   .testimonials-title {
@@ -1104,13 +1128,13 @@ onUnmounted(() => {
   }
 
   .footer-section {
-    gap: 5rem;
-    padding-top: 2.5rem;
+    gap: 36px;
+    padding-top: 40px;
   }
 
   .footer-cta {
     max-width: 480px;
-    gap: 2.25rem;
+    gap: 36px;
   }
 
   .footer-logo {
