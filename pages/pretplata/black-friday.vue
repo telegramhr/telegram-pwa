@@ -214,72 +214,70 @@
         </div>
 
         <!-- Mobile Swiper -->
-        <div class="swiper-container mobile-only">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <div class="testimonial-card mobile">
-                <p class="testimonial-quote">
-                  "Stranice Telegrama u meni bude nadu da nije sve oko nas
-                  uzaludno. I bude zahvalnost za jedan humani pokušaj pružanja
-                  utjehe svojim čitaocima"
-                </p>
-                <div class="testimonial-author">
-                  <img
-                    src="@/assets/img/pretplata/rade.png"
-                    class="author-image"
-                    alt=""
-                  />
-                  <div class="author-info">
-                    <span class="author-name">Rade Šerbedžija</span>
-                    <p class="author-title">Pretplatnik i umjetnik</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="testimonial-card mobile">
-                <p class="testimonial-quote">
-                  "Telegram opravdano drži posebno mjesto u civilizacijskom
-                  ekosustavu. Temama pozitivno utječe na trendove u društvu, na
-                  svim razinama"
-                </p>
-                <div class="testimonial-author">
-                  <img
-                    src="@/assets/img/pretplata/emil.png"
-                    class="author-image"
-                    alt=""
-                  />
-                  <div class="author-info">
-                    <span class="author-name">Emil Tedeschi</span>
-                    <p class="author-title">Pretplatnik i poduzetnik</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="testimonial-card mobile">
-                <p class="testimonial-quote">
-                  "U državi u kojoj institucije ne funkcioniraju, neovisno
-                  novinarstvo drži nam glavu iznad vode. Telegram čitam jer se
-                  još uvijek bavi pravim novinarstvom"
-                </p>
-                <div class="testimonial-author">
-                  <img
-                    src="@/assets/img/pretplata/sever.png"
-                    class="author-image"
-                    alt=""
-                  />
-                  <div class="author-info">
-                    <span class="author-name">Maja Sever</span>
-                    <p class="author-title">Pretplatnica i novinarka</p>
-                  </div>
+        <VueSlickCarousel v-bind="slickOptions" class="mobile-only">
+          <div class="slide-item">
+            <div class="testimonial-card mobile">
+              <p class="testimonial-quote">
+                "Stranice Telegrama u meni bude nadu da nije sve oko nas
+                uzaludno. I bude zahvalnost za jedan humani pokušaj pružanja
+                utjehe svojim čitaocima"
+              </p>
+              <div class="testimonial-author">
+                <img
+                  src="@/assets/img/pretplata/rade.png"
+                  class="author-image"
+                  alt=""
+                />
+                <div class="author-info">
+                  <span class="author-name">Rade Šerbedžija</span>
+                  <p class="author-title">Pretplatnik i umjetnik</p>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+
+          <div class="slide-item">
+            <div class="testimonial-card mobile">
+              <p class="testimonial-quote">
+                "Telegram opravdano drži posebno mjesto u civilizacijskom
+                ekosustavu. Temama pozitivno utječe na trendove u društvu, na
+                svim razinama"
+              </p>
+              <div class="testimonial-author">
+                <img
+                  src="@/assets/img/pretplata/emil.png"
+                  class="author-image"
+                  alt=""
+                />
+                <div class="author-info">
+                  <span class="author-name">Emil Tedeschi</span>
+                  <p class="author-title">Pretplatnik i poduzetnik</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-item">
+            <div class="testimonial-card mobile">
+              <p class="testimonial-quote">
+                "U državi u kojoj institucije ne funkcioniraju, neovisno
+                novinarstvo drži nam glavu iznad vode. Telegram čitam jer se još
+                uvijek bavi pravim novinarstvom"
+              </p>
+              <div class="testimonial-author">
+                <img
+                  src="@/assets/img/pretplata/sever.png"
+                  class="author-image"
+                  alt=""
+                />
+                <div class="author-info">
+                  <span class="author-name">Maja Sever</span>
+                  <p class="author-title">Pretplatnica i novinarka</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </VueSlickCarousel>
       </div>
 
       <!-- Footer Section -->
@@ -363,6 +361,17 @@ onUnmounted(() => {
     clearInterval(countdownInterval)
   }
 })
+// eslint-disable-next-line no-unused-vars
+const slickOptions = {
+  dots: true,
+  infinite: false,
+  speed: 300,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: false,
+  centerMode: false,
+  variableWidth: true,
+}
 </script>
 
 <style scoped>
@@ -793,6 +802,7 @@ onUnmounted(() => {
   max-width: 264px;
   padding: 24px;
   border-radius: 8px;
+  margin-right: 16px;
 }
 
 .testimonial-quote {
