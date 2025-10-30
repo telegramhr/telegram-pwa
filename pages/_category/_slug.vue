@@ -451,6 +451,40 @@
               </div>
             </div>
           </article>
+          <div
+            v-if="
+              !(
+                post.category_slug.includes('super1') ||
+                post.category_slug.includes('pitanje-zdravlja') ||
+                post.category_slug.includes('openspace')
+              )
+            "
+            class="full"
+          >
+            <top-articles-bottom
+              v-if="widgetVariant === 'v1'"
+              :posts="top_articles.slice(3)"
+            ></top-articles-bottom>
+            <top-articles-bottom-v2
+              v-if="widgetVariant === 'v2'"
+              :utm="{ campaign: 'TGbottomV2' }"
+              :posts="top_articles.slice(3)"
+            ></top-articles-bottom-v2>
+          </div>
+          <div
+            v-if="
+              post.id &&
+              !post.category_slug.includes('superone') &&
+              !post.category_slug.includes('pitanje-zdravlja') &&
+              !post.category_slug.includes('openspace') &&
+              !post.category_slug.includes('super1')
+            "
+            class="full relative column-top-pad commentsContainer"
+          >
+            <client-only>
+              <comments :post="post"></comments>
+            </client-only>
+          </div>
         </div>
         <client-only>
           <div v-if="!hasPremium && hasLinker" class="full have-background">
@@ -549,7 +583,21 @@
     <tfooter v-if="post.id || $fetchState.error" :post="post"></tfooter>
   </div>
 </template>
-
+<style scoped>
+.commentsContainer {
+  max-width: 710px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+@media screen and (min-width: 768px) {
+  .commentsContainer {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+</style>
 <script>
 import { Portal } from '@linusborg/vue-simple-portal'
 import AOS from 'aos'
@@ -578,6 +626,14 @@ export default {
       }
     }
     if (post && post.id) {
+      let portal = 'telegram'
+      if (post.category_slug.includes('telesport')) {
+        portal = 'telesport'
+      }
+      this.top_articles = await this.$axios.$get(
+        encodeURI('api/top-articles-ctr/' + portal + '/' + post.id)
+      )
+
       if (
         process.server &&
         this.$route.params.category !== 'preview' &&
@@ -631,6 +687,7 @@ export default {
         overtitle: '',
         overtitle_tag: '',
         overtitle_link: '',
+        intext_related_off: false,
         title: '',
         subtitle: '',
         content: '',
@@ -658,6 +715,7 @@ export default {
         quiz: null,
         live: false,
       },
+      top_articles: [],
       related_posts: [],
       hasLinker: false,
       giftValid: false,
@@ -886,6 +944,7 @@ export default {
         window.history.replaceState({}, null, this.post.permalink)
       }
     })
+    this.widgetVariant = this.getWidgetVariant()
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.handleScroll)
@@ -1042,6 +1101,7 @@ export default {
         this.loadPiano()
         this.loadRemp()
         this.loadAds()
+        this.loadInArticleWidget()
         this.$store.commit('pretplata/setLastArticle', this.post.id)
         if (typeof FB !== 'undefined') {
           FB.XFBML.parse()
@@ -1085,6 +1145,40 @@ export default {
       } else {
         setTimeout(this.getPost, 500)
       }
+    },
+    loadInArticleWidget() {
+      const container = document.getElementById('article-content')
+      if (!container) return
+
+      const paragraphs = container.querySelectorAll('p')
+      if (paragraphs.length < 2) return
+
+      // avoid duplicate injection
+      if (document.getElementById('top-articles-widget')) return
+
+      // create placeholder div
+      const widgetEl = document.createElement('div')
+      widgetEl.id = 'top-articles-widget'
+      paragraphs[1].insertAdjacentElement('afterend', widgetEl)
+      // Dynamically create and mount <top-articles> using this component’s context
+      if (
+        this.post.category_slug.includes('super1') ||
+        this.post.category_slug.includes('pitanje-zdravlja') ||
+        this.post.category_slug.includes('openspace')
+      )
+        return // do not show widget on super1, openspace, pitanje-zdravlja articles
+
+      if (this.post.intext_related_off === '1') return
+      const widget = new this.$root.constructor({
+        parent: this, // inherit current context (so global components are visible)
+        render: (h) =>
+          h('top-articles-intext', {
+            props: {
+              posts: this.top_articles.slice(0, 3),
+            },
+          }),
+      })
+      widget.$mount(widgetEl)
     },
     fbShare() {
       /* global FB */
