@@ -81,7 +81,7 @@
             </div>
             <button class="offer-button">
               <span>Iskoristite ponudu</span>
-              <i class="fa-solid fa-arrow-right"></i>
+              <font-awesome-icon :icon="['fal', 'arrow-right']" />
             </button>
           </div>
         </div>
@@ -96,7 +96,7 @@
         alt=""
       />
       <div class="content-wrapper">
-        <h2 class="content-title">Zasto odabrati Telegram Premium?</h2>
+        <h2 class="content-title">Zašto odabrati Telegram Premium?</h2>
         <div class="features-list">
           <div class="feature-item">
             <div class="feature-image-wrapper">
@@ -299,13 +299,19 @@
           <span class="copyright">Telegram ©2025</span>
           <div class="social-links">
             <div class="social-icon">
-              <i class="fa-brands fa-xl fa-facebook"></i>
+              <img
+                src="@/assets/img/pretplata/fb-logo.svg"
+                alt="facebook logo"
+              />
             </div>
             <div class="social-icon">
-              <i class="fa-brands fa-xl fa-x-twitter"></i>
+              <img src="@/assets/img/pretplata/x-logo.svg" alt="twitter logo" />
             </div>
             <div class="social-icon">
-              <i class="fa-brands fa-xl fa-instagram"></i>
+              <img
+                src="@/assets/img/pretplata/instagram.svg"
+                alt="instagram logo"
+              />
             </div>
           </div>
         </div>
@@ -952,11 +958,8 @@ onUnmounted(() => {
 }
 
 .social-icon:hover {
-  opacity: 0.8;
-}
-
-.social-icon i {
-  color: black;
+  transition: all 0.3s ease-in-out;
+  scale: 1.2;
 }
 
 /* Tablet and Desktop */
@@ -1015,6 +1018,10 @@ onUnmounted(() => {
   .content-wrapper {
     padding: 64px 0px;
     gap: 80px;
+  }
+  .content-title {
+    font-size: 40px;
+    line-height: 48px;
   }
 
   .features-list {
@@ -1103,6 +1110,7 @@ onUnmounted(() => {
     padding: 12px;
     border-radius: 8px;
     line-height: 24px;
+    gap: 8px;
   }
 
   .testimonials-section {
@@ -1128,7 +1136,7 @@ onUnmounted(() => {
   }
 
   .footer-section {
-    gap: 36px;
+    gap: 80px;
     padding-top: 40px;
   }
 
