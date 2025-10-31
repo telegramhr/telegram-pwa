@@ -17,7 +17,11 @@
         <p>Ovo nisu samo dječja posla.</p>
       </div>
       <VueSlickCarousel v-bind="slickOptions">
-        <div v-for="(item, index) in items" :key="index" class="slide-item">
+        <div
+          v-for="(item, index) in items"
+          :key="index"
+          class="slide-item slide-item-a1"
+        >
           <div class="card">
             <div class="image-wrapper">
               <img :src="item.image" :alt="item.title" />
@@ -368,6 +372,9 @@ export default {
 .a1-header p {
   color: white;
 }
+.dark-mode .slide-item-a1 * {
+  color: white !important;
+}
 
 .carousel-container {
   max-width: 1400px;
@@ -486,6 +493,10 @@ export default {
 :deep(.slick-next:before) {
   font-size: 40px;
   color: #333;
+}
+.dark-mode :deep(.slick-prev:before),
+.dark-mode :deep(.slick-next:before) {
+  color: white;
 }
 
 @media screen and (min-width: 693px) {
