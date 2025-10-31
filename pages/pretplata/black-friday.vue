@@ -79,10 +79,40 @@
                 Black Friday cijena 2 godine za cijenu 1!
               </p>
             </div>
-            <button class="offer-button">
+            <button class="offer-button" @click="setShowOffer">
               <span>Iskoristite ponudu</span>
               <font-awesome-icon :icon="['fal', 'arrow-right']" />
             </button>
+          </div>
+          <div class="offer-container">
+            <PretplataCheckoutBlackFriday
+              v-show="showOffer"
+              :period="period"
+              :payment="payment"
+              :pack="pack"
+              :price="price"
+              :email="email"
+              :password="password"
+              :showPassword="showPassword"
+              :loggedIn="loggedIn"
+              :terms="terms"
+              :privacy="privacy"
+              :promo_code="promo_code"
+              :promo_error="promo_error"
+              :discount="discount"
+              :totalPrice="totalPrice"
+              @update:period="period = $event"
+              @update:payment="payment = $event"
+              @update:email="email = $event"
+              @update:password="password = $event"
+              @update:terms="terms = $event"
+              @update:promo_code="promo_code = $event"
+              @update:privacy="privacy = $event"
+              @login="login"
+              @checkPromo="checkPromo"
+              @submit="submit"
+            ></PretplataCheckoutBlackFriday>
+            <iframe id="TrustPayFrame" :src="iframeUrl"></iframe>
           </div>
         </div>
       </div>
@@ -114,7 +144,7 @@
           <div class="feature-item feature-reverse">
             <div class="feature-image-wrapper">
               <img
-                src="@/assets/img/pretplata/content-2.webp"
+                src="@/assets/img/pretplata/content-2.png"
                 class="feature-image"
                 alt=""
               />
@@ -136,7 +166,7 @@
           <div class="feature-item feature-reverse">
             <div class="feature-image-wrapper">
               <img
-                src="@/assets/img/pretplata/content-4.webp"
+                src="@/assets/img/pretplata/content-4.png"
                 class="feature-image"
                 alt=""
               />
@@ -318,59 +348,368 @@
   </div>
 </template>
 
-<script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+<script>
+import _ from 'lodash'
 
-const countdown = ref({
-  days: 0,
-  hours: 0,
-  minutes: 0,
-  seconds: 0,
-})
-
-let countdownInterval = null
-
-const updateCountdown = () => {
-  const targetDate = new Date('2025-12-01T00:00:00').getTime()
-  const now = new Date().getTime()
-  const distance = targetDate - now
-
-  if (distance < 0) {
-    countdown.value = { days: 0, hours: 0, minutes: 0, seconds: 0 }
-    if (countdownInterval) {
-      clearInterval(countdownInterval)
+export default {
+  name: 'PretplataBlackFriday',
+  data() {
+    return {
+      showOffer: false,
+      show_msg: '',
+      payment: 'trustpay_recurrent',
+      pack: 'pretplata-standard',
+      period: 'pretplata-godisnje',
+      promo_code: '',
+      email: this.$store.state.user.email,
+      password: '',
+      showPassword: false,
+      hostedInstance: null,
+      threeDS: null,
+      deviceData: null,
+      nonce: null,
+      token: null,
+      loading: false,
+      dropin: null,
+      terms: false,
+      privacy: false,
+      funnel_url_key: 'family',
+      auth: 0,
+      url_key: 'family',
+      creditCard: false,
+      cvv: false,
+      expirationDate: false,
+      instance: null,
+      customerId: null,
+      iframeUrl: '',
+      canLogIn: true,
+      voucher_log_id: null,
+      discount: null,
+      discountedPrice: null,
+      loadingPromo: false,
+      promo_error: '',
+      countdown: {
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+      },
+      countdownInterval: null,
+      slickOptions: {
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        centerMode: false,
+        variableWidth: true,
+      },
     }
-    return
-  }
+  },
+  computed: {
+    buyable() {
+      if ((this.email || this.loggedIn) && this.terms && this.privacy) {
+        return true
+      }
+      return false
+    },
+    price() {
+      return 99
+    },
+    totalPrice() {
+      return '99'
+    },
+    subscription_type() {
+      return 'telegram_premium_pretplata_black_friday_2024'
+    },
+    loggedIn() {
+      return !!this.$store.state.user.id
+    },
+  },
+  watch: {
+    pack() {
+      this.discount = null
+      this.promo_error = ''
+      this.discountedPrice = null
+      this.voucher_log_id = null
+      if (this.promo_code && this.promo_code.trim() !== '') {
+        this.checkPromo()
+      }
+    },
 
-  countdown.value = {
-    days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-    hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-    minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-    seconds: Math.floor((distance % (1000 * 60)) / 1000),
-  }
-}
+    period() {
+      this.discount = null
+      this.discountedPrice = null
+      this.promo_error = ''
+      this.voucher_log_id = null
+      if (this.promo_code && this.promo_code.trim() !== '') {
+        this.checkPromo()
+      }
+    },
 
-onMounted(() => {
-  updateCountdown()
-  countdownInterval = setInterval(updateCountdown, 1000)
-})
+    email: _.debounce(function (value) {
+      const _this = this
+      const formData = new FormData()
+      formData.append('email', value)
+      this.$axios
+        .post('/crm/api/v2/users/email', formData, {
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+        })
+        .then((response) => {
+          if (response.data.status && response.data.status === 'taken') {
+            _this.showPassword = true
+            _this.canLogIn = true
+          } else if (response.data.status === 'error') {
+            if (response.data.code === 'email_missing') {
+              return
+            }
+            _this.show_msg = 'Prijavite se kako biste dovršili kupnju.'
+            _this.canLogIn = true
+          } else {
+            _this.showPassword = false
+            _this.canLogIn = false
+          }
+        })
+        .catch(() => {
+          _this.showPassword = false
+          _this.canLogIn = false
+        })
+    }, 1000),
+  },
+  mounted() {
+    this.updateCountdown()
+    this.countdownInterval = setInterval(this.updateCountdown, 1000)
 
-onUnmounted(() => {
-  if (countdownInterval) {
-    clearInterval(countdownInterval)
-  }
-})
-// eslint-disable-next-line no-unused-vars
-const slickOptions = {
-  dots: true,
-  infinite: true,
-  speed: 300,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  arrows: false,
-  centerMode: false,
-  variableWidth: true,
+    // Listen for TrustPay popup messages
+    this.messageHandler = (event) => {
+      if (event.data === 'popupLoaded') {
+        this.loading = false
+      }
+    }
+    window.addEventListener('message', this.messageHandler, false)
+  },
+  beforeDestroy() {
+    if (this.countdownInterval) {
+      clearInterval(this.countdownInterval)
+    }
+
+    // Clean up the event listener
+    if (this.messageHandler) {
+      window.removeEventListener('message', this.messageHandler, false)
+    }
+    if (this.animation) {
+      this.animation.destroy()
+    }
+  },
+  methods: {
+    updateCountdown() {
+      const targetDate = new Date('2025-12-01T00:00:00').getTime()
+      const now = new Date().getTime()
+      const distance = targetDate - now
+
+      if (distance < 0) {
+        this.countdown = { days: 0, hours: 0, minutes: 0, seconds: 0 }
+        if (this.countdownInterval) {
+          clearInterval(this.countdownInterval)
+        }
+        return
+      }
+
+      this.countdown = {
+        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+        hours: Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        ),
+        minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+        seconds: Math.floor((distance % (1000 * 60)) / 1000),
+      }
+    },
+    bankTransfer() {
+      this.$axios
+        .post('/pretplate/api/pretplata/bank', {
+          subscription_type: this.subscription_type,
+          price: this.price,
+          email: this.email,
+          referer: this.$store.getters['pretplata/link'],
+          voucher_log_id: this.voucher_log_id,
+          promo_code: this.promo_code,
+        })
+        .then((response) => {
+          if (response.data.id) {
+            this.$router.push('/pretplata/bank/' + response.data.id)
+          } else {
+            this.show_msg = 'Došlo je do greške s plaćanjem.'
+          }
+        })
+    },
+    checkPromo() {
+      this.loadingPromo = true
+      this.promo_error = ''
+      // check if promo code is valid
+      this.$axios
+        .get('/crm/api/v2/voucher/check', {
+          params: {
+            code: this.promo_code,
+            subscription_type_code: this.subscription_type,
+            include_discounted_amount: true,
+          },
+        })
+        .then((res) => {
+          this.discountedPrice = res.data.discounted_amount
+          this.discount = (
+            this.price - parseFloat(res.data.discounted_amount)
+          ).toFixed(2)
+        })
+        .catch(() => {
+          this.promo_error = 'Promo kod nije važeći'
+          this.loadingPromo = false
+        })
+    },
+    applyPromo() {
+      // check if promo code is valid
+      this.$axios
+        .post('/crm/api/v1/voucher/activate', {
+          code: this.promo_code,
+          subscription_type_code: this.subscription_type,
+          include_discounted_amount: true,
+        })
+        .then((res) => {
+          this.voucher_log_id = res.data.voucher_log_id
+          // this.discount = res.data.discounted_amount
+        })
+        .then(() => {
+          this.submitForm()
+        })
+    },
+    login() {
+      if (!this.showPassword) {
+        return
+      }
+      this.$store.dispatch('user/loginSubmit', {
+        email: this.email,
+        password: this.password,
+        reload: false,
+      })
+    },
+    submit() {
+      this.loading = true
+      if (this.promo_code) {
+        this.applyPromo()
+      } else {
+        this.submitForm()
+      }
+    },
+    submitForm(retryCount = 0) {
+      this.loading = true
+      if (this.payment === 'bank_transfer') {
+        this.bankTransfer()
+        return
+      }
+      const form = document.getElementById('payment-form')
+      const formData = new FormData(form)
+
+      const actionUrl = form.action
+      fetch(actionUrl, {
+        method: 'POST',
+        body: formData,
+        credentials: 'include',
+        redirect: 'follow', // Add this to handle redirects properly
+      })
+        .then((response) => {
+          return response.json()
+        })
+        .then((data) => {
+          if (data.status === 'ok') {
+            const trustpayIframe = document.getElementById('TrustPayFrame')
+            trustpayIframe.style.opacity = '1'
+            trustpayIframe.style.zIndex = '100'
+            trustpayIframe.style.position = 'fixed'
+            trustpayIframe.style.top = '0'
+            if (trustpayIframe) {
+              trustpayIframe.src = data.url + '&Localization=hr'
+            }
+            // Open TrustPay Popup
+            /* global openPopup */
+            openPopup()
+          } else {
+            this.loading = false
+            this.show_msg = 'Došlo je do greške s plaćanjem.'
+          }
+        })
+        .catch(() => {
+          // Retry logic: retry once if it's the first attempt
+          if (retryCount === 0) {
+            // Wait a bit before retrying
+            setTimeout(() => {
+              this.submitForm(1) // Retry with count = 1
+            }, 500)
+          } else {
+            // Failed after retry
+            this.loading = false
+            this.show_msg = 'Došlo je do greške prilikom slanja podataka.'
+          }
+        })
+    },
+    setShowOffer() {
+      this.showOffer = !this.showOffer
+    },
+  },
+  head() {
+    return {
+      title: 'Telesport Black Friday Pretplata',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Odaberite jedan od paketa i podržite nas',
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: 'Odaberite jedan od paketa i podržite nas',
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          property: 'og:title',
+          content: 'Telesport Black Friday Pretplata',
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          property: 'og:image',
+          content:
+            'https://www.telegram.hr/wp-content/uploads/2021/01/tg-background.jpg',
+        },
+        {
+          hid: 'og:url',
+          name: 'og:url',
+          property: 'og:url',
+          content: 'https://www.telegram.hr/pretplata/black-friday/',
+        },
+      ],
+      link: [
+        {
+          hid: 'canonical',
+          rel: 'canonical',
+          href: 'https://www.telegram.hr/pretplata/black-friday/',
+        },
+      ],
+      script: [
+        {
+          hid: 'jquery',
+          src: 'https://code.jquery.com/jquery-3.7.1.min.js',
+        },
+        {
+          hid: 'trustpay-popup',
+          src: 'https://mapi.trustpay.eu/mapi5/Scripts/TrustPay/popup.js',
+        },
+      ],
+    }
+  },
 }
 </script>
 
@@ -581,7 +920,7 @@ const slickOptions = {
 .countdown-section {
   width: 100%;
   overflow: hidden;
-  background: linear-gradient(180deg, #4f0001 0%, #000000 100%);
+  background: linear-gradient(180deg, #840002 0%, #000000 100%);
   padding: 0px 16px;
 }
 
@@ -752,7 +1091,7 @@ const slickOptions = {
 .testimonials-section {
   width: 100%;
   overflow: hidden;
-  background: linear-gradient(180deg, #000000 0%, #4f0001 100%);
+  background: linear-gradient(180deg, #000000 0%, #840002 100%);
   position: relative;
   display: flex;
   flex-direction: column;
