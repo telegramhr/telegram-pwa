@@ -1,17 +1,23 @@
 <template>
-  <div class="box-wrapper" @click="handleSelect">
+  <div
+    :class="{ selected: selected }"
+    class="box-wrapper"
+    @click="handleSelect"
+  >
     <div class="heading-section">
-      <div class="title">
-        <h3 :class="{ 'premium-title': type === 'premium' }">
-          {{ card.title }}
-        </h3>
-        <p>{{ card.price }}<span>/mjesečno</span></p>
-      </div>
-      <div class="tag-wrapper">
-        <span class="benefit premium-recommended" v-if="type === 'premium'">
-          Preporučeno
-        </span>
-        <span class="benefit">{{ card.tag }}</span>
+      <div class="box-header">
+        <div class="title">
+          <h3 :class="{ 'premium-title': type === 'premium' }">
+            {{ card.title }}
+          </h3>
+          <p>{{ card.price }}<span>/mjesečno</span></p>
+        </div>
+        <div class="tag-wrapper">
+          <span class="benefit premium-recommended" v-if="type === 'premium'">
+            Preporučeno
+          </span>
+          <span class="benefit">{{ card.tag }}</span>
+        </div>
       </div>
       <div class="content">
         <div
@@ -121,17 +127,18 @@ export default {
   text-align: center;
   background-color: white;
   padding: 24px 25px 28px 25px;
-  border: 2px solid #9f9f9f;
   border-radius: 10px;
   gap: 24px;
   justify-content: space-between;
   cursor: pointer;
 }
-
+.box-wrapper.selected {
+  border: 2px solid #9f9f9f;
+}
 .heading-section {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
   text-align: center;
   margin: 0 auto;
 }
@@ -141,7 +148,11 @@ export default {
   flex-direction: column;
   gap: 16px;
 }
-
+.box-header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
 .heading-section .title h3 {
   font-family: 'Lora', sans-serif;
   font-weight: 700;
@@ -182,7 +193,7 @@ export default {
   font-size: 12px;
   line-height: 16px;
   color: #747474;
-  padding: 10px;
+  padding: 8px 9px;
   border: 2px solid #747474;
   border-radius: 8px;
   width: fit-content;
@@ -219,7 +230,7 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding-top: 16px;
+  padding-top: 14px;
   border-top: 1px solid #dfdfdf;
 }
 
@@ -230,7 +241,7 @@ export default {
   color: black;
   display: flex;
   flex-direction: row;
-  gap: 7px;
+  gap: 8px;
   text-align: left;
   align-items: center;
 }
@@ -247,7 +258,7 @@ export default {
 
 .footer button {
   width: 100%;
-  padding: 13px;
+  padding: 16px;
   background-color: #b5b5b5;
   font-family: 'Barlow', sans-serif;
   color: white;
@@ -280,6 +291,12 @@ export default {
     font-size: 28px;
     line-height: 40px;
   }
+  .heading-section {
+    gap: 16px;
+  }
+  .content {
+    padding-top: 16px;
+  }
   .heading-section .title p {
     font-size: 20px;
     line-height: 20px;
@@ -287,9 +304,15 @@ export default {
   .heading-section .title {
     gap: 18px;
   }
+  content {
+    padding-top: 16px;
+  }
   .content .feature {
     font-size: 16px;
     line-height: 22px;
+  }
+  .benefit {
+    padding: 10px;
   }
 }
 </style>

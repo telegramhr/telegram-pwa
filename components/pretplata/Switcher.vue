@@ -73,7 +73,7 @@ export default {
   border-radius: 12px;
   background-color: #f1e3d7;
   border: 1px solid #6a484808;
-  max-width: 260px;
+  max-width: 300px;
   justify-content: space-between;
   width: 100%;
   margin: 0 auto;
@@ -117,9 +117,6 @@ button:hover {
   color: #d30000;
 }
 @media (min-width: 1024px) {
-  .wrapper {
-    max-width: 300px;
-  }
   .wrapper button svg {
     height: 24px;
     width: 24px;
