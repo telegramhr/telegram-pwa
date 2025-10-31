@@ -22,14 +22,12 @@
           {{ formattedDate }}
         </span>
         <div class="singleArticleComments">
-          <!-- 
           <img
             width="18"
             height="18"
             src="@/assets/img/comments_icon.png"
             alt="Ikonica komentara"
           />
--->
           <span>
             {{ post.comments }}
           </span>
