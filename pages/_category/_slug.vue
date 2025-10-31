@@ -583,7 +583,6 @@
     <tfooter v-if="post.id || $fetchState.error" :post="post"></tfooter>
   </div>
 </template>
-<<<<<<< HEAD =======
 <style scoped>
 .commentsContainer {
   max-width: 710px;
@@ -599,7 +598,6 @@
   }
 }
 </style>
->>>>>>> fa600b1f9d883bf5220fa79b7d9ead208c8bb6a2
 <script>
 import { Portal } from '@linusborg/vue-simple-portal'
 import AOS from 'aos'
