@@ -23,10 +23,10 @@
                 placeholder="Upišite lozinku"
                 name="password"
               />
-              <small v-show="!showPassword" class="under-pretplata-email"
-                >Ukoliko niste registrirani korisnik, na navedenu email adresu
-                ćete zaprimiti pristupne podatke.</small
-              >
+              <p v-show="!showPassword" class="under-pretplata-email">
+                Ukoliko niste registrirani korisnik, na navedenu email adresu
+                ćete zaprimiti pristupne podatke.
+              </p>
               <button
                 v-if="showPassword"
                 class="full newbtn huge-newbtn center-text clickable"
@@ -450,7 +450,6 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 28px;
-  padding: 28px 0px;
   border-top: 1px solid #b5b5b5;
   border-bottom: 1px solid #b5b5b5;
 }
@@ -511,6 +510,7 @@ export default {
 
 /* LOGIN WRAPPER */
 .login-container {
+  font-family: 'Barlow', sans-serif;
   padding: 28px;
   border-top: 1px solid #8a8a8a;
   border-bottom: 1px solid #8a8a8a;
@@ -520,9 +520,27 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  padding-top: 28px;
+  padding-bottom: 48px;
+}
+.login-wrapper p {
+  font-weight: 500;
+  color: #cacaca;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: left;
 }
 .login-subtitle {
   display: none;
+}
+.emailInput {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.emailInput p {
+  font-size: 12px;
+  line-height: 16px;
 }
 
 .loginContainer {
@@ -541,11 +559,8 @@ export default {
   font-size: 16px;
   line-height: 24px;
   color: #5f5f5f;
-  margin-bottom: 12px;
 }
-.loginContainer p {
-  margin-top: 14px;
-}
+
 .remp-social-logbtn {
   box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
   background: white;
