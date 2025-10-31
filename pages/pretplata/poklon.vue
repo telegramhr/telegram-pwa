@@ -50,7 +50,7 @@
                             ? 'Mjesečno'
                             : 'Godišnje'
                         }} -->
-                        Mjesečno
+                        Godišnje
                       </div>
                     </div>
                     <div class="full pretplata-benefits mobile-two-thirds">
@@ -121,7 +121,7 @@
                             ? 'Mjesečno'
                             : 'Godišnje'
                         }} -->
-                        Mjesečno
+                        Godišnje
                       </div>
                     </div>
                     <div class="full pretplata-benefits mobile-two-thirds">
