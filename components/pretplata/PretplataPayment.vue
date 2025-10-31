@@ -71,7 +71,15 @@
 
         <div class="radio-option">
           <div class="radio-heading">
-            <span>Kartica</span>
+            <div class="card-wrapper">
+              <span>Kartica</span>
+              <div class="card-icons">
+                <img src="@/assets/img/mastercard.svg" alt="" />
+                <img src="@/assets/img/visa.svg" alt="" />
+                <img src="@/assets/img/apple-pay.svg" alt="" />
+                <img src="@/assets/img/google-pay.svg" alt="" />
+              </div>
+            </div>
           </div>
           <p class="radio-description">
             Visa, Mastercard, Apple Pay i Google Pay
@@ -95,7 +103,12 @@
 
         <div class="radio-option">
           <div class="radio-heading">
-            <span>Bankovna uplata</span>
+            <div class="card-wrapper">
+              <span>Bankovna uplata</span>
+              <div class="card-icons">
+                <img src="@/assets/img/bank-transfer.svg" alt="" />
+              </div>
+            </div>
           </div>
           <p class="radio-description">
             Generirat ćemo uplatnicu s podacima za plaćanje
@@ -121,7 +134,7 @@ export default {
 <style scoped>
 .main {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   gap: 62px;
   border-top: 1px solid #b5b5b5;
@@ -161,7 +174,21 @@ export default {
   gap: 10px;
   align-items: center;
 }
-
+.card-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+}
+.card-icons {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
+.card-icons img {
+  max-width: 26px;
+}
 .radio-heading span {
   font-family: 'Lora', sans-serif;
   font-weight: 600;
@@ -219,5 +246,10 @@ export default {
   background-color: #fff;
   border-radius: 50%;
   transform: translate(-50%, -50%);
+}
+@media screen and (min-width: 1024px) {
+  .main {
+    flex-direction: row;
+  }
 }
 </style>

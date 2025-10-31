@@ -217,7 +217,6 @@
         </div>
       </div>
     </section>
-
     <section class="full flex relative">
       <div
         class="container flex relative stretch column-bottom-pad column-horizontal-pad superone-pilatesBag"
@@ -235,7 +234,7 @@
               alt="Super1 logo"
               class="dark-mode-only"
             />
-            <span class="spanX">x</span> <span>lokomotiva pilates bag</span>
+            <span>specijal</span>
           </div>
         </div>
         <div
@@ -248,22 +247,23 @@
             >
               <a
                 class="full flex square-img"
-                href="https://www.telegram.hr/super1/native/lokomotiva-pilates-bag/"
+                href="https://www.telegram.hr/super1/native/minuta-za-nas-dvije-s1-projekt/"
               >
                 <img
-                  src="https://www.telegram.hr/wp-content/uploads/2025/09/s1-pilates-bag-naslovna.jpg"
-                  alt="S1 pilates bag naslovna"
+                  src="https://www.telegram.hr/wp-content/uploads/2025/10/minz.jpg"
+                  alt="Kip žene, ruka ispred drži grudnjak u ruci"
                   loading="lazy"
                 />
               </a>
               <div class="full flex article-pad mobile-side-pad">
                 <a
                   class="full flex"
-                  href="https://www.telegram.hr/super1/native/lokomotiva-pilates-bag/"
+                  href="https://www.telegram.hr/super1/native/minuta-za-nas-dvije-s1-projekt/"
                 >
                   <h2 class="full animate">
-                    <b>Calling all #pilatesgirlies: </b>
-                    Predstavljamo vam naš Super1 x Lokomotiva pilates bag
+                    <b>Get Them Checked</b>
+                    Odvoji minutu za nas dvije i proširi riječ dalje - mamama,
+                    prijateljicama, kolegicama!
                   </h2>
                 </a>
               </div>

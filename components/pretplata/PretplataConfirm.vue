@@ -70,6 +70,8 @@ export default {
 
 <style scoped>
 .main {
+  padding-top: 28px;
+  border-top: 1px solid #b5b5b5;
   display: flex;
   flex-direction: column;
   font-family: 'Barlow', sans-serif;

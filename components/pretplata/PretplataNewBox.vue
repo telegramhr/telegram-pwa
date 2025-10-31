@@ -38,8 +38,13 @@ export default {
   props: {
     type: {
       type: String,
-      default: 'standard', // defaultna opcija
+      default: 'standard',
       validator: (value) => ['standard', 'premium'].includes(value),
+    },
+    subscriptionType: {
+      type: String,
+      default: 'individual',
+      validator: (value) => ['individual', 'family'].includes(value),
     },
   },
   computed: {
@@ -47,28 +52,46 @@ export default {
       if (this.type === 'premium') {
         return {
           title: 'Premium',
-          price: '12,99€',
+          price: this.subscriptionType === 'family' ? '19,99€' : '12,99€',
           tag: 'BEZ REKLAMA',
-          features: [
-            'Neograničeno čitanje svih članaka',
-            'Ekskluzivni newsletteri i analize',
-            '30 poklon članaka mjesečno',
-            'Posebni popusti i pogodnosti Telegram Kluba',
-          ],
+          features:
+            this.subscriptionType === 'family'
+              ? [
+                  'Neograničeno čitanje svih članaka',
+                  'Ekskluzivni newsletteri i analize',
+                  '30 poklon članaka mjesečno',
+                  'Posebni popusti i pogodnosti Telegram Kluba',
+                  'Do 5 korisnika na jednoj pretplati',
+                ]
+              : [
+                  'Neograničeno čitanje svih članaka',
+                  'Ekskluzivni newsletteri i analize',
+                  '30 poklon članaka mjesečno',
+                  'Posebni popusti i pogodnosti Telegram Kluba',
+                ],
           buttonText: 'Odabrano',
           footerText: 'Otkažite u bilo kojem trenutku.',
         }
       }
       return {
         title: 'Standard',
-        price: '7,99€',
+        price: this.subscriptionType === 'family' ? '12,99€' : '7,99€',
         tag: 'MANJE REKLAMA',
-        features: [
-          'Neograničeno čitanje Telegrama i pristup arhivi svih članaka',
-          'Ekskluzivni newsletteri s posebnim analizama nagrađivanih autora',
-          '10 poklon članaka mjesečno',
-          'Posebni popusti i pogodnost Telegram Kluba',
-        ],
+        features:
+          this.subscriptionType === 'family'
+            ? [
+                'Neograničeno čitanje Telegrama i pristup arhivi svih članaka',
+                'Ekskluzivni newsletteri s posebnim analizama nagrađivanih autora',
+                '10 poklon članaka mjesečno',
+                'Posebni popusti i pogodnost Telegram Kluba',
+                'Do 5 korisnika na jednoj pretplati',
+              ]
+            : [
+                'Neograničeno čitanje Telegrama i pristup arhivi svih članaka',
+                'Ekskluzivni newsletteri s posebnim analizama nagrađivanih autora',
+                '10 poklon članaka mjesečno',
+                'Posebni popusti i pogodnost Telegram Kluba',
+              ],
         buttonText: 'Odabrano',
         footerText: 'Otkažite u bilo kojem trenutku.',
       }
@@ -79,16 +102,17 @@ export default {
 
 <style scoped>
 .box-wrapper {
+  margin: 0 auto;
   width: 100%;
   max-width: 402px;
   display: flex;
   flex-direction: column;
   text-align: center;
   background-color: white;
-  padding: 28px 32px;
+  padding: 24px 25px 28px 25px;
   border: 2px solid #9f9f9f;
   border-radius: 10px;
-  gap: 28px;
+  gap: 24px;
   justify-content: space-between;
 }
 .heading-section {
@@ -101,13 +125,13 @@ export default {
 .heading-section .title {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16x;
 }
 .heading-section .title h3 {
   font-family: 'Lora', sans-serif;
   font-weight: 700;
-  font-size: 28px;
-  line-height: 40px;
+  font-size: 24px;
+  line-height: 32px;
   color: black;
 }
 .premium-title {
@@ -118,8 +142,8 @@ export default {
 .heading-section .title p {
   font-family: 'Lora', sans-serif;
   font-weight: 700;
-  font-size: 20px;
-  line-height: 20px;
+  font-size: 18px;
+  line-height: 18px;
   color: black;
 }
 .title p span {
@@ -146,19 +170,28 @@ export default {
   background-color: #ffffff;
 }
 .premium-recommended {
+  position: relative;
+  line-height: 1.6;
   text-transform: uppercase;
   background: linear-gradient(90.58deg, #946d29 15.27%, #f2c591 100.28%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  border: 2px solid;
   border-radius: 8px;
-  border-image-slice: 1;
-  border-width: 2px;
-  border-image-source: linear-gradient(
-    90.58deg,
-    #946d29 15.27%,
-    #f2c591 100.28%
-  );
+  border: none;
+  display: inline-block;
+}
+
+.premium-recommended::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  padding: 2px; /* debljina border-a */
+  background: linear-gradient(90.58deg, #946d29 15.27%, #f2c591 100.28%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
 .content {
@@ -170,8 +203,8 @@ export default {
 }
 .content .feature {
   font-family: 'Barlow', sans-serif;
-  font-size: 16px;
-  line-height: 22px;
+  font-size: 18px;
+  line-height: 24px;
   color: black;
   display: flex;
   flex-direction: row;
@@ -203,5 +236,27 @@ export default {
   font-size: 12px;
   line-height: 16px;
   text-align: center;
+}
+
+@media screen and (min-width: 1024px) {
+  .box-wrapper {
+    padding: 28px 32px;
+    gap: 28px;
+  }
+  .heading-section .title h3 {
+    font-size: 28px;
+    line-height: 40px;
+  }
+  .heading-section .title p {
+    font-size: 20px;
+    line-height: 20px;
+  }
+  .heading-section .title {
+    gap: 18px;
+  }
+  .content .feature {
+    font-size: 16px;
+    line-height: 22px;
+  }
 }
 </style>

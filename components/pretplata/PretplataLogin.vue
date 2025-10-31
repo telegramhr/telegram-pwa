@@ -15,7 +15,12 @@
             zaprimiti pristupne podatke.
           </p>
         </div>
-        <input type="password" placeholder="Lozinka" class="login-input" />
+        <input
+          id="password-field"
+          type="password"
+          placeholder="Lozinka"
+          class="login-input"
+        />
         <button class="login-btn">Prijavite se</button>
       </div>
 
@@ -48,17 +53,23 @@
 
 .login-wrapper {
   display: flex;
-  flex-direction: row;
-  gap: 40px;
+  flex-direction: column;
+  gap: 16px;
   width: 100%;
   justify-content: space-between;
 }
 .login {
+  flex: 1 1 0;
   display: flex;
   flex-direction: column;
   gap: 24px;
   width: 100%;
-  max-width: 352px;
+}
+#password-field {
+  display: none;
+}
+.login-btn {
+  display: none;
 }
 .email-wrapper {
   display: flex;
@@ -97,17 +108,20 @@
 }
 
 .divider {
+  margin: 0 auto;
   font-family: 'Barlow', sans-serif;
   font-size: 14px;
-  padding-top: 12px;
   color: #888;
 }
 .socials {
+  flex: 1 1 0;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 12px;
+  justify-content: space-between;
 }
 .socials button {
+  width: 100%;
   display: flex;
   flex-direction: row;
   gap: 8px;
@@ -122,6 +136,34 @@
   border: none;
   border-radius: 8px;
   padding: 11px 65px;
-  max-width: 205px;
+  justify-content: center;
+}
+
+@media screen and (min-width: 1024px) {
+  #password-field {
+    display: block;
+  }
+  .login {
+    max-width: 352px;
+    margin: 0 auto;
+  }
+  .login-btn {
+    display: block;
+  }
+  .login-wrapper {
+    flex-direction: row;
+    gap: 40px;
+  }
+
+  .divider {
+    padding-top: 12px;
+    margin: 0;
+  }
+  .socials {
+    flex-direction: row;
+  }
+  .socials button {
+    max-width: 205px;
+  }
 }
 </style>
