@@ -12,10 +12,14 @@
           <PretplataNewBox
             type="standard"
             :subscription-type="subscriptionType"
+            :selected="selectedPlan === 'standard'"
+            @select="selectPlan"
           ></PretplataNewBox>
           <PretplataNewBox
             type="premium"
             :subscription-type="subscriptionType"
+            :selected="selectedPlan === 'premium'"
+            @select="selectPlan"
           ></PretplataNewBox>
         </div>
       </div>
@@ -32,14 +36,16 @@
 export default {
   data() {
     return {
-      subscriptionType: 'individual', // default vrednost
+      subscriptionType: 'individual',
+      selectedPlan: 'premium',
     }
   },
   methods: {
     handleSubscriptionChange(type) {
       this.subscriptionType = type
-      // Ovde možeš dodati dodatnu logiku ako je potrebno
-      console.log('Subscription type changed to:', type)
+    },
+    selectPlan(planType) {
+      this.selectedPlan = planType
     },
   },
 }

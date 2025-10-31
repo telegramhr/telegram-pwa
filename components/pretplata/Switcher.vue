@@ -5,8 +5,8 @@
       @click="changeType('individual')"
     >
       <svg
-        width="14"
-        height="20"
+        width="24"
+        height="24"
         viewBox="0 0 14 20"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -74,6 +74,7 @@ export default {
   background-color: #f1e3d7;
   border: 1px solid #6a484808;
   max-width: 260px;
+  justify-content: space-between;
   width: 100%;
   margin: 0 auto;
 }
@@ -93,6 +94,10 @@ export default {
   cursor: pointer;
   color: #747474;
 }
+.wrapper button svg {
+  height: 20px;
+  width: 20px;
+}
 button.active {
   background-color: white;
   color: #0a0c11;
@@ -110,5 +115,14 @@ button:hover {
   line-height: 16px;
   text-transform: uppercase;
   color: #d30000;
+}
+@media (min-width: 1024px) {
+  .wrapper {
+    max-width: 300px;
+  }
+  .wrapper button svg {
+    height: 24px;
+    width: 24px;
+  }
 }
 </style>

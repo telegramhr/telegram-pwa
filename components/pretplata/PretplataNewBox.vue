@@ -1,5 +1,5 @@
 <template>
-  <div class="box-wrapper">
+  <div class="box-wrapper" @click="handleSelect">
     <div class="heading-section">
       <div class="title">
         <h3 :class="{ 'premium-title': type === 'premium' }">
@@ -26,7 +26,9 @@
     </div>
 
     <div class="footer">
-      <button>{{ card.buttonText }}</button>
+      <button :class="{ selected: selected }">
+        {{ selected ? 'Odabrano' : 'Odaberite' }}
+      </button>
       <span>{{ card.footerText }}</span>
     </div>
   </div>
@@ -45,6 +47,10 @@ export default {
       type: String,
       default: 'individual',
       validator: (value) => ['individual', 'family'].includes(value),
+    },
+    selected: {
+      type: Boolean,
+      default: false,
     },
   },
   computed: {
@@ -97,6 +103,11 @@ export default {
       }
     },
   },
+  methods: {
+    handleSelect() {
+      this.$emit('select', this.type)
+    },
+  },
 }
 </script>
 
@@ -114,7 +125,9 @@ export default {
   border-radius: 10px;
   gap: 24px;
   justify-content: space-between;
+  cursor: pointer;
 }
+
 .heading-section {
   display: flex;
   flex-direction: column;
@@ -122,11 +135,13 @@ export default {
   text-align: center;
   margin: 0 auto;
 }
+
 .heading-section .title {
   display: flex;
   flex-direction: column;
-  gap: 16x;
+  gap: 16px;
 }
+
 .heading-section .title h3 {
   font-family: 'Lora', sans-serif;
   font-weight: 700;
@@ -134,11 +149,13 @@ export default {
   line-height: 32px;
   color: black;
 }
+
 .premium-title {
   background: linear-gradient(90.58deg, #946d29 15.27%, #f2c591 100.28%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 .heading-section .title p {
   font-family: 'Lora', sans-serif;
   font-weight: 700;
@@ -146,16 +163,19 @@ export default {
   line-height: 18px;
   color: black;
 }
+
 .title p span {
   font-weight: 600;
   color: #9f9f9f;
 }
+
 .tag-wrapper {
   display: flex;
   flex-direction: row;
   gap: 12px;
   justify-content: center;
 }
+
 .benefit {
   font-family: 'Barlow', sans-serif;
   font-weight: 700;
@@ -169,6 +189,7 @@ export default {
   letter-spacing: 1px;
   background-color: #ffffff;
 }
+
 .premium-recommended {
   position: relative;
   line-height: 1.6;
@@ -186,7 +207,7 @@ export default {
   position: absolute;
   inset: 0;
   border-radius: 8px;
-  padding: 2px; /* debljina border-a */
+  padding: 2px;
   background: linear-gradient(90.58deg, #946d29 15.27%, #f2c591 100.28%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
@@ -201,6 +222,7 @@ export default {
   padding-top: 16px;
   border-top: 1px solid #dfdfdf;
 }
+
 .content .feature {
   font-family: 'Barlow', sans-serif;
   font-size: 18px;
@@ -212,18 +234,21 @@ export default {
   text-align: left;
   align-items: center;
 }
+
 .benefit-icon {
   color: #8d5b31;
 }
+
 .footer {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
+
 .footer button {
   width: 100%;
   padding: 13px;
-  background-color: #37ae37;
+  background-color: #b5b5b5;
   font-family: 'Barlow', sans-serif;
   color: white;
   font-weight: 600;
@@ -231,7 +256,15 @@ export default {
   line-height: 18px;
   border: none;
   border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
+
+.footer button.selected {
+  background-color: #37ae37;
+  color: white;
+}
+
 .footer span {
   font-size: 12px;
   line-height: 16px;
