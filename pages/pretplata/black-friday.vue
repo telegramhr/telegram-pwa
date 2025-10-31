@@ -5,7 +5,7 @@
       <div class="hero-background">
         <img
           class="hero-image"
-          src="@/assets/img/pretplata/hero-bg.webp"
+          src="@/assets/img/pretplata/hero-bg.png"
           alt=""
         />
       </div>
@@ -101,7 +101,7 @@
           <div class="feature-item">
             <div class="feature-image-wrapper">
               <img
-                src="@/assets/img/pretplata/content-1.webp"
+                src="@/assets/img/pretplata/content-1.png"
                 class="feature-image"
                 alt=""
               />
@@ -124,7 +124,7 @@
           <div class="feature-item">
             <div class="feature-image-wrapper">
               <img
-                src="@/assets/img/pretplata/content-3.webp"
+                src="@/assets/img/pretplata/content-3.png"
                 class="feature-image"
                 alt=""
               />
@@ -364,7 +364,7 @@ onUnmounted(() => {
 // eslint-disable-next-line no-unused-vars
 const slickOptions = {
   dots: true,
-  infinite: false,
+  infinite: true,
   speed: 300,
   slidesToShow: 1,
   slidesToScroll: 1,
@@ -392,6 +392,7 @@ const slickOptions = {
 .hero-background {
   position: absolute;
   width: 100%;
+  height: 100%;
 }
 
 .hero-image {
