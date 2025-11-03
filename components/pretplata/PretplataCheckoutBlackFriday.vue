@@ -180,8 +180,16 @@
                     </div>
                   </div>
                   <div class="radio-label">
-                    <p class="title">Kartica</p>
-                    <p class="remp-special-note">
+                    <div class="card-wrapper">
+                      <span>Kartica</span>
+                      <div class="card-icons">
+                        <img src="@/assets/img/mastercard.svg" alt="" />
+                        <img src="@/assets/img/visa.svg" alt="" />
+                        <img src="@/assets/img/apple-pay.svg" alt="" />
+                        <img src="@/assets/img/google-pay.svg" alt="" />
+                      </div>
+                    </div>
+                    <p class="description">
                       Visa, Mastercard, Apple Pay i Google Pay
                     </p>
                   </div>
@@ -207,8 +215,13 @@
                     </div>
                   </div>
                   <div class="radio-label">
-                    <p class="title">Bankovna uplata</p>
-                    <p class="remp-special-note">
+                    <div class="card-wrapper">
+                      <span>Bankovna uplata</span>
+                      <div class="card-icons">
+                        <img src="@/assets/img/bank-transfer.svg" alt="" />
+                      </div>
+                    </div>
+                    <p class="description">
                       Generirat ćemo uplatnicu s podacima za plaćanje
                     </p>
                   </div>
@@ -312,6 +325,7 @@ export default {
     email: String,
     password: String,
     loggedIn: Boolean,
+    showPassword: Boolean,
     terms: Boolean,
     privacy: Boolean,
     promo_code: String,
@@ -332,7 +346,6 @@ export default {
       show_msg: '',
       loading: false,
       iframeUrl: '',
-      showPassword: true,
     }
   },
   computed: {
@@ -493,7 +506,23 @@ export default {
   flex-direction: column;
   gap: 6px;
 }
-.radio-label .title {
+.card-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+}
+.card-icons {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
+.card-icons img {
+  max-width: 26px;
+}
+
+.card-wrapper span {
   font-family: 'Barlow', serif;
   font-weight: 600;
   font-size: 20px;
@@ -507,10 +536,10 @@ export default {
 .radio-label .description {
   font-family: 'Barlow';
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 24px;
   letter-spacing: 0px;
-  color: #5f5f5f;
+  color: #cacaca;
 }
 .outer-circle {
   background-color: white;
@@ -712,6 +741,7 @@ export default {
   text-align: center;
   border-radius: 4px;
   border: none;
+  margin-bottom: 20px;
 }
 #payment-form .locked-newbtn {
   background-color: #b5b5b5;
