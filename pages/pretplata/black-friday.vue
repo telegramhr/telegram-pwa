@@ -31,7 +31,9 @@
             <span class="font-bold">99€</span>
           </p>
           <div class="cta-container">
-            <button class="cta-button">Iskoristi ponudu</button>
+            <button class="cta-button" @click="setShowOffer">
+              <a href="#offerWrap">Iskoristi ponudu</a>
+            </button>
             <span class="cancel-text">Otkažite u bilo kojem trenutku.</span>
           </div>
         </div>
@@ -62,7 +64,7 @@
             </div>
           </div>
         </div>
-        <div class="countdown-offer">
+        <div class="countdown-offer" id="offerWrap">
           <div class="offer-info">
             <h3 class="offer-title">Iskoristite ovu ponudu</h3>
             <p class="offer-subtitle">
@@ -321,7 +323,9 @@
           <p class="footer-text">
             Pretplatite se sada i iskoristite ovu Black Friday ponudu!
           </p>
-          <button class="footer-button">Iskoristi ponudu</button>
+          <button class="footer-button" @click="setShowOffer">
+            <a href="#offerWrap">Iskoristi ponudu</a>
+          </button>
         </div>
         <div class="footer-bottom">
           <span class="copyright">Telegram ©2025</span>
