@@ -76,19 +76,31 @@
         </div>
         <div class="flex termsContainer">
           <div class="promo-and-terms-wrapper">
-            <div class="promo-input-wrapper">
-              <input
-                v-model="internalPromo"
-                type="text"
-                placeholder="Promo kod"
-              />
-              <button type="button" @click.prevent="$emit('checkPromo')">
-                Primjeni
-              </button>
+            <div class="promo-wrapper">
+              <span>Imate li promo kod?</span>
+              <div class="toggle-container">
+                <span>Ne</span>
 
-              <p v-show="promo_error" class="">
-                {{ promo_error }}
-              </p>
+                <button
+                  type="button"
+                  class="toggle"
+                  :class="{ 'is-on': promo }"
+                  @click="promo = !promo"
+                >
+                  <span class="thumb" />
+                </button>
+
+                <span>Da</span>
+              </div>
+              <div v-if="promo" class="promo-input-wrapper">
+                <input
+                  type="text"
+                  placeholder="Promo kod"
+                  class="promo-input"
+                  v-model="promoCode"
+                />
+                <button class="apply-btn" @click="applyPromo">Primijeni</button>
+              </div>
             </div>
             <div class="">
               <input
@@ -593,26 +605,75 @@ export default {
   color: white;
   font-weight: 600;
 }
-.promo-input-wrapper button {
-  position: absolute;
-  right: 0;
-  top: 0;
-  height: 100%;
-  background-color: transparent;
-  color: #902e2e;
-  font-family: 'Barlow', sans-serif;
-  border: none;
-  padding: 0 20px;
+
+.promo-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.promo-wrapper span {
+  font-weight: 500;
   font-size: 16px;
+  line-height: 24px;
+  color: #5f5f5f;
+}
+.promo-input {
+  padding: 11px 16px 11px 20px;
+  width: 100%;
+  max-width: 222px;
+  font-size: 16px;
+  line-height: 24px;
+  border: none;
+  border-radius: 8px;
+}
+.apply-btn {
+  background-color: transparent;
+  border: none;
   font-weight: 600;
-  cursor: pointer;
-  transition: color 0.2s;
-}
-.promo-input-wrapper {
+  font-size: 16px;
+  line-height: 24px;
+  color: #902e2e;
+  padding: 0px;
   position: relative;
+  left: -86px;
 }
-.promo-input-wrapper p {
+.toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.toggle {
+  width: 48px;
+  height: 25px;
+  border: none;
+  border-radius: 999px;
+  background-color: #d9d9d9;
+  position: relative;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.toggle.is-on {
+  background-color: #ae3737;
+}
+
+.thumb {
+  width: 19px;
+  height: 19px;
+  background: #fff;
+  border-radius: 50%;
   position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: left 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.toggle.is-on .thumb {
+  left: 26px;
 }
 #payment-form button,
 #payment-form .locked-newbtn {
