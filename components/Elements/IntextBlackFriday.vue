@@ -73,10 +73,10 @@ export default {
     }
   },
   mounted() {
-    window.addEventListener('intext_f32', this.load)
+    window.addEventListener('intext_black_friday', this.load)
   },
   destroyed() {
-    window.removeEventListener('intext_f32', this.load)
+    window.removeEventListener('intext_black_friday', this.load)
   },
   methods: {
     login() {
@@ -137,10 +137,10 @@ export default {
 <style>
 @keyframes pulse {
   0% {
-    transform: scale(0.8);
+    transform: scale(0.9);
   }
   100% {
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
 }
 
@@ -228,6 +228,7 @@ export default {
   margin: 0 auto;
 }
 .content button {
+  cursor: pointer;
   padding: 14px 16px;
   border-radius: 5px;
   background: linear-gradient(85.01deg, #fffbe1 -4.25%, #946d29 67.72%);
