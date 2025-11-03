@@ -102,6 +102,9 @@
               :promo_code="promo_code"
               :promo_error="promo_error"
               :discount="discount"
+              :funnel_url_key="funnel_url_key"
+              :url_key="url_key"
+              :subscription_type="subscription_type"
               :totalPrice="totalPrice"
               @update:period="period = $event"
               @update:payment="payment = $event"
@@ -114,7 +117,6 @@
               @checkPromo="checkPromo"
               @submit="submit"
             ></PretplataCheckoutBlackFriday>
-            <iframe id="TrustPayFrame" :src="iframeUrl"></iframe>
           </div>
         </div>
       </div>
@@ -377,9 +379,9 @@ export default {
       dropin: null,
       terms: false,
       privacy: false,
-      funnel_url_key: 'family',
+      funnel_url_key: 'black-friday',
       auth: 0,
-      url_key: 'family',
+      url_key: 'black-friday',
       creditCard: false,
       cvv: false,
       expirationDate: false,
@@ -400,7 +402,7 @@ export default {
       },
       countdownInterval: null,
       slickOptions: {
-        dots: true,
+        dots: false,
         infinite: true,
         speed: 300,
         slidesToShow: 1,
@@ -795,7 +797,7 @@ export default {
 }
 
 .big-number {
-  background: linear-gradient(180deg, #f3e0bb 0%, #d2ba89 100%);
+  background: linear-gradient(192.48deg, #fff3ac 8.76%, #946d29 96.86%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -1339,6 +1341,15 @@ export default {
   }
   .offer-numbers {
     max-height: 127px;
+  }
+
+  .big-number {
+    font-size: 148px;
+  }
+
+  .for-text {
+    font-size: 34px;
+    margin-top: 14px;
   }
 
   .big-number {
