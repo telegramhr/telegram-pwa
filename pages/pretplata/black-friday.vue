@@ -5,7 +5,7 @@
       <div class="hero-background">
         <img
           class="hero-image"
-          src="@/assets/img/pretplata/hero-bg.png"
+          src="@/assets/img/pretplata/hero-bg.webp"
           alt=""
         />
       </div>
@@ -32,7 +32,7 @@
           </p>
           <div class="cta-container">
             <button class="cta-button" @click="setShowOffer">
-              <a href="#offerWrap">Iskoristi ponudu</a>
+              <a href="#offerWrap">Iskoristite ponudu</a>
             </button>
             <span class="cancel-text">Otkažite u bilo kojem trenutku.</span>
           </div>
@@ -64,7 +64,7 @@
             </div>
           </div>
         </div>
-        <div class="countdown-offer" id="offerWrap">
+        <div id="offerWrap" class="countdown-offer">
           <div class="offer-info">
             <h3 class="offer-title">Iskoristite ovu ponudu</h3>
             <p class="offer-subtitle">
@@ -326,7 +326,7 @@
             Pretplatite se sada i iskoristite ovu Black Friday ponudu!
           </p>
           <button class="footer-button" @click="setShowOffer">
-            <a href="#offerWrap">Iskoristi ponudu</a>
+            <a href="#offerWrap">Iskoristite ponudu</a>
           </button>
         </div>
         <div class="footer-bottom">
@@ -1085,12 +1085,12 @@ export default {
   justify-content: center;
   border: none;
   cursor: pointer;
-  transition: box-shadow 0.3s;
 }
-
-.offer-button:hover {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+.offer-button {
+  transition: all 0.6s;
+}
+.offer-button:hover svg {
+  margin-left: 6px;
 }
 
 /* Testimonials Section */
@@ -1363,6 +1363,7 @@ export default {
 
   .offer-description {
     font-size: 28px;
+    line-height: 36px;
   }
 
   .cta-container {
@@ -1516,6 +1517,7 @@ export default {
   .footer-text {
     font-size: 40px;
     line-height: 3rem;
+    letter-spacing: -2px;
   }
 
   .footer-button {

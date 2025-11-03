@@ -21,7 +21,7 @@
               <input
                 v-if="showPassword"
                 id="pretplata-password"
-                v-model="password"
+                v-model="internalPassword"
                 type="password"
                 class="full remp-new-input"
                 placeholder="Upišite lozinku"
@@ -76,7 +76,7 @@
           </div>
         </div>
         <div class="flex termsContainer">
-          <div class="promo-and-terms-wrapper">
+          <div style="display: none" class="promo-and-terms-wrapper">
             <div class="promo-wrapper">
               <span>Imate li promo kod?</span>
               <div class="toggle-container">
@@ -350,6 +350,14 @@ export default {
     }
   },
   computed: {
+    internalPassword: {
+      get() {
+        return this.password
+      },
+      set(val) {
+        this.$emit('update:password', val)
+      },
+    },
     buyableComputed() {
       return (
         this.internalEmail &&
