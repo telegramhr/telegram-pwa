@@ -32,7 +32,7 @@
             <div class="flex relative loginBtns">
               <div class="btnContainer google">
                 <a
-                  href="http://pretplata.telegram.hr/users/google/sign?url=https://www.telegram.hr/pretplata/telegram-family"
+                  href="http://pretplata.telegram.hr/users/google/sign?url=https://www.telegram.hr/pretplata/black-friday"
                   class="full center remp-social-logbtn animate"
                 >
                   <!-- <font-awesome-icon :icon="['fab', 'google']" /> -->
@@ -49,7 +49,7 @@
               </div>
               <div class="btnContainer facebook">
                 <a
-                  href="https://pretplata.telegram.hr/social-login/social-sign/sign?social_provider_key=facebook&success_login_url=https://www.telegram.hr/pretplata/telegram-family"
+                  href="https://pretplata.telegram.hr/social-login/social-sign/sign?social_provider_key=facebook&success_login_url=https://www.telegram.hr/pretplata/black-friday"
                   class="full center remp-social-logbtn animate"
                 >
                   <font-awesome-icon
@@ -312,6 +312,7 @@
       <!-- Chatbot Component -->
       <Chatbot />
     </client-only>
+    <iframe id="TrustPayFrame" :src="iframeUrl"></iframe>
   </div>
 </template>
 
