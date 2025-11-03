@@ -9,7 +9,10 @@
     />
     <Nuxt />
     <client-only>
-      <ticker-ad-unit id="telegram_sticky" v-if="!$store.getters['user/hasPremium']"></ticker-ad-unit>
+      <ticker-ad-unit
+        id="telegram_sticky"
+        v-if="!$store.getters['user/hasPremium']"
+      ></ticker-ad-unit>
       <back-widget></back-widget>
       <div
         v-if="!$store.state.user.id"

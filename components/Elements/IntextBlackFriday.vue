@@ -69,7 +69,7 @@ export default {
         'Platite <span>1</span> godinu Premium pretplate bez reklama i dobivate <span>2</span> godine po cijeni od <span class="overline">198€</span> <span>99€</span>',
       softwall: true,
       cta: 'Iskoristite ponudu',
-      cta_link: '#',
+      cta_link: '/pretplata/black-friday',
     }
   },
   mounted() {
@@ -272,6 +272,9 @@ export default {
 
   z-index: 40;
 }
+.content {
+  z-index: 99;
+}
 @media screen and (min-width: 1024px) {
   .main-wrapper {
     max-width: 900px;
@@ -293,7 +296,6 @@ export default {
     justify-content: center;
     padding-left: 64px;
     gap: 36px;
-    z-index: 99;
   }
   .title {
     display: none;
