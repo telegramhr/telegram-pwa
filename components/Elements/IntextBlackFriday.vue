@@ -134,7 +134,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 @keyframes pulse {
   0% {
     transform: scale(0.9);
