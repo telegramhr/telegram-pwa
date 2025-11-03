@@ -81,51 +81,57 @@ export default {
     },
   },
   mounted() {
-    window.addEventListener('tmg_no_close', (e) => {
-      this.showClose = false
-    })
-    document.addEventListener('click', (e) => {
-      if (e.target.id === 'telegram_sticky_back') {
-        this.close()
+    this.$nextTick(() => {
+      if (this.$store.getters['user/hasPremium']) {
+        this.shouldHide = true
+        return
       }
-    })
-    this.$watch(
-      () => this.$route.path,
-      (to) => {
-        if (to.includes('pretplata') || to.includes('moj-racun')) {
-          this.shouldHide = true
+      window.addEventListener('tmg_no_close', (e) => {
+        this.showClose = false
+      })
+      document.addEventListener('click', (e) => {
+        if (e.target.id === 'telegram_sticky_back') {
+          this.close()
         }
-      }
-    )
-    const _that = this
-    window.googletag = window.googletag || {}
-    window.googletag.cmd = window.googletag.cmd || []
-    window.googletag.cmd.push(() => {
-      window.googletag
-        .pubads()
-        .addEventListener('slotRenderEnded', function (event) {
-          const name = event.slot.getAdUnitPath().split('/').pop()
-          if (!name.includes('sticky') || event.isEmpty) {
-            return
+      })
+      this.$watch(
+        () => this.$route.path,
+        (to) => {
+          if (to.includes('pretplata') || to.includes('moj-racun')) {
+            this.shouldHide = true
           }
-          if (
-            _that.shouldHide &&
-            !event.isEmpty &&
-            !_that.$route.path.includes('pretplata')
-          ) {
-            _that.shouldHide = false
-            _that.showClose = true
-          }
-          if (name.includes('sticky') && !event.isEmpty) {
-            _that.showClose = true
-            _that.size = event.size
-            if (_that.bannerClass === 'takeover') {
-              setTimeout(() => {
-                _that.shouldHide = true
-              }, 30000)
+        }
+      )
+      const _that = this
+      window.googletag = window.googletag || {}
+      window.googletag.cmd = window.googletag.cmd || []
+      window.googletag.cmd.push(() => {
+        window.googletag
+          .pubads()
+          .addEventListener('slotRenderEnded', function (event) {
+            const name = event.slot.getAdUnitPath().split('/').pop()
+            if (!name.includes('sticky') || event.isEmpty) {
+              return
             }
-          }
-        })
+            if (
+              _that.shouldHide &&
+              !event.isEmpty &&
+              !_that.$route.path.includes('pretplata')
+            ) {
+              _that.shouldHide = false
+              _that.showClose = true
+            }
+            if (name.includes('sticky') && !event.isEmpty) {
+              _that.showClose = true
+              _that.size = event.size
+              if (_that.bannerClass === 'takeover') {
+                setTimeout(() => {
+                  _that.shouldHide = true
+                }, 30000)
+              }
+            }
+          })
+      })
     })
   },
 }
