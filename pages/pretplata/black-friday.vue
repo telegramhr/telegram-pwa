@@ -5,7 +5,7 @@
       <div class="hero-background">
         <img
           class="hero-image"
-          src="@/assets/img/pretplata/hero-bg.webp"
+          src="@/assets/img/pretplata/hero-bg.jpg"
           alt=""
         />
       </div>
