@@ -305,17 +305,17 @@
       </div>
     </div>
     <app-link
-      to="https://www.telegram.hr/pretplata/telegram-family"
+      to="https://www.telegram.hr/pretplata/black-friday"
       class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center"
       style="padding: 0 24px; margin-top: 20px"
     >
       <img
-        src="@/assets/img/extras/Family_Pretplata_Banner_Desktop.png"
+        src="@/assets/img/extras/family/Banner 1200x450.png"
         alt="Naslovnica nove knjige"
         class="desktop-only"
       />
       <img
-        src="@/assets/img/extras/Family_Pretplata_Banner_Mobile.png"
+        src="@/assets/img/extras/family/Banner 320x480"
         alt="Naslovnica nove knjige"
         class="mobile-only"
       />
