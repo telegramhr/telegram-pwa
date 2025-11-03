@@ -200,7 +200,7 @@
                       class="full remp-new-input"
                       placeholder="Odaberite datum slanja poklona"
                       name="date"
-                      style="color: #78726e;"
+                      style="color: #78726e"
                     />
                   </div>
                 </div>
@@ -291,7 +291,7 @@
                       placeholder="Upišite lozinku"
                       name="password"
                     />
-                    <small class = "under-pretplata-email" v-show="!showPassword"
+                    <small class="under-pretplata-email" v-show="!showPassword"
                       >Ukoliko niste registrirani korisnik, na navedenu email
                       adresu ćete zaprimiti pristupne podatke.</small
                     >

@@ -388,7 +388,7 @@
                 <intext-promo-free-month></intext-promo-free-month>
                 <intext-promo-xmas></intext-promo-xmas>
                 <intext-promo-new-customers></intext-promo-new-customers>
-                <intext-promo-f32></intext-promo-f32>
+                <intext-black-friday></intext-black-friday>
                 <intext-promo-family></intext-promo-family>
                 <midas
                   v-if="!hasPremium && hasLinker"
