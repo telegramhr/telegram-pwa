@@ -278,6 +278,7 @@ export default {
   }
   .header {
     padding-top: 56px;
+    gap: 10px;
   }
   .header img {
     max-width: 208px;
