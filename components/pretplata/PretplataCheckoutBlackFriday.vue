@@ -75,61 +75,76 @@
           </div>
         </div>
         <div class="flex termsContainer">
-          <div class="">
-            <input
-              id="terms"
-              v-model="internalTerms"
-              type="checkbox"
-              class="cbx"
-              name="terms"
-            />
-            <label for="terms" class="check flex full">
-              <svg width="18px" height="18px" viewBox="0 0 18 18">
-                <path
-                  d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
-                ></path>
-                <polyline points="1 9 7 14 15 4"></polyline>
-              </svg>
-              <span
-                >Prihvaćam
-                <a
-                  target="_blank"
-                  href="https://www.telegram.hr/stranica/uvjeti-koristenja/"
-                  class="highlight-text"
-                  >uvjete korištenja</a
-                ></span
-              >
-            </label>
-          </div>
-          <div class="">
-            <input
-              id="privacy"
-              v-model="internalPrivacy"
-              type="checkbox"
-              class="cbx"
-              name="privacy"
-            />
-            <label for="privacy" class="check flex full">
-              <svg width="18px" height="18px" viewBox="0 0 18 18">
-                <path
-                  d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
-                ></path>
-                <polyline points="1 9 7 14 15 4"></polyline>
-              </svg>
-              <span
-                >Prihvaćam
-                <a
-                  target="_blank"
-                  href="https://www.telegram.hr/stranica/pravila-privantnosti/"
-                  class="highlight-text"
-                  >pravila privatnosti</a
-                ></span
-              >
-            </label>
-          </div>
+          <div class="promo-and-terms-wrapper">
+            <div class="promo-input-wrapper">
+              <input
+                v-model="internalPromo"
+                type="text"
+                placeholder="Promo kod"
+              />
+              <button type="button" @click.prevent="$emit('checkPromo')">
+                Primjeni
+              </button>
 
+              <p v-show="promo_error" class="">
+                {{ promo_error }}
+              </p>
+            </div>
+            <div class="">
+              <input
+                id="terms"
+                v-model="internalTerms"
+                type="checkbox"
+                class="cbx"
+                name="terms"
+              />
+              <label for="terms" class="check flex full">
+                <svg width="18px" height="18px" viewBox="0 0 18 18">
+                  <path
+                    d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
+                  ></path>
+                  <polyline points="1 9 7 14 15 4"></polyline>
+                </svg>
+                <span
+                  >Prihvaćam
+                  <a
+                    target="_blank"
+                    href="https://www.telegram.hr/stranica/uvjeti-koristenja/"
+                    class="highlight-text"
+                    >uvjete korištenja</a
+                  ></span
+                >
+              </label>
+            </div>
+            <div class="">
+              <input
+                id="privacy"
+                v-model="internalPrivacy"
+                type="checkbox"
+                class="cbx"
+                name="privacy"
+              />
+              <label for="privacy" class="check flex full">
+                <svg width="18px" height="18px" viewBox="0 0 18 18">
+                  <path
+                    d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
+                  ></path>
+                  <polyline points="1 9 7 14 15 4"></polyline>
+                </svg>
+                <span
+                  >Prihvaćam
+                  <a
+                    target="_blank"
+                    href="https://www.telegram.hr/stranica/pravila-privantnosti/"
+                    class="highlight-text"
+                    >pravila privatnosti</a
+                  ></span
+                >
+              </label>
+            </div>
+          </div>
           <div class="pack-duration">
-            <span class="pack-duration-title">Odaberite način plaćanja</span>
+            <h3 class="pack-duration-title">Odaberite način plaćanja</h3>
             <div class="duration-options">
               <div class="full relative flex">
                 <input
@@ -186,35 +201,6 @@
               </div>
             </div>
           </div>
-          <div class="promo-input-wrapper">
-            <input
-              v-model="internalPromo"
-              type="text"
-              placeholder="Promo kod"
-            />
-            <button type="button" @click.prevent="$emit('checkPromo')">
-              Primjeni
-            </button>
-
-            <p v-show="promo_error" class="">
-              {{ promo_error }}
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="half flex flex-responsive remp-miniboxes">
-        <div
-          v-if="payment === 'trustpay_recurrent'"
-          id="pretplata-kartica-broj"
-          class="full flex relative"
-        >
-          <p class="full remp-mini-text center-text faded hide">
-            Vaši podaci za plaćanje biti će enkriptirani i sigurno spremljeni po
-            najvišim sigurnosnim standardima.
-          </p>
-        </div>
-        <div v-if="payment === 'pretplata-uplata'" class="full flex relative">
-          <p class="full smaller-text faded">Tekst za bankovnu uplatu.</p>
         </div>
       </div>
     </div>
@@ -444,6 +430,9 @@ export default {
   display: flex;
   flex-direction: column;
 }
+.check > svg {
+  fill: white;
+}
 /* PAYMENT WRAPPER */
 .pack-payment-wrapper {
   width: 100%;
@@ -466,9 +455,10 @@ export default {
 .pack-duration-title {
   font-family: Barlow, sans-serif;
   font-weight: 500;
-  font-size: 14px;
-  line-height: 22px;
-  color: #5f5f5f;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: left;
+  color: #cacaca;
 }
 .radio-label {
   width: 100%;
@@ -481,8 +471,8 @@ export default {
   font-family: 'Lora', serif;
   font-weight: 600;
   font-size: 20px;
-  line-height: 22px;
-  color: black;
+  line-height: 24px;
+  color: white;
 }
 .radio-label .title > span {
   font-weight: 600;
@@ -497,6 +487,7 @@ export default {
   color: #5f5f5f;
 }
 .outer-circle {
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -508,12 +499,16 @@ export default {
   height: 9px !important;
 }
 
+.iliText {
+  margin: 0px;
+}
 /* LOGIN WRAPPER */
 .login-container {
   font-family: 'Barlow', sans-serif;
-  padding: 28px;
   border-top: 1px solid #8a8a8a;
-  border-bottom: 1px solid #8a8a8a;
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
 }
 .login-wrapper {
   width: 100%;
@@ -521,7 +516,6 @@ export default {
   flex-direction: column;
   gap: 16px;
   padding-top: 28px;
-  padding-bottom: 48px;
 }
 .login-wrapper p {
   font-weight: 500;
@@ -546,10 +540,11 @@ export default {
 .loginContainer {
   display: flex;
   flex-direction: column;
+  gap: 16px;
 }
 .loginContainer input {
   align-items: center;
-  padding: 12px 16px 12px 20px;
+  padding: 14px 16px 14px 20px;
   background: white;
   border: 1px solid #dfdfdf;
   border-radius: 6px;
@@ -564,28 +559,38 @@ export default {
 .remp-social-logbtn {
   box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
   background: white;
-  border-radius: 4px;
-  padding: 10px 14px;
-  width: 200px;
-  height: 48px;
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 16px;
+  line-height: 24px;
+  height: 52px;
 }
 .termsContainer {
   flex-direction: column-reverse;
   align-items: center;
   gap: 22px;
+  padding-top: 22px;
 }
 .termsContainer > div {
   width: 100% !important;
 }
-.termsContainer span {
+.promo-and-terms-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding-top: 28px;
+  gap: 24px;
+  width: 100%;
+  border-top: 1px solid #8a8a8a;
+}
+.promo-and-terms-wrapper span {
   font-family: 'Barlow';
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
-  color: #000000;
+  color: white;
 }
 .termsContainer span .highlight-text {
-  color: #000000;
+  color: white;
   font-weight: 600;
 }
 .promo-input-wrapper button {
@@ -629,8 +634,7 @@ export default {
 }
 #login .remp-miniboxes {
   border-bottom: 1px solid #b5b5b5;
-  margin-bottom: 28px;
-  padding-bottom: 32px;
+  padding-bottom: 28px;
 }
 .remp-mini-text {
   font-family: 'Barlow';
@@ -693,10 +697,6 @@ export default {
   }
 }
 @media (min-width: 1024px) {
-  .iliText {
-    margin-top: -30px;
-  }
-
   .termsContainer {
     flex-direction: row;
     gap: 36px;
