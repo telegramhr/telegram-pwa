@@ -14,6 +14,10 @@
                 placeholder="Vaša email adresa"
                 name="email"
               />
+              <p v-show="!showPassword" class="under-pretplata-email">
+                Ukoliko niste registrirani korisnik, na navedenu email adresu
+                ćete zaprimiti pristupne podatke.
+              </p>
               <input
                 v-if="showPassword"
                 id="pretplata-password"
@@ -23,17 +27,6 @@
                 placeholder="Upišite lozinku"
                 name="password"
               />
-              <p v-show="!showPassword" class="under-pretplata-email">
-                Ukoliko niste registrirani korisnik, na navedenu email adresu
-                ćete zaprimiti pristupne podatke.
-              </p>
-              <button
-                v-if="showPassword"
-                class="full newbtn huge-newbtn center-text clickable"
-                @click="$emit('login')"
-              >
-                Prijavite se
-              </button>
             </div>
             <p class="remp-mini-text center-text faded iliText">ili</p>
             <div class="flex relative loginBtns">
@@ -67,11 +60,19 @@
                   Facebook
                 </a>
               </div>
+
               <p class="full remp-mini-text center-text faded hide">
                 Privremeno ćemo vas preusmjeriti na stranicu odabranog davatelja
                 usluga kako bi povezali račune.
               </p>
             </div>
+            <button
+              v-if="showPassword"
+              class="full newbtn huge-newbtn center-text clickable"
+              @click="$emit('login')"
+            >
+              Prijavite se
+            </button>
           </div>
         </div>
         <div class="flex termsContainer">
@@ -102,57 +103,59 @@
                 <button class="apply-btn" @click="applyPromo">Primijeni</button>
               </div>
             </div>
-            <div class="">
-              <input
-                id="terms"
-                v-model="internalTerms"
-                type="checkbox"
-                class="cbx"
-                name="terms"
-              />
-              <label for="terms" class="check flex full">
-                <svg width="18px" height="18px" viewBox="0 0 18 18">
-                  <path
-                    d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
-                  ></path>
-                  <polyline points="1 9 7 14 15 4"></polyline>
-                </svg>
-                <span
-                  >Prihvaćam
-                  <a
-                    target="_blank"
-                    href="https://www.telegram.hr/stranica/uvjeti-koristenja/"
-                    class="highlight-text"
-                    >uvjete korištenja</a
-                  ></span
-                >
-              </label>
-            </div>
-            <div class="">
-              <input
-                id="privacy"
-                v-model="internalPrivacy"
-                type="checkbox"
-                class="cbx"
-                name="privacy"
-              />
-              <label for="privacy" class="check flex full">
-                <svg width="18px" height="18px" viewBox="0 0 18 18">
-                  <path
-                    d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
-                  ></path>
-                  <polyline points="1 9 7 14 15 4"></polyline>
-                </svg>
-                <span
-                  >Prihvaćam
-                  <a
-                    target="_blank"
-                    href="https://www.telegram.hr/stranica/pravila-privantnosti/"
-                    class="highlight-text"
-                    >pravila privatnosti</a
-                  ></span
-                >
-              </label>
+            <div class="terms-wrapper">
+              <div class="">
+                <input
+                  id="terms"
+                  v-model="internalTerms"
+                  type="checkbox"
+                  class="cbx"
+                  name="terms"
+                />
+                <label for="terms" class="check flex full">
+                  <svg width="18px" height="18px" viewBox="0 0 18 18">
+                    <path
+                      d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
+                    ></path>
+                    <polyline points="1 9 7 14 15 4"></polyline>
+                  </svg>
+                  <span
+                    >Prihvaćam
+                    <a
+                      target="_blank"
+                      href="https://www.telegram.hr/stranica/uvjeti-koristenja/"
+                      class="highlight-text"
+                      >uvjete korištenja</a
+                    ></span
+                  >
+                </label>
+              </div>
+              <div class="">
+                <input
+                  id="privacy"
+                  v-model="internalPrivacy"
+                  type="checkbox"
+                  class="cbx"
+                  name="privacy"
+                />
+                <label for="privacy" class="check flex full">
+                  <svg width="18px" height="18px" viewBox="0 0 18 18">
+                    <path
+                      d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
+                    ></path>
+                    <polyline points="1 9 7 14 15 4"></polyline>
+                  </svg>
+                  <span
+                    >Prihvaćam
+                    <a
+                      target="_blank"
+                      href="https://www.telegram.hr/stranica/pravila-privantnosti/"
+                      class="highlight-text"
+                      >pravila privatnosti</a
+                    ></span
+                  >
+                </label>
+              </div>
             </div>
           </div>
           <div class="pack-duration">
@@ -281,10 +284,12 @@
             {{ totalPrice ? 'za ' + totalPrice + '€' : '' }}
           </button>
         </template>
+        <!--
         <p class="full remp-mini-text center-text">
           Pretplatu možete otkazati u bilo kojem trenutku. Pretplata se
           automatski obnavlja.
         </p>
+        -->
         <p v-if="show_msg" class="full remp-mini-text center-text red-text">
           {{ show_msg }}
         </p>
@@ -306,7 +311,6 @@ export default {
     pack: String,
     email: String,
     password: String,
-    showPassword: Boolean,
     loggedIn: Boolean,
     terms: Boolean,
     privacy: Boolean,
@@ -323,9 +327,12 @@ export default {
   },
   data() {
     return {
+      promo: false,
+      promoCode: this.promo_code || '',
       show_msg: '',
       loading: false,
       iframeUrl: '',
+      showPassword: true,
     }
   },
   computed: {
@@ -419,6 +426,13 @@ export default {
       },
     },
   },
+  methods: {
+    applyPromo() {
+      if (this.promoCode.trim()) {
+        this.$emit('apply-promo', this.promoCode.trim())
+      }
+    },
+  },
 }
 </script>
 
@@ -480,7 +494,7 @@ export default {
   gap: 6px;
 }
 .radio-label .title {
-  font-family: 'Lora', serif;
+  font-family: 'Barlow', serif;
   font-weight: 600;
   font-size: 20px;
   line-height: 24px;
@@ -540,12 +554,14 @@ export default {
   display: none;
 }
 .emailInput {
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 .emailInput p {
   font-size: 12px;
+  display: block;
   line-height: 16px;
 }
 
@@ -567,7 +583,9 @@ export default {
   line-height: 24px;
   color: #5f5f5f;
 }
-
+.remp-new-input {
+  margin-bottom: 0px;
+}
 .remp-social-logbtn {
   box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
   background: white;
@@ -605,6 +623,11 @@ export default {
   color: white;
   font-weight: 600;
 }
+.terms-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
 
 .promo-wrapper {
   display: flex;
@@ -616,7 +639,8 @@ export default {
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
-  color: #5f5f5f;
+  text-align: left;
+  color: #cacaca;
 }
 .promo-input {
   padding: 11px 16px 11px 20px;
@@ -683,12 +707,11 @@ export default {
   font-family: 'Barlow', sans-serif;
   font-size: 18px;
   font-weight: 600;
-  background-color: #ae3737;
+  background-color: #37ae37;
   cursor: pointer;
   text-align: center;
   border-radius: 4px;
   border: none;
-  margin-bottom: 20px;
 }
 #payment-form .locked-newbtn {
   background-color: #b5b5b5;
@@ -706,6 +729,17 @@ export default {
   text-align: center;
   color: #5f5f5f;
 }
+.promo-input-wrapper {
+  display: flex;
+}
+.huge-newbtn {
+  padding: 14px;
+  border-radius: 6px;
+  display: none;
+  margin-top: 6px;
+  display: block;
+}
+
 .promo-input-wrapper input[type='text'] {
   width: 100%;
   padding: 12px 100px 12px 15px;
@@ -758,30 +792,40 @@ export default {
   }
 }
 @media (min-width: 1024px) {
+  .huge-newbtn {
+    margin-top: 0px;
+  }
+
   .termsContainer {
-    flex-direction: row;
-    gap: 36px;
+    flex-direction: column-reverse;
+    gap: 28px;
+    padding-top: 28px;
     justify-content: space-between;
   }
-  .termsContainer > div {
-    width: unset !important;
+
+  .terms-wrapper {
+    gap: 20px;
   }
   .promo-input-wrapper {
     max-width: 300px;
   }
-  .loginContainer {
-    flex-direction: row;
-    gap: 40px;
+  .login-container {
+    gap: 28px;
   }
   .loginContainer .emailInput {
+    flex-direction: row;
     flex: 1;
-    max-width: 350px;
+    width: 100%;
   }
   .pack-payment-wrapper {
     flex-direction: row;
   }
   .pack-duration {
     padding-right: 50px;
+    gap: 24px;
+  }
+  .pack-options {
+    gap: 28px;
   }
   .loginBtns {
     gap: 16px;
