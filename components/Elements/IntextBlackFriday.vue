@@ -134,7 +134,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 @keyframes pulse {
   0% {
     transform: scale(0.9);
@@ -314,8 +314,10 @@ export default {
     font-size: 35px;
     letter-spacing: -0.02em;
     color: #ffffff;
+    margin: 0;
   }
   .desktop-title span {
+    font-family: 'Barlow', sans-serif;
     font-weight: 700;
     font-size: 140px;
     line-height: 182px;
