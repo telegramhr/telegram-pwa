@@ -310,12 +310,12 @@
       style="padding: 0 24px; margin-top: 20px"
     >
       <img
-        src="@/assets/img/extras/family/Banner 1200x450.png"
+        src="@/assets/img/pretplata/family/Banner 1200x450.png"
         alt="Naslovnica nove knjige"
         class="desktop-only"
       />
       <img
-        src="@/assets/img/extras/family/Banner 320x480"
+        src="@/assets/img/pretplata/family/Banner 320x480.png"
         alt="Naslovnica nove knjige"
         class="mobile-only"
       />
