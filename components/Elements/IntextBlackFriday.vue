@@ -307,6 +307,7 @@ export default {
     align-items: center;
     justify-content: center;
     max-height: 111px;
+    font-family: 'Barlow';
   }
   .desktop-title p {
     font-family: 'Inter', sans-serif;
@@ -314,7 +315,7 @@ export default {
     font-size: 35px;
     letter-spacing: -0.02em;
     color: #ffffff;
-    margin: 0;
+    margin-top: 30px;
   }
   .desktop-title span {
     font-family: 'Barlow', sans-serif;
