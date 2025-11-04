@@ -17,7 +17,7 @@
 }
 .wrapper {
   width: 100%;
-  max-width: 590px;
+  max-width: 576px;
   margin: 0 auto;
   padding: 56px 0px;
   display: flex;
