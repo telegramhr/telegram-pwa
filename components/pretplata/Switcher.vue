@@ -68,7 +68,7 @@ export default {
 .wrapper {
   display: flex;
   flex-direction: row;
-  padding: 12px;
+  padding: 8px 10px;
   gap: 4px;
   border-radius: 12px;
   background-color: #f1e3d7;
@@ -83,7 +83,7 @@ export default {
   font-weight: 600;
   font-size: 16px;
   line-height: 16px;
-  padding: 6px 8px;
+  padding: 8px 10px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -95,8 +95,8 @@ export default {
   color: #747474;
 }
 .wrapper button svg {
-  height: 15px;
-  width: 15px;
+  height: 20px;
+  width: 20px;
 }
 button.active {
   background-color: white;
@@ -119,6 +119,7 @@ button:hover {
 @media (min-width: 1024px) {
   .wrapper {
     max-width: 300px;
+    padding: 12px;
     gap: 8px;
   }
   .wrapper button {
@@ -127,8 +128,8 @@ button:hover {
     padding: 8px;
   }
   .wrapper button svg {
-    height: 18px;
-    width: 18px;
+    height: 24px;
+    width: 24px;
   }
 }
 </style>

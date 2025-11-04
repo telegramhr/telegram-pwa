@@ -237,6 +237,9 @@ export default {
   padding: 14px;
   cursor: pointer;
 }
+.submit-wrapper button:hover {
+  background-color: #237023;
+}
 
 .submit-wrapper p {
   text-align: center;
