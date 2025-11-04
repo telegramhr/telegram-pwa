@@ -1,10 +1,13 @@
 <template>
   <div class="login-container">
-    <div v-show="!loggedIn" class="login-wrapper">
-      <p class="">Unesite podatke</p>
+    <div class="login-wrapper">
+      <p v-show="!loggedIn" class="">Unesite podatke</p>
       <div id="login" class="login-content">
-        <div class="full flex flex-responsive remp-miniboxes">
-          <div v-show="!loggedIn" class="full flex loginContainer">
+        <div
+          v-show="!loggedIn"
+          class="full flex flex-responsive remp-miniboxes"
+        >
+          <div class="full flex loginContainer">
             <div class="emailInput">
               <input
                 id="pretplata-email"
@@ -76,8 +79,8 @@
           </div>
         </div>
         <div class="flex termsContainer">
-          <div style="display: none" class="promo-and-terms-wrapper">
-            <div class="promo-wrapper">
+          <div class="promo-and-terms-wrapper">
+            <div style="display: none" class="promo-wrapper">
               <span>Imate li promo kod?</span>
               <div class="toggle-container">
                 <span>Ne</span>

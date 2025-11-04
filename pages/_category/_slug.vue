@@ -390,6 +390,7 @@
                 <intext-promo-new-customers></intext-promo-new-customers>
                 <intext-promo-f32></intext-promo-f32>
                 <intext-promo-family></intext-promo-family>
+                <intext-black-friday></intext-black-friday>
                 <midas
                   v-if="!hasPremium && hasLinker"
                   :key="`midas-text-${post.id}`"
