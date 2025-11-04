@@ -277,6 +277,11 @@ export default {
   transition: background-color 0.3s ease;
 }
 
+.footer button:hover {
+  background-color: #37ae37;
+  color: white;
+}
+
 .footer button.selected {
   background-color: #37ae37;
   color: white;
@@ -322,7 +327,7 @@ export default {
     gap: 12px;
   }
   .benefit {
-    padding: 10px;
+    padding: 8px 10px;
   }
   .footer span {
     line-height: 16px;

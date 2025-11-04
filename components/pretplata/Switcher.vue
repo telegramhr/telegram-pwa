@@ -95,8 +95,8 @@ export default {
   color: #747474;
 }
 .wrapper button svg {
-  height: 20px;
-  width: 20px;
+  height: 15px;
+  width: 15px;
 }
 button.active {
   background-color: white;
@@ -124,11 +124,11 @@ button:hover {
   .wrapper button {
     font-size: 18px;
     gap: 6px;
-    padding: 4px 8px;
+    padding: 8px;
   }
   .wrapper button svg {
-    height: 24px;
-    width: 24px;
+    height: 18px;
+    width: 18px;
   }
 }
 </style>
