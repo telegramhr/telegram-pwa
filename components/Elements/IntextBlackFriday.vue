@@ -338,10 +338,10 @@ export default {
     text-align: center;
     margin-bottom: 0px !important;
   }
-  .description span {
+  .description ::v-deep(span) {
     font-weight: 700;
   }
-  .description .overline {
+  .description ::v-deep(.overline) {
     text-decoration: line-through;
     font-weight: 400;
     color: #b5b5b5;
