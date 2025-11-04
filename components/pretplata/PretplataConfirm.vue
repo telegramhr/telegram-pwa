@@ -26,60 +26,21 @@
         <button class="apply-btn" @click="applyPromo">Primijeni</button>
       </div>
     </div>
-
     <div class="confirm-wrapper">
-      <div class="full flex">
-        <input
-          id="terms-usage"
-          v-model="termsUsage"
-          type="checkbox"
-          class="cbx"
-          name="terms-usage"
-        />
-        <label for="terms-usage" class="check flex full">
-          <svg width="18px" height="18px" viewBox="0 0 18 18">
-            <path
-              d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
-            ></path>
-            <polyline points="1 9 7 14 15 4"></polyline>
-          </svg>
-          <span class="terms-tweak">
-            Prihvaćam
-            <a
-              target="_blank"
-              href="https://www.telegram.hr/stranica/uvjeti-koristenja/"
-              class="highlight-text"
-            >
-              uvjete korištenja
-            </a>
-          </span>
+      <div>
+        <label class="checkbox">
+          <input class="checkbox-input" type="checkbox" />
+          <span class="checkmark"></span>
+          <p class="checkbox-label">Prihvaćam <span>uvjete korištenja</span></p>
         </label>
       </div>
-      <div class="full flex">
-        <input
-          id="terms-privacy"
-          v-model="termsPrivacy"
-          type="checkbox"
-          class="cbx"
-          name="terms-privacy"
-        />
-        <label for="terms-privacy" class="check flex full">
-          <svg width="18px" height="18px" viewBox="0 0 18 18">
-            <path
-              d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
-            ></path>
-            <polyline points="1 9 7 14 15 4"></polyline>
-          </svg>
-          <span class="terms-tweak">
-            Prihvaćam
-            <a
-              target="_blank"
-              href="https://www.telegram.hr/stranica/pravila-privatnosti/"
-              class="highlight-text"
-            >
-              pravila privatnosti
-            </a>
-          </span>
+      <div>
+        <label class="checkbox">
+          <input class="checkbox-input" type="checkbox" />
+          <span class="checkmark"></span>
+          <p class="checkbox-label">
+            Prihvaćam <span>pravila privatnosti</span>
+          </p>
         </label>
       </div>
     </div>
@@ -102,8 +63,6 @@ export default {
     return {
       promo: false,
       promoCode: '',
-      termsUsage: false,
-      termsPrivacy: false,
     }
   },
   methods: {
@@ -195,7 +154,6 @@ export default {
 .toggle.is-on .thumb {
   left: 26px;
 }
-
 .confirm-wrapper {
   display: flex;
   flex-direction: column;
@@ -208,12 +166,58 @@ export default {
   align-items: center;
   gap: 8px;
 }
+
 .checkbox-label {
   font-size: 16px;
   line-height: 20px;
 }
 .checkbox-label span {
   font-weight: 600;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  position: relative;
+}
+
+.checkbox-input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  width: 20px;
+  height: 20px;
+  border: 1.25px solid #b5b5b5;
+  border-radius: 2px;
+  background-color: white;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.checkbox-input:checked + .checkmark {
+  background-color: black;
+  border-color: black;
+}
+
+.checkbox-input:checked + .checkmark::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkbox:hover .checkmark {
+  border-color: gray;
 }
 
 .submit-wrapper {
@@ -239,67 +243,6 @@ export default {
   font-size: 12px;
   line-height: 18px;
   color: #5f5f5f;
-}
-
-.cbx {
-  display: none;
-}
-
-.check {
-  align-items: center;
-  cursor: pointer;
-  gap: 8px;
-}
-.check > svg {
-  margin: 0;
-  background-color: white;
-  stroke: #b5b5b5;
-  stroke-width: 1.25px;
-}
-
-.checkbox-svg {
-  flex-shrink: 0;
-  stroke-width: 2;
-  stroke: #ae3737;
-  fill: white;
-}
-
-.checkbox-svg .box {
-  stroke: #ae3737;
-  fill: #fff;
-}
-
-.checkbox-svg .tick {
-  stroke: #ae3737;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  fill: none;
-  stroke-dasharray: 20;
-  stroke-dashoffset: 20;
-  transition: stroke-dashoffset 0.3s ease;
-}
-
-.cbx:checked + .check .tick {
-  stroke-dashoffset: 0;
-}
-
-.terms-tweak {
-  font-family: 'Barlow', sans-serif;
-  font-size: 16px;
-  line-height: 20px;
-  color: black;
-  top: auto !important;
-}
-
-.terms-tweak .highlight-text {
-  color: black;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.terms-tweak a:hover {
-  text-decoration: underline;
 }
 @media (min-width: 1024px) {
   .main {
