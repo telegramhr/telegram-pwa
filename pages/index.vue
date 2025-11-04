@@ -305,6 +305,7 @@
       </div>
     </div>
     <app-link
+      v-if="!$store.state.user.access.length"
       to="https://www.telegram.hr/pretplata/black-friday"
       class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center"
       style="padding: 0 24px; margin-top: 20px"

@@ -98,9 +98,15 @@ export default {
         src: 'https://accounts.google.com/gsi/client',
         async: true,
       },
+      {
+        hid: 'didomi',
+        innerHTML: `
+        (function(){(function(e,i,o){var n=document.createElement("link");n.rel="preconnect";n.as="script";var t=document.createElement("link");t.rel="dns-prefetch";t.as="script";var r=document.createElement("script");r.id="spcloader";r.type="text/javascript";r["async"]=true;r.charset="utf-8";window.didomiConfig=window.didomiConfig||{};window.didomiConfig.sdkPath=window.didomiConfig.sdkPath||o||"https://sdk.privacy-center.org/";const d=window.didomiConfig.sdkPath;var a=d+e+"/loader.js?target_type=notice&target="+i;if(window.didomiConfig&&window.didomiConfig.user){var c=window.didomiConfig.user;var s=c.country;var f=c.region;if(s){a=a+"&country="+s;if(f){a=a+"&region="+f}}}n.href=d;t.href=d;r.src=a;var m=document.getElementsByTagName("script")[0];m.parentNode.insertBefore(n,m);m.parentNode.insertBefore(t,m);m.parentNode.insertBefore(r,m)})("b8cbd6c4-a12b-4458-9e43-ddc7d65b74d3","XaLNUEYf")})();`,
+      },
     ],
     __dangerouslyDisableSanitizersByTagID: {
       remplib: ['innerHTML'],
+      didomi: ['innerHTML'],
     },
   },
 
