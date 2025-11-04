@@ -28,7 +28,7 @@
           :key="index"
         >
           <font-awesome-icon class="benefit-icon" :icon="['fas', 'check']" />
-          <p>{{ feat }}</p>
+          <p class="feature-content" v-html="feat"></p>
         </div>
       </div>
     </div>
@@ -78,10 +78,12 @@ export default {
                   'Do 5 korisnika na jednoj pretplati',
                 ]
               : [
-                  'Neograničeno čitanje svih članaka',
-                  'Ekskluzivni newsletteri i analize',
-                  '30 poklon članaka mjesečno',
-                  'Posebni popusti i pogodnosti Telegram Kluba',
+                  'Pristup za 3 člana obitelji ili prijatelja',
+                  'Neograničeno čitanje Telegrama i Telesporta uz pristup arhivi svih članaka',
+                  'Ekskluzivni newsletteri s posebnim analizama nagrađivanih autora',
+                  'Fokus na sadržaj - <span>surfanje bez reklama</span>',
+                  '10 poklon članaka mjesečno',
+                  'Posebni popusti i pogodnost Telegram Kluba',
                 ],
           buttonText: 'Odabrano',
           footerText: 'Otkažite u bilo kojem trenutku.',
@@ -101,10 +103,10 @@ export default {
                 'Do 5 korisnika na jednoj pretplati',
               ]
             : [
-                'Neograničeno čitanje Telegrama i pristup arhivi svih članaka',
-                'Ekskluzivni newsletteri s posebnim analizama nagrađivanih autora',
-                '10 poklon članaka mjesečno',
-                'Posebni popusti i pogodnost Telegram Kluba',
+                'Neograničeno čitanje svih članaka',
+                'Ekskluzivni newsletteri i analize',
+                '30 poklon članaka mjesečno',
+                'Posebni popusti i pogodnosti Telegram Kluba',
               ],
         buttonText: 'Odabrano',
         footerText: 'Otkažite u bilo kojem trenutku.',
@@ -241,17 +243,23 @@ export default {
 }
 
 .content .feature {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
+.feature-content {
   font-family: 'Barlow', sans-serif;
   font-size: 18px;
   line-height: 24px;
   color: black;
   display: flex;
-  flex-direction: row;
-  gap: 8px;
   text-align: left;
   align-items: center;
 }
-
+.feature-content ::v-deep(span) {
+  font-weight: 600;
+}
 .benefit-icon {
   color: #8d5b31;
 }

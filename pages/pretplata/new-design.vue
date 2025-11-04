@@ -75,6 +75,9 @@ export default {
   max-width: 865px;
 }
 @media screen and (min-width: 1024px) {
+  .content {
+    padding: 24px 0px 60px 0px;
+  }
   .boxes {
     flex-direction: row;
     gap: 60px;
