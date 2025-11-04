@@ -289,6 +289,9 @@ export default {
   background-color: #37ae37;
   color: white;
 }
+.footer button:active {
+  background-color: #237023;
+}
 
 .footer button.selected {
   background-color: #37ae37;

@@ -108,6 +108,9 @@
   line-height: 24px;
   font-weight: 600;
 }
+.login-btn:active {
+  background-color: #702323;
+}
 
 .divider {
   margin: 0 auto;
