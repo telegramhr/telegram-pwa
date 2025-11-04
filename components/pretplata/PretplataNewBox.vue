@@ -16,7 +16,9 @@
           <span class="benefit premium-recommended" v-if="type === 'premium'">
             Preporučeno
           </span>
-          <span class="benefit">{{ card.tag }}</span>
+          <span class="benefit" :class="{ premium: type === 'premium' }">{{
+            card.tag
+          }}</span>
         </div>
       </div>
       <div class="content">
@@ -127,13 +129,14 @@ export default {
   text-align: center;
   background-color: white;
   padding: 24px 25px 28px 25px;
-  border-radius: 10px;
+  border-radius: 8px;
   gap: 24px;
   justify-content: space-between;
-  cursor: pointer;
+  flex: 1 1 0;
 }
 .box-wrapper.selected {
-  border: 2px solid #9f9f9f;
+  outline: 2px solid #9f9f9f;
+  outline-offset: -2px;
 }
 .heading-section {
   display: flex;
@@ -183,7 +186,7 @@ export default {
 .tag-wrapper {
   display: flex;
   flex-direction: row;
-  gap: 12px;
+  gap: 10px;
   justify-content: center;
 }
 
@@ -200,7 +203,10 @@ export default {
   letter-spacing: 1px;
   background-color: #ffffff;
 }
-
+.benefit.premium {
+  padding: 8px 10px;
+  line-height: 14px;
+}
 .premium-recommended {
   position: relative;
   line-height: 1.6;
@@ -278,7 +284,7 @@ export default {
 
 .footer span {
   font-size: 12px;
-  line-height: 16px;
+  line-height: 14px;
   text-align: center;
 }
 
@@ -286,6 +292,7 @@ export default {
   .box-wrapper {
     padding: 28px 32px;
     gap: 28px;
+    border-radius: 10px;
   }
   .heading-section .title h3 {
     font-size: 28px;
@@ -311,8 +318,14 @@ export default {
     font-size: 16px;
     line-height: 22px;
   }
+  .tag-wrapper {
+    gap: 12px;
+  }
   .benefit {
     padding: 10px;
+  }
+  .footer span {
+    line-height: 16px;
   }
 }
 </style>

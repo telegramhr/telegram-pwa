@@ -26,8 +26,10 @@
 
       <span class="divider">ili</span>
       <div class="socials">
-        <button>Google</button>
-        <button>Facebook</button>
+        <button>
+          <img src="@/assets/img/google-logo.svg" alt="" /> Google
+        </button>
+        <button><img src="@/assets/img/facebook.svg" alt="" />Facebook</button>
       </div>
     </div>
   </div>
@@ -38,8 +40,8 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: 16px;
-  padding: 24px 0px;
+  gap: 28px;
+  padding: 28px 0px;
   border-top: 1px solid #b5b5b5;
 }
 
@@ -85,13 +87,13 @@
   border: 1px solid white;
   border-radius: 6px;
   font-family: 'Barlow', sans-serif;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 18px;
+  line-height: 24px;
 }
 .email-wrapper p {
   font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  line-height: 16px;
+  font-size: 14px;
+  line-height: 20px;
   color: #5f5f5f;
 }
 .login-btn {
@@ -117,8 +119,12 @@
   flex: 1 1 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
   justify-content: space-between;
+}
+.socials img {
+  width: 18px;
+  height: 18px;
 }
 .socials button {
   width: 100%;
@@ -129,23 +135,35 @@
   width: 100%;
   height: fit-content;
   font-family: 'Barlow', sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 24px;
   color: #5f5f5f;
   background-color: white;
   border: none;
-  border-radius: 8px;
-  padding: 11px 65px;
+  border-radius: 4px;
+  padding: 14px 65px;
   justify-content: center;
 }
 
 @media screen and (min-width: 1024px) {
+  .main {
+    padding: 24px 0px;
+    gap: 16x;
+  }
   #password-field {
     display: block;
+  }
+  .email-wrapper p {
+    font-size: 12px;
+    line-height: 16px;
   }
   .login {
     max-width: 352px;
     margin: 0 auto;
+  }
+  .login-input {
+    font-size: 16px;
+    line-height: 24px;
   }
   .login-btn {
     display: block;
@@ -160,10 +178,13 @@
     margin: 0;
   }
   .socials {
+    gap: 12px;
     flex-direction: row;
   }
   .socials button {
+    font-size: 16px;
     max-width: 205px;
+    border-radius: 8px;
   }
 }
 </style>

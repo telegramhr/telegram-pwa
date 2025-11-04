@@ -2,117 +2,117 @@
   <div class="main">
     <div class="column-wrapper">
       <span>Odaberite trajanje pretplate</span>
+      <div class="column">
+        <div
+          class="radio-wrapper"
+          :class="{ active: subscription === 'annual' }"
+          @click="subscription = 'annual'"
+        >
+          <input
+            type="radio"
+            value="annual"
+            v-model="subscription"
+            @click.stop
+            class="custom-radio"
+          />
 
-      <!-- Annual subscription -->
-      <div
-        class="radio-wrapper"
-        :class="{ active: subscription === 'annual' }"
-        @click="subscription = 'annual'"
-      >
-        <input
-          type="radio"
-          value="annual"
-          v-model="subscription"
-          @click.stop
-          class="custom-radio"
-        />
-
-        <div class="radio-option">
-          <div class="radio-heading">
-            <span>Godišnja pretplata</span>
-            <button class="discount">42% popusta</button>
+          <div class="radio-option">
+            <div class="radio-heading">
+              <span>Godišnja pretplata</span>
+              <button class="discount">42% popusta</button>
+            </div>
+            <p class="radio-description">208€ za godinu dana unaprijed</p>
           </div>
-          <p class="radio-description">208€ za godinu dana unaprijed</p>
         </div>
-      </div>
 
-      <!-- monthly subscription -->
-      <div
-        class="radio-wrapper"
-        :class="{ active: subscription === 'monthly' }"
-        @click="subscription = 'monthly'"
-      >
-        <input
-          type="radio"
-          value="monthly"
-          v-model="subscription"
-          @click.stop
-          class="custom-radio"
-        />
+        <!-- monthly subscription -->
+        <div
+          class="radio-wrapper"
+          :class="{ active: subscription === 'monthly' }"
+          @click="subscription = 'monthly'"
+        >
+          <input
+            type="radio"
+            value="monthly"
+            v-model="subscription"
+            @click.stop
+            class="custom-radio"
+          />
 
-        <div class="radio-option">
-          <div class="radio-heading">
-            <span>Mjesečna pretplata</span>
-            <button class="discount">30% popusta</button>
+          <div class="radio-option">
+            <div class="radio-heading">
+              <span>Mjesečna pretplata</span>
+              <button class="discount">30% popusta</button>
+            </div>
+            <p class="radio-description">
+              20,99€, možete otkazati u bilo kojem trenutku
+            </p>
           </div>
-          <p class="radio-description">
-            20,99€, možete otkazati u bilo kojem trenutku
-          </p>
         </div>
       </div>
     </div>
-
-    <div class="column-wrapper">
+    <div class="column-wrapper payment-type">
       <span>Odaberite način plaćanja</span>
+      <div class="column">
+        <!-- card -->
+        <div
+          class="radio-wrapper"
+          :class="{ active: payment === 'card' }"
+          @click="payment = 'card'"
+        >
+          <input
+            type="radio"
+            value="card"
+            v-model="payment"
+            @click.stop
+            class="custom-radio"
+          />
 
-      <!-- card -->
-      <div
-        class="radio-wrapper"
-        :class="{ active: payment === 'card' }"
-        @click="payment = 'card'"
-      >
-        <input
-          type="radio"
-          value="card"
-          v-model="payment"
-          @click.stop
-          class="custom-radio"
-        />
-
-        <div class="radio-option">
-          <div class="radio-heading">
-            <div class="card-wrapper">
-              <span>Kartica</span>
-              <div class="card-icons">
-                <img src="@/assets/img/mastercard.svg" alt="" />
-                <img src="@/assets/img/visa.svg" alt="" />
-                <img src="@/assets/img/apple-pay.svg" alt="" />
-                <img src="@/assets/img/google-pay.svg" alt="" />
+          <div class="radio-option">
+            <div class="radio-heading">
+              <div class="card-wrapper">
+                <span>Kartica</span>
+                <div class="card-icons">
+                  <img src="@/assets/img/mastercard.svg" alt="" />
+                  <img src="@/assets/img/visa.svg" alt="" />
+                  <img src="@/assets/img/apple-pay.svg" alt="" />
+                  <img src="@/assets/img/google-pay.svg" alt="" />
+                </div>
               </div>
             </div>
+            <p class="radio-description">
+              Visa, Mastercard, Apple Pay i Google Pay
+            </p>
           </div>
-          <p class="radio-description">
-            Visa, Mastercard, Apple Pay i Google Pay
-          </p>
         </div>
-      </div>
 
-      <!-- bank -->
-      <div
-        class="radio-wrapper"
-        :class="{ active: payment === 'bank' }"
-        @click="payment = 'bank'"
-      >
-        <input
-          type="radio"
-          value="bank"
-          v-model="payment"
-          @click.stop
-          class="custom-radio"
-        />
+        <!-- bank -->
+        <div
+          class="radio-wrapper"
+          :class="{ active: payment === 'bank' }"
+          @click="payment = 'bank'"
+        >
+          <input
+            type="radio"
+            value="bank"
+            v-model="payment"
+            @click.stop
+            class="custom-radio"
+          />
 
-        <div class="radio-option">
-          <div class="radio-heading">
-            <div class="card-wrapper">
-              <span>Bankovna uplata</span>
-              <div class="card-icons">
-                <img src="@/assets/img/bank-transfer.svg" alt="" />
+          <div class="radio-option">
+            <div class="radio-heading">
+              <div class="card-wrapper">
+                <span>Bankovna uplata</span>
+                <div class="card-icons">
+                  <img src="@/assets/img/bank-transfer.svg" alt="" />
+                </div>
               </div>
             </div>
+            <p class="radio-description">
+              Generirat ćemo uplatnicu s podacima za plaćanje
+            </p>
           </div>
-          <p class="radio-description">
-            Generirat ćemo uplatnicu s podacima za plaćanje
-          </p>
         </div>
       </div>
     </div>
@@ -136,9 +136,9 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 62px;
+  gap: 28px;
   border-top: 1px solid #b5b5b5;
-  padding: 24px 0px;
+  padding: 28px 0px;
 }
 
 .column-wrapper {
@@ -148,12 +148,22 @@ export default {
   gap: 24px;
 }
 
-.column-wrapper span {
+.column-wrapper > span {
   font-family: 'Barlow';
   font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 14px;
+  line-height: 22px;
   color: #5f5f5f;
+}
+.column-wrapper.payment-type {
+  gap: 18px;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 28px;
+  justify-content: space-between;
 }
 
 .radio-wrapper {
@@ -161,6 +171,7 @@ export default {
   align-items: center;
   gap: 12px;
   cursor: pointer;
+  max-height: 40px;
 }
 
 .radio-option {
@@ -250,6 +261,18 @@ export default {
 @media screen and (min-width: 1024px) {
   .main {
     flex-direction: row;
+    gap: 62px;
+    padding: 24px 0px;
+  }
+  .column-wrapper > span {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .column-wrapper.payment-type {
+    gap: 24px;
+  }
+  .column {
+    gap: 32px;
   }
 }
 </style>

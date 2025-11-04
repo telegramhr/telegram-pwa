@@ -1,7 +1,7 @@
 <template>
   <div>
     <PretplataHero
-      title="Čitajte najbolje članke renomiranih autora.Podržite slobodno novinarstvo pretplatom."
+      title="Čitajte najbolje članke renomiranih autora. Podržite slobodno novinarstvo pretplatom."
     ></PretplataHero>
     <div class="content">
       <div class="box-wrapper">

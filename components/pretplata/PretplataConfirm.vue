@@ -75,7 +75,7 @@ export default {
   display: flex;
   flex-direction: column;
   font-family: 'Barlow', sans-serif;
-  gap: 24px;
+  gap: 28px;
 }
 
 .promo-wrapper {
@@ -86,8 +86,8 @@ export default {
 
 .promo-wrapper span {
   font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 14px;
+  line-height: 22px;
   color: #5f5f5f;
 }
 .promo-input {
@@ -113,7 +113,7 @@ export default {
 .toggle-container {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
 }
 
 .toggle {
@@ -151,7 +151,8 @@ export default {
 .confirm-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 22px;
+  padding-bottom: 20px;
 }
 
 .confirm-wrapper div {
@@ -190,5 +191,22 @@ export default {
   font-size: 12px;
   line-height: 18px;
   color: #5f5f5f;
+}
+@media (min-width: 1024px) {
+  .main {
+    padding-top: 24px;
+    gap: 24px;
+  }
+  .promo-wrapper span {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .confirm-wrapper {
+    padding-bottom: 0px;
+    gap: 20px;
+  }
+  .toggle-container {
+    gap: 16px;
+  }
 }
 </style>

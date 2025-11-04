@@ -19,7 +19,7 @@
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
-  padding: 52px 0px;
+  padding: 56px 0px;
   display: flex;
   flex-direction: column;
   gap: 28px;
@@ -28,14 +28,26 @@
 .wrapper h1 {
   font-family: 'Lora', sans-serif;
   font-weight: 500;
-  font-size: 24px;
-  line-height: 28px;
+  font-size: 20px;
+  line-height: 26px;
   color: white;
 }
 .wrapper img {
   width: 100%;
-  max-width: 180px;
+  max-width: 130px;
   margin: 0 auto;
+}
+@media (min-width: 1024px) {
+  .wrapper {
+    padding: 52px 0px;
+  }
+  .wrapper img {
+    max-width: 180px;
+  }
+  .wrapper h1 {
+    font-size: 24px;
+    line-height: 28px;
+  }
 }
 </style>
 

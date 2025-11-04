@@ -69,11 +69,11 @@ export default {
   display: flex;
   flex-direction: row;
   padding: 12px;
-  gap: 8px;
+  gap: 4px;
   border-radius: 12px;
   background-color: #f1e3d7;
   border: 1px solid #6a484808;
-  max-width: 300px;
+  max-width: 260px;
   justify-content: space-between;
   width: 100%;
   margin: 0 auto;
@@ -81,13 +81,13 @@ export default {
 .wrapper button {
   font-family: 'Barlow', sans-serif;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 16px;
-  padding: 4px 8px;
+  padding: 6px 8px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 6px;
+  gap: 2px;
   background-color: transparent;
   border: none;
   border-radius: 8px;
@@ -117,6 +117,15 @@ button:hover {
   color: #d30000;
 }
 @media (min-width: 1024px) {
+  .wrapper {
+    max-width: 300px;
+    gap: 8px;
+  }
+  .wrapper button {
+    font-size: 18px;
+    gap: 6px;
+    padding: 4px 8px;
+  }
   .wrapper button svg {
     height: 24px;
     width: 24px;
