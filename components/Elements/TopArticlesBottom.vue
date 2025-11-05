@@ -35,6 +35,12 @@
   max-width: 710px;
   margin: 0 auto;
 }
+.dark-mode .containerArticles {
+  background-color: #373737;
+}
+.contrast-mode .containerArticles {
+  background-color: #f5f5f5;
+}
 @media screen and (min-width: 768px) {
   .containerArticles {
     padding: 40px 0px;
