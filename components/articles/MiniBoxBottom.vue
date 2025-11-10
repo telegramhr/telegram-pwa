@@ -100,7 +100,6 @@ h3 {
   display: flex;
   flex-direction: row;
   align-items: center;
-  opacity: v-bind('post.comments ? 1 : 0');
 }
 .singleArticleComments img {
   width: 18px;
