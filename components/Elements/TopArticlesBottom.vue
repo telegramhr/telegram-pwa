@@ -10,7 +10,7 @@
           :widgetPosition="index + 1"
           :widget-type="'bottomV1'"
           :utm="{ campaign: 'TGbottom' }"
-          :recirculation="'TGBottom'"
+          :recirculation="'TGBottom' + algorithmType"
         ></mini-box-bottom>
       </div>
     </div>
@@ -58,6 +58,10 @@ export default {
     posts: {
       type: Array,
       default: () => [],
+    },
+    algorithmType: {
+      type: String,
+      default: 'v1',
     },
   },
   data() {
