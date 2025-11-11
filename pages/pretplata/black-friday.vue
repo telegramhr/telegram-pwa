@@ -831,7 +831,7 @@ export default {
   flex-direction: column;
   gap: 12px;
   width: 100%;
-  max-width: 171px;
+  max-width: 200px;
   margin: 0 auto;
 }
 
