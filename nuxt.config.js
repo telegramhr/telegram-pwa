@@ -95,6 +95,7 @@ export default {
     ],
     __dangerouslyDisableSanitizersByTagID: {
       remplib: ['innerHTML'],
+      didomi: ['innerHTML'],
     },
   },
 

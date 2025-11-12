@@ -1,16 +1,22 @@
 export const state = () => ({
   posts: [],
+  secretDinnerPosts: [],
   breaks: [],
   breaks2: [],
   updated: null,
   updated2: null,
   updated3: null,
+  updated4: null,
 })
 
 export const mutations = {
   setPosts(state, data) {
     state.posts = data
     state.updated = new Date().getTime()
+  },
+  setSecretDinnerPosts(state, data) {
+    state.secretDinnerPosts = data
+    state.updated4 = new Date().getTime()
   },
   setBreaks(state, data) {
     state.breaks = data
@@ -29,6 +35,16 @@ export const actions = {
         this.$axios.get('/api/s1/zone/s1-glavna').then((res) => {
           commit('setPosts', res.data)
           dispatch('posts/setPosts', res.data, { root: true })
+          resolve()
+        })
+      })
+    }
+  },
+  pullSecretDinnerPosts({ commit, dispatch, state }) {
+    if (state.updated4 + 0.5 * 60 * 1000 < new Date().getTime()) {
+      return new Promise((resolve) => {
+        this.$axios.get('/api/s1/secret-dinner').then((res) => {
+          commit('setSecretDinnerPosts', res.data)
           resolve()
         })
       })

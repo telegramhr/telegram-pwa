@@ -539,7 +539,7 @@
     </div>
     <!-- Book widget Bili libar 2 -->
     <app-link
-      to="/knjiga/boris-dezulovic-bili-libar-2"
+      to="https://knjige.telegram.hr/proizvod/knjige/bili-libar-2/"
       class="full flex relative center mobile-side-pad darkened-bg column-full-pad shoo-bottom"
     >
       <div class="container relative flex stretch">
@@ -563,9 +563,11 @@
           />
         </div>
         <div class="fifth tablet-full flex flex-responsive center">
-          <div class="full relative center-text newbook-price">19,99€</div>
+          <div class="full relative center-text newbook-price">
+            <span style="text-decoration: line-through">19,99€</span>
+            15,99€
+          </div>
           <div class="full relative center-text neat-numbers">
-            (150,61 kn)
             <br />
             Besplatna dostava po cijeloj Hrvatskoj
           </div>

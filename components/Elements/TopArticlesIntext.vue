@@ -9,7 +9,7 @@
         :widgetPosition="index + 1"
         :widget-type="'inArticle'"
         :utm="{ campaign: 'TGintext' }"
-        :recirculation="'TGIntext'"
+        :recirculation="'TGIntext' + algorithmType"
       ></mini-box>
     </div>
   </div>
@@ -60,6 +60,10 @@ export default {
     posts: {
       type: Array,
       default: () => [],
+    },
+    algorithmType: {
+      type: String,
+      default: 'v1',
     },
   },
   data() {

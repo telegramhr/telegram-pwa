@@ -10,7 +10,7 @@
           :widgetPosition="index + 1"
           :widget-type="'bottomV1'"
           :utm="{ campaign: 'TGbottom' }"
-          :recirculation="'TGBottom'"
+          :recirculation="'TGBottom' + algorithmType"
         ></mini-box-bottom>
       </div>
     </div>
@@ -35,6 +35,12 @@
   max-width: 710px;
   margin: 0 auto;
 }
+.dark-mode .containerArticles {
+  background-color: #373737;
+}
+.contrast-mode .containerArticles {
+  background-color: #f5f5f5;
+}
 @media screen and (min-width: 768px) {
   .containerArticles {
     padding: 40px 0px;
@@ -52,6 +58,10 @@ export default {
     posts: {
       type: Array,
       default: () => [],
+    },
+    algorithmType: {
+      type: String,
+      default: 'v1',
     },
   },
   data() {
