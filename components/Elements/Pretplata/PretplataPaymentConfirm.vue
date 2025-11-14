@@ -173,12 +173,13 @@ export default {
     applyPromo() {
       this.updateLoading(true)
       this.$axios
-        .post('/crm/api/v1/voucher/activate', {
+        .$post('/crm/api/v1/voucher/activate', {
           code: this.promo_code,
           subscription_type_code: this.pack,
           include_discounted_amount: true,
         })
         .then((res) => {
+          console.log(res)
           this.voucher_log_id = res.data.voucher_log_id
           // this.discount = res.data.discounted_amount
         })
@@ -191,7 +192,7 @@ export default {
       this.promoError = ''
       // check if promo code is valid
       this.$axios
-        .get('/crm/api/v2/voucher/check', {
+        .$get('/crm/api/v2/voucher/check', {
           params: {
             code: this.promoCode,
             subscription_type_code: this.pack,
@@ -199,6 +200,7 @@ export default {
           },
         })
         .then((res) => {
+          console.log(res)
           this.discountedAmount = res.data.discounted_amount
             ? res.data.discounted_amount
             : 0
@@ -224,7 +226,6 @@ export default {
       }
       const form = document.getElementById('payment-form')
       const formData = new FormData(form)
-      console.log(formData)
       const actionUrl = form.action
       fetch(actionUrl, {
         method: 'POST',
@@ -253,7 +254,7 @@ export default {
     },
     bankTransfer() {
       this.$axios
-        .post('/pretplate/api/pretplata/bank', {
+        .$post('/pretplate/api/pretplata/bank', {
           subscription_type: this.pack,
           price: this.discountedAmount ? this.discountedAmount : this.price,
           email: this.email,
@@ -262,6 +263,8 @@ export default {
           promo_code: this.promo_code,
         })
         .then((response) => {
+          console.log(response)
+
           if (response.data.id) {
             this.$router.push('/pretplata/bank/' + response.data.id)
           } else {
