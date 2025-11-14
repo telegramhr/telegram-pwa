@@ -453,14 +453,9 @@
             class="full"
           >
             <top-articles-bottom
-              v-if="widgetVariant === 'v1'"
+              :algorithm-type="this.top_articles_version"
               :posts="top_articles.slice(3)"
             ></top-articles-bottom>
-            <top-articles-bottom-v2
-              v-if="widgetVariant === 'v2'"
-              :utm="{ campaign: 'TGbottomV2' }"
-              :posts="top_articles.slice(3)"
-            ></top-articles-bottom-v2>
           </div>
           <div
             v-if="
@@ -621,9 +616,12 @@ export default {
       if (post.category_slug.includes('telesport')) {
         portal = 'telesport'
       }
-      this.top_articles = await this.$axios.$get(
-        encodeURI('api/top-articles-ctr/' + portal + '/' + post.id)
-      )
+      this.top_articles_version = Math.random() < 0.5 ? 'v1' : 'v2'
+      const endpoint =
+        this.top_articles_version === 'v1'
+          ? `api/top-articles-ctr/${portal}/${post.id}`
+          : `api/top-articles-most-read/${portal}/${post.id}`
+      this.top_articles = await this.$axios.$get(encodeURI(endpoint))
 
       if (
         process.server &&
@@ -708,6 +706,7 @@ export default {
         live: false,
       },
       top_articles: [],
+      top_articles_version: 'v1',
       related_posts: [],
       hasLinker: false,
       giftValid: false,
@@ -1108,6 +1107,13 @@ export default {
           scriptTag.src = 'https://platform.twitter.com/widgets.js'
           head.append(scriptTag)
         }
+        if (!document.getElementsByClassName('coral-counters-script').length) {
+          const head = document.getElementsByTagName('head')[0]
+          const scriptTag = document.createElement('script')
+          scriptTag.classList.add('coral-counters-script')
+          scriptTag.src = 'https://talk.telegram.hr/assets/js/count.js'
+          head.append(scriptTag)
+        }
         if (document.getElementsByClassName('tiktok-embed').length) {
           const head = document.getElementsByTagName('head')[0]
           const scriptTag = document.createElement('script')
@@ -1167,6 +1173,7 @@ export default {
           h('top-articles-intext', {
             props: {
               posts: this.top_articles.slice(0, 3),
+              algorithmType: this.top_articles_version,
             },
           }),
       })

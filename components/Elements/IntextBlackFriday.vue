@@ -318,6 +318,7 @@ export default {
     margin-top: 30px;
   }
   .desktop-title span {
+    font-family: 'Barlow', sans-serif;
     font-weight: 700;
     font-size: 140px;
     line-height: 182px;
@@ -337,10 +338,10 @@ export default {
     text-align: center;
     margin-bottom: 0px !important;
   }
-  .description span {
+  .description ::v-deep(span) {
     font-weight: 700;
   }
-  .description .overline {
+  .description ::v-deep(.overline) {
     text-decoration: line-through;
     font-weight: 400;
     color: #b5b5b5;

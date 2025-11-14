@@ -85,6 +85,14 @@ h3 {
   flex-direction: row;
   justify-content: space-between;
 }
+
+.dark-mode .singleArticleMeta {
+  color: white;
+}
+.contrast-mode .singleArticleMeta,
+.contrast-mode .singleArticleText {
+  color: #212121;
+}
 .singleArticleDate {
   display: none;
 }
@@ -92,7 +100,6 @@ h3 {
   display: flex;
   flex-direction: row;
   align-items: center;
-  opacity: v-bind('post.comments ? 1 : 0');
 }
 .singleArticleComments img {
   width: 18px;

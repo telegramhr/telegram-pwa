@@ -225,48 +225,25 @@
           <div
             class="noththree flex superone-section-title superone-pilatesBagTitle"
           >
-            <img
-              src="@/assets/img/s1_logo_clean_noline.svg"
-              alt="Super1 logo"
-            />
-            <img
-              src="@/assets/img/s1_logo_clean_noline_white.svg"
-              alt="Super1 logo"
-              class="dark-mode-only"
-            />
-            <span>specijal</span>
+            <span><b>Super secret dinner: </b>artist edition</span>
           </div>
         </div>
         <div
-          class="three-fourths superone-preporuka flex flex-responsive relative"
+          class="full flex relative superone-preporuka flex flex-responsive relative"
         >
-          <div class="full flex column-vertical-pad">
+          <div class="full container flex relative">
             <div
-              class="full flex article-featured article-superfeat article relative"
-              role="article"
+              v-for="(post, index) in secretDinnerPosts"
+              :key="post.id"
+              class="third flex-responsive flex column-full-pad"
             >
-              <a
-                class="full flex square-img"
-                href="https://www.telegram.hr/super1/native/minuta-za-nas-dvije-s1-projekt/"
-              >
-                <img
-                  src="https://www.telegram.hr/wp-content/uploads/2025/10/minz.jpg"
-                  alt="Kip žene, ruka ispred drži grudnjak u ruci"
-                  loading="lazy"
-                />
-              </a>
-              <div class="full flex article-pad mobile-side-pad">
-                <a
-                  class="full flex"
-                  href="https://www.telegram.hr/super1/native/minuta-za-nas-dvije-s1-projekt/"
-                >
-                  <h2 class="full animate">
-                    <b>Get Them Checked</b>
-                    Odvoji minutu za nas dvije i proširi riječ dalje - mamama,
-                    prijateljicama, kolegicama!
-                  </h2>
-                </a>
-              </div>
+              <superfeat
+                :key="post.id"
+                :post="post"
+                mrf-location="super1"
+                mrf-widget="featured"
+                :mrf-position="(index + 7).toString()"
+              ></superfeat>
             </div>
           </div>
         </div>
@@ -427,6 +404,7 @@ export default {
   components: { Superfeat },
   async fetch() {
     await this.$store.dispatch('s1/pullPosts')
+    await this.$store.dispatch('s1/pullSecretDinnerPosts')
     await this.$store.dispatch('s1/pullBreaks')
     await this.$store.dispatch('s1/pullBreaks2')
     // await this.$store.dispatch('category/mostRead', { category: 'super1' })
@@ -471,6 +449,9 @@ export default {
     },
     posts() {
       return this.$store.state.s1.posts
+    },
+    secretDinnerPosts() {
+      return this.$store.state.s1.secretDinnerPosts
     },
     breaks() {
       return this.$store.state.s1.breaks
