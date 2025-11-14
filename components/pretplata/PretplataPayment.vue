@@ -5,79 +5,72 @@
       <div class="column">
         <div
           class="radio-wrapper"
-          :class="{ active: subscription === 'annual' }"
-          @click="subscription = 'annual'"
+          :class="{ active: subscriptionDuration === 'annual' }"
+          @click="setSubscriptionDuration('annual')"
         >
           <input
             type="radio"
             value="annual"
-            v-model="subscription"
-            @click.stop
+            :checked="subscriptionDuration === 'annual'"
+            @click.stop="setSubscriptionDuration('annual')"
             class="custom-radio"
           />
-
           <div class="radio-option">
             <div class="radio-heading">
               <span>Godišnja pretplata</span>
               <button class="discount">42% popusta</button>
             </div>
-            <p class="radio-description">208€ za godinu dana unaprijed</p>
+            <p class="radio-description">
+              {{ getPrice('annual') }} € za godinu dana unaprijed
+            </p>
           </div>
         </div>
 
-        <!-- monthly subscription -->
         <div
           class="radio-wrapper"
-          :class="{ active: subscription === 'monthly' }"
-          @click="subscription = 'monthly'"
+          :class="{ active: subscriptionDuration === 'monthly' }"
+          @click="setSubscriptionDuration('monthly')"
         >
           <input
             type="radio"
             value="monthly"
-            v-model="subscription"
-            @click.stop
+            :checked="subscriptionDuration === 'monthly'"
+            @click.stop="setSubscriptionDuration('monthly')"
             class="custom-radio"
           />
-
           <div class="radio-option">
             <div class="radio-heading">
               <span>Mjesečna pretplata</span>
               <button class="discount">30% popusta</button>
             </div>
             <p class="radio-description">
-              20,99€, možete otkazati u bilo kojem trenutku
+              {{ getPrice('monthly') }} € mjesečno, možete otkazati u bilo kojem
+              trenutku
             </p>
           </div>
         </div>
       </div>
     </div>
+
     <div class="column-wrapper payment-type">
       <span>Odaberite način plaćanja</span>
       <div class="column">
-        <!-- card -->
         <div
           class="radio-wrapper"
-          :class="{ active: payment === 'card' }"
-          @click="payment = 'card'"
+          :class="{ active: paymentMethod === 'card' }"
+          @click="setPaymentMethod('card')"
         >
           <input
             type="radio"
             value="card"
-            v-model="payment"
-            @click.stop
+            :checked="paymentMethod === 'card'"
+            @click.stop="setPaymentMethod('card')"
             class="custom-radio"
           />
-
           <div class="radio-option">
             <div class="radio-heading">
               <div class="card-wrapper">
                 <span>Kartica</span>
-                <div class="card-icons">
-                  <img src="@/assets/img/mastercard.svg" alt="" />
-                  <img src="@/assets/img/visa.svg" alt="" />
-                  <img src="@/assets/img/apple-pay.svg" alt="" />
-                  <img src="@/assets/img/google-pay.svg" alt="" />
-                </div>
               </div>
             </div>
             <p class="radio-description">
@@ -86,28 +79,21 @@
           </div>
         </div>
 
-        <!-- bank -->
         <div
           class="radio-wrapper"
-          :class="{ active: payment === 'bank' }"
-          @click="payment = 'bank'"
+          :class="{ active: paymentMethod === 'bank' }"
+          @click="setPaymentMethod('bank')"
         >
           <input
             type="radio"
             value="bank"
-            v-model="payment"
-            @click.stop
+            :checked="paymentMethod === 'bank'"
+            @click.stop="setPaymentMethod('bank')"
             class="custom-radio"
           />
-
           <div class="radio-option">
             <div class="radio-heading">
-              <div class="card-wrapper">
-                <span>Bankovna uplata</span>
-                <div class="card-icons">
-                  <img src="@/assets/img/bank-transfer.svg" alt="" />
-                </div>
-              </div>
+              <div class="card-wrapper"><span>Bankovna uplata</span></div>
             </div>
             <p class="radio-description">
               Generirat ćemo uplatnicu s podacima za plaćanje
@@ -120,13 +106,35 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
-  name: 'SubscriptionOptions',
-  data() {
-    return {
-      subscription: 'annual',
-      payment: '',
-    }
+  name: 'PretplataPayment',
+  computed: {
+    ...mapState('pretplata-new', [
+      'subscriptionDuration',
+      'selectedPlan',
+      'paymentMethod',
+    ]),
+  },
+  methods: {
+    getPrice(duration) {
+      const term =
+        duration === 'annual' ? 'pretplata-godisnje' : 'pretplata-mjesecno'
+      const plan = this.selectedPlan
+      return this.$store.state['pretplata-new'].prices[`pretplata-${plan}`][
+        term
+      ].toLocaleString('hr-HR', { minimumFractionDigits: 2 })
+    },
+    setSubscriptionDuration(val) {
+      const term =
+        val === 'annual' ? 'pretplata-godisnje' : 'pretplata-mjesecno'
+      this.$store.commit('pretplata-new/SET_TERM', term)
+      this.$store.commit('pretplata-new/SET_SUBSCRIPTION_DURATION', val)
+    },
+    setPaymentMethod(val) {
+      this.$store.commit('pretplata-new/SET_PAYMENT_METHOD', val)
+    },
   },
 }
 </script>

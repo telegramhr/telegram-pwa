@@ -8,25 +8,21 @@
       <div class="box-header">
         <div class="title">
           <h3 :class="{ 'premium-title': type === 'premium' }">
-            {{ card.title }}
+            {{ type === 'premium' ? 'Premium' : 'Standard' }}
           </h3>
-          <p>{{ card.price }}<span>/mjesečno</span></p>
+          <p>{{ price }}<span>/mjesečno</span></p>
         </div>
         <div class="tag-wrapper">
           <span class="benefit premium-recommended" v-if="type === 'premium'">
             Preporučeno
           </span>
-          <span class="benefit" :class="{ premium: type === 'premium' }">{{
-            card.tag
-          }}</span>
+          <span class="benefit" :class="{ premium: type === 'premium' }">
+            {{ type === 'premium' ? 'BEZ REKLAMA' : 'MANJE REKLAMA' }}
+          </span>
         </div>
       </div>
       <div class="content">
-        <div
-          class="feature"
-          v-for="(feat, index) in card.features"
-          :key="index"
-        >
+        <div class="feature" v-for="(feat, index) in features" :key="index">
           <font-awesome-icon class="benefit-icon" :icon="['fas', 'check']" />
           <p class="feature-content" v-html="feat"></p>
         </div>
@@ -37,79 +33,61 @@
       <button :class="{ selected: selected }">
         {{ selected ? 'Odabrano' : 'Odaberite' }}
       </button>
-      <span>{{ card.footerText }}</span>
+      <span>Otkažite u bilo kojem trenutku.</span>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'SubscriptionCard',
+  name: 'PretplataNewBox',
   props: {
     type: {
       type: String,
       default: 'standard',
-      validator: (value) => ['standard', 'premium'].includes(value),
+      validator: (v) => ['standard', 'premium'].includes(v),
     },
     subscriptionType: {
       type: String,
       default: 'individual',
-      validator: (value) => ['individual', 'family'].includes(value),
+      validator: (v) => ['individual', 'family'].includes(v),
     },
-    selected: {
-      type: Boolean,
-      default: false,
-    },
+    price: { type: [Number, String], required: true },
+    selected: { type: Boolean, default: false },
   },
   computed: {
-    card() {
+    features() {
       if (this.type === 'premium') {
-        return {
-          title: 'Premium',
-          price: this.subscriptionType === 'family' ? '19,99€' : '12,99€',
-          tag: 'BEZ REKLAMA',
-          features:
-            this.subscriptionType === 'family'
-              ? [
-                  'Neograničeno čitanje svih članaka',
-                  'Ekskluzivni newsletteri i analize',
-                  '30 poklon članaka mjesečno',
-                  'Posebni popusti i pogodnosti Telegram Kluba',
-                  'Do 5 korisnika na jednoj pretplati',
-                ]
-              : [
-                  'Pristup za 3 člana obitelji ili prijatelja',
-                  'Neograničeno čitanje Telegrama i Telesporta uz pristup arhivi svih članaka',
-                  'Ekskluzivni newsletteri s posebnim analizama nagrađivanih autora',
-                  'Fokus na sadržaj - <span>surfanje bez reklama</span>',
-                  '10 poklon članaka mjesečno',
-                  'Posebni popusti i pogodnost Telegram Kluba',
-                ],
-          buttonText: 'Odabrano',
-          footerText: 'Otkažite u bilo kojem trenutku.',
-        }
-      }
-      return {
-        title: 'Standard',
-        price: this.subscriptionType === 'family' ? '12,99€' : '7,99€',
-        tag: 'MANJE REKLAMA',
-        features:
-          this.subscriptionType === 'family'
-            ? [
-                'Neograničeno čitanje Telegrama i pristup arhivi svih članaka',
-                'Ekskluzivni newsletteri s posebnim analizama nagrađivanih autora',
-                '10 poklon članaka mjesečno',
-                'Posebni popusti i pogodnost Telegram Kluba',
-                'Do 5 korisnika na jednoj pretplati',
-              ]
-            : [
-                'Neograničeno čitanje svih članaka',
-                'Ekskluzivni newsletteri i analize',
-                '30 poklon članaka mjesečno',
-                'Posebni popusti i pogodnosti Telegram Kluba',
-              ],
-        buttonText: 'Odabrano',
-        footerText: 'Otkažite u bilo kojem trenutku.',
+        return this.subscriptionType === 'family'
+          ? [
+              'Do 5 korisnika na jednoj pretplati',
+              'Neograničeno čitanje svih članaka',
+              'Ekskluzivni newsletteri i analize',
+              '30 poklon članaka mjesečno',
+              'Posebni popusti i pogodnosti Telegram Kluba',
+            ]
+          : [
+              'Neograničeno čitanje Telegrama i Telesporta uz pristup arhivi',
+              'Ekskluzivni newsletteri s posebnim analizama',
+              'Fokus na sadržaj - surfanje bez reklama',
+              '10 poklon članaka mjesečno',
+              'Posebni popusti i pogodnost Telegram Kluba',
+            ]
+      } else {
+        return this.subscriptionType === 'family'
+          ? [
+              'Do 5 korisnika na jednoj pretplati',
+              'Neograničeno čitanje Telegrama',
+              'Ekskluzivni newsletteri',
+              '10 poklon članaka mjesečno',
+              'Posebni popusti',
+            ]
+          : [
+              'Neograničeno čitanje svih članaka',
+              'Ekskluzivni newsletteri i analize',
+              '30 poklon članaka mjesečno',
+              'Posebni popusti i pogodnosti Telegram Kluba',
+            ]
       }
     },
   },
