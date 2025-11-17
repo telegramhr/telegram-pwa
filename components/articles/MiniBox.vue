@@ -112,7 +112,6 @@ h3 {
   line-height: 28px;
   letter-spacing: 0%;
   max-width: 500px;
-  text-align: center;
   margin-top: 20px;
   margin-bottom: 16px;
 }
@@ -121,7 +120,6 @@ h3 {
   font-family: 'barlow', sans-serif;
   max-width: 460px;
   font-size: 14px;
-  text-align: center;
   font-weight: 400;
   line-height: 18px;
   color: #5f5f5f;
@@ -136,10 +134,12 @@ h3 {
   font-size: 12px;
   line-height: 20px;
   letter-spacing: 0.5px;
-  text-align: center;
   text-transform: uppercase;
   margin-top: 20px;
   color: #5f5f5f;
+}
+.singleArticlev1 .author {
+  width: 100%;
 }
 .singleArticlev2 {
   display: flex;

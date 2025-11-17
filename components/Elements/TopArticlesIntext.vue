@@ -1,6 +1,6 @@
 <template>
   <div class="containerArticles">
-    <h2 class="titleArticles">što biste trebali pročitati sljedeće</h2>
+    <h2 class="titleArticles">Što biste sljedeće trebali pročitati</h2>
     <div class="gridArticles">
       <mini-box
         v-for="(post, index) in posts"
