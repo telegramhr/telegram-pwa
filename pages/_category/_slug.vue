@@ -454,7 +454,7 @@
           >
             <top-articles-bottom
               :algorithm-type="this.top_articles_version"
-              :posts="top_articles.slice(3)"
+              :posts="top_articles.slice(1, 6)"
             ></top-articles-bottom>
           </div>
           <div
@@ -1172,7 +1172,7 @@ export default {
         render: (h) =>
           h('top-articles-intext', {
             props: {
-              posts: this.top_articles.slice(0, 3),
+              posts: this.top_articles.slice(0, 1),
               algorithmType: this.top_articles_version,
             },
           }),
