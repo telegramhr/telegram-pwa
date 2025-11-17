@@ -7,6 +7,7 @@
         <div class="email-wrapper">
           <input
             type="email"
+            autocomplete="off"
             :value="email"
             placeholder="Vaša e-mail adresa"
             class="login-input"
@@ -86,6 +87,27 @@ export default {
         this.handleUpdateCanlogin(false)
         return
       }
+      this.emailSubmit(value)
+    }, 1000),
+  },
+  methods: {
+    handleUpdateEmail(event) {
+      this.$emit('updateEmail', event.target.value)
+    },
+    handleUpdateCanlogin(value) {
+      this.$emit('updateCanLogIn', value)
+    },
+    login() {
+      if (!this.showPassword) {
+        return
+      }
+      this.$store.dispatch('user/loginSubmit', {
+        email: this.email,
+        password: this.password,
+        reload: false,
+      })
+    },
+    emailSubmit(value) {
       const _this = this
       const formData = new FormData()
       formData.append('email', value)
@@ -114,25 +136,15 @@ export default {
           _this.showPassword = false
           this.handleUpdateCanlogin(false)
         })
-    }, 1000),
+    },
   },
-  methods: {
-    handleUpdateEmail(event) {
-      this.$emit('updateEmail', event.target.value)
-    },
-    handleUpdateCanlogin(value) {
-      this.$emit('updateCanLogIn', value)
-    },
-    login() {
-      if (!this.showPassword) {
-        return
-      }
-      this.$store.dispatch('user/loginSubmit', {
-        email: this.email,
-        password: this.password,
-        reload: false,
-      })
-    },
+  mounted() {
+    if (isValidEmail(this.email)) {
+      this.emailSubmit(this.email)
+    }
+    if (isValidEmail(this.email) && this.canLogIn) {
+      this.showPassword = true
+    }
   },
 }
 function isValidEmail(value) {

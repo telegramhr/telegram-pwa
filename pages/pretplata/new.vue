@@ -50,7 +50,9 @@
           :pack="pack"
           :price="price"
           :email="email"
+          :discounted-amount="discount"
           @updateLoading="handleUpdateLoading"
+          @updateDiscount="handleUpdateDiscount"
         ></PretplataPaymentConfirm>
       </div>
     </div>
@@ -84,7 +86,7 @@ export default {
       iframeUrl: '',
       canLogIn: true,
       voucher_log_id: null,
-      discount: null,
+      discount: 0,
       loadingPromo: false,
       promo_error: '',
     }
@@ -104,6 +106,9 @@ export default {
     },
     handleUpdateLoading(state) {
       this.loading = state
+    },
+    handleUpdateDiscount(value) {
+      this.discount = value
     },
     selectPlan(planType) {
       this.selectedPlan = planType
@@ -126,6 +131,7 @@ export default {
     calculatePrice() {
       switch (this.subscriptionType) {
         case 'individual':
+          this.discount = 0
           this.urlKey = 'main'
           switch (this.selectedPlan) {
             case 'standard':
@@ -153,6 +159,7 @@ export default {
           }
           break
         case 'family':
+          this.discount = 0
           this.urlKey = 'family'
           switch (this.selectedPlan) {
             case 'standard':

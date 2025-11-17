@@ -35,14 +35,24 @@
     <div class="confirm-wrapper">
       <div>
         <label class="checkbox">
-          <input v-model="terms" class="checkbox-input" type="checkbox" />
+          <input
+            v-model="terms"
+            autocomplete="off"
+            class="checkbox-input"
+            type="checkbox"
+          />
           <span class="checkmark"></span>
           <p class="checkbox-label">Prihvaćam <span>uvjete korištenja</span></p>
         </label>
       </div>
       <div>
         <label class="checkbox">
-          <input v-model="privacy" class="checkbox-input" type="checkbox" />
+          <input
+            v-model="privacy"
+            autocomplete="off"
+            class="checkbox-input"
+            type="checkbox"
+          />
           <span class="checkmark"></span>
           <p class="checkbox-label">
             Prihvaćam <span>pravila privatnosti</span>
@@ -67,13 +77,13 @@
         id="voucher_log_id"
         type="hidden"
         name="payment_metadata[voucher_log_id]"
-        :value="voucher_log_id"
+        :value="discountedAmount ? voucher_log_id : ''"
       />
       <input
         id="voucher_code"
         type="hidden"
         name="payment_metadata[voucher_code]"
-        :value="promoCode"
+        :value="discountedAmount ? promoCode : ''"
       />
 
       <div class="submit-wrapper">
@@ -139,17 +149,21 @@ export default {
       type: Boolean,
       required: true,
     },
+    discountedAmount: {
+      type: Number,
+      default: 0,
+    },
   },
   data() {
     return {
       promo: false,
       promoCode: '',
       promoError: '',
+      promoSuccess: '',
       privacy: false,
       terms: false,
       voucher_log_id: '',
       show_msg: '',
-      discountedAmount: 0,
       retryCount: 0,
     }
   },
@@ -168,6 +182,16 @@ export default {
         return true
       }
       return false
+    },
+  },
+  watch: {
+    discountedAmount() {
+      if (this.discountedAmount === 0) {
+        this.promoCode = ''
+        this.promoSuccess = ''
+        this.voucher_log_id = ''
+        this.promoError = ''
+      }
     },
   },
   methods: {
@@ -200,9 +224,7 @@ export default {
           },
         })
         .then((res) => {
-          this.discountedAmount = res.discounted_amount
-            ? res.discounted_amount
-            : 0
+          this.updateDiscount(res.discounted_amount ? res.discounted_amount : 0)
           this.promoError = ''
           this.promoSuccess = 'Promo kod primjenjen!'
           this.updateLoading(false)
@@ -210,11 +232,15 @@ export default {
         .catch(() => {
           this.promoSuccess = ''
           this.promoError = 'Promo kod nije važeći'
+          this.updateDiscount(0)
           this.updateLoading(false)
         })
     },
     updateLoading(value) {
       this.$emit('updateLoading', value)
+    },
+    updateDiscount(value) {
+      this.$emit('updateDiscount', value)
     },
     submit() {
       this.updateLoading(true)
