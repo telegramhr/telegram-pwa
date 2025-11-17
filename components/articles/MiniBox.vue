@@ -104,6 +104,7 @@ h3 {
   height: auto;
 }
 .singleArticlev1 h3 {
+  text-align: left;
   font-family: 'Lora', 'sans-serif';
   margin: 0;
   font-weight: 600;
@@ -116,6 +117,7 @@ h3 {
   margin-bottom: 16px;
 }
 .singleArticlev1 h4 {
+  text-align: left;
   font-family: 'barlow', sans-serif;
   max-width: 460px;
   font-size: 14px;
@@ -126,6 +128,7 @@ h3 {
 }
 .singleArticlev1 .author,
 .singleArticlev2 .author {
+  text-align: left;
   font-family: 'barlow', sans-serif;
   line-height: 18px;
   font-family: Barlow;
@@ -184,11 +187,16 @@ h3 {
     aspect-ratio: 1.78;
   }
   .singleArticlev1 h3 {
+    text-align: center;
     margin-top: 28px;
   }
   .singleArticlev1 h4 {
+    text-align: center;
     font-size: 17px;
     line-height: 24px;
+  }
+  .singleArticlev1 .author {
+    text-align: center;
   }
   .singleArticlev2 {
     flex-direction: row;
