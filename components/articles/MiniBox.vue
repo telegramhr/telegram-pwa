@@ -176,6 +176,20 @@ h3 {
   line-height: 20px;
   text-transform: uppercase;
 }
+@media screen and (min-width: 481px) {
+  .singleArticlev1 h3 {
+    text-align: center;
+    margin-top: 28px;
+  }
+  .singleArticlev1 h4 {
+    text-align: center;
+    font-size: 17px;
+    line-height: 24px;
+  }
+  .singleArticlev1 .author {
+    text-align: center;
+  }
+}
 @media screen and (min-width: 768px) {
   .singleArticle {
     flex-direction: column;
