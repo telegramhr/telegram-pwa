@@ -67,7 +67,7 @@ export default {
       if (this.type === 'premium') {
         return {
           title: 'Premium',
-          price: this.subscriptionType === 'family' ? '19,99€' : '12,99€',
+          price: this.subscriptionType === 'family' ? '19,99€' : '9,99€',
           tag: 'BEZ REKLAMA',
           features:
             this.subscriptionType === 'family'

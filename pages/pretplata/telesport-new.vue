@@ -137,13 +137,13 @@ export default {
             case 'telesport':
               if (this.selectedTerm === 'monthly') {
                 this.pack = 'telesport_mjesecna_pretplata_2024'
-                this.price = '7.99'
+                this.price = '3.99'
               } else {
                 this.pack = 'telesport_godisnja_pretplata_2024'
-                this.price = '79'
+                this.price = '39'
               }
-              this.monthlyPrice = '7.99'
-              this.annualPrice = '79'
+              this.monthlyPrice = '3.99'
+              this.annualPrice = '39'
               break
             case 'premium':
               if (this.selectedTerm === 'monthly') {
@@ -178,7 +178,7 @@ export default {
                 this.pack = 'telegram_premium_4_tjedna_family_pretplata_admin'
                 this.price = '20.99'
               } else {
-                this.pack = 'telegram_premium_godisnja_pretplata_2024'
+                this.pack = 'telegram_premium_godisnja_family_pretplata_admin'
                 this.price = '208'
               }
               this.monthlyPrice = '20.99'
