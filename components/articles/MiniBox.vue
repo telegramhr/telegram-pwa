@@ -182,7 +182,6 @@ h3 {
   }
   .singleArticlev1 img {
     aspect-ratio: 1.78;
-    width: 290px;
   }
   .singleArticlev1 h3 {
     margin-top: 28px;
