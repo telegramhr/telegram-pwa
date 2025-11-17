@@ -57,13 +57,13 @@
         <div
           class="radio-wrapper"
           :class="{ active: payment === 'card' }"
-          @click="handleSelectPaymentType('card')"
+          @click="handleSelectPaymentType('trustpay_recurrent')"
         >
           <input
             type="radio"
             value="card"
             name="payment"
-            :checked="paymentType === 'card'"
+            :checked="paymentType === 'trustpay_recurrent'"
             class="custom-radio"
           />
           <div class="radio-option">

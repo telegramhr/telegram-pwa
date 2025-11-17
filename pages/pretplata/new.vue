@@ -65,7 +65,7 @@ export default {
       subscriptionType: 'individual',
       selectedPlan: 'premium',
       selectedTerm: 'annual',
-      payment: 'card',
+      payment: 'trustpay_recurrent',
       price: '',
       pack: 'pretplata-standard',
       term: 'pretplata-godisnje',
@@ -182,6 +182,60 @@ export default {
       }
     },
   },
+
+  head() {
+    return {
+      title: 'Telegram.hr Pretplata',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Odaberite jedan od paketa i podržite nas',
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: 'Odaberite jedan od paketa i podržite nas',
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          property: 'og:title',
+          content: 'Telegram.hr Pretplata',
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          property: 'og:image',
+          content:
+            'https://www.telegram.hr/wp-content/uploads/2021/01/tg-background.jpg',
+        },
+        {
+          hid: 'og:url',
+          name: 'og:url',
+          property: 'og:url',
+          content: 'https://www.telegram.hr/pretplata/',
+        },
+      ],
+      link: [
+        {
+          hid: 'canonical',
+          rel: 'canonical',
+          href: 'https://www.telegram.hr/pretplata/',
+        },
+      ],
+      script: [
+        {
+          hid: 'jquery',
+          src: 'https://code.jquery.com/jquery-3.7.1.min.js',
+        },
+        {
+          hid: 'trustpay-popup',
+          src: 'https://mapi.trustpay.eu/mapi5/Scripts/TrustPay/popup.js',
+        },
+      ],
+    }
+  },
 }
 </script>
 
@@ -189,7 +243,7 @@ export default {
 .telegram-overlay {
   position: fixed;
   top: 0;
-  z-index: 100;
+  z-index: 101;
   height: 100%;
   width: 100%;
   text-align: center;

@@ -79,9 +79,9 @@ export default {
                 ]
               : [
                   'Pristup za 3 člana obitelji ili prijatelja',
-                  'Neograničeno čitanje Telegrama i Telesporta uz pristup arhivi svih članaka',
+                  'Neograničeno čitanje Telegrama i Telesporta uz pristup arhivi svih članaka',
                   'Ekskluzivni newsletteri s posebnim analizama nagrađivanih autora',
-                  'Fokus na sadržaj - <span>surfanje bez reklama</span>',
+                  'Fokus na sadržaj - <b> surfanje bez reklama</b>',
                   '10 poklon članaka mjesečno',
                   'Posebni popusti i pogodnost Telegram Kluba',
                 ],
@@ -253,7 +253,6 @@ export default {
   font-size: 18px;
   line-height: 24px;
   color: black;
-  display: flex;
   text-align: left;
   align-items: center;
 }

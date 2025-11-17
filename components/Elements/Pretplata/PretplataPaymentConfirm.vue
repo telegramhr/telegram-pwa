@@ -79,14 +79,14 @@
       <div class="submit-wrapper">
         <button v-if="buyable" @click.prevent="submit">
           Dovršite kupnju za
-          <span v-if="discount" style="text-decoration: line-through"
+          <span v-if="discountedAmount" style="text-decoration: line-through"
             >{{ price }} €</span
           >
           <span>{{ finalPrice }} €</span>
         </button>
         <button v-if="!buyable" disabled>
           Dovršite kupnju za
-          <span v-if="discount" style="text-decoration: line-through"
+          <span v-if="discountedAmount" style="text-decoration: line-through"
             >{{ price }} €</span
           >
           <span>{{ finalPrice }} €</span>
@@ -150,6 +150,7 @@ export default {
       voucher_log_id: '',
       show_msg: '',
       discountedAmount: 0,
+      retryCount: 0,
     }
   },
   computed: {
@@ -217,7 +218,6 @@ export default {
     },
     submit() {
       this.updateLoading(true)
-
       if (this.paymentType === 'bank') {
         this.bankTransfer()
         return
@@ -238,16 +238,39 @@ export default {
             const trustpayIframe = document.getElementById('TrustPayFrame')
             if (trustpayIframe) {
               trustpayIframe.src = data.url + '&Localization=hr'
+              trustpayIframe.style.position = 'fixed'
+              trustpayIframe.style.zIndex = '100'
             }
+
             // Open TrustPay Popup
             /* global openPopup */
             openPopup()
+            setTimeout(() => {
+              this.updateLoading(false)
+            }, 1500)
           } else {
             this.show_msg = 'Došlo je do greške s plaćanjem.'
+            this.updateLoading(false)
           }
         })
         .catch(() => {
-          this.show_msg = 'Došlo je do greške prilikom slanja podataka.'
+          // Retry logic: retry once if it's the first attempt
+          console.log('Payment submission failed, retrying...')
+          console.log(this.retryCount)
+          if (this.retryCount < 2) {
+            this.retryCount += 1
+            // Wait a bit before retrying
+            console.log('inside...')
+
+            setTimeout(() => {
+              console.log('stet...')
+              this.submit()
+            }, 500)
+          } else {
+            // Failed after retry
+            this.updateLoading(false)
+            this.show_msg = 'Došlo je do greške prilikom slanja podataka.'
+          }
         })
     },
     bankTransfer() {
@@ -280,6 +303,10 @@ function isValidEmail(value) {
 <style scoped>
 #TrustPayFrame {
   height: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
 }
 .main {
   padding-top: 28px;
