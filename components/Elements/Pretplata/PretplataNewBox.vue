@@ -13,7 +13,7 @@
           <p>{{ card.price }}<span>/mjesečno</span></p>
         </div>
         <div class="tag-wrapper">
-          <span class="benefit premium-recommended" v-if="type === 'premium'">
+          <span v-if="type === 'premium'" class="benefit premium-recommended">
             Preporučeno
           </span>
           <span class="benefit" :class="{ premium: type === 'premium' }">{{
@@ -23,9 +23,9 @@
       </div>
       <div class="content">
         <div
-          class="feature"
           v-for="(feat, index) in card.features"
           :key="index"
+          class="feature"
         >
           <font-awesome-icon class="benefit-icon" :icon="['fas', 'check']" />
           <p class="feature-content" v-html="feat"></p>
@@ -49,7 +49,8 @@ export default {
     type: {
       type: String,
       default: 'standard',
-      validator: (value) => ['standard', 'premium'].includes(value),
+      validator: (value) =>
+        ['standard', 'premium', 'telesport'].includes(value),
     },
     subscriptionType: {
       type: String,
@@ -84,6 +85,30 @@ export default {
                   'Fokus na sadržaj - <b> surfanje bez reklama</b>',
                   '10 poklon članaka mjesečno',
                   'Posebni popusti i pogodnost Telegram Kluba',
+                ],
+          buttonText: 'Odabrano',
+          footerText: 'Otkažite u bilo kojem trenutku.',
+        }
+      } else if (this.type === 'telesport') {
+        return {
+          title: 'Standard',
+          price: this.subscriptionType === 'family' ? '8,39€' : '3,99€',
+          tag: 'BEZ REKLAMA',
+          features:
+            this.subscriptionType === 'family'
+              ? [
+                  'Neograničeno čitanje Telesporta i pristup arhivi svih članaka',
+                  'Ekskluzivni newsletteri s posebnim analizama nagrađivanih autora',
+                  'Surfanje uz manje reklama',
+                  '10 poklon članaka mjesečno',
+                  'Posebni popusti i pogodnosti Telegram Kluba',
+                ]
+              : [
+                  'Neograničeno čitanje Telesporta i pristup arhivi svih članaka',
+                  'Ekskluzivni newsletteri s posebnim analizama nagrađivanih autora',
+                  'Surfanje uz manje reklama',
+                  '10 poklon članaka mjesečno',
+                  'Posebni popusti i pogodnosti Telegram Kluba',
                 ],
           buttonText: 'Odabrano',
           footerText: 'Otkažite u bilo kojem trenutku.',

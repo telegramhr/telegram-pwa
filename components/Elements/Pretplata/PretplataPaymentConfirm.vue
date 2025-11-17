@@ -255,15 +255,10 @@ export default {
         })
         .catch(() => {
           // Retry logic: retry once if it's the first attempt
-          console.log('Payment submission failed, retrying...')
-          console.log(this.retryCount)
           if (this.retryCount < 2) {
             this.retryCount += 1
             // Wait a bit before retrying
-            console.log('inside...')
-
             setTimeout(() => {
-              console.log('stet...')
               this.submit()
             }, 500)
           } else {
@@ -456,6 +451,7 @@ function isValidEmail(value) {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  width: 100%;
 }
 
 .submit-wrapper button {
