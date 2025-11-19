@@ -32,18 +32,12 @@
       </div>
       <span class="divider">ili</span>
       <div class="socials">
-        <a
-          href="http://pretplata.telegram.hr/users/google/sign?url=https://www.telegram.hr/pretplata/new"
-          class="full center animate"
-        >
+        <a :href="googleUrl" class="full center animate">
           <button>
             <img src="@/assets/img/google-logo.svg" alt="" /> Google
           </button>
         </a>
-        <a
-          href="https://pretplata.telegram.hr/social-login/social-sign/sign?social_provider_key=facebook&success_login_url=https://www.telegram.hr/pretplata/new"
-          class="full center animate"
-        >
+        <a :href="facebookUrl" class="full center animate">
           <button>
             <img src="@/assets/img/facebook.svg" alt="" />Facebook
           </button>
@@ -66,6 +60,11 @@ export default {
       type: Boolean,
       required: true,
     },
+    loginUrl: {
+      type: String,
+      required: false,
+      default: '',
+    },
   },
   data() {
     return {
@@ -79,6 +78,16 @@ export default {
     loggedIn() {
       return !!this.$store.state.user.id
     },
+    googleUrl() {
+      return `http://pretplata.telegram.hr/users/google/sign?url=https://www.telegram.hr/pretplata/${encodeURIComponent(
+        this.loginUrl
+      )}`
+    },
+    facebookUrl() {
+      return `https://pretplata.telegram.hr/social-login/social-sign/sign?social_provider_key=facebook&success_login_url=https://www.telegram.hr/pretplata/${encodeURIComponent(
+        this.loginUrl
+      )}`
+    },
   },
   watch: {
     email: _.debounce(function (value) {
@@ -89,6 +98,14 @@ export default {
       }
       this.emailSubmit(value)
     }, 1000),
+  },
+  mounted() {
+    if (isValidEmail(this.email)) {
+      this.emailSubmit(this.email)
+    }
+    if (isValidEmail(this.email) && this.canLogIn) {
+      this.showPassword = true
+    }
   },
   methods: {
     handleUpdateEmail(event) {
@@ -137,14 +154,6 @@ export default {
           this.handleUpdateCanlogin(false)
         })
     },
-  },
-  mounted() {
-    if (isValidEmail(this.email)) {
-      this.emailSubmit(this.email)
-    }
-    if (isValidEmail(this.email) && this.canLogIn) {
-      this.showPassword = true
-    }
   },
 }
 function isValidEmail(value) {

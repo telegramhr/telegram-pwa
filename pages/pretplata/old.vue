@@ -801,7 +801,6 @@ export default {
       }
       const form = document.getElementById('payment-form')
       const formData = new FormData(form)
-      console.log(formData)
       const actionUrl = form.action
       fetch(actionUrl, {
         method: 'POST',

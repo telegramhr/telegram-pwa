@@ -37,6 +37,7 @@
         />
         <PretplataLogin
           :email="email"
+          :login-url="'telesport'"
           :can-log-in="canLogIn"
           @updateCanLogIn="updateCanLogIn"
           @updateEmail="updateEmail"
