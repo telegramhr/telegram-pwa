@@ -42,6 +42,7 @@
         />
       </svg>
       Family <span class="badge-novo">NOVO</span>
+      <span class="discount">30% Popusta</span>
     </button>
   </div>
 </template>
@@ -51,13 +52,12 @@ export default {
   name: 'Switcher',
   data() {
     return {
-      selectedType: 'individual', // default vrednost
+      selectedType: 'individual',
     }
   },
   methods: {
     changeType(type) {
       this.selectedType = type
-      // Emituj event prema parent komponenti
       this.$emit('subscription-type-changed', type)
     },
   },
@@ -66,6 +66,7 @@ export default {
 
 <style scoped>
 .wrapper {
+  position: relative;
   display: flex;
   flex-direction: row;
   padding: 8px 10px;
@@ -115,6 +116,22 @@ button:hover {
   line-height: 16px;
   text-transform: uppercase;
   color: #d30000;
+}
+.discount {
+  position: absolute;
+  top: -7px;
+  right: -2px;
+  rotate: 9deg;
+  background: #f0faf0;
+  color: #2e902e;
+  border: solid 1px #2e902e;
+  border-radius: 8px;
+  padding: 4px 6px;
+  font-size: 10px;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700;
+  cursor: default;
+  text-transform: uppercase;
 }
 @media (min-width: 1024px) {
   .wrapper {

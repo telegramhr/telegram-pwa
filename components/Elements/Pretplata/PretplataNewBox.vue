@@ -72,7 +72,7 @@ export default {
           features:
             this.subscriptionType === 'family'
               ? [
-                  'Do 3 korisnika - mogućnost dijeljenja pretplate s obitelji ili prijateljima',
+                  'Do 3 korisnika - mogućnost dijeljenja pretplate s obitelji ili prijateljima uz 30% popusta',
                   'Neograničeno čitanje Telegrama i Telesporta uz pristup arhivi',
                   'Ekskluzivni newsletteri s posebnim analizama nagrađivanih autora',
                   'Fokus na sadržaj - <b> čitanje bez reklama</b>',
@@ -121,7 +121,7 @@ export default {
         features:
           this.subscriptionType === 'family'
             ? [
-                'Do 3 korisnika - mogućnost dijeljenja pretplate s obitelji ili prijateljima',
+                'Do 3 korisnika - mogućnost dijeljenja pretplate s obitelji ili prijateljima uz 30% popusta',
                 'Neograničeno čitanje svih članaka Telegrama uz pristup arhivi',
                 'Ekskluzivni newsletteri s posebnim analizama nagrađivanih autora',
                 '10 poklon članaka mjesečno',

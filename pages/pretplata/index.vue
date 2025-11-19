@@ -34,6 +34,7 @@
           :monthly-price="monthlyPrice"
           @selectTerm="selectTerm"
           @selectPaymentType="selectPaymentType"
+          :subscription-type="subscriptionType"
         />
         <PretplataLogin
           :email="email"

@@ -19,7 +19,13 @@
           <div class="radio-option">
             <div class="radio-heading">
               <span>Godišnja pretplata</span>
-              <button class="discount">42% popusta</button>
+              <button class="discount">
+                {{
+                  subscriptionType === 'individual'
+                    ? '24% popusta'
+                    : '24% dodatni popust'
+                }}
+              </button>
             </div>
             <p class="radio-description">
               {{ annualPrice }}€ za godinu dana unaprijed
@@ -43,7 +49,6 @@
           <div class="radio-option">
             <div class="radio-heading">
               <span>Mjesečna pretplata</span>
-              <button class="discount">30% popusta</button>
             </div>
             <p class="radio-description">
               {{ monthlyPrice }}€, možete otkazati u bilo kojem trenutku
@@ -126,6 +131,11 @@ export default {
       type: String,
       required: true,
       default: 'annual',
+    },
+    subscriptionType: {
+      type: String,
+      required: true,
+      default: 'individual',
     },
     paymentType: {
       type: String,
