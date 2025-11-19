@@ -1,93 +1,47 @@
 <template>
   <transition name="fade">
-    <div
-      v-show="show"
-      class="full center extra-width"
-      :class="[softwall ? 'softwall' : '']"
-      data-nosnippet
-    >
-      <div class="full flex stretch zgt-salebox relative alt-salebox">
-        <div
-          v-if="softwall"
-          class="getmeouttahere-btn center clickable"
-          @click="show = false"
-        >
-          <font-awesome-icon :icon="['fas', 'times']"></font-awesome-icon>
-        </div>
-        <div
-          v-show="topBar"
-          class="full salebox-lockbox center-text barlow bold"
-        >
-          <font-awesome-icon :icon="['far', 'lock-keyhole']" /> {{ topBar }}
-        </div>
-        <div
-          class="sixty flex flex-responsive column-full-pad mobile-side-pad mobile-bottom-pad m-order-2"
-        >
-          <div class="full sub-price column-mini-bottom-pad">
-            {{ packName }}
-            <span v-if="oldPrice" class="faded strikethrough"
-              >{{ oldPrice }}€</span
-            >
-            <b>{{ newPrice }}€ {{ termDurationText }}</b>
+    <div v-show="show" class="main">
+      <div class="main-wrapper">
+        <div class="left-container">
+          <div class="title-wrapper">
+            <h3>{{ title }}</h3>
+            <p>{{ subtitle }}</p>
           </div>
-          <p class="full">
-            {{ subtitle }}
-          </p>
-          <div class="full flex even-out-btns">
-            <a
-              class="newbtn huge-newbtn center-text green-newbtn"
-              @click.prevent="start"
-              >{{ cta }}</a
-            >
-            <!--<div
-            v-if="softwall"
-            class="newbtn huge-newbtn altbtn center-text clickable"
-            @click="show = false"
-          >
-            Nastavite čitati
-          </div>-->
-            <div
-              v-if="!softwall && !$store.state.user.token"
-              class="newbtn huge-newbtn altbtn center-text clickable"
-              @click.prevent="login"
-            >
-              Već imam pretplatu
+          <div class="features-wrapper">
+            <div class="feature">
+              <img src="@/assets/img/black-checkbox.png" alt="" />
+              <p>{{ feature1 }}</p>
+            </div>
+            <div class="feature">
+              <img src="@/assets/img/black-checkbox.png" alt="" />
+              <p>{{ feature2 }}</p>
+            </div>
+            <div class="feature">
+              <img src="@/assets/img/black-checkbox.png" alt="" />
+              <p>{{ feature3 }}</p>
+            </div>
+            <div class="feature">
+              <img src="@/assets/img/black-checkbox.png" alt="" />
+              <p>{{ feature4 }}</p>
             </div>
           </div>
-          <div class="full flex alt-vertical-center">
-            <div class="flex remp-icon-list">
-              <font-awesome-icon :icon="['fab', 'cc-visa']"></font-awesome-icon>
-              <font-awesome-icon
-                :icon="['fab', 'cc-mastercard']"
-              ></font-awesome-icon>
-              <font-awesome-icon
-                :icon="['fab', 'cc-diners-club']"
-              ></font-awesome-icon>
+          <div class="bottom-section">
+            <div class="button-wrapper">
+              <button class="primary">Postanite pretplatnik</button>
+              <button class="secondary">Već imam pretplatu</button>
             </div>
-            <div class="flex faded barlow">
-              Možete otkazati u bilo kojem trenutku
+            <div class="logos">
+              <img src="@/assets/img/mastercard.svg" alt="Mastercard" />
+              <img src="@/assets/img/visa.svg" alt="Visa" />
+              <img src="@/assets/img/apple-pay.svg" alt="Apple Pay" />
+              <img src="@/assets/img/google-pay.svg" alt="Apple Pay" />
             </div>
           </div>
         </div>
-        <div
-          class="forty flex flex-responsive mobile-full-pad center raise-salebox-visual m-order-1"
-        >
-          <img
-            :src="desktop_image"
-            alt="Mobiteli na raznim stranicama Telegrama"
-            class="desktop-only"
-          />
-          <img
-            :src="mobile_image"
-            alt="Uređaji na raznim stranicama Telegrama"
-            class="mobile-only"
-          />
+        <div class="right-container">
+          <div class="overlay"></div>
+          <img src="@/assets/img/paywall-hero.png" alt="" />
         </div>
-        <!--<div v-if="softwall" class="full center">
-        <div class="newbtn huge-newbtn center-text nothanks-btn">
-          Nastavite čitati besplatno
-        </div>
-      </div>-->
       </div>
     </div>
   </transition>
@@ -100,12 +54,16 @@ export default {
     return {
       show: false,
       termId: false,
-      oldPrice: 99,
-      newPrice: 78,
-      packName: 'Osigurajte pristup istini za već od ',
-      termDurationText: 'godišnje',
-      subtitle: 'Pridružite se tisućama ljudi koji su podržali Telegram',
+
+      title:
+        'Uložite u priče koje vrijede.  Samo 4,99 € za 4 tjedna sadržaja koji vrijedi čitati',
+      subtitle:
+        'Članak je dio pretplatničkog sadržaja Telegrama, a uz članstvo dobivate brojne pogodnosti:',
       topBar: 'Ovaj članak dostupan je samo pretplatnicima',
+      feature1: 'Fokusirani ste na sadržaj i čitate bez reklama',
+      feature2: 'Pomažete u izgradnji neovisnog novinarstva',
+      feature3: 'Podržavate nagrađivane novinare koje najviše pratite',
+      feature4: 'Pristup raznim serijalima i kolumnama',
       softwall: false,
       cta: 'Kupite pretplatu',
       cta_link: '',
@@ -145,9 +103,9 @@ export default {
       }
       if (e.detail) {
         this.topBar = e.detail.topBar
-        this.subtitle = e.detail.subtitle
+        // this.subtitle = e.detail.subtitle
         this.termDurationText = e.detail.termDurationText
-        this.packName = e.detail.packName
+        // this.packName = e.detail.packName
         this.newPrice = e.detail.newPrice
         this.oldPrice = e.detail.oldPrice
         this.softwall = e.detail.softwall ?? false
@@ -190,29 +148,153 @@ export default {
 </script>
 
 <style scoped>
-.softwall {
-  position: fixed;
-  top: 0;
-  left: 0;
+.main {
+  display: block;
+  max-width: none !important;
+  position: relative;
+  overflow: hidden;
+  padding: 77px 0px 87px 0px;
+}
+.main-wrapper {
+  padding: 0px;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: stretch;
+}
+.left-container {
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+  width: 100% !important;
+  padding: 26px 0px 58px 0px;
+}
+.title-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.title-wrapper h3 {
+  font-family: 'Lora', sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 40px;
+  color: black;
+}
+.title-wrapper p {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  line-height: 28px;
+  color: #747474;
+}
+.features-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.features-wrapper .feature {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  font-family: 'Barlow', sans-serif;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 400;
+}
+.feature p {
+  margin: 0px !important;
+}
+.bottom-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.button-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.button-wrapper button {
+  width: 100%;
+  flex: 1 1 0;
+  padding: 8px;
+  border-radius: 6px;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+}
+.primary {
+  background-color: #009348;
+  color: white;
+  border: none;
+}
+.secondary {
+  background-color: white;
+  color: black;
+  border: 1px solid #dfdfdf;
+}
+.logos {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  margin: 0 auto;
+}
+.logos img {
+  max-width: 26px;
+}
+.right-container {
+  width: 100%;
+  padding-bottom: 56px;
+  position: relative;
+}
+.right-container img {
+  z-index: 30;
+  position: relative;
+}
+.overlay {
+  position: absolute;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 10px;
-  box-sizing: border-box;
-  overflow: hidden;
-  max-width: 100% !important;
+  background: linear-gradient(to top, #e4d4c5, #fcf1e7);
+  z-index: 0;
 }
+@media screen and (min-width: 1024px) {
+  .main-wrapper {
+    flex-direction: row;
+    gap: 60px;
+  }
+  .left-container {
+    gap: 40px;
+    max-width: 472px;
+    min-width: 470px;
+    padding: 77px 0px 56px 0px;
+  }
+  .title-wrapper h3 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  .title-wrapper p {
+    font-size: 18px;
+    line-height: 24px;
+  }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
+  .button-wrapper {
+    flex-direction: row;
+  }
+  .bottom-section {
+    gap: 12px;
+  }
+  .right-container img {
+    z-index: 30;
+    position: absolute;
+    right: -100px;
+    width: auto;
+    inset: 0;
+  }
+  .overlay {
+    background: linear-gradient(to left, #e4d4c5, #fcf1e7);
+  }
 }
 </style>
