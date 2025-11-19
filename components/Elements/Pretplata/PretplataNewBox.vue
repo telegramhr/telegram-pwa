@@ -72,17 +72,17 @@ export default {
           features:
             this.subscriptionType === 'family'
               ? [
-                  'Neograničeno čitanje svih članaka',
-                  'Ekskluzivni newsletteri i analize',
-                  '30 poklon članaka mjesečno',
-                  'Posebni popusti i pogodnosti Telegram Kluba',
-                  'Do 5 korisnika na jednoj pretplati',
+                  'Do 3 korisnika - mogućnost dijeljenja pretplate s obitelji ili prijateljima',
+                  'Neograničeno čitanje Telegrama i Telesporta uz pristup arhivi',
+                  'Ekskluzivni newsletteri s posebnim analizama nagrađivanih autora',
+                  'Fokus na sadržaj - <b> čitanje bez reklama</b>',
+                  '10 poklon članaka mjesečno',
+                  'Posebni popusti i pogodnost Telegram Kluba',
                 ]
               : [
-                  'Pristup za 3 člana obitelji ili prijatelja',
-                  'Neograničeno čitanje Telegrama i Telesporta uz pristup arhivi svih članaka',
+                  'Neograničeno čitanje Telegrama i Telesporta uz pristup arhivi',
                   'Ekskluzivni newsletteri s posebnim analizama nagrađivanih autora',
-                  'Fokus na sadržaj - <b> surfanje bez reklama</b>',
+                  'Fokus na sadržaj - <b> čitanje bez reklama</b>',
                   '10 poklon članaka mjesečno',
                   'Posebni popusti i pogodnost Telegram Kluba',
                 ],
@@ -121,16 +121,16 @@ export default {
         features:
           this.subscriptionType === 'family'
             ? [
-                'Neograničeno čitanje Telegrama i pristup arhivi svih članaka',
+                'Do 3 korisnika - mogućnost dijeljenja pretplate s obitelji ili prijateljima',
+                'Neograničeno čitanje svih članaka Telegrama uz pristup arhivi',
                 'Ekskluzivni newsletteri s posebnim analizama nagrađivanih autora',
                 '10 poklon članaka mjesečno',
-                'Posebni popusti i pogodnost Telegram Kluba',
-                'Do 5 korisnika na jednoj pretplati',
+                'Posebni popusti i pogodnosti Telegram Kluba',
               ]
             : [
-                'Neograničeno čitanje svih članaka',
-                'Ekskluzivni newsletteri i analize',
-                '30 poklon članaka mjesečno',
+                'Neograničeno čitanje svih članaka Telegrama uz pristup arhivi',
+                'Ekskluzivni newsletteri s posebnim analizama nagrađivanih autora',
+                '10 poklon članaka mjesečno',
                 'Posebni popusti i pogodnosti Telegram Kluba',
               ],
         buttonText: 'Odabrano',

@@ -30,18 +30,18 @@
           Prijavite se
         </button>
       </div>
-      <span class="divider">ili</span>
+      <span class="divider"><!--ili--></span>
       <div class="socials">
-        <a :href="googleUrl" class="full center animate">
+        <!--<a disabled :href="googleUrl" class="full center animate">
           <button>
             <img src="@/assets/img/google-logo.svg" alt="" /> Google
           </button>
         </a>
-        <a :href="facebookUrl" class="full center animate">
+        <a disabled :href="facebookUrl" class="full center animate">
           <button>
             <img src="@/assets/img/facebook.svg" alt="" />Facebook
           </button>
-        </a>
+        </a>-->
       </div>
     </div>
   </div>

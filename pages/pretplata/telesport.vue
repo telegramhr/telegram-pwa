@@ -147,6 +147,7 @@ export default {
               this.annualPrice = '39'
               break
             case 'premium':
+              this.urlKey = 'main'
               if (this.selectedTerm === 'monthly') {
                 this.pack = 'telegram_premium_4_tjedna_pretplata_2024'
                 this.price = '9.99'
