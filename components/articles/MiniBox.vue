@@ -34,8 +34,7 @@
         {{ post.portal_title }}
       </h3>
       <h4>
-        Maksim Valenčić kaže da je bio zgrožen organizacijskim kaosom koji je
-        zatekao kad je postavljen za ravnatelja
+        {{ post.subtitle }}
       </h4>
       <div class="author">
         {{ post.authors.length ? post.authors[0].name.toUpperCase() : '' }}

@@ -47,7 +47,7 @@
   }
   .containerArticles {
     padding-top: 20px;
-    padding-bottom: 32px;
+    padding-bottom: 22px;
     margin-top: 48px;
     margin-bottom: 48px;
   }
