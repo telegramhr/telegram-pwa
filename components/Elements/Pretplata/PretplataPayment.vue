@@ -10,6 +10,7 @@
         >
           <input
             type="radio"
+            autocomplete="off"
             name="term"
             value="annual"
             :checked="term === 'annual'"
@@ -33,6 +34,7 @@
         >
           <input
             type="radio"
+            autocomplete="off"
             name="term"
             :checked="term === 'monthly'"
             value="monthly"
@@ -61,6 +63,7 @@
         >
           <input
             type="radio"
+            autocomplete="off"
             value="card"
             name="payment"
             :checked="paymentType === 'trustpay_recurrent'"
@@ -92,6 +95,7 @@
           <input
             type="radio"
             value="bank"
+            autocomplete="off"
             name="payment"
             :checked="paymentType === 'bank'"
             class="custom-radio"
