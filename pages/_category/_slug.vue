@@ -1028,6 +1028,7 @@ export default {
           },
         },
       }
+      console.log('remp', rempConfig)
       window.remplib.tracker.init(rempConfig)
       window.remplib.campaign.init(rempConfig)
     },
