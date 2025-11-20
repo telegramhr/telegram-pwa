@@ -122,6 +122,7 @@ h3 {
   font-weight: 400;
   line-height: 18px;
   color: #5f5f5f;
+  width: 100%;
 }
 .singleArticlev1 .author,
 .singleArticlev2 .author {

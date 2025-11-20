@@ -32,9 +32,9 @@
           :payment-type="payment"
           :annual-price="annualPrice"
           :monthly-price="monthlyPrice"
+          :subscription-type="subscriptionType"
           @selectTerm="selectTerm"
           @selectPaymentType="selectPaymentType"
-          :subscription-type="subscriptionType"
         />
         <PretplataLogin
           :email="email"
