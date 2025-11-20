@@ -10,8 +10,8 @@
     <Nuxt />
     <client-only>
       <ticker-ad-unit
-        id="telegram_sticky"
         v-if="!$store.getters['user/hasPremium']"
+        id="telegram_sticky"
       ></ticker-ad-unit>
       <back-widget></back-widget>
       <div
@@ -28,6 +28,13 @@
 
 <script>
 export default {
+  mounted() {
+    this.$nextTick(() => {
+      this.$store.dispatch('user/checkAccess')
+      this.$store.dispatch('user/checkAdmin')
+      this.$store.dispatch('theme/loadTheme')
+    })
+  },
   head() {
     let font, theme
     if (process.server) {
