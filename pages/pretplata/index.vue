@@ -39,6 +39,7 @@
         <PretplataLogin
           :email="email"
           :can-log-in="canLogIn"
+          :login-error="loginError"
           @updateCanLogIn="updateCanLogIn"
           @updateEmail="updateEmail"
         ></PretplataLogin>
@@ -93,6 +94,9 @@ export default {
     }
   },
   computed: {
+    loginError() {
+      return this.$store.state.user.error
+    },
     loggedIn() {
       return !!this.$store.state.user.id
     },

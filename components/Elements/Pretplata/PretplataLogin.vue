@@ -11,7 +11,7 @@
             :value="email"
             placeholder="Vaša e-mail adresa"
             class="login-input"
-            @change="handleUpdateEmail"
+            @input="handleUpdateEmail"
           />
           <p v-if="!showPassword">
             Ako niste registrirani korisnik, na navedenu adresu e-pošte dobit
@@ -26,18 +26,25 @@
           placeholder="Lozinka"
           class="login-input"
         />
+        <p
+          v-show="loginError"
+          style="text-align: center; width: 100%"
+          class="loginError"
+        >
+          {{ loginError }}
+        </p>
         <button v-if="showPassword" class="login-btn" @click="login">
           Prijavite se
         </button>
       </div>
       <span class="divider"><!--ili--></span>
       <div class="socials">
-        <!--<a disabled :href="googleUrl" class="full center animate">
+        <!--<a :href="googleUrl" class="full center animate">
           <button>
             <img src="@/assets/img/google-logo.svg" alt="" /> Google
           </button>
         </a>
-        <a disabled :href="facebookUrl" class="full center animate">
+        <a :href="facebookUrl" class="full center animate">
           <button>
             <img src="@/assets/img/facebook.svg" alt="" />Facebook
           </button>
@@ -61,6 +68,11 @@ export default {
       required: true,
     },
     loginUrl: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    loginError: {
       type: String,
       required: false,
       default: '',
@@ -162,6 +174,13 @@ function isValidEmail(value) {
 }
 </script>
 <style scoped>
+.loginError {
+  text-align: center;
+  width: 100%;
+  font-family: 'Barlow';
+  color: red;
+  font-weight: bold;
+}
 .main {
   display: flex;
   flex-direction: column;
