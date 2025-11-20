@@ -69,6 +69,14 @@
                 usluga kako bi povezali račune.
               </p>
             </div>
+
+            <p
+              v-show="loginError"
+              style="text-align: center; width: 100%"
+              class="center-text red-text"
+            >
+              {{ loginError }}
+            </p>
             <button
               v-if="showPassword"
               class="full newbtn huge-newbtn center-text clickable"
@@ -327,6 +335,7 @@ export default {
     payment: String,
     pack: String,
     email: String,
+    loginError: String,
     password: String,
     loggedIn: Boolean,
     showPassword: Boolean,
