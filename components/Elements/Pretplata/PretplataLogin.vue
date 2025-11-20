@@ -7,14 +7,15 @@
         <div class="email-wrapper">
           <input
             type="email"
+            autocomplete="off"
             :value="email"
             placeholder="Vaša e-mail adresa"
             class="login-input"
-            @change="handleUpdateEmail"
+            @input="handleUpdateEmail"
           />
-          <p v-if="showPassword">
-            Ukoliko niste registrirani korisnik, na navedenu email adresu ćete
-            zaprimiti pristupne podatke.
+          <p v-if="!showPassword">
+            Ako niste registrirani korisnik, na navedenu adresu e-pošte dobit
+            ćete pristupne podatke.
           </p>
         </div>
         <input
@@ -25,24 +26,25 @@
           placeholder="Lozinka"
           class="login-input"
         />
+        <p
+          v-show="loginError"
+          style="text-align: center; width: 100%"
+          class="loginError"
+        >
+          {{ loginError }}
+        </p>
         <button v-if="showPassword" class="login-btn" @click="login">
           Prijavite se
         </button>
       </div>
       <span class="divider">ili</span>
       <div class="socials">
-        <a
-          href="http://pretplata.telegram.hr/users/google/sign?url=https://www.telegram.hr/pretplata/new"
-          class="full center animate"
-        >
+        <a :href="googleUrl" class="full center animate">
           <button>
             <img src="@/assets/img/google-logo.svg" alt="" /> Google
           </button>
         </a>
-        <a
-          href="https://pretplata.telegram.hr/social-login/social-sign/sign?social_provider_key=facebook&success_login_url=https://www.telegram.hr/pretplata/new"
-          class="full center animate"
-        >
+        <a :href="facebookUrl" class="full center animate">
           <button>
             <img src="@/assets/img/facebook.svg" alt="" />Facebook
           </button>
@@ -65,6 +67,16 @@ export default {
       type: Boolean,
       required: true,
     },
+    loginUrl: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    loginError: {
+      type: String,
+      required: false,
+      default: '',
+    },
   },
   data() {
     return {
@@ -78,6 +90,16 @@ export default {
     loggedIn() {
       return !!this.$store.state.user.id
     },
+    googleUrl() {
+      return `http://pretplata.telegram.hr/users/google/sign?url=https://www.telegram.hr/pretplata/${encodeURIComponent(
+        this.loginUrl
+      )}`
+    },
+    facebookUrl() {
+      return `https://pretplata.telegram.hr/social-login/social-sign/sign?social_provider_key=facebook&success_login_url=https://www.telegram.hr/pretplata/${encodeURIComponent(
+        this.loginUrl
+      )}`
+    },
   },
   watch: {
     email: _.debounce(function (value) {
@@ -86,6 +108,35 @@ export default {
         this.handleUpdateCanlogin(false)
         return
       }
+      this.emailSubmit(value)
+    }, 1000),
+  },
+  mounted() {
+    if (isValidEmail(this.email)) {
+      this.emailSubmit(this.email)
+    }
+    if (isValidEmail(this.email) && this.canLogIn) {
+      this.showPassword = true
+    }
+  },
+  methods: {
+    handleUpdateEmail(event) {
+      this.$emit('updateEmail', event.target.value)
+    },
+    handleUpdateCanlogin(value) {
+      this.$emit('updateCanLogIn', value)
+    },
+    login() {
+      if (!this.showPassword) {
+        return
+      }
+      this.$store.dispatch('user/loginSubmit', {
+        email: this.email,
+        password: this.password,
+        reload: false,
+      })
+    },
+    emailSubmit(value) {
       const _this = this
       const formData = new FormData()
       formData.append('email', value)
@@ -114,24 +165,6 @@ export default {
           _this.showPassword = false
           this.handleUpdateCanlogin(false)
         })
-    }, 1000),
-  },
-  methods: {
-    handleUpdateEmail(event) {
-      this.$emit('updateEmail', event.target.value)
-    },
-    handleUpdateCanlogin(value) {
-      this.$emit('updateCanLogIn', value)
-    },
-    login() {
-      if (!this.showPassword) {
-        return
-      }
-      this.$store.dispatch('user/loginSubmit', {
-        email: this.email,
-        password: this.password,
-        reload: false,
-      })
     },
   },
 }
@@ -141,6 +174,13 @@ function isValidEmail(value) {
 }
 </script>
 <style scoped>
+.loginError {
+  text-align: center;
+  width: 100%;
+  font-family: 'Barlow';
+  color: red;
+  font-weight: bold;
+}
 .main {
   display: flex;
   flex-direction: column;
@@ -171,12 +211,6 @@ function isValidEmail(value) {
   flex-direction: column;
   gap: 24px;
   width: 100%;
-}
-#password-field {
-  display: none;
-}
-.login-btn {
-  display: none;
 }
 .email-wrapper {
   display: flex;

@@ -10,6 +10,7 @@
         >
           <input
             type="radio"
+            autocomplete="off"
             name="term"
             value="annual"
             :checked="term === 'annual'"
@@ -18,7 +19,13 @@
           <div class="radio-option">
             <div class="radio-heading">
               <span>Godišnja pretplata</span>
-              <button class="discount">42% popusta</button>
+              <button class="discount">
+                {{
+                  subscriptionType === 'individual'
+                    ? '24% popusta'
+                    : '24% dodatni popust'
+                }}
+              </button>
             </div>
             <p class="radio-description">
               {{ annualPrice }}€ za godinu dana unaprijed
@@ -33,6 +40,7 @@
         >
           <input
             type="radio"
+            autocomplete="off"
             name="term"
             :checked="term === 'monthly'"
             value="monthly"
@@ -41,7 +49,6 @@
           <div class="radio-option">
             <div class="radio-heading">
               <span>Mjesečna pretplata</span>
-              <button class="discount">30% popusta</button>
             </div>
             <p class="radio-description">
               {{ monthlyPrice }}€, možete otkazati u bilo kojem trenutku
@@ -61,6 +68,7 @@
         >
           <input
             type="radio"
+            autocomplete="off"
             value="card"
             name="payment"
             :checked="paymentType === 'trustpay_recurrent'"
@@ -92,6 +100,7 @@
           <input
             type="radio"
             value="bank"
+            autocomplete="off"
             name="payment"
             :checked="paymentType === 'bank'"
             class="custom-radio"
@@ -122,6 +131,11 @@ export default {
       type: String,
       required: true,
       default: 'annual',
+    },
+    subscriptionType: {
+      type: String,
+      required: true,
+      default: 'individual',
     },
     paymentType: {
       type: String,

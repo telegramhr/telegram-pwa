@@ -510,11 +510,6 @@ export default {
   },
   mounted() {
     this.$store.dispatch('stocks/pullStocks')
-    this.$nextTick(() => {
-      this.$store.dispatch('user/checkAccess')
-      this.$store.dispatch('user/checkAdmin')
-    })
-    this.$store.dispatch('theme/loadTheme')
   },
   methods: {
     search() {

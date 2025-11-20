@@ -1,6 +1,6 @@
 <template>
   <div class="containerArticles">
-    <h2 class="titleArticles">Upravo se čita</h2>
+    <h2 class="titleArticles">Što biste sljedeće trebali pročitati</h2>
     <div class="gridArticles">
       <mini-box
         v-for="(post, index) in posts"
@@ -10,6 +10,7 @@
         :widget-type="'inArticle'"
         :utm="{ campaign: 'TGintext' }"
         :recirculation="'TGIntext' + algorithmType"
+        :algorithm-type="algorithmType"
       ></mini-box>
     </div>
   </div>
@@ -17,19 +18,21 @@
 <style scoped>
 .containerArticles {
   padding-top: 16px;
-  padding-bottom: 28px;
+  padding-bottom: 20px;
   border-top: 2px solid #e6dbd1;
   border-bottom: 2px solid #e6dbd1;
   margin-top: 28px;
   margin-bottom: 28px;
 }
 .titleArticles {
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 19px;
-  letter-spacing: 0%;
+  margin-top: 0;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 100%;
+  letter-spacing: 5%;
   text-align: center;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
   font-family: 'barlow', sans-serif;
 }
 .gridArticles {
@@ -43,13 +46,13 @@
     gap: 36px;
   }
   .containerArticles {
-    padding-top: 28px;
-    padding-bottom: 36px;
+    padding-top: 20px;
+    padding-bottom: 22px;
     margin-top: 48px;
     margin-bottom: 48px;
   }
   .titleArticles {
-    margin-bottom: 32px;
+    margin-bottom: 20px;
   }
 }
 </style>

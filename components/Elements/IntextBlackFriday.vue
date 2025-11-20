@@ -31,8 +31,11 @@
             <p>{{ desktopTitleMiddle }}</p>
             <span>{{ desktopTitleLast }}</span>
           </div>
-          <p class="description" v-html="descriptionText"></p>
-
+          <div class="description">
+            <p v-html="descriptionText"></p>
+            <span class="overline">{{ oldPrice }}€</span>
+            <span>{{ newPrice }}€</span>
+          </div>
           <a :href="cta_link" @click.prevent="start">
             <button>{{ cta }}</button>
           </a>
@@ -66,9 +69,11 @@ export default {
       desktopTitleMiddle: 'za',
       desktopTitleLast: '1',
       descriptionText:
-        'Platite <span>1</span> godinu Premium pretplate bez reklama i dobivate <span>2</span> godine po cijeni od <span class="overline">198€</span> <span>99€</span>',
+        'Platite <span>1</span> godinu Premium pretplate bez reklama i dobivate <span>2</span> godine po cijeni od',
       softwall: true,
       cta: 'Iskoristite ponudu',
+      oldPrice: 199,
+      newPrice: 99,
       cta_link: '/pretplata/black-friday',
     }
   },
@@ -98,16 +103,17 @@ export default {
     },
     load(e) {
       if (e.detail) {
-        this.maintitle = e.detail.maintitle
-        this.subtitle = e.detail.subtitle
-        this.termDurationText = e.detail.termDurationText
-        this.packName = e.detail.packName
-        this.newPrice = e.detail.newPrice
-        this.oldPrice = e.detail.oldPrice
+        this.headerText = e.detail.headerText
+        this.titleMain = e.detail.titleMain
+        this.titleSecondary = e.detail.titleSecondary
+        this.titleHighlight = e.detail.titleHighlight
+        this.desktopTitleFirst = e.detail.desktopTitleFirst
+        this.desktopTitleMiddle = e.detail.desktopTitleMiddle
+        this.descriptionText = e.detail.descriptionText
+        this.oldPrice = e.detail.oldPrice ? e.detail.oldPrice : this.oldPrice
+        this.newPrice = e.detail.newPrice ? e.detail.newPrice : this.newPrice
         this.softwall = e.detail.softwall ?? false
-        this.termId = e.detail.termId
-        this.cta = e.detail.cta ?? ''
-        this.cta_link = e.detail.cta_link ?? ''
+        this.desktopTitleLast = e.detail.desktopTitleLast
       }
       this.triggerShow()
     },
