@@ -1,5 +1,8 @@
 <template>
   <div class="black-friday-page">
+    <div v-if="loading" class="telegram-overlay">
+      <span class="telegram-loader"></span>
+    </div>
     <!-- Hero Section -->
     <div class="hero-section">
       <div class="hero-background">
@@ -106,6 +109,7 @@
               :url_key="url_key"
               :subscription_type="subscription_type"
               :totalPrice="totalPrice"
+              :loginError="loginError"
               @update:period="period = $event"
               @update:payment="payment = $event"
               @update:email="email = $event"
@@ -414,6 +418,9 @@ export default {
     }
   },
   computed: {
+    loginError() {
+      return this.$store.state.user.error
+    },
     buyable() {
       if ((this.email || this.loggedIn) && this.terms && this.privacy) {
         return true
@@ -720,6 +727,41 @@ export default {
 </script>
 
 <style scoped>
+.telegram-overlay {
+  position: fixed;
+  top: 0;
+  z-index: 101;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  align-content: center;
+  background: rgb(0, 0, 0, 0.5);
+}
+.telegram-loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  border: 10px solid;
+  box-sizing: border-box;
+  animation: animloader 1s linear infinite alternate;
+}
+@keyframes animloader {
+  0% {
+    border-color: #ae3737 rgba(255, 255, 255, 0) rgba(255, 255, 255, 0)
+      rgba(255, 255, 255, 0);
+  }
+  33% {
+    border-color: #ae3737 #ae3737 rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
+  }
+  66% {
+    border-color: #ae3737 #ae3737 #ae3737 rgba(255, 255, 255, 0);
+  }
+  100% {
+    border-color: #ae3737 #ae3737 #ae3737 #ae3737;
+  }
+}
 .black-friday-page {
   font-family: 'Barlow', sans-serif;
   width: 100%;
@@ -1367,7 +1409,7 @@ export default {
   }
 
   .cta-container {
-    max-width: 200px;
+    max-width: 250px;
   }
 
   .cta-button {
