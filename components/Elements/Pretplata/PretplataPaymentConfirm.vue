@@ -42,7 +42,16 @@
             type="checkbox"
           />
           <span class="checkmark"></span>
-          <p class="checkbox-label">Prihvaćam <span>uvjete korištenja</span></p>
+          <p class="checkbox-label">
+            Prihvaćam
+            <span
+              ><a
+                href="https://www.telegram.hr/stranica/uvjeti-koristenja/"
+                target="_blank"
+                >uvjete korištenja</a
+              ></span
+            >
+          </p>
         </label>
       </div>
       <div>
@@ -55,7 +64,14 @@
           />
           <span class="checkmark"></span>
           <p class="checkbox-label">
-            Prihvaćam <span>pravila privatnosti</span>
+            Prihvaćam
+            <span
+              ><a
+                href="https://www.telegram.hr/stranica/pravila-privatnosti/"
+                target="_blank"
+                >pravila privatnosti</a
+              ></span
+            >
           </p>
         </label>
       </div>

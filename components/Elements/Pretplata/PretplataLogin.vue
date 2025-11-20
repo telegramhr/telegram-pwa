@@ -13,9 +13,9 @@
             class="login-input"
             @change="handleUpdateEmail"
           />
-          <p v-if="showPassword">
-            Ukoliko niste registrirani korisnik, na navedenu email adresu ćete
-            zaprimiti pristupne podatke.
+          <p v-if="!showPassword">
+            Ako niste registrirani korisnik, na navedenu adresu e-pošte dobit
+            ćete pristupne podatke.
           </p>
         </div>
         <input
@@ -192,12 +192,6 @@ function isValidEmail(value) {
   flex-direction: column;
   gap: 24px;
   width: 100%;
-}
-#password-field {
-  display: none;
-}
-.login-btn {
-  display: none;
 }
 .email-wrapper {
   display: flex;
