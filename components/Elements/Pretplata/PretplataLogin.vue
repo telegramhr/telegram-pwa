@@ -37,9 +37,9 @@
           Prijavite se
         </button>
       </div>
-      <span class="divider"><!--ili--></span>
+      <span class="divider">ili</span>
       <div class="socials">
-        <!--<a :href="googleUrl" class="full center animate">
+        <a :href="googleUrl" class="full center animate">
           <button>
             <img src="@/assets/img/google-logo.svg" alt="" /> Google
           </button>
@@ -48,7 +48,7 @@
           <button>
             <img src="@/assets/img/facebook.svg" alt="" />Facebook
           </button>
-        </a>-->
+        </a>
       </div>
     </div>
   </div>

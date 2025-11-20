@@ -76,7 +76,7 @@ export default {
       annualPrice: '',
       monthlyPrice: '',
       promo_code: '',
-      email: this.$store.state.user.email,
+      email: '',
       password: '',
       showPassword: false,
       terms: false,
@@ -100,9 +100,22 @@ export default {
     loggedIn() {
       return !!this.$store.state.user.id
     },
+    userEmail() {
+      return this.$store.state.user.email
+    },
   },
   mounted() {
     this.calculatePrice()
+  },
+  watch: {
+    '$store.state.user.email': {
+      handler(newEmail) {
+        if (newEmail && !this.email) {
+          this.email = newEmail
+        }
+      },
+      immediate: true,
+    },
   },
   methods: {
     handleSubscriptionChange(type) {
