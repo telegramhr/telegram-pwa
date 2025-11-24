@@ -382,8 +382,8 @@
                   </img-comparison-slider>
                 </portal>
 
-                <intext-refresh></intext-refresh>
                 <intext-regular-promo></intext-regular-promo>
+                <intext-refresh></intext-refresh>
                 <popup-regular-promo></popup-regular-promo>
                 <intext-promo-free-month></intext-promo-free-month>
                 <intext-promo-xmas></intext-promo-xmas>
@@ -397,7 +397,14 @@
                   type="text-only"
                 ></midas>
               </client-only>
-              <!-- Article footer -->
+            </div>
+          </article>
+          <intext-remp></intext-remp>
+          <!-- Article footer -->
+          <div
+            class="container column-full-pad flex relative mobile-side-pad have-background"
+          >
+            <div class="full relative single-article-body">
               <div
                 class="full relative single-article-footer flex column-top-pad"
               >
@@ -441,7 +448,7 @@
                 </div>
               </div>
             </div>
-          </article>
+          </div>
           <div
             v-if="
               !(
@@ -1025,7 +1032,7 @@ export default {
             locked: this.post.paywall,
             isS1: this.post.category_slug.includes('super1') ? '1' : '0',
             segment: Math.floor(Math.random() * 4).toString(),
-            userSubscribed: !!this.$store.state.user.access.length ? '1' : '0',
+            userSubscribed: !this.$store.state.user.access.length ? '1' : '0',
           },
         },
       }
