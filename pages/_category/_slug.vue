@@ -391,11 +391,6 @@
                 <intext-promo-f32></intext-promo-f32>
                 <intext-promo-family></intext-promo-family>
                 <intext-black-friday></intext-black-friday>
-                <midas
-                  v-if="!hasPremium && hasLinker"
-                  :key="`midas-text-${post.id}`"
-                  type="text-only"
-                ></midas>
               </client-only>
             </div>
           </article>
@@ -405,6 +400,11 @@
             class="container column-full-pad flex relative mobile-side-pad have-background"
           >
             <div class="full relative single-article-body">
+              <midas
+                v-if="!hasPremium && hasLinker"
+                :key="`midas-text-${post.id}`"
+                type="text-only"
+              ></midas>
               <div
                 class="full relative single-article-footer flex column-top-pad"
               >

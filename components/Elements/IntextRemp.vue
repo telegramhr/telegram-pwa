@@ -116,16 +116,20 @@ export default {
         return
       }
       if (e.detail) {
+        this.title = e.detail.title
+        this.subtitle = e.detail.subtitle
         this.topBar = e.detail.topBar
+        this.feature1 = e.detail.feature1
+        this.feature2 = e.detail.feature2
+        this.feature3 = e.detail.feature3
+        this.feature4 = e.detail.feature4
+        this.cta1_text = e.detail.cta1_text
+        this.cta1_link = e.detail.cta1_link
+        this.cta1_link = e.detail.cta1_link
+        this.cta2_text = e.detail.cta2_text
+        this.cta2_link = e.detail.cta2_link
         // this.subtitle = e.detail.subtitle
-        this.termDurationText = e.detail.termDurationText
-        // this.packName = e.detail.packName
-        this.newPrice = e.detail.newPrice
-        this.oldPrice = e.detail.oldPrice
-        this.softwall = e.detail.softwall ?? false
-        this.termId = e.detail.termId
-        this.cta = e.detail.cta ?? 'Pretplatite se'
-        this.cta_link = e.detail.cta_link ?? ''
+
         if (e.detail.desktop_image) {
           this.desktop_image = e.detail.desktop_image
         }
