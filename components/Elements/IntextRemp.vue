@@ -13,19 +13,19 @@
               </div>
               <div class="features-wrapper">
                 <div class="feature">
-                  <img src="@/assets/img/black-checkbox.png" alt="" />
+                  <Checkmark :color="checkmarkColor"></Checkmark>
                   <p>{{ feature1 }}</p>
                 </div>
                 <div class="feature">
-                  <img src="@/assets/img/black-checkbox.png" alt="" />
+                  <Checkmark :color="checkmarkColor"></Checkmark>
                   <p>{{ feature2 }}</p>
                 </div>
                 <div class="feature">
-                  <img src="@/assets/img/black-checkbox.png" alt="" />
+                  <Checkmark :color="checkmarkColor"></Checkmark>
                   <p>{{ feature3 }}</p>
                 </div>
                 <div class="feature">
-                  <img src="@/assets/img/black-checkbox.png" alt="" />
+                  <Checkmark :color="checkmarkColor"></Checkmark>
                   <p>{{ feature4 }}</p>
                 </div>
               </div>
@@ -161,12 +161,22 @@ export default {
       }
     },
   },
+  computed: {
+    checkmarkColor: {
+      get() {
+        return this.$store.state.theme.theme === 'dark' ? '#ffffff' : '#343434'
+      },
+    },
+  },
 }
 </script>
 
 <style scoped>
 .large {
   display: none;
+}
+a {
+  cursor: pointer;
 }
 .main {
   z-index: 20;
@@ -246,12 +256,13 @@ export default {
 .button-wrapper button {
   width: 100%;
   flex: 1 1 0;
-  padding: 8px;
+  padding: 8px 16px;
   border-radius: 6px;
   font-family: 'Barlow', sans-serif;
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
+  cursor: pointer;
 }
 .primary {
   background-color: #009348;
