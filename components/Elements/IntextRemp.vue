@@ -128,7 +128,6 @@ export default {
         this.cta1_link = e.detail.cta1_link
         this.cta2_text = e.detail.cta2_text
         this.cta2_link = e.detail.cta2_link
-        // this.subtitle = e.detail.subtitle
 
         if (e.detail.desktop_image) {
           this.desktop_image = e.detail.desktop_image
@@ -201,11 +200,19 @@ export default {
   line-height: 36px;
   color: black;
 }
+
+.dark-mode .title-wrapper h3 {
+  color: white;
+}
 .title-wrapper p {
   font-family: 'Inter', sans-serif;
   font-size: 18px;
   line-height: 24px;
   color: #747474;
+}
+.dark-mode .title-wrapper h3,
+.dark-mode .title-wrapper p {
+  color: white;
 }
 .features-wrapper {
   display: flex;
@@ -276,6 +283,9 @@ export default {
     rgba(228, 212, 197, 1) 100%
   );
 }
+.dark-mode .right-container {
+  background: #373737;
+}
 .spacer {
   height: 1px;
   width: 100%;
@@ -295,6 +305,9 @@ h5 {
   background: #fcf1e7;
   width: 260px;
   margin: 0 auto;
+}
+.dark-mode h5 {
+  color: white;
 }
 .right-container img {
   z-index: 30;
@@ -317,6 +330,9 @@ h5 {
   }
   .overlay {
     background: linear-gradient(90deg, #fcf1e7 0%, rgba(228, 212, 197, 1) 100%);
+  }
+  .dark-mode .overlay {
+    background: #373737;
   }
   .spacer {
     max-width: 1200px;
