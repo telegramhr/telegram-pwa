@@ -169,6 +169,7 @@ export default {
   display: none;
 }
 .main {
+  z-index: 20;
   display: block;
   max-width: none !important;
   position: relative;
