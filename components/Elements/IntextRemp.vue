@@ -304,11 +304,12 @@ h5 {
   top: 8px;
   z-index: 1;
   background: #fcf1e7;
-  width: 260px;
+  width: 275px;
   margin: 0 auto;
 }
 .dark-mode h5 {
   color: white;
+  background: #212121;
 }
 .right-container img {
   z-index: 30;
