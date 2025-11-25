@@ -101,7 +101,7 @@
         </div>
       </div>
       <div class="full relative">
-        <div class="full flex">
+        <div class="full">
           <client-only>
             <ad-unit id="telegram_background"></ad-unit>
           </client-only>
