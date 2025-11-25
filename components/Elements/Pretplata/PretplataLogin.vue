@@ -264,6 +264,9 @@ function isValidEmail(value) {
   gap: 16px;
   justify-content: space-between;
 }
+.socials a {
+  height: fit-content;
+}
 .socials img {
   width: 18px;
   height: 18px;
