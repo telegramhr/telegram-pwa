@@ -119,6 +119,34 @@
             </p>
           </div>
         </div>
+        <!-- sms -->
+        <div
+          class="radio-wrapper"
+          :class="{ active: payment === 'sms' }"
+          @click="handleSelectPaymentType('sms')"
+        >
+          <input
+            type="radio"
+            value="sms"
+            autocomplete="off"
+            name="payment"
+            :checked="paymentType === 'sms'"
+            class="custom-radio"
+          />
+          <div class="radio-option">
+            <div class="radio-heading">
+              <div class="card-wrapper">
+                <span>SMS pretplata</span>
+                <div class="card-icons">
+                  <img src="@/assets/img/bank-transfer.svg" alt="" />
+                </div>
+              </div>
+            </div>
+            <p class="radio-description">
+              Naplata će se vršiti putem Vašeg mobilnog operatera.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>

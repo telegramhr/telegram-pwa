@@ -219,7 +219,17 @@ export const actions = {
   },
   loginSubmit({ commit, dispatch, state }, payload) {
     const data = new FormData()
-    data.append('email', payload.email)
+    if (payload.email.includes('@')) {
+      data.append('email', payload.email)
+    } else {
+      let email = payload.email
+      if (email.startsWith('00385')) {
+        email = email + '@sms.telegram.hr'
+      } else if (email.startsWith('09')) {
+        email = '00385' + email.substring(1) + '@sms.telegram.hr'
+      }
+      data.append('email', email)
+    }
     data.append('password', payload.password)
     data.append('source', 'api')
     if (Object.keys(payload).includes('reload')) {

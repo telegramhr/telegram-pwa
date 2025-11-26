@@ -135,6 +135,7 @@ export default {
     { src: '@/plugins/ctr.client.js' },
     { src: '@/plugins/adsense.client.js', ssr: false },
     { src: '@/plugins/gtm.client.js', ssr: false },
+    { src: '@/plugins/sms.js' },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)

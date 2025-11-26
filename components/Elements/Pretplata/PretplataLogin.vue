@@ -13,9 +13,13 @@
             class="login-input"
             @input="handleUpdateEmail"
           />
-          <p v-if="!showPassword">
+          <p v-if="!showPassword && paymentType !== 'sms'">
             Ako niste registrirani korisnik, na navedenu adresu e-pošte dobit
             ćete pristupne podatke.
+          </p>
+          <p v-if="!showPassword && paymentType === 'sms'">
+            Ako niste registrirani korisnik, napravit ćemo Vam račun s Vašim
+            telefonskim brojem i ne morate ovo popunjavati.
           </p>
         </div>
         <input
@@ -73,6 +77,11 @@ export default {
       default: '',
     },
     loginError: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    paymentType: {
       type: String,
       required: false,
       default: '',

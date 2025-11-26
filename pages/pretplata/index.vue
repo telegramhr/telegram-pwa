@@ -40,6 +40,7 @@
           :email="email"
           :can-log-in="canLogIn"
           :login-error="loginError"
+          :payment-type="payment"
           @updateCanLogIn="updateCanLogIn"
           @updateEmail="updateEmail"
         ></PretplataLogin>

@@ -76,7 +76,14 @@
         </label>
       </div>
     </div>
+    <template v-if="sms">
+      <a :href="`sms:860860&body=${sms}`"
+        >Pošaljite kod {{ sms }} na 860860 kako bi aktivirali pretplatu.</a
+      >
+      <p>Ako ste već na mobitelu, samo kliknite na link iznad.</p>
+    </template>
     <form
+      v-else
       id="payment-form"
       class="full flex column-horizontal-pad column-top-pad mobile-top-pad"
       method="post"
@@ -181,6 +188,7 @@ export default {
       voucher_log_id: '',
       show_msg: '',
       retryCount: 0,
+      sms: false,
     }
   },
   computed: {
@@ -188,6 +196,9 @@ export default {
       return this.discountedAmount || this.price
     },
     buyable() {
+      if (this.paymentType === 'sms' && this.terms && this.privacy) {
+        return true
+      }
       if (
         this.email &&
         this.terms &&
@@ -258,7 +269,16 @@ export default {
     updateDiscount(value) {
       this.$emit('updateDiscount', value)
     },
+    smsProcess() {
+      this.$sms.getToken(this.pack).then((res) => {
+        this.sms = res
+      })
+    },
     submit() {
+      if (this.paymentType === 'sms') {
+        this.smsProcess()
+        return
+      }
       this.updateLoading(true)
       if (this.paymentType === 'bank') {
         this.bankTransfer()
