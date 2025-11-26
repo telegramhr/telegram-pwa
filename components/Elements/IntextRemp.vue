@@ -73,7 +73,7 @@ export default {
   name: 'IntextRemp',
   data() {
     return {
-      show: true,
+      show: false,
       termId: false,
       title:
         'Uložite u priče koje vrijede.  Samo 4,99 € za 4 tjedna sadržaja koji vrijedi čitati',
