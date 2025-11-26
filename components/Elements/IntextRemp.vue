@@ -31,12 +31,12 @@
               </div>
               <div class="bottom-section">
                 <div class="button-wrapper">
-                  <a :href="cta1_link">
+                  <a :href="cta1_link" @click.prevent="start">
                     <button class="primary">
                       {{ cta1_text }}
                     </button>
                   </a>
-                  <a :href="cta2_link">
+                  <a :href="cta2_link" @click.prevent="login">
                     <button class="secondary">
                       {{ cta2_text }}
                     </button>
@@ -103,8 +103,8 @@ export default {
         } else {
           this.checkout(this.termId)
         }
-      } else if (this.cta_link) {
-        window.open(this.cta_link, '_blank')
+      } else if (this.cta1_link) {
+        window.open(this.cta1_link, '_blank')
       } else if (this.$route.path.includes('telesport')) {
         this.$router.push('/pretplata/telesport')
       } else {
