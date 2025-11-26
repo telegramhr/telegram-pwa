@@ -48,6 +48,14 @@
                   <img src="@/assets/img/apple-pay.svg" alt="Apple Pay" />
                   <img src="@/assets/img/google-pay.svg" alt="Apple Pay" />
                 </div>
+                <a @click.prevent="smsProcess">
+                  Želite li platiti SMSom? Kliknite ovdje.
+                </a>
+                <p v-if="sms">
+                  <a :href="`sms:860860&body=${sms}`"
+                    >Pošaljite SMS sadržaja {{ sms }} na broj 860860.</a
+                  >
+                </p>
               </div>
             </div>
             <div class="right-container">
@@ -65,7 +73,7 @@ export default {
   name: 'IntextRemp',
   data() {
     return {
-      show: false,
+      show: true,
       termId: false,
       title:
         'Uložite u priče koje vrijede.  Samo 4,99 € za 4 tjedna sadržaja koji vrijedi čitati',
@@ -83,7 +91,15 @@ export default {
       cta2_link: 'https://telegram.hr/pretplata',
       desktop_image: require('@/assets/img/tg_mockup_mobile_standard.png'),
       mobile_image: require('@/assets/img/tg_mockup_combo.png'),
+      sms: false,
     }
+  },
+  computed: {
+    checkmarkColor: {
+      get() {
+        return this.$store.state.theme.theme === 'dark' ? '#ffffff' : '#343434'
+      },
+    },
   },
   mounted() {
     window.addEventListener('remp_intext', this.load)
@@ -92,6 +108,11 @@ export default {
     window.removeEventListener('remp_intext', this.load)
   },
   methods: {
+    async smsProcess() {
+      this.sms = await this.$sms.getToken(
+        'telegram_standard_mjesecna_sms_pretplata'
+      )
+    },
     login() {
       this.$store.dispatch('user/login')
     },
@@ -159,13 +180,6 @@ export default {
             .classList.add('premium-fade-out')
         }
       }
-    },
-  },
-  computed: {
-    checkmarkColor: {
-      get() {
-        return this.$store.state.theme.theme === 'dark' ? '#ffffff' : '#343434'
-      },
     },
   },
 }
