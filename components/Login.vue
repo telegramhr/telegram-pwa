@@ -42,8 +42,8 @@
               Google
             </a>
           </div>
-          <label for="name">Email adresa</label>
-          <input id="email" v-model="email" type="email" name="name" />
+          <label for="name">Email adresa ili broj telefona</label>
+          <input id="email" v-model="email" type="text" name="name" />
           <label for="address">Lozinka</label>
           <input
             id="password"
