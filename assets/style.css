@@ -20865,4 +20865,5 @@ button.newbtn {
 
 .has-white-color a {
   color: var(--wp--preset--color--white) !important;
+  text-decoration: underline;
 }
