@@ -20862,3 +20862,7 @@ button.newbtn {
 .wp-element-caption {
   display: none;
 }
+
+.has-white-color a {
+  color: var(--wp--preset--color--white) !important;
+}
