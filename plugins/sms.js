@@ -6,7 +6,7 @@ export default ({ app, store }, inject) => {
     if (store.state.user.email) {
       data.email = store.state.user.email
     }
-    return await app.$axios.$post('/pretplate/nth', data)
+    return (await app.$axios.$post('/pretplate/nth', data)).token
   }
 
   inject('sms', {

@@ -76,12 +76,20 @@
         </label>
       </div>
     </div>
-    <template v-if="sms">
-      <a :href="`sms:860860&body=${sms}`"
-        >Pošaljite kod {{ sms }} na 860860 kako bi aktivirali pretplatu.</a
-      >
-      <p>Ako ste već na mobitelu, samo kliknite na link iznad.</p>
-    </template>
+    <div
+      v-if="sms"
+      class="full flex column-horizontal-pad column-top-pad mobile-top-pad"
+    >
+      <div class="submit-wrapper center">
+        <a :href="`sms:860860&body=${sms}`">
+          >
+          <h2>
+            Pošaljite kod {{ sms }} na 860860 kako bi aktivirali pretplatu.
+          </h2></a
+        >
+        <p>Ako ste već na mobitelu, samo kliknite na link iznad.</p>
+      </div>
+    </div>
     <form
       v-else
       id="payment-form"
