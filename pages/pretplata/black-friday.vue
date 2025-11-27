@@ -46,27 +46,6 @@
     <!-- Countdown Section -->
     <div class="countdown-section">
       <div class="countdown-wrapper">
-        <div class="countdown-header">
-          <span class="countdown-label">PONUDA JE VREMENSKI OGRANIČENA</span>
-          <div class="countdown-timer">
-            <div class="timer-box">
-              <span class="timer-value">{{ countdown.days }}</span>
-              <span class="timer-label">Dana</span>
-            </div>
-            <div class="timer-box">
-              <span class="timer-value">{{ countdown.hours }}</span>
-              <span class="timer-label">Sati</span>
-            </div>
-            <div class="timer-box">
-              <span class="timer-value">{{ countdown.minutes }}</span>
-              <span class="timer-label">Minuta</span>
-            </div>
-            <div class="timer-box">
-              <span class="timer-value">{{ countdown.seconds }}</span>
-              <span class="timer-label">Sekundi</span>
-            </div>
-          </div>
-        </div>
         <div id="offerWrap" class="countdown-offer">
           <div class="offer-info">
             <h3 class="offer-title">Iskoristite ovu ponudu</h3>
