@@ -461,7 +461,7 @@
           >
             <top-articles-bottom
               :algorithm-type="this.top_articles_version"
-              :posts="top_articles.slice(1, 6)"
+              :posts="top_articles.slice(3, 8)"
             ></top-articles-bottom>
           </div>
           <div
@@ -626,8 +626,8 @@ export default {
       this.top_articles_version = Math.random() < 0.5 ? 'v1' : 'v2'
       const endpoint =
         this.top_articles_version === 'v1'
-          ? `api/top-articles-ctr/${portal}/${post.id}`
-          : `api/top-articles-most-read/${portal}/${post.id}`
+          ? `api/related-articles/${portal}/${post.id}/1`
+          : `api/related-articles/${portal}/${post.id}/2`
       this.top_articles = await this.$axios.$get(encodeURI(endpoint))
 
       if (
@@ -1180,7 +1180,7 @@ export default {
         render: (h) =>
           h('top-articles-intext', {
             props: {
-              posts: this.top_articles.slice(0, 1),
+              posts: this.top_articles.slice(0, 3),
               algorithmType: this.top_articles_version,
             },
           }),

@@ -1,68 +1,20 @@
 <template>
-  <div>
-    <app-link
-      v-if="!algorithmType"
-      class="singleArticle"
-      :to="permalink"
-      role="article"
-      data-widget="inText"
-      :data-id="post.id"
-      :aria-labelledby="'standard-' + post.id"
-      :data-widget-position="widgetPosition"
-      :data-widget-type="widgetType"
-      :data-mrf-recirculation="recirculation"
-    >
-      <img :src="post.image?.url" :alt="post.image?.alt" loading="lazy" />
-      <h3 :id="'standard-' + post.id" class="full">
-        {{ post.portal_title }}
-      </h3>
-    </app-link>
-    <app-link
-      v-if="algorithmType == 'v1'"
-      class="singleArticle singleArticlev1"
-      :to="permalink"
-      role="article"
-      data-widget="inText"
-      :data-id="post.id"
-      :aria-labelledby="'standard-' + post.id"
-      :data-widget-position="widgetPosition"
-      :data-widget-type="widgetType"
-      :data-mrf-recirculation="recirculation"
-    >
-      <img :src="post.image?.url" :alt="post.image?.alt" loading="lazy" />
-      <h3 :id="'standard-' + post.id" class="full">
-        {{ post.portal_title }}
-      </h3>
-      <h4>
-        {{ post.subtitle }}
-      </h4>
-      <div class="author">
-        {{ post.authors.length ? post.authors[0].name.toUpperCase() : '' }}
-      </div>
-    </app-link>
-    <app-link
-      v-if="algorithmType == 'v2'"
-      class="singleArticle singleArticlev2"
-      :to="permalink"
-      role="article"
-      data-widget="inText"
-      :data-id="post.id"
-      :aria-labelledby="'standard-' + post.id"
-      :data-widget-position="widgetPosition"
-      :data-widget-type="widgetType"
-      :data-mrf-recirculation="recirculation"
-    >
-      <img :src="post.image?.url" :alt="post.image?.alt" loading="lazy" />
-      <div class="">
-        <h3 :id="'standard-' + post.id" class="full">
-          {{ post.portal_title }}
-        </h3>
-        <div class="author">
-          {{ post.authors.length ? post.authors[0].name.toUpperCase() : '' }}
-        </div>
-      </div>
-    </app-link>
-  </div>
+  <app-link
+    class="singleArticle"
+    :to="permalink"
+    role="article"
+    data-widget="inText"
+    :data-id="post.id"
+    :aria-labelledby="'standard-' + post.id"
+    :data-widget-position="widgetPosition"
+    :data-widget-type="widgetType"
+    :data-mrf-recirculation="recirculation"
+  >
+    <img :src="post.image?.url" :alt="post.image?.alt" loading="lazy" />
+    <h3 :id="'standard-' + post.id" class="full">
+      {{ post.portal_title | parseCat }}
+    </h3>
+  </app-link>
 </template>
 
 <style scoped>
@@ -90,146 +42,16 @@ h3 {
   line-height: 20px;
   margin: 0;
 }
-.singleArticlev1 {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  gap: 0px;
-  align-items: center;
-}
-.singleArticlev1 img {
-  width: 100%;
-  aspect-ratio: 1.94;
-  height: auto;
-}
-.singleArticlev1 h3 {
-  text-align: left;
-  font-family: 'Lora', 'sans-serif';
-  margin: 0;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 28px;
-  letter-spacing: 0%;
-  max-width: 500px;
-  margin-top: 20px;
-  margin-bottom: 16px;
-}
-.singleArticlev1 h4 {
-  text-align: left;
-  font-family: 'barlow', sans-serif;
-  max-width: 460px;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 18px;
-  color: #5f5f5f;
-  width: 100%;
-}
-.singleArticlev1 .author,
-.singleArticlev2 .author {
-  text-align: left;
-  font-family: 'barlow', sans-serif;
-  line-height: 18px;
-  font-family: Barlow;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 20px;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  margin-top: 20px;
-  color: #5f5f5f;
-}
-.singleArticlev1 .author {
-  width: 100%;
-}
-.singleArticlev2 {
-  display: flex;
-  flex-direction: column; /* mobile default */
-  gap: 20px;
-  width: 100%;
-}
-
-.singleArticlev2 img {
-  width: 100%;
-  aspect-ratio: 1.94;
-  height: auto;
-  object-fit: cover;
-}
-
-.singleArticlev2 > div {
-  width: 100%;
-}
-.singleArticlev2 h3 {
-  font-family: 'Lora', 'sans-serif';
-  font-weight: 600;
-  line-height: 24px;
-  font-size: 17px;
-  letter-spacing: 0%;
-  vertical-align: middle;
-}
 .singleArticle:hover h3 {
   color: #ae3737;
-}
-.singleArticlev2 .author {
-  text-align: left;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 20px;
-  text-transform: uppercase;
-}
-@media screen and (min-width: 481px) {
-  .singleArticlev1 h3 {
-    text-align: center;
-    margin-top: 28px;
-  }
-  .singleArticlev1 h4 {
-    text-align: center;
-    font-size: 17px;
-    line-height: 24px;
-  }
-  .singleArticlev1 .author {
-    text-align: center;
-  }
 }
 @media screen and (min-width: 768px) {
   .singleArticle {
     flex-direction: column;
   }
-  .singleArticlev1 {
-    padding: 0px 52px;
-  }
-  .singleArticlev1 img {
-    aspect-ratio: 1.78;
-  }
-  .singleArticlev1 h3 {
-    text-align: center;
-    margin-top: 28px;
-  }
-  .singleArticlev1 h4 {
-    text-align: center;
-    font-size: 17px;
-    line-height: 24px;
-  }
-  .singleArticlev1 .author {
-    text-align: center;
-  }
-  .singleArticlev2 {
-    flex-direction: row;
-    gap: 20px;
-  }
-
-  .singleArticlev2 img {
-    width: 290px;
-    aspect-ratio: 1.78;
-  }
-
-  .singleArticlev2 > div {
-    padding-right: 32px;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
-  .singleArticlev2 h3 {
-    font-size: 18px;
+  img {
+    width: 100%;
+    height: 175px;
   }
 }
 </style>
@@ -274,11 +96,6 @@ export default {
         }
       },
     },
-    algorithmType: {
-      type: String,
-      required: false,
-      default: '',
-    },
   },
   computed: {
     permalink() {
@@ -290,5 +107,3 @@ export default {
   },
 }
 </script>
-
-<style scoped></style>
