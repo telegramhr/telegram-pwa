@@ -20880,10 +20880,11 @@ button.newbtn {
 }
 
 .podcasts-wrapper-shortcode .wrapper {
-	background-color: #fff;
 	color: #000;
-	display: flex;
-	flex-direction: row
+	display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 32px 0px;
 }
 
 .podcasts-wrapper-shortcode .main {
@@ -20891,16 +20892,8 @@ button.newbtn {
 	text-decoration: none
 }
 
-.podcasts-wrapper-shortcode .podcasts-wrapper {
-	background-color: transparent;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	gap: 8px
-}
-
 .podcasts-wrapper-shortcode .podcast-box {
-	background-color: #fff;
+	background-color: #fff !important;
 	border: 1px solid #e4e4e4 !important;
 	border-radius: 4px !important;
 	cursor: pointer !important;
@@ -20910,7 +20903,6 @@ button.newbtn {
 	padding: 6px !important;
 	-webkit-text-decoration: none;
 	text-decoration: none;
-	width: 48% !important
 }
 
 .podcasts-wrapper-shortcode .podcast-box img {
@@ -20940,11 +20932,10 @@ button.newbtn {
 	font-weight: 600 !important;
 	line-height: 100% !important
 }
-
 @media(min-width:691px) {
-	.podcasts-wrapper-shortcode .podcast-box {
-		width: 24% !important
-	}
+  .podcasts-wrapper-shortcode .wrapper {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 /* End of Podcasts box */
