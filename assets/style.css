@@ -20867,3 +20867,84 @@ button.newbtn {
   color: var(--wp--preset--color--white) !important;
   text-decoration: underline;
 }
+
+/* Podcasts box */
+.podcasts-wrapper-shortcode {
+	color: #fff;
+	padding: 2px
+}
+
+.podcasts-wrapper-shortcode a {
+	all: unset !important;
+	text-decoration: none !important
+}
+
+.podcasts-wrapper-shortcode .wrapper {
+	background-color: #fff;
+	color: #000;
+	display: flex;
+	flex-direction: row
+}
+
+.podcasts-wrapper-shortcode .main {
+	background-color: transparent;
+	text-decoration: none
+}
+
+.podcasts-wrapper-shortcode .podcasts-wrapper {
+	background-color: transparent;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 8px
+}
+
+.podcasts-wrapper-shortcode .podcast-box {
+	background-color: #fff;
+	border: 1px solid #e4e4e4 !important;
+	border-radius: 4px !important;
+	cursor: pointer !important;
+	display: flex !important;
+	flex-direction: row !important;
+	gap: 6px !important;
+	padding: 6px !important;
+	-webkit-text-decoration: none;
+	text-decoration: none;
+	width: 48% !important
+}
+
+.podcasts-wrapper-shortcode .podcast-box img {
+	max-width: 24px !important
+}
+
+.podcasts-wrapper-shortcode .podcast-box .text-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	text-align: left
+}
+
+.podcasts-wrapper-shortcode .text-wrapper .listen {
+	color: #adadad !important;
+	font-family: Inter, sans-serif !important;
+	font-size: 14px !important;
+	font-weight: 600 !important;
+	line-height: 100% !important;
+	margin: 0 !important
+}
+
+.podcasts-wrapper-shortcode .text-wrapper .title {
+	color: #000 !important;
+	font-family: Inter, sans-serif !important;
+	font-size: 16px !important;
+	font-weight: 600 !important;
+	line-height: 100% !important
+}
+
+@media(min-width:691px) {
+	.podcasts-wrapper-shortcode .podcast-box {
+		width: 24% !important
+	}
+}
+
+/* End of Podcasts box */
