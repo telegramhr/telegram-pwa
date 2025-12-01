@@ -492,7 +492,7 @@
           >
             <div class="container flex center have-background">
               <div class="full">
-                <a1-widget></a1-widget>
+                <ht-widget></ht-widget>
               </div>
               <div>
                 <ad-unit id="telegram_underarticle_v2"></ad-unit>

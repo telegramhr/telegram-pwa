@@ -1,7 +1,9 @@
 <template>
   <div class="main-container">
     <div class="wrapper">
-      <img src="@/assets/img/telegram_logo_white.svg" alt="Hero logo" />
+      <a href="https://www.telegram.hr/"
+        ><img src="@/assets/img/telegram_logo_white.svg" alt="Hero logo"
+      /></a>
       <h1>{{ title }}</h1>
     </div>
   </div>
