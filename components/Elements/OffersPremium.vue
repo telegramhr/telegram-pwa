@@ -173,11 +173,7 @@ export default {
       'webshop-label': 'impression',
       'webshop-value': 1,
     })
-    this.$nextTick(() => {
-      if (!this.posts[0].link) {
-        document.getElementById('intext_premium').style.display = 'none'
-      }
-    })
+    this.$nextTick(() => {})
   },
   methods: {
     trackClick(link) {

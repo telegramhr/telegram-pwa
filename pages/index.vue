@@ -306,19 +306,20 @@
     </div>
     <app-link
       v-if="!$store.state.user.access.length"
-      to="https://www.telegram.hr/pretplata/black-friday"
+      to="https://www.telegram.hr/pretplata/telegram-family"
       class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center"
-      style="padding: 0 24px; margin-top: 20px"
+      style="padding: 0 24px; margin-top: 40px"
     >
       <img
-        src="@/assets/img/pretplata/family/Banner 1200x450.png"
+        src="@/assets/img/pretplata/family/family_banner_desktop.png"
         alt="Naslovnica nove knjige"
         class="desktop-only"
       />
       <img
-        src="@/assets/img/pretplata/family/Banner 320x480.png"
+        src="@/assets/img/pretplata/family/family_banner_mobile.png"
         alt="Naslovnica nove knjige"
         class="mobile-only"
+        style="width: 100%"
       />
     </app-link>
     <client-only>
