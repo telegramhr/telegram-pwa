@@ -217,38 +217,6 @@
         </div>
       </div>
     </section>
-    <section class="full flex relative">
-      <div
-        class="container flex relative stretch column-bottom-pad column-horizontal-pad superone-pilatesBag"
-      >
-        <div class="full center relative">
-          <div
-            class="noththree flex superone-section-title superone-pilatesBagTitle"
-          >
-            <span><b>Super secret dinner: </b>artist edition</span>
-          </div>
-        </div>
-        <div
-          class="full flex relative superone-preporuka flex flex-responsive relative"
-        >
-          <div class="full container flex relative">
-            <div
-              v-for="(post, index) in secretDinnerPosts"
-              :key="post.id"
-              class="third flex-responsive flex column-full-pad"
-            >
-              <superfeat
-                :key="post.id"
-                :post="post"
-                mrf-location="super1"
-                mrf-widget="featured"
-                :mrf-position="(index + 7).toString()"
-              ></superfeat>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <div class="full relative">
       <div class="full center">
