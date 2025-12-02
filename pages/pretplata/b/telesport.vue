@@ -604,16 +604,16 @@ export default {
       const formData = new FormData()
       formData.append('email', value)
       this.$axios
-        .post('/crm/api/v2/users/email', formData, {
+        .$post('/crm/api/v2/users/email', formData, {
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
           },
         })
-        .then((response) => {
-          if (response.data.status && response.data.status === 'taken') {
+        .then((data) => {
+          if (data.status && data.status === 'taken') {
             _this.showPassword = true
-          } else if (response.data.status === 'error') {
-            if (response.data.code === 'email_missing') {
+          } else if (data.status === 'error') {
+            if (data.code === 'email_missing') {
               return
             }
             _this.show_msg = 'error-not-finished'
@@ -654,17 +654,17 @@ export default {
       }
       const _this = this
       this.$axios
-        .get('/crm/api/v1/braintree/token', {
+        .$get('/crm/api/v1/braintree/token', {
           params: {
             email: _this.email,
           },
         })
-        .then((res) => {
-          _this.token = res.data.token
-          _this.customerId = res.data.customer_id
+        .then((data) => {
+          _this.token = data.token
+          _this.customerId = data.customer_id
           braintree.client
             .create({
-              authorization: res.data.token,
+              authorization: data.token,
             })
             .then((clientInstance) => {
               return Promise.all([
@@ -698,7 +698,7 @@ export default {
                   },
                 }),
                 braintree.threeDSecure.create({
-                  authorization: res.data.token,
+                  authorization: data.token,
                   version: 2,
                 }),
                 braintree.dataCollector.create({

@@ -97,10 +97,10 @@ export default {
   async fetch() {
     this.page = this.$route.query.page ? parseInt(this.$route.query.page) : 1
     await this.$axios
-      .get(`/api/author/${this.$route.params.autor}/page/${this.page}`)
-      .then((res) => {
-        this.author = res.data.author
-        this.posts = res.data.posts
+      .$get(`/api/author/${this.$route.params.autor}/page/${this.page}`)
+      .then((data) => {
+        this.author = data.author
+        this.posts = data.posts
         if (this.posts.length < 8) {
           this.hasMore = false
         }
@@ -156,11 +156,11 @@ export default {
     loadMore() {
       this.page++
       this.$axios
-        .get('/api/author/' + this.$route.params.autor + '/page/' + this.page)
-        .then((res) => {
-          this.posts = [...this.posts, ...res.data.posts]
+        .$get('/api/author/' + this.$route.params.autor + '/page/' + this.page)
+        .then((data) => {
+          this.posts = [...this.posts, ...data.posts]
 
-          if (res.data.posts < 8) {
+          if (data.posts < 8) {
             this.hasMore = false
           }
         })

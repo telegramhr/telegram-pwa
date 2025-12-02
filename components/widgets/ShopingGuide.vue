@@ -25,9 +25,9 @@ export default {
   name: 'ShopingGuide',
   async fetch() {
     this.posts = await this.$axios
-      .get('/api/shop-guide/related/1347241')
-      .then((res) => {
-        const shuffled = res.data.sort(() => 0.5 - Math.random())
+      .$get('/api/shop-guide/related/1347241')
+      .then((data) => {
+        const shuffled = data.sort(() => 0.5 - Math.random())
         return shuffled.slice(0, 4)
       })
   },

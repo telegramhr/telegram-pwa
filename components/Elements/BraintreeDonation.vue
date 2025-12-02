@@ -206,12 +206,12 @@ export default {
   methods: {
     submitBank() {
       this.$axios
-        .get('/pretplate/sanctum/csrf-cookie', {
+        .$get('/pretplate/sanctum/csrf-cookie', {
           withCredentials: true,
         })
         .then(() => {
           this.$axios
-            .post(
+            .$post(
               '/pretplate/donation',
               {
                 name: this.name,
@@ -222,19 +222,19 @@ export default {
               },
               { withCredentials: true }
             )
-            .then((res) => {
-              this.number = res.data.number
-              this.code = res.data.code
+            .then((data) => {
+              this.number = data.number
+              this.code = data.code
             })
         })
     },
     getToken() {
       if (this.price) {
-        this.$axios.get('/pretplate/braintree/client/1').then((res) => {
-          this.token = res.data.token
+        this.$axios.$get('/pretplate/braintree/client/1').then((data) => {
+          this.token = data.token
           braintree.client
             .create({
-              authorization: res.data.token,
+              authorization: data.token,
             })
             .then((clientInstance) => {
               return Promise.all([
@@ -271,7 +271,7 @@ export default {
                   },
                 }),
                 braintree.threeDSecure.create({
-                  authorization: res.data.token,
+                  authorization: data.token,
                   version: 2,
                 }),
                 braintree.dataCollector.create({
@@ -339,12 +339,12 @@ export default {
     },
     submitToServer() {
       this.$axios
-        .get('/pretplate/sanctum/csrf-cookie', {
+        .$get('/pretplate/sanctum/csrf-cookie', {
           withCredentials: true,
         })
         .then(() => {
           this.$axios
-            .post(
+            .$post(
               '/pretplate/donation',
               {
                 name: this.name,

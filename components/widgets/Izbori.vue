@@ -167,24 +167,24 @@ export default {
       const now = new Date()
       const time = now.getHours() + now.getMinutes()
       this.$axios
-        .get('/pretplate/izbori/r_15_21_0000_000.json?t=' + time)
-        .then((res) => {
-          this.zagreb = res.data
+        .$get('/pretplate/izbori/r_15_21_0000_000.json?t=' + time)
+        .then((data) => {
+          this.zagreb = data
         })
       this.$axios
-        .get('/pretplate/izbori/r_17_17_4090_000.json?t=' + time)
-        .then((res) => {
-          this.split = res.data
+        .$get('/pretplate/izbori/r_17_17_4090_000.json?t=' + time)
+        .then((data) => {
+          this.split = data
         })
       this.$axios
-        .get('/pretplate/izbori/r_17_08_3735_000.json?t=' + time)
-        .then((res) => {
-          this.rijeka = res.data
+        .$get('/pretplate/izbori/r_17_08_3735_000.json?t=' + time)
+        .then((data) => {
+          this.rijeka = data
         })
       this.$axios
-        .get('/pretplate/izbori/r_17_14_3123_000.json?t=' + time)
-        .then((res) => {
-          this.osijek = res.data
+        .$get('/pretplate/izbori/r_17_14_3123_000.json?t=' + time)
+        .then((data) => {
+          this.osijek = data
         })
     },
   },

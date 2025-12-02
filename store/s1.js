@@ -32,9 +32,9 @@ export const actions = {
   pullPosts({ commit, dispatch, state }) {
     if (state.updated + 0.5 * 60 * 1000 < new Date().getTime()) {
       return new Promise((resolve) => {
-        this.$axios.get('/api/s1/zone/s1-glavna').then((res) => {
-          commit('setPosts', res.data)
-          dispatch('posts/setPosts', res.data, { root: true })
+        this.$axios.$get('/api/s1/zone/s1-glavna').then((data) => {
+          commit('setPosts', data)
+          dispatch('posts/setPosts', data, { root: true })
           resolve()
         })
       })
@@ -43,8 +43,8 @@ export const actions = {
   pullSecretDinnerPosts({ commit, dispatch, state }) {
     if (state.updated4 + 0.5 * 60 * 1000 < new Date().getTime()) {
       return new Promise((resolve) => {
-        this.$axios.get('/api/s1/secret-dinner').then((res) => {
-          commit('setSecretDinnerPosts', res.data)
+        this.$axios.$get('/api/s1/secret-dinner').then((data) => {
+          commit('setSecretDinnerPosts', data)
           resolve()
         })
       })
@@ -53,9 +53,9 @@ export const actions = {
   pullBreaks({ commit, dispatch, state }) {
     if (state.updated2 + 0.5 * 60 * 1000 < new Date().getTime()) {
       return new Promise((resolve) => {
-        this.$axios.get('/api/s1/zone/s1-breaks').then((res) => {
-          commit('setBreaks', res.data)
-          dispatch('posts/setPosts', res.data, { root: true })
+        this.$axios.$get('/api/s1/zone/s1-breaks').then((data) => {
+          commit('setBreaks', data)
+          dispatch('posts/setPosts', data, { root: true })
           resolve()
         })
       })
@@ -64,9 +64,9 @@ export const actions = {
   pullBreaks2({ commit, dispatch, state }) {
     if (state.updated3 + 0.5 * 60 * 1000 < new Date().getTime()) {
       return new Promise((resolve) => {
-        this.$axios.get('/api/s1/zone/s1-breaks2').then((res) => {
-          commit('setBreaks2', res.data)
-          dispatch('posts/setPosts', res.data, { root: true })
+        this.$axios.$get('/api/s1/zone/s1-breaks2').then((data) => {
+          commit('setBreaks2', data)
+          dispatch('posts/setPosts', data, { root: true })
           resolve()
         })
       })

@@ -26,9 +26,9 @@ export default {
   name: 'Page',
   async fetch() {
     await this.$axios
-      .get('/api/single/' + this.$route.params.page)
-      .then((res) => {
-        this.post = res.data
+      .$get('/api/single/' + this.$route.params.page)
+      .then((data) => {
+        this.post = data
       })
       .catch(() => {
         if (process.server) {

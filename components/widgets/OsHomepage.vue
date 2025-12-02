@@ -69,8 +69,8 @@ export default {
   name: 'Partners',
   async fetch() {
     this.posts = await this.$axios
-      .get('/api/category/openspace')
-      .then((res) => res.data.posts.slice(0, 4))
+      .$get('/api/category/openspace')
+      .then((data) => data.posts.slice(0, 4))
   },
   data() {
     return {

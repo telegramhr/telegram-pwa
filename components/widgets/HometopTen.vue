@@ -149,7 +149,7 @@
 export default {
   name: 'HometopTen',
   async fetch() {
-    this.sold = (await this.$axios.get('/api/pretplate')).data.number
+    this.sold = (await this.$axios.$get('/api/pretplate')).data.number
   },
   data() {
     return {

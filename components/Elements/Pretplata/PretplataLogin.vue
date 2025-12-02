@@ -141,17 +141,17 @@ export default {
       const formData = new FormData()
       formData.append('email', value)
       this.$axios
-        .post('/crm/api/v2/users/email', formData, {
+        .$post('/crm/api/v2/users/email', formData, {
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
           },
         })
-        .then((response) => {
-          if (response.data.status && response.data.status === 'taken') {
+        .then((data) => {
+          if (data.status && data.status === 'taken') {
             _this.showPassword = true
             this.handleUpdateCanlogin(true)
-          } else if (response.data.status === 'error') {
-            if (response.data.code === 'email_missing') {
+          } else if (data.status === 'error') {
+            if (data.code === 'email_missing') {
               return
             }
             _this.show_msg = 'Prijavite se kako biste dovršili kupnju.'

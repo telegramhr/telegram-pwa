@@ -49,16 +49,18 @@ export const mutations = {
 export const actions = {
   pullPosts({ commit, dispatch, state }) {
     if (state.updated + 60 * 60 * 1000 < new Date().getTime()) {
-      this.$axios.$get('/api/partner-widget').then((res) => {
-        commit('setPosts', res.posts)
+      this.$axios.$get('/api/partner-widget').then((data) => {
+        commit('setPosts', data.posts)
       })
     }
   },
   pullSpecialWidget({ commit, dispatch, state }, payload) {
     if (state.widget[payload].updated + 20 * 60 * 1000 < new Date().getTime()) {
-      this.$axios.$get(`/api/partner-special-widget/${payload}`).then((res) => {
-        commit('setWidget', { res, payload })
-      })
+      this.$axios
+        .$get(`/api/partner-special-widget/${payload}`)
+        .then((data) => {
+          commit('setWidget', { res: data, payload })
+        })
     }
   },
 }

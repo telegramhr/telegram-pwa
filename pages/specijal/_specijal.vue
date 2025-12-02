@@ -92,8 +92,8 @@ export default {
   mounted() {
     this.$nextTick(() => {
       if (this.post.tag) {
-        this.$axios.get('/api/tag/' + this.post.tag).then((res) => {
-          this.posts = res.data.posts
+        this.$axios.$get('/api/tag/' + this.post.tag).then((data) => {
+          this.posts = data.posts
           if (this.posts.length < 9) {
             this.hasMore = false
           }
@@ -105,12 +105,12 @@ export default {
     loadMore() {
       this.loading = true
       this.$axios
-        .get('/api/tag/' + this.post.tag + '/page/' + this.page)
-        .then((res) => {
-          this.posts = [...this.posts, ...res.data.posts]
+        .$get('/api/tag/' + this.post.tag + '/page/' + this.page)
+        .then((data) => {
+          this.posts = [...this.posts, ...data.posts]
           this.page++
           this.loading = false
-          if (res.data.posts < 9) {
+          if (data.posts < 9) {
             this.hasMore = false
           }
         })

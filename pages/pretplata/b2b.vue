@@ -528,7 +528,7 @@ export default {
         return
       }
       this.$axios
-        .post('/pretplate/api/b2b', {
+        .$post('/pretplate/api/b2b', {
           email: this.email,
           company: this.company,
           address: this.address,

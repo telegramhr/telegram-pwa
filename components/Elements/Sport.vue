@@ -97,8 +97,8 @@
 export default {
   name: 'Sport',
   async fetch() {
-    await this.$axios.$get('/api/ts/zone/ts-tgfront/').then((res) => {
-      this.posts = res
+    await this.$axios.$get('/api/ts/zone/ts-tgfront/').then((data) => {
+      this.posts = data
     })
   },
   data() {

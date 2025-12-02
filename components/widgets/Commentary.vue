@@ -20,9 +20,9 @@ export default {
     }
     if (this.type === 'ts') {
       this.$axios
-        .get('https://telesport.telegram.hr/wp-json/telegram/pwa2/v1/portal/2')
-        .then((res) => {
-          this.posts = res.data.comments
+        .$get('https://telesport.telegram.hr/wp-json/telegram/pwa2/v1/portal/2')
+        .then((data) => {
+          this.posts = data.comments
         })
     }
   },

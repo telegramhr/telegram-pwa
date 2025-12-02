@@ -259,12 +259,12 @@
 <script>
 export default {
   async fetch() {
-    await this.$axios.get('/api/featured/openspace').then((res) => {
-      this.featured = res.data
+    await this.$axios.$get('/api/featured/openspace').then((data) => {
+      this.featured = data
     })
-    this.$axios.get('/api/category/openspace').then((res) => {
-      this.posts = res.data.posts
-      // dispatch('posts/setPosts', res.data.posts, { root: true })
+    this.$axios.$get('/api/category/openspace').then((data) => {
+      this.posts = data.posts
+      // dispatch('posts/setPosts', data.posts, { root: true })
     })
   },
   data() {
@@ -303,11 +303,11 @@ export default {
       this.loading = true
       this.page++
       this.$axios
-        .get(`/api/category/openspace/page/${this.page}`)
-        .then((res) => {
-          this.posts = [...this.posts, ...res.data.posts]
+        .$get(`/api/category/openspace/page/${this.page}`)
+        .then((data) => {
+          this.posts = [...this.posts, ...data.posts]
           this.loading = false
-          if (res.data.posts < 20) {
+          if (data.posts < 20) {
             this.hasMore = false
           }
         })
