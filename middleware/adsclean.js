@@ -11,6 +11,11 @@ export default function ({ store }) {
         window.googletag.destroySlots()
       })
     }
+    if (window.remplib) {
+      window.remplib.cmd.push(() => {
+        window.remplib.campaign.cleanup()
+      })
+    }
     next()
   })
 }
