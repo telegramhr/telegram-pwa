@@ -50,8 +50,13 @@
             v-show="canLogIn"
             id="pretplatite se - header"
             to="/pretplata/"
-            class="newbtn"
-            >Pretplatite se</app-link
+            class="pretplata-btn"
+          >
+            <img
+              src="@/assets/img/tabler-icon-books.png"
+              alt="knjige ikonica"
+            />
+            Pretplata + knjiga gratis</app-link
           >
           <a
             v-show="!canLogIn"
@@ -123,8 +128,13 @@
               v-show="!$store.state.user.access"
               id="pretplatite se - header"
               to="/pretplata"
-              class="newbtn"
-              >Pretplatite se</app-link
+              class="pretplata-btn"
+            >
+              <img
+                src="@/assets/img/tabler-icon-books.png"
+                alt="knjige ikonica"
+              />
+              Pretplata + knjiga gratis</app-link
             >
             <a
               v-show="!canLogIn"
