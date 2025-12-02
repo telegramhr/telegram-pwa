@@ -452,7 +452,6 @@ export default {
       })
     },
     submit() {
-      console.log('submit', this.canLogIn())
       if (this.canLogIn()) {
         this.login()
         return

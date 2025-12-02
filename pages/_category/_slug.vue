@@ -1064,7 +1064,6 @@ export default {
         return
       }
       const _that = this
-      console.log('Marfeel sub: ' + this.post.paywall)
       window.marfeel.cmd.push([
         'compass',
         function (compass) {

@@ -106,7 +106,7 @@ export default {
   },
 
   router: {
-    middleware: ['gemius', 'dotmetrics'],
+    middleware: ['adsclean', 'gemius', 'dotmetrics'],
   },
 
   loading: '~/components/loading.vue',
