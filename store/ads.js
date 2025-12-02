@@ -729,7 +729,7 @@ export const actions = {
     if (
       (rootState.user.access &&
         rootState.user.access.includes('telegram_premium')) ||
-      (payload.route && payload.route.includes('pretplata'))
+      (payload.route && payload.route.name.includes('pretplata'))
     ) {
       // remove intext banners
       const b = document.getElementsByClassName('banner-slot')
