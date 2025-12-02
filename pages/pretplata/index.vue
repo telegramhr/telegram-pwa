@@ -3,9 +3,10 @@
     <div v-if="loading" class="telegram-overlay">
       <span class="telegram-loader"></span>
     </div>
-    <PretplataHero
-      title="Čitajte najbolje članke renomiranih autora. Podržite slobodno novinarstvo pretplatom."
-    ></PretplataHero>
+    <PretplataHeroGift
+      title="Podržite neovisno novinarstvo pretplatom i uz to primite ekskluzivnu knjigu na dar."
+      subtitle="*Ekskluzivna ponuda poklon knjige uključena je uz godišnju pretplatu."
+    ></PretplataHeroGift>
     <div class="content">
       <div class="box-wrapper">
         <Switcher
@@ -43,6 +44,17 @@
           @updateCanLogIn="updateCanLogIn"
           @updateEmail="updateEmail"
         ></PretplataLogin>
+        <PretplataPoklon
+          v-if="selectedTerm === 'annual'"
+          :book-selected="bookSelected"
+          :book-name="bookName"
+          :book-address="bookAddress"
+          :book-phone="bookPhone"
+          @updateBookSelected="updateBookSelected"
+          @updateBookName="updateBookName"
+          @updateBookAddress="updateBookAddress"
+          @updateBookPhone="updateBookPhone"
+        ></PretplataPoklon>
         <PretplataPaymentConfirm
           :url-key="urlKey"
           :loading="loading"
@@ -53,6 +65,10 @@
           :price="price"
           :email="email"
           :discounted-amount="discount"
+          :book-selected="bookSelected"
+          :book-name="bookName"
+          :book-address="bookAddress"
+          :book-phone="bookPhone"
           @updateLoading="handleUpdateLoading"
           @updateDiscount="handleUpdateDiscount"
         ></PretplataPaymentConfirm>
@@ -91,6 +107,10 @@ export default {
       discount: 0,
       loadingPromo: false,
       promo_error: '',
+      bookSelected: '',
+      bookName: '',
+      bookAddress: '',
+      bookPhone: '',
     }
   },
   computed: {
@@ -135,6 +155,18 @@ export default {
     },
     updateCanLogIn(value) {
       this.canLogIn = value
+    },
+    updateBookSelected(value) {
+      this.bookSelected = value
+    },
+    updateBookName(value) {
+      this.bookName = value
+    },
+    updateBookAddress(value) {
+      this.bookAddress = value
+    },
+    updateBookPhone(value) {
+      this.bookPhone = value
     },
     calculatePrice() {
       switch (this.subscriptionType) {

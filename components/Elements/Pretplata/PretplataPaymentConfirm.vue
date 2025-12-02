@@ -101,6 +101,26 @@
         name="payment_metadata[voucher_code]"
         :value="discountedAmount ? promoCode : ''"
       />
+      <input
+        type="hidden"
+        name="payment_metadata[book_selected]"
+        :value="bookSelected"
+      />
+      <input
+        type="hidden"
+        name="payment_metadata[book_name]"
+        :value="bookName"
+      />
+      <input
+        type="hidden"
+        name="payment_metadata[book_address]"
+        :value="bookAddress"
+      />
+      <input
+        type="hidden"
+        name="payment_metadata[book_phone]"
+        :value="bookPhone"
+      />
 
       <div class="submit-wrapper">
         <button v-if="buyable" @click.prevent="submit">
@@ -168,6 +188,26 @@ export default {
     discountedAmount: {
       type: Number,
       default: 0,
+    },
+    bookSelected: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    bookName: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    bookAddress: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    bookPhone: {
+      type: String,
+      required: false,
+      default: '',
     },
   },
   data() {
@@ -258,6 +298,35 @@ export default {
     updateDiscount(value) {
       this.$emit('updateDiscount', value)
     },
+    sendBookDataToGoogleSheets() {
+      // Only send if a book is selected
+      if (!this.bookSelected) {
+        return Promise.resolve()
+      }
+
+      const gscriptUrl =
+        'https://script.google.com/macros/s/AKfycbxgiDmiYB1QE8iqwz8EnsyD14Fi4IOdUECXYtH_Ne5Lkbx8nPmqKCTgAV4CwzWYGRCL/exec'
+
+      // Map book value to readable name
+      const bookName =
+        this.bookSelected === 'igla-pila-ravnalo'
+          ? 'Igla, pila, ravnalo - Sanja Modrić'
+          : 'O Zagrebu i... - Zrinka Paladino'
+
+      return this.$axios
+        .get(gscriptUrl, {
+          params: {
+            Knjiga: bookName,
+            'Ime i prezime': this.bookName,
+            Adresa: this.bookAddress,
+            'Broj telefona': this.bookPhone,
+            Email: this.email,
+          },
+        })
+        .catch(() => {
+          // Ignore errors from Google Scripts (CORS issues are common but data still goes through)
+        })
+    },
     submit() {
       this.updateLoading(true)
       if (this.paymentType === 'bank') {
@@ -277,6 +346,9 @@ export default {
         })
         .then((data) => {
           if (data.status === 'ok') {
+            // Send book data to Google Sheets
+            this.sendBookDataToGoogleSheets()
+
             const trustpayIframe = document.getElementById('TrustPayFrame')
             if (trustpayIframe) {
               trustpayIframe.src = data.url + '&Localization=hr'
@@ -311,14 +383,22 @@ export default {
         })
     },
     bankTransfer() {
-      this.$axios
-        .$post('/pretplate/api/pretplata/bank', {
-          subscription_type: this.pack,
-          price: this.discountedAmount ? this.discountedAmount : this.price,
-          email: this.email,
-          referer: this.$store.getters['pretplata/link'],
-          voucher_log_id: this.voucher_log_id,
-          promo_code: this.promo_code,
+      // Send book data to Google Sheets first
+      this.sendBookDataToGoogleSheets()
+        .then(() => {
+          // Then proceed with bank transfer
+          return this.$axios.$post('/pretplate/api/pretplata/bank', {
+            subscription_type: this.pack,
+            price: this.discountedAmount ? this.discountedAmount : this.price,
+            email: this.email,
+            referer: this.$store.getters['pretplata/link'],
+            voucher_log_id: this.voucher_log_id,
+            promo_code: this.promo_code,
+            book_selected: this.bookSelected,
+            book_name: this.bookName,
+            book_address: this.bookAddress,
+            book_phone: this.bookPhone,
+          })
         })
         .then((response) => {
           if (response.id) {
@@ -326,6 +406,10 @@ export default {
           } else {
             this.show_msg = 'Došlo je do greške s plaćanjem.'
           }
+        })
+        .catch((error) => {
+          this.show_msg = 'Došlo je do greške s plaćanjem.'
+          console.error('Bank transfer error:', error)
         })
     },
   },

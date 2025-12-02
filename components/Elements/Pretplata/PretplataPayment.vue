@@ -18,7 +18,9 @@
           />
           <div class="radio-option">
             <div class="radio-heading">
-              <span>Godišnja pretplata</span>
+              <p>
+                Godišnja pretplata + <span class="gift">poklon knjiga</span>
+              </p>
               <button class="discount">
                 {{
                   subscriptionType === 'individual'
@@ -201,7 +203,6 @@ export default {
   flex-direction: column;
   height: 100%;
   gap: 28px;
-  justify-content: space-between;
 }
 
 .radio-wrapper {
@@ -209,7 +210,7 @@ export default {
   align-items: center;
   gap: 12px;
   cursor: pointer;
-  max-height: 40px;
+  max-height: 64px;
 }
 
 .radio-option {
@@ -222,6 +223,9 @@ export default {
   flex-direction: row;
   gap: 10px;
   align-items: center;
+}
+.gift {
+  color: #d30000 !important;
 }
 .card-wrapper {
   display: flex;
@@ -238,12 +242,14 @@ export default {
 .card-icons img {
   max-width: 26px;
 }
-.radio-heading span {
+.radio-heading span,
+.radio-heading p {
   font-family: 'Lora', sans-serif;
   font-weight: 600;
   font-size: 20px;
   line-height: 24px;
   color: black;
+  max-width: 190px;
 }
 
 .discount {

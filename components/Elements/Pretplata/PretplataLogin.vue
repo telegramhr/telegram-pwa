@@ -296,7 +296,7 @@ button {
 @media screen and (min-width: 1024px) {
   .main {
     padding: 24px 0px;
-    gap: 16x;
+    gap: 16px;
   }
   #password-field {
     display: block;
