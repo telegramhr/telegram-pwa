@@ -306,17 +306,17 @@
     </div>
     <app-link
       v-if="!$store.state.user.access.length"
-      to="https://www.telegram.hr/pretplata/telegram-family"
+      to="https://www.telegram.hr/pretplata"
       class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center"
       style="padding: 0 24px; margin-top: 40px"
     >
       <img
-        src="@/assets/img/pretplata/family/family_banner_desktop.png"
+        src="@/assets/img/pretplata/desktop_banner.png"
         alt="Naslovnica nove knjige"
         class="desktop-only"
       />
       <img
-        src="@/assets/img/pretplata/family/family_banner_mobile.png"
+        src="@/assets/img/pretplata/mobile_banner.png"
         alt="Naslovnica nove knjige"
         class="mobile-only"
         style="width: 100%"
