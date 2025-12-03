@@ -11813,6 +11813,9 @@ html.large-fontsize,
   }
   .pretplata-btn {
      font-size: 0.6rem;
+     gap: 4px;
+     padding: 2px;
+     line-height: 13px;
      }
 
   .klub-intro .nothfour {
