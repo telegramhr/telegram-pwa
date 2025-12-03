@@ -46,27 +46,10 @@ export default {
 <template>
   <div class="main">
     <div class="wrapper">
-      <span class="title">Izjave čitatelja</span>
+      <div class="testimonials">
+        <span class="title">Izjave čitatelja</span>
 
-      <div class="desktop-testimonials">
-        <div
-          v-for="(testimonial, index) in testimonials"
-          :key="index"
-          class="card"
-        >
-          <p>{{ testimonial.text }}</p>
-          <div class="author-box">
-            <img :src="testimonial.avatar" alt="" />
-            <div class="info">
-              <span class="name">{{ testimonial.name }}</span>
-              <p class="description">{{ testimonial.description }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="mobile-testimonials">
-        <vue-slick-carousel v-bind="slickOptions">
+        <div class="desktop-testimonials">
           <div
             v-for="(testimonial, index) in testimonials"
             :key="index"
@@ -81,7 +64,32 @@ export default {
               </div>
             </div>
           </div>
-        </vue-slick-carousel>
+        </div>
+
+        <div class="mobile-testimonials">
+          <vue-slick-carousel v-bind="slickOptions">
+            <div
+              class="card-wrapper"
+              v-for="(testimonial, index) in testimonials"
+              :key="index"
+            >
+              <div class="card">
+                <p>{{ testimonial.text }}</p>
+                <div class="author-box">
+                  <img :src="testimonial.avatar" alt="" />
+                  <div class="info">
+                    <span class="name">{{ testimonial.name }}</span>
+                    <p class="description">{{ testimonial.description }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </vue-slick-carousel>
+        </div>
+      </div>
+      <div class="cta">
+        <span>Blagdanska akcija traje do kraja ovog mjeseca</span>
+        <button>Darujte pretplatu</button>
       </div>
     </div>
   </div>
@@ -98,6 +106,12 @@ export default {
 .wrapper {
   max-width: 868px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  padding-bottom: 72px;
+}
+.testimonials {
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -118,6 +132,11 @@ export default {
   flex-direction: row;
 }
 
+.card-wrapper {
+  max-width: 280px;
+  margin-right: 16px;
+  width: 100%;
+}
 .card {
   background-color: #fff;
   border-radius: 4px;
@@ -125,9 +144,7 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  max-width: 280px;
-  margin-right: 16px;
-  width: 100%;
+  justify-content: space-between;
 }
 .card p {
   font-family: 'Barlow', serif;
@@ -140,6 +157,11 @@ export default {
   display: flex;
   align-items: center;
   gap: 12px;
+}
+.author-box .info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .author-box img {
@@ -164,12 +186,48 @@ export default {
 .mobile-testimonials {
   display: block;
 }
+.cta {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 406px;
+  width: 100%;
+  margin: 0 auto;
+}
+.cta span {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+}
+.cta button {
+  background-color: #37ae37;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 18px 28px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  width: fit-content;
+  margin: 0 auto;
+}
+.cta button:hover {
+  background-color: #237023;
+}
 
 @media (min-width: 1024px) {
   .wrapper {
+    gap: 116px;
+    padding-bottom: 116px;
+  }
+  .testimonials {
     gap: 46px;
   }
-  .wrapper .title {
+  .testimonials .title {
     font-size: 28px;
     line-height: 56px;
   }
@@ -180,6 +238,7 @@ export default {
     display: none;
   }
   .desktop-testimonials .card {
+    justify-content: space-between;
     padding: 28px;
     flex: 1;
     gap: 28px;
@@ -191,12 +250,20 @@ export default {
   .desktop-testimonials .card .author-box {
     gap: 14px;
   }
+
   .desktop-testimonials .card .author-box .name {
     font-size: 20px;
   }
   .desktop-testimonials .card .author-box .description {
     font-size: 14px;
     line-height: 20px;
+  }
+  .cta {
+    gap: 36px;
+  }
+  .cta span {
+    font-size: 28px;
+    line-height: 36px;
   }
 }
 </style>

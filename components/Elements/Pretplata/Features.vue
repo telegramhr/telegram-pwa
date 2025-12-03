@@ -18,17 +18,17 @@ export default {
         {
           title: 'Neovisno i nagrađivano novinarstvo',
           text: 'Pretplatom podržavate redakciju koja je višestruko nagrađivana za istraživačko i analitičko novinarstvo.',
-          image: require('@/assets/img/pretplata/example-image.png'),
+          image: require('@/assets/img/pretplata/emil.png'),
         },
         {
           title: 'Bez reklama u sklopu Premium pretplate',
           text: 'Uživajte u čistom, preglednom čitanju - bez ometajućih reklama. Samo informacije koje vrijede vašeg vremena.',
-          image: require('@/assets/img/pretplata/example-image.png'),
+          image: require('@/assets/img/pretplata/gift-mobile.png'),
         },
         {
           title: 'Pristup Telegram klubu i pogodnostima',
           text: 'U Telegram Klubu vas očekuju dodatne pogodnosti, posebni popusti i pozivnice na ekskluzivne događaje.',
-          image: require('@/assets/img/pretplata/example-image.png'),
+          image: require('@/assets/img/pretplata/igla-pila-ravnalo.png'),
         },
       ],
     }
@@ -41,11 +41,15 @@ export default {
     <div class="wrapper">
       <span class="title">Što dobivate pretplatom:</span>
       <div class="desktop-content">
-        <img
-          class="activeImage"
-          :src="cards[activeIndex].image"
-          :alt="cards[activeIndex].title"
-        />
+        <div class="activeImage">
+          <transition name="fade-img" mode="out-in">
+            <img
+              :key="cards[activeIndex].image"
+              :src="cards[activeIndex].image"
+              :alt="cards[activeIndex].title"
+            />
+          </transition>
+        </div>
         <div class="desktop-cards">
           <div
             v-for="(card, index) in cards"
@@ -113,18 +117,19 @@ export default {
   display: none;
 }
 .card {
-  max-width: 340px;
+  max-width: 285px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  padding-right: 16px;
+  padding-right: 21px;
   gap: 16px;
 }
 
 .card-image {
   width: 100%;
-  height: auto;
-  aspect-ratio: square;
+  object-fit: cover;
+  height: 100%;
+  aspect-ratio: 1;
 }
 .card-content {
   display: flex;
@@ -160,13 +165,31 @@ export default {
   margin-top: 1rem;
 }
 @media (min-width: 1024px) {
+  .fade-img-enter-active,
+  .fade-img-leave-active {
+    transition: opacity 0.45s ease-out, transform 0.45s ease-out;
+    position: absolute;
+    inset: 0;
+  }
+
+  .fade-img-enter-from,
+  .fade-img-leave-to {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+
+  .fade-img-enter-to,
+  .fade-img-leave-from {
+    opacity: 1;
+    transform: scale(1);
+  }
   .wrapper {
     gap: 60px;
   }
   .wrapper .title {
     font-size: 28px;
     line-height: 32px;
-    font-weight: 700;
+    font-weight: 500;
   }
   .mobile-content {
     display: none;
@@ -174,17 +197,25 @@ export default {
   .desktop-content {
     display: flex;
     flex-direction: row;
-    gap: 28px;
+    gap: 48px;
+  }
+  .activeImage {
+    width: 100%;
+    max-width: 470px;
+    aspect-ratio: 1;
+    overflow: hidden;
+    position: relative;
   }
   .activeImage img {
     width: 100%;
-    max-width: 470px;
-    aspect-ratio: sq;
+    height: 100%;
+    object-fit: cover;
   }
+
   .desktop-cards {
     display: flex;
     flex-direction: column;
-    gap: 42px;
+    gap: 40px;
   }
   .desktop-card {
     padding: 2px 0px 2px 12px;
@@ -193,9 +224,14 @@ export default {
     gap: 15px;
     color: #747474;
     cursor: pointer;
+    transition: color 0.25s ease, border-left 0.25s ease, transform 0.25s ease;
+  }
+  .desktop-card:hover {
+    transform: translateX(6px);
   }
   .desktop-card.active {
     color: #000000;
+    transform: translateX(0);
     border-left: 4px solid black;
   }
   .desktop-card span {

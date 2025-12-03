@@ -115,6 +115,7 @@ export default {
   display: flex;
   flex-direction: row;
   gap: 16px;
+  padding: 8px 0px;
   align-items: center;
 }
 .step-item .step-content {
@@ -162,6 +163,9 @@ export default {
   border: none;
   cursor: pointer;
 }
+.right-side button:hover {
+  background-color: #237023;
+}
 @media (min-width: 1024px) {
   .wrapper {
     padding: 64px 0 80px 0;
@@ -175,6 +179,9 @@ export default {
     flex-direction: row;
     gap: 72px;
   }
+  .content .steps {
+    gap: 8px;
+  }
   .mobile-image {
     display: none;
   }
@@ -185,9 +192,7 @@ export default {
     aspect-ratio: 0.98;
     object-fit: cover;
   }
-  .wrapper .content .right-side {
-    gap: 48px;
-  }
+
   .steps {
     gap: 16px;
   }

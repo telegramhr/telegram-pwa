@@ -7,16 +7,28 @@ export default {
       contentHeights: [],
       faqs: [
         {
-          question: 'Kako funkcionira pretplata?',
+          question: 'Pitanje 1',
           answer: 'Pretplata se aktivira odmah nakon kupnje i traje 30 dana.',
         },
         {
-          question: 'Mogu li otkazati kada želim?',
+          question: 'Pitanje 2',
           answer:
             'Da, otkazivanje je moguće u bilo kojem trenutku bez dodatnih naknada.',
         },
         {
-          question: 'Jesu li članci dostupni offline?',
+          question: 'Pitanje 3',
+          answer: 'Premium korisnici mogu spremati članke za offline čitanje.',
+        },
+        {
+          question: 'Pitanje 4',
+          answer: 'Premium korisnici mogu spremati članke za offline čitanje.',
+        },
+        {
+          question: 'Pitanje 5',
+          answer: 'Premium korisnici mogu spremati članke za offline čitanje.',
+        },
+        {
+          question: 'Pitanje 6',
           answer: 'Premium korisnici mogu spremati članke za offline čitanje.',
         },
       ],
@@ -28,7 +40,6 @@ export default {
       const wrapper = el.parentElement
 
       if (this.openIndex === index) {
-        // ZATVARANJE
         const height = wrapper.scrollHeight
         wrapper.style.height = height + 'px'
         this.openIndex = null
@@ -40,13 +51,11 @@ export default {
         return
       }
 
-      // OTVARANJE
       this.openIndex = index
 
       this.$nextTick(() => {
         wrapper.style.height = wrapper.scrollHeight + 'px'
 
-        // nakon animacije height: auto
         wrapper.addEventListener(
           'transitionend',
           () => {
@@ -75,7 +84,7 @@ export default {
           <div class="question-header">
             <span>{{ faq.question }}</span>
             <div class="icon" :class="{ open: openIndex === index }">
-              <font-awesome-icon size="sm" :icon="['fa', 'chevron-up']" />
+              <font-awesome-icon size="xs" :icon="['fa', 'chevron-up']" />
             </div>
           </div>
 
@@ -166,6 +175,7 @@ export default {
   .wrapper {
     padding: 52px 0;
     gap: 24px;
+    text-align: left;
   }
   .wrapper .title {
     font-size: 22px;
