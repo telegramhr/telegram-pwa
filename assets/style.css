@@ -11811,6 +11811,9 @@ html.large-fontsize,
     font-size: 1.1rem;
     margin-bottom: 2vw;
   }
+  .pretplata-btn {
+     font-size: 0.6rem;
+     }
 
   .klub-intro .nothfour {
     font-size: 18px;
