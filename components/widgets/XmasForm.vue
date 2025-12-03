@@ -240,7 +240,7 @@ export default {
         this.xmasattempt = true
         this.xmasloading = true
         this.$axios
-          .get(
+          .$get(
             '/gscripts/AKfycbz1N8o3ioCOzaz_nSdpg-goTrQd37AZtKkXB-5ePjmQFdaZfPev_KcWazsMRl0ATkvFbw',
             {
               params: {

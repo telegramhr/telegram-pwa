@@ -14,8 +14,8 @@ export const actions = {
   pullPosts({ commit, dispatch, state }) {
     return new Promise((resolve) => {
       if (state.updated + 10 * 60 * 1000 < new Date().getTime()) {
-        this.$axios.get('/api/klub/widget').then((res) => {
-          commit('setPosts', res.data)
+        this.$axios.$get('/api/klub/widget').then((data) => {
+          commit('setPosts', data)
           resolve()
         })
       }

@@ -124,7 +124,7 @@ export default {
           event: 'quiz-success',
         })
         this.$axios
-          .get('/gscripts/' + this.data.script, {
+          .$get('/gscripts/' + this.data.script, {
             params: this.answers,
           })
           .catch(() => {

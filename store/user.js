@@ -108,9 +108,9 @@ export const actions = {
         resolve(state.coral_token)
         return
       }
-      this.$axios.get(`/pretplate/coral/token/${state.token}`).then((res) => {
-        commit('setCoral', res.data)
-        resolve(res.data)
+      this.$axios.$get(`/pretplate/coral/token/${state.token}`).then((data) => {
+        commit('setCoral', data)
+        resolve(data)
       })
     })
   },
@@ -173,8 +173,8 @@ export const actions = {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((res) => {
-        commit('setUser', res)
+      .then((data) => {
+        commit('setUser', data)
       })
       .catch(() => {
         commit('logout')
@@ -185,9 +185,9 @@ export const actions = {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((res) => {
-        if (res.status === 'ok') {
-          res.subscriptions.forEach((sub) => {
+      .then((data) => {
+        if (data.status === 'ok') {
+          data.subscriptions.forEach((sub) => {
             const end = new Date(sub.end_at)
             if (end > new Date()) {
               dispatch('setAccess', { data: sub })
@@ -231,15 +231,15 @@ export const actions = {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
       })
-      .then((res) => {
-        commit('setUser', res)
-        this.$cookies.set('n_token', res.access.token, {
+      .then((data) => {
+        commit('setUser', data)
+        this.$cookies.set('n_token', data.access.token, {
           domain: '.telegram.hr',
           path: '/',
           maxAge: 60 * 60 * 24 * 365,
           sameSite: 'lax',
         })
-        dispatch('checkAccess', res.access.token)
+        dispatch('checkAccess', data.access.token)
         commit('closeModal')
         if (state.callback) {
           state.callback()
@@ -266,9 +266,9 @@ export const actions = {
           Authorization: `Bearer ff4a16187c0fc0cc0267b95410c4f55a`,
         },
       })
-      .then((res) => {
-        commit('setUser', res)
-        this.$cookies.set('n_token', res.access.token, {
+      .then((data) => {
+        commit('setUser', data)
+        this.$cookies.set('n_token', data.access.token, {
           domain: '.telegram.hr',
           path: '/',
           maxAge: 60 * 60 * 24 * 365,
@@ -287,7 +287,7 @@ export const actions = {
   },
   loginPiano({ commit, dispatch }, payload) {
     this.$axios
-      .post(
+      .$post(
         '/piano/id/api/v1/publisher/identity/login',
         {
           email: payload.email,
@@ -307,24 +307,24 @@ export const actions = {
         const data = new FormData()
         data.append('email', payload.email)
         this.$axios
-          .post('/crm/api/v2/users/email', data, {
+          .$post('/crm/api/v2/users/email', data, {
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded',
             },
           })
-          .then((res) => {
-            if (res.data.id) {
+          .then((data) => {
+            if (data.id) {
               const data2 = new FormData()
-              data2.append('user_id', res.data.id)
+              data2.append('user_id', data.id)
               data2.append('password', payload.password)
               this.$axios
-                .post('/crm/api/v1/users/update', data2, {
+                .$post('/crm/api/v1/users/update', data2, {
                   headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                     Authorization: `Bearer ff4a16187c0fc0cc0267b95410c4f55a`,
                   },
                 })
-                .then((res) => {
+                .then((data) => {
                   dispatch('loginSubmit', payload)
                 })
             }

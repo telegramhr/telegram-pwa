@@ -148,9 +148,9 @@ export default {
   methods: {
     loadMore() {
       this.$axios
-        .get('/api/featured')
-        .then((res) => {
-          this.posts = res.data
+        .$get('/api/featured')
+        .then((data) => {
+          this.posts = data
         })
         .catch(() => {
           // TODO: error logging

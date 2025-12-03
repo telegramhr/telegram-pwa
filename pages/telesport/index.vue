@@ -628,8 +628,8 @@ export default {
   },
   methods: {
     loadMore() {
-      this.$axios.$get('/api/ts/more/' + this.page).then((res) => {
-        this.morePosts = [...this.morePosts, ...res]
+      this.$axios.$get('/api/ts/more/' + this.page).then((data) => {
+        this.morePosts = [...this.morePosts, ...data]
         this.page++
       })
     },

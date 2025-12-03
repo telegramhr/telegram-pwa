@@ -19,8 +19,8 @@ export default {
   methods: {
     loadUnity() {
       const date = this.$route.params.date
-      this.$axios.get(`/api/games/hexagram/${date}`).then((response) => {
-        this.initUnity(response.data)
+      this.$axios.$get(`/api/games/hexagram/${date}`).then((data) => {
+        this.initUnity(data)
       })
     },
     initUnity(levelInfo) {

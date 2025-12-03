@@ -43,8 +43,8 @@ export const mutations = {
 export const actions = {
   pullPosts({ commit, dispatch, state }) {
     if (state.updated + 20 * 60 * 1000 < new Date().getTime()) {
-      this.$axios.$get('/api/promos').then((res) => {
-        commit('setPosts', res)
+      this.$axios.$get('/api/promos').then((data) => {
+        commit('setPosts', data)
       })
     }
   },
@@ -55,11 +55,11 @@ export const actions = {
     ) {
       this.$axios
         .$get(`/api/promos/webshop?shop=${data.shop}&webshop=${data.preview}`)
-        .then((res) => {
+        .then((responseData) => {
           commit('setOffers', {
             shop: data.shop,
             preview: data.preview,
-            data: res,
+            data: responseData,
           })
         })
     }

@@ -275,17 +275,17 @@ export default {
   async fetch() {
     const page = this.$route.query.page ? parseInt(this.$route.query.page) : 1
     await this.$axios
-      .get(`/api/tag/${this.$route.params.tema}/page/${page}`)
-      .then((res) => {
-        this.posts = res.data.posts
-        this.category = res.data.tag
-        if (res.data.posts.length < 12) {
+      .$get(`/api/tag/${this.$route.params.tema}/page/${page}`)
+      .then((data) => {
+        this.posts = data.posts
+        this.category = data.tag
+        if (data.posts.length < 12) {
           this.hasMore = false
         }
-        if (res.data.posts.length === 12 && res.data.count >= page * 12) {
+        if (data.posts.length === 12 && data.count >= page * 12) {
           this.hasMore = true
         }
-        if (!res.data.posts.length) {
+        if (!data.posts.length) {
           this.$telegram.context.res.statusCode = 404
         }
       })
@@ -340,11 +340,11 @@ export default {
       this.loading = true
       this.page++
       this.$axios
-        .get(`/api/tag/${this.$route.params.tema}/page/${this.page}`)
-        .then((res) => {
-          this.posts = [...this.posts, ...res.data.posts]
+        .$get(`/api/tag/${this.$route.params.tema}/page/${this.page}`)
+        .then((data) => {
+          this.posts = [...this.posts, ...data.posts]
           this.loading = false
-          if (res.data.posts < 12) {
+          if (data.posts < 12) {
             this.hasMore = false
           }
         })

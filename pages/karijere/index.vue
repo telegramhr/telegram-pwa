@@ -76,11 +76,11 @@ export default {
     }
     const page = this.$route.query.page ? parseInt(this.$route.query.page) : 1
     await this.$axios
-      .get(`/api/category/karijere/page/${page}`)
-      .then((res) => {
-        this.posts = res.data.posts
-        this.description = res.data.description
-        if (res.data.posts.length < 20) {
+      .$get(`/api/category/karijere/page/${page}`)
+      .then((data) => {
+        this.posts = data.posts
+        this.description = data.description
+        if (data.posts.length < 20) {
           this.hasMore = false
         }
       })

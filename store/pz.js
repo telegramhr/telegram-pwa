@@ -28,8 +28,8 @@ export const actions = {
   pullPosts({ commit, state }) {
     return new Promise((resolve) => {
       if (state.updated + 10 * 60 * 1000 < new Date().getTime()) {
-        this.$axios.get('/api/homepage/pitanje-zdravlja').then((res) => {
-          commit('setPosts', res.data)
+        this.$axios.$get('/api/homepage/pitanje-zdravlja').then((data) => {
+          commit('setPosts', data)
           resolve()
         })
       } else {
@@ -44,9 +44,9 @@ export const actions = {
       }
       if (state.morePosts.length < page * 7) {
         this.$axios
-          .get('/api/homepage/pitanje-zdravlja/page/' + page)
-          .then((res) => {
-            commit('setMore', res.data.posts)
+          .$get('/api/homepage/pitanje-zdravlja/page/' + page)
+          .then((data) => {
+            commit('setMore', data.posts)
             resolve()
           })
       } else {

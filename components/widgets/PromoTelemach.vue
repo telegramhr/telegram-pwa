@@ -100,7 +100,7 @@ export default {
       if (!this.name || !this.email || !this.phone) {
         return
       }
-      this.$axios.get(
+      this.$axios.$get(
         '/gscripts/AKfycbzXtM7mN5WqKOLZcoXWi2_iKeP15I2v9NCv4LKFKLO4BEiHml_Sq7pckEDHJbBwqovr',
         {
           params: {

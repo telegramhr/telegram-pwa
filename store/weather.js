@@ -46,8 +46,8 @@ export const mutations = {
 export const actions = {
   pullWeather({ commit, state }) {
     if (state.updated + 10 * 60 * 1000 < new Date().getTime()) {
-      this.$axios.get('/api/weather').then((res) => {
-        commit('setWeather', res.data)
+      this.$axios.$get('/api/weather').then((data) => {
+        commit('setWeather', data)
       })
     }
   },

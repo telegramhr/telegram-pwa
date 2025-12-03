@@ -31,9 +31,9 @@ export default {
   methods: {
     getPosts() {
       this.$axios
-        .get('/api/trending/' + this.id)
-        .then((res) => {
-          this.posts = res.data
+        .$get('/api/trending/' + this.id)
+        .then((data) => {
+          this.posts = data
         })
         .catch(() => {
           // TODO: error logging

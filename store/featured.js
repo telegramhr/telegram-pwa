@@ -23,27 +23,27 @@ export const mutations = {
 export const actions = {
   pullPosts({ commit, dispatch, state }) {
     return new Promise((resolve) => {
-      this.$axios.get('/api/featured').then((res) => {
-        commit('setPosts', res.data)
-        dispatch('posts/setPosts', res.data, { root: true })
+      this.$axios.$get('/api/featured').then((data) => {
+        commit('setPosts', data)
+        dispatch('posts/setPosts', data, { root: true })
         resolve()
       })
     })
   },
   pullBreaks({ commit, dispatch, state }) {
     return new Promise((resolve) => {
-      this.$axios.get('/api/breaks').then((res) => {
-        commit('setBreaks', res.data)
-        dispatch('posts/setPosts', res.data, { root: true })
+      this.$axios.$get('/api/breaks').then((data) => {
+        commit('setBreaks', data)
+        dispatch('posts/setPosts', data, { root: true })
         resolve()
       })
     })
   },
   loadMore({ commit, dispatch, state }) {
     return new Promise((resolve) => {
-      this.$axios.get('/api/featured/page/' + state.page).then((res) => {
-        commit('setMore', res.data)
-        dispatch('posts/setPosts', res.data, { root: true })
+      this.$axios.$get('/api/featured/page/' + state.page).then((data) => {
+        commit('setMore', data)
+        dispatch('posts/setPosts', data, { root: true })
         resolve()
       })
     })

@@ -259,9 +259,9 @@ export default {
           subscription_type_code: this.pack,
           include_discounted_amount: true,
         })
-        .then((res) => {
+        .then((data) => {
           this.voucher_log_id = res.voucher_log_id
-          // this.discount = res.data.discounted_amount
+          // this.discount = data.discounted_amount
         })
         .then(() => {
           this.submit()
@@ -279,7 +279,7 @@ export default {
             include_discounted_amount: true,
           },
         })
-        .then((res) => {
+        .then((data) => {
           this.updateDiscount(res.discounted_amount ? res.discounted_amount : 0)
           this.promoError = ''
           this.promoSuccess = 'Promo kod primjenjen!'
@@ -341,7 +341,7 @@ export default {
         body: formData,
         credentials: 'include',
       })
-        .then((response) => {
+        .then((data) => {
           return response.json()
         })
         .then((data) => {
@@ -400,7 +400,7 @@ export default {
             book_phone: this.bookPhone,
           })
         })
-        .then((response) => {
+        .then((data) => {
           if (response.id) {
             this.$router.push('/pretplata/bank/' + response.id)
           } else {

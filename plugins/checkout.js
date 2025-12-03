@@ -6,17 +6,17 @@ export default ({ app, req, store }, inject) => {
       return
     }
     app.$axios
-      .get('/crm/api/v1/braintree/token', {
+          .$get('/crm/api/v1/braintree/token', {
         params: {
           email,
         },
       })
-      .then((res) => {
-        _this.token = res.data.token
-        _this.customerId = res.data.customer_id
+      .then((data) => {
+        _this.token = data.token
+        _this.customerId = data.customer_id
         braintree.client
           .create({
-            authorization: res.data.token,
+            authorization: data.token,
           })
           .then((clientInstance) => {
             return Promise.all([
@@ -50,7 +50,7 @@ export default ({ app, req, store }, inject) => {
                 },
               }),
               braintree.threeDSecure.create({
-                authorization: res.data.token,
+                authorization: data.token,
                 version: 2,
               }),
               braintree.dataCollector.create({

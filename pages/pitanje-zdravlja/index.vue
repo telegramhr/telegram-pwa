@@ -408,9 +408,9 @@ export default {
         this.page = parseInt(this.$route.query.page)
       }
       this.$axios
-        .get(`/api/category/pitanje-zdravlja/page/${this.page}`)
-        .then((res) => {
-          this.posts = res.data.posts
+        .$get(`/api/category/pitanje-zdravlja/page/${this.page}`)
+        .then((data) => {
+          this.posts = data.posts
         })
       AOS.init({
         once: true,
@@ -423,10 +423,10 @@ export default {
       this.loading = true
       this.page++
       this.$axios
-        .get(`/api/category/pitanje-zdravlja/page/${this.page}`)
-        .then((res) => {
-          this.posts = [...this.posts, ...res.data.posts]
-          if (res.data.posts.length < 16) {
+        .$get(`/api/category/pitanje-zdravlja/page/${this.page}`)
+        .then((data) => {
+          this.posts = [...this.posts, ...data.posts]
+          if (data.posts.length < 16) {
             this.hasMore = false
           }
           this.loading = false
@@ -434,7 +434,7 @@ export default {
     },
     submitQuestion() {
       this.$axios
-        .get(
+        .$get(
           '/gscripts/AKfycbwgk-r1uOxx60N9HSeLONiFKzcyMz_fj50K11wxg4ZDba5lUtuuDxh1ux440WL2veFZ/exec',
           {
             params: {

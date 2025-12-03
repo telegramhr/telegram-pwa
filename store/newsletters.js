@@ -62,7 +62,7 @@ export const actions = {
   subscribe({ rootState, commit, state, dispatch }, payload) {
     if (payload.free || rootState.user.access) {
       this.$axios
-        .post(
+        .$post(
           '/mailer/api/v1/users/subscribe',
           {
             email: rootState.user.email,
@@ -93,7 +93,7 @@ export const actions = {
       return
     }
     this.$axios
-      .post(
+      .$post(
         '/mailer/api/v1/users/un-subscribe',
         {
           data: {

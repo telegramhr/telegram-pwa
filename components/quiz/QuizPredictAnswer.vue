@@ -106,7 +106,7 @@ export default {
     next() {
       // make request to api
       this.$axios
-        .post('/api/quiz/prediction', {
+        .$post('/api/quiz/prediction', {
           data: {
             post: this.post,
             answer: this.answered,

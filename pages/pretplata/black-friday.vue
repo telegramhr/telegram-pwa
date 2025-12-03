@@ -445,17 +445,17 @@ export default {
       const formData = new FormData()
       formData.append('email', value)
       this.$axios
-        .post('/crm/api/v2/users/email', formData, {
+        .$post('/crm/api/v2/users/email', formData, {
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
           },
         })
-        .then((response) => {
-          if (response.data.status && response.data.status === 'taken') {
+        .then((data) => {
+          if (data.status && data.status === 'taken') {
             _this.showPassword = true
             _this.canLogIn = true
-          } else if (response.data.status === 'error') {
-            if (response.data.code === 'email_missing') {
+          } else if (data.status === 'error') {
+            if (data.code === 'email_missing') {
               return
             }
             _this.show_msg = 'Prijavite se kako biste dovršili kupnju.'
@@ -521,7 +521,7 @@ export default {
     },
     bankTransfer() {
       this.$axios
-        .post('/pretplate/api/pretplata/bank', {
+        .$post('/pretplate/api/pretplata/bank', {
           subscription_type: this.subscription_type,
           price: this.price,
           email: this.email,
@@ -529,9 +529,9 @@ export default {
           voucher_log_id: this.voucher_log_id,
           promo_code: this.promo_code,
         })
-        .then((response) => {
-          if (response.data.id) {
-            this.$router.push('/pretplata/bank/' + response.data.id)
+        .then((data) => {
+          if (data.id) {
+            this.$router.push('/pretplata/bank/' + data.id)
           } else {
             this.show_msg = 'Došlo je do greške s plaćanjem.'
           }
@@ -542,17 +542,17 @@ export default {
       this.promo_error = ''
       // check if promo code is valid
       this.$axios
-        .get('/crm/api/v2/voucher/check', {
+        .$get('/crm/api/v2/voucher/check', {
           params: {
             code: this.promo_code,
             subscription_type_code: this.subscription_type,
             include_discounted_amount: true,
           },
         })
-        .then((res) => {
-          this.discountedPrice = res.data.discounted_amount
+        .then((data) => {
+          this.discountedPrice = data.discounted_amount
           this.discount = (
-            this.price - parseFloat(res.data.discounted_amount)
+            this.price - parseFloat(data.discounted_amount)
           ).toFixed(2)
         })
         .catch(() => {
@@ -563,14 +563,14 @@ export default {
     applyPromo() {
       // check if promo code is valid
       this.$axios
-        .post('/crm/api/v1/voucher/activate', {
+        .$post('/crm/api/v1/voucher/activate', {
           code: this.promo_code,
           subscription_type_code: this.subscription_type,
           include_discounted_amount: true,
         })
-        .then((res) => {
-          this.voucher_log_id = res.data.voucher_log_id
-          // this.discount = res.data.discounted_amount
+        .then((data) => {
+          this.voucher_log_id = data.voucher_log_id
+          // this.discount = data.discounted_amount
         })
         .then(() => {
           this.submitForm()
@@ -610,7 +610,7 @@ export default {
         credentials: 'include',
         redirect: 'follow', // Add this to handle redirects properly
       })
-        .then((response) => {
+        .then((data) => {
           return response.json()
         })
         .then((data) => {

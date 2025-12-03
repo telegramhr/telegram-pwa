@@ -60,11 +60,11 @@ export default {
   methods: {
     getInfo() {
       this.$axios
-        .get('/pretplate/api/pretplata/bank/' + this.$route.params.id)
-        .then((response) => {
-          this.price = response.data.price
-          this.reference = response.data.number
-          this.code = response.data.code
+        .$get('/pretplate/api/pretplata/bank/' + this.$route.params.id)
+        .then((data) => {
+          this.price = data.price
+          this.reference = data.number
+          this.code = data.code
         })
         .catch((error) => {
           console.error('There was an error!', error)

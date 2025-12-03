@@ -1043,7 +1043,7 @@ export default {
       if (this.post.paywall === 'always' && this.$route.query.gift_token) {
         // verify token
         this.$axios
-          .post('/pretplate/api/gift-article/verify', {
+          .$post('/pretplate/api/gift-article/verify', {
             token: this.$route.query.gift_token,
             url: this.post.permalink,
           })

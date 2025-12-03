@@ -394,8 +394,8 @@
 export default {
   name: 'Kultura',
   async fetch() {
-    await this.$axios.get('/api/category/kultura/page/1').then((res) => {
-      this.posts = res.data.posts
+    await this.$axios.$get('/api/category/kultura/page/1').then((data) => {
+      this.posts = data.posts
     })
   },
   data() {

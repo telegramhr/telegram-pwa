@@ -159,9 +159,9 @@ export default {
   name: 'CategoryIndex',
   async fetch() {
     await this.$axios
-      .get('/api/search/' + encodeURI(this.$route.params.search))
-      .then((res) => {
-        this.posts = res.data.posts
+      .$get('/api/search/' + encodeURI(this.$route.params.search))
+      .then((data) => {
+        this.posts = data.posts
         if (this.posts.length < 9) {
           this.hasMore = false
         }
@@ -184,12 +184,14 @@ export default {
     loadMore() {
       this.loading = true
       this.$axios
-        .get('/api/search/' + this.$route.params.search + '/page/' + this.page)
-        .then((res) => {
-          this.morePosts = [...this.morePosts, ...res.data.posts]
+        .$get(
+          '/api/search/' + this.$route.params.search + '/page/' + this.page
+        )
+        .then((data) => {
+          this.morePosts = [...this.morePosts, ...data.posts]
           this.page++
           this.loading = false
-          if (res.data.posts < 9) {
+          if (data.posts < 9) {
             this.hasMore = false
           }
         })

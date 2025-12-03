@@ -13,8 +13,8 @@ export const mutations = {
 export const actions = {
   pullStocks({ commit, state }) {
     if (state.updated + 10 * 60 * 1000 < new Date().getTime()) {
-      this.$axios.get('/api/stocks').then((res) => {
-        commit('setStocks', res.data)
+      this.$axios.$get('/api/stocks').then((data) => {
+        commit('setStocks', data)
       })
     }
   },
