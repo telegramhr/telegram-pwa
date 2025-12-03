@@ -8989,11 +8989,15 @@ html.large-fontsize,
   font-size: .7rem;
   font-weight: 600;
   padding: 5px 10px 6px;
+  border-radius: 4px;
   font-family: 'Barlow';
   color: white;
   display: flex;
   gap: 8px;
   align-items: center;
+}
+.pretplata-btn:hover{
+  background-color: #902E2E;
 }
 .pretplata-btn img{
   width: 24px;
