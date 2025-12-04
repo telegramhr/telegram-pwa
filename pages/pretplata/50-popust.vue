@@ -227,7 +227,7 @@ export default {
           name: 'og:image',
           property: 'og:image',
           content:
-            'https://www.telegram.hr/wp-content/uploads/2021/01/tg-background.jpg',
+            'https://www.telegram.hr/wp-content/uploads/2025/12/gift.png',
         },
         {
           hid: 'og:url',
