@@ -320,7 +320,7 @@ export default {
     dsn: 'https://47b01937396e0d7d1139e7eb75ff9b97@sentry.smartcode.rocks/4',
     config: {
       environment: process.env.NODE_ENV || 'development',
-      tracesSampleRate: 0.001,  //  0.1% sample rate for production
+      tracesSampleRate: 0,  // DISABLED - only error tracking
     },
     clientIntegrations: {
       Dedupe: {},
