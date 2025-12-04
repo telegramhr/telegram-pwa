@@ -23,7 +23,7 @@
 .main-container {
   width: 100%;
   padding: 0 16px;
-  background-image: url('@/assets/img/pretplata/bg-mob.webp');
+  background-image: url('@/assets/img/pretplata/bg-mob.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
