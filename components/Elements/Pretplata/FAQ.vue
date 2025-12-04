@@ -168,11 +168,13 @@ export default {
   font-size: 18px;
   line-height: 24px;
 }
+.question-header span {
+  cursor: pointer;
+}
 
 .icon {
-  width: 16px;
-  height: 16px;
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .icon.open {

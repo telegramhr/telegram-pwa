@@ -24,6 +24,9 @@ export default {
     bgColor() {
       return this.version === 'green' ? '#387039' : '#703838'
     },
+    leftContainerClass() {
+      return this.version === 'green' ? 'green-width' : 'red-width'
+    },
     heroImage() {
       return this.version === 'green'
         ? require('@/assets/img/pretplata/christmas-hero-green.png')
@@ -36,7 +39,7 @@ export default {
   <div class="main" :style="{ backgroundColor: bgColor }">
     <img class="bg-image" src="@/assets/img/pretplata/paper.png" alt="Papir" />
     <div class="wrapper">
-      <div class="left-container">
+      <div class="left-container" :class="leftContainerClass">
         <h1>{{ title }}</h1>
         <p>
           {{ subtitle }}
@@ -79,10 +82,16 @@ export default {
 .left-container {
   display: flex;
   flex-direction: column;
-  max-width: 600px;
   width: 100%;
-
+  margin: 0 auto;
   gap: 24px;
+}
+.red-width {
+  max-width: 600px;
+}
+
+.green-width {
+  max-width: 520px;
 }
 .right-container {
   display: flex;
