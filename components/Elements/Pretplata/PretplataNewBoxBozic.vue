@@ -10,7 +10,10 @@
           <h3 :class="{ 'premium-title': type === 'premium' }">
             {{ card.title }}
           </h3>
-          <p>{{ card.price }}<span>/godišnje</span></p>
+          <p>
+            <span class="old-price">{{ card.oldPrice }}</span> {{ card.price
+            }}<span>/godišnje</span>
+          </p>
         </div>
         <div class="tag-wrapper">
           <span v-if="type === 'premium'" class="benefit premium-recommended">
@@ -164,9 +167,9 @@ export default {
   color: black;
 }
 
-.title p span {
-  font-weight: 600;
+.title p .old-price {
   color: #9f9f9f;
+  text-decoration: line-through;
 }
 
 .tag-wrapper {
