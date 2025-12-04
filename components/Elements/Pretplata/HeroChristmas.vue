@@ -1,13 +1,31 @@
+<script>
+export default {
+  name: 'HeroChristmas',
+  props: {
+    title: {
+      type: String,
+      required: true,
+    },
+    subtitle: {
+      type: String,
+      required: true,
+    },
+    highlighted: {
+      type: String,
+      required: true,
+    },
+  },
+}
+</script>
 <template>
   <div class="main">
     <img class="bg-image" src="@/assets/img/pretplata/paper.webp" alt="Papir" />
     <div class="wrapper">
       <div class="left-container">
-        <h1>Poklon koji se otvara svaki dan uz posebnu blagdansku pogodnost</h1>
+        <h1>{{ title }}</h1>
         <p>
-          Darujte najmilijima godinu dana neovisnog novinarstva, analiza i
-          ekskluzivnih tekstova — sada uz
-          <span>50% popusta na Telegram poklon-pretplatu.</span>
+          {{ subtitle }}
+          <span>{{ highlighted }}</span>
         </p>
       </div>
       <div class="right-container">
