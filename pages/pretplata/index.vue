@@ -74,6 +74,10 @@
         ></PretplataPaymentConfirm>
       </div>
     </div>
+    <client-only>
+      <!-- Chatbot Component -->
+      <Chatbot />
+    </client-only>
   </div>
 </template>
 
