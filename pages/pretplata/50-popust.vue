@@ -4,9 +4,9 @@
       <span class="telegram-loader"></span>
     </div>
     <HeroChristmas
-      title="Poklon koji se otvara svaki dan uz posebnu blagdansku pogodnost"
-      subtitle="Darujte najmilijima godinu dana neovisnog novinarstva, analiza i ekskluzivnih tekstova — sada uz"
-      highlighted="50% popusta na Telegram poklon-pretplatu."
+      title="Blagdani su idealna prilika da počnete novu godinu informirani"
+      subtitle="Neovisno novinarstvo, dubinske analize i istraživački članci - sada uz "
+      highlighted="50% popusta na godišnju pretplatu."
       version="green"
     ></HeroChristmas>
     <div class="content">
