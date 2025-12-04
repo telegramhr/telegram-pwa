@@ -156,7 +156,7 @@ export default {
     'cookie-universal-nuxt',
     '@nuxtjs/gtm',
     '@nuxtjs/onesignal',
-    '@nuxtjs/sentry',
+    
   ],
 
   oneSignal: {
@@ -315,51 +315,4 @@ export default {
       })
     },
   }, 
-  // Sentry error tracking
-  sentry: {
-    dsn: 'https://47b01937396e0d7d1139e7eb75ff9b97@sentry.smartcode.rocks/4',
-    config: {
-      environment: process.env.NODE_ENV || 'development',
-      tracesSampleRate: 0,  // DISABLED - only error tracking
-    },
-    clientIntegrations: {
-      Dedupe: {},
-      ExtraErrorData: {},
-      ReportingObserver: {},
-      RewriteFrames: {},
-      Vue: {attachProps: true}
-    },
-    serverIntegrations: {
-      Dedupe: {},
-      ExtraErrorData: {},
-      RewriteFrames: {}
-    },
-    publishRelease: false,
-    sourceMapStyle: 'hidden-source-map',
-    lazy: false
-  },
-
-  // Sentry error tracking
-  sentry: {
-    dsn: 'https://47b01937396e0d7d1139e7eb75ff9b97@sentry.smartcode.rocks/4',
-    config: {
-      environment: process.env.NODE_ENV || 'development',
-    },
-    clientIntegrations: {
-      Dedupe: {},
-      ExtraErrorData: {},
-      ReportingObserver: {},
-      RewriteFrames: {},
-      Vue: {attachProps: true}
-    },
-    serverIntegrations: {
-      Dedupe: {},
-      ExtraErrorData: {},
-      RewriteFrames: {}
-    },
-    publishRelease: false,
-    sourceMapStyle: 'hidden-source-map',
-    lazy: false
-  },
-}
 
