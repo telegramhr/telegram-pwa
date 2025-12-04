@@ -3,38 +3,38 @@
     <div v-if="loading" class="telegram-overlay">
       <span class="telegram-loader"></span>
     </div>
-    <PretplataHeroGift
-      title="Podržite neovisno novinarstvo pretplatom i uz to primite ekskluzivnu knjigu na dar."
-      subtitle="*Ekskluzivna ponuda poklon knjige uključena je uz godišnju pretplatu."
-    ></PretplataHeroGift>
+    <HeroChristmas
+      title="Poklon koji se otvara svaki dan uz posebnu blagdansku pogodnost"
+      subtitle="Darujte najmilijima godinu dana neovisnog novinarstva, analiza i ekskluzivnih tekstova — sada uz"
+      highlighted="50% popusta na Telegram poklon-pretplatu."
+      version="green"
+    ></HeroChristmas>
     <div class="content">
       <div class="box-wrapper">
-        <Switcher
-          @subscription-type-changed="handleSubscriptionChange"
-        ></Switcher>
-        <div class="boxes">
-          <PretplataNewBox
+        <div id="paymentBoxes" class="boxes">
+          <PretplataNewBoxBozic
             type="standard"
             :subscription-type="subscriptionType"
             :selected="selectedPlan === 'standard'"
             @select="selectPlan"
-          ></PretplataNewBox>
-          <PretplataNewBox
+          ></PretplataNewBoxBozic>
+          <PretplataNewBoxBozic
             type="premium"
             :subscription-type="subscriptionType"
             :selected="selectedPlan === 'premium'"
             @select="selectPlan"
-          ></PretplataNewBox>
+          ></PretplataNewBoxBozic>
         </div>
       </div>
       <div>
         <PretplataPayment
+          :allowTermsChange="false"
           :term="selectedTerm"
           :payment-type="payment"
           :annual-price="annualPrice"
           :monthly-price="monthlyPrice"
           :subscription-type="subscriptionType"
-          :gift="true"
+          :gift="false"
           @selectTerm="selectTerm"
           @selectPaymentType="selectPaymentType"
         />
@@ -45,17 +45,6 @@
           @updateCanLogIn="updateCanLogIn"
           @updateEmail="updateEmail"
         ></PretplataLogin>
-        <PretplataPoklon
-          v-if="selectedTerm === 'annual'"
-          :book-selected="bookSelected"
-          :book-name="bookName"
-          :book-address="bookAddress"
-          :book-phone="bookPhone"
-          @updateBookSelected="updateBookSelected"
-          @updateBookName="updateBookName"
-          @updateBookAddress="updateBookAddress"
-          @updateBookPhone="updateBookPhone"
-        ></PretplataPoklon>
         <PretplataPaymentConfirm
           :url-key="urlKey"
           :loading="loading"
@@ -66,19 +55,21 @@
           :price="price"
           :email="email"
           :discounted-amount="discount"
-          :book-selected="bookSelected"
-          :book-name="bookName"
-          :book-address="bookAddress"
-          :book-phone="bookPhone"
           @updateLoading="handleUpdateLoading"
           @updateDiscount="handleUpdateDiscount"
         ></PretplataPaymentConfirm>
       </div>
     </div>
-    <client-only>
-      <!-- Chatbot Component -->
-      <Chatbot />
-    </client-only>
+    <Features></Features>
+    <FAQ></FAQ>
+    <Testimonials></Testimonials>
+    <PretplataCTA
+      :text="'Blagdanska akcija traje do kraja ovog mjeseca'"
+      :link="{
+        url: '#paymentBoxes',
+        text: 'Iskoristite ponudu',
+      }"
+    ></PretplataCTA>
   </div>
 </template>
 
@@ -103,7 +94,7 @@ export default {
       terms: false,
       privacy: false,
       auth: 0,
-      urlKey: 'main',
+      urlKey: 'half-off-2025',
       instance: null,
       customerId: null,
       iframeUrl: '',
@@ -112,10 +103,6 @@ export default {
       discount: 0,
       loadingPromo: false,
       promo_error: '',
-      bookSelected: '',
-      bookName: '',
-      bookAddress: '',
-      bookPhone: '',
     }
   },
   computed: {
@@ -161,45 +148,25 @@ export default {
     updateCanLogIn(value) {
       this.canLogIn = value
     },
-    updateBookSelected(value) {
-      this.bookSelected = value
-    },
-    updateBookName(value) {
-      this.bookName = value
-    },
-    updateBookAddress(value) {
-      this.bookAddress = value
-    },
-    updateBookPhone(value) {
-      this.bookPhone = value
-    },
     calculatePrice() {
       switch (this.subscriptionType) {
         case 'individual':
           this.discount = 0
-          this.urlKey = 'main'
+          this.urlKey = 'half-off-2025'
           switch (this.selectedPlan) {
             case 'standard':
-              if (this.selectedTerm === 'monthly') {
-                this.pack = 'telegram_standard_4_tjedna_pretplata_2024'
-                this.price = '7.99'
-              } else {
-                this.pack = 'telegram_standard_godisnja_pretplata_2024'
-                this.price = '79'
-              }
+              this.pack =
+                'Telegram_Standard_Godišnja_Pretplata_50%_popust_za prvu godinu'
+              this.price = '39'
               this.monthlyPrice = '7.99'
-              this.annualPrice = '79'
+              this.annualPrice = '39'
               break
             case 'premium':
-              if (this.selectedTerm === 'monthly') {
-                this.pack = 'telegram_premium_4_tjedna_pretplata_2024'
-                this.price = '9.99'
-              } else {
-                this.pack = 'telegram_premium_godisnja_pretplata_2024'
-                this.price = '99'
-              }
+              this.pack =
+                'Telegram_Premium_Godišnja_Pretplata_50%_popust_za prvu godinu'
+              this.price = '49'
               this.monthlyPrice = '9.99'
-              this.annualPrice = '99'
+              this.annualPrice = '49'
               break
           }
           break
@@ -237,7 +204,7 @@ export default {
 
   head() {
     return {
-      title: 'Telegram.hr Pretplata',
+      title: 'Telegram.hr Pretplata - 50% popusta za prvu godinu',
       meta: [
         {
           hid: 'description',
@@ -253,7 +220,7 @@ export default {
           hid: 'og:title',
           name: 'og:title',
           property: 'og:title',
-          content: 'Telegram.hr Pretplata',
+          content: 'Telegram.hr Pretplata - 50% popusta za prvu godinu',
         },
         {
           hid: 'og:image',
@@ -266,14 +233,14 @@ export default {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/pretplata/',
+          content: 'https://www.telegram.hr/pretplata/50-popust/',
         },
       ],
       link: [
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: 'https://www.telegram.hr/pretplata/',
+          href: 'https://www.telegram.hr/pretplata/50-popust/',
         },
       ],
       script: [
@@ -352,7 +319,7 @@ export default {
 }
 @media screen and (min-width: 1024px) {
   .content {
-    padding: 24px 0px 60px 0px;
+    padding: 40px 0px 60px 0px;
   }
   .boxes {
     flex-direction: row;

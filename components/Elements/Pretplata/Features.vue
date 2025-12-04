@@ -13,27 +13,27 @@ export default {
         {
           title: 'Cjelogodišnji pristup vrhunskom novinarstvu',
           text: 'Čitajte sve članke bez ograničenja - od istraživačkih priča do analiza koje oblikuju javni razgovor u Hrvatskoj.',
-          image: require('@/assets/img/pretplata/putin.png'),
+          image: require('@/assets/img/pretplata/features/pristup.png'),
         },
         {
           title: 'Neovisno i nagrađivano novinarstvo',
           text: 'Pretplatom podržavate redakciju koja je višestruko nagrađivana za istraživačko i analitičko novinarstvo.',
-          image: require('@/assets/img/pretplata/novinari.png'),
+          image: require('@/assets/img/pretplata/features/neovisno.png'),
         },
         {
           title: 'Relevantne analize i komentari',
           text: 'Analize onoga što se zapravo događa - kroz tekstove koji idu dublje od naslova.',
-          image: require('@/assets/img/pretplata/analize.png'),
+          image: require('@/assets/img/pretplata/features/relevantne.png'),
         },
         {
           title: 'Bez reklama u sklopu Premium pretplate',
           text: 'Uživajte u čistom, preglednom čitanju - bez ometajućih reklama.  Samo informacije koje vrijede vašeg vremena.',
-          image: require('@/assets/img/pretplata/reklame.png'),
+          image: require('@/assets/img/pretplata/features/reklame.png'),
         },
         {
           title: 'Pristup Telegram klubu i pogodnostima',
           text: 'U Telegram Klubu vas očekuju dodatne pogodnosti, posebni popusti i pozivnice na ekskluzivne događaje.',
-          image: require('@/assets/img/pretplata/tg-klub.png'),
+          image: require('@/assets/img/pretplata/features/klub.png'),
         },
       ],
     }

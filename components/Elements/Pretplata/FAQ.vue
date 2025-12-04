@@ -111,7 +111,7 @@ export default {
           </div>
 
           <div class="answer-wrapper" :class="{ open: openIndex === index }">
-            <div class="answer" ref="answer" v-html="faq.answer"></div>
+            <p class="answer" ref="answer" v-html="faq.answer"></p>
           </div>
         </div>
       </div>
@@ -164,12 +164,13 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: 'Barlow', sans-serif;
-  font-size: 18px;
-  line-height: 24px;
+  cursor: pointer;
 }
 .question-header span {
   cursor: pointer;
+  font-family: 'Barlow', sans-serif;
+  font-size: 18px;
+  line-height: 24px;
 }
 
 .icon {
@@ -213,14 +214,10 @@ export default {
   }
   .answer {
     margin-top: 4px;
-    font-size: 14px;
-    line-height: 24px;
     padding-right: 64px;
   }
   .question-item {
     padding: 20px 0;
-    font-size: 16px;
-    line-height: 24px;
   }
 }
 </style>

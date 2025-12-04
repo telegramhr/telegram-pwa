@@ -87,10 +87,6 @@ export default {
           </vue-slick-carousel>
         </div>
       </div>
-      <div class="cta">
-        <span>Blagdanska akcija traje do kraja ovog mjeseca</span>
-        <button>Darujte pretplatu</button>
-      </div>
     </div>
   </div>
 </template>
@@ -186,39 +182,6 @@ export default {
 .mobile-testimonials {
   display: block;
 }
-.cta {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  max-width: 406px;
-  width: 100%;
-  margin: 0 auto;
-}
-.cta span {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 24px;
-}
-.cta button {
-  background-color: #37ae37;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 18px 28px;
-  font-family: 'Barlow', sans-serif;
-  font-size: 18px;
-  line-height: 20px;
-  font-weight: 600;
-  cursor: pointer;
-  width: fit-content;
-  margin: 0 auto;
-}
-.cta button:hover {
-  background-color: #237023;
-}
-
 @media (min-width: 1024px) {
   .wrapper {
     gap: 116px;
