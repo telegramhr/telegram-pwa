@@ -218,6 +218,81 @@
       </div>
     </section>
 
+    <section class="full flex relative">
+      <div
+        class="container flex relative stretch column-bottom-pad column-horizontal-pad superone-pilatesBag"
+      >
+        <div class="full center relative">
+          <div
+            class="noththree flex superone-section-title superone-pilatesBagTitle"
+          >
+            <img
+              src="@/assets/img/s1_logo_clean_noline.svg"
+              alt="Super1 logo"
+            />
+            <img
+              src="@/assets/img/s1_logo_clean_noline_white.svg"
+              alt="Super1 logo"
+              class="dark-mode-only"
+            />
+            <span class="spanX">x</span>
+            <span class="bajadera-span-title">bajadera večer uz svijeće</span>
+          </div>
+        </div>
+        <div class="full superone-preporuka flex flex-responsive relative">
+          <div class="full flex flex-row column-vertical-pad">
+            <div
+              class="half flex-responsive column-full-pad article-featured article-superfeat article relative"
+              role="article"
+            >
+              <a
+                class="full flex square-img"
+                href="https://www.telegram.hr/super1/life/super1-event-candlelight-vecer-bajadera-niche-parfemi/"
+              >
+                <img
+                  src="https://www.telegram.hr/wp-content/uploads/2025/12/bajadera-event071-301125.jpg"
+                  alt="S1 bajadera večer uz svijeće naslovna"
+                  loading="lazy"
+                />
+              </a>
+              <div class="bottom-wrapper-section">
+                <div class="bottom-section-title">
+                  <span class="title">
+                    <b>Event report</b> Večer uz svijeće koja se prepričava: Uz
+                    poznata lica, spojili smo Bajadera praline i gurmanske niche
+                    mirise</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div
+              class="half flex-responsive column-full-pad article-featured article-superfeat article relative"
+              role="article"
+            >
+              <a
+                class="full flex square-img"
+                href="https://www.telegram.hr/super1/life/bajadera-noir-super1-event-atmosfera/"
+              >
+                <img
+                  src="https://www.telegram.hr/wp-content/uploads/2025/12/bajadera-event084-301125-1.jpg"
+                  alt="S1 bajadera-noir-super1-event-atmosfera"
+                  loading="lazy"
+                />
+              </a>
+              <div class="bottom-wrapper-section">
+                <div class="bottom-section-title">
+                  <span class="title"
+                    ><b>S1 event</b> Zavirite u atmosferu našeg posebnog eventa
+                    kojeg su obilježili okusi Bajadere, mirisi parfema i
+                    svjetlost svijeća</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <div class="full relative">
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
@@ -365,7 +440,26 @@
     <tfooter></tfooter>
   </div>
 </template>
-
+<style scoped>
+.bottom-wrapper-section {
+  margin-top: -72px;
+  position: relative;
+  z-index: 30;
+  padding: 0px 24px;
+}
+.bottom-section-title {
+  padding: 18px 20px;
+  border: 1px solid black;
+  background-color: white;
+}
+.bottom-section-title .title {
+  font-size: 24px;
+  line-height: 26px;
+}
+.bajadera-span-title {
+  line-height: 42px;
+}
+</style>
 <script>
 import Superfeat from '~/components/articles/Superfeat.vue'
 export default {
