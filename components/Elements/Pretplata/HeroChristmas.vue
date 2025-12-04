@@ -14,12 +14,27 @@ export default {
       type: String,
       required: true,
     },
+    version: {
+      type: String,
+      required: false,
+      default: 'red',
+    },
+  },
+  computed: {
+    bgColor() {
+      return this.version === 'green' ? '#387039' : '#703838'
+    },
+    heroImage() {
+      return this.version === 'green'
+        ? require('@/assets/img/pretplata/christmas-hero-green.png')
+        : require('@/assets/img/pretplata/christmas-hero.png')
+    },
   },
 }
 </script>
 <template>
-  <div class="main">
-    <img class="bg-image" src="@/assets/img/pretplata/paper.webp" alt="Papir" />
+  <div class="main" :style="{ backgroundColor: bgColor }">
+    <img class="bg-image" src="@/assets/img/pretplata/paper.png" alt="Papir" />
     <div class="wrapper">
       <div class="left-container">
         <h1>{{ title }}</h1>
@@ -29,10 +44,7 @@ export default {
         </p>
       </div>
       <div class="right-container">
-        <img
-          src="@/assets/img/pretplata/christmas-hero.png"
-          alt="Hero Christmas Logo"
-        />
+        <img :src="heroImage" :alt="`Hero Christmas Logo - ${version}`" />
       </div>
     </div>
   </div>
@@ -43,7 +55,6 @@ export default {
   width: 100%;
   overflow: hidden;
   padding: 0 16px;
-  background-color: #703838;
 }
 .bg-image {
   position: absolute;
@@ -52,7 +63,7 @@ export default {
   height: 100%;
   object-fit: cover;
   mix-blend-mode: multiply;
-  opacity: 0.6;
+  /* opacity: 0.6; */
 }
 .wrapper {
   position: relative;
@@ -61,7 +72,7 @@ export default {
   margin: 0 auto;
   display: flex;
   flex-direction: column-reverse;
-  padding: 22px 0px 42px 0px;
+  padding: 26px 0px 32px 0px;
   gap: 24px;
   justify-content: space-between;
 }
