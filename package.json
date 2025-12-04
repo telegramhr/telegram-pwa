@@ -28,6 +28,7 @@
     "@nuxtjs/gtm": "^2.4.0",
     "@nuxtjs/onesignal": "^3.0.0-beta.16",
     "@nuxtjs/pwa": "^3.3.4",
+    "@nuxtjs/sentry": "^8.0.8",
     "@vueuse/core": "^11.3.0",
     "@vueuse/nuxt": "^8.9.4",
     "aos": "^3.0.0-beta.6",
