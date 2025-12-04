@@ -313,6 +313,6 @@ export default {
         include: /node_modules/,
         type: 'javascript/auto',
       })
-    },
-  }, 
-
+    }
+  }
+}
