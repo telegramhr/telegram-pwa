@@ -12,11 +12,18 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - name: Install packages
+      - name: Deploy to production
         run: |
           su marko
           cd /home/marko/pwa
           git pull
+          npm install --production
           npm run build
-          pm2 reload Telegram
+          if [ $? -eq 0 ]; then
+            pm2 reload Telegram
+            echo "✅ Deployment successful"
+          else
+            echo "❌ Build failed - PM2 not reloaded"
+            exit 1
+          fi
 
