@@ -17,6 +17,7 @@ import {
   faBriefcase,
   faLink,
   faStar as faStarSolid,
+  faChevronUp,
 } from '@fortawesome/pro-solid-svg-icons'
 import {
   faUserLock,
@@ -133,6 +134,7 @@ library.add(
   faCircleQuestion,
   faLockKeyhole,
   faAngleUp,
+  faChevronUp,
   faAngleDown
 )
 
