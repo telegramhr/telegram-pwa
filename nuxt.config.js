@@ -314,6 +314,29 @@ export default {
         type: 'javascript/auto',
       })
     },
+  }, 
+  // Sentry error tracking
+  sentry: {
+    dsn: 'https://47b01937396e0d7d1139e7eb75ff9b97@sentry.smartcode.rocks/4',
+    config: {
+      environment: process.env.NODE_ENV || 'development',
+      tracesSampleRate: 0.001,  //  0.1% sample rate for production
+    },
+    clientIntegrations: {
+      Dedupe: {},
+      ExtraErrorData: {},
+      ReportingObserver: {},
+      RewriteFrames: {},
+      Vue: {attachProps: true}
+    },
+    serverIntegrations: {
+      Dedupe: {},
+      ExtraErrorData: {},
+      RewriteFrames: {}
+    },
+    publishRelease: false,
+    sourceMapStyle: 'hidden-source-map',
+    lazy: false
   },
 
   // Sentry error tracking
