@@ -7,29 +7,40 @@ export default {
       contentHeights: [],
       faqs: [
         {
-          question: 'Pitanje 1',
-          answer: 'Pretplata se aktivira odmah nakon kupnje i traje 30 dana.',
-        },
-        {
-          question: 'Pitanje 2',
+          question: '1.	Kako mogu čitati Telegram Premium članke?',
           answer:
-            'Da, otkazivanje je moguće u bilo kojem trenutku bez dodatnih naknada.',
+            'Za neograničen pristup Premium sadržaju potrebno je biti prijavljen u svoj korisnički račun. Provjerite jeste li prijavljeni na stranici Telegrama.',
         },
         {
-          question: 'Pitanje 3',
-          answer: 'Premium korisnici mogu spremati članke za offline čitanje.',
+          question: '2.	Mogu li otkazati pretplatu nakon što se pretplatim?',
+          answer:
+            'Da. Svi pretplatnici mogu u bilo kojem trenutku otkazati svoju pretplatu.',
         },
         {
-          question: 'Pitanje 4',
-          answer: 'Premium korisnici mogu spremati članke za offline čitanje.',
+          question: '3.	Zaboravio/la sam lozinku. Kako mogu dobiti novu?',
+          answer:
+            'Kliknite na <a target="_blank" href="https://pretplata.telegram.hr/social-login/social-sign/request-password#dmid=8dba3a11-53a2-4ed9-89e8-5bc44ab0a814"> poveznicu za obnovu lozinke</a> i unesite e-mail adresu svog korisničkog računa. Ubrzo ćete primiti poruku s uputama za postavljanje nove lozinke.',
         },
         {
-          question: 'Pitanje 5',
-          answer: 'Premium korisnici mogu spremati članke za offline čitanje.',
+          question: '4.	Mogu li dijeliti svoju pretplatu s drugima?',
+          answer:
+            'Nije dopušteno dijeliti korisnički račun i podatke s drugim osobama.',
         },
         {
-          question: 'Pitanje 6',
-          answer: 'Premium korisnici mogu spremati članke za offline čitanje.',
+          question: '5.	Vrijedi li pretplata na više uređaja?',
+          answer:
+            'Da. Pretplata vrijedi na najviše 3 uređaja. Dijeljenje računa s drugim osobama nije dopušteno.',
+        },
+        {
+          question: '6.	Kako funkcionira obnova pretplate?',
+          answer:
+            'Mjesečne i godišnje pretplate automatski se obnavljaju nakon isteka, na isti vremenski period. Upravljati svojom pretplatom možete unutar svog korisničkog sučelja.',
+        },
+        {
+          question:
+            '7.	Gdje se mogu obratiti za dodatna pitanja u vezi s pretplatom?',
+          answer:
+            'Slobodno nam se javite putem e-maila: <a target="__blank" href="mailto:pretplata@telegram.hr">pretplata@telegram.hr</a>',
         },
       ],
     }
@@ -49,6 +60,17 @@ export default {
         })
 
         return
+      }
+      if (this.openIndex !== null) {
+        const prevEl = this.$refs.answer[this.openIndex]
+        const prevWrapper = prevEl.parentElement
+        const prevHeight = prevWrapper.scrollHeight
+
+        prevWrapper.style.height = prevHeight + 'px'
+
+        requestAnimationFrame(() => {
+          prevWrapper.style.height = '0px'
+        })
       }
 
       this.openIndex = index
@@ -133,7 +155,6 @@ export default {
   padding: 18px 0;
   text-align: left;
   border-bottom: 1px solid #747474;
-  cursor: pointer;
 }
 .question-item:first-child {
   border-top: 1px solid #747474;
@@ -144,8 +165,8 @@ export default {
   justify-content: space-between;
   align-items: center;
   font-family: 'Barlow', sans-serif;
-  font-size: 16px;
-  line-height: 13px;
+  font-size: 18px;
+  line-height: 24px;
 }
 
 .icon {
@@ -165,11 +186,17 @@ export default {
 }
 
 .answer {
-  margin-top: 12px;
+  margin-top: 8px;
   font-family: 'Barlow', sans-serif;
+  padding-right: 24px;
   font-size: 16px;
-  line-height: 22px;
+  line-height: 24px;
   color: #000;
+}
+:deep(.answer a) {
+  cursor: pointer;
+  color: #ae3737;
+  text-decoration: underline;
 }
 @media (min-width: 1024px) {
   .wrapper {
@@ -182,8 +209,14 @@ export default {
     line-height: 28px;
     font-weight: 500;
   }
+  .answer {
+    margin-top: 4px;
+    font-size: 14px;
+    line-height: 24px;
+    padding-right: 64px;
+  }
   .question-item {
-    padding: 24px 0;
+    padding: 20px 0;
     font-size: 16px;
     line-height: 24px;
   }
