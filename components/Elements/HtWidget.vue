@@ -34,31 +34,59 @@
             čekaju!
           </a>
         </div>
+        <div class="cards-container">
+          <div class="card">
+            <img
+              src="@/assets/img/widgets/ht/ht-image2.jpg"
+              alt="Djevojka s laptopom na kaucu"
+            />
+            <div class="content">
+              <div class="title">
+                Hoćemo li biti nepismeni ako ne naučimo koristiti AI? Pronašli
+                smo besplatne edukacije koje mogu pomoći
+              </div>
+              <div class="description">
+                Umjetna inteligencija najbrže je rastuća tehnologija u ljudskoj
+                povijesti. U manje od tri godine,
+              </div>
+              <button
+                class="cta-button"
+                @click="
+                  trackClick(
+                    'https://www.telegram.hr/partneri/hocemo-li-biti-nepismeni-ako-ne-naucimo-koristiti-ai-pronasli-smo-besplatne-edukacije-koje-mogu-pomoci-svima/'
+                  )
+                "
+              >
+                Pročitaj više
+              </button>
+            </div>
+          </div>
 
-        <div class="card">
-          <img
-            src="@/assets/img/widgets/ht/ht-image.png"
-            alt="Djevojka s laptopom na kaucu"
-          />
-          <div class="content">
-            <div class="title">
-              Isprobali smo genijalan kviz o umjetnoj inteligenciji i otkrili
-              besplatne edukacije. Donosimo sve detalje
+          <div class="card">
+            <img
+              src="@/assets/img/widgets/ht/ht-image.png"
+              alt="Djevojka s laptopom na kaucu"
+            />
+            <div class="content">
+              <div class="title">
+                Isprobali smo genijalan kviz o umjetnoj inteligenciji i otkrili
+                besplatne edukacije. Donosimo sve detalje
+              </div>
+              <div class="description">
+                Kampanjom “AI ti to možeš” Hrvatski Telekom omogućuje
+                jednostavan i zabavan ulazak u svijet AI-ja
+              </div>
+              <button
+                class="cta-button"
+                @click="
+                  trackClick(
+                    'https://www.telegram.hr/partneri/isprobali-smo-genijalan-kviz-o-umjetnoj-inteligenciji-i-otkrili-besplatne-edukacije-donosimo-sve-detalje/'
+                  )
+                "
+              >
+                Pročitaj više
+              </button>
             </div>
-            <div class="description">
-              Kampanjom “AI ti to možeš” Hrvatski Telekom omogućuje jednostavan
-              i zabavan ulazak u svijet AI-ja
-            </div>
-            <button
-              class="cta-button"
-              @click="
-                trackClick(
-                  'https://www.telegram.hr/partneri/isprobali-smo-genijalan-kviz-o-umjetnoj-inteligenciji-i-otkrili-besplatne-edukacije-donosimo-sve-detalje/'
-                )
-              "
-            >
-              Pročitaj više
-            </button>
           </div>
         </div>
       </div>
@@ -155,7 +183,11 @@ export default {
   flex-direction: column;
   gap: 20px;
 }
-
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 .card {
   display: flex;
   flex-direction: column;
@@ -167,10 +199,12 @@ export default {
 }
 .card img {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
+  aspect-ratio: 1.37;
 }
 .quiz-container {
+  width: 100%;
   background: linear-gradient(180deg, #15a5c0 0%, #0a4271 100%);
   display: flex;
   flex-direction: column;
@@ -251,15 +285,30 @@ export default {
 }
 @media screen and (min-width: 768px) {
   .content-container {
-    display: grid;
-    grid-template-columns: 3fr 1fr; /* First column: 3/4, second: 1/4 */
-    gap: 1rem; /* optional */
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .cards-container {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    flex: 1 1 0%;
   }
   .quiz-container {
     gap: 60px;
+    flex: 1 1 0%;
   }
   .card img {
     height: 200px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .content-container {
+    flex-direction: row;
+  }
+  .cards-container {
+    gap: 24px;
   }
 }
 </style>
