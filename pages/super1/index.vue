@@ -441,6 +441,11 @@
   </div>
 </template>
 <style scoped>
+.superone-pilatesBag {
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+}
 .bottom-wrapper-section {
   margin-top: -72px;
   position: relative;
@@ -458,6 +463,29 @@
 }
 .bajadera-span-title {
   line-height: 42px;
+}
+@media (min-width: 768px) {
+  .superone-pilatesBag {
+    gap: 0px;
+  }
+  .bottom-wrapper-section {
+    margin-top: -72px;
+    position: relative;
+    z-index: 30;
+    padding: 0px 24px 60px 24px;
+  }
+}
+@media (min-width: 1024px) {
+  .bottom-section-title .title {
+    font-size: 28px;
+    line-height: 32px;
+  }
+  .bottom-wrapper-section {
+    margin-top: -72px;
+    position: relative;
+    z-index: 30;
+    padding: 0px 24px;
+  }
 }
 </style>
 <script>
