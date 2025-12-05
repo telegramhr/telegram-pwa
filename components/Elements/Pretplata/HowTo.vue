@@ -74,7 +74,7 @@ export default {
 .wrapper {
   width: 100%;
   max-width: 867px;
-  padding: 40px 64px;
+  padding: 52px 64px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
