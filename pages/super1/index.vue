@@ -250,7 +250,7 @@
                 href="https://www.telegram.hr/super1/life/super1-event-candlelight-vecer-bajadera-niche-parfemi/"
               >
                 <img
-                  src="https://www.telegram.hr/wp-content/uploads/2025/12/bajadera-event071-301125.jpg"
+                  src="@/assets/img/bajadera01.jpg"
                   alt="S1 bajadera večer uz svijeće naslovna"
                   loading="lazy"
                 />
@@ -274,7 +274,7 @@
                 href="https://www.telegram.hr/super1/life/bajadera-noir-super1-event-atmosfera/"
               >
                 <img
-                  src="https://www.telegram.hr/wp-content/uploads/2025/12/bajadera-event084-301125-1.jpg"
+                  src="@/assets/img/bajadera02.jpg"
                   alt="S1 bajadera-noir-super1-event-atmosfera"
                   loading="lazy"
                 />
