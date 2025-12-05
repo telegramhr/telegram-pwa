@@ -40,13 +40,13 @@
           @selectTerm="selectTerm"
           @selectPaymentType="selectPaymentType"
         />
-        <PretplataLogin
+        <PretplataLoginGiftData
           :email="email"
           :can-log-in="canLogIn"
           :login-error="loginError"
           @updateCanLogIn="updateCanLogIn"
           @updateEmail="updateEmail"
-        ></PretplataLogin>
+        ></PretplataLoginGiftData>
         <PretplataPoklon
           v-if="selectedTerm === 'annual'"
           :book-selected="bookSelected"
