@@ -8,7 +8,6 @@ permissions:
 
 jobs:
   build:
-
     runs-on: self-hosted
 
     steps:
@@ -19,6 +18,7 @@ jobs:
           git pull
           npm install --production
           npm run build
+<<<<<<< HEAD
           if [ $? -eq 0 ]; then
             pm2 reload Telegram
             echo "✅ Deployment successful"
@@ -27,3 +27,6 @@ jobs:
             exit 1
           fi
 
+=======
+          pm2 reload Telegram
+>>>>>>> bdace8654f403ad5a07322c0d04c5b5d01185cd7

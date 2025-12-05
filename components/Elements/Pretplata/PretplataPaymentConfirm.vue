@@ -314,7 +314,7 @@ export default {
           : 'O Zagrebu i... - Zrinka Paladino'
 
       return this.$axios
-        .get(gscriptUrl, {
+        .$get(gscriptUrl, {
           params: {
             Knjiga: bookName,
             'Ime i prezime': this.bookName,

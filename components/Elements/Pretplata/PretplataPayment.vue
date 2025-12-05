@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <div class="column-wrapper">
+    <div v-if="allowTermsChange" class="column-wrapper">
       <span>Odaberite trajanje pretplate</span>
       <div class="column">
         <div
@@ -18,9 +18,10 @@
           />
           <div class="radio-option">
             <div class="radio-heading">
-              <p>
+              <p v-if="gift">
                 Godišnja pretplata + <span class="gift">poklon knjiga</span>
               </p>
+              <p v-if="!gift">Godišnja pretplata</p>
               <button class="discount">
                 {{
                   subscriptionType === 'individual'
@@ -61,7 +62,7 @@
     </div>
     <div class="column-wrapper payment-type">
       <span>Odaberite način plaćanja</span>
-      <div class="column">
+      <div :class="[!allowTermsChange ? 'row' : 'column']">
         <!-- card -->
         <div
           class="radio-wrapper"
@@ -129,6 +130,11 @@
 export default {
   name: 'PretplataPayment',
   props: {
+    allowTermsChange: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     term: {
       type: String,
       required: true,
@@ -153,6 +159,11 @@ export default {
       type: String,
       required: true,
       default: '',
+    },
+    gift: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
   },
   data() {
@@ -199,6 +210,12 @@ export default {
   gap: 18px;
 }
 .column {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 28px;
+}
+.row {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -303,6 +320,9 @@ export default {
   transform: translate(-50%, -50%);
 }
 @media screen and (min-width: 1024px) {
+  .row {
+    flex-direction: row;
+  }
   .main {
     flex-direction: row;
     gap: 62px;
