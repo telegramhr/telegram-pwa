@@ -57,6 +57,7 @@
           :discounted-amount="discount"
           @updateLoading="handleUpdateLoading"
           @updateDiscount="handleUpdateDiscount"
+          copyVersion="christmas"
         ></PretplataPaymentConfirm>
       </div>
     </div>

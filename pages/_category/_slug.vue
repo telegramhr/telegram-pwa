@@ -1165,6 +1165,8 @@ export default {
       const widgetEl = document.createElement('div')
       widgetEl.id = 'top-articles-widget'
       paragraphs[1].insertAdjacentElement('afterend', widgetEl)
+      if (this.post.id === 2774378) return
+
       // Dynamically create and mount <top-articles> using this component’s context
       if (
         this.post.category_slug.includes('super1') ||
