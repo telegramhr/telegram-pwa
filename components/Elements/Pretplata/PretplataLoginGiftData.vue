@@ -3,34 +3,27 @@
     <div class="login-wrapper">
       <div class="login">
         <div class="email-wrapper">
+          <span> Upišite e-mail kome poklanjate pretplatu</span>
           <input
             type="email"
             autocomplete="off"
             :value="email"
-            placeholder="Email primatelja"
+            placeholder="Upišite e-mail kome poklanjate pretplatu"
             class="login-input"
             @input="handleUpdateEmail"
           />
-          <p v-if="!showPassword">
-            Ako niste registrirani korisnik, na navedenu adresu e-pošte dobit
-            ćete pristupne podatke.
-          </p>
         </div>
-        <input
-          v-if="showPassword"
-          id="date-field"
-          v-model="date"
-          type="date"
-          placeholder="Datum slanja poklona"
-          class="login-input"
-        />
-        <p
-          v-show="loginError"
-          style="text-align: center; width: 100%"
-          class="loginError"
-        >
-          {{ loginError }}
-        </p>
+        <div class="date-wrapper">
+          <span>Datum slanja poklona</span>
+          <input
+            id="date-field"
+            v-model="date"
+            type="date"
+            :style="{ color: dateColor }"
+            placeholder="Datum slanja poklona"
+            class="login-input"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -63,12 +56,15 @@ export default {
   data() {
     return {
       selectedType: 'individual',
-      password: '',
+      date: '',
       showPassword: false,
       show_msg: '',
     }
   },
   computed: {
+    dateColor() {
+      return this.date ? '#000000' : '#5F5F5F'
+    },
     loggedIn() {
       return !!this.$store.state.user.id
     },
@@ -188,19 +184,25 @@ function isValidEmail(value) {
   justify-content: space-between;
 }
 .login {
-  flex: 1 1 0;
   display: flex;
   flex-direction: column;
   gap: 24px;
   width: 100%;
 }
 .email-wrapper {
+  flex: 1 1 0%;
   display: flex;
   flex-direction: column;
   gap: 12px;
   width: 100%;
 }
-
+.date-wrapper {
+  flex: 1 1 0%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
 .login-input {
   background-color: #ffffff;
   width: 100%;
@@ -288,9 +290,10 @@ button {
     line-height: 16px;
   }
   .login {
-    max-width: 352px;
-    margin: 0 auto;
+    gap: 95px;
+    flex-direction: row;
   }
+
   .login-input {
     font-size: 16px;
     line-height: 24px;
