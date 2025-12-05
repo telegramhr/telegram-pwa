@@ -1157,7 +1157,7 @@ export default {
 
       const paragraphs = container.querySelectorAll('p')
       if (paragraphs.length < 2) return
-      if (this.post.id === 2771942) return
+      if (this.post.id === 2774378) return
 
       // avoid duplicate injection
       if (document.getElementById('top-articles-widget')) return
