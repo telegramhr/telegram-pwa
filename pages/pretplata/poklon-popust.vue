@@ -45,6 +45,7 @@
           @updateGiftDate="updateGiftDate"
         ></PretplataLoginGiftData>
         <PretplataLogin
+          :login-url="loginUrl"
           :email="email"
           :can-log-in="canLogIn"
           :login-error="loginError"
@@ -93,6 +94,7 @@ export default {
   data() {
     return {
       loading: false,
+      loginUrl: 'poklon-popust',
       subscriptionType: 'individual',
       selectedPlan: 'premium',
       selectedTerm: 'annual',
