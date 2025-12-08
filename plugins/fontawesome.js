@@ -18,6 +18,7 @@ import {
   faLink,
   faStar as faStarSolid,
   faChevronUp,
+  faChevronDown,
 } from '@fortawesome/pro-solid-svg-icons'
 import {
   faUserLock,
@@ -135,6 +136,8 @@ library.add(
   faLockKeyhole,
   faAngleUp,
   faChevronUp,
+  faChevronDown,
+
   faAngleDown
 )
 

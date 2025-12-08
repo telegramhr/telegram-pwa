@@ -121,6 +121,16 @@
         name="payment_metadata[book_phone]"
         :value="bookPhone"
       />
+      <input
+        type="hidden"
+        name="payment_metadata[gift_email]"
+        :value="giftEmail"
+      />
+      <input
+        type="hidden"
+        name="payment_metadata[gift_starts_at]"
+        :value="giftDate"
+      />
 
       <div class="submit-wrapper">
         <button v-if="buyable" @click.prevent="submit">
@@ -222,6 +232,21 @@ export default {
       required: false,
       default: '',
     },
+    giftEmail: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    giftDate: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    isGift: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data() {
     return {
@@ -246,7 +271,12 @@ export default {
         this.terms &&
         this.privacy &&
         isValidEmail(this.email) &&
-        (!this.canLogIn || this.loggedIn)
+        (!this.canLogIn || this.loggedIn) &&
+        (!this.isGift ||
+          (this.isGift &&
+            this.giftEmail &&
+            isValidEmail(this.giftEmail) &&
+            this.giftDate))
       ) {
         return true
       }

@@ -96,7 +96,7 @@ export default {
   width: 100%;
   position: relative;
   overflow: hidden;
-  padding: 0px 16px;
+  padding: 0 16px;
 }
 .wrapper {
   width: 100%;
@@ -105,7 +105,7 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 32px;
-  padding-bottom: 40px;
+  padding-bottom: 4px 0px 40px 0px;
 }
 .wrapper .title {
   font-family: 'Barlow', sans-serif;
@@ -170,6 +170,9 @@ export default {
   margin-top: 1rem;
 }
 @media (min-width: 1024px) {
+  .wrapper {
+    padding: 20px 0px 64px 0px;
+  }
   .fade-img-enter-active,
   .fade-img-leave-active {
     transition: opacity 0.45s ease-out, transform 0.45s ease-out;

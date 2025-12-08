@@ -106,7 +106,7 @@ export default {
           <div class="question-header">
             <span>{{ faq.question }}</span>
             <div class="icon" :class="{ open: openIndex === index }">
-              <font-awesome-icon size="xs" :icon="['fa', 'chevron-up']" />
+              <font-awesome-icon size="xs" :icon="['fa', 'chevron-down']" />
             </div>
           </div>
 
