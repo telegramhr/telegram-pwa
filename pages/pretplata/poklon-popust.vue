@@ -257,7 +257,7 @@ export default {
 
   head() {
     return {
-      title: 'Telegram.hr Pretplata - 50% popusta za prvu godinu',
+      title: 'Telegram.hr Pretplata Poklon - 50% popusta za prvu godinu',
       meta: [
         {
           hid: 'description',
@@ -273,7 +273,7 @@ export default {
           hid: 'og:title',
           name: 'og:title',
           property: 'og:title',
-          content: 'Telegram.hr Pretplata - 50% popusta za prvu godinu',
+          content: 'Telegram.hr Pretplata Poklon - 50% popusta za prvu godinu',
         },
         {
           hid: 'og:image',
@@ -286,14 +286,14 @@ export default {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/pretplata/50-popust/',
+          content: 'https://www.telegram.hr/pretplata/poklon-popust/',
         },
       ],
       link: [
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: 'https://www.telegram.hr/pretplata/50-popust/',
+          href: 'https://www.telegram.hr/pretplata/poklon-popust/',
         },
       ],
       script: [
