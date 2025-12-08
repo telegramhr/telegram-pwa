@@ -29,6 +29,7 @@
       <div>
         <PretplataPayment
           :allowTermsChange="false"
+          :allowBank="false"
           :term="selectedTerm"
           :payment-type="payment"
           :annual-price="annualPrice"

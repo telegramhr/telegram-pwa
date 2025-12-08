@@ -96,6 +96,7 @@
         </div>
         <!-- bank -->
         <div
+          v-if="allowBank"
           class="radio-wrapper"
           :class="{ active: payment === 'bank' }"
           @click="handleSelectPaymentType('bank')"
@@ -164,6 +165,11 @@ export default {
       type: Boolean,
       required: false,
       default: false,
+    },
+    allowBank: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
   },
   data() {
