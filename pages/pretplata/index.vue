@@ -3,10 +3,9 @@
     <div v-if="loading" class="telegram-overlay">
       <span class="telegram-loader"></span>
     </div>
-    <PretplataHeroGift
-      title="Podržite neovisno novinarstvo pretplatom i uz to primite ekskluzivnu knjigu na dar."
-      subtitle="*Ekskluzivna ponuda poklon knjige uključena je uz godišnju pretplatu."
-    ></PretplataHeroGift>
+    <PretplataHero
+      title="Čitajte najbolje članke renomiranih autora. Podržite slobodno novinarstvo pretplatom."
+    ></PretplataHero>
     <div class="content">
       <div class="box-wrapper">
         <Switcher
@@ -34,7 +33,6 @@
           :annual-price="annualPrice"
           :monthly-price="monthlyPrice"
           :subscription-type="subscriptionType"
-          :gift="true"
           @selectTerm="selectTerm"
           @selectPaymentType="selectPaymentType"
         />
@@ -45,17 +43,6 @@
           @updateCanLogIn="updateCanLogIn"
           @updateEmail="updateEmail"
         ></PretplataLogin>
-        <PretplataPoklon
-          v-if="selectedTerm === 'annual'"
-          :book-selected="bookSelected"
-          :book-name="bookName"
-          :book-address="bookAddress"
-          :book-phone="bookPhone"
-          @updateBookSelected="updateBookSelected"
-          @updateBookName="updateBookName"
-          @updateBookAddress="updateBookAddress"
-          @updateBookPhone="updateBookPhone"
-        ></PretplataPoklon>
         <PretplataPaymentConfirm
           :url-key="urlKey"
           :loading="loading"
@@ -66,10 +53,6 @@
           :price="price"
           :email="email"
           :discounted-amount="discount"
-          :book-selected="bookSelected"
-          :book-name="bookName"
-          :book-address="bookAddress"
-          :book-phone="bookPhone"
           @updateLoading="handleUpdateLoading"
           @updateDiscount="handleUpdateDiscount"
         ></PretplataPaymentConfirm>
