@@ -306,18 +306,34 @@
     </div>
     <app-link
       v-if="!$store.state.user.access.length"
-      to="https://www.telegram.hr/pretplata/telegram-family"
-      class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center"
-      style="padding: 0 24px; margin-top: 40px"
+      to="/pretplata/50-popust"
+      class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth"
     >
       <img
-        src="@/assets/img/pretplata/family/family_banner_desktop.png"
-        alt="Naslovnica nove knjige"
+        src="@/assets/img/pretplata/desktop-pretplata.jpg"
+        alt="Desktop banner za popust na godišnju pretplatu"
         class="desktop-only"
       />
       <img
-        src="@/assets/img/pretplata/family/family_banner_mobile.png"
-        alt="Naslovnica nove knjige"
+        src="@/assets/img/pretplata/mobile-pretplata.jpg"
+        alt="Mobile banner za popust na godišnju pretplatu"
+        class="mobile-only"
+        style="width: 100%"
+      />
+    </app-link>
+    <app-link
+      v-else
+      to="/pretplata/poklon-popust"
+      class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth"
+    >
+      <img
+        src="@/assets/img/pretplata/desktop-poklon.jpg"
+        alt="Desktop banner za popust na poklon za godišnju pretplatu"
+        class="desktop-only"
+      />
+      <img
+        src="@/assets/img/pretplata/mobile-poklon.jpg"
+        alt="Mobile banner za popust na poklon za godišnju pretplatu"
         class="mobile-only"
         style="width: 100%"
       />
