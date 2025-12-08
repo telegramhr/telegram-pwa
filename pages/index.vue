@@ -50,13 +50,8 @@
             v-show="canLogIn"
             id="pretplatite se - header"
             to="/pretplata/"
-            class="pretplata-btn"
-          >
-            <img
-              src="@/assets/img/tabler-icon-books.png"
-              alt="knjige ikonica"
-            />
-            Pretplata + knjiga gratis</app-link
+            class="newbtn"
+            >Pretplatite se</app-link
           >
           <a
             v-show="!canLogIn"
@@ -128,13 +123,8 @@
               v-show="!$store.state.user.access"
               id="pretplatite se - header"
               to="/pretplata"
-              class="pretplata-btn"
-            >
-              <img
-                src="@/assets/img/tabler-icon-books.png"
-                alt="knjige ikonica"
-              />
-              Pretplata + knjiga gratis</app-link
+              class="newbtn"
+              >Pretplatite se</app-link
             >
             <a
               v-show="!canLogIn"
@@ -316,17 +306,17 @@
     </div>
     <app-link
       v-if="!$store.state.user.access.length"
-      to="https://www.telegram.hr/pretplata"
+      to="https://www.telegram.hr/pretplata/telegram-family"
       class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center"
       style="padding: 0 24px; margin-top: 40px"
     >
       <img
-        src="@/assets/img/pretplata/desktop_banner.png"
+        src="@/assets/img/pretplata/family/family_banner_desktop.png"
         alt="Naslovnica nove knjige"
         class="desktop-only"
       />
       <img
-        src="@/assets/img/pretplata/mobile_banner.png"
+        src="@/assets/img/pretplata/family/family_banner_mobile.png"
         alt="Naslovnica nove knjige"
         class="mobile-only"
         style="width: 100%"
