@@ -122,11 +122,19 @@
         :value="bookPhone"
       />
       <input
+        v-if="isGift"
+        type="hidden"
+        name="payment_metadata[gift]"
+        value="1"
+      />
+      <input
+        v-if="isGift"
         type="hidden"
         name="payment_metadata[gift_email]"
         :value="giftEmail"
       />
       <input
+        v-if="isGift"
         type="hidden"
         name="payment_metadata[gift_starts_at]"
         :value="giftDate"
