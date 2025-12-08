@@ -71,6 +71,10 @@
         text: 'Iskoristite ponudu',
       }"
     ></PretplataCTA>
+    <client-only>
+      <!-- Chatbot Component -->
+      <Chatbot />
+    </client-only>
   </div>
 </template>
 

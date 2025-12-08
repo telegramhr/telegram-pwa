@@ -39,13 +39,20 @@
           @selectPaymentType="selectPaymentType"
         />
         <PretplataLoginGiftData
+          :gift-email="giftEmail"
+          :gift-date="giftDate_formatted"
+          @updateGiftEmail="updateGiftEmail"
+          @updateGiftDate="updateGiftDate"
+        ></PretplataLoginGiftData>
+        <PretplataLogin
           :email="email"
           :can-log-in="canLogIn"
           :login-error="loginError"
           @updateCanLogIn="updateCanLogIn"
           @updateEmail="updateEmail"
-        ></PretplataLoginGiftData>
+        ></PretplataLogin>
         <PretplataPaymentConfirm
+          :is-gift="true"
           :url-key="urlKey"
           :loading="loading"
           :can-log-in="canLogIn"
@@ -55,6 +62,8 @@
           :price="price"
           :email="email"
           :discounted-amount="discount"
+          :gift-email="giftEmail"
+          :gift-date="giftDate_formatted"
           @updateLoading="handleUpdateLoading"
           @updateDiscount="handleUpdateDiscount"
           copyVersion="christmas"
@@ -63,14 +72,19 @@
     </div>
     <Features></Features>
     <FAQ></FAQ>
+    <HowTo></HowTo>
     <Testimonials></Testimonials>
     <PretplataCTA
       :text="'Blagdanska akcija traje do kraja ovog mjeseca'"
       :link="{
         url: '#paymentBoxes',
-        text: 'Iskoristite ponudu',
+        text: 'Darujte pretplatu',
       }"
     ></PretplataCTA>
+    <client-only>
+      <!-- Chatbot Component -->
+      <Chatbot />
+    </client-only>
   </div>
 </template>
 
@@ -104,6 +118,8 @@ export default {
       discount: 0,
       loadingPromo: false,
       promo_error: '',
+      giftEmail: '',
+      giftDate: null, // Default to current date and time
     }
   },
   computed: {
@@ -115,6 +131,23 @@ export default {
     },
     userEmail() {
       return this.$store.state.user.email
+    },
+    giftDate_formatted() {
+      const d = new Date(Date.parse(this.giftDate))
+      return (
+        d.getFullYear() +
+        '-' +
+        this.pad(d.getMonth() + 1) +
+        '-' +
+        this.pad(d.getDate()) +
+        'T' +
+        this.pad(d.getHours()) +
+        ':' +
+        this.pad(d.getMinutes()) +
+        ':' +
+        this.pad(d.getSeconds()) +
+        this.timezoneOffset(d.getTimezoneOffset())
+      )
     },
   },
   mounted() {
@@ -146,6 +179,12 @@ export default {
     updateEmail(email) {
       this.email = email
     },
+    updateGiftEmail(giftEmail) {
+      this.giftEmail = giftEmail
+    },
+    updateGiftDate(giftDate) {
+      this.giftDate = giftDate
+    },
     updateCanLogIn(value) {
       this.canLogIn = value
     },
@@ -156,15 +195,13 @@ export default {
           this.urlKey = 'half-off-2025'
           switch (this.selectedPlan) {
             case 'standard':
-              this.pack =
-                'Telegram_Standard_Godišnja_Pretplata_50%_popust_za prvu godinu'
+              this.pack = 'Telegram_Standard_Poklon 2024_blagdanski_popust'
               this.price = '39'
               this.monthlyPrice = '7.99'
               this.annualPrice = '39'
               break
             case 'premium':
-              this.pack =
-                'Telegram_Premium_Godišnja_Pretplata_50%_popust_za prvu godinu'
+              this.pack = 'Telegram_Premium_Poklon_2024_blagdanski_popust'
               this.price = '49'
               this.monthlyPrice = '9.99'
               this.annualPrice = '49'
@@ -200,6 +237,19 @@ export default {
           }
           break
       }
+    },
+    pad(n) {
+      return n < 10 ? '0' + n : n
+    },
+    timezoneOffset(offset) {
+      if (offset === 0) {
+        return 'Z'
+      }
+      const sign = offset > 0 ? '-' : '+'
+      offset = Math.abs(offset)
+      return (
+        sign + this.pad(Math.floor(offset / 60)) + ':' + this.pad(offset % 60)
+      )
     },
   },
 

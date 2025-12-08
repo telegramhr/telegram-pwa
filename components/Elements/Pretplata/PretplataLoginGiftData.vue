@@ -1,5 +1,5 @@
 <template>
-  <div v-show="!loggedIn" class="main">
+  <div class="main">
     <div class="login-wrapper">
       <div class="login">
         <div class="email-wrapper">
@@ -7,7 +7,7 @@
           <input
             type="email"
             autocomplete="off"
-            :value="email"
+            :value="giftEmail"
             placeholder="Upišite e-mail kome poklanjate pretplatu"
             class="login-input"
             @input="handleUpdateEmail"
@@ -22,6 +22,7 @@
             :style="{ color: dateColor }"
             placeholder="Datum slanja poklona"
             class="login-input"
+            @input="handleUpdateDate"
           />
         </div>
       </div>
@@ -34,23 +35,13 @@ import _ from 'lodash'
 export default {
   name: 'PretplataLoginGiftData',
   props: {
-    email: {
+    giftEmail: {
       type: String,
       required: true,
     },
-    canLogIn: {
-      type: Boolean,
+    giftDate: {
+      type: String,
       required: true,
-    },
-    loginUrl: {
-      type: String,
-      required: false,
-      default: '',
-    },
-    loginError: {
-      type: String,
-      required: false,
-      default: '',
     },
   },
   data() {
@@ -65,19 +56,6 @@ export default {
     dateColor() {
       return this.date ? '#000000' : '#5F5F5F'
     },
-    loggedIn() {
-      return !!this.$store.state.user.id
-    },
-    googleUrl() {
-      return `http://pretplata.telegram.hr/users/google/sign?url=https://www.telegram.hr/pretplata/${encodeURIComponent(
-        this.loginUrl
-      )}`
-    },
-    facebookUrl() {
-      return `https://pretplata.telegram.hr/social-login/social-sign/sign?social_provider_key=facebook&success_login_url=https://www.telegram.hr/pretplata/${encodeURIComponent(
-        this.loginUrl
-      )}`
-    },
   },
   watch: {
     email: _.debounce(function (value) {
@@ -89,60 +67,13 @@ export default {
       this.emailSubmit(value)
     }, 1000),
   },
-  mounted() {
-    if (isValidEmail(this.email)) {
-      this.emailSubmit(this.email)
-    }
-    if (isValidEmail(this.email) && this.canLogIn) {
-      this.showPassword = true
-    }
-  },
+  mounted() {},
   methods: {
     handleUpdateEmail(event) {
-      this.$emit('updateEmail', event.target.value)
+      this.$emit('updateGiftEmail', event.target.value)
     },
-    handleUpdateCanlogin(value) {
-      this.$emit('updateCanLogIn', value)
-    },
-    login() {
-      if (!this.showPassword) {
-        return
-      }
-      this.$store.dispatch('user/loginSubmit', {
-        email: this.email,
-        password: this.password,
-        reload: false,
-      })
-    },
-    emailSubmit(value) {
-      const _this = this
-      const formData = new FormData()
-      formData.append('email', value)
-      this.$axios
-        .$post('/crm/api/v2/users/email', formData, {
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-          },
-        })
-        .then((data) => {
-          if (data.status && data.status === 'taken') {
-            _this.showPassword = true
-            this.handleUpdateCanlogin(true)
-          } else if (data.status === 'error') {
-            if (data.code === 'email_missing') {
-              return
-            }
-            _this.show_msg = 'Prijavite se kako biste dovršili kupnju.'
-            this.handleUpdateCanlogin(true)
-          } else {
-            _this.showPassword = false
-            this.handleUpdateCanlogin(false)
-          }
-        })
-        .catch(() => {
-          _this.showPassword = false
-          this.handleUpdateCanlogin(false)
-        })
+    handleUpdateDate(event) {
+      this.$emit('updateGiftDate', event.target.value)
     },
   },
 }
