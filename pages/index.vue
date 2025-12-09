@@ -50,13 +50,8 @@
             v-show="canLogIn"
             id="pretplatite se - header"
             to="/pretplata/"
-            class="pretplata-btn"
-          >
-            <img
-              src="@/assets/img/tabler-icon-books.png"
-              alt="knjige ikonica"
-            />
-            Pretplata + knjiga gratis</app-link
+            class="newbtn"
+            >Pretplatite se</app-link
           >
           <a
             v-show="!canLogIn"
@@ -128,13 +123,8 @@
               v-show="!$store.state.user.access"
               id="pretplatite se - header"
               to="/pretplata"
-              class="pretplata-btn"
-            >
-              <img
-                src="@/assets/img/tabler-icon-books.png"
-                alt="knjige ikonica"
-              />
-              Pretplata + knjiga gratis</app-link
+              class="newbtn"
+              >Pretplatite se</app-link
             >
             <a
               v-show="!canLogIn"
@@ -316,18 +306,34 @@
     </div>
     <app-link
       v-if="!$store.state.user.access.length"
-      to="https://www.telegram.hr/pretplata"
-      class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center"
-      style="padding: 0 24px; margin-top: 40px"
+      to="/pretplata/50-popust"
+      class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth"
     >
       <img
-        src="@/assets/img/pretplata/desktop_banner.png"
-        alt="Naslovnica nove knjige"
+        src="@/assets/img/pretplata/desktop-pretplata.jpg"
+        alt="Desktop banner za popust na godišnju pretplatu"
         class="desktop-only"
       />
       <img
-        src="@/assets/img/pretplata/mobile_banner.png"
-        alt="Naslovnica nove knjige"
+        src="@/assets/img/pretplata/mobile-pretplata.jpg"
+        alt="Mobile banner za popust na godišnju pretplatu"
+        class="mobile-only"
+        style="width: 100%"
+      />
+    </app-link>
+    <app-link
+      v-else
+      to="/pretplata/poklon-popust"
+      class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth"
+    >
+      <img
+        src="@/assets/img/pretplata/desktop-poklon.jpg"
+        alt="Desktop banner za popust na poklon za godišnju pretplatu"
+        class="desktop-only"
+      />
+      <img
+        src="@/assets/img/pretplata/mobile-poklon.jpg"
+        alt="Mobile banner za popust na poklon za godišnju pretplatu"
         class="mobile-only"
         style="width: 100%"
       />

@@ -121,6 +121,24 @@
         name="payment_metadata[book_phone]"
         :value="bookPhone"
       />
+      <input
+        v-if="isGift"
+        type="hidden"
+        name="payment_metadata[gift]"
+        value="1"
+      />
+      <input
+        v-if="isGift"
+        type="hidden"
+        name="payment_metadata[gift_email]"
+        :value="giftEmail"
+      />
+      <input
+        v-if="isGift"
+        type="hidden"
+        name="payment_metadata[gift_starts_at]"
+        :value="giftDate"
+      />
 
       <div class="submit-wrapper">
         <button v-if="buyable" @click.prevent="submit">
@@ -140,8 +158,16 @@
         <p v-if="show_msg">{{ show_msg }}</p>
         <p>
           Ispunite sve korake iznad kako bi dovršili kupnju.<br />
-          Pretplatu možete otkazati u bilo kojem trenutku. Pretplata se
-          automatski obnavlja.
+
+          <template v-if="copyVersion === 'christmas'">
+            Nakon isteka prve godine pretplata se automatski obnavlja po punoj
+            cijeni
+          </template>
+
+          <template v-else>
+            Pretplatu možete otkazati u bilo kojem trenutku. Pretplata se
+            automatski obnavlja.
+          </template>
         </p>
       </div>
     </form>
@@ -204,10 +230,30 @@ export default {
       required: false,
       default: '',
     },
+    copyVersion: {
+      type: String,
+      required: false,
+      default: '',
+    },
     bookPhone: {
       type: String,
       required: false,
       default: '',
+    },
+    giftEmail: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    giftDate: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    isGift: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
   },
   data() {
@@ -233,7 +279,12 @@ export default {
         this.terms &&
         this.privacy &&
         isValidEmail(this.email) &&
-        (!this.canLogIn || this.loggedIn)
+        (!this.canLogIn || this.loggedIn) &&
+        (!this.isGift ||
+          (this.isGift &&
+            this.giftEmail &&
+            isValidEmail(this.giftEmail) &&
+            this.giftDate))
       ) {
         return true
       }

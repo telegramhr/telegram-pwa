@@ -42,6 +42,7 @@
           :email="email"
           :can-log-in="canLogIn"
           :login-error="loginError"
+          :login-url="loginUrl"
           @updateCanLogIn="updateCanLogIn"
           @updateEmail="updateEmail"
         ></PretplataLogin>
@@ -57,6 +58,7 @@
           :discounted-amount="discount"
           @updateLoading="handleUpdateLoading"
           @updateDiscount="handleUpdateDiscount"
+          copyVersion="christmas"
         ></PretplataPaymentConfirm>
       </div>
     </div>
@@ -70,6 +72,10 @@
         text: 'Iskoristite ponudu',
       }"
     ></PretplataCTA>
+    <client-only>
+      <!-- Chatbot Component -->
+      <Chatbot />
+    </client-only>
   </div>
 </template>
 
@@ -79,6 +85,7 @@ export default {
     return {
       loading: false,
       subscriptionType: 'individual',
+      loginUrl: '50-popust',
       selectedPlan: 'premium',
       selectedTerm: 'annual',
       payment: 'trustpay_recurrent',

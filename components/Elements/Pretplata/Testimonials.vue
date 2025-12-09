@@ -205,6 +205,8 @@ export default {
     padding: 28px;
     flex: 1;
     gap: 28px;
+    box-shadow: 0 4px 4px -4px rgba(12, 12, 13, 0.05),
+      0 16px 32px -4px rgba(12, 12, 13, 0.1);
   }
   .desktop-testimonials .card .author-box img {
     width: 56px;

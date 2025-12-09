@@ -3,39 +3,48 @@
     <div v-if="loading" class="telegram-overlay">
       <span class="telegram-loader"></span>
     </div>
-    <PretplataHero
-      title="Čitajte najbolje članke renomiranih autora. Podržite slobodno novinarstvo pretplatom."
-    ></PretplataHero>
+    <HeroChristmas
+      title="Poklon koji se otvara svaki dan uz posebnu blagdansku pogodnost"
+      subtitle="Darujte najmilijima godinu dana neovisnog novinarstva, analiza i ekskluzivnih tekstova — sada uz"
+      highlighted="50% popusta na Telegram poklon-pretplatu."
+      version="red"
+    ></HeroChristmas>
     <div class="content">
       <div class="box-wrapper">
-        <Switcher
-          @subscription-type-changed="handleSubscriptionChange"
-        ></Switcher>
-        <div class="boxes">
-          <PretplataNewBox
+        <div id="paymentBoxes" class="boxes">
+          <PretplataNewBoxBozic
             type="standard"
             :subscription-type="subscriptionType"
             :selected="selectedPlan === 'standard'"
             @select="selectPlan"
-          ></PretplataNewBox>
-          <PretplataNewBox
+          ></PretplataNewBoxBozic>
+          <PretplataNewBoxBozic
             type="premium"
             :subscription-type="subscriptionType"
             :selected="selectedPlan === 'premium'"
             @select="selectPlan"
-          ></PretplataNewBox>
+          ></PretplataNewBoxBozic>
         </div>
       </div>
       <div>
         <PretplataPayment
+          :allowTermsChange="false"
+          :allowBank="false"
           :term="selectedTerm"
           :payment-type="payment"
           :annual-price="annualPrice"
           :monthly-price="monthlyPrice"
           :subscription-type="subscriptionType"
+          :gift="false"
           @selectTerm="selectTerm"
           @selectPaymentType="selectPaymentType"
         />
+        <PretplataLoginGiftData
+          :gift-email="giftEmail"
+          :gift-date="giftDate_formatted"
+          @updateGiftEmail="updateGiftEmail"
+          @updateGiftDate="updateGiftDate"
+        ></PretplataLoginGiftData>
         <PretplataLogin
           :login-url="loginUrl"
           :email="email"
@@ -45,6 +54,7 @@
           @updateEmail="updateEmail"
         ></PretplataLogin>
         <PretplataPaymentConfirm
+          :is-gift="true"
           :url-key="urlKey"
           :loading="loading"
           :can-log-in="canLogIn"
@@ -54,11 +64,25 @@
           :price="price"
           :email="email"
           :discounted-amount="discount"
+          :gift-email="giftEmail"
+          :gift-date="giftDate_formatted"
           @updateLoading="handleUpdateLoading"
           @updateDiscount="handleUpdateDiscount"
+          copyVersion="christmas"
         ></PretplataPaymentConfirm>
       </div>
     </div>
+    <Features></Features>
+    <FAQ></FAQ>
+    <HowTo></HowTo>
+    <Testimonials></Testimonials>
+    <PretplataCTA
+      :text="'Blagdanska akcija traje do kraja ovog mjeseca'"
+      :link="{
+        url: '#paymentBoxes',
+        text: 'Darujte pretplatu',
+      }"
+    ></PretplataCTA>
     <client-only>
       <!-- Chatbot Component -->
       <Chatbot />
@@ -71,7 +95,7 @@ export default {
   data() {
     return {
       loading: false,
-      loginUrl: '',
+      loginUrl: 'poklon-popust',
       subscriptionType: 'individual',
       selectedPlan: 'premium',
       selectedTerm: 'annual',
@@ -88,7 +112,7 @@ export default {
       terms: false,
       privacy: false,
       auth: 0,
-      urlKey: 'main',
+      urlKey: 'half-off-2025',
       instance: null,
       customerId: null,
       iframeUrl: '',
@@ -97,10 +121,8 @@ export default {
       discount: 0,
       loadingPromo: false,
       promo_error: '',
-      bookSelected: '',
-      bookName: '',
-      bookAddress: '',
-      bookPhone: '',
+      giftEmail: '',
+      giftDate: null, // Default to current date and time
     }
   },
   computed: {
@@ -112,6 +134,23 @@ export default {
     },
     userEmail() {
       return this.$store.state.user.email
+    },
+    giftDate_formatted() {
+      const d = new Date(Date.parse(this.giftDate))
+      return (
+        d.getFullYear() +
+        '-' +
+        this.pad(d.getMonth() + 1) +
+        '-' +
+        this.pad(d.getDate()) +
+        'T' +
+        this.pad(d.getHours()) +
+        ':' +
+        this.pad(d.getMinutes()) +
+        ':' +
+        this.pad(d.getSeconds()) +
+        this.timezoneOffset(d.getTimezoneOffset())
+      )
     },
   },
   mounted() {
@@ -143,48 +182,32 @@ export default {
     updateEmail(email) {
       this.email = email
     },
+    updateGiftEmail(giftEmail) {
+      this.giftEmail = giftEmail
+    },
+    updateGiftDate(giftDate) {
+      this.giftDate = giftDate
+    },
     updateCanLogIn(value) {
       this.canLogIn = value
-    },
-    updateBookSelected(value) {
-      this.bookSelected = value
-    },
-    updateBookName(value) {
-      this.bookName = value
-    },
-    updateBookAddress(value) {
-      this.bookAddress = value
-    },
-    updateBookPhone(value) {
-      this.bookPhone = value
     },
     calculatePrice() {
       switch (this.subscriptionType) {
         case 'individual':
           this.discount = 0
-          this.urlKey = 'main'
+          this.urlKey = 'half-off-2025'
           switch (this.selectedPlan) {
             case 'standard':
-              if (this.selectedTerm === 'monthly') {
-                this.pack = 'telegram_standard_4_tjedna_pretplata_2024'
-                this.price = '7.99'
-              } else {
-                this.pack = 'telegram_standard_godisnja_pretplata_2024'
-                this.price = '79'
-              }
+              this.pack = 'Telegram_Standard_Poklon 2024_blagdanski_popust'
+              this.price = '39'
               this.monthlyPrice = '7.99'
-              this.annualPrice = '79'
+              this.annualPrice = '39'
               break
             case 'premium':
-              if (this.selectedTerm === 'monthly') {
-                this.pack = 'telegram_premium_4_tjedna_pretplata_2024'
-                this.price = '9.99'
-              } else {
-                this.pack = 'telegram_premium_godisnja_pretplata_2024'
-                this.price = '99'
-              }
+              this.pack = 'Telegram_Premium_Poklon_2024_blagdanski_popust'
+              this.price = '49'
               this.monthlyPrice = '9.99'
-              this.annualPrice = '99'
+              this.annualPrice = '49'
               break
           }
           break
@@ -218,11 +241,24 @@ export default {
           break
       }
     },
+    pad(n) {
+      return n < 10 ? '0' + n : n
+    },
+    timezoneOffset(offset) {
+      if (offset === 0) {
+        return 'Z'
+      }
+      const sign = offset > 0 ? '-' : '+'
+      offset = Math.abs(offset)
+      return (
+        sign + this.pad(Math.floor(offset / 60)) + ':' + this.pad(offset % 60)
+      )
+    },
   },
 
   head() {
     return {
-      title: 'Telegram.hr Pretplata',
+      title: 'Telegram.hr Pretplata Poklon - 50% popusta za prvu godinu',
       meta: [
         {
           hid: 'description',
@@ -238,27 +274,27 @@ export default {
           hid: 'og:title',
           name: 'og:title',
           property: 'og:title',
-          content: 'Telegram.hr Pretplata',
+          content: 'Telegram.hr Pretplata Poklon - 50% popusta za prvu godinu',
         },
         {
           hid: 'og:image',
           name: 'og:image',
           property: 'og:image',
           content:
-            'https://www.telegram.hr/wp-content/uploads/2021/01/tg-background.jpg',
+            'https://www.telegram.hr/wp-content/uploads/2025/12/gift.png',
         },
         {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/pretplata/',
+          content: 'https://www.telegram.hr/pretplata/poklon-popust/',
         },
       ],
       link: [
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: 'https://www.telegram.hr/pretplata/',
+          href: 'https://www.telegram.hr/pretplata/poklon-popust/',
         },
       ],
       script: [
@@ -337,7 +373,7 @@ export default {
 }
 @media screen and (min-width: 1024px) {
   .content {
-    padding: 24px 0px 60px 0px;
+    padding: 40px 0px 60px 0px;
   }
   .boxes {
     flex-direction: row;

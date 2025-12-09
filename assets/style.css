@@ -13190,6 +13190,11 @@ label.payment-tile svg {
   display: none;
 }
 
+.bannerMediumMaxWidth{
+  margin: 0 auto;
+  margin-top: 40px;
+  max-width: 1200px;
+}
 @media screen and (max-width: 767px) {
   .main-container.s1-home,
   .main-container.pz-homepage,
@@ -13198,7 +13203,7 @@ label.payment-tile svg {
   .main-container.homepage {
     padding-top: 0px;
   }
-
+  
   .superone-home-header {
     z-index: 200;
     background-color: white;

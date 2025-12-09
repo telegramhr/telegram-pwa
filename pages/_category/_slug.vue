@@ -1157,6 +1157,7 @@ export default {
 
       const paragraphs = container.querySelectorAll('p')
       if (paragraphs.length < 2) return
+      if (this.post.id === 2774378) return
 
       // avoid duplicate injection
       if (document.getElementById('top-articles-widget')) return
@@ -1165,6 +1166,7 @@ export default {
       const widgetEl = document.createElement('div')
       widgetEl.id = 'top-articles-widget'
       paragraphs[1].insertAdjacentElement('afterend', widgetEl)
+
       // Dynamically create and mount <top-articles> using this component’s context
       if (
         this.post.category_slug.includes('super1') ||
