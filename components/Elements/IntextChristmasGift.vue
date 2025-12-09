@@ -36,7 +36,7 @@
           <p class="title">
             {{ title }} <span>{{ titleHighlight }}</span>
           </p>
-          <a :href="ctaLink" @click.prevent="start">
+          <a target="_blank" :href="ctaLink">
             <button>{{ cta }}</button>
           </a>
         </div>
@@ -117,7 +117,7 @@ export default {
   width: 100%;
   max-width: 900px;
   height: 100%;
-  max-height: 800px;
+  max-height: 600px;
   gap: 32px;
   justify-content: space-between;
   padding: 60px 0px 60px 0px;
@@ -162,7 +162,7 @@ export default {
 .christmas-gift {
   position: relative;
   z-index: 999;
-  max-width: 320px;
+  max-width: 200px;
   margin: 0 auto;
 }
 
@@ -184,8 +184,8 @@ export default {
   display: block;
   font-family: 'Lora', sans-serif;
   font-weight: 700;
-  font-size: 36px;
-  line-height: 40px;
+  font-size: 28px;
+  line-height: 32px;
   text-align: center;
   color: white;
   margin: 0px !important;

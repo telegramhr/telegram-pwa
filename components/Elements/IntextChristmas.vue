@@ -37,7 +37,7 @@
             </p>
             <p class="description">{{ description }}</p>
           </div>
-          <a :href="ctaLink" @click.prevent="start">
+          <a target="_blank" :href="ctaLink">
             <button>{{ cta }}</button>
           </a>
         </div>
@@ -52,7 +52,7 @@ export default {
   data() {
     return {
       softwall: true,
-      show: false,
+      show: true,
       termId: false,
       title: 'Poklonite pretplatu svojim najmilijima uz ',
       titleHighlight: '50% popusta',
@@ -122,7 +122,7 @@ export default {
   height: 100%;
   max-height: 600px;
   gap: 40px;
-  padding: 40px 0px 80px 0px;
+  padding: 40px 16px 80px 16px;
   background-color: #1b491f;
 }
 .bg-paper {
@@ -222,6 +222,9 @@ export default {
   background-color: #2e922e;
 }
 @media screen and (min-width: 1024px) {
+  .main-wrapper {
+    padding: 40px 0px 80px 0px;
+  }
   .text {
     gap: 28px;
   }
