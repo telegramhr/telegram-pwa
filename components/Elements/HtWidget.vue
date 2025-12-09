@@ -34,61 +34,31 @@
             čekaju!
           </a>
         </div>
-        <div class="cards-container">
-          <div class="card">
-            <img
-              src="@/assets/img/widgets/ht/ht-image2.jpg"
-              alt="Djevojka s laptopom na kaucu"
-            />
-            <div class="content">
-              <div class="title">
-                Hoćemo li biti nepismeni ako ne naučimo koristiti AI? Pronašli
-                smo besplatne edukacije koje mogu pomoći
-              </div>
-              <div class="description">
-                Umjetna inteligencija najbrže je rastuća tehnologija u ljudskoj
-                povijesti. U manje od tri godine,
-              </div>
-              <button
-                class="cta-button"
-                @click="
-                  trackClick(
-                    'https://www.telegram.hr/partneri/hocemo-li-biti-nepismeni-ako-ne-naucimo-koristiti-ai-pronasli-smo-besplatne-edukacije-koje-mogu-pomoci-svima/'
-                  )
-                "
-              >
-                Pročitaj više
-              </button>
-            </div>
-          </div>
 
-          <div class="card">
-            <img
-              src="@/assets/img/widgets/ht/ht-image.png"
-              alt="Djevojka s laptopom na kaucu"
-            />
-            <div class="content">
-              <div class="title">
-                Isprobali smo genijalan kviz o umjetnoj inteligenciji i otkrili
-                besplatne edukacije. Donosimo sve detalje
+        <VueSlickCarousel v-bind="slickOptions">
+          <div
+            v-for="(item, index) in items"
+            :key="index"
+            class="slide-item slide-item-a1"
+          >
+            <div class="card">
+              <div class="image-wrapper">
+                <img :src="item.image" :alt="item.title" />
               </div>
-              <div class="description">
-                Kampanjom “AI ti to možeš” Hrvatski Telekom omogućuje
-                jednostavan i zabavan ulazak u svijet AI-ja
+              <div class="content">
+                <h3 class="title">{{ item.title }}</h3>
+                <p class="description">{{ item.description }}</p>
               </div>
-              <button
-                class="cta-button"
-                @click="
-                  trackClick(
-                    'https://www.telegram.hr/partneri/isprobali-smo-genijalan-kviz-o-umjetnoj-inteligenciji-i-otkrili-besplatne-edukacije-donosimo-sve-detalje/'
-                  )
-                "
+              <a
+                :href="item.link"
+                target="_blank"
+                @click="trackClick(item.link)"
               >
-                Pročitaj više
-              </button>
+                <button class="cta-button">{{ item.buttonText }}</button>
+              </a>
             </div>
           </div>
-        </div>
+        </VueSlickCarousel>
       </div>
     </div>
   </div>
@@ -100,7 +70,62 @@ import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 export default {
   name: 'HTWidget',
   data() {
-    return {}
+    return {
+      slickOptions: {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        arrows: true,
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+            },
+          },
+        ],
+      },
+      items: [
+        {
+          image: require('@/assets/img/widgets/ht/ht-image2.jpg'),
+          title:
+            'Hoćemo li biti nepismeni ako ne naučimo koristiti AI? Pronašli smo besplatne edukacije koje mogu pomoći',
+          description:
+            'Umjetna inteligencija najbrže je rastuća tehnologija u ljudskoj povijesti. U manje od tri godine,',
+          buttonText: 'Pročitaj više',
+          link: 'https://www.telegram.hr/partneri/hocemo-li-biti-nepismeni-ako-ne-naucimo-koristiti-ai-pronasli-smo-besplatne-edukacije-koje-mogu-pomoci-svima/',
+        },
+        {
+          image: require('@/assets/img/widgets/ht/ht-image.png'),
+          title:
+            'Isprobali smo genijalan kviz o umjetnoj inteligenciji i otkrili besplatne edukacije. Donosimo sve detalje',
+          description:
+            'Kampanjom "AI ti to možeš" Hrvatski Telekom omogućuje jednostavan i zabavan ulazak u svijet AI-ja',
+          buttonText: 'Pročitaj više',
+          link: 'https://www.telegram.hr/partneri/isprobali-smo-genijalan-kviz-o-umjetnoj-inteligenciji-i-otkrili-besplatne-edukacije-donosimo-sve-detalje/',
+        },
+        {
+          image: require('@/assets/img/widgets/ht/ai-strucnjaci.jpg'),
+          title:
+            'Hoće li AI zaista preuzeti naš posao? Troje vrhunskih stručnjaka iz različitih inudstrija donose konkretne odgovore',
+          description: 'Znamo i za besplatne edukacije koje mogu pomoći',
+          buttonText: 'Pročitaj više',
+          link: 'https://www.telegram.hr/partneri/hoce-li-ai-zaista-preuzeti-nas-posao-troje-vrhunskih-strucnjaka-iz-razlicitih-inudstrija-donose-konkretne-odgovore/',
+        },
+        {
+          image: require('@/assets/img/widgets/ht/djevojka-laptop.jpg'),
+          title:
+            'Hoćemo li biti nepismeni ako ne naučimo koristiti AI? Pronašli smo besplatne edukacije koje mogu pomoći svima',
+          description:
+            'Ova kompetencija danas je ključna: jača konkurentnost i osigurava kvalitetniji napredak',
+          buttonText: 'Pročitaj više',
+          link: 'https://www.telegram.hr/partneri/hocemo-li-biti-nepismeni-ako-ne-naucimo-koristiti-ai-pronasli-smo-besplatne-edukacije-koje-mogu-pomoci-svima/',
+        },
+      ],
+    }
   },
   mounted() {
     this.$gtm.push({
@@ -120,6 +145,14 @@ export default {
         'webshop-value': link,
       })
       window.open(link, '_blank')
+    },
+    shuffleArray(array) {
+      const shuffled = [...array]
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1))
+        ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+      }
+      return shuffled
     },
   },
 }
@@ -181,27 +214,6 @@ export default {
 .content-container {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-}
-.cards-container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.card {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  font-family: 'Barlow';
-  width: 100%;
-  height: 100%;
-  gap: 24px;
-}
-.card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  aspect-ratio: 1.37;
 }
 .quiz-container {
   width: 100%;
@@ -211,6 +223,29 @@ export default {
   gap: 32px;
   justify-content: center;
   padding: 40px 20px;
+  margin-bottom: 24px;
+}
+.slide-item {
+  padding: 0 10px;
+  height: 100%;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: transparent;
+}
+.image-wrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 1.37;
 }
 .quiz-container a {
   font-family: 'Barlow';
@@ -236,11 +271,12 @@ export default {
 .content {
   display: flex;
   flex-direction: column;
-  gap: 18px;
   flex: 1;
+  min-height: 0;
 }
 
 .title {
+  font-family: 'Barlow';
   font-weight: 600;
   font-size: 18px;
   line-height: 25px;
@@ -250,65 +286,101 @@ export default {
   -webkit-line-clamp: 3;
   line-clamp: 3;
   overflow: hidden;
+  margin-bottom: 18px;
 }
 
 .description {
-  font-size: 16px;
-  line-height: 22px;
-  font-weight: 400;
-  color: #6d6762;
-  flex: 1;
+  font-family: 'Barlow';
+  font-size: 14px;
+  line-height: 20px;
+  color: #666;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   line-clamp: 3;
   overflow: hidden;
+  margin-bottom: 24px;
+  flex: 1;
 }
 
 .cta-button {
-  width: 100%;
-  padding: 16px 0px;
-  background-color: #171717;
+  font-family: 'Barlow';
+  font-weight: 600;
+  font-size: 14px;
+  padding: 12px 24px;
+  background-color: #000;
   color: white;
   border: none;
-  border-radius: 3px;
-  font-size: 16px;
-  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  text-transform: none;
-  margin-top: auto;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  width: 100%;
 }
 
 .cta-button:hover {
-  background-color: #6f043b;
+  background-color: #333;
 }
+:deep(.slick-track) {
+  display: flex !important;
+}
+
+:deep(.slick-slide) {
+  height: inherit !important;
+}
+
+:deep(.slick-slide > div) {
+  height: 100%;
+}
+/* Customize slick arrows */
+:deep(.slick-prev),
+:deep(.slick-next) {
+  width: 40px;
+  height: 40px;
+  z-index: 1;
+  top: 48%;
+}
+
+:deep(.slick-prev) {
+  left: -20px;
+}
+
+:deep(.slick-next) {
+  right: -20px;
+}
+
+:deep(.slick-prev:before),
+:deep(.slick-next:before) {
+  font-size: 40px;
+  color: #333;
+}
+.dark-mode :deep(.slick-prev:before),
+.dark-mode :deep(.slick-next:before) {
+  color: white;
+}
+
 @media screen and (min-width: 768px) {
   .content-container {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
-  .cards-container {
-    display: flex;
     flex-direction: row;
-    gap: 40px;
-    flex: 1 1 0%;
   }
+
   .quiz-container {
-    gap: 60px;
-    flex: 1 1 0%;
+    margin-bottom: 0;
+    margin-right: 9px;
+    width: 50%;
+    flex-shrink: 0;
   }
-  .card img {
-    height: 200px;
+
+  :deep(.slick-slider) {
+    width: 50%;
+    flex-shrink: 0;
   }
-}
-@media screen and (min-width: 1024px) {
-  .content-container {
-    flex-direction: row;
+
+  :deep(.slick-prev) {
+    left: 10px;
   }
-  .cards-container {
-    gap: 24px;
+
+  :deep(.slick-next) {
+    right: 10px;
   }
 }
 </style>
