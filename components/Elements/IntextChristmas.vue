@@ -37,7 +37,7 @@
             </p>
             <p class="description">{{ description }}</p>
           </div>
-          <a target="_blank" :href="ctaLink">
+          <a :href="ctaLink" @click.prevent="start">
             <button>{{ cta }}</button>
           </a>
         </div>
@@ -52,7 +52,7 @@ export default {
   data() {
     return {
       softwall: true,
-      show: true,
+      show: false,
       termId: false,
       title: 'Poklonite pretplatu svojim najmilijima uz ',
       titleHighlight: '50% popusta',

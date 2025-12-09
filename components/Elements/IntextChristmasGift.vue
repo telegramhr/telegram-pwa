@@ -36,7 +36,7 @@
           <p class="title">
             {{ title }} <span>{{ titleHighlight }}</span>
           </p>
-          <a target="_blank" :href="ctaLink">
+          <a :href="ctaLink" @click.prevent="start">
             <button>{{ cta }}</button>
           </a>
         </div>
