@@ -391,6 +391,8 @@
                 <intext-promo-f32></intext-promo-f32>
                 <intext-promo-family></intext-promo-family>
                 <intext-black-friday></intext-black-friday>
+                <intext-christmas></intext-christmas>
+                <intext-christmas-gift></intext-christmas-gift>
               </client-only>
             </div>
           </article>

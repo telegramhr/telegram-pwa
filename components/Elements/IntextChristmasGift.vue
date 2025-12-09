@@ -36,7 +36,7 @@
           <p class="title">
             {{ title }} <span>{{ titleHighlight }}</span>
           </p>
-          <a :href="cta_link" @click.prevent="start">
+          <a :href="ctaLink" @click.prevent="start">
             <button>{{ cta }}</button>
           </a>
         </div>
@@ -51,11 +51,10 @@ export default {
   data() {
     return {
       softwall: true,
-      show: true,
+      show: false,
       termId: false,
       title: 'Poklonite pretplatu svojim najmilijima uz ',
       titleHighlight: '50% popusta',
-      description: 'Telegram - poklon koji se otvara svaki dan.',
       ctaLink: '#',
       cta: 'Iskoristite blagdanski popust',
     }
@@ -69,11 +68,25 @@ export default {
   methods: {
     load(e) {
       if (e.detail) {
+        this.show = e.detail.show
         this.title = e.detail.title
         this.titleHighlight = e.detail.titleHighlight
-        this.description = e.detail.description
         this.ctaText = e.detail.ctaText
         this.ctaLink = e.detail.ctaLink
+      }
+    },
+    start() {
+      this.$store.commit('pretplata/setLastArticle', this.$route.path)
+      if (this.termId) {
+        if (this.termId.includes('pretplata')) {
+          this.$router.push(this.termId)
+        }
+      } else if (this.ctaLink) {
+        window.open(this.ctaLink, '_blank')
+      } else if (this.$route.path.includes('telesport')) {
+        this.$router.push('/pretplata/telesport')
+      } else {
+        this.$router.push('/pretplata')
       }
     },
   },
@@ -180,17 +193,11 @@ export default {
 .title span {
   color: #f9a000;
 }
-.text .description {
-  font-family: 'Barlow';
-  font-size: 20px;
-  line-height: 24px;
-  color: white;
-  margin: 0px !important;
-}
 .content button {
   cursor: pointer;
+  width: fit-content;
   margin: 0 auto;
-  padding: 9px 18px;
+  padding: 12px 18px;
   border-radius: 8px;
   background: #297529;
   color: white;

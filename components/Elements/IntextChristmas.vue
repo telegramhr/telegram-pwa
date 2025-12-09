@@ -37,7 +37,7 @@
             </p>
             <p class="description">{{ description }}</p>
           </div>
-          <a :href="cta_link" @click.prevent="start">
+          <a :href="ctaLink" @click.prevent="start">
             <button>{{ cta }}</button>
           </a>
         </div>
@@ -52,7 +52,7 @@ export default {
   data() {
     return {
       softwall: true,
-      show: true,
+      show: false,
       termId: false,
       title: 'Poklonite pretplatu svojim najmilijima uz ',
       titleHighlight: '50% popusta',
@@ -70,11 +70,26 @@ export default {
   methods: {
     load(e) {
       if (e.detail) {
+        this.show = e.detail.show
         this.title = e.detail.title
         this.titleHighlight = e.detail.titleHighlight
         this.description = e.detail.description
         this.ctaText = e.detail.ctaText
         this.ctaLink = e.detail.ctaLink
+      }
+    },
+    start() {
+      this.$store.commit('pretplata/setLastArticle', this.$route.path)
+      if (this.termId) {
+        if (this.termId.includes('pretplata')) {
+          this.$router.push(this.termId)
+        }
+      } else if (this.ctaLink) {
+        window.open(this.ctaLink, '_blank')
+      } else if (this.$route.path.includes('telesport')) {
+        this.$router.push('/pretplata/telesport')
+      } else {
+        this.$router.push('/pretplata')
       }
     },
   },
@@ -182,11 +197,11 @@ export default {
   margin: 0px;
 }
 .content button {
+  font-family: 'Barlow', sans-serif;
   cursor: pointer;
-  max-width: 262px;
-  width: 100%;
+  width: fit-content;
   margin: 0 auto;
-  padding: 18px 16px;
+  padding: 12px 16px;
   border-radius: 10px;
   background: #38b038;
   color: white;
