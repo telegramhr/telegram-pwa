@@ -115,15 +115,6 @@ export default {
           buttonText: 'Pročitaj više',
           link: 'https://www.telegram.hr/partneri/hoce-li-ai-zaista-preuzeti-nas-posao-troje-vrhunskih-strucnjaka-iz-razlicitih-inudstrija-donose-konkretne-odgovore/',
         },
-        {
-          image: require('@/assets/img/widgets/ht/djevojka-laptop.jpg'),
-          title:
-            'Hoćemo li biti nepismeni ako ne naučimo koristiti AI? Pronašli smo besplatne edukacije koje mogu pomoći svima',
-          description:
-            'Ova kompetencija danas je ključna: jača konkurentnost i osigurava kvalitetniji napredak',
-          buttonText: 'Pročitaj više',
-          link: 'https://www.telegram.hr/partneri/hocemo-li-biti-nepismeni-ako-ne-naucimo-koristiti-ai-pronasli-smo-besplatne-edukacije-koje-mogu-pomoci-svima/',
-        },
       ],
     }
   },
