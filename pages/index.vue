@@ -59,7 +59,7 @@
             <span class="poklon">Poklon</span>-50%</app-link
           >
           <app-link
-            v-show="!$store.state.user.access"
+            v-show="!$store.state.user.access?.length"
             id="pretplatite se - header"
             to="/pretplata/"
             class="newbtn pretplata"
