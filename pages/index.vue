@@ -47,10 +47,22 @@
         </div>
         <div class="forty center align-children-end mobile-side-pad">
           <app-link
-            v-show="canLogIn"
+            v-show="!$route.fullPath.includes('super1')"
+            id="pretplata-promo"
+            to="/pretplata/poklon-popust/"
+            class="newbtn gift-btn"
+          >
+            <img
+              src="@/assets/img/pretplata/gift-icon.png"
+              alt="Poklon ikonica"
+            />
+            <span class="poklon">Poklon</span>-50%</app-link
+          >
+          <app-link
+            v-show="!$store.state.user.access"
             id="pretplatite se - header"
             to="/pretplata/"
-            class="newbtn"
+            class="newbtn pretplata"
             >Pretplatite se</app-link
           >
           <a
@@ -677,3 +689,47 @@ export default {
   },
 }
 </script>
+<style scoped>
+.gift-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #395a3a;
+  padding: 6px;
+  font-family: 'Barlow';
+  font-size: 11px;
+  border: none;
+  font-weight: 600;
+  border-radius: 3px;
+  letter-spacing: 0.3px;
+  margin-right: 10px;
+}
+.gift-btn img {
+  width: 15px;
+  height: 15px;
+}
+.poklon {
+  display: none;
+}
+.pretplata {
+  display: none;
+}
+@media (min-width: 768px) {
+  .gift-btn {
+    font-size: 0.7rem;
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+  .gift-btn img {
+    width: 20px;
+    height: 20px;
+  }
+  .poklon {
+    display: inline;
+  }
+  .pretplata {
+    display: inline;
+    margin-top: 1px;
+  }
+}
+</style>

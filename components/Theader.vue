@@ -240,7 +240,9 @@
           <div class="noththree">Info</div>
           <app-link role="menuitem" to="/pretplata">Pretplata</app-link>
           <app-link role="menuitem" to="/klub">Klub</app-link>
-          <app-link role="menuitem" to="https://knjige.telegram.hr">T knjige</app-link>
+          <app-link role="menuitem" to="https://knjige.telegram.hr"
+            >T knjige</app-link
+          >
           <app-link role="menuitem" to="/stranica/impressum"
             >Impressum</app-link
           >
@@ -292,8 +294,10 @@
       }"
     >
       <nav class="full center relative nayos stretch">
-        <div class="container flex stretch relative column-horizontal-pad">
-          <div class="third flex nayos-logos telegram-only the-big-t">
+        <div
+          class="container flex stretch relative column-horizontal-pad header-container"
+        >
+          <div class="flex nayos-logos telegram-only the-big-t">
             <app-link to="/" class="flex">
               <img src="@/assets/img/t_logo.svg" alt="Telegram logo" />
               <img
@@ -382,30 +386,38 @@
               loading="lazy"
             />
           </app-link>
-          <div class="two-thirds center align-children-end mobile-side-pad">
-            <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
+          <div class="center align-children-end mobile-side-pad">
+            <a
+              v-show="canLogIn"
+              class="signup-btn prijava"
+              @click.prevent="login"
               >Prijava</a
             >
             <app-link
-              v-show="canLogIn"
+              v-show="!$route.fullPath.includes('super1')"
+              id="pretplata-promo"
+              to="/pretplata/poklon-popust/"
+              class="newbtn gift-btn"
+            >
+              <img
+                src="@/assets/img/pretplata/gift-icon.png"
+                alt="Poklon ikonica"
+              />
+              Poklon -50%</app-link
+            >
+            <app-link
+              v-show="
+                !$store.state.user.access?.length &&
+                !$route.fullPath.includes('super1')
+              "
               id="pretplatite se - header"
               :to="
                 $route.fullPath.includes('telesport')
                   ? '/pretplata/telesport'
                   : '/pretplata'
               "
-              class="newbtn"
+              class="newbtn pretplata"
               >Pretplatite se</app-link
-            >
-            <app-link
-              v-show="
-                $store.state.user.access?.length &&
-                !$route.fullPath.includes('super1')
-              "
-              id="pretplata-promo"
-              to="/pretplata/poklon/"
-              class="newbtn"
-              >Poklonite pretplatu</app-link
             >
             <a
               v-show="!canLogIn"
@@ -534,3 +546,68 @@ export default {
   },
 }
 </script>
+<style scoped>
+.header-container {
+  justify-content: space-between;
+}
+.gift-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #395a3a;
+  padding: 6px;
+  font-family: 'Barlow';
+  font-size: 11px;
+  border: none;
+  font-weight: 600;
+  border-radius: 3px;
+  letter-spacing: 0.3px;
+  margin-right: 10px;
+}
+.gift-btn img {
+  width: 15px;
+  height: 15px;
+}
+.prijava {
+  color: #ae3737;
+}
+.pretplata {
+  background-color: #ae3737;
+  border: none;
+  border-radius: 3px;
+  padding: 6px;
+  font-family: 'Barlow';
+  font-size: 11px;
+  border: none;
+  font-weight: 600;
+  border-radius: 3px;
+  letter-spacing: 0.3px;
+  margin-right: 10px;
+  align-content: center;
+  min-height: 27px;
+}
+.telesport .pretplata {
+  background-color: var(--tg-primary-highlight-color);
+}
+.telesport .prijava {
+  color: var(--tg-primary-highlight-color);
+}
+.superone .prijava {
+  color: rgb(17, 17, 17);
+}
+@media (min-width: 768px) {
+  .gift-btn img {
+    width: 20px;
+    height: 20px;
+  }
+  .pretplata,
+  .gift-btn {
+    font-size: 0.7rem;
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+  .pretplata {
+    min-height: 32px;
+  }
+}
+</style>

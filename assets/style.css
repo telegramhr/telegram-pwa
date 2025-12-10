@@ -13325,7 +13325,7 @@ label.payment-tile svg {
 .telesport .komentar .komentar-image,
 .telesport .subtle-btn-parent:hover .subtle-btn,
 .telesport .loader-square div,
-.telesport .newbtn {
+.telesport .newbtn, .telesport .pretplata, .telesport .prijava {
   background-color: var(--tg-primary-highlight-color);
 }
 
