@@ -117,6 +117,7 @@ export default {
 }
 .mobile-content {
   display: block;
+  margin-bottom: 40px;
 }
 .desktop-content {
   display: none;

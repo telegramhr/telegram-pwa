@@ -1,6 +1,49 @@
+<template>
+  <div class="main">
+    <div class="wrapper">
+      <span class="title">Kako pokloniti pretplatu?</span>
+      <div class="content">
+        <img
+          class="mobile-image"
+          src="@/assets/img/pretplata/gift-mobile.png"
+          alt="Gift Mobile"
+        />
+        <img
+          class="desktop-image"
+          src="@/assets/img/pretplata/gift-desktop.png"
+          alt="Gift Mobile"
+        />
+
+        <div class="right-side">
+          <div class="steps">
+            <div v-for="step in steps" :key="step.number" class="step-item">
+              <div class="step-number">{{ step.number }}.</div>
+              <div class="step-content">
+                <span>{{ step.title }}</span>
+                <p>{{ step.description }}</p>
+              </div>
+            </div>
+          </div>
+          <a :href="link.url">
+            <button>{{ link.text }}</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
 <script>
 export default {
   name: 'HowTo',
+  props: {
+    link: {
+      type: Object,
+      default: () => ({
+        url: '#',
+        text: 'Darujte Telegram pretplatu',
+      }),
+    },
+  },
   data() {
     return {
       steps: [
@@ -31,39 +74,6 @@ export default {
   },
 }
 </script>
-
-<template>
-  <div class="main">
-    <div class="wrapper">
-      <span class="title">Kako pokloniti pretplatu?</span>
-      <div class="content">
-        <img
-          class="mobile-image"
-          src="@/assets/img/pretplata/gift-mobile.png"
-          alt="Gift Mobile"
-        />
-        <img
-          class="desktop-image"
-          src="@/assets/img/pretplata/gift-desktop.png"
-          alt="Gift Mobile"
-        />
-
-        <div class="right-side">
-          <div class="steps">
-            <div v-for="step in steps" :key="step.number" class="step-item">
-              <div class="step-number">{{ step.number }}.</div>
-              <div class="step-content">
-                <span>{{ step.title }}</span>
-                <p>{{ step.description }}</p>
-              </div>
-            </div>
-          </div>
-          <button>Darujte Telegram pretplatu</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
 <style scoped>
 .main {
   width: 100%;
@@ -74,7 +84,7 @@ export default {
 .wrapper {
   width: 100%;
   max-width: 867px;
-  padding: 52px 64px;
+  padding-top: 52px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -168,7 +178,7 @@ export default {
 }
 @media (min-width: 1024px) {
   .wrapper {
-    padding: 64px 0 80px 0;
+    padding: 64px 0 0 0;
     gap: 60px;
   }
   .wrapper .title {

@@ -94,7 +94,7 @@ export default {
 <style scoped>
 .main {
   width: 100%;
-  padding: 0 16px;
+  padding: 52px 16px 0px 16px;
   overflow: hidden;
   position: relative;
 }

@@ -74,7 +74,12 @@
     </div>
     <Features></Features>
     <FAQ></FAQ>
-    <HowTo></HowTo>
+    <HowTo
+      :link="{
+        url: '#paymentBoxes',
+        text: 'Darujte pretplatu',
+      }"
+    ></HowTo>
     <Testimonials></Testimonials>
     <PretplataCTA
       :text="'Blagdanska akcija traje do kraja ovog mjeseca'"
