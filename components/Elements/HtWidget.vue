@@ -116,7 +116,7 @@ export default {
           link: 'https://www.telegram.hr/partneri/hoce-li-ai-zaista-preuzeti-nas-posao-troje-vrhunskih-strucnjaka-iz-razlicitih-inudstrija-donose-konkretne-odgovore/',
         },
         {
-          image: require('@/assets/img/widgets/ht/profesorica.webp'),
+          image: require('@/assets/img/widgets/ht/profesorica.jpg'),
           title:
             "Ugledna profesorica o umjetnoj inteligenciji: 'ChatGPT nije krivac za plagijate. AI ne krade ideje, sami to radimo'",
           description:
