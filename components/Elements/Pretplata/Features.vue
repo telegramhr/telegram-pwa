@@ -9,6 +9,10 @@ export default {
   data() {
     return {
       activeIndex: 0,
+      sectionInView: false,
+      isScrollLocked: false,
+      scrollProgress: 0,
+      hasCompletedSection: false,
       cards: [
         {
           title: 'Cjelogodišnji pristup vrhunskom novinarstvu',
@@ -37,6 +41,129 @@ export default {
         },
       ],
     }
+  },
+  mounted() {
+    this.initScrollObserver()
+  },
+
+  beforeDestroy() {
+    this.destroyScrollObserver()
+  },
+  methods: {
+    initScrollObserver() {
+      this.intersectionObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const wasInView = this.sectionInView
+            this.sectionInView =
+              entry.isIntersecting && entry.intersectionRatio >= 0.8
+
+            if (
+              !wasInView &&
+              entry.isIntersecting &&
+              entry.intersectionRatio >= 0.8
+            ) {
+              const rect = entry.target.getBoundingClientRect()
+              const totalCards = this.cards.length
+
+              if (rect.top > 0) {
+                if (!this.hasCompletedSection) {
+                  this.scrollProgress = 0
+                  this.activeIndex = 0
+                } else {
+                  this.scrollProgress = totalCards - 1
+                  this.activeIndex = totalCards - 1
+                }
+              } else {
+                this.scrollProgress = totalCards - 1
+                this.activeIndex = totalCards - 1
+              }
+            }
+
+            if (!entry.isIntersecting || entry.intersectionRatio < 0.8) {
+              this.isScrollLocked = false
+            }
+          })
+        },
+        {
+          threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
+          rootMargin: '0px',
+        }
+      )
+
+      if (this.$el) {
+        this.intersectionObserver.observe(this.$el)
+      }
+
+      this.handleWheel = (e) => {
+        if (window.innerWidth < 1024) return
+        if (!this.sectionInView) return
+
+        const section = this.$el
+        if (!section) return
+
+        const rect = section.getBoundingClientRect()
+        const windowHeight = window.innerHeight
+        const delta = e.deltaY
+        const totalCards = this.cards.length
+
+        const visibleTop = Math.max(0, rect.top)
+        const visibleBottom = Math.min(windowHeight, rect.bottom)
+        const visibleHeight = visibleBottom - visibleTop
+        const visibilityRatio = visibleHeight / rect.height
+        const isInTriggerZone = visibilityRatio >= 0.8
+
+        if (delta > 0 && this.activeIndex < totalCards - 1) {
+          if (isInTriggerZone || this.isScrollLocked) {
+            e.preventDefault()
+            this.isScrollLocked = true
+            this.scrollProgress += delta * 0.002
+
+            const targetIndex = Math.floor(this.scrollProgress)
+            if (targetIndex > this.activeIndex && targetIndex < totalCards) {
+              this.activeIndex = targetIndex
+            }
+
+            if (this.activeIndex >= totalCards - 1) {
+              this.scrollProgress = totalCards - 1
+              this.hasCompletedSection = true
+            }
+          }
+        } else if (delta < 0 && this.activeIndex > 0) {
+          if (isInTriggerZone || this.isScrollLocked) {
+            e.preventDefault()
+            this.isScrollLocked = true
+            this.scrollProgress -= Math.abs(delta) * 0.002
+
+            const targetIndex = Math.ceil(this.scrollProgress)
+            if (targetIndex < this.activeIndex && targetIndex >= 0) {
+              this.activeIndex = targetIndex
+            }
+
+            if (this.activeIndex <= 0) {
+              this.scrollProgress = 0
+              this.hasCompletedSection = false
+            }
+          }
+        } else if (delta > 0 && this.activeIndex >= totalCards - 1) {
+          this.isScrollLocked = false
+          this.hasCompletedSection = true
+        } else if (delta < 0 && this.activeIndex <= 0) {
+          this.isScrollLocked = false
+          this.hasCompletedSection = false
+        }
+      }
+
+      window.addEventListener('wheel', this.handleWheel, { passive: false })
+    },
+    destroyScrollObserver() {
+      if (this.intersectionObserver) {
+        this.intersectionObserver.disconnect()
+      }
+      if (this.handleWheel) {
+        window.removeEventListener('wheel', this.handleWheel)
+      }
+    },
   },
 }
 </script>
@@ -224,13 +351,13 @@ export default {
   .desktop-cards {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 28px;
   }
   .desktop-card {
     padding: 2px 0px 2px 12px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
     color: #747474;
     cursor: pointer;
     transition: color 0.25s ease, border-left 0.25s ease, transform 0.25s ease;

@@ -71,7 +71,7 @@ export default {
 .wrapper {
   position: relative;
   width: 100%;
-  max-width: 1200px;
+  max-width: 865px;
   margin: 0 auto;
   display: flex;
   flex-direction: column-reverse;
@@ -87,11 +87,11 @@ export default {
   gap: 24px;
 }
 .red-width {
-  max-width: 600px;
+  max-width: 520px;
 }
 
 .green-width {
-  max-width: 520px;
+  max-width: 510px;
 }
 .right-container {
   display: flex;
