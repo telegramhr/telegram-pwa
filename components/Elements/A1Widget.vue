@@ -358,6 +358,13 @@ export default {
   font-family: 'A1', sans-serif;
   font-weight: 700;
 }
+html.small-fontsize .a1-header {
+  font-size: 22px;
+}
+html.large-fontsize .a1-header {
+  font-size: 26px;
+}
+
 .a1-header-logo {
   align-items: center;
   gap: 24px;
@@ -439,6 +446,12 @@ export default {
   line-clamp: 3;
   overflow: hidden;
 }
+html.small-fontsize .title {
+  font-size: 16px;
+}
+html.large-fontsize .title {
+  font-size: 20px;
+}
 
 .description {
   font-size: 16px;
@@ -451,6 +464,12 @@ export default {
   -webkit-line-clamp: 3;
   line-clamp: 3;
   overflow: hidden;
+}
+html.small-fontsize .description {
+  font-size: 14px;
+}
+html.large-fontsize .description {
+  font-size: 18px;
 }
 
 .cta-button {
@@ -466,6 +485,12 @@ export default {
   transition: background-color 0.3s ease;
   text-transform: none;
   margin-top: auto;
+}
+html.small-fontsize .cta-button {
+  font-size: 14px;
+}
+html.large-fontsize .cta-button {
+  font-size: 18px;
 }
 
 .cta-button:hover {

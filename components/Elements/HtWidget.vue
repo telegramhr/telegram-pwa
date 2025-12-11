@@ -205,6 +205,10 @@ export default {
 .dark-mode #a1-widget {
   color: white !important;
 }
+.a1-header.small-fontsize {
+  font-size: 20px;
+}
+
 .dark-mode .title {
   color: white !important;
 }
@@ -261,6 +265,14 @@ export default {
   align-self: center;
   color: white;
 }
+html.small-fontsize .quiz-container a {
+  font-size: 14px;
+}
+
+html.large-fontsize .quiz-container a {
+  font-size: 18px;
+  line-height: 20px;
+}
 .quiz-container a:hover {
   background-color: #6f043b;
 }
@@ -288,6 +300,12 @@ export default {
   overflow: hidden;
   margin-bottom: 18px;
 }
+html.small-fontsize .title {
+  font-size: 16px;
+}
+html.large-fontsize .title {
+  font-size: 20px;
+}
 
 .description {
   font-family: 'Barlow';
@@ -301,6 +319,12 @@ export default {
   overflow: hidden;
   margin-bottom: 24px;
   flex: 1;
+}
+html.small-fontsize .description {
+  font-size: 12px;
+}
+html.large-fontsize .description {
+  font-size: 16px;
 }
 
 .cta-button {
@@ -317,6 +341,12 @@ export default {
   width: 100%;
 }
 
+html.small-fontsize .cta-button {
+  font-size: 12px;
+}
+html.large-fontsize .cta-button {
+  font-size: 16px;
+}
 .cta-button:hover {
   background-color: #333;
 }
