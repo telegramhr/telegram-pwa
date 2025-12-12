@@ -6,13 +6,20 @@ import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 export default {
   name: 'Features',
   components: { VueSlickCarousel },
+
   data() {
     return {
       activeIndex: 0,
-      sectionInView: false,
-      isScrollLocked: false,
-      scrollProgress: 0,
-      hasCompletedSection: false,
+      isTransitioning: false,
+      wheelDelta: 0,
+      scrollThreshold: 70,
+      scrollCooldown: 600,
+      decayTimer: null,
+      isInSection: false,
+      isTrackpad: false,
+      wheelCount: 0,
+      wheelTimer: null,
+
       cards: [
         {
           title: 'Cjelogodišnji pristup vrhunskom novinarstvu',
@@ -31,7 +38,7 @@ export default {
         },
         {
           title: 'Bez reklama u sklopu Premium pretplate',
-          text: 'Uživajte u čistom, preglednom čitanju - bez ometajućih reklama.  Samo informacije koje vrijede vašeg vremena.',
+          text: 'Uživajte u čistom, preglednom čitanju - bez ometajućih reklama. Samo informacije koje vrijede vašeg vremena.',
           image: require('@/assets/img/pretplata/features/reklame.png'),
         },
         {
@@ -42,134 +49,191 @@ export default {
       ],
     }
   },
+
   mounted() {
-    this.initScrollObserver()
+    this.initScrollJacking()
+    this.initMouseTracking()
   },
 
   beforeDestroy() {
-    this.destroyScrollObserver()
+    this.destroyScrollJacking()
+    this.destroyMouseTracking()
   },
+
   methods: {
-    initScrollObserver() {
-      this.intersectionObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            const wasInView = this.sectionInView
-            this.sectionInView =
-              entry.isIntersecting && entry.intersectionRatio >= 0.8
-
-            if (
-              !wasInView &&
-              entry.isIntersecting &&
-              entry.intersectionRatio >= 0.8
-            ) {
-              const rect = entry.target.getBoundingClientRect()
-              const totalCards = this.cards.length
-
-              if (rect.top > 0) {
-                if (!this.hasCompletedSection) {
-                  this.scrollProgress = 0
-                  this.activeIndex = 0
-                } else {
-                  this.scrollProgress = totalCards - 1
-                  this.activeIndex = totalCards - 1
-                }
-              } else {
-                this.scrollProgress = totalCards - 1
-                this.activeIndex = totalCards - 1
-              }
-            }
-
-            if (!entry.isIntersecting || entry.intersectionRatio < 0.8) {
-              this.isScrollLocked = false
-            }
-          })
-        },
-        {
-          threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
-          rootMargin: '0px',
-        }
-      )
-
-      if (this.$el) {
-        this.intersectionObserver.observe(this.$el)
-      }
-
-      this.handleWheel = (e) => {
-        if (window.innerWidth < 1024) return
-        if (!this.sectionInView) return
-
-        const section = this.$el
-        if (!section) return
-
-        const rect = section.getBoundingClientRect()
-        const windowHeight = window.innerHeight
-        const delta = e.deltaY
-        const totalCards = this.cards.length
-
-        const visibleTop = Math.max(0, rect.top)
-        const visibleBottom = Math.min(windowHeight, rect.bottom)
-        const visibleHeight = visibleBottom - visibleTop
-        const visibilityRatio = visibleHeight / rect.height
-        const isInTriggerZone = visibilityRatio >= 0.8
-
-        if (delta > 0 && this.activeIndex < totalCards - 1) {
-          if (isInTriggerZone || this.isScrollLocked) {
-            e.preventDefault()
-            this.isScrollLocked = true
-            this.scrollProgress += delta * 0.002
-
-            const targetIndex = Math.floor(this.scrollProgress)
-            if (targetIndex > this.activeIndex && targetIndex < totalCards) {
-              this.activeIndex = targetIndex
-            }
-
-            if (this.activeIndex >= totalCards - 1) {
-              this.scrollProgress = totalCards - 1
-              this.hasCompletedSection = true
-            }
-          }
-        } else if (delta < 0 && this.activeIndex > 0) {
-          if (isInTriggerZone || this.isScrollLocked) {
-            e.preventDefault()
-            this.isScrollLocked = true
-            this.scrollProgress -= Math.abs(delta) * 0.002
-
-            const targetIndex = Math.ceil(this.scrollProgress)
-            if (targetIndex < this.activeIndex && targetIndex >= 0) {
-              this.activeIndex = targetIndex
-            }
-
-            if (this.activeIndex <= 0) {
-              this.scrollProgress = 0
-              this.hasCompletedSection = false
-            }
-          }
-        } else if (delta > 0 && this.activeIndex >= totalCards - 1) {
-          this.isScrollLocked = false
-          this.hasCompletedSection = true
-        } else if (delta < 0 && this.activeIndex <= 0) {
-          this.isScrollLocked = false
-          this.hasCompletedSection = false
-        }
-      }
-
+    initScrollJacking() {
+      this.handleWheel = this.handleWheel.bind(this)
       window.addEventListener('wheel', this.handleWheel, { passive: false })
     },
-    destroyScrollObserver() {
-      if (this.intersectionObserver) {
-        this.intersectionObserver.disconnect()
-      }
+
+    destroyScrollJacking() {
       if (this.handleWheel) {
         window.removeEventListener('wheel', this.handleWheel)
       }
+      clearTimeout(this.decayTimer)
+      clearTimeout(this.wheelTimer)
+    },
+
+    initMouseTracking() {
+      if (window.innerWidth < 1024) return
+
+      this.handleMouseMove = this.handleMouseMove.bind(this)
+      this.handleMouseLeave = this.handleMouseLeave.bind(this)
+
+      if (this.$refs.sectionRef) {
+        this.$refs.sectionRef.addEventListener('mouseenter', () => {
+          this.isInSection = true
+        })
+        this.$refs.sectionRef.addEventListener(
+          'mouseleave',
+          this.handleMouseLeave
+        )
+        window.addEventListener('mousemove', this.handleMouseMove)
+      }
+    },
+
+    destroyMouseTracking() {
+      if (this.$refs.sectionRef) {
+        this.$refs.sectionRef.removeEventListener('mouseenter', () => {
+          this.isInSection = true
+        })
+        this.$refs.sectionRef.removeEventListener(
+          'mouseleave',
+          this.handleMouseLeave
+        )
+      }
+      window.removeEventListener('mousemove', this.handleMouseMove)
+    },
+
+    handleMouseMove(e) {
+      if (!this.$refs.sectionRef) return
+
+      const rect = this.$refs.sectionRef.getBoundingClientRect()
+      const isInside =
+        e.clientX >= rect.left &&
+        e.clientX <= rect.right &&
+        e.clientY >= rect.top &&
+        e.clientY <= rect.bottom
+
+      if (!isInside && this.isInSection) {
+        this.isInSection = false
+      }
+    },
+
+    handleMouseLeave() {
+      this.isInSection = false
+    },
+
+    handleWheel(e) {
+      if (window.innerWidth < 1024) return
+
+      if (!this.isInSection) return
+
+      this.detectTrackpad(e)
+
+      const delta = this.normalizeWheelDelta(e)
+
+      const isScrollingDown = delta > 0
+      const isScrollingUp = delta < 0
+      const isAtLastCard = this.activeIndex === this.cards.length - 1
+      const isAtFirstCard = this.activeIndex === 0
+
+      if (
+        (isScrollingDown && isAtLastCard) ||
+        (isScrollingUp && isAtFirstCard)
+      ) {
+        return
+      }
+
+      e.preventDefault()
+
+      if (this.isTransitioning) return
+
+      this.wheelDelta += delta
+
+      if (Math.abs(this.wheelDelta) >= this.scrollThreshold) {
+        if (this.wheelDelta > 0 && this.activeIndex < this.cards.length - 1) {
+          this.goToCard(this.activeIndex + 1)
+        } else if (this.wheelDelta < 0 && this.activeIndex > 0) {
+          this.goToCard(this.activeIndex - 1)
+        }
+
+        this.wheelDelta = 0
+      }
+
+      if (
+        (this.wheelDelta > 0 && delta < 0) ||
+        (this.wheelDelta < 0 && delta > 0)
+      ) {
+        this.wheelDelta = delta
+      }
+
+      this.startMomentumDecay()
+    },
+
+    detectTrackpad(e) {
+      clearTimeout(this.wheelTimer)
+      this.wheelCount++
+
+      this.wheelTimer = setTimeout(() => {
+        this.isTrackpad = this.wheelCount > 10
+        this.wheelCount = 0
+      }, 100)
+    },
+
+    normalizeWheelDelta(e) {
+      let delta = 0
+
+      if (e.deltaY) {
+        delta = e.deltaY
+      } else if (e.wheelDelta) {
+        delta = -e.wheelDelta
+      } else if (e.detail) {
+        delta = e.detail * 40
+      }
+
+      if (this.isTrackpad) {
+        delta = delta * 0.5
+      }
+
+      return Math.max(-100, Math.min(100, delta))
+    },
+
+    startMomentumDecay() {
+      clearTimeout(this.decayTimer)
+      this.decayTimer = setTimeout(() => {
+        this.wheelDelta *= 0.8
+        if (Math.abs(this.wheelDelta) < 1) {
+          this.wheelDelta = 0
+        }
+      }, 50)
+    },
+    goToCard(index) {
+      if (this.isTransitioning) return
+
+      if (
+        index < 0 ||
+        index >= this.cards.length ||
+        index === this.activeIndex
+      ) {
+        return
+      }
+
+      this.isTransitioning = true
+      this.lastScrollTime = Date.now()
+
+      this.activeIndex = index
+
+      setTimeout(() => {
+        this.isTransitioning = false
+      }, this.scrollCooldown)
     },
   },
 }
 </script>
 
 <template>
-  <div class="main">
+  <div ref="sectionRef" class="main">
     <div class="wrapper">
       <span class="title">Što dobivate pretplatom:</span>
       <div class="desktop-content">
@@ -187,7 +251,7 @@ export default {
             v-for="(card, index) in cards"
             :key="index"
             class="desktop-card"
-            @click="activeIndex = index"
+            @click="goToCard(index)"
             :class="{ active: activeIndex === index }"
           >
             <span>{{ card.title }}</span>
@@ -361,6 +425,9 @@ export default {
     color: #747474;
     cursor: pointer;
     transition: color 0.25s ease, border-left 0.25s ease, transform 0.25s ease;
+  }
+  .desktop-card p {
+    max-width: 370px;
   }
   .desktop-card:hover {
     transform: translateX(6px);

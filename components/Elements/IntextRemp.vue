@@ -13,19 +13,27 @@
               </div>
               <div class="features-wrapper">
                 <div class="feature">
-                  <Checkmark :color="checkmarkColor"></Checkmark>
+                  <div>
+                    <Checkmark :color="checkmarkColor"></Checkmark>
+                  </div>
                   <p>{{ feature1 }}</p>
                 </div>
                 <div class="feature">
-                  <Checkmark :color="checkmarkColor"></Checkmark>
+                  <div>
+                    <Checkmark :color="checkmarkColor"></Checkmark>
+                  </div>
                   <p>{{ feature2 }}</p>
                 </div>
                 <div class="feature">
-                  <Checkmark :color="checkmarkColor"></Checkmark>
+                  <div>
+                    <Checkmark :color="checkmarkColor"></Checkmark>
+                  </div>
                   <p>{{ feature3 }}</p>
                 </div>
                 <div class="feature">
-                  <Checkmark :color="checkmarkColor"></Checkmark>
+                  <div>
+                    <Checkmark :color="checkmarkColor"></Checkmark>
+                  </div>
                   <p>{{ feature4 }}</p>
                 </div>
               </div>
@@ -239,6 +247,10 @@ a {
   font-size: 16px;
   line-height: 18px;
   font-weight: 400;
+}
+.feature div {
+  width: 20px;
+  height: 20px;
 }
 .feature p {
   margin: 0px !important;
