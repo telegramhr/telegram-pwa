@@ -317,7 +317,7 @@
       </div>
     </div>
     <app-link
-      v-if="!hasSubscription"
+      v-if="!$store.state.user.access"
       to="/pretplata/50-popust"
       class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth"
     >
@@ -540,9 +540,6 @@ export default {
     },
     morePosts() {
       return this.$store.state.featured.morePosts
-    },
-    hasSubscription() {
-      return !this.$store.state.user.access
     },
     jsonld() {
       return {
