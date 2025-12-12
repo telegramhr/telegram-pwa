@@ -426,6 +426,9 @@ export default {
     cursor: pointer;
     transition: color 0.25s ease, border-left 0.25s ease, transform 0.25s ease;
   }
+  .desktop-card p {
+    max-width: 370px;
+  }
   .desktop-card:hover {
     transform: translateX(6px);
   }
