@@ -317,7 +317,7 @@
       </div>
     </div>
     <app-link
-      v-if="!$store.state.user.access.length"
+      v-if="!this.$store.state.user.access.length"
       to="/pretplata/50-popust"
       class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth"
     >
