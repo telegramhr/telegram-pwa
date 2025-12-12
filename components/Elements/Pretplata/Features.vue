@@ -16,7 +16,6 @@ export default {
       scrollCooldown: 600,
       decayTimer: null,
       isInSection: false,
-      hasCentered: false,
       isTrackpad: false,
       wheelCount: 0,
       wheelTimer: null,
@@ -53,12 +52,12 @@ export default {
 
   mounted() {
     this.initScrollJacking()
-    this.initIntersectionObserver()
+    this.initMouseTracking()
   },
 
   beforeDestroy() {
     this.destroyScrollJacking()
-    this.destroyIntersectionObserver()
+    this.destroyMouseTracking()
   },
 
   methods: {
@@ -75,34 +74,54 @@ export default {
       clearTimeout(this.wheelTimer)
     },
 
-    initIntersectionObserver() {
+    initMouseTracking() {
       if (window.innerWidth < 1024) return
 
-      const options = {
-        root: null,
-        rootMargin: '-30% 0px -30% 0px',
-        threshold: 0,
-      }
-
-      this.observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          this.isInSection = entry.isIntersecting
-          if (!entry.isIntersecting) {
-            this.hasCentered = false
-          }
-        })
-      }, options)
+      this.handleMouseMove = this.handleMouseMove.bind(this)
+      this.handleMouseLeave = this.handleMouseLeave.bind(this)
 
       if (this.$refs.sectionRef) {
-        this.observer.observe(this.$refs.sectionRef)
+        this.$refs.sectionRef.addEventListener('mouseenter', () => {
+          this.isInSection = true
+        })
+        this.$refs.sectionRef.addEventListener(
+          'mouseleave',
+          this.handleMouseLeave
+        )
+        window.addEventListener('mousemove', this.handleMouseMove)
       }
     },
 
-    destroyIntersectionObserver() {
-      if (this.observer && this.$refs.sectionRef) {
-        this.observer.unobserve(this.$refs.sectionRef)
-        this.observer.disconnect()
+    destroyMouseTracking() {
+      if (this.$refs.sectionRef) {
+        this.$refs.sectionRef.removeEventListener('mouseenter', () => {
+          this.isInSection = true
+        })
+        this.$refs.sectionRef.removeEventListener(
+          'mouseleave',
+          this.handleMouseLeave
+        )
       }
+      window.removeEventListener('mousemove', this.handleMouseMove)
+    },
+
+    handleMouseMove(e) {
+      if (!this.$refs.sectionRef) return
+
+      const rect = this.$refs.sectionRef.getBoundingClientRect()
+      const isInside =
+        e.clientX >= rect.left &&
+        e.clientX <= rect.right &&
+        e.clientY >= rect.top &&
+        e.clientY <= rect.bottom
+
+      if (!isInside && this.isInSection) {
+        this.isInSection = false
+      }
+    },
+
+    handleMouseLeave() {
+      this.isInSection = false
     },
 
     handleWheel(e) {
@@ -124,11 +143,6 @@ export default {
         (isScrollingUp && isAtFirstCard)
       ) {
         return
-      }
-
-      if (!this.hasCentered && this.$refs.sectionRef) {
-        this.hasCentered = true
-        this.centerSection()
       }
 
       e.preventDefault()
@@ -194,22 +208,6 @@ export default {
         }
       }, 50)
     },
-
-    centerSection() {
-      if (!this.$refs.sectionRef) return
-
-      const rect = this.$refs.sectionRef.getBoundingClientRect()
-      const viewportHeight = window.innerHeight
-      const sectionMiddle = rect.top + rect.height / 2
-      const viewportMiddle = viewportHeight / 2
-      const scrollOffset = sectionMiddle - viewportMiddle
-
-      window.scrollBy({
-        top: scrollOffset,
-        behavior: 'smooth',
-      })
-    },
-
     goToCard(index) {
       if (this.isTransitioning) return
 
