@@ -317,7 +317,7 @@
       </div>
     </div>
     <app-link
-      v-if="!$store.state.user.access"
+      v-show="!$store.state.user.access?.length"
       to="/pretplata/50-popust"
       class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth"
     >
@@ -334,7 +334,7 @@
       />
     </app-link>
     <app-link
-      v-else
+      v-show="$store.state.user.access?.length"
       to="/pretplata/poklon-popust"
       class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth"
     >
