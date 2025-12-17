@@ -13136,7 +13136,10 @@ label.payment-tile svg {
 .superone .super1-sticky {
   display: flex;
 }
-
+.super1 h6{
+  font-weight: bold;
+  font-size: 0.67em;
+}
 .multiverse-mobile-nav {
   display: none;
 }
