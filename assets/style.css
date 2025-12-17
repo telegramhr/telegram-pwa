@@ -5212,7 +5212,11 @@ html.large-fontsize,
     margin-right: -355px !important;
   }
 
-  .single-article .single-article-body > #article-content .full .wp-block-columns {
+  .single-article
+    .single-article-body
+    > #article-content
+    .full
+    .wp-block-columns {
     max-width: 90vw !important;
     margin-left: -45vw !important;
     margin-right: -45vw !important;
@@ -8985,8 +8989,8 @@ html.large-fontsize,
   border-radius: 2px;
   color: white;
 }
-.pretplata-btn{
-  font-size: .7rem;
+.pretplata-btn {
+  font-size: 0.7rem;
   font-weight: 600;
   padding: 5px 10px 6px;
   border-radius: 4px;
@@ -8996,10 +9000,10 @@ html.large-fontsize,
   gap: 8px;
   align-items: center;
 }
-.pretplata-btn:hover{
-  background-color: #902E2E;
+.pretplata-btn:hover {
+  background-color: #902e2e;
 }
-.pretplata-btn img{
+.pretplata-btn img {
   width: 24px;
   height: 24px;
 }
@@ -10600,13 +10604,13 @@ html.large-fontsize,
 .superone-toppicks .offer-slide .article .article-pad {
   padding-bottom: 0px;
 }
-.superone-pilatesBagTitle{
-    flex-direction: column;
-    align-items: center;
-    padding-right: 16px;
-    padding-left: 16px;
-    text-align: center;
-    gap: 8px;
+.superone-pilatesBagTitle {
+  flex-direction: column;
+  align-items: center;
+  padding-right: 16px;
+  padding-left: 16px;
+  text-align: center;
+  gap: 8px;
 }
 .s1-toppick-price {
   padding: 4px 16px;
@@ -10779,11 +10783,11 @@ html.large-fontsize,
 }
 
 @media screen and (min-width: 767px) {
-  .superone-pilatesBagTitle{
-      flex-direction: row;
-      gap: 0px;
+  .superone-pilatesBagTitle {
+    flex-direction: row;
+    gap: 0px;
   }
-  .superone-pilatesBagTitle .spanX{
+  .superone-pilatesBagTitle .spanX {
     margin-right: 8px;
   }
   .super-sidebar .article .nothfour {
@@ -11816,11 +11820,11 @@ html.large-fontsize,
     margin-bottom: 2vw;
   }
   .pretplata-btn {
-     font-size: 0.6rem;
-     gap: 4px;
-     padding: 2px;
-     line-height: 13px;
-     }
+    font-size: 0.6rem;
+    gap: 4px;
+    padding: 2px;
+    line-height: 13px;
+  }
 
   .klub-intro .nothfour {
     font-size: 18px;
@@ -13190,7 +13194,7 @@ label.payment-tile svg {
   display: none;
 }
 
-.bannerMediumMaxWidth{
+.bannerMediumMaxWidth {
   margin: 0 auto;
   margin-top: 40px;
   max-width: 1200px;
@@ -13203,7 +13207,7 @@ label.payment-tile svg {
   .main-container.homepage {
     padding-top: 0px;
   }
-  
+
   .superone-home-header {
     z-index: 200;
     background-color: white;
@@ -13325,7 +13329,9 @@ label.payment-tile svg {
 .telesport .komentar .komentar-image,
 .telesport .subtle-btn-parent:hover .subtle-btn,
 .telesport .loader-square div,
-.telesport .newbtn, .telesport .pretplata, .telesport .prijava {
+.telesport .newbtn,
+.telesport .pretplata,
+.telesport .prijava {
   background-color: var(--tg-primary-highlight-color);
 }
 
@@ -20898,71 +20904,81 @@ button.newbtn {
 
 /* Podcasts box */
 .podcasts-wrapper-shortcode {
-	color: #fff;
-	padding: 2px
+  color: #fff;
+  padding: 2px;
 }
 
 .podcasts-wrapper-shortcode a {
-	all: unset !important;
-	text-decoration: none !important
+  all: unset !important;
+  text-decoration: none !important;
 }
 
 .podcasts-wrapper-shortcode .wrapper {
-	color: #000;
-	display: grid;
-  gap: 16px;
-  grid-template-columns: repeat(2, 1fr);
+  display: grid !important;
+  gap: 16px !important;
+  grid-template-columns: repeat(2, 1fr) !important;
   padding: 32px 0px;
 }
 
 .podcasts-wrapper-shortcode .main {
-	background-color: transparent;
-	text-decoration: none
+  background-color: transparent;
+  text-decoration: none;
 }
 
 .podcasts-wrapper-shortcode .podcast-box {
-	background-color: #fff !important;
-	border: 1px solid #e4e4e4 !important;
-	border-radius: 4px !important;
-	cursor: pointer !important;
-	display: flex !important;
-	flex-direction: row !important;
-	gap: 6px !important;
-	padding: 6px !important;
-	-webkit-text-decoration: none;
-	text-decoration: none;
+  display: flex !important;
+  width: 100% !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  gap: 5px !important;
+  background-color: white !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  padding: 10px 0px !important;
+  -webkit-text-decoration: none !important;
 }
-
+.contrast-mode .podcasts-wrapper-shortcode .podcast-box {
+  background-color: #333 !important;
+}
 .podcasts-wrapper-shortcode .podcast-box img {
-	max-width: 24px !important
+  object-fit: contain !important;
+  height: 16px !important;
 }
 
 .podcasts-wrapper-shortcode .podcast-box .text-wrapper {
-	display: flex;
-	flex-direction: column;
-	gap: 8px;
-	text-align: left
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 3px !important;
+  text-align: left !important;
+  align-items: center !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 10px !important;
+  line-height: 100% !important;
+}
+html.small-fontsize .podcasts-wrapper-shortcode .podcast-box .text-wrapper {
+  font-size: 8px !important;
+}
+html.large-fontsize .podcasts-wrapper-shortcode .podcast-box .text-wrapper {
+  font-size: 11px !important;
 }
 
 .podcasts-wrapper-shortcode .text-wrapper .listen {
-	color: #adadad !important;
-	font-family: Inter, sans-serif !important;
-	font-size: 14px !important;
-	font-weight: 600 !important;
-	line-height: 100% !important;
-	margin: 0 !important
+  color: #adadad !important;
+  margin: 0 !important;
 }
 
 .podcasts-wrapper-shortcode .text-wrapper .title {
-	color: #000 !important;
-	font-family: Inter, sans-serif !important;
-	font-size: 16px !important;
-	font-weight: 600 !important;
-	line-height: 100% !important
+  color: black !important;
 }
-@media(min-width:691px) {
+.contrast-mode .podcasts-wrapper-shortcode .text-wrapper .title {
+  color: white !important;
+}
+
+@media (min-width: 691px) {
   .podcasts-wrapper-shortcode .wrapper {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr) !important;
   }
 }
 
