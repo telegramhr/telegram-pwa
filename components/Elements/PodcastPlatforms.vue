@@ -146,9 +146,7 @@ html.large-fontsize .text-wrapper {
     gap: 16px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
-  .podcast-box {
-    gap: 4px;
-  }
+
   .text-wrapper {
     gap: 4px;
   }
