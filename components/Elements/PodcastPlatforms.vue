@@ -74,12 +74,6 @@ export default {
       return this.youtube || this.spotify || this.apple || this.random
     },
   },
-  mounted() {
-    console.log('youtube:', this.youtube)
-    console.log('spotify:', this.spotify)
-    console.log('apple:', this.apple)
-    console.log('random:', this.random)
-  },
 }
 </script>
 
