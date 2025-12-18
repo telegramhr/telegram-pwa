@@ -95,7 +95,7 @@ export default {
       },
       items: [
         {
-          image: require('@/assets/img/widgets/advent/advent-zagreb.webp'),
+          image: require('@/assets/img/widgets/advent/advent-zagreb.png'),
           title:
             'Nakon dvije godine Advent se vraća na Gornji grad: ovo su lokacije koje nećemo propustiti',
           description:
