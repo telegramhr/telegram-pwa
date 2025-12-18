@@ -1,7 +1,7 @@
 <template>
   <div
     id="advent-widget"
-    class="container cantha-small-block flex relative native-block offers-widget column-top-pad stretch mobile-side-pad"
+    class="container cantha-small-block flex relative native-block offers-widget stretch mobile-side-pad"
   >
     <div class="full column-full-pad">
       <div class="advent-header flex">
@@ -95,7 +95,7 @@ export default {
       },
       items: [
         {
-          image: require('@/assets/img/widgets/advent/advent-01.webp'),
+          image: require('@/assets/img/widgets/advent/advent-zagreb.webp'),
           title:
             'Nakon dvije godine Advent se vraća na Gornji grad: ovo su lokacije koje nećemo propustiti',
           description:
@@ -104,7 +104,7 @@ export default {
           link: 'https://www.telegram.hr/partneri/nakon-dvije-godine-advent-se-vraca-na-gornji-grad-ovo-su-lokacije-koje-necemo-propustiti/',
         },
         {
-          image: require('@/assets/img/widgets/advent/advent-02.webp'),
+          image: require('@/assets/img/widgets/advent/advent-more.webp'),
           title:
             'Božićna čarolija uz more: doznali smo zašto ovaj mediteranski Advent treba posjetiti čim prije',
           description:
@@ -156,9 +156,6 @@ export default {
 </script>
 
 <style scoped>
-#advent-widget {
-  margin-top: 40px;
-}
 .advent-header {
   position: relative;
   gap: 24px;
@@ -201,7 +198,7 @@ export default {
   padding: 40px 0px;
   width: 100%;
   position: relative;
-  background-image: url('@/assets/img/advent-widget-hero.webp');
+  background-image: url('@/assets/img/widgets/advent/advent-hero.png');
   background-size: cover;
   background-position: 40%;
   display: flex;
