@@ -78,6 +78,13 @@ export default {
         arrows: true,
         responsive: [
           {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1,
+            },
+          },
+          {
             breakpoint: 768,
             settings: {
               slidesToShow: 1,
@@ -256,6 +263,12 @@ export default {
   position: relative;
   cursor: pointer;
 }
+html.small-fontsize .quiz-container a {
+  font-size: 14px;
+}
+html.large-fontsize .quiz-container a {
+  font-size: 18px;
+}
 .quiz-container a:hover {
   background-color: #8b0303;
 }
@@ -284,7 +297,14 @@ export default {
   overflow: hidden;
   margin-bottom: 18px;
 }
-
+html.small-fontsize .title {
+  font-size: 16px;
+  line-height: 22px;
+}
+html.large-fontsize .title {
+  font-size: 20px;
+  line-height: 28px;
+}
 .description {
   font-family: 'Barlow';
   font-size: 14px;
@@ -298,7 +318,14 @@ export default {
   margin-bottom: 24px;
   flex: 1;
 }
-
+html.small-fontsize .description {
+  font-size: 12px;
+  line-height: 18px;
+}
+html.large-fontsize .description {
+  font-size: 16px;
+  line-height: 22px;
+}
 .cta-button {
   font-family: 'Barlow';
   font-weight: 600;
@@ -312,7 +339,12 @@ export default {
   transition: background-color 0.3s;
   width: 100%;
 }
-
+html.small-fontsize .cta-button {
+  font-size: 12px;
+}
+html.large-fontsize .cta-button {
+  font-size: 16px;
+}
 .cta-button:hover {
   background-color: #2e4a30;
 }
@@ -354,7 +386,7 @@ export default {
   color: white;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 768px) {
   .content-container {
     flex-direction: row;
   }
@@ -366,12 +398,12 @@ export default {
   .quiz-container {
     margin-bottom: 0;
     margin-right: 9px;
-    width: 25%;
+    width: 50%;
     flex-shrink: 0;
   }
 
   :deep(.slick-slider) {
-    width: 75%;
+    width: 50%;
     flex-shrink: 0;
   }
 
@@ -381,6 +413,16 @@ export default {
 
   :deep(.slick-next) {
     right: 10px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .quiz-container {
+    width: 25%;
+    flex-shrink: 0;
+  }
+
+  :deep(.slick-slider) {
+    width: 75%;
   }
 }
 </style>
