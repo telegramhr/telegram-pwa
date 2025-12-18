@@ -417,6 +417,7 @@
     <div class="full relative column-bottom-pad">
       <category-zone zone="zivot"></category-zone>
     </div>
+    <AdventWidget></AdventWidget>
     <!-- Velika rubrika: Kultura -->
     <div class="full relative">
       <category-zone zone="kultura"></category-zone>
