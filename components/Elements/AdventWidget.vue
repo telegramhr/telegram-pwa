@@ -5,7 +5,7 @@
   >
     <div class="full column-full-pad">
       <div class="advent-header flex">
-        <div class="flex advent-header-logo">
+        <div class="flex">
           <img
             src="@/assets/img/telegram_logo_white.svg"
             alt="Telegram logo"
@@ -159,7 +159,6 @@ export default {
 .advent-header {
   position: relative;
   gap: 24px;
-  margin-bottom: 28px;
   background: linear-gradient(90deg, #aa0404 0%, #520000 100%);
   padding: 20px 38px;
   border-top-left-radius: 12px;
@@ -169,6 +168,9 @@ export default {
   align-items: center;
   flex-direction: row;
 }
+.advent-header-logo {
+  display: none;
+}
 .telegram-logo {
   width: 100%;
   max-width: 160px;
@@ -177,7 +179,9 @@ export default {
   width: 100%;
   max-width: 346px;
 }
-
+.column-full-pad {
+  padding-bottom: 24px;
+}
 .dark-mode .slide-item-advent * {
   color: white !important;
 }
@@ -234,15 +238,14 @@ export default {
 }
 .image-wrapper {
   width: 100%;
-  height: 200px;
   overflow: hidden;
   margin-bottom: 24px;
+  max-height: 300px;
 }
 .image-wrapper img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  aspect-ratio: 1.37;
 }
 .quiz-container a {
   font-family: 'Barlow';
@@ -391,7 +394,18 @@ html.large-fontsize .cta-button {
     width: 100%;
     max-width: 346px;
   }
-
+  .advent-header {
+    margin-bottom: 28px;
+  }
+  .advent-header-logo {
+    display: inline;
+  }
+  .image-wrapper {
+    height: 200px;
+  }
+  .image-wrapper img {
+    aspect-ratio: 1.37;
+  }
   .quiz-container {
     margin-bottom: 0;
     margin-right: 9px;
