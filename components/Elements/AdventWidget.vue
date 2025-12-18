@@ -66,7 +66,7 @@
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 
 export default {
-  name: 'HTWidget',
+  name: 'AdventWidget',
   data() {
     return {
       slickOptions: {
