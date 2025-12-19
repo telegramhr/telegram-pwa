@@ -113,13 +113,13 @@ export default {
           link: 'https://www.telegram.hr/partneri/bozicna-carolija-uz-more-doznali-smo-zasto-ovaj-mediteranski-advent-treba-posjetiti-cim-prije/',
         },
         {
-          image: require('@/assets/img/widgets/advent/advent-03.jpg'),
+          image: require('@/assets/img/widgets/advent/advent-zrinjevac.jpg'),
           title:
-            "Posjetili smo Advent i pronašli svoje favorite, donosimo veliki vodič za Fuliranje i Fooling Around'",
+            "Na kultnoj adventskoj lokaciji očekuju vas plesnjaci, sjajni koncerti i čarobne kulise. Evo što ne smijete propustiti'",
           description:
-            'Od viralne torte Matilda i Pastrami sendviča do pržene punjene paprike i Noelovih arancina',
+            'Advent na Zrinjevcu obilježen je još bogatijim programom i novom dozom blagdanske čarolije',
           buttonText: 'Pročitaj više',
-          link: 'https://www.telegram.hr/super1/life/advent-fuliranje-fooling-around-sto-smo-isprobali/ad',
+          link: 'https://www.telegram.hr/partneri/na-kultnoj-adventskoj-lokaciji-ocekuju-vas-plesnjaci-sjajni-koncerti-i-carobne-kulise-evo-sto-ne-smijete-propustiti/',
         },
       ],
     }
