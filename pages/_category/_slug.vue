@@ -1138,6 +1138,9 @@ export default {
           images.forEach((image) => {
             if (image.width < image.height) {
               image.classList.remove('size-full')
+              if (image.parentElement.classList.contains('size-full')) {
+                image.parentElement.classList.remove('size-full')
+              }
             }
           })
         }
