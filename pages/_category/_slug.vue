@@ -307,6 +307,7 @@
                 </div>
               </div>
             </div>
+
             <div class="full relative center single-top-banner">
               <div>
                 <ad-unit
@@ -319,6 +320,14 @@
                 ></ad-unit>
               </div>
             </div>
+            <action-bar
+              :comment-count="post.comments"
+              :audio="post.audio"
+              @play="() => $emit('play-audio')"
+              @gift="() => $emit('gift-article')"
+              @comments="comments = !comments"
+              @share="fbShare()"
+            ></action-bar>
             <div class="full relative single-article-body">
               <client-only>
                 <mini-pretplata-new
@@ -635,15 +644,21 @@ export default {
       if (
         process.server &&
         this.$route.params.category !== 'preview' &&
-        post.social.path.replace('https://www.telegram.hr', '') !==
-          this.$route.path
+        post.social &&
+        post.social.path
       ) {
-        this.$telegram.context.res.statusCode = 301
-        this.$telegram.context.res.setHeader(
-          'Location',
-          post.social.path.replace('https://www.telegram.hr', '')
-        )
-        return
+        // Extract the path from social.path (remove any domain)
+        const socialPath = post.social.path
+          .replace('https://www.telegram.hr', '')
+          .replace('http://localhost:3000', '')
+          .replace('https://telegram-wp.ddev.site', '')
+
+        // Only redirect if paths don't match
+        if (socialPath !== this.$route.path) {
+          this.$telegram.context.res.statusCode = 301
+          this.$telegram.context.res.setHeader('Location', socialPath)
+          return
+        }
       }
       this.post = post
     } else {
@@ -1018,7 +1033,12 @@ export default {
           elementFn: () => {
             return document.getElementById('article-content')
           },
-          author_id: this.post.authors[0].display_name,
+          author_id:
+            this.post.authors && this.post.authors[0]
+              ? this.post.authors[0].display_name ||
+                this.post.authors[0].name ||
+                ''
+              : '',
         },
         tracker: {
           url: 'https://tracker.telegram.hr',
