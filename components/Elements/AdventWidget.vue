@@ -122,7 +122,7 @@ export default {
           link: 'https://www.telegram.hr/partneri/na-kultnoj-adventskoj-lokaciji-ocekuju-vas-plesnjaci-sjajni-koncerti-i-carobne-kulise-evo-sto-ne-smijete-propustiti/',
         },
         {
-          image: require('@/assets/img/widgets/advent/rovinj.webp'),
+          image: require('@/assets/img/widgets/advent/rovinj-adv.webp'),
           title:
             'Ovaj hrvatski grad proglašen je destinacijom s najšarmantnijim božićnim sajmom na svijetu. Imamo detalje',
           description:
@@ -131,7 +131,7 @@ export default {
           link: 'https://www.telegram.hr/partneri/ovaj-hrvatski-grad-proglasen-je-destinacijom-s-najsarmantnijim-bozicnim-sajmom-na-svijetu-imamo-detalje/',
         },
         {
-          image: require('@/assets/img/widgets/advent/zagreb-advent.webp'),
+          image: require('@/assets/img/widgets/advent/zg-adv.webp'),
           title:
             'Od umjetničkih izložbi do plesa na balu: ako tražite inspiraciju, evo ideja kako ispuniti blagdanske dane',
           description:
@@ -140,7 +140,7 @@ export default {
           link: 'https://www.telegram.hr/partneri/od-umjetnickih-izlozbi-do-plesa-na-balu-ako-trazite-inspiraciju-evo-ideja-kako-ispuniti-blagdanske-dane/',
         },
         {
-          image: require('@/assets/img/widgets/advent/split.webp'),
+          image: require('@/assets/img/widgets/advent/split-adv.webp'),
           title:
             'Dobra glazba, fini zalogaji i dnevni doček Nove godine: Što sve vas čeka na finalu Adventa u Splitu?',
           description: 'Donosimo veliki vodič sa svime što trebate znati',
