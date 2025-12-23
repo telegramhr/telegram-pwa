@@ -2,6 +2,7 @@
   <div
     class="full flex article-featured article-featured-alt article"
     role="article"
+    :data-id="post.id"
   >
     <app-link
       class="full flex"

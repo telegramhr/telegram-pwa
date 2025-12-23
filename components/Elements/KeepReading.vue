@@ -10,7 +10,7 @@
         <div
           class="noththree full center-text column-vertical-pad subsection-title"
         >
-          Ostanite uz Telegram
+          {{ title }}
         </div>
       </div>
       <div class="full flex mobile-side-pad" data-mar>

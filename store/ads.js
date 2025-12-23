@@ -1,3 +1,5 @@
+import { Capacitor } from '@capacitor/core'
+
 export const state = () => ({
   init: false,
   slots: false,
@@ -33,6 +35,7 @@ export const state = () => ({
         'pitanje-zdravlja-category-slug',
         'openspace-category-slug',
         'pitanje-zdravlja-category',
+        'pitanje-zdravlja',
         'openspace-category',
       ],
     },
@@ -75,7 +78,9 @@ export const state = () => ({
         'pitanje-zdravlja-category-slug',
         'openspace-category-slug',
         'pitanje-zdravlja-category',
+        'pitanje-zdravlja',
         'openspace-category',
+        'izbor',
       ],
     },
     telegram_desktop_billboard_v2: {
@@ -88,6 +93,7 @@ export const state = () => ({
         'telesport',
         'telesport-category',
         'pitanje-zdravlja-category',
+        'pitanje-zdravlja',
         'openspace-category',
       ],
       mobile: [
@@ -122,6 +128,7 @@ export const state = () => ({
         'telesport',
         'telesport-category',
         'pitanje-zdravlja-category',
+        'pitanje-zdravlja',
         'openspace-category',
       ],
       mobile: [
@@ -147,6 +154,31 @@ export const state = () => ({
       ],
     },
     telegram_desktop_billboard_v4: {
+      upc: false,
+      routes: ['index', 'super1', 'telesport'],
+      mobile: [
+        [1, 1],
+        [300, 50],
+        [300, 100],
+        [300, 250],
+        [320, 50],
+        [320, 480],
+        [300, 600],
+        [320, 250],
+      ],
+      desktop: [
+        [1, 1],
+        [660, 350],
+        [660, 500],
+        [970, 250],
+        [970, 500],
+        [1000, 250],
+        [1000, 500],
+        [1200, 250],
+        [1200, 500],
+      ],
+    },
+    telegram_desktop_billboard_v5: {
       upc: false,
       routes: ['index', 'super1', 'telesport'],
       mobile: [
@@ -202,6 +234,7 @@ export const state = () => ({
         'pitanje-zdravlja-category-slug',
         'openspace-category-slug',
         'pitanje-zdravlja-category',
+        'pitanje-zdravlja',
         'openspace-category',
       ],
     },
@@ -237,6 +270,7 @@ export const state = () => ({
         'pitanje-zdravlja-category-slug',
         'openspace-category-slug',
         'pitanje-zdravlja-category',
+        'pitanje-zdravlja',
         'openspace-category',
       ],
     },
@@ -487,6 +521,7 @@ export const state = () => ({
         'pitanje-zdravlja-category-slug',
         'openspace-category-slug',
         'pitanje-zdravlja-category',
+        'pitanje-zdravlja',
         'openspace-category',
         'telesport-category',
         'telesport-category-slug',
@@ -514,6 +549,7 @@ export const state = () => ({
         'pitanje-zdravlja-category-slug',
         'openspace-category-slug',
         'pitanje-zdravlja-category',
+        'pitanje-zdravlja',
         'openspace-category',
         'telesport-category',
         'telesport-category-slug',
@@ -535,13 +571,16 @@ export const state = () => ({
       desktop: [
         [1, 1],
         [2, 2],
+        [300, 100],
         [900, 600],
         [728, 90],
+        [700, 330],
         [970, 90],
         [970, 150],
         [984, 150],
         [1200, 150],
         [1200, 200],
+        [1700, 800],
         [2000, 300],
       ],
     },
@@ -582,6 +621,82 @@ export const state = () => ({
       ],
       desktop: false,
     },
+    telegram_underarticle_v1: {
+      upc: false,
+      routes: [
+        'category-slug',
+        'nesto-slug',
+        'super1-category-slug',
+        'pitanje-zdravlja-category-slug',
+        'openspace-category-slug',
+        'pitanje-zdravlja-category',
+        'openspace-category',
+        'super1-category',
+        'telesport-category',
+        'telesport-category-slug',
+      ],
+      desktop: [
+        [1, 1],
+        [660, 350],
+        [660, 500],
+        [300, 250],
+        [300, 600],
+        [320, 480],
+        [710, 350],
+        [970, 500],
+        [660, 600],
+        [1200, 250],
+      ],
+      mobile: [
+        [1, 1],
+        [300, 250],
+        [320, 480],
+        [336, 280],
+        [320, 50],
+        [300, 100],
+        [300, 50],
+        [300, 600],
+        [320, 250],
+      ],
+    },
+    telegram_underarticle_v2: {
+      upc: false,
+      routes: [
+        'category-slug',
+        'nesto-slug',
+        'super1-category-slug',
+        'pitanje-zdravlja-category-slug',
+        'openspace-category-slug',
+        'pitanje-zdravlja-category',
+        'openspace-category',
+        'super1-category',
+        'telesport-category',
+        'telesport-category-slug',
+      ],
+      desktop: [
+        [1, 1],
+        [660, 350],
+        [660, 500],
+        [300, 250],
+        [300, 600],
+        [320, 480],
+        [710, 350],
+        [970, 500],
+        [660, 600],
+        [1200, 250],
+      ],
+      mobile: [
+        [1, 1],
+        [300, 250],
+        [320, 480],
+        [336, 280],
+        [320, 50],
+        [300, 100],
+        [300, 50],
+        [300, 600],
+        [320, 250],
+      ],
+    },
   },
   route: '',
   interstitialSlot: false,
@@ -604,6 +719,32 @@ export const mutations = {
 
 export const actions = {
   initAds({ state, commit, dispatch, rootState }, payload) {
+    if (Capacitor.isNativePlatform()) {
+      return
+    }
+    // check if we should even show any ads
+    if (payload.options && payload.options.includes('all')) {
+      return
+    }
+    if (
+      (rootState.user.access &&
+        rootState.user.access.includes('telegram_premium')) ||
+      (payload.route && payload.route.name.includes('pretplata'))
+    ) {
+      // remove intext banners
+      const b = document.getElementsByClassName('banner-slot')
+      for (const box in b) {
+        if (box.id && box.id.includes('intext')) {
+          box.parentElement.parentElement.classList.add('hide')
+        }
+      }
+      window.googletag = window.googletag || { cmd: [] }
+      window.googletag.cmd.push(function () {
+        window.googletag.pubads().enableSingleRequest()
+        window.googletag.enableServices()
+      })
+      return
+    }
     window.googletag = window.googletag || {}
     window.googletag.cmd = window.googletag.cmd || []
     window.googletag.reloadedSlots = window.googletag.reloadedSlots || []
@@ -623,20 +764,6 @@ export const actions = {
       window.googletag.cmd.push(() => {
         window.googletag.destroySlots()
       })
-    }
-    // check if we should even show any ads
-    if (payload.options && payload.options.includes('all')) {
-      return
-    }
-    if (rootState.user.access === 'BR92VTWM') {
-      // remove intext banners
-      const b = document.getElementsByClassName('banner-slot')
-      for (const box in b) {
-        if (box.id && box.id.includes('intext')) {
-          box.parentElement.parentElement.classList.add('hide')
-        }
-      }
-      return
     }
     dispatch('setupTargeting', payload)
   },
@@ -659,6 +786,10 @@ export const actions = {
     if (route) {
       commit('setRoute', route)
       switch (route.name) {
+        case 'izbor':
+          targeting.wp_post_type = ['archive']
+          targeting.post_category = ['izbor']
+          break
         case 'index':
           targeting.wp_post_type = ['home']
           break
@@ -721,7 +852,7 @@ export const actions = {
           targeting.post_category = ['openspace']
           targeting.site = 'openspace'
           break
-        case 'pitanjezdravlja':
+        case 'pitanje-zdravlja':
           targeting.wp_post_type = ['home']
           targeting.post_category = ['pitanjezdravlja']
           targeting.site = 'pitanjezdravlja'
@@ -792,6 +923,37 @@ export const actions = {
       }
       if (route.query.utm_campaign === 'back_widget') {
         window.googletag.pubads().setTargeting('source', 'backwidget')
+      }
+      // user segments
+      if (rootState.user.access) {
+        let premium = false
+        window.googletag.pubads().setTargeting('pretplata_active', '1')
+        if (rootState.user.access.includes('telegram_premium')) {
+          window.googletag.pubads().setTargeting('pretplata_premium', '1')
+          premium = true
+        } else {
+          window.googletag.pubads().setTargeting('pretplata_premium', '0')
+        }
+        if (rootState.user.access.includes('telesport') || premium) {
+          window.googletag.pubads().setTargeting('pretplata_telesport', '1')
+        } else {
+          window.googletag.pubads().setTargeting('pretplata_telesport', '0')
+        }
+        if (rootState.user.access.includes('telegram') || premium) {
+          window.googletag.pubads().setTargeting('pretplata_telegram', '1')
+        } else {
+          window.googletag.pubads().setTargeting('pretplata_telegram', '0')
+        }
+      } else {
+        window.googletag.pubads().setTargeting('pretplata_active', '0')
+        window.googletag.pubads().setTargeting('pretplata_premium', '0')
+        window.googletag.pubads().setTargeting('pretplata_telesport', '0')
+        window.googletag.pubads().setTargeting('pretplata_telegram', '0')
+      }
+      if (rootState.user.token) {
+        window.googletag.pubads().setTargeting('pretplata_loggedin', '1')
+      } else {
+        window.googletag.pubads().setTargeting('pretplata_loggedin', '0')
       }
       let cookie = this.$cookies.get('ab_test')
       if (!cookie) {
@@ -898,11 +1060,9 @@ export const actions = {
     }
     window.pbjs = window.pbjs || {}
     window.pbjs.que = window.pbjs.que || []
-    console.log('Prebid bids are requested')
     window.pbjs.que.push(() => {
       window.pbjs.rp.requestBids({
         callback() {
-          console.log('Prebid bids are back')
           window.googletag.cmd.push(function () {
             window.pbjs.setTargetingForGPTAsync()
             window.pbjs.requestManager.prebid = true

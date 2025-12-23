@@ -17,13 +17,18 @@ export default {
         name: 'description',
         content: 'Nekad je nužno odabrati stranu',
       },
-      { name: 'twitter:dnt', content: 'on' },
-      { name: 'twitter:widgets:csp', content: 'on' },
-      { property: 'fb:pages', content: '688325737947866' },
+      { hid: 'twitter:dnt', name: 'twitter:dnt', content: 'on' },
       {
-        name: 'google-site-verification',
-        content: 'Laeir-LCi9jxATGNiq0pzM6SKn0DeAWNa5f_vsvYKdA',
+        hid: 'twitter:widgets:csp',
+        name: 'twitter:widgets:csp',
+        content: 'on',
       },
+      {
+        hid: 'twitter:site',
+        name: 'twitter:site',
+        content: '@TelegramHR',
+      },
+      { property: 'fb:pages', content: '688325737947866' },
     ],
     link: [
       { hid: 'canonical', rel: 'canonical', href: 'https://www.telegram.hr/' },
@@ -33,44 +38,75 @@ export default {
       },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=IBM+Plex+Mono:wght@500;600&family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,500;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=IBM+Plex+Mono:wght@500;600&family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap',
       },
     ],
     script: [
-      {
-        vmid: 'recaptcha',
-        src: 'https://www.google.com/recaptcha/api.js?render=6Le4Y0caAAAAAI_E2k1sgXvWuXR8cViLC-iJIpEq',
-      },
-      {
-        vmid: 'recaptcha-inner',
-        hid: 'recaptcha-inner',
-        innerHTML:
-          "grecaptcha.ready(function() { grecaptcha.execute('6Le4Y0caAAAAAI_E2k1sgXvWuXR8cViLC-iJIpEq', {action: 'homepage'}).then(function(token) {}); });",
-      },
-      {
-        hid: 'piano',
-        src: 'https://cdn.tinypass.com/api/tinypass.min.js',
-        async: true,
-      },
-      {
-        hid: 'cxense',
-        src: 'https://cdn.cxense.com/cx.cce.js',
-        async: true,
-      },
       {
         hid: 'coral',
         src: 'https://talk.telegram.hr/assets/js/embed.js',
         async: false,
         defer: true,
       },
+      {
+        hid: 'remplib',
+        innerHTML:
+          'function mock(fn) {\n' +
+          '    return function () {\n' +
+          '      this._.push([fn, arguments])\n' +
+          '    }\n' +
+          '  }\n' +
+          '  window.remplib = window.remplib || {}\n' +
+          '  const mockFuncs = {\n' +
+          "    campaign: 'init',\n" +
+          "    tracker: 'init trackEvent trackPageview trackCommerce',\n" +
+          "    iota: 'init',\n" +
+          '  }\n' +
+          '\n' +
+          '  Object.keys(mockFuncs).forEach(function (key) {\n' +
+          '    if (!window.remplib[key]) {\n' +
+          '      let fn\n' +
+          '      let i\n' +
+          "      const funcs = mockFuncs[key].split(' ')\n" +
+          '      window.remplib[key] = { _: [] }\n' +
+          '\n' +
+          '      for (i = 0; i < funcs.length; i++) {\n' +
+          '        fn = funcs[i]\n' +
+          '        window.remplib[key][fn] = mock(fn)\n' +
+          '      }\n' +
+          '    }\n' +
+          '  })',
+      },
+      {
+        hid: 'gpt',
+        src: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js',
+        async: true,
+        defer: true,
+      },
+      {
+        hid: 'remplib-camp',
+        src: 'https://campaign.telegram.hr/assets/lib/js/remplib.js',
+        async: true,
+      },
+      {
+        hid: 'remplib-beam',
+        src: 'https://beam.telegram.hr/assets/lib/js/remplib.js',
+        async: true,
+      },
+      {
+        hid: 'google',
+        src: 'https://accounts.google.com/gsi/client',
+        async: true,
+      },
     ],
     __dangerouslyDisableSanitizersByTagID: {
-      'recaptcha-inner': ['innerHTML'],
+      remplib: ['innerHTML'],
+      didomi: ['innerHTML'],
     },
   },
 
   router: {
-    middleware: ['piano', 'gemius', 'dotmetrics'],
+    middleware: ['adsclean', 'gemius', 'dotmetrics'],
   },
 
   loading: '~/components/loading.vue',
@@ -79,6 +115,8 @@ export default {
   css: [
     '@/assets/tmg_framework.css',
     '@/assets/style.css',
+    '@/assets/telegram-family.css',
+    '@/assets/telesport-family.css',
     '@/assets/ads.css',
     'vue-slick-carousel/dist/vue-slick-carousel.css',
     '@fortawesome/fontawesome-svg-core/styles.css',
@@ -90,14 +128,11 @@ export default {
     { src: '@/plugins/filters.js' },
     { src: '@/plugins/persisted.client.js' },
     { src: '@/plugins/vue-slick-carousel.js' },
-    { src: '@/plugins/piano-cxense.js', ssr: false },
-    { src: '@/plugins/piano.js', ssr: false },
     { src: '@/plugins/mobile.js' },
-    { src: '@/plugins/cxtrack.js', ssr: false },
     { src: '@/plugins/fontawesome.js' },
-    { src: '@/plugins/gemius.client.js' },
     { src: '@/plugins/dotmetrics.client.js' },
     { src: '@/plugins/marfeel.client.js' },
+    { src: '@/plugins/ctr.client.js' },
     { src: '@/plugins/adsense.client.js', ssr: false },
     { src: '@/plugins/gtm.client.js', ssr: false },
   ],
@@ -110,6 +145,7 @@ export default {
     '@nuxtjs/eslint-module',
     'nuxt-purgecss',
     '@nuxtjs/dotenv',
+    '@vueuse/nuxt',
     // '@nuxtjs/google-fonts',
   ],
 
@@ -120,6 +156,7 @@ export default {
     'cookie-universal-nuxt',
     '@nuxtjs/gtm',
     '@nuxtjs/onesignal',
+    
   ],
 
   oneSignal: {
@@ -137,6 +174,8 @@ export default {
         showCredit: false,
         cancelButton: 'Ne, hvala',
         cancelButtonText: 'Ne, hvala',
+        autoPrompt: true,
+        delay: { pageViews: 2, timeDelay: 20 },
       },
       notifyButton: {
         enable: false,
@@ -219,16 +258,21 @@ export default {
       target: 'https://pretplate.telegram.hr',
       pathRewrite: { '^/pretplate/': '' },
     },
+    '/crm': {
+      target: 'https://pretplata.telegram.hr',
+      pathRewrite: { '^/crm/': '' },
+    },
+    '/mailer': {
+      target: 'https://mailer.telegram.hr',
+      pathRewrite: { '^/mailer/': '' },
+    },
     '/gscripts': {
       target: 'https://script.google.com/macros/s/',
       pathRewrite: { '^/gscripts/([^?]*)(.*)': '$1/exec$2' },
     },
-    '/subs': {
-      target: 'https://api-esp.piano.io/tracker/securesub/',
-      pathRewrite: {
-        '^/subs/(.*)':
-          '$1?api_key=V2rR5WTQbQyHEqCMvFEaUGU3ZNVkt4s6hnvmCz9dXt9aUwzMaUmXAhVzmv83',
-      },
+    '/piano': {
+      target: 'https://api.piano.io/',
+      pathRewrite: { '^/piano/': '' },
     },
   },
 
@@ -263,5 +307,16 @@ export default {
     babel: {
       plugins: [['@babel/plugin-proposal-private-methods', { loose: true }]],
     },
-  },
+    performance: {
+      maxEntrypointSize: 1024000,
+      maxAssetSize: 512000,
+    },
+    extend(config) {
+      config.module.rules.push({
+        test: /\.mjs$/,
+        include: /node_modules/,
+        type: 'javascript/auto',
+      })
+    }
+  }
 }

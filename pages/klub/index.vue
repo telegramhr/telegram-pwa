@@ -520,66 +520,68 @@
       </div>
     </div>
     <!-- Iskaznica -->
-    <div id="iskaznica" class="full flex fake-inpage-anchor"></div>
-    <div v-show="user.access" class="full flex relative mobile-side-pad">
-      <div class="container flex relative column-bottom-pad">
-        <div class="full column-horizontal-pad column-top-pad">
-          <div class="full cantha-separator"></div>
-        </div>
-        <div class="full flex column-horizontal-pad">
-          <div
-            class="noththree full center-text column-vertical-pad subsection-title"
-          >
-            Vaša klub iskaznica
+    <client-only>
+      <div id="iskaznica" class="full flex fake-inpage-anchor"></div>
+      <div v-show="user.expiry_date" class="full flex relative mobile-side-pad">
+        <div class="container flex relative column-bottom-pad">
+          <div class="full column-horizontal-pad column-top-pad">
+            <div class="full cantha-separator"></div>
+          </div>
+          <div class="full flex column-horizontal-pad">
+            <div
+              class="noththree full center-text column-vertical-pad subsection-title"
+            >
+              Vaša klub iskaznica
+            </div>
+          </div>
+          <div class="full center relative">
+            <client-only>
+              <div class="klub-card flex stretch relative">
+                <div class="full flex center">
+                  <img
+                    src="@/assets/img/telegram_logo_white.svg"
+                    alt="Telegram logo"
+                  />
+                  <div class="full flex klub-card-content">
+                    <p class="full center-text">
+                      {{ user.first_name }} {{ user.last_name }}
+                    </p>
+                    <p class="full center-text">ID {{ user.uid }}</p>
+                    <p class="full center-text">
+                      Datum isteka:
+                      {{
+                        user.expiry_date
+                          ? new Date(
+                              user.expiry_date * 1000 + 24 * 3600000
+                            ).toLocaleDateString('hr-hr')
+                          : 'Neograničeno'
+                      }}
+                    </p>
+                  </div>
+                </div>
+                <div class="full flex center klub-qr">
+                  <img
+                    v-if="user.id"
+                    :src="`https://pretplate.telegram.hr/qrcode/${$store.state.user.token}`"
+                  />
+                </div>
+                <img
+                  src="@/assets/img/tg_bg_fancyarc.jpg"
+                  aria-hidden="true"
+                  class="img-as-bg"
+                />
+              </div>
+            </client-only>
+          </div>
+          <div class="full center">
+            <p class="full faded center-text klub-disclaimer">
+              Ovo je digitalna iskaznica koja vas identificira kao pretplatnika
+              Telegrama. Nije prenosiva i vrijedi samo dok vam traje pretplata.
+            </p>
           </div>
         </div>
-        <div class="full center relative">
-          <client-only>
-            <div class="klub-card flex stretch relative">
-              <div class="full flex center">
-                <img
-                  src="@/assets/img/telegram_logo_white.svg"
-                  alt="Telegram logo"
-                />
-                <div class="full flex klub-card-content">
-                  <p class="full center-text">
-                    {{ user.first_name }} {{ user.last_name }}
-                  </p>
-                  <p class="full center-text">ID {{ user.uid }}</p>
-                  <p class="full center-text">
-                    Datum isteka:
-                    {{
-                      user.expiry_date
-                        ? new Date(
-                            user.expiry_date * 1000 + 24 * 3600000
-                          ).toLocaleDateString('hr-hr')
-                        : 'Neograničeno'
-                    }}
-                  </p>
-                </div>
-              </div>
-              <div class="full flex center klub-qr">
-                <img
-                  v-if="user.uid"
-                  :src="`https://pretplate.telegram.hr/qrcode/${user.uid}`"
-                />
-              </div>
-              <img
-                src="@/assets/img/tg_bg_fancyarc.jpg"
-                aria-hidden="true"
-                class="img-as-bg"
-              />
-            </div>
-          </client-only>
-        </div>
-        <div class="full center">
-          <p class="full faded center-text klub-disclaimer">
-            Ovo je digitalna iskaznica koja vas identificira kao pretplatnika
-            Telegrama. Nije prenosiva i vrijedi samo dok vam traje pretplata.
-          </p>
-        </div>
       </div>
-    </div>
+    </client-only>
     <div class="full flex small-top-margin"></div>
     <!-- Footer -->
     <tfooter></tfooter>
@@ -603,22 +605,33 @@ export default {
       selected_ostalo: '',
       selected_offer: null,
       selected_category: null,
+      user: {
+        access: false,
+        expiry_date: '',
+        first_name: '',
+        last_name: '',
+        token: '',
+        uid: '',
+      },
     }
   },
   computed: {
     canLogIn() {
-      return this.$store.state.user.exp * 1000 < new Date().getTime()
-    },
-    user() {
-      return this.$store.state.user
+      return this.$store.getters['user/canLogIn']
     },
     qr() {
-      const img = this.$axios.$get(`/pretplate/qrcode/${this.user.uid}`)
+      const img = this.$axios.$get(
+        `/pretplate/qrcode/${this.$store.state.user.token}`
+      )
       return img.img
     },
   },
-  mounted() {
-    this.$store.dispatch('newsletters/checkAccess', this.$route.query.email)
+  async mounted() {
+    if (this.$store.state.user.token) {
+      this.user = await this.$axios.$get(
+        `/pretplate/check/${this.$store.state.user.token}`
+      )
+    }
   },
   methods: {
     login() {

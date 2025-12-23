@@ -26,11 +26,7 @@
             <div class="full flex relative column-top-pad mobile-top-pad">
               <div
                 class="flex newbtn huge-newbtn animate clickable"
-                @click="
-                  checkout(
-                    subscription_package === 'pretplata-special' ? one : two
-                  )
-                "
+                @click="submit"
               >
                 Iskoristite ponudu
               </div>
@@ -38,8 +34,8 @@
           </div>
         </div>
         <img
-          src="@/assets/img/tg_vizual_izbori_2024_predsjednicki.jpg"
-          alt="Predsjednički kandidati na izborima 2024."
+          src="@/assets/img/pretplata/3month.png"
+          alt="3 mjeseca ekskluzivnih vijesti uz Telegram"
           class="absolute-half-img"
         />
       </div>
@@ -52,11 +48,11 @@
           <div class="full center">
             <input
               id="pretplata-month"
-              v-model="subscription_package"
+              v-model="subscription_type"
               type="radio"
               name="pretplata-month"
               class="hide"
-              value="pretplata-month"
+              value="telegram_standard_pretplata_3_mjeseca"
             />
             <label
               for="pretplata-month"
@@ -81,11 +77,11 @@
           <div class="full center">
             <input
               id="pretplata-special"
-              v-model="subscription_package"
+              v-model="subscription_type"
               type="radio"
               name="pretplata-special"
               class="hide"
-              value="pretplata-special"
+              value="telegram_premium_pretplata_3_mjeseca"
             />
             <label
               for="pretplata-special"
@@ -107,40 +103,45 @@
               </div>
             </label>
           </div>
-          <div
-            v-if="subscription_package === 'pretplata-month'"
-            class="full center"
-          >
-            <div
-              class="newbtn clickable huge-newbtn animate"
-              @click="checkout(one)"
+          <client-only>
+            <form
+              id="payment-form"
+              class="full flex column-horizontal-pad column-top-pad mobile-top-pad"
+              method="post"
+              :action="`/crm/sales-funnel/sales-funnel-frontend/submit?referer=${$store.getters['pretplata/link']}`"
             >
-              Kupite pretplatu
-              <font-awesome-icon :icon="['fab', 'cc-visa']"></font-awesome-icon>
-              <font-awesome-icon
-                :icon="['fab', 'cc-mastercard']"
-              ></font-awesome-icon>
-              <font-awesome-icon
-                :icon="['fab', 'cc-diners-club']"
-              ></font-awesome-icon>
-            </div>
-          </div>
-          <div
-            v-if="subscription_package === 'pretplata-special'"
-            class="full center"
-            @click="checkout(two)"
-          >
-            <div class="newbtn clickable huge-newbtn animate">
-              Kupite pretplatu
-              <font-awesome-icon :icon="['fab', 'cc-visa']"></font-awesome-icon>
-              <font-awesome-icon
-                :icon="['fab', 'cc-mastercard']"
-              ></font-awesome-icon>
-              <font-awesome-icon
-                :icon="['fab', 'cc-diners-club']"
-              ></font-awesome-icon>
-            </div>
-          </div>
+              <input type="hidden" name="allow_redirect" value="1" />
+              <input type="hidden" name="funnel_url_key" :value="url_key" />
+              <input
+                type="hidden"
+                name="subscription_type"
+                :value="subscription_type"
+              />
+              <input type="hidden" name="payment_gateway" :value="payment" />
+              <input type="hidden" name="price" :value="price" />
+              <input type="hidden" name="auth" value="1" />
+              <div class="full center" @click="submit">
+                <div class="newbtn clickable huge-newbtn animate">
+                  Kupite pretplatu
+                  <font-awesome-icon
+                    :icon="['fab', 'cc-visa']"
+                  ></font-awesome-icon>
+                  <font-awesome-icon
+                    :icon="['fab', 'cc-mastercard']"
+                  ></font-awesome-icon>
+                  <font-awesome-icon
+                    :icon="['fab', 'cc-diners-club']"
+                  ></font-awesome-icon>
+                </div>
+              </div>
+              <p
+                v-if="show_msg"
+                class="full remp-mini-text center-text red-text"
+              >
+                {{ show_msg }}
+              </p>
+            </form>
+          </client-only>
           <div
             class="full center-text barlow faded column-mini-top-pad mobile-bottom-pad"
           >
@@ -150,6 +151,7 @@
         </div>
       </div>
     </div>
+    <iframe id="TrustPayFrame" :src="iframeUrl"></iframe>
     <div class="full flex">
       <div class="container relative flex column-full-pad smaller-container">
         <div
@@ -385,42 +387,103 @@
 </template>
 
 <script>
+import _ from 'lodash'
 export default {
   name: 'LjetnaAkcija',
   data() {
     return {
-      promo_code: '',
-      subscription_package: 'pretplata-special',
+      show_msg: '',
+      subscription_type: 'telegram_standard_pretplata_3_mjeseca',
+      payment: 'trustpay_recurrent',
+      showPassword: false,
+      loading: false,
+      url_key: 'paket3mj',
+      iframeUrl: '',
     }
   },
   computed: {
-    two() {
-      return 'TMO09AOBTMDA'
-    },
-    one() {
-      return 'TM5HVXSFSS47'
+    price() {
+      if (this.subscription_type === 'telegram_standard_pretplata_3_mjeseca') {
+        return 14.99
+      } else if (
+        this.subscription_type === 'telegram_premium_pretplata_3_mjeseca'
+      ) {
+        return 18.89
+      }
+      return 0
     },
   },
-  mounted() {
-    this.$nextTick(() => {
-      this.promo_code = this.$route.query.promo_code
-      window.tp.push([
-        'addHandler',
-        'checkoutComplete',
-        function (conversion) {
-          if (conversion.rid === '') {
-            this.$store.commit('user/setTerm', true)
+  watch: {
+    email: _.debounce(function (value) {
+      const _this = this
+      const formData = new FormData()
+      formData.append('email', value)
+      this.$axios
+        .post('/crm/api/v2/users/email', formData, {
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+        })
+        .then((response) => {
+          if (response.data.status && response.data.status === 'taken') {
+            _this.showPassword = true
+          } else if (response.data.status === 'error') {
+            if (response.data.code === 'email_missing') {
+              return
+            }
+            _this.show_msg = 'Prijavite se kako biste dovršili kupnju.'
+          } else {
+            _this.showPassword = false
           }
-        },
-      ])
-    })
+        })
+        .catch(() => {
+          _this.showPassword = false
+        })
+    }, 1000),
   },
   methods: {
     canLogIn() {
-      return this.$store.state.user.exp * 1000 < new Date().getTime()
+      return !this.$store.state.user.id
     },
-    checkout(termId, upgrade) {
-      this.$piano.start(termId)
+    login() {
+      this.$store.dispatch('user/login', {
+        shouldReload: false,
+        callback: this.submit,
+      })
+    },
+    submit() {
+      if (this.canLogIn()) {
+        this.login()
+        return
+      }
+      this.loading = true
+      const form = document.getElementById('payment-form')
+      const formData = new FormData(form)
+      const actionUrl = form.action
+      fetch(actionUrl, {
+        method: 'POST',
+        body: formData,
+        credentials: 'include',
+      })
+        .then((response) => {
+          return response.json()
+        })
+        .then((data) => {
+          if (data.status === 'ok') {
+            const trustpayIframe = document.getElementById('TrustPayFrame')
+            if (trustpayIframe) {
+              trustpayIframe.src = data.url + '&Localization=hr'
+            }
+            // Open TrustPay Popup
+            /* global openPopup */
+            openPopup()
+          } else {
+            this.show_msg = 'Došlo je do greške s plaćanjem.'
+          }
+        })
+        .catch(() => {
+          this.show_msg = 'Došlo je do greške prilikom slanja podataka.'
+        })
     },
   },
   head() {
@@ -456,141 +519,24 @@ export default {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/pretplata/ljetna/akcija/',
+          content: 'https://www.telegram.hr/pretplata/paket3mj/',
         },
       ],
       link: [
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: 'https://www.telegram.hr/pretplata/ljetna-akcija/',
+          href: 'https://www.telegram.hr/pretplata/paket3mj/',
         },
       ],
       script: [
         {
-          vmid: 'schema-ld',
-          hid: 'schema-ld',
-          type: 'application/ld+json',
-          json: [
-            {
-              '@context': 'https://schema.org',
-              '@type': 'ItemList',
-              name: 'Telegram.hr Pretplata',
-              description: 'Odaberite jedan od paketa i podržite nas',
-              image:
-                'https://www.telegram.hr/wp-content/uploads/2021/01/tg-background.jpg',
-              itemListElement: [
-                {
-                  '@type': 'ListItem',
-                  position: 1,
-                  item: {
-                    '@type': 'Product',
-                    name: 'Telegram Mjesečna Pretplata',
-                    description: 'Mjesečna pretplata na Telegram.hr',
-                    sku: 'TMJHR6Y8K4QA',
-                    mpn: 'TMJHR6Y8K4QA',
-                    image:
-                      'https://www.telegram.hr/wp-content/uploads/2021/01/tg-background.jpg',
-                    offers: {
-                      '@type': 'Offer',
-                      url: 'https://www.telegram.hr/pretplata',
-                      priceCurrency: 'EUR',
-                      price: 6.49,
-                      itemCondition: 'https://schema.org/NewCondition',
-                      availability: 'https://schema.org/InStock',
-                      seller: this.$store.state.header.publisher,
-                    },
-                    aggregateRating: {
-                      '@type': 'AggregateRating',
-                      ratingValue: '4.9',
-                      reviewCount: '100',
-                    },
-                  },
-                },
-                {
-                  '@type': 'ListItem',
-                  position: 2,
-                  item: {
-                    '@type': 'Product',
-                    name: 'Telegram Premium Mjesečna Pretplata',
-                    description: 'Mjesečna premium pretplata na Telegram.hr',
-                    sku: 'TMY8ORHQG44A',
-                    mpn: 'TMY8ORHQG44A',
-                    image:
-                      'https://www.telegram.hr/wp-content/uploads/2021/01/tg-background.jpg',
-                    offers: {
-                      '@type': 'Offer',
-                      url: 'https://www.telegram.hr/pretplata',
-                      priceCurrency: 'EUR',
-                      price: 9.16,
-                      itemCondition: 'https://schema.org/NewCondition',
-                      availability: 'https://schema.org/InStock',
-                      seller: this.$store.state.header.publisher,
-                    },
-                    aggregateRating: {
-                      '@type': 'AggregateRating',
-                      ratingValue: '4.9',
-                      reviewCount: '100',
-                    },
-                  },
-                },
-                {
-                  '@type': 'ListItem',
-                  position: 3,
-                  item: {
-                    '@type': 'Product',
-                    name: 'Telegram Godišnja Pretplata',
-                    description: 'Godišnja pretplata na Telegram.hr',
-                    sku: 'TM8RZKGESM1T',
-                    mpn: 'TM8RZKGESM1T',
-                    image:
-                      'https://www.telegram.hr/wp-content/uploads/2021/01/tg-background.jpg',
-                    offers: {
-                      '@type': 'Offer',
-                      url: 'https://www.telegram.hr/pretplata',
-                      priceCurrency: 'EUR',
-                      price: 62,
-                      itemCondition: 'https://schema.org/NewCondition',
-                      availability: 'https://schema.org/InStock',
-                      seller: this.$store.state.header.publisher,
-                    },
-                    aggregateRating: {
-                      '@type': 'AggregateRating',
-                      ratingValue: '4.9',
-                      reviewCount: '100',
-                    },
-                  },
-                },
-                {
-                  '@type': 'ListItem',
-                  position: 4,
-                  item: {
-                    '@type': 'Product',
-                    name: 'Telegram Premium Godišnja Pretplata',
-                    description: 'Godišnja premium pretplata na Telegram.hr',
-                    sku: 'TMQDTT4IEHY0',
-                    mpn: 'TMQDTT4IEHY0',
-                    image:
-                      'https://www.telegram.hr/wp-content/uploads/2021/01/tg-background.jpg',
-                    offers: {
-                      '@type': 'Offer',
-                      url: 'https://www.telegram.hr/pretplata',
-                      priceCurrency: 'EUR',
-                      price: 78,
-                      itemCondition: 'https://schema.org/NewCondition',
-                      availability: 'https://schema.org/InStock',
-                      seller: this.$store.state.header.publisher,
-                    },
-                    aggregateRating: {
-                      '@type': 'AggregateRating',
-                      ratingValue: '4.9',
-                      reviewCount: '100',
-                    },
-                  },
-                },
-              ],
-            },
-          ],
+          hid: 'jquery',
+          src: 'https://code.jquery.com/jquery-3.7.1.min.js',
+        },
+        {
+          hid: 'trustpay-popup',
+          src: 'https://mapi.trustpay.eu/mapi5/Scripts/TrustPay/popup.js',
         },
       ],
     }

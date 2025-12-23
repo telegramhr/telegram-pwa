@@ -3,6 +3,7 @@
     class="full flex article-mini article relative"
     :to="post.permalink"
     role="article"
+    :data-id="post.id"
     :aria-labelledby="'mini-' + post.id"
     :data-mrf-recirculation="recirculation"
   >
@@ -12,7 +13,7 @@
       </h2>
       <div class="nothfive full flex article-meta">
         <span class="meta-author">
-          {{ post.authors.length ? 'Piše ' + post.authors[0].name : '' }}</span
+          {{ post.authors?.length ? 'Piše ' + post.authors[0].name : '' }}</span
         >
         <span v-if="!noDate && post.time" class="meta-date">{{
           post.timem | parseTime

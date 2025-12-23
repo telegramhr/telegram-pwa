@@ -147,49 +147,7 @@ export default {
         }
       }
     },
-    checkout(termId) {
-      if (this.$store.state.user.token) {
-        this.checkout2(termId)
-      } else {
-        const _that = this
-        window.tp.pianoId.show({
-          screen: 'register',
-          width: window.innerWidth > 720 ? 600 : 375,
-          loggedIn(data) {
-            _that.$store.dispatch('user/setUser', data.user)
-            // window.location.reload()
-            _that.checkout2(termId)
-          },
-        })
-      }
-    },
-    checkout2(termId) {
-      const _that = this
-      window.tp.push([
-        'init',
-        () => {
-          window.tp.offer.show({
-            offerId: 'OF5JVPQYFLE1',
-            termId,
-            templateId: 'OTXWXSOL0WWS',
-            checkoutFlowId: 'CF65KTMVQXXX',
-            promoCode: this.promo_code,
-            closeOnLogout: true,
-            complete: (data) => {
-              _that.$store.dispatch('user/checkAccess')
-              window.PianoESP &&
-                typeof window.PianoESP.handleUserDataPromise === 'function' &&
-                window.PianoESP.handleUserDataPromise({
-                  email: _that.$store.state.user.email,
-                  squads: [2128, 2555, 2554],
-                }).then(() => {
-                  window.location.reload()
-                })
-            },
-          })
-        },
-      ])
-    },
+    checkout(termId) {},
   },
 }
 </script>

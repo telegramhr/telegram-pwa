@@ -9,32 +9,46 @@
     />
     <Nuxt />
     <client-only>
-      <ticker-ad-unit id="telegram_sticky"></ticker-ad-unit>
-      <ticker-special></ticker-special>
+      <ticker-ad-unit
+        v-if="!$store.getters['user/hasPremium']"
+        id="telegram_sticky"
+      ></ticker-ad-unit>
       <back-widget></back-widget>
+      <div
+        v-if="!$store.state.user.id"
+        id="g_id_onload"
+        data-context="signin"
+        data-client_id="345595854714-ikp5kmgn1thkccvlkerioqkeh5773ndr.apps.googleusercontent.com"
+        :data-login_uri="`https://pretplata.telegram.hr/users/google/sign?url=https://www.telegram.hr${$router.fullPath}`"
+        data-itp_support="true"
+      ></div>
     </client-only>
   </div>
 </template>
 
 <script>
 export default {
-  middleware: 'piano',
+  mounted() {
+    this.$nextTick(() => {
+      this.$store.dispatch('user/checkAccess')
+      this.$store.dispatch('user/checkAdmin')
+      this.$store.dispatch('theme/loadTheme')
+    })
+  },
   head() {
-    let font, theme, premium
+    let font, theme
     if (process.server) {
       font = this.$cookies.get('tmg_font')
       theme = this.$cookies.get('tmg_theme')
       if (theme === 'domoljub') {
         theme = 'regular'
       }
-      premium = this.$cookies.get('tmg_access')
     } else {
       font = this.$store.state.theme.font
       theme = this.$store.state.theme.theme
       if (theme === 'domoljub' && !this.$store.state.theme.update) {
         this.$store.dispatch('theme/setTheme', { type: 'regular', app: this })
       }
-      premium = this.$store.state.user.access
     }
     return {
       htmlAttrs: {
@@ -48,7 +62,7 @@ export default {
           theme === 'contrast' ? 'contrast-mode' : '',
           theme === 'dark' ? 'dark-mode' : '',
           theme === 'domoljub' ? 'domoljub-mode' : '',
-          premium === 'BR92VTWM' ? 'logged-in-premium' : '',
+          this.$store.getters['user/hasPremium'] ? 'logged-in-premium' : '',
         ],
       },
     }

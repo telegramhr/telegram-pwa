@@ -122,7 +122,7 @@
         >
           <p class="full bold column-mini-bottom-pad">Plus</p>
 
-          <app-link to="/pretplata/" class="full"
+          <app-link to="/pretplata" class="full"
             >Pretplata za fizičke korisnike</app-link
           >
           <app-link to="/pretplata/b2b/" class="full"
@@ -141,6 +141,11 @@
           >
           <app-link to="/stranica/pravila-privatnosti" class="full"
             >Pravila privatnosti</app-link
+          >
+          <a
+            href="javascript:googlefc.callbackQueue.push(googlefc.showRevocationMessage)"
+            class="full"
+            >Postavke kolačića</a
           >
         </div>
         <div class="full flex column-horizontal-pad mobile-side-pad">

@@ -15,7 +15,6 @@ export default {
   },
   mounted() {
     if (this.$mobile && this.checkReferrer()) {
-      this.$store.dispatch('zone/pullPosts', { zone: 'back-widget' })
       window.addEventListener('load', this.init)
       window.addEventListener('popstate', this.listener)
     }
@@ -28,26 +27,8 @@ export default {
   },
   methods: {
     init() {
-      const referrer = document.referrer
       const final = window.location.href
-      let url = final
-      if (referrer) {
-        const urlRef = new URL(referrer)
-        if (urlRef.hostname.includes('midas')) {
-          url = final + '#back-widget'
-          this.midas = true
-        } else {
-          url = '/?utm_campaign=back_widget'
-
-          if (this.$route.fullPath.includes('super1')) {
-            url = '/super1/?utm_campaign=back_widget'
-          }
-          if (this.$route.fullPath.includes('telesport')) {
-            url = '/telesport/?utm_campaign=back_widget'
-          }
-        }
-      }
-
+      const url = 'https://www.telegram.hr/izbor/?utm_campaign=back_widget'
       window.history.replaceState({ backWidget: true }, 'Telegram.hr', url)
       window.history.pushState(
         { backWidgetInitialized: true },
@@ -70,22 +51,22 @@ export default {
       }
     },
     checkReferrer() {
+      if (this.$route.fullPath.includes('super1')) {
+        return false
+      }
       const referrer = document.referrer
       if (referrer) {
         const url = new URL(referrer)
         if (
           url.hostname.includes('midas') ||
           url.hostname.includes('facebook') ||
-          url.hostname.includes('quicksearchbox') ||
           url.hostname.includes('linker') ||
-          url.hostname.includes('upday') ||
-          url.hostname.includes('news.google') ||
-          url.hostname.includes('news.url.google')
+          url.hostname.includes('upday')
         ) {
           return true
         }
       }
-      return true
+      return false
     },
   },
 }

@@ -78,10 +78,10 @@
 
 <script>
 export default {
-  name: 'IntextPromoPack',
+  name: 'IntextPromoFreeMonth',
   data() {
     return {
-      show: true,
+      show: false,
       termId: false,
       oldPrice: 99,
       newPrice: 78,
@@ -121,6 +121,9 @@ export default {
       }
     },
     load(e) {
+      if (this.$store.state.user.access?.length) {
+        return
+      }
       if (e.detail) {
         this.topBar = e.detail.topBar
         this.subtitle = e.detail.subtitle

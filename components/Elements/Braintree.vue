@@ -40,7 +40,10 @@
           <div v-if="required" class="nothfour full center-text">
             Sva polja su obavezna.
           </div>
-          <div class="nothfour full center-text">
+          <div v-if="book === 't-magazin'" class="nothfour full center-text">
+            Dostava magazina je besplatna
+          </div>
+          <div v-else class="nothfour full center-text">
             Dostava ove knjige je besplatna.
           </div>
           <label for="name">Ime i prezime</label>
@@ -50,6 +53,15 @@
             type="text"
             name="name"
             placeholder="Ime i prezime"
+            required
+          />
+          <label for="email">Email</label>
+          <input
+            id="name"
+            v-model="email"
+            type="email"
+            name="email"
+            placeholder="Email"
             required
           />
           <label for="address">Adresa</label>
@@ -166,6 +178,7 @@ export default {
         this.$store.state.user.first_name +
         ' ' +
         this.$store.state.user.last_name,
+      email: this.$store.state.user.email,
       address: '',
       address2: '',
       city: '',
@@ -279,7 +292,7 @@ export default {
             amount: this.charge,
             nonce: payload.nonce,
             bin: payload.details.bin,
-            email: this.$store.state.user.email,
+            email: this.email,
             challengeRequested: true,
             billingAddress: {
               streetAddress: this.address,
@@ -329,7 +342,7 @@ export default {
               {
                 book: this.book,
                 name: this.name,
-                email: this.$store.state.user.email,
+                email: this.email,
                 uid: this.$store.state.user.uid,
                 shipping: {
                   name: this.name,

@@ -20,10 +20,6 @@
             Ne propustite priliku unaprijediti svoje poslovanje uz Telegram za
             čitav tim
           </p>
-          <p class="full center-text pretplata-tagline">
-            Uključite se do kraja godine i nagrađujemo vas s dodatnih 6 mjeseci
-            pristupa
-          </p>
         </div>
       </div>
     </div>
@@ -56,15 +52,15 @@
           </select>
           <div v-if="teamSize" class="full flex relative">
             <div class="full flex pretplata-packbox chill-packbox relative">
-              <div class="best-price-sticker alt-bigger-sticcer animate">
-                Uštedite<br />{{ discount + 33 }}%
+              <div
+                v-if="discount > 0"
+                class="best-price-sticker alt-bigger-sticcer animate"
+              >
+                Uštedite<br />{{ discount }}%
               </div>
-              <div class="full sub-price bold">
-                {{ price }}€ za <span class="strikethrough faded">12</span> 18
-                mjeseci
-              </div>
+              <div class="full sub-price bold">{{ price }}€ za 12 mjeseci</div>
               <div class="full remp-special-note column-mini-top-pad">
-                Šest mjeseci dobivate besplatno! Cijena je izrađena s PDV-om.
+                Cijena je izrađena s PDV-om.
               </div>
             </div>
           </div>
@@ -106,8 +102,8 @@
           </div>
           <form
             v-if="expandForm && !submitted"
-            @submit.prevent="submit"
             class="full flex relative column-vertical-pad column-bottom-margin"
+            @submit.prevent="submit"
           >
             <p class="full bold column-top-margin">
               Ispunite informacije o svojem poduzeću:

@@ -116,10 +116,13 @@ export default {
   },
   computed: {
     id() {
-      if (this.$store.getters['user/hasPremium']) {
+      if (this.$store.getters['user/hasPremium'] && this.type !== 'ecomm') {
         return 0
       }
-      if (this.$route.fullPath.includes('preview')) {
+      if (
+        this.$route.fullPath.includes('preview') ||
+        this.$route.fullPath.includes('podcast')
+      ) {
         return false
       }
       if (this.type === 'ecomm2') {
@@ -141,6 +144,9 @@ export default {
     },
   },
   mounted() {
+    if (this.$store.getters['user/hasPremium']) {
+      return false // don't load midas if user has premium
+    }
     this.loadMidas()
     this.loadIntext()
   },
@@ -162,8 +168,11 @@ export default {
           category = 'telesport'
         }
         const script2 = document.createElement('script')
-        const intext = this.ids[category].intext
-        const intextMain = this.ids[category].intextMain
+        const intext = this.ids[category]?.intext
+        const intextMain = this.ids[category]?.intextMain
+        if (!intext || !intextMain) {
+          return false
+        }
         script2.src = `https://cdn2.midas-network.com/Scripts/midasWidget-11-${intextMain}-${intext}.js`
         script2.async = true
         document
@@ -172,7 +181,7 @@ export default {
       }
     },
     loadMidas() {
-      if (this.id && this.type === 'ecomm') {
+      if (this.type === 'ecomm') {
         let category = this.$route.params.category
         if (this.$route.fullPath.includes('super1')) {
           category = 'super1'
@@ -187,8 +196,29 @@ export default {
           category = 'telesport'
         }
         const script = document.createElement('script')
-        const main = this.ids[category].main ?? ''
-        const ids = Object.keys(this.ids[category])
+        const main = this.ids[category]?.main ?? ''
+        /* if (this.$store.state.user.access.length) {
+          let ids = ''
+          if (this.$route.fullPath.includes('telesport')) {
+            ids += `11902`
+          } else if (this.$route.fullPath.includes('super1')) {
+            ids += '11933'
+          } else {
+            ids += `11899`
+          }
+          const script = document.createElement('script')
+          script.src = `https://cdn2.midas-network.com/Scripts/midasWidget-11-${main}-${ids}.js`
+          script.async = true
+          document
+            .getElementById(`midasWidget__${this.id}`)
+            .insertAdjacentElement('afterend', script)
+          return false  // don't load midas if user has premium
+        } */
+
+        if (!this.id) {
+          return false // don't load midas if id is not set
+        }
+        let ids = Object.keys(this.ids[category])
           .filter((value) => {
             return (
               value !== 'intext' && value !== 'main' && value !== 'intextMain'
@@ -196,14 +226,24 @@ export default {
           })
           .map((value) => this.ids[category][value])
           .join('-')
+        if (this.$route.fullPath.includes('telesport')) {
+          ids += `-11902`
+        } else if (this.$route.fullPath.includes('super1')) {
+          ids += '-11933'
+        } else {
+          ids += `-11899`
+        }
         script.src = `https://cdn2.midas-network.com/Scripts/midasWidget-11-${main}-${ids}.js`
         script.async = true
         document
           .getElementById(`midasWidget__${this.id}`)
           .insertAdjacentElement('afterend', script)
         const script2 = document.createElement('script')
-        const intext = this.ids[category].intext
-        const intextMain = this.ids[category].intextMain
+        const intext = this.ids[category]?.intext
+        const intextMain = this.ids[category]?.intextMain
+        if (!intext || !intextMain) {
+          return false
+        }
         script2.src = `https://cdn2.midas-network.com/Scripts/midasWidget-11-${intextMain}-${intext}.js`
         script2.async = true
         document

@@ -52,14 +52,14 @@
           >
             <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
           ></a>
-          <app-link
+          <a
             v-show="!canLogIn"
             class="mobile-only mob-nav-otherbtn"
-            to="/moj-racun"
+            href="https://pretplata.telegram.hr/subscriptions/subscriptions/my"
             aria-label="Moj račun"
           >
             <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
-          ></app-link>
+          ></a>
         </div>
         <img
           v-if="post.image.full"
@@ -293,7 +293,7 @@ export default {
       )
     },
     canLogIn() {
-      return this.$store.state.user.exp * 1000 < new Date().getTime()
+      return this.$store.getters['user/canLogIn']
     },
     jsonld() {
       const images = [this.post.image.url]
@@ -446,6 +446,7 @@ export default {
     ]
     const fbPaywall = {
       none: 'metered',
+      paragraphs: 'metered',
       always: 'locked',
       never: 'free',
     }

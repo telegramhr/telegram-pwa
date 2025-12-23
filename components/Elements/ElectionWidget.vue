@@ -114,7 +114,9 @@
                     : dip.total[party.class].mandati) /
                     151) *
                     10000
-                ) / 100 + '%',
+                ) /
+                  100 +
+                '%',
             }"
           ></div>
         </div>

@@ -25,8 +25,7 @@
     </div>
     <!-- Above header banner Piano -->
     <client-only>
-      <hometop-simple></hometop-simple>
-      <hometop-bf></hometop-bf>
+      <hometop-ten></hometop-ten>
     </client-only>
     <!-- Actual new TG multiverse header -->
     <nav class="full center relative nayos nayos-multiverse stretch red-nayos">
@@ -48,20 +47,32 @@
         </div>
         <div class="forty center align-children-end mobile-side-pad">
           <app-link
-            v-show="canLogIn"
-            id="pretplatite se - header"
-            to="/pretplata"
-            class="newbtn"
-            >Pretplatite se</app-link
+            v-show="!$route.fullPath.includes('super1')"
+            id="pretplata-promo"
+            to="/pretplata/poklon-popust/"
+            class="newbtn gift-btn"
+          >
+            <img
+              src="@/assets/img/pretplata/gift-icon.png"
+              alt="Poklon ikonica"
+            />
+            <span class="poklon">Poklon</span>-50%</app-link
           >
           <app-link
+            v-show="!$store.state.user.access?.length"
+            id="pretplatite se - header"
+            to="/pretplata/"
+            class="newbtn pretplata"
+            >Pretplatite se</app-link
+          >
+          <a
             v-show="!canLogIn"
             class="column-mini-left-pad desktop-only"
-            to="/moj-racun"
+            href="https://pretplata.telegram.hr/subscriptions/subscriptions/my"
             aria-label="Moj račun"
           >
             <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
-          </app-link>
+          </a>
           <a
             class="desktop-only column-mini-left-pad"
             aria-label="Prikaži tražilicu"
@@ -100,6 +111,10 @@
           <app-link role="menuitem" to="/kultura">Kultura</app-link>
           <app-link to="/super1" role="menuitem">Super1</app-link>
           <app-link to="/telesport" role="menuitem"> Telesport </app-link>
+          <app-link to="/podcastovi" role="menuitem"> Podcastovi </app-link>
+          <app-link to="https://knjige.telegram.hr" role="menuitem">
+            T knjige
+          </app-link>
           <app-link
             role="menuitem"
             to="/tema/budi-u-igri-uz-favbet/"
@@ -123,23 +138,24 @@
               class="newbtn"
               >Pretplatite se</app-link
             >
-            <app-link
+            <a
               v-show="!canLogIn"
-              to="/moj-racun"
+              href="https://pretplata.telegram.hr/subscriptions/subscriptions/my"
               class="newbtn newbtn-empty"
               aria-label="Moj račun"
             >
               Moj račun
-            </app-link>
+            </a>
           </client-only>
         </div>
       </div>
     </div>
     <!-- Intro block: G1 + comments -->
-    <div class="full relative">
+    <div v-if="posts.length" class="full relative">
       <div class="container flex relative stretch cantha-intro-block">
         <!-- Billboard 1 -->
         <client-only>
+          <breaking></breaking>
           <div v-show="!hasPremium" class="full relative m-order-2">
             <div class="full flex column-horizontal-pad desktop-only">
               <div class="full flex relative column-bottom-border"></div>
@@ -300,6 +316,40 @@
         </div>
       </div>
     </div>
+    <app-link
+      v-show="!$store.state.user.access?.length"
+      to="/pretplata/50-popust"
+      class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth"
+    >
+      <img
+        src="@/assets/img/pretplata/desktop-pretplata.jpg"
+        alt="Desktop banner za popust na godišnju pretplatu"
+        class="desktop-only"
+      />
+      <img
+        src="@/assets/img/pretplata/mobile-pretplata.jpg"
+        alt="Mobile banner za popust na godišnju pretplatu"
+        class="mobile-only"
+        style="width: 100%"
+      />
+    </app-link>
+    <app-link
+      v-show="$store.state.user.access?.length"
+      to="/pretplata/poklon-popust"
+      class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth"
+    >
+      <img
+        src="@/assets/img/pretplata/desktop-poklon.jpg"
+        alt="Desktop banner za popust na poklon za godišnju pretplatu"
+        class="desktop-only"
+      />
+      <img
+        src="@/assets/img/pretplata/mobile-poklon.jpg"
+        alt="Mobile banner za popust na poklon za godišnju pretplatu"
+        class="mobile-only"
+        style="width: 100%"
+      />
+    </app-link>
     <client-only>
       <div v-if="!hasPremium" class="full relative">
         <offers-premium></offers-premium>
@@ -363,16 +413,11 @@
     </div>
     <!-- Widget autori -->
     <commentary-alt type="tg"></commentary-alt>
-    <!-- Telemach Promo -->
-    <div class="full relative" v-if="!hasPremium">
-      <div class="container flex relative stretch column-horizontal-pad">
-        <promo-telemach></promo-telemach>
-      </div>
-    </div>
     <!-- Velika rubrika: Zivot -->
     <div class="full relative column-bottom-pad">
       <category-zone zone="zivot"></category-zone>
     </div>
+    <AdventWidget></AdventWidget>
     <!-- Velika rubrika: Kultura -->
     <div class="full relative">
       <category-zone zone="kultura"></category-zone>
@@ -443,52 +488,9 @@
     <div class="full relative">
       <os-homepage></os-homepage>
     </div>
-    <!-- Books widget
-    <div class="full relative">
-      <client-only>
-        <book-offers></book-offers>
-      </client-only>
-    </div> -->
-    <!-- Book widget Matija -->
-    <app-link
-      to="/knjiga/drago-hedl-matija"
-      class="full flex relative center mobile-side-pad darkened-bg column-full-pad shoo-bottom"
-    >
-      <div class="container relative flex stretch">
-        <div class="forty tablet-full flex flex-responsive center">
-          <div class="full center-text newbook-overtitle">Telegram naklada</div>
-          <h2 class="full center-text newbook-title newbook-title-smaller">
-            Matija
-          </h2>
-          <div class="full center-text newbook-author">Drago Hedl</div>
-          <p class="full center-text newbook-intro">
-            Knjiga Matija, žanrovski najbliža dnevniku, tragična je Hedlova
-            priča o suicidu sina Matije, doktora biokemije i znanstvenog
-            suradnika na američkom Yaleu.
-          </p>
-        </div>
-
-        <div class="forty tablet-full flex flex-responsive center">
-          <img
-            src="@/assets/img/tg_book_mockup_hedl.png"
-            alt="Naslovnica nove knjige Drage Hedla 'Matija'"
-          />
-        </div>
-        <div class="fifth tablet-full flex flex-responsive center">
-          <div
-            class="full relative center-text newbook-price bigger-newbook-price"
-          >
-            24,99€
-          </div>
-          <div class="full relative center-text neat-numbers">
-            Besplatna dostava po cijeloj Hrvatskoj
-          </div>
-          <div class="full center btn-parent newbook-btn">
-            <div class="newbtn clickable huge-newbtn animate">Kupite</div>
-          </div>
-        </div>
-      </div>
-    </app-link>
+    <div class="full center">
+      <ad-unit id="telegram_desktop_billboard_v5"></ad-unit>
+    </div>
     <!-- Rubrike -->
     <div class="full relative">
       <div class="container flex relative block-5 standard-block">
@@ -529,10 +531,10 @@ export default {
       return this.$store.getters['user/hasPremium']
     },
     canLogIn() {
-      return this.$store.state.user.exp * 1000 < new Date().getTime()
+      return this.$store.getters['user/canLogIn']
     },
     posts() {
-      return this.$store.state.featured.posts
+      return this.$store.state.featured.posts || []
     },
     breaks() {
       return this.$store.state.featured.breaks
@@ -562,6 +564,13 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.loadAds()
+      this.loadRemp()
+      if (
+        this.$store.state.user.access &&
+        this.$store.state.user.access.includes('telegram_premium')
+      ) {
+        return
+      }
       this.reloadInterval = setInterval(() => {
         this.$router.push('/?reload=1')
       }, 300000)
@@ -572,8 +581,37 @@ export default {
     clearInterval(this.reloadInterval)
   },
   methods: {
-    checkout(termId) {
-      this.$piano.start(termId, -1)
+    loadRemp() {
+      window.remplib = window.remplib || {}
+      const rempConfig = {
+        token: 'd4fa2928-7d6a-4f6c-ac95-1f5a1ddd1702',
+        signedIn: !!this.$store.state.user.id,
+        userId: this.$store.state.user.id.toString() ?? '',
+        cookieDomain: '.telegram.hr',
+        storage: 'local_storage',
+        storageExpiration: {
+          default: 15,
+          keys: {
+            browser_id: 1051200,
+            campaigns: 1051200,
+          },
+        },
+        tracker: {
+          url: 'https://tracker.telegram.hr',
+          timeSpent: {
+            enabled: true,
+          },
+          canonicalUrl: 'https://tracker.telegram.hr',
+        },
+        campaign: {
+          url: 'https://campaign.telegram.hr',
+          pageviewAttributes: {
+            postType: 'homepage',
+          },
+        },
+      }
+      window.remplib.tracker.init(rempConfig)
+      window.remplib.campaign.init(rempConfig)
     },
     manageLogin() {
       if (this.canLogIn) {
@@ -589,17 +627,6 @@ export default {
       })
     },
     loadAds() {
-      if (this.$route.query.reset_token) {
-        window.tp.push([
-          'init',
-          function () {
-            window.tp.pianoId.show({
-              displayMode: 'modal',
-              screen: 'new_password',
-            })
-          },
-        ])
-      }
       this.$store.dispatch('ads/initAds', { route: this.$route })
     },
     loadMore() {
@@ -663,3 +690,47 @@ export default {
   },
 }
 </script>
+<style scoped>
+.gift-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #395a3a;
+  padding: 6px;
+  font-family: 'Barlow';
+  font-size: 11px;
+  border: none;
+  font-weight: 600;
+  border-radius: 3px;
+  letter-spacing: 0.3px;
+  margin-right: 10px;
+}
+.gift-btn img {
+  width: 15px;
+  height: 15px;
+}
+.poklon {
+  display: none;
+}
+.pretplata {
+  display: none;
+}
+@media (min-width: 768px) {
+  .gift-btn {
+    font-size: 0.7rem;
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+  .gift-btn img {
+    width: 20px;
+    height: 20px;
+  }
+  .poklon {
+    display: inline;
+  }
+  .pretplata {
+    display: inline;
+    margin-top: 1px;
+  }
+}
+</style>

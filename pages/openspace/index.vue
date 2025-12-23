@@ -29,20 +29,20 @@
             >Pretplatite se</app-link
           >
           <app-link
-            v-show="!canLogIn && !$route.fullPath.includes('super1')"
-            id="Poklonite pretplatu - header"
-            to="/pretplata/poklon"
+            v-show="$store.state.user.access?.length"
+            id="pretplata-promo"
+            to="/pretplata/poklon/"
             class="newbtn"
             >Poklonite pretplatu</app-link
           >
-          <app-link
+          <a
             v-show="!canLogIn"
             class="column-mini-left-pad desktop-only"
-            to="/moj-racun"
+            href="https://pretplata.telegram.hr/subscriptions/subscriptions/my"
             aria-label="Moj račun"
           >
             <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
-          </app-link>
+          </a>
           <a
             class="desktop-only column-mini-left-pad"
             aria-label="Prikaži tražilicu"
@@ -278,7 +278,7 @@ export default {
   },
   computed: {
     canLogIn() {
-      return this.$store.state.user.exp * 1000 < new Date().getTime()
+      return this.$store.getters['user/canLogIn']
     },
     readMore() {
       if (this.hasMore) {

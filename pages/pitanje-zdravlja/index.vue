@@ -3,6 +3,18 @@
     <div class="full flex">
       <theader></theader>
     </div>
+    <div class="full relative">
+      <client-only>
+        <div v-if="!$mobile" class="container wallpaper-banners">
+          <div class="wallpaper-left">
+            <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
+          </div>
+          <div class="wallpaper-right">
+            <ad-unit id="telegram_dekstop_wallpaper_right"></ad-unit>
+          </div>
+        </div>
+      </client-only>
+    </div>
     <!-- Actual new TG multiverse header -->
     <nav class="full center relative nayos nayos-multiverse stretch">
       <div class="container flex stretch relative column-horizontal-pad">
@@ -29,20 +41,20 @@
             >Pretplatite se</app-link
           >
           <app-link
-            v-show="!canLogIn && !$route.fullPath.includes('super1')"
-            id="Poklonite pretplatu - header"
-            to="/pretplata/poklon"
+            v-show="$store.state.user.access?.length"
+            id="pretplata-promo"
+            to="/pretplata/poklon/"
             class="newbtn"
-            >Poklonite pretplatu</app-link
+          >Poklonite pretplatu</app-link
           >
-          <app-link
+          <a
             v-show="!canLogIn"
             class="column-mini-left-pad desktop-only"
-            to="/moj-racun"
+            href="https://pretplata.telegram.hr/subscriptions/subscriptions/my"
             aria-label="Moj račun"
           >
             <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
-          </app-link>
+          </a>
           <a
             class="desktop-only column-mini-left-pad"
             aria-label="Prikaži tražilicu"
@@ -403,6 +415,7 @@ export default {
       AOS.init({
         once: true,
       })
+      this.$store.dispatch('ads/initAds', { route: this.$route })
     })
   },
   methods: {

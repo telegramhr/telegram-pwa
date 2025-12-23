@@ -12,6 +12,8 @@
 </template>
 
 <script>
+import { Capacitor } from '@capacitor/core'
+
 export default {
   name: 'AdUnit',
   props: {
@@ -40,6 +42,10 @@ export default {
   mounted() {
     this.$nextTick(() => {
       const el = document.getElementById(this.id)
+      if (Capacitor.isNativePlatform() && el) {
+        el.style.display = 'none'
+        return
+      }
       if (this.$store.getters['user/hasPremium'] && el) {
         el.style.display = 'none'
         return

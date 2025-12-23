@@ -51,7 +51,7 @@
         <app-link
           v-show="!canLogIn"
           class="mobile-only mob-nav-otherbtn"
-          to="/moj-racun"
+          to="https://pretplata.telegram.hr/subscriptions/subscriptions/my"
           aria-label="Moj račun"
         >
           <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon
@@ -119,9 +119,7 @@
                     :alt="author.name"
                   />
                   <span>Piše</span
-                  ><span class="vcard author">{{
-                    author.name
-                  }}</span></app-link
+                  ><span class="vcard author">{{ author.name }}</span></app-link
                 >
               </template>
               <client-only>
@@ -177,9 +175,7 @@
                     :src="author.image"
                     :alt="author.name"
                   /><span>Piše</span
-                  ><span class="vcard author">{{
-                    author.name
-                  }}</span></app-link
+                  ><span class="vcard author">{{ author.name }}</span></app-link
                 >
               </template>
               <span class="meta-date">{{ post.time | parseTime }}</span>
@@ -683,7 +679,7 @@ export default {
       return this.$store.getters['user/hasPremium']
     },
     canLogIn() {
-      return this.$store.state.user.exp * 1000 < new Date().getTime()
+      return this.$store.getters['user/canLogIn']
     },
     jsonld() {
       const images = [this.post.image.url]
@@ -898,6 +894,7 @@ export default {
     ]
     const fbPaywall = {
       none: 'metered',
+      paragraphs: 'metered',
       always: 'locked',
       never: 'free',
     }

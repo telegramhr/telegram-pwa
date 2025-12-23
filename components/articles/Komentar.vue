@@ -3,13 +3,14 @@
     :to="post.permalink"
     class="full flex komentar relative"
     role="article"
+    :data-id="post.id"
     :aria-labelledby="'komentar-' + post.id"
     :data-mrf-recirculation="recirculation"
   >
     <img
       :srcset="srcset"
-      :src="post.image.url"
-      :alt="post.image.alt"
+      :src="post.image?.url"
+      :alt="post.image?.alt"
       loading="lazy"
       class="mobile-only"
       width="800"
@@ -30,7 +31,7 @@
       </div>
       <div class="full flex relative">
         <div
-          v-if="post.authors.length"
+          v-if="post.authors?.length"
           class="full komentar-author relative flex"
         >
           <img
@@ -107,6 +108,9 @@ export default {
       return output
     },
     srcset() {
+      if (!this.post.image) {
+        return ''
+      }
       let set = `${this.post.image.url}`
       if (this.post.image.url2) {
         set += `, ${this.post.image.url2} 2x`

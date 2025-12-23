@@ -15,6 +15,11 @@ export default {
   },
   methods: {
     linkProperties(route) {
+      if (!route) {
+        return {
+          is: 'span',
+        }
+      }
       if (route.match(/^(http(s)?|ftp):\/\//)) {
         return {
           is: 'a',

@@ -1,467 +1,200 @@
 <template>
-  <div
-    class="main-container flex red-header-page pretplata-page single-article telesport"
-  >
-    <div class="full flex tg-red">
-      <theader
-        headline="Pretplatite se i podržite naše bespoštedno novinarstvo."
-      ></theader>
+  <div>
+    <div v-if="loading" class="telegram-overlay">
+      <span class="telegram-loader"></span>
     </div>
-    <!-- Above header banner -->
-    <div id="pretplata-selector" class="full flex">
-      <div class="full flex relative">
-        <div class="full flex">
-          <div class="container relative flex pretplata-packs mobile-side-pad">
-            <input
-              id="yeartoggle"
-              type="checkbox"
-              class="yeartoggle"
-              name="yeartoggle"
-            />
-            <div class="full center yeartoggle-parent">
-              <label class="relative">
-                <div class="best-price-sticker animate hide">
-                  Najbolja <br />vrijednost
-                </div>
-                <div
-                  class="togglemonth"
-                  onclick="document.getElementById('yeartoggle').checked = false;"
-                >
-                  Mjesečno
-                </div>
-                <div
-                  class="toggleyear"
-                  onclick="document.getElementById('yeartoggle').checked = true;"
-                >
-                  Godišnje
-                </div>
-              </label>
-            </div>
-            <div class="full flex center pretplata-packboxes">
-              <div
-                class="half flex-responsive flex relative pretplata-packbox stretch"
-              >
-                <div class="full flex overtitle-parent">
-                  <div class="noththree overtitle">Standard</div>
-                </div>
-                <div class="full sub-price bold">3,99€</div>
-                <div class="nothfour full center-text undertitle">
-                  svaka 4 tjedna
-                </div>
-                <div class="full pretplata-benefits">
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    neograničeno čitanje Telesporta
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    posebni popusti i pogodnosti
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    specijalni newsletteri
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    verificirani profil u komentarima
-                  </p>
-                </div>
-                <div class="full center btn-parent" @click="checkout(one)">
-                  <div class="btn animate">Odaberi</div>
-                </div>
-              </div>
-              <div
-                class="half flex-responsive flex relative pretplata-packbox stretch"
-              >
-                <div class="full flex overtitle-parent">
-                  <div class="noththree overtitle">Premium</div>
-                </div>
-                <div class="full sub-price bold">9,99€</div>
-                <div class="nothfour full center-text undertitle">
-                  svaka 4 tjedna
-                </div>
-                <div class="full pretplata-benefits">
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    neograničeno čitanje Telegrama
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    neograničeno čitanje Telesporta
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    posebni popusti i pogodnosti
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    specijalni newsletteri
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    verificirani profil u komentarima
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    surfanje bez oglasa
-                  </p>
-                </div>
-                <div class="full center btn-parent" @click="checkout(two)">
-                  <div class="btn animate">Odaberi</div>
-                </div>
-              </div>
-              <div
-                class="half flex-responsive flex relative pretplata-packbox stretch"
-              >
-                <div class="full flex overtitle-parent">
-                  <div class="noththree overtitle">Standard</div>
-                </div>
-                <div class="full sub-price bold">39€</div>
-                <div class="nothfour full center-text undertitle">godišnje</div>
-                <div class="full pretplata-benefits">
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    neograničeno čitanje Telesporta
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    posebni popusti i pogodnosti
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    specijalni newsletteri
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    verificirani profil u komentarima
-                  </p>
-                </div>
-                <div class="full center btn-parent" @click="checkout(three)">
-                  <div class="btn animate">Odaberi</div>
-                </div>
-              </div>
-              <div
-                class="half flex-responsive flex relative pretplata-packbox stretch"
-              >
-                <div class="full flex overtitle-parent">
-                  <div class="noththree overtitle">Premium</div>
-                </div>
-                <div class="full sub-price bold">99€</div>
-                <div class="nothfour full center-text undertitle">godišnje</div>
-                <div class="full pretplata-benefits">
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    neograničeno čitanje Telegrama
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    neograničeno čitanje Telesporta
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    posebni popusti i pogodnosti
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    specijalni newsletteri
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    verificirani profil u komentarima
-                  </p>
-                  <p class="full animate">
-                    <font-awesome-icon
-                      :icon="['fas', 'check']"
-                    ></font-awesome-icon>
-                    surfanje bez oglasa
-                  </p>
-                </div>
-                <div class="full center btn-parent" @click="checkout(four)">
-                  <div class="btn animate">Odaberi</div>
-                </div>
-              </div>
-              <a
-                href="mailto:pretplata@telegram.hr"
-                class="full center-text undertitle"
-                >Trebat će vam R1 račun ili želite ponudu za pravne osobe?
-                Javite nam se.</a
-              >
-            </div>
-          </div>
+    <PretplataHeroTelesport
+      title="Čitajte najbolje članke renomiranih autora. Podržite slobodno novinarstvo pretplatom."
+    ></PretplataHeroTelesport>
+    <div class="content">
+      <div class="box-wrapper">
+        <Switcher
+          @subscription-type-changed="handleSubscriptionChange"
+        ></Switcher>
+        <div class="boxes">
+          <PretplataNewBox
+            type="telesport"
+            :subscription-type="subscriptionType"
+            :selected="selectedPlan === 'telesport'"
+            @select="selectPlan"
+          ></PretplataNewBox>
+          <PretplataNewBox
+            type="premium"
+            :subscription-type="subscriptionType"
+            :selected="selectedPlan === 'premium'"
+            @select="selectPlan"
+          ></PretplataNewBox>
         </div>
       </div>
-    </div>
-
-    <div class="full flex pretplata-faq">
-      <div
-        class="container relative flex mobile-side-pad column-full-pad single-article-body"
-      >
-        <h2 class="full">Često postavljana pitanja</h2>
-        <details class="full flex relative">
-          <summary class="full relative">Što je pretplata na Telegram?</summary>
-          <p>
-            Pretplata na Telegram omogućuje Vam, ovisno o paketu, neograničeno
-            čitanje Telegrama i Telesporta, ali i brojne druge benefite i
-            funkcionalnosti poput surfanja bez oglasa, popust na knjige i
-            ekskluzivnih
-            <app-link to="/newsletters">newslettera</app-link>.
-          </p>
-        </details>
-        <details class="full flex relative">
-          <summary class="full relative">
-            Zašto postoji pretplata na Telegramu?
-          </summary>
-          <p>
-            Bespoštedno i neovisno novinarstvo, istraživački specijali i velike
-            priče nisu jeftini. Svake godine stotine tisuća eura odlaze nam na
-            sudske borbe protiv moćnika koji, nakon što smo ih uhvatili u
-            nedjelima, pokušavaju takvim pritiskom financijski devastirati
-            Telegram. Nerijetko za tužbe i odmazde koriste javni novac, odnosno
-            neograničena sredstva institucija na čijem su čelu, a protiv
-            neograničenih sredstava nije se lako boriti. Upravo zato odlučili
-            smo pitati vas, naše čitatelje, za podršku u ovome što radimo.
-          </p>
-        </details>
-        <details class="full flex relative">
-          <summary class="full relative">
-            Kako da se pretplatim na Telegram?
-          </summary>
-          <p>
-            Vrlo jednostavno, samo odaberite jedan od gore ponuđenih mjesečnih
-            ili godišnjih paketa, a sustav će Vas dalje sam voditi kroz vrlo
-            kratak i jednostavan proces registracije i kupnje.
-          </p>
-        </details>
-        <details class="full flex relative">
-          <summary class="full relative">Koliko košta pretplata?</summary>
-          <p>
-            Cijena pretplate ovisi o paketu koji odaberete. Možete se
-            pretplatiti na mjesečnoj ili godišnjoj bazi i to na samo jedan ili
-            više naših portala. Kako bismo Vam izašli u susret, pripremili smo
-            povoljnu premium opciju mjesečne pretplate, kao i još povoljnije
-            godišnje pretplate.
-          </p>
-        </details>
-        <details class="full flex relative">
-          <summary class="full relative">
-            Koja mi se opcija pretplate najviše isplati?
-          </summary>
-          <p>
-            Najisplativija opcija je godišnja premium pretplata: u njoj za samo
-            6,50 eura mjesečno (godišnji iznos naplaćuje se jednokratno)
-            dobivate godinu dana neograničenog čitanja Telegrama i Telesporta
-            bez oglasa, nove funkcionalnosti koje ćemo uvoditi i popust na
-            knjigu jednog od naših autora.
-          </p>
-        </details>
-        <details class="full flex relative">
-          <summary class="full relative">Kako mogu platiti pretplatu?</summary>
-          <p>
-            Pretplatu možete sigurno platiti svim Maestro, Mastercard, Visa i
-            Diners karticama.
-          </p>
-        </details>
-        <details class="full flex relative">
-          <summary class="full relative">
-            Mogu li nekome pokloniti pretplatu?
-          </summary>
-          <p>
-            Dapače, upravo je u tijeku Božićna akcija darivanja. Samo posjetite
-            <app-link to="/pretplata/poklon">ovu stranicu</app-link> i pratite
-            korake za jedan od najoriginalnijih poklona ovog Božića.
-          </p>
-        </details>
-        <details class="full flex relative">
-          <summary class="full relative">
-            Mogu li čitati Telegram sa svih uređaja jednom kad se pretplatim?
-          </summary>
-          <p>
-            Da, svaki pretplatnik može čitati Telegram na svakom uređaju, bio to
-            mobitel, računalo ili tablet.
-          </p>
-        </details>
-        <details class="full flex relative">
-          <summary class="full relative">
-            Mogu li dijeliti svoju pretplatu s drugima?
-          </summary>
-          <p>
-            Ne, dijeljenje pretplate nije dopušteno, a u slučaju sumnje u
-            dijeljenje pretplate zadržavamo pravo zatvoriti korisnički račun.
-          </p>
-        </details>
-        <details class="full flex relative">
-          <summary class="full relative">
-            Mi smo tvrtka/škola/knjižnica/fakultet, postoji li opcija grupne
-            pretplate?
-          </summary>
-          <p>
-            Za opcije grupne pretplate pravnim osobama javite se na
-            <a href="mailto:pretplata@telegram.hr">pretplata@telegram.hr</a>.
-          </p>
-        </details>
-        <details class="full flex relative">
-          <summary class="full relative">
-            Hoću li moći čitati Telegram i ako se ne pretplatim?
-          </summary>
-          <p>
-            Sve naše članke, pa i najbolje kolumne i istraživačke serijale, i
-            dalje ćete moći nesmetano i besplatno čitati, ali do određene
-            količine mjesečno. Nakon što potrošite svoju količinu besplatnih
-            članaka u mjesecu, da bi ste nastavili čitati bit će Vam potrebna
-            pretplata.
-          </p>
-        </details>
-        <details class="full flex relative">
-          <summary class="full relative">
-            Mogu li se pretplatiti samo na Telesport?
-          </summary>
-          <p>
-            Naravno, možete se pretplatiti samo na Telegram, samo na Telesport
-            ili na oba portala zajedno, kako Vama najbolje odgovara.
-          </p>
-        </details>
-        <details class="full flex relative">
-          <summary class="full relative">
-            Mogu li otkazati pretplatu jednom kad se pretplatim?
-          </summary>
-          <p>
-            Naravno, pretplatu možete samostalno i jednostavno otkazati u bilo
-            kojem trenutku kroz korisničko sučelje.
-          </p>
-        </details>
-        <details class="full flex relative">
-          <summary class="full relative">
-            Kako se obnavlja jednom kupljena pretplata?
-          </summary>
-          <p>
-            Sve mjesečne i godišnje pretplate automatski se obnavljaju po svom
-            isteku na isti vremenski period kako Vi ne biste morali brinuti o
-            tome. Ukoliko želite isključiti automatsku obnovu, to možete
-            jednostavno napraviti jednim klikom u korisničkom sučelju.
-          </p>
-        </details>
-        <details class="full flex relative">
-          <summary class="full relative">
-            Imam pretplatu, no i dalje ne mogu čitati tekstove?
-          </summary>
-          <p>
-            Najvjerojatnije niste prijavljeni u svoj korisnički račun. Kada
-            posjetite Telegram, u gornjem desnom kutu ekrana nalazi se gumb
-            "PRIJAVA", odnosno ikona čovječuljka ako ste na mobilnom uređaju.
-            Klikom na gumb otvorit će Vam se prozor u kojemu se možete prijaviti
-            sa svojom e-mail adresom i lozinkom koju ste postavili, a
-            prepručujemo da ostavite označenom opciju "ostanite prijavljeni"
-            kako se ne biste morali opet prijavljivati pri sljedećem čitanju u
-            istom internetskom pregledniku. Ukoliko ste se prijavljeni, no i
-            dalje ne možete čitati tekstove, javite nam se na
-            <a href="mailto:pretplata@telegram.hr">pretplata@telegram.hr</a>
-            kako bismo što brže riješili problem.
-          </p>
-        </details>
-        <details class="full flex relative">
-          <summary class="full relative">
-            Ne mogu pronaći odgovor na svoje pitanje.
-          </summary>
-          <p>
-            Javite nam se na
-            <a href="mailto:pretplata@telegram.hr">pretplata@telegram.hr</a>
-            i odgovorit ćemo vam u najkraćem roku.
-          </p>
-        </details>
+      <div>
+        <PretplataPayment
+          :term="selectedTerm"
+          :payment-type="payment"
+          :annual-price="annualPrice"
+          :monthly-price="monthlyPrice"
+          @selectTerm="selectTerm"
+          @selectPaymentType="selectPaymentType"
+        />
+        <PretplataLogin
+          :email="email"
+          :login-url="'telesport'"
+          :can-log-in="canLogIn"
+          @updateCanLogIn="updateCanLogIn"
+          @updateEmail="updateEmail"
+        ></PretplataLogin>
+        <PretplataPaymentConfirm
+          :url-key="urlKey"
+          :loading="loading"
+          :can-log-in="canLogIn"
+          :logged-in="loggedIn"
+          :payment-type="payment"
+          :pack="pack"
+          :price="price"
+          :email="email"
+          :discounted-amount="discount"
+          @updateLoading="handleUpdateLoading"
+          @updateDiscount="handleUpdateDiscount"
+        ></PretplataPaymentConfirm>
       </div>
     </div>
-    <tfooter></tfooter>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Pretplata',
   data() {
     return {
+      loading: false,
+      subscriptionType: 'individual',
+      selectedPlan: 'premium',
+      selectedTerm: 'annual',
+      payment: 'trustpay_recurrent',
+      price: '',
+      pack: 'pretplata-standard',
+      term: 'pretplata-godisnje',
+      annualPrice: '',
+      monthlyPrice: '',
       promo_code: '',
+      email: this.$store.state.user.email,
+      password: '',
+      showPassword: false,
+      terms: false,
+      privacy: false,
+      auth: 0,
+      urlKey: 'telesport',
+      instance: null,
+      customerId: null,
+      iframeUrl: '',
+      canLogIn: true,
+      voucher_log_id: null,
+      discount: 0,
+      loadingPromo: false,
+      promo_error: '',
     }
   },
   computed: {
-    one() {
-      return 'TMBE39XTDDLB'
-    },
-    two() {
-      return 'TMGE7VQFC1QO'
-    },
-    three() {
-      return 'TM9H28SXGG2N'
-    },
-    four() {
-      return 'TMMP593NCIAN'
+    loggedIn() {
+      return !!this.$store.state.user.id
     },
   },
   mounted() {
-    this.$nextTick(() => {
-      this.promo_code = this.$route.query.promo_code
-      window.tp.push([
-        'addHandler',
-        'checkoutComplete',
-        function (conversion) {
-          if (conversion.rid === '') {
-            this.$store.commit('user/setTerm', true)
-          }
-        },
-      ])
-      if (this.$route.query.term) {
-        this.checkout(this.$route.query.term)
-      }
-    })
+    this.calculatePrice()
   },
   methods: {
-    canLogIn() {
-      return this.$store.state.user.exp * 1000 < new Date().getTime()
+    handleSubscriptionChange(type) {
+      this.subscriptionType = type
+      this.calculatePrice()
     },
-    checkout(termId, upgrade) {
-      this.$piano.start(termId)
+    handleUpdateLoading(state) {
+      this.loading = state
+    },
+    handleUpdateDiscount(value) {
+      this.discount = value
+    },
+    selectPlan(planType) {
+      this.selectedPlan = planType
+      this.calculatePrice()
+    },
+    selectTerm(term) {
+      this.selectedTerm = term
+      this.calculatePrice()
+    },
+    selectPaymentType(paymentType) {
+      this.payment = paymentType
+      this.calculatePrice()
+    },
+    updateEmail(email) {
+      this.email = email
+    },
+    updateCanLogIn(value) {
+      this.canLogIn = value
+    },
+    calculatePrice() {
+      switch (this.subscriptionType) {
+        case 'individual':
+          this.discount = 0
+          this.urlKey = 'telesport'
+          switch (this.selectedPlan) {
+            case 'telesport':
+              if (this.selectedTerm === 'monthly') {
+                this.pack = 'telesport_mjesecna_pretplata_2024'
+                this.price = '3.99'
+              } else {
+                this.pack = 'telesport_godisnja_pretplata_2024'
+                this.price = '39'
+              }
+              this.monthlyPrice = '3.99'
+              this.annualPrice = '39'
+              break
+            case 'premium':
+              this.urlKey = 'main'
+              if (this.selectedTerm === 'monthly') {
+                this.pack = 'telegram_premium_4_tjedna_pretplata_2024'
+                this.price = '9.99'
+              } else {
+                this.pack = 'telegram_premium_godisnja_pretplata_2024'
+                this.price = '99'
+              }
+              this.monthlyPrice = '9.99'
+              this.annualPrice = '99'
+              break
+          }
+          break
+        case 'family':
+          this.discount = 0
+          this.urlKey = 'family'
+          switch (this.selectedPlan) {
+            case 'telesport':
+              if (this.selectedTerm === 'monthly') {
+                this.pack = 'telesport_4_tjedna_family_pretplata_admin'
+                this.price = '8.39'
+              } else {
+                this.pack = 'telesport_godisnja_family_pretplata_admin'
+                this.price = '81.90'
+              }
+              this.monthlyPrice = '8.39'
+              this.annualPrice = '81.90'
+              break
+            case 'premium':
+              if (this.selectedTerm === 'monthly') {
+                this.pack = 'telegram_premium_4_tjedna_family_pretplata_admin'
+                this.price = '20.99'
+              } else {
+                this.pack = 'telegram_premium_godisnja_family_pretplata_admin'
+                this.price = '208'
+              }
+              this.monthlyPrice = '20.99'
+              this.annualPrice = '208'
+              break
+          }
+          break
+      }
     },
   },
+
   head() {
     return {
-      title: 'Telegram.hr Pretplata',
+      title: 'Telesport Pretplata',
       meta: [
         {
           hid: 'description',
@@ -477,7 +210,7 @@ export default {
           hid: 'og:title',
           name: 'og:title',
           property: 'og:title',
-          content: 'Telegram.hr Pretplata',
+          content: 'Telesport Pretplata',
         },
         {
           hid: 'og:image',
@@ -490,7 +223,7 @@ export default {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/pretplata/',
+          content: 'https://www.telegram.hr/pretplata/telesport',
         },
       ],
       link: [
@@ -502,132 +235,88 @@ export default {
       ],
       script: [
         {
-          vmid: 'schema-ld',
-          hid: 'schema-ld',
-          type: 'application/ld+json',
-          json: [
-            {
-              '@context': 'https://schema.org',
-              '@type': 'ItemList',
-              name: 'Telegram.hr Pretplata',
-              description: 'Odaberite jedan od paketa i podržite nas',
-              image:
-                'https://www.telegram.hr/wp-content/uploads/2021/01/tg-background.jpg',
-              itemListElement: [
-                {
-                  '@type': 'ListItem',
-                  position: 1,
-                  item: {
-                    '@type': 'Product',
-                    name: 'Telegram Mjesečna Pretplata',
-                    description: 'Mjesečna pretplata na Telegram.hr',
-                    sku: 'TMJHR6Y8K4QA',
-                    mpn: 'TMJHR6Y8K4QA',
-                    image:
-                      'https://www.telegram.hr/wp-content/uploads/2021/01/tg-background.jpg',
-                    offers: {
-                      '@type': 'Offer',
-                      url: 'https://www.telegram.hr/pretplata',
-                      priceCurrency: 'EUR',
-                      price: 6.49,
-                      itemCondition: 'https://schema.org/NewCondition',
-                      availability: 'https://schema.org/InStock',
-                      seller: this.$store.state.header.publisher,
-                    },
-                    aggregateRating: {
-                      '@type': 'AggregateRating',
-                      ratingValue: '4.9',
-                      reviewCount: '100',
-                    },
-                  },
-                },
-                {
-                  '@type': 'ListItem',
-                  position: 2,
-                  item: {
-                    '@type': 'Product',
-                    name: 'Telegram Premium Mjesečna Pretplata',
-                    description: 'Mjesečna premium pretplata na Telegram.hr',
-                    sku: 'TMY8ORHQG44A',
-                    mpn: 'TMY8ORHQG44A',
-                    image:
-                      'https://www.telegram.hr/wp-content/uploads/2021/01/tg-background.jpg',
-                    offers: {
-                      '@type': 'Offer',
-                      url: 'https://www.telegram.hr/pretplata',
-                      priceCurrency: 'EUR',
-                      price: 9.16,
-                      itemCondition: 'https://schema.org/NewCondition',
-                      availability: 'https://schema.org/InStock',
-                      seller: this.$store.state.header.publisher,
-                    },
-                    aggregateRating: {
-                      '@type': 'AggregateRating',
-                      ratingValue: '4.9',
-                      reviewCount: '100',
-                    },
-                  },
-                },
-                {
-                  '@type': 'ListItem',
-                  position: 3,
-                  item: {
-                    '@type': 'Product',
-                    name: 'Telegram Godišnja Pretplata',
-                    description: 'Godišnja pretplata na Telegram.hr',
-                    sku: 'TM8RZKGESM1T',
-                    mpn: 'TM8RZKGESM1T',
-                    image:
-                      'https://www.telegram.hr/wp-content/uploads/2021/01/tg-background.jpg',
-                    offers: {
-                      '@type': 'Offer',
-                      url: 'https://www.telegram.hr/pretplata',
-                      priceCurrency: 'EUR',
-                      price: 62,
-                      itemCondition: 'https://schema.org/NewCondition',
-                      availability: 'https://schema.org/InStock',
-                      seller: this.$store.state.header.publisher,
-                    },
-                    aggregateRating: {
-                      '@type': 'AggregateRating',
-                      ratingValue: '4.9',
-                      reviewCount: '100',
-                    },
-                  },
-                },
-                {
-                  '@type': 'ListItem',
-                  position: 4,
-                  item: {
-                    '@type': 'Product',
-                    name: 'Telegram Premium Godišnja Pretplata',
-                    description: 'Godišnja premium pretplata na Telegram.hr',
-                    sku: 'TMQDTT4IEHY0',
-                    mpn: 'TMQDTT4IEHY0',
-                    image:
-                      'https://www.telegram.hr/wp-content/uploads/2021/01/tg-background.jpg',
-                    offers: {
-                      '@type': 'Offer',
-                      url: 'https://www.telegram.hr/pretplata',
-                      priceCurrency: 'EUR',
-                      price: 78,
-                      itemCondition: 'https://schema.org/NewCondition',
-                      availability: 'https://schema.org/InStock',
-                      seller: this.$store.state.header.publisher,
-                    },
-                    aggregateRating: {
-                      '@type': 'AggregateRating',
-                      ratingValue: '4.9',
-                      reviewCount: '100',
-                    },
-                  },
-                },
-              ],
-            },
-          ],
+          hid: 'jquery',
+          src: 'https://code.jquery.com/jquery-3.7.1.min.js',
+        },
+        {
+          hid: 'trustpay-popup',
+          src: 'https://mapi.trustpay.eu/mapi5/Scripts/TrustPay/popup.js',
         },
       ],
     }
   },
 }
 </script>
+
+<style scoped>
+.telegram-overlay {
+  position: fixed;
+  top: 0;
+  z-index: 101;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  align-content: center;
+  background: rgb(0, 0, 0, 0.5);
+}
+.telegram-loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  border: 10px solid;
+  box-sizing: border-box;
+  animation: animloader 1s linear infinite alternate;
+}
+
+@keyframes animloader {
+  0% {
+    border-color: #ae3737 rgba(255, 255, 255, 0) rgba(255, 255, 255, 0)
+      rgba(255, 255, 255, 0);
+  }
+  33% {
+    border-color: #ae3737 #ae3737 rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
+  }
+  66% {
+    border-color: #ae3737 #ae3737 #ae3737 rgba(255, 255, 255, 0);
+  }
+  100% {
+    border-color: #ae3737 #ae3737 #ae3737 #ae3737;
+  }
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px 16px 60px 16px;
+  margin: 0 auto;
+  max-width: 865px;
+}
+.box-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: space-between;
+}
+.boxes {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 865px;
+}
+@media screen and (min-width: 1024px) {
+  .content {
+    padding: 24px 0px 60px 0px;
+  }
+  .boxes {
+    flex-direction: row;
+    gap: 60px;
+  }
+  .box-wrapper {
+    gap: 24px;
+  }
+}
+</style>

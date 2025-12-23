@@ -1,41 +1,27 @@
 export default ({ route }, inject) => {
   function check(path) {
     let dotmetricsId = '1182'
-    if (path.includes('politika-kriminal')) {
-      dotmetricsId = '1174'
-    }
-    if (path.includes('biznis-tech')) {
-      dotmetricsId = '1176'
-    }
-    if (path.includes('kultura')) {
-      dotmetricsId = '1178'
-    }
-    if (path.includes('zivot')) {
-      dotmetricsId = '1179'
-    }
-    if (path.includes('velike-price')) {
-      dotmetricsId = '1177'
-    }
-    if (path.includes('pitanje-zdravlja')) {
-      dotmetricsId = '12607'
+    if (
+      path.includes('politika-kriminal') ||
+      path.includes('biznis-tech') ||
+      path.includes('komentari') ||
+      path.includes('vijesti')
+    ) {
+      dotmetricsId = '15854'
     }
     if (
-      path.includes('openspace') ||
-      path.includes('vjestine') ||
-      path.includes('tvrtke-karijere') ||
-      path.includes('vodici') ||
-      path.includes('kvizovi-testovi')
+      path.includes('kultura') ||
+      path.includes('zivot') ||
+      path.includes('pitanje-zdravlja') ||
+      path.includes('velike-price')
     ) {
-      dotmetricsId = '12608'
+      dotmetricsId = '15855'
     }
     if (path.includes('super1') || path.includes('superone')) {
       dotmetricsId = '4136'
     }
-    if (path.includes('telesport')) {
+    if (path.includes('telesport') || path.includes('sport')) {
       dotmetricsId = '1175'
-    }
-    if (path === '/') {
-      dotmetricsId = '1173'
     }
     return dotmetricsId
   }
@@ -48,7 +34,7 @@ export default ({ route }, inject) => {
         ssid,
         ad,
       })
-      if (typeof window.DotMetricsObj !== 'undefined') {
+      if (typeof window.DotMetricsObj !== 'undefined' && window.DotMetricsObj.onAjaxDataUpdate) {
         window.DotMetricsObj.onAjaxDataUpdate()
       }
     }
@@ -69,9 +55,7 @@ export default ({ route }, inject) => {
     }
   }
 
-  if (route.name !== 'category-slug') {
-    load(route.path)
-  }
+  load(route.path)
   inject('dotmetrics', {
     load,
     check,

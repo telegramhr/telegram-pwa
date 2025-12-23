@@ -1,5 +1,9 @@
 <template>
-  <div class="full flex article-featured article" role="article">
+  <div
+    class="full flex article-featured article"
+    role="article"
+    :data-id="post.id"
+  >
     <app-link
       class="full flex"
       :to="post.permalink"
@@ -8,8 +12,8 @@
     >
       <img
         :srcset="srcset"
-        :src="post.image.url"
-        :alt="post.image.alt"
+        :src="post.image?.url"
+        :alt="post.image?.alt"
         loading="lazy"
         width="800"
         height="505"
@@ -42,7 +46,7 @@
         </h2>
         <div class="nothfour full">{{ post.subtitle | parseCat }}</div>
         <div class="nothfive full flex article-meta">
-          <span v-if="post.authors.length" class="meta-author"
+          <span v-if="post.authors?.length" class="meta-author"
             ><i>Piše</i>
             {{ post.authors.length ? post.authors[0].name : '' }}</span
           >
@@ -139,6 +143,9 @@ export default {
       )
     },
     srcset() {
+      if (!this.post.image) {
+        return ''
+      }
       let set = `${this.post.image.url}`
       if (this.post.image.url2) {
         set += `, ${this.post.image.url2} 2x`

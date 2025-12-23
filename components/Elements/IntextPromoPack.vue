@@ -115,7 +115,7 @@ export default {
       } else if (this.cta_link) {
         window.open(this.cta_link, '_blank')
       } else if (this.$route.path.includes('telesport')) {
-        this.$router.push('/pretplata/telesport')
+        document.location.href = this.$router.push('/pretplata/telesport')
       } else {
         this.$router.push('/pretplata')
       }

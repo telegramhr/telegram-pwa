@@ -40,16 +40,9 @@
             >Pretplatite se</app-link
           >
           <app-link
-            v-show="!canLogIn && !$route.fullPath.includes('super1')"
-            id="Poklonite pretplatu - header"
-            to="/pretplata/poklon"
-            class="newbtn"
-            >Poklonite pretplatu</app-link
-          >
-          <app-link
             v-show="!canLogIn"
             class="column-mini-left-pad desktop-only"
-            to="/moj-racun"
+            to="https://pretplata.telegram.hr/subscriptions/subscriptions/my"
             aria-label="Moj račun"
           >
             <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
@@ -183,6 +176,47 @@
         <!--<partner-special position="s1"></partner-special>-->
       </div>
     </client-only>
+    <section v-if="secret.length" class="full flex relative">
+      <div class="container flex relative">
+        <div class="full center relative superone-st-bottompad">
+          <div class="noththree flex superone-section-title">
+            <img
+              src="@/assets/img/s1_logo_clean_noline.svg"
+              alt="Super1 logo"
+              loading="lazy"
+            />
+            <img
+              src="@/assets/img/s1_logo_clean_noline_white.svg"
+              alt="Super1 logo"
+              class="dark-mode-only"
+              loading="lazy"
+            />
+            RNB Confusion x Super1
+          </div>
+        </div>
+        <div class="full flex relative">
+          <VueSlickCarousel
+            ref="carousel"
+            v-bind="slider_settings"
+            style="display: block; width: 100%"
+          >
+            <div
+              v-for="(post, index) in secret"
+              :key="post.id"
+              class="third flex-responsive flex column-full-pad"
+            >
+              <superfeat
+                :key="post.id"
+                :post="post"
+                mrf-location="super1"
+                mrf-widget="secret-dinner"
+                :mrf-position="(index + 1).toString()"
+              ></superfeat>
+            </div>
+          </VueSlickCarousel>
+        </div>
+      </div>
+    </section>
     <div class="full relative">
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
@@ -330,14 +364,63 @@
     <tfooter></tfooter>
   </div>
 </template>
-
+<style scoped>
+.superone-pilatesBag {
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+}
+.bottom-wrapper-section {
+  margin-top: -72px;
+  position: relative;
+  z-index: 30;
+  padding: 0px 24px;
+}
+.bottom-section-title {
+  padding: 18px 20px;
+  border: 1px solid black;
+  background-color: white;
+}
+.bottom-section-title .title {
+  font-size: 24px;
+  line-height: 26px;
+}
+.bajadera-span-title {
+  line-height: 42px;
+}
+@media (min-width: 768px) {
+  .superone-pilatesBag {
+    gap: 0px;
+  }
+  .bottom-wrapper-section {
+    margin-top: -72px;
+    position: relative;
+    z-index: 30;
+    padding: 0px 24px 60px 24px;
+  }
+}
+@media (min-width: 1024px) {
+  .bottom-section-title .title {
+    font-size: 28px;
+    line-height: 32px;
+  }
+  .bottom-wrapper-section {
+    margin-top: -72px;
+    position: relative;
+    z-index: 30;
+    padding: 0px 24px;
+  }
+}
+</style>
 <script>
 import Superfeat from '~/components/articles/Superfeat.vue'
 export default {
   components: { Superfeat },
   async fetch() {
     await this.$store.dispatch('s1/pullPosts')
+    await this.$store.dispatch('s1/pullSecretDinnerPosts')
     await this.$store.dispatch('s1/pullBreaks')
+    await this.$store.dispatch('s1/pullBreaks2')
     // await this.$store.dispatch('category/mostRead', { category: 'super1' })
   },
   data() {
@@ -346,17 +429,49 @@ export default {
       hasMore: true,
       featured: [],
       page: 2,
+      slider_settings: {
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        arrows: false,
+        autoplay: true,
+        responsive: [
+          {
+            breakpoint: 767,
+            settings: {
+              centerMode: true,
+              slidesToShow: 2,
+            },
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 1,
+              centerMode: true,
+            },
+          },
+        ],
+      },
     }
   },
   computed: {
+    canLogIn() {
+      return this.$store.getters['user/canLogIn']
+    },
     hasPremium() {
       return this.$store.getters['user/hasPremium']
     },
     posts() {
       return this.$store.state.s1.posts
     },
+    secretDinnerPosts() {
+      return this.$store.state.s1.secretDinnerPosts
+    },
     breaks() {
       return this.$store.state.s1.breaks
+    },
+    secret() {
+      return this.$store.state.s1.breaks2
     },
     mostRead() {
       return this.$store.state.category.categories.super1.mostRead
@@ -375,7 +490,6 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.$store.dispatch('ads/initAds', { route: this.$route })
-      window.tp.push(['setCustomVariable', 'isPaywall', 'never'])
     })
   },
   head() {

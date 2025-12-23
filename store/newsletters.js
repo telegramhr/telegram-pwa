@@ -1,34 +1,8 @@
 import Vue from 'vue'
 
 export const state = () => ({
-  api_key: 'V2rR5WTQbQyHEqCMvFEaUGU3ZNVkt4s6hnvmCz9dXt9aUwzMaUmXAhVzmv83',
-  lists: {
-    2128: false,
-    2554: false,
-    2555: false,
-    2559: false,
-    2560: false,
-    2561: false,
-    2563: false,
-    2564: false,
-    2565: false,
-    2566: false,
-    2567: false,
-    2568: false,
-    2596: false,
-    2597: false,
-    2598: false,
-    2599: false,
-    2600: false,
-    2626: false,
-    2627: false,
-    2628: false,
-    2629: false,
-    2630: false,
-    2631: false,
-    2642: false,
-    9962: false,
-  },
+  api_key1: '97a55449-2b35-4a24-865b-9e608a9eca0f',
+  lists: {},
   updated: null,
 })
 
@@ -64,36 +38,39 @@ export const actions = {
     if (!email) {
       return
     }
-    // const a = this.$axios.create()
-    commit('updated')
-    Object.keys(state.lists).forEach((key) => {
-      if (email && key) {
-        this.$axios
-          .get(`/subs/email/${email}/ml/${key}`)
-          .then(() => {
-            commit('hasSub', key)
-          })
-          .catch(() => {})
-      }
-    })
+    this.$axios
+      .$post(
+        '/mailer/api/v1/users/user-preferences',
+        {
+          user_id: rootState.user.id,
+          email,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${state.api_key1}`,
+          },
+        }
+      )
+      .then((res) => {
+        res.forEach((item) => {
+          if (item.is_subscribed) {
+            commit('hasSub', item.code)
+          }
+        })
+      })
   },
   subscribe({ rootState, commit, state, dispatch }, payload) {
-    if (!rootState.user.email) {
-      // no user, prompt to login
-      window.tp.pianoId.show({
-        screen: 'register',
-        width: window.innerWidth > 720 ? 600 : 375,
-        loggedIn(data) {
-          dispatch('user/setUser', data.user, { root: true })
-          dispatch('subscribe', payload)
-        },
-      })
-    } else if (payload.free || rootState.user.access) {
+    if (payload.free || rootState.user.access) {
       this.$axios
-        .post('/subs/', {
-          email: rootState.user.email,
-          mlids: [payload.mlid],
-        })
+        .post(
+          '/mailer/api/v1/users/subscribe',
+          {
+            email: rootState.user.email,
+            user_id: rootState.user.id,
+            list_code: payload.mlid,
+          },
+          { headers: { Authorization: `Bearer ${state.api_key1}` } }
+        )
         .then(() => {
           commit('hasSub', payload.mlid)
           this.$gtm.push({})
@@ -116,12 +93,17 @@ export const actions = {
       return
     }
     this.$axios
-      .delete('/subs/', {
-        data: {
-          email,
-          mlids: [payload.mlid],
+      .post(
+        '/mailer/api/v1/users/un-subscribe',
+        {
+          data: {
+            email,
+            user_id: rootState.user.id,
+            list_code: payload.mlid,
+          },
         },
-      })
+        { headers: { Authorization: `Bearer ${state.api_key1}` } }
+      )
       .then(() => {
         commit('unSub', payload.mlid)
         this.$gtm.push({})
@@ -135,6 +117,7 @@ export const actions = {
       })
   },
   clearAccess({ commit }) {
+    this.$cookies.remove('n_token')
     commit('clearAccess')
   },
 }

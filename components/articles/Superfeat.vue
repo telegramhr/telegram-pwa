@@ -2,6 +2,7 @@
   <div
     class="full flex article-featured article-superfeat article relative"
     role="article"
+    :data-id="post.id"
     :data-mrf-recirculation="recirculation"
   >
     <app-link
@@ -27,8 +28,7 @@
         </h2>
         <div class="nothfive full flex article-meta">
           <span v-if="post.authors.length" class="meta-author"
-            ><i>Piše</i>
-            {{ post.authors.length ? post.authors[0].name : '' }}</span
+            ><i>Piše</i> {{ post.authors.map((i) => i.name).join(', ') }}</span
           >
         </div>
       </app-link>

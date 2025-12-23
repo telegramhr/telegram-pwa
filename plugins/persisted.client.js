@@ -16,6 +16,7 @@ export default ({ store }) => {
       'authors',
       'promos',
       'uzivo',
+      'pretplata',
     ],
   })(store)
 }

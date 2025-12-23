@@ -3,6 +3,7 @@
     <transition name="fade">
       <div
         v-show="!shouldHide"
+        id="telegram_sticky_back"
         :class="[
           'flex',
           'full',
@@ -64,7 +65,9 @@ export default {
     bannerClass() {
       if (
         (this.size[0] === 900 && this.size[1] === 600) ||
-        (this.size[0] === 320 && this.size[1] === 480)
+        (this.size[0] === 320 && this.size[1] === 480) ||
+        (this.size[0] === 1700 && this.size[1] === 800) ||
+        (this.size[0] === 700 && this.size[1] === 330)
       ) {
         return 'takeover'
       }
@@ -78,47 +81,57 @@ export default {
     },
   },
   mounted() {
-    window.addEventListener('tmg_no_close', (e) => {
-      console.log('no close')
-      this.showClose = false
-    })
-    this.$watch(
-      () => this.$route.path,
-      (to) => {
-        if (to.includes('pretplata') || to.includes('moj-racun')) {
-          this.shouldHide = true
-        }
+    this.$nextTick(() => {
+      if (this.$store.getters['user/hasPremium']) {
+        this.shouldHide = true
+        return
       }
-    )
-    const _that = this
-    window.googletag = window.googletag || {}
-    window.googletag.cmd = window.googletag.cmd || []
-    window.googletag.cmd.push(() => {
-      window.googletag
-        .pubads()
-        .addEventListener('slotRenderEnded', function (event) {
-          const name = event.slot.getAdUnitPath().split('/').pop()
-          if (!name.includes('sticky') || event.isEmpty) {
-            return
+      window.addEventListener('tmg_no_close', (e) => {
+        this.showClose = false
+      })
+      document.addEventListener('click', (e) => {
+        if (e.target.id === 'telegram_sticky_back') {
+          this.close()
+        }
+      })
+      this.$watch(
+        () => this.$route.path,
+        (to) => {
+          if (to.includes('pretplata') || to.includes('moj-racun')) {
+            this.shouldHide = true
           }
-          if (
-            _that.shouldHide &&
-            !event.isEmpty &&
-            !_that.$route.path.includes('pretplata')
-          ) {
-            _that.shouldHide = false
-            _that.showClose = true
-          }
-          if (name.includes('sticky') && !event.isEmpty) {
-            _that.showClose = true
-            _that.size = event.size
-            if (_that.bannerClass === 'takeover') {
-              setTimeout(() => {
-                _that.shouldHide = true
-              }, 30000)
+        }
+      )
+      const _that = this
+      window.googletag = window.googletag || {}
+      window.googletag.cmd = window.googletag.cmd || []
+      window.googletag.cmd.push(() => {
+        window.googletag
+          .pubads()
+          .addEventListener('slotRenderEnded', function (event) {
+            const name = event.slot.getAdUnitPath().split('/').pop()
+            if (!name.includes('sticky') || event.isEmpty) {
+              return
             }
-          }
-        })
+            if (
+              _that.shouldHide &&
+              !event.isEmpty &&
+              !_that.$route.path.includes('pretplata')
+            ) {
+              _that.shouldHide = false
+              _that.showClose = true
+            }
+            if (name.includes('sticky') && !event.isEmpty) {
+              _that.showClose = true
+              _that.size = event.size
+              if (_that.bannerClass === 'takeover') {
+                setTimeout(() => {
+                  _that.shouldHide = true
+                }, 30000)
+              }
+            }
+          })
+      })
     })
   },
 }

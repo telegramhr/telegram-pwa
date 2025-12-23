@@ -26,6 +26,7 @@
                 target="_blank"
                 class="full flex article relative"
                 role="article"
+                :data-id="post.id"
               >
                 <div class="full flex relative s1-toppick-img">
                   <img :src="post.image" aria-hidden="true" loading="lazy" />

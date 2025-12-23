@@ -5,6 +5,8 @@ import {
   faPodcast,
   faAngleRight,
   faArrowLeft,
+  faAngleUp,
+  faAngleDown,
   faTimes,
   faRss,
   faFire,
@@ -15,6 +17,8 @@ import {
   faBriefcase,
   faLink,
   faStar as faStarSolid,
+  faChevronUp,
+  faChevronDown,
 } from '@fortawesome/pro-solid-svg-icons'
 import {
   faUserLock,
@@ -59,6 +63,7 @@ import {
   faGift,
   faCircleQuestion,
   faStar,
+  faLockKeyhole,
 } from '@fortawesome/pro-regular-svg-icons'
 
 import {
@@ -127,7 +132,13 @@ library.add(
   faStar,
   faStarSolid,
   faArrowLeft,
-  faCircleQuestion
+  faCircleQuestion,
+  faLockKeyhole,
+  faAngleUp,
+  faChevronUp,
+  faChevronDown,
+
+  faAngleDown
 )
 
 // Register the component globally

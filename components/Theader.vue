@@ -26,7 +26,7 @@
               id="pretplatite se - burger menu"
               :to="
                 $route.fullPath.includes('telesport')
-                  ? '/pretplata/telesport/'
+                  ? '/pretplata/telesport'
                   : '/pretplata'
               "
               class="signup-btn sub-btn"
@@ -35,15 +35,18 @@
             <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
               >Prijava</a
             >
-            <app-link v-show="!canLogIn" to="/moj-racun" class="signup-btn"
-              >Moj račun</app-link
+            <a
+              v-show="!canLogIn"
+              href="https://pretplata.telegram.hr/subscriptions/subscriptions/my"
+              class="signup-btn"
+              >Moj račun</a
             >
             <a v-show="!canLogIn" class="signup-btn" @click.prevent="logout"
               >Odjava</a
             >
           </client-only>
           <client-only>
-            <div v-show="$store.state.user.admin" class="half">
+            <div class="half">
               <div class="noththree">Admin</div>
               <a
                 role="menuitem"
@@ -97,6 +100,10 @@
           <app-link role="menuitem" to="/velike-price">Velike priče</app-link>
           <app-link role="menuitem" to="/zivot">Život</app-link>
           <app-link role="menuitem" to="/kultura">Kultura</app-link>
+          <app-link role="menuitem" to="/podcastovi">Podcastovi</app-link>
+          <app-link role="menuitem" to="https://knjige.telegram.hr"
+            >T knjige</app-link
+          >
         </div>
         <div class="half" role="menu">
           <div class="noththree">Postavke izgleda</div>
@@ -142,20 +149,6 @@
               class="theme-preview dark-theme-preview animate dark-mode"
               aria-label="Koristi tamnu temu"
               >Aa</label
-            >
-            <input
-              id="domoljub-theme"
-              v-model="color_theme"
-              type="radio"
-              class="hide"
-              name="theme-selector"
-              value="domoljub"
-            />
-            <label
-              for="domoljub-theme"
-              class="theme-preview domoljub-theme-preview animate"
-              aria-label="Koristi domoljubnu temu"
-              >U domovinskom duhu</label
             >
           </div>
           <div class="full flex fontsize-previews">
@@ -247,7 +240,9 @@
           <div class="noththree">Info</div>
           <app-link role="menuitem" to="/pretplata">Pretplata</app-link>
           <app-link role="menuitem" to="/klub">Klub</app-link>
-          <app-link role="menuitem" to="/knjiga">Knjige</app-link>
+          <app-link role="menuitem" to="https://knjige.telegram.hr"
+            >T knjige</app-link
+          >
           <app-link role="menuitem" to="/stranica/impressum"
             >Impressum</app-link
           >
@@ -299,8 +294,10 @@
       }"
     >
       <nav class="full center relative nayos stretch">
-        <div class="container flex stretch relative column-horizontal-pad">
-          <div class="third flex nayos-logos telegram-only the-big-t">
+        <div
+          class="container flex stretch relative column-horizontal-pad header-container"
+        >
+          <div class="flex nayos-logos telegram-only the-big-t">
             <app-link to="/" class="flex">
               <img src="@/assets/img/t_logo.svg" alt="Telegram logo" />
               <img
@@ -325,8 +322,8 @@
               class="dark-mode-only"
             />
           </app-link>
-          <a
-            href="/telesport"
+          <nuxt-link
+            to="/telesport"
             class="third nayos-logos alt-vertical-center telesport-only"
           >
             <img
@@ -339,7 +336,7 @@
               alt="Telesport logo"
               class="dark-mode-only"
             />
-          </a>
+          </nuxt-link>
           <app-link
             to="/pitanje-zdravlja"
             class="third mobile-side-pad nayos-logos alt-vertical-center pz-only"
@@ -389,36 +386,47 @@
               loading="lazy"
             />
           </app-link>
-          <div class="two-thirds center align-children-end mobile-side-pad">
-            <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
+          <div class="center align-children-end mobile-side-pad">
+            <a
+              v-show="canLogIn"
+              class="signup-btn prijava"
+              @click.prevent="login"
               >Prijava</a
             >
             <app-link
-              v-show="canLogIn"
+              v-show="!$route.fullPath.includes('super1')"
+              id="pretplata-promo"
+              to="/pretplata/poklon-popust/"
+              class="newbtn gift-btn"
+            >
+              <img
+                src="@/assets/img/pretplata/gift-icon.png"
+                alt="Poklon ikonica"
+              />
+              Poklon -50%</app-link
+            >
+            <app-link
+              v-show="
+                !$store.state.user.access?.length &&
+                !$route.fullPath.includes('super1')
+              "
               id="pretplatite se - header"
               :to="
                 $route.fullPath.includes('telesport')
-                  ? '/pretplata/telesport/'
-                  : '/pretplata/'
+                  ? '/pretplata/telesport'
+                  : '/pretplata'
               "
-              class="newbtn"
+              class="newbtn pretplata"
               >Pretplatite se</app-link
             >
-            <app-link
-              v-show="!canLogIn && !$route.fullPath.includes('super1')"
-              id="Poklonite pretplatu - header"
-              to="/pretplata/poklon"
-              class="newbtn"
-              >Poklonite pretplatu</app-link
-            >
-            <app-link
+            <a
               v-show="!canLogIn"
               class="column-mini-left-pad desktop-only"
-              to="/moj-racun"
+              href="https://pretplata.telegram.hr/subscriptions/subscriptions/my"
               aria-label="Moj račun"
             >
               <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
-            </app-link>
+            </a>
             <a
               class="desktop-only column-mini-left-pad"
               aria-label="Prikaži tražilicu"
@@ -441,6 +449,7 @@
         </div>
       </nav>
     </header>
+    <login></login>
   </div>
 </template>
 
@@ -481,7 +490,7 @@ export default {
   },
   computed: {
     canLogIn() {
-      return this.$store.state.user.exp * 1000 < new Date().getTime()
+      return this.$store.getters['user/canLogIn']
     },
     color_theme: {
       get() {
@@ -499,18 +508,6 @@ export default {
         this.$store.dispatch('theme/setFont', { type: value, app: this })
       },
     },
-    date() {
-      return new Intl.DateTimeFormat('hr-HR', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      }).format(new Date())
-    },
-    stock_key() {
-      const keys = Object.keys(this.$store.state.stocks.stocks)
-      return keys[Math.floor(Math.random() * keys.length)]
-    },
     showBreaking() {
       return !(
         (this.post.category_slug &&
@@ -524,43 +521,9 @@ export default {
     },
   },
   mounted() {
-    this.clearFC()
     this.$store.dispatch('stocks/pullStocks')
-    this.$store.dispatch('user/checkAccess')
-    this.$store.dispatch('theme/loadTheme')
-    this.triggerLogin()
   },
   methods: {
-    clearFC() {
-      if (process.client) {
-        this.$store.dispatch('user/checkAdmin')
-      }
-    },
-    handleScroll() {
-      if (window.scrollY) {
-        this.dynamicHeader = true
-        this.hideDynamicHeader = window.scrollY > this.previousScroll
-      } else {
-        this.dynamicHeader = false
-        this.hideDynamicHeader = false
-      }
-      this.previousScroll = window.scrollY
-    },
-    debounce(func, wait, immediate) {
-      let timeout
-      return function () {
-        const context = this
-        const args = arguments
-        const later = function () {
-          timeout = null
-          if (!immediate) func.apply(context, args)
-        }
-        const callNow = immediate && !timeout
-        clearTimeout(timeout)
-        timeout = setTimeout(later, wait)
-        if (callNow) func.apply(context, args)
-      }
-    },
     search() {
       if (this.search_term) {
         this.maybeCloseSide()
@@ -569,18 +532,7 @@ export default {
     },
     login() {
       this.maybeCloseSide()
-      this.$store.dispatch('user/login')
-    },
-    triggerLogin() {
-      if (this.$route.query.login && !this.$store.state.user.email) {
-        const tp = window.tp || []
-        tp.push([
-          'init',
-          () => {
-            this.login()
-          },
-        ])
-      }
+      this.$store.dispatch('user/login', { shouldRedirect: true })
     },
     logout() {
       this.maybeCloseSide()
@@ -594,3 +546,68 @@ export default {
   },
 }
 </script>
+<style scoped>
+.header-container {
+  justify-content: space-between;
+}
+.gift-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #395a3a;
+  padding: 6px;
+  font-family: 'Barlow';
+  font-size: 11px;
+  border: none;
+  font-weight: 600;
+  border-radius: 3px;
+  letter-spacing: 0.3px;
+  margin-right: 10px;
+}
+.gift-btn img {
+  width: 15px;
+  height: 15px;
+}
+.prijava {
+  color: #ae3737;
+}
+.pretplata {
+  background-color: #ae3737;
+  border: none;
+  border-radius: 3px;
+  padding: 6px;
+  font-family: 'Barlow';
+  font-size: 11px;
+  border: none;
+  font-weight: 600;
+  border-radius: 3px;
+  letter-spacing: 0.3px;
+  margin-right: 10px;
+  align-content: center;
+  min-height: 27px;
+}
+.telesport .pretplata {
+  background-color: var(--tg-primary-highlight-color);
+}
+.telesport .prijava {
+  color: var(--tg-primary-highlight-color);
+}
+.superone .prijava {
+  color: rgb(17, 17, 17);
+}
+@media (min-width: 768px) {
+  .gift-btn img {
+    width: 20px;
+    height: 20px;
+  }
+  .pretplata,
+  .gift-btn {
+    font-size: 0.7rem;
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+  .pretplata {
+    min-height: 32px;
+  }
+}
+</style>

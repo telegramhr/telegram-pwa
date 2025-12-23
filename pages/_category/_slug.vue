@@ -15,37 +15,16 @@
         :post="post"
       ></theader>
       <client-only>
-        <hometop-simple></hometop-simple>
-        <hometop-bf></hometop-bf>
+        <breaking></breaking>
+        <hometop-ten></hometop-ten>
       </client-only>
       <!-- Above header banner manual -->
-      <div class="full flex have-background relative">
-        <div
-          v-show="related_posts && $store.state.user.access"
-          class="full related-header-widget"
-        >
-          <div
-            class="container flex desktop-only column-vertical-pad"
-            data-mrf-recirculation="single-related"
-          >
-            <div
-              v-for="rpost in related_posts"
-              :key="rpost.id"
-              class="third flex"
-            >
-              <div class="full flex column-horizontal-pad">
-                <standard-no-h :post="rpost"></standard-no-h>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       <client-only>
         <div
-          v-if="!$mobile && $route.name === 'category-slug'"
+          v-if="!$mobile && $route.name.includes('category-slug')"
           class="full center header-billboard have-background"
         >
-          <div v-if="!$mobile" class="container wallpaper-banners animate">
+          <div class="container wallpaper-banners animate">
             <div class="wallpaper-left">
               <ad-unit id="telegram_desktop_wallpaper_left"></ad-unit>
             </div>
@@ -122,13 +101,15 @@
         </div>
       </div>
       <div class="full relative">
-        <div class="full flex">
+        <div class="full">
           <client-only>
             <ad-unit id="telegram_background"></ad-unit>
           </client-only>
           <article
             id="article-body"
             class="container column-full-pad flex relative mobile-side-pad have-background"
+            itemscope
+            itemtype="http://schema.org/NewsArticle"
           >
             <div class="full column article-head column-top-pad flex">
               <div class="full flex overtitle-parent relative">
@@ -187,7 +168,7 @@
                 <b v-if="categoryClass && categoryClass.includes('superone')">{{
                   parsedOvertitle
                 }}</b>
-                <h1 class="full">
+                <h1 class="full" itemprop="headline">
                   {{
                     post.single_title !== ''
                       ? post.single_title
@@ -204,14 +185,16 @@
                   :key="author.name"
                   :to="author.url"
                   class="meta-author flex"
-                  rel="author"
+                  itemprop="author"
                   ><img
                     v-if="author.image"
                     :src="author.image"
                     :alt="author.name"
                   />
                   <span>Piše</span
-                  ><span class="vcard author">{{ author.name }}</span></app-link
+                  ><span class="vcard author" rel="author">{{
+                    author.name
+                  }}</span></app-link
                 >
                 <client-only>
                   <subscribe-link
@@ -221,7 +204,7 @@
                 </client-only>
               </div>
               <div
-                v-if="post.image.url || post.video"
+                v-if="post.type !== 'noimage' && (post.image.url || post.video)"
                 class="full flex article-head-image-parent relative"
               >
                 <template v-if="post.video">
@@ -229,7 +212,7 @@
                   <div style="width: 100%" v-html="post.video" />
                 </template>
                 <template v-else>
-                  <picture class="article-head-image">
+                  <picture class="article-head-image" itemprop="image">
                     <source
                       :src="post.image.url"
                       :srcset="srcset"
@@ -259,29 +242,46 @@
                 </template>
               </div>
               <!-- eslint-disable-next-line -->
-              <p v-if="post.perex" class="perex" v-html="post.perex"></p>
-              <div class="nothfive full flex relative article-meta">
+              <p
+                v-if="post.perex"
+                class="perex"
+                itemprop="articleBody"
+                v-html="post.perex"
+              ></p>
+              <div
+                v-if="post.type !== 'noimage'"
+                class="nothfive full flex relative article-meta"
+              >
                 <app-link
                   v-for="author in post.authors"
                   :key="author.name"
                   :to="author.url"
                   class="meta-author flex desktop-only"
-                  rel="author"
                   ><img
                     v-if="author.image"
                     :src="author.image"
                     :alt="author.name"
                   /><span>Piše</span
-                  ><span class="vcard author">{{ author.name }}</span></app-link
+                  ><span class="vcard author" rel="author" itemprop="author">{{
+                    author.name
+                  }}</span></app-link
                 >
-                <span class="meta-date">{{ post.time | parseTime }}</span>
-                <span v-if="post.recommendations" class="meta-preporuke"
+                <time class="meta-date" :datetime="post.time">{{
+                  post.time | parseTime
+                }}</time>
+                <span
+                  v-if="post.recommendations"
+                  class="meta-preporuke"
+                  itemprop="interactionStatistics"
                   >{{ post.recommendations }} preporuka</span
                 >
                 <div class="sidebar-social flex">
                   <client-only>
                     <gift-article
-                      v-if="post.paywall === 'always'"
+                      v-if="
+                        post.paywall === 'always' &&
+                        this.$store.state.user.token
+                      "
                       :key="`gift-${post.id}`"
                     ></gift-article>
                   </client-only>
@@ -308,14 +308,16 @@
               </div>
             </div>
             <div class="full relative center single-top-banner">
-              <ad-unit
-                id="telegram_desktop_billboard_v1"
-                :disable="
-                  post.disable_ads.includes('all') ||
-                  (post.category_slug &&
-                    post.category_slug.includes('openspace'))
-                "
-              ></ad-unit>
+              <div>
+                <ad-unit
+                  id="telegram_desktop_billboard_v1"
+                  :disable="
+                    post.disable_ads.includes('all') ||
+                    (post.category_slug &&
+                      post.category_slug.includes('openspace'))
+                  "
+                ></ad-unit>
+              </div>
             </div>
             <div class="full relative single-article-body">
               <client-only>
@@ -327,6 +329,7 @@
               <div
                 id="article-content"
                 class="cXenseParse mrf-article-body"
+                itemprop="articleBody"
                 @click="handleClick"
                 v-html="post.content"
               ></div>
@@ -335,7 +338,11 @@
                 <portal
                   v-if="
                     !hasPremium &&
-                    !(post.disable_ads && post.disable_ads.includes('spar'))
+                    !(
+                      post.disable_ads &&
+                      (post.disable_ads.includes('spar') ||
+                        post.disable_ads.includes('all'))
+                    )
                   "
                   selector="#intext_premium"
                 >
@@ -375,39 +382,31 @@
                   </img-comparison-slider>
                 </portal>
 
-                <intext-new @show="showMidasIntext = true"></intext-new>
-                <intext-promo-pack
-                  @show="showMidasIntext = true"
-                ></intext-promo-pack>
-                <div
-                  v-if="!hasPremium && hasLinker"
-                  class="container flex center have-background"
-                >
-                  <midas :key="`midas-ecoom-${post.id}`" type="ecomm2"></midas>
-                </div>
-                <midas
-                  v-if="!hasPremium && hasLinker"
-                  :key="`midas-text-${post.id}`"
-                  type="text-only"
-                ></midas>
-                <div
-                  v-if="
-                    !$route.path.includes('partneri') &&
-                    !$route.path.includes('promo') &&
-                    !(post.disable_ads && post.disable_ads.includes('all'))
-                  "
-                  id="promo-telemach"
-                ></div>
-                <portal selector="#promo-telemach">
-                  <promo-telemach v-if="!hasPremium"></promo-telemach>
-                </portal>
+                <intext-regular-promo></intext-regular-promo>
+                <intext-refresh></intext-refresh>
+                <popup-regular-promo></popup-regular-promo>
+                <intext-promo-free-month></intext-promo-free-month>
+                <intext-promo-xmas></intext-promo-xmas>
+                <intext-promo-new-customers></intext-promo-new-customers>
+                <intext-promo-f32></intext-promo-f32>
+                <intext-promo-family></intext-promo-family>
+                <intext-black-friday></intext-black-friday>
+                <intext-christmas></intext-christmas>
+                <intext-christmas-gift></intext-christmas-gift>
               </client-only>
-              <div
-                id="marfeel_sidebar"
-                class="marfeel-sidebar"
-                data-nosnippet
-              ></div>
-              <!-- Article footer -->
+            </div>
+          </article>
+          <intext-remp></intext-remp>
+          <!-- Article footer -->
+          <div
+            class="container column-full-pad flex relative mobile-side-pad have-background"
+          >
+            <div class="full relative single-article-body">
+              <midas
+                v-if="!hasPremium && hasLinker"
+                :key="`midas-text-${post.id}`"
+                type="text-only"
+              ></midas>
               <div
                 class="full relative single-article-footer flex column-top-pad"
               >
@@ -449,38 +448,64 @@
                     ></gift-article>
                   </client-only>
                 </div>
-                <client-only>
-                  <comments
-                    v-if="post.id && !post.category_slug.includes('superone')"
-                    :post="post"
-                  ></comments>
-                </client-only>
               </div>
             </div>
-          </article>
-        </div>
-        <client-only>
+          </div>
           <div
             v-if="
-              !hasPremium &&
-              !post.category_slug.includes('superone') &&
-              !(post.disable_ads && post.disable_ads.includes('all'))
+              !(
+                post.category_slug.includes('super1') ||
+                post.category_slug.includes('pitanje-zdravlja') ||
+                post.category_slug.includes('openspace')
+              )
             "
-            class="full has-background"
+            class="full"
           >
-            <jgl-premium
-              :site="post.category_slug.includes('telesport') ? 'ts' : 'tg'"
-            ></jgl-premium>
+            <top-articles-bottom
+              :algorithm-type="this.top_articles_version"
+              :posts="top_articles.slice(3, 8)"
+            ></top-articles-bottom>
           </div>
-
+          <div
+            v-if="
+              post.id &&
+              !post.category_slug.includes('superone') &&
+              !post.category_slug.includes('pitanje-zdravlja') &&
+              !post.category_slug.includes('openspace') &&
+              !post.category_slug.includes('super1')
+            "
+            class="full relative column-top-pad commentsContainer"
+          >
+            <client-only>
+              <comments :post="post"></comments>
+            </client-only>
+          </div>
+        </div>
+        <client-only>
           <div v-if="!hasPremium && hasLinker" class="full have-background">
             <midas :key="`midas-16-${post.id}`" type="standard-16"></midas>
           </div>
           <div
-            v-if="!hasPremium && hasLinker"
-            class="container flex center have-background"
+            v-if="
+              !hasPremium &&
+              !(post.disable_ads && post.disable_ads.includes('all'))
+            "
+            class="full has-background"
           >
+            <div class="container flex center have-background">
+              <div class="full">
+                <ht-widget></ht-widget>
+              </div>
+              <div>
+                <ad-unit id="telegram_underarticle_v2"></ad-unit>
+              </div>
+            </div>
+          </div>
+          <div class="container flex center have-background">
             <midas :key="`midas-ecoom-${post.id}`" type="ecomm"></midas>
+            <div>
+              <ad-unit id="telegram_underarticle_v1"></ad-unit>
+            </div>
           </div>
           <keep-reading
             :category="$route.params.category"
@@ -553,7 +578,21 @@
     <tfooter v-if="post.id || $fetchState.error" :post="post"></tfooter>
   </div>
 </template>
-
+<style scoped>
+.commentsContainer {
+  max-width: 710px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+@media screen and (min-width: 768px) {
+  .commentsContainer {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+</style>
 <script>
 import { Portal } from '@linusborg/vue-simple-portal'
 import AOS from 'aos'
@@ -582,17 +621,31 @@ export default {
       }
     }
     if (post && post.id) {
+      let portal = 'telegram'
+      if (post.category_slug.includes('telesport')) {
+        portal = 'telesport'
+      }
+      this.top_articles_version = Math.random() < 0.5 ? 'v1' : 'v2'
+      const endpoint =
+        this.top_articles_version === 'v1'
+          ? `api/related-articles/${portal}/${post.id}/1`
+          : `api/related-articles/${portal}/${post.id}/2`
+      this.top_articles = await this.$axios.$get(encodeURI(endpoint))
+
+      if (
+        process.server &&
+        this.$route.params.category !== 'preview' &&
+        post.social.path.replace('https://www.telegram.hr', '') !==
+          this.$route.path
+      ) {
+        this.$telegram.context.res.statusCode = 301
+        this.$telegram.context.res.setHeader(
+          'Location',
+          post.social.path.replace('https://www.telegram.hr', '')
+        )
+        return
+      }
       this.post = post
-      await this.$axios.get('/api/related/' + post.id).then((res) => {
-        if (Array.isArray(res.data)) {
-          this.$store.dispatch('posts/setPosts', res.data, { root: true })
-          this.related_posts = res.data
-            .filter((item) => {
-              return item.id !== post.id
-            })
-            .splice(0, 3)
-        }
-      })
     } else {
       this.post.title = 'Objava ne postoji'
       this.post.portal_title = 'Objava ne postoji'
@@ -612,6 +665,7 @@ export default {
       comments_embed: null,
       showSideMenu: false,
       showSearchMenu: false,
+      widgetVariant: 'v1',
       post: {
         comments_off: false,
         type: '',
@@ -632,6 +686,7 @@ export default {
         overtitle: '',
         overtitle_tag: '',
         overtitle_link: '',
+        intext_related_off: false,
         title: '',
         subtitle: '',
         content: '',
@@ -649,6 +704,7 @@ export default {
           image: '',
           width: '',
           height: '',
+          path: '',
         },
         disable_ads: [],
         promo: {
@@ -658,8 +714,11 @@ export default {
         quiz: null,
         live: false,
       },
+      top_articles: [],
+      top_articles_version: 'v1',
       related_posts: [],
       hasLinker: false,
+      giftValid: false,
     }
   },
   computed: {
@@ -685,7 +744,7 @@ export default {
       return this.$store.getters['user/hasPremium']
     },
     canLogIn() {
-      return this.$store.state.user.exp * 1000 < new Date().getTime()
+      return this.$store.getters['user/canLogIn']
     },
     jsonld() {
       const images = [
@@ -796,10 +855,11 @@ export default {
       }
       const article = {
         '@context': 'https://schema.org',
-        '@type':
-          this.post.category === 'Komentari'
-            ? 'OpinionNewsArticle'
-            : 'NewsArticle',
+        '@type': this.post.live
+          ? 'LiveBlogPosting' // For live/breaking news
+          : this.post.category === 'Komentari'
+          ? 'OpinionNewsArticle'
+          : 'NewsArticle',
         headline: this.$options.filters.parseCat(this.post.title),
         mainEntityOfPage: this.post.social.path,
         datePublished: new Date(this.post.time * 1000).toISOString(),
@@ -818,6 +878,12 @@ export default {
         }),
         keywords: this.post.tags.map((tag) => tag.slug),
         articleSection: [this.$options.filters.parseCat(this.post.category)],
+      }
+      // Add LiveBlogPosting specific fields
+      if (this.post.live) {
+        article.coverageStartTime = new Date(
+          this.post.time * 1000
+        ).toISOString()
       }
       if (this.post.paywall !== 'never') {
         article.isAccessibleForFree = 'False'
@@ -863,39 +929,28 @@ export default {
       }
       return set
     },
+    locked() {
+      if (this.giftValid) {
+        return 'never'
+      }
+      return this.post.paywall
+    },
   },
   mounted() {
     this.$nextTick(() => {
       this.getPost()
       window.addEventListener('scroll', this.handleScroll)
-      window.addEventListener('piano_gift', this.gift)
       if (this.$route.params.category === 'l') {
         window.history.replaceState({}, null, this.post.permalink)
       }
     })
+    this.widgetVariant = this.getWidgetVariant()
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.handleScroll)
-    window.removeEventListener('piano_gift', this.gift)
     this.comments_embed = null
   },
   methods: {
-    gift() {
-      const _that = this
-      window.tp.push([
-        'init',
-        () => {
-          window.tp.pianoId.show({
-            screen: 'register',
-            width: window.innerWidth > 720 ? 600 : 375,
-            showCloseButton: false,
-            loggedIn(data) {
-              _that.$store.dispatch('user/setUser', data.user)
-            },
-          })
-        },
-      ])
-    },
     handleScroll() {
       const walls = document.getElementsByClassName('wallpaper-banners')
       const bill =
@@ -913,12 +968,6 @@ export default {
       }
     },
     loadAds() {
-      if (
-        this.post.category_slug &&
-        this.post.category_slug.includes('openspace')
-      ) {
-        return
-      }
       this.$store.dispatch('ads/initAds', {
         route: this.$route,
         options: this.post.disable_ads,
@@ -934,50 +983,22 @@ export default {
       }
       if (this.hasPremium) {
         const midas = document.getElementById('intext_midas')
+        const midas2 = document.getElementById('intext_midas2')
         if (midas) {
           midas.style.display = 'none'
+        }
+        if (midas2) {
+          midas2.style.display = 'none'
         }
       }
     },
     loadRemp() {
       window.remplib = window.remplib || {}
-      const mockFuncs = {
-        campaign: 'init',
-        tracker: 'init trackEvent trackPageview trackCommerce',
-        iota: 'init',
-      }
-      function mock(fn) {
-        return function () {
-          this._.push([fn, arguments])
-        }
-      }
-
-      Object.keys(mockFuncs).forEach(function (key) {
-        if (!window.remplib[key]) {
-          let fn
-          let i
-          const funcs = mockFuncs[key].split(' ')
-          window.remplib[key] = { _: [] }
-
-          for (i = 0; i < funcs.length; i++) {
-            fn = funcs[i]
-            window.remplib[key][fn] = mock(fn)
-          }
-        }
-      })
-      const script = document.createElement('script')
-      script.type = 'text/javascript'
-      script.async = true
-      script.src = 'https://campaign.telegram.hr/assets/lib/js/remplib.js'
-      document.getElementsByTagName('head')[0].appendChild(script)
-
-      const script2 = document.createElement('script')
-      script2.type = 'text/javascript'
-      script2.async = true
-      script2.src = 'https://beam.telegram.hr/assets/lib/js/remplib.js'
-      document.getElementsByTagName('head')[0].appendChild(script2)
       const rempConfig = {
         token: 'd4fa2928-7d6a-4f6c-ac95-1f5a1ddd1702',
+        signedIn: !!this.$store.state.user.id,
+        userId: this.$store.state.user.id.toString() ?? '',
+        userSubscribed: !!this.$store.state.user.access.length,
         cookieDomain: '.telegram.hr',
         storage: 'local_storage',
         storageExpiration: {
@@ -990,7 +1011,7 @@ export default {
         article: {
           id: this.post.id.toString(),
           category: this.post.category,
-          locked: this.post.paywall === 'always',
+          locked: this.locked === 'always',
           tags: this.post.tags.map((tag) => {
             return tag.slug
           }),
@@ -1008,38 +1029,19 @@ export default {
         },
         campaign: {
           url: 'https://campaign.telegram.hr',
+          pageviewAttributes: {
+            postType: 'post',
+            locked: this.post.paywall,
+            isS1: this.post.category_slug.includes('super1') ? '1' : '0',
+            segment: Math.floor(Math.random() * 4).toString(),
+            userSubscribed: this.$store.state.user.access.length ? '1' : '0',
+          },
         },
       }
       window.remplib.tracker.init(rempConfig)
       window.remplib.campaign.init(rempConfig)
     },
     loadPiano() {
-      const tp = window.tp || []
-      if (this.post.tags.length) {
-        tp.push([
-          'setTags',
-          this.post.tags.map((tag) => {
-            return tag.slug
-          }),
-        ])
-      }
-      tp.push([
-        'setContentCreated',
-        new Date(this.post.time * 1000).toISOString(),
-      ])
-      tp.push(['setContentSection', this.post.category])
-      if (this.post.authors.length) {
-        if (this.post.authors.length > 1) {
-          if (this.post.authors[1].name === 'Hina') {
-            tp.push(['setContentAuthor', this.post.authors[1].name])
-          } else {
-            tp.push(['setContentAuthor', this.post.authors[0].name])
-          }
-        } else {
-          tp.push(['setContentAuthor', this.post.authors[0].name])
-        }
-      }
-      tp.push(['setContentIsNative', this.post.post_type === 'partneri'])
       if (this.post.paywall === 'always' && this.$route.query.gift_token) {
         // verify token
         this.$axios
@@ -1049,7 +1051,6 @@ export default {
           })
           .then((res) => {
             if (res.status === 200) {
-              window.tp.push(['setCustomVariable', 'isPaywall', 'gift'])
               window.marfeel = window.marfeel || { cmd: [] }
               window.marfeel.cmd.push([
                 'compass',
@@ -1057,32 +1058,13 @@ export default {
                   compass.setPageVar('gifted', 'true')
                 },
               ])
-            } else {
-              window.tp.push([
-                'setCustomVariable',
-                'isPaywall',
-                this.post.paywall,
-              ])
+              this.giftValid = true
             }
-            window.tp.push([
-              'init',
-              function () {
-                window.tp.experience.execute()
-                window.tp.enableGACrossDomainLinking()
-              },
-            ])
           })
-      } else {
-        tp.push(['setCustomVariable', 'isPaywall', this.post.paywall])
-        tp.push([
-          'init',
-          function () {
-            window.tp.experience.execute()
-            window.tp.enableGACrossDomainLinking()
-          },
-        ])
       }
-
+      if (this.post.paywall === 'never') {
+        return
+      }
       const _that = this
       window.marfeel.cmd.push([
         'compass',
@@ -1090,17 +1072,21 @@ export default {
           if (_that.post.paywall === 'always') {
             compass.setPageVar('closed', 'hard-paywall')
           }
-          if (_that.post.paywall === 'none') {
+          if (
+            _that.post.paywall === 'none' ||
+            _that.post.paywall === 'paragraphs'
+          ) {
             compass.setPageVar('closed', 'dynamic-paywall')
           }
         },
       ])
     },
     triggerAnalytics() {
-      this.$dotmetrics.postLoad(this.post.category_slug)
-    },
-    checkout(termId) {
-      this.$piano.start(termId, -1)
+      if (this.post.category_slug.includes('telesport')) {
+        setTimeout(() => {
+          this.$dotmetrics.postLoad(this.post.category_slug)
+        }, 10000)
+      }
     },
     getPost() {
       if (this.post && this.post.id) {
@@ -1112,9 +1098,11 @@ export default {
         }
         this.$store.commit('history/setData', this.post)
         this.triggerAnalytics()
-        this.loadRemp()
         this.loadPiano()
+        this.loadRemp()
         this.loadAds()
+        this.loadInArticleWidget()
+        this.$store.commit('pretplata/setLastArticle', this.post.id)
         if (typeof FB !== 'undefined') {
           FB.XFBML.parse()
         }
@@ -1128,13 +1116,20 @@ export default {
           scriptTag.src = 'https://platform.twitter.com/widgets.js'
           head.append(scriptTag)
         }
+        if (!document.getElementsByClassName('coral-counters-script').length) {
+          const head = document.getElementsByTagName('head')[0]
+          const scriptTag = document.createElement('script')
+          scriptTag.classList.add('coral-counters-script')
+          scriptTag.src = 'https://talk.telegram.hr/assets/js/count.js'
+          head.append(scriptTag)
+        }
         if (document.getElementsByClassName('tiktok-embed').length) {
           const head = document.getElementsByTagName('head')[0]
           const scriptTag = document.createElement('script')
           scriptTag.src = 'https://www.tiktok.com/embed.js'
           head.append(scriptTag)
         }
-        if (document.getElementById('article-content')) {
+        /* if (document.getElementById('article-content')) {
           const images = [
             ...document
               .getElementById('article-content')
@@ -1143,9 +1138,12 @@ export default {
           images.forEach((image) => {
             if (image.width < image.height) {
               image.classList.remove('size-full')
+              if (image.parentElement.classList.contains('size-full')) {
+                image.parentElement.classList.remove('size-full')
+              }
             }
           })
-        }
+        } */
         if (this.post.content.indexOf('data-aos')) {
           this.$nextTick(() => {
             AOS.init()
@@ -1157,6 +1155,43 @@ export default {
       } else {
         setTimeout(this.getPost, 500)
       }
+    },
+    loadInArticleWidget() {
+      const container = document.getElementById('article-content')
+      if (!container) return
+
+      const paragraphs = container.querySelectorAll('p')
+      if (paragraphs.length < 2) return
+      if (this.post.id === 2774378) return
+
+      // avoid duplicate injection
+      if (document.getElementById('top-articles-widget')) return
+
+      // create placeholder div
+      const widgetEl = document.createElement('div')
+      widgetEl.id = 'top-articles-widget'
+      paragraphs[1].insertAdjacentElement('afterend', widgetEl)
+
+      // Dynamically create and mount <top-articles> using this component’s context
+      if (
+        this.post.category_slug.includes('super1') ||
+        this.post.category_slug.includes('pitanje-zdravlja') ||
+        this.post.category_slug.includes('openspace')
+      )
+        return // do not show widget on super1, openspace, pitanje-zdravlja articles
+
+      if (this.post.intext_related_off === '1') return
+      const widget = new this.$root.constructor({
+        parent: this, // inherit current context (so global components are visible)
+        render: (h) =>
+          h('top-articles-intext', {
+            props: {
+              posts: this.top_articles.slice(0, 3),
+              algorithmType: this.top_articles_version,
+            },
+          }),
+      })
+      widget.$mount(widgetEl)
     },
     fbShare() {
       /* global FB */
@@ -1200,6 +1235,14 @@ export default {
           this.$router.push(to)
         }
       }
+    },
+    getWidgetVariant() {
+      const stored = localStorage.getItem('widgetVersion')
+      if (stored) return stored
+
+      const variant = Math.random() < 0.5 ? 'v1' : 'v2'
+      localStorage.setItem('widgetVersion', variant)
+      return variant
     },
   },
   head() {
@@ -1274,6 +1317,7 @@ export default {
     }
     const fbPaywall = {
       none: 'metered',
+      paragraphs: 'metered',
       always: 'locked',
       never: 'free',
     }
@@ -1394,15 +1438,10 @@ export default {
         property: 'article:content_tier',
         content: fbPaywall[this.post.paywall],
       },
-      /* {
+      {
         hid: 'twitter:card',
         name: 'twitter:card',
         content: 'summary_large_image',
-      }, */
-      {
-        hid: 'twitter:site',
-        name: 'twitter:site',
-        content: '@TelegramHR',
       },
       {
         hid: 'twitter:widgets:theme',
@@ -1462,6 +1501,30 @@ export default {
       ]
       siteName = 'Super1.hr'
     }
+    const style = [
+      {
+        id: 'global-styles',
+        innerHTML: this.post.styles || '',
+      },
+    ]
+    if (this.post.additional_scripts) {
+      Object.keys(this.post.additional_scripts).forEach((item) => {
+        script.push({
+          hid: `additional-script-${item}`,
+          src: this.post.additional_scripts[item],
+        })
+      })
+    }
+    if (this.post.additional_styles) {
+      Object.keys(this.post.additional_styles).forEach((item) => {
+        style.push({
+          hid: `additional-style-${item}`,
+          rel: 'stylesheet',
+          type: 'text/css',
+          innerHTML: this.post.additional_styles[item],
+        })
+      })
+    }
     return {
       bodyAttrs: {
         class: [this.$store.state.theme.theme, this.post.category_slug],
@@ -1471,6 +1534,7 @@ export default {
       meta,
       script,
       link,
+      style,
     }
   },
   bodyAppend() {

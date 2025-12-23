@@ -38,6 +38,14 @@
               name="overlay"
             />
             <label class="clickable animate" for="kolaz">Kolaž trećina</label>
+            <input
+              id="podcast"
+              v-model="selected"
+              :value="'podcast'"
+              type="radio"
+              name="overlay"
+            />
+            <label class="clickable animate" for="podcast">Podcast</label>
           </div>
           <div class="third flex-responsive relative">
             <div
@@ -99,89 +107,21 @@
               class="full flex relative generator-submenu"
             >
               <h2 class="full center-text">Autor je:</h2>
-              <div class="half flex relative">
+              <div
+                v-for="(autor, key) in autori"
+                :key="key"
+                class="half flex relative"
+              >
                 <input
-                  id="modric"
+                  :id="key"
                   v-model="autorType"
-                  :value="'modric'"
+                  :value="key"
                   type="radio"
                   name="autorType"
                 />
-                <label class="clickable animate" for="modric">Modrić</label>
-              </div>
-              <div class="half flex relative">
-                <input
-                  id="silvana"
-                  v-model="autorType"
-                  :value="'silvana'"
-                  type="radio"
-                  name="autorType"
-                />
-                <label class="clickable animate" for="silvana">Menđušić</label>
-              </div>
-              <div class="half flex relative">
-                <input
-                  id="divo"
-                  v-model="autorType"
-                  :value="'divo'"
-                  type="radio"
-                  name="autorType"
-                />
-                <label class="clickable animate" for="divo">Đurović</label>
-              </div>
-              <div class="half flex relative">
-                <input
-                  id="redzepovic"
-                  v-model="autorType"
-                  :value="'redzepovic'"
-                  type="radio"
-                  name="autorType"
-                />
-                <label class="clickable animate" for="redzepovic"
-                  >Redžepović</label
-                >
-              </div>
-              <div class="half flex relative">
-                <input
-                  id="jasmin"
-                  v-model="autorType"
-                  :value="'jasmin'"
-                  type="radio"
-                  name="autorType"
-                />
-                <label class="clickable animate" for="jasmin">Klarić</label>
-              </div>
-              <div class="half flex relative">
-                <input
-                  id="jakovina"
-                  v-model="autorType"
-                  :value="'jakovina'"
-                  type="radio"
-                  name="autorType"
-                />
-                <label class="clickable animate" for="jakovina">Jakovina</label>
-              </div>
-              <div class="half flex relative">
-                <input
-                  id="hrdalo"
-                  v-model="autorType"
-                  :value="'hrdalo'"
-                  type="radio"
-                  name="autorType"
-                />
-                <label class="clickable animate" for="hrdalo">Hrdalo</label>
-              </div>
-              <div class="half flex relative">
-                <input
-                  id="markovina"
-                  v-model="autorType"
-                  :value="'markovina'"
-                  type="radio"
-                  name="autorType"
-                />
-                <label class="clickable animate" for="markovina"
-                  >Markovina</label
-                >
+                <label class="clickable animate" :for="key">{{
+                  autor.name
+                }}</label>
               </div>
             </div>
             <div v-show="selected === 'krug'" class="full flex relative">
@@ -203,10 +143,17 @@
               Ove fotke:
             </h2>
             <h2
-              v-show="selected != 'empty' && selected != 'kolaz'"
+              v-show="
+                selected != 'podcast' &&
+                selected != 'empty' &&
+                selected != 'kolaz'
+              "
               class="full center-text"
             >
               Na ovo:
+            </h2>
+            <h2 v-show="selected == 'podcast'" class="full center-text">
+              Nek piše:
             </h2>
             <div v-show="selected == 'kolaz'" class="full flex">
               <h2 class="full center-text">U sredinu stavi:</h2>
@@ -336,7 +283,10 @@
                 <div class="fourth right-text faded">Desno</div>
               </div>
             </div>
-            <div v-show="selected != 'kolaz'" class="full center">
+            <div
+              v-show="selected != 'kolaz' && selected != 'podcast'"
+              class="full center"
+            >
               <div class="full generator-file-upload clickable">
                 <div class="file-select">
                   <div id="fileName" class="file-select-button">
@@ -348,6 +298,9 @@
                   <input id="chooseFile" type="file" name="chooseFile" />
                 </div>
               </div>
+            </div>
+            <div v-show="selected == 'podcast'" class="full center">
+              <input v-model="podcastText" type="text" />
             </div>
           </div>
           <div class="third flex-responsive center relative">
@@ -401,66 +354,18 @@
           <div class="kolaz-border-2"></div>
         </div>
         <img
-          v-if="selected === 'autor' && autorType === 'modric'"
-          id="modric-overlay"
-          class="generator-img-overlay"
-          src="@/assets/img/extras/naslovne/tg_dajmi_overlay_modric.png"
+          v-if="selected === 'podcast' && podcastType === 'prviglas'"
+          id="prviglas-bg"
+          class="generator-img-background"
+          src="@/assets/img/extras/naslovne/prvi_glas_bg.png"
           width="2664"
           height="1680"
         />
         <img
-          v-if="selected === 'autor' && autorType === 'silvana'"
-          id="silvana-overlay"
+          v-if="selected === 'autor'"
+          id="autor-overlay"
           class="generator-img-overlay"
-          src="@/assets/img/extras/naslovne/tg_dajmi_overlay_mendusic.png"
-          width="2664"
-          height="1680"
-        />
-        <img
-          v-if="selected === 'autor' && autorType === 'redzepovic'"
-          id="redzepovic-overlay"
-          class="generator-img-overlay"
-          src="@/assets/img/extras/naslovne/tg_dajmi_overlay_redzepovic.png"
-          width="2664"
-          height="1680"
-        />
-        <img
-          v-if="selected === 'autor' && autorType === 'divo'"
-          id="divo-overlay"
-          class="generator-img-overlay"
-          src="@/assets/img/extras/naslovne/tg_dajmi_overlay_divo.png"
-          width="2664"
-          height="1680"
-        />
-        <img
-          v-if="selected === 'autor' && autorType === 'jasmin'"
-          id="jasmin-overlay"
-          class="generator-img-overlay"
-          src="@/assets/img/extras/naslovne/tg_dajmi_overlay_klaric.png"
-          width="2664"
-          height="1680"
-        />
-        <img
-          v-if="selected === 'autor' && autorType === 'jakovina'"
-          id="jakovina-overlay"
-          class="generator-img-overlay"
-          src="@/assets/img/extras/naslovne/tg_dajmi_overlay_jakovina.png"
-          width="2664"
-          height="1680"
-        />
-        <img
-          v-if="selected === 'autor' && autorType === 'hrdalo'"
-          id="hrdalo-overlay"
-          class="generator-img-overlay"
-          src="@/assets/img/extras/naslovne/tg_dajmi_overlay_hrdalo.png"
-          width="2664"
-          height="1680"
-        />
-        <img
-          v-if="selected === 'autor' && autorType === 'markovina'"
-          id="markovina-overlay"
-          class="generator-img-overlay"
-          src="@/assets/img/extras/naslovne/tg_dajmi_overlay_markovina.png"
+          :src="autori[autorType].image"
           width="2664"
           height="1680"
         />
@@ -472,6 +377,9 @@
             aria-hidden="true"
           />
         </div>
+        <div v-if="selected === 'podcast'" id="podcast-date">
+          {{ podcastText }}
+        </div>
       </div>
     </div>
   </div>
@@ -482,6 +390,11 @@ import html2canvas from 'html2canvas'
 export default {
   name: 'TelegramKlub',
   data() {
+    const tomorrow = new Date(Date.now() + 86400000)
+      .toLocaleDateString('en-GB')
+      .split('/')
+      .map((x, i) => (i < 2 ? x : x.slice(-2)))
+      .join('/')
     return {
       selected: 'autor',
       krugType: 'gorelijevo',
@@ -490,6 +403,46 @@ export default {
       kolazLeftThird: -50,
       kolazRightThird: -50,
       kolazMidThirdPosition: 'xMidYMid slice',
+      podcastType: 'prviglas',
+      podcastText: tomorrow,
+      autori: {
+        modric: {
+          name: 'Modrić',
+          image: require('~/assets/img/extras/naslovne/tg_dajmi_overlay_modric.png'),
+        },
+        silvana: {
+          name: 'Menđušić',
+          image: require('~/assets/img/extras/naslovne/tg_dajmi_overlay_mendusic.png'),
+        },
+        redzepovic: {
+          name: 'Redžepović',
+          image: require('~/assets/img/extras/naslovne/tg_dajmi_overlay_redzepovic.png'),
+        },
+        divo: {
+          name: 'Đurović',
+          image: require('~/assets/img/extras/naslovne/tg_dajmi_overlay_divo.png'),
+        },
+        jasmin: {
+          name: 'Klarić',
+          image: require('~/assets/img/extras/naslovne/tg_dajmi_overlay_klaric.png'),
+        },
+        jakovina: {
+          name: 'Jakovina',
+          image: require('~/assets/img/extras/naslovne/tg_dajmi_overlay_jakovina.png'),
+        },
+        hrdalo: {
+          name: 'Hrdalo',
+          image: require('~/assets/img/extras/naslovne/tg_dajmi_overlay_hrdalo.png'),
+        },
+        markovina: {
+          name: 'Markovina',
+          image: require('~/assets/img/extras/naslovne/tg_dajmi_overlay_markovina.png'),
+        },
+        snajder: {
+          name: 'Šnajder',
+          image: require('~/assets/img/extras/naslovne/tg_dajmi_overlay_snajder.png'),
+        },
+      },
     }
   },
   mounted() {

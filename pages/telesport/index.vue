@@ -36,25 +36,21 @@
           <app-link
             v-show="canLogIn"
             id="pretplatite se - header"
-            :to="
-              $route.fullPath.includes('telesport')
-                ? '/pretplata/telesport/'
-                : '/pretplata/'
-            "
+            to="/pretplata/telesport"
             class="newbtn"
             >Pretplatite se</app-link
           >
           <app-link
-            v-show="!canLogIn && !$route.fullPath.includes('super1')"
-            id="Poklonite pretplatu - header"
-            to="/pretplata/poklon"
+            v-show="$store.state.user.access?.length"
+            id="pretplata-promo"
+            to="/pretplata/poklon/"
             class="newbtn"
             >Poklonite pretplatu</app-link
           >
           <app-link
             v-show="!canLogIn"
             class="column-mini-left-pad desktop-only"
-            to="/moj-racun"
+            to="https://pretplata.telegram.hr/subscriptions/subscriptions/my"
             aria-label="Moj račun"
           >
             <font-awesome-icon :icon="['far', 'user']"></font-awesome-icon>
@@ -204,13 +200,13 @@
             <app-link
               v-show="!$store.state.user.access"
               id="pretplatite se - header"
-              to="/pretplata/telesport/"
+              to="/pretplata/telesport"
               class="newbtn"
               >Pretplatite se</app-link
             >
             <app-link
               v-show="!canLogIn"
-              to="/moj-racun"
+              to="https://pretplata.telegram.hr/subscriptions/subscriptions/my"
               class="newbtn newbtn-empty"
               aria-label="Moj račun"
             >
@@ -353,7 +349,7 @@
     </client-only>
     <!-- Euro 24 -->
     <div
-      class="full relative darkened-bg column-top-margin column-bottom-margin column-bottom-pad mobile-vertical-pad favbet-section dark-mode"
+      class="full relative darkened-bg column-top-margin column-bottom-margin column-bottom-pad mobile-vertical-pad hnl-section dark-mode"
     >
       <div
         class="container mobile-side-pad flex relative stretch column-vertical-pad"
@@ -362,8 +358,7 @@
           <div
             class="noththree full center-text column-vertical-pad subsection-title"
           >
-            Budi u igri uz
-            <img src="@/assets/img/logo_favbet_blue.svg" alt="Favbet logo" />
+            HNL
           </div>
         </div>
         <div
@@ -544,7 +539,7 @@
     </div>
     <!-- Book widget Bili libar 2 -->
     <app-link
-      to="/knjiga/boris-dezulovic-bili-libar-2"
+      to="https://knjige.telegram.hr/proizvod/knjige/bili-libar-2/"
       class="full flex relative center mobile-side-pad darkened-bg column-full-pad shoo-bottom"
     >
       <div class="container relative flex stretch">
@@ -568,9 +563,11 @@
           />
         </div>
         <div class="fifth tablet-full flex flex-responsive center">
-          <div class="full relative center-text newbook-price">19,99€</div>
+          <div class="full relative center-text newbook-price">
+            <span style="text-decoration: line-through">19,99€</span>
+            15,99€
+          </div>
           <div class="full relative center-text neat-numbers">
-            (150,61 kn)
             <br />
             Besplatna dostava po cijeloj Hrvatskoj
           </div>
@@ -620,12 +617,14 @@ export default {
       }
     },
     canLogIn() {
-      return this.$store.state.user.exp * 1000 < new Date().getTime()
+      return this.$store.getters['user/canLogIn']
     },
   },
   mounted() {
-    this.loadAds()
-    this.loadMore()
+    this.$nextTick(() => {
+      this.loadAds()
+      this.loadMore()
+    })
   },
   methods: {
     loadMore() {

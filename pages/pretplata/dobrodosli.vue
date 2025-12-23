@@ -37,7 +37,7 @@
                 <div class="full minicard-text">
                   pregled najvažnijih vijesti, analiza i tema
                 </div>
-                <newsletter-subscribe :mlid="2128" free></newsletter-subscribe>
+                <newsletter-subscribe mlid="dnevni" free></newsletter-subscribe>
               </div>
               <div
                 class="full minicard newsletter-minicard darkened-bg flex relative"
@@ -50,7 +50,10 @@
                 <div class="full minicard-text">
                   naši najbolji tekstovi, personalizirani za Vas
                 </div>
-                <newsletter-subscribe :mlid="2554" free></newsletter-subscribe>
+                <newsletter-subscribe
+                  mlid="Možda ste propustili"
+                  free
+                ></newsletter-subscribe>
               </div>
               <div
                 class="full minicard newsletter-minicard darkened-bg flex relative column-bottom-margin"
@@ -64,7 +67,10 @@
                   izvrsno štivo tijekom vikenda
                 </div>
 
-                <newsletter-subscribe :mlid="2555" free></newsletter-subscribe>
+                <newsletter-subscribe
+                  mlid="Vikend na Telegramu"
+                  free
+                ></newsletter-subscribe>
               </div>
               <div
                 v-if="!onlyTS"
@@ -79,7 +85,9 @@
                 <div class="full minicard-text">
                   Kolumne i analize vodećeg političkog analitičara
                 </div>
-                <newsletter-subscribe :mlid="2596"></newsletter-subscribe>
+                <newsletter-subscribe
+                  mlid="Jasmin Klarić"
+                ></newsletter-subscribe>
               </div>
               <div
                 v-if="!onlyTS"
@@ -94,7 +102,7 @@
                 <div class="full minicard-text">
                   Članci novinarke godine, specijalizirana za školstvo
                 </div>
-                <newsletter-subscribe :mlid="2566"></newsletter-subscribe>
+                <newsletter-subscribe mlid="Dora Kršul"></newsletter-subscribe>
               </div>
               <div
                 v-if="!onlyTS"
@@ -109,7 +117,7 @@
                 <div class="full minicard-text">
                   Istrage jednog od najnagrađivanijih hrvatskih novinara
                 </div>
-                <newsletter-subscribe :mlid="2564"></newsletter-subscribe>
+                <newsletter-subscribe mlid="Drago Hedl"></newsletter-subscribe>
               </div>
               <app-link
                 v-if="!onlyTS"
@@ -145,7 +153,11 @@
     </div>
     <div class="full center column-full-pad column-bottom-margin">
       <app-link
-        :to="$store.state.pretplata.lastArticle ?? '/'"
+        :to="
+          $store.state.pretplata.lastArticle
+            ? $store.state.pretplata.lastArticle
+            : '/'
+        "
         class="newbtn huge-newbtn gigantic-newbtn"
         >Nastavite čitati</app-link
       >
@@ -165,18 +177,26 @@ export default {
   },
   computed: {
     onlyTS() {
-      if (
-        this.$store.state.access === 'TMI0ZHT4IEYE' ||
-        this.$store.state.access === 'TM823EJ8Z8O5' ||
-        this.$store.state.access === 'TM9H28SXGG2N'
-      ) {
-        return true
-      }
       return false
     },
   },
   mounted() {
-    this.$store.dispatch('newsletters/checkAccess', this.$route.query.email)
+    this.$nextTick(() => {
+      this.$store.dispatch('newsletters/checkAccess')
+      // if (this.$store.state.pretplata.subscriptionStarted) {
+      window.marfeel = window.marfeel || { cmd: [] }
+      window.marfeel.cmd.push([
+        'compass',
+        function (compass) {
+          compass.trackConversion('subscribe')
+        },
+      ])
+      this.$store.commit('pretplata/setSubscriptionStarted', false)
+      // }
+      this.$gtm.push({
+        event: 'pretplata-success',
+      })
+    })
   },
   head() {
     const link = [
