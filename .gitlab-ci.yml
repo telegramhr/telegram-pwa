@@ -32,21 +32,17 @@ deploy-staging:
   stage: deploy
   image: alpine:latest
   script:
+    - apk add --no-cache curl
     - 'echo "Deploying to staging environment"'
     - 'echo "Docker image available at $IMAGE_TAG"'
-    - 'echo "Environment variables can be set at runtime:"'
-    - 'echo "  API_URL - Backend API URL"'
-    - 'echo "  BASE_URL - Application base URL"'
-    - 'echo "  WP_SITE_URL - WordPress site URL"'
-    - 'echo "  CDN_URL - CDN URL for assets"'
-    - 'echo "  GTM_ID - Google Tag Manager ID"'
-    - 'echo "  PM2_INSTANCES - Number of PM2 instances (default: 2)"'
+    - 'echo "Triggering Portainer webhook to pull latest image..."'
+    - 'curl -k -X POST "https://10.1.1.212:9443/api/webhooks/03388cff-7b2f-4a9b-98eb-2d1fd725542f"'
+    - 'echo "Portainer webhook triggered successfully"'
   environment:
     name: staging
     url: https://staging.telegram.hr
   only:
     - smartcode-staging
-  when: manual
   tags:
     - shared
 
