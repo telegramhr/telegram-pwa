@@ -140,7 +140,7 @@ export default {
           link: 'https://www.telegram.hr/partneri/od-umjetnickih-izlozbi-do-plesa-na-balu-ako-trazite-inspiraciju-evo-ideja-kako-ispuniti-blagdanske-dane/',
         },
         {
-          image: require('@/assets/img/widgets/advent/split-adv.webp'),
+          image: require('@/assets/img/widgets/advent/st-adv.webp'),
           title:
             'Dobra glazba, fini zalogaji i dnevni doček Nove godine: Što sve vas čeka na finalu Adventa u Splitu?',
           description: 'Donosimo veliki vodič sa svime što trebate znati',
