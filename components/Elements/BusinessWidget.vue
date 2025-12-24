@@ -15,23 +15,14 @@
 
         <div class="flex advent-header-logo">
           <img
-            src="@/assets/img/advent-express.png"
-            alt="Telegramov polarni express"
+            src="@/assets/img/widgets/business/business-text.png"
+            alt="Top business priče"
             class="telegram-heading"
           />
         </div>
       </div>
       <div class="content-container">
-        <div class="quiz-container">
-          <div class="overlay"></div>
-          <img
-            src="@/assets/img/advent-quiz-text.png"
-            alt="Advent section text"
-          />
-          <a href="https://www.telegram.hr/native/advent-2025/" target="_blank">
-            Ovdje doznajte sve detalje
-          </a>
-        </div>
+        <div class="quiz-container"></div>
 
         <VueSlickCarousel v-bind="slickOptions">
           <div
@@ -66,7 +57,7 @@
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 
 export default {
-  name: 'AdventWidget',
+  name: 'BusinessWidget',
   data() {
     return {
       slickOptions: {
@@ -95,57 +86,31 @@ export default {
       },
       items: [
         {
-          image: require('@/assets/img/widgets/advent/advent-zagreb.png'),
+          image: require('@/assets/img/widgets/business/tokic.jpg'),
           title:
-            'Nakon dvije godine Advent se vraća na Gornji grad: ovo su lokacije koje nećemo propustiti',
+            'Od malene trgovine u Kranjčevićevoj do golemog poslovnog carstva. Ova domaća tvrtka već 35 godina pomiče granice',
           description:
-            'Gornjogradske lokacije ovog Adventa nude zanimljive sadržaje i bogatu gastro ponudu',
+            'Gotovo sve što zarade, vraćaju u posao te ulažu u educiranje i tehnološki napredak',
           buttonText: 'Pročitaj više',
-          link: 'https://www.telegram.hr/partneri/nakon-dvije-godine-advent-se-vraca-na-gornji-grad-ovo-su-lokacije-koje-necemo-propustiti/',
+          link: 'https://www.telegram.hr/partneri/od-malene-trgovine-u-kranjcevicevoj-do-golemog-poslovnog-carstva-ova-domaca-tvrtka-vec-35-godina-pomice-granice/',
         },
         {
-          image: require('@/assets/img/widgets/advent/advent-more.webp'),
+          image: require('@/assets/img/widgets/business/algebra.jpg'),
           title:
-            'Božićna čarolija uz more: doznali smo zašto ovaj mediteranski Advent treba posjetiti čim prije',
+            'Potez koji mijenja tržište rada: ovo domaće Sveučilište pokrenulo je program za najtraženije zanimanje na svijetu',
           description:
-            'Grad na moru koji godinama oduševljava svojim adventskim lokacijama',
+            'Data Analyst Akademija odgovor je na promjene i nove trendove suvremenog tržišta rada',
           buttonText: 'Pročitaj više',
-          link: 'https://www.telegram.hr/partneri/bozicna-carolija-uz-more-doznali-smo-zasto-ovaj-mediteranski-advent-treba-posjetiti-cim-prije/',
+          link: 'https://www.telegram.hr/partneri/potez-koji-mijenja-trziste-rada-ovo-domace-sveuciliste-pokrenulo-je-program-za-najtrazenije-zanimanje-na-svijetu/',
         },
         {
-          image: require('@/assets/img/widgets/advent/advent-zrinjevac.jpg'),
+          image: require('@/assets/img/widgets/business/fonoa.jpg'),
           title:
-            "Na kultnoj adventskoj lokaciji očekuju vas plesnjaci, sjajni koncerti i čarobne kulise. Evo što ne smijete propustiti'",
+            'Kodirati je počeo s 8 u devastiranoj Argentini, radio u Amazonu i GitLabu, a danas predvodi tehnološku revoluciju u financijama',
           description:
-            'Advent na Zrinjevcu obilježen je još bogatijim programom i novom dozom blagdanske čarolije',
+            'Pablo Carranza danas je Chief Technology Officer u Fonoi, jednoj od najbrže rastućih tehnoloških tvrtki Europe',
           buttonText: 'Pročitaj više',
-          link: 'https://www.telegram.hr/partneri/na-kultnoj-adventskoj-lokaciji-ocekuju-vas-plesnjaci-sjajni-koncerti-i-carobne-kulise-evo-sto-ne-smijete-propustiti/',
-        },
-        {
-          image: require('@/assets/img/widgets/advent/rovinj-adv.webp'),
-          title:
-            'Ovaj hrvatski grad proglašen je destinacijom s najšarmantnijim božićnim sajmom na svijetu. Imamo detalje',
-          description:
-            'Tijekom prosinca ovaj istarski grad postat će jedno od najživljih glazbenih središta Jadrana',
-          buttonText: 'Pročitaj više',
-          link: 'https://www.telegram.hr/partneri/ovaj-hrvatski-grad-proglasen-je-destinacijom-s-najsarmantnijim-bozicnim-sajmom-na-svijetu-imamo-detalje/',
-        },
-        {
-          image: require('@/assets/img/widgets/advent/zg-adv.webp'),
-          title:
-            'Od umjetničkih izložbi do plesa na balu: ako tražite inspiraciju, evo ideja kako ispuniti blagdanske dane',
-          description:
-            'U Zagrebu vas čekaju sjajne mikro lokacije koje zaslužuju pažnju',
-          buttonText: 'Pročitaj više',
-          link: 'https://www.telegram.hr/partneri/od-umjetnickih-izlozbi-do-plesa-na-balu-ako-trazite-inspiraciju-evo-ideja-kako-ispuniti-blagdanske-dane/',
-        },
-        {
-          image: require('@/assets/img/widgets/advent/st-adv.webp'),
-          title:
-            'Dobra glazba, fini zalogaji i dnevni doček Nove godine: Što sve vas čeka na finalu Adventa u Splitu?',
-          description: 'Donosimo veliki vodič sa svime što trebate znati',
-          buttonText: 'Pročitaj više',
-          link: 'https://www.telegram.hr/super1/life/finale-adventa-u-splitu/',
+          link: 'https://www.telegram.hr/biznis-tech/kodirati-je-poceo-s-8-u-devastiranoj-argentini-radio-u-amazonu-i-gitlabu-a-danas-predvodi-tehnolosku-revoluciju-u-financijama/',
         },
       ],
     }
@@ -193,10 +158,16 @@ export default {
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  flex-direction: row;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+  margin-bottom: 24px;
 }
 .advent-header-logo {
-  display: none;
+  max-height: 20px;
+}
+.advent-header-logo img {
+  height: 20px;
 }
 .telegram-logo {
   width: 100%;
@@ -229,7 +200,7 @@ export default {
   padding: 40px 0px;
   width: 100%;
   position: relative;
-  background-image: url('@/assets/img/widgets/advent/advent-hero.png');
+  background-image: url('@/assets/img/widgets/business/business-price.png');
   background-size: cover;
   background-position: 40%;
   display: flex;
@@ -237,6 +208,7 @@ export default {
   gap: 32px;
   justify-content: center;
   margin-bottom: 24px;
+  display: none;
 }
 .quiz-container .overlay {
   position: absolute;
@@ -358,7 +330,7 @@ html.large-fontsize .description {
   font-weight: 600;
   font-size: 14px;
   padding: 12px 24px;
-  background-color: #395a3a;
+  background-color: #000;
   color: white;
   border: none;
   cursor: pointer !important;
@@ -373,7 +345,7 @@ html.large-fontsize .cta-button {
   font-size: 16px;
 }
 .cta-button:hover {
-  background-color: #2e4a30;
+  background-color: #1b1b1b;
 }
 :deep(.slick-track) {
   display: flex !important;
@@ -423,9 +395,15 @@ html.large-fontsize .cta-button {
   }
   .advent-header {
     margin-bottom: 28px;
+    justify-content: space-between;
+    flex-direction: row;
   }
   .advent-header-logo {
     display: inline;
+    max-height: 40px;
+  }
+  .advent-header-logo img {
+    max-height: 40px;
   }
   .image-wrapper {
     height: 200px;
@@ -434,6 +412,7 @@ html.large-fontsize .cta-button {
     aspect-ratio: 1.37;
   }
   .quiz-container {
+    display: block;
     margin-bottom: 0;
     margin-right: 9px;
     width: 50%;
