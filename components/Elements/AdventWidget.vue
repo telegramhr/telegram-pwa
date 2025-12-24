@@ -121,10 +121,37 @@ export default {
           buttonText: 'Pročitaj više',
           link: 'https://www.telegram.hr/partneri/na-kultnoj-adventskoj-lokaciji-ocekuju-vas-plesnjaci-sjajni-koncerti-i-carobne-kulise-evo-sto-ne-smijete-propustiti/',
         },
+        {
+          image: require('@/assets/img/widgets/advent/rovinj-adv.webp'),
+          title:
+            'Ovaj hrvatski grad proglašen je destinacijom s najšarmantnijim božićnim sajmom na svijetu. Imamo detalje',
+          description:
+            'Tijekom prosinca ovaj istarski grad postat će jedno od najživljih glazbenih središta Jadrana',
+          buttonText: 'Pročitaj više',
+          link: 'https://www.telegram.hr/partneri/ovaj-hrvatski-grad-proglasen-je-destinacijom-s-najsarmantnijim-bozicnim-sajmom-na-svijetu-imamo-detalje/',
+        },
+        {
+          image: require('@/assets/img/widgets/advent/zg-adv.webp'),
+          title:
+            'Od umjetničkih izložbi do plesa na balu: ako tražite inspiraciju, evo ideja kako ispuniti blagdanske dane',
+          description:
+            'U Zagrebu vas čekaju sjajne mikro lokacije koje zaslužuju pažnju',
+          buttonText: 'Pročitaj više',
+          link: 'https://www.telegram.hr/partneri/od-umjetnickih-izlozbi-do-plesa-na-balu-ako-trazite-inspiraciju-evo-ideja-kako-ispuniti-blagdanske-dane/',
+        },
+        {
+          image: require('@/assets/img/widgets/advent/st-adv.webp'),
+          title:
+            'Dobra glazba, fini zalogaji i dnevni doček Nove godine: Što sve vas čeka na finalu Adventa u Splitu?',
+          description: 'Donosimo veliki vodič sa svime što trebate znati',
+          buttonText: 'Pročitaj više',
+          link: 'https://www.telegram.hr/super1/life/finale-adventa-u-splitu/',
+        },
       ],
     }
   },
   mounted() {
+    this.items = this.shuffleArray(this.items)
     this.$gtm.push({
       event: 'webshop-widget',
       'webshop-category': 'advent-widget',

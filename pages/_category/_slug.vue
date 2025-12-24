@@ -1149,7 +1149,7 @@ export default {
           scriptTag.src = 'https://www.tiktok.com/embed.js'
           head.append(scriptTag)
         }
-        if (document.getElementById('article-content')) {
+        /* if (document.getElementById('article-content')) {
           const images = [
             ...document
               .getElementById('article-content')
@@ -1158,9 +1158,12 @@ export default {
           images.forEach((image) => {
             if (image.width < image.height) {
               image.classList.remove('size-full')
+              if (image.parentElement.classList.contains('size-full')) {
+                image.parentElement.classList.remove('size-full')
+              }
             }
           })
-        }
+        } */
         if (this.post.content.indexOf('data-aos')) {
           this.$nextTick(() => {
             AOS.init()
