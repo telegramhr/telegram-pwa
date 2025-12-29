@@ -258,36 +258,6 @@
                   itemprop="interactionStatistics"
                   >{{ post.recommendations }} preporuka</span
                 >
-                <div v-if="!post.audio" class="sidebar-social flex">
-                  <client-only>
-                    <gift-article
-                      v-if="
-                        post.paywall === 'always' &&
-                        this.$store.state.user.token
-                      "
-                      :key="`gift-${post.id}`"
-                    ></gift-article>
-                  </client-only>
-                  <a href="#" @click.prevent="fbShare"
-                    ><font-awesome-icon
-                      :icon="['fab', 'facebook-f']"
-                      class="animate"
-                    ></font-awesome-icon>
-                  </a>
-                  <a
-                    :href="`https://twitter.com/intent/tweet?counturl=${encodeURI(
-                      post.social.path
-                    )}&text=${encodeURI(post.portal_title)}&url=${encodeURI(
-                      post.social.path
-                    )}&via=TelegramHR`"
-                    target="_blank"
-                    rel="nofollow"
-                    ><font-awesome-icon
-                      :icon="['fab', 'x-twitter']"
-                      class="animate"
-                    ></font-awesome-icon
-                  ></a>
-                </div>
               </div>
               <div
                 v-if="post.type !== 'noimage' && (post.image.url || post.video)"
@@ -329,10 +299,10 @@
               </div>
               <!-- eslint-disable-next-line -->
               <action-bar
-                v-if="post.audio"
                 :comment-count="post.comments"
                 :audio="post.audio"
                 :is-premium="post.paywall === 'always'"
+                :paywall="post.paywall"
                 @play="() => $emit('play-audio')"
                 @gift="() => $emit('gift-article')"
                 @comments="comments = !comments"
