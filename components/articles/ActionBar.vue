@@ -1,5 +1,23 @@
 <template>
   <div class="action-bar">
+    <div v-if="showCopiedNotification" class="copied-notification">
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M13.3333 4L6 11.3333L2.66667 8"
+          stroke="white"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      Veza je kopirana u međuspremnik
+    </div>
     <audio-player
       v-if="audio"
       :src="audio"
@@ -478,6 +496,8 @@ export default {
       link: '',
       showGiftSubmenu: false,
       showShareSubmenu: false,
+      showCopiedNotification: false,
+      copiedTimeout: null,
     }
   },
   computed: {
@@ -509,8 +529,26 @@ export default {
   beforeDestroy() {
     // Remove click outside listener
     document.removeEventListener('click', this.handleClickOutside)
+    // Clear copied notification timeout if exists
+    if (this.copiedTimeout) {
+      clearTimeout(this.copiedTimeout)
+    }
   },
   methods: {
+    showCopiedMessage() {
+      // Clear any existing timeout
+      if (this.copiedTimeout) {
+        clearTimeout(this.copiedTimeout)
+      }
+
+      this.showCopiedNotification = true
+
+      // Auto-hide after 2 seconds
+      this.copiedTimeout = setTimeout(() => {
+        this.showCopiedNotification = false
+        this.copiedTimeout = null
+      }, 2000)
+    },
     async getLink() {
       if (this.hasGifted.length) {
         this.link = this.hasGifted[0].link
@@ -529,6 +567,8 @@ export default {
     async copyLink() {
       const link = await this.getLink()
       await navigator.clipboard.writeText(link)
+      this.showGiftSubmenu = false
+      this.showCopiedMessage()
     },
     async fbShare() {
       const link = await this.getLink()
@@ -573,6 +613,8 @@ export default {
     },
     shareCopyLink() {
       navigator.clipboard.writeText(this.currentUrl)
+      this.showShareSubmenu = false
+      this.showCopiedMessage()
     },
     shareFb() {
       FB.ui(
@@ -650,6 +692,72 @@ export default {
   border-radius: 8px;
   flex-wrap: wrap;
   order: 2;
+  position: relative;
+}
+
+.copied-notification {
+  position: absolute;
+
+  top: 50px;
+  right: 0;
+  background: #343434;
+  color: #fff;
+  padding: 10px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  white-space: nowrap;
+  z-index: 1001;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .copied-notification {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: none;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 16px 16px 0 0;
+    padding: 16px;
+    box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.2);
+    z-index: 10003;
+    white-space: normal;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.copied-notification svg {
+  flex-shrink: 0;
 }
 .single-article-premium .action-bar {
   order: 0;
