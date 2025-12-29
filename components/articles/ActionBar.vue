@@ -7,7 +7,7 @@
       :has-premium="hasPremium"
     ></audio-player>
     <div class="actions">
-      <div class="gift-wrap">
+      <div v-if="showGift" ref="giftWrap" class="gift-wrap">
         <button
           class="action-button"
           @click="showGiftSubmenu = !showGiftSubmenu"
@@ -247,7 +247,7 @@
         <span>{{ commentCount }}</span>
       </button>
 
-      <div class="share-wrap">
+      <div ref="shareWrap" class="share-wrap">
         <button
           class="action-button"
           @click="showShareSubmenu = !showShareSubmenu"
@@ -468,6 +468,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    paywall: {
+      type: String,
+      default: '',
+    },
   },
   data() {
     return {
@@ -491,11 +495,20 @@ export default {
     hasPremium() {
       return this.$store.getters['user/hasPremium']
     },
+    showGift() {
+      return this.paywall === 'always' && this.$store.state.user.token
+    },
   },
   mounted() {
     if (this.$store.state.user.token) {
       this.$store.dispatch('gifts/getUserGifts')
     }
+    // Add click outside listener
+    document.addEventListener('click', this.handleClickOutside)
+  },
+  beforeDestroy() {
+    // Remove click outside listener
+    document.removeEventListener('click', this.handleClickOutside)
   },
   methods: {
     async getLink() {
@@ -604,6 +617,22 @@ export default {
     },
     handleShare() {
       this.$emit('share')
+    },
+    handleClickOutside(event) {
+      // Check if click is outside gift submenu
+      if (this.showGiftSubmenu) {
+        const giftWrap = this.$refs.giftWrap
+        if (giftWrap && !giftWrap.contains(event.target)) {
+          this.showGiftSubmenu = false
+        }
+      }
+      // Check if click is outside share submenu
+      if (this.showShareSubmenu) {
+        const shareWrap = this.$refs.shareWrap
+        if (shareWrap && !shareWrap.contains(event.target)) {
+          this.showShareSubmenu = false
+        }
+      }
     },
   },
 }
