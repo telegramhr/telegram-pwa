@@ -12,7 +12,7 @@
           :class="{ disabled: isPlayDisabled }"
           @click="togglePlay"
         >
-          <PlayIcon />
+          <PlayIcon class="play-icon" />
         </button>
 
         <div
@@ -59,7 +59,7 @@
     <!-- PLAYING ROW -->
     <div v-else class="audio-active">
       <button class="icon-btn" @click="togglePlay">
-        <PauseIcon v-if="isPlaying" />
+        <PauseIcon class="play-icon" v-if="isPlaying" />
         <PlayIcon v-else />
       </button>
 
@@ -386,6 +386,13 @@ export default {
 }
 .icon-btn.disabled:hover {
   background: transparent;
+}
+.play-icon {
+  position: relative;
+  left: 2px;
+}
+.pause-icon {
+  left: unset !important;
 }
 .idle-text {
   color: #333;
