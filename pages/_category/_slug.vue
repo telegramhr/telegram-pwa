@@ -77,10 +77,18 @@
                   "
                   class="fancy-overtitle-premium"
                 >
-                  <img
-                    src="@/assets/img/t_logo.svg"
-                    alt="Telegram monogram logo (T)"
-                  />
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M2.75 8.05715H5.23557V7.54781C5.21519 6.52913 5.39856 5.83643 5.74491 5.46971C5.94864 5.2456 6.15238 5.2456 6.19312 5.2456H6.74321V12.2337H4.97071V14.6989H12.8756V12.2745H10.6142V5.26598H10.9402H11.0216C11.3272 5.26598 11.5514 5.34747 11.7551 5.55121C12.1218 5.91793 12.3052 6.56988 12.3459 7.58856L12.3663 8.07752H14.75V2.80078H2.75V8.05715Z"
+                      fill="#343434"
+                    />
+                  </svg>
                   Samo za pretplatnike
                 </span>
               </client-only>
@@ -140,10 +148,18 @@
                     "
                     class="fancy-overtitle-premium"
                   >
-                    <img
-                      src="@/assets/img/t_logo.svg"
-                      alt="Telegram monogram logo (T)"
-                    />
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 18 18"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2.75 8.05715H5.23557V7.54781C5.21519 6.52913 5.39856 5.83643 5.74491 5.46971C5.94864 5.2456 6.15238 5.2456 6.19312 5.2456H6.74321V12.2337H4.97071V14.6989H12.8756V12.2745H10.6142V5.26598H10.9402H11.0216C11.3272 5.26598 11.5514 5.34747 11.7551 5.55121C12.1218 5.91793 12.3052 6.56988 12.3459 7.58856L12.3663 8.07752H14.75V2.80078H2.75V8.05715Z"
+                        fill="#343434"
+                      />
+                    </svg>
                     Samo za pretplatnike
                   </span>
                 </client-only>
@@ -202,6 +218,76 @@
                     :author="post.authors[0]"
                   ></subscribe-link>
                 </client-only>
+                <div class="full relative center">
+                  <time class="meta-date" :datetime="post.time">{{
+                    post.time | parseTime
+                  }}</time>
+                  <span
+                    v-if="post.recommendations"
+                    class="meta-preporuke"
+                    itemprop="interactionStatistics"
+                    >{{ post.recommendations }} preporuka</span
+                  >
+                </div>
+              </div>
+
+              <div
+                v-if="post.type !== 'noimage'"
+                class="nothfive full flex relative article-meta article-meta-nonCommentary"
+              >
+                <app-link
+                  v-for="author in post.authors"
+                  :key="author.name"
+                  :to="author.url"
+                  class="meta-author flex desktop-only"
+                  ><img
+                    v-if="author.image"
+                    :src="author.image"
+                    :alt="author.name"
+                  /><span>Piše</span
+                  ><span class="vcard author" rel="author" itemprop="author">{{
+                    author.name
+                  }}</span></app-link
+                >
+                <time class="meta-date" :datetime="post.time">{{
+                  post.time | parseTime
+                }}</time>
+                <span
+                  v-if="post.recommendations"
+                  class="meta-preporuke"
+                  itemprop="interactionStatistics"
+                  >{{ post.recommendations }} preporuka</span
+                >
+                <div v-if="!post.audio" class="sidebar-social flex">
+                  <client-only>
+                    <gift-article
+                      v-if="
+                        post.paywall === 'always' &&
+                        this.$store.state.user.token
+                      "
+                      :key="`gift-${post.id}`"
+                    ></gift-article>
+                  </client-only>
+                  <a href="#" @click.prevent="fbShare"
+                    ><font-awesome-icon
+                      :icon="['fab', 'facebook-f']"
+                      class="animate"
+                    ></font-awesome-icon>
+                  </a>
+                  <a
+                    :href="`https://twitter.com/intent/tweet?counturl=${encodeURI(
+                      post.social.path
+                    )}&text=${encodeURI(post.portal_title)}&url=${encodeURI(
+                      post.social.path
+                    )}&via=TelegramHR`"
+                    target="_blank"
+                    rel="nofollow"
+                    ><font-awesome-icon
+                      :icon="['fab', 'x-twitter']"
+                      class="animate"
+                    ></font-awesome-icon
+                  ></a>
+                </div>
               </div>
               <div
                 v-if="post.type !== 'noimage' && (post.image.url || post.video)"
@@ -242,70 +328,22 @@
                 </template>
               </div>
               <!-- eslint-disable-next-line -->
+              <action-bar
+                v-if="post.audio"
+                :comment-count="post.comments"
+                :audio="post.audio"
+                :is-premium="post.paywall === 'always'"
+                @play="() => $emit('play-audio')"
+                @gift="() => $emit('gift-article')"
+                @comments="comments = !comments"
+                @share="fbShare()"
+              ></action-bar>
               <p
                 v-if="post.perex"
                 class="perex"
                 itemprop="articleBody"
                 v-html="post.perex"
               ></p>
-              <div
-                v-if="post.type !== 'noimage'"
-                class="nothfive full flex relative article-meta"
-              >
-                <app-link
-                  v-for="author in post.authors"
-                  :key="author.name"
-                  :to="author.url"
-                  class="meta-author flex desktop-only"
-                  ><img
-                    v-if="author.image"
-                    :src="author.image"
-                    :alt="author.name"
-                  /><span>Piše</span
-                  ><span class="vcard author" rel="author" itemprop="author">{{
-                    author.name
-                  }}</span></app-link
-                >
-                <time class="meta-date" :datetime="post.time">{{
-                  post.time | parseTime
-                }}</time>
-                <span
-                  v-if="post.recommendations"
-                  class="meta-preporuke"
-                  itemprop="interactionStatistics"
-                  >{{ post.recommendations }} preporuka</span
-                >
-                <div class="sidebar-social flex">
-                  <client-only>
-                    <gift-article
-                      v-if="
-                        post.paywall === 'always' &&
-                        this.$store.state.user.token
-                      "
-                      :key="`gift-${post.id}`"
-                    ></gift-article>
-                  </client-only>
-                  <a href="#" @click.prevent="fbShare"
-                    ><font-awesome-icon
-                      :icon="['fab', 'facebook-f']"
-                      class="animate"
-                    ></font-awesome-icon>
-                  </a>
-                  <a
-                    :href="`https://twitter.com/intent/tweet?counturl=${encodeURI(
-                      post.social.path
-                    )}&text=${encodeURI(post.portal_title)}&url=${encodeURI(
-                      post.social.path
-                    )}&via=TelegramHR`"
-                    target="_blank"
-                    rel="nofollow"
-                    ><font-awesome-icon
-                      :icon="['fab', 'x-twitter']"
-                      class="animate"
-                    ></font-awesome-icon
-                  ></a>
-                </div>
-              </div>
             </div>
 
             <div class="full relative center single-top-banner">
@@ -320,14 +358,6 @@
                 ></ad-unit>
               </div>
             </div>
-            <action-bar
-              :comment-count="post.comments"
-              :audio="post.audio"
-              @play="() => $emit('play-audio')"
-              @gift="() => $emit('gift-article')"
-              @comments="comments = !comments"
-              @share="fbShare()"
-            ></action-bar>
             <div class="full relative single-article-body">
               <client-only>
                 <mini-pretplata-new
@@ -588,6 +618,9 @@
   </div>
 </template>
 <style scoped>
+.meta-preporuke {
+  margin-left: 10px;
+}
 .commentsContainer {
   max-width: 710px;
   margin-left: auto;

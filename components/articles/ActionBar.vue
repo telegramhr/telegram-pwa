@@ -1,6 +1,11 @@
 <template>
   <div class="action-bar">
-    <audio-player v-if="audio" :src="audio"></audio-player>
+    <audio-player
+      v-if="audio"
+      :src="audio"
+      :is-premium="isPremium"
+      :has-premium="hasPremium"
+    ></audio-player>
     <div class="actions">
       <div class="gift-wrap">
         <button
@@ -457,7 +462,11 @@ export default {
     },
     commentCount: {
       type: Number,
-      default: 24,
+      default: 0,
+    },
+    isPremium: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {
@@ -478,6 +487,9 @@ export default {
     },
     currentUrl() {
       return window.location.origin + this.$route.fullPath
+    },
+    hasPremium() {
+      return this.$store.getters['user/hasPremium']
     },
   },
   mounted() {
@@ -605,12 +617,28 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem 0;
+  padding-top: 1rem;
   border-radius: 8px;
   flex-wrap: wrap;
+  order: 2;
 }
-
+.single-article-premium .action-bar {
+  order: 0;
+  padding: 16px 0px;
+  display: flex !important;
+  border-radius: 0px;
+  border-top: 1px solid #c8c8c8;
+}
+@media (max-width: 480px) {
+  .action-bar {
+    order: unset;
+  }
+}
+@media (max-width: 620px) {
+  .action-bar {
+    gap: 1rem;
+  }
+}
 .play-icon {
   width: 20px;
   height: 20px;
@@ -643,7 +671,7 @@ export default {
 }
 
 .action-button:hover {
-  background: #e8e8e8;
+  background: #efded0;
 }
 
 .action-button svg {
@@ -673,6 +701,7 @@ export default {
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
   z-index: 1000;
   font-family: 'Barlow', sans-serif;
+  max-width: 210px;
 }
 
 @media (max-width: 480px) {
@@ -747,8 +776,7 @@ export default {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 10px 12px;
-  margin-bottom: 4px;
+  margin-bottom: 12px;
   border-radius: 8px;
   cursor: pointer;
   font-size: 14px;
@@ -764,10 +792,6 @@ export default {
     padding: 0;
     margin-bottom: 16px;
   }
-}
-
-.gift-item:hover {
-  background: #f5f5f5;
 }
 
 .gift-item svg {
@@ -799,6 +823,7 @@ export default {
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
   z-index: 1000;
   font-family: 'Barlow', sans-serif;
+  max-width: 210px;
 }
 
 @media (max-width: 480px) {
@@ -858,8 +883,7 @@ export default {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 10px 12px;
-  margin-bottom: 4px;
+  margin-bottom: 12px;
   border-radius: 8px;
   cursor: pointer;
   font-size: 14px;
@@ -875,10 +899,6 @@ export default {
     padding: 0;
     margin-bottom: 16px;
   }
-}
-
-.share-item:hover {
-  background: #f5f5f5;
 }
 
 .share-item svg {
@@ -956,11 +976,6 @@ body.dark-mode .share-item svg path {
 
 body.dark-mode .gift-item svg path[fill='#343434'] {
   fill: #fff;
-}
-
-body.dark-mode .gift-item:hover,
-body.dark-mode .share-item:hover {
-  background: #333;
 }
 
 body.dark-mode .close-button svg path {

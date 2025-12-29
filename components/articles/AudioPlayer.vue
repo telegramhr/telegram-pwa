@@ -1,10 +1,55 @@
 <template>
-  <div class="audio-wrapper">
+  <div
+    class="audio-wrapper"
+    @mouseenter="handlePremiumHover(true)"
+    @mouseleave="handlePremiumHover(false)"
+  >
     <!-- TOP / IDLE ROW -->
     <div v-if="!hasStarted" class="audio-idle">
-      <button class="icon-btn" @click="togglePlay">
-        <PlayIcon />
-      </button>
+      <div class="play-button-wrap">
+        <button
+          class="icon-btn"
+          :class="{ disabled: isPlayDisabled }"
+          @click="togglePlay"
+        >
+          <PlayIcon />
+        </button>
+
+        <div
+          v-if="showPremiumTooltip"
+          class="premium-overlay"
+          @click="showPremiumTooltip = false"
+        ></div>
+
+        <div
+          v-if="showPremiumTooltip"
+          class="premium-tooltip"
+          @mouseenter="handleTooltipMouseEnter"
+          @mouseleave="handleTooltipMouseLeave"
+        >
+          <button class="close-button" @click="showPremiumTooltip = false">
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 14 14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M13 1L1 13M1 1L13 13"
+                stroke="black"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+          <p class="premium-tooltip-text">
+            Ovaj članak možete preslušati samo s aktivnom digitalnom pretplatom.
+            <a href="/pretplata">Pretplatite se</a>
+          </p>
+        </div>
+      </div>
 
       <span class="idle-text">
         Poslušajte ovaj članak · {{ formattedDuration }} min
@@ -106,6 +151,8 @@
 export default {
   props: {
     src: { type: String, required: true },
+    isPremium: { type: Boolean, default: false },
+    hasPremium: { type: Boolean, default: false },
   },
 
   data() {
@@ -115,7 +162,9 @@ export default {
       duration: 0,
       currentTime: 0,
       showInfo: false,
+      showPremiumTooltip: false,
       isDragging: false,
+      tooltipCloseTimeout: null,
     }
   },
 
@@ -136,10 +185,18 @@ export default {
     formattedRemaining() {
       return this.formatTime(Math.max(this.duration - this.currentTime, 0))
     },
+    isPlayDisabled() {
+      return this.isPremium && !this.hasPremium
+    },
   },
 
   methods: {
     togglePlay() {
+      if (this.isPlayDisabled) {
+        this.handlePremiumClick()
+        return
+      }
+
       const audio = this.$refs.audio
 
       if (!this.hasStarted) {
@@ -152,6 +209,52 @@ export default {
       } else {
         audio.pause()
         this.isPlaying = false
+      }
+    },
+
+    handlePremiumClick() {
+      if (this.isPlayDisabled) {
+        if (window.innerWidth <= 480) {
+          this.showPremiumTooltip = !this.showPremiumTooltip
+        }
+      }
+    },
+
+    handlePremiumHover(show) {
+      if (window.innerWidth > 480) {
+        if (this.isPlayDisabled) {
+          if (show) {
+            // Clear any pending close timeout
+            if (this.tooltipCloseTimeout) {
+              clearTimeout(this.tooltipCloseTimeout)
+              this.tooltipCloseTimeout = null
+            }
+            this.showPremiumTooltip = true
+          } else {
+            // Delay closing to allow mouse movement to tooltip
+            this.tooltipCloseTimeout = setTimeout(() => {
+              this.showPremiumTooltip = false
+              this.tooltipCloseTimeout = null
+            }, 200)
+          }
+        }
+      }
+    },
+
+    handleTooltipMouseEnter() {
+      if (window.innerWidth > 480) {
+        // Clear any pending close timeout
+        if (this.tooltipCloseTimeout) {
+          clearTimeout(this.tooltipCloseTimeout)
+          this.tooltipCloseTimeout = null
+        }
+        this.showPremiumTooltip = true
+      }
+    },
+
+    handleTooltipMouseLeave() {
+      if (window.innerWidth > 480) {
+        this.showPremiumTooltip = false
       }
     },
 
@@ -274,7 +377,16 @@ export default {
   justify-content: center;
   cursor: pointer;
 }
-
+.icon-btn:hover {
+  background: #efded0;
+}
+.icon-btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.icon-btn.disabled:hover {
+  background: transparent;
+}
 .idle-text {
   color: #333;
 }
@@ -289,8 +401,13 @@ export default {
 .progress {
   flex: 1;
   cursor: pointer;
+  width: 140px;
 }
-
+@media (max-width: 480px) {
+  .progress {
+    width: auto;
+  }
+}
 .progress-track {
   position: relative;
   height: 8px;
@@ -529,6 +646,112 @@ body.dark-mode .progress-dot {
 
 body.dark-mode .info {
   border-color: #fff;
+  color: #fff;
+}
+
+.play-button-wrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.premium-tooltip {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: center;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 300px;
+  padding: 12px;
+  background: #fff;
+  color: #000;
+  font-size: 13px;
+  line-height: 1.4;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+@media (max-width: 480px) {
+  .premium-tooltip {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+    transform: none;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 16px 16px 0 0;
+    padding: 16px;
+    box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.2);
+    z-index: 10002;
+    text-align: left;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 400;
+  }
+}
+
+.premium-tooltip a {
+  text-decoration: underline;
+}
+
+.premium-tooltip::after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 12px;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  transform: rotate(45deg);
+  box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 480px) {
+  .premium-tooltip::after {
+    display: none;
+  }
+  .premium-tooltip-text {
+    max-width: 80%;
+  }
+}
+
+.premium-tooltip-text {
+  margin: 0;
+}
+
+.premium-overlay {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .premium-overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10001;
+  }
+}
+
+body.dark-mode .premium-tooltip {
+  background: #000;
+  color: #fff;
+}
+
+body.dark-mode .premium-tooltip-text {
+  color: #fff;
+}
+
+body.dark-mode .premium-tooltip a {
   color: #fff;
 }
 </style>
