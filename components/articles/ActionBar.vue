@@ -666,6 +666,11 @@ export default {
       this.$emit('share')
     },
     handleClickOutside(event) {
+      // Guard against calls after component destruction
+      if (!this.$refs.giftWrap && !this.$refs.shareWrap) {
+        return
+      }
+
       // Check if click is outside gift submenu
       if (this.showGiftSubmenu) {
         const giftWrap = this.$refs.giftWrap

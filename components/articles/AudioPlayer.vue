@@ -165,6 +165,18 @@ export default {
       showPremiumTooltip: false,
       isDragging: false,
       tooltipCloseTimeout: null,
+      dragCleanup: null,
+    }
+  },
+
+  beforeDestroy() {
+    // Clean up tooltip timeout
+    if (this.tooltipCloseTimeout) {
+      clearTimeout(this.tooltipCloseTimeout)
+    }
+    // Clean up drag listeners if component is destroyed while dragging
+    if (this.dragCleanup) {
+      this.dragCleanup()
     }
   },
 
@@ -296,11 +308,14 @@ export default {
           0,
           Math.min(1, (clientX - rect.left) / rect.width)
         )
-        this.$refs.audio.currentTime = percent * this.duration
+        if (this.$refs.audio) {
+          this.$refs.audio.currentTime = percent * this.duration
+        }
       }
 
       const handleEnd = () => {
         this.isDragging = false
+        this.dragCleanup = null
         document.removeEventListener('mousemove', handleMove)
         document.removeEventListener('mouseup', handleEnd)
         document.removeEventListener('touchmove', handleMove)
@@ -311,6 +326,9 @@ export default {
       document.addEventListener('mouseup', handleEnd)
       document.addEventListener('touchmove', handleMove)
       document.addEventListener('touchend', handleEnd)
+
+      // Store cleanup function in case component is destroyed while dragging
+      this.dragCleanup = handleEnd
     },
 
     formatTime(sec) {
