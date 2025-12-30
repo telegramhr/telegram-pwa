@@ -245,7 +245,7 @@
         </div>
       </div>
 
-      <button class="action-button" @click="handleComments">
+      <button class="action-button comments-button" @click="handleComments">
         <svg
           width="15"
           height="15"
@@ -681,6 +681,16 @@ export default {
 </script>
 
 <style scoped>
+.action-bar.nonAudio {
+  width: fit-content;
+  padding: 0;
+  margin-right: 0;
+  padding: 0 !important;
+  border: none !important;
+}
+.action-bar.nonComments .comments-button {
+  display: none;
+}
 .action-bar {
   max-width: 710px;
   width: 100%;
@@ -810,7 +820,9 @@ export default {
 .action-button:hover {
   background: #efded0;
 }
-
+.superone .action-button:hover {
+  background: #efefef;
+}
 .action-button svg {
   width: 18px;
   height: 18px;

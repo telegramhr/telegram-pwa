@@ -1384,7 +1384,6 @@ footer .conversion-notice {
   font-weight: 400;
   font-size: 13px;
   font-size: 0.65rem;
-  padding-right: 150px;
   margin-top: 16px;
 }
 
@@ -1625,6 +1624,13 @@ figure img {
   padding-bottom: 16px;
   padding-top: 16px;
   border-top: 1px solid #c8c8c8;
+}
+.single-article-premium.superone .article-meta-nonCommentary {
+  display: flex !important;
+  padding-bottom: 0;
+  padding-top: 0;
+  margin-top: 0;
+  border-top: none;
 }
 .premium-article-head {
   display: none;
@@ -4801,6 +4807,11 @@ html.large-fontsize,
 
   footer .logo-line a {
     width: 33.33%;
+  }
+
+  .single-article .article-head .meta-date,
+  .single-article .article-head .meta-preporuke {
+    padding-top: 9px;
   }
 }
 
@@ -14432,6 +14443,7 @@ input:checked ~ .input-hidden {
   display: inline-block;
   /*background-color: #e8dacd;*/
   border: 1px solid #c8c8c8;
+  border-width: 1px;
   font-family: 'Barlow', sans-serif;
   position: relative;
   border-radius: 14px;

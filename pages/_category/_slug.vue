@@ -218,7 +218,7 @@
                     :author="post.authors[0]"
                   ></subscribe-link>
                 </client-only>
-                <div class="full relative center">
+                <div class="relative center">
                   <time class="meta-date" :datetime="post.time">{{
                     post.time | parseTime
                   }}</time>
@@ -258,6 +258,18 @@
                   itemprop="interactionStatistics"
                   >{{ post.recommendations }} preporuka</span
                 >
+                <action-bar
+                  v-if="!post.audio && post.paywall !== 'always'"
+                  :class="{
+                    nonAudio: true,
+                    nonComments: post.category_slug.includes('superone'),
+                  }"
+                  :comment-count="post.comments"
+                  :is-premium="post.paywall === 'always'"
+                  :paywall="post.paywall"
+                  @comments="comments = !comments"
+                  @share="fbShare()"
+                ></action-bar>
               </div>
               <div
                 v-if="post.type !== 'noimage' && (post.image.url || post.video)"
@@ -299,6 +311,7 @@
               </div>
               <!-- eslint-disable-next-line -->
               <action-bar
+                v-if="post.audio || post.paywall === 'always'"
                 :comment-count="post.comments"
                 :audio="post.audio"
                 :is-premium="post.paywall === 'always'"
