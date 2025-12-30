@@ -73,7 +73,12 @@
               />
             </svg>
           </button>
-          <template v-if="!$store.state.user.access">
+          <template
+            v-if="
+              !$store.state.user.access ||
+              $store.state.user.access?.length === 0
+            "
+          >
             <p class="gift-submenu-title">Samo za pretplatnike</p>
             <p class="gift-submenu-description">
               Pretplatnici Telegrama mogu besplatno pokloniti 10 članaka

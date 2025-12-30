@@ -73,7 +73,8 @@
               <client-only>
                 <span
                   v-if="
-                    this.$store.state.user.access && post.paywall === 'always'
+                    this.$store.state.user.access?.length &&
+                    post.paywall === 'always'
                   "
                   class="fancy-overtitle-premium"
                 >
@@ -144,7 +145,8 @@
                 <client-only
                   ><span
                     v-if="
-                      this.$store.state.user.access && post.paywall === 'always'
+                      this.$store.state.user.access?.length &&
+                      post.paywall === 'always'
                     "
                     class="fancy-overtitle-premium"
                   >
@@ -1085,6 +1087,10 @@ export default {
       window.addEventListener('scroll', this.handleScroll)
       if (this.$route.params.category === 'l') {
         window.history.replaceState({}, null, this.post.permalink)
+      }
+      // Fetch user gifts if user is logged in and article has paywall
+      if (this.$store.state.user.token && this.post.paywall === 'always') {
+        this.$store.dispatch('gifts/getUserGifts')
       }
     })
     this.widgetVariant = this.getWidgetVariant()
