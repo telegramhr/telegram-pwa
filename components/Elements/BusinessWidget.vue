@@ -112,6 +112,15 @@ export default {
           buttonText: 'Pročitaj više',
           link: 'https://www.telegram.hr/biznis-tech/kodirati-je-poceo-s-8-u-devastiranoj-argentini-radio-u-amazonu-i-gitlabu-a-danas-predvodi-tehnolosku-revoluciju-u-financijama/',
         },
+        {
+          image: require('@/assets/img/widgets/business/telemach.jpg'),
+          title:
+            'Ova tvrtka čisti Jadran, opskrbljuje 300.000 domova najnovijom optikom i uvodi Hrvatsku u eru superbrzog interneta',
+          description:
+            'Razgovarali smo s Mislavom Gallerom, njihovim članom Uprave i glavnim komercijalnim direktorom',
+          buttonText: 'Pročitaj više',
+          link: 'https://www.telegram.hr/partneri/ova-tvrtka-cisti-jadran-opskrbljuje-300-000-domova-najnovijom-optikom-i-uvodi-hrvatsku-u-eru-superbrzog-interneta/',
+        },
       ],
     }
   },
