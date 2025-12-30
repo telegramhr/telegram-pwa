@@ -80,7 +80,7 @@
               mjesečno. Pretplatite se ili prijavite u svoj račun.
             </p>
           </template>
-          <template v-else-if="!userGifts.available">
+          <template v-else-if="userGifts.available">
             <p class="gift-submenu-title">Poklonite članak</p>
             <p class="gift-submenu-description">
               Kao pretplatnik možete nekom pokloniti članke koji su zaključani.
