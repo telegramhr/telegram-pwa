@@ -1384,7 +1384,7 @@ footer .conversion-notice {
   font-weight: 400;
   font-size: 13px;
   font-size: 0.65rem;
-  padding-right: 150px;
+  margin-top: 16px;
 }
 
 .single-article-commentary article .article-meta {
@@ -1544,6 +1544,7 @@ figure img {
   padding-bottom: 30px;
   margin-bottom: 30px;
   border-bottom: 1px solid #ccc;
+  order: 3;
 }
 
 .single-article-premium .perex,
@@ -1551,10 +1552,6 @@ figure img {
   padding-bottom: 0px;
   margin-bottom: 15px;
   border-bottom: none;
-}
-
-.single-article-commentary .article-head {
-  margin-bottom: 16px;
 }
 
 .single-exclusive {
@@ -1616,6 +1613,31 @@ figure img {
   display: none;
 }
 
+.single-article-commentary .article-meta-nonCommentary {
+  display: none;
+}
+.single-article-premium .article-meta-nonCommentary {
+  display: flex !important;
+  padding-bottom: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #c8c8c8;
+}
+.telesport .single-article-premium .article-meta-nonCommentary {
+  border-top: none;
+  margin-top: 0;
+}
+.single-article-premium .article-meta-nonCommentary{
+    border-top: 0;
+    margin-top: 0;
+    padding-top: 0;
+}
+.single-article-premium.superone .article-meta-nonCommentary {
+  display: flex !important;
+  padding-bottom: 0;
+  padding-top: 0;
+  margin-top: 0;
+  border-top: none;
+}
 .premium-article-head {
   display: none;
 }
@@ -4792,6 +4814,11 @@ html.large-fontsize,
   footer .logo-line a {
     width: 33.33%;
   }
+
+  .single-article .article-head .meta-date,
+  .single-article .article-head .meta-preporuke {
+    padding-top: 9px;
+  }
 }
 
 @media screen and (min-width: 767px) {
@@ -6067,7 +6094,7 @@ html.large-fontsize,
   }
 
   .single-article .article-head .meta-author span {
-    padding-top: 6px;
+    padding-top: 9px;
   }
 
   .article-standard {
@@ -6142,7 +6169,7 @@ html.large-fontsize,
   }
 
   .single-article .article-head .meta-author span {
-    padding-top: 6px;
+    padding-top: 9px;
   }
 
   .single-article .article-head .meta-author img {
@@ -6296,9 +6323,11 @@ html.large-fontsize,
   font-family: 'Merriweather', serif;
   font-style: italic;
   padding-top: 8px;
+  padding-bottom: 8px;
   border-top: #c8c8c8 1px solid;
   margin-top: 10px;
   display: block;
+  border-bottom: #c8c8c8 1px solid;
 }
 
 .article-head-newsletter > span {
@@ -6332,8 +6361,6 @@ html.large-fontsize,
     margin-top: 0px;
     top: -8px;
     display: block;
-    padding-top: 6px;
-    padding-bottom: 4px;
     margin-bottom: 4px;
     border-bottom: #c8c8c8 1px solid;
   }
@@ -7993,10 +8020,6 @@ html.large-fontsize,
 .single-article.pitanje-zdravlja .block-related .article-featured h2 {
   font-size: 24px;
   font-size: 1.2rem;
-}
-
-.pitanje-zdravlja.single-article .meta-date {
-  display: none;
 }
 
 #my-account,
@@ -14422,19 +14445,21 @@ input:checked ~ .input-hidden {
   display: inline-block;
   /*background-color: #e8dacd;*/
   border: 1px solid #c8c8c8;
-  text-transform: uppercase;
+  border-width: 1px;
   font-family: 'Barlow', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: normal;
-  font-size: 0.73rem;
   position: relative;
-  padding-top: 0.05rem;
-  padding-bottom: 0.1rem;
-  padding-right: 0.2rem;
-  padding-left: 1.3rem;
-  margin-bottom: 0.35rem;
-  margin-top: 0.1rem;
+  border-radius: 14px;
+  border-width: 1px solid #9F9F9F;
+  padding-top: 2px;
+  padding-right: 8px;
+  padding-bottom: 2px;
+  padding-left: 8px;
+  font-size: 16px;
+  line-height: 24.5px;
+  font-weight: 500;
+}
+.fancy-overtitle-premium svg{
+    vertical-align: text-bottom;
 }
 
 .dark-mode .fancy-overtitle-premium {
@@ -14471,16 +14496,7 @@ input:checked ~ .input-hidden {
 
 @media screen and (max-width: 767px) {
   .fancy-overtitle-premium {
-    font-size: 12px;
     font-size: 0.6rem;
-    padding-top: 1px;
-    padding-bottom: 2px;
-    padding-right: 4px;
-    padding-left: 26px;
-    margin-bottom: 7px;
-    margin-top: 2px;
-    top: -1px;
-    position: relative;
   }
 
   .fancy-overtitle-premium img {
