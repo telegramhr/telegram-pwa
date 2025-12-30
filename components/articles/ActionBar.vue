@@ -245,7 +245,7 @@
         </div>
       </div>
 
-      <button class="action-button" @click="handleComments">
+      <button class="action-button comments-button" @click="handleComments">
         <svg
           width="15"
           height="15"
@@ -681,6 +681,16 @@ export default {
 </script>
 
 <style scoped>
+.action-bar.nonAudio {
+  width: fit-content;
+  padding: 0;
+  margin-right: 0;
+  padding: 0 !important;
+  border: none !important;
+}
+.action-bar.nonComments .comments-button {
+  display: none;
+}
 .action-bar {
   max-width: 710px;
   width: 100%;
@@ -766,9 +776,27 @@ export default {
   border-radius: 0px;
   border-top: 1px solid #c8c8c8;
 }
+.regular:not(.komentari) .with-audio {
+  border-bottom: 1px solid #c8c8c8;
+  border-radius: 0px;
+  padding-bottom: 16px;
+}
+.main-container.single-article.single-article-premium.single-article-premium-alt
+  .with-audio {
+  border-bottom: none;
+  border-radius: 0px;
+}
 @media (max-width: 480px) {
   .action-bar {
     order: unset;
+  }
+  .single-article-commentary .action-bar {
+    order: 2;
+  }
+  .regular .with-audio {
+    border-bottom: none;
+    border-radius: 0px;
+    padding-bottom: 0px;
   }
 }
 @media (max-width: 620px) {
@@ -810,7 +838,11 @@ export default {
 .action-button:hover {
   background: #efded0;
 }
-
+.superone .action-button:hover,
+.openspace .action-button:hover,
+.pitanje-zdravlja .action-button:hover {
+  background: #efefef;
+}
 .action-button svg {
   width: 18px;
   height: 18px;

@@ -81,3 +81,13 @@ export default {
   },
 }
 </script>
+<style scoped>
+.article-head-newsletter {
+  margin-bottom: 12px;
+}
+@media screen and (min-width: 1024px) {
+  .article-head-newsletter {
+    margin-bottom: 0px;
+  }
+}
+</style>
