@@ -516,7 +516,7 @@ export default {
       return this.$store.getters['user/hasPremium']
     },
     showGift() {
-      return this.paywall === 'always'
+      return this.paywall === 'always' && this.$store.state.user.token
     },
   },
   mounted() {
