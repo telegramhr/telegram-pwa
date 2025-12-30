@@ -1544,6 +1544,7 @@ figure img {
   padding-bottom: 30px;
   margin-bottom: 30px;
   border-bottom: 1px solid #ccc;
+  order: 3;
 }
 
 .single-article-premium .perex,
@@ -1551,10 +1552,6 @@ figure img {
   padding-bottom: 0px;
   margin-bottom: 15px;
   border-bottom: none;
-}
-
-.single-article-commentary .article-head {
-  margin-bottom: 16px;
 }
 
 .single-exclusive {
@@ -1624,6 +1621,15 @@ figure img {
   padding-bottom: 16px;
   padding-top: 16px;
   border-top: 1px solid #c8c8c8;
+}
+.telesport .single-article-premium .article-meta-nonCommentary {
+  border-top: none;
+  margin-top: 0;
+}
+.single-article-premium .article-meta-nonCommentary{
+    border-top: 0;
+    margin-top: 0;
+    padding-top: 0;
 }
 .single-article-premium.superone .article-meta-nonCommentary {
   display: flex !important;
@@ -6088,7 +6094,7 @@ html.large-fontsize,
   }
 
   .single-article .article-head .meta-author span {
-    padding-top: 6px;
+    padding-top: 9px;
   }
 
   .article-standard {
@@ -6163,7 +6169,7 @@ html.large-fontsize,
   }
 
   .single-article .article-head .meta-author span {
-    padding-top: 6px;
+    padding-top: 9px;
   }
 
   .single-article .article-head .meta-author img {
@@ -8014,10 +8020,6 @@ html.large-fontsize,
 .single-article.pitanje-zdravlja .block-related .article-featured h2 {
   font-size: 24px;
   font-size: 1.2rem;
-}
-
-.pitanje-zdravlja.single-article .meta-date {
-  display: none;
 }
 
 #my-account,
@@ -14494,16 +14496,7 @@ input:checked ~ .input-hidden {
 
 @media screen and (max-width: 767px) {
   .fancy-overtitle-premium {
-    font-size: 12px;
     font-size: 0.6rem;
-    padding-top: 1px;
-    padding-bottom: 2px;
-    padding-right: 4px;
-    padding-left: 26px;
-    margin-bottom: 7px;
-    margin-top: 2px;
-    top: -1px;
-    position: relative;
   }
 
   .fancy-overtitle-premium img {

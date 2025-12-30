@@ -195,7 +195,10 @@
               <h2 class="full">
                 {{ post.subtitle | parseCat }}
               </h2>
-              <div class="nothfive full flex relative article-meta mobile-only">
+              <div
+                v-if="post.type === 'commentary'"
+                class="nothfive full flex relative article-meta mobile-only"
+              >
                 <app-link
                   v-for="author in post.authors"
                   :key="author.name"
@@ -218,7 +221,7 @@
                     :author="post.authors[0]"
                   ></subscribe-link>
                 </client-only>
-                <div class="relative center">
+                <div class="commentary-meta-other">
                   <time class="meta-date" :datetime="post.time">{{
                     post.time | parseTime
                   }}</time>
@@ -230,46 +233,107 @@
                   >
                 </div>
               </div>
-
               <div
                 v-if="post.type !== 'noimage'"
                 class="nothfive full flex relative article-meta article-meta-nonCommentary"
               >
-                <app-link
-                  v-for="author in post.authors"
-                  :key="author.name"
-                  :to="author.url"
-                  class="meta-author flex desktop-only"
-                  ><img
-                    v-if="author.image"
-                    :src="author.image"
-                    :alt="author.name"
-                  /><span>Piše</span
-                  ><span class="vcard author" rel="author" itemprop="author">{{
-                    author.name
-                  }}</span></app-link
-                >
-                <time class="meta-date" :datetime="post.time">{{
-                  post.time | parseTime
-                }}</time>
-                <span
-                  v-if="post.recommendations"
-                  class="meta-preporuke"
-                  itemprop="interactionStatistics"
-                  >{{ post.recommendations }} preporuka</span
-                >
-                <action-bar
-                  v-if="!post.audio && post.paywall !== 'always'"
-                  :class="{
-                    nonAudio: true,
-                    nonComments: post.category_slug.includes('superone'),
-                  }"
-                  :comment-count="post.comments"
-                  :is-premium="post.paywall === 'always'"
-                  :paywall="post.paywall"
-                  @comments="comments = !comments"
-                  @share="fbShare()"
-                ></action-bar>
+                <div class="meta-all">
+                  <div class="meta-author-all">
+                    <app-link
+                      v-for="author in post.authors"
+                      :key="author.name"
+                      :to="author.url"
+                      class="meta-author flex"
+                      ><img
+                        v-if="author.image"
+                        :src="author.image"
+                        :alt="author.name"
+                      /><span>Piše</span
+                      ><span
+                        class="vcard author"
+                        rel="author"
+                        itemprop="author"
+                        >{{ author.name }}</span
+                      ></app-link
+                    >
+                  </div>
+                  <div class="meta-other">
+                    <div class="flex">
+                      <time class="meta-date" :datetime="post.time">{{
+                        post.time | parseTime
+                      }}</time>
+                      <span
+                        v-if="post.recommendations"
+                        class="meta-preporuke"
+                        itemprop="interactionStatistics"
+                        >{{ post.recommendations }} preporuka</span
+                      >
+                    </div>
+                    <action-bar
+                      v-if="!post.audio"
+                      :class="{
+                        nonAudio: true,
+                        nonComments:
+                          post.category_slug.includes('superone') ||
+                          post.category_slug.includes('pitanje-zdravlja') ||
+                          post.category_slug.includes('openspace') ||
+                          post.category_slug.includes('super1'),
+                      }"
+                      :comment-count="post.comments"
+                      :is-premium="post.paywall === 'always'"
+                      :paywall="post.paywall"
+                      @comments="comments = !comments"
+                      @share="fbShare()"
+                    ></action-bar>
+                  </div>
+                </div>
+                <div class="full flex relative article-meta desktop-only-meta">
+                  <div class="meta-author-all">
+                    <app-link
+                      v-for="author in post.authors"
+                      :key="author.name"
+                      :to="author.url"
+                      class="meta-author flex"
+                      ><img
+                        v-if="author.image"
+                        :src="author.image"
+                        :alt="author.name"
+                      /><span>Piše</span
+                      ><span
+                        class="vcard author"
+                        rel="author"
+                        itemprop="author"
+                        >{{ author.name }}</span
+                      ></app-link
+                    >
+                  </div>
+                  <time class="meta-date" :datetime="post.time">{{
+                    post.time | parseTime
+                  }}</time>
+                  <span
+                    v-if="post.recommendations"
+                    class="meta-preporuke"
+                    itemprop="interactionStatistics"
+                    >{{ post.recommendations }} preporuka</span
+                  >
+
+                  <action-bar
+                    v-if="!post.audio"
+                    :class="{
+                      nonAudio: true,
+                      nonComments:
+                        post.category_slug.includes('superone') ||
+                        post.category_slug.includes('pitanje-zdravlja') ||
+                        post.category_slug.includes('openspace') ||
+                        post.category_slug.includes('super1'),
+                    }"
+                    :comment-count="post.comments"
+                    :is-premium="post.paywall === 'always'"
+                    :paywall="post.paywall"
+                    @comments="comments = !comments"
+                    @share="fbShare()"
+                  ></action-bar>
+                </div>
               </div>
               <div
                 v-if="post.type !== 'noimage' && (post.image.url || post.video)"
@@ -311,7 +375,8 @@
               </div>
               <!-- eslint-disable-next-line -->
               <action-bar
-                v-if="post.audio || post.paywall === 'always'"
+                v-if="post.audio"
+                :class="'with-audio'"
                 :comment-count="post.comments"
                 :audio="post.audio"
                 :is-premium="post.paywall === 'always'"
@@ -611,10 +676,57 @@
   padding-left: 20px;
   padding-right: 20px;
 }
+.meta-all {
+  display: flex;
+  flex-direction: column;
+}
+.meta-author-all {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.meta-other {
+  display: flex;
+  justify-content: space-between;
+  width: 90vw;
+}
+.article-meta.desktop-only-meta {
+  display: none !important;
+}
+.commentary-meta-other {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 auto;
+  width: fit-content;
+}
+.commentary-meta-other .meta-date,
+.commentary-meta-other .meta-preporuke {
+  padding-top: 0 !important;
+  margin: unset !important;
+}
+.article-head-newsletter {
+  margin-bottom: 12px;
+}
+@media screen and (min-width: 600px) {
+  .article-meta.desktop-only-meta {
+    display: flex !important;
+    padding-right: 0 !important;
+  }
+  .article-meta.desktop-only-meta .meta-date {
+    margin-left: 10px;
+  }
+  .meta-all {
+    display: none;
+  }
+}
 @media screen and (min-width: 768px) {
   .commentsContainer {
     padding-left: 0px;
     padding-right: 0px;
+  }
+  .article-head-newsletter {
+    margin-bottom: 0px;
   }
 }
 </style>

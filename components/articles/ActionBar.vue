@@ -516,7 +516,7 @@ export default {
       return this.$store.getters['user/hasPremium']
     },
     showGift() {
-      return this.paywall === 'always' && this.$store.state.user.token
+      return this.paywall === 'always'
     },
   },
   mounted() {
@@ -776,9 +776,27 @@ export default {
   border-radius: 0px;
   border-top: 1px solid #c8c8c8;
 }
+.regular:not(.komentari) .with-audio {
+  border-bottom: 1px solid #c8c8c8;
+  border-radius: 0px;
+  padding-bottom: 16px;
+}
+.main-container.single-article.single-article-premium.single-article-premium-alt
+  .with-audio {
+  border-bottom: none;
+  border-radius: 0px;
+}
 @media (max-width: 480px) {
   .action-bar {
     order: unset;
+  }
+  .single-article-commentary .action-bar {
+    order: 2;
+  }
+  .regular .with-audio {
+    border-bottom: none;
+    border-radius: 0px;
+    padding-bottom: 0px;
   }
 }
 @media (max-width: 620px) {
@@ -820,7 +838,9 @@ export default {
 .action-button:hover {
   background: #efded0;
 }
-.superone .action-button:hover {
+.superone .action-button:hover,
+.openspace .action-button:hover,
+.pitanje-zdravlja .action-button:hover {
   background: #efefef;
 }
 .action-button svg {
