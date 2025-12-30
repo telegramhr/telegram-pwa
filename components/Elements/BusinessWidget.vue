@@ -121,6 +121,15 @@ export default {
           buttonText: 'Pročitaj više',
           link: 'https://www.telegram.hr/partneri/ova-tvrtka-cisti-jadran-opskrbljuje-300-000-domova-najnovijom-optikom-i-uvodi-hrvatsku-u-eru-superbrzog-interneta/',
         },
+        {
+          image: require('@/assets/img/widgets/business/infobip.jpg'),
+          title:
+            'Ono što nemaju ni Google ni Amazon u 2025. je postigla ova hrvatska kompanija. Imamo detalje',
+          description:
+            'Stipe Cigić o tome kako je hrvatska konferencija stigla na tri kontinenta',
+          buttonText: 'Pročitaj više',
+          link: 'https://www.telegram.hr/partneri/ono-sto-nemaju-ni-google-ni-amazon-u-2025-je-postigla-ova-hrvatska-kompanija-imamo-detalje/',
+        },
       ],
     }
   },
