@@ -495,33 +495,12 @@
                   </app-link>
                 </div>
                 <div class="half flex-responsive">
-                  <div class="flex float-right social-circle-buttons">
-                    <a href="#" class="animate center" @click.prevent="fbShare">
-                      <font-awesome-icon
-                        :icon="['fab', 'facebook-f']"
-                      ></font-awesome-icon
-                    ></a>
-                    <a
-                      :href="`https://twitter.com/intent/tweet?counturl=${encodeURI(
-                        post.social.path
-                      )}&text=${encodeURI(post.portal_title)}&url=${encodeURI(
-                        post.social.path
-                      )}&via=TelegramHR`"
-                      target="_blank"
-                      class="animate center"
-                      rel="nofollow"
-                    >
-                      <font-awesome-icon
-                        :icon="['fab', 'x-twitter']"
-                      ></font-awesome-icon
-                    ></a>
-                  </div>
                   <client-only>
-                    <gift-article
-                      v-if="post.paywall === 'always'"
-                      :key="`gift-${post.id}`"
-                      position="footer"
-                    ></gift-article>
+                    <action-bar
+                      :key="`action-bar-footer-${post.id}`"
+                      :paywall="post.paywall"
+                      class="nonAudio nonComments bottom"
+                    ></action-bar>
                   </client-only>
                 </div>
               </div>

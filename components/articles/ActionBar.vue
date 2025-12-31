@@ -698,6 +698,9 @@ export default {
   padding: 0 !important;
   border: none !important;
 }
+.action-bar.nonAudio.nonComments.bottom {
+  width: 100%;
+}
 .action-bar.nonComments .comments-button {
   display: none;
 }
@@ -795,6 +798,11 @@ export default {
   .with-audio {
   border-bottom: none;
   border-radius: 0px;
+}
+@media (min-width: 768px) {
+  .action-bar.nonAudio.nonComments.bottom {
+    width: fit-content;
+  }
 }
 @media (max-width: 480px) {
   .action-bar {
