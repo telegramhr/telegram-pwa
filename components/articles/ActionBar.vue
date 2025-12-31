@@ -789,7 +789,7 @@ export default {
   border-radius: 0px;
   border-top: 1px solid #c8c8c8;
 }
-.regular:not(.komentari) .with-audio {
+.regular .with-audio {
   border-bottom: 1px solid #c8c8c8;
   border-radius: 0px;
   padding-bottom: 16px;
