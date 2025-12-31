@@ -18,12 +18,6 @@
       </svg>
       Veza je kopirana u međuspremnik
     </div>
-    <audio-player
-      v-if="audio"
-      :src="audio"
-      :is-premium="isPremium"
-      :has-premium="hasPremium"
-    ></audio-player>
     <div class="actions">
       <div v-if="showGift" ref="giftWrap" class="gift-wrap">
         <button
