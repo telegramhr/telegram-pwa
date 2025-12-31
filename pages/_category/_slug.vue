@@ -179,10 +179,7 @@
               <h2 class="full">
                 {{ post.subtitle | parseCat }}
               </h2>
-              <div
-                v-if="post.type === 'commentary'"
-                class="nothfive full flex relative article-meta mobile-only"
-              >
+              <div class="nothfive full flex relative article-meta mobile-only">
                 <app-link
                   v-for="author in post.authors"
                   :key="author.name"
@@ -205,86 +202,6 @@
                     :author="post.authors[0]"
                   ></subscribe-link>
                 </client-only>
-                <div class="commentary-meta-other">
-                  <time class="meta-date" :datetime="post.time">{{
-                    post.time | parseTime
-                  }}</time>
-                  <span
-                    v-if="post.recommendations"
-                    class="meta-preporuke"
-                    itemprop="interactionStatistics"
-                    >{{ post.recommendations }} preporuka</span
-                  >
-                </div>
-              </div>
-              <div
-                v-if="post.type !== 'noimage'"
-                class="nothfive full flex relative article-meta article-meta-nonCommentary"
-              >
-                <div class="meta-all">
-                  <div class="meta-author-all">
-                    <app-link
-                      v-for="author in post.authors"
-                      :key="author.name"
-                      :to="author.url"
-                      class="meta-author flex"
-                      ><img
-                        v-if="author.image"
-                        :src="author.image"
-                        :alt="author.name"
-                      /><span>Piše</span
-                      ><span
-                        class="vcard author"
-                        rel="author"
-                        itemprop="author"
-                        >{{ author.name }}</span
-                      ></app-link
-                    >
-                  </div>
-                  <div class="meta-other">
-                    <div class="flex">
-                      <time class="meta-date" :datetime="post.time">{{
-                        post.time | parseTime
-                      }}</time>
-                      <span
-                        v-if="post.recommendations"
-                        class="meta-preporuke"
-                        itemprop="interactionStatistics"
-                        >{{ post.recommendations }} preporuka</span
-                      >
-                    </div>
-                  </div>
-                </div>
-                <div class="full flex relative article-meta desktop-only-meta">
-                  <div class="meta-author-all">
-                    <app-link
-                      v-for="author in post.authors"
-                      :key="author.name"
-                      :to="author.url"
-                      class="meta-author flex"
-                      ><img
-                        v-if="author.image"
-                        :src="author.image"
-                        :alt="author.name"
-                      /><span>Piše</span
-                      ><span
-                        class="vcard author"
-                        rel="author"
-                        itemprop="author"
-                        >{{ author.name }}</span
-                      ></app-link
-                    >
-                  </div>
-                  <time class="meta-date" :datetime="post.time">{{
-                    post.time | parseTime
-                  }}</time>
-                  <span
-                    v-if="post.recommendations"
-                    class="meta-preporuke"
-                    itemprop="interactionStatistics"
-                    >{{ post.recommendations }} preporuka</span
-                  >
-                </div>
               </div>
               <div
                 v-if="post.type !== 'noimage' && (post.image.url || post.video)"
@@ -331,8 +248,65 @@
                 itemprop="articleBody"
                 v-html="post.perex"
               ></p>
+              <div
+                v-if="post.type !== 'noimage'"
+                class="nothfive full flex relative article-meta"
+              >
+                <app-link
+                  v-for="author in post.authors"
+                  :key="author.name"
+                  :to="author.url"
+                  class="meta-author flex desktop-only"
+                  ><img
+                    v-if="author.image"
+                    :src="author.image"
+                    :alt="author.name"
+                  /><span>Piše</span
+                  ><span class="vcard author" rel="author" itemprop="author">{{
+                    author.name
+                  }}</span></app-link
+                >
+                <time class="meta-date" :datetime="post.time">{{
+                  post.time | parseTime
+                }}</time>
+                <span
+                  v-if="post.recommendations"
+                  class="meta-preporuke"
+                  itemprop="interactionStatistics"
+                  >{{ post.recommendations }} preporuka</span
+                >
+                <div class="sidebar-social flex">
+                  <client-only>
+                    <gift-article
+                      v-if="
+                        post.paywall === 'always' &&
+                        this.$store.state.user.token
+                      "
+                      :key="`gift-${post.id}`"
+                    ></gift-article>
+                  </client-only>
+                  <a href="#" @click.prevent="fbShare"
+                    ><font-awesome-icon
+                      :icon="['fab', 'facebook-f']"
+                      class="animate"
+                    ></font-awesome-icon>
+                  </a>
+                  <a
+                    :href="`https://twitter.com/intent/tweet?counturl=${encodeURI(
+                      post.social.path
+                    )}&text=${encodeURI(post.portal_title)}&url=${encodeURI(
+                      post.social.path
+                    )}&via=TelegramHR`"
+                    target="_blank"
+                    rel="nofollow"
+                    ><font-awesome-icon
+                      :icon="['fab', 'x-twitter']"
+                      class="animate"
+                    ></font-awesome-icon
+                  ></a>
+                </div>
+              </div>
             </div>
-
             <div class="full relative center single-top-banner">
               <div>
                 <ad-unit
@@ -605,9 +579,6 @@
   </div>
 </template>
 <style scoped>
-.meta-preporuke {
-  margin-left: 10px;
-}
 .commentsContainer {
   max-width: 710px;
   margin-left: auto;
@@ -615,57 +586,10 @@
   padding-left: 20px;
   padding-right: 20px;
 }
-.meta-all {
-  display: flex;
-  flex-direction: column;
-}
-.meta-author-all {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-}
-.meta-other {
-  display: flex;
-  justify-content: space-between;
-  width: 90vw;
-}
-.article-meta.desktop-only-meta {
-  display: none !important;
-}
-.commentary-meta-other {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin: 0 auto;
-  width: fit-content;
-}
-.commentary-meta-other .meta-date,
-.commentary-meta-other .meta-preporuke {
-  padding-top: 0 !important;
-  margin: unset !important;
-}
-.article-head-newsletter {
-  margin-bottom: 12px;
-}
-@media screen and (min-width: 600px) {
-  .article-meta.desktop-only-meta {
-    display: flex !important;
-    padding-right: 0 !important;
-  }
-  .article-meta.desktop-only-meta .meta-date {
-    margin-left: 10px;
-  }
-  .meta-all {
-    display: none;
-  }
-}
 @media screen and (min-width: 768px) {
   .commentsContainer {
     padding-left: 0px;
     padding-right: 0px;
-  }
-  .article-head-newsletter {
-    margin-bottom: 0px;
   }
 }
 </style>
@@ -1018,10 +942,6 @@ export default {
       window.addEventListener('scroll', this.handleScroll)
       if (this.$route.params.category === 'l') {
         window.history.replaceState({}, null, this.post.permalink)
-      }
-      // Fetch user gifts if user is logged in and article has paywall
-      if (this.$store.state.user.token && this.post.paywall === 'always') {
-        this.$store.dispatch('gifts/getUserGifts')
       }
     })
     this.widgetVariant = this.getWidgetVariant()
