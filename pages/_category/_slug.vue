@@ -253,22 +253,6 @@
                         >{{ post.recommendations }} preporuka</span
                       >
                     </div>
-                    <action-bar
-                      v-if="!post.audio"
-                      :class="{
-                        nonAudio: true,
-                        nonComments:
-                          post.category_slug.includes('superone') ||
-                          post.category_slug.includes('pitanje-zdravlja') ||
-                          post.category_slug.includes('openspace') ||
-                          post.category_slug.includes('super1'),
-                      }"
-                      :comment-count="post.comments"
-                      :is-premium="post.paywall === 'always'"
-                      :paywall="post.paywall"
-                      @comments="comments = !comments"
-                      @share="fbShare()"
-                    ></action-bar>
                   </div>
                 </div>
                 <div class="full flex relative article-meta desktop-only-meta">
@@ -300,23 +284,6 @@
                     itemprop="interactionStatistics"
                     >{{ post.recommendations }} preporuka</span
                   >
-
-                  <action-bar
-                    v-if="!post.audio"
-                    :class="{
-                      nonAudio: true,
-                      nonComments:
-                        post.category_slug.includes('superone') ||
-                        post.category_slug.includes('pitanje-zdravlja') ||
-                        post.category_slug.includes('openspace') ||
-                        post.category_slug.includes('super1'),
-                    }"
-                    :comment-count="post.comments"
-                    :is-premium="post.paywall === 'always'"
-                    :paywall="post.paywall"
-                    @comments="comments = !comments"
-                    @share="fbShare()"
-                  ></action-bar>
                 </div>
               </div>
               <div
@@ -358,18 +325,6 @@
                 </template>
               </div>
               <!-- eslint-disable-next-line -->
-              <action-bar
-                v-if="post.audio"
-                :class="'with-audio'"
-                :comment-count="post.comments"
-                :audio="post.audio"
-                :is-premium="post.paywall === 'always'"
-                :paywall="post.paywall"
-                @play="() => $emit('play-audio')"
-                @gift="() => $emit('gift-article')"
-                @comments="comments = !comments"
-                @share="fbShare()"
-              ></action-bar>
               <p
                 v-if="post.perex"
                 class="perex"
