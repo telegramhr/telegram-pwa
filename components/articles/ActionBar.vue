@@ -562,11 +562,11 @@ export default {
     buildAnalyticsEvent(eventName, additionalData = {}) {
       const baseData = {
         event: eventName,
-        user_subscribed: this.userSubscribed,
-        article_id: this.articleId,
-        article_title: this.articleTitle,
-        article_author: this.articleAuthor,
-        article_premium: this.isPremium,
+        'user-subscribed': this.userSubscribed,
+        'article-id': this.articleId,
+        'article-title': this.articleTitle,
+        'article-author': this.articleAuthor,
+        'article-premium': this.isPremium,
       }
       return { ...baseData, ...additionalData }
     },
@@ -602,7 +602,7 @@ export default {
     async copyLink() {
       this.$gtm.push(
         this.buildAnalyticsEvent('gift_article', {
-          gift_channel: 'copy_link',
+          'gift-channel': 'copy_link',
         })
       )
       const link = await this.getLink()
@@ -613,7 +613,7 @@ export default {
     async fbShare() {
       this.$gtm.push(
         this.buildAnalyticsEvent('gift_article', {
-          gift_channel: 'facebook',
+          'gift-channel': 'facebook',
         })
       )
       const link = await this.getLink()
@@ -629,7 +629,7 @@ export default {
     async twitterShare() {
       this.$gtm.push(
         this.buildAnalyticsEvent('gift_article', {
-          gift_channel: 'twitter',
+          'gift-channel': 'twitter',
         })
       )
       let link = await this.getLink()
@@ -640,7 +640,7 @@ export default {
     async whatsappShare() {
       this.$gtm.push(
         this.buildAnalyticsEvent('gift_article', {
-          gift_channel: 'whatsapp',
+          'gift-channel': 'whatsapp',
         })
       )
       let link = await this.getLink()
@@ -651,7 +651,7 @@ export default {
     async telegramShare() {
       this.$gtm.push(
         this.buildAnalyticsEvent('gift_article', {
-          gift_channel: 'telegram',
+          'gift-channel': 'telegram',
         })
       )
       let link = await this.getLink()
@@ -662,7 +662,7 @@ export default {
     async viberShare() {
       this.$gtm.push(
         this.buildAnalyticsEvent('gift_article', {
-          gift_channel: 'viber',
+          'gift-channel': 'viber',
         })
       )
       let link = await this.getLink()
@@ -673,7 +673,7 @@ export default {
     async emailShare() {
       this.$gtm.push(
         this.buildAnalyticsEvent('gift_article', {
-          gift_channel: 'email',
+          'gift-channel': 'email',
         })
       )
       let link = await this.getLink()
@@ -684,7 +684,7 @@ export default {
     shareCopyLink() {
       this.$gtm.push(
         this.buildAnalyticsEvent('share_article', {
-          share_channel: 'copy_link',
+          'share-channel': 'copy_link',
         })
       )
       navigator.clipboard.writeText(this.currentUrl)
@@ -694,7 +694,7 @@ export default {
     shareFb() {
       this.$gtm.push(
         this.buildAnalyticsEvent('share_article', {
-          share_channel: 'facebook',
+          'share-channel': 'facebook',
         })
       )
       FB.ui(
@@ -708,7 +708,7 @@ export default {
     shareTwitter() {
       this.$gtm.push(
         this.buildAnalyticsEvent('share_article', {
-          share_channel: 'twitter',
+          'share-channel': 'twitter',
         })
       )
       const link = encodeURIComponent(this.currentUrl)
@@ -718,7 +718,7 @@ export default {
     shareWhatsapp() {
       this.$gtm.push(
         this.buildAnalyticsEvent('share_article', {
-          share_channel: 'whatsapp',
+          'share-channel': 'whatsapp',
         })
       )
       const link = encodeURIComponent(this.currentUrl)
@@ -728,7 +728,7 @@ export default {
     shareTelegram() {
       this.$gtm.push(
         this.buildAnalyticsEvent('share_article', {
-          share_channel: 'telegram',
+          'share-channel': 'telegram',
         })
       )
       const link = encodeURIComponent(this.currentUrl)
@@ -738,7 +738,7 @@ export default {
     shareViber() {
       this.$gtm.push(
         this.buildAnalyticsEvent('share_article', {
-          share_channel: 'viber',
+          'share-channel': 'viber',
         })
       )
       const link = encodeURIComponent(this.currentUrl)
@@ -748,7 +748,7 @@ export default {
     shareEmail() {
       this.$gtm.push(
         this.buildAnalyticsEvent('share_article', {
-          share_channel: 'email',
+          'share-channel': 'email',
         })
       )
       const link = encodeURIComponent(this.currentUrl)

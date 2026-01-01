@@ -222,11 +222,11 @@ export default {
     buildAudioEvent(eventName, additionalData = {}) {
       const baseData = {
         event: eventName,
-        user_subscribed: this.userSubscribed,
-        article_id: this.articleId,
-        article_title: this.articleTitle,
-        article_author: this.articleAuthor,
-        article_premium: this.articlePremium,
+        'user-subscribed': this.userSubscribed,
+        'article-id': this.articleId,
+        'article-title': this.articleTitle,
+        'article-author': this.articleAuthor,
+        'article-premium': this.articlePremium,
       }
       return { ...baseData, ...additionalData }
     },
@@ -313,7 +313,7 @@ export default {
         this.$gtm.push(
           this.buildAudioEvent('audio_progress', {
             percentage: 25,
-            duration_seconds: this.durationSeconds,
+            'duration-seconds': this.durationSeconds,
           })
         )
       }
@@ -322,7 +322,7 @@ export default {
         this.$gtm.push(
           this.buildAudioEvent('audio_progress', {
             percentage: 50,
-            duration_seconds: this.durationSeconds,
+            'duration-seconds': this.durationSeconds,
           })
         )
       }
@@ -331,7 +331,7 @@ export default {
         this.$gtm.push(
           this.buildAudioEvent('audio_progress', {
             percentage: 75,
-            duration_seconds: this.durationSeconds,
+            'duration-seconds': this.durationSeconds,
           })
         )
       }
@@ -357,7 +357,7 @@ export default {
       // Track audio finished
       this.$gtm.push(
         this.buildAudioEvent('audio_finished', {
-          duration_seconds: this.durationSeconds,
+          'duration-seconds': this.durationSeconds,
         })
       )
     },
