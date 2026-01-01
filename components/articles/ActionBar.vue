@@ -23,6 +23,10 @@
       :src="audio"
       :is-premium="isPremium"
       :has-premium="hasPremium"
+      :article-id="articleId"
+      :article-title="articleTitle"
+      :article-author="articleAuthor"
+      :article-premium="isPremium"
     ></audio-player>
     <div class="actions">
       <div v-if="showGift" ref="giftWrap" class="gift-wrap">
@@ -495,6 +499,18 @@ export default {
       type: String,
       default: '',
     },
+    articleId: {
+      type: Number,
+      default: null,
+    },
+    articleTitle: {
+      type: String,
+      default: '',
+    },
+    articleAuthor: {
+      type: String,
+      default: '',
+    },
   },
   data() {
     return {
@@ -523,6 +539,9 @@ export default {
     showGift() {
       return this.paywall === 'always' && this.$store.state.user.token
     },
+    userSubscribed() {
+      return this.$store.getters['user/hasPremium']
+    },
   },
   mounted() {
     if (this.$store.state.user.token) {
@@ -540,6 +559,17 @@ export default {
     }
   },
   methods: {
+    buildAnalyticsEvent(eventName, additionalData = {}) {
+      const baseData = {
+        event: eventName,
+        user_subscribed: this.userSubscribed,
+        article_id: this.articleId,
+        article_title: this.articleTitle,
+        article_author: this.articleAuthor,
+        article_premium: this.isPremium,
+      }
+      return { ...baseData, ...additionalData }
+    },
     showCopiedMessage() {
       // Clear any existing timeout
       if (this.copiedTimeout) {
@@ -570,12 +600,22 @@ export default {
         })
     },
     async copyLink() {
+      this.$gtm.push(
+        this.buildAnalyticsEvent('gift_article', {
+          gift_channel: 'copy_link',
+        })
+      )
       const link = await this.getLink()
       await navigator.clipboard.writeText(link)
       this.showGiftSubmenu = false
       this.showCopiedMessage()
     },
     async fbShare() {
+      this.$gtm.push(
+        this.buildAnalyticsEvent('gift_article', {
+          gift_channel: 'facebook',
+        })
+      )
       const link = await this.getLink()
       /* global FB */
       FB.ui(
@@ -587,41 +627,76 @@ export default {
       )
     },
     async twitterShare() {
+      this.$gtm.push(
+        this.buildAnalyticsEvent('gift_article', {
+          gift_channel: 'twitter',
+        })
+      )
       let link = await this.getLink()
       link = encodeURIComponent(link)
       const url = `https://twitter.com/intent/tweet?url=${link}&text=Ovaj Telegram članak poklon je pretplatnika i možete ga pročitati besplatno.`
       window.open(url, '_blank')
     },
     async whatsappShare() {
+      this.$gtm.push(
+        this.buildAnalyticsEvent('gift_article', {
+          gift_channel: 'whatsapp',
+        })
+      )
       let link = await this.getLink()
       link = encodeURIComponent(link)
       const url = `https://api.whatsapp.com/send?text=Ovaj Telegram članak poklon je pretplatnika i možete ga pročitati besplatno. ${link}`
       window.open(url, '_blank')
     },
     async telegramShare() {
+      this.$gtm.push(
+        this.buildAnalyticsEvent('gift_article', {
+          gift_channel: 'telegram',
+        })
+      )
       let link = await this.getLink()
       link = encodeURIComponent(link)
       const url = `https://t.me/share/url?url=${link}&text=Ovaj Telegram članak poklon je pretplatnika i možete ga pročitati besplatno.`
       window.open(url, '_blank')
     },
     async viberShare() {
+      this.$gtm.push(
+        this.buildAnalyticsEvent('gift_article', {
+          gift_channel: 'viber',
+        })
+      )
       let link = await this.getLink()
       link = encodeURIComponent(link)
       const url = `viber://forward?text=Ovaj Telegram članak poklon je pretplatnika i možete ga pročitati besplatno. ${link}`
       window.open(url, '_blank')
     },
     async emailShare() {
+      this.$gtm.push(
+        this.buildAnalyticsEvent('gift_article', {
+          gift_channel: 'email',
+        })
+      )
       let link = await this.getLink()
       link = encodeURIComponent(link)
       const url = `mailto:?subject=Ovaj Telegram članak poklon je pretplatnika i možete ga pročitati besplatno.&body=${link}`
       window.open(url, 'top')
     },
     shareCopyLink() {
+      this.$gtm.push(
+        this.buildAnalyticsEvent('share_article', {
+          share_channel: 'copy_link',
+        })
+      )
       navigator.clipboard.writeText(this.currentUrl)
       this.showShareSubmenu = false
       this.showCopiedMessage()
     },
     shareFb() {
+      this.$gtm.push(
+        this.buildAnalyticsEvent('share_article', {
+          share_channel: 'facebook',
+        })
+      )
       FB.ui(
         {
           method: 'share',
@@ -631,26 +706,51 @@ export default {
       )
     },
     shareTwitter() {
+      this.$gtm.push(
+        this.buildAnalyticsEvent('share_article', {
+          share_channel: 'twitter',
+        })
+      )
       const link = encodeURIComponent(this.currentUrl)
       const url = `https://twitter.com/intent/tweet?url=${link}`
       window.open(url, '_blank')
     },
     shareWhatsapp() {
+      this.$gtm.push(
+        this.buildAnalyticsEvent('share_article', {
+          share_channel: 'whatsapp',
+        })
+      )
       const link = encodeURIComponent(this.currentUrl)
       const url = `https://api.whatsapp.com/send?text=${link}`
       window.open(url, '_blank')
     },
     shareTelegram() {
+      this.$gtm.push(
+        this.buildAnalyticsEvent('share_article', {
+          share_channel: 'telegram',
+        })
+      )
       const link = encodeURIComponent(this.currentUrl)
       const url = `https://t.me/share/url?url=${link}`
       window.open(url, '_blank')
     },
     shareViber() {
+      this.$gtm.push(
+        this.buildAnalyticsEvent('share_article', {
+          share_channel: 'viber',
+        })
+      )
       const link = encodeURIComponent(this.currentUrl)
       const url = `viber://forward?text=${link}`
       window.open(url, '_blank')
     },
     shareEmail() {
+      this.$gtm.push(
+        this.buildAnalyticsEvent('share_article', {
+          share_channel: 'email',
+        })
+      )
       const link = encodeURIComponent(this.currentUrl)
       const url = `mailto:?body=${link}`
       window.open(url, 'top')

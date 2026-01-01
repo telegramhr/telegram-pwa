@@ -267,6 +267,13 @@
                         :comment-count="post.comments"
                         :is-premium="post.paywall === 'always'"
                         :paywall="post.paywall"
+                        :article-id="post.id"
+                        :article-title="post.portal_title || post.title"
+                        :article-author="
+                          post.authors && post.authors.length
+                            ? post.authors[0].display_name
+                            : ''
+                        "
                         @comments="comments = !comments"
                         @share="fbShare()"
                       ></action-bar>
@@ -316,6 +323,13 @@
                       :comment-count="post.comments"
                       :is-premium="post.paywall === 'always'"
                       :paywall="post.paywall"
+                      :article-id="post.id"
+                      :article-title="post.portal_title || post.title"
+                      :article-author="
+                        post.authors && post.authors.length
+                          ? post.authors[0].display_name
+                          : ''
+                      "
                       @comments="comments = !comments"
                       @share="fbShare()"
                     ></action-bar>
@@ -369,6 +383,13 @@
                   :audio="post.audio"
                   :is-premium="post.paywall === 'always'"
                   :paywall="post.paywall"
+                  :article-id="post.id"
+                  :article-title="post.portal_title || post.title"
+                  :article-author="
+                    post.authors && post.authors.length
+                      ? post.authors[0].display_name
+                      : ''
+                  "
                   @play="() => $emit('play-audio')"
                   @gift="() => $emit('gift-article')"
                   @comments="comments = !comments"
@@ -499,6 +520,14 @@
                     <action-bar
                       :key="`action-bar-footer-${post.id}`"
                       :paywall="post.paywall"
+                      :is-premium="post.paywall === 'always'"
+                      :article-id="post.id"
+                      :article-title="post.portal_title || post.title"
+                      :article-author="
+                        post.authors && post.authors.length
+                          ? post.authors[0].display_name
+                          : ''
+                      "
                       class="nonAudio nonComments bottom"
                     ></action-bar>
                   </client-only>

@@ -153,6 +153,10 @@ export default {
     src: { type: String, required: true },
     isPremium: { type: Boolean, default: false },
     hasPremium: { type: Boolean, default: false },
+    articleId: { type: Number, default: null },
+    articleTitle: { type: String, default: '' },
+    articleAuthor: { type: String, default: '' },
+    articlePremium: { type: Boolean, default: false },
   },
 
   data() {
@@ -166,6 +170,12 @@ export default {
       isDragging: false,
       tooltipCloseTimeout: null,
       dragCleanup: null,
+      progressMilestones: {
+        25: false,
+        50: false,
+        75: false,
+      },
+      hasRewound: false,
     }
   },
 
@@ -200,9 +210,26 @@ export default {
     isPlayDisabled() {
       return this.isPremium && !this.hasPremium
     },
+    userSubscribed() {
+      return this.$store.getters['user/hasPremium']
+    },
+    durationSeconds() {
+      return Math.floor(this.duration)
+    },
   },
 
   methods: {
+    buildAudioEvent(eventName, additionalData = {}) {
+      const baseData = {
+        event: eventName,
+        user_subscribed: this.userSubscribed,
+        article_id: this.articleId,
+        article_title: this.articleTitle,
+        article_author: this.articleAuthor,
+        article_premium: this.articlePremium,
+      }
+      return { ...baseData, ...additionalData }
+    },
     togglePlay() {
       if (this.isPlayDisabled) {
         this.handlePremiumClick()
@@ -213,6 +240,7 @@ export default {
 
       if (!this.hasStarted) {
         this.hasStarted = true
+        this.$gtm.push(this.buildAudioEvent('audio_start'))
       }
 
       if (audio.paused) {
@@ -276,17 +304,62 @@ export default {
 
     onTimeUpdate() {
       this.currentTime = this.$refs.audio.currentTime
+
+      // Track progress milestones
+      const progressPercent = (this.currentTime / this.duration) * 100
+
+      if (!this.progressMilestones[25] && progressPercent >= 25) {
+        this.progressMilestones[25] = true
+        this.$gtm.push(
+          this.buildAudioEvent('audio_progress', {
+            percentage: 25,
+            duration_seconds: this.durationSeconds,
+          })
+        )
+      }
+      if (!this.progressMilestones[50] && progressPercent >= 50) {
+        this.progressMilestones[50] = true
+        this.$gtm.push(
+          this.buildAudioEvent('audio_progress', {
+            percentage: 50,
+            duration_seconds: this.durationSeconds,
+          })
+        )
+      }
+      if (!this.progressMilestones[75] && progressPercent >= 75) {
+        this.progressMilestones[75] = true
+        this.$gtm.push(
+          this.buildAudioEvent('audio_progress', {
+            percentage: 75,
+            duration_seconds: this.durationSeconds,
+          })
+        )
+      }
     },
 
     seek(e) {
       const rect = e.currentTarget.getBoundingClientRect()
       const percent = (e.clientX - rect.left) / rect.width
-      this.$refs.audio.currentTime = percent * this.duration
+      const newTime = percent * this.duration
+
+      // Track rewind if user seeks backwards
+      if (newTime < this.currentTime) {
+        this.$gtm.push(this.buildAudioEvent('audio_rewind'))
+      }
+
+      this.$refs.audio.currentTime = newTime
     },
 
     onEnded() {
       this.isPlaying = false
       this.currentTime = 0
+
+      // Track audio finished
+      this.$gtm.push(
+        this.buildAudioEvent('audio_finished', {
+          duration_seconds: this.durationSeconds,
+        })
+      )
     },
 
     startDrag(e) {
@@ -308,13 +381,22 @@ export default {
           0,
           Math.min(1, (clientX - rect.left) / rect.width)
         )
+        const newTime = percent * this.duration
+
+        // Track rewind on drag
+        if (newTime < this.currentTime && !this.hasRewound) {
+          this.hasRewound = true
+          this.$gtm.push(this.buildAudioEvent('audio_rewind'))
+        }
+
         if (this.$refs.audio) {
-          this.$refs.audio.currentTime = percent * this.duration
+          this.$refs.audio.currentTime = newTime
         }
       }
 
       const handleEnd = () => {
         this.isDragging = false
+        this.hasRewound = false
         this.dragCleanup = null
         document.removeEventListener('mousemove', handleMove)
         document.removeEventListener('mouseup', handleEnd)
