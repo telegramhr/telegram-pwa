@@ -255,7 +255,7 @@
                     </div>
                     <client-only>
                       <action-bar
-                        v-if="!post.audio"
+                        v-if="!post.audio || post.live"
                         :class="{
                           nonAudio: true,
                           nonComments:
@@ -311,7 +311,7 @@
                   >
                   <client-only>
                     <action-bar
-                      v-if="!post.audio"
+                      v-if="!post.audio || post.live"
                       :class="{
                         nonAudio: true,
                         nonComments:
@@ -377,7 +377,7 @@
               <!-- eslint-disable-next-line -->
               <client-only>
                 <action-bar
-                  v-if="post.audio"
+                  v-if="post.audio && !post.live"
                   :class="'with-audio'"
                   :comment-count="post.comments"
                   :audio="post.audio"
