@@ -816,6 +816,7 @@ export default {
   flex-wrap: wrap;
   order: 2;
   position: relative;
+  text-transform: initial !important;
 }
 
 .copied-notification {
