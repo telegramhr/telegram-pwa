@@ -30,7 +30,7 @@
             :key="index"
             class="slide-item slide-item-advent"
           >
-            <div class="card">
+            <div class="card" @click="trackClick(item.link)">
               <div class="image-wrapper">
                 <img :src="item.image" :alt="item.title" />
               </div>
@@ -38,13 +38,7 @@
                 <h3 class="title">{{ item.title }}</h3>
                 <p class="description">{{ item.description }}</p>
               </div>
-              <a
-                :href="item.link"
-                target="_blank"
-                @click="trackClick(item.link)"
-              >
-                <button class="cta-button">{{ item.buttonText }}</button>
-              </a>
+              <button class="cta-button">{{ item.buttonText }}</button>
             </div>
           </div>
         </VueSlickCarousel>
@@ -252,6 +246,7 @@ export default {
   flex-direction: column;
   height: 100%;
   background: transparent;
+  cursor: pointer;
 }
 .image-wrapper {
   width: 100%;
@@ -263,6 +258,10 @@ export default {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.card:hover .image-wrapper img {
+  transform: scale(1.05);
 }
 .quiz-container a {
   font-family: 'Barlow';
@@ -362,8 +361,8 @@ html.small-fontsize .cta-button {
 html.large-fontsize .cta-button {
   font-size: 16px;
 }
-.cta-button:hover {
-  background-color: #1b1b1b;
+.card:hover .cta-button {
+  background-color: #464646;
 }
 :deep(.slick-track) {
   display: flex !important;
