@@ -577,9 +577,6 @@
             class="full has-background"
           >
             <div class="container flex center have-background">
-              <div class="full">
-                <ht-widget></ht-widget>
-              </div>
               <div>
                 <ad-unit id="telegram_underarticle_v2"></ad-unit>
               </div>
