@@ -115,13 +115,6 @@
           <app-link to="https://knjige.telegram.hr" role="menuitem">
             T knjige
           </app-link>
-          <app-link
-            role="menuitem"
-            to="/tema/budi-u-igri-uz-favbet/"
-            class="animate flex highlight-tile desktop-only"
-            >Budi u igri uz
-            <img src="@/assets/img/logo_favbet_magenta.svg" alt="Favbet logo"
-          /></app-link>
         </nav>
         <div class="flex desktop-only">
           <client-only>
@@ -322,12 +315,12 @@
       class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth"
     >
       <img
-        src="@/assets/img/pretplata/desktop-pretplata.jpg"
+        src="@/assets/img/pretplata/desktop-pretplata.png"
         alt="Desktop banner za popust na godišnju pretplatu"
         class="desktop-only"
       />
       <img
-        src="@/assets/img/pretplata/mobile-pretplata.jpg"
+        src="@/assets/img/pretplata/mobile-pretplata.png"
         alt="Mobile banner za popust na godišnju pretplatu"
         class="mobile-only"
         style="width: 100%"
@@ -339,12 +332,12 @@
       class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth"
     >
       <img
-        src="@/assets/img/pretplata/desktop-poklon.jpg"
+        src="@/assets/img/pretplata/desktop-poklon.png"
         alt="Desktop banner za popust na poklon za godišnju pretplatu"
         class="desktop-only"
       />
       <img
-        src="@/assets/img/pretplata/mobile-poklon.jpg"
+        src="@/assets/img/pretplata/mobile-poklon.png"
         alt="Mobile banner za popust na poklon za godišnju pretplatu"
         class="mobile-only"
         style="width: 100%"
