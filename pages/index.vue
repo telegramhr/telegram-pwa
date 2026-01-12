@@ -47,23 +47,16 @@
         </div>
         <div class="forty center align-children-end mobile-side-pad">
           <app-link
-            v-show="!$route.fullPath.includes('super1')"
+            v-show="
+              !$route.fullPath.includes('super1') &&
+              !$store.state.user.access?.length
+            "
             id="pretplata-promo"
-            to="/pretplata/poklon-popust/"
+            to="/pretplata/year-half-off/"
             class="newbtn gift-btn"
           >
-            <img
-              src="@/assets/img/pretplata/gift-icon.png"
-              alt="Poklon ikonica"
-            />
-            <span class="poklon">Poklon</span>-50%</app-link
-          >
-          <app-link
-            v-show="!$store.state.user.access?.length"
-            id="pretplatite se - header"
-            to="/pretplata/"
-            class="newbtn pretplata"
-            >Pretplatite se</app-link
+            <span class="poklonMobile">Pretplata </span
+            ><span class="poklon">Pretplatite se uz </span>-50%</app-link
           >
           <a
             v-show="!canLogIn"
@@ -716,6 +709,9 @@ export default {
   }
   .poklon {
     display: inline;
+  }
+  .poklonMobile {
+    display: none;
   }
   .pretplata {
     display: inline;
