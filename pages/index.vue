@@ -677,7 +677,7 @@ export default {
   display: flex;
   align-items: center;
   gap: 4px;
-  background: #395a3a;
+  background: #1c8746;
   padding: 6px;
   font-family: 'Barlow';
   font-size: 11px;
