@@ -108,7 +108,11 @@ export default {
       <span>Poklonite članak</span></label
     >
     <div v-show="showGiftSubmenu" class="article-gift-submenu flex">
-      <template v-if="!$store.state.user.access">
+      <template
+        v-if="
+          !$store.state.user.access || $store.state.user.access?.length === 0
+        "
+      >
         <p class="full gift-submenu-title">Samo za pretplatnike</p>
         <p class="full gift-submenu-description">
           Pretplatnici Telegrama mogu besplatno pokloniti 10 članaka mjesečno.

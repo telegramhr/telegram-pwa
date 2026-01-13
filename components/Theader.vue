@@ -394,30 +394,25 @@
               >Prijava</a
             >
             <app-link
-              v-show="!$route.fullPath.includes('super1')"
+              v-show="
+                !$route.fullPath.includes('super1') &&
+                !$store.state.user.access?.length
+              "
               id="pretplata-promo"
-              to="/pretplata/poklon-popust/"
+              to="/pretplata/year-half-off/"
               class="newbtn gift-btn"
             >
-              <img
-                src="@/assets/img/pretplata/gift-icon.png"
-                alt="Poklon ikonica"
-              />
-              Poklon -50%</app-link
+              Pretplatite se uz -50%</app-link
             >
             <app-link
               v-show="
-                !$store.state.user.access?.length &&
+                $store.state.user.access?.length &&
                 !$route.fullPath.includes('super1')
               "
-              id="pretplatite se - header"
-              :to="
-                $route.fullPath.includes('telesport')
-                  ? '/pretplata/telesport'
-                  : '/pretplata'
-              "
-              class="newbtn pretplata"
-              >Pretplatite se</app-link
+              id="pretplata-promo"
+              to="/pretplata/poklon/"
+              class="newbtn"
+              >Poklonite pretplatu</app-link
             >
             <a
               v-show="!canLogIn"
@@ -554,7 +549,7 @@ export default {
   display: flex;
   align-items: center;
   gap: 4px;
-  background: #395a3a;
+  background: #1c8746;
   padding: 6px;
   font-family: 'Barlow';
   font-size: 11px;

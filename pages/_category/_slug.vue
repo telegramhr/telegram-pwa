@@ -77,18 +77,10 @@
                   "
                   class="fancy-overtitle-premium"
                 >
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 18 18"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M2.75 8.05715H5.23557V7.54781C5.21519 6.52913 5.39856 5.83643 5.74491 5.46971C5.94864 5.2456 6.15238 5.2456 6.19312 5.2456H6.74321V12.2337H4.97071V14.6989H12.8756V12.2745H10.6142V5.26598H10.9402H11.0216C11.3272 5.26598 11.5514 5.34747 11.7551 5.55121C12.1218 5.91793 12.3052 6.56988 12.3459 7.58856L12.3663 8.07752H14.75V2.80078H2.75V8.05715Z"
-                      fill="#343434"
-                    />
-                  </svg>
+                  <img
+                    src="@/assets/img/t_logo.svg"
+                    alt="Telegram monogram logo (T)"
+                  />
                   Samo za pretplatnike
                 </span>
               </client-only>
@@ -148,18 +140,10 @@
                     "
                     class="fancy-overtitle-premium"
                   >
-                    <svg
-                      width="18"
-                      height="18"
-                      viewBox="0 0 18 18"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M2.75 8.05715H5.23557V7.54781C5.21519 6.52913 5.39856 5.83643 5.74491 5.46971C5.94864 5.2456 6.15238 5.2456 6.19312 5.2456H6.74321V12.2337H4.97071V14.6989H12.8756V12.2745H10.6142V5.26598H10.9402H11.0216C11.3272 5.26598 11.5514 5.34747 11.7551 5.55121C12.1218 5.91793 12.3052 6.56988 12.3459 7.58856L12.3663 8.07752H14.75V2.80078H2.75V8.05715Z"
-                        fill="#343434"
-                      />
-                    </svg>
+                    <img
+                      src="@/assets/img/t_logo.svg"
+                      alt="Telegram monogram logo (T)"
+                    />
                     Samo za pretplatnike
                   </span>
                 </client-only>
@@ -269,22 +253,31 @@
                         >{{ post.recommendations }} preporuka</span
                       >
                     </div>
-                    <action-bar
-                      v-if="!post.audio"
-                      :class="{
-                        nonAudio: true,
-                        nonComments:
-                          post.category_slug.includes('superone') ||
-                          post.category_slug.includes('pitanje-zdravlja') ||
-                          post.category_slug.includes('openspace') ||
-                          post.category_slug.includes('super1'),
-                      }"
-                      :comment-count="post.comments"
-                      :is-premium="post.paywall === 'always'"
-                      :paywall="post.paywall"
-                      @comments="comments = !comments"
-                      @share="fbShare()"
-                    ></action-bar>
+                    <client-only>
+                      <action-bar
+                        v-if="!post.audio || post.live"
+                        :class="{
+                          nonAudio: true,
+                          nonComments:
+                            post.category_slug.includes('superone') ||
+                            post.category_slug.includes('pitanje-zdravlja') ||
+                            post.category_slug.includes('openspace') ||
+                            post.category_slug.includes('super1'),
+                        }"
+                        :comment-count="post.comments"
+                        :is-premium="post.paywall === 'always'"
+                        :paywall="post.paywall"
+                        :article-id="post.id"
+                        :article-title="post.portal_title || post.title"
+                        :article-author="
+                          post.authors && post.authors.length
+                            ? post.authors[0].display_name
+                            : ''
+                        "
+                        @comments="comments = !comments"
+                        @share="fbShare()"
+                      ></action-bar>
+                    </client-only>
                   </div>
                 </div>
                 <div class="full flex relative article-meta desktop-only-meta">
@@ -316,23 +309,31 @@
                     itemprop="interactionStatistics"
                     >{{ post.recommendations }} preporuka</span
                   >
-
-                  <action-bar
-                    v-if="!post.audio"
-                    :class="{
-                      nonAudio: true,
-                      nonComments:
-                        post.category_slug.includes('superone') ||
-                        post.category_slug.includes('pitanje-zdravlja') ||
-                        post.category_slug.includes('openspace') ||
-                        post.category_slug.includes('super1'),
-                    }"
-                    :comment-count="post.comments"
-                    :is-premium="post.paywall === 'always'"
-                    :paywall="post.paywall"
-                    @comments="comments = !comments"
-                    @share="fbShare()"
-                  ></action-bar>
+                  <client-only>
+                    <action-bar
+                      v-if="!post.audio || post.live"
+                      :class="{
+                        nonAudio: true,
+                        nonComments:
+                          post.category_slug.includes('superone') ||
+                          post.category_slug.includes('pitanje-zdravlja') ||
+                          post.category_slug.includes('openspace') ||
+                          post.category_slug.includes('super1'),
+                      }"
+                      :comment-count="post.comments"
+                      :is-premium="post.paywall === 'always'"
+                      :paywall="post.paywall"
+                      :article-id="post.id"
+                      :article-title="post.portal_title || post.title"
+                      :article-author="
+                        post.authors && post.authors.length
+                          ? post.authors[0].display_name
+                          : ''
+                      "
+                      @comments="comments = !comments"
+                      @share="fbShare()"
+                    ></action-bar>
+                  </client-only>
                 </div>
               </div>
               <div
@@ -374,18 +375,27 @@
                 </template>
               </div>
               <!-- eslint-disable-next-line -->
-              <action-bar
-                v-if="post.audio"
-                :class="'with-audio'"
-                :comment-count="post.comments"
-                :audio="post.audio"
-                :is-premium="post.paywall === 'always'"
-                :paywall="post.paywall"
-                @play="() => $emit('play-audio')"
-                @gift="() => $emit('gift-article')"
-                @comments="comments = !comments"
-                @share="fbShare()"
-              ></action-bar>
+              <client-only>
+                <action-bar
+                  v-if="post.audio && !post.live"
+                  :class="'with-audio'"
+                  :comment-count="post.comments"
+                  :audio="post.audio"
+                  :is-premium="post.paywall === 'always'"
+                  :paywall="post.paywall"
+                  :article-id="post.id"
+                  :article-title="post.portal_title || post.title"
+                  :article-author="
+                    post.authors && post.authors.length
+                      ? post.authors[0].display_name
+                      : ''
+                  "
+                  @play="() => $emit('play-audio')"
+                  @gift="() => $emit('gift-article')"
+                  @comments="comments = !comments"
+                  @share="fbShare()"
+                ></action-bar>
+              </client-only>
               <p
                 v-if="post.perex"
                 class="perex"
@@ -422,7 +432,7 @@
               ></div>
               <div class="remp-banner"></div>
               <client-only>
-                <portal
+                <!--<portal
                   v-if="
                     !hasPremium &&
                     !(
@@ -436,7 +446,7 @@
                   <div class="full">
                     <offers-premium></offers-premium>
                   </div>
-                </portal>
+                </portal> -->
                 <portal v-if="showQuiz" selector="#quiz-container">
                   <quiz
                     v-if="post.quiz"
@@ -506,33 +516,20 @@
                   </app-link>
                 </div>
                 <div class="half flex-responsive">
-                  <div class="flex float-right social-circle-buttons">
-                    <a href="#" class="animate center" @click.prevent="fbShare">
-                      <font-awesome-icon
-                        :icon="['fab', 'facebook-f']"
-                      ></font-awesome-icon
-                    ></a>
-                    <a
-                      :href="`https://twitter.com/intent/tweet?counturl=${encodeURI(
-                        post.social.path
-                      )}&text=${encodeURI(post.portal_title)}&url=${encodeURI(
-                        post.social.path
-                      )}&via=TelegramHR`"
-                      target="_blank"
-                      class="animate center"
-                      rel="nofollow"
-                    >
-                      <font-awesome-icon
-                        :icon="['fab', 'x-twitter']"
-                      ></font-awesome-icon
-                    ></a>
-                  </div>
                   <client-only>
-                    <gift-article
-                      v-if="post.paywall === 'always'"
-                      :key="`gift-${post.id}`"
-                      position="footer"
-                    ></gift-article>
+                    <action-bar
+                      :key="`action-bar-footer-${post.id}`"
+                      :paywall="post.paywall"
+                      :is-premium="post.paywall === 'always'"
+                      :article-id="post.id"
+                      :article-title="post.portal_title || post.title"
+                      :article-author="
+                        post.authors && post.authors.length
+                          ? post.authors[0].display_name
+                          : ''
+                      "
+                      class="nonAudio nonComments bottom"
+                    ></action-bar>
                   </client-only>
                 </div>
               </div>
@@ -580,9 +577,6 @@
             class="full has-background"
           >
             <div class="container flex center have-background">
-              <div class="full">
-                <ht-widget></ht-widget>
-              </div>
               <div>
                 <ad-unit id="telegram_underarticle_v2"></ad-unit>
               </div>
@@ -772,21 +766,15 @@ export default {
       if (
         process.server &&
         this.$route.params.category !== 'preview' &&
-        post.social &&
-        post.social.path
+        post.social.path.replace('https://www.telegram.hr', '') !==
+          this.$route.path
       ) {
-        // Extract the path from social.path (remove any domain)
-        const socialPath = post.social.path
-          .replace('https://www.telegram.hr', '')
-          .replace('http://localhost:3000', '')
-          .replace('https://telegram-wp.ddev.site', '')
-
-        // Only redirect if paths don't match
-        if (socialPath !== this.$route.path) {
-          this.$telegram.context.res.statusCode = 301
-          this.$telegram.context.res.setHeader('Location', socialPath)
-          return
-        }
+        this.$telegram.context.res.statusCode = 301
+        this.$telegram.context.res.setHeader(
+          'Location',
+          post.social.path.replace('https://www.telegram.hr', '')
+        )
+        return
       }
       this.post = post
     } else {
@@ -1086,6 +1074,10 @@ export default {
       if (this.$route.params.category === 'l') {
         window.history.replaceState({}, null, this.post.permalink)
       }
+      // Fetch user gifts if user is logged in and article has paywall
+      if (this.$store.state.user.token && this.post.paywall === 'always') {
+        this.$store.dispatch('gifts/getUserGifts')
+      }
     })
     this.widgetVariant = this.getWidgetVariant()
   },
@@ -1161,12 +1153,7 @@ export default {
           elementFn: () => {
             return document.getElementById('article-content')
           },
-          author_id:
-            this.post.authors && this.post.authors[0]
-              ? this.post.authors[0].display_name ||
-                this.post.authors[0].name ||
-                ''
-              : '',
+          author_id: this.post.authors[0].display_name,
         },
         tracker: {
           url: 'https://tracker.telegram.hr',

@@ -23,6 +23,10 @@
       :src="audio"
       :is-premium="isPremium"
       :has-premium="hasPremium"
+      :article-id="articleId"
+      :article-title="articleTitle"
+      :article-author="articleAuthor"
+      :article-premium="isPremium"
     ></audio-player>
     <div class="actions">
       <div v-if="showGift" ref="giftWrap" class="gift-wrap">
@@ -73,14 +77,19 @@
               />
             </svg>
           </button>
-          <template v-if="!$store.state.user.access">
+          <template
+            v-if="
+              !$store.state.user.access ||
+              $store.state.user.access?.length === 0
+            "
+          >
             <p class="gift-submenu-title">Samo za pretplatnike</p>
             <p class="gift-submenu-description">
               Pretplatnici Telegrama mogu besplatno pokloniti 10 članaka
               mjesečno. Pretplatite se ili prijavite u svoj račun.
             </p>
           </template>
-          <template v-else-if="!userGifts.available">
+          <template v-else-if="userGifts.available">
             <p class="gift-submenu-title">Poklonite članak</p>
             <p class="gift-submenu-description">
               Kao pretplatnik možete nekom pokloniti članke koji su zaključani.
@@ -490,6 +499,18 @@ export default {
       type: String,
       default: '',
     },
+    articleId: {
+      type: Number,
+      default: null,
+    },
+    articleTitle: {
+      type: String,
+      default: '',
+    },
+    articleAuthor: {
+      type: String,
+      default: '',
+    },
   },
   data() {
     return {
@@ -518,6 +539,9 @@ export default {
     showGift() {
       return this.paywall === 'always' && this.$store.state.user.token
     },
+    userSubscribed() {
+      return this.$store.getters['user/hasPremium']
+    },
   },
   mounted() {
     if (this.$store.state.user.token) {
@@ -535,6 +559,17 @@ export default {
     }
   },
   methods: {
+    buildAnalyticsEvent(eventName, additionalData = {}) {
+      const baseData = {
+        event: eventName,
+        'user-subscribed': this.userSubscribed,
+        'article-id': this.articleId,
+        'article-title': this.articleTitle,
+        'article-author': this.articleAuthor,
+        'article-premium': this.isPremium,
+      }
+      return { ...baseData, ...additionalData }
+    },
     showCopiedMessage() {
       // Clear any existing timeout
       if (this.copiedTimeout) {
@@ -565,12 +600,22 @@ export default {
         })
     },
     async copyLink() {
+      this.$gtm.push(
+        this.buildAnalyticsEvent('gift_article', {
+          'gift-channel': 'copy_link',
+        })
+      )
       const link = await this.getLink()
       await navigator.clipboard.writeText(link)
       this.showGiftSubmenu = false
       this.showCopiedMessage()
     },
     async fbShare() {
+      this.$gtm.push(
+        this.buildAnalyticsEvent('gift_article', {
+          'gift-channel': 'facebook',
+        })
+      )
       const link = await this.getLink()
       /* global FB */
       FB.ui(
@@ -582,41 +627,76 @@ export default {
       )
     },
     async twitterShare() {
+      this.$gtm.push(
+        this.buildAnalyticsEvent('gift_article', {
+          'gift-channel': 'twitter',
+        })
+      )
       let link = await this.getLink()
       link = encodeURIComponent(link)
       const url = `https://twitter.com/intent/tweet?url=${link}&text=Ovaj Telegram članak poklon je pretplatnika i možete ga pročitati besplatno.`
       window.open(url, '_blank')
     },
     async whatsappShare() {
+      this.$gtm.push(
+        this.buildAnalyticsEvent('gift_article', {
+          'gift-channel': 'whatsapp',
+        })
+      )
       let link = await this.getLink()
       link = encodeURIComponent(link)
       const url = `https://api.whatsapp.com/send?text=Ovaj Telegram članak poklon je pretplatnika i možete ga pročitati besplatno. ${link}`
       window.open(url, '_blank')
     },
     async telegramShare() {
+      this.$gtm.push(
+        this.buildAnalyticsEvent('gift_article', {
+          'gift-channel': 'telegram',
+        })
+      )
       let link = await this.getLink()
       link = encodeURIComponent(link)
       const url = `https://t.me/share/url?url=${link}&text=Ovaj Telegram članak poklon je pretplatnika i možete ga pročitati besplatno.`
       window.open(url, '_blank')
     },
     async viberShare() {
+      this.$gtm.push(
+        this.buildAnalyticsEvent('gift_article', {
+          'gift-channel': 'viber',
+        })
+      )
       let link = await this.getLink()
       link = encodeURIComponent(link)
       const url = `viber://forward?text=Ovaj Telegram članak poklon je pretplatnika i možete ga pročitati besplatno. ${link}`
       window.open(url, '_blank')
     },
     async emailShare() {
+      this.$gtm.push(
+        this.buildAnalyticsEvent('gift_article', {
+          'gift-channel': 'email',
+        })
+      )
       let link = await this.getLink()
       link = encodeURIComponent(link)
       const url = `mailto:?subject=Ovaj Telegram članak poklon je pretplatnika i možete ga pročitati besplatno.&body=${link}`
       window.open(url, 'top')
     },
     shareCopyLink() {
+      this.$gtm.push(
+        this.buildAnalyticsEvent('share_article', {
+          'share-channel': 'copy_link',
+        })
+      )
       navigator.clipboard.writeText(this.currentUrl)
       this.showShareSubmenu = false
       this.showCopiedMessage()
     },
     shareFb() {
+      this.$gtm.push(
+        this.buildAnalyticsEvent('share_article', {
+          'share-channel': 'facebook',
+        })
+      )
       FB.ui(
         {
           method: 'share',
@@ -626,26 +706,51 @@ export default {
       )
     },
     shareTwitter() {
+      this.$gtm.push(
+        this.buildAnalyticsEvent('share_article', {
+          'share-channel': 'twitter',
+        })
+      )
       const link = encodeURIComponent(this.currentUrl)
       const url = `https://twitter.com/intent/tweet?url=${link}`
       window.open(url, '_blank')
     },
     shareWhatsapp() {
+      this.$gtm.push(
+        this.buildAnalyticsEvent('share_article', {
+          'share-channel': 'whatsapp',
+        })
+      )
       const link = encodeURIComponent(this.currentUrl)
       const url = `https://api.whatsapp.com/send?text=${link}`
       window.open(url, '_blank')
     },
     shareTelegram() {
+      this.$gtm.push(
+        this.buildAnalyticsEvent('share_article', {
+          'share-channel': 'telegram',
+        })
+      )
       const link = encodeURIComponent(this.currentUrl)
       const url = `https://t.me/share/url?url=${link}`
       window.open(url, '_blank')
     },
     shareViber() {
+      this.$gtm.push(
+        this.buildAnalyticsEvent('share_article', {
+          'share-channel': 'viber',
+        })
+      )
       const link = encodeURIComponent(this.currentUrl)
       const url = `viber://forward?text=${link}`
       window.open(url, '_blank')
     },
     shareEmail() {
+      this.$gtm.push(
+        this.buildAnalyticsEvent('share_article', {
+          'share-channel': 'email',
+        })
+      )
       const link = encodeURIComponent(this.currentUrl)
       const url = `mailto:?body=${link}`
       window.open(url, 'top')
@@ -661,6 +766,11 @@ export default {
       this.$emit('share')
     },
     handleClickOutside(event) {
+      // Guard against calls after component destruction
+      if (!this.$refs.giftWrap && !this.$refs.shareWrap) {
+        return
+      }
+
       // Check if click is outside gift submenu
       if (this.showGiftSubmenu) {
         const giftWrap = this.$refs.giftWrap
@@ -688,6 +798,9 @@ export default {
   padding: 0 !important;
   border: none !important;
 }
+.action-bar.nonAudio.nonComments.bottom {
+  width: 100%;
+}
 .action-bar.nonComments .comments-button {
   display: none;
 }
@@ -703,6 +816,7 @@ export default {
   flex-wrap: wrap;
   order: 2;
   position: relative;
+  text-transform: initial !important;
 }
 
 .copied-notification {
@@ -776,7 +890,7 @@ export default {
   border-radius: 0px;
   border-top: 1px solid #c8c8c8;
 }
-.regular:not(.komentari) .with-audio {
+.regular .with-audio {
   border-bottom: 1px solid #c8c8c8;
   border-radius: 0px;
   padding-bottom: 16px;
@@ -785,6 +899,11 @@ export default {
   .with-audio {
   border-bottom: none;
   border-radius: 0px;
+}
+@media (min-width: 768px) {
+  .action-bar.nonAudio.nonComments.bottom {
+    width: fit-content;
+  }
 }
 @media (max-width: 480px) {
   .action-bar {

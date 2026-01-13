@@ -102,6 +102,16 @@ export default {
 
     if (post.id) {
       this.post = post
+      // Fallback to galleries[0] if gallery is empty
+      if (
+        (!this.post.gallery || this.post.gallery.length === 0) &&
+        this.post.galleries &&
+        this.post.galleries.length > 0 &&
+        this.post.galleries[0].images &&
+        this.post.galleries[0].images.length > 0
+      ) {
+        this.post.gallery = this.post.galleries[0].images
+      }
     } else {
       this.post.title = 'Objava ne postoji'
       this.post.portal_title = 'Objava ne postoji'
@@ -142,6 +152,7 @@ export default {
           image: '',
         },
         gallery: [],
+        galleries: [],
       },
     }
   },

@@ -4105,7 +4105,6 @@ html.large-fontsize,
 }
 
 .single-article-body .mini-pretplata {
-  border-top: 1px solid #c8c8c8;
   margin-top: 16px;
 }
 
@@ -12663,7 +12662,7 @@ html.large-fontsize,
 }
 
 .single-article-body .mini-pretplata-new {
-  margin-top: 0px;
+  margin-top: -16px;
 }
 
 .single-article-body .mini-pretplata-new p {

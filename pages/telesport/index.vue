@@ -181,13 +181,6 @@
               <app-link to="/tema/price-iz-davnine/">Priče iz davnine</app-link>
             </div>
           </div>
-          <app-link
-            role="menuitem"
-            to="/tema/budi-u-igri-uz-favbet/"
-            class="animate flex highlight-tile"
-            >Budi u igri uz
-            <img src="@/assets/img/logo_favbet_magenta.svg" alt="Favbet logo"
-          /></app-link>
         </nav>
         <div class="flex desktop-only">
           <client-only>

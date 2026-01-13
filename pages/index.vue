@@ -47,23 +47,16 @@
         </div>
         <div class="forty center align-children-end mobile-side-pad">
           <app-link
-            v-show="!$route.fullPath.includes('super1')"
+            v-show="
+              !$route.fullPath.includes('super1') &&
+              !$store.state.user.access?.length
+            "
             id="pretplata-promo"
-            to="/pretplata/poklon-popust/"
+            to="/pretplata/year-half-off/"
             class="newbtn gift-btn"
           >
-            <img
-              src="@/assets/img/pretplata/gift-icon.png"
-              alt="Poklon ikonica"
-            />
-            <span class="poklon">Poklon</span>-50%</app-link
-          >
-          <app-link
-            v-show="!$store.state.user.access?.length"
-            id="pretplatite se - header"
-            to="/pretplata/"
-            class="newbtn pretplata"
-            >Pretplatite se</app-link
+            <span class="poklonMobile">Pretplata </span
+            ><span class="poklon">Pretplatite se uz </span>-50%</app-link
           >
           <a
             v-show="!canLogIn"
@@ -115,13 +108,6 @@
           <app-link to="https://knjige.telegram.hr" role="menuitem">
             T knjige
           </app-link>
-          <app-link
-            role="menuitem"
-            to="/tema/budi-u-igri-uz-favbet/"
-            class="animate flex highlight-tile desktop-only"
-            >Budi u igri uz
-            <img src="@/assets/img/logo_favbet_magenta.svg" alt="Favbet logo"
-          /></app-link>
         </nav>
         <div class="flex desktop-only">
           <client-only>
@@ -322,12 +308,12 @@
       class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth"
     >
       <img
-        src="@/assets/img/pretplata/desktop-pretplata.jpg"
+        src="@/assets/img/pretplata/desktop-pretplata.png"
         alt="Desktop banner za popust na godišnju pretplatu"
         class="desktop-only"
       />
       <img
-        src="@/assets/img/pretplata/mobile-pretplata.jpg"
+        src="@/assets/img/pretplata/mobile-pretplata.png"
         alt="Mobile banner za popust na godišnju pretplatu"
         class="mobile-only"
         style="width: 100%"
@@ -339,22 +325,17 @@
       class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth"
     >
       <img
-        src="@/assets/img/pretplata/desktop-poklon.jpg"
+        src="@/assets/img/pretplata/desktop-poklon.png"
         alt="Desktop banner za popust na poklon za godišnju pretplatu"
         class="desktop-only"
       />
       <img
-        src="@/assets/img/pretplata/mobile-poklon.jpg"
+        src="@/assets/img/pretplata/mobile-poklon.png"
         alt="Mobile banner za popust na poklon za godišnju pretplatu"
         class="mobile-only"
         style="width: 100%"
       />
     </app-link>
-    <client-only>
-      <div v-if="!hasPremium" class="full relative">
-        <offers-premium></offers-premium>
-      </div>
-    </client-only>
     <!-- TG preporuka -->
     <div
       class="full relative darkened-bg column-top-margin column-bottom-margin column-bottom-pad mobile-vertical-pad"
@@ -418,7 +399,6 @@
     <div class="full relative column-bottom-pad">
       <category-zone zone="zivot"></category-zone>
     </div>
-    <AdventWidget></AdventWidget>
     <!-- Velika rubrika: Kultura -->
     <div class="full relative">
       <category-zone zone="kultura"></category-zone>
@@ -696,7 +676,7 @@ export default {
   display: flex;
   align-items: center;
   gap: 4px;
-  background: #395a3a;
+  background: #1c8746;
   padding: 6px;
   font-family: 'Barlow';
   font-size: 11px;
@@ -728,6 +708,9 @@ export default {
   }
   .poklon {
     display: inline;
+  }
+  .poklonMobile {
+    display: none;
   }
   .pretplata {
     display: inline;
