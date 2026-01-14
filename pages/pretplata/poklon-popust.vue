@@ -3,12 +3,14 @@
     <div v-if="loading" class="telegram-overlay">
       <span class="telegram-loader"></span>
     </div>
-    <HeroChristmas
-      title="Poklon koji se otvara svaki dan uz posebnu blagdansku pogodnost"
-      subtitle="Darujte najmilijima godinu dana neovisnog novinarstva, analiza i ekskluzivnih tekstova — sada uz"
-      highlighted="50% popusta na Telegram poklon-pretplatu."
-      version="red"
-    ></HeroChristmas>
+    <PretplataHero
+      title="Poklon koji se otvara iz dana u dan - sada s 50% popusta."
+      text="Darujte svojim najmilijima godinu neovisnog novinarstva, analiza i ekskluzivnih tekstova uz "
+      highlighted-text="50% popusta."
+      image-src="devices_poklon.png"
+      background-color="#324D78"
+      :logo="true"
+    ></PretplataHero>
     <div class="content">
       <div class="box-wrapper">
         <div id="paymentBoxes" class="boxes">

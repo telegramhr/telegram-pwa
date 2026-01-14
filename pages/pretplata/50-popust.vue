@@ -3,12 +3,14 @@
     <div v-if="loading" class="telegram-overlay">
       <span class="telegram-loader"></span>
     </div>
-    <HeroChristmas
-      title="Blagdani su idealna prilika da počnete novu godinu informirani"
-      subtitle="Neovisno novinarstvo, dubinske analize i istraživački članci - sada uz "
-      highlighted="50% popusta na godišnju pretplatu."
-      version="green"
-    ></HeroChristmas>
+    <PretplataHero
+      title="Čitajte Telegram cijelu godinu uz čak 50% popusta!"
+      text="Neovisno novinarstvo, dubinske analize i istraživački članci - sada s "
+      highlighted-text="50% popusta u prvoj godini."
+      image-src="devices.png"
+      background-color="#810A06"
+      :logo="true"
+    ></PretplataHero>
     <div class="content">
       <div class="box-wrapper">
         <div id="paymentBoxes" class="boxes">
