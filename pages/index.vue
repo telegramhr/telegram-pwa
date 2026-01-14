@@ -384,7 +384,6 @@
         <!--<jgl-premium></jgl-premium>-->
       </div>
     </client-only>
-    <BusinessWidget></BusinessWidget>
     <!-- Sport -->
     <div class="full relative">
       <sport></sport>
