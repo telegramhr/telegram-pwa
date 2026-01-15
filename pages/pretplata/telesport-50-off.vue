@@ -3,35 +3,39 @@
     <div v-if="loading" class="telegram-overlay">
       <span class="telegram-loader"></span>
     </div>
-    <PretplataHero
-      title="Poklon koji se otvara iz dana u dan - sada s 50% popusta."
-      text="Darujte svojim najmilijima godinu neovisnog novinarstva, analiza i ekskluzivnih tekstova uz "
-      highlighted-text="50% popusta."
-      image-src="devices_poklon.png"
-      background-color="#324D78"
-      :logo="true"
-    ></PretplataHero>
+    <div class="hero-telesport">
+      <div class="hero-wrapper">
+        <img
+          src="@/assets/img/telesport_logo_white.svg"
+          alt="Telesport logo"
+          class="hero-logo"
+        />
+        <p class="hero-text">
+          Rukometno prvenstvo traži vrhunske analize. Pratite ga na Telesportu
+          uz čak <span class="underline">50% popusta!</span>
+        </p>
+      </div>
+    </div>
     <div class="content">
       <div class="box-wrapper">
         <div id="paymentBoxes" class="boxes">
-          <PretplataNewBoxBozic
-            type="standard"
+          <PretplataNewBoxTelesport
+            type="telesport"
             :subscription-type="subscriptionType"
             :selected="selectedPlan === 'standard'"
             @select="selectPlan"
-          ></PretplataNewBoxBozic>
-          <PretplataNewBoxBozic
-            type="premium"
+          ></PretplataNewBoxTelesport>
+          <PretplataNewBoxTelesport
+            type="telesport-premium"
             :subscription-type="subscriptionType"
             :selected="selectedPlan === 'premium'"
             @select="selectPlan"
-          ></PretplataNewBoxBozic>
+          ></PretplataNewBoxTelesport>
         </div>
       </div>
       <div>
         <PretplataPayment
-          :allowTermsChange="false"
-          :allowBank="false"
+          :allow-terms-change="false"
           :term="selectedTerm"
           :payment-type="payment"
           :annual-price="annualPrice"
@@ -41,22 +45,15 @@
           @selectTerm="selectTerm"
           @selectPaymentType="selectPaymentType"
         />
-        <PretplataLoginGiftData
-          :gift-email="giftEmail"
-          :gift-date="giftDate_formatted"
-          @updateGiftEmail="updateGiftEmail"
-          @updateGiftDate="updateGiftDate"
-        ></PretplataLoginGiftData>
         <PretplataLogin
-          :login-url="loginUrl"
           :email="email"
           :can-log-in="canLogIn"
           :login-error="loginError"
+          :login-url="loginUrl"
           @updateCanLogIn="updateCanLogIn"
           @updateEmail="updateEmail"
         ></PretplataLogin>
         <PretplataPaymentConfirm
-          :is-gift="true"
           :url-key="urlKey"
           :loading="loading"
           :can-log-in="canLogIn"
@@ -66,28 +63,20 @@
           :price="price"
           :email="email"
           :discounted-amount="discount"
-          :gift-email="giftEmail"
-          :gift-date="giftDate_formatted"
+          copy-version="christmas"
           @updateLoading="handleUpdateLoading"
           @updateDiscount="handleUpdateDiscount"
-          copyVersion="christmas"
         ></PretplataPaymentConfirm>
       </div>
     </div>
     <Features></Features>
     <FAQ></FAQ>
-    <HowTo
-      :link="{
-        url: '#paymentBoxes',
-        text: 'Darujte pretplatu',
-      }"
-    ></HowTo>
     <Testimonials></Testimonials>
     <PretplataCTA
       :text="'Blagdanska akcija traje do kraja ovog mjeseca'"
       :link="{
         url: '#paymentBoxes',
-        text: 'Darujte pretplatu',
+        text: 'Iskoristite ponudu',
       }"
     ></PretplataCTA>
     <client-only>
@@ -102,8 +91,8 @@ export default {
   data() {
     return {
       loading: false,
-      loginUrl: 'poklon-popust',
       subscriptionType: 'individual',
+      loginUrl: '50-popust',
       selectedPlan: 'premium',
       selectedTerm: 'annual',
       payment: 'trustpay_recurrent',
@@ -128,8 +117,6 @@ export default {
       discount: 0,
       loadingPromo: false,
       promo_error: '',
-      giftEmail: '',
-      giftDate: null, // Default to current date and time
     }
   },
   computed: {
@@ -141,23 +128,6 @@ export default {
     },
     userEmail() {
       return this.$store.state.user.email
-    },
-    giftDate_formatted() {
-      const d = new Date(Date.parse(this.giftDate))
-      return (
-        d.getFullYear() +
-        '-' +
-        this.pad(d.getMonth() + 1) +
-        '-' +
-        this.pad(d.getDate()) +
-        'T' +
-        this.pad(d.getHours()) +
-        ':' +
-        this.pad(d.getMinutes()) +
-        ':' +
-        this.pad(d.getSeconds()) +
-        this.timezoneOffset(d.getTimezoneOffset())
-      )
     },
   },
   mounted() {
@@ -175,7 +145,13 @@ export default {
       this.discount = value
     },
     selectPlan(planType) {
-      this.selectedPlan = planType
+      if (planType === 'telesport') {
+        this.selectedPlan = 'standard'
+      } else if (planType === 'telesport-premium') {
+        this.selectedPlan = 'premium'
+      } else {
+        this.selectedPlan = planType
+      }
       this.calculatePrice()
     },
     selectTerm(term) {
@@ -189,12 +165,6 @@ export default {
     updateEmail(email) {
       this.email = email
     },
-    updateGiftEmail(giftEmail) {
-      this.giftEmail = giftEmail
-    },
-    updateGiftDate(giftDate) {
-      this.giftDate = giftDate
-    },
     updateCanLogIn(value) {
       this.canLogIn = value
     },
@@ -205,13 +175,15 @@ export default {
           this.urlKey = 'half-off-2025'
           switch (this.selectedPlan) {
             case 'standard':
-              this.pack = 'Telegram_Standard_Poklon 2024_blagdanski_popust'
-              this.price = '39'
+              this.pack =
+                'Telesport_Godišnja_Pretplata_50%_popust_za prvu godinu'
+              this.price = '19.49'
               this.monthlyPrice = '7.99'
-              this.annualPrice = '39'
+              this.annualPrice = '19.49'
               break
             case 'premium':
-              this.pack = 'Telegram_Premium_Poklon_2024_blagdanski_popust'
+              this.pack =
+                'Telegram_Premium_Godišnja_Pretplata_50%_popust_za prvu godinu'
               this.price = '49'
               this.monthlyPrice = '9.99'
               this.annualPrice = '49'
@@ -248,24 +220,11 @@ export default {
           break
       }
     },
-    pad(n) {
-      return n < 10 ? '0' + n : n
-    },
-    timezoneOffset(offset) {
-      if (offset === 0) {
-        return 'Z'
-      }
-      const sign = offset > 0 ? '-' : '+'
-      offset = Math.abs(offset)
-      return (
-        sign + this.pad(Math.floor(offset / 60)) + ':' + this.pad(offset % 60)
-      )
-    },
   },
 
   head() {
     return {
-      title: 'Telegram.hr Pretplata Poklon - 50% popusta za prvu godinu',
+      title: 'Telesport Pretplata - 50% popusta za prvu godinu',
       meta: [
         {
           hid: 'description',
@@ -281,7 +240,7 @@ export default {
           hid: 'og:title',
           name: 'og:title',
           property: 'og:title',
-          content: 'Telegram.hr Pretplata Poklon - 50% popusta za prvu godinu',
+          content: 'Telesport Pretplata - 50% popusta za prvu godinu',
         },
         {
           hid: 'og:image',
@@ -294,14 +253,14 @@ export default {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/pretplata/poklon-popust/',
+          content: 'https://www.telegram.hr/pretplata/50-popust/',
         },
       ],
       link: [
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: 'https://www.telegram.hr/pretplata/poklon-popust/',
+          href: 'https://www.telegram.hr/pretplata/50-popust/',
         },
       ],
       script: [
@@ -320,6 +279,56 @@ export default {
 </script>
 
 <style scoped>
+.hero-telesport {
+  width: 100%;
+  min-height: 400px;
+  background: url('@/assets/img/pretplata/telesport/bg_telesport_50off_mob.png')
+    no-repeat center;
+  background-size: cover;
+}
+.hero-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 32px 24px;
+  max-width: 660px;
+  margin: 0 auto;
+}
+.hero-logo {
+  width: 100%;
+  max-width: 80px;
+}
+.hero-text {
+  font-family: 'Lora', sans-serif;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 28px;
+  text-align: center;
+  color: white;
+}
+.hero-text .underline {
+  text-decoration: underline;
+}
+@media screen and (min-width: 768px) {
+  .hero-telesport {
+    min-height: auto;
+    background: url('@/assets/img/pretplata/telesport/bg_telesport_50off.png')
+      no-repeat center;
+    background-size: cover;
+  }
+  .hero-wrapper {
+    gap: 32px;
+    padding: 48px 24px;
+  }
+  .hero-logo {
+    max-width: 100px;
+  }
+  .hero-text {
+    font-size: 28px;
+    line-height: 32px;
+  }
+}
 .telegram-overlay {
   position: fixed;
   top: 0;

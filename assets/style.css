@@ -1480,7 +1480,9 @@ figure {
   padding-top: 2px;
 }
 
-figure img {
+figure img,
+figure a
+{
   width: 100%;
 }
 
@@ -13229,7 +13231,7 @@ label.payment-tile svg {
   .main-container.homepage {
     padding-top: 0px;
   }
-  
+
   .superone-home-header {
     z-index: 200;
     background-color: white;

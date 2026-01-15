@@ -3,9 +3,9 @@
     <div v-if="loading" class="telegram-overlay">
       <span class="telegram-loader"></span>
     </div>
-    <PretplataHero
+    <PretplataHeroOld
       title="Čitajte najbolje članke renomiranih autora. Podržite slobodno novinarstvo pretplatom."
-    ></PretplataHero>
+    ></PretplataHeroOld>
     <div class="content">
       <div class="box-wrapper">
         <Switcher

@@ -26,7 +26,7 @@
 .titleArticles {
   font-weight: 400;
   font-size: 24px;
-  line-height: 19px;
+  line-height: 26px;
   letter-spacing: 0%;
   text-align: center;
   margin-bottom: 28px;

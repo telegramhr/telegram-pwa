@@ -308,12 +308,12 @@
       class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth"
     >
       <img
-        src="@/assets/img/pretplata/desktop-pretplata.png"
+        src="@/assets/img/pretplata/homepage/50_godisnja.png"
         alt="Desktop banner za popust na godišnju pretplatu"
         class="desktop-only"
       />
       <img
-        src="@/assets/img/pretplata/mobile-pretplata.png"
+        src="@/assets/img/pretplata/homepage/50_godisnja_mob.png"
         alt="Mobile banner za popust na godišnju pretplatu"
         class="mobile-only"
         style="width: 100%"
@@ -325,12 +325,12 @@
       class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth"
     >
       <img
-        src="@/assets/img/pretplata/desktop-poklon.png"
+        src="@/assets/img/pretplata/homepage/50_poklon.png"
         alt="Desktop banner za popust na poklon za godišnju pretplatu"
         class="desktop-only"
       />
       <img
-        src="@/assets/img/pretplata/mobile-poklon.png"
+        src="@/assets/img/pretplata/homepage/50_poklon_mob.png"
         alt="Mobile banner za popust na poklon za godišnju pretplatu"
         class="mobile-only"
         style="width: 100%"
@@ -384,7 +384,6 @@
         <!--<jgl-premium></jgl-premium>-->
       </div>
     </client-only>
-    <BusinessWidget></BusinessWidget>
     <!-- Sport -->
     <div class="full relative">
       <sport></sport>
