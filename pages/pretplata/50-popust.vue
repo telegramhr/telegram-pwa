@@ -60,7 +60,6 @@
           :discounted-amount="discount"
           @updateLoading="handleUpdateLoading"
           @updateDiscount="handleUpdateDiscount"
-          copyVersion="christmas"
         ></PretplataPaymentConfirm>
       </div>
     </div>
@@ -68,7 +67,7 @@
     <FAQ></FAQ>
     <Testimonials></Testimonials>
     <PretplataCTA
-      :text="'Blagdanska akcija traje do kraja ovog mjeseca'"
+      :text="'Iskoristite 50% popusta na cijelogodišnju pretplatu'"
       :link="{
         url: '#paymentBoxes',
         text: 'Iskoristite ponudu',
