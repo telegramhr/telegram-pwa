@@ -2801,7 +2801,8 @@ figure a
 
 .single-article-premium article img.size-full,
 .single-article-premium article .size-full img,
-.single-article article img.force-size-full {
+.single-article article img.force-size-full,
+.single-article article .force-size-full img {
   width: 100vw;
   max-width: 100vw;
   position: relative;
