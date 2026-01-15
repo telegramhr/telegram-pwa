@@ -99,7 +99,7 @@ export default {
       }
       if (this.type === 'telesport') {
         return {
-          title: 'Standard',
+          title: 'Telesport',
           price: '19,49€',
           oldPrice: '39€',
           tag: 'MANJE REKLAMA',
