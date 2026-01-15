@@ -237,8 +237,9 @@ export default {
 }
 .feature-content {
   font-family: 'Barlow', sans-serif;
-  font-size: 18px;
-  line-height: 24px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
   color: black;
   text-align: left;
   align-items: center;
@@ -285,8 +286,10 @@ export default {
 }
 
 .footer span {
-  font-size: 12px;
-  line-height: 14px;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 16px;
   text-align: center;
 }
 

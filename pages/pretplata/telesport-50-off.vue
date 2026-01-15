@@ -63,7 +63,6 @@
           :price="price"
           :email="email"
           :discounted-amount="discount"
-          copy-version="christmas"
           @updateLoading="handleUpdateLoading"
           @updateDiscount="handleUpdateDiscount"
         ></PretplataPaymentConfirm>
@@ -73,7 +72,7 @@
     <FAQ></FAQ>
     <Testimonials></Testimonials>
     <PretplataCTA
-      :text="'Blagdanska akcija traje do kraja ovog mjeseca'"
+      :text="'Iskoristite 50% popusta dok traje Europsko prvenstvo'"
       :link="{
         url: '#paymentBoxes',
         text: 'Iskoristite ponudu',

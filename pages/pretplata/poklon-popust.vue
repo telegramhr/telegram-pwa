@@ -70,7 +70,6 @@
           :gift-date="giftDate_formatted"
           @updateLoading="handleUpdateLoading"
           @updateDiscount="handleUpdateDiscount"
-          copyVersion="christmas"
         ></PretplataPaymentConfirm>
       </div>
     </div>
@@ -84,7 +83,7 @@
     ></HowTo>
     <Testimonials></Testimonials>
     <PretplataCTA
-      :text="'Blagdanska akcija traje do kraja ovog mjeseca'"
+      :text="'Iskoristite 50% popusta na poklon pretplatu'"
       :link="{
         url: '#paymentBoxes',
         text: 'Darujte pretplatu',
