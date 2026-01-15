@@ -3,34 +3,39 @@
     <div v-if="loading" class="telegram-overlay">
       <span class="telegram-loader"></span>
     </div>
-    <PretplataHero
-      title="Čitajte Telegram cijelu godinu uz čak 50% popusta!"
-      text="Neovisno novinarstvo, dubinske analize i istraživački članci - sada s "
-      highlighted-text="50% popusta u prvoj godini."
-      image-src="devices.png"
-      background-color="#810A06"
-      :logo="true"
-    ></PretplataHero>
+    <div class="hero-telesport">
+      <div class="hero-wrapper">
+        <img
+          src="@/assets/img/telesport_logo_white.svg"
+          alt="Telesport logo"
+          class="hero-logo"
+        />
+        <p class="hero-text">
+          Rukometno prvenstvo traži vrhunske analize. Pratite ga na Telesportu
+          uz čak <span class="underline">50% popusta!</span>
+        </p>
+      </div>
+    </div>
     <div class="content">
       <div class="box-wrapper">
         <div id="paymentBoxes" class="boxes">
-          <PretplataNewBoxBozic
-            type="standard"
+          <PretplataNewBoxTelesport
+            type="telesport"
             :subscription-type="subscriptionType"
             :selected="selectedPlan === 'standard'"
             @select="selectPlan"
-          ></PretplataNewBoxBozic>
-          <PretplataNewBoxBozic
-            type="premium"
+          ></PretplataNewBoxTelesport>
+          <PretplataNewBoxTelesport
+            type="telesport-premium"
             :subscription-type="subscriptionType"
             :selected="selectedPlan === 'premium'"
             @select="selectPlan"
-          ></PretplataNewBoxBozic>
+          ></PretplataNewBoxTelesport>
         </div>
       </div>
       <div>
         <PretplataPayment
-          :allowTermsChange="false"
+          :allow-terms-change="false"
           :term="selectedTerm"
           :payment-type="payment"
           :annual-price="annualPrice"
@@ -67,7 +72,7 @@
     <FAQ></FAQ>
     <Testimonials></Testimonials>
     <PretplataCTA
-      :text="'Iskoristite 50% popusta na cijelogodišnju pretplatu'"
+      :text="'Iskoristite 50% popusta dok traje Europsko prvenstvo'"
       :link="{
         url: '#paymentBoxes',
         text: 'Iskoristite ponudu',
@@ -139,7 +144,13 @@ export default {
       this.discount = value
     },
     selectPlan(planType) {
-      this.selectedPlan = planType
+      if (planType === 'telesport') {
+        this.selectedPlan = 'standard'
+      } else if (planType === 'telesport-premium') {
+        this.selectedPlan = 'premium'
+      } else {
+        this.selectedPlan = planType
+      }
       this.calculatePrice()
     },
     selectTerm(term) {
@@ -164,10 +175,10 @@ export default {
           switch (this.selectedPlan) {
             case 'standard':
               this.pack =
-                'Telegram_Standard_Godišnja_Pretplata_50%_popust_za prvu godinu'
-              this.price = '39'
+                'Telesport_Godišnja_Pretplata_50%_popust_za prvu godinu'
+              this.price = '19.49'
               this.monthlyPrice = '7.99'
-              this.annualPrice = '39'
+              this.annualPrice = '19.49'
               break
             case 'premium':
               this.pack =
@@ -212,7 +223,7 @@ export default {
 
   head() {
     return {
-      title: 'Telegram.hr Pretplata - 50% popusta za prvu godinu',
+      title: 'Telesport Pretplata - 50% popusta za prvu godinu',
       meta: [
         {
           hid: 'description',
@@ -228,27 +239,27 @@ export default {
           hid: 'og:title',
           name: 'og:title',
           property: 'og:title',
-          content: 'Telegram.hr Pretplata - 50% popusta za prvu godinu',
+          content: 'Telesport Pretplata - 50% popusta za prvu godinu',
         },
         {
           hid: 'og:image',
           name: 'og:image',
           property: 'og:image',
           content:
-            'https://www.telegram.hr/wp-content/uploads/2025/12/gift.png',
+            'https://www.telegram.hr/wp-content/uploads/2026/01/telesport.png',
         },
         {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/pretplata/50-popust/',
+          content: 'https://www.telegram.hr/pretplata/telesport-50-off/',
         },
       ],
       link: [
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: 'https://www.telegram.hr/pretplata/50-popust/',
+          href: 'https://www.telegram.hr/pretplata/telesport-50-off/',
         },
       ],
       script: [
@@ -267,6 +278,56 @@ export default {
 </script>
 
 <style scoped>
+.hero-telesport {
+  width: 100%;
+  min-height: 400px;
+  background: url('@/assets/img/pretplata/telesport/bg_telesport_50off_mob.png')
+    no-repeat center;
+  background-size: cover;
+}
+.hero-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 32px 24px;
+  max-width: 660px;
+  margin: 0 auto;
+}
+.hero-logo {
+  width: 100%;
+  max-width: 80px;
+}
+.hero-text {
+  font-family: 'Lora', sans-serif;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 28px;
+  text-align: center;
+  color: white;
+}
+.hero-text .underline {
+  text-decoration: underline;
+}
+@media screen and (min-width: 768px) {
+  .hero-telesport {
+    min-height: auto;
+    background: url('@/assets/img/pretplata/telesport/bg_telesport_50off.png')
+      no-repeat center;
+    background-size: cover;
+  }
+  .hero-wrapper {
+    gap: 32px;
+    padding: 48px 24px;
+  }
+  .hero-logo {
+    max-width: 100px;
+  }
+  .hero-text {
+    font-size: 28px;
+    line-height: 32px;
+  }
+}
 .telegram-overlay {
   position: fixed;
   top: 0;

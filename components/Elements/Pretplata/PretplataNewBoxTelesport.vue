@@ -16,13 +16,24 @@
           </p>
         </div>
         <div class="tag-wrapper">
-          <span v-if="type === 'premium'" class="benefit premium-recommended">
-            Preporučeno
+          <span
+            v-if="type === 'premium' || type === 'telesport-premium'"
+            class="benefit premium-recommended"
+          >
+            {{ type === 'premium' ? 'Preporučeno' : 'NAJBOLJA VRIJEDNOST' }}
           </span>
-          <span class="benefit" :class="{ premium: type === 'premium' }">{{
-            card.tag
-          }}</span>
+          <span
+            v-if="type !== 'telesport-premium'"
+            class="benefit"
+            :class="{ premium: type === 'premium' }"
+          >
+            {{ card.tag }}
+          </span>
         </div>
+        <p v-if="type === 'telesport-premium'" class="tag-subtitle">
+          (Za samo <b>0,57 € tjedno</b> više dobivate puni pristup cijelom
+          Telegramu i čitanje bez reklama)
+        </p>
       </div>
       <div class="content">
         <div
@@ -38,7 +49,7 @@
 
     <div class="footer">
       <button :class="{ selected: selected }">
-        {{ selected ? 'Odabrano' : 'Odaberite' }}
+        {{ selected ? 'Odabrano' : card.buttonText }}
       </button>
       <span>{{ card.footerText }}</span>
     </div>
@@ -47,13 +58,15 @@
 
 <script>
 export default {
-  name: 'PretplataNewBoxBozic',
+  name: 'PretplataNewBoxTelesport',
   props: {
     type: {
       type: String,
       default: 'standard',
       validator: (value) =>
-        ['standard', 'premium', 'telesport'].includes(value),
+        ['standard', 'premium', 'telesport', 'telesport-premium'].includes(
+          value
+        ),
     },
     subscriptionType: {
       type: String,
@@ -80,8 +93,43 @@ export default {
             '10 poklon članaka mjesečno',
             'Posebni popusti i pogodnost Telegram Kluba',
           ],
-          buttonText: 'Odabrano',
+          buttonText: 'Odaberite',
           footerText: 'Otkažite u bilo kojem trenutku.',
+        }
+      }
+      if (this.type === 'telesport') {
+        return {
+          title: 'Telesport',
+          price: '19,49€',
+          oldPrice: '39€',
+          tag: 'MANJE REKLAMA',
+          features: [
+            'Neograničeno čitanje Telesporta i pristup arhivi svih članaka',
+            'Ekskluzivni newsletteri s posebnim analizama nagrađivanih autora',
+            '10 poklon članaka mjesečno',
+            'Posebni popusti i pogodnost Telegram Kluba',
+          ],
+          buttonText: 'Iskoristi 50% popusta',
+          footerText:
+            'Nakon isteka prve godine pretplata se automatski obnavlja po punoj cijeni',
+        }
+      }
+      if (this.type === 'telesport-premium') {
+        return {
+          title: 'Telegram Premium',
+          price: '49€',
+          oldPrice: '99€',
+          tag: 'Najbolja vrijednost',
+          features: [
+            'Neograničeno čitanje Telegrama i Telesporta uz pristup arhivi',
+            'Ekskluzivni newsletteri s posebnim analizama nagrađivanih autora',
+            'Fokus na sadržaj - <b> čitanje bez reklama</b>',
+            '10 poklon članaka mjesečno',
+            'Posebni popusti i pogodnost Telegram Kluba',
+          ],
+          buttonText: 'Odaberite',
+          footerText:
+            'Nakon isteka prve godine pretplata se automatski obnavlja po punoj cijeni',
         }
       }
       return {
@@ -95,7 +143,7 @@ export default {
           '10 poklon članaka mjesečno',
           'Posebni popusti i pogodnosti Telegram Kluba',
         ],
-        buttonText: 'Odabrano',
+        buttonText: 'Odaberite',
         footerText: 'Otkažite u bilo kojem trenutku.',
       }
     },
@@ -177,6 +225,18 @@ export default {
   flex-direction: row;
   gap: 10px;
   justify-content: center;
+}
+
+.tag-subtitle {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  color: #000000;
+}
+.tag-subtitle b {
+  font-weight: 600;
 }
 
 .benefit {
