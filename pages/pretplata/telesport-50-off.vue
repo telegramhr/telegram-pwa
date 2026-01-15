@@ -246,20 +246,20 @@ export default {
           name: 'og:image',
           property: 'og:image',
           content:
-            'https://www.telegram.hr/wp-content/uploads/2025/12/gift.png',
+            'https://www.telegram.hr/wp-content/uploads/2026/01/telesport.png',
         },
         {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/pretplata/50-popust/',
+          content: 'https://www.telegram.hr/pretplata/telesport-50-off/',
         },
       ],
       link: [
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: 'https://www.telegram.hr/pretplata/50-popust/',
+          href: 'https://www.telegram.hr/pretplata/telesport-50-off/',
         },
       ],
       script: [
