@@ -1,0 +1,14 @@
+node_modules
+npm-debug.log
+.nuxt
+.cache
+.output
+.env
+dist
+.DS_Store
+.git
+.gitignore
+*.log
+coverage
+.vscode
+.idea

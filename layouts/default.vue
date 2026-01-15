@@ -1,5 +1,10 @@
 <template>
   <div>
+    <div
+      style="background: #ff6b00; color: white; text-align: center; padding: 10px; font-weight: bold; position: sticky; top: 0; z-index: 9999;"
+    >
+      STAGING TEST
+    </div>
     <div id="fb-root"></div>
     <img
       height="1"
