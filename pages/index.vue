@@ -321,17 +321,17 @@
     </app-link>
     <app-link
       v-show="$store.state.user.access?.length"
-      to="/pretplata/poklon-popust"
+      to="https://knjige.telegram.hr/?utm_medium=Internal&utm_campaign=TGHomepage"
       class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth"
     >
       <img
-        src="@/assets/img/pretplata/homepage/50_poklon.png"
-        alt="Desktop banner za popust na poklon za godišnju pretplatu"
+        src="@/assets/img/homepage/top_naslovi_knjige.webp"
+        alt="Desktop banner za webshop knjige.telegram.hr"
         class="desktop-only"
       />
       <img
-        src="@/assets/img/pretplata/homepage/50_poklon_mob.png"
-        alt="Mobile banner za popust na poklon za godišnju pretplatu"
+        src="@/assets/img/homepage/top_naslovi_knjige_mob.webp"
+        alt="Mobile banner za webshop knjige.telegram.hr"
         class="mobile-only"
         style="width: 100%"
       />
