@@ -58,10 +58,10 @@ export default {
     }
   },
   mounted() {
-    window.addEventListener('intext_telesport-rukomet', this.load)
+    window.addEventListener('intext_telesport_rukomet', this.load)
   },
   destroyed() {
-    window.removeEventListener('intext_telesport-rukomet', this.load)
+    window.removeEventListener('intext_telesport_rukomet', this.load)
   },
   methods: {
     load(e) {
