@@ -52,7 +52,7 @@
               !$store.state.user.access?.length
             "
             id="pretplata-promo"
-            to="/pretplata/year-half-off/"
+            to="/pretplata/50-popust/"
             class="newbtn gift-btn"
           >
             <span class="poklonMobile">Pretplata </span
