@@ -490,6 +490,7 @@
                 <intext-black-friday></intext-black-friday>
                 <intext-christmas></intext-christmas>
                 <intext-christmas-gift></intext-christmas-gift>
+                <intext-telesport-rukomet></intext-telesport-rukomet>
               </client-only>
             </div>
           </article>
@@ -1264,7 +1265,7 @@ export default {
           scriptTag.src = 'https://www.tiktok.com/embed.js'
           head.append(scriptTag)
         }
-        /* if (document.getElementById('article-content')) {
+        if (document.getElementById('article-content')) {
           const images = [
             ...document
               .getElementById('article-content')
@@ -1278,7 +1279,7 @@ export default {
               }
             }
           })
-        } */
+        }
         if (this.post.content.indexOf('data-aos')) {
           this.$nextTick(() => {
             AOS.init()

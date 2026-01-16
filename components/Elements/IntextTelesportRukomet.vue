@@ -2,7 +2,11 @@
   <transition name="fade">
     <div v-show="show" :class="softwall ? 'softwall' : ''" data-nosnippet>
       <div class="main-wrapper">
-        <div class="close-btn" v-if="softwall" @click="show = false">
+        <div
+          class="close-btn getmeouttahere-btn center clickable"
+          v-if="softwall"
+          @click="show = false"
+        >
           <font-awesome-icon :icon="['fas', 'times']" />
         </div>
         <div class="wrapper">
@@ -44,13 +48,13 @@ export default {
   name: 'IntextTelesportRukomet',
   data() {
     return {
-      show: true,
+      show: false,
       termId: false,
       title: 'Europsko prvenstvo prati se uz Telesport uz čak',
       popust: '50% popusta',
       softwall: true,
       cta: 'Iskoristi ponudu',
-      cta_link: '',
+      cta_link: '/pretplata/telesport-50-off/',
     }
   },
   mounted() {
