@@ -181,7 +181,7 @@ export default {
   align-items: center;
   color: #ffffff;
   cursor: pointer;
-  z-index: 10;
+  z-index: 100;
 }
 .content {
   padding: 80px 24px 0px 24px;
