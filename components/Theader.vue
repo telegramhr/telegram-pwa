@@ -399,8 +399,16 @@
                 !$store.state.user.access?.length
               "
               id="pretplata-promo"
-              to="/pretplata/year-half-off/"
-              class="newbtn gift-btn"
+              :to="
+                $route.fullPath.includes('telesport')
+                  ? '/pretplata/telesport-50-off'
+                  : '/pretplata/year-half-off'
+              "
+              :class="[
+                'newbtn',
+                'gift-btn',
+                { 'gift-btn-telesport': $route.fullPath.includes('telesport') },
+              ]"
             >
               Pretplatite se uz -50%</app-link
             >
@@ -558,6 +566,9 @@ export default {
   border-radius: 3px;
   letter-spacing: 0.3px;
   margin-right: 10px;
+}
+.gift-btn-telesport {
+  background: #ff267e;
 }
 .gift-btn img {
   width: 15px;
