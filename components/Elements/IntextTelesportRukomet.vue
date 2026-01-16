@@ -75,6 +75,25 @@ export default {
       }
       this.triggerShow()
     },
+    triggerShow() {
+      if (this.show) {
+        return
+      }
+      const el = document.getElementById('piano-content')
+      if (this.softwall) {
+        this.show = true
+        this.$emit('show')
+      }
+      if (el) {
+        this.show = true
+        if (!this.softwall) {
+          el.parentNode.removeChild(el)
+          document
+            .querySelector('#article-content p:last-child')
+            .classList.add('premium-fade-out')
+        }
+      }
+    },
   },
 }
 </script>
