@@ -478,19 +478,7 @@
                     <!-- eslint-enable -->
                   </img-comparison-slider>
                 </portal>
-
-                <intext-regular-promo></intext-regular-promo>
-                <intext-refresh></intext-refresh>
-                <popup-regular-promo></popup-regular-promo>
-                <intext-promo-free-month></intext-promo-free-month>
-                <intext-promo-xmas></intext-promo-xmas>
-                <intext-promo-new-customers></intext-promo-new-customers>
-                <intext-promo-f32></intext-promo-f32>
-                <intext-promo-family></intext-promo-family>
-                <intext-black-friday></intext-black-friday>
-                <intext-christmas></intext-christmas>
-                <intext-christmas-gift></intext-christmas-gift>
-                <intext-telesport-rukomet></intext-telesport-rukomet>
+                <pretplata-promos></pretplata-promos>
               </client-only>
             </div>
           </article>
@@ -547,7 +535,7 @@
             class="full"
           >
             <top-articles-bottom
-              :algorithm-type="this.top_articles_version"
+              :algorithm-type="top_articles_version"
               :posts="top_articles.slice(3, 8)"
             ></top-articles-bottom>
           </div>
@@ -1168,6 +1156,14 @@ export default {
           pageviewAttributes: {
             postType: 'post',
             category: this.$route.params.category,
+            groupCategory: [
+              'velike-price',
+              'vijesti',
+              'komentari',
+              'politika-kriminal',
+            ].includes(this.$route.params.category)
+              ? 1
+              : 0,
             locked: this.post.paywall,
             isS1: this.post.category_slug.includes('super1') ? '1' : '0',
             segment: Math.floor(Math.random() * 4).toString(),

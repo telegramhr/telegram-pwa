@@ -95,7 +95,7 @@
 
 <script>
 export default {
-  name: 'IntextNew',
+  name: 'IntextRefresh',
   data() {
     return {
       show: false,

@@ -159,18 +159,7 @@
         <div class="full relative center">
           <ad-unit id="telegram_desktop_billboard_v3"></ad-unit>
         </div>
-        <intext-regular-promo></intext-regular-promo>
-        <intext-refresh></intext-refresh>
-        <popup-regular-promo></popup-regular-promo>
-        <intext-promo-free-month></intext-promo-free-month>
-        <intext-promo-xmas></intext-promo-xmas>
-        <intext-promo-new-customers></intext-promo-new-customers>
-        <intext-promo-f32></intext-promo-f32>
-        <intext-promo-family></intext-promo-family>
-        <intext-black-friday></intext-black-friday>
-        <intext-christmas></intext-christmas>
-        <intext-christmas-gift></intext-christmas-gift>
-        <intext-telesport-rukomet></intext-telesport-rukomet>
+        <pretplata-promos></pretplata-promos>
       </client-only>
       <tfooter></tfooter>
     </template>
@@ -425,7 +414,6 @@ export default {
   mounted() {
     this.$nextTick(function () {
       this.$store.dispatch('ads/initAds', { route: this.$route })
-      console.log(this.$route.params.category)
       if (
         [
           'politika-kriminal',
@@ -467,8 +455,15 @@ export default {
           pageviewAttributes: {
             postType: 'category',
             category: this.$route.params.category,
+            groupCategory: [
+              'velike-price',
+              'vijesti',
+              'komentari',
+              'politika-kriminal',
+            ].includes(this.$route.params.category)
+              ? 1
+              : 0,
             locked: 'never',
-            isS1: '0',
             segment: Math.floor(Math.random() * 4).toString(),
             userSubscribed: this.$store.state.user.access.length ? '1' : '0',
           },
