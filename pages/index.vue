@@ -587,6 +587,10 @@ export default {
           url: 'https://campaign.telegram.hr',
           pageviewAttributes: {
             postType: 'homepage',
+            locked: 'never',
+            isS1: '0',
+            segment: Math.floor(Math.random() * 4).toString(),
+            userSubscribed: this.$store.state.user.access.length ? '1' : '0',
           },
         },
       }
