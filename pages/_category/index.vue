@@ -425,6 +425,7 @@ export default {
   mounted() {
     this.$nextTick(function () {
       this.$store.dispatch('ads/initAds', { route: this.$route })
+      console.log(this.$route.params.category)
       if (
         [
           'politika-kriminal',
@@ -432,7 +433,7 @@ export default {
           'biznis-tech',
           'komentari',
           'velike-price',
-        ].includes(this.$route.query.category)
+        ].includes(this.$route.params.category)
       ) {
         this.loadRemp()
       }
