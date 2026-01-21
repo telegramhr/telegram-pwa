@@ -1167,6 +1167,7 @@ export default {
           url: 'https://campaign.telegram.hr',
           pageviewAttributes: {
             postType: 'post',
+            category: this.$route.params.category,
             locked: this.post.paywall,
             isS1: this.post.category_slug.includes('super1') ? '1' : '0',
             segment: Math.floor(Math.random() * 4).toString(),
