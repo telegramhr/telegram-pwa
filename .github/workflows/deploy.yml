@@ -57,15 +57,10 @@ jobs:
           name: pwa-build
           path: /home/marko/pwa-staging
 
-      - name: Set ownership
-        run: chown -R marko:marko /home/marko/pwa-staging
-
       - name: Install dependencies
-        run: |
-          cd /home/marko/pwa-staging
-          su marko -c 'npm ci --production'
+        working-directory: /home/marko/pwa-staging
+        run: npm ci --production
 
       - name: Start or reload PM2
-        run: |
-          cd /home/marko/pwa-staging
-          su marko -c 'pm2 reload ecosystem.config.js || pm2 start ecosystem.config.js'
+        working-directory: /home/marko/pwa-staging
+        run: pm2 reload ecosystem.config.js || pm2 start ecosystem.config.js
