@@ -59,14 +59,8 @@ jobs:
 
       - name: Install dependencies
         working-directory: /home/marko/pwa-staging
-        run: |
-          source /home/marko/.nvm/nvm.sh
-          nvm use 22
-          npm ci --production
+        run: npm ci --production
 
       - name: Start or reload PM2
         working-directory: /home/marko/pwa-staging
-        run: |
-          source /home/marko/.nvm/nvm.sh
-          nvm use 22
-          pm2 reload ecosystem.config.js || pm2 start ecosystem.config.js
+        run: pm2 reload ecosystem.config.js || pm2 start ecosystem.config.js
