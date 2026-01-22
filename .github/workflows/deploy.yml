@@ -1,6 +1,8 @@
-name: deploy
+name: Build and Deploy PWA
 
 on:
+  push:
+    branches: [master, github-workers]
   workflow_dispatch:
 
 permissions:
@@ -8,13 +10,32 @@ permissions:
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Install packages
-        run: |
-          su marko
-          cd /home/marko/pwa
-          git pull
-          npm run build
-          pm2 reload Telegram
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pwa-build
+          path: |
+            .nuxt/
+            static/
+            nuxt.config.js
+            package.json
+            package-lock.json
+          retention-days: 7
