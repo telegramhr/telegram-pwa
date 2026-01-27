@@ -1,6 +1,8 @@
-name: deploy
+name: Build and Deploy PWA
 
 on:
+  push:
+    branches: [master, github-workers]
   workflow_dispatch:
 
 permissions:
@@ -8,13 +10,58 @@ permissions:
 
 jobs:
   build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Setup FontAwesome Pro
+        run: |
+          echo "@fortawesome:registry=https://npm.fontawesome.com/" >> .npmrc
+          echo "//npm.fontawesome.com/:_authToken=${{ secrets.FONTAWESOME_TOKEN }}" >> .npmrc
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pwa-build
+          include-hidden-files: true
+          path: |
+            .nuxt/
+            static/
+            nuxt.config.js
+            package.json
+            package-lock.json
+            .npmrc
+          retention-days: 7
+
+  deploy-staging:
+    needs: build
     runs-on: self-hosted
 
     steps:
-      - name: Install packages
-        run: |
-          su marko
-          cd /home/marko/pwa
-          git pull
-          npm run build
-          pm2 reload Telegram
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: pwa-build
+          path: /home/marko/pwa-staging
+
+      - name: Install dependencies
+        working-directory: /home/marko/pwa-staging
+        run: npm ci --production
+
+      - name: Start or reload PM2
+        working-directory: /home/marko/pwa-staging
+        run: pm2 reload ecosystem.config.js || pm2 start ecosystem.config.js
