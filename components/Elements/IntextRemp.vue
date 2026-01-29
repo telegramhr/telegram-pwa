@@ -121,15 +121,9 @@ export default {
     },
     load(e) {
       // Check if user has access to this specific content type
-      console.log('[IntextRemp] load() called')
-      console.log('[IntextRemp] route:', this.$route.path)
-      console.log('[IntextRemp] user.access:', this.$store.state.user.access)
-      console.log('[IntextRemp] hasContentAccess:', this.$store.getters['user/hasContentAccess'](this.$route.path))
       if (this.$store.getters['user/hasContentAccess'](this.$route.path)) {
-        console.log('[IntextRemp] User has access, hiding paywall')
         return
       }
-      console.log('[IntextRemp] User does NOT have access, showing paywall')
       if (e.detail) {
         this.title = e.detail.title
         this.subtitle = e.detail.subtitle
