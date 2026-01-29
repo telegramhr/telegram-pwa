@@ -534,7 +534,11 @@ export default {
       return window.location.origin + this.$route.fullPath
     },
     hasPremium() {
-      return this.$store.getters['user/hasPremium']
+      // Allow audio playback for any subscribed user, not just premium
+      return (
+        this.$store.state.user.access &&
+        this.$store.state.user.access.length > 0
+      )
     },
     showGift() {
       return this.paywall === 'always' && this.$store.state.user.token
