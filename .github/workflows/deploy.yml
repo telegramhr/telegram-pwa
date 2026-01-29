@@ -2,7 +2,7 @@ name: Build and Deploy PWA
 
 on:
   push:
-    branches: [master, github-workers]
+    branches: [master, github-workers, staging]
   workflow_dispatch:
 
 permissions:

@@ -1168,6 +1168,7 @@ export default {
             isS1: this.post.category_slug.includes('super1') ? '1' : '0',
             segment: Math.floor(Math.random() * 4).toString(),
             userSubscribed: this.$store.state.user.access.length ? '1' : '0',
+            hasContentAccess: this.$store.getters['user/hasContentAccess'](this.$route.path) ? '1' : '0',
           },
         },
       }

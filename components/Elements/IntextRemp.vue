@@ -120,7 +120,8 @@ export default {
       }
     },
     load(e) {
-      if (this.$store.state.user.access?.length) {
+      // Check if user has access to this specific content type
+      if (this.$store.getters['user/hasContentAccess'](this.$route.path)) {
         return
       }
       if (e.detail) {
