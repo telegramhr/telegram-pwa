@@ -348,6 +348,36 @@ export const getters = {
       state.access === 'BR92VTWM' || state.access.includes('telegram_premium')
     )
   },
+  /**
+   * Check if user has access to content based on route path
+   * Used for paywall (IntextRemp) and audio player access
+   *
+   * Logic:
+   * - telegram_premium: full access to everything
+   * - telesport: only telesport content (route includes 'telesport')
+   * - telegram: only telegram content (route does NOT include 'telesport')
+   */
+  hasContentAccess: (state) => (routePath) => {
+    if (Capacitor.isNativePlatform()) {
+      return true
+    }
+    if (!state.access || !state.access.length) {
+      return false
+    }
+    // Premium has full access
+    if (state.access.includes('telegram_premium')) {
+      return true
+    }
+    const isTelesportContent = routePath.includes('telesport')
+    const hasTelesportAccess = state.access.includes('telesport')
+    const hasTelegramAccess = state.access.includes('telegram')
+    // Telesport content requires telesport access
+    if (isTelesportContent) {
+      return hasTelesportAccess
+    }
+    // Non-telesport content requires telegram access
+    return hasTelegramAccess
+  },
   canLogIn(state) {
     return !state.token
   },
