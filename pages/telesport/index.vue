@@ -36,9 +36,9 @@
           <app-link
             v-show="canLogIn"
             id="pretplatite se - header"
-            to="/pretplata/telesport-50-off"
+            to="/pretplata/telesport"
             class="newbtn"
-            >Pretplatite se uz -50%</app-link
+            >Pretplatite se</app-link
           >
           <app-link
             v-show="$store.state.user.access?.length"
@@ -193,9 +193,9 @@
             <app-link
               v-show="!$store.state.user.access"
               id="pretplatite se - header"
-              to="/pretplata/telesport-50-off"
+              to="/pretplata/telesport"
               class="newbtn"
-              >Pretplatite se uz -50%</app-link
+              >Pretplatite se</app-link
             >
             <app-link
               v-show="!canLogIn"
