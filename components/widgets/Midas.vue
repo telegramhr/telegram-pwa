@@ -157,10 +157,14 @@ export default {
   },
   methods: {
     waitForPlaceholdersAndLoad(attempts = 0) {
-      // Wait for server-injected intext_midas placeholder in post.content
+      // Wait for article content to be rendered (v-html populates this)
+      const articleContent = document.getElementById('article-content')
+      const hasContent = articleContent && articleContent.innerHTML.length > 100
+      // Also check for server-injected intext_midas if present
       const intextMidas = document.getElementById('intext_midas')
-      if (intextMidas || attempts >= 20) {
-        // Placeholder found or max attempts reached - load scripts
+
+      if (hasContent || intextMidas || attempts >= 20) {
+        // Content rendered or max attempts reached - load scripts
         this.loadMidas()
         this.loadIntext()
       } else {
