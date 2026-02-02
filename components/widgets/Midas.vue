@@ -157,15 +157,28 @@ export default {
   },
   methods: {
     waitForPlaceholdersAndLoad(attempts = 0) {
-      // Check for any other midasWidget placeholder (not our own ecomm one)
-      const otherPlaceholder = document.querySelector(
-        `[id^="midasWidget__"]:not([id="midasWidget__${this.id}"])`
+      // Guard: stop if component was destroyed during navigation
+      if (this._isDestroyed || this._isBeingDestroyed) return
+
+      // Get the correct IDs for current category
+      let category = this.$route.params.category
+      if (this.$route.fullPath.includes('super1')) category = 'super1'
+      if (this.$route.fullPath.includes('telesport')) category = 'telesport'
+      if (this.$route.fullPath.includes('pitanje-zdravlja'))
+        category = 'pitanje-zdravlja'
+      if (this.$route.fullPath.includes('openspace')) category = 'openspace'
+
+      const textOnlyId = this.ids[category]?.['text-only']
+
+      // Check for the CORRECT placeholder for this category (not stale ones)
+      const correctPlaceholder = document.getElementById(
+        `midasWidget__${textOnlyId}`
       )
 
-      // Wait for at least one other placeholder, then add small delay for rest
-      if (otherPlaceholder) {
-        // Found one - wait 100ms more for any others to mount, then load
+      if (correctPlaceholder) {
+        // Found correct one - wait 100ms more for others, then load
         setTimeout(() => {
+          if (this._isDestroyed || this._isBeingDestroyed) return
           this.loadMidas()
           this.loadIntext()
         }, 100)
