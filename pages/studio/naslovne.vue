@@ -2,7 +2,7 @@
   <div class="main-container flex relative fancy-rubrika trebam-hitno">
     <div class="full flex relative">
       <div class="container flex relative">
-        <h1 class="full center-text">Trebam naslovnu hitno! <br />Daj mi...</h1>
+        <h2 class="full center-text">Trebam naslovnu hitno! <br />Daj mi...</h2>
         <div class="full flex relative">
           <div class="third flex-responsive flex relative">
             <input
@@ -13,6 +13,14 @@
               name="overlay"
             />
             <label class="clickable animate" for="empty">Sredi veličinu</label>
+            <input
+              id="kockica"
+              v-model="selected"
+              :value="'kockica'"
+              type="radio"
+              name="overlay"
+            />
+            <label class="clickable animate" for="kockica">Kockica</label>
             <input
               id="autor"
               v-model="selected"
@@ -57,14 +65,6 @@
               >Kolaž polovina</label
             >
             <input
-              id="kockica"
-              v-model="selected"
-              :value="'kockica'"
-              type="radio"
-              name="overlay"
-            />
-            <label class="clickable animate" for="kockica">Kockica</label>
-            <input
               id="podcast"
               v-model="selected"
               :value="'podcast'"
@@ -74,6 +74,28 @@
             <label class="clickable animate" for="podcast">Podcast</label>
           </div>
           <div class="third flex-responsive relative">
+            <div
+              v-show="
+                selected != 'kolaz' &&
+                selected != 'kolazpola' &&
+                selected != 'podcast'
+              "
+              class="full center flex"
+              style="margin-bottom: 1.5rem"
+            >
+              <h2 class="full center-text">Na ovo:</h2>
+              <div class="full generator-file-upload clickable">
+                <div class="file-select">
+                  <div id="fileName" class="file-select-button">
+                    Odaberi datoteku
+                  </div>
+                  <div id="noFile" class="file-select-name">
+                    Datoteka će biti dodana kao pozadina
+                  </div>
+                  <input id="chooseFile" type="file" name="chooseFile" />
+                </div>
+              </div>
+            </div>
             <div
               v-if="selected === 'krug'"
               class="full flex relative generator-submenu"
@@ -273,16 +295,6 @@
             </div>
             <h2 v-show="selected === 'empty'" class="full center-text">
               Ove fotke:
-            </h2>
-            <h2
-              v-show="
-                selected != 'podcast' &&
-                selected != 'empty' &&
-                selected != 'kolaz'
-              "
-              class="full center-text"
-            >
-              Na ovo:
             </h2>
             <h2 v-show="selected == 'podcast'" class="full center-text">
               Nek piše:
@@ -494,6 +506,7 @@
                 selected === 'kolazpola'
               "
               class="full flex relative generator-submenu"
+              style="margin-top: 1.5rem"
             >
               <h2 class="full center-text">Tekstura:</h2>
               <div class="half flex relative">
@@ -545,31 +558,14 @@
                 >
               </div>
             </div>
-            <div
-              v-show="
-                selected != 'kolaz' &&
-                selected != 'kolazpola' &&
-                selected != 'podcast'
-              "
-              class="full center"
-            >
-              <div class="full generator-file-upload clickable">
-                <div class="file-select">
-                  <div id="fileName" class="file-select-button">
-                    Odaberi datoteku
-                  </div>
-                  <div id="noFile" class="file-select-name">
-                    Datoteka će biti dodana kao pozadina
-                  </div>
-                  <input id="chooseFile" type="file" name="chooseFile" />
-                </div>
-              </div>
-            </div>
             <div v-show="selected == 'podcast'" class="full center">
               <input v-model="podcastText" type="text" />
             </div>
           </div>
-          <div class="third flex-responsive center relative">
+          <div class="third flex flex-responsive center relative">
+            <div id="preview-container" class="full">
+              <canvas id="preview-canvas"></canvas>
+            </div>
             <button id="saveimagebutton" class="full animate clickable btn">
               Hitno!
             </button>
@@ -577,8 +573,17 @@
         </div>
       </div>
     </div>
-    <div class="full flex relative">
-      <div id="generator-img-render">
+    <div
+      class="full flex relative"
+      style="
+        position: absolute;
+        left: -9999px;
+        top: 0;
+        width: 2664px;
+        height: 1680px;
+      "
+    >
+      <div id="generator-img-render" style="width: 2664px; height: 1680px">
         <div id="generator-img-deliver" />
         <div v-if="selected === 'kolaz'" id="generator-kolaz" class="center">
           <div class="half relative kolaz-third">
@@ -699,6 +704,7 @@
           "
           id="tekstura-overlay"
           class="generator-img-tekstura"
+          style="z-index: 3"
           :src="teksturaImage"
           width="2664"
           height="1680"
@@ -834,6 +840,56 @@ export default {
       },
     }
   },
+  watch: {
+    selected() {
+      this.$nextTick(() => setTimeout(() => this.updatePreview(), 100))
+    },
+    krugType() {
+      this.$nextTick(() => setTimeout(() => this.updatePreview(), 100))
+    },
+    autorType() {
+      this.$nextTick(() => setTimeout(() => this.updatePreview(), 100))
+    },
+    specijalType() {
+      this.$nextTick(() => setTimeout(() => this.updatePreview(), 100))
+    },
+    kockicaAutor() {
+      this.$nextTick(() => setTimeout(() => this.updatePreview(), 100))
+    },
+    kockicaPosition() {
+      this.$nextTick(() => setTimeout(() => this.updatePreview(), 100))
+    },
+    sjenaGore() {
+      this.$nextTick(() => setTimeout(() => this.updatePreview(), 100))
+    },
+    sjenaDolje() {
+      this.$nextTick(() => setTimeout(() => this.updatePreview(), 100))
+    },
+    teksturaType() {
+      this.$nextTick(() => setTimeout(() => this.updatePreview(), 100))
+    },
+    kolazMidThird() {
+      this.$nextTick(() => setTimeout(() => this.updatePreview(), 100))
+    },
+    kolazLeftThird() {
+      this.$nextTick(() => setTimeout(() => this.updatePreview(), 100))
+    },
+    kolazRightThird() {
+      this.$nextTick(() => setTimeout(() => this.updatePreview(), 100))
+    },
+    kolazMidThirdPosition() {
+      this.$nextTick(() => setTimeout(() => this.updatePreview(), 100))
+    },
+    kolazPolaLeft() {
+      this.$nextTick(() => setTimeout(() => this.updatePreview(), 100))
+    },
+    kolazPolaRight() {
+      this.$nextTick(() => setTimeout(() => this.updatePreview(), 100))
+    },
+    podcastText() {
+      this.$nextTick(() => setTimeout(() => this.updatePreview(), 100))
+    },
+  },
   computed: {
     kockicaImage() {
       const autor = this.kockicaAutor
@@ -850,6 +906,7 @@ export default {
     const saveimagebutton = document.querySelector('#saveimagebutton')
     let counter = 1
     let filename = 'tg_naslovna.jpg'
+
     function updateDate(date) {
       const yyyy = date.getFullYear().toString()
       const mm = (date.getMonth() + 1).toString()
@@ -870,13 +927,24 @@ export default {
     function getRandomInt(max) {
       return Math.floor(Math.random() * max)
     }
+
+    const self = this
+
+    // Update export canvas at full resolution
     function updateCanvas() {
       html2canvas(document.querySelector('#generator-img-render'), {
         scale: 1,
+        width: 2664,
+        height: 1680,
+        windowWidth: 2664,
+        windowHeight: 1680,
       }).then(function (canvas) {
         imgData = canvas.toDataURL('image/jpeg', 0.7)
       })
     }
+
+    // Initial preview update - wait for images to load
+    setTimeout(() => self.updatePreview(), 1000)
     document.querySelector('#saveimagebutton').addEventListener(
       'click',
       function () {
@@ -919,10 +987,10 @@ export default {
       reader.onloadend = function () {
         document.getElementById('generator-img-deliver').style.backgroundImage =
           "url('" + reader.result + "')"
+        setTimeout(() => self.updatePreview(), 100)
       }
       if (file) {
         reader.readAsDataURL(file)
-      } else {
       }
     }
     document
@@ -933,14 +1001,34 @@ export default {
       const reader = new FileReader()
       reader.onloadend = function () {
         document.getElementById('generator-krug-target').src = reader.result
+        setTimeout(() => self.updatePreview(), 100)
       }
       if (file) {
         reader.readAsDataURL(file)
-      } else {
       }
     }
   },
   methods: {
+    updatePreview() {
+      const source = document.querySelector('#generator-img-render')
+      const previewCanvas = document.querySelector('#preview-canvas')
+      // Use fixed source dimensions (2664x1680) since element is off-screen
+      const sourceWidth = 2664
+      const previewWidth = 400
+      const scale = previewWidth / sourceWidth
+      html2canvas(source, {
+        scale,
+        width: sourceWidth,
+        height: 1680,
+        windowWidth: sourceWidth,
+        windowHeight: 1680,
+      }).then(function (canvas) {
+        previewCanvas.width = canvas.width
+        previewCanvas.height = canvas.height
+        const ctx = previewCanvas.getContext('2d')
+        ctx.drawImage(canvas, 0, 0)
+      })
+    },
     handleMidChange(event) {
       const file = event.target.files[0]
 
@@ -955,6 +1043,7 @@ export default {
       reader.onload = () => {
         // Set the base64-encoded image data to the data property
         this.kolazMidThird = reader.result
+        setTimeout(() => this.updatePreview(), 100)
       }
 
       reader.readAsDataURL(file)
@@ -973,6 +1062,7 @@ export default {
       reader.onload = () => {
         // Set the base64-encoded image data to the data property
         document.getElementById('kolaz-left-third').src = reader.result
+        setTimeout(() => this.updatePreview(), 100)
       }
 
       reader.readAsDataURL(file)
@@ -991,6 +1081,7 @@ export default {
       reader.onload = () => {
         // Set the base64-encoded image data to the data property
         document.getElementById('kolaz-right-third').src = reader.result
+        setTimeout(() => this.updatePreview(), 100)
       }
 
       reader.readAsDataURL(file)
@@ -1001,6 +1092,7 @@ export default {
         const reader = new FileReader()
         reader.onload = () => {
           document.getElementById('kolaz-pola-left').src = reader.result
+          setTimeout(() => this.updatePreview(), 100)
         }
         reader.readAsDataURL(file)
       }
@@ -1011,6 +1103,7 @@ export default {
         const reader = new FileReader()
         reader.onload = () => {
           document.getElementById('kolaz-pola-right').src = reader.result
+          setTimeout(() => this.updatePreview(), 100)
         }
         reader.readAsDataURL(file)
       }
@@ -1099,3 +1192,16 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+#preview-container {
+  margin-bottom: 1rem;
+}
+#preview-canvas {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border: 1px solid #ccc;
+  background: #f5f5f5;
+}
+</style>
