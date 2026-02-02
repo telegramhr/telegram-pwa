@@ -43,7 +43,8 @@
     "vue-gtag": "^1.16.1",
     "vue-lazy-hydration": "^2.0.0-beta.4",
     "vue-slick-carousel": "^1.0.6",
-    "vuex-persistedstate": "3.2.1"
+    "vuex-persistedstate": "3.2.1",
+    "html2canvas": "github:telegramhr/html2canvas"
   },
   "devDependencies": {
     "@capacitor/assets": "^3.0.5",
@@ -58,7 +59,6 @@
     "eslint-config-prettier": "^6.12.0",
     "eslint-plugin-nuxt": "^1.0.0",
     "eslint-plugin-prettier": "^3.3.1",
-    "html2canvas": "github:telegramhr/html2canvas",
     "nuxt-purgecss": "^1.0.0",
     "prettier": "^2.2.1",
     "vue-svg-loader": "^0.16.0",
