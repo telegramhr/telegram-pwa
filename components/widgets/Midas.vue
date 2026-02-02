@@ -144,13 +144,17 @@ export default {
     },
   },
   mounted() {
+    console.log('[Midas Debug] mounted()', { type: this.type, id: this.id })
     if (this.$store.getters['user/hasPremium']) {
+      console.log('[Midas Debug] User has premium, skipping')
       return false // don't load midas if user has premium
     }
     // Only ecomm type loads scripts - wait for server-injected placeholder
     if (this.type === 'ecomm') {
+      console.log('[Midas Debug] ecomm type - waiting for placeholders')
       this.waitForPlaceholdersAndLoad()
     } else {
+      console.log('[Midas Debug] non-ecomm type - loading directly')
       this.loadMidas()
       this.loadIntext()
     }
@@ -163,8 +167,18 @@ export default {
       // Also check for server-injected intext_midas if present
       const intextMidas = document.getElementById('intext_midas')
 
+      console.log('[Midas Debug]', {
+        attempt: attempts,
+        type: this.type,
+        articleContentExists: !!articleContent,
+        articleContentLength: articleContent?.innerHTML?.length || 0,
+        hasContent,
+        intextMidasExists: !!intextMidas,
+      })
+
       if (hasContent || intextMidas || attempts >= 20) {
         // Content rendered or max attempts reached - load scripts
+        console.log('[Midas Debug] Loading scripts now')
         this.loadMidas()
         this.loadIntext()
       } else {
@@ -202,6 +216,7 @@ export default {
       }
     },
     loadMidas() {
+      console.log('[Midas Debug] loadMidas()', { type: this.type, id: this.id })
       if (this.type === 'ecomm') {
         let category = this.$route.params.category
         if (this.$route.fullPath.includes('super1')) {
@@ -255,6 +270,7 @@ export default {
           ids += `-11899`
         }
         script.src = `https://cdn2.midas-network.com/Scripts/midasWidget-11-${main}-${ids}.js`
+        console.log('[Midas Debug] Loading ecomm script:', script.src)
         script.async = true
         document
           .getElementById(`midasWidget__${this.id}`)
