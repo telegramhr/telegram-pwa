@@ -157,44 +157,20 @@ export default {
   },
   methods: {
     waitForPlaceholdersAndLoad(attempts = 0) {
-      // Get IDs for text-only and standard-16 widgets we need to wait for
-      let category = this.$route.params.category
-      if (this.$route.fullPath.includes('super1')) category = 'super1'
-      if (this.$route.fullPath.includes('telesport')) category = 'telesport'
-      if (this.$route.fullPath.includes('pitanje-zdravlja'))
-        category = 'pitanje-zdravlja'
-      if (this.$route.fullPath.includes('openspace')) category = 'openspace'
-
-      const textOnlyId = this.ids[category]?.['text-only']
-      const standardId = this.ids[category]?.['standard-16']
-
-      // Check if BOTH placeholders exist
-      const textOnlyExists = document.getElementById(
-        `midasWidget__${textOnlyId}`
+      // Check for any other midasWidget placeholder (not our own ecomm one)
+      const otherPlaceholder = document.querySelector(
+        `[id^="midasWidget__"]:not([id="midasWidget__${this.id}"])`
       )
-      const standardExists = document.getElementById(
-        `midasWidget__${standardId}`
-      )
-      // Or server-injected intext_midas
-      const intextMidas = document.getElementById('intext_midas')
 
-      console.log('[Midas] attempt', attempts, {
-        textOnlyId,
-        standardId,
-        textOnlyExists: !!textOnlyExists,
-        standardExists: !!standardExists,
-        intextMidas: !!intextMidas,
-      })
-
-      const allReady =
-        (textOnlyExists && standardExists) || intextMidas || attempts >= 40
-
-      if (allReady) {
-        console.log('[Midas] Loading scripts, reason:', {
-          bothExist: textOnlyExists && standardExists,
-          intextMidas: !!intextMidas,
-          timeout: attempts >= 40,
-        })
+      // Wait for at least one other placeholder, then add small delay for rest
+      if (otherPlaceholder) {
+        // Found one - wait 100ms more for any others to mount, then load
+        setTimeout(() => {
+          this.loadMidas()
+          this.loadIntext()
+        }, 100)
+      } else if (attempts >= 40) {
+        // Timeout - load anyway
         this.loadMidas()
         this.loadIntext()
       } else {
