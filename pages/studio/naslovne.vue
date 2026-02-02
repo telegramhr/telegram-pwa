@@ -22,6 +22,14 @@
             />
             <label class="clickable animate" for="autor">Autora</label>
             <input
+              id="specijal"
+              v-model="selected"
+              :value="'specijal'"
+              type="radio"
+              name="overlay"
+            />
+            <label class="clickable animate" for="specijal">Specijal</label>
+            <input
               id="krug"
               v-model="selected"
               :value="'krug'"
@@ -38,6 +46,24 @@
               name="overlay"
             />
             <label class="clickable animate" for="kolaz">Kolaž trećina</label>
+            <input
+              id="kolazpola"
+              v-model="selected"
+              :value="'kolazpola'"
+              type="radio"
+              name="overlay"
+            />
+            <label class="clickable animate" for="kolazpola"
+              >Kolaž polovina</label
+            >
+            <input
+              id="kockica"
+              v-model="selected"
+              :value="'kockica'"
+              type="radio"
+              name="overlay"
+            />
+            <label class="clickable animate" for="kockica">Kockica</label>
             <input
               id="podcast"
               v-model="selected"
@@ -122,6 +148,112 @@
                 <label class="clickable animate" :for="key">{{
                   autor.name
                 }}</label>
+              </div>
+            </div>
+            <div
+              v-show="selected === 'specijal'"
+              class="full flex relative generator-submenu"
+            >
+              <h2 class="full center-text">Specijal je:</h2>
+              <div
+                v-for="(spec, key) in specijali"
+                :key="'specijal-' + key"
+                class="half flex relative"
+              >
+                <input
+                  :id="'specijal-' + key"
+                  v-model="specijalType"
+                  :value="key"
+                  type="radio"
+                  name="specijalType"
+                />
+                <label class="clickable animate" :for="'specijal-' + key">{{
+                  spec.name
+                }}</label>
+              </div>
+            </div>
+            <div
+              v-show="selected === 'kockica'"
+              class="full flex relative generator-submenu"
+            >
+              <h2 class="full center-text">Autor je:</h2>
+              <div
+                v-for="(autor, key) in kockiceAutori"
+                :key="'kockica-' + key"
+                class="half flex relative"
+              >
+                <input
+                  :id="'kockica-' + key"
+                  v-model="kockicaAutor"
+                  :value="key"
+                  type="radio"
+                  name="kockicaAutor"
+                />
+                <label class="clickable animate" :for="'kockica-' + key">{{
+                  autor.name
+                }}</label>
+              </div>
+              <h2 class="full center-text column-top-pad">Pozicija:</h2>
+              <div class="half flex relative">
+                <input
+                  id="kockica-gore-lijevo"
+                  v-model="kockicaPosition"
+                  :value="'gore-lijevo'"
+                  type="radio"
+                  name="kockicaPosition"
+                />
+                <label class="clickable animate" for="kockica-gore-lijevo"
+                  >Gore lijevo</label
+                >
+              </div>
+              <div class="half flex relative">
+                <input
+                  id="kockica-gore-desno"
+                  v-model="kockicaPosition"
+                  :value="'gore-desno'"
+                  type="radio"
+                  name="kockicaPosition"
+                />
+                <label class="clickable animate" for="kockica-gore-desno"
+                  >Gore desno</label
+                >
+              </div>
+              <div class="half flex relative">
+                <input
+                  id="kockica-dolje-lijevo"
+                  v-model="kockicaPosition"
+                  :value="'dolje-lijevo'"
+                  type="radio"
+                  name="kockicaPosition"
+                />
+                <label class="clickable animate" for="kockica-dolje-lijevo"
+                  >Dolje lijevo</label
+                >
+              </div>
+              <div class="half flex relative">
+                <input
+                  id="kockica-dolje-desno"
+                  v-model="kockicaPosition"
+                  :value="'dolje-desno'"
+                  type="radio"
+                  name="kockicaPosition"
+                />
+                <label class="clickable animate" for="kockica-dolje-desno"
+                  >Dolje desno</label
+                >
+              </div>
+              <h2 class="full center-text column-top-pad">Sjena:</h2>
+              <div class="half flex relative">
+                <input id="sjena-gore" v-model="sjenaGore" type="checkbox" />
+                <label class="clickable animate" for="sjena-gore"
+                  >Sjena gore</label
+                >
+              </div>
+              <div class="half flex relative">
+                <input id="sjena-dolje" v-model="sjenaDolje" type="checkbox" />
+                <label class="clickable animate" for="sjena-dolje"
+                  >Sjena dolje</label
+                >
               </div>
             </div>
             <div v-show="selected === 'krug'" class="full flex relative">
@@ -283,8 +415,142 @@
                 <div class="fourth right-text faded">Desno</div>
               </div>
             </div>
+            <div v-show="selected == 'kolazpola'" class="full flex">
+              <h2 class="full center-text">Lijevo stavi:</h2>
+              <div class="full center">
+                <div class="full generator-file-upload clickable">
+                  <div class="file-select">
+                    <div class="file-select-button">Odaberi datoteku</div>
+                    <div class="file-select-name">
+                      Datoteka će biti dodana na kolaž
+                    </div>
+                    <input
+                      id="chooseFilePolaLeft"
+                      type="file"
+                      name="chooseFilePolaLeft"
+                      @change="handlePolaLeftChange"
+                    />
+                  </div>
+                </div>
+              </div>
+              <p class="full center-text column-mini-vertical-pad">
+                Pomakni je malo:
+              </p>
+              <div class="full flex relative">
+                <div class="fourth faded">Lijevo</div>
+                <div class="half center">
+                  <input
+                    id="kolaz-pola-left-position"
+                    v-model="kolazPolaLeft"
+                    type="range"
+                    min="-100"
+                    max="0"
+                    step="1"
+                  />
+                </div>
+                <div class="fourth right-text faded">Desno</div>
+              </div>
+              <h2 class="full center-text column-top-pad">Desno stavi:</h2>
+              <div class="full center">
+                <div class="full generator-file-upload clickable">
+                  <div class="file-select">
+                    <div class="file-select-button">Odaberi datoteku</div>
+                    <div class="file-select-name">
+                      Datoteka će biti dodana na kolaž
+                    </div>
+                    <input
+                      id="chooseFilePolaRight"
+                      type="file"
+                      name="chooseFilePolaRight"
+                      @change="handlePolaRightChange"
+                    />
+                  </div>
+                </div>
+              </div>
+              <p class="full center-text column-mini-vertical-pad">
+                Pomakni je malo:
+              </p>
+              <div class="full flex relative">
+                <div class="fourth faded">Lijevo</div>
+                <div class="half center">
+                  <input
+                    id="kolaz-pola-right-position"
+                    v-model="kolazPolaRight"
+                    type="range"
+                    min="-100"
+                    max="0"
+                    step="1"
+                  />
+                </div>
+                <div class="fourth right-text faded">Desno</div>
+              </div>
+            </div>
             <div
-              v-show="selected != 'kolaz' && selected != 'podcast'"
+              v-show="
+                selected === 'autor' ||
+                selected === 'specijal' ||
+                selected === 'kockica' ||
+                selected === 'kolaz' ||
+                selected === 'kolazpola'
+              "
+              class="full flex relative generator-submenu"
+            >
+              <h2 class="full center-text">Tekstura:</h2>
+              <div class="half flex relative">
+                <input
+                  id="tekstura-none"
+                  v-model="teksturaType"
+                  :value="'none'"
+                  type="radio"
+                  name="teksturaType"
+                />
+                <label class="clickable animate" for="tekstura-none"
+                  >Bez teksture</label
+                >
+              </div>
+              <div class="half flex relative">
+                <input
+                  id="tekstura-1"
+                  v-model="teksturaType"
+                  :value="'tekstura_1'"
+                  type="radio"
+                  name="teksturaType"
+                />
+                <label class="clickable animate" for="tekstura-1"
+                  >Tekstura 1</label
+                >
+              </div>
+              <div class="half flex relative">
+                <input
+                  id="tekstura-2"
+                  v-model="teksturaType"
+                  :value="'tekstura_2'"
+                  type="radio"
+                  name="teksturaType"
+                />
+                <label class="clickable animate" for="tekstura-2"
+                  >Tekstura 2</label
+                >
+              </div>
+              <div class="half flex relative">
+                <input
+                  id="tekstura-3"
+                  v-model="teksturaType"
+                  :value="'tekstura_3'"
+                  type="radio"
+                  name="teksturaType"
+                />
+                <label class="clickable animate" for="tekstura-3"
+                  >Tekstura 3</label
+                >
+              </div>
+            </div>
+            <div
+              v-show="
+                selected != 'kolaz' &&
+                selected != 'kolazpola' &&
+                selected != 'podcast'
+              "
               class="full center"
             >
               <div class="full generator-file-upload clickable">
@@ -353,6 +619,27 @@
           <div class="kolaz-border-1"></div>
           <div class="kolaz-border-2"></div>
         </div>
+        <div
+          v-if="selected === 'kolazpola'"
+          id="generator-kolaz-pola"
+          class="center"
+        >
+          <div class="half relative kolaz-half">
+            <img
+              id="kolaz-pola-right"
+              src="@/assets/img/grey_placeholder.png"
+              :style="{ left: kolazPolaRight + '%' }"
+            />
+          </div>
+          <div class="half relative kolaz-half">
+            <img
+              id="kolaz-pola-left"
+              src="@/assets/img/grey_placeholder.png"
+              :style="{ left: kolazPolaLeft + '%' }"
+            />
+          </div>
+          <div class="kolaz-pola-border"></div>
+        </div>
         <img
           v-if="selected === 'podcast' && podcastType === 'prviglas'"
           id="prviglas-bg"
@@ -366,6 +653,53 @@
           id="autor-overlay"
           class="generator-img-overlay"
           :src="autori[autorType].image"
+          width="2664"
+          height="1680"
+        />
+        <img
+          v-if="selected === 'specijal'"
+          id="specijal-overlay"
+          class="generator-img-overlay"
+          :src="specijali[specijalType].image"
+          width="2664"
+          height="1680"
+        />
+        <img
+          v-if="selected === 'kockica'"
+          id="kockica-overlay"
+          class="generator-img-overlay"
+          :src="kockicaImage"
+          width="2664"
+          height="1680"
+        />
+        <img
+          v-if="selected === 'kockica' && sjenaGore"
+          id="sjena-gore-overlay"
+          class="generator-img-shadow"
+          src="@/assets/img/extras/naslovne/sjena_gore.png"
+          width="2664"
+          height="1680"
+        />
+        <img
+          v-if="selected === 'kockica' && sjenaDolje"
+          id="sjena-dolje-overlay"
+          class="generator-img-shadow"
+          src="@/assets/img/extras/naslovne/sjena_dolje.png"
+          width="2664"
+          height="1680"
+        />
+        <img
+          v-if="
+            teksturaType !== 'none' &&
+            (selected === 'autor' ||
+              selected === 'specijal' ||
+              selected === 'kockica' ||
+              selected === 'kolaz' ||
+              selected === 'kolazpola')
+          "
+          id="tekstura-overlay"
+          class="generator-img-tekstura"
+          :src="teksturaImage"
           width="2664"
           height="1680"
         />
@@ -399,10 +733,18 @@ export default {
       selected: 'autor',
       krugType: 'gorelijevo',
       autorType: 'modric',
+      specijalType: 'ekskluziv_telegram',
+      kockicaAutor: 'modric',
+      kockicaPosition: 'gore-lijevo',
+      sjenaGore: false,
+      sjenaDolje: false,
+      teksturaType: 'none',
       kolazMidThird: 'null',
       kolazLeftThird: -50,
       kolazRightThird: -50,
       kolazMidThirdPosition: 'xMidYMid slice',
+      kolazPolaLeft: -50,
+      kolazPolaRight: -50,
       podcastType: 'prviglas',
       podcastText: tomorrow,
       autori: {
@@ -430,10 +772,6 @@ export default {
           name: 'Jakovina',
           image: require('~/assets/img/extras/naslovne/tg_dajmi_overlay_jakovina.png'),
         },
-        hrdalo: {
-          name: 'Hrdalo',
-          image: require('~/assets/img/extras/naslovne/tg_dajmi_overlay_hrdalo.png'),
-        },
         markovina: {
           name: 'Markovina',
           image: require('~/assets/img/extras/naslovne/tg_dajmi_overlay_markovina.png'),
@@ -442,8 +780,70 @@ export default {
           name: 'Šnajder',
           image: require('~/assets/img/extras/naslovne/tg_dajmi_overlay_snajder.png'),
         },
+        hedl: {
+          name: 'Hedl',
+          image: require('~/assets/img/extras/naslovne/tg_dajmi_overlay_hedl.png'),
+        },
+        fizulic: {
+          name: 'Fižulić',
+          image: require('~/assets/img/extras/naslovne/tg_dajmi_overlay_fizulic.png'),
+        },
+        frlan: {
+          name: 'Frlan Gašparović',
+          image: require('~/assets/img/extras/naslovne/tg_dajmi_overlay_frlan.png'),
+        },
+      },
+      kockiceAutori: {
+        butkovic: { name: 'Butković' },
+        divo: { name: 'Đurović' },
+        fizulic: { name: 'Fižulić' },
+        frlan: { name: 'Frlan Gašparović' },
+        jakovina: { name: 'Jakovina' },
+        klaric: { name: 'Klarić' },
+        krsul: { name: 'Kršul' },
+        mahmutovic: { name: 'Mahmutović' },
+        maric: { name: 'Marić' },
+        markovina: { name: 'Markovina' },
+        mendusic: { name: 'Menđušić' },
+        modric: { name: 'Modrić' },
+        plese: { name: 'Pleše' },
+        redzepovic: { name: 'Redžepović' },
+        violic: { name: 'Violić' },
+      },
+      specijali: {
+        ekskluziv_telegram: {
+          name: 'Ekskluziv Telegram',
+          image: require('~/assets/img/extras/naslovne/specijali/ekskluziv_telegram.png'),
+        },
+        ekskluziv_hedl: {
+          name: 'Ekskluziv Hedl',
+          image: require('~/assets/img/extras/naslovne/specijali/ekskluziv_hedl.png'),
+        },
+        intervju_telegram: {
+          name: 'Intervju Telegram',
+          image: require('~/assets/img/extras/naslovne/specijali/intervju_telegram.png'),
+        },
+        istraga_hedl: {
+          name: 'Istraga Hedl',
+          image: require('~/assets/img/extras/naslovne/specijali/istraga_hedl.png'),
+        },
+        logo_telegram: {
+          name: 'Logo Telegram',
+          image: require('~/assets/img/extras/naslovne/specijali/logo_telegram.png'),
+        },
       },
     }
+  },
+  computed: {
+    kockicaImage() {
+      const autor = this.kockicaAutor
+      const position = this.kockicaPosition
+      return require(`~/assets/img/extras/naslovne/kockice/${autor}/${autor}_${position}.png`)
+    },
+    teksturaImage() {
+      if (this.teksturaType === 'none') return null
+      return require(`~/assets/img/extras/naslovne/teksture/${this.teksturaType}.png`)
+    },
   },
   mounted() {
     let imgData
@@ -594,6 +994,26 @@ export default {
       }
 
       reader.readAsDataURL(file)
+    },
+    handlePolaLeftChange(event) {
+      const file = event.target.files[0]
+      if (file) {
+        const reader = new FileReader()
+        reader.onload = () => {
+          document.getElementById('kolaz-pola-left').src = reader.result
+        }
+        reader.readAsDataURL(file)
+      }
+    },
+    handlePolaRightChange(event) {
+      const file = event.target.files[0]
+      if (file) {
+        const reader = new FileReader()
+        reader.onload = () => {
+          document.getElementById('kolaz-pola-right').src = reader.result
+        }
+        reader.readAsDataURL(file)
+      }
     },
   },
   head() {
