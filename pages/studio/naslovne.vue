@@ -804,7 +804,6 @@ export default {
         modric: { name: 'Modrić' },
         plese: { name: 'Pleše' },
         redzepovic: { name: 'Redžepović' },
-        violic: { name: 'Violić' },
       },
       specijali: {
         ekskluziv_telegram: {

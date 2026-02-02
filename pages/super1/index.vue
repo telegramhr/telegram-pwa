@@ -217,6 +217,73 @@
         </div>
       </div>
     </section>
+    <section class="full flex relative">
+      <div
+        class="container flex relative stretch column-bottom-pad column-horizontal-pad superone-pilatesBag"
+      >
+        <div class="full center relative">
+          <div
+            class="noththree flex superone-section-title superone-pilatesBagTitle"
+          >
+            <span class="bajadera-span-title"
+              >MORNING RITUALS POWERED BY NIVEA</span
+            >
+          </div>
+        </div>
+        <div class="full superone-preporuka flex flex-responsive relative">
+          <div class="full flex flex-row column-vertical-pad">
+            <div
+              class="half flex-responsive column-full-pad article-featured article-superfeat article relative"
+              role="article"
+            >
+              <a
+                class="full flex square-img"
+                href="https://www.telegram.hr/super1/beauty/morning-rituals-event-nivea/"
+              >
+                <img
+                  src="@/assets/img/super1/nivea1.jpg"
+                  alt="Dvije žene razgovaraju na pozornici ispred publike s velikim crvenim natpisom NIVEA na zavjesi u pozadini."
+                  loading="lazy"
+                />
+              </a>
+              <div class="bottom-wrapper-section">
+                <div class="bottom-section-title">
+                  <span class="title">
+                    <b>Event report</b> Kako izgleda jutro kad ga posvetimo
+                    sebi? To su otkrile uzvanice na našem sjajnom eventu Morning
+                    rituals powered by NIVEA</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div
+              class="half flex-responsive column-full-pad article-featured article-superfeat article relative"
+              role="article"
+            >
+              <a
+                class="full flex square-img"
+                href="https://www.telegram.hr/super1/life/morningriuals-powered-by-nivea-event-atmosfera/"
+              >
+                <img
+                  src="@/assets/img/super1/nivea2.jpg"
+                  alt="Skupina žena vježba jogu u zatvorenom prostoru s ciglenim zidom, ruke podignute iza glave u istezanju."
+                  loading="lazy"
+                />
+              </a>
+              <div class="bottom-wrapper-section">
+                <div class="bottom-section-title">
+                  <span class="title"
+                    ><b>S1 event</b> Od vježbi za osvještavanje tijela do
+                    veganskog doručka: Zavirite u atmosferu eventa Morning
+                    Rituals powered by NIVEA</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <div class="full relative">
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
