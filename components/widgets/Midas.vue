@@ -147,10 +147,27 @@ export default {
     if (this.$store.getters['user/hasPremium']) {
       return false // don't load midas if user has premium
     }
-    this.loadMidas()
-    this.loadIntext()
+    // Only ecomm type loads scripts - wait for server-injected placeholder
+    if (this.type === 'ecomm') {
+      this.waitForPlaceholdersAndLoad()
+    } else {
+      this.loadMidas()
+      this.loadIntext()
+    }
   },
   methods: {
+    waitForPlaceholdersAndLoad(attempts = 0) {
+      // Wait for server-injected intext_midas placeholder in post.content
+      const intextMidas = document.getElementById('intext_midas')
+      if (intextMidas || attempts >= 20) {
+        // Placeholder found or max attempts reached - load scripts
+        this.loadMidas()
+        this.loadIntext()
+      } else {
+        // Retry after short delay
+        setTimeout(() => this.waitForPlaceholdersAndLoad(attempts + 1), 50)
+      }
+    },
     loadIntext() {
       if (this.id && this.type === 'intext') {
         let category = this.$route.params.category
