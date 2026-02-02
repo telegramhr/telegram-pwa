@@ -144,45 +144,30 @@ export default {
     },
   },
   mounted() {
-    console.log('[Midas Debug] mounted()', { type: this.type, id: this.id })
     if (this.$store.getters['user/hasPremium']) {
-      console.log('[Midas Debug] User has premium, skipping')
-      return false // don't load midas if user has premium
+      return false
     }
-    // Only ecomm type loads scripts - wait for server-injected placeholder
+    // Only ecomm type loads scripts - wait for other placeholders first
     if (this.type === 'ecomm') {
-      console.log('[Midas Debug] ecomm type - waiting for placeholders')
       this.waitForPlaceholdersAndLoad()
     } else {
-      console.log('[Midas Debug] non-ecomm type - loading directly')
       this.loadMidas()
       this.loadIntext()
     }
   },
   methods: {
     waitForPlaceholdersAndLoad(attempts = 0) {
-      // Wait for article content to be rendered (v-html populates this)
-      const articleContent = document.getElementById('article-content')
-      const hasContent = articleContent && articleContent.innerHTML.length > 100
-      // Also check for server-injected intext_midas if present
+      // Check for any other midasWidget placeholder (not our own ecomm one)
+      const otherPlaceholder = document.querySelector(
+        `[id^="midasWidget__"]:not([id="midasWidget__${this.id}"])`
+      )
+      // Or server-injected intext_midas
       const intextMidas = document.getElementById('intext_midas')
 
-      console.log('[Midas Debug]', {
-        attempt: attempts,
-        type: this.type,
-        articleContentExists: !!articleContent,
-        articleContentLength: articleContent?.innerHTML?.length || 0,
-        hasContent,
-        intextMidasExists: !!intextMidas,
-      })
-
-      if (hasContent || intextMidas || attempts >= 20) {
-        // Content rendered or max attempts reached - load scripts
-        console.log('[Midas Debug] Loading scripts now')
+      if (otherPlaceholder || intextMidas || attempts >= 40) {
         this.loadMidas()
         this.loadIntext()
       } else {
-        // Retry after short delay
         setTimeout(() => this.waitForPlaceholdersAndLoad(attempts + 1), 50)
       }
     },
@@ -216,7 +201,6 @@ export default {
       }
     },
     loadMidas() {
-      console.log('[Midas Debug] loadMidas()', { type: this.type, id: this.id })
       if (this.type === 'ecomm') {
         let category = this.$route.params.category
         if (this.$route.fullPath.includes('super1')) {
@@ -270,7 +254,6 @@ export default {
           ids += `-11899`
         }
         script.src = `https://cdn2.midas-network.com/Scripts/midasWidget-11-${main}-${ids}.js`
-        console.log('[Midas Debug] Loading ecomm script:', script.src)
         script.async = true
         document
           .getElementById(`midasWidget__${this.id}`)
