@@ -562,27 +562,21 @@
               <input v-model="podcastText" type="text" />
             </div>
           </div>
-          <div class="third flex flex-responsive center relative">
+          <div
+            class="third flex flex-responsive center relative"
+            style="position: sticky; top: 1rem; align-self: flex-start"
+          >
             <div id="preview-container" class="full">
               <canvas id="preview-canvas"></canvas>
+              <button id="saveimagebutton" class="full animate clickable btn">
+                Hitno!
+              </button>
             </div>
-            <button id="saveimagebutton" class="full animate clickable btn">
-              Hitno!
-            </button>
           </div>
         </div>
       </div>
     </div>
-    <div
-      class="full flex relative"
-      style="
-        position: absolute;
-        left: -9999px;
-        top: 0;
-        width: 2664px;
-        height: 1680px;
-      "
-    >
+    <div class="full flex relative" style="margin-top: 2rem">
       <div id="generator-img-render" style="width: 2664px; height: 1680px">
         <div id="generator-img-deliver" />
         <div v-if="selected === 'kolaz'" id="generator-kolaz" class="center">
@@ -1195,7 +1189,7 @@ export default {
 
 <style scoped>
 #preview-container {
-  margin-bottom: 1rem;
+  width: 100%;
 }
 #preview-canvas {
   width: 100%;
@@ -1203,5 +1197,14 @@ export default {
   height: auto;
   border: 1px solid #ccc;
   background: #f5f5f5;
+  margin-bottom: 1rem;
+}
+</style>
+
+<style>
+/* Override overflow to allow sticky positioning */
+.trebam-hitno.main-container {
+  overflow-x: visible;
+  overflow: visible;
 }
 </style>
