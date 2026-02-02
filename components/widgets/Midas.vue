@@ -161,21 +161,40 @@ export default {
       let category = this.$route.params.category
       if (this.$route.fullPath.includes('super1')) category = 'super1'
       if (this.$route.fullPath.includes('telesport')) category = 'telesport'
-      if (this.$route.fullPath.includes('pitanje-zdravlja')) category = 'pitanje-zdravlja'
+      if (this.$route.fullPath.includes('pitanje-zdravlja'))
+        category = 'pitanje-zdravlja'
       if (this.$route.fullPath.includes('openspace')) category = 'openspace'
 
       const textOnlyId = this.ids[category]?.['text-only']
       const standardId = this.ids[category]?.['standard-16']
 
       // Check if BOTH placeholders exist
-      const textOnlyExists = document.getElementById(`midasWidget__${textOnlyId}`)
-      const standardExists = document.getElementById(`midasWidget__${standardId}`)
+      const textOnlyExists = document.getElementById(
+        `midasWidget__${textOnlyId}`
+      )
+      const standardExists = document.getElementById(
+        `midasWidget__${standardId}`
+      )
       // Or server-injected intext_midas
       const intextMidas = document.getElementById('intext_midas')
 
-      const allReady = (textOnlyExists && standardExists) || intextMidas || attempts >= 40
+      console.log('[Midas] attempt', attempts, {
+        textOnlyId,
+        standardId,
+        textOnlyExists: !!textOnlyExists,
+        standardExists: !!standardExists,
+        intextMidas: !!intextMidas,
+      })
+
+      const allReady =
+        (textOnlyExists && standardExists) || intextMidas || attempts >= 40
 
       if (allReady) {
+        console.log('[Midas] Loading scripts, reason:', {
+          bothExist: textOnlyExists && standardExists,
+          intextMidas: !!intextMidas,
+          timeout: attempts >= 40,
+        })
         this.loadMidas()
         this.loadIntext()
       } else {
