@@ -54,7 +54,7 @@ export default {
       popust: '50% popusta',
       softwall: true,
       cta: 'Iskoristi ponudu',
-      cta_link: '/pretplata/telesport-50-off/',
+      cta_link: '/pretplata/telesport',
     }
   },
   mounted() {

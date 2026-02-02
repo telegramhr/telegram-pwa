@@ -145,12 +145,51 @@ export default {
   },
   mounted() {
     if (this.$store.getters['user/hasPremium']) {
-      return false // don't load midas if user has premium
+      return false
     }
-    this.loadMidas()
-    this.loadIntext()
+    // Only ecomm type loads scripts - wait for other placeholders first
+    if (this.type === 'ecomm') {
+      this.waitForPlaceholdersAndLoad()
+    } else {
+      this.loadMidas()
+      this.loadIntext()
+    }
   },
   methods: {
+    waitForPlaceholdersAndLoad(attempts = 0) {
+      // Guard: stop if component was destroyed during navigation
+      if (this._isDestroyed || this._isBeingDestroyed) return
+
+      // Get the correct IDs for current category
+      let category = this.$route.params.category
+      if (this.$route.fullPath.includes('super1')) category = 'super1'
+      if (this.$route.fullPath.includes('telesport')) category = 'telesport'
+      if (this.$route.fullPath.includes('pitanje-zdravlja'))
+        category = 'pitanje-zdravlja'
+      if (this.$route.fullPath.includes('openspace')) category = 'openspace'
+
+      const textOnlyId = this.ids[category]?.['text-only']
+
+      // Check for the CORRECT placeholder for this category (not stale ones)
+      const correctPlaceholder = document.getElementById(
+        `midasWidget__${textOnlyId}`
+      )
+
+      if (correctPlaceholder) {
+        // Found correct one - wait 100ms more for others, then load
+        setTimeout(() => {
+          if (this._isDestroyed || this._isBeingDestroyed) return
+          this.loadMidas()
+          this.loadIntext()
+        }, 100)
+      } else if (attempts >= 40) {
+        // Timeout - load anyway
+        this.loadMidas()
+        this.loadIntext()
+      } else {
+        setTimeout(() => this.waitForPlaceholdersAndLoad(attempts + 1), 50)
+      }
+    },
     loadIntext() {
       if (this.id && this.type === 'intext') {
         let category = this.$route.params.category
