@@ -1,6 +1,12 @@
 <template>
   <!-- build: 2025-02-03-deploy-fix -->
   <div>
+    <div
+      v-if="process.client && window.location.hostname.includes('staging')"
+      style="background: #ff6b6b; color: white; text-align: center; padding: 8px; font-weight: bold; position: fixed; top: 0; left: 0; right: 0; z-index: 99999;"
+    >
+      🚧 STAGING TEST DEPLOY 🚧
+    </div>
     <div id="fb-root"></div>
     <img
       height="1"
