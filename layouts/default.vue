@@ -1,14 +1,5 @@
 <template>
-  <!-- build: 2025-02-03-deploy-fix -->
   <div>
-    <client-only>
-      <div
-        v-if="isStaging"
-        style="background: #ff6b6b; color: white; text-align: center; padding: 8px; font-weight: bold; position: fixed; top: 0; left: 0; right: 0; z-index: 99999;"
-      >
-        🚧 STAGING TEST DEPLOY 🚧
-      </div>
-    </client-only>
     <div id="fb-root"></div>
     <img
       height="1"
@@ -37,11 +28,6 @@
 
 <script>
 export default {
-  computed: {
-    isStaging() {
-      return process.client && window.location.hostname.includes('staging')
-    },
-  },
   mounted() {
     this.$nextTick(() => {
       this.$store.dispatch('user/checkAccess')
