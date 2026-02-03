@@ -103,6 +103,8 @@ h3 {
 }
 .singleArticleComments img {
   width: 18px;
+  min-width: 18px;
+  max-width: 18px;
   height: 18px;
 }
 .singleArticleComments span {
@@ -122,6 +124,7 @@ h3 {
   img {
     width: 224px;
     height: 125px;
+    min-width: 224px;
   }
   h3 {
     font-size: 20px;
