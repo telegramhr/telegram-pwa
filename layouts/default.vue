@@ -1,4 +1,5 @@
 <template>
+  <!-- build: 2025-02-03-deploy-fix -->
   <div>
     <div id="fb-root"></div>
     <img
