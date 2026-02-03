@@ -63,7 +63,7 @@ h3 {
   font-family: 'Lora';
   font-weight: 600;
   font-size: 18px;
-  line-height: 26px;
+  line-height: 24px;
 }
 .singleArticle:hover h3 {
   color: #ae3737;

@@ -534,7 +534,8 @@ export default {
       return window.location.origin + this.$route.fullPath
     },
     hasPremium() {
-      return this.$store.getters['user/hasPremium']
+      // Check if user has access to this specific content type
+      return this.$store.getters['user/hasContentAccess'](this.$route.path)
     },
     showGift() {
       return this.paywall === 'always' && this.$store.state.user.token
