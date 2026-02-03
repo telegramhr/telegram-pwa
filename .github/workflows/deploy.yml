@@ -2,7 +2,7 @@ name: Build and Deploy PWA
 
 on:
   push:
-    branches: [master, github-workers, staging]
+    branches: [master, staging]
   workflow_dispatch:
 
 permissions:
@@ -50,18 +50,109 @@ jobs:
   deploy-staging:
     needs: build
     runs-on: self-hosted
+    if: github.ref == 'refs/heads/staging'
 
     steps:
-      - name: Download artifact
+      - name: Download artifact to temp
         uses: actions/download-artifact@v4
         with:
           name: pwa-build
-          path: /home/marko/pwa-staging
+          path: /home/marko/pwa-staging-new
+
+      - name: Verify download and swap builds
+        run: |
+          # Verify new build exists
+          if [ ! -d "/home/marko/pwa-staging-new/.nuxt" ]; then
+            echo "ERROR: .nuxt not found in downloaded artifact"
+            exit 1
+          fi
+
+          # Backup current .nuxt (keep last 2 backups)
+          rm -rf /home/marko/pwa-staging/.nuxt.bak2
+          mv /home/marko/pwa-staging/.nuxt.bak /home/marko/pwa-staging/.nuxt.bak2 2>/dev/null || true
+          mv /home/marko/pwa-staging/.nuxt /home/marko/pwa-staging/.nuxt.bak 2>/dev/null || true
+
+          # Move new build into place
+          mv /home/marko/pwa-staging-new/.nuxt /home/marko/pwa-staging/.nuxt
+
+          # Copy other files
+          cp -f /home/marko/pwa-staging-new/nuxt.config.js /home/marko/pwa-staging/
+          cp -f /home/marko/pwa-staging-new/package.json /home/marko/pwa-staging/
+          cp -f /home/marko/pwa-staging-new/package-lock.json /home/marko/pwa-staging/
+          cp -f /home/marko/pwa-staging-new/.npmrc /home/marko/pwa-staging/
+          cp -rf /home/marko/pwa-staging-new/static /home/marko/pwa-staging/
+
+          # Cleanup temp
+          rm -rf /home/marko/pwa-staging-new
 
       - name: Install dependencies
         working-directory: /home/marko/pwa-staging
         run: npm ci --production
 
-      - name: Start or reload PM2
+      - name: Restart PM2
         working-directory: /home/marko/pwa-staging
-        run: pm2 reload ecosystem.config.js || pm2 start ecosystem.config.js
+        run: |
+          pm2 restart ecosystem.config.js --update-env || pm2 start ecosystem.config.js
+          sleep 3
+          pm2 list | grep -q "Telegram-Staging.*online" || {
+            echo "PM2 failed to start, rolling back..."
+            rm -rf /home/marko/pwa-staging/.nuxt
+            mv /home/marko/pwa-staging/.nuxt.bak /home/marko/pwa-staging/.nuxt
+            pm2 restart ecosystem.config.js --update-env
+            exit 1
+          }
+
+  deploy-production:
+    needs: build
+    runs-on: self-hosted
+    if: github.ref == 'refs/heads/master'
+
+    steps:
+      - name: Download artifact to temp
+        uses: actions/download-artifact@v4
+        with:
+          name: pwa-build
+          path: /home/marko/pwa-production-new
+
+      - name: Verify download and swap builds
+        run: |
+          # Verify new build exists
+          if [ ! -d "/home/marko/pwa-production-new/.nuxt" ]; then
+            echo "ERROR: .nuxt not found in downloaded artifact"
+            exit 1
+          fi
+
+          # Backup current .nuxt (keep last 2 backups)
+          rm -rf /home/marko/pwa-production/.nuxt.bak2
+          mv /home/marko/pwa-production/.nuxt.bak /home/marko/pwa-production/.nuxt.bak2 2>/dev/null || true
+          mv /home/marko/pwa-production/.nuxt /home/marko/pwa-production/.nuxt.bak 2>/dev/null || true
+
+          # Move new build into place
+          mv /home/marko/pwa-production-new/.nuxt /home/marko/pwa-production/.nuxt
+
+          # Copy other files
+          cp -f /home/marko/pwa-production-new/nuxt.config.js /home/marko/pwa-production/
+          cp -f /home/marko/pwa-production-new/package.json /home/marko/pwa-production/
+          cp -f /home/marko/pwa-production-new/package-lock.json /home/marko/pwa-production/
+          cp -f /home/marko/pwa-production-new/.npmrc /home/marko/pwa-production/
+          cp -rf /home/marko/pwa-production-new/static /home/marko/pwa-production/
+
+          # Cleanup temp
+          rm -rf /home/marko/pwa-production-new
+
+      - name: Install dependencies
+        working-directory: /home/marko/pwa-production
+        run: npm ci --production
+
+      - name: Restart PM2
+        working-directory: /home/marko/pwa-production
+        run: |
+          pm2 restart ecosystem.config.js --update-env || pm2 start ecosystem.config.js
+          sleep 3
+          pm2 list | grep -q "Telegram-Production.*online" || {
+            echo "PM2 failed to start, rolling back..."
+            rm -rf /home/marko/pwa-production/.nuxt
+            mv /home/marko/pwa-production/.nuxt.bak /home/marko/pwa-production/.nuxt
+            pm2 restart ecosystem.config.js --update-env
+            exit 1
+          }
