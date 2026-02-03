@@ -2,7 +2,7 @@ name: Build and Deploy PWA
 
 on:
   push:
-    branches: [master, github-workers]
+    branches: [master, staging]
   workflow_dispatch:
 
 permissions:
@@ -50,6 +50,7 @@ jobs:
   deploy-staging:
     needs: build
     runs-on: self-hosted
+    if: github.ref == 'refs/heads/staging'
 
     steps:
       - name: Download artifact to temp
@@ -104,6 +105,7 @@ jobs:
   deploy-production:
     needs: build
     runs-on: self-hosted
+    if: github.ref == 'refs/heads/master'
 
     steps:
       - name: Download artifact to temp
