@@ -235,6 +235,10 @@ export default {
   methods: {
     getPermalink(post) {
       if (this.utm.source || this.utm.campaign) {
+        const isStoryHr = post.permalink.includes('story.hr')
+        if (isStoryHr) {
+          return `${post.permalink}?utm_source=Telegram.hr&utm_medium=cross-promo&utm_campaign=${this.utm.campaign}`
+        }
         return `${post.permalink}?utm_medium=Internal&utm_campaign=${this.utm.campaign}`
       }
       return post.permalink

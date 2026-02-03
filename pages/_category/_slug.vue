@@ -535,8 +535,9 @@
             class="full"
           >
             <top-articles-bottom
-              :algorithm-type="top_articles_version"
-              :posts="top_articles.slice(3, 8)"
+              v-if="this.top_articles"
+              :algorithm-type="this.top_articles_version"
+              :posts="this.top_articles.slice(3, 8)"
             ></top-articles-bottom>
           </div>
           <div
@@ -661,6 +662,7 @@
 }
 .meta-all {
   display: flex;
+  gap: 24px;
   flex-direction: column;
 }
 .meta-author-all {
@@ -726,6 +728,8 @@ export default {
       return
     }
     const slug = this.$route.params.slug || this.$route.params.category
+    this.top_articles_version = Math.random() < 0.5 ? 'v1' : 'v2'
+    const version = this.top_articles_version === 'v1' ? '1' : '2'
     let post
     if (process.client) {
       this.$nextTick(() => {
@@ -733,25 +737,17 @@ export default {
       })
       post = this.$store.state.posts.posts[slug]
     }
-    if (!post) {
+    if (!post || !post.top_articles) {
       if (this.$route.params.category === 'preview') {
         post = await this.$axios.$get(encodeURI('/api/preview/' + slug))
       } else {
-        post = await this.$axios.$get(encodeURI('/api/single/' + slug))
+        post = await this.$axios.$get(
+          encodeURI('/api/single/' + slug + '?version=' + version)
+        )
       }
     }
     if (post && post.id) {
-      let portal = 'telegram'
-      if (post.category_slug.includes('telesport')) {
-        portal = 'telesport'
-      }
-      this.top_articles_version = Math.random() < 0.5 ? 'v1' : 'v2'
-      const endpoint =
-        this.top_articles_version === 'v1'
-          ? `api/related-articles/${portal}/${post.id}/1`
-          : `api/related-articles/${portal}/${post.id}/2`
-      this.top_articles = await this.$axios.$get(encodeURI(endpoint))
-
+      this.top_articles = post.top_articles || []
       if (
         process.server &&
         this.$route.params.category !== 'preview' &&
