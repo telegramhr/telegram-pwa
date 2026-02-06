@@ -499,6 +499,10 @@ export default {
   async fetch() {
     await this.$store.dispatch('featured/pullPosts')
     await this.$store.dispatch('featured/pullBreaks')
+    // Pre-fetch gifts for logged-in users
+    if (process.client && this.$store.state.user.token) {
+      this.$store.dispatch('gifts/getUserGifts')
+    }
   },
   data() {
     return {

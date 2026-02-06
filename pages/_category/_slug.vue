@@ -762,6 +762,15 @@ export default {
         return
       }
       this.post = post
+
+      // Fetch gifts early for paywall articles (before ActionBar mounts)
+      if (
+        process.client &&
+        this.$store.state.user.token &&
+        post.paywall === 'always'
+      ) {
+        this.$store.dispatch('gifts/getUserGifts')
+      }
     } else {
       this.post.title = 'Objava ne postoji'
       this.post.portal_title = 'Objava ne postoji'
@@ -1058,10 +1067,6 @@ export default {
       window.addEventListener('scroll', this.handleScroll)
       if (this.$route.params.category === 'l') {
         window.history.replaceState({}, null, this.post.permalink)
-      }
-      // Fetch user gifts if user is logged in and article has paywall
-      if (this.$store.state.user.token && this.post.paywall === 'always') {
-        this.$store.dispatch('gifts/getUserGifts')
       }
     })
     this.widgetVariant = this.getWidgetVariant()
