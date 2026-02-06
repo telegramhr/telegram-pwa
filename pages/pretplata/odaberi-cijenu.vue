@@ -136,16 +136,13 @@ export default {
       return this.selectedAmount
     },
     displayPrice() {
-      if (this.effectiveAmount <= 0) {
-        return '0.01'
-      }
       return this.effectiveAmount.toFixed(2)
     },
     additionalAmount() {
-      if (this.effectiveAmount <= 0.01) {
+      if (this.effectiveAmount <= 0) {
         return 0
       }
-      return (this.effectiveAmount - 0.01).toFixed(2)
+      return this.effectiveAmount.toFixed(2)
     },
     additionalType() {
       if (this.additionalAmount > 0) {
