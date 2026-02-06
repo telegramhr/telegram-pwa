@@ -127,6 +127,7 @@ export default {
     { src: '@/plugins/axios.js', ssr: false },
     { src: '@/plugins/filters.js' },
     { src: '@/plugins/persisted.client.js' },
+    { src: '@/plugins/stub.client.js' },
     { src: '@/plugins/vue-slick-carousel.js' },
     { src: '@/plugins/mobile.js' },
     { src: '@/plugins/fontawesome.js' },
