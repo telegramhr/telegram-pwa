@@ -1,7 +1,5 @@
 ;(function () {
-  console.log('[stub.client] IIFE executing')
   const makeStub = () => {
-    console.log('[stub.client] makeStub() called')
     const TCF_LOCATOR_NAME = '__tcfapiLocator'
     const queue = []
     const currentWindow = window
