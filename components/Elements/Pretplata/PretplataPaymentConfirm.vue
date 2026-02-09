@@ -168,7 +168,7 @@
           <span>{{ finalPrice }} €</span>
         </button>
         <p v-if="show_msg">{{ show_msg }}</p>
-        <p>
+        <p v-show="showMsg">
           Ispunite sve korake iznad kako bi dovršili kupnju.<br />
 
           <template v-if="copyVersion === 'christmas'">
@@ -178,7 +178,7 @@
 
           <template v-else-if="copyVersion === 'intro'">
             Nakon probnog razdoblja od 2 mjeseca, pretplata se automatski
-            obnavlja po cijeni od 9,99€ mjesečno. Možete otkazati u bilo kojem
+            obnavlja po cijeni od 4,99€ mjesečno. Možete otkazati u bilo kojem
             trenutku.
           </template>
 
@@ -284,6 +284,10 @@ export default {
     hidePromo: {
       type: Boolean,
       default: false,
+    },
+    showMsg: {
+      type: Boolean,
+      default: true,
     },
   },
   data() {
