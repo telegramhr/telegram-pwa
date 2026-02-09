@@ -7,12 +7,10 @@
       title="Isprobajte Telegram Premium. Vi odabirete cijenu."
     ></PretplataHeroOld>
     <div class="content">
-      <div class="amount-section">
-        <h2>Odaberite koliko želite platiti za prva 2 mjeseca</h2>
-        <p class="amount-subtitle">
-          Nakon 2 mjeseca, pretplata se nastavlja po redovnoj cijeni od 9,99€
-          mjesečno. Možete otkazati u bilo kojem trenutku.
-        </p>
+      <div id="amount-selection" class="amount-section">
+        <h2>
+          Odaberite &nbsp;cijenu koju biste platili za svoju Premium pretplatu
+        </h2>
 
         <div class="amount-grid">
           <button
@@ -22,80 +20,87 @@
             :class="{ active: selectedAmount === amt && !customActive }"
             @click="selectAmount(amt)"
           >
-            {{ amt === 0 ? 'Besplatno' : amt + ' €' }}
-          </button>
-          <button
-            class="amount-btn"
-            :class="{ active: customActive }"
-            @click="activateCustom"
-          >
-            Drugi iznos
+            <span class="amount-value">{{ amt }} €</span>
+            <span v-if="amt === 4" class="amount-label">naša preporuka</span>
+            <span v-if="amt === 20" class="amount-label">redovna cijena</span>
           </button>
         </div>
 
-        <div v-if="customActive" class="custom-amount-wrapper">
-          <div class="custom-input-row">
-            <input
-              v-model="customAmount"
-              type="number"
-              min="0"
-              max="999"
-              step="0.01"
-              placeholder="0.00"
-              class="custom-input"
-              @input="validateCustomAmount"
-            />
-            <span class="currency-label">€</span>
-          </div>
-          <p v-if="customError" class="custom-error">{{ customError }}</p>
-        </div>
+        <input
+          v-model="customAmount"
+          type="text"
+          inputmode="decimal"
+          placeholder="ili unesite iznos"
+          class="custom-input"
+          :class="{ filled: customAmount }"
+          @focus="activateCustom"
+          @input="validateCustomAmount"
+        />
+        <p v-if="customError" class="custom-error">{{ customError }}</p>
 
-        <div v-if="effectiveAmount === 0" class="info-box">
+        <button
+          v-show="!priceConfirmed"
+          class="cta-button"
+          @click="confirmPrice"
+        >
+          Dovršite kupnju za {{ ctaPrice }} €
+        </button>
+
+        <div v-show="!priceConfirmed" class="fine-print">
+          <p>Možete otkazati u bilo kojem trenutku.</p>
           <p>
-            Za aktivaciju besplatnog probnog razdoblja autorizirat ćemo 0,01€ na
-            vašoj kartici kako bismo potvrdili podatke. Iznos neće biti
-            naplaćen.
+            Nakon isteka početnog razdoblja, pretplata se automatski obnavlja uz
+            popust od 50% redovne cijene.
           </p>
-        </div>
-
-        <div class="summary-box">
-          <div class="summary-row">
-            <span>Cijena za prva 2 mjeseca:</span>
-            <span class="summary-price">{{ displayPrice }} €</span>
-          </div>
-          <div class="summary-row faded">
-            <span>Nakon toga:</span>
-            <span>9,99 €/mjesec</span>
-          </div>
         </div>
       </div>
 
-      <PretplataLogin
-        :login-url="loginUrl"
-        :email="email"
-        :can-log-in="canLogIn"
-        :login-error="loginError"
-        @updateCanLogIn="updateCanLogIn"
-        @updateEmail="updateEmail"
-      ></PretplataLogin>
+      <div
+        ref="paymentSection"
+        class="payment-reveal"
+        :class="{ open: priceConfirmed }"
+      >
+        <PretplataLogin
+          :login-url="loginUrl"
+          :email="email"
+          :can-log-in="canLogIn"
+          :login-error="loginError"
+          @updateCanLogIn="updateCanLogIn"
+          @updateEmail="updateEmail"
+        ></PretplataLogin>
 
-      <PretplataPaymentConfirm
-        :url-key="urlKey"
-        :loading="loading"
-        :can-log-in="canLogIn"
-        :logged-in="loggedIn"
-        :payment-type="payment"
-        :pack="pack"
-        :price="displayPrice"
-        :email="email"
-        :discounted-amount="0"
-        :additional-amount="additionalAmount"
-        :additional-type="additionalType"
-        :hide-promo="true"
-        copy-version="intro"
-        @updateLoading="handleUpdateLoading"
-        @updateDiscount="handleUpdateDiscount"
-      ></PretplataPaymentConfirm>
+        <PretplataPaymentConfirm
+          :url-key="urlKey"
+          :loading="loading"
+          :can-log-in="canLogIn"
+          :logged-in="loggedIn"
+          :payment-type="payment"
+          :pack="pack"
+          :price="displayPrice"
+          :email="email"
+          :discounted-amount="0"
+          :additional-amount="additionalAmount"
+          :additional-type="additionalType"
+          :hide-promo="true"
+          :hide-submit="false"
+          copy-version="intro"
+          @updateLoading="handleUpdateLoading"
+          @updateDiscount="handleUpdateDiscount"
+        ></PretplataPaymentConfirm>
+      </div>
+    </div>
+    <div class="features-bg">
+      <Features :cards="featureCards" section-title="Kako funkcionira model" />
+    </div>
+    <Testimonials></Testimonials>
+    <div class="cta">
+      <span
+        >U svijetu brzih naslova i pritisaka, vaša podrška daje nam slobodu da
+        radimo temeljito, odgovorno i u službi istine.</span
+      >
+      <a href="#amount-selection" rel="noopener noreferrer">
+        <button>Podržite Telegram</button>
+      </a>
     </div>
     <client-only>
       <Chatbot />
@@ -114,11 +119,38 @@ export default {
       urlKey: 'half-off-2025',
       loginUrl: 'odaberi-cijenu',
       canLogIn: true,
+      featureCards: [
+        {
+          title:
+            'Ako vjerujete da je kvalitetno, neovisno novinarstvo važno — sada ga možete podržati na način koji vama ima smisla.',
+          text: '',
+          image: require('@/assets/img/pretplata/odaberi-cijenu/feature1.png'),
+        },
+        {
+          title:
+            'Za prva 2 mjeseca Telegram Premium pretplate birate cijenu sami. Bez obaveze, bez pritiska.',
+          text: '',
+          image: require('@/assets/img/pretplata/odaberi-cijenu/feature2.png'),
+        },
+        {
+          title:
+            'Nakon isteka početnog razdoblja, pretplata se automatski obnavlja uz popust od 50% redovne cijene.',
+          text: '',
+          image: require('@/assets/img/pretplata/odaberi-cijenu/feature3.png'),
+        },
+        {
+          title:
+            'Kao pretplatnik dobivate puni pristup Telegram Premium sadržaju i izravno sudjelujete u očuvanju neovisnog novinarstva.',
+          text: '',
+          image: require('@/assets/img/pretplata/odaberi-cijenu/feature4.png'),
+        },
+      ],
       predefinedAmounts: [0, 2, 4, 6, 10, 20],
-      selectedAmount: 6,
+      selectedAmount: 4,
       customActive: false,
       customAmount: '',
       customError: '',
+      priceConfirmed: false,
     }
   },
   computed: {
@@ -149,6 +181,10 @@ export default {
         return 'single'
       }
       return ''
+    },
+    ctaPrice() {
+      const amt = this.effectiveAmount
+      return Number.isInteger(amt) ? amt.toString() : amt.toFixed(2)
     },
   },
   methods: {
@@ -183,6 +219,9 @@ export default {
     },
     handleUpdateDiscount() {
       // No discount handling on this page
+    },
+    confirmPrice() {
+      this.priceConfirmed = true
     },
   },
 
@@ -298,80 +337,80 @@ export default {
 }
 
 .amount-section h2 {
-  font-family: 'Lora', serif;
-  font-size: 22px;
-  line-height: 28px;
-  font-weight: 600;
-  margin: 0;
-}
-
-.amount-subtitle {
   font-family: 'Barlow', sans-serif;
-  font-size: 14px;
-  line-height: 22px;
-  color: #5f5f5f;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  color: #343434;
   margin: 0;
 }
 
 .amount-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+  gap: 20px;
+  align-items: start;
 }
 
 .amount-btn {
-  padding: 16px;
-  border: 1.5px solid #d9d9d9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 60px;
+  padding: 0 12px;
+  border: 1px solid #cacaca;
   border-radius: 8px;
   background: white;
   font-family: 'Barlow', sans-serif;
-  font-size: 18px;
-  font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: border-color 0.2s ease;
 }
 
 .amount-btn:hover {
-  border-color: #ae3737;
+  border-color: #494949;
 }
 
 .amount-btn.active {
-  border-color: #ae3737;
-  background-color: #fdf2f2;
-  color: #ae3737;
+  border-color: #494949;
 }
 
-.custom-amount-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+.amount-value {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1;
 }
 
-.custom-input-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.amount-label {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1;
+  color: #5f5f5f;
 }
 
 .custom-input {
-  padding: 12px 16px;
-  border: 1px solid #d9d9d9;
+  width: 100%;
+  height: 60px;
+  padding: 0 24px;
+  border: 1px solid #cacaca;
   border-radius: 8px;
-  font-size: 18px;
-  width: 150px;
   font-family: 'Barlow', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  background: white;
 }
 
 .custom-input:focus {
   outline: none;
-  border-color: #ae3737;
+  border-color: #494949;
 }
 
-.currency-label {
-  font-family: 'Barlow', sans-serif;
-  font-size: 18px;
-  font-weight: 600;
-  color: #5f5f5f;
+.custom-input.filled {
+  border-color: #494949;
 }
 
 .custom-error {
@@ -380,55 +419,116 @@ export default {
   margin: 0;
 }
 
-.info-box {
-  background: #fff8e1;
-  border: 1px solid #ffd54f;
-  border-radius: 8px;
-  padding: 12px 16px;
-}
-
-.info-box p {
-  font-family: 'Barlow', sans-serif;
-  font-size: 14px;
-  line-height: 20px;
-  margin: 0;
-  color: #5f5f5f;
-}
-
-.summary-box {
-  background: #f5f5f5;
-  border-radius: 8px;
+.cta-button {
+  width: 100%;
   padding: 16px;
+  background-color: #37ae37;
+  color: #fff;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.cta-button:hover {
+  background-color: #2e902e;
+}
+
+.fine-print {
+  text-align: center;
+}
+
+.fine-print p {
+  font-family: 'Barlow', sans-serif;
+  font-size: 13px;
+  line-height: 20px;
+  color: #888;
+  margin: 0;
+}
+
+.payment-reveal {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.payment-reveal.open {
+  max-height: 1200px;
+}
+
+.features-bg {
+  background-color: #eee3d8;
+  padding-top: 20px;
+}
+
+.cta {
+  text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 32px;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0px 16px;
+  padding-bottom: 32px;
 }
 
-.summary-row {
-  display: flex;
-  justify-content: space-between;
+.cta span {
   font-family: 'Barlow', sans-serif;
-  font-size: 16px;
-}
-
-.summary-row.faded {
-  color: #5f5f5f;
-  font-size: 14px;
-}
-
-.summary-price {
-  font-weight: 700;
+  font-weight: 500;
   font-size: 20px;
+  line-height: 24px;
+  max-width: 644px;
 }
 
-@media screen and (max-width: 600px) {
-  .amount-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.cta button {
+  background-color: #37ae37;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 18px 28px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  width: fit-content;
 }
+
+.cta button:hover {
+  background-color: #237023;
+}
+
 @media screen and (min-width: 1024px) {
   .content {
     padding: 24px 0px 60px 0px;
+  }
+  .amount-grid {
+    gap: 12px;
+  }
+  .amount-btn {
+    height: 72px;
+  }
+  .custom-input {
+    height: 72px;
+  }
+  .amount-value {
+    font-size: 24px;
+  }
+  .features-bg {
+    padding-top: 32px;
+  }
+  .cta {
+    gap: 36px;
+    padding-bottom: 72px;
+  }
+  .cta span {
+    font-size: 28px;
+    line-height: 36px;
   }
 }
 </style>

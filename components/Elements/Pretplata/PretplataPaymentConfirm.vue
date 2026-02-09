@@ -178,7 +178,7 @@
 
           <template v-else-if="copyVersion === 'intro'">
             Nakon probnog razdoblja od 2 mjeseca, pretplata se automatski
-            obnavlja po cijeni od 9,99€ mjesečno. Možete otkazati u bilo kojem
+            obnavlja po cijeni od 4,99€ mjesečno. Možete otkazati u bilo kojem
             trenutku.
           </template>
 
