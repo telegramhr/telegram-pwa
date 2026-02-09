@@ -132,7 +132,7 @@ export default {
       loading: false,
       email: this.$store.state.user.email,
       payment: 'trustpay_recurrent',
-      pack: 'telegram_premium_2_mjeseca_besplatno',
+      pack: 'telegram_premium_platite_koliko_zelite_prva_2_mjeseca',
       urlKey: 'half-off-2025',
       loginUrl: 'odaberi-cijenu',
       canLogIn: true,
