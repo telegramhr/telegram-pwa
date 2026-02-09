@@ -4,7 +4,9 @@
       <span class="telegram-loader"></span>
     </div>
     <PretplataHeroOld
-      title="Isprobajte Telegram Premium. Vi odabirete cijenu."
+      title="Istina ima vrijednost.<br>Vi određujete koliku."
+      :mobile-image="heroMobile"
+      :desktop-image="heroDesktop"
     ></PretplataHeroOld>
     <div class="content">
       <div id="amount-selection" class="amount-section">
@@ -28,19 +30,23 @@
 
         <input
           v-model="customAmount"
-          type="text"
-          inputmode="decimal"
+          type="number"
+          step="0.01"
+          min="0"
+          max="999"
           placeholder="ili unesite iznos"
           class="custom-input"
           :class="{ filled: customAmount }"
           @focus="activateCustom"
           @input="validateCustomAmount"
+          @keydown="blockInvalidKeys"
         />
         <p v-if="customError" class="custom-error">{{ customError }}</p>
 
         <button
           v-show="!priceConfirmed"
           class="cta-button"
+          :disabled="!!customError"
           @click="confirmPrice"
         >
           Dovršite kupnju za {{ ctaPrice }} €
@@ -83,10 +89,19 @@
           :additional-type="additionalType"
           :hide-promo="true"
           :hide-submit="false"
+          :show-msg="false"
           copy-version="intro"
           @updateLoading="handleUpdateLoading"
           @updateDiscount="handleUpdateDiscount"
         ></PretplataPaymentConfirm>
+
+        <div class="fine-print">
+          <p>Možete otkazati u bilo kojem trenutku.</p>
+          <p>
+            Nakon isteka početnog razdoblja, pretplata se automatski obnavlja uz
+            popust od 50% redovne cijene.
+          </p>
+        </div>
       </div>
     </div>
     <div class="features-bg">
@@ -112,6 +127,8 @@
 export default {
   data() {
     return {
+      heroMobile: require('@/assets/img/pretplata/odaberi-cijenu/hero-mob.png'),
+      heroDesktop: require('@/assets/img/pretplata/odaberi-cijenu/hero-desktop.png'),
       loading: false,
       email: this.$store.state.user.email,
       payment: 'trustpay_recurrent',
@@ -198,12 +215,21 @@ export default {
       this.customActive = true
       this.selectedAmount = null
     },
+    blockInvalidKeys(e) {
+      if (['-', '+', 'e', 'E'].includes(e.key)) {
+        e.preventDefault()
+      }
+    },
     validateCustomAmount() {
-      const val = parseFloat(this.customAmount)
-      if (this.customAmount && (isNaN(val) || val < 0)) {
+      const raw = this.customAmount.toString()
+      const val = parseFloat(raw)
+      if (raw && (isNaN(val) || val < 0)) {
         this.customError = 'Unesite ispravan iznos'
       } else if (val > 999) {
         this.customError = 'Maksimalni iznos je 999€'
+      } else if (raw.includes('.') && raw.split('.')[1].length > 2) {
+        this.customAmount = val.toFixed(2)
+        this.customError = ''
       } else {
         this.customError = ''
       }
@@ -222,6 +248,9 @@ export default {
     },
     confirmPrice() {
       this.priceConfirmed = true
+      this.$nextTick(() => {
+        window.scrollBy({ top: 200, behavior: 'smooth' })
+      })
     },
   },
 
@@ -325,7 +354,7 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  padding: 24px 16px 60px 16px;
+  padding: 40px 16px;
   margin: 0 auto;
   max-width: 865px;
 }
@@ -333,7 +362,6 @@ export default {
 .amount-section {
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }
 
 .amount-section h2 {
@@ -343,14 +371,15 @@ export default {
   line-height: 24px;
   text-align: center;
   color: #343434;
-  margin: 0;
+  margin: 0 0 32px 0;
 }
 
 .amount-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   align-items: start;
+  margin-bottom: 16px;
 }
 
 .amount-btn {
@@ -404,6 +433,15 @@ export default {
   background: white;
 }
 
+.custom-input::-webkit-outer-spin-button,
+.custom-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.custom-input[type='number'] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
 .custom-input:focus {
   outline: none;
   border-color: #494949;
@@ -414,14 +452,21 @@ export default {
 }
 
 .custom-error {
+  font-family: 'Barlow', sans-serif;
   color: red;
   font-size: 13px;
-  margin: 0;
+  margin: 8px 0 0 0;
+}
+
+.cta-button:disabled {
+  background-color: #b5b5b5;
+  cursor: not-allowed;
 }
 
 .cta-button {
   width: 100%;
   padding: 16px;
+  margin-top: 32px;
   background-color: #37ae37;
   color: #fff;
   font-family: 'Barlow', sans-serif;
@@ -440,29 +485,32 @@ export default {
 
 .fine-print {
   text-align: center;
+  margin-top: 16px;
 }
 
 .fine-print p {
   font-family: 'Barlow', sans-serif;
-  font-size: 13px;
-  line-height: 20px;
-  color: #888;
+  font-size: 12px;
+  line-height: 18px;
+  color: #5f5f5f;
   margin: 0;
 }
 
 .payment-reveal {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.5s ease;
+  margin-bottom: -24px;
+  transition: max-height 0.5s ease, margin-bottom 0.5s ease;
 }
 
 .payment-reveal.open {
   max-height: 1200px;
+  margin-bottom: 0;
 }
 
 .features-bg {
   background-color: #eee3d8;
-  padding-top: 20px;
+  padding-top: 40px;
 }
 
 .cta {
@@ -505,9 +553,10 @@ export default {
 
 @media screen and (min-width: 1024px) {
   .content {
-    padding: 24px 0px 60px 0px;
+    padding: 40px 0px;
   }
   .amount-grid {
+    grid-template-columns: repeat(3, 1fr);
     gap: 12px;
   }
   .amount-btn {

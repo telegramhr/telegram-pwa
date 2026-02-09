@@ -1,21 +1,29 @@
 <template>
-  <div class="main-container">
+  <div
+    class="main-container"
+    :class="{ 'has-custom-bg': mobileImage }"
+    :style="cssVars"
+  >
     <div class="wrapper">
       <a href="https://www.telegram.hr/"
         ><img src="@/assets/img/telegram_logo_white.svg" alt="Hero logo"
       /></a>
-      <h1>{{ title }}</h1>
+      <h1 v-html="title"></h1>
     </div>
   </div>
 </template>
 <style scoped>
 .main-container {
   width: 100%;
+  min-height: 390px;
   padding: 0 16px;
   background-image: url('@/assets/img/family-hero-background.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+.main-container.has-custom-bg {
+  background-image: var(--bg-mobile);
 }
 .wrapper {
   width: 100%;
@@ -40,8 +48,11 @@
   margin: 0 auto;
 }
 @media (min-width: 1024px) {
+  .main-container.has-custom-bg {
+    background-image: var(--bg-desktop, var(--bg-mobile));
+  }
   .wrapper {
-    padding: 52px 0px;
+    padding: 80px 0px;
   }
   .wrapper img {
     max-width: 180px;
@@ -58,6 +69,18 @@ export default {
   name: 'PretplataHeroOld',
   props: {
     title: { type: String, default: '' },
+    mobileImage: { type: String, default: '' },
+    desktopImage: { type: String, default: '' },
+  },
+  computed: {
+    cssVars() {
+      if (!this.mobileImage) return {}
+      const vars = { '--bg-mobile': `url(${this.mobileImage})` }
+      if (this.desktopImage) {
+        vars['--bg-desktop'] = `url(${this.desktopImage})`
+      }
+      return vars
+    },
   },
 }
 </script>

@@ -168,7 +168,7 @@
           <span>{{ finalPrice }} €</span>
         </button>
         <p v-if="show_msg">{{ show_msg }}</p>
-        <p>
+        <p v-show="showMsg">
           Ispunite sve korake iznad kako bi dovršili kupnju.<br />
 
           <template v-if="copyVersion === 'christmas'">
@@ -284,6 +284,10 @@ export default {
     hidePromo: {
       type: Boolean,
       default: false,
+    },
+    showMsg: {
+      type: Boolean,
+      default: true,
     },
   },
   data() {
