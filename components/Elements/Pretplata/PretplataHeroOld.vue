@@ -15,7 +15,6 @@
 <style scoped>
 .main-container {
   width: 100%;
-  min-height: 390px;
   padding: 0 16px;
   background-image: url('@/assets/img/family-hero-background.png');
   background-size: cover;
@@ -23,6 +22,7 @@
   background-repeat: no-repeat;
 }
 .main-container.has-custom-bg {
+  min-height: 390px;
   background-image: var(--bg-mobile);
 }
 .wrapper {
@@ -49,6 +49,7 @@
 }
 @media (min-width: 1024px) {
   .main-container.has-custom-bg {
+    min-height: 100px;
     background-image: var(--bg-desktop, var(--bg-mobile));
   }
   .wrapper {
