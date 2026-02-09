@@ -127,12 +127,12 @@
 export default {
   data() {
     return {
-      heroMobile: require('@/assets/img/pretplata/odaberi-cijenu/hero-mob.png'),
-      heroDesktop: require('@/assets/img/pretplata/odaberi-cijenu/hero-desktop.png'),
+      heroMobile: require('@/assets/img/pretplata/odaberi-cijenu/hero-mob.webp'),
+      heroDesktop: require('@/assets/img/pretplata/odaberi-cijenu/hero-desktop.webp'),
       loading: false,
       email: this.$store.state.user.email,
       payment: 'trustpay_recurrent',
-      pack: 'telegram_premium_2_mjeseca_besplatno',
+      pack: 'telegram_premium_platite_koliko_zelite_prva_2_mjeseca',
       urlKey: 'half-off-2025',
       loginUrl: 'odaberi-cijenu',
       canLogIn: true,
@@ -141,25 +141,25 @@ export default {
           title:
             'Ako vjerujete da je kvalitetno, neovisno novinarstvo važno — sada ga možete podržati na način koji vama ima smisla.',
           text: '',
-          image: require('@/assets/img/pretplata/odaberi-cijenu/feature1.png'),
+          image: require('@/assets/img/pretplata/odaberi-cijenu/feature1.webp'),
         },
         {
           title:
             'Za prva 2 mjeseca Telegram Premium pretplate birate cijenu sami. Bez obaveze, bez pritiska.',
           text: '',
-          image: require('@/assets/img/pretplata/odaberi-cijenu/feature2.png'),
+          image: require('@/assets/img/pretplata/odaberi-cijenu/feature2.webp'),
         },
         {
           title:
             'Nakon isteka početnog razdoblja, pretplata se automatski obnavlja uz popust od 50% redovne cijene.',
           text: '',
-          image: require('@/assets/img/pretplata/odaberi-cijenu/feature3.png'),
+          image: require('@/assets/img/pretplata/odaberi-cijenu/feature3.webp'),
         },
         {
           title:
             'Kao pretplatnik dobivate puni pristup Telegram Premium sadržaju i izravno sudjelujete u očuvanju neovisnog novinarstva.',
           text: '',
-          image: require('@/assets/img/pretplata/odaberi-cijenu/feature4.png'),
+          image: require('@/assets/img/pretplata/odaberi-cijenu/feature4.webp'),
         },
       ],
       predefinedAmounts: [0, 2, 4, 6, 10, 20],
