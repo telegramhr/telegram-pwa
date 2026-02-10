@@ -215,6 +215,15 @@ export default {
       return Number.isInteger(amt) ? amt.toString() : amt.toFixed(2)
     },
   },
+  watch: {
+    hasSubscription(val) {
+      if (val) {
+        setTimeout(() => {
+          this.$router.replace('/')
+        }, 3000)
+      }
+    },
+  },
   methods: {
     selectAmount(amt) {
       this.selectedAmount = amt
@@ -272,7 +281,7 @@ export default {
     if (this.hasSubscription) {
       setTimeout(() => {
         this.$router.replace('/')
-      }, 5000)
+      }, 3000)
     }
   },
 
