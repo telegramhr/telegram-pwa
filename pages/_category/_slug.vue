@@ -762,15 +762,6 @@ export default {
         return
       }
       this.post = post
-
-      // Fetch gifts early for paywall articles (before ActionBar mounts)
-      if (
-        process.client &&
-        this.$store.state.user.token &&
-        post.paywall === 'always'
-      ) {
-        this.$store.dispatch('gifts/getUserGifts')
-      }
     } else {
       this.post.title = 'Objava ne postoji'
       this.post.portal_title = 'Objava ne postoji'
@@ -1240,6 +1231,9 @@ export default {
         this.loadPiano()
         this.loadRemp()
         this.loadAds()
+        if (this.$store.state.user.token && this.post.paywall === 'always') {
+          this.$store.dispatch('gifts/getUserGifts')
+        }
         this.loadInArticleWidget()
         this.$store.commit('pretplata/setLastArticle', this.post.id)
         if (typeof FB !== 'undefined') {
