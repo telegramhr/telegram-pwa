@@ -141,7 +141,7 @@ export default {
       email: this.$store.state.user.email,
       payment: 'trustpay_recurrent',
       pack: 'telegram_premium_platite_koliko_zelite_prva_2_mjeseca',
-      urlKey: 'half-off-2025',
+      urlKey: '2-months-free',
       loginUrl: 'odaberi-cijenu',
       canLogIn: true,
       featureCards: [
