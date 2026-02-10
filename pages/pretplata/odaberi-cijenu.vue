@@ -1,23 +1,25 @@
 <template>
   <div>
+    <div v-if="loading" class="telegram-overlay">
+      <span class="telegram-loader"></span>
+    </div>
+    <PretplataHeroOld
+      title="Neovisno novinarstvo vas treba.<br/> Čitajte Telegram po cijeni koju<br/> sami odaberete."
+      :mobile-image="heroMobile"
+      :desktop-image="heroDesktop"
+    ></PretplataHeroOld>
+
     <div v-if="hasSubscription" class="subscriber-msg">
-      <p>Poštovani,</p>
+      <h2>Poštovani,</h2>
       <p>
-        promotivna ponuda namijenjena je isključivo novim pretplatnicima te se
-        može iskoristiti samo jednokratno.
+        promotivna ponuda namijenjena je isključivo
+        <strong>novim pretplatnicima</strong> te se može iskoristiti samo
+        jednokratno.
       </p>
       <p>Zahvaljujemo na razumijevanju.</p>
       <p>Vaš Telegram</p>
     </div>
     <template v-else>
-      <div v-if="loading" class="telegram-overlay">
-        <span class="telegram-loader"></span>
-      </div>
-      <PretplataHeroOld
-        title="Neovisno novinarstvo vas treba.<br/> Čitajte Telegram po cijeni koju<br/> sami odaberete."
-        :mobile-image="heroMobile"
-        :desktop-image="heroDesktop"
-      ></PretplataHeroOld>
       <div class="content">
         <div id="amount-selection" class="amount-section">
           <h2>
@@ -270,7 +272,7 @@ export default {
     if (this.hasSubscription) {
       setTimeout(() => {
         this.$router.replace('/')
-      }, 3000)
+      }, 5000)
     }
   },
 
@@ -373,8 +375,16 @@ export default {
 .subscriber-msg {
   max-width: 520px;
   margin: 0 auto;
-  padding: 80px 16px;
+  padding: 40px 16px;
   text-align: center;
+}
+.subscriber-msg h2 {
+  font-family: 'Barlow', sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  color: #343434;
+  font-weight: 500;
+  margin: 0 0 12px 0;
 }
 .subscriber-msg p {
   font-family: 'Barlow', sans-serif;
