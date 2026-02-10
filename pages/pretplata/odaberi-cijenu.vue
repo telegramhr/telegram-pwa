@@ -4,7 +4,7 @@
       <span class="telegram-loader"></span>
     </div>
     <PretplataHeroOld
-      title="Istina ima vrijednost.<br>Vi određujete koliku."
+      title="Neovisno novinarstvo vas treba.<br/> Čitajte Telegram po cijeni koju<br/> sami odaberete."
       :mobile-image="heroMobile"
       :desktop-image="heroDesktop"
     ></PretplataHeroOld>
@@ -23,24 +23,24 @@
             @click="selectAmount(amt)"
           >
             <span class="amount-value">{{ amt }} €</span>
-            <span v-if="amt === 4" class="amount-label">naša preporuka</span>
-            <span v-if="amt === 20" class="amount-label">redovna cijena</span>
+            <span v-if="amt === 4" class="amount-label">Naša preporuka</span>
+            <span v-if="amt === 20" class="amount-label">Redovna cijena</span>
           </button>
-        </div>
 
-        <input
-          v-model="customAmount"
-          type="number"
-          step="0.01"
-          min="0"
-          max="999"
-          placeholder="ili unesite iznos"
-          class="custom-input"
-          :class="{ filled: customAmount }"
-          @focus="activateCustom"
-          @input="validateCustomAmount"
-          @keydown="blockInvalidKeys"
-        />
+          <input
+            v-model="customAmount"
+            type="number"
+            step="0.01"
+            min="0"
+            max="999"
+            placeholder="ili unesite iznos"
+            class="custom-input"
+            :class="{ filled: customAmount }"
+            @focus="activateCustom"
+            @input="validateCustomAmount"
+            @keydown="blockInvalidKeys"
+          />
+        </div>
         <p v-if="customError" class="custom-error">{{ customError }}</p>
 
         <button
@@ -71,6 +71,7 @@
           :email="email"
           :can-log-in="canLogIn"
           :login-error="loginError"
+          :vertical="true"
           @updateCanLogIn="updateCanLogIn"
           @updateEmail="updateEmail"
         ></PretplataLogin>
@@ -105,13 +106,13 @@
       </div>
     </div>
     <div class="features-bg">
-      <Features :cards="featureCards" section-title="Kako funkcionira model" />
+      <Features :cards="featureCards" />
     </div>
     <Testimonials></Testimonials>
     <div class="cta">
       <span
-        >U svijetu brzih naslova i pritisaka, vaša podrška daje nam slobodu da
-        radimo temeljito, odgovorno i u službi istine.</span
+        >U svijetu brzih naslova, vaša podrška daje nam slobodu da radimo
+        temeljito, odgovorno i u službi istine.</span
       >
       <a href="#amount-selection" rel="noopener noreferrer">
         <button>Podržite Telegram</button>
@@ -356,7 +357,7 @@ export default {
   gap: 24px;
   padding: 40px 16px;
   margin: 0 auto;
-  max-width: 865px;
+  max-width: 520px;
 }
 
 .amount-section {
@@ -379,7 +380,6 @@ export default {
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   align-items: start;
-  margin-bottom: 16px;
 }
 
 .amount-btn {
@@ -416,23 +416,27 @@ export default {
 .amount-label {
   font-family: 'Barlow', sans-serif;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1;
   color: #5f5f5f;
 }
 
 .custom-input {
+  grid-column: span 2;
   width: 100%;
   height: 60px;
   padding: 0 24px;
   border: 1px solid #cacaca;
   border-radius: 8px;
   font-family: 'Barlow', sans-serif;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 18px;
   background: white;
 }
-
+.custom-input::placeholder {
+  text-align: center;
+  color: #8a8a8a;
+}
 .custom-input::-webkit-outer-spin-button,
 .custom-input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -465,7 +469,7 @@ export default {
 
 .cta-button {
   width: 100%;
-  padding: 16px;
+  padding: 14px;
   margin-top: 32px;
   background-color: #37ae37;
   color: #fff;
@@ -529,7 +533,7 @@ export default {
   font-family: 'Barlow', sans-serif;
   font-weight: 500;
   font-size: 20px;
-  line-height: 24px;
+  line-height: 28px;
   max-width: 644px;
 }
 
@@ -556,28 +560,28 @@ export default {
     padding: 40px 0px;
   }
   .amount-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 12px;
   }
   .amount-btn {
-    height: 72px;
+    height: 60px;
   }
   .custom-input {
-    height: 72px;
+    height: 60px;
   }
   .amount-value {
-    font-size: 24px;
+    font-size: 18px;
   }
   .features-bg {
     padding-top: 32px;
   }
   .cta {
-    gap: 36px;
+    gap: 24px;
     padding-bottom: 72px;
   }
   .cta span {
-    font-size: 28px;
-    line-height: 36px;
+    font-size: 22px;
+    line-height: 32px;
   }
 }
 </style>
