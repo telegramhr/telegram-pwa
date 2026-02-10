@@ -47,7 +47,7 @@ export default {
   <div class="main">
     <div class="wrapper">
       <div class="testimonials">
-        <span class="title">Izjave čitatelja</span>
+        <span class="title">Što naši pretplatnici kažu o nama?</span>
 
         <div class="desktop-testimonials">
           <div

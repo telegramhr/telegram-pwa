@@ -23,6 +23,8 @@
 }
 .main-container.has-custom-bg {
   min-height: 390px;
+  max-height: 400px;
+  aspect-ratio: 1.2;
   background-image: var(--bg-mobile);
 }
 .wrapper {
@@ -49,6 +51,7 @@
 }
 @media (min-width: 1024px) {
   .main-container.has-custom-bg {
+    aspect-ratio: unset;
     min-height: 100px;
     background-image: var(--bg-desktop, var(--bg-mobile));
   }
