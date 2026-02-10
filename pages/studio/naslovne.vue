@@ -801,6 +801,7 @@ export default {
         maric: { name: 'Marić' },
         markovina: { name: 'Markovina' },
         mendusic: { name: 'Menđušić' },
+        hedl: { name: 'Hedl' },
         modric: { name: 'Modrić' },
         plese: { name: 'Pleše' },
         redzepovic: { name: 'Redžepović' },

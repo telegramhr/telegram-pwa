@@ -1,75 +1,78 @@
 export default ({ route }, inject) => {
-    function check(path) {
-        let dotmetricsId = '1182'
-        if (
-            path.includes('politika-kriminal') ||
-            path.includes('biznis-tech') ||
-            path.includes('komentari') ||
-            path.includes('vijesti')
-        ) {
-            dotmetricsId = '15854'
-        }
-        if (
-            path.includes('kultura') ||
-            path.includes('zivot') ||
-            path.includes('pitanje-zdravlja') ||
-            path.includes('velike-price')
-        ) {
-            dotmetricsId = '15855'
-        }
-        if (path.includes('super1') || path.includes('superone')) {
-            dotmetricsId = '4136'
-        }
-        if (path.includes('telesport') || path.includes('sport')) {
-            dotmetricsId = '1175'
-        }
-        return dotmetricsId
+  function check(path) {
+    let dotmetricsId = '1182'
+    if (
+      path.includes('politika-kriminal') ||
+      path.includes('biznis-tech') ||
+      path.includes('komentari') ||
+      path.includes('vijesti')
+    ) {
+      dotmetricsId = '15854'
+    }
+    if (
+      path.includes('kultura') ||
+      path.includes('zivot') ||
+      path.includes('pitanje-zdravlja') ||
+      path.includes('velike-price')
+    ) {
+      dotmetricsId = '15855'
+    }
+    if (path.includes('super1') || path.includes('superone')) {
+      dotmetricsId = '4136'
+    }
+    if (path.includes('telesport') || path.includes('sport')) {
+      dotmetricsId = '1175'
+    }
+    return dotmetricsId
+  }
+
+  function appendDoorScript(path) {
+    const s = document.createElement('script')
+    s.type = 'text/javascript'
+    s.async = true
+    s.src = 'https://script.dotmetrics.net/door.js?id=' + check(path)
+    document.head.appendChild(s)
+  }
+
+  function load(path) {
+    window.dm = window.dm || { AjaxData: [] }
+    window.dm.AjaxEvent = function (et, d, ssid, ad) {
+      window.dm.AjaxData.push({
+        et,
+        d,
+        ssid,
+        ad,
+      })
+      if (
+        typeof window.DotMetricsObj !== 'undefined' &&
+        window.DotMetricsObj.onAjaxDataUpdate
+      ) {
+        window.DotMetricsObj.onAjaxDataUpdate()
+      }
     }
 
-    function appendDoorScript(path) {
-        const s = document.createElement('script')
-        s.type = 'text/javascript'
-        s.async = true
-        s.src = 'https://script.dotmetrics.net/door.js?id=' + check(path)
-        document.head.appendChild(s)
-    }
-
-    function load(path) {
-        window.dm = window.dm || { AjaxData: [] }
-        window.dm.AjaxEvent = function(et, d, ssid, ad) {
-            window.dm.AjaxData.push({
-                et,
-                d,
-                ssid,
-                ad,
-            })
-            if (typeof window.DotMetricsObj !== 'undefined' && window.DotMetricsObj.onAjaxDataUpdate) {
-                window.DotMetricsObj.onAjaxDataUpdate()
-            }
-        }
-
-        // Wait for Google's CMP to set up __tcfapi before loading door.js
-        window.googlefc = window.googlefc || {}
-        window.googlefc.callbackQueue = window.googlefc.callbackQueue || []
-        window.googlefc.callbackQueue.push({
-            CONSENT_API_READY: () => {
-                appendDoorScript(path)
-            },
-        })
-    }
-
-    function postLoad(path) {
-        if (typeof window.DotMetricsObj === 'undefined') {
-            load(path)
-        } else {
-            window.dm.AjaxEvent('pageview', null, check(path))
-        }
-    }
-
-    load(route.path)
-    inject('dotmetrics', {
-        load,
-        check,
-        postLoad,
+    // Wait for Google's CMP to set up __tcfapi before loading door.js
+    window.googlefc = window.googlefc || {}
+    window.googlefc.callbackQueue = window.googlefc.callbackQueue || []
+    window.googlefc.callbackQueue.push({
+      CONSENT_API_READY: () => {
+        appendDoorScript(path)
+      },
     })
+  }
+
+  function postLoad(path) {
+    if (typeof window.DotMetricsObj === 'undefined') {
+      load(path)
+    } else {
+      window.dm.AjaxEvent('pageview', null, check(path))
+    }
+  }
+
+  load(route.path)
+  inject('dotmetrics', {
+    load,
+    check,
+    postLoad,
+  })
 }
