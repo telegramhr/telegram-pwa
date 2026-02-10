@@ -22,7 +22,7 @@
         :data-login_uri="`https://pretplata.telegram.hr/users/google/sign?url=https://www.telegram.hr${$router.fullPath}`"
         data-itp_support="true"
         :data-auto_select="
-          $router.fullPath.includes('odaberi-cijenu') ? 'true' : 'false'
+          $route.path.includes('odaberi-cijenu') ? 'true' : 'false'
         "
       ></div>
     </client-only>
