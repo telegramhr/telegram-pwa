@@ -8,119 +8,126 @@
       :mobile-image="heroMobile"
       :desktop-image="heroDesktop"
     ></PretplataHeroOld>
-    <div class="content">
-      <div id="amount-selection" class="amount-section">
-        <h2>
-          Odaberite &nbsp;cijenu koju biste platili za svoju Premium pretplatu
-        </h2>
 
-        <div class="amount-grid">
+    <div v-if="hasSubscription" class="subscriber-msg">
+      <h2>Poštovani,</h2>
+      <p>
+        promotivna ponuda namijenjena je isključivo
+        <strong>novim pretplatnicima</strong> te se može iskoristiti samo
+        jednokratno.
+      </p>
+      <p>Zahvaljujemo na razumijevanju.</p>
+      <p>Vaš Telegram</p>
+    </div>
+    <template v-else>
+      <div class="content">
+        <div id="amount-selection" class="amount-section">
+          <h2>
+            Odaberite &nbsp;cijenu koju biste platili za svoju Premium pretplatu
+          </h2>
+
+          <div class="amount-grid">
+            <button
+              v-for="amt in predefinedAmounts"
+              :key="amt"
+              class="amount-btn"
+              :class="{ active: selectedAmount === amt && !customActive }"
+              @click="selectAmount(amt)"
+            >
+              <span class="amount-value">{{ amt }} €</span>
+              <span v-if="amt === 4" class="amount-label">Naša preporuka</span>
+              <span v-if="amt === 20" class="amount-label">Redovna cijena</span>
+            </button>
+
+            <div class="custom-input-wrapper" :class="{ filled: customAmount }">
+              <input
+                v-model="customAmount"
+                type="number"
+                step="0.01"
+                min="0"
+                max="999"
+                placeholder="ili unesite iznos"
+                class="custom-input"
+                @focus="activateCustom"
+                @input="validateCustomAmount"
+                @keydown="blockInvalidKeys"
+              />
+              <span v-show="customAmount" class="input-suffix">€</span>
+            </div>
+          </div>
+          <p v-if="customError" class="custom-error">{{ customError }}</p>
+
           <button
-            v-for="amt in predefinedAmounts"
-            :key="amt"
-            class="amount-btn"
-            :class="{ active: selectedAmount === amt && !customActive }"
-            @click="selectAmount(amt)"
+            v-show="!priceConfirmed"
+            class="cta-button"
+            :disabled="!!customError"
+            @click="confirmPrice"
           >
-            <span class="amount-value">{{ amt }} €</span>
-            <span v-if="amt === 4" class="amount-label">Naša preporuka</span>
-            <span v-if="amt === 20" class="amount-label">Redovna cijena</span>
+            Dovršite kupnju za {{ ctaPrice }} €
           </button>
 
-          <input
-            v-model="customAmount"
-            type="number"
-            step="0.01"
-            min="0"
-            max="999"
-            placeholder="ili unesite iznos"
-            class="custom-input"
-            :class="{ filled: customAmount }"
-            @focus="activateCustom"
-            @input="validateCustomAmount"
-            @keydown="blockInvalidKeys"
-          />
+          <div v-show="!priceConfirmed" class="fine-print">
+            <p>Možete otkazati u bilo kojem trenutku.</p>
+          </div>
         </div>
-        <p v-if="customError" class="custom-error">{{ customError }}</p>
 
-        <button
-          v-show="!priceConfirmed"
-          class="cta-button"
-          :disabled="!!customError"
-          @click="confirmPrice"
+        <div
+          ref="paymentSection"
+          class="payment-reveal"
+          :class="{ open: priceConfirmed }"
         >
-          Dovršite kupnju za {{ ctaPrice }} €
-        </button>
+          <PretplataLogin
+            :login-url="loginUrl"
+            :email="email"
+            :can-log-in="canLogIn"
+            :login-error="loginError"
+            :vertical="true"
+            @updateCanLogIn="updateCanLogIn"
+            @updateEmail="updateEmail"
+          ></PretplataLogin>
 
-        <div v-show="!priceConfirmed" class="fine-print">
-          <p>Možete otkazati u bilo kojem trenutku.</p>
-          <p>
-            Nakon isteka početnog razdoblja, pretplata se automatski obnavlja uz
-            popust od 50% redovne cijene.
-          </p>
+          <PretplataPaymentConfirm
+            :url-key="urlKey"
+            :loading="loading"
+            :can-log-in="canLogIn"
+            :logged-in="loggedIn"
+            :payment-type="payment"
+            :pack="pack"
+            :price="displayPrice"
+            :email="email"
+            :discounted-amount="0"
+            :additional-amount="additionalAmount"
+            :additional-type="additionalType"
+            :hide-promo="true"
+            :hide-submit="false"
+            :show-msg="false"
+            copy-version="intro"
+            @updateLoading="handleUpdateLoading"
+            @updateDiscount="handleUpdateDiscount"
+          ></PretplataPaymentConfirm>
+
+          <div class="fine-print">
+            <p>Možete otkazati u bilo kojem trenutku.</p>
+          </div>
         </div>
       </div>
-
-      <div
-        ref="paymentSection"
-        class="payment-reveal"
-        :class="{ open: priceConfirmed }"
-      >
-        <PretplataLogin
-          :login-url="loginUrl"
-          :email="email"
-          :can-log-in="canLogIn"
-          :login-error="loginError"
-          :vertical="true"
-          @updateCanLogIn="updateCanLogIn"
-          @updateEmail="updateEmail"
-        ></PretplataLogin>
-
-        <PretplataPaymentConfirm
-          :url-key="urlKey"
-          :loading="loading"
-          :can-log-in="canLogIn"
-          :logged-in="loggedIn"
-          :payment-type="payment"
-          :pack="pack"
-          :price="displayPrice"
-          :email="email"
-          :discounted-amount="0"
-          :additional-amount="additionalAmount"
-          :additional-type="additionalType"
-          :hide-promo="true"
-          :hide-submit="false"
-          :show-msg="false"
-          copy-version="intro"
-          @updateLoading="handleUpdateLoading"
-          @updateDiscount="handleUpdateDiscount"
-        ></PretplataPaymentConfirm>
-
-        <div class="fine-print">
-          <p>Možete otkazati u bilo kojem trenutku.</p>
-          <p>
-            Nakon isteka početnog razdoblja, pretplata se automatski obnavlja uz
-            popust od 50% redovne cijene.
-          </p>
-        </div>
+      <div class="features-bg">
+        <Features :cards="featureCards" :sectionTitle="''" />
       </div>
-    </div>
-    <div class="features-bg">
-      <Features :cards="featureCards" />
-    </div>
-    <Testimonials></Testimonials>
-    <div class="cta">
-      <span
-        >U svijetu brzih naslova, vaša podrška daje nam slobodu da radimo
-        temeljito, odgovorno i u službi istine.</span
-      >
-      <a href="#amount-selection" rel="noopener noreferrer">
-        <button>Podržite Telegram</button>
-      </a>
-    </div>
-    <client-only>
-      <Chatbot />
-    </client-only>
+      <Testimonials></Testimonials>
+      <div class="cta">
+        <span
+          >U svijetu brzih naslova, vaša podrška daje nam slobodu da radimo
+          temeljito, odgovorno i u službi istine.</span
+        >
+        <a href="#amount-selection" rel="noopener noreferrer">
+          <button>Podržite Telegram</button>
+        </a>
+      </div>
+      <client-only>
+        <Chatbot />
+      </client-only>
+    </template>
   </div>
 </template>
 
@@ -140,25 +147,25 @@ export default {
       featureCards: [
         {
           title:
-            'Ako vjerujete da je kvalitetno, neovisno novinarstvo važno — sada ga možete podržati na način koji vama ima smisla.',
+            'Vjerujete u kvalitetno i neovisno novinarstvo? Sada ga možete podržati na način koji vama najviše odgovara.',
           text: '',
           image: require('@/assets/img/pretplata/odaberi-cijenu/feature1.webp'),
         },
         {
           title:
-            'Za prva 2 mjeseca Telegram Premium pretplate birate cijenu sami. Bez obaveze, bez pritiska.',
+            'Prva 3 mjeseca Telegram Premiuma - za cijenu koju birate sami. Bez obaveza i bez pritiska.',
           text: '',
           image: require('@/assets/img/pretplata/odaberi-cijenu/feature2.webp'),
         },
         {
           title:
-            'Nakon isteka početnog razdoblja, pretplata se automatski obnavlja uz popust od 50% redovne cijene.',
+            'Nakon isteka početnog razdoblja, pretplata se automatski obnavlja uz popust od 50% na redovnu cijenu.',
           text: '',
           image: require('@/assets/img/pretplata/odaberi-cijenu/feature3.webp'),
         },
         {
           title:
-            'Kao pretplatnik dobivate puni pristup Telegram Premium sadržaju i izravno sudjelujete u očuvanju neovisnog novinarstva.',
+            'Kao pretplatnik dobivate puni pristup svim sadržajima bez reklama i izravno sudjelujete u očuvanju neovisnog novinarstva.',
           text: '',
           image: require('@/assets/img/pretplata/odaberi-cijenu/feature4.webp'),
         },
@@ -172,6 +179,9 @@ export default {
     }
   },
   computed: {
+    hasSubscription() {
+      return this.$store.getters['user/hasPremium']
+    },
     loginError() {
       return this.$store.state.user.error
     },
@@ -220,6 +230,9 @@ export default {
       if (['-', '+', 'e', 'E'].includes(e.key)) {
         e.preventDefault()
       }
+      if (e.key === '0' && e.target.value === '0') {
+        e.preventDefault()
+      }
     },
     validateCustomAmount() {
       const raw = this.customAmount.toString()
@@ -253,6 +266,14 @@ export default {
         window.scrollBy({ top: 200, behavior: 'smooth' })
       })
     },
+  },
+
+  mounted() {
+    if (this.hasSubscription) {
+      setTimeout(() => {
+        this.$router.replace('/')
+      }, 5000)
+    }
   },
 
   head() {
@@ -351,6 +372,32 @@ export default {
   }
 }
 
+.subscriber-msg {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 40px 16px;
+  text-align: center;
+}
+.subscriber-msg h2 {
+  font-family: 'Barlow', sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  color: #343434;
+  font-weight: 500;
+  margin: 0 0 12px 0;
+}
+.subscriber-msg p {
+  font-family: 'Barlow', sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  color: #343434;
+  margin: 0 0 12px 0;
+}
+.subscriber-msg p:last-child {
+  margin-top: 24px;
+  font-weight: 600;
+}
+
 .content {
   display: flex;
   flex-direction: column;
@@ -421,21 +468,44 @@ export default {
   color: #5f5f5f;
 }
 
-.custom-input {
+.custom-input-wrapper {
   grid-column: span 2;
-  width: 100%;
+  display: flex;
+  align-items: center;
   height: 60px;
-  padding: 0 24px;
   border: 1px solid #cacaca;
   border-radius: 8px;
+  background: white;
+  padding: 0 24px;
+}
+.custom-input-wrapper:focus-within {
+  border-color: #494949;
+}
+.custom-input-wrapper.filled {
+  border-color: #494949;
+}
+.custom-input {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
   font-family: 'Barlow', sans-serif;
   font-weight: 400;
   font-size: 18px;
-  background: white;
+  outline: none;
 }
 .custom-input::placeholder {
   text-align: center;
   color: #8a8a8a;
+}
+.input-suffix {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: #343434;
+  margin-left: 4px;
 }
 .custom-input::-webkit-outer-spin-button,
 .custom-input::-webkit-inner-spin-button {
@@ -445,14 +515,6 @@ export default {
 .custom-input[type='number'] {
   -moz-appearance: textfield;
   appearance: textfield;
-}
-.custom-input:focus {
-  outline: none;
-  border-color: #494949;
-}
-
-.custom-input.filled {
-  border-color: #494949;
 }
 
 .custom-error {
@@ -566,7 +628,7 @@ export default {
   .amount-btn {
     height: 60px;
   }
-  .custom-input {
+  .custom-input-wrapper {
     height: 60px;
   }
   .amount-value {

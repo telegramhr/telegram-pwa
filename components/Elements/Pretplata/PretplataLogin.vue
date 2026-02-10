@@ -94,15 +94,21 @@ export default {
     loggedIn() {
       return !!this.$store.state.user.id
     },
+    baseUrl() {
+      if (process.client && window.location.hostname.includes('staging')) {
+        return 'https://staging.telegram.hr'
+      }
+      return 'https://www.telegram.hr'
+    },
     googleUrl() {
-      return `http://pretplata.telegram.hr/users/google/sign?url=https://www.telegram.hr/pretplata/${encodeURIComponent(
-        this.loginUrl
-      )}`
+      return `http://pretplata.telegram.hr/users/google/sign?url=${
+        this.baseUrl
+      }/pretplata/${encodeURIComponent(this.loginUrl)}`
     },
     facebookUrl() {
-      return `https://pretplata.telegram.hr/social-login/social-sign/sign?social_provider_key=facebook&success_login_url=https://www.telegram.hr/pretplata/${encodeURIComponent(
-        this.loginUrl
-      )}`
+      return `https://pretplata.telegram.hr/social-login/social-sign/sign?social_provider_key=facebook&success_login_url=${
+        this.baseUrl
+      }/pretplata/${encodeURIComponent(this.loginUrl)}`
     },
   },
   watch: {
