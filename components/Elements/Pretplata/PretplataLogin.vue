@@ -106,6 +106,11 @@ export default {
     },
   },
   watch: {
+    '$store.state.user.email'(value) {
+      if (value && !this.email) {
+        this.$emit('updateEmail', value)
+      }
+    },
     email: _.debounce(function (value) {
       if (isValidEmail(value) === false) {
         this.showPassword = false
