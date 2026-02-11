@@ -402,15 +402,14 @@
               :to="
                 $route.fullPath.includes('telesport')
                   ? '/pretplata/telesport'
-                  : '/pretplata/50-popust'
+                  : '/pretplata/'
               "
               :class="[
                 'newbtn',
-                'gift-btn',
                 { 'gift-btn-telesport': $route.fullPath.includes('telesport') },
               ]"
             >
-              Pretplatite se uz -50%</app-link
+              Pretplatite se</app-link
             >
             <app-link
               v-show="
