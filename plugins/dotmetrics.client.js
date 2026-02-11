@@ -25,6 +25,15 @@ export default ({ route }, inject) => {
     }
     return dotmetricsId
   }
+
+  function appendDoorScript(path) {
+    const s = document.createElement('script')
+    s.type = 'text/javascript'
+    s.async = true
+    s.src = 'https://script.dotmetrics.net/door.js?id=' + check(path)
+    document.head.appendChild(s)
+  }
+
   function load(path) {
     window.dm = window.dm || { AjaxData: [] }
     window.dm.AjaxEvent = function (et, d, ssid, ad) {
@@ -34,17 +43,22 @@ export default ({ route }, inject) => {
         ssid,
         ad,
       })
-      if (typeof window.DotMetricsObj !== 'undefined' && window.DotMetricsObj.onAjaxDataUpdate) {
+      if (
+        typeof window.DotMetricsObj !== 'undefined' &&
+        window.DotMetricsObj.onAjaxDataUpdate
+      ) {
         window.DotMetricsObj.onAjaxDataUpdate()
       }
     }
-    const d = document
-    const h = d.getElementsByTagName('head')[0]
-    const s = d.createElement('script')
-    s.type = 'text/javascript'
-    s.async = true
-    s.src = 'https://script.dotmetrics.net/door.js?id=' + check(path)
-    h.appendChild(s)
+
+    // Wait for Google's CMP to set up __tcfapi before loading door.js
+    window.googlefc = window.googlefc || {}
+    window.googlefc.callbackQueue = window.googlefc.callbackQueue || []
+    window.googlefc.callbackQueue.push({
+      CONSENT_API_READY: () => {
+        appendDoorScript(path)
+      },
+    })
   }
 
   function postLoad(path) {

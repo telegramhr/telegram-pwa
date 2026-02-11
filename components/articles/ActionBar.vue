@@ -545,9 +545,6 @@ export default {
     },
   },
   mounted() {
-    if (this.$store.state.user.token) {
-      this.$store.dispatch('gifts/getUserGifts')
-    }
     // Add click outside listener
     document.addEventListener('click', this.handleClickOutside)
   },
