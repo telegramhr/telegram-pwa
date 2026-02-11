@@ -27,7 +27,7 @@ export default {
     },
   },
   methods: {
-    async selectElementContents() {
+    selectElementContents() {
       const el = document.getElementById('tablica')
       const body = document.body
       let range
