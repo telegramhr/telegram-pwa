@@ -11,18 +11,6 @@ export default {
     }
   },
   computed: {
-    portalLink() {
-      switch (this.portal) {
-        case 'telegram':
-          return 'https://www.telegram.hr'
-        case 'super1':
-          return 'https://www.super1.hr'
-        case 'telesport':
-          return 'https://www.telesport.hr'
-        default:
-          return 'https://www.telegram.hr'
-      }
-    },
     portalImage() {
       switch (this.portal) {
         case 'telegram':
@@ -31,25 +19,15 @@ export default {
           return '/s1_fav/apple-touch-icon.png'
         case 'telesport':
           return '/icon.png'
+        case 'story':
+          return '/img/story.png'
         default:
           return '/icon.png'
       }
     },
-    portalTitle() {
-      switch (this.portal) {
-        case 'telegram':
-          return 'www.telegram.hr'
-        case 'super1':
-          return 'www.super1.hr'
-        case 'telesport':
-          return 'www.telesport.hr'
-        default:
-          return 'www.telegram.hr'
-      }
-    },
   },
   methods: {
-    selectElementContents() {
+    async selectElementContents() {
       const el = document.getElementById('tablica')
       const body = document.body
       let range
@@ -70,6 +48,8 @@ export default {
         range.moveToElementText(el)
         range.select()
       }
+      await navigator.clipboard.writeText(range)
+      alert('Prekopirano, slobodno zalijepite u postavkama')
     },
   },
 }
@@ -107,6 +87,7 @@ export default {
         <select id="portal" v-model="portal" name="portal">
           <option value="telegram">Telegram</option>
           <option value="super1">Super1</option>
+          <option value="story">Story</option>
           <!--<option value="telesport">Telesport</option>-->
         </select>
       </div>
@@ -115,6 +96,34 @@ export default {
       <div class="flex full">
         <div class="third">
           <table
+            v-if="portal === 'story'"
+            id="tablica"
+            style="
+              font-size: 11px;
+              color: #585858;
+              font-family: Arial, sans-serif;
+            "
+          >
+            <tr>
+              <td style="vertical-align: middle">
+                <img :src="portalImage" width="100" alt="Telegram logo" />
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size: 15px; font-weight: bold">
+                {{ ime }}
+              </td>
+            </tr>
+            <tr>
+              <td
+                style="color: #7e7d7d; font-style: italic; letter-spacing: 1px"
+              >
+                {{ titula }}
+              </td>
+            </tr>
+          </table>
+          <table
+            v-else
             id="tablica"
             style="
               font-size: 11px;
@@ -142,11 +151,20 @@ export default {
                 {{ titula }}
               </td>
             </tr>
-            <tr></tr>
+          </table>
+
+          <table
+            id="tablica"
+            style="
+              font-size: 11px;
+              color: #585858;
+              font-family: Arial, sans-serif;
+            "
+          >
             <tr>
               <td style="font-weight: bold"><br />A</td>
               <td style="letter-spacing: 1px">
-                <br />Frane Petračića 4 | Zagreb
+                <br />Telegram media grupa <br />Franje Petračića 4, Zagreb
               </td>
             </tr>
             <tr v-if="mobitel">
@@ -161,37 +179,9 @@ export default {
                 <a :href="`mailto:${email}`">{{ email }}</a>
               </td>
             </tr>
-            <tr>
-              <td style="font-weight: bold">W</td>
-              <td style="color: #ee1d3a; letter-spacing: 1px">
-                <a :href="portalLink" target="_blank">{{ portalTitle }}</a>
-              </td>
-            </tr>
           </table>
           <br /><br />
-          <button @click="selectElementContents">Odaberi sve</button>
-        </div>
-        <div class="two-thirds">
-          <!--<pre>
-&lt;table id="tablica" style="font-size: 11px; color:#585858; font-family: Arial, sans-serif;"&gt;
-	&lt;tr&gt;&lt;td colspan="2" style=" font-size: 15px; font-weight: bold;"&gt;{{
-              ime
-            }};&lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;td colspan="2" style="color:#7e7d7d; font-style: italic; letter-spacing:1px;"&gt;{{
-              titula
-            }}>&lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;td colspan="2"&gt;&lt;br&gt;&lt;img src="https://apps.adriaticmedia.hr/apps/apps/signature/tmg_logo.png" height="37.5" width="148" align="left"/&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;td style="font-weight: bold;"&gt;&lt;br&gt;A&lt;/td&gt;&lt;td style="letter-spacing: 1px;"&gt;&lt;br&gt;Frane Petračića 4 | Zagreb&lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;td style="font-weight: bold;"&gt;M&lt;/td&gt;&lt;td style="letter-spacing: 1px;"&gt;{{
-              mobitel
-            }}&lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;td style="font-weight: bold;"&gt;E&lt;/td&gt;&lt;td style="color:#ee1d3a; letter-spacing: 1px;"&gt;{{
-              email
-            }}&lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;td style="font-weight: bold;"&gt;W&lt;/td&gt;&lt;td style="color:#ee1d3a; letter-spacing: 1px;"&gt;&lt;a href="http://www.telegram.hr" target="_blank"&gt;www.telegram.hr&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;/table&gt;
-</pre
-          >-->
+          <button @click="selectElementContents">Kopiraj</button>
         </div>
       </div>
     </div>
