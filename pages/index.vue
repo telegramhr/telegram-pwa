@@ -304,7 +304,7 @@
     </div>
     <app-link
       v-show="!$store.state.user.access?.length"
-      to="/pretplata/50-popust"
+      to="/pretplata/odaberi-cijenu"
       class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth"
     >
       <img
