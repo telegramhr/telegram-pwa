@@ -164,7 +164,7 @@ export default {
             <tr>
               <td style="font-weight: bold"><br />A</td>
               <td style="letter-spacing: 1px">
-                <br />Telegram Media Grupa <br />Franje Petračića 4, Zagreb
+                <br />Telegram media grupa <br />Franje Petračića 4, Zagreb
               </td>
             </tr>
             <tr v-if="mobitel">
