@@ -45,12 +45,14 @@
                 type="number"
                 step="0.01"
                 min="0"
-                max="999"
+                max="1000000"
+                autocomplete="off"
                 placeholder="ili unesite iznos"
                 class="custom-input"
                 @focus="activateCustom"
                 @input="validateCustomAmount"
                 @keydown="blockInvalidKeys"
+                @keydown.enter="confirmPrice"
               />
               <span v-show="customAmount" class="input-suffix">€</span>
             </div>
@@ -248,8 +250,9 @@ export default {
       const val = parseFloat(raw)
       if (raw && (isNaN(val) || val < 0)) {
         this.customError = 'Unesite ispravan iznos'
-      } else if (val > 999) {
-        this.customError = 'Maksimalni iznos je 999€'
+      } else if (val > 1000000) {
+        this.customAmount = 1000000
+        this.customError = ''
       } else if (raw.includes('.') && raw.split('.')[1].length > 2) {
         this.customAmount = val.toFixed(2)
         this.customError = ''
@@ -524,6 +527,13 @@ export default {
 .custom-input[type='number'] {
   -moz-appearance: textfield;
   appearance: textfield;
+}
+.custom-input:-webkit-autofill,
+.custom-input:-webkit-autofill:hover,
+.custom-input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px white inset;
+  -webkit-text-fill-color: #343434;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 .custom-error {

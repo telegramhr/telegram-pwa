@@ -63,7 +63,7 @@
   }
   .wrapper h1 {
     font-size: 24px;
-    line-height: 28px;
+    line-height: 36px;
   }
 }
 </style>
