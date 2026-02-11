@@ -48,8 +48,6 @@ export default {
         range.moveToElementText(el)
         range.select()
       }
-      await navigator.clipboard.writeText(range)
-      alert('Prekopirano, slobodno zalijepite u postavkama')
     },
   },
 }
@@ -96,7 +94,6 @@ export default {
       <div class="flex full">
         <div class="third">
           <table
-            v-if="portal === 'story'"
             id="tablica"
             style="
               font-size: 11px;
@@ -104,63 +101,55 @@ export default {
               font-family: Arial, sans-serif;
             "
           >
-            <tr>
-              <td style="vertical-align: middle">
-                <img :src="portalImage" width="100" alt="Telegram logo" />
-              </td>
-            </tr>
-            <tr>
-              <td style="font-size: 15px; font-weight: bold">
-                {{ ime }}
-              </td>
-            </tr>
-            <tr>
-              <td
-                style="color: #7e7d7d; font-style: italic; letter-spacing: 1px"
-              >
-                {{ titula }}
-              </td>
-            </tr>
-          </table>
-          <table
-            v-else
-            id="tablica"
-            style="
-              font-size: 11px;
-              color: #585858;
-              font-family: Arial, sans-serif;
-            "
-          >
-            <tr>
-              <td rowspan="2" style="vertical-align: middle; padding: 5px">
-                <img
-                  :src="portalImage"
-                  height="37.5"
-                  width="37.5"
-                  alt="Telegram logo"
-                />
-              </td>
-              <td style="font-size: 15px; font-weight: bold">
-                {{ ime }}
-              </td>
-            </tr>
-            <tr>
-              <td
-                style="color: #7e7d7d; font-style: italic; letter-spacing: 1px"
-              >
-                {{ titula }}
-              </td>
-            </tr>
-          </table>
-
-          <table
-            id="tablica"
-            style="
-              font-size: 11px;
-              color: #585858;
-              font-family: Arial, sans-serif;
-            "
-          >
+            <template v-if="portal === 'story'">
+              <tr>
+                <td style="vertical-align: middle">
+                  <img :src="portalImage" width="100" alt="Telegram logo" />
+                </td>
+              </tr>
+              <tr>
+                <td style="font-size: 15px; font-weight: bold">
+                  {{ ime }}
+                </td>
+              </tr>
+              <tr>
+                <td
+                  style="
+                    color: #7e7d7d;
+                    font-style: italic;
+                    letter-spacing: 1px;
+                  "
+                >
+                  {{ titula }}
+                </td>
+              </tr>
+            </template>
+            <template v-else>
+              <tr>
+                <td rowspan="2" style="vertical-align: middle; padding: 5px">
+                  <img
+                    :src="portalImage"
+                    height="37.5"
+                    width="37.5"
+                    alt="Telegram logo"
+                  />
+                </td>
+                <td style="font-size: 15px; font-weight: bold">
+                  {{ ime }}
+                </td>
+              </tr>
+              <tr>
+                <td
+                  style="
+                    color: #7e7d7d;
+                    font-style: italic;
+                    letter-spacing: 1px;
+                  "
+                >
+                  {{ titula }}
+                </td>
+              </tr>
+            </template>
             <tr>
               <td style="font-weight: bold"><br />A</td>
               <td style="letter-spacing: 1px">
@@ -181,7 +170,7 @@ export default {
             </tr>
           </table>
           <br /><br />
-          <button @click="selectElementContents">Kopiraj</button>
+          <button @click="selectElementContents">Odaberi sve</button>
         </div>
       </div>
     </div>
