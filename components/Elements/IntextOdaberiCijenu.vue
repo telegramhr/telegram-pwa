@@ -206,7 +206,7 @@ export default {
   color: #ffffff;
   width: 100%;
   margin: 0px;
-  max-width: 334px;
+  max-width: 450px;
 }
 .title span {
   text-decoration: underline;
