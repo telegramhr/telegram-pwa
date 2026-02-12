@@ -155,7 +155,7 @@ export default {
         },
         {
           title:
-            'Prva 3 mjeseca Telegram Premiuma - za cijenu koju birate sami. Bez obaveza i bez pritiska.',
+            'Prva 2 mjeseca Telegram Premiuma - za cijenu koju birate sami. Bez obaveza i bez pritiska.',
           text: '',
           image: require('@/assets/img/pretplata/odaberi-cijenu/feature2.webp'),
         },
