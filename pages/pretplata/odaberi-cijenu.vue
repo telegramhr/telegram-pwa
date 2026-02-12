@@ -35,7 +35,7 @@
               @click="selectAmount(amt)"
             >
               <span class="amount-value">{{ amt }} €</span>
-              <span v-if="amt === 4" class="amount-label">Naša preporuka</span>
+              <span v-if="amt === 6" class="amount-label">Naša preporuka</span>
               <span v-if="amt === 20" class="amount-label">Redovna cijena</span>
             </button>
 
@@ -173,7 +173,7 @@ export default {
         },
       ],
       predefinedAmounts: [0, 2, 4, 6, 10, 20],
-      selectedAmount: 4,
+      selectedAmount: 6,
       customActive: false,
       customAmount: '',
       customError: '',
