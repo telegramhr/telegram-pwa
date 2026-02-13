@@ -1,5 +1,5 @@
 <template>
-  <div v-show="!loggedIn" class="main">
+  <div v-show="!loggedIn" class="main" :class="{ vertical }">
     <span>Unesite podatke</span>
 
     <div class="login-wrapper">
@@ -77,6 +77,10 @@ export default {
       required: false,
       default: '',
     },
+    vertical: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -102,6 +106,11 @@ export default {
     },
   },
   watch: {
+    '$store.state.user.email'(value) {
+      if (value && !this.email) {
+        this.$emit('updateEmail', value)
+      }
+    },
     email: _.debounce(function (value) {
       if (isValidEmail(value) === false) {
         this.showPassword = false
@@ -293,6 +302,23 @@ button {
   justify-content: center;
 }
 
+.main.vertical {
+  text-align: center;
+}
+.main.vertical .login-wrapper {
+  flex-direction: column;
+  gap: 12px;
+}
+.main.vertical .login {
+  max-width: 100%;
+}
+.main.vertical .socials {
+  flex-direction: column;
+}
+.main.vertical .socials button {
+  max-width: 100%;
+}
+
 @media screen and (min-width: 1024px) {
   .main {
     padding: 24px 0px;
@@ -320,6 +346,13 @@ button {
     flex-direction: row;
     gap: 40px;
   }
+  .main.vertical .login-wrapper {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .main.vertical .divider {
+    padding-top: 0;
+  }
 
   .divider {
     padding-top: 12px;
@@ -328,6 +361,15 @@ button {
   .socials {
     gap: 12px;
     flex-direction: row;
+  }
+  .main.vertical .login {
+    max-width: 100%;
+  }
+  .main.vertical .socials {
+    flex-direction: row;
+  }
+  .main.vertical .socials button {
+    max-width: 100%;
   }
   .socials button {
     font-size: 16px;

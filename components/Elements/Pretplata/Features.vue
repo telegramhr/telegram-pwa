@@ -7,6 +7,17 @@ export default {
   name: 'Features',
   components: { VueSlickCarousel },
 
+  props: {
+    cards: {
+      type: Array,
+      default: null,
+    },
+    sectionTitle: {
+      type: String,
+      default: 'Što dobivate pretplatom:',
+    },
+  },
+
   data() {
     return {
       activeIndex: 0,
@@ -20,7 +31,7 @@ export default {
       wheelCount: 0,
       wheelTimer: null,
 
-      cards: [
+      defaultCards: [
         {
           title: 'Cjelogodišnji pristup vrhunskom novinarstvu',
           text: 'Čitajte sve članke bez ograničenja - od istraživačkih priča do analiza koje oblikuju javni razgovor u Hrvatskoj.',
@@ -48,6 +59,12 @@ export default {
         },
       ],
     }
+  },
+
+  computed: {
+    activeCards() {
+      return this.cards || this.defaultCards
+    },
   },
 
   mounted() {
@@ -135,7 +152,7 @@ export default {
 
       const isScrollingDown = delta > 0
       const isScrollingUp = delta < 0
-      const isAtLastCard = this.activeIndex === this.cards.length - 1
+      const isAtLastCard = this.activeIndex === this.activeCards.length - 1
       const isAtFirstCard = this.activeIndex === 0
 
       if (
@@ -152,7 +169,10 @@ export default {
       this.wheelDelta += delta
 
       if (Math.abs(this.wheelDelta) >= this.scrollThreshold) {
-        if (this.wheelDelta > 0 && this.activeIndex < this.cards.length - 1) {
+        if (
+          this.wheelDelta > 0 &&
+          this.activeIndex < this.activeCards.length - 1
+        ) {
           this.goToCard(this.activeIndex + 1)
         } else if (this.wheelDelta < 0 && this.activeIndex > 0) {
           this.goToCard(this.activeIndex - 1)
@@ -213,7 +233,7 @@ export default {
 
       if (
         index < 0 ||
-        index >= this.cards.length ||
+        index >= this.activeCards.length ||
         index === this.activeIndex
       ) {
         return
@@ -235,27 +255,27 @@ export default {
 <template>
   <div ref="sectionRef" class="main">
     <div class="wrapper">
-      <span class="title">Što dobivate pretplatom:</span>
+      <span class="title">{{ sectionTitle }}</span>
       <div class="desktop-content">
-        <div class="activeImage">
+        <div v-if="activeCards[activeIndex].image" class="activeImage">
           <transition name="fade-img" mode="out-in">
             <img
-              :key="cards[activeIndex].image"
-              :src="cards[activeIndex].image"
-              :alt="cards[activeIndex].title"
+              :key="activeCards[activeIndex].image"
+              :src="activeCards[activeIndex].image"
+              :alt="activeCards[activeIndex].title || ''"
             />
           </transition>
         </div>
         <div class="desktop-cards">
           <div
-            v-for="(card, index) in cards"
+            v-for="(card, index) in activeCards"
             :key="index"
             class="desktop-card"
             @click="goToCard(index)"
             :class="{ active: activeIndex === index }"
           >
-            <span>{{ card.title }}</span>
-            <p>{{ card.text }}</p>
+            <span v-if="card.title">{{ card.title }}</span>
+            <p v-if="card.text">{{ card.text }}</p>
           </div>
         </div>
       </div>
@@ -269,11 +289,16 @@ export default {
           :arrows="false"
           :dots="false"
         >
-          <div v-for="(card, index) in cards" :key="index" class="card">
-            <img class="card-image" :src="card.image" alt="" />
+          <div v-for="(card, index) in activeCards" :key="index" class="card">
+            <img
+              v-if="card.image"
+              class="card-image"
+              :src="card.image"
+              alt=""
+            />
             <div class="card-content">
-              <span>{{ card.title }}</span>
-              <p>{{ card.text }}</p>
+              <span v-if="card.title">{{ card.title }}</span>
+              <p v-if="card.text">{{ card.text }}</p>
             </div>
           </div>
         </vue-slick-carousel>

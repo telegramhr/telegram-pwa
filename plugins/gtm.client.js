@@ -25,6 +25,9 @@ export default ({ app }) => {
           ad_user_data: data.purpose.consents[2] ? 'granted' : 'denied',
           ad_personalization: data.purpose.consents[4] ? 'granted' : 'denied',
         })
+        if (data.eventStatus === 'useractioncomplete') {
+          window.location.reload()
+        }
       }),
   })
 

@@ -52,11 +52,11 @@
               !$store.state.user.access?.length
             "
             id="pretplata-promo"
-            to="/pretplata/50-popust/"
-            class="newbtn gift-btn"
+            to="/pretplata/"
+            class="newbtn"
           >
             <span class="poklonMobile">Pretplata </span
-            ><span class="poklon">Pretplatite se uz </span>-50%</app-link
+            ><span class="poklon">Pretplatite se </span></app-link
           >
           <a
             v-show="!canLogIn"
@@ -304,16 +304,16 @@
     </div>
     <app-link
       v-show="!$store.state.user.access?.length"
-      to="/pretplata/50-popust"
+      to="/pretplata/odaberi-cijenu"
       class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth"
     >
       <img
-        src="@/assets/img/pretplata/homepage/50_godisnja.png"
+        src="@/assets/img/pretplata/odaberi-cijenu/banner.webp"
         alt="Desktop banner za popust na godišnju pretplatu"
         class="desktop-only"
       />
       <img
-        src="@/assets/img/pretplata/homepage/50_godisnja_mob.png"
+        src="@/assets/img/pretplata/odaberi-cijenu/banner_mob.webp"
         alt="Mobile banner za popust na godišnju pretplatu"
         class="mobile-only"
         style="width: 100%"
@@ -499,6 +499,10 @@ export default {
   async fetch() {
     await this.$store.dispatch('featured/pullPosts')
     await this.$store.dispatch('featured/pullBreaks')
+    // Pre-fetch gifts for logged-in users
+    if (process.client && this.$store.state.user.token) {
+      this.$store.dispatch('gifts/getUserGifts')
+    }
   },
   data() {
     return {

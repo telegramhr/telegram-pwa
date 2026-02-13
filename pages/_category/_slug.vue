@@ -1059,10 +1059,6 @@ export default {
       if (this.$route.params.category === 'l') {
         window.history.replaceState({}, null, this.post.permalink)
       }
-      // Fetch user gifts if user is logged in and article has paywall
-      if (this.$store.state.user.token && this.post.paywall === 'always') {
-        this.$store.dispatch('gifts/getUserGifts')
-      }
     })
     this.widgetVariant = this.getWidgetVariant()
   },
@@ -1235,6 +1231,9 @@ export default {
         this.loadPiano()
         this.loadRemp()
         this.loadAds()
+        if (this.$store.state.user.token && this.post.paywall === 'always') {
+          this.$store.dispatch('gifts/getUserGifts')
+        }
         this.loadInArticleWidget()
         this.$store.commit('pretplata/setLastArticle', this.post.id)
         if (typeof FB !== 'undefined') {

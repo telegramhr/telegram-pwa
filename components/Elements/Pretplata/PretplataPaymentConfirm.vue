@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <div class="promo-wrapper">
+    <div v-if="!hidePromo" class="promo-wrapper">
       <span>Imate li promo kod?</span>
       <div class="toggle-container">
         <span>Ne</span>
@@ -139,6 +139,18 @@
         name="payment_metadata[gift_starts_at]"
         :value="giftDate"
       />
+      <input
+        v-if="additionalAmount"
+        type="hidden"
+        name="additional_amount"
+        :value="additionalAmount"
+      />
+      <input
+        v-if="additionalType"
+        type="hidden"
+        name="additional_type"
+        :value="additionalType"
+      />
 
       <div class="submit-wrapper">
         <button v-if="buyable" @click.prevent="submit">
@@ -156,12 +168,18 @@
           <span>{{ finalPrice }} €</span>
         </button>
         <p v-if="show_msg">{{ show_msg }}</p>
-        <p>
+        <p v-show="showMsg">
           Ispunite sve korake iznad kako bi dovršili kupnju.<br />
 
           <template v-if="copyVersion === 'christmas'">
             Nakon isteka prve godine pretplata se automatski obnavlja po punoj
             cijeni
+          </template>
+
+          <template v-else-if="copyVersion === 'intro'">
+            Nakon probnog razdoblja od 2 mjeseca, pretplata se automatski
+            obnavlja po cijeni od 4,99€ mjesečno. Možete otkazati u bilo kojem
+            trenutku.
           </template>
 
           <template v-else>
@@ -254,6 +272,22 @@ export default {
       type: Boolean,
       required: false,
       default: false,
+    },
+    additionalAmount: {
+      type: [String, Number],
+      default: 0,
+    },
+    additionalType: {
+      type: String,
+      default: '',
+    },
+    hidePromo: {
+      type: Boolean,
+      default: false,
+    },
+    showMsg: {
+      type: Boolean,
+      default: true,
     },
   },
   data() {
