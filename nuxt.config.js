@@ -311,7 +311,7 @@ export default {
                     data._ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress
                     const fs = require('fs')
                     const path = require('path')
-                    const logFile = path.join(__dirname, 'diagnostics-analytics.log')
+                    const logFile = path.join(__dirname, 'diagnostics-analytics-v2.log')
                     fs.appendFile(logFile, JSON.stringify(data) + '\n', (err) => {
                         res.statusCode = err ? 500 : 204
                         res.end()

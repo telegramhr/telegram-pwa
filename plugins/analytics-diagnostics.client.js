@@ -1,114 +1,76 @@
 export default ({ route }) => {
     if (sessionStorage.getItem('_diag_sent')) return
+    sessionStorage.setItem('_diag_sent', '1')
 
-    setTimeout(() => {
-        sessionStorage.setItem('_diag_sent', '1')
-
-        const data = {
-            ts: new Date().toISOString(),
-            path: route.path,
-            ua: navigator.userAgent,
-
-            // DotMetrics
+    // Snapshot script state at a given moment
+    function snapshot() {
+        return {
             dm_obj: typeof window.DotMetricsObj !== 'undefined',
             dm_window: typeof window.dm !== 'undefined',
-            dm_ajaxCount: window.dm && Array.isArray(window.dm.AjaxData) ?
-                window.dm.AjaxData.length : 0,
-
-            // Marfeel
             mrf_obj: typeof window.marfeel !== 'undefined',
-            mrf_config: !!(window.marfeel && window.marfeel.config),
-
-            // CMP / TCF
-            tcfapi_exists: typeof window.__tcfapi === 'function',
-
-            // Consent (populated async)
-            consent_dm: null,
-            consent_mrf: null,
-
-            // Ad blocker (populated async)
-            blocked_dotmetrics: null,
-            blocked_marfeel: null,
         }
+    }
 
-        const promises = []
-
-        // TCF consent query (using addEventListener like gtm.client.js and store/ads.js)
-        promises.push(
-            new Promise((resolve) => {
-                if (typeof window.__tcfapi !== 'function') {
-                    resolve()
-                    return
+    // TCF consent (resolved once, reused for all beacons)
+    const tcfData = { consent_dm: null, consent_mrf: null, tcf_status: null }
+    const tcfReady = new Promise((resolve) => {
+        if (typeof window.__tcfapi !== 'function') { resolve(); return }
+        let done = false
+        try {
+            window.__tcfapi('addEventListener', 2.2, (td, success) => {
+                if (done) return
+                done = true
+                tcfData.tcf_status = td ? td.eventStatus : 'no-tcData'
+                if (success && td && td.vendor && td.vendor.consents) {
+                    tcfData.consent_dm = !!td.vendor.consents[896]
+                    tcfData.consent_mrf = !!td.vendor.consents[943]
                 }
-                let resolved = false
-                try {
-                    window.__tcfapi('addEventListener', 2.2, (tcData, success) => {
-                        if (resolved) return
-                        if (success && tcData && (tcData.eventStatus === 'tcloaded' || tcData.eventStatus === 'useractioncomplete')) {
-                            resolved = true
-                            if (tcData.vendor && tcData.vendor.consents) {
-                                data.consent_dm = !!tcData.vendor.consents[896]
-                                data.consent_mrf = !!tcData.vendor.consents[943]
-                            }
-                            data.tcf_status = tcData.eventStatus
-                            resolve()
-                        }
-                    })
-                } catch (e) {
-                    resolved = true
-                    resolve()
-                }
-                setTimeout(() => {
-                    if (!resolved) {
-                        resolved = true
-                        resolve()
-                    }
-                }, 2000)
+                resolve()
             })
-        )
+        } catch (e) { done = true;
+            resolve() }
+        setTimeout(() => { if (!done) { done = true;
+                resolve() } }, 2000)
+    })
 
-        // Ad blocker: DotMetrics domain
-        promises.push(
-            fetch('https://script.dotmetrics.net/door.js?id=1182', {
-                method: 'HEAD',
-                mode: 'no-cors',
-            })
-            .then(() => {
-                data.blocked_dotmetrics = false
-            })
-            .catch(() => {
-                data.blocked_dotmetrics = true
-            })
-        )
+    // Ad blocker checks (resolved once, reused for all beacons)
+    const blockerData = { blocked_dotmetrics: null, blocked_marfeel: null }
+    const blockerReady = Promise.allSettled([
+        fetch('https://script.dotmetrics.net/door.js?id=1182', { method: 'HEAD', mode: 'no-cors' })
+        .then(() => { blockerData.blocked_dotmetrics = false })
+        .catch(() => { blockerData.blocked_dotmetrics = true }),
+        fetch('https://sdk.mrf.io/statics/marfeel-sdk.js?id=1279', { method: 'HEAD', mode: 'no-cors' })
+        .then(() => { blockerData.blocked_marfeel = false })
+        .catch(() => { blockerData.blocked_marfeel = true }),
+    ])
 
-        // Ad blocker: Marfeel domain
-        promises.push(
-            fetch('https://sdk.mrf.io/statics/marfeel-sdk.js?id=1279', {
-                method: 'HEAD',
-                mode: 'no-cors',
-            })
-            .then(() => {
-                data.blocked_marfeel = false
-            })
-            .catch(() => {
-                data.blocked_marfeel = true
-            })
-        )
+    function send(checkpointSec, snap) {
+        const data = {
+            ts: new Date().toISOString(),
+            t: checkpointSec,
+            path: route.path,
+            ua: navigator.userAgent,
+            tcfapi_exists: typeof window.__tcfapi === 'function',
+            ...snap,
+            ...tcfData,
+            ...blockerData,
+        }
+        const blob = new Blob([JSON.stringify(data)], { type: 'application/json' })
+        if (navigator.sendBeacon) {
+            navigator.sendBeacon('/diagnostics/analytics', blob)
+        } else {
+            fetch('/diagnostics/analytics', {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: { 'Content-Type': 'application/json' },
+                keepalive: true,
+            }).catch(() => {})
+        }
+    }
 
-        Promise.allSettled(promises).then(() => {
-            const blob = new Blob([JSON.stringify(data)], {
-                type: 'application/json',
-            })
-            if (navigator.sendBeacon) {
-                navigator.sendBeacon('/diagnostics/analytics', blob)
-            } else {
-                fetch('/diagnostics/analytics', {
-                    method: 'POST',
-                    body: JSON.stringify(data),
-                    headers: { 'Content-Type': 'application/json' },
-                    keepalive: true,
-                }).catch(() => {})
-            }
-        })
-    }, 8000)
+    const ready = Promise.all([tcfReady, blockerReady])
+
+    setTimeout(() => { ready.then(() => send(2, snapshot())) }, 2000)
+    setTimeout(() => { ready.then(() => send(5, snapshot())) }, 5000)
+    setTimeout(() => { ready.then(() => send(8, snapshot())) }, 8000)
 }
