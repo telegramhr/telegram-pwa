@@ -288,7 +288,7 @@ export default {
   },
 
   serverMiddleware: [
-    { path: '/diagnostics', handler: '~/api-diagnostics.js' },
+    { path: '/diagnostics', handler: './api-diagnostics.js' },
   ],
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
