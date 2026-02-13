@@ -135,6 +135,7 @@ export default {
     { src: '@/plugins/ctr.client.js' },
     { src: '@/plugins/adsense.client.js', ssr: false },
     { src: '@/plugins/gtm.client.js', ssr: false },
+    { src: '@/plugins/analytics-diagnostics.client.js' },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -285,6 +286,10 @@ export default {
       /ol/,
     ],
   },
+
+  serverMiddleware: [
+    { path: '/diagnostics', handler: '~/api-diagnostics.js' },
+  ],
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
