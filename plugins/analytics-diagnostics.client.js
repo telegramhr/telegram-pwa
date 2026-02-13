@@ -13,8 +13,7 @@ export default ({ route }) => {
             dm_obj: typeof window.DotMetricsObj !== 'undefined',
             dm_window: typeof window.dm !== 'undefined',
             dm_ajaxCount: window.dm && Array.isArray(window.dm.AjaxData) ?
-                window.dm.AjaxData.length :
-                0,
+                window.dm.AjaxData.length : 0,
 
             // Marfeel
             mrf_obj: typeof window.marfeel !== 'undefined',
@@ -34,7 +33,7 @@ export default ({ route }) => {
 
         const promises = []
 
-        // TCF consent query
+        // TCF consent query (using addEventListener like gtm.client.js and store/ads.js)
         promises.push(
             new Promise((resolve) => {
                 if (typeof window.__tcfapi !== 'function') {
@@ -43,14 +42,17 @@ export default ({ route }) => {
                 }
                 let resolved = false
                 try {
-                    window.__tcfapi('getTCData', 2.2, (tcData, success) => {
+                    window.__tcfapi('addEventListener', 2.2, (tcData, success) => {
                         if (resolved) return
-                        resolved = true
-                        if (success && tcData && tcData.vendor && tcData.vendor.consents) {
-                            data.consent_dm = !!tcData.vendor.consents[896]
-                            data.consent_mrf = !!tcData.vendor.consents[943]
+                        if (success && tcData && (tcData.eventStatus === 'tcloaded' || tcData.eventStatus === 'useractioncomplete')) {
+                            resolved = true
+                            if (tcData.vendor && tcData.vendor.consents) {
+                                data.consent_dm = !!tcData.vendor.consents[896]
+                                data.consent_mrf = !!tcData.vendor.consents[943]
+                            }
+                            data.tcf_status = tcData.eventStatus
+                            resolve()
                         }
-                        resolve()
                     })
                 } catch (e) {
                     resolved = true
@@ -108,5 +110,5 @@ export default ({ route }) => {
                 }).catch(() => {})
             }
         })
-    }, 5000)
+    }, 8000)
 }
