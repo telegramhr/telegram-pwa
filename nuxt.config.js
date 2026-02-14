@@ -133,7 +133,6 @@ export default {
         { src: '@/plugins/ctr.client.js' },
         { src: '@/plugins/adsense.client.js', ssr: false },
         { src: '@/plugins/gtm.client.js', ssr: false },
-        { src: '@/plugins/analytics-diagnostics.client.js' },
     ],
 
     // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -282,51 +281,6 @@ export default {
             /ol/,
         ],
     },
-
-    serverMiddleware: [{
-        path: '/diagnostics',
-        handler: (req, res) => {
-            if (req.method !== 'POST') {
-                res.statusCode = 405;
-                res.end();
-                return
-            }
-            const chunks = []
-            let size = 0
-            req.on('data', (chunk) => {
-                size += chunk.length
-                if (size > 10240) {
-                    res.statusCode = 413;
-                    res.end();
-                    req.destroy();
-                    return
-                }
-                chunks.push(chunk)
-            })
-            req.on('end', () => {
-                try {
-                    const body = Buffer.concat(chunks).toString('utf8')
-                    const data = JSON.parse(body)
-                    data._serverTs = new Date().toISOString()
-                    data._ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress
-                    const fs = require('fs')
-                    const path = require('path')
-                    const logFile = path.join(__dirname, 'diagnostics-analytics-v2.log')
-                    fs.appendFile(logFile, JSON.stringify(data) + '\n', (err) => {
-                        res.statusCode = err ? 500 : 204
-                        res.end()
-                    })
-                } catch (e) {
-                    res.statusCode = 400;
-                    res.end()
-                }
-            })
-            req.on('error', () => {
-                res.statusCode = 500;
-                res.end()
-            })
-        },
-    }, ],
 
     // Build Configuration (https://go.nuxtjs.dev/config-build)
     build: {
