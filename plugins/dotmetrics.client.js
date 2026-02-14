@@ -68,7 +68,15 @@ export default ({ route }, inject) => {
             },
         })
 
-        // Fallback: if CMP doesn't load (ad blocker, etc.), load door.js anyway
+        // Fallback: check after 500ms if CMP is present at all
+        // In-app browsers have no CMP — no point waiting 2.5s
+        setTimeout(() => {
+            if (typeof window.__tcfapi !== 'function') {
+                loadOnce()
+            }
+        }, 500)
+
+        // Final fallback: if CMP exists but CONSENT_API_READY never fires
         setTimeout(loadOnce, 2500)
     }
 

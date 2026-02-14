@@ -26,7 +26,6 @@
             <div class="text-content">
               <h2 class="title">
                 {{ title }}
-                <span>{{ popust }}</span>
               </h2>
               <a
                 :href="cta_link"
