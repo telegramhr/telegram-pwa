@@ -144,6 +144,7 @@ export default {
   max-width: 900px;
   position: relative;
   height: 600px;
+  max-height: 90vh;
   background: #0b1272;
 }
 .wrapper {
@@ -199,7 +200,7 @@ export default {
 }
 .title {
   font-family: 'Lora', serif;
-  font-size: 28px;
+  font-size: clamp(20px, 4svh, 28px);
   line-height: 36px;
   font-weight: 500;
   color: #ffffff;
