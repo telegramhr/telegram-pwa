@@ -32,6 +32,25 @@ export default () => {
       return 'prije ' + m + ' minuta'
     }
   })
+  Vue.filter('parseReadableTime', function (value) {
+    if (!value) return ''
+    const date = new Date(value * 1000)
+
+    return new Intl.DateTimeFormat('hr-HR', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+    }).format(date)
+  })
+
+  Vue.filter('isoDatetime', function (value) {
+    if (!value) return ''
+    // Convert seconds → milliseconds
+    const date = new Date(value * 1000)
+    return date.toISOString()
+  })
   Vue.filter('parseRecentTime', function (value) {
     if (!value) {
       return ''

@@ -206,9 +206,12 @@
                   ></subscribe-link>
                 </client-only>
                 <div class="commentary-meta-other">
-                  <time class="meta-date" :datetime="post.time">{{
-                    post.time | parseTime
-                  }}</time>
+                  <time
+                    class="meta-date"
+                    :datetime="post.time | isoDatetime"
+                    :title="post.time | parseReadableTime"
+                    >{{ post.time | parseTime }}</time
+                  >
                   <span
                     v-if="post.recommendations"
                     class="meta-preporuke"
@@ -243,9 +246,12 @@
                   </div>
                   <div class="meta-other">
                     <div class="flex">
-                      <time class="meta-date" :datetime="post.time">{{
-                        post.time | parseTime
-                      }}</time>
+                      <time
+                        class="meta-date"
+                        :datetime="post.time | isoDatetime"
+                        :title="post.time | parseReadableTime"
+                        >{{ post.time | parseTime }}</time
+                      >
                       <span
                         v-if="post.recommendations"
                         class="meta-preporuke"
@@ -300,9 +306,12 @@
                       ></app-link
                     >
                   </div>
-                  <time class="meta-date" :datetime="post.time">{{
-                    post.time | parseTime
-                  }}</time>
+                  <time
+                    class="meta-date"
+                    :datetime="post.time | isoDatetime"
+                    :title="post.time | parseReadableTime"
+                    >{{ post.time | parseTime }}</time
+                  >
                   <span
                     v-if="post.recommendations"
                     class="meta-preporuke"
