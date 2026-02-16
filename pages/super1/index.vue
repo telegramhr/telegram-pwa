@@ -226,56 +226,82 @@
             class="noththree flex superone-section-title superone-pilatesBagTitle"
           >
             <span class="bajadera-span-title"
-              >MORNING RITUALS POWERED BY NIVEA</span
+              >SUPER SECRET DINNER LOVERS EDITION</span
             >
           </div>
         </div>
         <div class="full superone-preporuka flex flex-responsive relative">
           <div class="full flex flex-row column-vertical-pad">
             <div
-              class="half flex-responsive column-full-pad article-featured article-superfeat article relative"
+              class="third flex-responsive column-full-pad article-featured article-superfeat article relative"
               role="article"
             >
               <a
                 class="full flex square-img"
-                href="https://www.telegram.hr/super1/beauty/morning-rituals-event-nivea/"
+                href="https://www.telegram.hr/super1/native/super-secret-dinner-lovers-edition/"
               >
                 <img
-                  src="@/assets/img/super1/nivea1.jpg"
-                  alt="Dvije žene razgovaraju na pozornici ispred publike s velikim crvenim natpisom NIVEA na zavjesi u pozadini."
-                  loading="lazy"
-                />
-              </a>
-              <div class="bottom-wrapper-section">
-                <div class="bottom-section-title">
-                  <span class="title">
-                    <b>Event report</b> Kako izgleda jutro kad ga posvetimo
-                    sebi? To su otkrile uzvanice na našem sjajnom eventu Morning
-                    rituals powered by NIVEA</span
-                  >
-                </div>
-              </div>
-            </div>
-            <div
-              class="half flex-responsive column-full-pad article-featured article-superfeat article relative"
-              role="article"
-            >
-              <a
-                class="full flex square-img"
-                href="https://www.telegram.hr/super1/life/morningriuals-powered-by-nivea-event-atmosfera/"
-              >
-                <img
-                  src="@/assets/img/super1/nivea2.jpg"
-                  alt="Skupina žena vježba jogu u zatvorenom prostoru s ciglenim zidom, ruke podignute iza glave u istezanju."
+                  src="@/assets/img/super1/secret-dinner/secret_dinner3.jpg"
+                  alt="Elegantna večera za okruglim stolom uz
+                    crvene zavjese, svijeće i cvjetne aranžmane s gostima u
+                    crnoj odjeći."
                   loading="lazy"
                 />
               </a>
               <div class="bottom-wrapper-section">
                 <div class="bottom-section-title">
                   <span class="title"
-                    ><b>S1 event</b> Od vježbi za osvještavanje tijela do
-                    veganskog doručka: Zavirite u atmosferu eventa Morning
-                    Rituals powered by NIVEA</span
+                    ><b>S1 report</b> Super secret dinner lovers edition:
+                    Pripremili smo najljepši spoj za poznate parove s javne
+                    scene</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div
+              class="third flex-responsive column-full-pad article-featured article-superfeat article relative"
+              role="article"
+            >
+              <a
+                class="full flex square-img"
+                href="https://www.telegram.hr/super1/life/super-secret-dinner-couple-edition-atmosfera/"
+              >
+                <img
+                  src="@/assets/img/super1/secret-dinner/secret_dinner1.jpg"
+                  alt="Gosti dignuli čaše za zdravicu za dugim stolom na elegantnoj večeri uRestoranu s ružičastim zavjesama."
+                  loading="lazy"
+                />
+              </a>
+              <div class="bottom-wrapper-section">
+                <div class="bottom-section-title">
+                  <span class="title"
+                    ><b>Lovers Edition</b> Od pomno osmišljenih jela u
+                    slijedovima do zone opuštanja uz kavu: Zavirite u atmosferu
+                    Super Secret Dinnera</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div
+              class="third flex-responsive column-full-pad article-featured article-superfeat article relative"
+              role="article"
+            >
+              <a
+                class="full flex square-img"
+                href="https://www.telegram.hr/super1/life/od-nakita-do-talijanskih-poslastica-evo-sto-se-pronaslo-u-goodie-bagu-na-super-secret-dinner-eventu-za-parove/"
+              >
+                <img
+                  src="@/assets/img/super1/secret-dinner/secret_dinner2.jpg"
+                  alt="Darovni paket s prehrambenim proizvodima, kavom, kozmetikom i nakitom uz crvenu vrećicu s natpisom na hrvatskom."
+                  loading="lazy"
+                />
+              </a>
+              <div class="bottom-wrapper-section">
+                <div class="bottom-section-title">
+                  <span class="title">
+                    <b>S1 pokloni</b> Nakit i talijanske poslastice: Evo što se
+                    pronašlo u goodie bagu na Super Secret Dinner eventu za
+                    parove</span
                   >
                 </div>
               </div>
