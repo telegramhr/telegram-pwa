@@ -6,7 +6,7 @@
         v-for="(post, index) in posts"
         :key="post.id"
         :post="post"
-        :widgetPosition="index + 1"
+        :widget-position="index + 1"
         :widget-type="'inArticle'"
         :utm="{ campaign: 'TGintext' }"
         :recirculation="'TGIntext' + algorithmType"
