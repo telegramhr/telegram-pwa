@@ -135,14 +135,31 @@ export default {
       return `${this.author.url}?page=${this.page + 1}`
     },
     json() {
+      const entity = {
+        '@type': this.author.type, // 'Person' or 'Organization'
+        name: this.author.name,
+        url: this.author.url,
+      }
+
+      // Optional fields (only if present)
+
+      if (this.author.image?.url) {
+        entity.image = this.author.image.url
+      }
+
+      if (this.author.sameAs?.length) {
+        entity.sameAs = this.author.sameAs
+      }
+
+      if (this.author.byline && this.author.type === 'Person') {
+        entity.jobTitle = this.author.byline
+      }
+
       return [
         {
           '@context': 'https://schema.org',
-          '@type': this.author.type,
-          name: this.author.name,
-          image: this.author.image.url,
-          url: this.author.url,
-          sameAs: this.author.sameAs,
+          '@type': 'ProfilePage',
+          mainEntity: entity,
         },
       ]
     },
