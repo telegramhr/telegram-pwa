@@ -335,7 +335,7 @@ export const actions = {
       })
   },
   saveIP() {
-    this.$axios.get('https://www.cloudflare.com/cdn-cgi/trace').then((res) => {
+    this.$axios.get('https://www.telegram.hr/cdn-cgi/trace').then((res) => {
       const data = res
         .trim()
         .split('\n')
