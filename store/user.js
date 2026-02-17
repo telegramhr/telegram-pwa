@@ -19,9 +19,15 @@ export const state = () => ({
   screen: 'login',
   shouldReload: true,
   callback: null,
+  ip: null,
+  ip_update: null,
 })
 
 export const mutations = {
+  setIp(state, ip) {
+    state.ip = ip
+    state.ip_update = new Date()
+  },
   setUser(state, data) {
     state.id = data.user.id
     state.first_name = data.user.first_name
@@ -334,17 +340,20 @@ export const actions = {
         commit('setError', 'Email i/ili lozinka nisu ispravni')
       })
   },
-  saveIP() {
-    this.$axios.get('https://www.telegram.hr/cdn-cgi/trace').then((res) => {
-      const data = res
-        .trim()
-        .split('\n')
-        .reduce(function (obj, pair) {
-          pair = pair.split('=')
-          return (obj[pair[0]] = pair[1]), obj
-        }, {})
-      console.log(data)
-    })
+  saveIP({ commit, state }) {
+    if (!state.ip) {
+      this.$axios.get('https://www.telegram.hr/cdn-cgi/trace').then((res) => {
+        const data = res.data
+          .trim()
+          .split('\n')
+          .reduce(function (obj, pair) {
+            pair = pair.split('=')
+            return (obj[pair[0]] = pair[1]), obj
+          }, {})
+        console.log(data)
+        commit('setIP', data)
+      })
+    }
   },
 }
 
