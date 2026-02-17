@@ -334,6 +334,18 @@ export const actions = {
         commit('setError', 'Email i/ili lozinka nisu ispravni')
       })
   },
+  saveIP() {
+    this.$axios.get('https://www.cloudflare.com/cdn-cgi/trace').then((res) => {
+      const data = res
+        .trim()
+        .split('\n')
+        .reduce(function (obj, pair) {
+          pair = pair.split('=')
+          return (obj[pair[0]] = pair[1]), obj
+        }, {})
+      console.log(data)
+    })
+  },
 }
 
 export const getters = {

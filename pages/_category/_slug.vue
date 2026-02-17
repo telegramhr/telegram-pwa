@@ -1118,6 +1118,7 @@ export default {
       }
     },
     loadRemp() {
+      this.$store.dispatch('user/saveIP')
       window.remplib = window.remplib || {}
       const rempConfig = {
         token: 'd4fa2928-7d6a-4f6c-ac95-1f5a1ddd1702',
