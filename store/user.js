@@ -24,8 +24,8 @@ export const state = () => ({
 })
 
 export const mutations = {
-  setIp(state, ip) {
-    state.ip = ip
+  setIp(state, data) {
+    state.ip = data.ip
     state.ip_update = new Date()
   },
   setUser(state, data) {
