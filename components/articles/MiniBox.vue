@@ -99,12 +99,9 @@ export default {
   },
   computed: {
     permalink() {
-      if (this.utm.source || this.utm.campaign) {
-        const isStoryHr = this.post.permalink.includes('story.hr')
-        if (isStoryHr) {
-          return `${this.post.permalink}?utm_source=Telegram.hr&utm_medium=cross-promo&utm_campaign=${this.utm.campaign}`
-        }
-        return `${this.post.permalink}?utm_medium=Internal&utm_campaign=${this.utm.campaign}`
+      const isStoryHr = this.post.permalink.includes('story.hr')
+      if (isStoryHr) {
+        return `${this.post.permalink}?utm_source=Telegram.hr&utm_medium=cross-promo&utm_campaign=${this.utm.campaign}`
       }
       return this.post.permalink
     },

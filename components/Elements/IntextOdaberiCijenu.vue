@@ -26,7 +26,6 @@
             <div class="text-content">
               <h2 class="title">
                 {{ title }}
-                <span>{{ popust }}</span>
               </h2>
               <a
                 :href="cta_link"
@@ -145,6 +144,7 @@ export default {
   max-width: 900px;
   position: relative;
   height: 600px;
+  max-height: 88svh;
   background: #0b1272;
 }
 .wrapper {
@@ -200,7 +200,7 @@ export default {
 }
 .title {
   font-family: 'Lora', serif;
-  font-size: 28px;
+  font-size: clamp(20px, 4svh, 28px);
   line-height: 36px;
   font-weight: 500;
   color: #ffffff;

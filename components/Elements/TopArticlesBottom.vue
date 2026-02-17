@@ -7,7 +7,7 @@
           v-for="(post, index) in posts"
           :key="post.id"
           :post="post"
-          :widgetPosition="index + 1"
+          :widget-position="index + 1"
           :widget-type="'bottomV1'"
           :utm="{ campaign: 'TGbottom' }"
           :recirculation="'TGBottom' + algorithmType"
