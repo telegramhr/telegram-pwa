@@ -350,8 +350,7 @@ export const actions = {
             pair = pair.split('=')
             return (obj[pair[0]] = pair[1]), obj
           }, {})
-        console.log(data)
-        commit('setIP', data)
+        commit('setIp', data)
       })
     }
   },
