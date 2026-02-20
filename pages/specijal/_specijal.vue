@@ -1,5 +1,7 @@
 <template>
+  <specijal-article v-if="post.format === 'article'" :post="post" />
   <div
+    v-else
     class="main-container flex specijal-page"
     :class="[post.class ? post.class + ' fancy-rubrika' : '']"
   >
@@ -64,6 +66,7 @@ export default {
       post: {
         id: 0,
         title: '',
+        format: 'hub',
         image: {
           url: '',
           alt: '',
