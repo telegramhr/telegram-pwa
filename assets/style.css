@@ -7192,7 +7192,7 @@ html.large-fontsize,
 .specijal-progress-bar-fill {
     height: 100%;
     width: 0;
-    background: #5F5F5F66;
+    background: #a6a6a680;
     transition: width 0.1s linear;
 }
 
