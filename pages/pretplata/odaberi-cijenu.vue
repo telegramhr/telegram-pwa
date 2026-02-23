@@ -1,5 +1,33 @@
 <template>
-  <div>
+  <div v-if="!active">
+    <div
+      class="block-title news-block-title header-block-title full mobile-side-pad"
+    >
+      <div class="full block-title-pattern relative"></div>
+      <div class="container flex relative">
+        <app-link to="/" class="logo column-left-pad" aria-label="Naslovnica"
+          ><img src="@/assets/img/telegram_logo_white.svg" alt="Telegram logo"
+        /></app-link>
+        <h2 class="full column-horizontal-pad desktop-only site-subtitle">
+          Nekad je nužno odabrati stranu
+        </h2>
+      </div>
+    </div>
+    <div class="full filler-404 tg-red"></div>
+    <img
+      src="@/assets/img/tg_tear.png"
+      aria-hidden="true"
+      class="tear-404 desktop-only"
+    />
+    <div
+      class="content-wrapper-inactive relative mobile-side-pad column-full-pad"
+    >
+      <div class="full center flex">
+        <h1 class="full subtitle-404 center-text">Akcija više nije dostupna</h1>
+      </div>
+    </div>
+  </div>
+  <div v-else>
     <div v-if="loading" class="telegram-overlay">
       <span class="telegram-loader"></span>
     </div>
@@ -134,9 +162,23 @@
 </template>
 
 <script>
+const PAGE_ACTIVE = false
+
 export default {
+  beforeRouteEnter(to, from, next) {
+    if (!PAGE_ACTIVE) {
+      next((vm) => {
+        setTimeout(() => {
+          window.location.href = '/pretplata/50-popust'
+        }, 1000)
+      })
+    } else {
+      next()
+    }
+  },
   data() {
     return {
+      active: PAGE_ACTIVE,
       heroMobile: require('@/assets/img/pretplata/odaberi-cijenu/hero-mob.webp'),
       heroDesktop: require('@/assets/img/pretplata/odaberi-cijenu/hero-desktop.webp'),
       loading: false,
@@ -347,6 +389,12 @@ export default {
 </script>
 
 <style scoped>
+.content-wrapper-inactive {
+  padding-top: 140px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
 .telegram-overlay {
   position: fixed;
   top: 0;
