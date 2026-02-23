@@ -206,9 +206,12 @@
                   ></subscribe-link>
                 </client-only>
                 <div class="commentary-meta-other">
-                  <time class="meta-date" :datetime="post.time">{{
-                    post.time | parseTime
-                  }}</time>
+                  <time
+                    class="meta-date"
+                    :datetime="post.time | isoDatetime"
+                    :title="post.time | parseReadableTime"
+                    >{{ post.time | parseTime }}</time
+                  >
                   <span
                     v-if="post.recommendations"
                     class="meta-preporuke"
@@ -243,9 +246,12 @@
                   </div>
                   <div class="meta-other">
                     <div class="flex">
-                      <time class="meta-date" :datetime="post.time">{{
-                        post.time | parseTime
-                      }}</time>
+                      <time
+                        class="meta-date"
+                        :datetime="post.time | isoDatetime"
+                        :title="post.time | parseReadableTime"
+                        >{{ post.time | parseTime }}</time
+                      >
                       <span
                         v-if="post.recommendations"
                         class="meta-preporuke"
@@ -300,9 +306,12 @@
                       ></app-link
                     >
                   </div>
-                  <time class="meta-date" :datetime="post.time">{{
-                    post.time | parseTime
-                  }}</time>
+                  <time
+                    class="meta-date"
+                    :datetime="post.time | isoDatetime"
+                    :title="post.time | parseReadableTime"
+                    >{{ post.time | parseTime }}</time
+                  >
                   <span
                     v-if="post.recommendations"
                     class="meta-preporuke"
@@ -1109,6 +1118,7 @@ export default {
       }
     },
     loadRemp() {
+      this.$store.dispatch('user/saveIP')
       window.remplib = window.remplib || {}
       const rempConfig = {
         token: 'd4fa2928-7d6a-4f6c-ac95-1f5a1ddd1702',
@@ -1160,6 +1170,7 @@ export default {
             isS1: this.post.category_slug.includes('super1') ? '1' : '0',
             segment: Math.floor(Math.random() * 4).toString(),
             userSubscribed: this.$store.state.user.access.length ? '1' : '0',
+            ip: this.$store.state.user.ip,
             hasContentAccess: this.$store.getters['user/hasContentAccess'](
               this.$route.path
             )

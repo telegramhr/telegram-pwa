@@ -144,7 +144,7 @@ export default {
   max-width: 900px;
   position: relative;
   height: 600px;
-  max-height: 90vh;
+  max-height: 88svh;
   background: #0b1272;
 }
 .wrapper {
