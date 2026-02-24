@@ -7072,6 +7072,7 @@ html.large-fontsize,
     width: 100%;
     height: 100%;
     object-fit: cover;
+    animation: specijal-fade-in 500ms ease-out both;
 }
 
 .specijal-article-hero-overlay {
@@ -7084,11 +7085,13 @@ html.large-fontsize,
     text-align: center;
     color: #FFFFFF;
     padding: 276px 24px 80px;
+    animation: specijal-fade-in 700ms ease-out 200ms both;
 }
 
 .specijal-article-hero-logo {
     width: 220px;
     margin-bottom: 100px;
+    animation: specijal-fade-in 600ms ease-out 300ms both;
 }
 
 .specijal-article-hero h1 {
@@ -7099,6 +7102,7 @@ html.large-fontsize,
     max-width: 800px;
     margin: 0 0 24px;
     color: white;
+    animation: specijal-fade-in 600ms ease-out 400ms both;
 }
 
 .specijal-article-hero-subtitle {
@@ -7108,6 +7112,7 @@ html.large-fontsize,
     line-height: 100%;
     max-width: 600px;
     margin: 0 0 24px;
+    animation: specijal-fade-in 600ms ease-out 500ms both;
 }
 
 .specijal-article-hero-meta {
@@ -7116,6 +7121,12 @@ html.large-fontsize,
     font-style: normal;
     font-size: 16px;
     color: #FFFFFF;
+    animation: specijal-fade-in 600ms ease-out 550ms both;
+}
+
+@keyframes specijal-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .specijal-article-hero-sep {
