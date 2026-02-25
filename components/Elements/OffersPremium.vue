@@ -185,9 +185,9 @@ export default {
 }
 
 .spar-line > div {
-  padding-left: 7px;
+  padding-left: 10px;
   background-color: #fcf1e7;
-  width: 468px;
+  width: 140px;
 }
 
 .contrast-mode .spar-line > div {
