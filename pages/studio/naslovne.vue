@@ -784,6 +784,10 @@ export default {
           name: 'Hedl',
           image: require('~/assets/img/extras/naslovne/tg_dajmi_overlay_hedl.png'),
         },
+        prtenjaca: {
+          name: 'Prtenjača',
+          image: require('~/assets/img/extras/naslovne/tg_dajmi_overlay_prtenjaca.png'),
+        },
         frlan: {
           name: 'Frlan Gašparović',
           image: require('~/assets/img/extras/naslovne/tg_dajmi_overlay_frlan.png'),

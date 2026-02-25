@@ -1118,6 +1118,7 @@ export default {
       }
     },
     loadRemp() {
+      this.$store.dispatch('user/saveIP')
       window.remplib = window.remplib || {}
       const rempConfig = {
         token: 'd4fa2928-7d6a-4f6c-ac95-1f5a1ddd1702',
@@ -1169,6 +1170,7 @@ export default {
             isS1: this.post.category_slug.includes('super1') ? '1' : '0',
             segment: Math.floor(Math.random() * 4).toString(),
             userSubscribed: this.$store.state.user.access.length ? '1' : '0',
+            ip: this.$store.state.user.ip,
             hasContentAccess: this.$store.getters['user/hasContentAccess'](
               this.$route.path
             )
