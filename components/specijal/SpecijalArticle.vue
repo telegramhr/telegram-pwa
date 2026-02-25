@@ -420,6 +420,59 @@ export default {
           },
           { passive: false }
         )
+
+        // Touch / swipe support for mobile
+        let touchStartY = 0
+        let touchStartX = 0
+        let touchHandled = false
+
+        container.addEventListener(
+          'touchstart',
+          (e) => {
+            touchStartY = e.touches[0].clientY
+            touchStartX = e.touches[0].clientX
+            touchHandled = false
+          },
+          { passive: true }
+        )
+
+        container.addEventListener(
+          'touchmove',
+          (e) => {
+            if (touchHandled || locked) return
+
+            const dy = touchStartY - e.touches[0].clientY
+            const dx = touchStartX - e.touches[0].clientX
+
+            // Only handle vertical swipes (ignore horizontal)
+            if (Math.abs(dy) < 30 || Math.abs(dx) > Math.abs(dy)) return
+
+            const atBoundary =
+              (dy > 0 && currentStep >= totalSteps - 1) ||
+              (dy < 0 && currentStep <= 0)
+
+            if (atBoundary) {
+              if (released) return
+              released = true
+              return
+            }
+
+            e.preventDefault()
+            touchHandled = true
+            locked = true
+
+            if (dy > 0) {
+              goToStep(currentStep + 1)
+            } else {
+              goToStep(currentStep - 1)
+            }
+
+            setTimeout(() => {
+              locked = false
+            }, 600)
+          },
+          { passive: false }
+        )
       })
     },
 

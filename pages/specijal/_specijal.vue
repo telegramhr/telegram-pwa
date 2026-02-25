@@ -94,6 +94,9 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
+      if (this.post.format === 'article') {
+        this.loadRemp()
+      }
       if (this.post.tag) {
         this.$axios.get('/api/tag/' + this.post.tag).then((res) => {
           this.posts = res.data.posts
@@ -105,6 +108,66 @@ export default {
     })
   },
   methods: {
+    loadRemp() {
+      this.$store.dispatch('user/saveIP')
+      window.remplib = window.remplib || {}
+      const authorName =
+        this.post.authors && this.post.authors.length
+          ? this.post.authors[0].name
+          : ''
+      const rempConfig = {
+        token: 'd4fa2928-7d6a-4f6c-ac95-1f5a1ddd1702',
+        signedIn: !!this.$store.state.user.id,
+        userId: this.$store.state.user.id.toString() ?? '',
+        userSubscribed: !!this.$store.state.user.access.length,
+        cookieDomain: '.telegram.hr',
+        storage: 'local_storage',
+        storageExpiration: {
+          default: 15,
+          keys: {
+            browser_id: 1051200,
+            campaigns: 1051200,
+          },
+        },
+        article: {
+          id: this.post.id.toString(),
+          category: 'specijal',
+          locked: true,
+          tags: this.post.tag ? [this.post.tag] : [],
+          elementFn: () => {
+            return document.querySelector('.specijal-article-body')
+          },
+          author_id: authorName,
+        },
+        tracker: {
+          url: 'https://tracker.telegram.hr',
+          timeSpent: {
+            enabled: true,
+          },
+          canonicalUrl: 'https://tracker.telegram.hr',
+        },
+        campaign: {
+          url: 'https://campaign.telegram.hr',
+          pageviewAttributes: {
+            postType: 'post',
+            category: 'specijal',
+            groupCategory: 0,
+            locked: 'always',
+            isS1: '0',
+            segment: Math.floor(Math.random() * 4).toString(),
+            userSubscribed: this.$store.state.user.access.length ? '1' : '0',
+            ip: this.$store.state.user.ip,
+            hasContentAccess: this.$store.getters['user/hasContentAccess'](
+              this.$route.path
+            )
+              ? '1'
+              : '0',
+          },
+        },
+      }
+      window.remplib.tracker.init(rempConfig)
+      window.remplib.campaign.init(rempConfig)
+    },
     loadMore() {
       this.loading = true
       this.$axios
