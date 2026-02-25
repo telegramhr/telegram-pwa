@@ -9,25 +9,14 @@
       <div class="full center spar-line">
         <div class="flex center">
           <img
-            src="@/assets/img/extras/partner_logos/spar.svg"
+            src="@/assets/img/extras/partner_logos/plodine.svg"
             alt="Spar logo"
             loading="lazy"
           />
           <img
-            src="@/assets/img/extras/partner_logos/spar.svg"
+            src="@/assets/img/extras/partner_logos/plodine.svg"
             class="dark-mode-only"
             alt="Spar logo"
-            loading="lazy"
-          />
-          <img
-            src="@/assets/img/extras/partner_logos/interspar.svg"
-            alt="Interspar logo"
-            loading="lazy"
-          />
-          <img
-            src="@/assets/img/extras/partner_logos/interspar.svg"
-            class="dark-mode-only"
-            alt="Interspar logo"
             loading="lazy"
           />
         </div>
@@ -192,7 +181,7 @@ export default {
 
 <style>
 .spar-line {
-  background-color: #006431;
+  background-color: #ed1c24;
 }
 
 .spar-line > div {
