@@ -492,34 +492,33 @@ export default {
             // Let horizontal swipes pass through
             if (touchDirection === 'horizontal') return
 
-            // For vertical swipes: prevent page scroll immediately
-            if (touchDirection === 'vertical') {
-              const atBoundary =
-                (dy > 0 && currentStep >= totalSteps - 1) ||
-                (dy < 0 && currentStep <= 0)
+            // Check boundary before blocking scroll
+            const atBoundary =
+              (dy > 0 && currentStep >= totalSteps - 1) ||
+              (dy < 0 && currentStep <= 0)
 
-              // At boundary, allow page to scroll
-              if (atBoundary) return
+            if (atBoundary) return
 
-              // Not at boundary: block page scroll
-              e.preventDefault()
+            // Block page scroll IMMEDIATELY — before direction is even confirmed.
+            // If we wait, the browser commits to scrolling and ignores later preventDefault.
+            e.preventDefault()
 
-              // Wait for enough movement before triggering step change
-              if (Math.abs(dy) < 30 || locked) return
+            // Only trigger step change after direction confirmed and threshold met
+            if (touchDirection !== 'vertical' || Math.abs(dy) < 30 || locked)
+              return
 
-              touchHandled = true
-              locked = true
+            touchHandled = true
+            locked = true
 
-              if (dy > 0) {
-                goToStep(currentStep + 1)
-              } else {
-                goToStep(currentStep - 1)
-              }
-
-              setTimeout(() => {
-                locked = false
-              }, 600)
+            if (dy > 0) {
+              goToStep(currentStep + 1)
+            } else {
+              goToStep(currentStep - 1)
             }
+
+            setTimeout(() => {
+              locked = false
+            }, 600)
           },
           { passive: false }
         )
