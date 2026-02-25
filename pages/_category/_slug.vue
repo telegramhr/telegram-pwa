@@ -441,7 +441,7 @@
               ></div>
               <div class="remp-banner"></div>
               <client-only>
-                <!--<portal
+                <portal
                   v-if="
                     !hasPremium &&
                     !(
@@ -455,7 +455,7 @@
                   <div class="full">
                     <offers-premium></offers-premium>
                   </div>
-                </portal> -->
+                </portal>
                 <portal v-if="showQuiz" selector="#quiz-container">
                   <quiz
                     v-if="post.quiz"

@@ -58,10 +58,10 @@
               :src="post.slika"
               loading="lazy"
               alt="Spar promo"
-              width="400"
-              height="400"
+              width="300"
+              height="600"
             />
-            <div class="full flex article-pad">
+            <!--<div class="full flex article-pad">
               <div>
                 <div class="full offer-title bold">{{ post.naslov }}</div>
                 <div v-if="post.cijena_euro" class="noththree full overtitle">
@@ -81,7 +81,7 @@
               <div class="newbtn">
                 {{ post.cta ? post.cta : 'Pogledaj ponudu' }}
               </div>
-            </div>
+            </div>-->
           </a>
         </div>
       </VueSlickCarousel>
