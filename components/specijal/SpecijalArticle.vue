@@ -86,6 +86,7 @@
       <section class="specijal-article-content" aria-label="Sadržaj članka">
         <!-- eslint-disable vue/no-v-html -->
         <div
+          id="article-content"
           class="specijal-article-body single-article"
           @click="handleClick"
           v-html="post.content"
@@ -126,6 +127,7 @@
         </client-only>
       </section>
 
+      <intext-remp></intext-remp>
       <!-- Footer -->
       <footer class="specijal-article-footer" role="contentinfo">
         <div class="specijal-article-footer-inner">
@@ -191,8 +193,6 @@
         </div>
       </footer>
     </article>
-
-    <intext-remp></intext-remp>
   </div>
 </template>
 
@@ -217,6 +217,7 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
+      this.preparePaywall()
       this.initSliders()
       this.processEmbeds()
       this.initProgress()
@@ -228,6 +229,29 @@ export default {
     }
   },
   methods: {
+    preparePaywall() {
+      const content = document.getElementById('article-content')
+      if (!content) return
+      const children = Array.from(content.children)
+      // Keep only the first section visible, wrap everything after in #piano-content
+      let cutIndex = -1
+      for (let i = 0; i < children.length; i++) {
+        if (
+          children[i].classList &&
+          children[i].classList.contains('specijal-section')
+        ) {
+          cutIndex = i + 1
+          break
+        }
+      }
+      if (cutIndex < 0) return
+      const wrapper = document.createElement('div')
+      wrapper.id = 'piano-content'
+      content.insertBefore(wrapper, children[cutIndex])
+      for (let i = cutIndex; i < children.length; i++) {
+        wrapper.appendChild(children[i])
+      }
+    },
     handleClick(e) {
       const link = e.target.closest('a')
       if (link && link.href && link.href.includes('telegram.hr')) {
@@ -300,6 +324,17 @@ export default {
         let currentStep = 0
         let locked = false
         let released = false
+        // eslint-disable-next-line no-unused-vars
+        let inView = false
+
+        // Only hijack scroll/touch when container is >=90% visible
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            inView = entry.isIntersecting
+          },
+          { threshold: 0.7 }
+        )
+        observer.observe(container)
 
         function goToStep(step) {
           if (step === currentStep || step < 0 || step >= totalSteps) return
@@ -393,6 +428,8 @@ export default {
         container.addEventListener(
           'wheel',
           (e) => {
+            if (!inView) return
+
             const atBoundary =
               (e.deltaY > 0 && currentStep >= totalSteps - 1) ||
               (e.deltaY < 0 && currentStep <= 0)
@@ -425,6 +462,7 @@ export default {
         let touchStartY = 0
         let touchStartX = 0
         let touchHandled = false
+        let touchDirection = null
 
         container.addEventListener(
           'touchstart',
@@ -432,6 +470,7 @@ export default {
             touchStartY = e.touches[0].clientY
             touchStartX = e.touches[0].clientX
             touchHandled = false
+            touchDirection = null
           },
           { passive: true }
         )
@@ -439,37 +478,48 @@ export default {
         container.addEventListener(
           'touchmove',
           (e) => {
-            if (touchHandled || locked) return
+            if (!inView || touchHandled) return
 
             const dy = touchStartY - e.touches[0].clientY
             const dx = touchStartX - e.touches[0].clientX
 
-            // Only handle vertical swipes (ignore horizontal)
-            if (Math.abs(dy) < 30 || Math.abs(dx) > Math.abs(dy)) return
-
-            const atBoundary =
-              (dy > 0 && currentStep >= totalSteps - 1) ||
-              (dy < 0 && currentStep <= 0)
-
-            if (atBoundary) {
-              if (released) return
-              released = true
-              return
+            // Determine swipe direction once after small movement
+            if (!touchDirection && (Math.abs(dy) > 10 || Math.abs(dx) > 10)) {
+              touchDirection =
+                Math.abs(dy) >= Math.abs(dx) ? 'vertical' : 'horizontal'
             }
 
-            e.preventDefault()
-            touchHandled = true
-            locked = true
+            // Let horizontal swipes pass through
+            if (touchDirection === 'horizontal') return
 
-            if (dy > 0) {
-              goToStep(currentStep + 1)
-            } else {
-              goToStep(currentStep - 1)
+            // For vertical swipes: prevent page scroll immediately
+            if (touchDirection === 'vertical') {
+              const atBoundary =
+                (dy > 0 && currentStep >= totalSteps - 1) ||
+                (dy < 0 && currentStep <= 0)
+
+              // At boundary, allow page to scroll
+              if (atBoundary) return
+
+              // Not at boundary: block page scroll
+              e.preventDefault()
+
+              // Wait for enough movement before triggering step change
+              if (Math.abs(dy) < 30 || locked) return
+
+              touchHandled = true
+              locked = true
+
+              if (dy > 0) {
+                goToStep(currentStep + 1)
+              } else {
+                goToStep(currentStep - 1)
+              }
+
+              setTimeout(() => {
+                locked = false
+              }, 600)
             }
-
-            setTimeout(() => {
-              locked = false
-            }, 600)
           },
           { passive: false }
         )

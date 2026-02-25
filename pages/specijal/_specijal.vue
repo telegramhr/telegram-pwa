@@ -135,7 +135,7 @@ export default {
           locked: true,
           tags: this.post.tag ? [this.post.tag] : [],
           elementFn: () => {
-            return document.querySelector('.specijal-article-body')
+            return document.getElementById('article-content')
           },
           author_id: authorName,
         },
