@@ -336,6 +336,11 @@
         style="width: 100%"
       />
     </app-link>
+    <client-only>
+      <div v-if="!hasPremium" class="full relative">
+        <offers-premium></offers-premium>
+      </div>
+    </client-only>
     <!-- TG preporuka -->
     <div
       class="full relative darkened-bg column-top-margin column-bottom-margin column-bottom-pad mobile-vertical-pad"
