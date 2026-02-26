@@ -323,22 +323,29 @@ export default {
 
         let currentStep = 0
         let locked = false
-        let released = false
         // eslint-disable-next-line no-unused-vars
         let inView = false
 
-        // Only hijack scroll/touch when container is >=90% visible
+        function updateTouchAction() {
+          if (!inView) {
+            container.style.touchAction = ''
+          } else {
+            container.style.touchAction = 'none'
+          }
+        }
+
+        // Only hijack scroll/touch when container is >=70% visible
         const observer = new IntersectionObserver(
           ([entry]) => {
             inView = entry.isIntersecting
+            updateTouchAction()
           },
-          { threshold: 0.7 }
+          { threshold: 0.8 }
         )
         observer.observe(container)
 
         function goToStep(step) {
           if (step === currentStep || step < 0 || step >= totalSteps) return
-          released = false
 
           const prevStep = currentStep
           const goingForward = step > prevStep
@@ -406,6 +413,12 @@ export default {
               items.length
             }`
           }
+
+          // Release touch-action at boundary so next gesture scrolls the page
+          if (inView) {
+            const atBound = currentStep <= 0 || currentStep >= totalSteps - 1
+            container.style.touchAction = atBound ? '' : 'none'
+          }
         }
 
         // Keyboard navigation
@@ -435,9 +448,8 @@ export default {
               (e.deltaY < 0 && currentStep <= 0)
 
             if (atBoundary) {
-              if (released) return
-              released = true
-              e.preventDefault()
+              // Only block during animation, then let browser scroll
+              if (locked) e.preventDefault()
               return
             }
 
@@ -459,18 +471,16 @@ export default {
         )
 
         // Touch / swipe support for mobile
+        // touch-action: none (set by observer) prevents native scroll,
+        // so this handler only detects swipe direction and triggers steps.
         let touchStartY = 0
-        let touchStartX = 0
         let touchHandled = false
-        let touchDirection = null
 
         container.addEventListener(
           'touchstart',
           (e) => {
             touchStartY = e.touches[0].clientY
-            touchStartX = e.touches[0].clientX
             touchHandled = false
-            touchDirection = null
           },
           { passive: true }
         )
@@ -478,34 +488,21 @@ export default {
         container.addEventListener(
           'touchmove',
           (e) => {
-            if (!inView || touchHandled) return
+            if (!inView || touchHandled || locked) return
 
             const dy = touchStartY - e.touches[0].clientY
-            const dx = touchStartX - e.touches[0].clientX
+            if (Math.abs(dy) < 30) return
 
-            // Determine swipe direction once after small movement
-            if (!touchDirection && (Math.abs(dy) > 10 || Math.abs(dx) > 10)) {
-              touchDirection =
-                Math.abs(dy) >= Math.abs(dx) ? 'vertical' : 'horizontal'
-            }
-
-            // Let horizontal swipes pass through
-            if (touchDirection === 'horizontal') return
-
-            // Check boundary before blocking scroll
             const atBoundary =
               (dy > 0 && currentStep >= totalSteps - 1) ||
               (dy < 0 && currentStep <= 0)
 
-            if (atBoundary) return
-
-            // Block page scroll IMMEDIATELY — before direction is even confirmed.
-            // If we wait, the browser commits to scrolling and ignores later preventDefault.
-            e.preventDefault()
-
-            // Only trigger step change after direction confirmed and threshold met
-            if (touchDirection !== 'vertical' || Math.abs(dy) < 30 || locked)
+            if (atBoundary) {
+              // Release touch-action so NEXT gesture scrolls the page
+              container.style.touchAction = ''
+              touchHandled = true
               return
+            }
 
             touchHandled = true
             locked = true

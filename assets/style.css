@@ -7617,6 +7617,19 @@ html.large-fontsize,
         line-height: 36px;
         padding: 24px 32px;
     }
+    .specijal-slike {
+        height: 100vh;
+        width: 100%;
+        overflow: hidden;
+    }
+    .specijal-slike .specijal-slike-item {
+        height: 100vh;
+    }
+    .specijal-slike .specijal-slike-item img {
+        width: 100% !important;
+        height: 100vh !important;
+        object-fit: cover !important;
+    }
 }
 
 
