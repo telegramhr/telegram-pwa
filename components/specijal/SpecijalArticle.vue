@@ -227,6 +227,9 @@ export default {
     if (this._onScroll) {
       window.removeEventListener('scroll', this._onScroll)
     }
+    if (this._galleryCleanups) {
+      this._galleryCleanups.forEach((fn) => fn())
+    }
   },
   methods: {
     preparePaywall() {
@@ -284,241 +287,63 @@ export default {
 
     initSliders() {
       if (typeof window === 'undefined') return
+      if (!this._galleryCleanups) this._galleryCleanups = []
 
       const containers = this.$el.querySelectorAll('.specijal-slike')
+
       containers.forEach((container) => {
-        const imageCount = parseInt(container.dataset.count, 10)
-        const textCount = parseInt(container.dataset.textCount || '0', 10)
-        const totalSteps = imageCount + textCount
-
-        if (totalSteps <= 1) return
-
         const items = container.querySelectorAll('.specijal-slike-item')
-        const texts = container.querySelectorAll('.specijal-slike-text')
+        if (!items.length) return
 
-        if (items.length <= 1 && texts.length === 0) return
+        // Remove default active class from WordPress HTML
+        items.forEach((item) => item.classList.remove('active'))
 
-        // Accessibility
-        container.setAttribute('role', 'region')
-        container.setAttribute('aria-label', 'Galerija slika')
-        container.setAttribute('aria-roledescription', 'carousel')
-        container.setAttribute('tabindex', '0')
+        container.classList.add('specijal-slike-scroll-gallery')
 
-        const liveRegion = document.createElement('div')
-        liveRegion.setAttribute('aria-live', 'polite')
-        liveRegion.setAttribute('aria-atomic', 'true')
-        liveRegion.className = 'sr-only'
-        container.appendChild(liveRegion)
-
-        items.forEach((item, idx) => {
-          item.setAttribute('role', 'group')
-          item.setAttribute('aria-roledescription', 'slide')
-          item.setAttribute('aria-label', `Slika ${idx + 1} od ${items.length}`)
-          item.setAttribute('aria-hidden', idx !== 0 ? 'true' : 'false')
-        })
-
-        texts.forEach((text) => {
-          text.setAttribute('aria-hidden', 'true')
-        })
-
-        let currentStep = 0
-        let locked = false
-        // eslint-disable-next-line no-unused-vars
-        let inView = false
-
-        function updateTouchAction() {
-          if (!inView) {
-            container.style.touchAction = ''
+        // Set background/gradient based on neighboring sections
+        if (!container.dataset.transition) {
+          const prev = container.previousElementSibling
+          const next = container.nextElementSibling
+          const prevIsAlt =
+            prev && prev.classList.contains('specijal-section-alt')
+          const nextIsAlt =
+            next && next.classList.contains('specijal-section-alt')
+          if (prevIsAlt && nextIsAlt) {
+            container.dataset.transition = 'alt-alt'
+          } else if (!prevIsAlt && !nextIsAlt) {
+            container.dataset.transition = 'normal-normal'
+          } else if (!prevIsAlt && nextIsAlt) {
+            container.dataset.transition = 'to-alt'
           } else {
-            container.style.touchAction = 'none'
+            container.dataset.transition = 'to-normal'
           }
         }
 
-        // Only hijack scroll/touch when container is >=70% visible
-        const observer = new IntersectionObserver(
-          ([entry]) => {
-            inView = entry.isIntersecting
-            updateTouchAction()
-          },
-          { threshold: 0.8 }
-        )
-        observer.observe(container)
-
-        function goToStep(step) {
-          if (step === currentStep || step < 0 || step >= totalSteps) return
-
-          const prevStep = currentStep
-          const goingForward = step > prevStep
-          currentStep = step
-
-          // Image transitions
-          const prevImageIdx = prevStep < imageCount ? prevStep : imageCount - 1
-          const newImageIdx = step < imageCount ? step : imageCount - 1
-
-          if (newImageIdx !== prevImageIdx) {
-            items[prevImageIdx].classList.remove('active')
-            items[prevImageIdx].classList.add('previous')
-            items[prevImageIdx].setAttribute('aria-hidden', 'true')
-            items[newImageIdx].classList.add('active')
-            items[newImageIdx].setAttribute('aria-hidden', 'false')
-            setTimeout(() => {
-              items[prevImageIdx].classList.remove('previous')
-            }, 600)
-          }
-
-          // Text transitions
-          const prevTextIdx =
-            prevStep >= imageCount ? prevStep - imageCount : -1
-          const newTextIdx = step >= imageCount ? step - imageCount : -1
-
-          if (prevTextIdx >= 0 && prevTextIdx !== newTextIdx) {
-            texts[prevTextIdx].classList.remove('active')
-            texts[prevTextIdx].classList.add(
-              goingForward ? 'exit-up' : 'exit-down'
-            )
-            texts[prevTextIdx].setAttribute('aria-hidden', 'true')
-            setTimeout(() => {
-              texts[prevTextIdx].classList.remove('exit-up', 'exit-down')
-            }, 600)
-          }
-
-          if (newTextIdx >= 0) {
-            texts[newTextIdx].classList.add(
-              goingForward ? 'enter-from-below' : 'enter-from-above'
-            )
-            // eslint-disable-next-line no-unused-expressions
-            texts[newTextIdx].offsetHeight
-            texts[newTextIdx].classList.remove(
-              'enter-from-below',
-              'enter-from-above'
-            )
-            texts[newTextIdx].classList.add('active')
-            texts[newTextIdx].setAttribute('aria-hidden', 'false')
-          }
-
-          // Toggle dark scrim
-          if (newTextIdx >= 0) {
-            container.classList.add('text-phase-active')
-          } else {
-            container.classList.remove('text-phase-active')
-          }
-
-          // Screen reader announcement
-          if (newTextIdx >= 0) {
-            liveRegion.textContent = `Tekst ${newTextIdx + 1} od ${
-              texts.length
-            }`
-          } else {
-            liveRegion.textContent = `Slika ${newImageIdx + 1} od ${
-              items.length
-            }`
-          }
-
-          // Release touch-action at boundary so next gesture scrolls the page
-          if (inView) {
-            const atBound = currentStep <= 0 || currentStep >= totalSteps - 1
-            container.style.touchAction = atBound ? '' : 'none'
-          }
+        const callback = (entries) => {
+          entries.forEach((entry) => {
+            entry.target.classList.toggle('visible', entry.isIntersecting)
+          })
         }
 
-        // Keyboard navigation
-        container.addEventListener('keydown', (e) => {
-          if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-            e.preventDefault()
-            goToStep(currentStep + 1)
-          } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-            e.preventDefault()
-            goToStep(currentStep - 1)
-          } else if (e.key === 'Home') {
-            e.preventDefault()
-            goToStep(0)
-          } else if (e.key === 'End') {
-            e.preventDefault()
-            goToStep(totalSteps - 1)
+        const edgeObserver = new IntersectionObserver(callback, {
+          threshold: 0.75,
+        })
+        const midObserver = new IntersectionObserver(callback, {
+          threshold: 0.5,
+        })
+
+        items.forEach((item, i) => {
+          if (i === 0 || i === items.length - 1) {
+            edgeObserver.observe(item)
+          } else {
+            midObserver.observe(item)
           }
         })
 
-        container.addEventListener(
-          'wheel',
-          (e) => {
-            if (!inView) return
-
-            const atBoundary =
-              (e.deltaY > 0 && currentStep >= totalSteps - 1) ||
-              (e.deltaY < 0 && currentStep <= 0)
-
-            if (atBoundary) {
-              // Only block during animation, then let browser scroll
-              if (locked) e.preventDefault()
-              return
-            }
-
-            e.preventDefault()
-            if (locked) return
-            locked = true
-
-            if (e.deltaY > 0) {
-              goToStep(currentStep + 1)
-            } else {
-              goToStep(currentStep - 1)
-            }
-
-            setTimeout(() => {
-              locked = false
-            }, 600)
-          },
-          { passive: false }
-        )
-
-        // Touch / swipe support for mobile
-        // touch-action: none (set by observer) prevents native scroll,
-        // so this handler only detects swipe direction and triggers steps.
-        let touchStartY = 0
-        let touchHandled = false
-
-        container.addEventListener(
-          'touchstart',
-          (e) => {
-            touchStartY = e.touches[0].clientY
-            touchHandled = false
-          },
-          { passive: true }
-        )
-
-        container.addEventListener(
-          'touchmove',
-          (e) => {
-            if (!inView || touchHandled || locked) return
-
-            const dy = touchStartY - e.touches[0].clientY
-            if (Math.abs(dy) < 30) return
-
-            const atBoundary =
-              (dy > 0 && currentStep >= totalSteps - 1) ||
-              (dy < 0 && currentStep <= 0)
-
-            if (atBoundary) {
-              // Release touch-action so NEXT gesture scrolls the page
-              container.style.touchAction = ''
-              touchHandled = true
-              return
-            }
-
-            touchHandled = true
-            locked = true
-
-            if (dy > 0) {
-              goToStep(currentStep + 1)
-            } else {
-              goToStep(currentStep - 1)
-            }
-
-            setTimeout(() => {
-              locked = false
-            }, 600)
-          },
-          { passive: false }
-        )
+        this._galleryCleanups.push(() => {
+          edgeObserver.disconnect()
+          midObserver.disconnect()
+        })
       })
     },
 

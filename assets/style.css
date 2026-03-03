@@ -2075,8 +2075,8 @@ figure a {
 
 .specijal-quote {
     padding: 32px 0;
-    border-top: 2px solid #6F2424;
-    border-bottom: 2px solid #6F2424;
+    border-top: 2px solid #213F83;
+    border-bottom: 2px solid #213F83;
     margin: 24px 0;
 }
 
@@ -2101,7 +2101,7 @@ figure a {
 .specijal-highlight {
     position: relative;
     padding-left: 20px;
-    border-left: 3px solid #6F2424;
+    border-left: 3px solid #213F83;
     margin: 24px 0;
 }
 
@@ -2129,7 +2129,7 @@ figure a {
         top: 0;
         bottom: 0;
         width: 3px;
-        background: #6F2424;
+        background: #213F83;
     }
 }
 
@@ -7078,7 +7078,7 @@ html.large-fontsize,
 .specijal-article-hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(91, 2, 2, 0) 57.11%, #5B0202 96.42%), linear-gradient(180deg, rgba(0, 0, 0, 0) 31.81%, #000000 96.77%);
+    background: linear-gradient(180deg, rgba(33, 63, 131, 0) 57.11%, #213F83 96.42%), linear-gradient(180deg, rgba(0, 0, 0, 0) 31.81%, #000000 96.77%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7170,7 +7170,7 @@ html.large-fontsize,
     top: 0;
     left: 0;
     right: 0;
-    z-index: 100;
+    z-index: 10000;
     height: 100px;
     display: flex;
     flex-direction: column;
@@ -7245,7 +7245,15 @@ html.large-fontsize,
 /* Alternating sections — text constrained, background full-width */
 
 .specijal-section {
-    padding: 64px 0;
+    padding: 40vh 0;
+}
+
+.specijal-section:first-child {
+    padding-top: 64px;
+}
+
+.specijal-section:last-child {
+    padding-bottom: 64px;
 }
 
 .specijal-section>p,
@@ -7276,7 +7284,7 @@ html.large-fontsize,
     font-weight: 500;
     font-size: 28px;
     line-height: 40px;
-    color: #6F2424;
+    color: #213F83;
     margin-bottom: 0;
 }
 
@@ -7294,28 +7302,28 @@ html.large-fontsize,
 }
 
 .specijal-section-alt {
-    background-color: #4F1919;
-    color: #FFFFFF;
+    background-color: #CBDBE2;
+    color: #111111;
 }
 
 .specijal-section-alt .specijal-quote {
-    border-color: #D16E6E;
+    border-color: #213F83;
 }
 
 .specijal-section-alt .specijal-quote p {
-    color: #FFFFFF;
+    color: #213F83;
 }
 
 .specijal-section-alt .specijal-highlight {
-    border-color: #D16E6E;
+    border-color: #213F83;
 }
 
 .specijal-section-alt .specijal-highlight::before {
-    background-color: #D16E6E;
+    background-color: #213F83;
 }
 
 .specijal-section-alt a {
-    color: #D4A574;
+    color: #213F83;
 }
 
 
@@ -7327,14 +7335,22 @@ html.large-fontsize,
 }
 
 
-/* Split background only on fixed-width images */
+/* Gradient transition through image zones between sections */
 
-.specijal-slike[data-mode="fixed"][data-transition="to-alt"] {
-    background: linear-gradient(to bottom, var(--tg-primary-background-color, #fcf1e7) 50%, #4F1919 50%);
+.specijal-slike[data-transition="to-alt"] {
+    background: linear-gradient(to bottom, #fcf1e7, #CBDBE2);
 }
 
-.specijal-slike[data-mode="fixed"][data-transition="to-normal"] {
-    background: linear-gradient(to bottom, #4F1919 50%, var(--tg-primary-background-color, #fcf1e7) 50%);
+.specijal-slike[data-transition="to-normal"] {
+    background: linear-gradient(to bottom, #CBDBE2, #fcf1e7);
+}
+
+.specijal-slike[data-transition="alt-alt"] {
+    background: #CBDBE2;
+}
+
+.specijal-slike[data-transition="normal-normal"] {
+    background: #fcf1e7;
 }
 
 .specijal-slike[data-mode="fixed"] .specijal-slike-item {
@@ -7507,11 +7523,74 @@ html.large-fontsize,
 }
 
 
+/* Scroll gallery */
+
+.specijal-slike.specijal-slike-scroll-gallery {
+    display: block !important;
+}
+
+
+/* Each item is a scroll zone with padding */
+
+.specijal-slike-scroll-gallery .specijal-slike-item {
+    position: relative !important;
+    padding-top: 40vh !important;
+    padding-bottom: 40vh !important;
+    grid-area: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+    opacity: 1 !important;
+}
+
+
+/* Hide texts and overlay */
+
+.specijal-slike-scroll-gallery .specijal-slike-text,
+.specijal-slike-scroll-gallery .photo-credit,
+.specijal-slike-scroll-gallery::after {
+    display: none !important;
+}
+
+
+/* Images: fixed to viewport center, hidden by default */
+
+.specijal-slike-scroll-gallery .specijal-slike-item img {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    max-width: 1090px !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    opacity: 0;
+    transition: opacity 0.6s ease-in;
+    z-index: 9000;
+    pointer-events: none;
+}
+
+.specijal-slike-scroll-gallery .specijal-slike-item.visible img {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+/* Full width mode: edge-to-edge */
+
+.specijal-slike-scroll-gallery[data-mode="full"] .specijal-slike-item img {
+    left: 0 !important;
+    transform: translateY(-50%) !important;
+    max-width: none !important;
+    width: 100vw !important;
+    object-fit: cover !important;
+}
+
+
 /* Specijal article footer */
 
 .specijal-article-footer {
-    background-color: #4F1919;
-    color: #FFFFFF;
+    background-color: #CBDBE2;
+    color: #111111;
     padding: 80px 24px;
 }
 
@@ -7597,7 +7676,7 @@ html.large-fontsize,
         line-height: 32px;
     }
     .specijal-section {
-        padding: 32px 16px;
+        padding: 40vh 16px;
     }
     .specijal-article-footer {
         padding: 48px 24px;
@@ -7605,6 +7684,12 @@ html.large-fontsize,
     .specijal-article-footer-inner {
         flex-direction: column;
         gap: 60px;
+    }
+    .specijal-section:first-child {
+        padding-top: 40px;
+    }
+    .specijal-section:last-child {
+        padding-bottom: 40px;
     }
     .specijal-article-footer-logo {
         width: 180px;
@@ -7619,11 +7704,20 @@ html.large-fontsize,
     .specijal-slike[data-text-count]::after {
         display: none !important;
     }
-    .specijal-slike .specijal-slike-item {
-        padding: 80px 0;
+    .specijal-slike {
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
     }
-    .specijal-section-alt + .specijal-slike .specijal-slike-item {
-        background-color: #4F1919;
+    .specijal-slike .specijal-slike-item img {
+        width: 100% !important;
+        height: auto !important;
+    }
+    .specijal-slike-scroll-gallery .specijal-slike-item img {
+        left: 0 !important;
+        transform: translateY(-50%) !important;
+        max-width: none !important;
+        width: 100vw !important;
+        object-fit: cover !important;
     }
 }
 
