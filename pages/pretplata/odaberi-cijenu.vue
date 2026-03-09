@@ -162,7 +162,7 @@
 </template>
 
 <script>
-const PAGE_ACTIVE = false
+const PAGE_ACTIVE = true
 
 export default {
   beforeRouteEnter(to, from, next) {
