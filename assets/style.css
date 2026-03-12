@@ -8615,6 +8615,15 @@ html.large-fontsize,
     max-width: 1200px;
 }
 
+.wp-block-image .aligncenter>figcaption,
+.wp-block-image .alignleft>figcaption,
+.wp-block-image .alignright>figcaption,
+.wp-block-image.aligncenter>figcaption,
+.wp-block-image.alignleft>figcaption,
+.wp-block-image.alignright>figcaption {
+    display: flex;
+}
+
 .product-gallery-filters span {
     padding: 8px 8px;
     padding-left: 0px;

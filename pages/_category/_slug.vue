@@ -443,6 +443,7 @@
               <client-only>
                 <portal
                   v-if="
+                    useSparPortal &&
                     !hasPremium &&
                     !(
                       post.disable_ads &&
@@ -782,6 +783,7 @@ export default {
   },
   data() {
     return {
+      useSparPortal: false,
       portal_title: '',
       single_title: '',
       showMidasIntext: false,
@@ -1093,6 +1095,7 @@ export default {
       }
     },
     loadAds() {
+      this.useSparPortal = true
       this.$store.dispatch('ads/initAds', {
         route: this.$route,
         options: this.post.disable_ads,
