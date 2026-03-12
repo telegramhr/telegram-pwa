@@ -1104,7 +1104,7 @@ export const actions = {
     )
     setTimeout(() => {
       dispatch('initAdserver')
-    }, 3500)
+    }, 1500)
   },
   biddersBack({ dispatch }) {
     if (window.pbjs.requestManager.aps && window.pbjs.requestManager.prebid) {

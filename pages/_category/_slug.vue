@@ -441,8 +441,9 @@
               ></div>
               <div class="remp-banner"></div>
               <client-only>
-                <!--<portal
+                <portal
                   v-if="
+                    useSparPortal &&
                     !hasPremium &&
                     !(
                       post.disable_ads &&
@@ -455,7 +456,7 @@
                   <div class="full">
                     <offers-premium></offers-premium>
                   </div>
-                </portal> -->
+                </portal>
                 <portal v-if="showQuiz" selector="#quiz-container">
                   <quiz
                     v-if="post.quiz"
@@ -782,6 +783,7 @@ export default {
   },
   data() {
     return {
+      useSparPortal: false,
       portal_title: '',
       single_title: '',
       showMidasIntext: false,
@@ -1093,6 +1095,7 @@ export default {
       }
     },
     loadAds() {
+      this.useSparPortal = true
       this.$store.dispatch('ads/initAds', {
         route: this.$route,
         options: this.post.disable_ads,

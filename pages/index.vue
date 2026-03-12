@@ -304,16 +304,16 @@
     </div>
     <app-link
       v-show="!$store.state.user.access?.length"
-      to="/pretplata/odaberi-cijenu"
+      to="/pretplata/50-popust"
       class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth"
     >
       <img
-        src="@/assets/img/pretplata/odaberi-cijenu/banner.webp"
+        src="@/assets/img/pretplata/homepage/50_godisnja.png"
         alt="Desktop banner za popust na godišnju pretplatu"
         class="desktop-only"
       />
       <img
-        src="@/assets/img/pretplata/odaberi-cijenu/banner_mob.webp"
+        src="@/assets/img/pretplata/homepage/50_godisnja_mob.png"
         alt="Mobile banner za popust na godišnju pretplatu"
         class="mobile-only"
         style="width: 100%"
@@ -336,6 +336,11 @@
         style="width: 100%"
       />
     </app-link>
+    <client-only>
+      <div v-if="!hasPremium" class="full relative">
+        <offers-premium></offers-premium>
+      </div>
+    </client-only>
     <!-- TG preporuka -->
     <div
       class="full relative darkened-bg column-top-margin column-bottom-margin column-bottom-pad mobile-vertical-pad"
