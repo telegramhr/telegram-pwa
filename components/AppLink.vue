@@ -20,6 +20,8 @@ export default {
           is: 'span',
         }
       }
+      // Strip local/staging domain so links route internally
+      route = route.replace('https://telegram-wp.ddev.site', '').replace(this.$config.apiBaseUrl, '')
       if (route.match(/^(http(s)?|ftp):\/\//)) {
         return {
           is: 'a',
