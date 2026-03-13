@@ -254,7 +254,7 @@ export default {
 
     proxy: {
         '/api': {
-            target: 'https://www.telegram.hr/wp-json/telegram/pwa/v1/',
+            target: `${process.env.API_BASE_URL || 'https://www.telegram.hr'}/wp-json/telegram/pwa/v1/`,
             pathRewrite: { '^/api/': '' },
         },
         '/pretplate': {
