@@ -246,6 +246,10 @@ export default {
         },
     },
 
+    publicRuntimeConfig: {
+        apiBaseUrl: process.env.API_BASE_URL || 'https://www.telegram.hr',
+    },
+
     // Axios module configuration (https://go.nuxtjs.dev/config-axios)
     axios: {
         credentials: true,
