@@ -468,12 +468,10 @@
                   <time
                     class="live-update__time"
                     :datetime="new Date(update.time * 1000).toISOString()"
+                    :title="update.date_formatted + ' ' + update.time_formatted"
                   >
                     <span class="live-update__hour">{{
-                      update.time_formatted
-                    }}</span>
-                    <span class="live-update__date">{{
-                      update.date_formatted
+                      liveRelativeTime(update.time)
                     }}</span>
                   </time>
                   <div class="live-update__content">
@@ -490,7 +488,19 @@
                         ><font-awesome-icon :icon="['fas', 'link']"
                       /></a>
                     </div>
-                    <div v-html="update.body"></div>
+                    <div
+                      v-if="update.body.replace(/<[^>]*>/g, '').length <= 1000 || liveExpandedUpdates.includes(update.anchor)"
+                      v-html="update.body"
+                    ></div>
+                    <template v-else>
+                      <p>{{ update.body.replace(/<[^>]*>/g, '').substring(0, 300) }}...</p>
+                      <button
+                        class="live-update__read-more"
+                        @click="liveExpandedUpdates.push(update.anchor)"
+                      >
+                        Pročitajte više
+                      </button>
+                    </template>
                   </div>
                 </article>
               </div>
@@ -825,7 +835,7 @@
   content: '';
   position: absolute;
   left: -7px;
-  top: 20px;
+  top: 24px;
   width: 11px;
   height: 11px;
   border-radius: 50%;
@@ -859,6 +869,7 @@
   gap: 12px;
 }
 .live-update__headline {
+  font-family: 'Merriweather', serif;
   font-size: 18px;
   font-weight: 700;
   line-height: 1.3;
@@ -877,6 +888,19 @@
 .live-update__link:hover {
   opacity: 0.7;
 }
+.live-update__read-more {
+  background: none;
+  border: none;
+  color: var(--tg-primary-highlight-color);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 0;
+  margin-top: 4px;
+}
+.live-update__read-more:hover {
+  text-decoration: underline;
+}
 .live-update__content >>> img {
   max-width: 100%;
   height: auto;
@@ -884,6 +908,7 @@
   border-radius: 4px;
 }
 .live-update__content >>> p {
+  font-family: 'Merriweather', serif;
   margin: 0 0 8px;
   line-height: 1.6;
 }
@@ -1002,6 +1027,7 @@ export default {
     this.livePendingUpdates = null
     this.liveApplying = false
     this.liveRemoteCount = 0
+    this.liveExpandedUpdates = []
     const slug = this.$route.params.slug || this.$route.params.category
     this.top_articles_version = Math.random() < 0.5 ? 'v1' : 'v2'
     const version = this.top_articles_version === 'v1' ? '1' : '2'
@@ -1113,6 +1139,9 @@ export default {
       livePendingUpdates: null,     // true when server has more updates than local
       liveApplying: false,          // double-click guard for applyLiveUpdates
       liveRemoteCount: 0,           // server-reported count, used as cache-bust param ?v=
+      liveTimeNow: Math.floor(Date.now() / 1000), // current time in seconds, ticks every 30s for relative time display
+      liveTimeInterval: null,       // setInterval ID for liveTimeNow ticker
+      liveExpandedUpdates: [],      // anchors of updates expanded by "Pročitajte više"
       top_articles: [],
       top_articles_version: 'v1',
       related_posts: [],
@@ -1388,13 +1417,44 @@ export default {
       }
     })
     this.widgetVariant = this.getWidgetVariant()
+    // Tick liveTimeNow every 30s so relative timestamps update
+    this.liveTimeInterval = setInterval(() => {
+      this.liveTimeNow = Math.floor(Date.now() / 1000)
+    }, 30000)
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.handleScroll)
     this.comments_embed = null
     this.stopLivePolling()
+    if (this.liveTimeInterval) {
+      clearInterval(this.liveTimeInterval)
+      this.liveTimeInterval = null
+    }
   },
   methods: {
+    // Returns Croatian relative time string ("prije 2 min") for timestamps
+    // within the last 12 hours, or formatted date/time for older entries.
+    liveRelativeTime(unixSeconds) {
+      const diff = this.liveTimeNow - unixSeconds
+      if (diff < 0) return 'upravo sad'
+      if (diff < 60) return 'upravo sad'
+      if (diff < 3600) {
+        const mins = Math.floor(diff / 60)
+        return 'prije ' + mins + ' min'
+      }
+      if (diff < 43200) { // 12 hours
+        const hours = Math.floor(diff / 3600)
+        return 'prije ' + hours + ' h'
+      }
+      // Older than 12h — show date and time
+      const d = new Date(unixSeconds * 1000)
+      const day = d.getDate()
+      const month = d.getMonth() + 1
+      const year = d.getFullYear()
+      const hours = String(d.getHours()).padStart(2, '0')
+      const minutes = String(d.getMinutes()).padStart(2, '0')
+      return day + '.' + month + '.' + year + '. ' + hours + ':' + minutes
+    },
     handleScroll() {
       const walls = document.getElementsByClassName('wallpaper-banners')
       const bill =
