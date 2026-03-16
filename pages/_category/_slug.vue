@@ -442,6 +442,17 @@
                 @click="handleClick"
                 v-html="post.content"
               ></div>
+              <!-- AI-generated summary shown above live updates -->
+              <div
+                v-if="post.live && post.live_summary"
+                class="live-summary"
+              >
+                <div class="live-summary__label">Sažetak</div>
+                <div
+                  class="live-summary__text"
+                  v-html="post.live_summary"
+                ></div>
+              </div>
               <!--
                 Live blog updates container.
                 Renders reverse-chronological updates from ACF repeater.
@@ -819,6 +830,41 @@
   }
 }
 
+/* AI-generated live summary box */
+.live-summary {
+  max-width: 710px;
+  margin: 24px auto 0;
+  padding: 16px 20px;
+  background: var(--tg-secondary-background-color);
+  border-left: 3px solid var(--tg-primary-highlight-color);
+  border-radius: 4px;
+}
+.live-summary__label {
+  font-family: 'Barlow', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--tg-primary-highlight-color);
+  margin-bottom: 8px;
+}
+.live-summary__text {
+  font-family: 'Merriweather', serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--tg-primary-text-color);
+}
+.live-summary__text p {
+  margin: 0 0 8px;
+}
+.live-summary__text ul {
+  margin: 0;
+  padding-left: 20px;
+}
+.live-summary__text li {
+  margin-bottom: 4px;
+}
+
 /* Live blog updates */
 .live-updates-container {
   max-width: 710px;
@@ -852,7 +898,7 @@
   margin-bottom: 4px;
 }
 .live-update__hour {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Barlow', monospace;
   font-size: 14px;
   font-weight: 600;
   color: var(--tg-primary-highlight-color);
@@ -1133,6 +1179,7 @@ export default {
         live: false,
         live_end: null,
         live_updates: [],
+        live_summary: null,
       },
       // Live blog polling state
       livePollingInterval: null,    // setInterval ID for polling
@@ -1848,6 +1895,9 @@ export default {
 
             setTimeout(() => {
               this.$set(this.post, 'live_updates', data.live_updates)
+              if (data.live_summary) {
+                this.$set(this.post, 'live_summary', data.live_summary)
+              }
               this.livePendingUpdates = false
 
               this.$nextTick(() => {
