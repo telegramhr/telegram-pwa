@@ -183,6 +183,7 @@ export default {
 }
 .zgt-salebox {
   max-width: 710px;
+  max-height: 85vh;
 }
 
 .fade-enter-active,
