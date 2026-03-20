@@ -73,9 +73,7 @@
               </AppLink>
               <client-only>
                 <span
-                  v-if="
-                    this.$store.state.user.access && post.paywall === 'always'
-                  "
+                  v-if="$store.state.user.access && post.paywall === 'always'"
                   class="fancy-overtitle-premium"
                 >
                   <img
@@ -137,9 +135,7 @@
                 </div>
                 <client-only
                   ><span
-                    v-if="
-                      this.$store.state.user.access && post.paywall === 'always'
-                    "
+                    v-if="$store.state.user.access && post.paywall === 'always'"
                     class="fancy-overtitle-premium"
                   >
                     <img
@@ -433,6 +429,30 @@
                 <mini-pretplata-new
                   v-if="canLogIn && post.paywall === 'always'"
                 ></mini-pretplata-new>
+              </client-only>
+              <!-- Specijal desktop sidebar ad -->
+              <client-only>
+                <div
+                  v-if="isSpecijalPost && !$mobile"
+                  class="specijal-sidebar-ad"
+                >
+                  <div
+                    id="div-gpt-ad-1773938719663-0"
+                    style="min-width: 160px; min-height: 600px"
+                  ></div>
+                </div>
+              </client-only>
+              <!-- Specijal mobile ad (moved into content via JS) -->
+              <client-only>
+                <div
+                  v-if="isSpecijalPost && $mobile"
+                  id="specijal-mobile-ad-source"
+                >
+                  <div
+                    id="div-gpt-ad-1773938597159-0"
+                    style="min-width: 300px; min-height: 250px"
+                  ></div>
+                </div>
               </client-only>
               <!-- eslint-disable vue/no-v-html -->
               <div
@@ -1215,6 +1235,9 @@ export default {
       })
       return !!filtered.length
     },
+    isSpecijalPost() {
+      return parseInt(this.post.id) === 3042827
+    },
     hasPremium() {
       return this.$store.getters['user/hasPremium']
     },
@@ -1519,6 +1542,10 @@ export default {
       }
     },
     loadAds() {
+      if (this.isSpecijalPost) {
+        this.initSpecijalAds()
+        return
+      }
       this.useSparPortal = true
       this.$store.dispatch('ads/initAds', {
         route: this.$route,
@@ -1543,6 +1570,47 @@ export default {
           midas2.style.display = 'none'
         }
       }
+    },
+    initSpecijalAds() {
+      window.googletag = window.googletag || { cmd: [] }
+
+      // Mobile: move ad div after 2nd paragraph
+      if (this.$mobile) {
+        const content = document.getElementById('article-content')
+        const paragraphs = content?.querySelectorAll(':scope > p')
+        const source = document.getElementById('specijal-mobile-ad-source')
+        if (paragraphs?.length >= 2 && source) {
+          paragraphs[1].after(source)
+        }
+      }
+
+      window.googletag.cmd.push(() => {
+        if (this.$mobile) {
+          window.googletag
+            .defineSlot(
+              '/1092744/Specijal/Mobile_specijal',
+              [300, 250],
+              'div-gpt-ad-1773938597159-0'
+            )
+            .addService(window.googletag.pubads())
+        } else {
+          window.googletag
+            .defineSlot(
+              '/1092744/Specijal/Desktop_specijal',
+              [160, 600],
+              'div-gpt-ad-1773938719663-0'
+            )
+            .addService(window.googletag.pubads())
+        }
+        window.googletag.pubads().enableSingleRequest()
+        window.googletag.enableServices()
+
+        if (this.$mobile) {
+          window.googletag.display('div-gpt-ad-1773938597159-0')
+        } else {
+          window.googletag.display('div-gpt-ad-1773938719663-0')
+        }
+      })
     },
     loadRemp() {
       this.$store.dispatch('user/saveIP')

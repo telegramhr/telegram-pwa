@@ -67,9 +67,8 @@
             target="_blank"
             >Obavijesti o obradi osobnih podataka.</a
           >
-          Navedene podatke obrađuje i društvo Telegram media grupa d.o.o. kao
-          izvršitelj obrade u svrhu prikupljanja podataka i dostave istih
-          voditelju obrade.
+          Navedene podatke obrađuje i društvo Presshaus d.o.o. kao izvršitelj
+          obrade u svrhu prikupljanja podataka i dostave istih voditelju obrade.
         </div>
       </form>
       <div
