@@ -2379,6 +2379,25 @@ figure a {
     max-width: none;
 }
 
+
+/* Specijal post sidebar ad */
+
+.specijal-sidebar-ad {
+    position: sticky;
+    top: 80px;
+    float: right;
+    width: 160px;
+    margin-left: 20px;
+    margin-right: -180px;
+    z-index: 10;
+}
+
+#specijal-mobile-ad-source {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+}
+
 .widget-more-on-2 {
     border-top: 1px solid #c8c8c8;
     border-bottom: 1px solid #c8c8c8;
@@ -7942,6 +7961,15 @@ html.large-fontsize,
 .shop-guide.single-article .single-article-body>#article-content>figure.wp-block-image,
 .shop-guide.single-article .single-article-body>#article-content>#piano-content>figure.wp-block-image {
     max-width: 1200px;
+}
+
+.wp-block-image .aligncenter>figcaption,
+.wp-block-image .alignleft>figcaption,
+.wp-block-image .alignright>figcaption,
+.wp-block-image.aligncenter>figcaption,
+.wp-block-image.alignleft>figcaption,
+.wp-block-image.alignright>figcaption {
+    display: flex;
 }
 
 .product-gallery-filters span {

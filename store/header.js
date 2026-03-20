@@ -23,8 +23,8 @@ export const state = () => ({
       },
     },
     parentOrganization: {
-      name: 'Telegram media grupa',
-      url: 'https://telegramgrupa.hr/',
+      name: 'Presshaus',
+      url: 'https://presshaus.hr/',
       sameAs: ['https://hr.wikipedia.org/wiki/Telegram_media_grupa'],
     },
     sameAs: [
