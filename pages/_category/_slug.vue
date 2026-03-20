@@ -462,17 +462,36 @@
                 @click="handleClick"
                 v-html="post.content"
               ></div>
-              <!-- AI-generated summary shown above live updates -->
-              <div
+              <!-- AI-generated summary pinned above live updates -->
+              <article
                 v-if="post.live && post.live_summary"
-                class="live-summary"
+                class="live-update live-summary"
               >
-                <div class="live-summary__label">Sažetak</div>
-                <div
-                  class="live-summary__text"
-                  v-html="post.live_summary"
-                ></div>
-              </div>
+                <time
+                  v-if="post.live_summary_time"
+                  class="live-update__time"
+                  :datetime="
+                    new Date(post.live_summary_time * 1000).toISOString()
+                  "
+                >
+                  <span class="live-update__hour">{{ liveSummaryTime }}</span>
+                </time>
+                <div class="live-update__content">
+                  <div class="live-update__header">
+                    <h2 class="live-update__headline">
+                      <font-awesome-icon
+                        :icon="['fas', 'thumbtack']"
+                        class="live-summary__pin"
+                      />
+                      Ovo su ključni događaji
+                    </h2>
+                  </div>
+                  <div
+                    class="live-summary__text"
+                    v-html="post.live_summary"
+                  ></div>
+                </div>
+              </article>
               <!--
                 Live blog updates container.
                 Renders reverse-chronological updates from ACF repeater.
@@ -507,24 +526,31 @@
                   </time>
                   <div class="live-update__content">
                     <div class="live-update__header">
-                      <h2 class="live-update__headline">
+                      <h2 v-if="update.headline" class="live-update__headline">
                         {{ update.headline }}
                       </h2>
                       <a
                         :href="'#' + update.anchor"
                         class="live-update__link"
-                        :aria-label="'Kopiraj link na ' + update.headline"
+                        :aria-label="'Kopiraj link na ' + (update.headline || 'ažuriranje')"
                         title="Kopiraj link"
                         @click.prevent="copyAnchorLink(update.anchor)"
                         ><font-awesome-icon :icon="['fas', 'link']"
                       /></a>
                     </div>
                     <div
-                      v-if="update.body.replace(/<[^>]*>/g, '').length <= 1000 || liveExpandedUpdates.includes(update.anchor)"
+                      v-if="
+                        update.body.replace(/<[^>]*>/g, '').length <= 1000 ||
+                        liveExpandedUpdates.includes(update.anchor)
+                      "
                       v-html="update.body"
                     ></div>
                     <template v-else>
-                      <p>{{ update.body.replace(/<[^>]*>/g, '').substring(0, 300) }}...</p>
+                      <p>
+                        {{
+                          update.body.replace(/<[^>]*>/g, '').substring(0, 300)
+                        }}...
+                      </p>
                       <button
                         class="live-update__read-more"
                         @click="liveExpandedUpdates.push(update.anchor)"
@@ -775,11 +801,17 @@
         class="live-new-updates"
         role="button"
         tabindex="0"
-        aria-label="Učitaj novo ažuriranje"
+        :aria-label="
+          'Učitaj ' +
+          livePendingUpdates +
+          ' ' +
+          (livePendingUpdates === 1 ? 'novu objavu' : 'nove objave')
+        "
         @click="applyLiveUpdates"
         @keydown.enter="applyLiveUpdates"
       >
-        &#9650; Novo ažuriranje
+        &#9650; Nova objava
+        <span class="live-new-updates__badge">{{ livePendingUpdates }}</span>
       </div>
     </client-only>
   </div>
@@ -850,28 +882,24 @@
   }
 }
 
-/* AI-generated live summary box */
+/* AI-generated live summary — reuses .live-update layout */
 .live-summary {
-  max-width: 710px;
-  margin: 24px auto 0;
-  padding: 16px 20px;
   background: var(--tg-secondary-background-color);
-  border-left: 3px solid var(--tg-primary-highlight-color);
   border-radius: 4px;
-}
-.live-summary__label {
-  font-family: 'Barlow', sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: var(--tg-primary-highlight-color);
   margin-bottom: 8px;
+}
+.live-summary::before {
+  display: none;
+}
+.live-summary__pin {
+  color: var(--tg-primary-highlight-color);
+  margin-right: 6px;
+  font-size: 14px;
 }
 .live-summary__text {
   font-family: 'Merriweather', serif;
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.6;
   color: var(--tg-primary-text-color);
 }
 .live-summary__text p {
@@ -1020,6 +1048,20 @@
 .live-new-updates:hover {
   transform: translateX(-50%) translateY(-2px);
 }
+.live-new-updates__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  margin-left: 8px;
+  background: white;
+  color: var(--tg-primary-highlight-color);
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 50%;
+}
 
 @media screen and (max-width: 767px) {
   .live-updates-container {
@@ -1043,35 +1085,56 @@
 </style>
 <style>
 .telegram-post-embed {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  overflow: hidden;
-  margin: 12px 0;
-}
-.telegram-post-embed__link {
-  display: block;
-  text-decoration: none;
-  color: inherit;
+  margin: 16px 0;
 }
 .telegram-post-embed__image {
   width: 100%;
   display: block;
   object-fit: cover;
-}
-.telegram-post-embed__content {
-  padding: 12px 14px;
+  margin-bottom: 12px;
 }
 .telegram-post-embed__title {
+  font-family: 'Merriweather', serif;
   font-weight: 700;
-  font-size: 15px;
-  margin: 0 0 4px;
+  font-size: 18px;
+  line-height: 1.3;
+  margin: 0 0 12px;
   color: var(--tg-primary-text-color);
 }
 .telegram-post-embed__excerpt {
-  font-size: 13px;
+  font-family: 'Merriweather', serif;
+  font-size: 16px;
+  line-height: 1.6;
   color: var(--tg-primary-text-color);
-  opacity: 0.7;
-  margin: 0;
+  opacity: 0.85;
+  margin: 0 0 16px;
+}
+.telegram-post-embed__excerpt p {
+  margin: 0 0 8px;
+}
+.telegram-post-embed__excerpt p:last-child {
+  margin-bottom: 0;
+}
+.telegram-post-embed__button {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 10px 24px;
+  background: var(--tg-secondary-background-color);
+  text-decoration: none !important;
+  color: var(--tg-primary-text-color) !important;
+  font-family: 'Barlow', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: opacity 0.2s;
+}
+.telegram-post-embed__button:hover {
+  opacity: 0.85;
+}
+.live-update--highlight .telegram-post-embed__button {
+  background: var(--tg-primary-background-color);
 }
 </style>
 <script>
@@ -1090,7 +1153,7 @@ export default {
     // Nuxt 2 reuses _slug.vue across route changes — beforeDestroy doesn't fire,
     // so we must reset live state here in fetch() to avoid stale intervals/data.
     this.stopLivePolling()
-    this.livePendingUpdates = null
+    this.livePendingUpdates = 0
     this.liveApplying = false
     this.liveRemoteCount = 0
     this.liveExpandedUpdates = []
@@ -1200,15 +1263,16 @@ export default {
         live_end: null,
         live_updates: [],
         live_summary: null,
+        live_summary_time: null,
       },
       // Live blog polling state
-      livePollingInterval: null,    // setInterval ID for polling
-      livePendingUpdates: null,     // true when server has more updates than local
-      liveApplying: false,          // double-click guard for applyLiveUpdates
-      liveRemoteCount: 0,           // server-reported count, used as cache-bust param ?v=
+      livePollingInterval: null, // setInterval ID for polling
+      livePendingUpdates: 0, // number of new updates pending on server
+      liveApplying: false, // double-click guard for applyLiveUpdates
+      liveRemoteCount: 0, // server-reported count, used as cache-bust param ?v=
       liveTimeNow: Math.floor(Date.now() / 1000), // current time in seconds, ticks every 30s for relative time display
-      liveTimeInterval: null,       // setInterval ID for liveTimeNow ticker
-      liveExpandedUpdates: [],      // anchors of updates expanded by "Pročitajte više"
+      liveTimeInterval: null, // setInterval ID for liveTimeNow ticker
+      liveExpandedUpdates: [], // anchors of updates expanded by "Pročitajte više"
       top_articles: [],
       top_articles_version: 'v1',
       related_posts: [],
@@ -1217,6 +1281,22 @@ export default {
     }
   },
   computed: {
+    liveSummaryTime() {
+      if (!this.post.live_summary_time) return ''
+      const diff = this.liveTimeNow - this.post.live_summary_time
+      if (diff < 0 || diff < 60) return 'upravo sad'
+      if (diff < 3600) {
+        return 'prije ' + Math.floor(diff / 60) + ' min'
+      }
+      if (diff < 43200) {
+        return 'prije ' + Math.floor(diff / 3600) + ' h'
+      }
+      // Older than 12h — show only date, no time
+      const d = new Date(this.post.live_summary_time * 1000)
+      return (
+        d.getDate() + '.' + (d.getMonth() + 1) + '.' + d.getFullYear() + '.'
+      )
+    },
     parsedOvertitle() {
       return this.$options.filters.parseCat(
         this.post.overtitle ? this.post.overtitle : this.post.category
@@ -1400,19 +1480,25 @@ export default {
         if (this.post.live_updates && this.post.live_updates.length) {
           article.liveBlogUpdate = this.post.live_updates.map((update) => {
             const url = this.post.social.path + '#' + update.anchor
+            const plainBody = update.body
+              .replace(/<[^>]*>/g, '')
+              .replace(/&nbsp;/g, ' ')
+              .replace(/&amp;/g, '&')
+              .replace(/&[a-z]+;/gi, '')
+              .replace(/&#\d+;/g, '')
+              .trim()
+            // headline is required in BlogPosting schema — fallback to truncated body
+            const headline = update.headline ||
+              (plainBody.length > 110
+                ? plainBody.substring(0, 110).replace(/\s+\S*$/, '') + '…'
+                : plainBody)
             return {
               '@type': 'BlogPosting',
               '@id': url,
-              headline: update.headline,
+              headline,
               datePublished: new Date(update.time * 1000).toISOString(),
               dateModified: new Date(update.time * 1000).toISOString(),
-              articleBody: update.body
-                .replace(/<[^>]*>/g, '')
-                .replace(/&nbsp;/g, ' ')
-                .replace(/&amp;/g, '&')
-                .replace(/&[a-z]+;/gi, '')
-                .replace(/&#\d+;/g, '')
-                .trim(),
+              articleBody: plainBody,
               url,
             }
           })
@@ -1512,18 +1598,16 @@ export default {
         const mins = Math.floor(diff / 60)
         return 'prije ' + mins + ' min'
       }
-      if (diff < 43200) { // 12 hours
+      if (diff < 43200) {
+        // 12 hours
         const hours = Math.floor(diff / 3600)
         return 'prije ' + hours + ' h'
       }
-      // Older than 12h — show date and time
+      // Older than 12h — show only date
       const d = new Date(unixSeconds * 1000)
-      const day = d.getDate()
-      const month = d.getMonth() + 1
-      const year = d.getFullYear()
-      const hours = String(d.getHours()).padStart(2, '0')
-      const minutes = String(d.getMinutes()).padStart(2, '0')
-      return day + '.' + month + '.' + year + '. ' + hours + ':' + minutes
+      return (
+        d.getDate() + '.' + (d.getMonth() + 1) + '.' + d.getFullYear() + '.'
+      )
     },
     handleScroll() {
       const walls = document.getElementsByClassName('wallpaper-banners')
@@ -1911,7 +1995,7 @@ export default {
           ? this.post.live_updates.length
           : 0
         if (data.count > currentCount) {
-          this.livePendingUpdates = true
+          this.livePendingUpdates = data.count - currentCount
           this.liveRemoteCount = data.count
         }
         // If live_end is set, update post and stop polling permanently
@@ -1965,8 +2049,13 @@ export default {
               this.$set(this.post, 'live_updates', data.live_updates)
               if (data.live_summary) {
                 this.$set(this.post, 'live_summary', data.live_summary)
+                this.$set(
+                  this.post,
+                  'live_summary_time',
+                  data.live_summary_time
+                )
               }
-              this.livePendingUpdates = false
+              this.livePendingUpdates = 0
 
               this.$nextTick(() => {
                 container.style.transition = 'opacity 0.4s ease'
