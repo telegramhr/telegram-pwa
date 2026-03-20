@@ -448,7 +448,6 @@
                 <div
                   v-if="isSpecijalPost && $mobile"
                   id="specijal-mobile-ad-source"
-                  style="display: none"
                 >
                   <div
                     id="div-gpt-ad-1773938597159-0"
@@ -1161,7 +1160,6 @@ export default {
         const paragraphs = content?.querySelectorAll(':scope > p')
         const source = document.getElementById('specijal-mobile-ad-source')
         if (paragraphs?.length >= 2 && source) {
-          source.style.display = ''
           paragraphs[1].after(source)
         }
       }
