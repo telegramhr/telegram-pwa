@@ -7,12 +7,14 @@ export default {
       titula: '',
       mobitel: '',
       email: '',
-      portal: 'telegram',
+      portal: 'presshaus',
     }
   },
   computed: {
     portalImage() {
       switch (this.portal) {
+        case 'presshaus':
+          return '/presshaus/presshaus.png'
         case 'telegram':
           return '/icon.png'
         case 'super1':
@@ -83,6 +85,7 @@ export default {
 
         <label for="portal">Portal</label>
         <select id="portal" v-model="portal" name="portal">
+          <option value="presshaus">Presshaus</option>
           <option value="telegram">Telegram</option>
           <option value="super1">Super1</option>
           <option value="story">Story</option>
@@ -101,14 +104,14 @@ export default {
               font-family: Arial, sans-serif;
             "
           >
-            <template v-if="portal === 'story'">
+            <template v-if="portal === 'story' || portal === 'presshaus'">
               <tr>
-                <td style="vertical-align: middle">
-                  <img :src="portalImage" width="100" alt="Telegram logo" />
+                <td style="vertical-align: middle" colspan="2">
+                  <img :src="portalImage" width="200" alt="Logo" />
                 </td>
               </tr>
               <tr>
-                <td style="font-size: 15px; font-weight: bold">
+                <td style="font-size: 15px; font-weight: bold" colspan="2">
                   {{ ime }}
                 </td>
               </tr>
@@ -119,6 +122,7 @@ export default {
                     font-style: italic;
                     letter-spacing: 1px;
                   "
+                  colspan="2"
                 >
                   {{ titula }}
                 </td>
@@ -153,7 +157,7 @@ export default {
             <tr>
               <td style="font-weight: bold"><br />A</td>
               <td style="letter-spacing: 1px">
-                <br />Telegram media grupa <br />Franje Petračića 4, Zagreb
+                <br />Presshaus d.o.o. <br />Franje Petračića 4, Zagreb
               </td>
             </tr>
             <tr v-if="mobitel">
@@ -177,4 +181,8 @@ export default {
   </div>
 </template>
 
-<style scoped></style>
+<style>
+body {
+  background-color: #fff !important;
+}
+</style>
