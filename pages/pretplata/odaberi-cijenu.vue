@@ -142,7 +142,7 @@
         </div>
       </div>
       <div class="features-bg">
-        <Features :cards="featureCards" :sectionTitle="''" />
+        <Features :cards="featureCards" :section-title="''" />
       </div>
       <Testimonials></Testimonials>
       <div class="cta">
@@ -268,6 +268,14 @@ export default {
       }
     },
   },
+
+  mounted() {
+    if (this.hasSubscription) {
+      setTimeout(() => {
+        this.$router.replace('/')
+      }, 3000)
+    }
+  },
   methods: {
     selectAmount(amt) {
       this.selectedAmount = amt
@@ -320,14 +328,6 @@ export default {
         window.scrollBy({ top: 200, behavior: 'smooth' })
       })
     },
-  },
-
-  mounted() {
-    if (this.hasSubscription) {
-      setTimeout(() => {
-        this.$router.replace('/')
-      }, 3000)
-    }
   },
 
   head() {

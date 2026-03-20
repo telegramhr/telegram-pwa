@@ -72,9 +72,7 @@
               </AppLink>
               <client-only>
                 <span
-                  v-if="
-                    this.$store.state.user.access && post.paywall === 'always'
-                  "
+                  v-if="$store.state.user.access && post.paywall === 'always'"
                   class="fancy-overtitle-premium"
                 >
                   <img
@@ -135,9 +133,7 @@
                 </div>
                 <client-only
                   ><span
-                    v-if="
-                      this.$store.state.user.access && post.paywall === 'always'
-                    "
+                    v-if="$store.state.user.access && post.paywall === 'always'"
                     class="fancy-overtitle-premium"
                   >
                     <img
@@ -569,9 +565,9 @@
             class="full"
           >
             <top-articles-bottom
-              v-if="this.top_articles"
-              :algorithm-type="this.top_articles_version"
-              :posts="this.top_articles.slice(3, 8)"
+              v-if="top_articles"
+              :algorithm-type="top_articles_version"
+              :posts="top_articles.slice(3, 8)"
             ></top-articles-bottom>
           </div>
           <div
