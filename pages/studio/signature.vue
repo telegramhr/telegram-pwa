@@ -99,7 +99,7 @@ export default {
           <table
             id="tablica"
             style="
-              font-size: 14px;
+              font-size: 11px;
               color: black;
               font-family: Inter, Arial, sans-serif;
             "
@@ -111,7 +111,7 @@ export default {
                 </td>
               </tr>
               <tr>
-                <td style="font-size: 18px; font-weight: bold">
+                <td style="font-size: 15px; font-weight: bold">
                   {{ ime }}
                 </td>
               </tr>
@@ -153,7 +153,7 @@ export default {
             </tr>
             <tr>
               <td style="letter-spacing: 1px">
-                <a href="https://www.telegram.hr">www.telegram.hr</a>
+                <a href="https://www.presshaus.hr">www.telegram.hr</a>
               </td>
             </tr>
           </table>
