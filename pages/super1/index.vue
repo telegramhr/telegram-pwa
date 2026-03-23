@@ -217,6 +217,95 @@
         </div>
       </div>
     </section>
+    <section class="full flex relative">
+      <div
+        class="container flex relative stretch column-bottom-pad column-horizontal-pad superone-pilatesBag"
+      >
+        <div class="full center relative">
+          <div
+            class="noththree flex superone-section-title superone-pilatesBagTitle"
+          >
+            <span class="bajadera-span-title">SUPER LADIES CLUB</span>
+          </div>
+        </div>
+        <div class="full superone-preporuka flex flex-responsive relative">
+          <div class="full flex flex-row column-vertical-pad">
+            <div
+              class="third flex-responsive column-full-pad article-featured article-superfeat article relative"
+              role="article"
+            >
+              <a
+                class="full flex square-img"
+                href="https://www.telegram.hr/super1/power/super-ladies-club-afterwork-druzenje-za-zene//"
+              >
+                <img
+                  src="https://www.telegram.hr/wp-content/uploads/2026/03/naslovna-ss.jpg"
+                  alt="Dvije elegantne žene u crnim prugastim dolčevratima na događaju Saber Ladies Cluba s ružičastim poklon paketom."
+                  loading="lazy"
+                />
+              </a>
+              <div class="bottom-wrapper-section">
+                <div class="bottom-section-title">
+                  <span class="title"
+                    ><b>S1 event</b> Naš Super Ladies Club okupio je poslovne
+                    žene na afterwork druženju i ponudio im luksuzni
+                    predah</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div
+              class="third flex-responsive column-full-pad article-featured article-superfeat article relative"
+              role="article"
+            >
+              <a
+                class="full flex square-img"
+                href="https://www.telegram.hr/super1/power/super-ladies-club-aktivacije-i-atmosfera/"
+              >
+                <img
+                  src="https://www.telegram.hr/wp-content/uploads/2026/03/super-ladies-club132-190326-2.jpg"
+                  alt="Nasmijana žena prima buket ružičastih tulipana i poklon vrećicu od kolegica u uredu, slaveći posebnu prigodu."
+                  loading="lazy"
+                />
+              </a>
+              <div class="bottom-wrapper-section">
+                <div class="bottom-section-title">
+                  <span class="title"
+                    ><b>Event report</b> Flower station i probrani modni dodaci:
+                    Kako izgleda kad se okupe sjajne žene na afterwork
+                    druženju?</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div
+              class="third flex-responsive column-full-pad article-featured article-superfeat article relative"
+              role="article"
+            >
+              <a
+                class="full flex square-img"
+                href="https://www.telegram.hr/super1/life/goodie-bag-super-ladies-club/"
+              >
+                <img
+                  src="https://images.telegram.hr/aIQuPUk-yw8ftg6m47_YxOHsmqLMcf0VkE0iOUeafzg/preset:s1single2/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjYvMDMvc3VwZXItbGFkaWVzLWNsdWIxMzAtMTkwMzI2LmpwZw.webp"
+                  alt="Žena u crnom prugastom odijelu sjedi okružena bijelim vrećicama za kupnju s natpisom SUPER1."
+                  loading="lazy"
+                />
+              </a>
+              <div class="bottom-wrapper-section">
+                <div class="bottom-section-title">
+                  <span class="title">
+                    <b>S1 pokloni</b> Od pjenušca i capuccina do skincarea: Ovi
+                    su se proizvodi pronašli u goodie bagu Super Ladies
+                    Cluba</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <div class="full relative">
       <div class="full center">
         <ad-unit id="telegram_desktop_billboard_v2"></ad-unit>
