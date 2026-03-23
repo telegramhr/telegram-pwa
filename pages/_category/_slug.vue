@@ -540,7 +540,7 @@
                     </div>
                     <div
                       v-if="
-                        update.body.replace(/<[^>]*>/g, '').length <= 1000 ||
+                        update.body.replace(/<[^>]*>/g, '').length <= 700 ||
                         liveExpandedUpdates.includes(update.anchor)
                       "
                       v-html="update.body"
@@ -898,7 +898,7 @@
 }
 .live-summary__text {
   font-family: 'Merriweather', serif;
-  font-size: 16px;
+  font-size: 100%;
   line-height: 1.6;
   color: var(--tg-primary-text-color);
 }
@@ -983,17 +983,25 @@
   opacity: 0.7;
 }
 .live-update__read-more {
-  background: none;
-  border: none;
-  color: var(--tg-primary-highlight-color);
-  font-size: 15px;
+  display: block;
+  width: fit-content;
+  margin: 8px auto 0;
+  padding: 10px 24px;
+  background: var(--tg-secondary-background-color);
+  color: var(--tg-primary-text-color);
+  font-family: 'Barlow', sans-serif;
+  font-size: 14px;
   font-weight: 600;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
-  padding: 4px 0;
-  margin-top: 4px;
+  transition: opacity 0.2s;
 }
 .live-update__read-more:hover {
-  text-decoration: underline;
+  opacity: 0.85;
+}
+.live-update--highlight .live-update__read-more {
+  background: var(--tg-primary-background-color);
 }
 .live-update__content >>> img {
   max-width: 100%;
@@ -1118,16 +1126,17 @@
 .telegram-post-embed__button {
   display: block;
   width: fit-content;
-  margin: 0 auto;
+  margin: 8px auto 0;
   padding: 10px 24px;
   background: var(--tg-secondary-background-color);
-  text-decoration: none !important;
   color: var(--tg-primary-text-color) !important;
   font-family: 'Barlow', sans-serif;
   font-size: 14px;
   font-weight: 600;
-  text-decoration: none;
+  text-decoration: none !important;
+  border: none;
   border-radius: 4px;
+  cursor: pointer;
   transition: opacity 0.2s;
 }
 .telegram-post-embed__button:hover {
