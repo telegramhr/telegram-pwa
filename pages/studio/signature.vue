@@ -153,7 +153,7 @@ export default {
             </tr>
             <tr>
               <td style="letter-spacing: 1px">
-                <a href="https://www.presshaus.hr">www.telegram.hr</a>
+                <a href="https://www.presshaus.hr">www.presshaus.hr</a>
               </td>
             </tr>
           </table>
