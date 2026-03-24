@@ -479,12 +479,12 @@
                 <div class="live-update__content">
                   <div class="live-update__header">
                     <h2 class="live-update__headline">
-                      <font-awesome-icon
-                        :icon="['fas', 'thumbtack']"
-                        class="live-summary__pin"
-                      />
-                      Ovo su ključni događaji
+                      Ovo su ključni događaji:
                     </h2>
+                    <font-awesome-icon
+                      :icon="['fas', 'thumbtack']"
+                      class="live-summary__pin"
+                    />
                   </div>
                   <div
                     class="live-summary__text"
@@ -532,7 +532,9 @@
                       <a
                         :href="'#' + update.anchor"
                         class="live-update__link"
-                        :aria-label="'Kopiraj link na ' + (update.headline || 'ažuriranje')"
+                        :aria-label="
+                          'Kopiraj link na ' + (update.headline || 'ažuriranje')
+                        "
                         title="Kopiraj link"
                         @click.prevent="copyAnchorLink(update.anchor)"
                         ><font-awesome-icon :icon="['fas', 'link']"
@@ -561,6 +563,11 @@
                   </div>
                 </article>
               </div>
+              <transition name="toast-fade">
+                <div v-if="liveToast" class="live-toast">
+                  {{ liveToast }}
+                </div>
+              </transition>
               <div class="remp-banner"></div>
               <client-only>
                 <portal
@@ -888,13 +895,38 @@
   border-radius: 4px;
   margin-bottom: 8px;
 }
+.live-toast {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 500;
+  z-index: 1000;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.toast-fade-enter-active,
+.toast-fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+.toast-fade-enter,
+.toast-fade-leave-to {
+  opacity: 0;
+}
 .live-summary::before {
   display: none;
 }
 .live-summary__pin {
   color: var(--tg-primary-highlight-color);
-  margin-right: 6px;
   font-size: 14px;
+  flex-shrink: 0;
+  margin-top: 4px;
 }
 .live-summary__text {
   font-family: 'Merriweather', serif;
@@ -1280,6 +1312,7 @@ export default {
       liveApplying: false, // double-click guard for applyLiveUpdates
       liveRemoteCount: 0, // server-reported count, used as cache-bust param ?v=
       liveTimeNow: Math.floor(Date.now() / 1000), // current time in seconds, ticks every 30s for relative time display
+      liveToast: null, // toast message shown briefly after actions like copy link
       liveTimeInterval: null, // setInterval ID for liveTimeNow ticker
       liveExpandedUpdates: [], // anchors of updates expanded by "Pročitajte više"
       top_articles: [],
@@ -1497,7 +1530,8 @@ export default {
               .replace(/&#\d+;/g, '')
               .trim()
             // headline is required in BlogPosting schema — fallback to truncated body
-            const headline = update.headline ||
+            const headline =
+              update.headline ||
               (plainBody.length > 110
                 ? plainBody.substring(0, 110).replace(/\s+\S*$/, '') + '…'
                 : plainBody)
@@ -2094,20 +2128,24 @@ export default {
         this.liveApplying = false
       }
     },
+    showLiveToast(msg) {
+      this.liveToast = msg
+      clearTimeout(this._toastTimer)
+      this._toastTimer = setTimeout(() => {
+        this.liveToast = null
+      }, 2500)
+    },
     copyAnchorLink(anchor) {
       const url = this.post.social.path + '#' + anchor
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(url).then(() => {
-          const el = document.getElementById(anchor)
-          if (!el) return
-          const link = el.querySelector('.live-update__link')
-          if (!link) return
-          link.style.opacity = '1'
-          setTimeout(() => {
-            link.style.opacity = ''
-          }, 1000)
-        })
-      }
+      const ta = document.createElement('textarea')
+      ta.value = url
+      ta.style.position = 'fixed'
+      ta.style.opacity = '0'
+      document.body.appendChild(ta)
+      ta.select()
+      document.execCommand('copy')
+      document.body.removeChild(ta)
+      this.showLiveToast('Link kopiran')
     },
     // Scroll to the newest live update (first in array, since sorted reverse chronological)
     scrollToLatest() {
