@@ -14,7 +14,7 @@ export default {
     portalImage() {
       switch (this.portal) {
         case 'presshaus':
-          return '/presshaus/presshaus.png'
+          return '/presshaus/logo_transparent.png'
         case 'telegram':
           return '/icon.png'
         case 'super1':
@@ -100,30 +100,23 @@ export default {
             id="tablica"
             style="
               font-size: 11px;
-              color: #585858;
-              font-family: Arial, sans-serif;
+              color: black;
+              font-family: Inter, Arial, sans-serif;
             "
           >
             <template v-if="portal === 'story' || portal === 'presshaus'">
               <tr>
-                <td style="vertical-align: middle" colspan="2">
+                <td style="vertical-align: middle">
                   <img :src="portalImage" width="200" alt="Logo" />
                 </td>
               </tr>
               <tr>
-                <td style="font-size: 15px; font-weight: bold" colspan="2">
+                <td style="font-size: 15px; font-weight: bold">
                   {{ ime }}
                 </td>
               </tr>
               <tr>
-                <td
-                  style="
-                    color: #7e7d7d;
-                    font-style: italic;
-                    letter-spacing: 1px;
-                  "
-                  colspan="2"
-                >
+                <td style="letter-spacing: 1px; padding-bottom: 20px">
                   {{ titula }}
                 </td>
               </tr>
@@ -143,33 +136,24 @@ export default {
                 </td>
               </tr>
               <tr>
-                <td
-                  style="
-                    color: #7e7d7d;
-                    font-style: italic;
-                    letter-spacing: 1px;
-                  "
-                >
+                <td style="font-style: italic; letter-spacing: 1px">
                   {{ titula }}
                 </td>
               </tr>
             </template>
-            <tr>
-              <td style="font-weight: bold"><br />A</td>
-              <td style="letter-spacing: 1px">
-                <br />Presshaus d.o.o. <br />Franje Petračića 4, Zagreb
-              </td>
-            </tr>
             <tr v-if="mobitel">
-              <td style="font-weight: bold">M</td>
               <td style="letter-spacing: 1px">
                 {{ mobitel }}
               </td>
             </tr>
             <tr>
-              <td style="font-weight: bold">E</td>
-              <td style="color: #ee1d3a; letter-spacing: 1px">
+              <td style="letter-spacing: 1px">
                 <a :href="`mailto:${email}`">{{ email }}</a>
+              </td>
+            </tr>
+            <tr>
+              <td style="letter-spacing: 1px">
+                <a href="https://www.presshaus.hr">www.presshaus.hr</a>
               </td>
             </tr>
           </table>

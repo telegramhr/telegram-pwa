@@ -236,7 +236,7 @@
             >
               <a
                 class="full flex square-img"
-                href="https://www.telegram.hr/super1/power/super-ladies-club-afterwork-druzenje-za-zene//"
+                href="https://www.telegram.hr/super1/power/super-ladies-club-afterwork-druzenje-za-zene/"
               >
                 <img
                   src="https://www.telegram.hr/wp-content/uploads/2026/03/naslovna-ss.jpg"
