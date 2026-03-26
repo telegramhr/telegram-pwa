@@ -72,9 +72,7 @@
               </AppLink>
               <client-only>
                 <span
-                  v-if="
-                    this.$store.state.user.access && post.paywall === 'always'
-                  "
+                  v-if="$store.state.user.access && post.paywall === 'always'"
                   class="fancy-overtitle-premium"
                 >
                   <img
@@ -135,9 +133,7 @@
                 </div>
                 <client-only
                   ><span
-                    v-if="
-                      this.$store.state.user.access && post.paywall === 'always'
-                    "
+                    v-if="$store.state.user.access && post.paywall === 'always'"
                     class="fancy-overtitle-premium"
                   >
                     <img
@@ -431,6 +427,30 @@
                   v-if="canLogIn && post.paywall === 'always'"
                 ></mini-pretplata-new>
               </client-only>
+              <!-- Specijal desktop sidebar ad -->
+              <client-only>
+                <div
+                  v-if="isSpecijalPost && !$mobile"
+                  class="specijal-sidebar-ad"
+                >
+                  <div
+                    id="div-gpt-ad-1773938719663-0"
+                    style="min-width: 160px; min-height: 600px"
+                  ></div>
+                </div>
+              </client-only>
+              <!-- Specijal mobile ad (moved into content via JS) -->
+              <client-only>
+                <div
+                  v-if="isSpecijalPost && $mobile"
+                  id="specijal-mobile-ad-source"
+                >
+                  <div
+                    id="div-gpt-ad-1773938597159-0"
+                    style="min-width: 300px; min-height: 250px"
+                  ></div>
+                </div>
+              </client-only>
               <!-- eslint-disable vue/no-v-html -->
               <div
                 id="article-content"
@@ -443,6 +463,7 @@
               <client-only>
                 <portal
                   v-if="
+                    useSparPortal &&
                     !hasPremium &&
                     !(
                       post.disable_ads &&
@@ -544,9 +565,9 @@
             class="full"
           >
             <top-articles-bottom
-              v-if="this.top_articles"
-              :algorithm-type="this.top_articles_version"
-              :posts="this.top_articles.slice(3, 8)"
+              v-if="top_articles"
+              :algorithm-type="top_articles_version"
+              :posts="top_articles.slice(3, 8)"
             ></top-articles-bottom>
           </div>
           <div
@@ -782,6 +803,7 @@ export default {
   },
   data() {
     return {
+      useSparPortal: false,
       portal_title: '',
       single_title: '',
       showMidasIntext: false,
@@ -864,6 +886,9 @@ export default {
         return terms.includes(tag.slug)
       })
       return !!filtered.length
+    },
+    isSpecijalPost() {
+      return parseInt(this.post.id) === 3042827
     },
     hasPremium() {
       return this.$store.getters['user/hasPremium']
@@ -1093,6 +1118,11 @@ export default {
       }
     },
     loadAds() {
+      if (this.isSpecijalPost) {
+        this.initSpecijalAds()
+        return
+      }
+      this.useSparPortal = true
       this.$store.dispatch('ads/initAds', {
         route: this.$route,
         options: this.post.disable_ads,
@@ -1116,6 +1146,47 @@ export default {
           midas2.style.display = 'none'
         }
       }
+    },
+    initSpecijalAds() {
+      window.googletag = window.googletag || { cmd: [] }
+
+      // Mobile: move ad div after 2nd paragraph
+      if (this.$mobile) {
+        const content = document.getElementById('article-content')
+        const paragraphs = content?.querySelectorAll(':scope > p')
+        const source = document.getElementById('specijal-mobile-ad-source')
+        if (paragraphs?.length >= 2 && source) {
+          paragraphs[1].after(source)
+        }
+      }
+
+      window.googletag.cmd.push(() => {
+        if (this.$mobile) {
+          window.googletag
+            .defineSlot(
+              '/1092744/Specijal/Mobile_specijal',
+              [300, 250],
+              'div-gpt-ad-1773938597159-0'
+            )
+            .addService(window.googletag.pubads())
+        } else {
+          window.googletag
+            .defineSlot(
+              '/1092744/Specijal/Desktop_specijal',
+              [160, 600],
+              'div-gpt-ad-1773938719663-0'
+            )
+            .addService(window.googletag.pubads())
+        }
+        window.googletag.pubads().enableSingleRequest()
+        window.googletag.enableServices()
+
+        if (this.$mobile) {
+          window.googletag.display('div-gpt-ad-1773938597159-0')
+        } else {
+          window.googletag.display('div-gpt-ad-1773938719663-0')
+        }
+      })
     },
     loadRemp() {
       this.$store.dispatch('user/saveIP')

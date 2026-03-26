@@ -26,7 +26,7 @@
         <div class="half animate flex-responsive flex relative">
           <p>
             IBAN: HR4723600001503346846 <br />
-            Primatelj: Telegram Media Grupa d.o.o. <br />
+            Primatelj: Presshaus d.o.o. <br />
             Opis plaćanja: email vaseg korisničkog računa <br />
             Iznos: {{ price }} EUR <br />
             Model: 00 <br />

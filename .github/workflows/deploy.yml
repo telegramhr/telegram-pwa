@@ -59,7 +59,7 @@ jobs:
 
   deploy-staging:
     needs: build
-    runs-on: self-hosted
+    runs-on: [self-hosted,hr-telegram-main-runner]
     if: inputs.environment == 'staging' || github.ref == 'refs/heads/staging'
 
     steps:
@@ -114,7 +114,7 @@ jobs:
 
   deploy-production:
     needs: build
-    runs-on: self-hosted
+    runs-on: [self-hosted,hr-telegram-main-runner]
     if: inputs.environment == 'production' || github.ref == 'refs/heads/master'
 
     steps:

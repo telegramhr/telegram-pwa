@@ -809,6 +809,7 @@ export default {
         modric: { name: 'Modrić' },
         plese: { name: 'Pleše' },
         redzepovic: { name: 'Redžepović' },
+        kusovac: { name: 'Kusovac' },
       },
       specijali: {
         ekskluziv_telegram: {
@@ -833,6 +834,17 @@ export default {
         },
       },
     }
+  },
+  computed: {
+    kockicaImage() {
+      const autor = this.kockicaAutor
+      const position = this.kockicaPosition
+      return require(`~/assets/img/extras/naslovne/kockice/${autor}/${autor}_${position}.png`)
+    },
+    teksturaImage() {
+      if (this.teksturaType === 'none') return null
+      return require(`~/assets/img/extras/naslovne/teksture/${this.teksturaType}.png`)
+    },
   },
   watch: {
     selected() {
@@ -882,17 +894,6 @@ export default {
     },
     podcastText() {
       this.$nextTick(() => setTimeout(() => this.updatePreview(), 100))
-    },
-  },
-  computed: {
-    kockicaImage() {
-      const autor = this.kockicaAutor
-      const position = this.kockicaPosition
-      return require(`~/assets/img/extras/naslovne/kockice/${autor}/${autor}_${position}.png`)
-    },
-    teksturaImage() {
-      if (this.teksturaType === 'none') return null
-      return require(`~/assets/img/extras/naslovne/teksture/${this.teksturaType}.png`)
     },
   },
   mounted() {

@@ -7,12 +7,14 @@ export default {
       titula: '',
       mobitel: '',
       email: '',
-      portal: 'telegram',
+      portal: 'presshaus',
     }
   },
   computed: {
     portalImage() {
       switch (this.portal) {
+        case 'presshaus':
+          return '/presshaus/logo_transparent.png'
         case 'telegram':
           return '/icon.png'
         case 'super1':
@@ -83,6 +85,7 @@ export default {
 
         <label for="portal">Portal</label>
         <select id="portal" v-model="portal" name="portal">
+          <option value="presshaus">Presshaus</option>
           <option value="telegram">Telegram</option>
           <option value="super1">Super1</option>
           <option value="story">Story</option>
@@ -97,14 +100,14 @@ export default {
             id="tablica"
             style="
               font-size: 11px;
-              color: #585858;
-              font-family: Arial, sans-serif;
+              color: black;
+              font-family: Inter, Arial, sans-serif;
             "
           >
-            <template v-if="portal === 'story'">
+            <template v-if="portal === 'story' || portal === 'presshaus'">
               <tr>
                 <td style="vertical-align: middle">
-                  <img :src="portalImage" width="100" alt="Telegram logo" />
+                  <img :src="portalImage" width="200" alt="Logo" />
                 </td>
               </tr>
               <tr>
@@ -113,13 +116,7 @@ export default {
                 </td>
               </tr>
               <tr>
-                <td
-                  style="
-                    color: #7e7d7d;
-                    font-style: italic;
-                    letter-spacing: 1px;
-                  "
-                >
+                <td style="letter-spacing: 1px; padding-bottom: 20px">
                   {{ titula }}
                 </td>
               </tr>
@@ -139,33 +136,24 @@ export default {
                 </td>
               </tr>
               <tr>
-                <td
-                  style="
-                    color: #7e7d7d;
-                    font-style: italic;
-                    letter-spacing: 1px;
-                  "
-                >
+                <td style="font-style: italic; letter-spacing: 1px">
                   {{ titula }}
                 </td>
               </tr>
             </template>
-            <tr>
-              <td style="font-weight: bold"><br />A</td>
-              <td style="letter-spacing: 1px">
-                <br />Telegram media grupa <br />Franje Petračića 4, Zagreb
-              </td>
-            </tr>
             <tr v-if="mobitel">
-              <td style="font-weight: bold">M</td>
               <td style="letter-spacing: 1px">
                 {{ mobitel }}
               </td>
             </tr>
             <tr>
-              <td style="font-weight: bold">E</td>
-              <td style="color: #ee1d3a; letter-spacing: 1px">
+              <td style="letter-spacing: 1px">
                 <a :href="`mailto:${email}`">{{ email }}</a>
+              </td>
+            </tr>
+            <tr>
+              <td style="letter-spacing: 1px">
+                <a href="https://www.presshaus.hr">www.presshaus.hr</a>
               </td>
             </tr>
           </table>
@@ -177,4 +165,8 @@ export default {
   </div>
 </template>
 
-<style scoped></style>
+<style>
+body {
+  background-color: #fff !important;
+}
+</style>

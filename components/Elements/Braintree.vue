@@ -19,7 +19,7 @@
           </h2>
           <div v-if="payment_type === 'bank'">
             <p class="small-top-margin">IBAN: HR4723600001503346846</p>
-            <p>Telegram Media Grupa d.o.o.</p>
+            <p>Presshaus d.o.o.</p>
             <p>Iznos: {{ price }} €</p>
             <p v-if="number">Model plaćanja: 00</p>
             <p v-if="number">Poziv na broj: {{ number }}</p>

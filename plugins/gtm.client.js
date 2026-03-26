@@ -1,5 +1,6 @@
 export default ({ app }) => {
   window.dataLayer = window.dataLayer || []
+
   function gtag() {
     window.dataLayer.push(arguments)
   }
@@ -26,7 +27,9 @@ export default ({ app }) => {
           ad_personalization: data.purpose.consents[4] ? 'granted' : 'denied',
         })
         if (data.eventStatus === 'useractioncomplete') {
-          window.location.reload()
+          // Reload removed: consent update is sufficient for GA4.
+          // Reload was causing document.referrer to become self-referral,
+          // breaking UTM campaign attribution from external sites.
         }
       }),
   })

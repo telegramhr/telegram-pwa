@@ -225,9 +225,7 @@
           <div
             class="noththree flex superone-section-title superone-pilatesBagTitle"
           >
-            <span class="bajadera-span-title"
-              >SUPER SECRET DINNER LOVERS EDITION</span
-            >
+            <span class="bajadera-span-title">SUPER LADIES CLUB</span>
           </div>
         </div>
         <div class="full superone-preporuka flex flex-responsive relative">
@@ -238,22 +236,20 @@
             >
               <a
                 class="full flex square-img"
-                href="https://www.telegram.hr/super1/native/super-secret-dinner-lovers-edition/"
+                href="https://www.telegram.hr/super1/power/super-ladies-club-afterwork-druzenje-za-zene/"
               >
                 <img
-                  src="@/assets/img/super1/secret-dinner/secret_dinner3.jpg"
-                  alt="Elegantna večera za okruglim stolom uz
-                    crvene zavjese, svijeće i cvjetne aranžmane s gostima u
-                    crnoj odjeći."
+                  src="https://www.telegram.hr/wp-content/uploads/2026/03/naslovna-ss.jpg"
+                  alt="Dvije elegantne žene u crnim prugastim dolčevratima na događaju Saber Ladies Cluba s ružičastim poklon paketom."
                   loading="lazy"
                 />
               </a>
               <div class="bottom-wrapper-section">
                 <div class="bottom-section-title">
                   <span class="title"
-                    ><b>S1 report</b> Super secret dinner lovers edition:
-                    Pripremili smo najljepši spoj za poznate parove s javne
-                    scene</span
+                    ><b>S1 event</b> Naš Super Ladies Club okupio je poslovne
+                    žene na afterwork druženju i ponudio im luksuzni
+                    predah</span
                   >
                 </div>
               </div>
@@ -264,20 +260,20 @@
             >
               <a
                 class="full flex square-img"
-                href="https://www.telegram.hr/super1/life/super-secret-dinner-couple-edition-atmosfera/"
+                href="https://www.telegram.hr/super1/power/super-ladies-club-aktivacije-i-atmosfera/"
               >
                 <img
-                  src="@/assets/img/super1/secret-dinner/secret_dinner1.jpg"
-                  alt="Gosti dignuli čaše za zdravicu za dugim stolom na elegantnoj večeri uRestoranu s ružičastim zavjesama."
+                  src="https://www.telegram.hr/wp-content/uploads/2026/03/super-ladies-club132-190326-2.jpg"
+                  alt="Nasmijana žena prima buket ružičastih tulipana i poklon vrećicu od kolegica u uredu, slaveći posebnu prigodu."
                   loading="lazy"
                 />
               </a>
               <div class="bottom-wrapper-section">
                 <div class="bottom-section-title">
                   <span class="title"
-                    ><b>Lovers Edition</b> Od pomno osmišljenih jela u
-                    slijedovima do zone opuštanja uz kavu: Zavirite u atmosferu
-                    Super Secret Dinnera</span
+                    ><b>Event report</b> Flower station i probrani modni dodaci:
+                    Kako izgleda kad se okupe sjajne žene na afterwork
+                    druženju?</span
                   >
                 </div>
               </div>
@@ -288,20 +284,20 @@
             >
               <a
                 class="full flex square-img"
-                href="https://www.telegram.hr/super1/life/od-nakita-do-talijanskih-poslastica-evo-sto-se-pronaslo-u-goodie-bagu-na-super-secret-dinner-eventu-za-parove/"
+                href="https://www.telegram.hr/super1/life/goodie-bag-super-ladies-club/"
               >
                 <img
-                  src="@/assets/img/super1/secret-dinner/secret_dinner2.jpg"
-                  alt="Darovni paket s prehrambenim proizvodima, kavom, kozmetikom i nakitom uz crvenu vrećicu s natpisom na hrvatskom."
+                  src="https://images.telegram.hr/aIQuPUk-yw8ftg6m47_YxOHsmqLMcf0VkE0iOUeafzg/preset:s1single2/aHR0cHM6Ly93d3cudGVsZWdyYW0uaHIvd3AtY29udGVudC91cGxvYWRzLzIwMjYvMDMvc3VwZXItbGFkaWVzLWNsdWIxMzAtMTkwMzI2LmpwZw.webp"
+                  alt="Žena u crnom prugastom odijelu sjedi okružena bijelim vrećicama za kupnju s natpisom SUPER1."
                   loading="lazy"
                 />
               </a>
               <div class="bottom-wrapper-section">
                 <div class="bottom-section-title">
                   <span class="title">
-                    <b>S1 pokloni</b> Nakit i talijanske poslastice: Evo što se
-                    pronašlo u goodie bagu na Super Secret Dinner eventu za
-                    parove</span
+                    <b>S1 pokloni</b> Od pjenušca i capuccina do skincarea: Ovi
+                    su se proizvodi pronašli u goodie bagu Super Ladies
+                    Cluba</span
                   >
                 </div>
               </div>
