@@ -55,11 +55,12 @@
               class="noththree overtitle"
               :class="{
                 'dynamic-overtitle': post.live,
-                'overtitle-live': post.live,
+                'overtitle-live': post.live && !post.live_end,
+                'overtitle-live--finished': post.live && post.live_end,
               }"
             >
               <span v-if="post.live" class="dynamic-overtitle-element">{{
-                'Uživo'
+                post.live_end ? 'Završeno' : 'Uživo'
               }}</span>
               <AppLink
                 :to="
@@ -115,11 +116,12 @@
                   class="noththree overtitle"
                   :class="{
                     'dynamic-overtitle': post.live,
-                    'overtitle-live': post.live,
+                    'overtitle-live': post.live && !post.live_end,
+                    'overtitle-live--finished': post.live && post.live_end,
                   }"
                 >
                   <span v-if="post.live" class="dynamic-overtitle-element">{{
-                    'Uživo'
+                    post.live_end ? 'Završeno' : 'Uživo'
                   }}</span>
                   <AppLink
                     :to="
@@ -401,6 +403,7 @@
                   @share="fbShare()"
                 ></action-bar>
               </client-only>
+              <!-- eslint-disable-next-line vue/no-v-html -->
               <p
                 v-if="post.perex"
                 class="perex"
@@ -459,6 +462,112 @@
                 @click="handleClick"
                 v-html="post.content"
               ></div>
+              <!-- AI-generated summary pinned above live updates -->
+              <article
+                v-if="post.live && post.live_summary"
+                class="live-update live-summary"
+              >
+                <time
+                  v-if="post.live_summary_time"
+                  class="live-update__time"
+                  :datetime="
+                    new Date(post.live_summary_time * 1000).toISOString()
+                  "
+                >
+                  <span class="live-update__hour">{{ liveSummaryTime }}</span>
+                </time>
+                <div class="live-update__content">
+                  <div class="live-update__header">
+                    <h2 class="live-update__headline">
+                      Ovo su ključni događaji:
+                    </h2>
+                    <font-awesome-icon
+                      :icon="['fas', 'thumbtack']"
+                      class="live-summary__pin"
+                    />
+                  </div>
+                  <div
+                    class="live-summary__text"
+                    v-html="post.live_summary"
+                  ></div>
+                </div>
+              </article>
+              <!--
+                Live blog updates container.
+                Renders reverse-chronological updates from ACF repeater.
+                role="log" + aria-live="polite" for screen reader announcements.
+                Polling detects new updates via lightweight /api/live-check endpoint,
+                then full article is fetched only when user clicks "Novo ažuriranje".
+              -->
+              <div
+                v-if="
+                  post.live && post.live_updates && post.live_updates.length
+                "
+                class="live-updates-container"
+                role="log"
+                aria-live="polite"
+                aria-label="Live ažuriranja"
+              >
+                <article
+                  v-for="update in post.live_updates"
+                  :id="update.anchor"
+                  :key="update.anchor"
+                  class="live-update"
+                  :class="{ 'live-update--highlight': update.highlight }"
+                >
+                  <time
+                    class="live-update__time"
+                    :datetime="new Date(update.time * 1000).toISOString()"
+                    :title="update.date_formatted + ' ' + update.time_formatted"
+                  >
+                    <span class="live-update__hour">{{
+                      liveRelativeTime(update.time)
+                    }}</span>
+                  </time>
+                  <div class="live-update__content">
+                    <div class="live-update__header">
+                      <h2 v-if="update.headline" class="live-update__headline">
+                        {{ update.headline }}
+                      </h2>
+                      <a
+                        :href="'#' + update.anchor"
+                        class="live-update__link"
+                        :aria-label="
+                          'Kopiraj link na ' + (update.headline || 'ažuriranje')
+                        "
+                        title="Kopiraj link"
+                        @click.prevent="copyAnchorLink(update.anchor)"
+                        ><font-awesome-icon :icon="['fas', 'link']"
+                      /></a>
+                    </div>
+                    <div
+                      v-if="
+                        update.body.replace(/<[^>]*>/g, '').length <= 700 ||
+                        liveExpandedUpdates.includes(update.anchor)
+                      "
+                      v-html="update.body"
+                    ></div>
+                    <template v-else>
+                      <p>
+                        {{
+                          update.body.replace(/<[^>]*>/g, '').substring(0, 300)
+                        }}...
+                      </p>
+                      <button
+                        class="live-update__read-more"
+                        @click="liveExpandedUpdates.push(update.anchor)"
+                      >
+                        Pročitajte više
+                      </button>
+                    </template>
+                  </div>
+                </article>
+              </div>
+              <transition name="toast-fade">
+                <div v-if="liveToast" class="live-toast">
+                  {{ liveToast }}
+                </div>
+              </transition>
               <div class="remp-banner"></div>
               <client-only>
                 <portal
@@ -677,6 +786,41 @@
       </div>-->
     </template>
     <tfooter v-if="post.id || $fetchState.error" :post="post"></tfooter>
+    <client-only>
+      <div
+        v-if="
+          post.live &&
+          !post.live_end &&
+          post.live_updates &&
+          post.live_updates.length
+        "
+        class="live-scroll-latest"
+        role="button"
+        tabindex="0"
+        aria-label="Idi na najnovije ažuriranje"
+        @click="scrollToLatest"
+        @keydown.enter="scrollToLatest"
+      >
+        &#9650; Najnovije
+      </div>
+      <div
+        v-if="livePendingUpdates"
+        class="live-new-updates"
+        role="button"
+        tabindex="0"
+        :aria-label="
+          'Učitaj ' +
+          livePendingUpdates +
+          ' ' +
+          (livePendingUpdates === 1 ? 'novu objavu' : 'nove objave')
+        "
+        @click="applyLiveUpdates"
+        @keydown.enter="applyLiveUpdates"
+      >
+        &#9650; Nova objava
+        <span class="live-new-updates__badge">{{ livePendingUpdates }}</span>
+      </div>
+    </client-only>
   </div>
 </template>
 <style scoped>
@@ -744,6 +888,295 @@
     margin-bottom: 0px;
   }
 }
+
+/* AI-generated live summary — reuses .live-update layout */
+.live-summary {
+  background: var(--tg-secondary-background-color);
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+.live-toast {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 500;
+  z-index: 1000;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.toast-fade-enter-active,
+.toast-fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+.toast-fade-enter,
+.toast-fade-leave-to {
+  opacity: 0;
+}
+.live-summary::before {
+  display: none;
+}
+.live-summary__pin {
+  color: var(--tg-primary-highlight-color);
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+.live-summary__text {
+  font-family: 'Merriweather', serif;
+  font-size: 100%;
+  line-height: 1.6;
+  color: var(--tg-primary-text-color);
+}
+.live-summary__text p {
+  margin: 0 0 8px;
+}
+.live-summary__text ul {
+  margin: 0;
+  padding-left: 20px;
+}
+.live-summary__text li {
+  margin-bottom: 4px;
+}
+
+/* Live blog updates */
+.live-updates-container {
+  max-width: 710px;
+  margin: 30px auto 0;
+  padding: 0 20px;
+  border-left: 3px solid var(--tg-primary-highlight-color);
+}
+.live-update {
+  position: relative;
+  padding: 16px 16px 16px 20px;
+  scroll-margin-top: 80px;
+}
+.live-update::before {
+  content: '';
+  position: absolute;
+  left: -7px;
+  top: 24px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--tg-primary-highlight-color);
+}
+.live-update--highlight {
+  background: var(--tg-secondary-background-color);
+  border-radius: 4px;
+}
+.live-update__time {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+.live-update__hour {
+  font-family: 'Barlow', monospace;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--tg-primary-highlight-color);
+}
+.live-update__date {
+  font-size: 12px;
+  color: var(--tg-primary-text-color);
+  opacity: 0.5;
+}
+.live-update__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.live-update__headline {
+  font-family: 'Merriweather', serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0 0 8px;
+  color: var(--tg-primary-text-color);
+  flex: 1;
+}
+.live-update__link {
+  color: var(--tg-primary-text-color);
+  opacity: 0.3;
+  flex-shrink: 0;
+  padding: 4px;
+  font-size: 16px;
+  transition: opacity 0.2s;
+}
+.live-update__link:hover {
+  opacity: 0.7;
+}
+.live-update__read-more {
+  display: block;
+  width: fit-content;
+  margin: 8px auto 0;
+  padding: 10px 24px;
+  background: var(--tg-secondary-background-color);
+  color: var(--tg-primary-text-color);
+  font-family: 'Barlow', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.live-update__read-more:hover {
+  opacity: 0.85;
+}
+.live-update--highlight .live-update__read-more {
+  background: var(--tg-primary-background-color);
+}
+.live-update__content >>> img {
+  max-width: 100%;
+  height: auto;
+  margin: 12px 0;
+  border-radius: 4px;
+}
+.live-update__content >>> p {
+  font-family: 'Merriweather', serif;
+  margin: 0 0 8px;
+  line-height: 1.6;
+}
+
+/* Scroll to latest button — right side */
+.live-scroll-latest {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--tg-secondary-background-color);
+  color: var(--tg-primary-text-color);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 99;
+  transition: transform 0.2s;
+}
+.live-scroll-latest:hover {
+  transform: translateY(-2px);
+}
+
+/* New updates notification button — center */
+.live-new-updates {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--tg-primary-highlight-color);
+  color: white;
+  padding: 10px 24px;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+  z-index: 100;
+  transition: transform 0.2s;
+  white-space: nowrap;
+}
+.live-new-updates:hover {
+  transform: translateX(-50%) translateY(-2px);
+}
+.live-new-updates__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  margin-left: 8px;
+  background: white;
+  color: var(--tg-primary-highlight-color);
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 767px) {
+  .live-updates-container {
+    padding: 0 16px;
+  }
+  .live-update__headline {
+    font-size: 16px;
+  }
+  .live-new-updates {
+    bottom: 16px;
+    font-size: 13px;
+    padding: 8px 18px;
+  }
+  .live-scroll-latest {
+    bottom: 16px;
+    right: 16px;
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
+</style>
+<style>
+.telegram-post-embed {
+  margin: 16px 0;
+}
+.telegram-post-embed__image {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  margin-bottom: 12px;
+}
+.telegram-post-embed__title {
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.3;
+  margin: 0 0 12px;
+  color: var(--tg-primary-text-color);
+}
+.telegram-post-embed__excerpt {
+  font-family: 'Merriweather', serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--tg-primary-text-color);
+  opacity: 0.85;
+  margin: 0 0 16px;
+}
+.telegram-post-embed__excerpt p {
+  margin: 0 0 8px;
+}
+.telegram-post-embed__excerpt p:last-child {
+  margin-bottom: 0;
+}
+.telegram-post-embed__button {
+  display: block;
+  width: fit-content;
+  margin: 8px auto 0;
+  padding: 10px 24px;
+  background: var(--tg-secondary-background-color);
+  color: var(--tg-primary-text-color) !important;
+  font-family: 'Barlow', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none !important;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.telegram-post-embed__button:hover {
+  opacity: 0.85;
+}
+.live-update--highlight .telegram-post-embed__button {
+  background: var(--tg-primary-background-color);
+}
 </style>
 <script>
 import { Portal } from '@linusborg/vue-simple-portal'
@@ -757,6 +1190,14 @@ export default {
     if (!this.$route.params.slug && !this.$route.params.category) {
       return
     }
+    // Clean up live blog state from previous article.
+    // Nuxt 2 reuses _slug.vue across route changes — beforeDestroy doesn't fire,
+    // so we must reset live state here in fetch() to avoid stale intervals/data.
+    this.stopLivePolling()
+    this.livePendingUpdates = 0
+    this.liveApplying = false
+    this.liveRemoteCount = 0
+    this.liveExpandedUpdates = []
     const slug = this.$route.params.slug || this.$route.params.category
     this.top_articles_version = Math.random() < 0.5 ? 'v1' : 'v2'
     const version = this.top_articles_version === 'v1' ? '1' : '2'
@@ -781,13 +1222,13 @@ export default {
       if (
         process.server &&
         this.$route.params.category !== 'preview' &&
-        post.social.path.replace('https://www.telegram.hr', '') !==
+        post.social.path.replace(this.$config.apiBaseUrl, '') !==
           this.$route.path
       ) {
         this.$telegram.context.res.statusCode = 301
         this.$telegram.context.res.setHeader(
           'Location',
-          post.social.path.replace('https://www.telegram.hr', '')
+          post.social.path.replace(this.$config.apiBaseUrl, '')
         )
         return
       }
@@ -860,7 +1301,20 @@ export default {
         },
         quiz: null,
         live: false,
+        live_end: null,
+        live_updates: [],
+        live_summary: null,
+        live_summary_time: null,
       },
+      // Live blog polling state
+      livePollingInterval: null, // setInterval ID for polling
+      livePendingUpdates: 0, // number of new updates pending on server
+      liveApplying: false, // double-click guard for applyLiveUpdates
+      liveRemoteCount: 0, // server-reported count, used as cache-bust param ?v=
+      liveTimeNow: Math.floor(Date.now() / 1000), // current time in seconds, ticks every 30s for relative time display
+      liveToast: null, // toast message shown briefly after actions like copy link
+      liveTimeInterval: null, // setInterval ID for liveTimeNow ticker
+      liveExpandedUpdates: [], // anchors of updates expanded by "Pročitajte više"
       top_articles: [],
       top_articles_version: 'v1',
       related_posts: [],
@@ -869,6 +1323,22 @@ export default {
     }
   },
   computed: {
+    liveSummaryTime() {
+      if (!this.post.live_summary_time) return ''
+      const diff = this.liveTimeNow - this.post.live_summary_time
+      if (diff < 0 || diff < 60) return 'upravo sad'
+      if (diff < 3600) {
+        return 'prije ' + Math.floor(diff / 60) + ' min'
+      }
+      if (diff < 43200) {
+        return 'prije ' + Math.floor(diff / 3600) + ' h'
+      }
+      // Older than 12h — show only date, no time
+      const d = new Date(this.post.live_summary_time * 1000)
+      return (
+        d.getDate() + '.' + (d.getMonth() + 1) + '.' + d.getFullYear() + '.'
+      )
+    },
     parsedOvertitle() {
       return this.$options.filters.parseCat(
         this.post.overtitle ? this.post.overtitle : this.post.category
@@ -993,7 +1463,7 @@ export default {
             '@type': 'ListItem',
             position: 1,
             name: this.post.category,
-            item: 'https://www.telegram.hr/' + this.$route.params.category_link,
+            item: 'https://www.telegram.hr/' + this.post.category_link,
           },
           {
             '@type': 'ListItem',
@@ -1010,6 +1480,7 @@ export default {
           : this.post.category === 'Komentari'
           ? 'OpinionNewsArticle'
           : 'NewsArticle',
+        '@id': this.post.social.path,
         headline: this.$options.filters.parseCat(this.post.title),
         mainEntityOfPage: this.post.social.path,
         datePublished: new Date(this.post.time * 1000).toISOString(),
@@ -1017,29 +1488,70 @@ export default {
         image: images,
         publisher: this.$store.state.header.publisher,
         author: this.post.authors.map((author) => {
-          return {
+          const person = {
             '@type': 'Person',
             name: author.name,
-            url: author.url,
-            image: author.image,
-            sameAs: author.sameAs,
-            description: author.description,
           }
+          if (author.url) person.url = author.url
+          if (author.image) person.image = author.image
+          if (author.description) person.description = author.description
+          if (
+            author.sameAs &&
+            author.sameAs.length &&
+            author.sameAs.some((s) => s.startsWith('http'))
+          )
+            person.sameAs = author.sameAs.filter((s) => s.startsWith('http'))
+          return person
         }),
         keywords: this.post.tags.map((tag) => tag.slug),
         articleSection: [this.$options.filters.parseCat(this.post.category)],
       }
-      // Add LiveBlogPosting specific fields
+      // Google LiveBlogPosting structured data (schema.org)
+      // coverageStartTime/EndTime define the live window for Google Search carousel.
+      // liveBlogUpdate entries are BlogPosting with @id anchored to update URL.
+      // articleBody is stripped of HTML/entities for clean plain text.
       if (this.post.live) {
         article.coverageStartTime = new Date(
           this.post.time * 1000
         ).toISOString()
+        if (this.post.live_end) {
+          article.coverageEndTime = new Date(
+            this.post.live_end * 1000
+          ).toISOString()
+        }
+        if (this.post.live_updates && this.post.live_updates.length) {
+          article.liveBlogUpdate = this.post.live_updates.map((update) => {
+            const url = this.post.social.path + '#' + update.anchor
+            const plainBody = update.body
+              .replace(/<[^>]*>/g, '')
+              .replace(/&nbsp;/g, ' ')
+              .replace(/&amp;/g, '&')
+              .replace(/&[a-z]+;/gi, '')
+              .replace(/&#\d+;/g, '')
+              .trim()
+            // headline is required in BlogPosting schema — fallback to truncated body
+            const headline =
+              update.headline ||
+              (plainBody.length > 110
+                ? plainBody.substring(0, 110).replace(/\s+\S*$/, '') + '…'
+                : plainBody)
+            return {
+              '@type': 'BlogPosting',
+              '@id': url,
+              headline,
+              datePublished: new Date(update.time * 1000).toISOString(),
+              dateModified: new Date(update.time * 1000).toISOString(),
+              articleBody: plainBody,
+              url,
+            }
+          })
+        }
       }
       if (this.post.paywall !== 'never') {
-        article.isAccessibleForFree = 'False'
+        article.isAccessibleForFree = false
         article.hasPart = {
           '@type': 'WebPageElement',
-          isAccessibleForFree: 'False',
+          isAccessibleForFree: false,
           cssSelector: '.piano-content',
         }
       }
@@ -1086,6 +1598,15 @@ export default {
       return this.post.paywall
     },
   },
+  watch: {
+    'post.live': {
+      handler(val) {
+        if (val && !this.post.live_end) {
+          this.startLivePolling()
+        }
+      },
+    },
+  },
   mounted() {
     this.$nextTick(() => {
       this.getPost()
@@ -1095,12 +1616,42 @@ export default {
       }
     })
     this.widgetVariant = this.getWidgetVariant()
+    // Tick liveTimeNow every 30s so relative timestamps update
+    this.liveTimeInterval = setInterval(() => {
+      this.liveTimeNow = Math.floor(Date.now() / 1000)
+    }, 30000)
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.handleScroll)
     this.comments_embed = null
+    this.stopLivePolling()
+    if (this.liveTimeInterval) {
+      clearInterval(this.liveTimeInterval)
+      this.liveTimeInterval = null
+    }
   },
   methods: {
+    // Returns Croatian relative time string ("prije 2 min") for timestamps
+    // within the last 12 hours, or formatted date/time for older entries.
+    liveRelativeTime(unixSeconds) {
+      const diff = this.liveTimeNow - unixSeconds
+      if (diff < 0) return 'upravo sad'
+      if (diff < 60) return 'upravo sad'
+      if (diff < 3600) {
+        const mins = Math.floor(diff / 60)
+        return 'prije ' + mins + ' min'
+      }
+      if (diff < 43200) {
+        // 12 hours
+        const hours = Math.floor(diff / 3600)
+        return 'prije ' + hours + ' h'
+      }
+      // Older than 12h — show only date
+      const d = new Date(unixSeconds * 1000)
+      return (
+        d.getDate() + '.' + (d.getMonth() + 1) + '.' + d.getFullYear() + '.'
+      )
+    },
     handleScroll() {
       const walls = document.getElementsByClassName('wallpaper-banners')
       const bill =
@@ -1448,6 +1999,164 @@ export default {
         if (window.location.pathname !== to && event.preventDefault) {
           event.preventDefault()
           this.$router.push(to)
+        }
+      }
+    },
+    /**
+     * Live blog polling system.
+     *
+     * Flow: startLivePolling() → pollLiveUpdates() every ~20s with jitter
+     *   → hits lightweight /api/live-check/{id} (returns count + live_end only)
+     *   → if count > local count, shows "Novo ažuriranje" button
+     *   → user clicks → applyLiveUpdates() fetches full article with cache-busting
+     *   → smooth scroll + fade animation to show new updates
+     *
+     * Cache busting: ?v={count} makes each update a unique URL for nginx proxy_cache.
+     * Cache-Control: no-cache header bypasses browser HTTP cache without affecting server caches.
+     * WordPress Redis cache is cleared on save_post via clear_pwa_cache() in Admin.php.
+     */
+    startLivePolling() {
+      if (!this.post.live || this.post.live_end) return
+      if (this.livePollingInterval) return
+      this.pollLiveUpdates() // Immediate first check
+      const jitter = 18000 + Math.random() * 4000 // 18-22s random to spread load
+      this.livePollingInterval = setInterval(() => {
+        this.pollLiveUpdates()
+      }, jitter)
+    },
+    stopLivePolling() {
+      if (this.livePollingInterval) {
+        clearInterval(this.livePollingInterval)
+        this.livePollingInterval = null
+      }
+    },
+    async pollLiveUpdates() {
+      try {
+        // Lightweight endpoint — returns {count, live_end} only, no full article processing
+        const data = await this.$axios.$get('/api/live-check/' + this.post.id)
+        const currentCount = this.post.live_updates
+          ? this.post.live_updates.length
+          : 0
+        if (data.count > currentCount) {
+          this.livePendingUpdates = data.count - currentCount
+          this.liveRemoteCount = data.count
+        }
+        // If live_end is set, update post and stop polling permanently
+        if (data.live_end) {
+          this.$set(this.post, 'live_end', data.live_end)
+          this.stopLivePolling()
+        }
+      } catch (e) {}
+    },
+    async applyLiveUpdates() {
+      if (this.liveApplying) return // Double-click guard
+      this.liveApplying = true
+      try {
+        const slug = this.$route.params.slug || this.$route.params.category
+        // ?v={count} busts nginx proxy_cache (keyed by $request_uri)
+        // Cache-Control: no-cache bypasses browser HTTP cache
+        const data = await this.$axios.$get(
+          encodeURI('/api/single/' + slug) + '?v=' + this.liveRemoteCount,
+          { headers: { 'Cache-Control': 'no-cache' } }
+        )
+        const currentCount = this.post.live_updates
+          ? this.post.live_updates.length
+          : 0
+        if (
+          data &&
+          data.live_updates &&
+          data.live_updates.length > currentCount
+        ) {
+          const container = this.$el.querySelector('.live-updates-container')
+          if (!container) {
+            this.liveApplying = false
+            return
+          }
+
+          // 1. Scroll to container with 10vh offset above
+          const offset = window.innerHeight * 0.1
+          const top =
+            container.getBoundingClientRect().top + window.scrollY - offset
+          window.scrollTo({ top, behavior: 'smooth' })
+
+          // 2. Wait for scroll to finish, then swap content with fade animation
+          // Uses both scrollend event and 800ms fallback (Safari doesn't support scrollend)
+          let fired = false
+          const onScrollDone = () => {
+            if (fired) return // Guard against double-fire from both scrollend + fallback
+            fired = true
+            container.style.transition = 'opacity 0.15s ease'
+            container.style.opacity = '0'
+
+            setTimeout(() => {
+              this.$set(this.post, 'live_updates', data.live_updates)
+              if (data.live_summary) {
+                this.$set(this.post, 'live_summary', data.live_summary)
+                this.$set(
+                  this.post,
+                  'live_summary_time',
+                  data.live_summary_time
+                )
+              }
+              this.livePendingUpdates = 0
+
+              this.$nextTick(() => {
+                container.style.transition = 'opacity 0.4s ease'
+                container.style.opacity = '1'
+                setTimeout(() => {
+                  container.style.transition = ''
+                  this.liveApplying = false
+                }, 500)
+              })
+            }, 150)
+          }
+
+          const fallback = setTimeout(onScrollDone, 800)
+          window.addEventListener(
+            'scrollend',
+            () => {
+              clearTimeout(fallback)
+              onScrollDone()
+            },
+            { once: true }
+          )
+        } else {
+          // Server returned same or fewer updates (cache not yet cleared) — allow retry
+          this.liveApplying = false
+        }
+      } catch (e) {
+        this.liveApplying = false
+      }
+    },
+    showLiveToast(msg) {
+      this.liveToast = msg
+      clearTimeout(this._toastTimer)
+      this._toastTimer = setTimeout(() => {
+        this.liveToast = null
+      }, 2500)
+    },
+    copyAnchorLink(anchor) {
+      const url = this.post.social.path + '#' + anchor
+      const ta = document.createElement('textarea')
+      ta.value = url
+      ta.style.position = 'fixed'
+      ta.style.opacity = '0'
+      document.body.appendChild(ta)
+      ta.select()
+      document.execCommand('copy')
+      document.body.removeChild(ta)
+      this.showLiveToast('Link kopiran')
+    },
+    // Scroll to the newest live update (first in array, since sorted reverse chronological)
+    scrollToLatest() {
+      if (this.post.live_updates && this.post.live_updates.length) {
+        const el = document.getElementById(this.post.live_updates[0].anchor)
+        if (el) {
+          const top =
+            el.getBoundingClientRect().top +
+            window.scrollY -
+            window.innerHeight * 0.1
+          window.scrollTo({ top, behavior: 'smooth' })
         }
       }
     },

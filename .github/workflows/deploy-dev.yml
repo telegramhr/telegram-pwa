@@ -1,0 +1,106 @@
+name: Build and Deploy PWA (Dev)
+
+on:
+  push:
+    branches:
+      - dev
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Setup FontAwesome Pro
+        run: |
+          echo "@fortawesome:registry=https://npm.fontawesome.com/" >> .npmrc
+          echo "//npm.fontawesome.com/:_authToken=${{ secrets.FONTAWESOME_TOKEN }}" >> .npmrc
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        env:
+          API_BASE_URL: https://dev.telegram.hr
+        run: npm run build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pwa-build
+          include-hidden-files: true
+          path: |
+            .nuxt/
+            static/
+            nuxt.config.js
+            package.json
+            package-lock.json
+            .npmrc
+            ecosystem.staging.config.js
+          retention-days: 7
+
+  deploy:
+    needs: build
+    runs-on: [self-hosted, staging]
+
+    steps:
+      - name: Download artifact to temp
+        uses: actions/download-artifact@v4
+        with:
+          name: pwa-build
+          path: /home/telegram/pwa-new
+
+      - name: Verify download and swap builds
+        run: |
+          if [ ! -d "/home/telegram/pwa-new/.nuxt" ]; then
+            echo "ERROR: .nuxt not found in downloaded artifact"
+            exit 1
+          fi
+
+          # Backup current .nuxt (keep last 2 backups)
+          rm -rf /home/telegram/pwa/.nuxt.bak2
+          mv /home/telegram/pwa/.nuxt.bak /home/telegram/pwa/.nuxt.bak2 2>/dev/null || true
+          mv /home/telegram/pwa/.nuxt /home/telegram/pwa/.nuxt.bak 2>/dev/null || true
+
+          # Move new build into place
+          mv /home/telegram/pwa-new/.nuxt /home/telegram/pwa/.nuxt
+
+          # Copy other files
+          cp -f /home/telegram/pwa-new/nuxt.config.js /home/telegram/pwa/
+          cp -f /home/telegram/pwa-new/package.json /home/telegram/pwa/
+          cp -f /home/telegram/pwa-new/package-lock.json /home/telegram/pwa/
+          cp -f /home/telegram/pwa-new/.npmrc /home/telegram/pwa/
+          cp -rf /home/telegram/pwa-new/static /home/telegram/pwa/
+          cp -f /home/telegram/pwa-new/ecosystem.staging.config.js /home/telegram/pwa/ecosystem.config.js
+
+          # Cleanup temp
+          rm -rf /home/telegram/pwa-new
+
+      - name: Install dependencies
+        working-directory: /home/telegram/pwa
+        run: npm ci
+
+      - name: Restart PM2
+        working-directory: /home/telegram/pwa
+        run: |
+          pm2 restart ecosystem.config.js --update-env || pm2 start ecosystem.config.js
+          sleep 3
+          pm2 list | grep -q "Telegram-Dev.*online" || {
+            echo "PM2 failed to start, rolling back..."
+            rm -rf /home/telegram/pwa/.nuxt
+            mv /home/telegram/pwa/.nuxt.bak /home/telegram/pwa/.nuxt
+            pm2 restart ecosystem.config.js --update-env
+            exit 1
+          }
