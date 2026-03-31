@@ -343,6 +343,7 @@ export default {
   );
 }
 .hero-left-container {
+  background-color: #e8dacd;
   display: none;
 }
 .hero-content-wrapper {
