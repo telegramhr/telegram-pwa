@@ -38,16 +38,16 @@ export default {
           src="@/assets/img/telegram_logo_black.svg"
           alt="Telegram Logo"
         />
-        <div class="content-wrapper-desktop">
-          <div class="text-wrapper-desktop">
-            <h1>{{ title }}</h1>
-            <p>
-              {{ text }}
-              <span style="font-weight: 700">{{ highlightedText }}</span>
-              tjedno.
-            </p>
-          </div>
-          <button class="subscribe-btn">{{ button }}</button>
+        <div class="text-wrapper-desktop">
+          <h1 class="title">{{ title }}</h1>
+          <p class="subtitle">
+            {{ text }}
+            <span style="font-weight: 700">{{ highlightedText }}</span>
+            tjedno.
+          </p>
+          <button href="#pretplataPayment" class="subscribe-btn">
+            {{ button }}
+          </button>
         </div>
         <p class="disclaimer">
           {{ disclaimer }}
@@ -128,6 +128,9 @@ export default {
   text-align: center;
   font-size: 28px;
   line-height: 32px;
+  font-weight: 500;
+  font-family: 'Lora', serif;
+  color: white;
 }
 .text-wrapper {
   display: flex;
@@ -139,6 +142,8 @@ export default {
   text-align: center;
   font-size: 18px;
   line-height: 24px;
+  font-family: 'Barlow', sans-serif;
+  color: white;
 }
 .subscribe-btn {
   background-color: #217613;
@@ -184,6 +189,7 @@ export default {
   border: none;
   display: flex;
   flex-direction: row;
+  align-items: center;
   gap: 2px;
   align-items: center;
 }
@@ -223,6 +229,10 @@ export default {
   width: 10px;
   height: 10px;
 }
+.share-section .share {
+  border-radius: 99999px;
+  padding: 0 4px;
+}
 .images {
   position: relative;
   min-height: 196px;
@@ -238,7 +248,7 @@ export default {
 }
 .images .macbook {
   position: absolute;
-  bottom: -40px;
+  bottom: -60px;
   right: -50px;
   width: 480px;
 }
@@ -263,38 +273,20 @@ export default {
   .text-wrapper {
     display: none;
   }
-  .content-wrapper-desktop {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
+
   .text-wrapper-desktop {
     display: flex;
     flex-direction: column;
     gap: 24px;
   }
-  .text-wrapper-desktop h1 {
-    text-align: left;
-    font-size: 40px;
-    line-height: 46px;
-    color: #343434;
-  }
-  .text-wrapper-desktop p {
-    text-align: left;
-    font-size: 18px;
-    line-height: 24px;
-    color: #343434;
-  }
-
   .text-wrapper-desktop button {
     margin: 0;
   }
   .left-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 20px;
     max-width: 381px;
-    justify-content: space-between;
+    gap: 72px;
   }
   .listen-section {
     margin: 0;
@@ -322,13 +314,21 @@ export default {
   }
   .left-container h1 {
     text-align: left;
-    font-size: 32px;
-    line-height: 36px;
+    font-size: 40px;
+    line-height: 46px;
+    font-weight: 500;
+    font-family: 'Lora', serif;
+    color: #343434;
+  }
+  .left-container span {
+    font-weight: 700;
   }
   .left-container p {
     text-align: left;
     font-size: 18px;
     line-height: 24px;
+    font-family: 'Barlow';
+    color: #343434;
   }
   .subscribe-btn {
     font-size: 16px;
@@ -345,6 +345,7 @@ export default {
     line-height: 16px;
     letter-spacing: 0%;
     color: #342f2f;
+    font-family: 'Barlow', sans-serif;
   }
   .content-wrapper {
     padding-left: 86px;
@@ -358,7 +359,7 @@ export default {
   .images .iphone {
     display: block;
     position: absolute;
-    bottom: 0px;
+    bottom: -20px;
     right: 120px;
     left: auto;
     z-index: 10;
