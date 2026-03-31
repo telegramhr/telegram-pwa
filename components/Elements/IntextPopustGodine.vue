@@ -29,7 +29,7 @@
                   <p class="subtitle">
                     {{ subtitle }}
                     <span style="font-weight: 700">{{ weeklyPrice }}</span>
-                    tjedno.
+                    {{ period }}
                   </p>
                 </div>
                 <a
@@ -97,6 +97,7 @@ export default {
       newPrice: '29€',
       subtitle: 'Do neovisnog novinarstva sada možete već od ',
       weeklyPrice: '0,56€',
+      period: 'tjedno.',
       softwall: true,
       cta: 'Aktivirajte pretplatu',
       cta_link: '/pretplata/popust-godine',
