@@ -41,6 +41,8 @@ jobs:
         run: npm ci
 
       - name: Build
+        env:
+          API_BASE_URL: ${{ (github.ref == 'refs/heads/staging' || inputs.environment == 'staging') && 'https://staging.telegram.hr' || 'https://telegram.hr' }}
         run: npm run build
 
       - name: Upload build artifact
