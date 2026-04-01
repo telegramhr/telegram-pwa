@@ -32,13 +32,13 @@
             class="overtitle noththree"
             :class="{
               'dynamic-overtitle': post.overtitle_tag || post.live,
-              'overtitle-live': post.live,
+              'overtitle-live': post.live && !post.live_end,
             }"
           >
             <span
               v-if="post.overtitle_tag || post.live"
               class="dynamic-overtitle-element"
-              >{{ post.live ? 'Uživo' : post.overtitle_tag }}</span
+              >{{ post.live && !post.live_end ? 'Uživo' : post.overtitle_tag }}</span
             >
             <span>{{ parsedOvertitle }}</span>
           </div>

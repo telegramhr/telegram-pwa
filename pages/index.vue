@@ -52,11 +52,11 @@
               !$store.state.user.access?.length
             "
             id="pretplata-promo"
-            to="/pretplata/50-popust"
+            to="/pretplata/popust-godine"
             class="newbtn gift-btn"
           >
-            <span class="poklonMobile">Pretplata </span
-            ><span class="poklon">Pretplatite se uz </span>-50%</app-link
+            <span class="poklonMobile">Veliki popust </span
+            ><span class="poklon">Veliki popust </span>-63%</app-link
           >
           <a
             v-show="!canLogIn"
