@@ -338,6 +338,22 @@ export default {
         config: {
             environment: process.env.NODE_ENV || 'development',
             tracesSampleRate: 0,
+            beforeSend(event, hint) {
+                const error = hint && hint.originalException
+                if (error && typeof error === 'object') {
+                    const msg = error.message || ''
+                    if (
+                        msg.includes('Failed to fetch') ||
+                        msg.includes('Network Error') ||
+                        msg.includes('timeout of') ||
+                        msg.includes('Request aborted') ||
+                        msg.includes('Load failed')
+                    ) {
+                        return null
+                    }
+                }
+                return event
+            },
         },
         clientIntegrations: {
             Dedupe: {},
