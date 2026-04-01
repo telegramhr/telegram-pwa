@@ -8745,7 +8745,7 @@ html.large-fontsize,
 .wp-block-image.aligncenter>figcaption,
 .wp-block-image.alignleft>figcaption,
 .wp-block-image.alignright>figcaption {
-    display: flex;
+    display: flex !important;
 }
 
 .product-gallery-filters span {

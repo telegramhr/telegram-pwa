@@ -51,6 +51,7 @@ jobs:
           path: |
             .nuxt/
             static/
+            assets/
             nuxt.config.js
             package.json
             package-lock.json
@@ -91,6 +92,7 @@ jobs:
           cp -f /home/marko/pwa-staging-new/package-lock.json /home/marko/pwa-staging/
           cp -f /home/marko/pwa-staging-new/.npmrc /home/marko/pwa-staging/
           cp -rf /home/marko/pwa-staging-new/static /home/marko/pwa-staging/
+          cp -rf /home/marko/pwa-staging-new/assets /home/marko/pwa-staging/
 
           # Cleanup temp
           rm -rf /home/marko/pwa-staging-new
@@ -146,6 +148,7 @@ jobs:
           cp -f /home/marko/pwa-production-new/package-lock.json /home/marko/pwa-production/
           cp -f /home/marko/pwa-production-new/.npmrc /home/marko/pwa-production/
           cp -rf /home/marko/pwa-production-new/static /home/marko/pwa-production/
+          cp -rf /home/marko/pwa-production-new/assets /home/marko/pwa-production/
 
           # Cleanup temp
           rm -rf /home/marko/pwa-production-new
