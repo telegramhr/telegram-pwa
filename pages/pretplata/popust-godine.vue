@@ -98,7 +98,7 @@
       <div>
         <PretplataPayment
           id="pretplataPayment"
-          :allowTermsChange="false"
+          :allow-terms-change="false"
           :term="selectedTerm"
           :payment-type="payment"
           :annual-price="annualPrice"
@@ -175,15 +175,15 @@ export default {
     return {
       loading: false,
       subscriptionType: 'individual',
-      loginUrl: '50-popust',
+      loginUrl: 'popust-godine',
       selectedTerm: 'annual',
       payment: 'trustpay_recurrent',
       price: '29',
-      pack: 'Telegram_Standard_Godišnja_Pretplata_29€',
+      pack: 'standard_godisnja_29e',
       annualPrice: '29',
       monthlyPrice: '0.56',
       email: this.$store.state.user.email,
-      urlKey: 'half-off-2025',
+      urlKey: 'popust-godine',
       canLogIn: true,
       discount: 0,
     }
@@ -222,7 +222,7 @@ export default {
 
   head() {
     return {
-      title: 'Telegram.hr Pretplata - 50% popusta za prvu godinu',
+      title: 'Telegram.hr Pretplata - 60% popusta za prvu godinu',
       meta: [
         {
           hid: 'description',
@@ -238,7 +238,7 @@ export default {
           hid: 'og:title',
           name: 'og:title',
           property: 'og:title',
-          content: 'Telegram.hr Pretplata - 50% popusta za prvu godinu',
+          content: 'Telegram.hr Pretplata - 60% popusta za prvu godinu',
         },
         {
           hid: 'og:image',
@@ -251,14 +251,14 @@ export default {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/pretplata/50-popust/',
+          content: 'https://www.telegram.hr/pretplata/popust-godine/',
         },
       ],
       link: [
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: 'https://www.telegram.hr/pretplata/50-popust/',
+          href: 'https://www.telegram.hr/pretplata/popust-godine/',
         },
       ],
       script: [

@@ -44,40 +44,16 @@
             </div>
           </div>
           <div class="image-section">
-            <div class="article-bar">
-              <button class="listen-btn">
-                <img src="@/assets/img/pretplata/standard/play.png" alt="" />
-                Poslušajte ovaj članak
-              </button>
-              <div class="action-buttons">
-                <button class="gift-btn">
-                  <img src="@/assets/img/pretplata/standard/gift.png" alt="" />
-                  Poklonite članak
-                </button>
-                <button class="comment-btn">
-                  <img
-                    src="@/assets/img/pretplata/standard/comment.png"
-                    alt=""
-                  />
-                  24
-                </button>
-                <button class="share-btn">
-                  <img src="@/assets/img/pretplata/standard/share.png" alt="" />
-                </button>
-              </div>
-            </div>
-            <div class="images">
-              <img
-                class="iphone"
-                src="@/assets/img/pretplata/standard/iphone.png"
-                alt=""
-              />
-              <img
-                class="macbook"
-                src="@/assets/img/pretplata/standard/macbook-desktop.png"
-                alt=""
-              />
-            </div>
+            <img
+              src="@/assets/img/pretplata/popust-godine/popup_desktop.png"
+              class="logo desktop-only"
+              alt="Laptop, mobitel i audio članak"
+            />
+            <img
+              src="@/assets/img/pretplata/popust-godine/popup_mob.png"
+              class="logo mobile-only"
+              alt="Laptop, mobitel i audio članak"
+            />
           </div>
         </div>
       </div>
@@ -90,7 +66,7 @@ export default {
   name: 'IntextPopustGodine',
   data() {
     return {
-      show: true,
+      show: false,
       termId: false,
       title: 'Čitajte Telegram cijelu godinu za',
       oldPrice: '79€',
@@ -104,6 +80,13 @@ export default {
       disclaimer:
         'Možete otkazati u bilo kojem trenutku. Nakon isteka prve godine po cijeni od 29€, pretplata se automatski obnavlja po redovnoj cijeni.',
     }
+  },
+
+  mounted() {
+    window.addEventListener('intext_popust_godine', this.load)
+  },
+  destroyed() {
+    window.removeEventListener('intext_popust_godine', this.load)
   },
   methods: {
     load(e) {
@@ -120,6 +103,25 @@ export default {
         this.termId = e.detail.termId
       }
       this.triggerShow()
+    },
+    triggerShow() {
+      if (this.show) {
+        return
+      }
+      const el = document.getElementById('piano-content')
+      if (this.softwall) {
+        this.show = true
+        this.$emit('show')
+      }
+      if (el) {
+        this.show = true
+        if (!this.softwall) {
+          el.parentNode.removeChild(el)
+          document
+            .querySelector('#article-content p:last-child')
+            .classList.add('premium-fade-out')
+        }
+      }
     },
   },
 }
@@ -146,7 +148,7 @@ export default {
   width: 100%;
   max-width: 900px;
   position: relative;
-  height: 600px;
+  max-height: 80vh !important;
   background: #e8dacd;
 }
 .wrapper {
@@ -328,13 +330,36 @@ export default {
 }
 .image-section {
   position: relative;
-  padding-top: 42px;
-  height: 100%;
+  height: auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
   background: radial-gradient(
     60.06% 51.64% at 50.07% 48.36%,
     #3c82b3 0%,
     #041c2c 100%
   );
+}
+.image-section img {
+  max-width: 100%;
+}
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.desktop-only {
+  display: none;
+}
+.mobile-only {
+  display: block;
+  animation: slideUp 0.6s ease-in both;
+  animation-delay: 0.2s;
 }
 .images {
   position: relative;
@@ -450,9 +475,17 @@ export default {
     width: 16px;
     height: 16px;
   }
+  .desktop-only {
+    display: block;
+    animation: slideUp 0.6s ease-in both;
+    animation-delay: 0.2s;
+  }
+  .mobile-only {
+    display: none;
+  }
   .image-section {
     width: 100%;
-    padding-top: 112px;
+    justify-content: flex-end;
   }
   .images {
     max-width: none;
