@@ -6,19 +6,10 @@ import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 export default {
   name: 'Testimonials',
   components: { VueSlickCarousel },
-  data() {
-    return {
-      slickOptions: {
-        dots: false,
-        infinite: true,
-        speed: 300,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
-        centerMode: false,
-        variableWidth: true,
-      },
-      testimonials: [
+  props: {
+    testimonials: {
+      type: Array,
+      default: () => [
         {
           text: 'Stranice Telegrama u meni bude nadu da nije sve oko nas uzaludno. I bude zahvalnost za jedan humani pokušaj pružanja utjehe svojim čitaocima',
           name: 'Rade Šerbedžija',
@@ -38,6 +29,20 @@ export default {
           avatar: require('@/assets/img/pretplata/sever.png'),
         },
       ],
+    },
+  },
+  data() {
+    return {
+      slickOptions: {
+        dots: false,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        centerMode: false,
+        variableWidth: true,
+      },
     }
   },
 }
@@ -171,6 +176,7 @@ export default {
   font-weight: 500;
   font-size: 18px;
   font-family: 'Barlow', sans-serif;
+  text-wrap: nowrap;
 }
 
 .author-box .info .description {
