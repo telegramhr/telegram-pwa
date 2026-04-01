@@ -1,5 +1,6 @@
 <template>
   <div
+    id="studenac-widget"
     class="container cantha-small-block flex relative native-block offers-widget column-top-pad stretch mobile-side-pad"
   >
     <div class="full column-full-pad">
@@ -149,6 +150,9 @@ export default {
 </script>
 
 <style scoped>
+#studenac-widget {
+  padding: 24px 0;
+}
 .studenac-header {
   position: relative;
   justify-content: space-between;
@@ -199,7 +203,6 @@ export default {
   min-width: 0;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
 }
 
 .slide-item {
@@ -316,6 +319,9 @@ export default {
 }
 
 @media screen and (min-width: 768px) {
+  #studenac-widget {
+    padding: 0;
+  }
   .studenac-header {
     flex-direction: row;
     justify-content: space-between;
