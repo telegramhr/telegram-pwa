@@ -1565,7 +1565,9 @@ export default {
                   String.fromCharCode(parseInt(hex, 16))
                 )
                 .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(n))
+                .replace(/&nbsp;/g, ' ')
                 .replace(/&[a-z]+;/gi, '')
+                .replace(/\u00A0/g, ' ')
                 .trim()
               const rawHeadline = update.headline
                 ? update.headline
