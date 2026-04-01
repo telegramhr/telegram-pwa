@@ -533,7 +533,9 @@
                 aria-label="Live ažuriranja"
               >
                 <article
-                  v-for="update in post.live_updates"
+                  v-for="update in post.live_updates.filter(
+                    (u) => u.headline || stripHtml(u.body).trim()
+                  )"
                   :id="update.anchor"
                   :key="update.anchor"
                   class="live-update"
@@ -566,17 +568,13 @@
                     </div>
                     <div
                       v-if="
-                        update.body.replace(/<[^>]*>/g, '').length <= 700 ||
+                        stripHtml(update.body).length <= 700 ||
                         liveExpandedUpdates.includes(update.anchor)
                       "
                       v-html="update.body"
                     ></div>
                     <template v-else>
-                      <p>
-                        {{
-                          update.body.replace(/<[^>]*>/g, '').substring(0, 300)
-                        }}...
-                      </p>
+                      <p>{{ stripHtml(update.body).substring(0, 300) }}...</p>
                       <button
                         class="live-update__read-more"
                         @click="liveExpandedUpdates.push(update.anchor)"
@@ -1519,7 +1517,10 @@ export default {
             '@type': 'Person',
             name: author.name,
           }
-          if (author.url) person.url = author.url
+          if (author.url)
+            person.url = author.url.startsWith('http')
+              ? author.url
+              : 'https://www.telegram.hr' + author.url
           if (author.image) person.image = author.image
           if (author.description) person.description = author.description
           if (
@@ -1533,10 +1534,11 @@ export default {
         keywords: this.post.tags.map((tag) => tag.slug),
         articleSection: [this.$options.filters.parseCat(this.post.category)],
       }
-      // Google LiveBlogPosting structured data (schema.org)
-      // coverageStartTime/EndTime define the live window for Google Search carousel.
-      // liveBlogUpdate entries are BlogPosting with @id anchored to update URL.
-      // articleBody is stripped of HTML/entities for clean plain text.
+      if (this.post.description) {
+        article.description = this.$options.filters.parseCat(
+          this.post.description
+        )
+      }
       if (this.post.live) {
         article.coverageStartTime = new Date(
           this.post.time * 1000
@@ -1547,31 +1549,48 @@ export default {
           ).toISOString()
         }
         if (this.post.live_updates && this.post.live_updates.length) {
-          article.liveBlogUpdate = this.post.live_updates.map((update) => {
-            const url = this.post.social.path + '#' + update.anchor
-            const plainBody = update.body
-              .replace(/<[^>]*>/g, '')
-              .replace(/&nbsp;/g, ' ')
-              .replace(/&amp;/g, '&')
-              .replace(/&[a-z]+;/gi, '')
-              .replace(/&#\d+;/g, '')
-              .trim()
-            // headline is required in BlogPosting schema — fallback to truncated body
-            const headline =
-              update.headline ||
-              (plainBody.length > 110
-                ? plainBody.substring(0, 110).replace(/\s+\S*$/, '') + '…'
-                : plainBody)
-            return {
-              '@type': 'BlogPosting',
-              '@id': url,
-              headline,
-              datePublished: new Date(update.time * 1000).toISOString(),
-              dateModified: new Date(update.time * 1000).toISOString(),
-              articleBody: plainBody,
-              url,
-            }
-          })
+          article.liveBlogUpdate = this.post.live_updates
+            .filter(
+              (update) =>
+                update.body?.replace(/<[^>]*>/g, '').trim() ||
+                update.headline?.trim()
+            )
+            .map((update) => {
+              const url = this.post.social.path + '#' + update.anchor
+              const plainBody = update.body
+                .replace(/<[^>]*>/g, '')
+                .replace(/&nbsp;/g, ' ')
+                .replace(/&amp;/g, '&')
+                .replace(/&#x([0-9a-f]+);/gi, (_, hex) =>
+                  String.fromCharCode(parseInt(hex, 16))
+                )
+                .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(n))
+                .replace(/&[a-z]+;/gi, '')
+                .trim()
+              const rawHeadline = update.headline
+                ? update.headline
+                    .replace(/&#x([0-9a-f]+);/gi, (_, hex) =>
+                      String.fromCharCode(parseInt(hex, 16))
+                    )
+                    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(n))
+                    .replace(/&amp;/g, '&')
+                    .replace(/&[a-z]+;/gi, '')
+                : ''
+              const headline =
+                rawHeadline ||
+                (plainBody.length > 110
+                  ? plainBody.substring(0, 110).replace(/\s+\S*$/, '') + '…'
+                  : plainBody)
+              return {
+                '@type': 'BlogPosting',
+                '@id': url,
+                headline,
+                datePublished: new Date(update.time * 1000).toISOString(),
+                dateModified: new Date(update.time * 1000).toISOString(),
+                articleBody: plainBody,
+                url,
+              }
+            })
         }
       }
       if (this.post.paywall !== 'never') {
@@ -1658,6 +1677,21 @@ export default {
     }
   },
   methods: {
+    stripHtml(html) {
+      const txt = html.replace(/<[^>]*>/g, '')
+      if (process.client) {
+        const el = document.createElement('textarea')
+        el.innerHTML = txt
+        return el.value
+      }
+      return txt
+        .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(n))
+        .replace(/&amp;/g, '&')
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+        .replace(/&quot;/g, '"')
+        .replace(/&apos;/g, "'")
+    },
     // Returns Croatian relative time string ("prije 2 min") for timestamps
     // within the last 12 hours, or formatted date/time for older entries.
     liveRelativeTime(unixSeconds) {
