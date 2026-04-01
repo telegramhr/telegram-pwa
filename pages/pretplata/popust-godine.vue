@@ -22,7 +22,7 @@
             </h1>
             <p class="hero-subtitle">
               Do neovisnog novinarstva sada možete već od
-              <span style="font-weight: 700">0.56€</span>
+              <span style="font-weight: 700">0,56€</span>
               tjedno.
             </p>
             <a href="#pretplataPayment" class="hero-subscribe-btn">
@@ -30,8 +30,8 @@
             </a>
           </div>
           <p class="hero-disclaimer">
-            Nakon isteka prve godine po cijeni od 29€, pretplata se automatski
-            obnavlja po redovnoj cijeni.
+            Možete otkazati u bilo kojem trenutku. Nakon isteka prve godine po
+            cijeni od 29€, pretplata se automatski obnavlja po redovnoj cijeni.
           </p>
         </div>
       </div>
