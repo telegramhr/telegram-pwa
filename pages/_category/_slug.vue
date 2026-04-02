@@ -60,7 +60,7 @@
               }"
             >
               <span v-if="post.live" class="dynamic-overtitle-element">{{
-                post.live_end ? 'Završeno' : 'Uživo'
+                post.live_end ? '' : 'Uživo'
               }}</span>
               <AppLink
                 :to="
@@ -121,7 +121,7 @@
                   }"
                 >
                   <span v-if="post.live" class="dynamic-overtitle-element">{{
-                    post.live_end ? 'Završeno' : 'Uživo'
+                    post.live_end ? '' : 'Uživo'
                   }}</span>
                   <AppLink
                     :to="
@@ -720,6 +720,13 @@
           <div v-if="!hasPremium && hasLinker" class="full have-background">
             <midas :key="`midas-16-${post.id}`" type="standard-16"></midas>
           </div>
+          <div v-if="homepageWidgetComponent" class="full has-background">
+            <div class="container flex center have-background">
+              <div class="full">
+                <component :is="homepageWidgetComponent"></component>
+              </div>
+            </div>
+          </div>
           <div
             v-if="
               !hasPremium &&
@@ -728,12 +735,6 @@
             class="full has-background"
           >
             <div class="container flex center have-background">
-              <div class="full">
-                <component
-                  :is="homepageWidgetComponent"
-                  v-if="homepageWidgetComponent"
-                ></component>
-              </div>
               <div>
                 <ad-unit id="telegram_underarticle_v2"></ad-unit>
               </div>
@@ -2286,6 +2287,9 @@ export default {
           window.scrollTo({ top, behavior: 'smooth' })
         }
       }
+    },
+    stripHtml(html) {
+      return String(html).replace(/<[^>]*>/g, '').substring(0, 300)
     },
     async loadHomepageWidget() {
       await this.$store.dispatch('homepageWidget/fetch')
