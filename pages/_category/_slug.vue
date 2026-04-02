@@ -717,15 +717,15 @@
           </div>
         </div>
         <client-only>
-          <div v-if="!hasPremium && hasLinker" class="full have-background">
-            <midas :key="`midas-16-${post.id}`" type="standard-16"></midas>
-          </div>
           <div v-if="homepageWidgetComponent" class="full has-background">
             <div class="container flex center have-background">
               <div class="full">
                 <component :is="homepageWidgetComponent"></component>
               </div>
             </div>
+          </div>
+          <div v-if="!hasPremium && hasLinker" class="full have-background">
+            <midas :key="`midas-16-${post.id}`" type="standard-16"></midas>
           </div>
           <div
             v-if="
