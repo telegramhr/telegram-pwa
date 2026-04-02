@@ -731,7 +731,10 @@
           >
             <div class="container flex center have-background">
               <div class="full">
-                <component :is="homepageWidgetComponent" v-if="homepageWidgetComponent"></component>
+                <component
+                  :is="homepageWidgetComponent"
+                  v-if="homepageWidgetComponent"
+                ></component>
               </div>
               <div>
                 <ad-unit id="telegram_underarticle_v2"></ad-unit>
@@ -1209,10 +1212,22 @@
 import { Portal } from '@linusborg/vue-simple-portal'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import StudenacWidget from '~/components/Elements/StudenacWidget.vue'
+import A1Widget from '~/components/Elements/A1Widget.vue'
+import HtWidget from '~/components/Elements/HtWidget.vue'
+import BusinessWidget from '~/components/Elements/BusinessWidget.vue'
+
+const widgetMap = {
+  studenac: 'StudenacWidget',
+  a1: 'A1Widget',
+  ht: 'HtWidget',
+  business: 'BusinessWidget',
+}
+
 export default {
   name: 'Slug',
   scrollToTop: true,
-  components: { Portal },
+  components: { Portal, StudenacWidget, A1Widget, HtWidget, BusinessWidget },
   async fetch() {
     if (!this.$route.params.slug && !this.$route.params.category) {
       return
@@ -2238,13 +2253,8 @@ export default {
     },
     async loadHomepageWidget() {
       await this.$store.dispatch('homepageWidget/fetch')
-      const map = {
-        studenac: 'studenac-widget',
-        a1: 'a1-widget',
-        ht: 'ht-widget',
-        business: 'business-widget',
-      }
-      this.homepageWidgetComponent = map[this.$store.state.homepageWidget.variant] || ''
+      this.homepageWidgetComponent =
+        widgetMap[this.$store.state.homepageWidget.variant] || ''
     },
     getWidgetVariant() {
       const stored = localStorage.getItem('widgetVersion')
