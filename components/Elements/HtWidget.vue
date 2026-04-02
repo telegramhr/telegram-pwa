@@ -1,5 +1,6 @@
 <template>
   <div
+    v-if="active"
     id="a1-widget"
     class="container cantha-small-block flex relative native-block offers-widget column-top-pad stretch mobile-side-pad"
   >
@@ -35,7 +36,7 @@
           </a>
         </div>
 
-        <VueSlickCarousel v-bind="slickOptions">
+        <VueSlickCarousel v-if="items.length" v-bind="slickOptions">
           <div
             v-for="(item, index) in items"
             :key="index"
@@ -71,6 +72,7 @@ export default {
   name: 'HTWidget',
   data() {
     return {
+      active: false,
       slickOptions: {
         dots: false,
         infinite: true,
@@ -88,46 +90,19 @@ export default {
           },
         ],
       },
-      items: [
-        {
-          image: require('@/assets/img/widgets/ht/ht-image2.jpg'),
-          title:
-            'Hoćemo li biti nepismeni ako ne naučimo koristiti AI? Pronašli smo besplatne edukacije koje mogu pomoći',
-          description:
-            'Umjetna inteligencija najbrže je rastuća tehnologija u ljudskoj povijesti. U manje od tri godine,',
-          buttonText: 'Pročitaj više',
-          link: 'https://www.telegram.hr/partneri/hocemo-li-biti-nepismeni-ako-ne-naucimo-koristiti-ai-pronasli-smo-besplatne-edukacije-koje-mogu-pomoci-svima/',
-        },
-        {
-          image: require('@/assets/img/widgets/ht/ht-image.png'),
-          title:
-            'Isprobali smo genijalan kviz o umjetnoj inteligenciji i otkrili besplatne edukacije. Donosimo sve detalje',
-          description:
-            'Kampanjom "AI ti to možeš" Hrvatski Telekom omogućuje jednostavan i zabavan ulazak u svijet AI-ja',
-          buttonText: 'Pročitaj više',
-          link: 'https://www.telegram.hr/partneri/isprobali-smo-genijalan-kviz-o-umjetnoj-inteligenciji-i-otkrili-besplatne-edukacije-donosimo-sve-detalje/',
-        },
-        {
-          image: require('@/assets/img/widgets/ht/ai-strucnjaci.jpg'),
-          title:
-            'Hoće li AI zaista preuzeti naš posao? Troje vrhunskih stručnjaka iz različitih inudstrija donose konkretne odgovore',
-          description: 'Znamo i za besplatne edukacije koje mogu pomoći',
-          buttonText: 'Pročitaj više',
-          link: 'https://www.telegram.hr/partneri/hoce-li-ai-zaista-preuzeti-nas-posao-troje-vrhunskih-strucnjaka-iz-razlicitih-inudstrija-donose-konkretne-odgovore/',
-        },
-        {
-          image: require('@/assets/img/widgets/ht/profesorica.jpg'),
-          title:
-            "Ugledna profesorica o umjetnoj inteligenciji: 'ChatGPT nije krivac za plagijate. AI ne krade ideje, sami to radimo'",
-          description:
-            'Kritičko promišljanje, kreativnost i sposobnost suradnje postaju temeljne vještine u svijetu u kojem AI djeluje kao misaoni partner',
-          buttonText: 'Pročitaj više',
-          link: 'https://www.telegram.hr/partneri/ugledna-profesorica-o-umjetnoj-inteligenciji-chatgpt-nije-krivac-za-plagijate-ai-ne-krade-ideje-sami-to-radimo/',
-        },
-      ],
+      items: [],
     }
   },
-  mounted() {
+  async mounted() {
+    await this.$store.dispatch('homepageWidget/fetch')
+    const { variant, items } = this.$store.state.homepageWidget
+    if (variant !== 'ht') {
+      this.active = false
+      return
+    }
+    this.items = this.shuffleArray(items)
+    this.active = this.items.length > 0
+    if (!this.active) return
     this.$gtm.push({
       event: 'webshop-widget',
       'webshop-category': 'ht-widget',

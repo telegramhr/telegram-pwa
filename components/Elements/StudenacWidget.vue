@@ -1,5 +1,6 @@
 <template>
   <div
+    v-if="active"
     id="studenac-widget"
     class="container cantha-small-block flex relative native-block offers-widget column-top-pad stretch mobile-side-pad"
   >
@@ -11,7 +12,7 @@
         <p class="parent">Jedan roditelj, stotinu uloga</p>
       </div>
       <div class="content-container">
-        <VueSlickCarousel v-bind="slickOptions">
+        <VueSlickCarousel v-if="items.length" v-bind="slickOptions">
           <div
             v-for="(item, index) in items"
             :key="index"
@@ -47,6 +48,7 @@ export default {
   name: 'StudenacWidget',
   data() {
     return {
+      active: false,
       slickOptions: {
         dots: false,
         infinite: true,
@@ -71,54 +73,19 @@ export default {
           },
         ],
       },
-      items: [
-        {
-          image: require('@/assets/img/widgets/studenac/studenac1.jpg'),
-          title:
-            'Prošla je 34 operacije, a na faksu su joj amputirali nogu. Anja danas pomaže drugima i može sve',
-          description: 'Razgovarali smo s Anjom koja je rođena bez lisne kosti',
-          buttonText: 'Pročitaj više',
-          link: 'https://www.telegram.hr/partneri/prosla-je-34-operacije-a-na-faksu-su-joj-amputirali-nogu-anja-danas-pomaze-drugima-i-moze-sve/',
-        },
-        {
-          image: require('@/assets/img/widgets/studenac/studenac2.jpg'),
-          title:
-            "Velika ispovijest sudskog vještaka: 'Djeca nastanu iz ljubavi, a utope se u mržnji roditelja koji se razvode'",
-          description: 'Razgovarali smo s Tomislavom Ramljakom',
-          buttonText: 'Pročitaj više',
-          link: 'https://www.telegram.hr/partneri/velika-ispovijest-sudskog-vjestaka-djeca-nastanu-iz-ljubavi-a-utope-se-u-mrznji-roditelja-koji-se-razvode/',
-        },
-        {
-          image: require('@/assets/img/widgets/studenac/studenac3.jpg'),
-          title:
-            "Velika ispovijest ugledne profesorice: 'Dijete se u školi onesvijestilo od gladi. Sustav kolabira, a svi upiru prstom u nas'",
-          description:
-            'Prof. dr. sc. Olja Družić Ljubotina o sustavu socijalne skrbi, rizicima i posljedicama jednoroditeljstva',
-          buttonText: 'Pročitaj više',
-          link: 'https://www.telegram.hr/partneri/velika-ispovijest-ugledne-profesorice-dijete-se-u-skoli-onesvijestilo-od-gladi-sustav-kolabira-a-svi-upiru-prstom-u-nas/',
-        },
-        {
-          image: require('@/assets/img/widgets/studenac/studenac4.jpg'),
-          title:
-            'Sa 17 sam dobila epilepsiju i shvatila što znači imati potporu cijele obitelji. Sada to pružam djeci i samohranim roditeljima',
-          description:
-            'S Klarom Zečević-Božić pričali smo o roditeljskoj snazi i odgoju djece koja znaju da vrijede',
-          buttonText: 'Pročitaj više',
-          link: 'https://www.telegram.hr/partneri/sa-17-sam-dobila-epilepsiju-i-shvatila-sto-znaci-imati-potporu-cijele-obitelji-sada-to-pruzam-djeci-i-samohranim-roditeljima/',
-        },
-        {
-          image: require('@/assets/img/widgets/studenac/studenac5.jpg'),
-          title:
-            'Odrasla sam bez oca, ovo je zadnja fotografija koju imam s njim. Danas pomažem samohranim roditeljima',
-          description:
-            'S Majom Vujčić Vračević o odgoju djece u jednoroditeljskim obiteljima',
-          buttonText: 'Pročitaj više',
-          link: 'https://www.telegram.hr/partneri/odrasla-sam-bez-oca-ovo-je-zadnja-fotografiju-koju-imam-s-njim-danas-pomazem-samohranim-roditeljima/',
-        },
-      ],
+      items: [],
     }
   },
-  mounted() {
+  async mounted() {
+    await this.$store.dispatch('homepageWidget/fetch')
+    const { variant, items } = this.$store.state.homepageWidget
+    if (variant !== 'studenac') {
+      this.active = false
+      return
+    }
+    this.items = this.shuffleArray(items)
+    this.active = this.items.length > 0
+    if (!this.active) return
     this.$gtm.push({
       event: 'webshop-widget',
       'webshop-category': 'studenac-widget',
@@ -297,7 +264,7 @@ export default {
   width: 40px;
   height: 40px;
   z-index: 1;
-  top: 48%;
+  top: 46%;
 }
 
 :deep(.slick-prev) {

@@ -6,11 +6,13 @@
     <div class="hero-wrapper">
       <div class="hero-left-container">
         <div class="hero-left-wrapper">
-          <img
-            class="telegram-logo"
-            src="@/assets/img/telegram_logo_grey.svg"
-            alt="Telegram Logo"
-          />
+          <a href="/">
+            <img
+              class="telegram-logo"
+              src="@/assets/img/telegram_logo_grey.svg"
+              alt="Telegram Logo"
+            />
+          </a>
           <div class="hero-text-wrapper-desktop">
             <h1 class="hero-title">
               Čitajte Telegram cijelu godinu za

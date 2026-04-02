@@ -1,5 +1,6 @@
 <template>
   <div
+    v-if="active"
     id="a1-widget"
     class="container cantha-small-block flex relative native-block offers-widget column-top-pad stretch mobile-side-pad"
   >
@@ -16,7 +17,7 @@
         </div>
         <p>Ovo nisu samo dječja posla.</p>
       </div>
-      <VueSlickCarousel v-bind="slickOptions">
+      <VueSlickCarousel v-if="items.length" v-bind="slickOptions">
         <div
           v-for="(item, index) in items"
           :key="index"
@@ -51,6 +52,7 @@ export default {
   name: 'A1Widget',
   data() {
     return {
+      active: false,
       slickOptions: {
         dots: false,
         infinite: true,
@@ -279,26 +281,16 @@ export default {
       ],
     }
   },
-  mounted() {
-    this.items = this.shuffleArray(this.items)
-    // Find the kartice card (index 3 in original array)
-    const karticeIndex = this.items.findIndex(
-      (item) => item.link === 'https://www.a1.hr/boljionline/djecja-posla'
-    )
-
-    // Duplicate and insert 4 spaces after
-    if (karticeIndex !== -1) {
-      const itemToDuplicate = { ...this.items[karticeIndex] }
-      let insertPosition = karticeIndex + 4
-
-      // If there aren't 4 spots after, place it 4 spots before instead
-      if (insertPosition >= this.items.length) {
-        insertPosition = Math.max(0, karticeIndex - 4)
-      }
-
-      this.items.splice(insertPosition, 0, itemToDuplicate)
+  async mounted() {
+    await this.$store.dispatch('homepageWidget/fetch')
+    const { variant, items } = this.$store.state.homepageWidget
+    if (variant !== 'a1') {
+      this.active = false
+      return
     }
-
+    this.items = this.shuffleArray(items)
+    this.active = this.items.length > 0
+    if (!this.active) return
     this.$gtm.push({
       event: 'webshop-widget',
       'webshop-category': 'a1-widget',

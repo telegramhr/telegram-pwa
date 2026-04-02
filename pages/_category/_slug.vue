@@ -730,6 +730,9 @@
             class="full has-background"
           >
             <div class="container flex center have-background">
+              <div class="full">
+                <component :is="homepageWidgetComponent" v-if="homepageWidgetComponent"></component>
+              </div>
               <div>
                 <ad-unit id="telegram_underarticle_v2"></ad-unit>
               </div>
@@ -1278,6 +1281,7 @@ export default {
       showSideMenu: false,
       showSearchMenu: false,
       widgetVariant: 'v1',
+      homepageWidgetComponent: '',
       post: {
         comments_off: false,
         type: '',
@@ -1643,6 +1647,7 @@ export default {
       }
     })
     this.widgetVariant = this.getWidgetVariant()
+    this.loadHomepageWidget()
     // Tick liveTimeNow every 30s so relative timestamps update
     this.liveTimeInterval = setInterval(() => {
       this.liveTimeNow = Math.floor(Date.now() / 1000)
@@ -2230,6 +2235,16 @@ export default {
           window.scrollTo({ top, behavior: 'smooth' })
         }
       }
+    },
+    async loadHomepageWidget() {
+      await this.$store.dispatch('homepageWidget/fetch')
+      const map = {
+        studenac: 'studenac-widget',
+        a1: 'a1-widget',
+        ht: 'ht-widget',
+        business: 'business-widget',
+      }
+      this.homepageWidgetComponent = map[this.$store.state.homepageWidget.variant] || ''
     },
     getWidgetVariant() {
       const stored = localStorage.getItem('widgetVersion')
