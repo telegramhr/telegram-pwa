@@ -157,7 +157,7 @@
       ]"
     ></Testimonials>
     <PretplataCTA
-      :text="'Iskoristite 60% popusta i počnite čitati već danas.'"
+      :text="'Iskoristite 63% popusta i počnite čitati već danas.'"
       :link="{
         url: '#pretplataPayment',
         text: 'Iskoristite ponudu',
@@ -224,7 +224,7 @@ export default {
 
   head() {
     return {
-      title: 'Telegram.hr Pretplata - 60% popusta za prvu godinu',
+      title: 'Telegram.hr Pretplata - 63% popusta za prvu godinu',
       meta: [
         {
           hid: 'description',
@@ -240,14 +240,14 @@ export default {
           hid: 'og:title',
           name: 'og:title',
           property: 'og:title',
-          content: 'Telegram.hr Pretplata - 60% popusta za prvu godinu',
+          content: 'Telegram.hr Pretplata - 63% popusta za prvu godinu',
         },
         {
           hid: 'og:image',
           name: 'og:image',
           property: 'og:image',
           content:
-            'https://www.telegram.hr/wp-content/uploads/2021/01/tg-background.jpg',
+            'https://www.telegram.hr/wp-content/uploads/2026/04/popust-naslovna.png',
         },
         {
           hid: 'og:url',
