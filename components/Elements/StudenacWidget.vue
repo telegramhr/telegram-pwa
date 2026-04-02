@@ -7,7 +7,7 @@
     <div class="full column-full-pad">
       <div class="studenac-header">
         <p class="left-heading">
-          Donose <span>Narančasta ribica</span>
+          Donosi <span>Narančasta ribica</span>
         </p>
         <p class="parent">Jedan roditelj, stotinu uloga</p>
       </div>
