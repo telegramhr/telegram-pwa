@@ -2466,7 +2466,7 @@ figure a {
 }
 
 
-/* Specijal post sidebar ad */
+/* Specijal post ads */
 
 .specijal-sidebar-ad {
     position: sticky;
@@ -2476,6 +2476,18 @@ figure a {
     margin-left: 20px;
     margin-right: -180px;
     z-index: 10;
+}
+
+#specijal-desktop-ad-source {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+#specijal-mobile-ad-source-1 {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
 }
 
 #specijal-mobile-ad-source {
