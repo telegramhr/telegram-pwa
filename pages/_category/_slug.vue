@@ -60,7 +60,7 @@
               }"
             >
               <span v-if="post.live" class="dynamic-overtitle-element">{{
-                post.live_end ? 'Završeno' : 'Uživo'
+                post.live_end ? '' : 'Uživo'
               }}</span>
               <AppLink
                 :to="
@@ -121,7 +121,7 @@
                   }"
                 >
                   <span v-if="post.live" class="dynamic-overtitle-element">{{
-                    post.live_end ? 'Završeno' : 'Uživo'
+                    post.live_end ? '' : 'Uživo'
                   }}</span>
                   <AppLink
                     :to="
