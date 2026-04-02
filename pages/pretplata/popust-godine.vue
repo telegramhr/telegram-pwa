@@ -152,7 +152,7 @@
         },
         {
           title: 'Neograničeno čitanje Telegram članaka čitavu godinu',
-          text: 'Uživajte u čistom, preglednom čitanju - bez ometajućih reklama. Samo informacije koje vrijede vašeg vremena.',
+          text: 'Uživajte u ekskluzivnom sadržaju neovisnog novinarstva. Samo informacije koje su provjerene.',
           image: require('@/assets/img/pretplata/features/reklame.png'),
         },
         {
