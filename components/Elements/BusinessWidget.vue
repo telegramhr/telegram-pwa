@@ -1,5 +1,6 @@
 <template>
   <div
+    v-if="active"
     id="advent-widget"
     class="container cantha-small-block flex relative native-block offers-widget stretch mobile-side-pad"
   >
@@ -24,7 +25,7 @@
       <div class="content-container">
         <div class="quiz-container"></div>
 
-        <VueSlickCarousel v-bind="slickOptions">
+        <VueSlickCarousel v-if="items.length" v-bind="slickOptions">
           <div
             v-for="(item, index) in items"
             :key="index"
@@ -54,6 +55,7 @@ export default {
   name: 'BusinessWidget',
   data() {
     return {
+      active: false,
       slickOptions: {
         dots: false,
         infinite: true,
@@ -78,57 +80,19 @@ export default {
           },
         ],
       },
-      items: [
-        {
-          image: require('@/assets/img/widgets/business/tokic.jpg'),
-          title:
-            'Od malene trgovine u Kranjčevićevoj do golemog poslovnog carstva. Ova domaća tvrtka već 35 godina pomiče granice',
-          description:
-            'Gotovo sve što zarade, vraćaju u posao te ulažu u educiranje i tehnološki napredak',
-          buttonText: 'Pročitaj više',
-          link: 'https://www.telegram.hr/partneri/od-malene-trgovine-u-kranjcevicevoj-do-golemog-poslovnog-carstva-ova-domaca-tvrtka-vec-35-godina-pomice-granice/',
-        },
-        {
-          image: require('@/assets/img/widgets/business/algebra.jpg'),
-          title:
-            'Potez koji mijenja tržište rada: ovo domaće Sveučilište pokrenulo je program za najtraženije zanimanje na svijetu',
-          description:
-            'Data Analyst Akademija odgovor je na promjene i nove trendove suvremenog tržišta rada',
-          buttonText: 'Pročitaj više',
-          link: 'https://www.telegram.hr/partneri/potez-koji-mijenja-trziste-rada-ovo-domace-sveuciliste-pokrenulo-je-program-za-najtrazenije-zanimanje-na-svijetu/',
-        },
-        {
-          image: require('@/assets/img/widgets/business/fonoa.jpg'),
-          title:
-            'Kodirati je počeo s 8 u devastiranoj Argentini, radio u Amazonu i GitLabu, a danas predvodi tehnološku revoluciju u financijama',
-          description:
-            'Pablo Carranza danas je Chief Technology Officer u Fonoi, jednoj od najbrže rastućih tehnoloških tvrtki Europe',
-          buttonText: 'Pročitaj više',
-          link: 'https://www.telegram.hr/biznis-tech/kodirati-je-poceo-s-8-u-devastiranoj-argentini-radio-u-amazonu-i-gitlabu-a-danas-predvodi-tehnolosku-revoluciju-u-financijama/',
-        },
-        {
-          image: require('@/assets/img/widgets/business/telemach.jpg'),
-          title:
-            'Ova tvrtka čisti Jadran, opskrbljuje 300.000 domova najnovijom optikom i uvodi Hrvatsku u eru superbrzog interneta',
-          description:
-            'Razgovarali smo s Mislavom Gallerom, njihovim članom Uprave i glavnim komercijalnim direktorom',
-          buttonText: 'Pročitaj više',
-          link: 'https://www.telegram.hr/partneri/ova-tvrtka-cisti-jadran-opskrbljuje-300-000-domova-najnovijom-optikom-i-uvodi-hrvatsku-u-eru-superbrzog-interneta/',
-        },
-        {
-          image: require('@/assets/img/widgets/business/infobip.jpg'),
-          title:
-            'Ono što nemaju ni Google ni Amazon u 2025. je postigla ova hrvatska kompanija. Imamo detalje',
-          description:
-            'Stipe Cigić o tome kako je hrvatska konferencija stigla na tri kontinenta',
-          buttonText: 'Pročitaj više',
-          link: 'https://www.telegram.hr/partneri/ono-sto-nemaju-ni-google-ni-amazon-u-2025-je-postigla-ova-hrvatska-kompanija-imamo-detalje/',
-        },
-      ],
+      items: [],
     }
   },
-  mounted() {
-    this.items = this.shuffleArray(this.items)
+  async mounted() {
+    await this.$store.dispatch('homepageWidget/fetch')
+    const { variant, items } = this.$store.state.homepageWidget
+    if (variant !== 'business') {
+      this.active = false
+      return
+    }
+    this.items = this.shuffleArray(items)
+    this.active = this.items.length > 0
+    if (!this.active) return
     this.$gtm.push({
       event: 'webshop-widget',
       'webshop-category': 'advent-widget',

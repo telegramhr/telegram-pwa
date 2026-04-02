@@ -304,16 +304,16 @@
     </div>
     <app-link
       v-show="!$store.state.user.access?.length"
-      to="/pretplata/50-popust"
+      to="/pretplata/popust-godine"
       class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth"
     >
       <img
-        src="@/assets/img/pretplata/homepage/50_godisnja.png"
+        src="@/assets/img/pretplata/homepage/popust_godine_desktop_banner.png"
         alt="Desktop banner za popust na godišnju pretplatu"
         class="desktop-only"
       />
       <img
-        src="@/assets/img/pretplata/homepage/50_godisnja_mob.png"
+        src="@/assets/img/pretplata/homepage/popust_godine_mobile_banner.png"
         alt="Mobile banner za popust na godišnju pretplatu"
         class="mobile-only"
         style="width: 100%"

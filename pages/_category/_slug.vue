@@ -720,6 +720,13 @@
           <div v-if="!hasPremium && hasLinker" class="full have-background">
             <midas :key="`midas-16-${post.id}`" type="standard-16"></midas>
           </div>
+          <div v-if="homepageWidgetComponent" class="full has-background">
+            <div class="container flex center have-background">
+              <div class="full">
+                <component :is="homepageWidgetComponent"></component>
+              </div>
+            </div>
+          </div>
           <div
             v-if="
               !hasPremium &&
@@ -1204,10 +1211,22 @@
 import { Portal } from '@linusborg/vue-simple-portal'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import StudenacWidget from '~/components/Elements/StudenacWidget.vue'
+import A1Widget from '~/components/Elements/A1Widget.vue'
+import HtWidget from '~/components/Elements/HtWidget.vue'
+import BusinessWidget from '~/components/Elements/BusinessWidget.vue'
+
+const widgetMap = {
+  studenac: 'StudenacWidget',
+  a1: 'A1Widget',
+  ht: 'HtWidget',
+  business: 'BusinessWidget',
+}
+
 export default {
   name: 'Slug',
   scrollToTop: true,
-  components: { Portal },
+  components: { Portal, StudenacWidget, A1Widget, HtWidget, BusinessWidget },
   async fetch() {
     if (!this.$route.params.slug && !this.$route.params.category) {
       return
@@ -1276,6 +1295,7 @@ export default {
       showSideMenu: false,
       showSearchMenu: false,
       widgetVariant: 'v1',
+      homepageWidgetComponent: '',
       post: {
         comments_off: false,
         type: '',
@@ -1664,6 +1684,7 @@ export default {
       }
     })
     this.widgetVariant = this.getWidgetVariant()
+    this.loadHomepageWidget()
     // Tick liveTimeNow every 30s so relative timestamps update
     this.liveTimeInterval = setInterval(() => {
       this.liveTimeNow = Math.floor(Date.now() / 1000)
@@ -2266,6 +2287,14 @@ export default {
           window.scrollTo({ top, behavior: 'smooth' })
         }
       }
+    },
+    stripHtml(html) {
+      return String(html).replace(/<[^>]*>/g, '').substring(0, 300)
+    },
+    async loadHomepageWidget() {
+      await this.$store.dispatch('homepageWidget/fetch')
+      this.homepageWidgetComponent =
+        widgetMap[this.$store.state.homepageWidget.variant] || ''
     },
     getWidgetVariant() {
       const stored = localStorage.getItem('widgetVersion')
