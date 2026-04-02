@@ -6,7 +6,7 @@
           <img src="@/assets/img/telegram_logo_red.svg" alt="" />
         </a>
         <span>|</span>
-        <p>Telegram @ 2025</p>
+        <p>Telegram @ {{ new Date().getFullYear() }}</p>
       </div>
       <div class="socials">
         <a href="https://www.facebook.com/Telegram.hr/" class="animate center">
