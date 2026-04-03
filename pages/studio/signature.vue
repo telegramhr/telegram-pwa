@@ -99,9 +99,10 @@ export default {
           <table
             id="tablica"
             style="
-              font-size: 11px;
+              font-size: 14px;
               color: black;
               font-family: Inter, Arial, sans-serif;
+              border-spacing: 0px;
             "
           >
             <template v-if="portal === 'story' || portal === 'presshaus'">
@@ -111,7 +112,14 @@ export default {
                 </td>
               </tr>
               <tr>
-                <td style="font-size: 15px; font-weight: bold">
+                <td
+                  style="
+                    font-size: 14px;
+                    font-weight: bold;
+                    letter-spacing: 0px;
+                    padding-top: 20px;
+                  "
+                >
                   {{ ime }}
                 </td>
               </tr>
@@ -123,7 +131,7 @@ export default {
             </template>
             <template v-else>
               <tr>
-                <td rowspan="2" style="vertical-align: middle; padding: 5px">
+                <td rowspan="2" style="vertical-align: middle; padding: 0px">
                   <img
                     :src="portalImage"
                     height="37.5"
@@ -131,32 +139,50 @@ export default {
                     alt="Telegram logo"
                   />
                 </td>
-                <td style="font-size: 15px; font-weight: bold">
+                <td
+                  style="
+                    font-size: 14px;
+                    font-weight: bold;
+                    letter-spacing: 0px;
+                    padding-top: 10px;
+                  "
+                >
                   {{ ime }}
                 </td>
               </tr>
               <tr>
-                <td style="font-style: italic; letter-spacing: 1px">
+                <td style="font-style: italic; letter-spacing: 0px">
                   {{ titula }}
                 </td>
               </tr>
             </template>
             <tr v-if="mobitel">
-              <td style="letter-spacing: 1px">
+              <td style="letter-spacing: 0px">
                 {{ mobitel }}
               </td>
             </tr>
             <tr>
-              <td style="letter-spacing: 1px">
-                <a :href="`mailto:${email}`">{{ email }}</a>
+              <td style="letter-spacing: 1px; text-decoration: none">
+                <a
+                  style="text-decoration: none; color: black"
+                  :href="`mailto:${email}`"
+                  >{{ email }}</a
+                >
               </td>
             </tr>
             <tr>
-              <td style="letter-spacing: 1px">
-                <a href="https://www.presshaus.hr">www.presshaus.hr</a>
+              <td
+                style="letter-spacing: 0px; text-decoration: none; color: black"
+              >
+                <a
+                  style="text-decoration: none; color: black"
+                  href="https://www.presshaus.hr"
+                  >www.presshaus.hr</a
+                >
               </td>
             </tr>
           </table>
+
           <br /><br />
           <button @click="selectElementContents">Odaberi sve</button>
         </div>
