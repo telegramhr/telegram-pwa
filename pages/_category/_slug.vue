@@ -2288,9 +2288,6 @@ export default {
         }
       }
     },
-    stripHtml(html) {
-      return String(html).replace(/<[^>]*>/g, '').substring(0, 300)
-    },
     async loadHomepageWidget() {
       await this.$store.dispatch('homepageWidget/fetch')
       this.homepageWidgetComponent =
