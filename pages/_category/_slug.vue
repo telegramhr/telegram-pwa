@@ -1025,7 +1025,7 @@
 }
 .live-update__headline {
   font-family: 'Merriweather', serif;
-  font-size: 18px;
+  font-size: 100%;
   font-weight: 700;
   line-height: 1.3;
   margin: 0 0 8px;
@@ -1137,7 +1137,7 @@
     padding: 0 16px;
   }
   .live-update__headline {
-    font-size: 16px;
+    font-size: 100%;
   }
   .live-new-updates {
     bottom: 16px;
@@ -1165,18 +1165,17 @@
 .telegram-post-embed__title {
   font-family: 'Merriweather', serif;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 100%;
   line-height: 1.3;
   margin: 0 0 12px;
   color: var(--tg-primary-text-color);
 }
 .telegram-post-embed__excerpt {
   font-family: 'Merriweather', serif;
-  font-size: 16px;
+  font-size: 100%;
   line-height: 1.6;
   color: var(--tg-primary-text-color);
-  opacity: 0.85;
-  margin: 0 0 16px;
+  margin: 0;
 }
 .telegram-post-embed__excerpt p {
   margin: 0 0 8px;
