@@ -6,9 +6,7 @@
   >
     <div class="full column-full-pad">
       <div class="studenac-header">
-        <p class="left-heading">
-          Donosi <span>Narančasta ribica</span>
-        </p>
+        <p class="left-heading">Donosi <span>Narančasta ribica</span></p>
         <p class="parent">Jedan roditelj, stotinu uloga</p>
       </div>
       <div class="content-container">
@@ -119,6 +117,9 @@ export default {
 <style scoped>
 #studenac-widget {
   padding: 24px 0;
+}
+#column-full-pad .column-full-pad {
+  padding: 0px 16px;
 }
 .studenac-header {
   position: relative;
@@ -287,6 +288,9 @@ export default {
 
 @media screen and (min-width: 768px) {
   #studenac-widget {
+    padding: 0;
+  }
+  #studenac-widget .column-full-pad {
     padding: 0;
   }
   .studenac-header {
