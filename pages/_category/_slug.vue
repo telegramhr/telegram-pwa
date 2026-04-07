@@ -1576,26 +1576,12 @@ export default {
             )
             .map((update) => {
               const url = this.post.social.path + '#' + update.anchor
-              const plainBody = update.body
-                .replace(/<[^>]*>/g, '')
-                .replace(/&nbsp;/g, ' ')
-                .replace(/&amp;/g, '&')
-                .replace(/&#x([0-9a-f]+);/gi, (_, hex) =>
-                  String.fromCharCode(parseInt(hex, 16))
-                )
-                .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(n))
-                .replace(/&nbsp;/g, ' ')
-                .replace(/&[a-z]+;/gi, '')
+              const plainBody = this.$options.filters
+                .parseCat(update.body)
                 .replace(/\u00A0/g, ' ')
                 .trim()
               const rawHeadline = update.headline
-                ? update.headline
-                    .replace(/&#x([0-9a-f]+);/gi, (_, hex) =>
-                      String.fromCharCode(parseInt(hex, 16))
-                    )
-                    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(n))
-                    .replace(/&amp;/g, '&')
-                    .replace(/&[a-z]+;/gi, '')
+                ? this.$options.filters.parseCat(update.headline)
                 : ''
               const headline =
                 rawHeadline ||
