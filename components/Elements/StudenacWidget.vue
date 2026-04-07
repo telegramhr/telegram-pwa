@@ -16,7 +16,12 @@
             :key="index"
             class="slide-item slide-item-a1"
           >
-            <div class="card">
+            <a
+              class="card"
+              :href="item.link"
+              target="_blank"
+              @click="trackClick(item.link)"
+            >
               <div class="image-wrapper">
                 <img :src="item.image" :alt="item.title" />
               </div>
@@ -24,14 +29,8 @@
                 <h3 class="title">{{ item.title }}</h3>
                 <p class="description">{{ item.description }}</p>
               </div>
-              <a
-                :href="item.link"
-                target="_blank"
-                @click="trackClick(item.link)"
-              >
-                <button class="cta-button">{{ item.buttonText }}</button>
-              </a>
-            </div>
+              <span class="cta-button">{{ item.buttonText }}</span>
+            </a>
           </div>
         </VueSlickCarousel>
       </div>
@@ -182,6 +181,9 @@ export default {
   flex-direction: column;
   height: 100%;
   background: transparent;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 .image-wrapper {
   width: 100%;
@@ -232,6 +234,7 @@ export default {
 }
 
 .cta-button {
+  display: block;
   font-family: 'Barlow';
   font-weight: 600;
   font-size: 16px;
@@ -243,9 +246,10 @@ export default {
   border-radius: 4px;
   transition: background-color 0.3s;
   width: 100%;
+  text-align: center;
 }
 
-.cta-button:hover {
+.card:hover .cta-button {
   background-color: #8c2b2b;
 }
 :deep(.slick-track) {
