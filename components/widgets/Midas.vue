@@ -140,7 +140,7 @@ export default {
       if (this.$route.fullPath.includes('openspace')) {
         return this.ids.openspace[this.type] ?? false
       }
-      return this.ids[this.$route.params.category][this.type] ?? false
+      return this.ids[this.$route.params.category]?.[this.type] ?? false
     },
   },
   mounted() {
@@ -257,7 +257,7 @@ export default {
         if (!this.id) {
           return false // don't load midas if id is not set
         }
-        let ids = Object.keys(this.ids[category])
+        let ids = Object.keys(this.ids[category] || {})
           .filter((value) => {
             return (
               value !== 'intext' && value !== 'main' && value !== 'intextMain'
