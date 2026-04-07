@@ -307,6 +307,7 @@ export default {
         // parallel: true,
         // hardSource: true,
         indicator: false,
+        transpile: ['axios-retry'],
         loaders: {
             vue: {
                 prettify: false,
