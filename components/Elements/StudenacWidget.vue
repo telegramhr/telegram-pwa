@@ -116,7 +116,7 @@ export default {
 
 <style scoped>
 #studenac-widget {
-  padding: 24px 0;
+  padding: 24px 16px;
 }
 #column-full-pad .column-full-pad {
   padding: 0px 16px;
@@ -289,6 +289,7 @@ export default {
 @media screen and (min-width: 768px) {
   #studenac-widget {
     padding: 0;
+    padding-top: 60px;
   }
   #studenac-widget .column-full-pad {
     padding: 0;
