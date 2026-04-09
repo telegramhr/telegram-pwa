@@ -568,16 +568,20 @@
                     </div>
                     <div
                       v-if="
-                        stripHtml(update.body).length <= 700 ||
+                        stripHtmlContent(update.body).length <= 700 ||
                         liveExpandedUpdates.includes(update.anchor)
                       "
                       v-html="update.body"
                     ></div>
                     <template v-else>
-                      <p>{{ stripHtml(update.body).substring(0, 300) }}...</p>
+                      <p>
+                        {{
+                          stripHtmlContent(update.body).substring(0, 300)
+                        }}...
+                      </p>
                       <button
                         class="live-update__read-more"
-                        @click="liveExpandedUpdates.push(update.anchor)"
+                        @click="expandLiveUpdate(update.anchor)"
                       >
                         Pročitajte više
                       </button>
@@ -1685,6 +1689,12 @@ export default {
     }
   },
   methods: {
+    stripHtmlContent(html) {
+      const clean = html
+        .replace(/<blockquote[^>]*class="[^"]*(?:twitter-tweet|instagram-media|fb-post|fb-video)[^"]*"[^>]*>[\s\S]*?<\/blockquote>/gi, '')
+        .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+      return this.stripHtml(clean)
+    },
     stripHtml(html) {
       const txt = html.replace(/<[^>]*>/g, '')
       if (process.client) {
@@ -2236,6 +2246,13 @@ export default {
       this._toastTimer = setTimeout(() => {
         this.liveToast = null
       }, 2500)
+    },
+    expandLiveUpdate(anchor) {
+      this.liveExpandedUpdates.push(anchor)
+      this.$nextTick(() => {
+        const el = document.getElementById(anchor)
+        if (el) this.processEmbeds(el)
+      })
     },
     processEmbeds(container) {
       const el = container || document
