@@ -1982,19 +1982,7 @@ export default {
         }
         this.loadInArticleWidget()
         this.$store.commit('pretplata/setLastArticle', this.post.id)
-        if (typeof FB !== 'undefined') {
-          FB.XFBML.parse()
-        }
-        /* global instgrm */
-        if (typeof instgrm !== 'undefined') {
-          instgrm.Embeds.process()
-        }
-        if (document.getElementsByClassName('twitter-tweet').length) {
-          const head = document.getElementsByTagName('head')[0]
-          const scriptTag = document.createElement('script')
-          scriptTag.src = 'https://platform.twitter.com/widgets.js'
-          head.append(scriptTag)
-        }
+        this.$nextTick(() => this.processEmbeds())
         if (!document.getElementsByClassName('coral-counters-script').length) {
           const head = document.getElementsByTagName('head')[0]
           const scriptTag = document.createElement('script')
@@ -2214,6 +2202,7 @@ export default {
               this.livePendingUpdates = 0
 
               this.$nextTick(() => {
+                this.processEmbeds(container)
                 container.style.transition = 'opacity 0.4s ease'
                 container.style.opacity = '1'
                 setTimeout(() => {
@@ -2247,6 +2236,25 @@ export default {
       this._toastTimer = setTimeout(() => {
         this.liveToast = null
       }, 2500)
+    },
+    processEmbeds(container) {
+      const el = container || document
+      if (el.getElementsByClassName('twitter-tweet').length) {
+        if (window.twttr && window.twttr.widgets) {
+          window.twttr.widgets.load(el)
+        } else if (!document.getElementById('twitter-wjs')) {
+          const s = document.createElement('script')
+          s.id = 'twitter-wjs'
+          s.src = 'https://platform.twitter.com/widgets.js'
+          document.head.append(s)
+        }
+      }
+      if (typeof FB !== 'undefined' && el.querySelector('.fb-post, .fb-video')) {
+        FB.XFBML.parse(el)
+      }
+      if (typeof instgrm !== 'undefined' && el.getElementsByClassName('instagram-media').length) {
+        instgrm.Embeds.process()
+      }
     },
     copyAnchorLink(anchor) {
       const url = this.post.social.path + '#' + anchor
