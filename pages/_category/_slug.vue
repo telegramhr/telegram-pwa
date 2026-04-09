@@ -647,6 +647,13 @@
               </client-only>
             </div>
           </article>
+          <client-only>
+            <learn-more
+              v-if="post && post.id && !post.category_slug.includes('super1') && !post.category_slug.includes('telesport')"
+              :post-id="post.id"
+              :post-title="post.portal_title || post.title"
+            />
+          </client-only>
           <intext-remp></intext-remp>
           <!-- Article footer -->
           <div
@@ -1218,6 +1225,7 @@ import StudenacWidget from '~/components/Elements/StudenacWidget.vue'
 import A1Widget from '~/components/Elements/A1Widget.vue'
 import HtWidget from '~/components/Elements/HtWidget.vue'
 import BusinessWidget from '~/components/Elements/BusinessWidget.vue'
+import LearnMore from '~/components/Elements/LearnMore.vue'
 
 const widgetMap = {
   studenac: 'StudenacWidget',
@@ -1229,7 +1237,7 @@ const widgetMap = {
 export default {
   name: 'Slug',
   scrollToTop: true,
-  components: { Portal, StudenacWidget, A1Widget, HtWidget, BusinessWidget },
+  components: { Portal, StudenacWidget, A1Widget, HtWidget, BusinessWidget, LearnMore },
   async fetch() {
     if (!this.$route.params.slug && !this.$route.params.category) {
       return
