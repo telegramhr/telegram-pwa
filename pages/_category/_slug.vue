@@ -568,16 +568,20 @@
                     </div>
                     <div
                       v-if="
-                        stripHtml(update.body).length <= 700 ||
+                        stripHtmlContent(update.body).length <= 700 ||
                         liveExpandedUpdates.includes(update.anchor)
                       "
                       v-html="update.body"
                     ></div>
                     <template v-else>
-                      <p>{{ stripHtml(update.body).substring(0, 300) }}...</p>
+                      <p>
+                        {{
+                          stripHtmlContent(update.body).substring(0, 300)
+                        }}...
+                      </p>
                       <button
                         class="live-update__read-more"
-                        @click="liveExpandedUpdates.push(update.anchor)"
+                        @click="expandLiveUpdate(update.anchor)"
                       >
                         Pročitajte više
                       </button>
@@ -1685,6 +1689,12 @@ export default {
     }
   },
   methods: {
+    stripHtmlContent(html) {
+      const clean = html
+        .replace(/<blockquote[^>]*class="[^"]*(?:twitter-tweet|instagram-media|fb-post|fb-video)[^"]*"[^>]*>[\s\S]*?<\/blockquote>/gi, '')
+        .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+      return this.stripHtml(clean)
+    },
     stripHtml(html) {
       const txt = html.replace(/<[^>]*>/g, '')
       if (process.client) {
@@ -1982,19 +1992,7 @@ export default {
         }
         this.loadInArticleWidget()
         this.$store.commit('pretplata/setLastArticle', this.post.id)
-        if (typeof FB !== 'undefined') {
-          FB.XFBML.parse()
-        }
-        /* global instgrm */
-        if (typeof instgrm !== 'undefined') {
-          instgrm.Embeds.process()
-        }
-        if (document.getElementsByClassName('twitter-tweet').length) {
-          const head = document.getElementsByTagName('head')[0]
-          const scriptTag = document.createElement('script')
-          scriptTag.src = 'https://platform.twitter.com/widgets.js'
-          head.append(scriptTag)
-        }
+        this.$nextTick(() => this.processEmbeds())
         if (!document.getElementsByClassName('coral-counters-script').length) {
           const head = document.getElementsByTagName('head')[0]
           const scriptTag = document.createElement('script')
@@ -2214,6 +2212,7 @@ export default {
               this.livePendingUpdates = 0
 
               this.$nextTick(() => {
+                this.processEmbeds(container)
                 container.style.transition = 'opacity 0.4s ease'
                 container.style.opacity = '1'
                 setTimeout(() => {
@@ -2247,6 +2246,32 @@ export default {
       this._toastTimer = setTimeout(() => {
         this.liveToast = null
       }, 2500)
+    },
+    expandLiveUpdate(anchor) {
+      this.liveExpandedUpdates.push(anchor)
+      this.$nextTick(() => {
+        const el = document.getElementById(anchor)
+        if (el) this.processEmbeds(el)
+      })
+    },
+    processEmbeds(container) {
+      const el = container || document
+      if (el.getElementsByClassName('twitter-tweet').length) {
+        if (window.twttr && window.twttr.widgets) {
+          window.twttr.widgets.load(el)
+        } else if (!document.getElementById('twitter-wjs')) {
+          const s = document.createElement('script')
+          s.id = 'twitter-wjs'
+          s.src = 'https://platform.twitter.com/widgets.js'
+          document.head.append(s)
+        }
+      }
+      if (typeof FB !== 'undefined' && el.querySelector('.fb-post, .fb-video')) {
+        FB.XFBML.parse(el)
+      }
+      if (typeof instgrm !== 'undefined' && el.getElementsByClassName('instagram-media').length) {
+        instgrm.Embeds.process()
+      }
     },
     copyAnchorLink(anchor) {
       const url = this.post.social.path + '#' + anchor
