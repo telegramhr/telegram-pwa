@@ -568,16 +568,20 @@
                     </div>
                     <div
                       v-if="
-                        stripHtml(update.body).length <= 700 ||
+                        stripHtmlContent(update.body).length <= 700 ||
                         liveExpandedUpdates.includes(update.anchor)
                       "
                       v-html="update.body"
                     ></div>
                     <template v-else>
-                      <p>{{ stripHtml(update.body).substring(0, 300) }}...</p>
+                      <p>
+                        {{
+                          stripHtmlContent(update.body).substring(0, 300)
+                        }}...
+                      </p>
                       <button
                         class="live-update__read-more"
-                        @click="liveExpandedUpdates.push(update.anchor)"
+                        @click="expandLiveUpdate(update.anchor)"
                       >
                         Pročitajte više
                       </button>
@@ -642,6 +646,13 @@
                 <pretplata-promos></pretplata-promos>
               </client-only>
             </div>
+            <client-only>
+              <learn-more
+                v-if="post && post.id && !post.category_slug.includes('super1') && !post.category_slug.includes('telesport')"
+                :post-id="post.id"
+                :post-title="post.portal_title || post.title"
+              />
+            </client-only>
           </article>
           <intext-remp></intext-remp>
           <!-- Article footer -->
@@ -717,15 +728,15 @@
           </div>
         </div>
         <client-only>
-          <div v-if="!hasPremium && hasLinker" class="full have-background">
-            <midas :key="`midas-16-${post.id}`" type="standard-16"></midas>
-          </div>
           <div v-if="homepageWidgetComponent" class="full has-background">
             <div class="container flex center have-background">
               <div class="full">
                 <component :is="homepageWidgetComponent"></component>
               </div>
             </div>
+          </div>
+          <div v-if="!hasPremium && hasLinker" class="full have-background">
+            <midas :key="`midas-16-${post.id}`" type="standard-16"></midas>
           </div>
           <div
             v-if="
@@ -1025,7 +1036,7 @@
 }
 .live-update__headline {
   font-family: 'Merriweather', serif;
-  font-size: 18px;
+  font-size: 100%;
   font-weight: 700;
   line-height: 1.3;
   margin: 0 0 8px;
@@ -1137,7 +1148,7 @@
     padding: 0 16px;
   }
   .live-update__headline {
-    font-size: 16px;
+    font-size: 100%;
   }
   .live-new-updates {
     bottom: 16px;
@@ -1165,18 +1176,17 @@
 .telegram-post-embed__title {
   font-family: 'Merriweather', serif;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 100%;
   line-height: 1.3;
   margin: 0 0 12px;
   color: var(--tg-primary-text-color);
 }
 .telegram-post-embed__excerpt {
   font-family: 'Merriweather', serif;
-  font-size: 16px;
+  font-size: 100%;
   line-height: 1.6;
   color: var(--tg-primary-text-color);
-  opacity: 0.85;
-  margin: 0 0 16px;
+  margin: 0;
 }
 .telegram-post-embed__excerpt p {
   margin: 0 0 8px;
@@ -1215,6 +1225,7 @@ import StudenacWidget from '~/components/Elements/StudenacWidget.vue'
 import A1Widget from '~/components/Elements/A1Widget.vue'
 import HtWidget from '~/components/Elements/HtWidget.vue'
 import BusinessWidget from '~/components/Elements/BusinessWidget.vue'
+import LearnMore from '~/components/Elements/LearnMore.vue'
 
 const widgetMap = {
   studenac: 'StudenacWidget',
@@ -1226,7 +1237,7 @@ const widgetMap = {
 export default {
   name: 'Slug',
   scrollToTop: true,
-  components: { Portal, StudenacWidget, A1Widget, HtWidget, BusinessWidget },
+  components: { Portal, StudenacWidget, A1Widget, HtWidget, BusinessWidget, LearnMore },
   async fetch() {
     if (!this.$route.params.slug && !this.$route.params.category) {
       return
@@ -1577,26 +1588,12 @@ export default {
             )
             .map((update) => {
               const url = this.post.social.path + '#' + update.anchor
-              const plainBody = update.body
-                .replace(/<[^>]*>/g, '')
-                .replace(/&nbsp;/g, ' ')
-                .replace(/&amp;/g, '&')
-                .replace(/&#x([0-9a-f]+);/gi, (_, hex) =>
-                  String.fromCharCode(parseInt(hex, 16))
-                )
-                .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(n))
-                .replace(/&nbsp;/g, ' ')
-                .replace(/&[a-z]+;/gi, '')
+              const plainBody = this.$options.filters
+                .parseCat(update.body)
                 .replace(/\u00A0/g, ' ')
                 .trim()
               const rawHeadline = update.headline
-                ? update.headline
-                    .replace(/&#x([0-9a-f]+);/gi, (_, hex) =>
-                      String.fromCharCode(parseInt(hex, 16))
-                    )
-                    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(n))
-                    .replace(/&amp;/g, '&')
-                    .replace(/&[a-z]+;/gi, '')
+                ? this.$options.filters.parseCat(update.headline)
                 : ''
               const headline =
                 rawHeadline ||
@@ -1700,6 +1697,12 @@ export default {
     }
   },
   methods: {
+    stripHtmlContent(html) {
+      const clean = html
+        .replace(/<blockquote[^>]*class="[^"]*(?:twitter-tweet|instagram-media|fb-post|fb-video)[^"]*"[^>]*>[\s\S]*?<\/blockquote>/gi, '')
+        .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+      return this.stripHtml(clean)
+    },
     stripHtml(html) {
       const txt = html.replace(/<[^>]*>/g, '')
       if (process.client) {
@@ -1997,19 +2000,7 @@ export default {
         }
         this.loadInArticleWidget()
         this.$store.commit('pretplata/setLastArticle', this.post.id)
-        if (typeof FB !== 'undefined') {
-          FB.XFBML.parse()
-        }
-        /* global instgrm */
-        if (typeof instgrm !== 'undefined') {
-          instgrm.Embeds.process()
-        }
-        if (document.getElementsByClassName('twitter-tweet').length) {
-          const head = document.getElementsByTagName('head')[0]
-          const scriptTag = document.createElement('script')
-          scriptTag.src = 'https://platform.twitter.com/widgets.js'
-          head.append(scriptTag)
-        }
+        this.$nextTick(() => this.processEmbeds())
         if (!document.getElementsByClassName('coral-counters-script').length) {
           const head = document.getElementsByTagName('head')[0]
           const scriptTag = document.createElement('script')
@@ -2229,6 +2220,7 @@ export default {
               this.livePendingUpdates = 0
 
               this.$nextTick(() => {
+                this.processEmbeds(container)
                 container.style.transition = 'opacity 0.4s ease'
                 container.style.opacity = '1'
                 setTimeout(() => {
@@ -2263,6 +2255,32 @@ export default {
         this.liveToast = null
       }, 2500)
     },
+    expandLiveUpdate(anchor) {
+      this.liveExpandedUpdates.push(anchor)
+      this.$nextTick(() => {
+        const el = document.getElementById(anchor)
+        if (el) this.processEmbeds(el)
+      })
+    },
+    processEmbeds(container) {
+      const el = container || document
+      if (el.getElementsByClassName('twitter-tweet').length) {
+        if (window.twttr && window.twttr.widgets) {
+          window.twttr.widgets.load(el)
+        } else if (!document.getElementById('twitter-wjs')) {
+          const s = document.createElement('script')
+          s.id = 'twitter-wjs'
+          s.src = 'https://platform.twitter.com/widgets.js'
+          document.head.append(s)
+        }
+      }
+      if (typeof FB !== 'undefined' && el.querySelector('.fb-post, .fb-video')) {
+        FB.XFBML.parse(el)
+      }
+      if (typeof instgrm !== 'undefined' && el.getElementsByClassName('instagram-media').length) {
+        instgrm.Embeds.process()
+      }
+    },
     copyAnchorLink(anchor) {
       const url = this.post.social.path + '#' + anchor
       const ta = document.createElement('textarea')
@@ -2287,9 +2305,6 @@ export default {
           window.scrollTo({ top, behavior: 'smooth' })
         }
       }
-    },
-    stripHtml(html) {
-      return String(html).replace(/<[^>]*>/g, '').substring(0, 300)
     },
     async loadHomepageWidget() {
       await this.$store.dispatch('homepageWidget/fetch')

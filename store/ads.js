@@ -5,40 +5,6 @@ export const state = () => ({
   slots: false,
   prefix: '/1092744/telegram/',
   units: {
-    telegram_top_ticker: {
-      upc: false,
-      mobile: [
-        [1, 1],
-        [300, 50],
-      ],
-      desktop: [
-        [1, 1],
-        [300, 50],
-      ],
-      routes: [
-        'index',
-        'category',
-        'category-slug',
-        'super1',
-        'telesport',
-        'super1-category',
-        'telesport-category',
-        'nesto-slug',
-        'fotogalerije-category',
-        'fotogalerije-category-slug',
-        'category',
-        'search',
-        'autor-autor',
-        'tema-tema',
-        'super1-category-slug',
-        'telesport-category-slug',
-        'pitanje-zdravlja-category-slug',
-        'openspace-category-slug',
-        'pitanje-zdravlja-category',
-        'pitanje-zdravlja',
-        'openspace-category',
-      ],
-    },
     telegram_desktop_billboard_v1: {
       upc: false,
       mobile: [
@@ -731,13 +697,13 @@ export const actions = {
         rootState.user.access.includes('telegram_premium')) ||
       (payload.route && payload.route.name.includes('pretplata'))
     ) {
-      // remove intext banners
-      const b = document.getElementsByClassName('banner-slot')
-      for (const box in b) {
-        if (box.id && box.id.includes('intext')) {
-          box.parentElement.parentElement.classList.add('hide')
-        }
-      }
+      // TODO: intext banner hiding for premium users — disabled, needs proper implementation via CSS/v-if
+      // const b = document.getElementsByClassName('banner-slot')
+      // for (const box of b) {
+      //   if (box.id?.includes('intext')) {
+      //     box.parentElement.parentElement.classList.add('hide')
+      //   }
+      // }
       window.googletag = window.googletag || { cmd: [] }
       window.googletag.cmd.push(function () {
         window.googletag.pubads().enableSingleRequest()
