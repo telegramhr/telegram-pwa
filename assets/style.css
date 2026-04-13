@@ -12601,25 +12601,25 @@ html.large-fontsize,
 
 .sticky-banner .ticker-exit {
     position: absolute;
-    right: -23px;
+    right: 4px;
     left: auto;
-    top: -23px;
+    top: 4px;
     z-index: 201;
 }
 
 .sticky-banner .takeover-exit {
     position: absolute;
-    right: -23px;
+    right: 4px;
     left: auto;
-    top: -23px;
+    top: 4px;
     z-index: 201;
 }
 
 .sticky-banner .ticker-right-exit {
     position: absolute;
-    left: -23px;
+    left: 4px;
     right: auto;
-    top: -23px;
+    top: 4px;
     z-index: 201;
 }
 
