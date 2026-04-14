@@ -512,8 +512,19 @@
                   </div>
                   <div
                     class="live-summary__text"
+                    :class="{
+                      'live-summary__text--collapsed':
+                        liveSummaryIsLong && !liveSummaryExpanded,
+                    }"
                     v-html="post.live_summary"
                   ></div>
+                  <button
+                    v-if="liveSummaryIsLong && !liveSummaryExpanded"
+                    class="live-update__read-more"
+                    @click="liveSummaryExpanded = true"
+                  >
+                    Pročitajte više
+                  </button>
                 </div>
               </article>
               <!--
@@ -575,9 +586,7 @@
                     ></div>
                     <template v-else>
                       <p>
-                        {{
-                          stripHtmlContent(update.body).substring(0, 300)
-                        }}...
+                        {{ stripHtmlContent(update.body).substring(0, 300) }}...
                       </p>
                       <button
                         class="live-update__read-more"
@@ -967,15 +976,34 @@
   line-height: 1.6;
   color: var(--tg-primary-text-color);
 }
-.live-summary__text p {
+.live-summary__text >>> p {
   margin: 0 0 8px;
 }
-.live-summary__text ul {
+.live-summary__text >>> ul {
   margin: 0;
   padding-left: 20px;
+  list-style-type: disc !important;
+  list-style-position: outside !important;
+  color: var(--tg-primary-text-color);
 }
-.live-summary__text li {
+.live-summary__text >>> li {
   margin-bottom: 4px;
+  list-style-type: disc !important;
+  list-style-position: outside !important;
+  color: var(--tg-primary-text-color);
+}
+.live-summary__text >>> li::marker {
+  color: var(--tg-primary-text-color);
+}
+.live-summary .live-update__read-more {
+  background: var(--tg-primary-background-color);
+}
+.live-summary__text--collapsed {
+  max-height: 120px;
+  overflow: hidden;
+  position: relative;
+  -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent);
+  mask-image: linear-gradient(180deg, #000 55%, transparent);
 }
 
 /* Live blog updates */
@@ -1360,6 +1388,7 @@ export default {
       liveToast: null, // toast message shown briefly after actions like copy link
       liveTimeInterval: null, // setInterval ID for liveTimeNow ticker
       liveExpandedUpdates: [], // anchors of updates expanded by "Pročitajte više"
+      liveSummaryExpanded: false,
       top_articles: [],
       top_articles_version: 'v1',
       related_posts: [],
@@ -1368,6 +1397,10 @@ export default {
     }
   },
   computed: {
+    liveSummaryIsLong() {
+      if (!this.post.live_summary) return false
+      return this.stripHtmlContent(this.post.live_summary).length > 300
+    },
     liveSummaryTime() {
       if (!this.post.live_summary_time) return ''
       const diff = this.liveTimeNow - this.post.live_summary_time
@@ -1691,7 +1724,10 @@ export default {
   methods: {
     stripHtmlContent(html) {
       const clean = html
-        .replace(/<blockquote[^>]*class="[^"]*(?:twitter-tweet|instagram-media|fb-post|fb-video)[^"]*"[^>]*>[\s\S]*?<\/blockquote>/gi, '')
+        .replace(
+          /<blockquote[^>]*class="[^"]*(?:twitter-tweet|instagram-media|fb-post|fb-video)[^"]*"[^>]*>[\s\S]*?<\/blockquote>/gi,
+          ''
+        )
         .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
       return this.stripHtml(clean)
     },
@@ -2266,10 +2302,16 @@ export default {
           document.head.append(s)
         }
       }
-      if (typeof FB !== 'undefined' && el.querySelector('.fb-post, .fb-video')) {
+      if (
+        typeof FB !== 'undefined' &&
+        el.querySelector('.fb-post, .fb-video')
+      ) {
         FB.XFBML.parse(el)
       }
-      if (typeof instgrm !== 'undefined' && el.getElementsByClassName('instagram-media').length) {
+      if (
+        typeof instgrm !== 'undefined' &&
+        el.getElementsByClassName('instagram-media').length
+      ) {
         instgrm.Embeds.process()
       }
     },
