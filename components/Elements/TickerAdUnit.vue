@@ -17,22 +17,22 @@
       >
         <div class="relative">
           <div id="telegram_sticky" :class="bannerClass"></div>
+          <a
+            v-show="showClose"
+            href="#"
+            :class="[
+              bannerClass === 'ticker' ? 'ticker-exit' : '',
+              bannerClass === 'takeover' ? 'takeover-exit' : '',
+              bannerClass === 'ticker-right' ? 'ticker-right-exit' : '',
+            ]"
+            @click.prevent="shouldHide = true"
+            ><font-awesome-icon
+              :icon="['fas', 'times-circle']"
+              size="3x"
+              style="color: #ae3736"
+            ></font-awesome-icon
+          ></a>
         </div>
-        <a
-          v-show="showClose"
-          href="#"
-          :class="[
-            bannerClass === 'ticker' ? 'ticker-exit' : '',
-            bannerClass === 'takeover' ? 'takeover-exit' : '',
-            bannerClass === 'ticker-right' ? 'ticker-right-exit' : '',
-          ]"
-          @click.prevent="shouldHide = true"
-          ><font-awesome-icon
-            :icon="['fas', 'times-circle']"
-            size="3x"
-            style="color: #ae3736"
-          ></font-awesome-icon
-        ></a>
       </div>
     </transition>
   </client-only>
