@@ -1346,7 +1346,8 @@ footer .conversion-notice {
     line-height: 1.55em;
 }
 
-.single-article .single-article-body p {
+.single-article .single-article-body p,
+.single-article .single-article-body ul {
     margin-bottom: 15px;
 }
 
@@ -20579,3 +20580,4 @@ button.newbtn {
 
 
 /* End of Podcasts box */
+
