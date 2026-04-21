@@ -412,7 +412,7 @@
             >
               {{
                 !$route.fullPath.includes('telesport')
-                  ? 'Veliki popust -63%'
+                  ? 'POPUST GODINE'
                   : 'Pretplatite se'
               }}</app-link
             >
