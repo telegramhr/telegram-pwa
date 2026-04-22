@@ -1010,7 +1010,7 @@ export const actions = {
     window.googletag = window.googletag || {}
     window.googletag.cmd = window.googletag.cmd || []
 
-    // 3s safety timeout: if CONSENT chain does not resolve
+    // 2s safety timeout: if CONSENT chain does not resolve
     // (CONSENT_API_READY never fires, __tcfapi never callbacks, Safari ITP),
     // serve non-personalized ads as GDPR-compliant fallback (CU-86c98hx43)
     setTimeout(() => {
@@ -1021,7 +1021,7 @@ export const actions = {
           .setPrivacySettings({ restrictDataProcessing: true })
       })
       dispatch('initAdserver')
-    }, 3000)
+    }, 2000)
 
     /* global __tcfapi */
     window.googlefc.callbackQueue.push({
