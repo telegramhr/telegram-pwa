@@ -2390,7 +2390,7 @@ export default {
       },
       {
         hid: 'instagram',
-        src: 'https://www.instagram.com/static/bundles/metro/EmbedSDK.js/33cd2c5d5d59.js',
+        src: 'https://platform.instagram.com/en_US/embeds.js',
         async: true,
         defer: true,
       },
