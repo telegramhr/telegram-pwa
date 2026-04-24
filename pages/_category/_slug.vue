@@ -2390,7 +2390,7 @@ export default {
       },
       {
         hid: 'instagram',
-        src: 'https://platform.instagram.com/en_US/embeds.js',
+        src: 'https://platform.instagram.com/embeds.js',
         async: true,
         defer: true,
       },
