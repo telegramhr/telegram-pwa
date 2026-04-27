@@ -430,10 +430,10 @@
                   v-if="canLogIn && post.paywall === 'always'"
                 ></mini-pretplata-new>
               </client-only>
-              <!-- Specijal desktop sidebar ad (post 3042827) -->
+              <!-- Specijal desktop sidebar ad -->
               <client-only>
                 <div
-                  v-if="isSpecijalPost && !isSpecijalPost1 && !$mobile"
+                  v-if="isSpecijalPost && !$mobile"
                   class="specijal-sidebar-ad"
                 >
                   <div
@@ -442,38 +442,14 @@
                   ></div>
                 </div>
               </client-only>
-              <!-- Specijal mobile ad (post 3042827, moved into content via JS) -->
+              <!-- Specijal mobile ad (moved into content via JS) -->
               <client-only>
                 <div
-                  v-if="isSpecijalPost && !isSpecijalPost1 && $mobile"
+                  v-if="isSpecijalPost && $mobile"
                   id="specijal-mobile-ad-source"
                 >
                   <div
                     id="div-gpt-ad-1773938597159-0"
-                    style="min-width: 300px; min-height: 250px"
-                  ></div>
-                </div>
-              </client-only>
-              <!-- Specijal desktop ad (post 3050715, moved into content via JS) -->
-              <client-only>
-                <div
-                  v-if="isSpecijalPost1 && !$mobile"
-                  id="specijal-desktop-ad-source"
-                >
-                  <div
-                    id="div-gpt-ad-1774952826317-0"
-                    style="min-width: 970px; min-height: 500px"
-                  ></div>
-                </div>
-              </client-only>
-              <!-- Specijal mobile ad (post 3050715, moved into content via JS) -->
-              <client-only>
-                <div
-                  v-if="isSpecijalPost1 && $mobile"
-                  id="specijal-mobile-ad-source-1"
-                >
-                  <div
-                    id="div-gpt-ad-1774952755400-0"
                     style="min-width: 300px; min-height: 250px"
                   ></div>
                 </div>
@@ -512,8 +488,19 @@
                   </div>
                   <div
                     class="live-summary__text"
+                    :class="{
+                      'live-summary__text--collapsed':
+                        liveSummaryIsLong && !liveSummaryExpanded,
+                    }"
                     v-html="post.live_summary"
                   ></div>
+                  <button
+                    v-if="liveSummaryIsLong && !liveSummaryExpanded"
+                    class="live-update__read-more"
+                    @click="liveSummaryExpanded = true"
+                  >
+                    Pročitajte više
+                  </button>
                 </div>
               </article>
               <!--
@@ -575,9 +562,7 @@
                     ></div>
                     <template v-else>
                       <p>
-                        {{
-                          stripHtmlContent(update.body).substring(0, 300)
-                        }}...
+                        {{ stripHtmlContent(update.body).substring(0, 300) }}...
                       </p>
                       <button
                         class="live-update__read-more"
@@ -967,15 +952,34 @@
   line-height: 1.6;
   color: var(--tg-primary-text-color);
 }
-.live-summary__text p {
+.live-summary__text >>> p {
   margin: 0 0 8px;
 }
-.live-summary__text ul {
+.live-summary__text >>> ul {
   margin: 0;
   padding-left: 20px;
+  list-style-type: disc !important;
+  list-style-position: outside !important;
+  color: var(--tg-primary-text-color);
 }
-.live-summary__text li {
+.live-summary__text >>> li {
   margin-bottom: 4px;
+  list-style-type: disc !important;
+  list-style-position: outside !important;
+  color: var(--tg-primary-text-color);
+}
+.live-summary__text >>> li::marker {
+  color: var(--tg-primary-text-color);
+}
+.live-summary .live-update__read-more {
+  background: var(--tg-primary-background-color);
+}
+.live-summary__text--collapsed {
+  max-height: 120px;
+  overflow: hidden;
+  position: relative;
+  -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent);
+  mask-image: linear-gradient(180deg, #000 55%, transparent);
 }
 
 /* Live blog updates */
@@ -1360,6 +1364,7 @@ export default {
       liveToast: null, // toast message shown briefly after actions like copy link
       liveTimeInterval: null, // setInterval ID for liveTimeNow ticker
       liveExpandedUpdates: [], // anchors of updates expanded by "Pročitajte više"
+      liveSummaryExpanded: false,
       top_articles: [],
       top_articles_version: 'v1',
       related_posts: [],
@@ -1368,6 +1373,10 @@ export default {
     }
   },
   computed: {
+    liveSummaryIsLong() {
+      if (!this.post.live_summary) return false
+      return this.stripHtmlContent(this.post.live_summary).length > 300
+    },
     liveSummaryTime() {
       if (!this.post.live_summary_time) return ''
       const diff = this.liveTimeNow - this.post.live_summary_time
@@ -1403,10 +1412,7 @@ export default {
       return !!filtered.length
     },
     isSpecijalPost() {
-      return [3042827, 3050715].includes(parseInt(this.post.id))
-    },
-    isSpecijalPost1() {
-      return parseInt(this.post.id) === 3050715
+      return parseInt(this.post.id) === 3042827
     },
     hasPremium() {
       return this.$store.getters['user/hasPremium']
@@ -1532,7 +1538,14 @@ export default {
         headline: this.$options.filters.parseCat(this.post.title),
         mainEntityOfPage: this.post.social.path,
         datePublished: new Date(this.post.time * 1000).toISOString(),
-        dateModified: new Date(this.post.timem * 1000).toISOString(),
+        dateModified: new Date(
+          Math.max(
+            this.post.timem || 0,
+            ...(this.post.live && this.post.live_updates
+              ? this.post.live_updates.map((u) => u.time || 0)
+              : [0])
+          ) * 1000
+        ).toISOString(),
         image: images,
         publisher: this.$store.state.header.publisher,
         author: this.post.authors.map((author) => {
@@ -1691,7 +1704,10 @@ export default {
   methods: {
     stripHtmlContent(html) {
       const clean = html
-        .replace(/<blockquote[^>]*class="[^"]*(?:twitter-tweet|instagram-media|fb-post|fb-video)[^"]*"[^>]*>[\s\S]*?<\/blockquote>/gi, '')
+        .replace(
+          /<blockquote[^>]*class="[^"]*(?:twitter-tweet|instagram-media|fb-post|fb-video)[^"]*"[^>]*>[\s\S]*?<\/blockquote>/gi,
+          ''
+        )
         .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
       return this.stripHtml(clean)
     },
@@ -1780,87 +1796,43 @@ export default {
     initSpecijalAds() {
       window.googletag = window.googletag || { cmd: [] }
 
-      const content = document.getElementById('article-content')
-      const paragraphs = content?.querySelectorAll(':scope > p')
-
-      if (this.isSpecijalPost1) {
-        // Post 3050715: move ad after 3rd paragraph (both desktop and mobile)
-        if (this.$mobile) {
-          const source = document.getElementById('specijal-mobile-ad-source-1')
-          if (paragraphs?.length >= 3 && source) {
-            paragraphs[2].after(source)
-          }
-        } else {
-          const source = document.getElementById('specijal-desktop-ad-source')
-          if (paragraphs?.length >= 3 && source) {
-            paragraphs[2].after(source)
-          }
+      // Mobile: move ad div after 2nd paragraph
+      if (this.$mobile) {
+        const content = document.getElementById('article-content')
+        const paragraphs = content?.querySelectorAll(':scope > p')
+        const source = document.getElementById('specijal-mobile-ad-source')
+        if (paragraphs?.length >= 2 && source) {
+          paragraphs[1].after(source)
         }
-
-        window.googletag.cmd.push(() => {
-          if (this.$mobile) {
-            window.googletag
-              .defineSlot(
-                '/1092744/Specijal/Mobile_specijal_1',
-                [300, 250],
-                'div-gpt-ad-1774952755400-0'
-              )
-              .addService(window.googletag.pubads())
-          } else {
-            window.googletag
-              .defineSlot(
-                '/1092744/Specijal/Desktop_specijal_1',
-                [970, 500],
-                'div-gpt-ad-1774952826317-0'
-              )
-              .addService(window.googletag.pubads())
-          }
-          window.googletag.pubads().enableSingleRequest()
-          window.googletag.enableServices()
-
-          if (this.$mobile) {
-            window.googletag.display('div-gpt-ad-1774952755400-0')
-          } else {
-            window.googletag.display('div-gpt-ad-1774952826317-0')
-          }
-        })
-      } else {
-        // Post 3042827: mobile after 2nd paragraph, desktop sidebar
-        if (this.$mobile) {
-          const source = document.getElementById('specijal-mobile-ad-source')
-          if (paragraphs?.length >= 2 && source) {
-            paragraphs[1].after(source)
-          }
-        }
-
-        window.googletag.cmd.push(() => {
-          if (this.$mobile) {
-            window.googletag
-              .defineSlot(
-                '/1092744/Specijal/Mobile_specijal',
-                [300, 250],
-                'div-gpt-ad-1773938597159-0'
-              )
-              .addService(window.googletag.pubads())
-          } else {
-            window.googletag
-              .defineSlot(
-                '/1092744/Specijal/Desktop_specijal',
-                [160, 600],
-                'div-gpt-ad-1773938719663-0'
-              )
-              .addService(window.googletag.pubads())
-          }
-          window.googletag.pubads().enableSingleRequest()
-          window.googletag.enableServices()
-
-          if (this.$mobile) {
-            window.googletag.display('div-gpt-ad-1773938597159-0')
-          } else {
-            window.googletag.display('div-gpt-ad-1773938719663-0')
-          }
-        })
       }
+
+      window.googletag.cmd.push(() => {
+        if (this.$mobile) {
+          window.googletag
+            .defineSlot(
+              '/1092744/Specijal/Mobile_specijal',
+              [300, 250],
+              'div-gpt-ad-1773938597159-0'
+            )
+            .addService(window.googletag.pubads())
+        } else {
+          window.googletag
+            .defineSlot(
+              '/1092744/Specijal/Desktop_specijal',
+              [160, 600],
+              'div-gpt-ad-1773938719663-0'
+            )
+            .addService(window.googletag.pubads())
+        }
+        window.googletag.pubads().enableSingleRequest()
+        window.googletag.enableServices()
+
+        if (this.$mobile) {
+          window.googletag.display('div-gpt-ad-1773938597159-0')
+        } else {
+          window.googletag.display('div-gpt-ad-1773938719663-0')
+        }
+      })
     },
     loadRemp() {
       this.$store.dispatch('user/saveIP')
@@ -2266,10 +2238,16 @@ export default {
           document.head.append(s)
         }
       }
-      if (typeof FB !== 'undefined' && el.querySelector('.fb-post, .fb-video')) {
+      if (
+        typeof FB !== 'undefined' &&
+        el.querySelector('.fb-post, .fb-video')
+      ) {
         FB.XFBML.parse(el)
       }
-      if (typeof instgrm !== 'undefined' && el.getElementsByClassName('instagram-media').length) {
+      if (
+        typeof instgrm !== 'undefined' &&
+        el.getElementsByClassName('instagram-media').length
+      ) {
         instgrm.Embeds.process()
       }
     },
@@ -2348,7 +2326,7 @@ export default {
       },
       {
         hid: 'instagram',
-        src: 'https://www.instagram.com/static/bundles/metro/EmbedSDK.js/33cd2c5d5d59.js',
+        src: 'https://www.instagram.com/embeds.js',
         async: true,
         defer: true,
       },

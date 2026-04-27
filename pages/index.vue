@@ -55,8 +55,8 @@
             to="/pretplata/popust-godine"
             class="newbtn gift-btn"
           >
-            <span class="poklonMobile">Veliki popust </span
-            ><span class="poklon">Veliki popust </span>-63%</app-link
+            <span class="poklonMobile">POPUST GODINE </span
+            ><span class="poklon">POPUST GODINE</span></app-link
           >
           <a
             v-show="!canLogIn"
@@ -325,12 +325,12 @@
       class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth"
     >
       <img
-        src="@/assets/img/homepage/top_naslovi_knjige.webp"
+        src="@/assets/img/homepage/KSS_2026_1200x450.jpg"
         alt="Desktop banner za webshop knjige.telegram.hr"
         class="desktop-only"
       />
       <img
-        src="@/assets/img/homepage/top_naslovi_knjige_mob.webp"
+        src="@/assets/img/homepage/KSS_2026_320x480.jpg"
         alt="Mobile banner za webshop knjige.telegram.hr"
         class="mobile-only"
         style="width: 100%"
