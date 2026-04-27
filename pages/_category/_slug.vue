@@ -430,30 +430,7 @@
                   v-if="canLogIn && post.paywall === 'always'"
                 ></mini-pretplata-new>
               </client-only>
-              <!-- Specijal desktop sidebar ad -->
-              <client-only>
-                <div
-                  v-if="isSpecijalPost && !$mobile"
-                  class="specijal-sidebar-ad"
-                >
-                  <div
-                    id="div-gpt-ad-1773938719663-0"
-                    style="min-width: 160px; min-height: 600px"
-                  ></div>
-                </div>
-              </client-only>
-              <!-- Specijal mobile ad (moved into content via JS) -->
-              <client-only>
-                <div
-                  v-if="isSpecijalPost && $mobile"
-                  id="specijal-mobile-ad-source"
-                >
-                  <div
-                    id="div-gpt-ad-1773938597159-0"
-                    style="min-width: 300px; min-height: 250px"
-                  ></div>
-                </div>
-              </client-only>
+              <!-- Specijal post ad placeholder: add per-post ad containers here when isSpecijalPost is enabled -->
               <!-- eslint-disable vue/no-v-html -->
               <div
                 id="article-content"
@@ -1412,7 +1389,9 @@ export default {
       return !!filtered.length
     },
     isSpecijalPost() {
-      return parseInt(this.post.id) === 3042827
+      // To enable special ad handling for a post, return true for that post id.
+      // Example: return parseInt(this.post.id) === 1234567
+      return false
     },
     hasPremium() {
       return this.$store.getters['user/hasPremium']
@@ -1794,45 +1773,10 @@ export default {
       }
     },
     initSpecijalAds() {
-      window.googletag = window.googletag || { cmd: [] }
-
-      // Mobile: move ad div after 2nd paragraph
-      if (this.$mobile) {
-        const content = document.getElementById('article-content')
-        const paragraphs = content?.querySelectorAll(':scope > p')
-        const source = document.getElementById('specijal-mobile-ad-source')
-        if (paragraphs?.length >= 2 && source) {
-          paragraphs[1].after(source)
-        }
-      }
-
-      window.googletag.cmd.push(() => {
-        if (this.$mobile) {
-          window.googletag
-            .defineSlot(
-              '/1092744/Specijal/Mobile_specijal',
-              [300, 250],
-              'div-gpt-ad-1773938597159-0'
-            )
-            .addService(window.googletag.pubads())
-        } else {
-          window.googletag
-            .defineSlot(
-              '/1092744/Specijal/Desktop_specijal',
-              [160, 600],
-              'div-gpt-ad-1773938719663-0'
-            )
-            .addService(window.googletag.pubads())
-        }
-        window.googletag.pubads().enableSingleRequest()
-        window.googletag.enableServices()
-
-        if (this.$mobile) {
-          window.googletag.display('div-gpt-ad-1773938597159-0')
-        } else {
-          window.googletag.display('div-gpt-ad-1773938719663-0')
-        }
-      })
+      // Configure GPT slots and paragraph injection for special posts here.
+      // Pattern: ensure window.googletag is initialized, optionally move
+      // an ad container next to a target paragraph in #article-content,
+      // then defineSlot / display via window.googletag.cmd.push.
     },
     loadRemp() {
       this.$store.dispatch('user/saveIP')
