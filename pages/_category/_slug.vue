@@ -2326,7 +2326,7 @@ export default {
       },
       {
         hid: 'instagram',
-        src: 'https://www.instagram.com/embeds.js',
+        src: 'https://www.instagram.com/embed.js',
         async: true,
         defer: true,
       },
