@@ -325,12 +325,12 @@
       class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth"
     >
       <img
-        src="@/assets/img/homepage/KSS_2026_1200x450.jpg"
+        src="@/assets/img/homepage/Banner_Desktop_1200x450-02.png"
         alt="Desktop banner za webshop knjige.telegram.hr"
         class="desktop-only"
       />
       <img
-        src="@/assets/img/homepage/KSS_2026_320x480.jpg"
+        src="@/assets/img/homepage/Banner_Mobile_320x480-02.png"
         alt="Mobile banner za webshop knjige.telegram.hr"
         class="mobile-only"
         style="width: 100%"
