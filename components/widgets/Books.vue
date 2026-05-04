@@ -303,6 +303,7 @@ export default {
   line-height: 1.25;
   color: #0f172a;
   margin-bottom: 4px;
+  min-height: 2.5em;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -312,8 +313,10 @@ export default {
 .book-author {
   font-family: 'Barlow', sans-serif;
   font-size: 13px;
+  line-height: 1.4;
   color: #555;
   margin-bottom: 8px;
+  min-height: 1.4em;
 }
 .book-price {
   font-family: 'Barlow', sans-serif;
