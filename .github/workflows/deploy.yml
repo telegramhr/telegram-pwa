@@ -107,6 +107,9 @@ jobs:
 
       - name: Restart PM2
         working-directory: /home/marko/pwa-staging
+        env:
+          WC_KEY: ${{ secrets.WC_KEY }}
+          WC_SECRET: ${{ secrets.WC_SECRET }}
         run: |
           pm2 restart ecosystem.config.js --update-env || pm2 start ecosystem.config.js
           sleep 3
@@ -164,6 +167,9 @@ jobs:
 
       - name: Restart PM2
         working-directory: /home/marko/pwa-production
+        env:
+          WC_KEY: ${{ secrets.WC_KEY }}
+          WC_SECRET: ${{ secrets.WC_SECRET }}
         run: |
           pm2 restart ecosystem.config.js --update-env || pm2 start ecosystem.config.js
           sleep 3

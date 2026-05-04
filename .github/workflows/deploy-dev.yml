@@ -96,6 +96,9 @@ jobs:
 
       - name: Restart PM2
         working-directory: /home/telegram/pwa
+        env:
+          WC_KEY: ${{ secrets.WC_KEY }}
+          WC_SECRET: ${{ secrets.WC_SECRET }}
         run: |
           pm2 restart ecosystem.config.js --update-env || pm2 start ecosystem.config.js
           sleep 3
