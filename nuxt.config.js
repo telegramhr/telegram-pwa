@@ -260,6 +260,10 @@ export default {
         proxy: true,
     },
 
+    serverMiddleware: [
+        { path: '/wcapi/books/featured', handler: '~/server-middleware/books.js' },
+    ],
+
     proxy: {
         '/api': {
             target: `${process.env.API_BASE_URL || 'https://www.telegram.hr'}/wp-json/telegram/pwa/v1/`,

@@ -14,6 +14,15 @@ export default function ({ app, $axios, redirect, store }) {
     shouldResetTimeout: true,
   })
 
+  $axios.onError((error) => {
+    if (error.response) {
+      delete error.response.request
+      delete error.response.config
+    }
+    delete error.config
+    delete error.request
+  })
+
   $axios.onRequest((config) => {
     if (Capacitor.isNativePlatform()) {
       config.headers['X-Type'] = 'app'
@@ -39,6 +48,12 @@ export default function ({ app, $axios, redirect, store }) {
         config.url = config.url.replace(
           '/mailer/',
           'https://mailer.telegram.hr/'
+        )
+      }
+      if (config.url.startsWith('/wcapi/')) {
+        config.url = config.url.replace(
+          '/wcapi/',
+          'https://www.telegram.hr/wcapi/'
         )
       }
     }
