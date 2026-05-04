@@ -319,23 +319,7 @@
         style="width: 100%"
       />
     </app-link>
-    <app-link
-      v-show="$store.state.user.access?.length"
-      to="https://knjige.telegram.hr/?utm_medium=Internal&utm_campaign=TGHomepage"
-      class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth"
-    >
-      <img
-        src="@/assets/img/homepage/KSS_2026_1200x450.jpg"
-        alt="Desktop banner za webshop knjige.telegram.hr"
-        class="desktop-only"
-      />
-      <img
-        src="@/assets/img/homepage/KSS_2026_320x480.jpg"
-        alt="Mobile banner za webshop knjige.telegram.hr"
-        class="mobile-only"
-        style="width: 100%"
-      />
-    </app-link>
+    <Books />
     <client-only>
       <div v-if="!hasPremium" class="full relative">
         <offers-premium></offers-premium>

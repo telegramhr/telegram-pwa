@@ -65,6 +65,7 @@ import {
   faCircleQuestion,
   faStar,
   faLockKeyhole,
+  faChevronRight,
 } from '@fortawesome/pro-regular-svg-icons'
 
 import {
@@ -139,6 +140,7 @@ library.add(
   faAngleUp,
   faChevronUp,
   faChevronDown,
+  faChevronRight,
 
   faAngleDown
 )
