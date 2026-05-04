@@ -30,11 +30,12 @@
       </div>
     </div>
 
-    <vue-slick-carousel
-      ref="carousel"
-      v-bind="slickOptions"
-      class="books-carousel"
-    >
+    <client-only>
+      <vue-slick-carousel
+        ref="carousel"
+        v-bind="slickOptions"
+        class="books-carousel"
+      >
       <div
         v-for="(book, index) in books"
         :key="book.id"
@@ -96,7 +97,8 @@
           </div>
         </article>
       </div>
-    </vue-slick-carousel>
+      </vue-slick-carousel>
+    </client-only>
   </div>
 </template>
 
