@@ -692,6 +692,9 @@ export default {
 .pretplata {
   display: none;
 }
+.poklonMobile{
+  text-align: center;
+}
 @media (min-width: 768px) {
   .gift-btn {
     font-size: 0.7rem;

@@ -145,7 +145,7 @@ export default {
     }
   },
   async fetch() {
-    await this.$store.dispatch('books/pullFeatured', { limit: 7 })
+    await this.$store.dispatch('books/pullFeatured')
   },
   computed: {
     books() {
