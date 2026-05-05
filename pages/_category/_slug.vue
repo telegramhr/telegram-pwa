@@ -608,13 +608,6 @@
                 <pretplata-promos></pretplata-promos>
               </client-only>
             </div>
-            <client-only>
-              <learn-more
-                v-if="post && post.id && !post.category_slug.includes('super1') && !post.category_slug.includes('telesport')"
-                :post-id="post.id"
-                :post-title="post.portal_title || post.title"
-              />
-            </client-only>
           </article>
           <intext-remp></intext-remp>
           <!-- Article footer -->
