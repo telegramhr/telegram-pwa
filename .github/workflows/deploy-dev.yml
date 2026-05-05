@@ -44,6 +44,7 @@ jobs:
           path: |
             .nuxt/
             static/
+            server-middleware/
             nuxt.config.js
             package.json
             package-lock.json
@@ -83,6 +84,7 @@ jobs:
           cp -f /home/telegram/pwa-new/package-lock.json /home/telegram/pwa/
           cp -f /home/telegram/pwa-new/.npmrc /home/telegram/pwa/
           cp -rf /home/telegram/pwa-new/static /home/telegram/pwa/
+          cp -rf /home/telegram/pwa-new/server-middleware /home/telegram/pwa/
           cp -f /home/telegram/pwa-new/ecosystem.staging.config.js /home/telegram/pwa/ecosystem.config.js
 
           # Cleanup temp
@@ -94,6 +96,9 @@ jobs:
 
       - name: Restart PM2
         working-directory: /home/telegram/pwa
+        env:
+          WC_KEY: ${{ secrets.WC_KEY }}
+          WC_SECRET: ${{ secrets.WC_SECRET }}
         run: |
           pm2 restart ecosystem.config.js --update-env || pm2 start ecosystem.config.js
           sleep 3

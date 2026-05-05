@@ -216,7 +216,7 @@ export default {
         script2.async = true
         document
           .getElementById(`midasWidget__${this.id}`)
-          .insertAdjacentElement('afterend', script2)
+          ?.insertAdjacentElement('afterend', script2)
       }
     },
     loadMidas() {
@@ -276,7 +276,7 @@ export default {
         script.async = true
         document
           .getElementById(`midasWidget__${this.id}`)
-          .insertAdjacentElement('afterend', script)
+          ?.insertAdjacentElement('afterend', script)
         const script2 = document.createElement('script')
         const intext = this.ids[category]?.intext
         const intextMain = this.ids[category]?.intextMain
@@ -287,7 +287,7 @@ export default {
         script2.async = true
         document
           .getElementById(`midasWidget__${this.id}`)
-          .insertAdjacentElement('afterend', script2)
+          ?.insertAdjacentElement('afterend', script2)
       }
       if (this.id && this.type === 'ecomm2') {
         const script2 = document.createElement('script')
@@ -295,7 +295,7 @@ export default {
         script2.async = true
         document
           .getElementById(`midasWidget__${this.id}`)
-          .insertAdjacentElement('afterend', script2)
+          ?.insertAdjacentElement('afterend', script2)
       }
     },
   },
