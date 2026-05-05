@@ -125,6 +125,10 @@ export default {
         arrows: true,
         responsive: [
           {
+            breakpoint: 1300,
+            settings: { slidesToShow: 6, slidesToScroll: 2, arrows: false },
+          },
+          {
             breakpoint: 1024,
             settings: { slidesToShow: 4, slidesToScroll: 2, arrows: false },
           },
@@ -187,10 +191,18 @@ export default {
 
 <style scoped>
 .books-widget {
-  width: 95%;
+  width: 100%;
+  max-width: 1248px;
   margin: 0 auto;
-  padding-top: 32px;
-  padding-bottom: 32px;
+  padding: 32px 24px;
+  box-sizing: border-box;
+}
+@media (max-width: 640px) {
+  .books-widget {
+    width: 100%;
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
 }
 .books-widget-header {
   display: flex;
@@ -227,7 +239,7 @@ export default {
 .books-header-arrow-next {
   background-image: url('~assets/img/homepage/right.svg');
 }
-@media (max-width: 1024px) {
+@media (max-width: 1299px) {
   .books-header-arrow {
     display: block;
   }
