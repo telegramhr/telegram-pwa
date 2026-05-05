@@ -1210,7 +1210,7 @@ const widgetMap = {
 export default {
   name: 'Slug',
   scrollToTop: true,
-  components: { Portal, StudenacWidget, A1Widget, HtWidget, BusinessWidgete },
+  components: { Portal, StudenacWidget, A1Widget, HtWidget, BusinessWidget },
   async fetch() {
     if (!this.$route.params.slug && !this.$route.params.category) {
       return
