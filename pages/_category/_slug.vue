@@ -1199,7 +1199,6 @@ import StudenacWidget from '~/components/Elements/StudenacWidget.vue'
 import A1Widget from '~/components/Elements/A1Widget.vue'
 import HtWidget from '~/components/Elements/HtWidget.vue'
 import BusinessWidget from '~/components/Elements/BusinessWidget.vue'
-import LearnMore from '~/components/Elements/LearnMore.vue'
 
 const widgetMap = {
   studenac: 'StudenacWidget',
@@ -1211,7 +1210,7 @@ const widgetMap = {
 export default {
   name: 'Slug',
   scrollToTop: true,
-  components: { Portal, StudenacWidget, A1Widget, HtWidget, BusinessWidget, LearnMore },
+  components: { Portal, StudenacWidget, A1Widget, HtWidget, BusinessWidgete },
   async fetch() {
     if (!this.$route.params.slug && !this.$route.params.category) {
       return
