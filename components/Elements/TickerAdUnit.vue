@@ -28,7 +28,6 @@
             @click.prevent="shouldHide = true"
             ><font-awesome-icon
               :icon="['fas', 'times-circle']"
-              size="3x"
               style="color: #ae3736"
             ></font-awesome-icon
           ></a>

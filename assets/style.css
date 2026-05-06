@@ -12599,34 +12599,30 @@ html.large-fontsize,
 
 /* Ticker and takeover exit buttons */
 
-.sticky-banner .ticker-exit {
+.sticky-banner .ticker-exit,
+.sticky-banner .takeover-exit,
+.sticky-banner .ticker-right-exit {
+    --close-size: 48px;
     position: absolute;
-    right: -23px;
-    left: auto;
-    top: -23px;
-    z-index: 201;
-}
-
-.sticky-banner .takeover-exit {
-    position: absolute;
-    right: -23px;
-    left: auto;
-    top: -23px;
+    width: var(--close-size);
+    height: var(--close-size);
+    font-size: var(--close-size);
+    line-height: 1;
+    top: calc(-1 * var(--close-size));
+    right: calc(-1 * var(--close-size));
     z-index: 201;
 }
 
 .sticky-banner .ticker-right-exit {
-    position: absolute;
-    left: -23px;
     right: auto;
-    top: -23px;
-    z-index: 201;
+    left: calc(-1 * var(--close-size));
 }
 
-@media screen and (max-height: 767px) {
-    .sticky-banner .takeover-exit {
-        right: 8px;
-        top: 8px;
+@media screen and (max-width: 480px) {
+    .sticky-banner .ticker-exit,
+    .sticky-banner .takeover-exit,
+    .sticky-banner .ticker-right-exit {
+        --close-size: 60px;
     }
 }
 
