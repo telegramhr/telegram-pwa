@@ -36,67 +36,63 @@
         v-bind="slickOptions"
         class="books-carousel"
       >
-      <div
-        v-for="(book, index) in books"
-        :key="book.id"
-        class="books-slide"
-      >
-        <article class="book-card">
-          <a
-            :href="book.permalink"
-            target="_blank"
-            rel="noopener"
-            class="book-cover-link"
-            @click="trackClick(book, 'cover')"
-          >
-            <img
-              v-if="book.image"
-              :src="book.image.src"
-              :alt="book.image.alt"
-              :loading="index < 3 ? 'eager' : 'lazy'"
-              :fetchpriority="index < 2 ? 'high' : 'auto'"
-              decoding="async"
-              width="200"
-              height="284"
-              class="book-cover"
-            />
-          </a>
-          <div class="book-meta">
+        <div v-for="(book, index) in books" :key="book.id" class="books-slide">
+          <article class="book-card">
             <a
               :href="book.permalink"
               target="_blank"
               rel="noopener"
-              class="book-title"
-              @click="trackClick(book, 'title')"
-              >{{ book.title }}</a
+              class="book-cover-link"
+              @click="trackClick(book, 'cover')"
             >
-            <div v-if="book.author" class="book-author">{{ book.author }}</div>
-            <div class="book-price">
-              <span
-                v-if="book.onSale && book.regularPrice"
-                class="book-price-old"
-                >{{ format(book.regularPrice) }}</span
-              >
-              <span class="book-price-new">{{
-                format(
-                  book.onSale && book.salePrice
-                    ? book.salePrice
-                    : book.price
-                )
-              }}</span>
-            </div>
-            <a
-              :href="`${book.permalink}?add-to-cart=${book.id}`"
-              target="_blank"
-              rel="noopener"
-              class="book-cart-btn"
-              @click="trackClick(book, 'cart')"
-            >
-              Dodaj u košaricu
+              <img
+                v-if="book.image"
+                :src="book.image.src"
+                :alt="book.image.alt"
+                :loading="index < 3 ? 'eager' : 'lazy'"
+                :fetchpriority="index < 2 ? 'high' : 'auto'"
+                decoding="async"
+                width="200"
+                height="284"
+                class="book-cover"
+              />
             </a>
-          </div>
-        </article>
-      </div>
+            <div class="book-meta">
+              <a
+                :href="book.permalink"
+                target="_blank"
+                rel="noopener"
+                class="book-title"
+                @click="trackClick(book, 'title')"
+                >{{ book.title }}</a
+              >
+              <div v-if="book.author" class="book-author">
+                {{ book.author }}
+              </div>
+              <div class="book-price">
+                <span
+                  v-if="book.onSale && book.regularPrice"
+                  class="book-price-old"
+                  >{{ format(book.regularPrice) }}</span
+                >
+                <span class="book-price-new">{{
+                  format(
+                    book.onSale && book.salePrice ? book.salePrice : book.price
+                  )
+                }}</span>
+              </div>
+              <a
+                :href="`${book.permalink}?add-to-cart=${book.id}`"
+                target="_blank"
+                rel="noopener"
+                class="book-cart-btn"
+                @click="trackClick(book, 'cart')"
+              >
+                Dodaj u košaricu
+              </a>
+            </div>
+          </article>
+        </div>
       </vue-slick-carousel>
     </client-only>
   </div>
