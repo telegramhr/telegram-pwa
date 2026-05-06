@@ -159,13 +159,17 @@
         },
       ]"
     ></Testimonials>
-    <PretplataCTA
-      :text="'Iskoristite 63% popusta i počnite čitati već danas.'"
-      :link="{
-        url: '#pretplataPayment',
-        text: 'Iskoristite ponudu',
-      }"
-    ></PretplataCTA>
+    <div class="cta">
+      <span>Iskoristite 63% popusta i počnite čitati već danas.</span>
+      <a
+        href="#pretplataPayment"
+        class="hero-subscribe-btn"
+        rel="noopener noreferrer"
+      >
+        Iskoristite ponudu
+      </a>
+    </div>
+
     <Footer></Footer>
     <client-only>
       <!-- Chatbot Component -->
@@ -282,6 +286,35 @@ export default {
 </script>
 
 <style scoped>
+.cta {
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 406px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0px 16px;
+  padding-bottom: 32px;
+}
+.cta span {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+@media (min-width: 1024px) {
+  .cta {
+    gap: 36px;
+    padding-bottom: 72px;
+  }
+  .cta span {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}
 .telegram-overlay {
   position: fixed;
   top: 0;
