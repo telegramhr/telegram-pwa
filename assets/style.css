@@ -2108,6 +2108,50 @@ figure a {
 }
 
 
+/* Super1 quote */
+
+.super1-quote {
+    text-align: center;
+    margin: 24px 0;
+}
+
+.super1-quote__mark {
+    display: block;
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 300px;
+    line-height: 1;
+    font-variation-settings: 'opsz' 144;
+}
+
+.super1-quote__mark--close {
+    transform: rotate(180deg);
+}
+
+.single-article .single-article-body .super1-quote p {
+    position: relative;
+    z-index: 1;
+    font-family: 'Gloock', serif;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 40px;
+    padding: 20px 0;
+    margin: -180px 0;
+    text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+    .super1-quote__mark {
+        font-size: 180px;
+    }
+    .single-article .single-article-body .super1-quote p {
+        font-size: 22px;
+        line-height: 32px;
+        margin: -120px 0;
+    }
+}
+
+
 /* Specijal highlight */
 
 .specijal-highlight {
