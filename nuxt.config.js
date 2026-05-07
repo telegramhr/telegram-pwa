@@ -53,6 +53,10 @@ export default {
             },
             {
                 rel: 'stylesheet',
+                href: 'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400&text=%E2%80%9C%E2%80%9D&display=swap',
+            },
+            {
+                rel: 'stylesheet',
                 href: 'https://use.typekit.net/rhj2chq.css',
             },
         ],
