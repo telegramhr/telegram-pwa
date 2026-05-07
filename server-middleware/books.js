@@ -75,14 +75,10 @@ module.exports = async function (req, res) {
   }
 
   const url = new URL(req.url, 'http://localhost')
-  const limit = Math.min(
-    Math.max(parseInt(url.searchParams.get('limit'), 10) || 7, 1),
-    20
-  )
   const category = url.searchParams.get('category') || ''
   const orderby = url.searchParams.get('orderby') || 'popularity'
 
-  const key = `featured:${limit}:${category}:${orderby}`
+  const key = `featured:${category}:${orderby}`
   const now = Date.now()
   const cached = cache.get(key)
   if (cached && now - cached.at < TTL_MS) {
@@ -91,9 +87,10 @@ module.exports = async function (req, res) {
 
   try {
     const params = {
+      featured: true,
       orderby,
       order: 'desc',
-      per_page: limit,
+      per_page: 100,
       status: 'publish',
       stock_status: 'instock',
     }

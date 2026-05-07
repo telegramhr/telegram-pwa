@@ -11,7 +11,7 @@ export const mutations = {
 }
 
 export const actions = {
-  async pullFeatured({ commit, state }, { force = false, limit = 7 } = {}) {
+  async pullFeatured({ commit, state }, { force = false } = {}) {
     if (
       !force &&
       state.updated &&
@@ -21,7 +21,7 @@ export const actions = {
       return state.featured
     }
     try {
-      const res = await this.$axios.get(`/wcapi/books/featured?limit=${limit}`)
+      const res = await this.$axios.get('/wcapi/books/featured')
       commit('setFeatured', (res.data && res.data.products) || [])
       return state.featured
     } catch (e) {

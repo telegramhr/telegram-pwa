@@ -18,6 +18,7 @@ export default {
       <intext-black-friday></intext-black-friday>
       <intext-christmas></intext-christmas>
       <intext-popust-godine></intext-popust-godine>
+      <intext-popust-standard></intext-popust-standard>
       <intext-christmas-gift></intext-christmas-gift>
       <intext-telesport-rukomet></intext-telesport-rukomet>
       <intext-odaberi-cijenu></intext-odaberi-cijenu>

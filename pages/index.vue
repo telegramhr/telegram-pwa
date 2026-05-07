@@ -319,7 +319,7 @@
         style="width: 100%"
       />
     </app-link>
-    <Books v-show="!$store.state.user.access?.length" />
+    <Books v-show="$store.state.user.access?.length" />
     <client-only>
       <div v-if="!hasPremium" class="full relative">
         <offers-premium></offers-premium>
@@ -691,6 +691,9 @@ export default {
 }
 .pretplata {
   display: none;
+}
+.poklonMobile{
+  text-align: center;
 }
 @media (min-width: 768px) {
   .gift-btn {
