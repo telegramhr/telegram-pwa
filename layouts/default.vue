@@ -13,7 +13,6 @@
         v-if="!$store.getters['user/hasPremium']"
         id="telegram_sticky"
       ></ticker-ad-unit>
-      <back-widget></back-widget>
       <div
         v-if="!$store.state.user.id"
         id="g_id_onload"

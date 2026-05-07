@@ -550,43 +550,6 @@ export const state = () => ({
         [2000, 300],
       ],
     },
-    telegram_back_widget: {
-      upc: 4,
-      routes: [
-        'index',
-        'category',
-        'super1',
-        'super1-category',
-        'category-slug',
-        'super1-category-slug',
-        'nesto-slug',
-        'fotogalerije-category',
-        'fotogalerije-category-slug',
-        'category',
-        'search',
-        'autor-autor',
-        'tema-tema',
-        'pitanje-zdravlja-category-slug',
-        'openspace-category-slug',
-        'pitanje-zdravlja-category',
-        'openspace-category',
-        'telesport-category',
-        'telesport-category-slug',
-        'telesport',
-      ],
-      mobile: [
-        [1, 1],
-        [300, 250],
-        [320, 480],
-        [336, 280],
-        [320, 50],
-        [300, 100],
-        [300, 50],
-        [300, 600],
-        [320, 250],
-      ],
-      desktop: false,
-    },
     telegram_underarticle_v1: {
       upc: false,
       routes: [
@@ -886,9 +849,6 @@ export const actions = {
       }
       if (route.query.reload) {
         window.googletag.pubads().setTargeting('reload', '1')
-      }
-      if (route.query.utm_campaign === 'back_widget') {
-        window.googletag.pubads().setTargeting('source', 'backwidget')
       }
       // user segments
       if (rootState.user.access) {
