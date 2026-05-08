@@ -156,6 +156,7 @@ export default {
   flex-direction: column;
   align-items: center;
   padding: 32px 20px 0;
+  justify-content: space-between;
   gap: 24px;
   box-sizing: border-box;
   overflow: hidden;
