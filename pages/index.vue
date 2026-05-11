@@ -55,8 +55,8 @@
             to="/pretplata/popust-godine"
             class="newbtn gift-btn"
           >
-            <span class="poklonMobile">POPUST GODINE </span
-            ><span class="poklon">POPUST GODINE</span></app-link
+            <span class="poklonMobile">EXTRA POPUST </span
+            ><span class="poklon">EXTRA POPUST</span></app-link
           >
           <a
             v-show="!canLogIn"
@@ -692,7 +692,7 @@ export default {
 .pretplata {
   display: none;
 }
-.poklonMobile{
+.poklonMobile {
   text-align: center;
 }
 @media (min-width: 768px) {
