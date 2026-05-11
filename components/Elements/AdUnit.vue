@@ -50,18 +50,6 @@ export default {
         el.style.display = 'none'
         return
       }
-      if (this.id === 'telegram_back_widget') {
-        window.googletag.cmd.push(() => {
-          window.googletag
-            .defineSlot(
-              this.$store.state.ads.prefix + this.id,
-              this.$store.state.ads.units[this.id].mobile,
-              this.id
-            )
-            .addService(window.googletag.pubads())
-          window.googletag.display(this.id)
-        })
-      }
     })
   },
 }
