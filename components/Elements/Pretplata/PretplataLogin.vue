@@ -106,10 +106,13 @@ export default {
     },
   },
   watch: {
-    '$store.state.user.email'(value) {
-      if (value && !this.email) {
-        this.$emit('updateEmail', value)
-      }
+    '$store.state.user.email': {
+      immediate: true,
+      handler(value) {
+        if (value && !this.email) {
+          this.$emit('updateEmail', value)
+        }
+      },
     },
     email: _.debounce(function (value) {
       if (isValidEmail(value) === false) {
