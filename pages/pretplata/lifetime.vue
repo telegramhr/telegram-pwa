@@ -57,7 +57,7 @@
         </div>
       </div>
     </div>
-    <div class="full flex darkened-bg relative pretplata-page">
+    <!--<div class="full flex darkened-bg relative pretplata-page">
       <div
         class="container relative flex mobile-side-pad stretch column-full-pad smallest-container mobile-top-pad"
       >
@@ -100,7 +100,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>-->
     <div id="scr" class="full flex relative pretplata-page">
       <div
         class="container smaller-container relative flex mobile-side-pad stretch column-full-pad"
@@ -140,7 +140,7 @@
             Zauvijek ćemo se boriti protiv kriminala i korupcije ali ova prilika
             se neće ponoviti
           </p>
-          <!--<div class="full center flex-wrap column-top-pad mobile-top-pad">
+          <div class="full center flex-wrap column-top-pad mobile-top-pad">
             <div v-if="screen === 2" class="full flex relative">
               <div class="half flex flex-responsive remp-miniboxes">
                 <div v-show="!loggedIn">
@@ -267,12 +267,12 @@
             class="full remp-mini-text column-mini-top-pad column-bottom-pad center-text faded"
           >
             Ponuda vrijedi još samo danas — iskoristite je dok traje
-          </p>-->
-          <p
+          </p>
+          <!-- <p
             class="full remp-mini-text column-mini-top-pad column-bottom-pad center-text faded"
           >
             Ponuda je istekla
-          </p>
+          </p>-->
         </div>
         <client-only>
           <iframe id="TrustPayFrame" :src="iframeUrl"></iframe>
