@@ -1679,6 +1679,10 @@ export default {
       clearInterval(this.liveTimeInterval)
       this.liveTimeInterval = null
     }
+    if (this._topArticlesWidget) {
+      this._topArticlesWidget.$destroy()
+      this._topArticlesWidget = null
+    }
   },
   methods: {
     stripHtmlContent(html) {
@@ -1950,6 +1954,10 @@ export default {
       }
     },
     loadInArticleWidget() {
+      // $mount replaces the placeholder div, so a DOM id check can't dedupe.
+      // Use an instance flag bound to this page-component's lifecycle instead.
+      if (this._topArticlesWidget) return
+
       const container = document.getElementById('article-content')
       if (!container) return
 
@@ -1957,24 +1965,20 @@ export default {
       if (paragraphs.length < 2) return
       if (this.post.id === 2774378) return
 
-      // avoid duplicate injection
-      if (document.getElementById('top-articles-widget')) return
-
-      // create placeholder div
-      const widgetEl = document.createElement('div')
-      widgetEl.id = 'top-articles-widget'
-      paragraphs[1].insertAdjacentElement('afterend', widgetEl)
-
-      // Dynamically create and mount <top-articles> using this component’s context
       if (
         this.post.category_slug.includes('super1') ||
         this.post.category_slug.includes('pitanje-zdravlja') ||
         this.post.category_slug.includes('openspace')
       )
-        return // do not show widget on super1, openspace, pitanje-zdravlja articles
+        return
 
       if (this.post.intext_related_off === '1') return
-      const widget = new this.$root.constructor({
+
+      const widgetEl = document.createElement('div')
+      widgetEl.id = 'top-articles-widget'
+      paragraphs[1].insertAdjacentElement('afterend', widgetEl)
+
+      this._topArticlesWidget = new this.$root.constructor({
         parent: this, // inherit current context (so global components are visible)
         render: (h) =>
           h('top-articles-intext', {
@@ -1984,7 +1988,7 @@ export default {
             },
           }),
       })
-      widget.$mount(widgetEl)
+      this._topArticlesWidget.$mount(widgetEl)
     },
     fbShare() {
       /* global FB */
