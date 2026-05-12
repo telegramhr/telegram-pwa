@@ -87,7 +87,6 @@
       <input type="hidden" name="subscription_type" :value="pack" />
       <input type="hidden" name="payment_gateway" :value="paymentType" />
       <input type="hidden" name="price" :value="discountedAmount || price" />
-      <input v-if="!loggedIn" type="hidden" name="auth" value="1" />
       <input type="hidden" name="email" :value="email" />
       <input
         id="voucher_log_id"
@@ -421,18 +420,10 @@ export default {
       const form = document.getElementById('payment-form')
       const formData = new FormData(form)
       const actionUrl = form.action
-      const headers = {}
-      const token =
-        this.$store.state.user.token ||
-        (this.$cookies && this.$cookies.get('n_token'))
-      if (this.loggedIn && token) {
-        headers.Authorization = `Bearer ${token}`
-      }
       fetch(actionUrl, {
         method: 'POST',
         body: formData,
         credentials: 'include',
-        headers,
       })
         .then((response) => {
           return response.json()
