@@ -87,7 +87,7 @@
       <input type="hidden" name="subscription_type" :value="pack" />
       <input type="hidden" name="payment_gateway" :value="paymentType" />
       <input type="hidden" name="price" :value="discountedAmount || price" />
-      <input v-if="!loggedIn" type="hidden" name="auth" value="1" />
+      <input type="hidden" name="auth" value="1" />
       <input type="hidden" name="email" :value="email" />
       <input
         id="voucher_log_id"
