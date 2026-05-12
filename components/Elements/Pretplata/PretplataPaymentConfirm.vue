@@ -421,10 +421,18 @@ export default {
       const form = document.getElementById('payment-form')
       const formData = new FormData(form)
       const actionUrl = form.action
+      const headers = {}
+      const token =
+        this.$store.state.user.token ||
+        (this.$cookies && this.$cookies.get('n_token'))
+      if (this.loggedIn && token) {
+        headers.Authorization = `Bearer ${token}`
+      }
       fetch(actionUrl, {
         method: 'POST',
         body: formData,
         credentials: 'include',
+        headers,
       })
         .then((response) => {
           return response.json()
