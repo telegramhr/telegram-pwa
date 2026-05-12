@@ -1954,9 +1954,12 @@ export default {
       }
     },
     loadInArticleWidget() {
-      // $mount replaces the placeholder div, so a DOM id check can't dedupe.
-      // Use an instance flag bound to this page-component's lifecycle instead.
+      // Two-layer dedupe: instance flag catches same-instance double calls,
+      // DOM check catches cross-instance cases (e.g. overlapping page mounts
+      // during route transition). The widget mounts inside #top-articles-widget
+      // rather than replacing it, so the id stays queryable.
       if (this._topArticlesWidget) return
+      if (document.getElementById('top-articles-widget')) return
 
       const container = document.getElementById('article-content')
       if (!container) return
@@ -1974,9 +1977,12 @@ export default {
 
       if (this.post.intext_related_off === '1') return
 
-      const widgetEl = document.createElement('div')
-      widgetEl.id = 'top-articles-widget'
-      paragraphs[1].insertAdjacentElement('afterend', widgetEl)
+      const wrapperEl = document.createElement('div')
+      wrapperEl.id = 'top-articles-widget'
+      paragraphs[1].insertAdjacentElement('afterend', wrapperEl)
+
+      const mountEl = document.createElement('div')
+      wrapperEl.appendChild(mountEl)
 
       this._topArticlesWidget = new this.$root.constructor({
         parent: this, // inherit current context (so global components are visible)
@@ -1988,7 +1994,7 @@ export default {
             },
           }),
       })
-      this._topArticlesWidget.$mount(widgetEl)
+      this._topArticlesWidget.$mount(mountEl)
     },
     fbShare() {
       /* global FB */
