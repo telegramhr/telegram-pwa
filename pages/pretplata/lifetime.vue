@@ -1,59 +1,48 @@
 <template>
-  <div
-    class="main-container flex red-header-page pretplata-page single-article"
-  >
-    <div class="full flex tg-red">
-      <theader
-        headline="Telegram Premium. Doživotni pristup za samo 399 EUR"
-      ></theader>
+  <div class="flex red-header-page pretplata-page">
+    <div v-if="loading" class="telegram-overlay">
+      <span class="telegram-loader"></span>
     </div>
-    <div class="full flex relative pretplata-page">
-      <div class="container relative flex mobile-side-pad stretch">
-        <div
-          class="half center flex-responsive relative column-full-pad m-order-2"
-        >
-          <div class="full flex relative">
-            <h1
-              class="full center-text"
-              style="font-size: 27px; font-size: 1.5rem"
-            >
-              Samo danas: Doživotna pretplata za samo 399€
+    <div class="hero-wrapper">
+      <div class="hero-left-container">
+        <div class="hero-left-wrapper">
+          <div class="hero-text-wrapper-desktop">
+            <h1 class="hero-title">
+              Pružite nam podršku: Doživotna pretplata za samo
+              <span style="font-weight: 700">399€</span>
             </h1>
-            <h1
-              class="full center-text"
-              style="font-size: 27px; font-size: 1.5rem"
-            >
-              Jednom platite – Telegram čitate zauvijek
-            </h1>
-            <p
-              class="full center-text pretplata-tagline"
-              style="font-size: 1.1rem"
-            >
-              Ne propustite ovu ekskluzivnu priliku koja se više neće ponoviti.
+            <p class="hero-subtitle">
+              Jednom platite – Telegram čitate zauvijek. Ne propustite ovu
+              ekskluzivnu priliku koja se više neće ponoviti.
             </p>
-            <p
-              class="full center-text pretplata-tagline"
-              style="font-size: 1.1rem"
-            >
-              Osigurajte neograničen pristup bez reklama – zauvijek.
-            </p>
-            <div class="full center column-vertical-pad mobile-vertical-pad">
-              <div
-                class="newbtn gigantic-newbtn animate green-newbtn clickable"
-                @click="submit"
-              >
-                Kupite za 399€. Zauvijek
-              </div>
-            </div>
+            <a href="#pretplataPayment" class="lifetime-subscribe-btn">
+              Kupite za 399€. Zauvijek
+            </a>
           </div>
+          <p class="hero-disclaimer">
+            Osigurajte neograničen pristup bez reklama – zauvijek.
+          </p>
         </div>
-        <div
-          class="half center flex-responsive relative column-full-pad m-order-1"
-        >
-          <img
-            src="@/assets/img/tg_mockup_lifetime.png"
-            alt="Mockup Telegram portala s tekstom LIFETIME u pozadini"
-          />
+      </div>
+      <div class="hero-main">
+        <div class="hero-content-wrapper">
+          <div class="hero-text-wrapper">
+            <h1>
+              Pružite nam podršku: Doživotna pretplata za samo
+              <span style="font-weight: 700">399€</span>
+            </h1>
+            <p>Jednom platite – Telegram čitate zauvijek.</p>
+            <a href="#pretplataPayment" class="lifetime-subscribe-btn">
+              Kupite za 399€. Zauvijek
+            </a>
+          </div>
+          <div class="hero-images">
+            <img
+              class="hero-mockup"
+              src="@/assets/img/tg_mockup_lifetime.png"
+              alt="Mockup Telegram portala s tekstom LIFETIME u pozadini"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -101,381 +90,171 @@
         </div>
       </div>
     </div>-->
-    <div id="scr" class="full flex relative pretplata-page">
-      <div
-        class="container smaller-container relative flex mobile-side-pad stretch column-full-pad"
-      >
-        <div class="full flex relative column-top-pad mobile-top-pad">
-          <h2 class="full center-text">Zajedno gradimo ovu zajednicu</h2>
-          <p class="full center-text pretplata-tagline">
-            Vi ste razlog zašto ovo radimo. Ovom ponudom želimo Vas pozvati da
-            nas podržite zauvijek.
-          </p>
-          <p class="full center-text pretplata-tagline">Zauzvrat vam nudimo:</p>
-          <div class="full center column-top-pad mobile-top-pad">
-            <div class="full pretplata-benefits" style="max-width: 20rem">
-              <p class="full animate">
-                <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-                neograničeno čitanje Telegrama doživotno
-              </p>
-              <p class="full animate">
-                <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-                neograničeno čitanje Telesporta doživotno
-              </p>
-              <p class="full animate">
-                <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-                čitanje bez oglasa
-              </p>
-              <p class="full animate">
-                <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-                posebni popusti I pogodnosti unutar Telegram kluba
-              </p>
-              <p class="full animate">
-                <font-awesome-icon :icon="['fas', 'check']"></font-awesome-icon>
-                specijalni newsletter
-              </p>
-            </div>
-          </div>
-          <p class="full center-text pretplata-tagline">
-            Zauvijek ćemo se boriti protiv kriminala i korupcije ali ova prilika
-            se neće ponoviti
-          </p>
-          <div class="full center flex-wrap column-top-pad mobile-top-pad">
-            <div v-if="screen === 2" class="full flex relative">
-              <div class="half flex flex-responsive remp-miniboxes">
-                <div v-show="!loggedIn">
-                  <input
-                    id="pretplata-email"
-                    v-model="email"
-                    type="text"
-                    class="full remp-new-input"
-                    placeholder="Upišite email"
-                    name="email"
-                  />
-                  <input
-                    v-if="showPassword"
-                    id="pretplata-password"
-                    v-model="password"
-                    type="password"
-                    class="full remp-new-input"
-                    placeholder="Upišite lozinku"
-                    name="password"
-                  />
-                  <small v-show="!showPassword"
-                    >Ukoliko niste registrirani korisnik, na navedenu email
-                    adresu ćete zaprimiti pristupne podatke.</small
-                  >
-                  <button
-                    v-if="showPassword"
-                    class="full newbtn huge-newbtn center-text clickable"
-                    @click="login"
-                  >
-                    Prijavi se
-                  </button>
-                  <p class="full remp-mini-text center-text faded">ili</p>
-                  <div class="full flex relative">
-                    <div class="half flex column-mini-right-pad">
-                      <a
-                        :href="`http://pretplata.telegram.hr/users/google/sign?url=https://www.telegram.hr/pretplata/`"
-                        class="full center remp-social-logbtn animate"
-                      >
-                        <i class="fa-brands fa-google"></i>
-                        Google
-                      </a>
-                    </div>
-                    <div class="half flex column-mini-left-pad">
-                      <a
-                        href="https://pretplata.telegram.hr/social-login/social-sign/sign?social_provider_key=facebook&success_login_url=https://www.telegram.hr/pretplata/"
-                        class="full center remp-social-logbtn animate"
-                      >
-                        <i class="fa-brands fa-facebook-f"></i>
-                        Facebook
-                      </a>
-                    </div>
-                    <p class="full remp-mini-text center-text faded hide">
-                      Privremeno ćemo vas preusmjeriti na stranicu odabranog
-                      davatelja usluga kako bi povezali račune.
-                    </p>
-                  </div>
-                </div>
-                <div
-                  class="full flex column-top-pad mobile-bottom-pad mobile-top-pad"
-                >
-                  <input
-                    id="terms"
-                    v-model="terms"
-                    type="checkbox"
-                    class="cbx"
-                    name="terms"
-                  />
-                  <label for="terms" class="check flex full">
-                    <svg width="18px" height="18px" viewBox="0 0 18 18">
-                      <path
-                        d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
-                      ></path>
-                      <polyline points="1 9 7 14 15 4"></polyline>
-                    </svg>
-                    <span
-                      >Prihvaćam
-                      <a
-                        target="_blank"
-                        href="https://www.telegram.hr/stranica/uvjeti-koristenja/"
-                        class="highlight-text"
-                        >uvjete korištenja</a
-                      ></span
-                    >
-                  </label>
-                </div>
-                <div
-                  class="full flex column-top-pad mobile-bottom-pad mobile-top-pad"
-                >
-                  <input
-                    id="privacy"
-                    v-model="privacy"
-                    type="checkbox"
-                    class="cbx"
-                    name="privacy"
-                  />
-                  <label for="privacy" class="check flex full">
-                    <svg width="18px" height="18px" viewBox="0 0 18 18">
-                      <path
-                        d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
-                      ></path>
-                      <polyline points="1 9 7 14 15 4"></polyline>
-                    </svg>
-                    <span
-                      >Prihvaćam
-                      <a
-                        target="_blank"
-                        href="https://www.telegram.hr/stranica/pravila-privantnosti/"
-                        class="highlight-text"
-                        >pravila privatnosti</a
-                      ></span
-                    >
-                  </label>
-                </div>
-              </div>
-            </div>
-            <button
-              class="newbtn gigantic-newbtn animate green-newbtn clickable center-text"
-              @click="submit"
-            >
-              Kupite za 399€. Zauvijek
-            </button>
-          </div>
-          <p
-            class="full remp-mini-text column-mini-top-pad column-bottom-pad center-text faded"
-          >
-            Ponuda vrijedi još samo danas — iskoristite je dok traje
-          </p>
-          <!-- <p
-            class="full remp-mini-text column-mini-top-pad column-bottom-pad center-text faded"
-          >
-            Ponuda je istekla
-          </p>-->
-        </div>
-        <client-only>
-          <iframe id="TrustPayFrame" :src="iframeUrl"></iframe>
-          <form
-            id="payment-form"
-            class="full flex column-horizontal-pad column-top-pad mobile-top-pad"
-            method="post"
-            :action="`/crm/sales-funnel/sales-funnel-frontend/submit?referer=${$store.getters['pretplata/link']}`"
-          >
-            <input type="hidden" name="funnel_url_key" :value="url_key" />
-            <input
-              type="hidden"
-              name="subscription_type"
-              :value="subscription_type"
-            />
-            <input type="hidden" name="payment_gateway" :value="payment" />
-            <input type="hidden" name="price" :value="price" />
-            <input type="hidden" name="email" :value="email" />
-          </form>
-        </client-only>
+    <div class="payment-content">
+      <div>
+        <PretplataPayment
+          id="pretplataPayment"
+          :allow-terms-change="false"
+          :term="selectedTerm"
+          :payment-type="payment"
+          :annual-price="annualPrice"
+          :monthly-price="monthlyPrice"
+          :subscription-type="subscriptionType"
+          :gift="false"
+          @selectTerm="selectTerm"
+          @selectPaymentType="selectPaymentType"
+        />
+        <PretplataLogin
+          :email="email"
+          :can-log-in="canLogIn"
+          :login-error="loginError"
+          :login-url="loginUrl"
+          @updateCanLogIn="updateCanLogIn"
+          @updateEmail="updateEmail"
+        ></PretplataLogin>
+        <PretplataPaymentConfirm
+          :url-key="urlKey"
+          :loading="loading"
+          :can-log-in="canLogIn"
+          :logged-in="loggedIn"
+          :payment-type="payment"
+          :pack="pack"
+          :price="price"
+          :email="email"
+          :discounted-amount="discount"
+          @updateLoading="handleUpdateLoading"
+          @updateDiscount="handleUpdateDiscount"
+        ></PretplataPaymentConfirm>
       </div>
     </div>
-    <tfooter></tfooter>
+    <div class="lifetime-intro">
+      <p>
+        Vi ste razlog zašto ovo radimo. Ovom ponudom želimo Vas pozvati da nas
+        podržite zauvijek.
+      </p>
+      <p class="lifetime-intro-closing">
+        Zauvijek ćemo se boriti protiv kriminala i korupcije, ali ova prilika se
+        neće ponoviti.
+      </p>
+    </div>
+    <Features
+      section-title="Zajedno gradimo ovu zajednicu"
+      :cards="[
+        {
+          title: 'Doživotan pristup vrhunskom novinarstvu',
+          text: 'Jednom platite i čitajte Telegram zauvijek - bez ograničenja, bez obnove, bez reklama.',
+          image: require('@/assets/img/pretplata/features/pristup.png'),
+        },
+        {
+          title: 'Neovisno i nagrađivano novinarstvo',
+          text: 'Pretplatom podržavate redakciju koja je višestruko nagrađivana za istraživačko i analitičko novinarstvo.',
+          image: require('@/assets/img/pretplata/features/neovisno.png'),
+        },
+        {
+          title: 'Relevantne analize i komentari',
+          text: 'Analize onoga što se zapravo događa - kroz tekstove koji idu dublje od naslova.',
+          image: require('@/assets/img/pretplata/features/relevantne.png'),
+        },
+        {
+          title: 'Neograničeno čitanje Telegrama i Telesporta',
+          text: 'Uživajte u ekskluzivnom sadržaju bez reklama. Doživotno.',
+          image: require('@/assets/img/pretplata/features/reklame.png'),
+        },
+        {
+          title: 'Pristup Telegram klubu i pogodnostima',
+          text: 'U Telegram Klubu vas očekuju dodatne pogodnosti, posebni popusti i pozivnice na ekskluzivne događaje.',
+          image: require('@/assets/img/pretplata/features/klub.png'),
+        },
+      ]"
+    ></Features>
+    <Testimonials
+      :testimonials="[
+        {
+          text: 'Telegram nije samo nada da će se kriminal razotkriti, nego i mjesto kvalitetnog novinarstva. Jedan je od rijetkih medija koji pokazuje što se događa izvan Zagreba.',
+          name: 'Tvrtko Jakovina',
+          description: 'Pretplatnik i povjesničar',
+          avatar: require('@/assets/img/pretplata/jakovina.png'),
+        },
+        {
+          text: 'Na Telegram sam se pretplatila od samih početaka jer u vremenu promjena medija upravo istraživačko i vjerodostojno novinarstvo vraća izgubljeno povjerenje.',
+          name: 'Ivana Dragičević',
+          description: 'Pretplatnica i novinarka',
+          avatar: require('@/assets/img/pretplata/dragicevic.png'),
+        },
+        {
+          text: 'Većina svjetskih, a i hrvatskih afera otkrili su upravo – mediji. Baš iz tog razloga, bez razmišljanja, dajem svoj skromni doprinos godišnjom pretplatom na Telegram.',
+          name: 'Daniel Ackermann',
+          description: 'Suosnivač agencije Degordian',
+          avatar: require('@/assets/img/pretplata/ackermann.png'),
+        },
+      ]"
+    ></Testimonials>
+    <div class="cta">
+      <span>Jednom platite – Telegram čitate zauvijek.</span>
+      <a
+        href="#pretplataPayment"
+        class="lifetime-subscribe-btn"
+        rel="noopener noreferrer"
+      >
+        Iskoristite ponudu
+      </a>
+    </div>
+    <Footer></Footer>
+    <client-only>
+      <Chatbot />
+    </client-only>
   </div>
 </template>
 
 <script>
-import _ from 'lodash'
-
 export default {
   name: 'Dozivotna',
   data() {
     return {
-      counter: null,
-      screen: 1,
-      email: this.$store.state.user.email,
-      password: '',
-      showPassword: false,
-      hostedInstance: null,
-      threeDS: null,
-      deviceData: null,
-      nonce: null,
-      token: null,
-      dropin: null,
-      terms: false,
-      privacy: false,
-      auth: 0,
-      url_key: 'dozivotna',
-      creditCard: false,
-      cvv: false,
-      expirationDate: false,
-      instance: null,
-      customerId: null,
+      loading: false,
+      subscriptionType: 'individual',
+      loginUrl: 'lifetime',
+      selectedTerm: 'annual',
       payment: 'trustpay_recurrent',
-      subscription_type: 'lifetime_premium_subscription_dozivotna',
-      price: 399,
-      iframeUrl: null,
+      price: '399',
+      pack: 'lifetime_premium_subscription_dozivotna',
+      annualPrice: '399',
+      monthlyPrice: '399',
+      email: this.$store.state.user.email,
+      urlKey: 'dozivotna',
+      canLogIn: true,
+      discount: 0,
     }
   },
   computed: {
-    buyable() {
-      if (this.email && this.terms && this.privacy) {
-        return true
-      }
-      return false
+    loginError() {
+      return this.$store.state.user.error
     },
     loggedIn() {
       return !!this.$store.state.user.id
     },
-    canLogIn() {
-      return this.$store.getters['user/canLogIn']
+    userEmail() {
+      return this.$store.state.user.email
     },
-  },
-  watch: {
-    email: _.debounce(function (value) {
-      const _this = this
-      const formData = new FormData()
-      formData.append('email', value)
-      this.$axios
-        .post('/crm/api/v2/users/email', formData, {
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-          },
-        })
-        .then((response) => {
-          if (response.data.status && response.data.status === 'taken') {
-            _this.showPassword = true
-          } else if (response.data.status === 'error') {
-            if (response.data.code === 'email_missing') {
-              return
-            }
-            _this.show_msg = 'error-not-finished'
-          } else {
-            _this.showPassword = false
-          }
-        })
-        .catch(() => {
-          _this.showPassword = false
-        })
-    }, 1000),
-  },
-  mounted() {
-    this.$nextTick(() => {
-      // this.createCounter()
-    })
-  },
-  destroyed() {
-    this.counter = null
   },
   methods: {
-    createCounter() {
-      // Countdown
-      const countDownDate = new Date()
-      countDownDate.setHours(23, 59, 59, 999)
-      this.counter = setInterval(function () {
-        const now = new Date().getTime()
-        const distance = countDownDate - now
-
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24))
-        const hours = Math.floor(
-          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-        )
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000)
-
-        const day2 = Math.floor((days % 100) / 10)
-        const day3 = Math.floor(days % 10)
-
-        const hour1 = Math.floor(hours / 10)
-        const hour2 = Math.floor(hours % 10)
-
-        const min1 = Math.floor(minutes / 10)
-        const min2 = Math.floor(minutes % 10)
-
-        const sec1 = Math.floor(seconds / 10)
-        const sec2 = Math.floor(seconds % 10)
-
-        document.getElementById('cd-day-2').innerHTML = day2
-        document.getElementById('cd-day-3').innerHTML = day3
-
-        document.getElementById('cd-hour-1').innerHTML = hour1
-        document.getElementById('cd-hour-2').innerHTML = hour2
-
-        document.getElementById('cd-min-1').innerHTML = min1
-        document.getElementById('cd-min-2').innerHTML = min2
-
-        document.getElementById('cd-sec-1').innerHTML = sec1
-        document.getElementById('cd-sec-2').innerHTML = sec2
-        if (distance < 0) {
-          clearInterval(this.counter)
-        }
-      }, 1000)
+    handleUpdateLoading(state) {
+      this.loading = state
     },
-    login() {
-      if (!this.showPassword) {
-        return
-      }
-      this.$store.dispatch('user/loginSubmit', {
-        email: this.email,
-        password: this.password,
-      })
+    handleUpdateDiscount(value) {
+      this.discount = value
     },
-    submit() {
-      if (this.screen === 1) {
-        this.screen = 2
-        const scr = document.getElementById('scr')
-        const top = scr.offsetTop
-        if (top > document.body.scrollTop) {
-          window.scrollTo({
-            top: top - 50,
-            behavior: 'smooth',
-          })
-        }
-        return
-      }
-      this.loading = true
-      const form = document.getElementById('payment-form')
-      const formData = new FormData(form)
-      const actionUrl = form.action
-      fetch(actionUrl, {
-        method: 'POST',
-        body: formData,
-        credentials: 'include',
-      })
-        .then((response) => {
-          return response.json()
-        })
-        .then((data) => {
-          if (data.status === 'ok') {
-            const trustpayIframe = document.getElementById('TrustPayFrame')
-            if (trustpayIframe) {
-              trustpayIframe.src = data.url + '&Localization=hr'
-            }
-            // Open TrustPay Popup
-            /* global openPopup */
-            openPopup()
-          } else {
-            this.show_msg = 'Došlo je do greške s plaćanjem.'
-          }
-        })
-        .catch(() => {
-          this.show_msg = 'Došlo je do greške prilikom slanja podataka.'
-        })
+    selectTerm(term) {
+      this.selectedTerm = term
+    },
+    selectPaymentType(paymentType) {
+      this.payment = paymentType
+    },
+    updateEmail(email) {
+      this.email = email
+    },
+    updateCanLogIn(value) {
+      this.canLogIn = value
     },
   },
   head() {
@@ -556,3 +335,298 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.telegram-overlay {
+  position: fixed;
+  top: 0;
+  z-index: 101;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  align-content: center;
+  background: rgb(0, 0, 0, 0.5);
+}
+.telegram-loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  border: 10px solid;
+  box-sizing: border-box;
+  animation: animloader 1s linear infinite alternate;
+}
+@keyframes animloader {
+  0% {
+    border-color: #ae3737 rgba(255, 255, 255, 0) rgba(255, 255, 255, 0)
+      rgba(255, 255, 255, 0);
+  }
+  33% {
+    border-color: #ae3737 #ae3737 rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
+  }
+  66% {
+    border-color: #ae3737 #ae3737 #ae3737 rgba(255, 255, 255, 0);
+  }
+  100% {
+    border-color: #ae3737 #ae3737 #ae3737 #ae3737;
+  }
+}
+.payment-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px 16px 60px 16px;
+  margin: 0 auto;
+  max-width: 865px;
+  width: 100%;
+}
+@media screen and (min-width: 1024px) {
+  .payment-content {
+    padding: 40px 0 60px 0;
+  }
+}
+#pretplataPayment {
+  border-top: none !important;
+}
+.lifetime-intro {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+}
+.lifetime-intro p {
+  font-family: 'Barlow', sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  color: #343434;
+  margin: 0;
+}
+.lifetime-intro .lifetime-intro-closing {
+  font-style: italic;
+  color: #5f5f5f;
+}
+@media (min-width: 1024px) {
+  .lifetime-intro {
+    padding: 0 24px 24px;
+  }
+  .lifetime-intro p {
+    font-size: 18px;
+    line-height: 26px;
+  }
+}
+
+/* Hero (popust-standard inspired) */
+.hero-wrapper {
+  width: 100%;
+  max-width: 100%;
+  background: radial-gradient(
+    60.06% 51.64% at 50.07% 48.36%,
+    #2a3a5a 0%,
+    #0a1424 100%
+  );
+}
+.hero-main {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 32px;
+}
+.hero-left-container {
+  background-color: transparent;
+  display: none;
+}
+.hero-content-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  gap: 20px;
+}
+.hero-content-wrapper h1 {
+  text-align: center;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 500;
+  font-family: 'Lora', serif;
+  color: white;
+  margin: 0;
+  padding: 0 16px;
+}
+.hero-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 16px;
+  align-items: center;
+}
+.hero-text-wrapper p {
+  text-align: center;
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 400;
+  font-family: 'Barlow', sans-serif;
+  color: white;
+  margin: 0;
+}
+.hero-images {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.hero-images .hero-mockup {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  margin-bottom: 0;
+}
+@media (min-width: 1024px) {
+  .hero-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .hero-left-container {
+    display: flex;
+    width: 380px;
+    padding: 64px 0 30px 0;
+  }
+  .hero-main {
+    padding-top: 64px;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .hero-text-wrapper {
+    display: none;
+  }
+  .hero-left-wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 381px;
+    gap: 40px;
+    padding: 0 24px;
+  }
+  .hero-text-wrapper-desktop {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .hero-text-wrapper-desktop button {
+    margin: 0;
+  }
+  .hero-left-container .hero-title {
+    text-align: left;
+    font-size: 35px;
+    line-height: 40px;
+    font-weight: 500;
+    font-family: 'Lora', serif;
+    color: white;
+    margin: 0;
+  }
+  .hero-left-container .hero-subtitle {
+    text-align: left;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 400;
+    font-family: 'Barlow', sans-serif;
+    color: white;
+    margin: 0;
+  }
+  .hero-left-container .hero-disclaimer {
+    font-size: 12px;
+    line-height: 16px;
+    color: white;
+    font-family: 'Barlow', sans-serif;
+    margin: 0;
+  }
+  .hero-images {
+    margin: 0;
+    justify-content: center;
+  }
+}
+
+.lifetime-hero-title {
+  font-family: 'Lora', serif;
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 500;
+  margin: 0 0 8px;
+}
+.lifetime-hero-sub {
+  font-family: 'Barlow', sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  margin: 0 0 6px;
+}
+.lifetime-subscribe-btn {
+  background-color: #217613;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 16px;
+  padding: 12px 14px;
+  border: none;
+  width: fit-content;
+  border-radius: 10px;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+.lifetime-subscribe-btn:hover {
+  background-color: #1a5e0f;
+}
+.cta {
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 406px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 16px 32px;
+}
+.cta span {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+}
+@media (min-width: 1024px) {
+  .lifetime-hero-title {
+    font-size: 36px;
+    line-height: 40px;
+  }
+  .lifetime-subscribe-btn {
+    font-size: 16px;
+    line-height: 20px;
+    padding: 14px 20px;
+    box-shadow: 0px 0px 8px -2px rgba(255, 255, 255, 0.48) inset,
+      0px 3px 4px -3px rgba(255, 255, 255, 0.56) inset,
+      0px 3px 3px -1.5px rgba(0, 0, 0, 0.03),
+      0px 1px 1px -0.5px rgba(0, 0, 0, 0.03);
+  }
+  .cta {
+    gap: 36px;
+    padding-bottom: 72px;
+  }
+  .cta span {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}
+</style>
