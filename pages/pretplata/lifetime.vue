@@ -1,5 +1,5 @@
 <template>
-  <div class="main-container flex red-header-page pretplata-page">
+  <div class="flex red-header-page pretplata-page">
     <div v-if="loading" class="telegram-overlay">
       <span class="telegram-loader"></span>
     </div>
@@ -8,7 +8,7 @@
         <div class="hero-left-wrapper">
           <div class="hero-text-wrapper-desktop">
             <h1 class="hero-title">
-              Samo danas: Doživotna pretplata za samo
+              Pružite nam podršku: Doživotna pretplata za samo
               <span style="font-weight: 700">399€</span>
             </h1>
             <p class="hero-subtitle">
@@ -28,7 +28,7 @@
         <div class="hero-content-wrapper">
           <div class="hero-text-wrapper">
             <h1>
-              Samo danas: Doživotna pretplata za samo
+              Pružite nam podršku: Doživotna pretplata za samo
               <span style="font-weight: 700">399€</span>
             </h1>
             <p>Jednom platite – Telegram čitate zauvijek.</p>
