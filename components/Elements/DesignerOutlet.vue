@@ -4,12 +4,35 @@
     class="container cantha-big-block flex relative native-block offers-widget stretch mobile-side-pad"
   >
     <div class="full flex stretch column-bottom-pad gallery-content">
+      <div class="pinned-first">
+        <a
+          :href="link"
+          target="_blank"
+          rel="sponsored"
+          class="full flex article relative"
+          role="article"
+          @click.prevent="trackClick"
+        >
+          <img
+            :src="images[0]"
+            loading="lazy"
+            alt="Designer Outlet Croatia"
+            width="300"
+            height="600"
+          />
+        </a>
+      </div>
       <VueSlickCarousel
         ref="offer_carousel"
         v-bind="slider_settings"
-        style="display: block; width: 100%"
+        class="slider-wrap"
+        style="display: block"
       >
-        <div v-for="(image, index) in images" :key="image" class="offer-slide">
+        <div
+          v-for="(image, index) in sliderImages"
+          :key="image"
+          class="offer-slide"
+        >
           <a
             :id="'slide-' + index"
             :href="link"
@@ -62,34 +85,31 @@ export default {
       ),
       slider_settings: {
         infinite: true,
-        slidesToShow: 4,
+        slidesToShow: 3,
         slidesToScroll: 1,
         arrows: false,
         autoplay: true,
         responsive: [
           {
             breakpoint: 1024,
-            settings: {
-              slidesToShow: 3,
-            },
+            settings: { slidesToShow: 2 },
           },
           {
             breakpoint: 767,
-            settings: {
-              centerMode: true,
-              slidesToShow: 2,
-            },
+            settings: { slidesToShow: 2, centerMode: true },
           },
           {
             breakpoint: 600,
-            settings: {
-              slidesToShow: 1,
-              centerMode: true,
-            },
+            settings: { slidesToShow: 1, centerMode: true },
           },
         ],
       },
     }
+  },
+  computed: {
+    sliderImages() {
+      return this.images.slice(1)
+    },
   },
   mounted() {
     this.$gtm.push({
@@ -117,6 +137,7 @@ export default {
 
 <style>
 #designer-outlet .gallery-content {
+  flex-wrap: wrap;
   padding-top: 60px;
   padding-bottom: 60px;
 }
@@ -129,7 +150,59 @@ export default {
   border-right: 1px solid #212121;
 }
 
+#designer-outlet .pinned-first {
+  display: flex;
+  padding: 0 24px;
+}
+
+#designer-outlet .pinned-first > a {
+  width: 100%;
+}
+
+#designer-outlet .pinned-first img {
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width: 1024px) {
+  #designer-outlet .pinned-first {
+    flex: 0 0 25%;
+    max-width: 25%;
+    border-right: 1px solid #c8c8c8;
+  }
+  #designer-outlet.dark-mode .pinned-first {
+    border-right: 1px solid #212121;
+  }
+  #designer-outlet .slider-wrap {
+    flex: 0 0 75%;
+    max-width: 75%;
+    min-width: 0;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  #designer-outlet .pinned-first {
+    flex: 0 0 33.333%;
+    max-width: 33.333%;
+    border-right: 1px solid #c8c8c8;
+  }
+  #designer-outlet.dark-mode .pinned-first {
+    border-right: 1px solid #212121;
+  }
+  #designer-outlet .slider-wrap {
+    flex: 0 0 66.667%;
+    max-width: 66.667%;
+    min-width: 0;
+  }
+}
+
 @media (min-width: 768px) {
+  #designer-outlet .gallery-left {
+    left: -28px;
+  }
+  #designer-outlet .gallery-right {
+    right: -28px;
+  }
   #designer-outlet
     .slick-slide.slick-active:has(+ .slick-slide:not(.slick-active)) {
     border-right: none;
@@ -140,6 +213,19 @@ export default {
   #designer-outlet .gallery-content {
     padding-top: 40px;
     padding-bottom: 40px;
+  }
+
+  #designer-outlet .pinned-first {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0;
+    margin-bottom: 24px;
+  }
+
+  #designer-outlet .slider-wrap {
+    flex: 0 0 100%;
+    max-width: 100%;
+    min-width: 0;
   }
 
   #designer-outlet img {
