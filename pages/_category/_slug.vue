@@ -1764,7 +1764,7 @@ export default {
         this.initSpecijalAds()
         return
       }
-      this.useSparPortal = false // temp fix
+      this.useSparPortal = true
       this.$store.dispatch('ads/initAds', {
         route: this.$route,
         options: this.post.disable_ads,
