@@ -304,16 +304,16 @@
     </div>
     <app-link
       v-show="!$store.state.user.access?.length"
-      to="/pretplata/popust-godine"
+      to="/pretplata/popust-standard"
       class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth"
     >
       <img
-        src="@/assets/img/pretplata/homepage/popust_godine_desktop_banner.png"
+        src="@/assets/img/pretplata/standard/banner_desktop.png"
         alt="Desktop banner za popust na godišnju pretplatu"
         class="desktop-only"
       />
       <img
-        src="@/assets/img/pretplata/homepage/popust_godine_mobile_banner.png"
+        src="@/assets/img/pretplata/standard/banner_mobile.png"
         alt="Mobile banner za popust na godišnju pretplatu"
         class="mobile-only"
         style="width: 100%"
@@ -383,6 +383,15 @@
     </div>
     <!-- Widget autori -->
     <commentary-alt type="tg"></commentary-alt>
+    <!-- Designer Outlet -->
+    <client-only>
+      <div v-if="!hasPremium" class="full relative">
+        <div class="full container mobile-side-pad column-horizontal-pad">
+          <div class="full cantha-separator"></div>
+        </div>
+        <designer-outlet></designer-outlet>
+      </div>
+    </client-only>
     <!-- Velika rubrika: Zivot -->
     <div class="full relative column-bottom-pad">
       <category-zone zone="zivot"></category-zone>
