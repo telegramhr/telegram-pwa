@@ -36,7 +36,7 @@
         <h2 :id="'featured-' + post.id" class="full animate">
           <span class="superbold">{{ post.portal_title }}</span>
           <span class="sport-slash">/</span>
-          {{ post.subtitle }}
+          {{ post.subtitle | parseCat }}
         </h2>
         <div class="nothfive full flex article-meta">
           <span v-if="post.authors.length" class="meta-author"
