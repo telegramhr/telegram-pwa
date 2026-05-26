@@ -439,6 +439,9 @@
                 @click="handleClick"
                 v-html="post.content"
               ></div>
+              <client-only>
+                <ht-kalkulator v-if="showKalkulator" />
+              </client-only>
               <!-- AI-generated summary pinned above live updates -->
               <article
                 v-if="post.live && post.live_summary"
@@ -1212,6 +1215,7 @@ import StudenacWidget from '~/components/Elements/StudenacWidget.vue'
 import A1Widget from '~/components/Elements/A1Widget.vue'
 import HtWidget from '~/components/Elements/HtWidget.vue'
 import BusinessWidget from '~/components/Elements/BusinessWidget.vue'
+import HtKalkulator from '~/components/ht-kalkulator/HtKalkulator.vue'
 
 const widgetMap = {
   studenac: 'StudenacWidget',
@@ -1223,7 +1227,7 @@ const widgetMap = {
 export default {
   name: 'Slug',
   scrollToTop: true,
-  components: { Portal, StudenacWidget, A1Widget, HtWidget, BusinessWidget },
+  components: { Portal, StudenacWidget, A1Widget, HtWidget, BusinessWidget, HtKalkulator },
   async fetch() {
     if (!this.$route.params.slug && !this.$route.params.category) {
       return
@@ -1287,6 +1291,7 @@ export default {
       single_title: '',
       showMidasIntext: false,
       showQuiz: false,
+      showKalkulator: false,
       comments: false,
       comments_embed: null,
       showSideMenu: false,
@@ -1914,6 +1919,9 @@ export default {
         }
         if (this.post.quiz) {
           this.showQuiz = true
+        }
+        if (this.$route.query['ht-kalkulator'] === '1') {
+          this.showKalkulator = true
         }
         this.$store.commit('history/setData', this.post)
         this.triggerAnalytics()
