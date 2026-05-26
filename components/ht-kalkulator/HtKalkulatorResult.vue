@@ -77,8 +77,16 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      rafIds: [],
+    }
+  },
   mounted() {
     this.animateNumbers()
+  },
+  beforeDestroy() {
+    this.rafIds.forEach((id) => cancelAnimationFrame(id))
   },
   methods: {
     animateNumbers() {
@@ -103,11 +111,11 @@ export default {
           : Math.round(current).toString()
 
         if (progress < 1) {
-          requestAnimationFrame(step)
+          this.rafIds.push(requestAnimationFrame(step))
         }
       }
 
-      requestAnimationFrame(step)
+      this.rafIds.push(requestAnimationFrame(step))
     },
   },
 }

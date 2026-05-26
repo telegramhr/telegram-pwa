@@ -1,5 +1,11 @@
 <template>
-  <div v-if="visible" class="ht-kalkulator-overlay" @keydown.esc="handleEsc">
+  <div
+    v-if="visible"
+    class="ht-kalkulator-overlay"
+    @click.self="handleDismiss"
+    @keydown.esc="handleEsc"
+    @keydown.tab="handleTab"
+  >
     <div
       ref="wrapper"
       class="ht-kalkulator"
@@ -48,6 +54,9 @@ import {
   calculateResults,
 } from '~/store/ht-kalkulator/data'
 
+const FOCUSABLE =
+  'button:not([disabled]), [href], input:not([disabled]), [tabindex]:not([tabindex="-1"])'
+
 export default {
   name: 'HtKalkulator',
   data() {
@@ -70,11 +79,15 @@ export default {
       this.visible = false
       return
     }
+    document.body.style.overflow = 'hidden'
     this.$nextTick(() => {
       if (this.$refs.wrapper) {
         this.$refs.wrapper.focus()
       }
     })
+  },
+  beforeDestroy() {
+    document.body.style.overflow = ''
   },
   methods: {
     handleStart() {
@@ -115,6 +128,7 @@ export default {
     handleDismiss() {
       this.setStoredState('dismissed')
       this.visible = false
+      document.body.style.overflow = ''
     },
 
     handleRestart() {
@@ -141,6 +155,22 @@ export default {
     handleEnter() {
       if (this.state === 'intro') {
         this.handleStart()
+      }
+    },
+
+    handleTab(e) {
+      const wrapper = this.$refs.wrapper
+      if (!wrapper) return
+      const focusable = [...wrapper.querySelectorAll(FOCUSABLE)]
+      if (!focusable.length) return
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault()
+        last.focus()
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault()
+        first.focus()
       }
     },
 
@@ -178,22 +208,23 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 99;
+  z-index: 10100;
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
-  pointer-events: none;
 }
 
 .ht-kalkulator {
   width: 100%;
   max-width: 640px;
+  max-height: 90vh;
+  overflow-y: auto;
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
   position: relative;
-  pointer-events: auto;
 }
 
 .ht-kalkulator:focus {
