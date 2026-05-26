@@ -1741,34 +1741,47 @@ export default {
     // of the runtime timezone (SSR Node often runs in UTC). Keeps the visible
     // <time> values consistent with the server-formatted Croatian time/date.
     zagrebTimeParts(unixSeconds) {
-      const parts = new Intl.DateTimeFormat('en-GB', {
-        timeZone: 'Europe/Zagreb',
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: false,
-        timeZoneName: 'longOffset',
-      })
-        .formatToParts(new Date(unixSeconds * 1000))
-        .reduce((acc, p) => {
-          acc[p.type] = p.value
-          return acc
-        }, {})
-      // Some engines emit "24" for midnight; normalize to "00".
-      if (parts.hour === '24') parts.hour = '00'
-      // longOffset is e.g. "GMT+02:00"; strip prefix to get ISO offset "+02:00".
-      parts.offset =
-        (parts.timeZoneName || 'GMT+00:00').replace('GMT', '') || '+00:00'
-      return parts
+      const date = new Date(unixSeconds * 1000)
+      const pad = (n) => String(n).padStart(2, '0')
+      try {
+        // 'en-US' is present even on small-icu builds; numeric '2-digit' parts
+        // are locale-independent. (Don't use the 'longOffset' timeZoneName
+        // option — unsupported on some Node/ICU builds and throws.)
+        const parts = new Intl.DateTimeFormat('en-US', {
+          timeZone: 'Europe/Zagreb',
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: false,
+        })
+          .formatToParts(date)
+          .reduce((acc, p) => {
+            acc[p.type] = p.value
+            return acc
+          }, {})
+        if (parts.hour === '24') parts.hour = '00' // some engines emit "24"
+        return parts
+      } catch (e) {
+        // Never let timestamp formatting break SSR — fall back to UTC parts.
+        return {
+          year: String(date.getUTCFullYear()),
+          month: pad(date.getUTCMonth() + 1),
+          day: pad(date.getUTCDate()),
+          hour: pad(date.getUTCHours()),
+          minute: pad(date.getUTCMinutes()),
+          second: pad(date.getUTCSeconds()),
+        }
+      }
     },
-    // ISO 8601 datetime in Croatian local time (e.g. "2026-05-26T09:26:41+02:00")
-    // so the <time datetime> attribute matches the displayed/title time.
+    // Zagreb wall-clock as a local ISO datetime (e.g. "2026-05-26T09:26:41") for
+    // the <time datetime> attribute, so it matches the displayed/title time.
+    // No offset needed here — the authoritative UTC timestamp is in the JSON-LD.
     liveDatetime(unixSeconds) {
       const p = this.zagrebTimeParts(unixSeconds)
-      return `${p.year}-${p.month}-${p.day}T${p.hour}:${p.minute}:${p.second}${p.offset}`
+      return `${p.year}-${p.month}-${p.day}T${p.hour}:${p.minute}:${p.second}`
     },
     // Returns Croatian relative time string ("prije 2 min") for timestamps
     // within the last 12 hours, or formatted date/time for older entries.
