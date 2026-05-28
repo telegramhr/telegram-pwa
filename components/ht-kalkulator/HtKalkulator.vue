@@ -2,7 +2,6 @@
   <div
     v-if="visible"
     class="ht-kalkulator-overlay"
-    @click.self="handleDismiss"
     @keydown.esc="handleEsc"
     @keydown.tab="handleTab"
   >
@@ -79,15 +78,11 @@ export default {
       this.visible = false
       return
     }
-    document.body.style.overflow = 'hidden'
     this.$nextTick(() => {
       if (this.$refs.wrapper) {
         this.$refs.wrapper.focus()
       }
     })
-  },
-  beforeDestroy() {
-    document.body.style.overflow = ''
   },
   methods: {
     handleStart() {
@@ -128,7 +123,6 @@ export default {
     handleDismiss() {
       this.setStoredState('dismissed')
       this.visible = false
-      document.body.style.overflow = ''
     },
 
     handleRestart() {
@@ -208,20 +202,19 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 10100;
-  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
+  pointer-events: none;
 }
 
 .ht-kalkulator {
   width: 100%;
   max-width: 640px;
-  max-height: 90vh;
-  overflow-y: auto;
   background: #fff;
+  pointer-events: auto;
   border-radius: 16px;
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
   position: relative;
