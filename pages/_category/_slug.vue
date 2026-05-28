@@ -616,12 +616,12 @@
           <!-- Designer Outlet -->
           <client-only>
             <div
-              class="full"
               v-if="
                 useSparPortal &&
                 !hasPremium &&
                 !(post.disable_ads && post.disable_ads.includes('all'))
               "
+              class="full"
             >
               <designer-outlet></designer-outlet>
             </div>
@@ -1227,7 +1227,14 @@ const widgetMap = {
 export default {
   name: 'Slug',
   scrollToTop: true,
-  components: { Portal, StudenacWidget, A1Widget, HtWidget, BusinessWidget, HtKalkulator },
+  components: {
+    Portal,
+    StudenacWidget,
+    A1Widget,
+    HtWidget,
+    BusinessWidget,
+    HtKalkulator,
+  },
   async fetch() {
     if (!this.$route.params.slug && !this.$route.params.category) {
       return
@@ -1921,7 +1928,7 @@ export default {
           this.showQuiz = true
         }
         if (this.$route.query['ht-kalkulator'] === '1') {
-          this.showKalkulator = true
+          this._showKalkulatorWhenReady()
         }
         this.$store.commit('history/setData', this.post)
         this.triggerAnalytics()
@@ -1972,6 +1979,40 @@ export default {
         }
       } else {
         setTimeout(this.getPost, 500)
+      }
+    },
+    _showKalkulatorWhenReady() {
+      // Google Funding Choices (GFC) consent iframe uses z-index: 2147483647.
+      // Showing the kalkulator immediately means it renders beneath the CMP
+      // dialog and appears to not show at all after consent is accepted.
+      // We wait for the TCF consent signal before setting showKalkulator, so
+      // the popup only appears once the consent banner has already closed.
+      // A 3s safety timeout ensures the kalkulator still shows if the consent
+      // API is unavailable (ad-blocked, Safari ITP, already consented, etc.).
+      const show = () => {
+        this.showKalkulator = true
+      }
+      const safetyTimeout = setTimeout(show, 3000)
+      try {
+        window.googlefc = window.googlefc || {}
+        window.googlefc.callbackQueue = window.googlefc.callbackQueue || []
+        /* global __tcfapi */
+        window.googlefc.callbackQueue.push({
+          CONSENT_API_READY: () => {
+            __tcfapi('addEventListener', 2.2, (data, success) => {
+              if (
+                data.eventStatus === 'tcloaded' ||
+                data.eventStatus === 'useractioncomplete'
+              ) {
+                clearTimeout(safetyTimeout)
+                show()
+              }
+            })
+          },
+        })
+      } catch (e) {
+        clearTimeout(safetyTimeout)
+        show()
       }
     },
     loadInArticleWidget() {
