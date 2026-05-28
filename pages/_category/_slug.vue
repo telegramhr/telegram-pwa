@@ -2260,6 +2260,7 @@ export default {
       ) {
         FB.XFBML.parse(el)
       }
+      /* global instgrm */
       if (
         typeof instgrm !== 'undefined' &&
         el.getElementsByClassName('instagram-media').length
