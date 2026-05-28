@@ -31,7 +31,7 @@
         <span class="ht-kalkulator-result-label">Mjesečno to je</span>
         <span class="ht-kalkulator-result-value">
           <span ref="monthlyValue" class="ht-kalkulator-result-number">0</span>
-          <span class="ht-kalkulator-result-unit">sati mjesečno</span>
+          <span class="ht-kalkulator-result-unit">sati</span>
         </span>
       </div>
 
