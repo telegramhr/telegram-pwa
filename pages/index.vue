@@ -55,8 +55,8 @@
             to="/pretplata/popust-godine"
             class="newbtn gift-btn"
           >
-            <span class="poklonMobile">POPUST 63% </span
-            ><span class="poklon">POPUST 63%</span></app-link
+            <span class="poklonMobile">POPUST -63% </span
+            ><span class="poklon">POPUST -63%</span></app-link
           >
           <a
             v-show="!canLogIn"

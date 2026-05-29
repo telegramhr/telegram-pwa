@@ -412,7 +412,7 @@
             >
               {{
                 !$route.fullPath.includes('telesport')
-                  ? 'POPUST 63%'
+                  ? 'POPUST -63%'
                   : 'Pretplatite se'
               }}</app-link
             >
