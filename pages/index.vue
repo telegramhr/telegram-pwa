@@ -383,15 +383,6 @@
     </div>
     <!-- Widget autori -->
     <commentary-alt type="tg"></commentary-alt>
-    <!-- Designer Outlet -->
-    <client-only>
-      <div v-if="!hasPremium" class="full relative">
-        <div class="full container mobile-side-pad column-horizontal-pad">
-          <div class="full cantha-separator"></div>
-        </div>
-        <designer-outlet></designer-outlet>
-      </div>
-    </client-only>
     <!-- Velika rubrika: Zivot -->
     <div class="full relative column-bottom-pad">
       <category-zone zone="zivot"></category-zone>
