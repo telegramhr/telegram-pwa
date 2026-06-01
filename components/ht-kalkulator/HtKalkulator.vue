@@ -244,7 +244,7 @@ export default {
 }
 
 .ht-kalkulator-close:focus-visible {
-  outline: 3px solid #e20074;
+  outline: 3px solid #ae3737;
   outline-offset: 2px;
 }
 

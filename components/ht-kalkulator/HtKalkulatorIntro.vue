@@ -55,7 +55,7 @@ export default {
   align-items: center;
   justify-content: center;
   padding: 14px 48px;
-  background: #e20074;
+  background: #ae3737;
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -68,11 +68,11 @@ export default {
 }
 
 .ht-kalkulator-intro-cta:hover {
-  background: #c80066;
+  background: #922e2e;
 }
 
 .ht-kalkulator-intro-cta:focus-visible {
-  outline: 3px solid #e20074;
+  outline: 3px solid #ae3737;
   outline-offset: 2px;
 }
 

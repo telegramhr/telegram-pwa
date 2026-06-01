@@ -9,10 +9,10 @@
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
       >
-        <circle cx="24" cy="24" r="24" fill="#FDE8F3" />
+        <circle cx="24" cy="24" r="24" fill="#f6e2e2" />
         <path
           d="M24 12a12 12 0 100 24 12 12 0 000-24zm-1.5 17.5l-4.5-4.5 1.4-1.4 3.1 3.1 6.1-6.1 1.4 1.4-7.5 7.5z"
-          fill="#e20074"
+          fill="#ae3737"
         />
       </svg>
       <h3 class="ht-kalkulator-result-title">Vaši rezultati</h3>
@@ -160,8 +160,8 @@ export default {
 }
 
 .ht-kalkulator-result-card-highlight {
-  background: #fef5fa;
-  border-color: #e20074;
+  background: #f9eeee;
+  border-color: #ae3737;
   border-width: 2px;
 }
 
@@ -190,7 +190,7 @@ export default {
 }
 
 .ht-kalkulator-result-number-highlight {
-  color: #e20074;
+  color: #ae3737;
 }
 
 .ht-kalkulator-result-unit {
@@ -203,7 +203,7 @@ export default {
   font-family: 'Barlow', sans-serif;
   font-size: 15px;
   font-weight: 600;
-  color: #e20074;
+  color: #ae3737;
   margin-top: 8px;
 }
 
@@ -236,12 +236,12 @@ export default {
 }
 
 .ht-kalkulator-result-restart:hover {
-  border-color: #e20074;
-  color: #e20074;
+  border-color: #ae3737;
+  color: #ae3737;
 }
 
 .ht-kalkulator-result-restart:focus-visible {
-  outline: 3px solid #e20074;
+  outline: 3px solid #ae3737;
   outline-offset: 2px;
 }
 

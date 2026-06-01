@@ -37,6 +37,6 @@ export default {
 }
 
 .ht-kalkulator-progress-current {
-  color: #e20074;
+  color: #ae3737;
 }
 </style>

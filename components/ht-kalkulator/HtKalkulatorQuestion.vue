@@ -107,24 +107,24 @@ export default {
 }
 
 .ht-kalkulator-option:hover {
-  border-color: #e20074;
-  background: #fef5fa;
+  border-color: #ae3737;
+  background: #f9eeee;
 }
 
 .ht-kalkulator-option:focus-visible {
-  outline: 3px solid #e20074;
+  outline: 3px solid #ae3737;
   outline-offset: 2px;
 }
 
 .ht-kalkulator-option-selected {
-  border-color: #e20074;
-  background: #e20074;
+  border-color: #ae3737;
+  background: #ae3737;
   color: #fff;
 }
 
 .ht-kalkulator-option-selected:hover {
-  background: #c80066;
-  border-color: #c80066;
+  background: #922e2e;
+  border-color: #922e2e;
 }
 
 @media (max-width: 768px) {
