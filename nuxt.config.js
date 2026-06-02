@@ -73,7 +73,7 @@ export default {
             },
             {
                 rel: 'stylesheet',
-                href: '/wp-content/themes/telegram-desktop/assets/fonts/nyght/nyght.css',
+                href: '/wp-content/themes/telegram2-desktop/assets/fonts/nyght/nyght.css',
             },
         ],
         script: [{
