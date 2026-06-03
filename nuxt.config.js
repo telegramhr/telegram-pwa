@@ -274,15 +274,15 @@ export default {
             pathRewrite: { '^/api/': '' },
         },
         '/pretplate': {
-            target: 'https://pretplate.telegram.hr',
+            target: process.env.PRETPLATE_BASE_URL || 'https://pretplate.telegram.hr',
             pathRewrite: { '^/pretplate/': '' },
         },
         '/crm': {
-            target: 'https://pretplata.telegram.hr',
+            target: process.env.CRM_BASE_URL || 'https://pretplata.telegram.hr',
             pathRewrite: { '^/crm/': '' },
         },
         '/mailer': {
-            target: 'https://mailer.telegram.hr',
+            target: process.env.MAILER_BASE_URL || 'https://mailer.telegram.hr',
             pathRewrite: { '^/mailer/': '' },
         },
         '/gscripts': {
