@@ -1298,7 +1298,7 @@ export default {
       single_title: '',
       showMidasIntext: false,
       showQuiz: false,
-      showKalkulator: false,
+      showKalkulator: true,
       comments: false,
       comments_embed: null,
       showSideMenu: false,
