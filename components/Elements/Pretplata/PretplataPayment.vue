@@ -65,7 +65,6 @@
       <div :class="[!allowTermsChange ? 'row' : 'column']">
         <!-- card -->
         <div
-          v-if="!onlyEculture"
           class="radio-wrapper"
           :class="{ active: payment === 'card' }"
           @click="handleSelectPaymentType('trustpay_recurrent')"
@@ -97,7 +96,7 @@
         </div>
         <!-- bank -->
         <div
-          v-if="allowBank && !onlyEculture"
+          v-if="allowBank"
           class="radio-wrapper"
           :class="{ active: payment === 'bank' }"
           @click="handleSelectPaymentType('bank')"
@@ -121,39 +120,6 @@
             </div>
             <p class="radio-description">
               Generirat ćemo uplatnicu s podacima za plaćanje
-            </p>
-          </div>
-        </div>
-        <!-- kulturna iskaznica -->
-        <div
-          v-if="allowEculture"
-          class="radio-wrapper"
-          :class="{ active: paymentType === 'eculture' }"
-          @click="handleSelectPaymentType('eculture')"
-        >
-          <input
-            type="radio"
-            autocomplete="off"
-            value="eculture"
-            name="payment"
-            :checked="paymentType === 'eculture'"
-            class="custom-radio"
-          />
-          <div class="radio-option">
-            <div class="radio-heading">
-              <div class="card-wrapper">
-                <span>Kulturna iskaznica</span>
-                <div class="card-icons">
-                  <img
-                    class="eculture-logo"
-                    src="@/assets/img/pretplata/payment/logo.jpg"
-                    alt="Kulturna iskaznica"
-                  />
-                </div>
-              </div>
-            </div>
-            <p class="radio-description">
-              Plaćanje sredstvima Kulturne iskaznice
             </p>
           </div>
         </div>
@@ -204,16 +170,6 @@ export default {
       type: Boolean,
       required: false,
       default: true,
-    },
-    allowEculture: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
-    onlyEculture: {
-      type: Boolean,
-      required: false,
-      default: false,
     },
   },
   data() {
@@ -308,10 +264,6 @@ export default {
 }
 .card-icons img {
   max-width: 26px;
-}
-.card-icons img.eculture-logo {
-  max-width: 110px;
-  border-radius: 4px;
 }
 .radio-heading span,
 .radio-heading p {
