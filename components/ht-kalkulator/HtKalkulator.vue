@@ -56,6 +56,10 @@ import {
 const FOCUSABLE =
   'button:not([disabled]), [href], input:not([disabled]), [tabindex]:not([tabindex="-1"])'
 
+// Separate key holds the computed result so other parts of the app (e.g. the
+// HT AI landing hero) can show the user's personal savings after completion.
+const RESULT_STORAGE_KEY = 'ht-ai-kalkulator-result'
+
 export default {
   name: 'HtKalkulator',
   data() {
@@ -111,6 +115,13 @@ export default {
       this.state = 'result'
 
       this.setStoredState('completed')
+
+      try {
+        localStorage.setItem(RESULT_STORAGE_KEY, JSON.stringify(this.results))
+      } catch {
+        // localStorage unavailable
+      }
+      this.$emit('completed', this.results)
 
       this.$gtm.push({
         event: 'ht-kalkulator-complete',
