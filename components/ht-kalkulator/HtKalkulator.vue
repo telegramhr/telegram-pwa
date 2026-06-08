@@ -50,6 +50,7 @@
 import {
   QUESTIONS,
   STORAGE_KEY,
+  RESULT_STORAGE_KEY,
   calculateResults,
 } from '~/store/ht-kalkulator/data'
 
@@ -111,6 +112,13 @@ export default {
       this.state = 'result'
 
       this.setStoredState('completed')
+
+      try {
+        localStorage.setItem(RESULT_STORAGE_KEY, JSON.stringify(this.results))
+      } catch {
+        // localStorage unavailable
+      }
+      this.$emit('completed', this.results)
 
       this.$gtm.push({
         event: 'ht-kalkulator-complete',
