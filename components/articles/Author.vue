@@ -17,7 +17,7 @@
         <h2 :id="'standard-' + post.id" class="full">
           {{ post.portal_title | parseCat }}
         </h2>
-        <div class="nothfour full">{{ post.subtitle }}</div>
+        <div class="nothfour full">{{ post.subtitle | parseCat }}</div>
         <div class="nothfive full flex article-meta">
           <span v-if="post.recommendations" class="meta-preporuke"
             >{{ post.recommendations }} preporuka</span

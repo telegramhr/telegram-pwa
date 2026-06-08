@@ -450,9 +450,7 @@
                 <time
                   v-if="post.live_summary_time"
                   class="live-update__time"
-                  :datetime="
-                    new Date(post.live_summary_time * 1000).toISOString()
-                  "
+                  :datetime="liveDatetime(post.live_summary_time)"
                 >
                   <span class="live-update__hour">{{ liveSummaryTime }}</span>
                 </time>
@@ -510,7 +508,7 @@
                 >
                   <time
                     class="live-update__time"
-                    :datetime="new Date(update.time * 1000).toISOString()"
+                    :datetime="liveDatetime(update.time)"
                     :title="update.date_formatted + ' ' + update.time_formatted"
                   >
                     <span class="live-update__hour">{{
@@ -613,19 +611,6 @@
             </div>
           </article>
           <intext-remp></intext-remp>
-          <!-- Designer Outlet -->
-          <client-only>
-            <div
-              v-if="
-                useSparPortal &&
-                !hasPremium &&
-                !(post.disable_ads && post.disable_ads.includes('all'))
-              "
-              class="full"
-            >
-              <designer-outlet></designer-outlet>
-            </div>
-          </client-only>
           <!-- Article footer -->
           <div
             class="container column-full-pad flex relative mobile-side-pad have-background"
@@ -1298,7 +1283,7 @@ export default {
       single_title: '',
       showMidasIntext: false,
       showQuiz: false,
-      showKalkulator: false,
+      showKalkulator: true,
       comments: false,
       comments_embed: null,
       showSideMenu: false,
@@ -1389,11 +1374,9 @@ export default {
       if (diff < 43200) {
         return 'prije ' + Math.floor(diff / 3600) + ' h'
       }
-      // Older than 12h — show only date, no time
-      const d = new Date(this.post.live_summary_time * 1000)
-      return (
-        d.getDate() + '.' + (d.getMonth() + 1) + '.' + d.getFullYear() + '.'
-      )
+      // Older than 12h — show only date, no time (in Croatian local time)
+      const p = this.zagrebTimeParts(this.post.live_summary_time)
+      return parseInt(p.day) + '.' + parseInt(p.month) + '.' + p.year + '.'
     },
     parsedOvertitle() {
       return this.$options.filters.parseCat(
@@ -1545,6 +1528,11 @@ export default {
         dateModified: new Date(
           Math.max(
             this.post.timem || 0,
+            // Live blogs are also "modified" when the AI summary is regenerated
+            // or the live coverage is closed — count those so the timestamp
+            // never lags behind the most recent change.
+            this.post.live_summary_time || 0,
+            this.post.live_end || 0,
             ...(this.post.live && this.post.live_updates
               ? this.post.live_updates.map((u) => u.time || 0)
               : [0])
@@ -1580,9 +1568,23 @@ export default {
         )
       }
       if (this.post.live) {
-        article.coverageStartTime = new Date(
-          this.post.time * 1000
-        ).toISOString()
+        // coverageStartTime must not be later than the earliest update.
+        // Editors sometimes back-date updates (or the post is published after
+        // coverage began), so take the minimum of post.time and all updates.
+        const updateTimes =
+          this.post.live_updates && this.post.live_updates.length
+            ? this.post.live_updates
+                .map((u) => u.time || 0)
+                .filter((t) => t > 0)
+            : []
+        const coverageStart = Math.min(
+          this.post.time || Infinity,
+          ...(updateTimes.length ? updateTimes : [this.post.time || 0])
+        )
+        article.coverageStartTime = new Date(coverageStart * 1000).toISOString()
+        // A live blog can't be "published" after its coverage began; clamp
+        // datePublished so it never sits later than coverageStartTime.
+        article.datePublished = article.coverageStartTime
         if (this.post.live_end) {
           article.coverageEndTime = new Date(
             this.post.live_end * 1000
@@ -1734,6 +1736,52 @@ export default {
         .replace(/&quot;/g, '"')
         .replace(/&apos;/g, "'")
     },
+    // Returns Europe/Zagreb wall-clock parts for a unix timestamp, independent
+    // of the runtime timezone (SSR Node often runs in UTC). Keeps the visible
+    // <time> values consistent with the server-formatted Croatian time/date.
+    zagrebTimeParts(unixSeconds) {
+      const date = new Date(unixSeconds * 1000)
+      const pad = (n) => String(n).padStart(2, '0')
+      try {
+        // 'en-US' is present even on small-icu builds; numeric '2-digit' parts
+        // are locale-independent. (Don't use the 'longOffset' timeZoneName
+        // option — unsupported on some Node/ICU builds and throws.)
+        const parts = new Intl.DateTimeFormat('en-US', {
+          timeZone: 'Europe/Zagreb',
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: false,
+        })
+          .formatToParts(date)
+          .reduce((acc, p) => {
+            acc[p.type] = p.value
+            return acc
+          }, {})
+        if (parts.hour === '24') parts.hour = '00' // some engines emit "24"
+        return parts
+      } catch (e) {
+        // Never let timestamp formatting break SSR — fall back to UTC parts.
+        return {
+          year: String(date.getUTCFullYear()),
+          month: pad(date.getUTCMonth() + 1),
+          day: pad(date.getUTCDate()),
+          hour: pad(date.getUTCHours()),
+          minute: pad(date.getUTCMinutes()),
+          second: pad(date.getUTCSeconds()),
+        }
+      }
+    },
+    // Zagreb wall-clock as a local ISO datetime (e.g. "2026-05-26T09:26:41") for
+    // the <time datetime> attribute, so it matches the displayed/title time.
+    // No offset needed here — the authoritative UTC timestamp is in the JSON-LD.
+    liveDatetime(unixSeconds) {
+      const p = this.zagrebTimeParts(unixSeconds)
+      return `${p.year}-${p.month}-${p.day}T${p.hour}:${p.minute}:${p.second}`
+    },
     // Returns Croatian relative time string ("prije 2 min") for timestamps
     // within the last 12 hours, or formatted date/time for older entries.
     liveRelativeTime(unixSeconds) {
@@ -1749,11 +1797,9 @@ export default {
         const hours = Math.floor(diff / 3600)
         return 'prije ' + hours + ' h'
       }
-      // Older than 12h — show only date
-      const d = new Date(unixSeconds * 1000)
-      return (
-        d.getDate() + '.' + (d.getMonth() + 1) + '.' + d.getFullYear() + '.'
-      )
+      // Older than 12h — show only date (in Croatian local time)
+      const p = this.zagrebTimeParts(unixSeconds)
+      return parseInt(p.day) + '.' + parseInt(p.month) + '.' + p.year + '.'
     },
     handleScroll() {
       const walls = document.getElementsByClassName('wallpaper-banners')
