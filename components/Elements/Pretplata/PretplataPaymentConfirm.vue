@@ -153,7 +153,11 @@
       />
 
       <div class="submit-wrapper">
-        <button v-if="buyable" @click.prevent="submit">
+        <button
+          v-if="buyable"
+          :class="{ 'is-overlay': variant === 'overlay' }"
+          @click.prevent="submit"
+        >
           Dovršite kupnju za
           <span v-if="discountedAmount" style="text-decoration: line-through"
             >{{ price }} €</span
@@ -197,6 +201,10 @@
 export default {
   name: 'PretplataPaymentConfirm',
   props: {
+    variant: {
+      type: String,
+      default: '',
+    },
     paymentType: {
       type: String,
       required: true,
@@ -724,6 +732,17 @@ function isValidEmail(value) {
 }
 .submit-wrapper button:disabled {
   background-color: #b5b5b5;
+}
+.submit-wrapper button.is-overlay {
+  background-color: #217613;
+  border-radius: 10px;
+  box-shadow: 0px 0px 8px -2px rgba(255, 255, 255, 0.48) inset,
+    0px 3px 4px -3px rgba(255, 255, 255, 0.56) inset,
+    0px 3px 3px -1.5px rgba(0, 0, 0, 0.03),
+    0px 1px 1px -0.5px rgba(0, 0, 0, 0.03);
+}
+.submit-wrapper button.is-overlay:hover {
+  background-color: #1a5e0f;
 }
 
 .submit-wrapper p {

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="kulturna-page">
     <div v-if="loading" class="telegram-overlay">
       <span class="telegram-loader"></span>
     </div>
@@ -30,6 +30,7 @@
           @updateEmail="updateEmail"
         ></PretplataLogin>
         <PretplataPaymentConfirm
+          variant="overlay"
           :url-key="urlKey"
           :loading="loading"
           :can-log-in="canLogIn"
@@ -49,12 +50,14 @@
     <FAQ></FAQ>
     <Testimonials></Testimonials>
     <PretplataCTA
+      variant="overlay"
       :text="'Pretplatite se na Telegram uz Kulturnu iskaznicu'"
       :link="{
         url: '#paymentBoxes',
         text: 'Iskoristite ponudu',
       }"
     ></PretplataCTA>
+    <Footer></Footer>
     <client-only>
       <!-- Chatbot Component -->
       <Chatbot />
@@ -214,8 +217,7 @@ export default {
           hid: 'og:image',
           name: 'og:image',
           property: 'og:image',
-          content:
-            'https://www.telegram.hr/wp-content/uploads/2025/12/gift.png',
+          content: 'https://www.telegram.hr/img/kulturna-iskaznica-share.png',
         },
         {
           hid: 'og:url',

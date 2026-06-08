@@ -2,7 +2,9 @@
   <div class="cta">
     <span>{{ text }}</span>
     <a :href="link.url" rel="noopener noreferrer">
-      <button>{{ link.text }}</button>
+      <button :class="{ 'is-overlay': variant === 'overlay' }">
+        {{ link.text }}
+      </button>
     </a>
   </div>
 </template>
@@ -22,6 +24,10 @@ export default {
         url: '#',
         text: 'Iskoristite ponudu',
       }),
+    },
+    variant: {
+      type: String,
+      default: '',
     },
   },
 }
@@ -60,6 +66,17 @@ export default {
 }
 .cta button:hover {
   background-color: #237023;
+}
+.cta button.is-overlay {
+  background-color: #217613;
+  border-radius: 10px;
+  box-shadow: 0px 0px 8px -2px rgba(255, 255, 255, 0.48) inset,
+    0px 3px 4px -3px rgba(255, 255, 255, 0.56) inset,
+    0px 3px 3px -1.5px rgba(0, 0, 0, 0.03),
+    0px 1px 1px -0.5px rgba(0, 0, 0, 0.03);
+}
+.cta button.is-overlay:hover {
+  background-color: #1a5e0f;
 }
 
 @media (min-width: 1024px) {
