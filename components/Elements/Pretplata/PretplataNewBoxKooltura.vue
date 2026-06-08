@@ -190,7 +190,7 @@ export default {
 .premium-recommended {
   text-transform: uppercase;
   color: #91237e;
-  border: 1.5px solid #8f2284;
+  border: 2px solid #8f2284;
   border-radius: 8px;
   background-color: #ffffff;
 }

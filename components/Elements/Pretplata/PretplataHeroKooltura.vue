@@ -78,7 +78,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 24px;
+  gap: 20px;
   padding: 26px 0 0 0;
 }
 .logo {
@@ -87,7 +87,7 @@ export default {
 .text-block {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 .content h1 {
   color: #ffffff;
@@ -109,21 +109,18 @@ export default {
   justify-content: center;
   height: 48px;
   padding: 12px 16px;
-  border-radius: 12px;
-  background-color: #217613;
+  border-radius: 8px;
+  background-color: #37ae37;
   color: #ffffff;
   font-family: 'Barlow', sans-serif;
   font-size: 15px;
   font-weight: 600;
   line-height: 24px;
   text-decoration: none;
-  box-shadow: inset 0 3px 4px -3px rgba(255, 255, 255, 0.56),
-    inset 0 0 8px -2px rgba(255, 255, 255, 0.48),
-    0 1px 1px -0.5px rgba(0, 0, 0, 0.03), 0 3px 3px -1.5px rgba(0, 0, 0, 0.03);
   transition: background-color 0.25s ease;
 }
 .cta:hover {
-  background-color: #2a9019;
+  background-color: #237023;
 }
 .disclaimer {
   display: none;
@@ -150,7 +147,7 @@ export default {
   }
   .content {
     max-width: 460px;
-    gap: 40px;
+    gap: 24px;
     padding: 53px 0;
   }
   .content h1 {
@@ -162,7 +159,7 @@ export default {
     line-height: 24px;
   }
   .text-block {
-    gap: 24px;
+    gap: 16px;
   }
   .disclaimer {
     display: block;
