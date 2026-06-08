@@ -238,19 +238,23 @@ export default {
   font-size: 16px;
   line-height: 18px;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
+  box-shadow: 0px 0px 8px -2px rgba(255, 255, 255, 0.48) inset,
+    0px 3px 4px -3px rgba(255, 255, 255, 0.56) inset,
+    0px 3px 3px -1.5px rgba(0, 0, 0, 0.03),
+    0px 1px 1px -0.5px rgba(0, 0, 0, 0.03);
   transition: background-color 0.3s ease;
 }
 .footer button:hover {
-  background-color: #37ae37;
+  background-color: #1a5e0f;
   color: white;
 }
 .footer button:active {
-  background-color: #237023;
+  background-color: #1a5e0f;
 }
 .footer button.selected {
-  background-color: #37ae37;
+  background-color: #217613;
   color: white;
 }
 .footer span {

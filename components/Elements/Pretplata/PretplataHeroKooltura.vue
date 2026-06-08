@@ -109,18 +109,22 @@ export default {
   justify-content: center;
   height: 48px;
   padding: 12px 16px;
-  border-radius: 8px;
-  background-color: #37ae37;
+  border-radius: 10px;
+  background-color: #217613;
   color: #ffffff;
   font-family: 'Barlow', sans-serif;
   font-size: 15px;
   font-weight: 600;
   line-height: 24px;
   text-decoration: none;
+  box-shadow: 0px 0px 8px -2px rgba(255, 255, 255, 0.48) inset,
+    0px 3px 4px -3px rgba(255, 255, 255, 0.56) inset,
+    0px 3px 3px -1.5px rgba(0, 0, 0, 0.03),
+    0px 1px 1px -0.5px rgba(0, 0, 0, 0.03);
   transition: background-color 0.25s ease;
 }
 .cta:hover {
-  background-color: #237023;
+  background-color: #1a5e0f;
 }
 .disclaimer {
   display: none;

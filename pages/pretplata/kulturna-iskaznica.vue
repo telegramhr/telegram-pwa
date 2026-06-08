@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="kulturna-page">
     <div v-if="loading" class="telegram-overlay">
       <span class="telegram-loader"></span>
     </div>
@@ -316,5 +316,21 @@ export default {
   .box-wrapper {
     gap: 24px;
   }
+}
+
+/* Unify shared CTA / payment buttons with the lifetime hero button style
+   (scoped to this page only, so other pretplata pages are unaffected). */
+.kulturna-page ::v-deep(.cta button),
+.kulturna-page ::v-deep(.submit-wrapper button:not(:disabled)) {
+  background-color: #217613;
+  border-radius: 10px;
+  box-shadow: 0px 0px 8px -2px rgba(255, 255, 255, 0.48) inset,
+    0px 3px 4px -3px rgba(255, 255, 255, 0.56) inset,
+    0px 3px 3px -1.5px rgba(0, 0, 0, 0.03),
+    0px 1px 1px -0.5px rgba(0, 0, 0, 0.03);
+}
+.kulturna-page ::v-deep(.cta button:hover),
+.kulturna-page ::v-deep(.submit-wrapper button:not(:disabled):hover) {
+  background-color: #1a5e0f;
 }
 </style>
