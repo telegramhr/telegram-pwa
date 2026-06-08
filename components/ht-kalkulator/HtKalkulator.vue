@@ -50,15 +50,12 @@
 import {
   QUESTIONS,
   STORAGE_KEY,
+  RESULT_STORAGE_KEY,
   calculateResults,
 } from '~/store/ht-kalkulator/data'
 
 const FOCUSABLE =
   'button:not([disabled]), [href], input:not([disabled]), [tabindex]:not([tabindex="-1"])'
-
-// Separate key holds the computed result so other parts of the app (e.g. the
-// HT AI landing hero) can show the user's personal savings after completion.
-const RESULT_STORAGE_KEY = 'ht-ai-kalkulator-result'
 
 export default {
   name: 'HtKalkulator',

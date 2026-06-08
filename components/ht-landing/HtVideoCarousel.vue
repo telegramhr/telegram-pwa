@@ -55,14 +55,24 @@
         </div>
       </div>
 
-      <div ref="track" class="ht-videos__track">
+      <div
+        ref="track"
+        class="ht-videos__track"
+        role="group"
+        aria-label="Video serijale"
+        tabindex="0"
+      >
         <article
           v-for="(video, index) in videos"
           :key="index"
           class="ht-video-card"
         >
-          <div class="ht-video-card__thumb">
-            <img :src="video.image" :alt="video.title" loading="lazy" />
+          <a
+            class="ht-video-card__thumb"
+            :href="video.link || '#'"
+            :aria-label="`Pogledaj video: ${video.title}`"
+          >
+            <img :src="video.image" alt="" loading="lazy" />
             <span class="ht-video-card__play" aria-hidden="true">
               <svg
                 width="20"
@@ -74,12 +84,16 @@
                 <path d="M8 5v14l11-7z" />
               </svg>
             </span>
-          </div>
+          </a>
           <div class="ht-video-card__content">
             <span class="ht-video-card__cat">VIDEO</span>
             <h3 class="ht-video-card__title">{{ video.title }}</h3>
             <p class="ht-video-card__desc">{{ video.description }}</p>
-            <a class="ht-video-card__btn" :href="video.link || '#'">
+            <a
+              class="ht-video-card__btn"
+              :href="video.link || '#'"
+              :aria-label="`Pogledaj video: ${video.title}`"
+            >
               <span>Pogledaj</span>
               <svg
                 width="20"
@@ -147,25 +161,34 @@ export default {
   },
   beforeDestroy() {
     const track = this.$refs.track
-    if (track) track.removeEventListener('scroll', this.updateScrollState)
-    window.removeEventListener('resize', this.updateScrollState)
+    if (track) track.removeEventListener('scroll', this.onScrollOrResize)
+    window.removeEventListener('resize', this.onScrollOrResize)
+    if (this._raf) cancelAnimationFrame(this._raf)
   },
   methods: {
     initScrollState() {
       const track = this.$refs.track
       if (!track) return
-      track.addEventListener('scroll', this.updateScrollState, {
+      track.addEventListener('scroll', this.onScrollOrResize, {
         passive: true,
       })
-      window.addEventListener('resize', this.updateScrollState)
+      window.addEventListener('resize', this.onScrollOrResize)
       this.updateScrollState()
+    },
+    onScrollOrResize() {
+      // Coalesce bursty scroll/resize into one layout read per frame.
+      if (this._raf) return
+      this._raf = requestAnimationFrame(() => {
+        this._raf = null
+        this.updateScrollState()
+      })
     },
     updateScrollState() {
       const track = this.$refs.track
       if (!track) return
       this.canScrollPrev = track.scrollLeft > 1
       this.canScrollNext =
-        track.scrollLeft + track.clientWidth < track.scrollWidth - 1
+        track.scrollLeft + track.clientWidth < track.scrollWidth - 2
     },
     scrollByCard(direction) {
       const track = this.$refs.track
@@ -223,6 +246,10 @@ export default {
   cursor: pointer;
   transition: background 0.2s ease, opacity 0.2s ease;
 }
+.ht-videos__arrow:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+}
 /* Enabled = magenta (can scroll that way). Disabled = gray w/ magenta
    border (nothing further in that direction). */
 .ht-videos__arrow.is-enabled {
@@ -267,6 +294,7 @@ export default {
   overflow: hidden;
 }
 .ht-video-card__thumb {
+  display: block;
   position: relative;
   width: 100%;
   aspect-ratio: 296 / 220;

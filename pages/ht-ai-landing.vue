@@ -21,10 +21,7 @@
 </template>
 
 <script>
-import { STORAGE_KEY } from '~/store/ht-kalkulator/data'
-
-// Mirrors the key the HtKalkulator widget writes its computed result to.
-const RESULT_STORAGE_KEY = 'ht-ai-kalkulator-result'
+import { STORAGE_KEY, RESULT_STORAGE_KEY } from '~/store/ht-kalkulator/data'
 
 export default {
   name: 'HtAiLanding',
@@ -104,6 +101,23 @@ export default {
           hid: 'canonical',
           rel: 'canonical',
           href: 'https://www.telegram.hr/ht-ai-landing/',
+        },
+        {
+          hid: 'preconnect-gfonts',
+          rel: 'preconnect',
+          href: 'https://fonts.googleapis.com',
+        },
+        {
+          hid: 'preconnect-gstatic',
+          rel: 'preconnect',
+          href: 'https://fonts.gstatic.com',
+          crossorigin: true,
+        },
+        {
+          hid: 'preconnect-fontshare',
+          rel: 'preconnect',
+          href: 'https://api.fontshare.com',
+          crossorigin: true,
         },
         {
           hid: 'font-inter',

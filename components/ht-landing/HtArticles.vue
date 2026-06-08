@@ -22,7 +22,10 @@
               <h3 class="ht-article-card__heading">{{ article.title }}</h3>
               <p class="ht-article-card__excerpt">{{ article.excerpt }}</p>
             </div>
-            <a class="ht-article-card__btn" :href="article.link || '#'"
+            <a
+              class="ht-article-card__btn"
+              :href="article.link || '#'"
+              :aria-label="`Pročitaj više: ${article.title}`"
               >Pročitaj više</a
             >
           </div>

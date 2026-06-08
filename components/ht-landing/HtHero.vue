@@ -18,7 +18,7 @@
     </div>
 
     <div class="ht-hero__content">
-      <p class="ht-hero__headline">
+      <h1 class="ht-hero__headline">
         <ht-count-up
           :key="`${value}-${decimals}`"
           :to="value"
@@ -30,7 +30,7 @@
           aria-hidden="true"
         />
         <span class="sr-only">{{ value }} {{ hoursUnit(value) }}</span>
-      </p>
+      </h1>
       <p class="ht-hero__lead">
         možemo uštedjeti pravilnom i pametnom upotrebom AI-ja. Saznaj kako
         iskoristiti njegov puni potencijal za veću produktivnost, bolju
@@ -48,9 +48,17 @@
     <div class="ht-hero__media" aria-hidden="true">
       <img
         src="/ht-landing/hero-macbook.jpg"
+        srcset="
+          /ht-landing/hero-macbook-860.jpg  860w,
+          /ht-landing/hero-macbook.jpg     1280w
+        "
+        sizes="(min-width: 1280px) 50vw, 100vw"
+        width="1280"
+        height="1600"
         alt=""
         class="ht-hero__img"
         loading="eager"
+        fetchpriority="high"
       />
     </div>
   </section>
@@ -145,6 +153,7 @@ export default {
   padding: 24px 24px 48px;
 }
 .ht-hero__headline {
+  margin: 0;
   display: flex;
   align-items: baseline;
   justify-content: center;
@@ -155,11 +164,11 @@ export default {
 .ht-hero__headline :deep(.ht-hero__num) {
   font-weight: 500;
   font-style: italic;
-  font-size: clamp(4.5rem, 16vw, 180px);
+  font-size: clamp(3.25rem, 16vw, 180px);
 }
 .ht-hero__headline :deep(.ht-hero__unit) {
   font-weight: 300;
-  font-size: clamp(4.5rem, 16vw, 180px);
+  font-size: clamp(3.25rem, 16vw, 180px);
   letter-spacing: -0.06em;
   margin-left: 0.06em;
 }
