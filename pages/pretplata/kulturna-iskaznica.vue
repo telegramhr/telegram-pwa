@@ -55,6 +55,7 @@
         text: 'Iskoristite ponudu',
       }"
     ></PretplataCTA>
+    <Footer></Footer>
     <client-only>
       <!-- Chatbot Component -->
       <Chatbot />
@@ -214,8 +215,7 @@ export default {
           hid: 'og:image',
           name: 'og:image',
           property: 'og:image',
-          content:
-            'https://www.telegram.hr/img/kulturna-iskaznica-share.png',
+          content: 'https://www.telegram.hr/img/kulturna-iskaznica-share.png',
         },
         {
           hid: 'og:url',
