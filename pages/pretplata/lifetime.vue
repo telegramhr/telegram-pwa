@@ -337,6 +337,9 @@ export default {
 </script>
 
 <style scoped>
+.pretplata-page {
+  flex-direction: column;
+}
 .telegram-overlay {
   position: fixed;
   top: 0;
