@@ -8,6 +8,9 @@ module.exports = {
       args: 'start',
       env: {
         API_BASE_URL: 'https://dev.telegram.hr',
+        CRM_BASE_URL: 'https://crm-dev.telegram.hr',
+        PRETPLATE_BASE_URL: 'https://pretplate-dev.telegram.hr',
+        MAILER_BASE_URL: 'https://mailer-dev.telegram.hr',
         WC_KEY: process.env.WC_KEY,
         WC_SECRET: process.env.WC_SECRET,
       },
