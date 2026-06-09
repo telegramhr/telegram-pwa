@@ -7,33 +7,24 @@
     <div class="heading-section">
       <div class="box-header">
         <div class="title">
-          <h3 :class="{ 'premium-title': type === 'premium' }">
-            {{ card.title }}
-          </h3>
+          <h3 :class="{ 'premium-title': card.premium }">{{ card.title }}</h3>
           <p>
-            <span class="old-price">{{ card.oldPrice }}</span> {{ card.price
-            }}<span>/godišnje</span>
+            {{ card.price }}<span>{{ card.priceSuffix }}</span>
           </p>
         </div>
         <div class="tag-wrapper">
-          <span
-            v-if="type === 'premium' || type === 'telesport-premium'"
-            class="benefit premium-recommended"
-          >
-            {{ type === 'premium' ? 'Preporučeno' : 'NAJBOLJA VRIJEDNOST' }}
+          <span v-if="card.recommended" class="benefit premium-recommended">
+            {{ card.recommendedText || 'Preporuka' }}
           </span>
           <span
-            v-if="type !== 'telesport-premium'"
+            v-for="(tag, i) in card.tags"
+            :key="i"
             class="benefit"
-            :class="{ premium: type === 'premium' }"
+            :class="{ premium: card.premium }"
           >
-            {{ card.tag }}
+            {{ tag }}
           </span>
         </div>
-        <p v-if="type === 'telesport-premium'" class="tag-subtitle">
-          (Za samo <b>0,57 € tjedno</b> više dobivate puni pristup cijelom
-          Telegramu i čitanje bez reklama)
-        </p>
       </div>
       <div class="content">
         <div
@@ -43,6 +34,10 @@
         >
           <font-awesome-icon class="benefit-icon" :icon="['fas', 'check']" />
           <p class="feature-content" v-html="feat"></p>
+        </div>
+        <div v-if="card.highlight" class="feature highlight">
+          <font-awesome-icon class="benefit-icon" :icon="['fas', 'check']" />
+          <p class="feature-content" v-html="card.highlight"></p>
         </div>
       </div>
     </div>
@@ -58,99 +53,20 @@
 
 <script>
 export default {
-  name: 'PretplataNewBoxTelesport',
+  name: 'PretplataNewBoxSvjetsko',
   props: {
-    type: {
-      type: String,
-      default: 'standard',
-      validator: (value) =>
-        ['standard', 'premium', 'telesport', 'telesport-premium'].includes(
-          value
-        ),
-    },
-    subscriptionType: {
-      type: String,
-      default: 'individual',
-      validator: (value) => ['individual', 'family'].includes(value),
+    card: {
+      type: Object,
+      required: true,
     },
     selected: {
       type: Boolean,
       default: false,
     },
   },
-  computed: {
-    card() {
-      if (this.type === 'premium') {
-        return {
-          title: 'Premium',
-          price: '49€',
-          oldPrice: '99€',
-          tag: 'BEZ REKLAMA',
-          features: [
-            'Neograničeno čitanje Telegrama i Telesporta uz pristup arhivi',
-            'Ekskluzivni newsletteri s posebnim analizama nagrađivanih autora',
-            'Fokus na sadržaj - <b> čitanje bez reklama</b>',
-            '10 poklon članaka mjesečno',
-            'Posebni popusti i pogodnost Telegram Kluba',
-          ],
-          buttonText: 'Odaberite',
-          footerText: 'Otkažite u bilo kojem trenutku.',
-        }
-      }
-      if (this.type === 'telesport') {
-        return {
-          title: 'Telesport',
-          price: '19,49€',
-          oldPrice: '39€',
-          tag: 'MANJE REKLAMA',
-          features: [
-            'Neograničeno čitanje Telesporta i pristup arhivi svih članaka',
-            'Ekskluzivni newsletteri s posebnim analizama nagrađivanih autora',
-            '10 poklon članaka mjesečno',
-            'Posebni popusti i pogodnost Telegram Kluba',
-          ],
-          buttonText: 'Iskoristi 50% popusta',
-          footerText:
-            'Nakon isteka prve godine pretplata se automatski obnavlja po punoj cijeni',
-        }
-      }
-      if (this.type === 'telesport-premium') {
-        return {
-          title: 'Telegram Premium',
-          price: '49€',
-          oldPrice: '99€',
-          tag: 'Najbolja vrijednost',
-          features: [
-            'Neograničeno čitanje Telegrama i Telesporta uz pristup arhivi',
-            'Ekskluzivni newsletteri s posebnim analizama nagrađivanih autora',
-            'Fokus na sadržaj - <b> čitanje bez reklama</b>',
-            '10 poklon članaka mjesečno',
-            'Posebni popusti i pogodnost Telegram Kluba',
-          ],
-          buttonText: 'Odaberite',
-          footerText:
-            'Nakon isteka prve godine pretplata se automatski obnavlja po punoj cijeni',
-        }
-      }
-      return {
-        title: 'Standard',
-        price: '39€',
-        oldPrice: '79€',
-        tag: 'MANJE REKLAMA',
-        features: [
-          'Neograničeno čitanje svih članaka Telegrama uz pristup arhivi',
-          'Ekskluzivni newsletteri s posebnim analizama nagrađivanih autora',
-          '10 poklon članaka mjesečno',
-          'Posebni popusti i pogodnosti Telegram Kluba',
-        ],
-        buttonText: 'Odaberite',
-        footerText: 'Otkažite u bilo kojem trenutku.',
-      }
-    },
-  },
   methods: {
     handleSelect() {
-      this.$emit('select', this.type)
+      this.$emit('select', this.card.type)
     },
   },
 }
@@ -182,7 +98,6 @@ export default {
   text-align: center;
   margin: 0 auto;
 }
-
 .heading-section .title {
   display: flex;
   flex-direction: column;
@@ -200,13 +115,11 @@ export default {
   line-height: 32px;
   color: black;
 }
-
 .premium-title {
   background: linear-gradient(90.58deg, #946d29 15.27%, #f2c591 100.28%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
 .heading-section .title p {
   font-family: 'Lora', sans-serif;
   font-weight: 700;
@@ -214,31 +127,17 @@ export default {
   line-height: 18px;
   color: black;
 }
-
-.title p .old-price {
+.title p span {
+  font-weight: 600;
   color: #9f9f9f;
-  text-decoration: line-through;
 }
-
 .tag-wrapper {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
 }
-
-.tag-subtitle {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 16px;
-  text-align: center;
-  color: #000000;
-}
-.tag-subtitle b {
-  font-weight: 600;
-}
-
 .benefit {
   font-family: 'Barlow', sans-serif;
   font-weight: 700;
@@ -253,8 +152,25 @@ export default {
   background-color: #ffffff;
 }
 .benefit.premium {
+  position: relative;
   padding: 8px 10px;
   line-height: 14px;
+  border: none;
+  background: linear-gradient(90.58deg, #946d29 15.27%, #f2c591 100.28%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.benefit.premium::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  padding: 2px;
+  background: linear-gradient(90.58deg, #946d29 15.27%, #f2c591 100.28%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
 .premium-recommended {
   position: relative;
@@ -267,7 +183,6 @@ export default {
   border: none;
   display: inline-block;
 }
-
 .premium-recommended::before {
   content: '';
   position: absolute;
@@ -280,7 +195,6 @@ export default {
   mask-composite: exclude;
   pointer-events: none;
 }
-
 .content {
   display: flex;
   flex-direction: column;
@@ -288,12 +202,17 @@ export default {
   padding-top: 14px;
   border-top: 1px solid #dfdfdf;
 }
-
 .content .feature {
   display: flex;
   flex-direction: row;
   gap: 8px;
   align-items: center;
+}
+.content .feature.highlight {
+  align-items: flex-start;
+}
+.content .feature.highlight .feature-content {
+  font-weight: 600;
 }
 .feature-content {
   font-family: 'Barlow', sans-serif;
@@ -304,19 +223,19 @@ export default {
   text-align: left;
   align-items: center;
 }
+.feature-content ::v-deep(b),
 .feature-content ::v-deep(span) {
   font-weight: 600;
 }
 .benefit-icon {
   color: #8d5b31;
+  margin-top: 3px;
 }
-
 .footer {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
-
 .footer span {
   font-family: 'Barlow', sans-serif;
   font-weight: 400;
@@ -324,7 +243,6 @@ export default {
   line-height: 16px;
   text-align: center;
 }
-
 @media screen and (min-width: 1024px) {
   .box-wrapper {
     padding: 28px 32px;
@@ -347,9 +265,6 @@ export default {
   }
   .heading-section .title {
     gap: 18px;
-  }
-  content {
-    padding-top: 16px;
   }
   .content .feature {
     font-size: 16px;

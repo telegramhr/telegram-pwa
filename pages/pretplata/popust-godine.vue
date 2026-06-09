@@ -27,9 +27,9 @@
               <span style="font-weight: 700">0,56€</span>
               tjedno.
             </p>
-            <a href="#pretplataPayment" class="hero-subscribe-btn">
+            <TgButton href="#pretplataPayment" class="hero-subscribe-btn">
               Aktivirajte pretplatu
-            </a>
+            </TgButton>
           </div>
           <p class="hero-disclaimer">
             Možete otkazati u bilo kojem trenutku. Nakon isteka prve godine po
@@ -52,8 +52,8 @@
               Do neovisnog novinarstva sada možete već od
               <span style="font-weight: 700">0.56€</span> tjedno.
             </p>
-            <a href="#pretplataPayment" class="hero-subscribe-btn"
-              >Aktivirajte pretplatu</a
+            <TgButton href="#pretplataPayment" class="hero-subscribe-btn"
+              >Aktivirajte pretplatu</TgButton
             >
           </div>
           <div class="hero-listen-wrapper">
@@ -417,23 +417,8 @@ export default {
   color: white;
 }
 .hero-subscribe-btn {
-  background-color: #217613;
-  color: white;
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 16px;
-  padding: 12px 14px;
-  border: none;
   width: fit-content;
-  border-radius: 10px;
   margin: 0 auto;
-  cursor: pointer;
-  transition: background-color 0.2s;
-  text-decoration: none;
-}
-.hero-subscribe-btn:hover {
-  background-color: #1a5e0f;
 }
 .hero-listen-wrapper {
   padding: 0 16px;
@@ -610,9 +595,6 @@ export default {
     color: #343434;
   }
   .hero-subscribe-btn {
-    font-size: 16px;
-    line-height: 20px;
-    padding: 14px 20px;
     margin: 0px;
   }
   .hero-listen-section {
