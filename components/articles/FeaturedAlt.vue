@@ -46,7 +46,7 @@
         <h2 :id="'featured-' + post.id" class="full animate">
           {{ post.portal_title | parseCat }}
         </h2>
-        <div class="nothfour full">{{ post.subtitle }}</div>
+        <div class="nothfour full">{{ post.subtitle | parseCat }}</div>
         <div class="nothfive full flex article-meta">
           <span v-if="post.authors?.length" class="meta-author"
             ><i>Piše</i>

@@ -37,9 +37,21 @@ export default {
                 href: 'https://twitter.com/TelegramHR',
             },
             { rel: 'dns-prefetch', href: 'https://script.dotmetrics.net' },
-            { rel: 'preconnect', href: 'https://script.dotmetrics.net', crossorigin: true },
-            { rel: 'preload', href: 'https://script.dotmetrics.net/door.js?id=15854', as: 'script' },
-            { rel: 'preload', href: 'https://script.dotmetrics.net/door.js?id=1182', as: 'script' },
+            {
+                rel: 'preconnect',
+                href: 'https://script.dotmetrics.net',
+                crossorigin: true,
+            },
+            {
+                rel: 'preload',
+                href: 'https://script.dotmetrics.net/door.js?id=15854',
+                as: 'script',
+            },
+            {
+                rel: 'preload',
+                href: 'https://script.dotmetrics.net/door.js?id=1182',
+                as: 'script',
+            },
             // DNS prefetch for ad networks
             { rel: 'dns-prefetch', href: '//securepubads.g.doubleclick.net' },
             { rel: 'dns-prefetch', href: '//pagead2.googlesyndication.com' },
@@ -58,6 +70,10 @@ export default {
             {
                 rel: 'stylesheet',
                 href: 'https://use.typekit.net/rhj2chq.css',
+            },
+            {
+                rel: 'stylesheet',
+                href: '/wp-content/themes/telegram2-desktop/assets/fonts/nyght/nyght.css',
             },
         ],
         script: [{
@@ -270,7 +286,9 @@ export default {
 
     proxy: {
         '/api': {
-            target: `${process.env.API_BASE_URL || 'https://www.telegram.hr'}/wp-json/telegram/pwa/v1/`,
+            target: `${
+        process.env.API_BASE_URL || 'https://www.telegram.hr'
+      }/wp-json/telegram/pwa/v1/`,
             pathRewrite: { '^/api/': '' },
         },
         '/pretplate': {
@@ -339,7 +357,7 @@ export default {
                 include: /node_modules/,
                 type: 'javascript/auto',
             })
-        }
+        },
     },
 
     sentry: {
@@ -369,15 +387,15 @@ export default {
             ExtraErrorData: {},
             ReportingObserver: {},
             RewriteFrames: {},
-            Vue: { attachProps: true }
+            Vue: { attachProps: true },
         },
         serverIntegrations: {
             Dedupe: {},
             ExtraErrorData: {},
-            RewriteFrames: {}
+            RewriteFrames: {},
         },
         publishRelease: false,
         sourceMapStyle: 'hidden-source-map',
-        lazy: false
+        lazy: false,
     },
 }

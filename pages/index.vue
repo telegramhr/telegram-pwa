@@ -55,8 +55,8 @@
             to="/pretplata/popust-godine"
             class="newbtn gift-btn"
           >
-            <span class="poklonMobile">EXTRA POPUST </span
-            ><span class="poklon">EXTRA POPUST</span></app-link
+            <span class="poklonMobile">POPUST -63% </span
+            ><span class="poklon">POPUST -63%</span></app-link
           >
           <a
             v-show="!canLogIn"
@@ -383,15 +383,6 @@
     </div>
     <!-- Widget autori -->
     <commentary-alt type="tg"></commentary-alt>
-    <!-- Designer Outlet -->
-    <client-only>
-      <div v-if="!hasPremium" class="full relative">
-        <div class="full container mobile-side-pad column-horizontal-pad">
-          <div class="full cantha-separator"></div>
-        </div>
-        <designer-outlet></designer-outlet>
-      </div>
-    </client-only>
     <!-- Velika rubrika: Zivot -->
     <div class="full relative column-bottom-pad">
       <category-zone zone="zivot"></category-zone>
