@@ -2,9 +2,13 @@
   <section class="ht-videos">
     <div class="ht-videos__inner">
       <div class="ht-videos__header">
-        <h2 class="ht-videos__title">
-          Ovdje ide neki naslov za video serijale
-        </h2>
+        <div class="ht-videos__heading">
+          <h2 class="ht-videos__title">Koliko vremena zapravo štedi AI?</h2>
+          <p class="ht-videos__subtitle">
+            Usporedili smo svakodnevne zadatke s umjetnom inteligencijom i bez
+            nje.
+          </p>
+        </div>
         <div class="ht-videos__nav">
           <button
             class="ht-videos__arrow"
@@ -219,6 +223,11 @@ export default {
   gap: 16px;
   margin-bottom: 32px;
 }
+.ht-videos__heading {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 .ht-videos__title {
   font-family: 'Inter', sans-serif;
   font-weight: 800;
@@ -226,6 +235,20 @@ export default {
   line-height: 1.2;
   color: #ffffff;
   margin: 0;
+  /* Trim the line-height leading so the 20px gap is measured cap-to-baseline,
+     matching the Figma text-box-trim spec (cap / alphabetic). */
+  text-box-trim: trim-both;
+  text-box-edge: cap alphabetic;
+}
+.ht-videos__subtitle {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #ffffff;
+  margin: 0;
+  text-box-trim: trim-both;
+  text-box-edge: cap alphabetic;
 }
 .ht-videos__nav {
   /* Mobile/tablet: no page switcher — cards are swipe-scrollable. */
@@ -395,10 +418,13 @@ export default {
     padding: 94px 100px;
   }
   .ht-videos__header {
-    margin-bottom: 48px;
+    margin-bottom: 40px;
   }
   .ht-videos__title {
     font-size: 32px;
+  }
+  .ht-videos__subtitle {
+    font-size: 22px;
   }
   .ht-videos__nav {
     display: flex;
