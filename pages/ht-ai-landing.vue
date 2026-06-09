@@ -144,7 +144,11 @@ export default {
   --ht-dark-hover: #1c1a17;
 
   width: 100%;
-  background: #ffffff;
+  /* Fills at least the full viewport so the Telegram theme's body background
+     never shows below the footer (e.g. when zoomed out). The color matches the
+     footer so the area beneath it blends in. Scoped to this page's wrapper. */
+  min-height: 100vh;
+  background: #f5f5f5;
   font-family: 'Inter', 'Barlow', sans-serif;
 }
 </style>

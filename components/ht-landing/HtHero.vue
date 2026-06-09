@@ -242,12 +242,19 @@ export default {
    hero stacks (image as a block below the content). */
 @media (min-width: 1280px) {
   .ht-hero {
+    /* The image keeps bleeding to the right viewport edge; only the text column
+       is anchored to the centered site frame (1240 content + 2x100 gutters), so
+       on wide screens it lines up with the rest of the page instead of hugging
+       the far-left edge. Below 1440 the gutter is 0 (design layout unchanged). */
+    --ht-hero-gutter: max(0px, (100% - 1440px) / 2);
     display: block;
     height: 666px;
     min-height: 666px;
   }
   .ht-hero__bar {
-    padding: 40px 100px;
+    /* Brand and badge both align to the centered 1240 site frame, so the top
+       line sits inside the container like the rest of the page. */
+    padding: 40px calc(100px + var(--ht-hero-gutter));
   }
   .ht-hero__media {
     position: absolute;
@@ -261,7 +268,7 @@ export default {
     position: absolute;
     z-index: 2;
     top: 50%;
-    left: 100px;
+    left: calc(100px + var(--ht-hero-gutter));
     transform: translateY(-50%);
     gap: 40px;
     max-width: 512px;

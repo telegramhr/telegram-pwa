@@ -1,7 +1,12 @@
 <template>
   <section class="ht-articles">
     <div class="ht-articles__inner">
-      <h2 class="ht-articles__title">Ovdje ide neki naslov</h2>
+      <div class="ht-articles__head">
+        <h2 class="ht-articles__title">Iza hypea</h2>
+        <p class="ht-articles__subtitle">
+          Što AI doista mijenja u različitim profesijama?
+        </p>
+      </div>
 
       <div class="ht-articles__grid">
         <article
@@ -92,6 +97,12 @@ export default {
   flex-direction: column;
   gap: 48px;
 }
+.ht-articles__head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
 .ht-articles__title {
   font-family: 'Inter', sans-serif;
   font-weight: 800;
@@ -100,6 +111,21 @@ export default {
   color: var(--ht-dark, #2e2b26);
   text-align: center;
   margin: 0;
+  /* Trim the line-height leading so the 20px gap is measured cap-to-baseline,
+     matching the Figma text-box-trim spec (cap / alphabetic). */
+  text-box-trim: trim-both;
+  text-box-edge: cap alphabetic;
+}
+.ht-articles__subtitle {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.3;
+  color: var(--ht-dark, #2e2b26);
+  text-align: center;
+  margin: 0;
+  text-box-trim: trim-both;
+  text-box-edge: cap alphabetic;
 }
 .ht-articles__grid {
   display: grid;
@@ -192,6 +218,12 @@ export default {
 @media (min-width: 1024px) {
   .ht-articles {
     padding: 80px 100px;
+  }
+  .ht-articles__inner {
+    gap: 56px;
+  }
+  .ht-articles__subtitle {
+    font-size: 22px;
   }
   .ht-articles__grid {
     grid-template-columns: repeat(4, 1fr);
