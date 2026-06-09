@@ -253,8 +253,7 @@ export default {
           hid: 'og:image',
           name: 'og:image',
           property: 'og:image',
-          content:
-            'https://www.telegram.hr/wp-content/uploads/2021/01/tg-background.jpg',
+          content: 'https://www.telegram.hr/img/telesport_svjetsko_share.png',
         },
         {
           hid: 'og:url',
