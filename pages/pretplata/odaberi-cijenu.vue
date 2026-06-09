@@ -87,14 +87,15 @@
           </div>
           <p v-if="customError" class="custom-error">{{ customError }}</p>
 
-          <button
+          <TgButton
             v-show="!priceConfirmed"
             class="cta-button"
+            block
             :disabled="!!customError"
             @click="confirmPrice"
           >
             Dovršite kupnju za {{ ctaPrice }} €
-          </button>
+          </TgButton>
 
           <div v-show="!priceConfirmed" class="fine-print">
             <p>Možete otkazati u bilo kojem trenutku.</p>
@@ -150,9 +151,7 @@
           >U svijetu brzih naslova, vaša podrška daje nam slobodu da radimo
           temeljito, odgovorno i u službi istine.</span
         >
-        <a href="#amount-selection" rel="noopener noreferrer">
-          <button>Podržite Telegram</button>
-        </a>
+        <TgButton href="#amount-selection">Podržite Telegram</TgButton>
       </div>
       <client-only>
         <Chatbot />
@@ -591,29 +590,8 @@ export default {
   margin: 8px 0 0 0;
 }
 
-.cta-button:disabled {
-  background-color: #b5b5b5;
-  cursor: not-allowed;
-}
-
 .cta-button {
-  width: 100%;
-  padding: 14px;
   margin-top: 32px;
-  background-color: #37ae37;
-  color: #fff;
-  font-family: 'Barlow', sans-serif;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 24px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.cta-button:hover {
-  background-color: #2e902e;
 }
 
 .fine-print {
@@ -664,24 +642,6 @@ export default {
   font-size: 20px;
   line-height: 28px;
   max-width: 644px;
-}
-
-.cta button {
-  background-color: #37ae37;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 18px 28px;
-  font-family: 'Barlow', sans-serif;
-  font-size: 18px;
-  line-height: 20px;
-  font-weight: 600;
-  cursor: pointer;
-  width: fit-content;
-}
-
-.cta button:hover {
-  background-color: #237023;
 }
 
 @media screen and (min-width: 1024px) {
