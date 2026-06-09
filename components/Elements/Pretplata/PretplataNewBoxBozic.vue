@@ -64,14 +64,23 @@ export default {
       type: Boolean,
       default: false,
     },
+    priceOverride: {
+      type: String,
+      default: null,
+    },
+    oldPriceOverride: {
+      type: String,
+      default: null,
+    },
   },
   computed: {
     card() {
       if (this.type === 'premium') {
         return {
           title: 'Premium',
-          price: '49€',
-          oldPrice: '99€',
+          price: this.priceOverride !== null ? this.priceOverride : '49€',
+          oldPrice:
+            this.oldPriceOverride !== null ? this.oldPriceOverride : '99€',
           tag: 'BEZ REKLAMA',
           features: [
             'Neograničeno čitanje Telegrama i Telesporta uz pristup arhivi',
@@ -86,8 +95,9 @@ export default {
       }
       return {
         title: 'Standard',
-        price: '39€',
-        oldPrice: '79€',
+        price: this.priceOverride !== null ? this.priceOverride : '39€',
+        oldPrice:
+          this.oldPriceOverride !== null ? this.oldPriceOverride : '79€',
         tag: 'MANJE REKLAMA',
         features: [
           'Neograničeno čitanje svih članaka Telegrama uz pristup arhivi',
