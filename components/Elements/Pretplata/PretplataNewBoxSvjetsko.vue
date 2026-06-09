@@ -159,6 +159,7 @@ export default {
   background: linear-gradient(90.58deg, #946d29 15.27%, #f2c591 100.28%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  line-height: 1.6;
 }
 .benefit.premium::before {
   content: '';
