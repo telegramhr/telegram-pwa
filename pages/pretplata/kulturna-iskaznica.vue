@@ -39,6 +39,7 @@
           :pack="pack"
           :price="price"
           :email="email"
+          :hide-promo="true"
           :eculture-content-name="ecultureContentName"
           :discounted-amount="discount"
           @updateLoading="handleUpdateLoading"
