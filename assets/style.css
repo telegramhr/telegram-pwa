@@ -18013,6 +18013,23 @@ header {
     --tg-primary-highlight-color: black;
 }
 
+.telesport .cantha-block-title .menu {
+    align-items: center;
+}
+
+.cantha-block-title .menu a.wc-menu-link {
+    opacity: 1;
+    background: radial-gradient(circle, #FFEBA0 0%, #D4AF37 60%, #AA7C11 100%);
+    color: #111111;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 4px;
+}
+
+.cantha-block-title .menu a.wc-menu-link:hover {
+    color: #5a4300;
+}
+
 .subsection-title.wc-subsection-title {
     display: flex;
     gap: 12px;

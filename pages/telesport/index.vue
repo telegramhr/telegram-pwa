@@ -181,6 +181,12 @@
               <app-link to="/tema/price-iz-davnine/">Priče iz davnine</app-link>
             </div>
           </div>
+          <app-link
+            role="menuitem"
+            to="/tema/svjetsko-prvenstvo-2026/"
+            class="animate wc-menu-link"
+            >SP 2026</app-link
+          >
         </nav>
         <div class="flex desktop-only">
           <client-only>
