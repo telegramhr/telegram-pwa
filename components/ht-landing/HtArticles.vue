@@ -43,43 +43,16 @@
 <script>
 export default {
   name: 'HtArticles',
-  data() {
-    return {
-      articles: [
-        {
-          title:
-            'Djeca danas češće uče uz ChatGPT. Stručnjaci nam otkrivaju kakve će to posljedice ostaviti na školstvo',
-          excerpt:
-            'Dejan Nemčić objašnjava kako se sama srž učenja mijenja u trenutku kada je znanje dostupno na dlanu',
-          image: '/ht-landing/article-1.jpg',
-          link: '#',
-        },
-        {
-          title:
-            "'AI drastično mijenja tržište rada. Ovim se trendovima poslodavci i posloprimci moraju prilagoditi već danas'",
-          excerpt:
-            'Što to znači u praksi otkrile su nam HR stručnjakinja i voditeljica portala posao.hr',
-          image: '/ht-landing/article-2.jpg',
-          link: '#',
-        },
-        {
-          title:
-            'Lorem ipsum dolor sit amet consectetur. Urna pulvinar sed amet urna elementum.',
-          excerpt:
-            'Lorem ipsum dolor sit amet consectetur. Pellentesque pretium purus in malesuada. Pellentesque pretium purus in malesuada.',
-          image: null,
-          link: '#',
-        },
-        {
-          title:
-            'Lorem ipsum dolor sit amet consectetur. Urna pulvinar sed amet urna elementum.',
-          excerpt:
-            'Lorem ipsum dolor sit amet consectetur. Pellentesque pretium purus in malesuada. Pellentesque pretium purus in malesuada.',
-          image: null,
-          link: '#',
-        },
-      ],
-    }
+  props: {
+    /**
+     * Cards built from the shared campaign article array on the landing page:
+     * { title, excerpt, image, link }. With 3 curated articles the 4th
+     * desktop grid slot intentionally stays empty.
+     */
+    articles: {
+      type: Array,
+      default: () => [],
+    },
   },
 }
 </script>

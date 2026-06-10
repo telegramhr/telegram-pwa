@@ -5,7 +5,7 @@
       :decimals="heroDecimals"
       @open-kalkulator="openKalkulator"
     />
-    <ht-articles />
+    <ht-articles v-if="articles.length" :articles="articles" />
     <ht-kalkulator-cta @open-kalkulator="openKalkulator" />
     <ht-video-carousel />
     <ht-landing-footer />
@@ -22,9 +22,31 @@
 
 <script>
 import { STORAGE_KEY, RESULT_STORAGE_KEY } from '~/store/ht-kalkulator/data'
+import { HT_CAMPAIGN_ARTICLE_SLUGS } from '~/store/ht-kalkulator/articles'
 
 export default {
   name: 'HtAiLanding',
+  async asyncData({ $axios }) {
+    // The articles section is driven by the shared campaign array; a failed
+    // fetch drops that card instead of breaking the page (SSR included).
+    const fetched = await Promise.all(
+      HT_CAMPAIGN_ARTICLE_SLUGS.map(async (slug) => {
+        try {
+          const post = await $axios.$get(encodeURI('/api/single/' + slug))
+          if (!post || !post.id) return null
+          return {
+            title: post.single_title || post.title,
+            excerpt: post.subtitle || post.description || '',
+            image: (post.image && post.image.url) || null,
+            link: post.permalink,
+          }
+        } catch {
+          return null
+        }
+      })
+    )
+    return { articles: fetched.filter(Boolean) }
+  },
   data() {
     return {
       showKalkulator: false,
