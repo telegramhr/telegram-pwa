@@ -1977,8 +1977,12 @@ export default {
         // Curated HT campaign articles auto-open the kalkulator; the query
         // param stays as a QA opt-in on any article. Both go through the
         // consent gate in _showKalkulatorWhenReady().
+        // Match 'partneri' anywhere in the URL (path) as well as the post's
+        // category_slug, since the API slug doesn't always match the route.
         if (
-          HT_CAMPAIGN_ARTICLE_SLUGS.includes(this.post.slug) ||
+          this.$route.path.includes('partneri') ||
+          (this.post.category_slug &&
+            this.post.category_slug.includes('partneri')) ||
           this.$route.query['ht-kalkulator'] === '1'
         ) {
           this._showKalkulatorWhenReady()

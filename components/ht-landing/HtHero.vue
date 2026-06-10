@@ -14,7 +14,11 @@
           class="ht-hero__tlogo"
         />
       </div>
-      <span class="ht-hero__badge">AIMO ZNATI UZ AI</span>
+      <span class="ht-hero__badge"
+        ><a href="https://www.hrvatskitelekom.hr/aimo-znati-uz-ai">
+          AIMO ZNATI UZ AI
+        </a></span
+      >
     </div>
 
     <div class="ht-hero__content">

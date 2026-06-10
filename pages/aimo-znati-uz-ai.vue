@@ -137,6 +137,13 @@ export default {
           rel: 'stylesheet',
           href: 'https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap',
         },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          property: 'og:image',
+          content:
+            'https://www.telegram.hr/wp-content/uploads/2026/06/aimo-hrvatski-telekom-2.png',
+        },
       ],
     }
   },
