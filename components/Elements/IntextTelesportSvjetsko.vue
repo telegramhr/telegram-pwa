@@ -45,7 +45,7 @@ export default {
         'Od prvog zvižduka do finala - pratite prvenstvo uz Telegram i Telesport!',
       softwall: true,
       cta: 'Aktivirajte pretplatu',
-      cta_link: '/pretplata/telesport-svjetsko',
+      cta_link: '/pretplata/ponuda-svjetsko',
     }
   },
   mounted() {
