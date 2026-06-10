@@ -3,10 +3,10 @@
     <ht-hero
       :value="heroValue"
       :decimals="heroDecimals"
-      @open-kalkulator="openKalkulator"
+      @open-kalkulator="openKalkulator('hero')"
     />
     <ht-articles :articles="articles" />
-    <ht-kalkulator-cta @open-kalkulator="openKalkulator" />
+    <ht-kalkulator-cta @open-kalkulator="openKalkulator('mid')" />
     <ht-video-carousel />
     <ht-landing-footer />
 
@@ -57,7 +57,11 @@ export default {
     onKalkulatorCompleted(results) {
       this.applyResult(results)
     },
-    openKalkulator() {
+    openKalkulator(location) {
+      this.$gtm.push({
+        event: 'ht-kalkulator-cta-click',
+        kalkulator_cta_location: location,
+      })
       // The widget gates itself via localStorage (dismissed/completed). On this
       // landing the CTA must reliably reopen it, so clear the flag and remount.
       try {
