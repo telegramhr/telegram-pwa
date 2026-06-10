@@ -11,8 +11,7 @@
             {{ card.title }}
           </h3>
           <p>
-            <span class="old-price">{{ card.oldPrice }}</span> {{ card.price
-            }}<span>/godišnje</span>
+            {{ card.price }}<span class="term">/{{ card.term }}</span>
           </p>
         </div>
         <div class="tag-wrapper">
@@ -37,9 +36,9 @@
     </div>
 
     <div class="footer">
-      <TgButton :variant="selected ? 'primary' : 'neutral'" block>
-        {{ selected ? 'Odabrano' : 'Odaberite' }}
-      </TgButton>
+      <button :class="{ selected: selected }">
+        {{ selected ? 'Odabrano' : card.buttonText }}
+      </button>
       <span>{{ card.footerText }}</span>
     </div>
   </div>
@@ -47,30 +46,16 @@
 
 <script>
 export default {
-  name: 'PretplataNewBoxBozic',
+  name: 'PretplataNewBoxKooltura',
   props: {
     type: {
       type: String,
       default: 'standard',
-      validator: (value) =>
-        ['standard', 'premium', 'telesport'].includes(value),
-    },
-    subscriptionType: {
-      type: String,
-      default: 'individual',
-      validator: (value) => ['individual', 'family'].includes(value),
+      validator: (value) => ['standard', 'premium'].includes(value),
     },
     selected: {
       type: Boolean,
       default: false,
-    },
-    priceOverride: {
-      type: String,
-      default: null,
-    },
-    oldPriceOverride: {
-      type: String,
-      default: null,
     },
   },
   computed: {
@@ -78,35 +63,35 @@ export default {
       if (this.type === 'premium') {
         return {
           title: 'Premium',
-          price: this.priceOverride !== null ? this.priceOverride : '49€',
-          oldPrice:
-            this.oldPriceOverride !== null ? this.oldPriceOverride : '99€',
+          price: '19,99 €',
+          term: '2 godine',
           tag: 'BEZ REKLAMA',
           features: [
-            'Neograničeno čitanje Telegrama i Telesporta uz pristup arhivi',
+            'Neograničeno čitanje Telegrama i Telesporta uz pristup arhivi svih članaka',
             'Ekskluzivni newsletteri s posebnim analizama nagrađivanih autora',
-            'Fokus na sadržaj - <b> čitanje bez reklama</b>',
+            'Čitanje bez reklama',
             '10 poklon članaka mjesečno',
             'Posebni popusti i pogodnost Telegram Kluba',
           ],
-          buttonText: 'Odabrano',
-          footerText: 'Otkažite u bilo kojem trenutku.',
+          buttonText: 'Odaberi Premium',
+          footerText:
+            'Nakon isteka prve 2 godine pretplata se automatski obnavlja po punoj cijeni.',
         }
       }
       return {
         title: 'Standard',
-        price: this.priceOverride !== null ? this.priceOverride : '39€',
-        oldPrice:
-          this.oldPriceOverride !== null ? this.oldPriceOverride : '79€',
+        price: '16,99 €',
+        term: '2 godine',
         tag: 'MANJE REKLAMA',
         features: [
-          'Neograničeno čitanje svih članaka Telegrama uz pristup arhivi',
+          'Neograničeno čitanje Telegrama i pristup arhivi svih članaka',
           'Ekskluzivni newsletteri s posebnim analizama nagrađivanih autora',
           '10 poklon članaka mjesečno',
-          'Posebni popusti i pogodnosti Telegram Kluba',
+          'Posebni popusti i pogodnost Telegram Kluba',
         ],
-        buttonText: 'Odabrano',
-        footerText: 'Otkažite u bilo kojem trenutku.',
+        buttonText: 'Odaberi Standard',
+        footerText:
+          'Nakon isteka prve 2 godine pretplata se automatski obnavlja po punoj cijeni.',
       }
     },
   },
@@ -132,6 +117,7 @@ export default {
   gap: 24px;
   justify-content: space-between;
   flex: 1 1 0;
+  cursor: pointer;
 }
 .box-wrapper.selected {
   outline: 2px solid #9f9f9f;
@@ -144,7 +130,6 @@ export default {
   text-align: center;
   margin: 0 auto;
 }
-
 .heading-section .title {
   display: flex;
   flex-direction: column;
@@ -162,13 +147,12 @@ export default {
   line-height: 32px;
   color: black;
 }
-
 .premium-title {
-  background: linear-gradient(90.58deg, #946d29 15.27%, #f2c591 100.28%);
+  background: linear-gradient(93.6deg, #8f2284 15.27%, #e4633a 100.28%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
 .heading-section .title p {
   font-family: 'Lora', sans-serif;
   font-weight: 700;
@@ -176,19 +160,16 @@ export default {
   line-height: 18px;
   color: black;
 }
-
-.title p .old-price {
+.title p .term {
   color: #9f9f9f;
-  text-decoration: line-through;
+  font-weight: 600;
 }
-
 .tag-wrapper {
   display: flex;
   flex-direction: row;
   gap: 10px;
   justify-content: center;
 }
-
 .benefit {
   font-family: 'Barlow', sans-serif;
   font-weight: 700;
@@ -207,30 +188,12 @@ export default {
   line-height: 14px;
 }
 .premium-recommended {
-  position: relative;
-  line-height: 1.6;
   text-transform: uppercase;
-  background: linear-gradient(90.58deg, #946d29 15.27%, #f2c591 100.28%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #91237e;
+  border: 2px solid #8f2284;
   border-radius: 8px;
-  border: none;
-  display: inline-block;
+  background-color: #ffffff;
 }
-
-.premium-recommended::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 8px;
-  padding: 2px;
-  background: linear-gradient(90.58deg, #946d29 15.27%, #f2c591 100.28%);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-}
-
 .content {
   display: flex;
   flex-direction: column;
@@ -238,7 +201,6 @@ export default {
   padding-top: 14px;
   border-top: 1px solid #dfdfdf;
 }
-
 .content .feature {
   display: flex;
   flex-direction: row;
@@ -254,19 +216,47 @@ export default {
   text-align: left;
   align-items: center;
 }
-.feature-content ::v-deep(span) {
+.feature-content ::v-deep(span),
+.feature-content ::v-deep(b) {
   font-weight: 600;
 }
 .benefit-icon {
   color: #8d5b31;
 }
-
 .footer {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
-
+.footer button {
+  width: 100%;
+  padding: 16px;
+  background-color: #b5b5b5;
+  font-family: 'Barlow', sans-serif;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 18px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0px 0px 8px -2px rgba(255, 255, 255, 0.48) inset,
+    0px 3px 4px -3px rgba(255, 255, 255, 0.56) inset,
+    0px 3px 3px -1.5px rgba(0, 0, 0, 0.03),
+    0px 1px 1px -0.5px rgba(0, 0, 0, 0.03);
+  transition: background-color 0.3s ease;
+}
+.footer button:hover {
+  background-color: #1a5e0f;
+  color: white;
+}
+.footer button:active {
+  background-color: #1a5e0f;
+}
+.footer button.selected {
+  background-color: #217613;
+  color: white;
+}
 .footer span {
   font-family: 'Barlow', sans-serif;
   font-weight: 400;
@@ -274,7 +264,6 @@ export default {
   line-height: 16px;
   text-align: center;
 }
-
 @media screen and (min-width: 1024px) {
   .box-wrapper {
     padding: 28px 32px;
@@ -297,9 +286,6 @@ export default {
   }
   .heading-section .title {
     gap: 18px;
-  }
-  content {
-    padding-top: 16px;
   }
   .content .feature {
     font-size: 16px;
