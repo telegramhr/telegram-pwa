@@ -3,11 +3,12 @@
     <ht-hero
       :value="heroValue"
       :decimals="heroDecimals"
-      @open-kalkulator="openKalkulator"
+      @open-kalkulator="openKalkulator('hero')"
     />
-    <ht-articles />
-    <ht-kalkulator-cta @open-kalkulator="openKalkulator" />
-    <ht-video-carousel />
+    <ht-articles :articles="articles" />
+    <ht-kalkulator-cta @open-kalkulator="openKalkulator('mid')" />
+    <!-- Video section hidden until HT delivers the video content. -->
+    <!-- <ht-video-carousel /> -->
     <ht-landing-footer />
 
     <client-only>
@@ -22,11 +23,14 @@
 
 <script>
 import { STORAGE_KEY, RESULT_STORAGE_KEY } from '~/store/ht-kalkulator/data'
+import { HT_CAMPAIGN_ARTICLES } from '~/store/ht-kalkulator/articles'
 
 export default {
   name: 'HtAiLanding',
   data() {
     return {
+      // Static campaign cards; content is hardcoded in the shared array.
+      articles: HT_CAMPAIGN_ARTICLES,
       showKalkulator: false,
       kalkulatorKey: 0,
       // Hero shows 5 by default; if the quiz was solved, the saved value wins.
@@ -54,7 +58,11 @@ export default {
     onKalkulatorCompleted(results) {
       this.applyResult(results)
     },
-    openKalkulator() {
+    openKalkulator(location) {
+      this.$gtm.push({
+        event: 'ht-kalkulator-cta-click',
+        kalkulator_cta_location: location,
+      })
       // The widget gates itself via localStorage (dismissed/completed). On this
       // landing the CTA must reliably reopen it, so clear the flag and remount.
       try {

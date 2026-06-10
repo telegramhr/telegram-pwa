@@ -72,6 +72,15 @@ export default {
     currentQuestion() {
       return this.questions[this.answers.length] || this.questions[0]
     },
+    // Spread into every GTM push so reports can split the funnel by where
+    // the kalkulator ran (landing vs. curated article, and which article).
+    trackingContext() {
+      return {
+        kalkulator_source:
+          this.$route.name === 'ht-ai-landing' ? 'landing' : 'article',
+        kalkulator_article_slug: this.$route.params.slug || null,
+      }
+    },
   },
   mounted() {
     const stored = this.getStoredState()
@@ -79,6 +88,7 @@ export default {
       this.visible = false
       return
     }
+    this.$gtm.push({ event: 'ht-kalkulator-view', ...this.trackingContext })
     this.$nextTick(() => {
       if (this.$refs.wrapper) {
         this.$refs.wrapper.focus()
@@ -90,7 +100,7 @@ export default {
       this.state = 'questions'
       this.answers = []
       this.results = null
-      this.$gtm.push({ event: 'ht-kalkulator-start' })
+      this.$gtm.push({ event: 'ht-kalkulator-start', ...this.trackingContext })
     },
 
     handleAnswer(answer) {
@@ -100,6 +110,9 @@ export default {
         event: 'ht-kalkulator-question',
         kalkulator_question: answer.questionId,
         kalkulator_answer_minutes: answer.minutes,
+        kalkulator_answer_label: answer.label,
+        kalkulator_step: this.answers.length,
+        ...this.trackingContext,
       })
 
       if (this.answers.length === this.questions.length) {
@@ -125,10 +138,17 @@ export default {
         kalkulator_total_hours_weekly: this.results.totalHoursWeekly,
         kalkulator_total_hours_monthly: this.results.totalHoursMonthly,
         kalkulator_savings_hours_monthly: this.results.savedHoursMonthly,
+        ...this.trackingContext,
       })
     },
 
     handleDismiss() {
+      this.$gtm.push({
+        event: 'ht-kalkulator-dismiss',
+        kalkulator_state: this.state,
+        kalkulator_step: this.answers.length,
+        ...this.trackingContext,
+      })
       this.setStoredState('dismissed')
       this.visible = false
     },

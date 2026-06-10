@@ -1201,6 +1201,7 @@ import A1Widget from '~/components/Elements/A1Widget.vue'
 import HtWidget from '~/components/Elements/HtWidget.vue'
 import BusinessWidget from '~/components/Elements/BusinessWidget.vue'
 import HtKalkulator from '~/components/ht-kalkulator/HtKalkulator.vue'
+import { HT_CAMPAIGN_ARTICLE_SLUGS } from '~/store/ht-kalkulator/articles'
 
 const widgetMap = {
   studenac: 'StudenacWidget',
@@ -1283,7 +1284,7 @@ export default {
       single_title: '',
       showMidasIntext: false,
       showQuiz: false,
-      showKalkulator: true,
+      showKalkulator: false,
       comments: false,
       comments_embed: null,
       showSideMenu: false,
@@ -1973,7 +1974,13 @@ export default {
         if (this.post.quiz) {
           this.showQuiz = true
         }
-        if (this.$route.query['ht-kalkulator'] === '1') {
+        // Curated HT campaign articles auto-open the kalkulator; the query
+        // param stays as a QA opt-in on any article. Both go through the
+        // consent gate in _showKalkulatorWhenReady().
+        if (
+          HT_CAMPAIGN_ARTICLE_SLUGS.includes(this.post.slug) ||
+          this.$route.query['ht-kalkulator'] === '1'
+        ) {
           this._showKalkulatorWhenReady()
         }
         this.$store.commit('history/setData', this.post)
