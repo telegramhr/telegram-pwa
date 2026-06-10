@@ -27,9 +27,9 @@
               <span style="font-weight: 700">0,56€</span>
               tjedno.
             </p>
-            <a href="#pretplataPayment" class="hero-subscribe-btn">
+            <TgButton href="#pretplataPayment" class="hero-subscribe-btn">
               Aktivirajte pretplatu
-            </a>
+            </TgButton>
           </div>
           <p class="hero-disclaimer">
             Nakon isteka prve godine po cijeni od 29€, pretplata se automatski
@@ -52,8 +52,8 @@
               Čitajte sve sadržaje već od
               <span style="font-weight: 600">0,56€</span> tjedno.
             </p>
-            <a href="#pretplataPayment" class="hero-subscribe-btn"
-              >Aktivirajte pretplatu</a
+            <TgButton href="#pretplataPayment" class="hero-subscribe-btn"
+              >Aktivirajte pretplatu</TgButton
             >
           </div>
           <div class="hero-images">
@@ -161,13 +161,9 @@
     ></Testimonials>
     <div class="cta">
       <span>Iskoristite 63% popusta i počnite čitati već danas.</span>
-      <a
-        href="#pretplataPayment"
-        class="hero-subscribe-btn"
-        rel="noopener noreferrer"
-      >
+      <TgButton href="#pretplataPayment" class="hero-subscribe-btn">
         Iskoristite ponudu
-      </a>
+      </TgButton>
     </div>
 
     <Footer></Footer>
@@ -428,23 +424,8 @@ export default {
   color: white;
 }
 .hero-subscribe-btn {
-  background-color: #217613;
-  color: white;
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 16px;
-  padding: 12px 14px;
-  border: none;
   width: fit-content;
-  border-radius: 10px;
   margin: 0 auto;
-  cursor: pointer;
-  transition: background-color 0.2s;
-  text-decoration: none;
-}
-.hero-subscribe-btn:hover {
-  background-color: #1a5e0f;
 }
 .hero-listen-wrapper {
   padding: 0 16px;
@@ -630,14 +611,7 @@ export default {
     color: white;
   }
   .hero-subscribe-btn {
-    font-size: 16px;
-    line-height: 20px;
-    padding: 14px 20px;
     margin: 0px;
-    box-shadow: 0px 0px 8px -2px rgba(255, 255, 255, 0.48) inset,
-      0px 3px 4px -3px rgba(255, 255, 255, 0.56) inset,
-      0px 3px 3px -1.5px rgba(0, 0, 0, 0.03),
-      0px 1px 1px -0.5px rgba(0, 0, 0, 0.03);
   }
   .hero-listen-section {
     padding: 10px;
