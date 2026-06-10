@@ -182,8 +182,8 @@ export default {
   background-color: #217613;
   color: #ffffff;
   font-family: 'Barlow';
-  padding: 12px 18px;
-  font-size: 16px;
+  padding: 12px 20px;
+  font-size: 17px;
   font-weight: 600;
   text-decoration: none;
   border-radius: 12px;
@@ -228,11 +228,6 @@ export default {
     font-size: 22px;
     line-height: 24px;
     max-width: 390px;
-  }
-  .cta-button {
-    padding: 13px 24px;
-    font-size: 22px;
-    border-radius: 13px;
   }
 }
 </style>
