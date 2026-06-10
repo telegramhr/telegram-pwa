@@ -197,6 +197,10 @@
 export default {
   name: 'PretplataPaymentConfirm',
   props: {
+    variant: {
+      type: String,
+      default: '',
+    },
     paymentType: {
       type: String,
       required: true,
@@ -284,6 +288,11 @@ export default {
     hidePromo: {
       type: Boolean,
       default: false,
+    },
+    ecultureContentName: {
+      type: String,
+      required: false,
+      default: 'Telegram pretplata',
     },
     showMsg: {
       type: Boolean,
@@ -418,6 +427,10 @@ export default {
         this.bankTransfer()
         return
       }
+      if (this.paymentType === 'eculture') {
+        this.ecultureInitiate()
+        return
+      }
       const form = document.getElementById('payment-form')
       const formData = new FormData(form)
       const actionUrl = form.action
@@ -465,6 +478,40 @@ export default {
             this.updateLoading(false)
             this.show_msg = 'Došlo je do greške prilikom slanja podataka.'
           }
+        })
+    },
+    ecultureInitiate() {
+      const amount = Number(this.finalPrice)
+      this.$axios
+        .$post('/pretplate/api/eculture/initiate', {
+          email: this.email,
+          subscription_type_code: this.pack,
+          iznosNaplate: amount,
+          listaSadrzaja: [
+            {
+              redniBrojSadrzaja: '1',
+              nazivKulturnogSadrzaja: this.ecultureContentName,
+              sifraVrsteTroska: 13,
+              jedinicnaCijena: amount,
+              kolicina: 1,
+              iznosTroska: amount,
+            },
+          ],
+        })
+        .then((response) => {
+          if (response && response.redirectUrl) {
+            window.location.href = response.redirectUrl
+          } else {
+            this.show_msg = 'Došlo je do greške s plaćanjem.'
+            this.updateLoading(false)
+          }
+        })
+        .catch((error) => {
+          const data = error && error.response ? error.response.data : null
+          this.show_msg =
+            data && data.error ? data.error : 'Došlo je do greške s plaćanjem.'
+          this.updateLoading(false)
+          console.error('Eculture initiate error:', error)
         })
     },
     bankTransfer() {

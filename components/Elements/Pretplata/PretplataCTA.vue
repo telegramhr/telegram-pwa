@@ -21,6 +21,10 @@ export default {
         text: 'Iskoristite ponudu',
       }),
     },
+    variant: {
+      type: String,
+      default: '',
+    },
   },
 }
 </script>

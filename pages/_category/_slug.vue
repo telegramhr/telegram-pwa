@@ -439,6 +439,9 @@
                 @click="handleClick"
                 v-html="post.content"
               ></div>
+              <client-only>
+                <ht-kalkulator v-if="showKalkulator" />
+              </client-only>
               <!-- AI-generated summary pinned above live updates -->
               <article
                 v-if="post.live && post.live_summary"
@@ -1197,6 +1200,8 @@ import StudenacWidget from '~/components/Elements/StudenacWidget.vue'
 import A1Widget from '~/components/Elements/A1Widget.vue'
 import HtWidget from '~/components/Elements/HtWidget.vue'
 import BusinessWidget from '~/components/Elements/BusinessWidget.vue'
+import HtKalkulator from '~/components/ht-kalkulator/HtKalkulator.vue'
+import { HT_CAMPAIGN_ARTICLE_SLUGS } from '~/store/ht-kalkulator/articles'
 
 const widgetMap = {
   studenac: 'StudenacWidget',
@@ -1208,7 +1213,14 @@ const widgetMap = {
 export default {
   name: 'Slug',
   scrollToTop: true,
-  components: { Portal, StudenacWidget, A1Widget, HtWidget, BusinessWidget },
+  components: {
+    Portal,
+    StudenacWidget,
+    A1Widget,
+    HtWidget,
+    BusinessWidget,
+    HtKalkulator,
+  },
   async fetch() {
     if (!this.$route.params.slug && !this.$route.params.category) {
       return
@@ -1272,6 +1284,7 @@ export default {
       single_title: '',
       showMidasIntext: false,
       showQuiz: false,
+      showKalkulator: false,
       comments: false,
       comments_embed: null,
       showSideMenu: false,
@@ -1961,6 +1974,19 @@ export default {
         if (this.post.quiz) {
           this.showQuiz = true
         }
+        // Curated HT campaign articles auto-open the kalkulator; the query
+        // param stays as a QA opt-in on any article. Both go through the
+        // consent gate in _showKalkulatorWhenReady().
+        // Match 'partneri' anywhere in the URL (path) as well as the post's
+        // category_slug, since the API slug doesn't always match the route.
+        if (
+          this.$route.path.includes('partneri') ||
+          (this.post.category_slug &&
+            this.post.category_slug.includes('partneri')) ||
+          this.$route.query['ht-kalkulator'] === '1'
+        ) {
+          this._showKalkulatorWhenReady()
+        }
         this.$store.commit('history/setData', this.post)
         this.triggerAnalytics()
         this.loadPiano()
@@ -2010,6 +2036,40 @@ export default {
         }
       } else {
         setTimeout(this.getPost, 500)
+      }
+    },
+    _showKalkulatorWhenReady() {
+      // Google Funding Choices (GFC) consent iframe uses z-index: 2147483647.
+      // Showing the kalkulator immediately means it renders beneath the CMP
+      // dialog and appears to not show at all after consent is accepted.
+      // We wait for the TCF consent signal before setting showKalkulator, so
+      // the popup only appears once the consent banner has already closed.
+      // A 3s safety timeout ensures the kalkulator still shows if the consent
+      // API is unavailable (ad-blocked, Safari ITP, already consented, etc.).
+      const show = () => {
+        this.showKalkulator = true
+      }
+      const safetyTimeout = setTimeout(show, 3000)
+      try {
+        window.googlefc = window.googlefc || {}
+        window.googlefc.callbackQueue = window.googlefc.callbackQueue || []
+        /* global __tcfapi */
+        window.googlefc.callbackQueue.push({
+          CONSENT_API_READY: () => {
+            __tcfapi('addEventListener', 2.2, (data, success) => {
+              if (
+                data.eventStatus === 'tcloaded' ||
+                data.eventStatus === 'useractioncomplete'
+              ) {
+                clearTimeout(safetyTimeout)
+                show()
+              }
+            })
+          },
+        })
+      } catch (e) {
+        clearTimeout(safetyTimeout)
+        show()
       }
     },
     loadInArticleWidget() {
@@ -2257,6 +2317,7 @@ export default {
       ) {
         FB.XFBML.parse(el)
       }
+      /* global instgrm */
       if (
         typeof instgrm !== 'undefined' &&
         el.getElementsByClassName('instagram-media').length
