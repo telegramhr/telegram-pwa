@@ -21,6 +21,7 @@ export default {
       <intext-popust-standard></intext-popust-standard>
       <intext-christmas-gift></intext-christmas-gift>
       <intext-telesport-rukomet></intext-telesport-rukomet>
+      <intext-telesport-svjetsko></intext-telesport-svjetsko>
       <intext-odaberi-cijenu></intext-odaberi-cijenu>
     </client-only>
   </div>

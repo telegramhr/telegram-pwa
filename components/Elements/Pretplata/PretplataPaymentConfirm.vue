@@ -153,20 +153,20 @@
       />
 
       <div class="submit-wrapper">
-        <button v-if="buyable" @click.prevent="submit">
+        <TgButton v-if="buyable" block @click="submit">
           Dovršite kupnju za
           <span v-if="discountedAmount" style="text-decoration: line-through"
             >{{ price }} €</span
           >
           <span>{{ finalPrice }} €</span>
-        </button>
-        <button v-if="!buyable" disabled>
+        </TgButton>
+        <TgButton v-if="!buyable" block variant="neutral" disabled>
           Dovršite kupnju za
           <span v-if="discountedAmount" style="text-decoration: line-through"
             >{{ price }} €</span
           >
           <span>{{ finalPrice }} €</span>
-        </button>
+        </TgButton>
         <p v-if="show_msg">{{ show_msg }}</p>
         <p v-show="showMsg">
           Ispunite sve korake iznad kako bi dovršili kupnju.<br />
@@ -663,24 +663,6 @@ function isValidEmail(value) {
   flex-direction: column;
   gap: 12px;
   width: 100%;
-}
-
-.submit-wrapper button {
-  background-color: #37ae37;
-  color: #fff;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 24px;
-  border: none;
-  border-radius: 8px;
-  padding: 14px;
-  cursor: pointer;
-}
-.submit-wrapper button:hover {
-  background-color: #237023;
-}
-.submit-wrapper button:disabled {
-  background-color: #b5b5b5;
 }
 
 .submit-wrapper p {
