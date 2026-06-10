@@ -45,7 +45,7 @@ export default {
   name: 'HtArticles',
   props: {
     /**
-     * Cards built from the shared campaign article array on the landing page:
+     * Static cards from the shared campaign article array:
      * { title, excerpt, image, link }. With 3 curated articles the 4th
      * desktop grid slot intentionally stays empty.
      */
