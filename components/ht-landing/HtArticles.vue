@@ -165,7 +165,7 @@ export default {
   gap: 18px;
 }
 .ht-article-card__heading {
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
   font-size: 20px;
   line-height: 1.25;
@@ -179,7 +179,7 @@ export default {
   overflow: hidden;
 }
 .ht-article-card__excerpt {
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.375;
