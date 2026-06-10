@@ -104,7 +104,7 @@
       ]"
     ></Testimonials>
     <PretplataCTA
-      :text="'Iskoristite 50% popusta dok traje Svjetsko prvenstvo'"
+      :text="'Iskoristite 75% popusta dok traje Svjetsko prvenstvo'"
       :link="{
         url: '#pretplataPayment',
         text: 'Aktivirajte pretplatu',
