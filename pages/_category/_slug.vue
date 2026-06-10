@@ -177,6 +177,22 @@
               <h2 class="full">
                 {{ post.subtitle | parseCat }}
               </h2>
+              <div v-if="post.ai_summary && !post.live" class="full">
+                <button
+                  type="button"
+                  class="ai-summary-cta"
+                  aria-controls="ai-summary"
+                  :aria-expanded="aiSummaryExpanded ? 'true' : 'false'"
+                  @click="goToAiSummary"
+                >
+                  <span class="ai-summary-cta__label"
+                    >Pogledajte AI sažetak članka</span
+                  >
+                  <span class="ai-summary-cta__arrow" aria-hidden="true"
+                    >↓</span
+                  >
+                </button>
+              </div>
               <div
                 v-if="post.type === 'commentary'"
                 class="nothfive full flex relative article-meta mobile-only"
@@ -557,6 +573,38 @@
                   {{ liveToast }}
                 </div>
               </transition>
+              <!-- AI-generated reader summary, folded by default. Auto-expands once on
+                   scroll-into-view, then fully user-controlled. -->
+              <section
+                v-if="post.ai_summary && !post.live"
+                id="ai-summary"
+                class="ai-summary"
+                :class="{ 'ai-summary--open': aiSummaryExpanded }"
+              >
+                <h2 class="ai-summary__header">
+                  <button
+                    type="button"
+                    class="ai-summary__toggle"
+                    :aria-expanded="aiSummaryExpanded ? 'true' : 'false'"
+                    aria-controls="ai-summary-body"
+                    @click="aiSummaryExpanded = !aiSummaryExpanded"
+                  >
+                    <span class="ai-summary__badge" aria-hidden="true">AI</span>
+                    <span class="ai-summary__title">Sažetak članka</span>
+                    <span class="ai-summary__chevron" aria-hidden="true"></span>
+                  </button>
+                </h2>
+                <div
+                  id="ai-summary-body"
+                  class="ai-summary__body"
+                  role="region"
+                  aria-label="AI sažetak članka"
+                >
+                  <!-- eslint-disable vue/no-v-html -->
+                  <div class="ai-summary__inner" v-html="post.ai_summary"></div>
+                  <!-- eslint-enable vue/no-v-html -->
+                </div>
+              </section>
               <div class="remp-banner"></div>
               <client-only>
                 <portal
@@ -960,6 +1008,144 @@
   mask-image: linear-gradient(180deg, #000 55%, transparent);
 }
 
+/* AI summary CTA pill under the article title */
+.ai-summary-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: auto;
+  margin: 12px 0 0;
+  padding: 8px 14px;
+  min-height: 24px;
+  background: var(--tg-secondary-background-color);
+  color: var(--tg-primary-text-color);
+  border: 1px solid var(--palette-divider);
+  border-radius: 999px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.ai-summary-cta:hover {
+  background: var(--tg-primary-highlight-color);
+  color: #fff;
+}
+.ai-summary-cta__arrow {
+  font-size: 14px;
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+.ai-summary-cta:hover .ai-summary-cta__arrow {
+  transform: translateY(3px);
+}
+
+/* AI summary folded section at the end of the article */
+.ai-summary {
+  max-width: 710px;
+  margin: 30px auto 8px;
+  padding: 0 20px;
+  scroll-margin-top: 80px;
+}
+.ai-summary__header {
+  margin: 0;
+}
+.ai-summary__toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 24px;
+  padding: 14px 16px;
+  background: var(--tg-secondary-background-color);
+  border: 1px solid var(--palette-divider);
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'Barlow', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--tg-primary-text-color);
+}
+.ai-summary__badge {
+  flex-shrink: 0;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--tg-primary-highlight-color);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.ai-summary__title {
+  flex: 1;
+}
+.ai-summary__chevron {
+  flex-shrink: 0;
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+}
+.ai-summary--open .ai-summary__chevron {
+  transform: rotate(-135deg);
+}
+.ai-summary__body {
+  display: grid;
+  grid-template-rows: 0fr;
+  background: var(--tg-secondary-background-color);
+  border: 1px solid var(--palette-divider);
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  transition: grid-template-rows 0.35s ease;
+}
+.ai-summary--open .ai-summary__body {
+  grid-template-rows: 1fr;
+}
+.ai-summary__inner {
+  overflow: hidden;
+  min-height: 0;
+  padding: 0 16px;
+  font-family: 'Merriweather', serif;
+  font-size: 100%;
+  line-height: 1.6;
+  color: var(--tg-primary-text-color);
+  transition: padding 0.35s ease;
+}
+.ai-summary--open .ai-summary__inner {
+  padding: 14px 16px;
+}
+.ai-summary__inner >>> p {
+  margin: 0 0 8px;
+}
+.ai-summary__inner >>> ul {
+  margin: 0;
+  padding-left: 20px;
+  list-style-type: disc !important;
+  list-style-position: outside !important;
+  color: var(--tg-primary-text-color);
+}
+.ai-summary__inner >>> li {
+  margin-bottom: 4px;
+  list-style-type: disc !important;
+  list-style-position: outside !important;
+  color: var(--tg-primary-text-color);
+}
+.ai-summary__inner >>> li::marker {
+  color: var(--tg-primary-text-color);
+}
+@media (prefers-reduced-motion: reduce) {
+  .ai-summary__body,
+  .ai-summary__inner,
+  .ai-summary__chevron,
+  .ai-summary-cta,
+  .ai-summary-cta__arrow {
+    transition: none;
+  }
+}
+
 /* Live blog updates */
 .live-updates-container {
   max-width: 710px;
@@ -1353,6 +1539,7 @@ export default {
       liveTimeInterval: null, // setInterval ID for liveTimeNow ticker
       liveExpandedUpdates: [], // anchors of updates expanded by "Pročitajte više"
       liveSummaryExpanded: false,
+      aiSummaryExpanded: false, // folded AI summary; auto-expands once on scroll-into-view
       top_articles: [],
       top_articles_version: 'v1',
       related_posts: [],
@@ -1683,6 +1870,14 @@ export default {
         }
       },
     },
+    // Re-arm the AI-summary observer per article (component is reused across routes).
+    'post.id': {
+      handler() {
+        this.aiSummaryExpanded = false
+        this.$nextTick(() => this.initAiSummary())
+      },
+      immediate: true,
+    },
   },
   mounted() {
     this.$nextTick(() => {
@@ -1703,6 +1898,10 @@ export default {
     window.removeEventListener('scroll', this.handleScroll)
     this.comments_embed = null
     this.stopLivePolling()
+    if (this._aiSummaryObserver) {
+      this._aiSummaryObserver.disconnect()
+      this._aiSummaryObserver = null
+    }
     if (this.liveTimeInterval) {
       clearInterval(this.liveTimeInterval)
       this.liveTimeInterval = null
@@ -2345,6 +2544,50 @@ export default {
           window.scrollTo({ top, behavior: 'smooth' })
         }
       }
+    },
+    // Tag/arrow under the title: open the AI summary and scroll to it.
+    goToAiSummary() {
+      this.aiSummaryExpanded = true
+      this.$nextTick(() => {
+        const el = document.getElementById('ai-summary')
+        if (el) {
+          const top =
+            el.getBoundingClientRect().top +
+            window.scrollY -
+            window.innerHeight * 0.1
+          window.scrollTo({ top, behavior: 'smooth' })
+        }
+      })
+    },
+    // Auto-expand the folded summary the first time it scrolls into view,
+    // then disconnect so it stays user-controlled afterwards.
+    initAiSummary() {
+      if (!process.client) return
+      if (this._aiSummaryObserver) {
+        this._aiSummaryObserver.disconnect()
+        this._aiSummaryObserver = null
+      }
+      this._aiSummaryAutoExpanded = false
+      if (!this.post || !this.post.ai_summary || this.post.live) return
+      if (typeof IntersectionObserver === 'undefined') return
+      const el = document.getElementById('ai-summary')
+      if (!el) return
+      this._aiSummaryObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && !this._aiSummaryAutoExpanded) {
+              this._aiSummaryAutoExpanded = true
+              this.aiSummaryExpanded = true
+              if (this._aiSummaryObserver) {
+                this._aiSummaryObserver.disconnect()
+                this._aiSummaryObserver = null
+              }
+            }
+          })
+        },
+        { threshold: 0.2, rootMargin: '0px 0px -10% 0px' }
+      )
+      this._aiSummaryObserver.observe(el)
     },
     async loadHomepageWidget() {
       await this.$store.dispatch('homepageWidget/fetch')
