@@ -488,6 +488,12 @@
                 Polling detects new updates via lightweight /api/live-check endpoint,
                 then full article is fetched only when user clicks "Novo ažuriranje".
               -->
+              <MatchScoreboard
+                v-if="
+                  post.live && post.live_type === 'match' && post.scoreboard
+                "
+                :scoreboard="post.scoreboard"
+              />
               <div
                 v-if="
                   post.live && post.live_updates && post.live_updates.length
@@ -511,9 +517,17 @@
                     :datetime="liveDatetime(update.time)"
                     :title="update.date_formatted + ' ' + update.time_formatted"
                   >
-                    <span class="live-update__hour">{{
-                      liveRelativeTime(update.time)
-                    }}</span>
+                    <span
+                      v-if="post.live_type === 'match' && update.minute"
+                      class="live-update__minute"
+                      aria-label="Minuta utakmice"
+                      >{{ update.minute }}'</span
+                    >
+                    <span
+                      v-if="post.live_type !== 'match'"
+                      class="live-update__hour"
+                      >{{ liveRelativeTime(update.time) }}</span
+                    >
                   </time>
                   <div class="live-update__content">
                     <div class="live-update__header">
@@ -552,6 +566,13 @@
                   </div>
                 </article>
               </div>
+              <!-- World Cup standings widget (Sofascore), rendered below the live
+                   commentary instead of inside the article body. -->
+              <div
+                v-if="post.wc_standings"
+                class="wc-standings"
+                v-html="post.wc_standings"
+              ></div>
               <transition name="toast-fade">
                 <div v-if="liveToast" class="live-toast">
                   {{ liveToast }}
@@ -998,6 +1019,19 @@
   font-weight: 600;
   color: var(--tg-primary-highlight-color);
 }
+.live-update__minute {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 7px;
+  border-radius: 10px;
+  background: #ae3737;
+  color: #fff;
+  font-family: 'Barlow', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.4;
+}
 .live-update__date {
   font-size: 12px;
   color: var(--tg-primary-text-color);
@@ -1201,6 +1235,7 @@ import A1Widget from '~/components/Elements/A1Widget.vue'
 import HtWidget from '~/components/Elements/HtWidget.vue'
 import BusinessWidget from '~/components/Elements/BusinessWidget.vue'
 import HtKalkulator from '~/components/ht-kalkulator/HtKalkulator.vue'
+import MatchScoreboard from '~/components/liveblog/MatchScoreboard.vue'
 import { HT_CAMPAIGN_ARTICLE_SLUGS } from '~/store/ht-kalkulator/articles'
 
 const widgetMap = {
@@ -1220,6 +1255,7 @@ export default {
     HtWidget,
     BusinessWidget,
     HtKalkulator,
+    MatchScoreboard,
   },
   async fetch() {
     if (!this.$route.params.slug && !this.$route.params.category) {
@@ -2196,6 +2232,15 @@ export default {
         if (data.count > currentCount) {
           this.livePendingUpdates = data.count - currentCount
           this.liveRemoteCount = data.count
+        }
+        // Match scoreboard: patch status in place so the sticky bar reflects
+        // kickoff/HT/FT between full refetches. Score derives from scorers and
+        // refreshes via the normal new-update refetch.
+        if (data.scoreboard && this.post.scoreboard) {
+          this.$set(this.post, 'scoreboard', {
+            ...this.post.scoreboard,
+            status: data.scoreboard.status,
+          })
         }
         // If live_end is set, update post and stop polling permanently
         if (data.live_end) {
