@@ -177,7 +177,7 @@
               <h2 class="full">
                 {{ post.subtitle | parseCat }}
               </h2>
-              <div v-if="post.ai_summary && !post.live" class="full">
+              <div v-if="!post.live" class="full">
                 <button
                   type="button"
                   class="ai-summary-cta"
@@ -578,7 +578,7 @@
               <!-- AI-generated reader summary, folded by default. Auto-expands once on
                    scroll-into-view, then fully user-controlled. -->
               <section
-                v-if="post.ai_summary && !post.live"
+                v-if="!post.live"
                 id="ai-summary"
                 class="ai-summary"
                 :class="{ 'ai-summary--open': aiSummaryExpanded }"
@@ -603,7 +603,10 @@
                   aria-label="AI sažetak članka"
                 >
                   <!-- eslint-disable vue/no-v-html -->
-                  <div class="ai-summary__inner" v-html="post.ai_summary"></div>
+                  <div
+                    class="ai-summary__inner"
+                    v-html="post.ai_summary || demoSummary"
+                  ></div>
                   <!-- eslint-enable vue/no-v-html -->
                 </div>
                 <p class="ai-summary__powered ai-summary__powered--footer">
@@ -1555,7 +1558,10 @@ export default {
       liveTimeInterval: null, // setInterval ID for liveTimeNow ticker
       liveExpandedUpdates: [], // anchors of updates expanded by "Pročitajte više"
       liveSummaryExpanded: false,
-      aiSummaryExpanded: false, // folded AI summary; auto-expands once on scroll-into-view
+      aiSummaryExpanded: false, // folded AI summary; opens on arrow click
+      // Demo fallback shown for presentations when an article has no real AI summary.
+      demoSummary:
+        '<p>Ovo je primjer AI sažetka članka pripremljen za prezentaciju.</p><ul><li>Ključna informacija iz članka sažeta u jednoj rečenici.</li><li>Drugi važan detalj koji čitatelju daje brzi pregled teme.</li><li>Treća natuknica s najvažnijim zaključkom članka.</li></ul>',
       top_articles: [],
       top_articles_version: 'v1',
       related_posts: [],
