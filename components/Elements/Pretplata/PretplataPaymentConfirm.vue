@@ -197,6 +197,10 @@
 export default {
   name: 'PretplataPaymentConfirm',
   props: {
+    variant: {
+      type: String,
+      default: '',
+    },
     paymentType: {
       type: String,
       required: true,

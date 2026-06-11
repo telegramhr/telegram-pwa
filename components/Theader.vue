@@ -401,8 +401,8 @@
               id="pretplata-promo"
               :to="
                 $route.fullPath.includes('telesport')
-                  ? '/pretplata/telesport'
-                  : '/pretplata/popust-godine'
+                  ? '/pretplata/ponuda-svjetsko/'
+                  : '/pretplata/ponuda-svjetsko/'
               "
               :class="[
                 'newbtn',
@@ -412,7 +412,7 @@
             >
               {{
                 !$route.fullPath.includes('telesport')
-                  ? 'POPUST -63%'
+                  ? 'POSEBNA PONUDA'
                   : 'Pretplatite se'
               }}</app-link
             >

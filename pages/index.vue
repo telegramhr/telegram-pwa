@@ -52,11 +52,11 @@
               !$store.state.user.access?.length
             "
             id="pretplata-promo"
-            to="/pretplata/popust-godine"
+            to="/pretplata/ponuda-svjetsko/"
             class="newbtn gift-btn"
           >
-            <span class="poklonMobile">POPUST -63% </span
-            ><span class="poklon">POPUST -63%</span></app-link
+            <span class="poklonMobile">POSEBNA PONUDA</span
+            ><span class="poklon">POSEBNA PONUDA</span></app-link
           >
           <a
             v-show="!canLogIn"

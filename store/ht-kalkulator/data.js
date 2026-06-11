@@ -89,6 +89,10 @@ export const QUESTIONS = [
 
 export const STORAGE_KEY = 'ht-ai-kalkulator'
 
+// Holds the computed result so other parts of the app (HT AI landing hero)
+// can show the user's personal savings after completion.
+export const RESULT_STORAGE_KEY = 'ht-ai-kalkulator-result'
+
 export function calculateResults(answers) {
   const totalMinutes = answers.reduce((sum, a) => sum + a.minutes, 0)
   const totalHoursWeekly = totalMinutes / 60

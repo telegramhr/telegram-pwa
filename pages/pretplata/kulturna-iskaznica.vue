@@ -1,51 +1,26 @@
 <template>
-  <div>
+  <div class="kulturna-page">
     <div v-if="loading" class="telegram-overlay">
       <span class="telegram-loader"></span>
     </div>
-    <PretplataHero
-      title="Pretplatite se na Telegram uz Kulturnu iskaznicu!"
-      text="Neovisno novinarstvo, dubinske analize i istraživački članci - "
-      highlighted-text="platite sredstvima Kulturne iskaznice."
-      image-src="devices.png"
-      background-color="#810A06"
-      :logo="true"
-    ></PretplataHero>
+    <PretplataHeroKooltura></PretplataHeroKooltura>
     <div class="content">
       <div class="box-wrapper">
         <div id="paymentBoxes" class="boxes">
-          <PretplataNewBoxBozic
+          <PretplataNewBoxKooltura
             type="standard"
-            price-override="0.05€"
-            old-price-override=""
-            :subscription-type="subscriptionType"
             :selected="selectedPlan === 'standard'"
             @select="selectPlan"
-          ></PretplataNewBoxBozic>
-          <PretplataNewBoxBozic
+          ></PretplataNewBoxKooltura>
+          <PretplataNewBoxKooltura
             type="premium"
-            price-override="0.10€"
-            old-price-override=""
-            :subscription-type="subscriptionType"
             :selected="selectedPlan === 'premium'"
             @select="selectPlan"
-          ></PretplataNewBoxBozic>
+          ></PretplataNewBoxKooltura>
         </div>
       </div>
       <div>
-        <PretplataPayment
-          :allowTermsChange="false"
-          :allow-eculture="true"
-          :only-eculture="true"
-          :term="selectedTerm"
-          :payment-type="payment"
-          :annual-price="annualPrice"
-          :monthly-price="monthlyPrice"
-          :subscription-type="subscriptionType"
-          :gift="false"
-          @selectTerm="selectTerm"
-          @selectPaymentType="selectPaymentType"
-        />
+        <PretplataPaymentKooltura></PretplataPaymentKooltura>
         <PretplataLogin
           :email="email"
           :can-log-in="canLogIn"
@@ -55,6 +30,7 @@
           @updateEmail="updateEmail"
         ></PretplataLogin>
         <PretplataPaymentConfirm
+          variant="overlay"
           :url-key="urlKey"
           :loading="loading"
           :can-log-in="canLogIn"
@@ -63,6 +39,7 @@
           :pack="pack"
           :price="price"
           :email="email"
+          :hide-promo="true"
           :eculture-content-name="ecultureContentName"
           :discounted-amount="discount"
           @updateLoading="handleUpdateLoading"
@@ -70,16 +47,18 @@
         ></PretplataPaymentConfirm>
       </div>
     </div>
-    <Features></Features>
+    <Features :cards="featureCards"></Features>
     <FAQ></FAQ>
     <Testimonials></Testimonials>
     <PretplataCTA
+      variant="overlay"
       :text="'Pretplatite se na Telegram uz Kulturnu iskaznicu'"
       :link="{
         url: '#paymentBoxes',
         text: 'Iskoristite ponudu',
       }"
     ></PretplataCTA>
+    <Footer></Footer>
     <client-only>
       <!-- Chatbot Component -->
       <Chatbot />
@@ -118,6 +97,33 @@ export default {
       discount: 0,
       loadingPromo: false,
       promo_error: '',
+      featureCards: [
+        {
+          title: 'Kooltura - Kulturna iskaznica',
+          text: 'Uz kulturnu iskaznicu, kao 18-godišnjak imate mogućnost aktiviranja Telegram pretplate koja nudi cjelogodišnji pristup vrhunskom novinarstvu.',
+          image: require('@/assets/img/pretplata/kooltura/kooltura.png'),
+        },
+        {
+          title: 'Neovisno i nagrađivano novinarstvo',
+          text: 'Pretplatom podržavate redakciju koja je višestruko nagrađivana za istraživačko i analitičko novinarstvo.',
+          image: require('@/assets/img/pretplata/features/neovisno.png'),
+        },
+        {
+          title: 'Relevantne analize i komentari',
+          text: 'Analize onoga što se zapravo događa - kroz tekstove koji idu dublje od naslova.',
+          image: require('@/assets/img/pretplata/features/relevantne.png'),
+        },
+        {
+          title: 'Bez reklama u sklopu Premium pretplate',
+          text: 'Uživajte u čistom, preglednom čitanju - bez ometajućih reklama. Samo informacije koje vrijede vašeg vremena.',
+          image: require('@/assets/img/pretplata/features/reklame.png'),
+        },
+        {
+          title: 'Pristup Telegram klubu i pogodnostima',
+          text: 'U Telegram Klubu vas očekuju dodatne pogodnosti, posebni popusti i pozivnice na ekskluzivne događaje.',
+          image: require('@/assets/img/pretplata/features/klub.png'),
+        },
+      ],
     }
   },
   computed: {
@@ -174,15 +180,15 @@ export default {
       switch (this.selectedPlan) {
         case 'standard':
           this.pack = 'kulturna-iskaznica-standard'
-          this.price = '0.05'
-          this.monthlyPrice = '0.05'
-          this.annualPrice = '0.05'
+          this.price = '16.99'
+          this.monthlyPrice = '16.99'
+          this.annualPrice = '16.99'
           break
         case 'premium':
           this.pack = 'kulturna-iskaznica-premium'
-          this.price = '0.10'
-          this.monthlyPrice = '0.10'
-          this.annualPrice = '0.10'
+          this.price = '19.99'
+          this.monthlyPrice = '19.99'
+          this.annualPrice = '19.99'
           break
       }
     },
@@ -212,8 +218,7 @@ export default {
           hid: 'og:image',
           name: 'og:image',
           property: 'og:image',
-          content:
-            'https://www.telegram.hr/wp-content/uploads/2025/12/gift.png',
+          content: 'https://www.telegram.hr/img/kulturna-iskaznica-share.png',
         },
         {
           hid: 'og:url',
