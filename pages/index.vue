@@ -136,6 +136,10 @@
         </div>
       </div>
     </div>
+    <!-- Sport (pinned to top via WP admin: Naslovnica > Telesport na vrh) -->
+    <div v-if="telesportTop" class="full relative">
+      <sport></sport>
+    </div>
     <!-- Intro block: G1 + comments -->
     <div v-if="posts.length" class="full relative">
       <div class="container flex relative stretch cantha-intro-block">
@@ -374,7 +378,7 @@
       </div>
     </client-only>
     <!-- Sport -->
-    <div class="full relative">
+    <div v-if="!telesportTop" class="full relative">
       <sport></sport>
     </div>
     <!-- Super1 -->
@@ -486,8 +490,11 @@
 <script>
 export default {
   async fetch() {
-    await this.$store.dispatch('featured/pullPosts')
-    await this.$store.dispatch('featured/pullBreaks')
+    await Promise.all([
+      this.$store.dispatch('featured/pullPosts'),
+      this.$store.dispatch('featured/pullBreaks'),
+      this.$store.dispatch('homepageLayout/fetch'),
+    ])
     // Pre-fetch gifts for logged-in users
     if (process.client && this.$store.state.user.token) {
       this.$store.dispatch('gifts/getUserGifts')
@@ -505,6 +512,9 @@ export default {
     },
     canLogIn() {
       return this.$store.getters['user/canLogIn']
+    },
+    telesportTop() {
+      return this.$store.state.homepageLayout.telesportTop
     },
     posts() {
       return this.$store.state.featured.posts || []
