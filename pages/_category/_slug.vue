@@ -566,6 +566,13 @@
                   </div>
                 </article>
               </div>
+              <!-- World Cup standings widget (Sofascore), rendered below the live
+                   commentary instead of inside the article body. -->
+              <div
+                v-if="post.wc_standings"
+                class="wc-standings"
+                v-html="post.wc_standings"
+              ></div>
               <transition name="toast-fade">
                 <div v-if="liveToast" class="live-toast">
                   {{ liveToast }}
