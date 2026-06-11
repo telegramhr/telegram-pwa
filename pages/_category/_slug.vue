@@ -191,6 +191,9 @@
                     >↓</span
                   >
                 </button>
+                <p class="ai-summary__powered">
+                  Powered by Samsung Galaxy Z Fold
+                </p>
               </div>
               <div
                 v-if="post.type === 'commentary'"
@@ -603,6 +606,9 @@
                   <div class="ai-summary__inner" v-html="post.ai_summary"></div>
                   <!-- eslint-enable vue/no-v-html -->
                 </div>
+                <p class="ai-summary__powered ai-summary__powered--footer">
+                  Powered by Samsung Galaxy Z Fold
+                </p>
               </section>
               <div class="remp-banner"></div>
               <client-only>
@@ -1078,6 +1084,17 @@
 }
 .ai-summary__title {
   flex: 1;
+}
+.ai-summary__powered {
+  margin: 6px 0 0;
+  font-family: 'Barlow', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--tg-secondary-text-color, #6b6b6b);
+}
+.ai-summary__powered--footer {
+  margin: 10px 0 0;
+  padding: 0 16px 14px;
 }
 .ai-summary__chevron {
   flex-shrink: 0;
