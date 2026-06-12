@@ -1057,8 +1057,9 @@
   transition: background 0.2s ease, color 0.2s ease;
 }
 .ai-summary-cta:hover {
-  background: var(--tg-primary-highlight-color);
+  background: #034ea2;
   color: #fff;
+  border-color: #034ea2;
 }
 .ai-summary-cta__arrow {
   font-size: 14px;
@@ -1100,7 +1101,7 @@
   flex-shrink: 0;
   padding: 2px 6px;
   border-radius: 4px;
-  background: var(--tg-primary-highlight-color);
+  background: #034ea2;
   color: #fff;
   font-size: 11px;
   font-weight: 700;
@@ -1114,7 +1115,7 @@
   font-family: 'Barlow', sans-serif;
   font-size: 13px;
   font-weight: 600;
-  color: var(--tg-secondary-text-color, #6b6b6b);
+  color: #034ea2;
 }
 .ai-summary__powered--footer {
   margin: 10px 0 0;
