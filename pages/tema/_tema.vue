@@ -270,6 +270,16 @@
 </template>
 
 <script>
+// Per-tag SEO overrides, keyed by tag slug. Tags without an entry keep the
+// default auto-generated title and emit no og:image.
+const TAG_SEO = {
+  'svjetsko-prvenstvo-2026': {
+    title: 'Svjetsko prvenstvo 2026 | Telesport',
+    description: 'Sve o svjetskom prvenstvu 2026 čitajte na Telesportu',
+    image: 'https://www.telegram.hr/wp-content/uploads/2026/06/wc-2.jpg',
+  },
+}
+
 export default {
   name: 'TemaIndex',
   async fetch() {
@@ -354,6 +364,7 @@ export default {
     },
   },
   head() {
+    const seo = TAG_SEO[this.$route.params.tema]
     let description = 'Najnovije vijesti na temu ' + this.cat + ' na Telegramu.'
     if (this.posts.length) {
       description = ''
@@ -361,6 +372,12 @@ export default {
         description += post.title + ' '
       })
     }
+    if (seo && seo.description) {
+      description = seo.description
+    }
+    const pageTitle =
+      (seo && seo.title ? seo.title : `${this.cat} - Najnovije vijesti`) +
+      (this.page > 1 ? ` - ${this.page}. stranica` : '')
     let link = [
       {
         hid: 'canonical',
@@ -394,48 +411,80 @@ export default {
         },
       ]
     }
+    let meta = [
+      {
+        hid: 'robots',
+        name: 'robots',
+        content: 'noarchive',
+      },
+      {
+        hid: 'description',
+        name: 'description',
+        content: description,
+      },
+      {
+        hid: 'og:type',
+        name: 'og:type',
+        property: 'og:type',
+        content: 'website',
+      },
+      {
+        hid: 'og:title',
+        name: 'og:title',
+        property: 'og:title',
+        content: pageTitle,
+      },
+      {
+        hid: 'og:description',
+        name: 'og:description',
+        content: description,
+      },
+      {
+        hid: 'og:url',
+        name: 'og:url',
+        property: 'og:url',
+        content: this.$route.fullPath,
+      },
+    ]
+    if (seo && seo.image) {
+      meta = [
+        ...meta,
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          property: 'og:image',
+          content: seo.image,
+        },
+        {
+          hid: 'og:image:secure_url',
+          name: 'og:image:secure_url',
+          property: 'og:image:secure_url',
+          content: seo.image,
+        },
+        {
+          hid: 'og:image:alt',
+          name: 'og:image:alt',
+          property: 'og:image:alt',
+          content: seo.title || this.cat,
+        },
+        {
+          hid: 'twitter:card',
+          name: 'twitter:card',
+          content: 'summary_large_image',
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: seo.image,
+        },
+      ]
+    }
     return {
       bodyAttrs: {
         class: [this.$store.state.theme.theme, this.extraClass],
       },
-      title:
-        `${this.cat} - Najnovije vijesti` +
-        (this.page > 1 ? ` - ${this.page}. stranica` : ''),
-      meta: [
-        {
-          hid: 'robots',
-          name: 'robots',
-          content: 'noarchive',
-        },
-        {
-          hid: 'description',
-          name: 'description',
-          content: description,
-        },
-        {
-          hid: 'og:type',
-          name: 'og:type',
-          property: 'og:type',
-          content: 'website',
-        },
-        {
-          hid: 'og:title',
-          name: 'og:title',
-          property: 'og:title',
-          content: this.cat,
-        },
-        {
-          hid: 'og:description',
-          name: 'og:description',
-          content: description,
-        },
-        {
-          hid: 'og:url',
-          name: 'og:url',
-          property: 'og:url',
-          content: this.$route.fullPath,
-        },
-      ],
+      title: pageTitle,
+      meta,
       link,
     }
   },
