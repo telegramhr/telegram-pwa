@@ -52,11 +52,11 @@
               !$store.state.user.access?.length
             "
             id="pretplata-promo"
-            to="/pretplata/popust-godine"
+            to="/pretplata/ponuda-svjetsko/"
             class="newbtn gift-btn"
           >
-            <span class="poklonMobile">POPUST -63% </span
-            ><span class="poklon">POPUST -63%</span></app-link
+            <span class="poklonMobile">POSEBNA PONUDA</span
+            ><span class="poklon">POSEBNA PONUDA</span></app-link
           >
           <a
             v-show="!canLogIn"
@@ -135,6 +135,10 @@
           </client-only>
         </div>
       </div>
+    </div>
+    <!-- Sport (pinned to top via WP admin: Naslovnica > Telesport na vrh) -->
+    <div v-if="telesportTop" class="full relative">
+      <sport></sport>
     </div>
     <!-- Intro block: G1 + comments -->
     <div v-if="posts.length" class="full relative">
@@ -374,7 +378,7 @@
       </div>
     </client-only>
     <!-- Sport -->
-    <div class="full relative">
+    <div v-if="!telesportTop" class="full relative">
       <sport></sport>
     </div>
     <!-- Super1 -->
@@ -486,8 +490,11 @@
 <script>
 export default {
   async fetch() {
-    await this.$store.dispatch('featured/pullPosts')
-    await this.$store.dispatch('featured/pullBreaks')
+    await Promise.all([
+      this.$store.dispatch('featured/pullPosts'),
+      this.$store.dispatch('featured/pullBreaks'),
+      this.$store.dispatch('homepageLayout/fetch'),
+    ])
     // Pre-fetch gifts for logged-in users
     if (process.client && this.$store.state.user.token) {
       this.$store.dispatch('gifts/getUserGifts')
@@ -505,6 +512,9 @@ export default {
     },
     canLogIn() {
       return this.$store.getters['user/canLogIn']
+    },
+    telesportTop() {
+      return this.$store.state.homepageLayout.telesportTop
     },
     posts() {
       return this.$store.state.featured.posts || []

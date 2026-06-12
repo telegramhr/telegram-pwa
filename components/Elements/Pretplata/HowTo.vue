@@ -24,9 +24,7 @@
               </div>
             </div>
           </div>
-          <a :href="link.url">
-            <button>{{ link.text }}</button>
-          </a>
+          <TgButton :href="link.url" block>{{ link.text }}</TgButton>
         </div>
       </div>
     </div>
@@ -159,22 +157,6 @@ export default {
   line-height: 22px;
   font-weight: 400;
   color: #5f5f5f;
-}
-.right-side button {
-  width: 100%;
-  padding: 8px;
-  font-family: 'Barlow', sans-serif;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 32px;
-  color: white;
-  background-color: #37ae37;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-}
-.right-side button:hover {
-  background-color: #237023;
 }
 @media (min-width: 1024px) {
   .wrapper {

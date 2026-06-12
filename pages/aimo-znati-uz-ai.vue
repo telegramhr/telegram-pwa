@@ -103,6 +103,13 @@ export default {
           property: 'og:url',
           content: 'https://www.telegram.hr/ht-ai-landing/',
         },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          property: 'og:image',
+          content:
+            'https://www.telegram.hr/wp-content/uploads/2026/06/aimo-hrvatski-telekom-2.png',
+        },
       ],
       link: [
         {

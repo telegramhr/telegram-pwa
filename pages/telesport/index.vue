@@ -181,6 +181,12 @@
               <app-link to="/tema/price-iz-davnine/">Priče iz davnine</app-link>
             </div>
           </div>
+          <app-link
+            role="menuitem"
+            to="/tema/svjetsko-prvenstvo-2026/"
+            class="animate wc-menu-link"
+            >SP 2026</app-link
+          >
         </nav>
         <div class="flex desktop-only">
           <client-only>
@@ -342,16 +348,20 @@
     </client-only>
     <!-- Euro 24 -->
     <div
-      class="full relative darkened-bg column-top-margin column-bottom-margin column-bottom-pad mobile-vertical-pad hnl-section dark-mode"
+      class="full relative darkened-bg column-top-margin column-bottom-margin column-bottom-pad mobile-vertical-pad hnl-section"
     >
       <div
         class="container mobile-side-pad flex relative stretch column-vertical-pad"
       >
         <div class="full flex column-horizontal-pad">
           <div
-            class="noththree full center-text column-vertical-pad subsection-title"
+            class="noththree full center-text column-vertical-pad subsection-title wc-subsection-title"
           >
-            HNL
+            <img
+              src="@/assets/img/telesport/fifa_wc.png"
+              alt="FIFA Svjetsko prvenstvo 2026"
+            />
+            Svjetsko prvenstvo 2026
           </div>
         </div>
         <div

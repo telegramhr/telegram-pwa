@@ -37,9 +37,9 @@
     </div>
 
     <div class="footer">
-      <button :class="{ selected: selected }">
+      <TgButton :variant="selected ? 'primary' : 'neutral'" block>
         {{ selected ? 'Odabrano' : 'Odaberite' }}
-      </button>
+      </TgButton>
       <span>{{ card.footerText }}</span>
     </div>
   </div>
@@ -265,34 +265,6 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 8px;
-}
-
-.footer button {
-  width: 100%;
-  padding: 16px;
-  background-color: #b5b5b5;
-  font-family: 'Barlow', sans-serif;
-  color: white;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 18px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.footer button:hover {
-  background-color: #37ae37;
-  color: white;
-}
-.footer button:active {
-  background-color: #237023;
-}
-
-.footer button.selected {
-  background-color: #37ae37;
-  color: white;
 }
 
 .footer span {
