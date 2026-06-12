@@ -36,9 +36,14 @@ export default {
       },
     })
     if (this.$store.state.user.uid) {
-      this.$store.dispatch('user/getCoralToken').then((token) => {
-        embed.login(token)
-      })
+      // Use the cached token first; if Coral rejects it (e.g. TOKEN_INVALID
+      // after a CORAL_SECRET rotation), force one fresh fetch and retry so the
+      // session self-heals without a manual localStorage clear.
+      const tryLogin = (force) =>
+        this.$store
+          .dispatch('user/getCoralToken', { force })
+          .then((token) => embed.login(token))
+      tryLogin(false).catch(() => tryLogin(true))
     }
   },
 }
