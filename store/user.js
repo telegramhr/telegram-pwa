@@ -104,9 +104,10 @@ export const actions = {
       commit('setUser', data)
     })
   },
-  getCoralToken({ commit, state }) {
+  getCoralToken({ commit, state }, { force = false } = {}) {
     return new Promise((resolve) => {
       if (
+        !force &&
         state.coral_token &&
         state.coral_update &&
         state.coral_update > new Date().getTime() - 3600000
