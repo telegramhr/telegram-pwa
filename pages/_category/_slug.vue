@@ -455,7 +455,7 @@
                 class="cXenseParse mrf-article-body"
                 itemprop="articleBody"
                 @click="handleClick"
-                v-html="post.content"
+                v-html="articleContentWithBanner"
               ></div>
               <client-only>
                 <ht-kalkulator v-if="showKalkulator" />
@@ -635,16 +635,10 @@
                 </p>
               </section>
               <div class="remp-banner"></div>
-              <img
-                v-if="!post.live"
-                src="@/assets/img/dummy.jpg"
-                alt="Samsung Galaxy Z Fold"
-                class="ai-summary-dummy full"
-              />
               <client-only>
                 <portal
                   v-if="
-                    useSparPortal &&
+                    useSparPortal &
                     !hasPremium &&
                     !(
                       post.disable_ads &&
@@ -1043,7 +1037,7 @@
   mask-image: linear-gradient(180deg, #000 55%, transparent);
 }
 
-/* AI summary CTA — full-width box under the article title */
+/* AI summary CTA — full-width Samsung-blue box under the article title */
 .ai-summary-cta {
   display: flex;
   align-items: center;
@@ -1052,9 +1046,9 @@
   margin: 12px 0 0;
   padding: 12px 16px;
   min-height: 24px;
-  background: var(--tg-secondary-background-color);
-  color: var(--tg-primary-text-color);
-  border: 1px solid var(--palette-divider);
+  background: #034ea2;
+  color: #fff;
+  border: 1px solid #034ea2;
   border-radius: 6px;
   font-family: 'Barlow', sans-serif;
   font-size: 15px;
@@ -1062,31 +1056,25 @@
   line-height: 1.3;
   text-align: left;
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 .ai-summary-cta:hover {
-  background: #034ea2;
-  color: #fff;
-  border-color: #034ea2;
+  background: #2f73bd;
+  border-color: #2f73bd;
 }
 .ai-summary-cta__icon {
   flex-shrink: 0;
   font-size: 18px;
-  color: #034ea2;
-  transition: color 0.2s ease;
-}
-.ai-summary-cta:hover .ai-summary-cta__icon {
   color: #fff;
 }
 .ai-summary-cta__label strong {
   font-weight: 700;
 }
-.ai-summary-dummy {
+#article-content >>> .ai-summary-dummy {
   display: block;
   width: 100%;
   height: auto;
-  max-width: 710px;
-  margin: 20px auto;
+  margin: 20px 0;
   border-radius: 6px;
 }
 
@@ -1463,6 +1451,7 @@ import BusinessWidget from '~/components/Elements/BusinessWidget.vue'
 import HtKalkulator from '~/components/ht-kalkulator/HtKalkulator.vue'
 import MatchScoreboard from '~/components/liveblog/MatchScoreboard.vue'
 import { HT_CAMPAIGN_ARTICLE_SLUGS } from '~/store/ht-kalkulator/articles'
+import dummySamsungBanner from '@/assets/img/dummy.jpg'
 
 const widgetMap = {
   studenac: 'StudenacWidget',
@@ -1628,6 +1617,19 @@ export default {
     }
   },
   computed: {
+    // Article body with the Samsung promo banner injected after the first
+    // paragraph (above the in-article SPAR/premium widget). Demo only.
+    articleContentWithBanner() {
+      const html = this.post.content || ''
+      if (this.post.live) return html
+      const banner =
+        '<img src="' +
+        dummySamsungBanner +
+        '" alt="Samsung Galaxy Z Fold" class="ai-summary-dummy" />'
+      const idx = html.indexOf('</p>')
+      if (idx === -1) return banner + html
+      return html.slice(0, idx + 4) + banner + html.slice(idx + 4)
+    },
     liveSummaryIsLong() {
       if (!this.post.live_summary) return false
       return this.stripHtmlContent(this.post.live_summary).length > 300
