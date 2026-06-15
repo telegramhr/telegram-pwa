@@ -184,16 +184,16 @@
                   aria-controls="ai-summary"
                   @click="goToAiSummary"
                 >
-                  <span class="ai-summary-cta__label"
-                    >Pogledajte AI sažetak članka</span
-                  >
-                  <span class="ai-summary-cta__arrow" aria-hidden="true"
-                    >↓</span
-                  >
+                  <font-awesome-icon
+                    :icon="['fas', 'book']"
+                    class="ai-summary-cta__icon"
+                    aria-hidden="true"
+                  />
+                  <span class="ai-summary-cta__label">
+                    This story folds with
+                    <strong>Samsung Galaxy Z Fold</strong>
+                  </span>
                 </button>
-                <p class="ai-summary__powered">
-                  Powered by Samsung Galaxy Z Fold
-                </p>
               </div>
               <div
                 v-if="post.type === 'commentary'"
@@ -635,6 +635,12 @@
                 </p>
               </section>
               <div class="remp-banner"></div>
+              <img
+                v-if="!post.live"
+                src="@/assets/img/dummy.jpg"
+                alt="Samsung Galaxy Z Fold"
+                class="ai-summary-dummy full"
+              />
               <client-only>
                 <portal
                   v-if="
@@ -1037,37 +1043,51 @@
   mask-image: linear-gradient(180deg, #000 55%, transparent);
 }
 
-/* AI summary CTA pill under the article title */
+/* AI summary CTA — full-width box under the article title */
 .ai-summary-cta {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 8px;
-  width: auto;
+  gap: 10px;
+  width: 100%;
   margin: 12px 0 0;
-  padding: 8px 14px;
+  padding: 12px 16px;
   min-height: 24px;
   background: var(--tg-secondary-background-color);
   color: var(--tg-primary-text-color);
   border: 1px solid var(--palette-divider);
-  border-radius: 999px;
+  border-radius: 6px;
   font-family: 'Barlow', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.3;
+  text-align: left;
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 .ai-summary-cta:hover {
   background: #034ea2;
   color: #fff;
   border-color: #034ea2;
 }
-.ai-summary-cta__arrow {
-  font-size: 14px;
-  line-height: 1;
-  transition: transform 0.3s ease;
+.ai-summary-cta__icon {
+  flex-shrink: 0;
+  font-size: 18px;
+  color: #034ea2;
+  transition: color 0.2s ease;
 }
-.ai-summary-cta:hover .ai-summary-cta__arrow {
-  transform: translateY(3px);
+.ai-summary-cta:hover .ai-summary-cta__icon {
+  color: #fff;
+}
+.ai-summary-cta__label strong {
+  font-weight: 700;
+}
+.ai-summary-dummy {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 710px;
+  margin: 20px auto;
+  border-radius: 6px;
 }
 
 /* AI summary folded section at the end of the article */
