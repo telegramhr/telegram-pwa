@@ -594,6 +594,7 @@ export default {
             isS1: '0',
             segment: Math.floor(Math.random() * 4).toString(),
             userSubscribed: this.$store.state.user.access.length ? '1' : '0',
+            isTelesport: this.$route.fullPath.includes('telesport') ? '1' : '0',
           },
         },
       }
