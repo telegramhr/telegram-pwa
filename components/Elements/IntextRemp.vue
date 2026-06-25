@@ -59,7 +59,7 @@
                   </div>
                 </div>
               </div>
-              <div class="sms-option">
+              <div v-if="!telesport" class="sms-option">
                 <p class="sms-title">NOVA OPCIJA PLAĆANJA</p>
                 <p class="sms-text">
                   Otključajte ovaj članak za nekoliko sekundi putem SMS
@@ -97,6 +97,7 @@ export default {
       feature2: 'Pomažete u izgradnji neovisnog novinarstva',
       feature3: 'Podržavate nagrađivane novinare koje najviše pratite',
       feature4: 'Pristup raznim serijalima i kolumnama',
+      telesport: false,
       softwall: false,
       cta1_text: 'Postanite pretplatnik',
       cta1_link: 'https://telegram.hr/pretplata',
