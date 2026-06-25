@@ -56,6 +56,17 @@
                   <img src="@/assets/img/apple-pay.svg" alt="Apple Pay" />
                   <img src="@/assets/img/google-pay.svg" alt="Apple Pay" />
                 </div>
+                <div class="sms-option">
+                  <p class="sms-title">NOVA OPCIJA PLAĆANJA</p>
+                  <p class="sms-text">
+                    Otključajte ovaj članak za nekoliko sekundi putem SMS
+                    pretplate za 12,99 € mjesečno.
+                  </p>
+                  <p class="sms-instruction">
+                    Pošaljite SMS s tekstom <strong>STANDARD</strong> na broj
+                    <strong>860866</strong>.
+                  </p>
+                </div>
               </div>
             </div>
             <div class="right-container">
@@ -299,6 +310,42 @@ a {
 }
 .logos img {
   max-width: 26px;
+}
+.sms-option {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 16px;
+  border-top: 1px solid #dfdfdf;
+  margin-top: 4px;
+}
+.sms-title {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #343434;
+}
+.sms-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #747474;
+}
+.sms-instruction {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #747474;
+}
+.dark-mode .sms-title {
+  color: white;
+}
+.dark-mode .sms-text,
+.dark-mode .sms-instruction {
+  color: #b5b5b5;
 }
 .right-container {
   background: linear-gradient(
