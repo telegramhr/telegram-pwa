@@ -59,6 +59,7 @@
                   </div>
                 </div>
               </div>
+              <!-- 
               <div v-if="!telesport" class="sms-option">
                 <p class="sms-title">NOVA OPCIJA PLAĆANJA</p>
                 <p class="sms-text">
@@ -70,6 +71,7 @@
                   <strong>860866</strong>.
                 </p>
               </div>
+        -->
             </div>
             <div class="right-container">
               <img class="mobile" src="@/assets/img/paywall-mob.png" alt="" />
