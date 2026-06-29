@@ -5,111 +5,34 @@
     </div>
     <PretplataHeroSvjetskoTelesport />
     <div class="content">
-      <div class="box-wrapper">
-        <div class="boxes">
-          <PretplataNewBoxSvjetsko
-            :card="telesportCard"
-            :selected="selectedPlan === 'telesport'"
-            @select="selectPlan"
-          ></PretplataNewBoxSvjetsko>
-          <PretplataNewBoxSvjetsko
-            :card="premiumCard"
-            :selected="selectedPlan === 'premium'"
-            @select="selectPlan"
-          ></PretplataNewBoxSvjetsko>
+      <div class="text-wrapper">
+        <div class="top-text">
+          <h3>Telesport pretplata</h3>
+          <div class="price-row">
+            <span class="old-price">39€</span>
+            <span>9,99€ /godišnje</span>
+          </div>
+        </div>
+        <div class="features">
+          <span v-for="(feature, index) in features" :key="index">
+            <img
+              class="check-icon"
+              src="@/assets/img/brown-checkbox.png"
+              alt=""
+            />
+            {{ feature }}
+          </span>
         </div>
       </div>
-      <div>
-        <PretplataPayment
-          id="pretplataPayment"
-          :allow-terms-change="false"
-          :term="'annual'"
-          :payment-type="payment"
-          :subscription-type="'individual'"
-          :annual-price="annualPrice"
-          :monthly-price="''"
-          @selectPaymentType="selectPaymentType"
-        />
-        <PretplataLogin
-          :email="email"
-          :login-url="'telesport'"
-          :can-log-in="canLogIn"
-          @updateCanLogIn="updateCanLogIn"
-          @updateEmail="updateEmail"
-        ></PretplataLogin>
-        <PretplataPaymentConfirm
-          :url-key="urlKey"
-          :loading="loading"
-          :can-log-in="canLogIn"
-          :logged-in="loggedIn"
-          :payment-type="payment"
-          :pack="pack"
-          :price="price"
-          :email="email"
-          :discounted-amount="discount"
-          @updateLoading="handleUpdateLoading"
-          @updateDiscount="handleUpdateDiscount"
-        ></PretplataPaymentConfirm>
-      </div>
+      <NewLoginPayment
+        class="newLoginPayment"
+        :pack="pack"
+        :url-key="urlKey"
+        :price="price"
+        @updateLoading="handleUpdateLoading"
+      ></NewLoginPayment>
     </div>
-    <Features
-      :cards="[
-        {
-          title: 'Cjelogodišnji pristup vrhunskom novinarstvu',
-          text: 'Čitajte sve članke bez ograničenja - od istraživačkih priča do analiza koje oblikuju javni razgovor u Hrvatskoj.',
-          image: require('@/assets/img/pretplata/features/pristup.png'),
-        },
-        {
-          title: 'Neovisno i nagrađivano novinarstvo',
-          text: 'Pretplatom podržavate redakciju koja je višestruko nagrađivana za istraživačko i analitičko novinarstvo.',
-          image: require('@/assets/img/pretplata/features/neovisno.png'),
-        },
-        {
-          title: 'Relevantne analize i komentari',
-          text: 'Analize onoga što se zapravo događa - kroz tekstove koji idu dublje od naslova.',
-          image: require('@/assets/img/pretplata/features/relevantne.png'),
-        },
-        {
-          title: 'Bez reklama u sklopu Premium pretplate',
-          text: 'Uživajte u čistom, preglednom čitanju - bez ometajućih reklama. Samo informacije koje vrijede vašeg vremena.',
-          image: require('@/assets/img/pretplata/features/reklame.png'),
-        },
-        {
-          title: 'Pristup Telegram klubu i pogodnostima',
-          text: 'U Telegram Klubu vas očekuju dodatne pogodnosti, posebni popusti i pozivnice na ekskluzivne događaje.',
-          image: require('@/assets/img/pretplata/features/klub.png'),
-        },
-      ]"
-    ></Features>
-    <Testimonials
-      :testimonials="[
-        {
-          text: 'Telegram nije samo nada da će se kriminal razotkriti, nego i mjesto kvalitetnog novinarstva. Jedan je od rijetkih medija koji pokazuje što se događa izvan Zagreba.',
-          name: 'Tvrtko Jakovina',
-          description: 'Pretplatnik i povjesničar',
-          avatar: require('@/assets/img/pretplata/jakovina.png'),
-        },
-        {
-          text: 'Na Telegram sam se pretplatila od samih početaka jer u vremenu promjena medija upravo istraživačko i vjerodostojno novinarstvo vraća izgubljeno povjerenje.',
-          name: 'Ivana Dragičević',
-          description: 'Pretplatnica i novinarka',
-          avatar: require('@/assets/img/pretplata/dragicevic.png'),
-        },
-        {
-          text: 'Većina svjetskih, a i hrvatskih afera otkrili su upravo – mediji. Baš iz tog razloga, bez razmišljanja, dajem svoj skromni doprinos godišnjom pretplatom na Telegram.',
-          name: 'Daniel Ackermann',
-          description: 'Suosnivač agencije Degordian',
-          avatar: require('@/assets/img/pretplata/ackermann.png'),
-        },
-      ]"
-    ></Testimonials>
-    <PretplataCTA
-      :text="'Iskoristite 75% popusta dok traje Svjetsko prvenstvo'"
-      :link="{
-        url: '#pretplataPayment',
-        text: 'Aktivirajte pretplatu',
-      }"
-    ></PretplataCTA>
+
     <Footer></Footer>
   </div>
 </template>
@@ -119,11 +42,14 @@ export default {
   data() {
     return {
       loading: false,
-      selectedPlan: 'premium',
-      payment: 'trustpay_recurrent',
-      price: '',
-      pack: 'pretplata-standard',
-      annualPrice: '',
+      features: [
+        'Neograničeno čitanje Telesporta i pristup arhivi svih članaka',
+        'Ekskluzivni newsletteri s posebnim analizama nagrađivanih autora',
+        '10 poklon članaka mjesečno',
+        'Posebni popusti i pogodnost Telegram Kluba',
+      ],
+      price: '9.99',
+      pack: 'telesport_svjetsko_prvenstvo',
       promo_code: '',
       email: this.$store.state.user.email,
       password: '',
@@ -146,84 +72,10 @@ export default {
     loggedIn() {
       return !!this.$store.state.user.id
     },
-    telesportCard() {
-      return {
-        type: 'telesport',
-        title: 'Telesport',
-        price: '9,99€',
-        priceSuffix: '/godišnje',
-        tags: ['PRISTUP RUBRICI TELESPORT'],
-        features: [
-          'Neograničeno čitanje Telesporta i pristup arhivi svih članaka',
-          'Ekskluzivni newsletteri s posebnim analizama nagrađivanih autora',
-          '10 poklon članaka mjesečno',
-          'Posebni popusti i pogodnost Telegram Kluba',
-        ],
-        buttonText: 'Odaberite',
-        footerText:
-          'Nakon isteka prve godine pretplata se automatski obnavlja po punoj cijeni',
-      }
-    },
-    premiumCard() {
-      return {
-        type: 'premium',
-        title: 'Telegram Premium',
-        premium: true,
-        recommended: true,
-        recommendedText: 'Preporuka',
-        price: '23,99€',
-        priceSuffix: '/godišnje',
-        tags: ['0,46€ TJEDNO'],
-        features: [
-          'Neograničeno čitanje Telegrama i Telesporta uz pristup kompletnoj arhivi',
-          'Ekskluzivni newsletteri s posebnim analizama nagrađivanih autora',
-          'Fokus na sadržaj - <b>čitanje bez reklama</b>',
-          '10 poklon članaka mjesečno',
-          'Posebni popusti i pogodnost Telegram Kluba',
-        ],
-        highlight:
-          'Najniža cijena Telegram Premiuma ikada – čitajte sve članke, ne samo sportske.',
-        buttonText: 'Odaberite',
-        footerText:
-          'Nakon isteka prve godine pretplata se automatski obnavlja po punoj cijeni',
-      }
-    },
-  },
-  mounted() {
-    this.calculatePrice()
   },
   methods: {
     handleUpdateLoading(state) {
       this.loading = state
-    },
-    handleUpdateDiscount(value) {
-      this.discount = value
-    },
-    selectPlan(planType) {
-      this.selectedPlan = planType
-      this.calculatePrice()
-    },
-    selectPaymentType(paymentType) {
-      this.payment = paymentType
-    },
-    updateEmail(email) {
-      this.email = email
-    },
-    updateCanLogIn(value) {
-      this.canLogIn = value
-    },
-    calculatePrice() {
-      this.discount = 0
-      this.urlKey = 'telesport-svjetsko'
-      if (this.selectedPlan === 'telesport') {
-        this.pack = 'telesport_svjetsko_prvenstvo'
-        this.price = '9.99'
-        this.annualPrice = '9.99'
-      } else {
-        this.pack = 'telegram_premium_svjetsko_prvenstvo'
-        this.price = '23.99'
-        this.annualPrice = '23.99'
-      }
     },
   },
 
@@ -329,40 +181,91 @@ export default {
 .content {
   display: flex;
   flex-direction: column;
-  gap: 24px;
   padding: 24px 16px 60px 16px;
   margin: 0 auto;
-  max-width: 865px;
+  gap: 40px;
+  max-width: 986px;
 }
 
-.box-wrapper {
+.text-wrapper {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  justify-content: space-between;
+  max-width: 415px;
+  width: 100%;
 }
-
-.boxes {
+.top-text {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  width: 100%;
-  margin: 0 auto;
-  max-width: 865px;
+  gap: 12px;
+}
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.features span {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 16px;
+  line-height: 22px;
+}
+.features .check-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+}
+.top-text h3 {
+  font-family: 'Lora', sans-serif;
+  font-size: 24px;
+  line-height: 36px;
+  font-weight: 700;
+}
+.price-row {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  color: #000000;
+}
+.old-price {
+  color: #aaaaaa;
+  text-decoration: line-through;
+}
+.features span {
+  font-family: 'Barlow', sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
 }
 
 @media screen and (min-width: 1024px) {
   .content {
-    padding: 24px 0px 60px 0px;
-  }
-
-  .boxes {
     flex-direction: row;
-    gap: 60px;
+    justify-content: space-between;
+    padding: 52px 0px 194px 0px;
   }
 
-  .box-wrapper {
-    gap: 24px;
+  .text-wrapper {
+    gap: 36px;
+    flex: 1 1 0;
+  }
+  .newLoginPayment {
+    flex: 1 1 0;
+  }
+  .top-text {
+    gap: 12px;
+  }
+  .top-text h3 {
+    font-size: 32px;
+    line-height: 52px;
+  }
+  .price-row {
+    font-size: 24px;
+    line-height: 26px;
   }
 }
 </style>
