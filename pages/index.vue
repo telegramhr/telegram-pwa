@@ -323,7 +323,24 @@
         style="width: 100%"
       />
     </app-link>
-    <Books v-show="$store.state.user.access?.length" />
+    <app-link
+      v-show="!$store.state.user.access?.length"
+      to="https://knjige.telegram.hr"
+      class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth"
+    >
+      <img
+        src="@/assets/img/homepage/banner_desktop_knjige.jpg"
+        alt=""
+        class="desktop-only"
+      />
+      <img
+        src="@/assets/img/homepage/banner_mob_knjige.png"
+        alt=""
+        class="mobile-only"
+        style="width: 100%"
+      />
+    </app-link>
+    <!-- <Books v-show="$store.state.user.access?.length" /> -->
     <client-only>
       <div v-if="!hasPremium" class="full relative">
         <offers-premium></offers-premium>
