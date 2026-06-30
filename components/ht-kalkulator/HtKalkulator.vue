@@ -232,15 +232,23 @@ export default {
   bottom: 0;
   z-index: 99;
   display: flex;
-  align-items: center;
   justify-content: center;
   padding: 20px;
-  pointer-events: none;
+  /* Scroll when the modal (e.g. the result screen) is taller than the viewport.
+     Without this, align-items:center pushed the dialog top, and the close
+     button at top:12px, above the viewport with no way to scroll back. */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  pointer-events: auto;
 }
 
 .ht-kalkulator {
   width: 100%;
   max-width: 640px;
+  /* margin:auto centers the dialog when it fits, but unlike align-items:center
+     it lets the overlay scroll to the very top when the content is taller than
+     the viewport, keeping the close button reachable. */
+  margin: auto;
   background: #fff;
   pointer-events: auto;
   border-radius: 16px;
