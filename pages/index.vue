@@ -52,11 +52,11 @@
               !$store.state.user.access?.length
             "
             id="pretplata-promo"
-            to="/pretplata/popust-standard/"
+            to="/pretplata/50-popust/"
             class="newbtn gift-btn"
           >
-            <span class="poklonMobile">POPUST GODINE</span
-            ><span class="poklon">POPUST GODINE</span></app-link
+            <span class="poklonMobile">POPUST 50%</span
+            ><span class="poklon">POPUST 50%</span></app-link
           >
           <a
             v-show="!canLogIn"
