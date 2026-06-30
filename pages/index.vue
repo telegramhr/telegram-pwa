@@ -341,11 +341,12 @@
       />
     </app-link>
     <!-- <Books v-show="$store.state.user.access?.length" /> -->
+    <!-- on break till 1.9.
     <client-only>
       <div v-if="!hasPremium" class="full relative">
         <offers-premium></offers-premium>
       </div>
-    </client-only>
+    </client-only> -->
     <!-- TG preporuka -->
     <div
       class="full relative darkened-bg column-top-margin column-bottom-margin column-bottom-pad mobile-vertical-pad"
