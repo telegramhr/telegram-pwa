@@ -2086,7 +2086,7 @@ export default {
       // A 3s safety timeout ensures the kalkulator still shows if the consent
       // API is unavailable (ad-blocked, Safari ITP, already consented, etc.).
       const show = () => {
-        this.showKalkulator = false
+        this.showKalkulator = true
       }
       const safetyTimeout = setTimeout(show, 3000)
       try {
