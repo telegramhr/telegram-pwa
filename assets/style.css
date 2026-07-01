@@ -12653,7 +12653,7 @@ html.large-fontsize,
     font-size: var(--close-size);
     line-height: 1;
     top: calc(-1 * var(--close-size));
-    right: calc(-1 * var(--close-size));
+    right: calc(-0.5 * var(--close-size));
     z-index: 201;
 }
 
@@ -18082,7 +18082,9 @@ header {
     margin: 0;
 }
 
+
 /* Force dark text on the gold gradient for AA contrast */
+
 .hnl-section .noththree.subsection-title,
 .hnl-section .article h2,
 .hnl-section .article h2 a,
@@ -18105,7 +18107,9 @@ header {
     border-color: rgba(0, 0, 0, 0.18);
 }
 
+
 /* Hover affordance on gold — readable against the gradient */
+
 .hnl-section .article h2,
 .hnl-section .article h2 a {
     transition: color 0.15s ease;
