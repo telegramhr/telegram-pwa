@@ -169,7 +169,7 @@ export default {
 .subtitle {
   font-family: 'Barlow', sans-serif;
   font-weight: 200;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 18px;
   color: #ffffff;
   margin: 0px;

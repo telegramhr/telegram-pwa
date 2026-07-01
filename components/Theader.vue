@@ -402,7 +402,7 @@
               :to="
                 $route.fullPath.includes('telesport')
                   ? '/pretplata/ponuda-svjetsko/'
-                  : '/pretplata/ponuda-svjetsko/'
+                  : '/pretplata/popust-standard/'
               "
               :class="[
                 'newbtn',
@@ -412,7 +412,7 @@
             >
               {{
                 !$route.fullPath.includes('telesport')
-                  ? 'POSEBNA PONUDA'
+                  ? 'POPUST GODINE'
                   : 'Pretplatite se'
               }}</app-link
             >

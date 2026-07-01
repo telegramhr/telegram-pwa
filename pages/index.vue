@@ -52,11 +52,11 @@
               !$store.state.user.access?.length
             "
             id="pretplata-promo"
-            to="/pretplata/ponuda-svjetsko/"
+            to="/pretplata/50-popust/"
             class="newbtn gift-btn"
           >
-            <span class="poklonMobile">POSEBNA PONUDA</span
-            ><span class="poklon">POSEBNA PONUDA</span></app-link
+            <span class="poklonMobile">POPUST 50%</span
+            ><span class="poklon">POPUST 50%</span></app-link
           >
           <a
             v-show="!canLogIn"
@@ -323,12 +323,30 @@
         style="width: 100%"
       />
     </app-link>
-    <Books v-show="$store.state.user.access?.length" />
+    <app-link
+      v-show="$store.state.user.access?.length"
+      to="https://knjige.telegram.hr"
+      class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth"
+    >
+      <img
+        src="@/assets/img/homepage/banner_desktop_knjige.jpg"
+        alt=""
+        class="desktop-only"
+      />
+      <img
+        src="@/assets/img/homepage/banner_mob_knjige.png"
+        alt=""
+        class="mobile-only"
+        style="width: 100%"
+      />
+    </app-link>
+    <!-- <Books v-show="$store.state.user.access?.length" /> -->
+    <!-- on break till 1.9.
     <client-only>
       <div v-if="!hasPremium" class="full relative">
         <offers-premium></offers-premium>
       </div>
-    </client-only>
+    </client-only> -->
     <!-- TG preporuka -->
     <div
       class="full relative darkened-bg column-top-margin column-bottom-margin column-bottom-pad mobile-vertical-pad"
@@ -594,6 +612,7 @@ export default {
             isS1: '0',
             segment: Math.floor(Math.random() * 4).toString(),
             userSubscribed: this.$store.state.user.access.length ? '1' : '0',
+            isTelesport: this.$route.fullPath.includes('telesport') ? '1' : '0',
           },
         },
       }

@@ -18030,6 +18030,42 @@ header {
     color: #5a4300;
 }
 
+.cantha-submenu.wc-submenu {
+    background: radial-gradient(circle, #FFEBA0 0%, #D4AF37 60%, #AA7C11 100%);
+    border-radius: 4px;
+    top: 2.1rem;
+}
+
+.cantha-submenu.wc-submenu::before {
+    width: 22px;
+    height: 11px;
+    top: -11px;
+    left: 99px;
+    background: linear-gradient(to bottom, #F3D87A 0%, #D4AF37 100%);
+    transform: none;
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+.cantha-block-title .menu .cantha-submenu.wc-submenu>a {
+    color: #111111;
+    font-weight: 700;
+    opacity: 1;
+    margin-bottom: 8px;
+}
+
+.cantha-block-title .menu .cantha-submenu.wc-submenu>a:last-child {
+    margin-bottom: 0;
+}
+
+.cantha-block-title .menu .cantha-fake-menuitem {
+    display: flex;
+    align-items: center;
+}
+
+.cantha-block-title .menu .cantha-submenu.wc-submenu>a:hover {
+    color: #5a4300;
+}
+
 .subsection-title.wc-subsection-title {
     display: flex;
     gap: 12px;
@@ -18238,6 +18274,15 @@ header {
         font-size: 0.65rem;
         border-bottom: 2px solid transparent;
         opacity: 0.75;
+    }
+    .cantha-fake-menuitem.wc-fake-menuitem label {
+        background: radial-gradient(circle, #FFEBA0 0%, #D4AF37 60%, #AA7C11 100%);
+        color: #111111;
+        font-weight: 700;
+        opacity: 1;
+        padding: 2px 8px;
+        border-bottom: none;
+        border-radius: 4px;
     }
     .cantha-fake-menuitem input:checked~.cantha-submenu {
         display: flex;

@@ -580,6 +580,7 @@
               </transition>
               <div class="remp-banner"></div>
               <client-only>
+                <!-- on break till 1.9.
                 <portal
                   v-if="
                     useSparPortal &&
@@ -595,7 +596,7 @@
                   <div class="full">
                     <offers-premium></offers-premium>
                   </div>
-                </portal>
+                </portal>-->
                 <portal v-if="showQuiz" selector="#quiz-container">
                   <quiz
                     v-if="post.quiz"
@@ -1384,6 +1385,7 @@ export default {
       livePendingUpdates: 0, // number of new updates pending on server
       liveApplying: false, // double-click guard for applyLiveUpdates
       liveRemoteCount: 0, // server-reported count, used as cache-bust param ?v=
+      liveFirstCheck: true, // first poll after load folds in cache-lag updates silently
       liveTimeNow: Math.floor(Date.now() / 1000), // current time in seconds, ticks every 30s for relative time display
       liveToast: null, // toast message shown briefly after actions like copy link
       liveTimeInterval: null, // setInterval ID for liveTimeNow ticker
@@ -1943,6 +1945,7 @@ export default {
             isS1: this.post.category_slug.includes('super1') ? '1' : '0',
             segment: Math.floor(Math.random() * 4).toString(),
             userSubscribed: this.$store.state.user.access.length ? '1' : '0',
+            isTelesport: this.$route.fullPath.includes('telesport') ? '1' : '0',
             ip: this.$store.state.user.ip,
             hasContentAccess: this.$store.getters['user/hasContentAccess'](
               this.$route.path
@@ -2224,28 +2227,64 @@ export default {
     },
     async pollLiveUpdates() {
       try {
-        // Lightweight endpoint — returns {count, live_end} only, no full article processing
+        // Lightweight endpoint — returns {count, live_end, scoreboard} only
         const data = await this.$axios.$get('/api/live-check/' + this.post.id)
         const currentCount = this.post.live_updates
           ? this.post.live_updates.length
           : 0
-        if (data.count > currentCount) {
-          this.livePendingUpdates = data.count - currentCount
-          this.liveRemoteCount = data.count
-        }
-        // Match scoreboard: patch status in place so the sticky bar reflects
-        // kickoff/HT/FT between full refetches. Score derives from scorers and
-        // refreshes via the normal new-update refetch.
+        // Match scoreboard: patch the whole board (status + derived score +
+        // scorers) in place so the sticky bar updates live, no page refresh.
         if (data.scoreboard && this.post.scoreboard) {
           this.$set(this.post, 'scoreboard', {
             ...this.post.scoreboard,
-            status: data.scoreboard.status,
+            ...data.scoreboard,
           })
         }
+        if (data.count > currentCount) {
+          this.liveRemoteCount = data.count
+          if (this.liveFirstCheck) {
+            // First poll after page load: the SSR/cached HTML can lag a few
+            // updates behind while live-check is fresh. Fold them in silently
+            // instead of flashing "Novo ažuriranje" at a reader who just arrived.
+            // Only updates that arrive *after* load use the button (below).
+            await this.silentSyncLiveUpdates()
+          } else {
+            this.livePendingUpdates = data.count - currentCount
+          }
+        }
+        this.liveFirstCheck = false
         // If live_end is set, update post and stop polling permanently
         if (data.live_end) {
           this.$set(this.post, 'live_end', data.live_end)
           this.stopLivePolling()
+        }
+      } catch (e) {}
+    },
+    // Silently reconcile the rendered updates with the server when the initial
+    // (cached) HTML lags behind. No scroll/fade/button — the reader shouldn't be
+    // nagged about content that was already live when they opened the page. The
+    // ?v={count} URL is shared across readers, so the origin fetch is cache-friendly.
+    async silentSyncLiveUpdates() {
+      try {
+        const slug = this.$route.params.slug || this.$route.params.category
+        const data = await this.$axios.$get(
+          encodeURI('/api/single/' + slug) + '?v=' + this.liveRemoteCount,
+          { headers: { 'Cache-Control': 'no-cache' } }
+        )
+        if (data && data.live_updates) {
+          this.$set(this.post, 'live_updates', data.live_updates)
+          if (data.scoreboard) {
+            this.$set(this.post, 'scoreboard', data.scoreboard)
+          }
+          if (data.live_summary) {
+            this.$set(this.post, 'live_summary', data.live_summary)
+            this.$set(this.post, 'live_summary_time', data.live_summary_time)
+          }
+          this.livePendingUpdates = 0
+          this.$nextTick(() => {
+            const container = this.$el.querySelector('.live-updates-container')
+            if (container) this.processEmbeds(container)
+          })
         }
       } catch (e) {}
     },
