@@ -14,6 +14,7 @@
       :amount="amount"
       :funnel-url-key="funnelUrlKey"
       :email="userEmail"
+      @update-loading="$emit('update-loading', $event)"
     />
     <PaymentFlowSuccess
       v-else

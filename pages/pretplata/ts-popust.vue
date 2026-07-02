@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div v-if="loading" class="telegram-overlay">
+      <span class="telegram-loader"></span>
+    </div>
     <div class="hero">
       <div class="hero-inner">
         <div class="hero-left">
@@ -45,6 +48,7 @@
           plan-name="Telesport pretplata"
           :amount="9.99"
           funnel-url-key="telesport-svjetsko-2"
+          @update-loading="loading = $event"
         />
       </div>
     </div>
@@ -61,6 +65,7 @@ export default {
   components: { PaymentFlow, Footer },
   data() {
     return {
+      loading: false,
       features: [
         'Neograničeno čitanje Telesporta i pristup arhivi svih članaka',
         'Ekskluzivni newsletteri s posebnim analizama nagrađivanih autora',
@@ -127,6 +132,43 @@ export default {
 </script>
 
 <style scoped>
+.telegram-overlay {
+  position: fixed;
+  top: 0;
+  z-index: 101;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  align-content: center;
+  background: rgb(0, 0, 0, 0.5);
+}
+.telegram-loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  border: 10px solid;
+  box-sizing: border-box;
+  animation: animloader 1s linear infinite alternate;
+}
+
+@keyframes animloader {
+  0% {
+    border-color: #ae3737 rgba(255, 255, 255, 0) rgba(255, 255, 255, 0)
+      rgba(255, 255, 255, 0);
+  }
+  33% {
+    border-color: #ae3737 #ae3737 rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
+  }
+  66% {
+    border-color: #ae3737 #ae3737 #ae3737 rgba(255, 255, 255, 0);
+  }
+  100% {
+    border-color: #ae3737 #ae3737 #ae3737 #ae3737;
+  }
+}
+
 .hero {
   width: 100%;
   background: #000 url('@/assets/img/pretplata/telesport/bg-svjetsko.png')
