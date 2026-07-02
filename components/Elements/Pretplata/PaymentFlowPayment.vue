@@ -155,6 +155,11 @@ export default {
       return this.acceptsTerms && this.acceptsPrivacy
     },
   },
+  watch: {
+    loading(value) {
+      this.$emit('update-loading', value)
+    },
+  },
   methods: {
     submit() {
       this.error = ''
