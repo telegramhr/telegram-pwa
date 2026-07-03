@@ -257,11 +257,7 @@ export const actions = {
           }, 2000)
         }
       })
-      .catch((err) => {
-        if (!err.response) {
-          commit('setError', 'Provjerite internetsku vezu i pokušajte ponovno.')
-          return
-        }
+      .catch(() => {
         commit('setError', 'Email i/ili lozinka nisu ispravni')
       })
   },
@@ -270,6 +266,9 @@ export const actions = {
     data.append('email', payload.email)
     data.append('password', payload.password)
     data.append('source', 'api')
+    if (Object.keys(payload).includes('reload')) {
+      commit('shouldReload', payload.reload)
+    }
     this.$axios
       .$post('/crm/api/v1/users/create', data, {
         headers: {
@@ -294,13 +293,6 @@ export const actions = {
             window.location.reload()
           }, 2000)
         }
-      })
-      .catch((err) => {
-        if (!err.response) {
-          commit('setError', 'Provjerite internetsku vezu i pokušajte ponovno.')
-          return
-        }
-        commit('setError', 'Registracija nije uspjela. Pokušajte ponovno.')
       })
   },
   loginPiano({ commit, dispatch }, payload) {
