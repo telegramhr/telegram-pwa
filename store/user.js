@@ -257,7 +257,11 @@ export const actions = {
           }, 2000)
         }
       })
-      .catch(() => {
+      .catch((err) => {
+        if (!err.response) {
+          commit('setError', 'Provjerite internetsku vezu i pokušajte ponovno.')
+          return
+        }
         commit('setError', 'Email i/ili lozinka nisu ispravni')
       })
   },
@@ -290,6 +294,13 @@ export const actions = {
             window.location.reload()
           }, 2000)
         }
+      })
+      .catch((err) => {
+        if (!err.response) {
+          commit('setError', 'Provjerite internetsku vezu i pokušajte ponovno.')
+          return
+        }
+        commit('setError', 'Registracija nije uspjela. Pokušajte ponovno.')
       })
   },
   loginPiano({ commit, dispatch }, payload) {
