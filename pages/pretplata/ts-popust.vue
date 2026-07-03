@@ -304,6 +304,7 @@ export default {
   font-size: 18px;
   color: #000;
   line-height: 24px;
+  align-items: center;
 }
 .check-icon {
   flex-shrink: 0;

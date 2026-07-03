@@ -92,7 +92,7 @@ export default {
 }
 
 .payment-flow-steps {
-  display: flex;
+  display: none;
   gap: 20px;
   align-items: center;
   width: 100%;
@@ -100,6 +100,9 @@ export default {
 }
 
 @media (min-width: 641px) {
+  .payment-flow-steps {
+    display: flex;
+  }
   .payment-flow,
   .payment-flow-steps {
     max-width: 480px;
