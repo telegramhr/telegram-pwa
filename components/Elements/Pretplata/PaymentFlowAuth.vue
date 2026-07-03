@@ -261,7 +261,7 @@ export default {
   font-size: 24px;
   font-weight: 600;
   color: #000;
-  margin: 0 0 16px;
+  margin: 0 0 12px;
 }
 .pf-heading p {
   font-size: 16px;
@@ -458,6 +458,7 @@ export default {
     padding: 32px 24px;
   }
   .pf-heading h2 {
+    margin: 0 0 12px;
     font-size: 22px;
   }
 }
