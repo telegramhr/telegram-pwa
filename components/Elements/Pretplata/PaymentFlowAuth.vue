@@ -221,6 +221,7 @@ export default {
       this.$store.dispatch('user/registerSubmit', {
         email: this.email,
         password: this.password,
+        reload: false,
       })
     },
     async checkEmailTaken(email) {

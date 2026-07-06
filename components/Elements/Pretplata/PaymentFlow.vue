@@ -62,7 +62,7 @@ export default {
       }
     },
   },
-  created() {
+  mounted() {
     if (this.$route.query.payment === 'success') {
       this.step = 'success'
       return

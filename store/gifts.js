@@ -19,13 +19,7 @@ export const mutations = {
 }
 
 export const actions = {
-  async getUserGifts({ commit, state }) {
-    console.log(
-      '[gifts] updated:',
-      state.updated,
-      'fresh:',
-      state.updated >= new Date().getTime() - 1000 * 60 * 60
-    )
+  getUserGifts({ commit, state, rootState }) {
     if (state.updated >= new Date().getTime() - 1000 * 60 * 60) {
       return
     }
@@ -33,12 +27,16 @@ export const actions = {
     if (pendingRequest) {
       return pendingRequest
     }
+    const token = rootState.user.token
     // Create new request and store promise
     pendingRequest = this.$axios
-      .$get('/pretplate/api/gift-article/')
+      .$get('/pretplate/api/gift-article/', {
+        headers: token ? { Authorization: `Bearer ${token}` } : {},
+      })
       .then((gifts) => {
         commit('setGifts', gifts)
       })
+      .catch(() => {})
       .finally(() => {
         pendingRequest = null
       })
