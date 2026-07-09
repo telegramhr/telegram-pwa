@@ -190,7 +190,7 @@ export default {
 @media screen and (min-width: 1024px) {
   .content {
     padding: 44px 17px 0;
-    justify-content: flex-start;
+    justify-content: space-between;
   }
   .main-col {
     align-items: flex-start;
@@ -218,7 +218,7 @@ export default {
     flex-direction: column;
     gap: 16px;
     list-style: none;
-    margin: 0 0 0 160px;
+    margin: 0;
     padding: 0;
     flex-shrink: 0;
   }
