@@ -127,7 +127,6 @@ export default {
 .content {
   max-width: 1248px;
   margin: 0 auto;
-  height: 186px;
   padding: 20px 17px;
   box-sizing: border-box;
   display: flex;
@@ -190,8 +189,7 @@ export default {
 }
 @media screen and (min-width: 1024px) {
   .content {
-    height: 240px;
-    padding: 0 17px;
+    padding: 44px 17px 0;
     justify-content: flex-start;
   }
   .main-col {
