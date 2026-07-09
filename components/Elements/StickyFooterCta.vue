@@ -127,8 +127,7 @@ export default {
 .content {
   max-width: 1248px;
   margin: 0 auto;
-  height: 207px;
-  padding: 26px 17px;
+  padding: 20px 17px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -152,7 +151,7 @@ export default {
   line-height: 28px;
   font-weight: 500;
   color: #f9f9fa;
-  margin: 29px 0 0;
+  margin: 24px 0 0;
 }
 .cta-button {
   display: flex;
@@ -161,7 +160,7 @@ export default {
   box-sizing: border-box;
   width: 100%;
   height: 40px;
-  margin-top: 29px;
+  margin-top: 24px;
   padding: 8px 16px;
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.09);
@@ -190,9 +189,8 @@ export default {
 }
 @media screen and (min-width: 1024px) {
   .content {
-    height: 240px;
-    padding: 0 17px;
-    justify-content: flex-start;
+    padding: 44px 17px 0;
+    justify-content: space-between;
   }
   .main-col {
     align-items: flex-start;
@@ -208,6 +206,7 @@ export default {
     font-size: 26px;
     line-height: 36px;
     margin-top: 20px;
+    padding-right: 100px;
   }
   .cta-button {
     width: auto;
@@ -219,7 +218,7 @@ export default {
     flex-direction: column;
     gap: 16px;
     list-style: none;
-    margin: 0 0 0 160px;
+    margin: 0;
     padding: 0;
     flex-shrink: 0;
   }
