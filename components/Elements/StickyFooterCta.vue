@@ -36,6 +36,8 @@ export default {
   data() {
     return {
       show: false,
+      termId: false,
+      softwall: true,
       text: 'Čitajte Telegram cijelu godinu uz čak 50% popusta!',
       cta: 'Pretplatite se',
       cta_link: '/pretplata',
@@ -64,8 +66,29 @@ export default {
         this.feature1 = e.detail.feature1 ?? this.feature1
         this.feature2 = e.detail.feature2 ?? this.feature2
         this.feature3 = e.detail.feature3 ?? this.feature3
+        this.softwall = e.detail.softwall ?? this.softwall
+        this.termId = e.detail.termId
       }
-      this.show = true
+      this.triggerShow()
+    },
+    triggerShow() {
+      if (this.show) {
+        return
+      }
+      const el = document.getElementById('piano-content')
+      if (this.softwall) {
+        this.show = true
+        this.$emit('show')
+      }
+      if (el) {
+        this.show = true
+        if (!this.softwall) {
+          el.parentNode.removeChild(el)
+          document
+            .querySelector('#article-content p:last-child')
+            .classList.add('premium-fade-out')
+        }
+      }
     },
   },
 }
