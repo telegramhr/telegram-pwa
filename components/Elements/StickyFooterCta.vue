@@ -127,8 +127,8 @@ export default {
 .content {
   max-width: 1248px;
   margin: 0 auto;
-  height: 207px;
-  padding: 26px 17px;
+  height: 186px;
+  padding: 20px 17px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -152,7 +152,7 @@ export default {
   line-height: 28px;
   font-weight: 500;
   color: #f9f9fa;
-  margin: 29px 0 0;
+  margin: 24px 0 0;
 }
 .cta-button {
   display: flex;
@@ -161,7 +161,7 @@ export default {
   box-sizing: border-box;
   width: 100%;
   height: 40px;
-  margin-top: 29px;
+  margin-top: 24px;
   padding: 8px 16px;
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.09);
@@ -208,6 +208,7 @@ export default {
     font-size: 26px;
     line-height: 36px;
     margin-top: 20px;
+    padding-right: 100px;
   }
   .cta-button {
     width: auto;
