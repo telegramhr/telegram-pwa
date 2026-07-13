@@ -77,7 +77,8 @@ export default {
 .content {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
   gap: 20px;
   padding: 26px 0 0 0;
 }
@@ -150,6 +151,8 @@ export default {
     min-height: 400px;
   }
   .content {
+    align-items: flex-start;
+    text-align: left;
     max-width: 460px;
     gap: 24px;
     padding: 53px 0;

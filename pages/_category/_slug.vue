@@ -504,6 +504,12 @@
                 Polling detects new updates via lightweight /api/live-check endpoint,
                 then full article is fetched only when user clicks "Novo ažuriranje".
               -->
+              <MatchScoreboard
+                v-if="
+                  post.live && post.live_type === 'match' && post.scoreboard
+                "
+                :scoreboard="post.scoreboard"
+              />
               <div
                 v-if="
                   post.live && post.live_updates && post.live_updates.length
@@ -527,9 +533,17 @@
                     :datetime="liveDatetime(update.time)"
                     :title="update.date_formatted + ' ' + update.time_formatted"
                   >
-                    <span class="live-update__hour">{{
-                      liveRelativeTime(update.time)
-                    }}</span>
+                    <span
+                      v-if="post.live_type === 'match' && update.minute"
+                      class="live-update__minute"
+                      aria-label="Minuta utakmice"
+                      >{{ update.minute }}'</span
+                    >
+                    <span
+                      v-if="post.live_type !== 'match'"
+                      class="live-update__hour"
+                      >{{ liveRelativeTime(update.time) }}</span
+                    >
                   </time>
                   <div class="live-update__content">
                     <div class="live-update__header">
@@ -568,6 +582,13 @@
                   </div>
                 </article>
               </div>
+              <!-- World Cup standings widget (Sofascore), rendered below the live
+                   commentary instead of inside the article body. -->
+              <div
+                v-if="post.wc_standings"
+                class="wc-standings"
+                v-html="post.wc_standings"
+              ></div>
               <transition name="toast-fade">
                 <div v-if="liveToast" class="live-toast">
                   {{ liveToast }}
@@ -607,6 +628,7 @@
               </section>
               <div class="remp-banner"></div>
               <client-only>
+                <!-- on break till 1.9.
                 <portal
                   v-if="
                     useSparPortal &&
@@ -622,7 +644,7 @@
                   <div class="full">
                     <offers-premium></offers-premium>
                   </div>
-                </portal>
+                </portal>-->
                 <portal v-if="showQuiz" selector="#quiz-container">
                   <quiz
                     v-if="post.quiz"
@@ -1184,6 +1206,19 @@
   font-weight: 600;
   color: var(--tg-primary-highlight-color);
 }
+.live-update__minute {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 7px;
+  border-radius: 10px;
+  background: #ae3737;
+  color: #fff;
+  font-family: 'Barlow', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.4;
+}
 .live-update__date {
   font-size: 12px;
   color: var(--tg-primary-text-color);
@@ -1382,15 +1417,14 @@
 import { Portal } from '@linusborg/vue-simple-portal'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-import StudenacWidget from '~/components/Elements/StudenacWidget.vue'
 import A1Widget from '~/components/Elements/A1Widget.vue'
 import HtWidget from '~/components/Elements/HtWidget.vue'
 import BusinessWidget from '~/components/Elements/BusinessWidget.vue'
 import HtKalkulator from '~/components/ht-kalkulator/HtKalkulator.vue'
+import MatchScoreboard from '~/components/liveblog/MatchScoreboard.vue'
 import { HT_CAMPAIGN_ARTICLE_SLUGS } from '~/store/ht-kalkulator/articles'
 
 const widgetMap = {
-  studenac: 'StudenacWidget',
   a1: 'A1Widget',
   ht: 'HtWidget',
   business: 'BusinessWidget',
@@ -1401,11 +1435,11 @@ export default {
   scrollToTop: true,
   components: {
     Portal,
-    StudenacWidget,
     A1Widget,
     HtWidget,
     BusinessWidget,
     HtKalkulator,
+    MatchScoreboard,
   },
   async fetch() {
     if (!this.$route.params.slug && !this.$route.params.category) {
@@ -1534,6 +1568,7 @@ export default {
       livePendingUpdates: 0, // number of new updates pending on server
       liveApplying: false, // double-click guard for applyLiveUpdates
       liveRemoteCount: 0, // server-reported count, used as cache-bust param ?v=
+      liveFirstCheck: true, // first poll after load folds in cache-lag updates silently
       liveTimeNow: Math.floor(Date.now() / 1000), // current time in seconds, ticks every 30s for relative time display
       liveToast: null, // toast message shown briefly after actions like copy link
       liveTimeInterval: null, // setInterval ID for liveTimeNow ticker
@@ -2106,6 +2141,7 @@ export default {
             isS1: this.post.category_slug.includes('super1') ? '1' : '0',
             segment: Math.floor(Math.random() * 4).toString(),
             userSubscribed: this.$store.state.user.access.length ? '1' : '0',
+            isTelesport: this.$route.fullPath.includes('telesport') ? '1' : '0',
             ip: this.$store.state.user.ip,
             hasContentAccess: this.$store.getters['user/hasContentAccess'](
               this.$route.path
@@ -2176,8 +2212,12 @@ export default {
         // Curated HT campaign articles auto-open the kalkulator; the query
         // param stays as a QA opt-in on any article. Both go through the
         // consent gate in _showKalkulatorWhenReady().
+        // Match 'partneri' anywhere in the URL (path) as well as the post's
+        // category_slug, since the API slug doesn't always match the route.
         if (
-          HT_CAMPAIGN_ARTICLE_SLUGS.includes(this.post.slug) ||
+          this.$route.path.includes('partneri') ||
+          (this.post.category_slug &&
+            this.post.category_slug.includes('partneri')) ||
           this.$route.query['ht-kalkulator'] === '1'
         ) {
           this._showKalkulatorWhenReady()
@@ -2383,19 +2423,64 @@ export default {
     },
     async pollLiveUpdates() {
       try {
-        // Lightweight endpoint — returns {count, live_end} only, no full article processing
+        // Lightweight endpoint — returns {count, live_end, scoreboard} only
         const data = await this.$axios.$get('/api/live-check/' + this.post.id)
         const currentCount = this.post.live_updates
           ? this.post.live_updates.length
           : 0
-        if (data.count > currentCount) {
-          this.livePendingUpdates = data.count - currentCount
-          this.liveRemoteCount = data.count
+        // Match scoreboard: patch the whole board (status + derived score +
+        // scorers) in place so the sticky bar updates live, no page refresh.
+        if (data.scoreboard && this.post.scoreboard) {
+          this.$set(this.post, 'scoreboard', {
+            ...this.post.scoreboard,
+            ...data.scoreboard,
+          })
         }
+        if (data.count > currentCount) {
+          this.liveRemoteCount = data.count
+          if (this.liveFirstCheck) {
+            // First poll after page load: the SSR/cached HTML can lag a few
+            // updates behind while live-check is fresh. Fold them in silently
+            // instead of flashing "Novo ažuriranje" at a reader who just arrived.
+            // Only updates that arrive *after* load use the button (below).
+            await this.silentSyncLiveUpdates()
+          } else {
+            this.livePendingUpdates = data.count - currentCount
+          }
+        }
+        this.liveFirstCheck = false
         // If live_end is set, update post and stop polling permanently
         if (data.live_end) {
           this.$set(this.post, 'live_end', data.live_end)
           this.stopLivePolling()
+        }
+      } catch (e) {}
+    },
+    // Silently reconcile the rendered updates with the server when the initial
+    // (cached) HTML lags behind. No scroll/fade/button — the reader shouldn't be
+    // nagged about content that was already live when they opened the page. The
+    // ?v={count} URL is shared across readers, so the origin fetch is cache-friendly.
+    async silentSyncLiveUpdates() {
+      try {
+        const slug = this.$route.params.slug || this.$route.params.category
+        const data = await this.$axios.$get(
+          encodeURI('/api/single/' + slug) + '?v=' + this.liveRemoteCount,
+          { headers: { 'Cache-Control': 'no-cache' } }
+        )
+        if (data && data.live_updates) {
+          this.$set(this.post, 'live_updates', data.live_updates)
+          if (data.scoreboard) {
+            this.$set(this.post, 'scoreboard', data.scoreboard)
+          }
+          if (data.live_summary) {
+            this.$set(this.post, 'live_summary', data.live_summary)
+            this.$set(this.post, 'live_summary_time', data.live_summary_time)
+          }
+          this.livePendingUpdates = 0
+          this.$nextTick(() => {
+            const container = this.$el.querySelector('.live-updates-container')
+            if (container) this.processEmbeds(container)
+          })
         }
       } catch (e) {}
     },

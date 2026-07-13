@@ -104,7 +104,7 @@
       ]"
     ></Testimonials>
     <PretplataCTA
-      :text="'Iskoristite 50% popusta dok traje Svjetsko prvenstvo'"
+      :text="'Iskoristite popust dok traje Svjetsko prvenstvo'"
       :link="{
         url: '#pretplataPayment',
         text: 'Aktivirajte pretplatu',
@@ -171,9 +171,9 @@ export default {
         premium: true,
         recommended: true,
         recommendedText: 'Preporuka',
-        price: '23,99€',
+        price: '34,99€',
         priceSuffix: '/godišnje',
-        tags: ['0,46€ TJEDNO'],
+        tags: ['0,67€ TJEDNO'],
         features: [
           'Neograničeno čitanje Telegrama i Telesporta uz pristup kompletnoj arhivi',
           'Ekskluzivni newsletteri s posebnim analizama nagrađivanih autora',
@@ -220,9 +220,9 @@ export default {
         this.price = '9.99'
         this.annualPrice = '9.99'
       } else {
-        this.pack = 'telegram_premium_svjetsko_prvenstvo'
-        this.price = '23.99'
-        this.annualPrice = '23.99'
+        this.pack = 'telegram_premium_godisnja_65_posto_popusta'
+        this.price = '34.99'
+        this.annualPrice = '34.99'
       }
     },
   },

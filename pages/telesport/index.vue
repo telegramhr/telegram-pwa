@@ -181,12 +181,37 @@
               <app-link to="/tema/price-iz-davnine/">Priče iz davnine</app-link>
             </div>
           </div>
-          <app-link
-            role="menuitem"
-            to="/tema/svjetsko-prvenstvo-2026/"
-            class="animate wc-menu-link"
-            >SP 2026</app-link
-          >
+          <div class="cantha-fake-menuitem wc-fake-menuitem">
+            <app-link
+              role="menuitem"
+              to="/tema/svjetsko-prvenstvo-2026/"
+              class="animate wc-menu-link"
+              >SP 2026
+            </app-link>
+            <input
+              id="open-cantha-submenu-sp26"
+              type="checkbox"
+              name="open-cantha-submenu-sp26"
+              class="hide"
+            />
+            <label for="open-cantha-submenu-sp26" class="mobile-only"
+              >SP 2026</label
+            >
+            <div class="cantha-submenu wc-submenu flex">
+              <app-link to="/tema/svjetsko-prvenstvo-2026/"
+                >Svi članci</app-link
+              >
+              <app-link to="/tema/hrvatska-nogometna-reprezentacija/"
+                >Hrvatska reprezentacija</app-link
+              >
+              <app-link to="/tema/heroj-dana/">Heroj dana</app-link>
+              <app-link to="/tema/fotka-dana/">Fotka dana</app-link>
+              <app-link
+                to="/telesport/na-prvu/tko-kad-igra-raspored-i-rezultati-svjetskog-prvenstva-utakmice-hrvatske-reprezentacije/"
+                >Raspored i rezultati</app-link
+              >
+            </div>
+          </div>
         </nav>
         <div class="flex desktop-only">
           <client-only>

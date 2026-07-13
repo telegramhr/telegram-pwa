@@ -104,9 +104,10 @@ export const actions = {
       commit('setUser', data)
     })
   },
-  getCoralToken({ commit, state }) {
+  getCoralToken({ commit, state }, { force = false } = {}) {
     return new Promise((resolve) => {
       if (
+        !force &&
         state.coral_token &&
         state.coral_update &&
         state.coral_update > new Date().getTime() - 3600000
@@ -265,6 +266,9 @@ export const actions = {
     data.append('email', payload.email)
     data.append('password', payload.password)
     data.append('source', 'api')
+    if (Object.keys(payload).includes('reload')) {
+      commit('shouldReload', payload.reload)
+    }
     this.$axios
       .$post('/crm/api/v1/users/create', data, {
         headers: {

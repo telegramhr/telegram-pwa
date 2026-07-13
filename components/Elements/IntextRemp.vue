@@ -6,57 +6,72 @@
       <div class="overlay">
         <div class="container-full">
           <div class="main-wrapper">
-            <div class="left-container">
-              <div class="title-wrapper">
-                <h3>{{ title }}</h3>
-                <p>{{ subtitle }}</p>
+            <div>
+              <div class="left-container">
+                <div class="title-wrapper">
+                  <h3>{{ title }}</h3>
+                  <p>{{ subtitle }}</p>
+                </div>
+                <div class="features-wrapper">
+                  <div class="feature">
+                    <div>
+                      <Checkmark :color="checkmarkColor"></Checkmark>
+                    </div>
+                    <p>{{ feature1 }}</p>
+                  </div>
+                  <div class="feature">
+                    <div>
+                      <Checkmark :color="checkmarkColor"></Checkmark>
+                    </div>
+                    <p>{{ feature2 }}</p>
+                  </div>
+                  <div class="feature">
+                    <div>
+                      <Checkmark :color="checkmarkColor"></Checkmark>
+                    </div>
+                    <p>{{ feature3 }}</p>
+                  </div>
+                  <div class="feature">
+                    <div>
+                      <Checkmark :color="checkmarkColor"></Checkmark>
+                    </div>
+                    <p>{{ feature4 }}</p>
+                  </div>
+                </div>
+                <div class="bottom-section">
+                  <div class="button-wrapper">
+                    <a :href="cta1_link" @click.prevent="start">
+                      <button class="primary">
+                        {{ cta1_text }}
+                      </button>
+                    </a>
+                    <a :href="cta2_link" @click.prevent="login">
+                      <button class="secondary">
+                        {{ cta2_text }}
+                      </button>
+                    </a>
+                  </div>
+                  <div class="logos">
+                    <img src="@/assets/img/mastercard.svg" alt="Mastercard" />
+                    <img src="@/assets/img/visa.svg" alt="Visa" />
+                    <img src="@/assets/img/apple-pay.svg" alt="Apple Pay" />
+                    <img src="@/assets/img/google-pay.svg" alt="Apple Pay" />
+                  </div>
+                </div>
               </div>
-              <div class="features-wrapper">
-                <div class="feature">
-                  <div>
-                    <Checkmark :color="checkmarkColor"></Checkmark>
-                  </div>
-                  <p>{{ feature1 }}</p>
-                </div>
-                <div class="feature">
-                  <div>
-                    <Checkmark :color="checkmarkColor"></Checkmark>
-                  </div>
-                  <p>{{ feature2 }}</p>
-                </div>
-                <div class="feature">
-                  <div>
-                    <Checkmark :color="checkmarkColor"></Checkmark>
-                  </div>
-                  <p>{{ feature3 }}</p>
-                </div>
-                <div class="feature">
-                  <div>
-                    <Checkmark :color="checkmarkColor"></Checkmark>
-                  </div>
-                  <p>{{ feature4 }}</p>
-                </div>
+              <!-- 
+              <div v-if="!telesport" class="sms-option">
+                <p class="sms-title">NOVA OPCIJA PLAĆANJA</p>
+                <p class="sms-text">
+                  Otključajte ovaj članak za nekoliko sekundi putem SMS
+                  pretplate za 12,99 € mjesečno.
+                </p>
+                <p class="sms-instruction">
+                  Pošaljite SMS s tekstom <strong>STANDARD</strong> na broj
+                  <strong>860866</strong>.
+                </p>
               </div>
-              <div class="bottom-section">
-                <div class="button-wrapper">
-                  <a :href="cta1_link" @click.prevent="start">
-                    <button class="primary">
-                      {{ cta1_text }}
-                    </button>
-                  </a>
-                  <a :href="cta2_link" @click.prevent="login">
-                    <button class="secondary">
-                      {{ cta2_text }}
-                    </button>
-                  </a>
-                </div>
-                <div class="logos">
-                  <img src="@/assets/img/mastercard.svg" alt="Mastercard" />
-                  <img src="@/assets/img/visa.svg" alt="Visa" />
-                  <img src="@/assets/img/apple-pay.svg" alt="Apple Pay" />
-                  <img src="@/assets/img/google-pay.svg" alt="Apple Pay" />
-                </div>
-              </div>
+        -->
             </div>
             <div class="right-container">
               <img class="mobile" src="@/assets/img/paywall-mob.png" alt="" />
@@ -84,6 +99,7 @@ export default {
       feature2: 'Pomažete u izgradnji neovisnog novinarstva',
       feature3: 'Podržavate nagrađivane novinare koje najviše pratite',
       feature4: 'Pristup raznim serijalima i kolumnama',
+      telesport: false,
       softwall: false,
       cta1_text: 'Postanite pretplatnik',
       cta1_link: 'https://telegram.hr/pretplata',
@@ -299,6 +315,43 @@ a {
 }
 .logos img {
   max-width: 26px;
+}
+.sms-option {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 16px;
+  padding-bottom: 32px;
+  border-top: 1px solid #dfdfdf;
+  margin-top: 4px;
+}
+.sms-title {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #343434;
+}
+.sms-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #747474;
+}
+.sms-instruction {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #747474;
+}
+.dark-mode .sms-title {
+  color: white;
+}
+.dark-mode .sms-text,
+.dark-mode .sms-instruction {
+  color: #b5b5b5;
 }
 .right-container {
   background: linear-gradient(

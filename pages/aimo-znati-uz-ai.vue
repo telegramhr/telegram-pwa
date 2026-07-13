@@ -7,8 +7,7 @@
     />
     <ht-articles :articles="articles" />
     <ht-kalkulator-cta @open-kalkulator="openKalkulator('mid')" />
-    <!-- Video section hidden until HT delivers the video content. -->
-    <!-- <ht-video-carousel /> -->
+    <ht-video-carousel />
     <ht-landing-footer />
 
     <client-only>
@@ -102,6 +101,13 @@ export default {
           name: 'og:url',
           property: 'og:url',
           content: 'https://www.telegram.hr/ht-ai-landing/',
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          property: 'og:image',
+          content:
+            'https://www.telegram.hr/wp-content/uploads/2026/06/aimo-hrvatski-telekom-2.png',
         },
       ],
       link: [

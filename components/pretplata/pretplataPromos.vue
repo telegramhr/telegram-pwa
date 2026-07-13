@@ -22,7 +22,9 @@ export default {
       <intext-christmas-gift></intext-christmas-gift>
       <intext-telesport-rukomet></intext-telesport-rukomet>
       <intext-telesport-svjetsko></intext-telesport-svjetsko>
+      <intext-telesport-svjetsko-2></intext-telesport-svjetsko-2>
       <intext-odaberi-cijenu></intext-odaberi-cijenu>
+      <intext-promo-50></intext-promo-50>
     </client-only>
   </div>
 </template>
