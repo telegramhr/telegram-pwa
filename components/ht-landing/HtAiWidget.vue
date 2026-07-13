@@ -45,6 +45,7 @@ export default {
 <style scoped>
 .wrapper {
   padding: 0 16px;
+  width: 100%;
 }
 #htai-widget {
   width: 100%;
