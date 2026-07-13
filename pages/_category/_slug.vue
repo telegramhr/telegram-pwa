@@ -100,7 +100,7 @@
         </div>
       </div>
       <div class="full relative">
-        <ht-ai-widget></ht-ai-widget>
+        <ht-ai-widget v-if="post.type === 'premium'"></ht-ai-widget>
         <div class="full">
           <client-only>
             <ad-unit id="telegram_background"></ad-unit>
