@@ -100,6 +100,7 @@
         </div>
       </div>
       <div class="full relative">
+        <ht-ai-widget v-if="post.type === 'premium' && !this.$route.fullPath.includes('telesport') && !this.$route.fullPath.includes('super1')"></ht-ai-widget>
         <div class="full">
           <client-only>
             <ad-unit id="telegram_background"></ad-unit>
@@ -382,6 +383,7 @@
                 </template>
               </div>
               <!-- eslint-disable-next-line -->
+              <ht-ai-widget v-if="!this.$route.fullPath.includes('telesport') && !this.$route.fullPath.includes('super1')"></ht-ai-widget>
               <client-only>
                 <action-bar
                   v-if="post.audio && !post.live"
