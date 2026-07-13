@@ -325,7 +325,7 @@
     </app-link>
     <app-link
       v-show="$store.state.user.access?.length"
-      to="https://knjige.telegram.hr"
+      to="https://knjige.telegram.hr/kategorija-proizvoda/knjige-popust/"
       class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth"
     >
       <img

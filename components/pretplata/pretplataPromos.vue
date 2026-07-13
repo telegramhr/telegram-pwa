@@ -24,6 +24,7 @@ export default {
       <intext-telesport-svjetsko></intext-telesport-svjetsko>
       <intext-telesport-svjetsko-2></intext-telesport-svjetsko-2>
       <intext-odaberi-cijenu></intext-odaberi-cijenu>
+      <intext-promo-50></intext-promo-50>
     </client-only>
   </div>
 </template>

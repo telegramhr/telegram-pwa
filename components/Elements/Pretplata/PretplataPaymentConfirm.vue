@@ -184,7 +184,7 @@
 
           <template v-else>
             Pretplatu možete otkazati u bilo kojem trenutku. Pretplata se
-            automatski obnavlja.
+            automatski obnavlja po punoj cijeni.
           </template>
         </p>
       </div>

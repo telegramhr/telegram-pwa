@@ -30,11 +30,11 @@ export const HT_CAMPAIGN_ARTICLES = [{
         link: '/partneri/philatz-je-uz-pomoc-ai-ja-ozivio-nostalgiju-cijele-jedne-generacije-hoce-li-ista-tehnologija-promijeniti-kreativnu-industriju/',
     },
     {
-        slug: 'pred-omiljenog-lovca-stavili-smo-genijalan-izazov-koji-otkriva-koliko-vremena-umjetna-inteligencija-moze-ustedjeti',
-        title: 'Pred omiljenog lovca stavili smo genijalan izazov koji otkriva koliko vremena umjetna inteligencija može uštedjeti',
-        excerpt: 'Krešimir Sučević Međeral testirao je kako izgleda isti zadatak sa i bez AI-ja',
-        image: '/ht-landing/article-4.webp',
-        link: '/partneri/pred-omiljenog-lovca-stavili-smo-genijalan-izazov-koji-otkriva-koliko-vremena-umjetna-inteligencija-moze-ustedjeti/',
+        slug: 'zagrebacki-doktor-o-ai-ju-smanjuje-pogreske-pomaze-u-prevenciji-raka-i-daje-lijecnicima-vise-vremena-za-pacijente',
+        title: "Zagrebački doktor o AI-ju: 'Smanjuje pogreške, pomaže u prevenciji raka i daje liječnicima više vremena za pacijente'",
+        excerpt: 'Gastroenterolog Božo Radić otkrio nam je prednosti umjetne inteligencije u svakodnevnom radu',
+        image: '/ht-landing/article-4.jpg',
+        link: '/partneri/zagrebacki-doktor-o-ai-ju-smanjuje-pogreske-pomaze-u-prevenciji-raka-i-daje-lijecnicima-vise-vremena-za-pacijente/',
     },
 ]
 

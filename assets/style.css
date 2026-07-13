@@ -163,6 +163,13 @@ h2,
     position: relative;
 }
 
+/* Force the 800x505 crop ratio regardless of the source file's true
+   intrinsic dimensions (animated GIFs are served uncropped since WP
+   can't resize them without breaking the animation). */
+img[width="800"][height="505"] {
+    aspect-ratio: 800 / 505;
+}
+
 .featured-articles .article img,
 .article-break>img {
     height: 63.1vw;

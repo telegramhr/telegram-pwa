@@ -100,6 +100,7 @@
         </div>
       </div>
       <div class="full relative">
+        <ht-ai-widget></ht-ai-widget>
         <div class="full">
           <client-only>
             <ad-unit id="telegram_background"></ad-unit>
@@ -382,6 +383,7 @@
                 </template>
               </div>
               <!-- eslint-disable-next-line -->
+              <ht-ai-widget></ht-ai-widget>
               <client-only>
                 <action-bar
                   v-if="post.audio && !post.live"
@@ -1231,7 +1233,6 @@
 import { Portal } from '@linusborg/vue-simple-portal'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-import StudenacWidget from '~/components/Elements/StudenacWidget.vue'
 import A1Widget from '~/components/Elements/A1Widget.vue'
 import HtWidget from '~/components/Elements/HtWidget.vue'
 import BusinessWidget from '~/components/Elements/BusinessWidget.vue'
@@ -1240,7 +1241,6 @@ import MatchScoreboard from '~/components/liveblog/MatchScoreboard.vue'
 import { HT_CAMPAIGN_ARTICLE_SLUGS } from '~/store/ht-kalkulator/articles'
 
 const widgetMap = {
-  studenac: 'StudenacWidget',
   a1: 'A1Widget',
   ht: 'HtWidget',
   business: 'BusinessWidget',
@@ -1251,7 +1251,6 @@ export default {
   scrollToTop: true,
   components: {
     Portal,
-    StudenacWidget,
     A1Widget,
     HtWidget,
     BusinessWidget,

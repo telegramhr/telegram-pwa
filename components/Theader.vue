@@ -402,7 +402,7 @@
               :to="
                 $route.fullPath.includes('telesport')
                   ? '/pretplata/ponuda-svjetsko/'
-                  : '/pretplata/popust-standard/'
+                  : '/pretplata/50-popust/'
               "
               :class="[
                 'newbtn',
