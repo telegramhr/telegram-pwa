@@ -45,7 +45,7 @@
                         {{ cta1_text }}
                       </button>
                     </a>
-                    <a :href="cta2_link" @click.prevent="login">
+                    <a v-if="canLogIn" :href="cta2_link" @click.prevent="login">
                       <button class="secondary">
                         {{ cta2_text }}
                       </button>
@@ -191,6 +191,9 @@ export default {
       get() {
         return this.$store.state.theme.theme === 'dark' ? '#ffffff' : '#343434'
       },
+    },
+    canLogIn() {
+      return this.$store.getters['user/canLogIn']
     },
   },
 }
