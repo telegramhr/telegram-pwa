@@ -405,6 +405,12 @@
     </div>
     <!-- Widget autori -->
     <commentary-alt type="tg"></commentary-alt>
+    <!-- Designer Outlet -->
+    <client-only>
+      <div v-if="!hasPremium" class="full relative">
+        <designer-outlet></designer-outlet>
+      </div>
+    </client-only>
     <!-- Velika rubrika: Zivot -->
     <div class="full relative column-bottom-pad">
       <category-zone zone="zivot"></category-zone>
