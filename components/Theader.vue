@@ -401,7 +401,7 @@
               id="pretplata-promo"
               :to="
                 $route.fullPath.includes('telesport')
-                  ? '/pretplata/ponuda-svjetsko/'
+                  ? '/pretplata/telesport/'
                   : '/pretplata/50-popust/'
               "
               :class="[
