@@ -701,11 +701,11 @@ export default {
   display: flex;
   align-items: center;
   gap: 4px;
-  background: #1c8746;
+  background: #ae3737;
   padding: 6px;
   font-family: 'Barlow';
   font-size: 11px;
-  border: none;
+  border: 1px solid white;
   font-weight: 600;
   border-radius: 3px;
   letter-spacing: 0.3px;
