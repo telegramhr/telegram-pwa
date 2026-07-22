@@ -52,11 +52,11 @@
               !$store.state.user.access?.length
             "
             id="pretplata-promo"
-            to="/pretplata/50-popust/"
+            to="/pretplata/"
             class="newbtn gift-btn"
           >
-            <span class="poklonMobile">POPUST 50%</span
-            ><span class="poklon">POPUST 50%</span></app-link
+            <span class="poklonMobile">Pretplatite se</span
+            ><span class="poklon">Pretplatite se</span></app-link
           >
           <a
             v-show="!canLogIn"
@@ -312,12 +312,12 @@
       class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth"
     >
       <img
-        src="@/assets/img/pretplata/standard/banner_desktop.png"
+        src="@/assets/img/pretplata/50-popust/50banner.png"
         alt="Desktop banner za popust na godišnju pretplatu"
         class="desktop-only"
       />
       <img
-        src="@/assets/img/pretplata/standard/banner_mobile.png"
+        src="@/assets/img/pretplata/50-popust/50banner_mob.png"
         alt="Mobile banner za popust na godišnju pretplatu"
         class="mobile-only"
         style="width: 100%"

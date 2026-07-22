@@ -402,7 +402,7 @@
               :to="
                 $route.fullPath.includes('telesport')
                   ? '/pretplata/telesport/'
-                  : '/pretplata/50-popust/'
+                  : '/pretplata/'
               "
               :class="[
                 'newbtn',
@@ -412,7 +412,7 @@
             >
               {{
                 !$route.fullPath.includes('telesport')
-                  ? 'POPUST GODINE'
+                  ? 'Pretplatite se'
                   : 'Pretplatite se'
               }}</app-link
             >
@@ -561,7 +561,7 @@ export default {
   display: flex;
   align-items: center;
   gap: 4px;
-  background: #1c8746;
+  background: #ae3737;
   padding: 6px;
   font-family: 'Barlow';
   font-size: 11px;

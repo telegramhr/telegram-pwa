@@ -163,9 +163,11 @@ h2,
     position: relative;
 }
 
+
 /* Force the 800x505 crop ratio regardless of the source file's true
    intrinsic dimensions (animated GIFs are served uncropped since WP
    can't resize them without breaking the animation). */
+
 img[width="800"][height="505"] {
     aspect-ratio: 800 / 505;
 }
@@ -18012,12 +18014,11 @@ header {
 .dark-mode.telesport .hnl-section,
 .contrast-mode .hnl-section,
 .domoljub-mode .hnl-section {
-    background: radial-gradient(circle, #FFEBA0 0%, #D4AF37 60%, #AA7C11 100%);
-    color: black;
+    background-color: #880c0e;
 }
 
 .hnl-section * {
-    --tg-primary-highlight-color: black;
+    --tg-primary-highlight-color: #ffffff;
 }
 
 .telesport .cantha-block-title .menu {
@@ -18070,60 +18071,6 @@ header {
 }
 
 .cantha-block-title .menu .cantha-submenu.wc-submenu>a:hover {
-    color: #5a4300;
-}
-
-.subsection-title.wc-subsection-title {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    align-items: center;
-}
-
-.subsection-title.wc-subsection-title img {
-    height: 60px;
-    width: auto;
-    display: block;
-    position: static;
-    bottom: auto;
-    margin: 0;
-}
-
-
-/* Force dark text on the gold gradient for AA contrast */
-
-.hnl-section .noththree.subsection-title,
-.hnl-section .article h2,
-.hnl-section .article h2 a,
-.hnl-section .article .overtitle,
-.hnl-section .article .overtitle a,
-.hnl-section .article .nothfour,
-.hnl-section .article .article-meta,
-.hnl-section .article .article-meta span,
-.hnl-section .article .meta-author {
-    color: #111111;
-}
-
-.hnl-section .article-standard,
-.hnl-section .article-featured:first-child .article-pad {
-    border-bottom-color: rgba(0, 0, 0, 0.18);
-}
-
-.hnl-section .column-right-border,
-.hnl-section .column-bottom-border {
-    border-color: rgba(0, 0, 0, 0.18);
-}
-
-
-/* Hover affordance on gold — readable against the gradient */
-
-.hnl-section .article h2,
-.hnl-section .article h2 a {
-    transition: color 0.15s ease;
-}
-
-.hnl-section .article:hover h2,
-.hnl-section .article:hover h2 a {
     color: #5a4300;
 }
 

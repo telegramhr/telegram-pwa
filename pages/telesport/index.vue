@@ -181,37 +181,6 @@
               <app-link to="/tema/price-iz-davnine/">Priče iz davnine</app-link>
             </div>
           </div>
-          <div class="cantha-fake-menuitem wc-fake-menuitem">
-            <app-link
-              role="menuitem"
-              to="/tema/svjetsko-prvenstvo-2026/"
-              class="animate wc-menu-link"
-              >SP 2026
-            </app-link>
-            <input
-              id="open-cantha-submenu-sp26"
-              type="checkbox"
-              name="open-cantha-submenu-sp26"
-              class="hide"
-            />
-            <label for="open-cantha-submenu-sp26" class="mobile-only"
-              >SP 2026</label
-            >
-            <div class="cantha-submenu wc-submenu flex">
-              <app-link to="/tema/svjetsko-prvenstvo-2026/"
-                >Svi članci</app-link
-              >
-              <app-link to="/tema/hrvatska-nogometna-reprezentacija/"
-                >Hrvatska reprezentacija</app-link
-              >
-              <app-link to="/tema/heroj-dana/">Heroj dana</app-link>
-              <app-link to="/tema/fotka-dana/">Fotka dana</app-link>
-              <app-link
-                to="/telesport/na-prvu/tko-kad-igra-raspored-i-rezultati-svjetskog-prvenstva-utakmice-hrvatske-reprezentacije/"
-                >Raspored i rezultati</app-link
-              >
-            </div>
-          </div>
         </nav>
         <div class="flex desktop-only">
           <client-only>
@@ -373,20 +342,16 @@
     </client-only>
     <!-- Euro 24 -->
     <div
-      class="full relative darkened-bg column-top-margin column-bottom-margin column-bottom-pad mobile-vertical-pad hnl-section"
+      class="full relative darkened-bg column-top-margin column-bottom-margin column-bottom-pad mobile-vertical-pad hnl-section dark-mode"
     >
       <div
         class="container mobile-side-pad flex relative stretch column-vertical-pad"
       >
         <div class="full flex column-horizontal-pad">
           <div
-            class="noththree full center-text column-vertical-pad subsection-title wc-subsection-title"
+            class="noththree full center-text column-vertical-pad subsection-title"
           >
-            <img
-              src="@/assets/img/telesport/fifa_wc.png"
-              alt="FIFA Svjetsko prvenstvo 2026"
-            />
-            Svjetsko prvenstvo 2026
+            HNL
           </div>
         </div>
         <div
