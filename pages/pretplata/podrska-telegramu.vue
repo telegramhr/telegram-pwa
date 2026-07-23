@@ -111,7 +111,7 @@ export default {
       terms: false,
       privacy: false,
       auth: 0,
-      urlKey: 'half-off-2025',
+      urlKey: 'telegram-podrska',
       instance: null,
       customerId: null,
       iframeUrl: '',
@@ -197,13 +197,15 @@ export default {
           this.urlKey = 'half-off-2025'
           switch (this.selectedPlan) {
             case 'standard':
-              this.pack = 'Telegram_Standard_Poklon 2024_blagdanski_popust'
+              this.pack =
+                'Telegram_Standard_Godišnja_Pretplata_50%_popust_za prvu godinu'
               this.price = '39'
               this.monthlyPrice = '7.99'
               this.annualPrice = '39'
               break
             case 'premium':
-              this.pack = 'Telegram_Premium_Poklon_2024_blagdanski_popust'
+              this.pack =
+                'Telegram_Premium_Godišnja_Pretplata_50%_popust_za prvu godinu'
               this.price = '49'
               this.monthlyPrice = '9.99'
               this.annualPrice = '49'
