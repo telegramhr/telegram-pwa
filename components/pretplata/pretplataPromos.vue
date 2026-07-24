@@ -1,4 +1,6 @@
 <script>
+import IntextPodrskaTelegramu from '../Elements/IntextPodrskaTelegramu.vue';
+
 export default {
   name: 'PretplataPromos',
 }
@@ -25,6 +27,7 @@ export default {
       <intext-telesport-svjetsko-2></intext-telesport-svjetsko-2>
       <intext-odaberi-cijenu></intext-odaberi-cijenu>
       <intext-promo-50></intext-promo-50>
+      <intext-podrska-telegramu></intext-podrska-telegramu>
     </client-only>
   </div>
 </template>
