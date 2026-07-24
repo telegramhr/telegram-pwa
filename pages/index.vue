@@ -52,11 +52,11 @@
               !$store.state.user.access?.length
             "
             id="pretplata-promo"
-            to="/pretplata/"
+            to="/pretplata/podrska-telegramu/?utm=index_header"
             class="newbtn gift-btn"
           >
-            <span class="poklonMobile">Pretplatite se</span
-            ><span class="poklon">Pretplatite se</span></app-link
+            <span class="poklonMobile">Pretplata -50%</span
+            ><span class="poklon">Pretplata -50%</span></app-link
           >
           <a
             v-show="!canLogIn"
@@ -120,9 +120,9 @@
             <app-link
               v-show="!$store.state.user.access"
               id="pretplatite se - header"
-              to="/pretplata"
+              to="/pretplata/podrska-telegramu/?utm=index_menu"
               class="newbtn"
-              >Pretplatite se</app-link
+              >Pretplata -50%</app-link
             >
             <a
               v-show="!canLogIn"
@@ -701,11 +701,10 @@ export default {
   display: flex;
   align-items: center;
   gap: 4px;
-  background: #ae3737;
+  background: #1c8746;
   padding: 6px;
   font-family: 'Barlow';
-  font-size: 11px;
-  border: 1px solid white;
+  font-size: 10px;
   font-weight: 600;
   border-radius: 3px;
   letter-spacing: 0.3px;
