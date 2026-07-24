@@ -55,7 +55,7 @@ export default {
   data() {
     return {
       softwall: true,
-      show: true,
+      show: false,
       termId: false,
       title: 'Zbog naših otkrića, ponovno nas pokušavaju ušutkati.',
       subtitle: 'Podržite najvažniji i najneovisniji medij u Hrvatskoj',
