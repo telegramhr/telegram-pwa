@@ -34,7 +34,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 32px;
+  gap: 24px;
   max-width: 420px;
   width: 100%;
   margin: 0 auto;
@@ -50,7 +50,7 @@ export default {
 
 @media (min-width: 1024px) {
   .cta {
-    gap: 36px;
+    gap: 24px;
     padding-bottom: 72px;
   }
   .cta span {
