@@ -66,22 +66,36 @@
         ></PretplataPaymentConfirm>
       </div>
     </div>
-    <Features></Features>
-    <FAQ></FAQ>
-    <HowTo
-      :link="{
-        url: '#paymentBoxes',
-        text: 'Darujte pretplatu',
-      }"
-    ></HowTo>
-    <Testimonials></Testimonials>
+    <Testimonials
+      :testimonials="[
+        {
+          text: 'Telegram nije samo nada da će se kriminal razotkriti, nego i mjesto kvalitetnog novinarstva. Jedan je od rijetkih medija koji pokazuje što se događa izvan Zagreba.',
+          name: 'Tvrtko Jakovina',
+          description: 'Pretplatnik i povjesničar',
+          avatar: require('@/assets/img/pretplata/jakovina.png'),
+        },
+        {
+          text: 'Na Telegram sam se pretplatila od samih početaka jer u vremenu promjena medija upravo istraživačko i vjerodostojno novinarstvo vraća izgubljeno povjerenje.',
+          name: 'Ivana Dragičević',
+          description: 'Pretplatnica i novinarka',
+          avatar: require('@/assets/img/pretplata/dragicevic.png'),
+        },
+        {
+          text: 'Većina svjetskih, a i hrvatskih afera otkrili su upravo - mediji. Baš iz tog razloga, bez razmišljanja, dajem svoj skromni doprinos godišnjom pretplatom na Telegram.',
+          name: 'Daniel Ackermann',
+          description: 'Suosnivač agencije Degordian',
+          avatar: require('@/assets/img/pretplata/ackermann.png'),
+        },
+      ]"
+    ></Testimonials>
     <PretplataCTA
-      :text="'Iskoristite 50% popusta na poklon pretplatu'"
+      :text="'Uz vašu podršku nastavljamo bespoštedno razotkrivati afere'"
       :link="{
         url: '#paymentBoxes',
-        text: 'Darujte pretplatu',
+        text: 'Podržite Telegram',
       }"
     ></PretplataCTA>
+    <Footer></Footer>
     <client-only>
       <!-- Chatbot Component -->
       <Chatbot />
