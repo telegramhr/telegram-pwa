@@ -14,7 +14,7 @@ export default {
       <div class="left-container">
         <img src="@/assets/img/plenki-vizual.png" :alt="`Plenki Vizual`" />
       </div>
-      <div class="right-container" :class="leftContainerClass">
+      <div class="right-container">
         <img
           class="tg-logo"
           src="@/assets/img/telegram_logo_white.svg"

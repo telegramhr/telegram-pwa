@@ -59,7 +59,7 @@ export default {
       termId: false,
       title: 'Zbog naših otkrića, ponovno nas pokušavaju ušutkati.',
       subtitle: 'Podržite najvažniji i najneovisniji medij u Hrvatskoj',
-      ctaLink: '#',
+      ctaLink: '/pretplata/podrska-telegramu/',
       cta: 'Podržite Telegram',
     }
   },
@@ -120,9 +120,8 @@ export default {
   flex-direction: column;
   width: 100%;
   max-width: 900px;
-  height: 100%;
-  max-height: 600px;
-
+  height: min(85vh, 600px);
+  position: relative;
   background-color: #703838;
 }
 .bg-image {
@@ -240,7 +239,6 @@ export default {
 }
 @media screen and (min-width: 1024px) {
   .main-wrapper {
-    max-height: 600px;
     flex-direction: column;
   }
   .linear-gradient {

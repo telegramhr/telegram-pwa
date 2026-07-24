@@ -24,7 +24,7 @@
       <div>
         <PretplataPayment
           :allowTermsChange="false"
-          :allowBank="false"
+          :allowBank="true"
           :term="selectedTerm"
           :payment-type="payment"
           :annual-price="annualPrice"
@@ -34,12 +34,6 @@
           @selectTerm="selectTerm"
           @selectPaymentType="selectPaymentType"
         />
-        <PretplataLoginGiftData
-          :gift-email="giftEmail"
-          :gift-date="giftDate_formatted"
-          @updateGiftEmail="updateGiftEmail"
-          @updateGiftDate="updateGiftDate"
-        ></PretplataLoginGiftData>
         <PretplataLogin
           :login-url="loginUrl"
           :email="email"
@@ -49,7 +43,6 @@
           @updateEmail="updateEmail"
         ></PretplataLogin>
         <PretplataPaymentConfirm
-          :is-gift="true"
           :url-key="urlKey"
           :loading="loading"
           :can-log-in="canLogIn"
@@ -59,8 +52,6 @@
           :price="price"
           :email="email"
           :discounted-amount="discount"
-          :gift-email="giftEmail"
-          :gift-date="giftDate_formatted"
           @updateLoading="handleUpdateLoading"
           @updateDiscount="handleUpdateDiscount"
         ></PretplataPaymentConfirm>
@@ -108,7 +99,7 @@ export default {
   data() {
     return {
       loading: false,
-      loginUrl: 'poklon-popust',
+      loginUrl: 'podrska-telegramu',
       subscriptionType: 'individual',
       selectedPlan: 'premium',
       selectedTerm: 'annual',
@@ -134,8 +125,6 @@ export default {
       discount: 0,
       loadingPromo: false,
       promo_error: '',
-      giftEmail: '',
-      giftDate: null, // Default to current date and time
     }
   },
   computed: {
@@ -147,23 +136,6 @@ export default {
     },
     userEmail() {
       return this.$store.state.user.email
-    },
-    giftDate_formatted() {
-      const d = new Date(Date.parse(this.giftDate))
-      return (
-        d.getFullYear() +
-        '-' +
-        this.pad(d.getMonth() + 1) +
-        '-' +
-        this.pad(d.getDate()) +
-        'T' +
-        this.pad(d.getHours()) +
-        ':' +
-        this.pad(d.getMinutes()) +
-        ':' +
-        this.pad(d.getSeconds()) +
-        this.timezoneOffset(d.getTimezoneOffset())
-      )
     },
   },
   mounted() {
@@ -195,12 +167,6 @@ export default {
     updateEmail(email) {
       this.email = email
     },
-    updateGiftEmail(giftEmail) {
-      this.giftEmail = giftEmail
-    },
-    updateGiftDate(giftDate) {
-      this.giftDate = giftDate
-    },
     updateCanLogIn(value) {
       this.canLogIn = value
     },
@@ -208,7 +174,7 @@ export default {
       switch (this.subscriptionType) {
         case 'individual':
           this.discount = 0
-          this.urlKey = 'half-off-2025'
+          this.urlKey = 'telegram-podrska'
           switch (this.selectedPlan) {
             case 'standard':
               this.pack =
@@ -273,7 +239,8 @@ export default {
 
   head() {
     return {
-      title: 'Telegram.hr Pretplata Poklon - 50% popusta za prvu godinu',
+      title:
+        'Telegram.hr Pretplata Podrška Telegramu - 50% popusta za prvu godinu',
       meta: [
         {
           hid: 'description',
@@ -289,27 +256,27 @@ export default {
           hid: 'og:title',
           name: 'og:title',
           property: 'og:title',
-          content: 'Telegram.hr Pretplata Poklon - 50% popusta za prvu godinu',
+          content: 'Telegram.hr Podrška Telegramu - 50% popusta za prvu godinu',
         },
         {
           hid: 'og:image',
           name: 'og:image',
           property: 'og:image',
           content:
-            'https://www.telegram.hr/wp-content/uploads/2025/12/gift.png',
+            'https://www.telegram.hr/wp-content/uploads/2026/07/ministrica.webp',
         },
         {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: 'https://www.telegram.hr/pretplata/poklon-popust/',
+          content: 'https://www.telegram.hr/pretplata/podrska-telegramu/',
         },
       ],
       link: [
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: 'https://www.telegram.hr/pretplata/poklon-popust/',
+          href: 'https://www.telegram.hr/pretplata/podrska-telegramu/',
         },
       ],
       script: [
