@@ -252,7 +252,7 @@ export default {
   }
   .hero-image {
     max-width: 620px;
-    bottom: -40px;
+    bottom: -50px;
     z-index: 800;
   }
   .header {
@@ -261,7 +261,7 @@ export default {
   .content {
     margin: 0px auto;
     text-align: center;
-    padding-top: 70px;
+    padding-top: 60px;
     gap: 28px;
     max-width: 540px;
   }
