@@ -35,7 +35,7 @@ export default {
   flex-direction: column;
   align-items: center;
   gap: 32px;
-  max-width: 406px;
+  max-width: 420px;
   width: 100%;
   margin: 0 auto;
   padding: 0px 16px;

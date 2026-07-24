@@ -1,4 +1,4 @@
-<template>
+<<template>
   <div class="wrapper">
     <div id="htai-widget">
       <div class="left">
@@ -9,7 +9,7 @@
           Besplatni video vodiči, praktični AI alati i znanja koja možete
           primijeniti odmah.
         </p>
-        <button>
+        <a href="/aimo-znati-uz-ai/">
           Istraži sadržaje
           <svg
             class="arrow-right"
@@ -27,7 +27,7 @@
               stroke-linejoin="round"
             />
           </svg>
-        </button>
+        </a>
       </div>
       <div class="right">
         <img src="@/assets/img/widgets/ht/ht-white.png" alt="HT Logo" />
@@ -74,7 +74,7 @@ export default {
   font-weight: 600;
   text-align: center;
 }
-.center button {
+.center a {
   background: white;
   color: #e2007a;
   font-family: 'Inter', sans-serif;
@@ -88,13 +88,13 @@ export default {
   gap: 4px;
   cursor: pointer;
 }
-.center button .arrow-right {
+.center a .arrow-right {
   flex-shrink: 0;
   width: 9;
   height: 8px;
   transition: transform 0.2s ease;
 }
-.center button:hover .arrow-right {
+.center a:hover .arrow-right {
   transform: translateX(3px);
 }
 .right img {
@@ -114,7 +114,7 @@ export default {
     font-size: 18px;
     max-width: 360px;
   }
-  .center button {
+  .center a {
     padding: 10px 14px;
     font-size: 14px;
   }
@@ -123,3 +123,4 @@ export default {
   }
 }
 </style>
+>
