@@ -52,16 +52,20 @@ export default {
 .wrapper {
   position: relative;
   width: 100%;
+  min-height: 480px;
   margin: 0 auto;
   display: flex;
   flex-direction: column-reverse;
   padding: 48px 0px 0px 0px;
-  justify-content: center;
+  justify-content: space-between;
 }
 .left-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
+}
+.left-container img {
+  display: block;
 }
 .right-container {
   display: flex;
