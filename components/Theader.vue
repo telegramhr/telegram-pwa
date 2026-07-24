@@ -27,7 +27,7 @@
               :to="
                 $route.fullPath.includes('telesport')
                   ? '/pretplata/telesport'
-                  : '/pretplata'
+                  : '/pretplata/podrska-telegramu/?utm=theader'
               "
               class="signup-btn sub-btn"
               >Pretplatite se</app-link
@@ -402,7 +402,7 @@
               :to="
                 $route.fullPath.includes('telesport')
                   ? '/pretplata/telesport/'
-                  : '/pretplata/'
+                  : '/pretplata/podrska-telegramu/?utm=theader'
               "
               :class="[
                 'newbtn',

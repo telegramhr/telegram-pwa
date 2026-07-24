@@ -52,7 +52,7 @@
               !$store.state.user.access?.length
             "
             id="pretplata-promo"
-            to="/pretplata/podrska-telegramu/?utm=header_index"
+            to="/pretplata/podrska-telegramu/?utm=index_header"
             class="newbtn gift-btn"
           >
             <span class="poklonMobile">Pretplata -50%</span
@@ -120,9 +120,9 @@
             <app-link
               v-show="!$store.state.user.access"
               id="pretplatite se - header"
-              to="/pretplata"
+              to="/pretplata/podrska-telegramu/?utm=index_menu"
               class="newbtn"
-              >Pretplatite se</app-link
+              >Pretplata -50%</app-link
             >
             <a
               v-show="!canLogIn"
