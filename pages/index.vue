@@ -52,7 +52,7 @@
               !$store.state.user.access?.length
             "
             id="pretplata-promo"
-            to="/pretplata/podrska-telegramu/?utm_content=index_header"
+            to="/pretplata/podrska-telegramu/?utm_source=index_header&utm_medium=direct&utm_campaign=podrska-telegramu&utm_content=index_header"
             class="newbtn gift-btn"
           >
             <span class="poklonMobile">Pretplata -50%</span
@@ -120,7 +120,7 @@
             <app-link
               v-show="!$store.state.user.access"
               id="pretplatite se - header"
-              to="/pretplata/podrska-telegramu/?utm_content=index_menu"
+              to="/pretplata/podrska-telegramu/?utm_source=index_menu&utm_medium=direct&utm_campaign=podrska-telegramu&utm_content=index_menu"
               class="newbtn"
               >Pretplata -50%</app-link
             >
@@ -308,7 +308,7 @@
     </div>
     <app-link
       v-show="!$store.state.user.access?.length"
-      to="/pretplata/podrska-telegramu/?utm_content=homepage_banner_desktop"
+      to="/pretplata/podrska-telegramu/?utm_source=homepage_banner_desktop&utm_medium=direct&utm_campaign=podrska-telegramu&utm_content=homepage_banner_desktop"
       class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth desktop-only"
     >
       <img
@@ -319,7 +319,7 @@
     </app-link>
     <app-link
       v-show="!$store.state.user.access?.length"
-      to="/pretplata/podrska-telegramu/?utm_content=homepage_banner_mob"
+      to="/pretplata/podrska-telegramu/?utm_source=homepage_banner_mob&utm_medium=direct&utm_campaign=podrska-telegramu&utm_content=homepage_banner_mob"
       class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth mobile-only"
     >
       <img
