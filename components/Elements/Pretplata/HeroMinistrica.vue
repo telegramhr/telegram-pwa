@@ -114,6 +114,7 @@ export default {
     align-items: stretch;
     min-height: 400px;
     padding: 0;
+    justify-content: center;
   }
   .right-container {
     justify-content: center;
