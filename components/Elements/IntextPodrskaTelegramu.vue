@@ -187,7 +187,7 @@ export default {
 .text-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 20px;
 }
 .content a {
   display: flex;
