@@ -252,7 +252,7 @@ export default {
   }
   .hero-image {
     max-width: 620px;
-    bottom: -50px;
+    bottom: -40px;
     z-index: 800;
   }
   .header {
@@ -277,6 +277,10 @@ export default {
     font-size: 20px;
     line-height: 24px;
     text-align: center;
+    margin-bottom: 0px !important;
+  }
+  .text-wrapper {
+    gap: 16px;
   }
   .text-wrapper button {
     font-size: 14px;
