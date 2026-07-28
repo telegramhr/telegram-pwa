@@ -1423,6 +1423,7 @@ import BusinessWidget from '~/components/Elements/BusinessWidget.vue'
 import HtKalkulator from '~/components/ht-kalkulator/HtKalkulator.vue'
 import MatchScoreboard from '~/components/liveblog/MatchScoreboard.vue'
 import { HT_CAMPAIGN_ARTICLE_SLUGS } from '~/store/ht-kalkulator/articles'
+import { customFontLinks } from '~/utils/customFonts'
 
 const widgetMap = {
   a1: 'A1Widget',
@@ -2706,6 +2707,7 @@ export default {
         rel: 'shortlink',
         href: `https://www.telegram.hr/l/${this.post.id}`,
       },
+      ...customFontLinks(this.post),
     ]
     let script = [
       {
