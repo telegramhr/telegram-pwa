@@ -54,6 +54,8 @@
 </template>
 
 <script>
+import { customFontLinks } from '~/utils/customFonts'
+
 export default {
   name: 'SpecijalIndex',
   async fetch() {
@@ -241,6 +243,7 @@ export default {
           rel: 'canonical',
           href: 'https://www.telegram.hr' + this.$route.fullPath,
         },
+        ...customFontLinks(this.post),
       ],
     }
   },

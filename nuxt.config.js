@@ -62,10 +62,6 @@ export default {
             },
             {
                 rel: 'stylesheet',
-                href: 'https://use.typekit.net/rhj2chq.css',
-            },
-            {
-                rel: 'stylesheet',
                 href: '/wp-content/themes/telegram2-desktop/assets/fonts/nyght/nyght.css',
             },
         ],

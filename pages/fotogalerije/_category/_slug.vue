@@ -81,6 +81,8 @@
 </template>
 
 <script>
+import { customFontLinks } from '~/utils/customFonts'
+
 export default {
   name: 'Slug',
   scrollToTop: true,
@@ -231,6 +233,7 @@ export default {
           rel: 'canonical',
           href: this.post.social.path,
         },
+        ...customFontLinks(this.post),
       ],
     }
   },
