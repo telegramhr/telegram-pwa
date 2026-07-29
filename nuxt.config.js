@@ -37,21 +37,14 @@ export default {
                 href: 'https://twitter.com/TelegramHR',
             },
             { rel: 'dns-prefetch', href: 'https://script.dotmetrics.net' },
-            {
-                rel: 'preconnect',
-                href: 'https://script.dotmetrics.net',
-                crossorigin: true,
-            },
-            {
-                rel: 'preload',
-                href: 'https://script.dotmetrics.net/door.js?id=15854',
-                as: 'script',
-            },
-            {
-                rel: 'preload',
-                href: 'https://script.dotmetrics.net/door.js?id=1182',
-                as: 'script',
-            },
+            { rel: 'preconnect', href: 'https://script.dotmetrics.net' },
+            // NOTE: static door.js preloads removed. The dotmetrics.client.js plugin
+            // dynamically injects exactly one path-based door.js per URL (id 1182 default,
+            // 15854 news, 15855 kultura/zivot, 4136 super1, 1175 sport). Two static preloads
+            // (15854 + 1182) fired on every page produced a second, always-dead door.js
+            // request, and on kultura/super1/sport paths BOTH preloads were dead. Removing
+            // both guarantees a single door.js request per URL. preconnect above keeps the
+            // connection warm so the plugin-injected script still loads promptly.
             // DNS prefetch for ad networks
             { rel: 'dns-prefetch', href: '//securepubads.g.doubleclick.net' },
             { rel: 'dns-prefetch', href: '//pagead2.googlesyndication.com' },
@@ -66,10 +59,6 @@ export default {
             {
                 rel: 'stylesheet',
                 href: 'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400&text=%E2%80%9C%E2%80%9D&display=swap',
-            },
-            {
-                rel: 'stylesheet',
-                href: 'https://use.typekit.net/rhj2chq.css',
             },
             {
                 rel: 'stylesheet',
