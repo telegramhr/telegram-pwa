@@ -1389,7 +1389,6 @@ export default {
       liveTimeInterval: null, // setInterval ID for liveTimeNow ticker
       liveExpandedUpdates: [], // anchors of updates expanded by "Pročitajte više"
       liveSummaryExpanded: false,
-      aiSummaryExpanded: false, // folded AI summary; auto-expands once on scroll-into-view
       top_articles: [],
       top_articles_version: 'v1',
       related_posts: [],
@@ -1720,14 +1719,6 @@ export default {
         }
       },
     },
-    // Re-arm the AI-summary observer per article (component is reused across routes).
-    'post.id': {
-      handler() {
-        this.aiSummaryExpanded = false
-        this.$nextTick(() => this.initAiSummary())
-      },
-      immediate: true,
-    },
   },
   mounted() {
     this.$nextTick(() => {
@@ -1748,10 +1739,6 @@ export default {
     window.removeEventListener('scroll', this.handleScroll)
     this.comments_embed = null
     this.stopLivePolling()
-    if (this._aiSummaryObserver) {
-      this._aiSummaryObserver.disconnect()
-      this._aiSummaryObserver = null
-    }
     if (this.liveTimeInterval) {
       clearInterval(this.liveTimeInterval)
       this.liveTimeInterval = null
@@ -2444,50 +2431,6 @@ export default {
           window.scrollTo({ top, behavior: 'smooth' })
         }
       }
-    },
-    // Tag/arrow under the title: open the AI summary and scroll to it.
-    goToAiSummary() {
-      this.aiSummaryExpanded = true
-      this.$nextTick(() => {
-        const el = document.getElementById('ai-summary')
-        if (el) {
-          const top =
-            el.getBoundingClientRect().top +
-            window.scrollY -
-            window.innerHeight * 0.1
-          window.scrollTo({ top, behavior: 'smooth' })
-        }
-      })
-    },
-    // Auto-expand the folded summary the first time it scrolls into view,
-    // then disconnect so it stays user-controlled afterwards.
-    initAiSummary() {
-      if (!process.client) return
-      if (this._aiSummaryObserver) {
-        this._aiSummaryObserver.disconnect()
-        this._aiSummaryObserver = null
-      }
-      this._aiSummaryAutoExpanded = false
-      if (!this.post || !this.post.ai_summary || this.post.live) return
-      if (typeof IntersectionObserver === 'undefined') return
-      const el = document.getElementById('ai-summary')
-      if (!el) return
-      this._aiSummaryObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting && !this._aiSummaryAutoExpanded) {
-              this._aiSummaryAutoExpanded = true
-              this.aiSummaryExpanded = true
-              if (this._aiSummaryObserver) {
-                this._aiSummaryObserver.disconnect()
-                this._aiSummaryObserver = null
-              }
-            }
-          })
-        },
-        { threshold: 0.2, rootMargin: '0px 0px -10% 0px' }
-      )
-      this._aiSummaryObserver.observe(el)
     },
     async loadHomepageWidget() {
       await this.$store.dispatch('homepageWidget/fetch')
