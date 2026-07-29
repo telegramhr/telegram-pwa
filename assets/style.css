@@ -26,6 +26,22 @@
     font-family: "termina", sans-serif !important;
 }
 
+.has-aukio-font-family {
+    font-family: "aukio-std", sans-serif !important;
+}
+
+.has-degular-font-family {
+    font-family: "degular", sans-serif !important;
+}
+
+.has-inter-font-family {
+    font-family: "Inter", sans-serif !important;
+}
+
+.has-clash-display-font-family {
+    font-family: "Clash Display", sans-serif !important;
+}
+
 @font-face {
     font-family: 'Bai Jamjuree';
     font-style: normal;
