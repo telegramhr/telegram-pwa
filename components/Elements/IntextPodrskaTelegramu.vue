@@ -261,7 +261,7 @@ export default {
   .content {
     margin: 0px auto;
     text-align: center;
-    padding-top: 70px;
+    padding-top: 60px;
     gap: 28px;
     max-width: 540px;
   }
@@ -277,6 +277,10 @@ export default {
     font-size: 20px;
     line-height: 24px;
     text-align: center;
+    margin-bottom: 0px !important;
+  }
+  .text-wrapper {
+    gap: 16px;
   }
   .text-wrapper button {
     font-size: 14px;

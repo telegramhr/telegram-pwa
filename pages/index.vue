@@ -52,11 +52,11 @@
               !$store.state.user.access?.length
             "
             id="pretplata-promo"
-            to="/pretplata/podrska-telegramu/?utm=index_header"
+            to="/pretplata/telegram-otkrio-aferu-kerum/?utm_source=index_header&utm_medium=direct&utm_campaign=telegram-otkrio-aferu-kerum&utm_content=index_header"
             class="newbtn gift-btn"
           >
-            <span class="poklonMobile">Pretplata -50%</span
-            ><span class="poklon">Pretplata -50%</span></app-link
+            <span class="poklonMobile">Podržite nas</span
+            ><span class="poklon">Podržite nas</span></app-link
           >
           <a
             v-show="!canLogIn"
@@ -120,9 +120,9 @@
             <app-link
               v-show="!$store.state.user.access"
               id="pretplatite se - header"
-              to="/pretplata/podrska-telegramu/?utm=index_menu"
+              to="/pretplata/telegram-otkrio-aferu-kerum/?utm_source=index_menu&utm_medium=direct&utm_campaign=telegram-otkrio-aferu-kerum&utm_content=index_menu"
               class="newbtn"
-              >Pretplata -50%</app-link
+              >Podržite nas</app-link
             >
             <a
               v-show="!canLogIn"
@@ -308,16 +308,22 @@
     </div>
     <app-link
       v-show="!$store.state.user.access?.length"
-      to="/pretplata/popust-standard"
-      class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth"
+      to="/pretplata/podrska-telegramu/?utm_source=homepage_banner_desktop&utm_medium=direct&utm_campaign=podrska-telegramu&utm_content=homepage_banner_desktop"
+      class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth desktop-only"
     >
       <img
-        src="@/assets/img/pretplata/50-popust/50banner.png"
+        src="@/assets/img/homepage/ministrica_desktop_banner.png"
         alt="Desktop banner za popust na godišnju pretplatu"
         class="desktop-only"
       />
+    </app-link>
+    <app-link
+      v-show="!$store.state.user.access?.length"
+      to="/pretplata/podrska-telegramu/?utm_source=homepage_banner_mob&utm_medium=direct&utm_campaign=podrska-telegramu&utm_content=homepage_banner_mob"
+      class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth mobile-only"
+    >
       <img
-        src="@/assets/img/pretplata/50-popust/50banner_mob.png"
+        src="@/assets/img/homepage/ministrica_mob_banner.png"
         alt="Mobile banner za popust na godišnju pretplatu"
         class="mobile-only"
         style="width: 100%"

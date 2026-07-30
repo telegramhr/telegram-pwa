@@ -1,6 +1,4 @@
 <script>
-import IntextPodrskaTelegramu from '../Elements/IntextPodrskaTelegramu.vue';
-
 export default {
   name: 'PretplataPromos',
 }
