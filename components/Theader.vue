@@ -402,7 +402,7 @@
               :to="
                 $route.fullPath.includes('telesport')
                   ? '/pretplata/telesport/'
-                  : '/pretplata/podrska-telegramu/?utm_source=theader&utm_medium=direct&utm_campaign=podrska-telegramu&utm_content=theader'
+                  : '/pretplata/telegram-otkrio-aferu-kerum/?utm_source=theader&utm_medium=direct&utm_campaign=telegram-otkrio-aferu-kerum&utm_content=theader'
               "
               :class="[
                 'newbtn',
@@ -412,7 +412,7 @@
             >
               {{
                 !$route.fullPath.includes('telesport')
-                  ? 'Pretplata -50%'
+                  ? 'Podržite nas'
                   : 'Pretplatite se'
               }}</app-link
             >
