@@ -308,22 +308,22 @@
     </div>
     <app-link
       v-show="!$store.state.user.access?.length"
-      to="/pretplata/podrska-telegramu/?utm_source=homepage_banner_desktop&utm_medium=direct&utm_campaign=podrska-telegramu&utm_content=homepage_banner_desktop"
+      to="/pretplata/telegram-otkrio-aferu-kerum/?utm_source=homepage_banner_desktop&utm_medium=direct&utm_campaign=telegram-otkrio-aferu-kerum&utm_content=homepage_banner_desktop"
       class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth desktop-only"
     >
       <img
-        src="@/assets/img/homepage/ministrica_desktop_banner.png"
+        src="@/assets/img/pretplata/kerum/banner-kerum-desktop.webp"
         alt="Desktop banner za popust na godišnju pretplatu"
         class="desktop-only"
       />
     </app-link>
     <app-link
       v-show="!$store.state.user.access?.length"
-      to="/pretplata/podrska-telegramu/?utm_source=homepage_banner_mob&utm_medium=direct&utm_campaign=podrska-telegramu&utm_content=homepage_banner_mob"
+      to="/pretplata/telegram-otkrio-aferu-kerum/?utm_source=homepage_banner_mob&utm_medium=direct&utm_campaign=telegram-otkrio-aferu-kerum&utm_content=homepage_banner_mob"
       class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth mobile-only"
     >
       <img
-        src="@/assets/img/homepage/ministrica_mob_banner.png"
+        src="@/assets/img/pretplata/kerum/banner-kerum-mobile.webp"
         alt="Mobile banner za popust na godišnju pretplatu"
         class="mobile-only"
         style="width: 100%"
