@@ -26,6 +26,7 @@ export default {
       <intext-odaberi-cijenu></intext-odaberi-cijenu>
       <intext-promo-50></intext-promo-50>
       <intext-podrska-telegramu></intext-podrska-telegramu>
+      <intext-kerum></intext-kerum>
     </client-only>
   </div>
 </template>
