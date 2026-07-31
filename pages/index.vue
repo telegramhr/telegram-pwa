@@ -52,11 +52,11 @@
               !$store.state.user.access?.length
             "
             id="pretplata-promo"
-            to="/pretplata/telegram-otkrio-aferu-kerum/?utm_source=index_header&utm_medium=direct&utm_campaign=telegram-otkrio-aferu-kerum&utm_content=index_header"
+            to="/pretplata/?utm_source=index_header&utm_medium=direct&utm_campaign=telegram-otkrio-aferu-kerum&utm_content=index_header"
             class="newbtn gift-btn"
           >
-            <span class="poklonMobile">Podržite nas</span
-            ><span class="poklon">Podržite nas</span></app-link
+            <span class="poklonMobile">Pretplatite se</span
+            ><span class="poklon">Pretplatite se</span></app-link
           >
           <a
             v-show="!canLogIn"
@@ -120,9 +120,9 @@
             <app-link
               v-show="!$store.state.user.access"
               id="pretplatite se - header"
-              to="/pretplata/telegram-otkrio-aferu-kerum/?utm_source=index_menu&utm_medium=direct&utm_campaign=telegram-otkrio-aferu-kerum&utm_content=index_menu"
+              to="/pretplata/?utm_source=index_menu&utm_medium=direct&utm_campaign=telegram-otkrio-aferu-kerum&utm_content=index_menu"
               class="newbtn"
-              >Podržite nas</app-link
+              >Pretplatite se</app-link
             >
             <a
               v-show="!canLogIn"
