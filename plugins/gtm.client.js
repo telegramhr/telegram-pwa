@@ -33,6 +33,15 @@ export default ({ app }) => {
           // NCS mode for the rest of the page view. Reloading is the only way
           // to re-run its checkTCF(). Same applies to any other vendor script
           // already initialised under the pre-consent state.
+          // Stash the real referrer so the head script can restore it after
+          // the reload. Store even when empty: direct traffic would otherwise
+          // come back as a telegram.hr self-referral, which is worse than blank.
+          try {
+            window.sessionStorage.setItem(
+              'cmp_ref',
+              JSON.stringify({ r: document.referrer || '', t: Date.now() })
+            )
+          } catch (e) {}
           // Delay so the CMP finishes persisting the TC string first.
           setTimeout(() => {
             window.location.reload()
