@@ -27,9 +27,16 @@ export default ({ app }) => {
           ad_personalization: data.purpose.consents[4] ? 'granted' : 'denied',
         })
         if (data.eventStatus === 'useractioncomplete') {
-          // Reload removed: consent update is sufficient for GA4.
-          // Reload was causing document.referrer to become self-referral,
-          // breaking UTM campaign attribution from external sites.
+          // Dotmetrics' door.js decides consent once, at load time: it latches
+          // on cmpuishown (lr=true) and calls removeEventListener, so it never
+          // re-evaluates when the user later consents and stays in anonymous
+          // NCS mode for the rest of the page view. Reloading is the only way
+          // to re-run its checkTCF(). Same applies to any other vendor script
+          // already initialised under the pre-consent state.
+          // Delay so the CMP finishes persisting the TC string first.
+          setTimeout(() => {
+            window.location.reload()
+          }, 300)
         }
       }),
   })
