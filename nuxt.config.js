@@ -54,7 +54,7 @@ export default {
             { rel: 'dns-prefetch', href: '//adservice.google.com' },
             {
                 rel: 'stylesheet',
-                href: 'https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,400&family=Gloock&family=Lora:ital,wght@0,400;0,500;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=IBM+Plex+Mono:wght@500;600&family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap',
+                href: 'https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,400&family=Gloock&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=IBM+Plex+Mono:wght@500;600&family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap',
             },
             {
                 rel: 'stylesheet',
@@ -69,9 +69,9 @@ export default {
             // Restore the referrer across the post-consent reload (see
             // plugins/gtm.client.js). location.reload() makes document.referrer
             // self-referential, and because Consent Mode starts denied the GA4
-            // session only begins on the reloaded page — so the session would
-            // take telegram.hr as its own source. Dotmetrics (rurl), Marfeel and
-            // Gemius read the same property, so restoring it fixes all at once.
+            // session only begins on the reloaded page — so the session would take
+            // telegram.hr as its own source. Dotmetrics (rurl), Marfeel and Gemius
+            // read the same property, so restoring it fixes all of them at once.
             // Must run before anything reads document.referrer, hence first.
             {
                 hid: 'referrer-restore',
@@ -82,12 +82,12 @@ export default {
                     'Object.defineProperty(document,"referrer",{configurable:true,get:function(){return d.r}});' +
                     '}catch(e){}})();',
             },
-            // Google Privacy & messaging (Funding Choices) — must stay ahead of
-            // the ad and analytics tags.
-            // Loaded standalone rather than as a downstream fetch of adsbygoogle.js
-            // so that __tcfapi exists at parse time instead of ~1.8s after
-            // hydration, and so consent no longer depends on the ad tag loading
-            // (premium users, ad blockers, in-app browsers).
+            // Google Privacy & messaging (Funding Choices) — must stay ahead of the
+            // ad and analytics tags.
+            // Loaded standalone rather than as a downstream fetch of adsbygoogle.js so
+            // that __tcfapi exists at parse time instead of ~1.8s after hydration, and
+            // so consent no longer depends on the ad tag loading (premium users, ad
+            // blockers, in-app browsers).
             {
                 hid: 'googlefc',
                 src: 'https://fundingchoicesmessages.google.com/i/pub-2317149376955370?ers=1',
