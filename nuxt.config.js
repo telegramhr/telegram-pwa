@@ -66,7 +66,24 @@ export default {
             },
         ],
         script: [
-            // Google Privacy & messaging (Funding Choices) — must stay first.
+            // Restore the referrer across the post-consent reload (see
+            // plugins/gtm.client.js). location.reload() makes document.referrer
+            // self-referential, and because Consent Mode starts denied the GA4
+            // session only begins on the reloaded page — so the session would
+            // take telegram.hr as its own source. Dotmetrics (rurl), Marfeel and
+            // Gemius read the same property, so restoring it fixes all at once.
+            // Must run before anything reads document.referrer, hence first.
+            {
+                hid: 'referrer-restore',
+                innerHTML: '(function(){try{var k="cmp_ref";var raw=window.sessionStorage.getItem(k);' +
+                    'if(raw===null){return}window.sessionStorage.removeItem(k);' +
+                    'var d=JSON.parse(raw);if(!d||typeof d.r!=="string"){return}' +
+                    'if(Date.now()-d.t>60000){return}' +
+                    'Object.defineProperty(document,"referrer",{configurable:true,get:function(){return d.r}});' +
+                    '}catch(e){}})();',
+            },
+            // Google Privacy & messaging (Funding Choices) — must stay ahead of
+            // the ad and analytics tags.
             // Loaded standalone rather than as a downstream fetch of adsbygoogle.js
             // so that __tcfapi exists at parse time instead of ~1.8s after
             // hydration, and so consent no longer depends on the ad tag loading
@@ -146,6 +163,7 @@ export default {
             remplib: ['innerHTML'],
             didomi: ['innerHTML'],
             'googlefc-present': ['innerHTML'],
+            'referrer-restore': ['innerHTML'],
         },
     },
 
