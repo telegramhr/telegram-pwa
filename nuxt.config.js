@@ -65,7 +65,45 @@ export default {
                 href: '/wp-content/themes/telegram2-desktop/assets/fonts/nyght/nyght.css',
             },
         ],
-        script: [{
+        script: [
+            // Restore the referrer across the post-consent reload (see
+            // plugins/gtm.client.js). location.reload() makes document.referrer
+            // self-referential, and because Consent Mode starts denied the GA4
+            // session only begins on the reloaded page — so the session would
+            // take telegram.hr as its own source. Dotmetrics (rurl), Marfeel and
+            // Gemius read the same property, so restoring it fixes all at once.
+            // Must run before anything reads document.referrer, hence first.
+            {
+                hid: 'referrer-restore',
+                innerHTML: '(function(){try{var k="cmp_ref";var raw=window.sessionStorage.getItem(k);' +
+                    'if(raw===null){return}window.sessionStorage.removeItem(k);' +
+                    'var d=JSON.parse(raw);if(!d||typeof d.r!=="string"){return}' +
+                    'if(Date.now()-d.t>60000){return}' +
+                    'Object.defineProperty(document,"referrer",{configurable:true,get:function(){return d.r}});' +
+                    '}catch(e){}})();',
+            },
+            // Google Privacy & messaging (Funding Choices) — must stay ahead of
+            // the ad and analytics tags.
+            // Loaded standalone rather than as a downstream fetch of adsbygoogle.js
+            // so that __tcfapi exists at parse time instead of ~1.8s after
+            // hydration, and so consent no longer depends on the ad tag loading
+            // (premium users, ad blockers, in-app browsers).
+            {
+                hid: 'googlefc',
+                src: 'https://fundingchoicesmessages.google.com/i/pub-2317149376955370?ers=1',
+                async: true,
+            },
+            {
+                // Signals to Google's ad tags that Funding Choices is on the page.
+                // Required for ad block detection to work.
+                hid: 'googlefc-present',
+                innerHTML: '(function() {function signalGooglefcPresent() {if (!window.frames["googlefcPresent"]) {' +
+                    'if (document.body) {const iframe = document.createElement("iframe"); ' +
+                    'iframe.style = "width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;"; ' +
+                    'iframe.style.display = "none"; iframe.name = "googlefcPresent"; document.body.appendChild(iframe);} ' +
+                    'else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();',
+            },
+            {
                 hid: 'coral',
                 src: 'https://talk.telegram.hr/assets/js/embed.js',
                 async: false,
@@ -124,6 +162,8 @@ export default {
         __dangerouslyDisableSanitizersByTagID: {
             remplib: ['innerHTML'],
             didomi: ['innerHTML'],
+            'googlefc-present': ['innerHTML'],
+            'referrer-restore': ['innerHTML'],
         },
     },
 
