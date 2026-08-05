@@ -1998,9 +1998,9 @@ export default {
     },
     triggerAnalytics() {
       if (this.post.category_slug.includes('telesport')) {
-        setTimeout(() => {
+        /* setTimeout(() => {
           this.$dotmetrics.postLoad(this.post.category_slug)
-        }, 10000)
+        }, 10000) */
       }
     },
     getPost() {
