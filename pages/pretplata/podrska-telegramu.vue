@@ -263,7 +263,7 @@ export default {
           name: 'og:image',
           property: 'og:image',
           content:
-            'https://www.telegram.hr/wp-content/uploads/2026/07/ministrica.webp',
+            'https://www.telegram.hr/wp-content/uploads/2026/08/pretplata-ekipa-share.png',
         },
         {
           hid: 'og:url',
