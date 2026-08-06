@@ -288,7 +288,7 @@ export default {
   }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1600px) {
   .hero-podrska {
     --u: 1px;
   }
