@@ -27,6 +27,7 @@ export default {
       <intext-promo-50></intext-promo-50>
       <intext-podrska-telegramu></intext-podrska-telegramu>
       <intext-kerum></intext-kerum>
+      <intext-ekipa></intext-ekipa>
     </client-only>
   </div>
 </template>
