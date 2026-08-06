@@ -3,7 +3,7 @@
     <div v-if="loading" class="telegram-overlay">
       <span class="telegram-loader"></span>
     </div>
-    <HeroMinistrica></HeroMinistrica>
+    <HeroPodrska></HeroPodrska>
     <div class="content">
       <div class="box-wrapper">
         <div id="paymentBoxes" class="boxes">
