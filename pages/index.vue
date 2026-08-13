@@ -331,16 +331,16 @@
     </app-link>
     <app-link
       v-show="$store.state.user.access?.length"
-      to="https://knjige.telegram.hr/kategorija-proizvoda/knjige-popust/"
+      to="https://knjige.telegram.hr/kategorija-proizvoda/knjige/?orderby=date"
       class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth"
     >
       <img
-        src="@/assets/img/homepage/banner_desktop_knjige.jpg"
+        src="@/assets/img/homepage/banner-knjige-desktop.webp"
         alt=""
         class="desktop-only"
       />
       <img
-        src="@/assets/img/homepage/banner_mob_knjige.png"
+        src="@/assets/img/homepage/banner-knjige-mob.webp"
         alt=""
         class="mobile-only"
         style="width: 100%"
