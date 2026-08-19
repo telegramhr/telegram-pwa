@@ -54,12 +54,16 @@ export default ({ route }, inject) => {
         let doorLoaded = false
 
         function loadOnce() {
-            if (doorLoaded) return
+            if (doorLoaded || window.__dmDoorInjected) return
             doorLoaded = true
+            window.__dmDoorInjected = true
             appendDoorScript(path)
         }
 
-        // Ideal path: wait for CMP consent API
+        // The SSR'd head tag (nuxt.config.js, hid 'dotmetrics-door') normally
+        // injects door.js long before this plugin can hydrate and sets
+        // window.__dmDoorInjected, so everything below is usually a no-op. It
+        // stays as a fallback for the case where the head tag never ran.
         window.googlefc = window.googlefc || {}
         window.googlefc.callbackQueue = window.googlefc.callbackQueue || []
         window.googlefc.callbackQueue.push({
@@ -68,16 +72,18 @@ export default ({ route }, inject) => {
             },
         })
 
-        // Fallback: check after 500ms if CMP is present at all
-        // In-app browsers have no CMP — no point waiting 2.5s
+        // Backstop for a CMP that is present but never fires CONSENT_API_READY.
+        // door.js does its own TCF gating and only needs __tcfapi to exist, so
+        // this is safe — but it must stay gated on that check. Loading bare is
+        // what caused the original breach: with __tcfapi undefined door.js reads
+        // it as "cmp does not use TCF", assumes full consent and writes
+        // persistent identity cookies. The head tag owns the no-CMP case, where
+        // it installs a no-consent TCF API before loading door.js anonymously.
         setTimeout(() => {
-            if (typeof window.__tcfapi !== 'function') {
+            if (typeof window.__tcfapi === 'function') {
                 loadOnce()
             }
-        }, 500)
-
-        // Final fallback: if CMP exists but CONSENT_API_READY never fires
-        setTimeout(loadOnce, 2500)
+        }, 2500)
     }
 
     function postLoad(path) {
