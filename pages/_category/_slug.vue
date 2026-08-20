@@ -343,6 +343,7 @@
                   </client-only>
                 </div>
               </div>
+              <google-source class="desktop-only"></google-source>
               <div
                 v-if="post.type !== 'noimage' && (post.image.url || post.video)"
                 class="full flex article-head-image-parent relative"
@@ -671,6 +672,7 @@
                     ></action-bar>
                   </client-only>
                 </div>
+                <google-source class="mobile-only"></google-source>
               </div>
             </div>
           </div>
