@@ -82,6 +82,71 @@ export default {
                     'Object.defineProperty(document,"referrer",{configurable:true,get:function(){return d.r}});' +
                     '}catch(e){}})();',
             },
+            // Inject Dotmetrics door.js from the SSR'd head instead of waiting for
+            // plugins/dotmetrics.client.js to hydrate. Measured against production
+            // on 2026-08-19 (mobile viewport, 4x CPU, Fast 3G, medians of 4 paired
+            // runs): door.js 33.7s -> 9.8s, hit.gif 34.9s -> 15.8s. The plugin is a
+            // client plugin, so it was asking for the script ~24s after the CMP was
+            // already ready. On desktop the same change is worth 1.8-3.4s.
+            //
+            // door.js does its OWN consent gating — checkTCF() handles tcloaded /
+            // useractioncomplete / cmpuishown — so we only need __tcfapi to EXIST,
+            // not the user's decision.
+            //
+            // Gate on googlefc's CONSENT_API_READY. It is event-driven and fired in
+            // 6/6 throttled runs; a 50ms __tcfapi poll with an 8s ceiling gave up
+            // before the CMP was ready (__tcfapi lands at ~9.9s on 3G) and injected
+            // nothing at all, losing the visitor outright. The poll below is only a
+            // secondary gate and its ceiling is deliberately well past that.
+            //
+            // Never inject bare. With __tcfapi undefined, door.js reads it as "cmp
+            // does not use TCF", assumes FULL CONSENT and writes DomainCookie +
+            // DeviceKey + UniqueUserIdentityCookie. That is not a slow-CMP race: any
+            // ad blocker that blocks fundingchoicesmessages.google.com reproduces it
+            // deterministically (measured c=true, dc=<uuid>, all three cookies).
+            // So if the CMP never arrives we install a minimal TCF v2 API that
+            // answers no-consent and inject behind it — measured c=false with zero
+            // cookies, and the visitor still gets counted. This must only ever
+            // happen AFTER the CMP has failed: an early stub makes Funding Choices
+            // stand down completely and nothing is measured at all.
+            {
+                hid: 'dotmetrics-door',
+                innerHTML: '(function(){try{' +
+                    "var p=location.pathname,id='1182';" +
+                    "if(/politika-kriminal|biznis-tech|komentari|vijesti/.test(p))id='15854';" +
+                    "if(/kultura|zivot|pitanje-zdravlja|velike-price/.test(p))id='15855';" +
+                    "if(/super1|superone/.test(p))id='4136';" +
+                    "if(/telesport|sport/.test(p))id='1175';" +
+                    'window.dm=window.dm||{AjaxData:[]};' +
+                    'if(!window.dm.AjaxEvent){window.dm.AjaxEvent=function(et,d,ssid,ad){' +
+                    'window.dm.AjaxData.push({et:et,d:d,ssid:ssid,ad:ad});' +
+                    'if(window.DotMetricsObj&&window.DotMetricsObj.onAjaxDataUpdate){' +
+                    'window.DotMetricsObj.onAjaxDataUpdate()}}}' +
+                    'function inject(){if(window.__dmDoorInjected)return;' +
+                    'window.__dmDoorInjected=true;' +
+                    "var s=document.createElement('script');s.async=true;" +
+                    "s.src='https://script.dotmetrics.net/door.js?id='+id;" +
+                    '(document.head||document.documentElement).appendChild(s)}' +
+                    "if(typeof window.__tcfapi==='function'){inject();return}" +
+                    'window.googlefc=window.googlefc||{};' +
+                    'window.googlefc.callbackQueue=window.googlefc.callbackQueue||[];' +
+                    'window.googlefc.callbackQueue.push({CONSENT_API_READY:function(){inject()}});' +
+                    'var t0=Date.now();var iv=setInterval(function(){' +
+                    'if(window.__dmDoorInjected){clearInterval(iv);return}' +
+                    "if(typeof window.__tcfapi==='function'){clearInterval(iv);inject();return}" +
+                    'if(Date.now()-t0<=20000)return;clearInterval(iv);' +
+                    "var t={eventStatus:'tcloaded',cmpStatus:'loaded',gdprApplies:true,tcString:''," +
+                    'purpose:{consents:{},legitimateInterests:{}},' +
+                    'vendor:{consents:{},legitimateInterests:{}},listenerId:1};' +
+                    'window.__tcfapi=function(cmd,ver,cb){' +
+                    "if(typeof cb!=='function')return;" +
+                    "if(cmd==='addEventListener'){cb(t,true)}" +
+                    "else if(cmd==='removeEventListener'){cb(true)}" +
+                    "else if(cmd==='getTCData'){cb(t,true)}" +
+                    'else{cb(null,false)}};' +
+                    'inject()},100);' +
+                    '}catch(e){}})();',
+            },
             // Google Privacy & messaging (Funding Choices) — must stay ahead of
             // the ad and analytics tags.
             // Loaded standalone rather than as a downstream fetch of adsbygoogle.js
@@ -164,6 +229,7 @@ export default {
             didomi: ['innerHTML'],
             'googlefc-present': ['innerHTML'],
             'referrer-restore': ['innerHTML'],
+            'dotmetrics-door': ['innerHTML'],
         },
     },
 
