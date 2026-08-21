@@ -403,6 +403,10 @@
                   @share="fbShare()"
                 ></action-bar>
               </client-only>
+              <google-source v-if="!(
+                post.category_slug.includes('super1')
+              )"
+              class="google-source-desktop desktop-only"></google-source>
               <!-- eslint-disable-next-line vue/no-v-html -->
               <p
                 v-if="post.perex"
@@ -667,10 +671,11 @@
                           ? post.authors[0].display_name
                           : ''
                       "
-                      class="nonAudio nonComments bottom"
+                      class="nonAudio nonComments nonGoogle bottom"
                     ></action-bar>
                   </client-only>
                 </div>
+                <google-source v-if="!(post.category_slug.includes('super1'))" class="mobile-only"></google-source>
               </div>
             </div>
           </div>
@@ -885,6 +890,13 @@
 .article-head-newsletter {
   margin-bottom: 12px;
 }
+.google-source.desktop-only{
+  display: none;
+}
+.google-source.mobile-only{
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
 @media screen and (min-width: 600px) {
   .article-meta.desktop-only-meta {
     display: flex !important;
@@ -904,6 +916,12 @@
   }
   .article-head-newsletter {
     margin-bottom: 0px;
+  }
+  .google-source.mobile-only{
+    display: none;
+  }
+  .google-source.desktop-only{
+    display: flex;
   }
 }
 
@@ -1226,6 +1244,10 @@
 .live-update--highlight .telegram-post-embed__button {
   background: var(--tg-primary-background-color);
 }
+.google-source-desktop{
+  order: 3 !important;
+  margin: 8px 0px;
+}
 </style>
 <script>
 import { Portal } from '@linusborg/vue-simple-portal'
@@ -1236,7 +1258,6 @@ import HtWidget from '~/components/Elements/HtWidget.vue'
 import BusinessWidget from '~/components/Elements/BusinessWidget.vue'
 import HtKalkulator from '~/components/ht-kalkulator/HtKalkulator.vue'
 import MatchScoreboard from '~/components/liveblog/MatchScoreboard.vue'
-import { HT_CAMPAIGN_ARTICLE_SLUGS } from '~/store/ht-kalkulator/articles'
 import { customFontLinks } from '~/utils/customFonts'
 
 const widgetMap = {
