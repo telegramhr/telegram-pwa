@@ -145,7 +145,7 @@ export default {
             :icon="['fab', 'facebook-f']"
             class="animate"
           ></font-awesome-icon>
-          Podijeli na Facebook
+          Pokloni na Facebook
         </div>
         <div
           class="full gift-submenu-item clickable animate"

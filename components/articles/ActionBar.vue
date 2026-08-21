@@ -130,7 +130,7 @@
                   stroke-linejoin="round"
                 />
               </svg>
-              Podijeli na Facebook
+              Pokloni na Facebook
             </div>
             <div class="gift-item" @click="twitterShare">
               <svg
@@ -355,7 +355,7 @@
                 stroke-linejoin="round"
               />
             </svg>
-            Podijeli na Facebook
+            Pokloni na Facebook
           </div>
           <div class="share-item" @click="shareTwitter">
             <svg
