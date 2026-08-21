@@ -403,7 +403,10 @@
                   @share="fbShare()"
                 ></action-bar>
               </client-only>
-              <google-source class="google-source-desktop desktop-only"></google-source>
+              <google-source v-if="!(
+                post.category_slug.includes('super1')
+              )"
+              class="google-source-desktop desktop-only"></google-source>
               <!-- eslint-disable-next-line vue/no-v-html -->
               <p
                 v-if="post.perex"
@@ -672,7 +675,7 @@
                     ></action-bar>
                   </client-only>
                 </div>
-                <google-source class="mobile-only"></google-source>
+                <google-source v-if="!(post.category_slug.includes('super1'))" class="mobile-only"></google-source>
               </div>
             </div>
           </div>
