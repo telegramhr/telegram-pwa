@@ -1,5 +1,8 @@
 <template>
   <div class="google-source" data-nosnippet>
+    <p class="google-source-lead">
+      Želite da vam Google češće prikazuje Telegramove priče?
+    </p>
     <a
       class="google-source-btn"
       href="https://google.com/preferences/source?q=telegram.hr"
@@ -7,45 +10,15 @@
       rel="nofollow noopener"
       @click="track"
     >
-      <span class="google-source-icon">
-        <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false">
-          <path
-            fill="#EA4335"
-            d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"
-          />
-          <path
-            fill="#4285F4"
-            d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"
-          />
-          <path
-            fill="#FBBC05"
-            d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"
-          />
-          <path
-            fill="#34A853"
-            d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"
-          />
-        </svg>
-      </span>
-      <span class="google-source-text">
-        Dodajte <strong>Telegram.hr</strong> među omiljene izvore na Googleu
-      </span>
-      <span class="google-source-arrow" aria-hidden="true">
-        <svg
+      <span class="google-source-inner">
+        <img
+          class="google-source-icon"
+          src="@/assets/img/google-g.svg"
+          alt=""
           width="16"
           height="16"
-          viewBox="0 0 16 16"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M6 3L11 8L6 13"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
+        />
+        <span class="google-source-label">Pratite Telegram.hr na Googleu</span>
       </span>
     </a>
   </div>
@@ -68,97 +41,95 @@ export default {
 </script>
 
 <style scoped>
+/* Figma: Article Redesign — Google follow (desktop 1731:2559, mobile 1731:3127) */
 .google-source {
-  width: 100%;
-  margin: 24px 0;
-}
-
-.google-source-btn {
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 12px;
   width: 100%;
   box-sizing: border-box;
-  padding: 14px 18px;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  background: #fff;
-  color: #333;
+  padding: 16px 24px;
+  background: #fdf6ef;
+}
+
+.google-source-lead {
+  margin: 0;
   font-family: 'Barlow', sans-serif;
-  font-size: 16px;
-  line-height: 1.3;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24.5px;
+  color: #343434;
+  text-align: center;
+  white-space: nowrap;
+  text-box: trim-both cap alphabetic;
+}
+
+.google-source-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 6px 8px;
+  border-radius: 14px;
+  background: #fff;
   text-decoration: none;
-  transition: background 0.2s, border-color 0.2s;
 }
 
-.google-source-btn:hover {
-  background: #efded0;
-  border-color: #d8c4b2;
-}
-
-.superone .google-source-btn:hover,
-.openspace .google-source-btn:hover,
-.pitanje-zdravlja .google-source-btn:hover {
-  background: #efefef;
-  border-color: #ddd;
+.google-source-inner {
+  display: flex;
+  align-items: center;
+  gap: 3.5px;
 }
 
 .google-source-icon {
-  display: flex;
-  flex-shrink: 0;
-}
-
-.google-source-icon svg {
-  width: 22px;
-  height: 22px;
   display: block;
-}
-
-.google-source-text {
-  flex: 1 1 auto;
-}
-
-.google-source-text strong {
-  font-weight: 700;
-}
-
-.google-source-arrow {
-  display: flex;
   flex-shrink: 0;
-  color: #999;
+  width: 16px;
+  height: 16px;
 }
 
-@media (max-width: 480px) {
-  .google-source-btn {
-    padding: 12px 14px;
-    font-size: 15px;
-    gap: 10px;
+.google-source-label {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 24.5px;
+  color: #343434;
+  white-space: nowrap;
+  text-box: trim-both cap alphabetic;
+}
+
+@media screen and (max-width: 767px) {
+  .google-source {
+    border-radius: 4px;
   }
-}
 
-body.dark-mode .google-source-btn {
-  background: #1e1e1e;
-  border-color: #3a3a3a;
-  color: #f2f2f2;
-}
+  .google-source-lead {
+    line-height: 18px;
+    white-space: normal;
+    margin-bottom: 0 !important;
+  }
 
-body.dark-mode .google-source-btn:hover {
-  background: #2a2a2a;
-  border-color: #4a4a4a;
-}
+  .google-source-btn {
+    height: 32px;
+    padding: 7.529px 8px;
+    border-radius: 18.824px;
+  }
 
-body.contrast-mode .google-source-btn {
-  background: #000;
-  border-color: #fff;
-  color: #fff;
-}
+  .google-source-inner {
+    gap: 3.765px;
+    padding: 0 7.529px;
+  }
 
-body.contrast-mode .google-source-btn:hover {
-  background: #222;
-}
+  .google-source-icon {
+    width: 14.222px;
+    height: 14.222px;
+  }
 
-body.dark-mode .google-source-arrow,
-body.contrast-mode .google-source-arrow {
-  color: inherit;
+  .google-source-label {
+    font-size: 14px;
+  }
 }
 </style>
