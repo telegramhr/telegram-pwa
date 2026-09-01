@@ -512,9 +512,6 @@ a {
     font-size: 18px;
     line-height: 1.42;
   }
-  .paywall-mockup {
-    max-width: 597px;
-  }
   .paywall-actions {
     flex-direction: row;
     gap: 22px;
