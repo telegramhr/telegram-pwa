@@ -25,7 +25,7 @@
         />
 
         <div class="paywall-actions">
-          <a :href="ctaLink" class="paywall-action" @click.prevent="start">
+          <a :href="cta_link" class="paywall-action" @click.prevent="start">
             <button class="paywall-btn paywall-btn--primary">
               {{ cta_text }}
             </button>
@@ -92,14 +92,6 @@ export default {
       title: null,
       subtitle: null,
       subtitle_user: null,
-      // Brand-scoped overrides. Win over the generic title/subtitle above
-      // so one campaign can carry different copy for both brands.
-      telegramTitle: null,
-      telesportTitle: null,
-      telegramSubtitle: null,
-      telesportSubtitle: null,
-      telegramSubtitleUser: null,
-      telesportSubtitleUser: null,
       topBar: 'Premium članak',
       feature1: null,
       feature2: null,
@@ -109,7 +101,6 @@ export default {
       softwall: false,
       cta_text: 'Pretplatite se',
       cta_link: 'https://telegram.hr/pretplata',
-      cta_telesport_link: 'https://telegram.hr/pretplata/telesport',
       // Only the label is campaign-editable; the login button always points
       // at sign-in (hardcoded in the template).
       cta2_text: 'Imam pretplatu',
@@ -131,11 +122,6 @@ export default {
       return this.telesport || this.$route.path.includes('telesport')
     },
     displayTitle() {
-      // Brand-scoped override wins, then the generic one, then the default.
-      const brand = this.isTelesport ? this.telesportTitle : this.telegramTitle
-      if (brand) {
-        return brand
-      }
       if (this.title) {
         return this.title
       }
@@ -147,28 +133,15 @@ export default {
       // Logged in without an active subscription gets its own copy and,
       // via canLogIn, loses the "Imam pretplatu" button.
       if (!this.canLogIn) {
-        const brandUser = this.isTelesport
-          ? this.telesportSubtitleUser
-          : this.telegramSubtitleUser
         return (
-          brandUser ||
           this.subtitle_user ||
           'Prijavljeni ste u korisnički račun bez aktivne pretplate. Otključajte neograničen pristup člancima i analizama, čitajte bez reklama i podržite neovisno novinarstvo.'
         )
       }
-      const brand = this.isTelesport
-        ? this.telesportSubtitle
-        : this.telegramSubtitle
       return (
-        brand ||
         this.subtitle ||
         'Otključajte neograničen pristup člancima i analizama, čitajte bez reklama i podržite neovisno novinarstvo.'
       )
-    },
-    ctaLink() {
-      return this.isTelesport
-        ? this.cta_telesport_link || this.cta_link
-        : this.cta_link
     },
     showSms() {
       return this.sms_show === null ? !this.isTelesport : this.sms_show
@@ -202,8 +175,8 @@ export default {
         } else {
           this.checkout(this.termId)
         }
-      } else if (this.ctaLink) {
-        window.open(this.ctaLink, '_blank')
+      } else if (this.cta_link) {
+        window.open(this.cta_link, '_blank')
       } else if (this.$route.path.includes('telesport')) {
         this.$router.push('/pretplata/telesport')
       } else {
@@ -211,6 +184,12 @@ export default {
       }
     },
     load(e) {
+      // Two campaigns (Telegram / Telesport) can overlap if their targeting
+      // rules aren't mutually exclusive. Once the wall is up, ignore further
+      // events so a late one can't swap the copy under the reader.
+      if (this.show) {
+        return
+      }
       // Check if user has access to this specific content type
       if (this.$store.getters['user/hasContentAccess'](this.$route.path)) {
         return
@@ -221,16 +200,6 @@ export default {
         this.title = e.detail.title ?? this.title
         this.subtitle = e.detail.subtitle ?? this.subtitle
         this.subtitle_user = e.detail.subtitle_user ?? this.subtitle_user
-        this.telegramTitle = e.detail.telegramTitle ?? this.telegramTitle
-        this.telesportTitle = e.detail.telesportTitle ?? this.telesportTitle
-        this.telegramSubtitle =
-          e.detail.telegramSubtitle ?? this.telegramSubtitle
-        this.telesportSubtitle =
-          e.detail.telesportSubtitle ?? this.telesportSubtitle
-        this.telegramSubtitleUser =
-          e.detail.telegramSubtitleUser ?? this.telegramSubtitleUser
-        this.telesportSubtitleUser =
-          e.detail.telesportSubtitleUser ?? this.telesportSubtitleUser
         this.topBar = e.detail.topBar ?? this.topBar
         this.feature1 = e.detail.feature1 ?? this.feature1
         this.feature2 = e.detail.feature2 ?? this.feature2
@@ -240,8 +209,6 @@ export default {
         // cta1_* are the legacy names the live campaign still sends.
         this.cta_text = e.detail.cta_text ?? e.detail.cta1_text ?? this.cta_text
         this.cta_link = e.detail.cta_link ?? e.detail.cta1_link ?? this.cta_link
-        this.cta_telesport_link =
-          e.detail.cta_telesport_link ?? this.cta_telesport_link
         this.cta2_text = e.detail.cta2_text ?? this.cta2_text
         this.sms_show = e.detail.sms_show ?? this.sms_show
         this.sms_badge = e.detail.sms_badge ?? this.sms_badge
