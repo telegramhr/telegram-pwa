@@ -25,14 +25,14 @@
         />
 
         <div class="paywall-actions">
-          <a :href="cta1_link" class="paywall-action" @click.prevent="start">
+          <a :href="cta_link" class="paywall-action" @click.prevent="start">
             <button class="paywall-btn paywall-btn--primary">
-              {{ cta1_text }}
+              {{ cta_text }}
             </button>
           </a>
           <a
             v-if="canLogIn"
-            :href="cta2_link"
+            href="https://pretplata.telegram.hr/sign/in"
             class="paywall-action"
             @click.prevent="login"
           >
@@ -99,10 +99,11 @@ export default {
       feature4: null,
       telesport: false,
       softwall: false,
-      cta1_text: 'Pretplatite se',
-      cta1_link: 'https://telegram.hr/pretplata',
+      cta_text: 'Pretplatite se',
+      cta_link: 'https://telegram.hr/pretplata',
+      // Only the label is campaign-editable; the login button always points
+      // at sign-in (hardcoded in the template).
       cta2_text: 'Imam pretplatu',
-      cta2_link: 'https://telegram.hr/pretplata',
       sms_show: null,
       sms_badge: 'Nova opcija plaćanja',
       sms_text: 'Pretplatite se putem SMS-a za 12,99€ mjesečno.',
@@ -157,10 +158,10 @@ export default {
     },
   },
   mounted() {
-    window.addEventListener('remp_intext', this.load)
+    window.addEventListener('remp_intext_sms', this.load)
   },
   destroyed() {
-    window.removeEventListener('remp_intext', this.load)
+    window.removeEventListener('remp_intext_sms', this.load)
   },
   methods: {
     login() {
@@ -174,8 +175,8 @@ export default {
         } else {
           this.checkout(this.termId)
         }
-      } else if (this.cta1_link) {
-        window.open(this.cta1_link, '_blank')
+      } else if (this.cta_link) {
+        window.open(this.cta_link, '_blank')
       } else if (this.$route.path.includes('telesport')) {
         this.$router.push('/pretplata/telesport')
       } else {
@@ -183,6 +184,12 @@ export default {
       }
     },
     load(e) {
+      // Two campaigns (Telegram / Telesport) can overlap if their targeting
+      // rules aren't mutually exclusive. Once the wall is up, ignore further
+      // events so a late one can't swap the copy under the reader.
+      if (this.show) {
+        return
+      }
       // Check if user has access to this specific content type
       if (this.$store.getters['user/hasContentAccess'](this.$route.path)) {
         return
@@ -199,10 +206,10 @@ export default {
         this.feature3 = e.detail.feature3 ?? this.feature3
         this.feature4 = e.detail.feature4 ?? this.feature4
         this.telesport = e.detail.telesport ?? this.telesport
-        this.cta1_text = e.detail.cta1_text ?? this.cta1_text
-        this.cta1_link = e.detail.cta1_link ?? this.cta1_link
+        // cta1_* are the legacy names the live campaign still sends.
+        this.cta_text = e.detail.cta_text ?? e.detail.cta1_text ?? this.cta_text
+        this.cta_link = e.detail.cta_link ?? e.detail.cta1_link ?? this.cta_link
         this.cta2_text = e.detail.cta2_text ?? this.cta2_text
-        this.cta2_link = e.detail.cta2_link ?? this.cta2_link
         this.sms_show = e.detail.sms_show ?? this.sms_show
         this.sms_badge = e.detail.sms_badge ?? this.sms_badge
         this.sms_text = e.detail.sms_text ?? this.sms_text
