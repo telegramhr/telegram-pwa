@@ -16,13 +16,18 @@
           <p class="paywall-subtitle">{{ displaySubtitle }}</p>
         </div>
 
-        <img
-          class="paywall-mockup"
-          :src="mockupImage"
-          :width="mockupSize.width"
-          :height="mockupSize.height"
-          alt=""
-        />
+        <picture class="paywall-picture">
+          <source :srcset="mockup.desktop" media="(min-width: 1024px)" />
+          <img
+            class="paywall-mockup"
+            :src="mockup.mobile"
+            :width="mockup.width"
+            :height="mockup.height"
+            loading="lazy"
+            decoding="async"
+            alt=""
+          />
+        </picture>
 
         <div class="paywall-actions">
           <a :href="cta_link" class="paywall-action" @click.prevent="start">
@@ -146,15 +151,22 @@ export default {
     showSms() {
       return this.sms_show === null ? !this.isTelesport : this.sms_show
     },
-    mockupImage() {
+    // Sources are 2x exports. width/height are the 1x mobile size; the
+    // desktop crop has a different aspect ratio, pinned in CSS instead.
+    mockup() {
       return this.isTelesport
-        ? require('@/assets/img/paywall/ts-devices.webp')
-        : require('@/assets/img/paywall/tg-devices.webp')
-    },
-    mockupSize() {
-      return this.isTelesport
-        ? { width: 621, height: 336 }
-        : { width: 602, height: 354 }
+        ? {
+            mobile: require('@/assets/img/paywall/ts_mobile_devices.webp'),
+            desktop: require('@/assets/img/paywall/ts_desktop_devices.webp'),
+            width: 390,
+            height: 282,
+          }
+        : {
+            mobile: require('@/assets/img/paywall/tg_mobile_devices.webp'),
+            desktop: require('@/assets/img/paywall/tg_desktop_devices.webp'),
+            width: 390,
+            height: 267,
+          }
     },
   },
   mounted() {
@@ -333,11 +345,16 @@ a {
   color: #b5b5b5;
 }
 
+.paywall-picture {
+  display: block;
+  width: 100%;
+}
 .paywall-mockup {
   display: block;
   width: 100%;
   max-width: 390px;
   height: auto;
+  margin: 0 auto;
 }
 
 /* Buttons */
@@ -475,6 +492,14 @@ a {
   }
   .paywall-inner {
     gap: 20px;
+  }
+  .paywall-mockup {
+    max-width: 602px;
+    aspect-ratio: 602 / 354;
+  }
+  .paywall--telesport .paywall-mockup {
+    max-width: 621px;
+    aspect-ratio: 621 / 336;
   }
   .paywall-message {
     gap: 24px;
