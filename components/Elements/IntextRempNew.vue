@@ -158,10 +158,10 @@ export default {
     },
   },
   mounted() {
-    window.addEventListener('remp_intext', this.load)
+    window.addEventListener('remp_intext_sms', this.load)
   },
   destroyed() {
-    window.removeEventListener('remp_intext', this.load)
+    window.removeEventListener('remp_intext_sms', this.load)
   },
   methods: {
     login() {
