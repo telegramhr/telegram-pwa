@@ -403,10 +403,10 @@
                   @share="fbShare()"
                 ></action-bar>
               </client-only>
-              <google-source v-if="!(
-                post.category_slug.includes('super1')
-              )"
-              class="google-source-desktop desktop-only"></google-source>
+              <google-source
+                v-if="!post.category_slug.includes('super1')"
+                class="google-source-desktop desktop-only"
+              ></google-source>
               <!-- eslint-disable-next-line vue/no-v-html -->
               <p
                 v-if="post.perex"
@@ -637,6 +637,7 @@
             </div>
           </article>
           <intext-remp></intext-remp>
+          <intext-remp-new></intext-remp-new>
           <!-- Article footer -->
           <div
             class="container column-full-pad flex relative mobile-side-pad have-background"
@@ -675,7 +676,10 @@
                     ></action-bar>
                   </client-only>
                 </div>
-                <google-source v-if="!(post.category_slug.includes('super1'))" class="mobile-only"></google-source>
+                <google-source
+                  v-if="!post.category_slug.includes('super1')"
+                  class="mobile-only"
+                ></google-source>
               </div>
             </div>
           </div>
@@ -890,10 +894,10 @@
 .article-head-newsletter {
   margin-bottom: 12px;
 }
-.google-source.desktop-only{
+.google-source.desktop-only {
   display: none;
 }
-.google-source.mobile-only{
+.google-source.mobile-only {
   margin-top: 24px;
   margin-bottom: 8px;
 }
@@ -917,10 +921,10 @@
   .article-head-newsletter {
     margin-bottom: 0px;
   }
-  .google-source.mobile-only{
+  .google-source.mobile-only {
     display: none;
   }
-  .google-source.desktop-only{
+  .google-source.desktop-only {
     display: flex;
   }
 }
@@ -1244,7 +1248,7 @@
 .live-update--highlight .telegram-post-embed__button {
   background: var(--tg-primary-background-color);
 }
-.google-source-desktop{
+.google-source-desktop {
   order: 3 !important;
   margin: 8px 0px;
 }
