@@ -584,7 +584,6 @@
               </transition>
               <div class="remp-banner"></div>
               <client-only>
-                <!-- on break till 1.9.
                 <portal
                   v-if="
                     useSparPortal &&
@@ -600,7 +599,7 @@
                   <div class="full">
                     <offers-premium></offers-premium>
                   </div>
-                </portal>-->
+                </portal>
                 <portal v-if="showQuiz" selector="#quiz-container">
                   <quiz
                     v-if="post.quiz"
