@@ -111,7 +111,7 @@ export default {
   width: 100%;
   max-width: 710px;
   margin: 30px auto 8px;
-  padding: 24px 40px 32px;
+  padding: 24px 40px;
   background: #f7f7f7;
   border-radius: 12px;
   scroll-margin-top: 80px;
@@ -151,7 +151,7 @@ export default {
   color: #0a0c11;
 }
 .ai-box__sub {
-  margin: 0;
+  margin: 0 !important;
   font-size: 14px;
   line-height: 20px;
   color: #8c929c;
@@ -173,20 +173,24 @@ export default {
   width: 120px;
   height: auto;
 }
+/* !important: the article body's global list rules (.single-article-body ul li,
+   .single-article .single-article-body ul) outrank scoped selectors and were adding
+   margins that broke the 24px rhythm and the bottom padding. */
 .ai-box__list {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  margin: 33px 0 0;
-  padding: 0 0 0 24px;
-  list-style: disc outside;
+  gap: 20px;
+  margin: 30px 0 0 !important;
+  padding: 0 0 0 24px !important;
+  list-style: disc outside !important;
 }
 .ai-box__item {
-  margin: 0;
+  margin: 0 !important;
+  padding: 0 !important;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 24px !important;
   color: #000;
-  list-style: disc outside;
+  list-style: disc outside !important;
 }
 .ai-box__item::marker {
   color: #000;
@@ -194,7 +198,7 @@ export default {
 
 @media screen and (max-width: 767px) {
   .ai-box {
-    padding: 24px 25px 32px;
+    padding: 24px 25px;
     margin: 24px auto 8px;
   }
   .ai-box__toast {
@@ -212,10 +216,13 @@ export default {
     gap: 12px;
   }
   .ai-box__samsung {
-    width: 73px;
+    height: 11px;
+    width: auto;
+    margin-top: 1px;
   }
   .ai-box__fold {
-    width: 111px;
+    height: 15px;
+    width: auto;
   }
 }
 </style>
