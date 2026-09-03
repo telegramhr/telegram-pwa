@@ -408,13 +408,6 @@
                 class="google-source-desktop desktop-only"
               ></google-source>
               <!-- eslint-disable-next-line vue/no-v-html -->
-              <!-- Article AI summary banner: scrolls to #ai-summary below the body -->
-              <ai-summary-banner
-                v-if="aiSummaryVisible"
-                :post-id="post.id"
-                :category="aiSummaryCategory"
-                :subscriber="aiSummarySubscriber"
-              />
               <p
                 v-if="post.perex"
                 class="perex"
@@ -442,6 +435,13 @@
                 ></mini-pretplata-new>
               </client-only>
               <!-- Specijal post ad placeholder: add per-post ad containers here when isSpecijalPost is enabled -->
+              <!-- Article AI summary banner: scrolls to #ai-summary below the body -->
+              <ai-summary-banner
+                v-if="aiSummaryVisible"
+                :post-id="post.id"
+                :category="aiSummaryCategory"
+                :subscriber="aiSummarySubscriber"
+              />
               <!-- eslint-disable vue/no-v-html -->
               <div
                 id="article-content"
