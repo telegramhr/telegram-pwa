@@ -177,24 +177,6 @@
               <h2 class="full">
                 {{ post.subtitle | parseCat }}
               </h2>
-              <div v-if="!post.live" class="full">
-                <button
-                  type="button"
-                  class="ai-summary-cta"
-                  aria-controls="ai-summary"
-                  @click="goToAiSummary"
-                >
-                  <font-awesome-icon
-                    :icon="['fas', 'book']"
-                    class="ai-summary-cta__icon"
-                    aria-hidden="true"
-                  />
-                  <span class="ai-summary-cta__label">
-                    This story folds with
-                    <strong>Samsung Galaxy Z Fold</strong>
-                  </span>
-                </button>
-              </div>
               <div
                 v-if="post.type === 'commentary'"
                 class="nothfive full flex relative article-meta mobile-only"
@@ -453,6 +435,13 @@
                 ></mini-pretplata-new>
               </client-only>
               <!-- Specijal post ad placeholder: add per-post ad containers here when isSpecijalPost is enabled -->
+              <!-- Article AI summary banner: scrolls to #ai-summary below the body -->
+              <ai-summary-banner
+                v-if="aiSummaryVisible"
+                :post-id="post.id"
+                :category="aiSummaryCategory"
+                :subscriber="aiSummarySubscriber"
+              />
               <!-- eslint-disable vue/no-v-html -->
               <div
                 id="article-content"
@@ -600,50 +589,19 @@
                   {{ liveToast }}
                 </div>
               </transition>
-              <!-- AI-generated reader summary, folded by default. Auto-expands once on
-                   scroll-into-view, then fully user-controlled. -->
-              <section
-                v-if="!post.live"
-                id="ai-summary"
-                class="ai-summary"
-                :class="{ 'ai-summary--open': aiSummaryExpanded }"
-              >
-                <h2 class="ai-summary__header">
-                  <button
-                    type="button"
-                    class="ai-summary__toggle"
-                    :aria-expanded="aiSummaryExpanded ? 'true' : 'false'"
-                    aria-controls="ai-summary-body"
-                    @click="aiSummaryExpanded = !aiSummaryExpanded"
-                  >
-                    <span class="ai-summary__badge" aria-hidden="true">AI</span>
-                    <span class="ai-summary__title">Sažetak članka</span>
-                    <span class="ai-summary__chevron" aria-hidden="true"></span>
-                  </button>
-                </h2>
-                <div
-                  id="ai-summary-body"
-                  class="ai-summary__body"
-                  role="region"
-                  aria-label="AI sažetak članka"
-                >
-                  <!-- eslint-disable vue/no-v-html -->
-                  <div
-                    class="ai-summary__inner"
-                    v-html="post.ai_summary || demoSummary"
-                  ></div>
-                  <!-- eslint-enable vue/no-v-html -->
-                </div>
-                <p class="ai-summary__powered ai-summary__powered--footer">
-                  Powered by Samsung Galaxy Z Fold
-                </p>
-              </section>
+              <!-- Article AI summary (3 grounded bullets) — see components/AiSummary -->
+              <ai-summary-box
+                v-if="aiSummaryVisible"
+                :bullets="post.ai_summary"
+                :post-id="post.id"
+                :category="aiSummaryCategory"
+                :subscriber="aiSummarySubscriber"
+              />
               <div class="remp-banner"></div>
               <client-only>
                 <portal
                   v-if="
-                    useSparPortal &
-                    !hasPremium &&
+                    useSparPortal & !hasPremium &&
                     !(
                       post.disable_ads &&
                       (post.disable_ads.includes('spar') ||
@@ -1059,164 +1017,6 @@
   mask-image: linear-gradient(180deg, #000 55%, transparent);
 }
 
-/* AI summary CTA — full-width Samsung-blue box under the article title */
-.ai-summary-cta {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  width: 100%;
-  margin: 12px 0 0;
-  padding: 12px 16px;
-  min-height: 24px;
-  background: #034ea2;
-  color: #fff;
-  border: 1px solid #034ea2;
-  border-radius: 6px;
-  font-family: 'Barlow', sans-serif;
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 1.3;
-  text-align: left;
-  cursor: pointer;
-  transition: background 0.2s ease, border-color 0.2s ease;
-}
-.ai-summary-cta:hover {
-  background: #2f73bd;
-  border-color: #2f73bd;
-}
-.ai-summary-cta__icon {
-  flex-shrink: 0;
-  font-size: 18px;
-  color: #fff;
-}
-.ai-summary-cta__label strong {
-  font-weight: 700;
-}
-#article-content >>> .ai-summary-dummy {
-  display: block;
-  width: 100%;
-  height: auto;
-  margin: 20px 0;
-  border-radius: 6px;
-}
-
-/* AI summary folded section at the end of the article */
-.ai-summary {
-  max-width: 710px;
-  margin: 30px auto 8px;
-  padding: 0 20px;
-  scroll-margin-top: 80px;
-}
-.ai-summary__header {
-  margin: 0;
-}
-.ai-summary__toggle {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  width: 100%;
-  min-height: 24px;
-  padding: 14px 16px;
-  background: var(--tg-secondary-background-color);
-  border: 1px solid var(--palette-divider);
-  border-radius: 4px;
-  cursor: pointer;
-  text-align: left;
-  font-family: 'Barlow', sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--tg-primary-text-color);
-}
-.ai-summary__badge {
-  flex-shrink: 0;
-  padding: 2px 6px;
-  border-radius: 4px;
-  background: #034ea2;
-  color: #fff;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-}
-.ai-summary__title {
-  flex: 1;
-}
-.ai-summary__powered {
-  margin: 6px 0 0;
-  font-family: 'Barlow', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  color: #034ea2;
-}
-.ai-summary__powered--footer {
-  margin: 10px 0 0;
-  padding: 0 16px 14px;
-}
-.ai-summary__chevron {
-  flex-shrink: 0;
-  width: 9px;
-  height: 9px;
-  border-right: 2px solid currentColor;
-  border-bottom: 2px solid currentColor;
-  transform: rotate(45deg);
-  transition: transform 0.3s ease;
-}
-.ai-summary--open .ai-summary__chevron {
-  transform: rotate(-135deg);
-}
-.ai-summary__body {
-  display: grid;
-  grid-template-rows: 0fr;
-  background: var(--tg-secondary-background-color);
-  border: 1px solid var(--palette-divider);
-  border-top: none;
-  border-radius: 0 0 4px 4px;
-  transition: grid-template-rows 0.35s ease;
-}
-.ai-summary--open .ai-summary__body {
-  grid-template-rows: 1fr;
-}
-.ai-summary__inner {
-  overflow: hidden;
-  min-height: 0;
-  padding: 0 16px;
-  font-family: 'Merriweather', serif;
-  font-size: 100%;
-  line-height: 1.6;
-  color: var(--tg-primary-text-color);
-  transition: padding 0.35s ease;
-}
-.ai-summary--open .ai-summary__inner {
-  padding: 14px 16px;
-}
-.ai-summary__inner >>> p {
-  margin: 0 0 8px;
-}
-.ai-summary__inner >>> ul {
-  margin: 0;
-  padding-left: 20px;
-  list-style-type: disc !important;
-  list-style-position: outside !important;
-  color: var(--tg-primary-text-color);
-}
-.ai-summary__inner >>> li {
-  margin-bottom: 4px;
-  list-style-type: disc !important;
-  list-style-position: outside !important;
-  color: var(--tg-primary-text-color);
-}
-.ai-summary__inner >>> li::marker {
-  color: var(--tg-primary-text-color);
-}
-@media (prefers-reduced-motion: reduce) {
-  .ai-summary__body,
-  .ai-summary__inner,
-  .ai-summary__chevron,
-  .ai-summary-cta,
-  .ai-summary-cta__arrow {
-    transition: none;
-  }
-}
-
 /* Live blog updates */
 .live-updates-container {
   max-width: 710px;
@@ -1627,10 +1427,6 @@ export default {
       liveTimeInterval: null, // setInterval ID for liveTimeNow ticker
       liveExpandedUpdates: [], // anchors of updates expanded by "Pročitajte više"
       liveSummaryExpanded: false,
-      aiSummaryExpanded: false, // folded AI summary; opens on arrow click
-      // Demo fallback shown for presentations when an article has no real AI summary.
-      demoSummary:
-        '<p>Ovo je primjer AI sažetka članka pripremljen za prezentaciju.</p><ul><li>Ključna informacija iz članka sažeta u jednoj rečenici.</li><li>Drugi važan detalj koji čitatelju daje brzi pregled teme.</li><li>Treća natuknica s najvažnijim zaključkom članka.</li></ul>',
       top_articles: [],
       top_articles_version: 'v1',
       related_posts: [],
@@ -1639,18 +1435,10 @@ export default {
     }
   },
   computed: {
-    // Article body with the Samsung promo banner injected after the first
-    // paragraph (above the in-article SPAR/premium widget). Demo only.
+    // Body HTML as delivered by the API (the AI summary banner is a separate
+    // component rendered above #article-content, not injected into the HTML).
     articleContentWithBanner() {
-      const html = this.post.content || ''
-      if (this.post.live) return html
-      const banner =
-        '<img src="' +
-        dummySamsungBanner +
-        '" alt="Samsung Galaxy Z Fold" class="ai-summary-dummy" />'
-      const idx = html.indexOf('</p>')
-      if (idx === -1) return banner + html
-      return html.slice(0, idx + 4) + banner + html.slice(idx + 4)
+      return this.post.content || ''
     },
     liveSummaryIsLong() {
       if (!this.post.live_summary) return false
@@ -1965,6 +1753,20 @@ export default {
       }
       return this.post.paywall
     },
+    aiSummarySubscriber() {
+      return !!this.$store.getters['user/hasContentAccess'](this.$route.path)
+    },
+    aiSummaryCategory() {
+      return (this.post.category_slug || '').split(' ')[0] || ''
+    },
+    // Shown to every reader, paywalled articles included (decision 2026-09-03).
+    aiSummaryVisible() {
+      return (
+        !this.post.live &&
+        Array.isArray(this.post.ai_summary) &&
+        this.post.ai_summary.length > 0
+      )
+    },
   },
   watch: {
     'post.live': {
@@ -1973,13 +1775,6 @@ export default {
           this.startLivePolling()
         }
       },
-    },
-    // Collapse the AI summary when navigating to another article (component is reused).
-    'post.id': {
-      handler() {
-        this.aiSummaryExpanded = false
-      },
-      immediate: true,
     },
   },
   mounted() {
@@ -2692,19 +2487,6 @@ export default {
             window.innerHeight * 0.1
           window.scrollTo({ top, behavior: 'smooth' })
         }
-      }
-    },
-    // Tag/arrow under the title: open the AI summary and scroll to it.
-    // Tag/arrow under the title: scroll down to the folded summary.
-    // It does NOT expand — the user opens it by clicking the arrow.
-    goToAiSummary() {
-      const el = document.getElementById('ai-summary')
-      if (el) {
-        const top =
-          el.getBoundingClientRect().top +
-          window.scrollY -
-          window.innerHeight * 0.1
-        window.scrollTo({ top, behavior: 'smooth' })
       }
     },
     async loadHomepageWidget() {
