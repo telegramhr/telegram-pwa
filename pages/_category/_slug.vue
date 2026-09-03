@@ -408,6 +408,13 @@
                 class="google-source-desktop desktop-only"
               ></google-source>
               <!-- eslint-disable-next-line vue/no-v-html -->
+              <!-- Article AI summary banner: scrolls to #ai-summary below the body -->
+              <ai-summary-banner
+                v-if="aiSummaryVisible"
+                :post-id="post.id"
+                :category="aiSummaryCategory"
+                :subscriber="aiSummarySubscriber"
+              />
               <p
                 v-if="post.perex"
                 class="perex"
@@ -435,13 +442,6 @@
                 ></mini-pretplata-new>
               </client-only>
               <!-- Specijal post ad placeholder: add per-post ad containers here when isSpecijalPost is enabled -->
-              <!-- Article AI summary banner: scrolls to #ai-summary below the body -->
-              <ai-summary-banner
-                v-if="aiSummaryVisible"
-                :post-id="post.id"
-                :category="aiSummaryCategory"
-                :subscriber="aiSummarySubscriber"
-              />
               <!-- eslint-disable vue/no-v-html -->
               <div
                 id="article-content"
@@ -2090,6 +2090,7 @@ export default {
           this.$store.dispatch('gifts/getUserGifts')
         }
         this.loadInArticleWidget()
+        this.loadInArticleAiBanner()
         this.$store.commit('pretplata/setLastArticle', this.post.id)
         this.$nextTick(() => this.processEmbeds())
         if (!document.getElementsByClassName('coral-counters-script').length) {
@@ -2208,6 +2209,43 @@ export default {
           }),
       })
       this._topArticlesWidget.$mount(mountEl)
+    },
+    loadInArticleAiBanner() {
+      // Two-layer dedupe: instance flag catches same-instance double calls,
+      // DOM check catches cross-instance cases (e.g. overlapping page mounts
+      // during route transition). The widget mounts inside #top-articles-widget
+      // rather than replacing it, so the id stays queryable.
+      if (this._aiBanner) return
+      if (document.getElementById('ai-intext-banner')) return
+
+      const container = document.getElementById('article-content')
+      if (!container) return
+
+      const paragraphs = container.querySelectorAll('p')
+      if (paragraphs.length < 3) return
+      if (this.post.id === 2774378) return
+
+      if (
+        this.post.category_slug.includes('super1') ||
+        this.post.category_slug.includes('pitanje-zdravlja') ||
+        this.post.category_slug.includes('openspace')
+      )
+        return
+
+      if (!this.aiSummaryVisible) return
+
+      const wrapperAiBanner = document.createElement('div')
+      wrapperAiBanner.id = 'ai-intext-banner'
+      paragraphs[2].insertAdjacentElement('afterend', wrapperAiBanner)
+
+      const mountAiBanner = document.createElement('div')
+      wrapperAiBanner.appendChild(mountAiBanner)
+
+      this._aiBanner = new this.$root.constructor({
+        parent: this, // inherit current context (so global components are visible)
+        render: (h) => h('ai-summary-banner-intext'),
+      })
+      this._aiBanner.$mount(mountAiBanner)
     },
     fbShare() {
       /* global FB */
