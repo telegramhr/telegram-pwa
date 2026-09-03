@@ -36,10 +36,17 @@ export default {
         this.showGiftSubmenu = !this.showGiftSubmenu
         return this.link
       }
+      const token = this.$store.state.user.token
       return await this.$axios
-        .$post('/pretplate/api/gift-article/', {
-          url: this.$route.fullPath,
-        })
+        .$post(
+          '/pretplate/api/gift-article/',
+          {
+            url: this.$route.fullPath,
+          },
+          {
+            headers: token ? { Authorization: `Bearer ${token}` } : {},
+          }
+        )
         .then((res) => {
           this.link = res.link
           this.$store.commit('gifts/updateAvailable', res)
@@ -138,7 +145,7 @@ export default {
             :icon="['fab', 'facebook-f']"
             class="animate"
           ></font-awesome-icon>
-          Podijeli na Facebook
+          Pokloni na Facebook
         </div>
         <div
           class="full gift-submenu-item clickable animate"

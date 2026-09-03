@@ -22,6 +22,8 @@
 </template>
 
 <script>
+import { customFontLinks } from '~/utils/customFonts'
+
 export default {
   name: 'Page',
   async fetch() {
@@ -104,6 +106,7 @@ export default {
         },
       ],
       link: [
+        ...customFontLinks(this.post),
         {
           hid: 'canonical',
           rel: 'canonical',

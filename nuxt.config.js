@@ -37,21 +37,14 @@ export default {
                 href: 'https://twitter.com/TelegramHR',
             },
             { rel: 'dns-prefetch', href: 'https://script.dotmetrics.net' },
-            {
-                rel: 'preconnect',
-                href: 'https://script.dotmetrics.net',
-                crossorigin: true,
-            },
-            {
-                rel: 'preload',
-                href: 'https://script.dotmetrics.net/door.js?id=15854',
-                as: 'script',
-            },
-            {
-                rel: 'preload',
-                href: 'https://script.dotmetrics.net/door.js?id=1182',
-                as: 'script',
-            },
+            { rel: 'preconnect', href: 'https://script.dotmetrics.net' },
+            // NOTE: static door.js preloads removed. The dotmetrics.client.js plugin
+            // dynamically injects exactly one path-based door.js per URL (id 1182 default,
+            // 15854 news, 15855 kultura/zivot, 4136 super1, 1175 sport). Two static preloads
+            // (15854 + 1182) fired on every page produced a second, always-dead door.js
+            // request, and on kultura/super1/sport paths BOTH preloads were dead. Removing
+            // both guarantees a single door.js request per URL. preconnect above keeps the
+            // connection warm so the plugin-injected script still loads promptly.
             // DNS prefetch for ad networks
             { rel: 'dns-prefetch', href: '//securepubads.g.doubleclick.net' },
             { rel: 'dns-prefetch', href: '//pagead2.googlesyndication.com' },
@@ -61,7 +54,7 @@ export default {
             { rel: 'dns-prefetch', href: '//adservice.google.com' },
             {
                 rel: 'stylesheet',
-                href: 'https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,400&family=Gloock&family=Lora:ital,wght@0,400;0,500;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=IBM+Plex+Mono:wght@500;600&family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap',
+                href: 'https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,400&family=Gloock&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=IBM+Plex+Mono:wght@500;600&family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap',
             },
             {
                 rel: 'stylesheet',
@@ -69,14 +62,113 @@ export default {
             },
             {
                 rel: 'stylesheet',
-                href: 'https://use.typekit.net/rhj2chq.css',
-            },
-            {
-                rel: 'stylesheet',
                 href: '/wp-content/themes/telegram2-desktop/assets/fonts/nyght/nyght.css',
             },
         ],
-        script: [{
+        script: [
+            // Restore the referrer across the post-consent reload (see
+            // plugins/gtm.client.js). location.reload() makes document.referrer
+            // self-referential, and because Consent Mode starts denied the GA4
+            // session only begins on the reloaded page — so the session would
+            // take telegram.hr as its own source. Dotmetrics (rurl), Marfeel and
+            // Gemius read the same property, so restoring it fixes all at once.
+            // Must run before anything reads document.referrer, hence first.
+            {
+                hid: 'referrer-restore',
+                innerHTML: '(function(){try{var k="cmp_ref";var raw=window.sessionStorage.getItem(k);' +
+                    'if(raw===null){return}window.sessionStorage.removeItem(k);' +
+                    'var d=JSON.parse(raw);if(!d||typeof d.r!=="string"){return}' +
+                    'if(Date.now()-d.t>60000){return}' +
+                    'Object.defineProperty(document,"referrer",{configurable:true,get:function(){return d.r}});' +
+                    '}catch(e){}})();',
+            },
+            // Inject Dotmetrics door.js from the SSR'd head instead of waiting for
+            // plugins/dotmetrics.client.js to hydrate. Measured against production
+            // on 2026-08-19 (mobile viewport, 4x CPU, Fast 3G, medians of 4 paired
+            // runs): door.js 33.7s -> 9.8s, hit.gif 34.9s -> 15.8s. The plugin is a
+            // client plugin, so it was asking for the script ~24s after the CMP was
+            // already ready. On desktop the same change is worth 1.8-3.4s.
+            //
+            // door.js does its OWN consent gating — checkTCF() handles tcloaded /
+            // useractioncomplete / cmpuishown — so we only need __tcfapi to EXIST,
+            // not the user's decision.
+            //
+            // Gate on googlefc's CONSENT_API_READY. It is event-driven and fired in
+            // 6/6 throttled runs; a 50ms __tcfapi poll with an 8s ceiling gave up
+            // before the CMP was ready (__tcfapi lands at ~9.9s on 3G) and injected
+            // nothing at all, losing the visitor outright. The poll below is only a
+            // secondary gate and its ceiling is deliberately well past that.
+            //
+            // Never inject bare. With __tcfapi undefined, door.js reads it as "cmp
+            // does not use TCF", assumes FULL CONSENT and writes DomainCookie +
+            // DeviceKey + UniqueUserIdentityCookie. That is not a slow-CMP race: any
+            // ad blocker that blocks fundingchoicesmessages.google.com reproduces it
+            // deterministically (measured c=true, dc=<uuid>, all three cookies).
+            // So if the CMP never arrives we install a minimal TCF v2 API that
+            // answers no-consent and inject behind it — measured c=false with zero
+            // cookies, and the visitor still gets counted. This must only ever
+            // happen AFTER the CMP has failed: an early stub makes Funding Choices
+            // stand down completely and nothing is measured at all.
+            {
+                hid: 'dotmetrics-door',
+                innerHTML: '(function(){try{' +
+                    "var p=location.pathname,id='1182';" +
+                    "if(/politika-kriminal|biznis-tech|komentari|vijesti/.test(p))id='15854';" +
+                    "if(/kultura|zivot|pitanje-zdravlja|velike-price/.test(p))id='15855';" +
+                    "if(/super1|superone/.test(p))id='4136';" +
+                    "if(/telesport|sport/.test(p))id='1175';" +
+                    'window.dm=window.dm||{AjaxData:[]};' +
+                    'if(!window.dm.AjaxEvent){window.dm.AjaxEvent=function(et,d,ssid,ad){' +
+                    'window.dm.AjaxData.push({et:et,d:d,ssid:ssid,ad:ad});' +
+                    'if(window.DotMetricsObj&&window.DotMetricsObj.onAjaxDataUpdate){' +
+                    'window.DotMetricsObj.onAjaxDataUpdate()}}}' +
+                    'function inject(){if(window.__dmDoorInjected)return;' +
+                    'window.__dmDoorInjected=true;' +
+                    "var s=document.createElement('script');s.async=true;" +
+                    "s.src='https://script.dotmetrics.net/door.js?id='+id;" +
+                    '(document.head||document.documentElement).appendChild(s)}' +
+                    "if(typeof window.__tcfapi==='function'){inject();return}" +
+                    'window.googlefc=window.googlefc||{};' +
+                    'window.googlefc.callbackQueue=window.googlefc.callbackQueue||[];' +
+                    'window.googlefc.callbackQueue.push({CONSENT_API_READY:function(){inject()}});' +
+                    'var t0=Date.now();var iv=setInterval(function(){' +
+                    'if(window.__dmDoorInjected){clearInterval(iv);return}' +
+                    "if(typeof window.__tcfapi==='function'){clearInterval(iv);inject();return}" +
+                    'if(Date.now()-t0<=20000)return;clearInterval(iv);' +
+                    "var t={eventStatus:'tcloaded',cmpStatus:'loaded',gdprApplies:true,tcString:''," +
+                    'purpose:{consents:{},legitimateInterests:{}},' +
+                    'vendor:{consents:{},legitimateInterests:{}},listenerId:1};' +
+                    'window.__tcfapi=function(cmd,ver,cb){' +
+                    "if(typeof cb!=='function')return;" +
+                    "if(cmd==='addEventListener'){cb(t,true)}" +
+                    "else if(cmd==='removeEventListener'){cb(true)}" +
+                    "else if(cmd==='getTCData'){cb(t,true)}" +
+                    'else{cb(null,false)}};' +
+                    'inject()},100);' +
+                    '}catch(e){}})();',
+            },
+            // Google Privacy & messaging (Funding Choices) — must stay ahead of
+            // the ad and analytics tags.
+            // Loaded standalone rather than as a downstream fetch of adsbygoogle.js
+            // so that __tcfapi exists at parse time instead of ~1.8s after
+            // hydration, and so consent no longer depends on the ad tag loading
+            // (premium users, ad blockers, in-app browsers).
+            {
+                hid: 'googlefc',
+                src: 'https://fundingchoicesmessages.google.com/i/pub-2317149376955370?ers=1',
+                async: true,
+            },
+            {
+                // Signals to Google's ad tags that Funding Choices is on the page.
+                // Required for ad block detection to work.
+                hid: 'googlefc-present',
+                innerHTML: '(function() {function signalGooglefcPresent() {if (!window.frames["googlefcPresent"]) {' +
+                    'if (document.body) {const iframe = document.createElement("iframe"); ' +
+                    'iframe.style = "width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;"; ' +
+                    'iframe.style.display = "none"; iframe.name = "googlefcPresent"; document.body.appendChild(iframe);} ' +
+                    'else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();',
+            },
+            {
                 hid: 'coral',
                 src: 'https://talk.telegram.hr/assets/js/embed.js',
                 async: false,
@@ -135,6 +227,9 @@ export default {
         __dangerouslyDisableSanitizersByTagID: {
             remplib: ['innerHTML'],
             didomi: ['innerHTML'],
+            'googlefc-present': ['innerHTML'],
+            'referrer-restore': ['innerHTML'],
+            'dotmetrics-door': ['innerHTML'],
         },
     },
 
@@ -228,7 +323,7 @@ export default {
                 ital: [400],
             },
             Lora: {
-                wgth: [400, 700],
+                wght: [400, 500, 600, 700],
                 ital: [400],
             },
             Merriweather: {

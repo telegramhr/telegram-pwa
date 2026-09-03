@@ -130,7 +130,7 @@
                   stroke-linejoin="round"
                 />
               </svg>
-              Podijeli na Facebook
+              Pokloni na Facebook
             </div>
             <div class="gift-item" @click="twitterShare">
               <svg
@@ -355,7 +355,7 @@
                 stroke-linejoin="round"
               />
             </svg>
-            Podijeli na Facebook
+            Pokloni na Facebook
           </div>
           <div class="share-item" @click="shareTwitter">
             <svg
@@ -587,10 +587,17 @@ export default {
         this.link = this.hasGifted[0].link
         return this.link
       }
+      const token = this.$store.state.user.token
       return await this.$axios
-        .$post('/pretplate/api/gift-article/', {
-          url: this.$route.fullPath,
-        })
+        .$post(
+          '/pretplate/api/gift-article/',
+          {
+            url: this.$route.fullPath,
+          },
+          {
+            headers: token ? { Authorization: `Bearer ${token}` } : {},
+          }
+        )
         .then((res) => {
           this.link = res.link
           this.$store.commit('gifts/updateAvailable', res)

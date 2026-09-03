@@ -421,6 +421,10 @@
                   @share="fbShare()"
                 ></action-bar>
               </client-only>
+              <google-source
+                v-if="!post.category_slug.includes('super1')"
+                class="google-source-desktop desktop-only"
+              ></google-source>
               <!-- eslint-disable-next-line vue/no-v-html -->
               <p
                 v-if="post.perex"
@@ -688,6 +692,7 @@
             </div>
           </article>
           <intext-remp></intext-remp>
+          <intext-remp-new></intext-remp-new>
           <!-- Article footer -->
           <div
             class="container column-full-pad flex relative mobile-side-pad have-background"
@@ -722,10 +727,14 @@
                           ? post.authors[0].display_name
                           : ''
                       "
-                      class="nonAudio nonComments bottom"
+                      class="nonAudio nonComments nonGoogle bottom"
                     ></action-bar>
                   </client-only>
                 </div>
+                <google-source
+                  v-if="!post.category_slug.includes('super1')"
+                  class="mobile-only"
+                ></google-source>
               </div>
             </div>
           </div>
@@ -940,6 +949,13 @@
 .article-head-newsletter {
   margin-bottom: 12px;
 }
+.google-source.desktop-only {
+  display: none;
+}
+.google-source.mobile-only {
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
 @media screen and (min-width: 600px) {
   .article-meta.desktop-only-meta {
     display: flex !important;
@@ -959,6 +975,12 @@
   }
   .article-head-newsletter {
     margin-bottom: 0px;
+  }
+  .google-source.mobile-only {
+    display: none;
+  }
+  .google-source.desktop-only {
+    display: flex;
   }
 }
 
@@ -1439,22 +1461,23 @@
 .live-update--highlight .telegram-post-embed__button {
   background: var(--tg-primary-background-color);
 }
+.google-source-desktop {
+  order: 3 !important;
+  margin: 8px 0px;
+}
 </style>
 <script>
 import { Portal } from '@linusborg/vue-simple-portal'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-import StudenacWidget from '~/components/Elements/StudenacWidget.vue'
 import A1Widget from '~/components/Elements/A1Widget.vue'
 import HtWidget from '~/components/Elements/HtWidget.vue'
 import BusinessWidget from '~/components/Elements/BusinessWidget.vue'
 import HtKalkulator from '~/components/ht-kalkulator/HtKalkulator.vue'
 import MatchScoreboard from '~/components/liveblog/MatchScoreboard.vue'
-import { HT_CAMPAIGN_ARTICLE_SLUGS } from '~/store/ht-kalkulator/articles'
-import dummySamsungBanner from '@/assets/img/dummy.jpg'
+import { customFontLinks } from '~/utils/customFonts'
 
 const widgetMap = {
-  studenac: 'StudenacWidget',
   a1: 'A1Widget',
   ht: 'HtWidget',
   business: 'BusinessWidget',
@@ -1465,7 +1488,6 @@ export default {
   scrollToTop: true,
   components: {
     Portal,
-    StudenacWidget,
     A1Widget,
     HtWidget,
     BusinessWidget,
@@ -2183,6 +2205,7 @@ export default {
             isS1: this.post.category_slug.includes('super1') ? '1' : '0',
             segment: Math.floor(Math.random() * 4).toString(),
             userSubscribed: this.$store.state.user.access.length ? '1' : '0',
+            isTelesport: this.$route.fullPath.includes('telesport') ? '1' : '0',
             ip: this.$store.state.user.ip,
             hasContentAccess: this.$store.getters['user/hasContentAccess'](
               this.$route.path
@@ -2237,9 +2260,9 @@ export default {
     },
     triggerAnalytics() {
       if (this.post.category_slug.includes('telesport')) {
-        setTimeout(() => {
+        /* setTimeout(() => {
           this.$dotmetrics.postLoad(this.post.category_slug)
-        }, 10000)
+        }, 10000) */
       }
     },
     getPost() {
@@ -2716,6 +2739,7 @@ export default {
         rel: 'shortlink',
         href: `https://www.telegram.hr/l/${this.post.id}`,
       },
+      ...customFontLinks(this.post),
     ]
     let script = [
       {

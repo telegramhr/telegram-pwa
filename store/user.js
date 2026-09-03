@@ -266,6 +266,9 @@ export const actions = {
     data.append('email', payload.email)
     data.append('password', payload.password)
     data.append('source', 'api')
+    if (Object.keys(payload).includes('reload')) {
+      commit('shouldReload', payload.reload)
+    }
     this.$axios
       .$post('/crm/api/v1/users/create', data, {
         headers: {

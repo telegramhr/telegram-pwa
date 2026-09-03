@@ -52,11 +52,11 @@
               !$store.state.user.access?.length
             "
             id="pretplata-promo"
-            to="/pretplata/ponuda-svjetsko/"
+            to="/pretplata/podrska-telegramu/?utm_source=index_header&utm_medium=direct&utm_campaign=podrska-telegramu&utm_content=index_header"
             class="newbtn gift-btn"
           >
-            <span class="poklonMobile">POSEBNA PONUDA</span
-            ><span class="poklon">POSEBNA PONUDA</span></app-link
+            <span class="poklonMobile">0,75€ tjedno</span
+            ><span class="poklon">0,75€ tjedno</span></app-link
           >
           <a
             v-show="!canLogIn"
@@ -120,9 +120,9 @@
             <app-link
               v-show="!$store.state.user.access"
               id="pretplatite se - header"
-              to="/pretplata"
+              to="/pretplata/podrska-telegramu/?utm_source=index_menu&utm_medium=direct&utm_campaign=podrska-telegramu&utm_content=index_menu"
               class="newbtn"
-              >Pretplatite se</app-link
+              >0,75€ tjedno</app-link
             >
             <a
               v-show="!canLogIn"
@@ -308,22 +308,45 @@
     </div>
     <app-link
       v-show="!$store.state.user.access?.length"
-      to="/pretplata/popust-standard"
-      class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth"
+      to="/pretplata/podrska-telegramu/?utm_source=homepage_banner_desktop&utm_medium=direct&utm_campaign=podrska-telegramu&utm_content=homepage_banner_desktop"
+      class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth desktop-only"
     >
       <img
-        src="@/assets/img/pretplata/standard/banner_desktop.png"
+        src="@/assets/img/pretplata/ekipa/ekipa-banner-desktop.png"
         alt="Desktop banner za popust na godišnju pretplatu"
         class="desktop-only"
       />
+    </app-link>
+    <app-link
+      v-show="!$store.state.user.access?.length"
+      to="/pretplata/podrska-telegramu/?utm_source=homepage_banner_mob&utm_medium=direct&utm_campaign=podrska-telegramu&utm_content=homepage_banner_mob"
+      class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth mobile-only"
+    >
       <img
-        src="@/assets/img/pretplata/standard/banner_mobile.png"
+        src="@/assets/img/pretplata/ekipa/ekipa-banner-mobile.png"
         alt="Mobile banner za popust na godišnju pretplatu"
         class="mobile-only"
         style="width: 100%"
       />
     </app-link>
-    <Books v-show="$store.state.user.access?.length" />
+    <app-link
+      v-show="$store.state.user.access?.length"
+      to="https://knjige.telegram.hr/kategorija-proizvoda/knjige/?orderby=date"
+      class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth"
+    >
+      <img
+        src="@/assets/img/homepage/banner-knjige-desktop.webp"
+        alt=""
+        class="desktop-only"
+      />
+      <img
+        src="@/assets/img/homepage/banner-knjige-mob.webp"
+        alt=""
+        class="mobile-only"
+        style="width: 100%"
+      />
+    </app-link>
+    <!-- <Books v-show="$store.state.user.access?.length" /> -->
     <client-only>
       <div v-if="!hasPremium" class="full relative">
         <offers-premium></offers-premium>
@@ -594,6 +617,7 @@ export default {
             isS1: '0',
             segment: Math.floor(Math.random() * 4).toString(),
             userSubscribed: this.$store.state.user.access.length ? '1' : '0',
+            isTelesport: this.$route.fullPath.includes('telesport') ? '1' : '0',
           },
         },
       }
@@ -685,8 +709,7 @@ export default {
   background: #1c8746;
   padding: 6px;
   font-family: 'Barlow';
-  font-size: 11px;
-  border: none;
+  font-size: 10px;
   font-weight: 600;
   border-radius: 3px;
   letter-spacing: 0.3px;

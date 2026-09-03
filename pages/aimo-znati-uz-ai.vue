@@ -7,8 +7,7 @@
     />
     <ht-articles :articles="articles" />
     <ht-kalkulator-cta @open-kalkulator="openKalkulator('mid')" />
-    <!-- Video section hidden until HT delivers the video content. -->
-    <!-- <ht-video-carousel /> -->
+    <ht-video-carousel />
     <ht-landing-footer />
 
     <client-only>

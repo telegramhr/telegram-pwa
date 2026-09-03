@@ -71,32 +71,47 @@
           :key="index"
           class="ht-video-card"
         >
-          <a
-            class="ht-video-card__thumb"
-            :href="video.link || '#'"
-            :aria-label="`Pogledaj video: ${video.title}`"
-          >
-            <img :src="video.image" alt="" loading="lazy" />
-            <span class="ht-video-card__play" aria-hidden="true">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </span>
-          </a>
+          <div class="ht-video-card__thumb">
+            <iframe
+              v-if="playingIndex === index"
+              class="ht-video-card__frame"
+              :src="`https://www.youtube.com/embed/${video.youtubeId}?autoplay=1&playsinline=1`"
+              title="video"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            />
+            <button
+              v-else
+              type="button"
+              class="ht-video-card__thumb-btn"
+              :aria-label="`Pogledaj video: ${video.title}`"
+              @click="playingIndex = index"
+            >
+              <img :src="video.image" alt="" loading="lazy" />
+              <span class="ht-video-card__play" aria-hidden="true">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </span>
+            </button>
+          </div>
           <div class="ht-video-card__content">
             <span class="ht-video-card__cat">VIDEO</span>
             <h3 class="ht-video-card__title">{{ video.title }}</h3>
             <p class="ht-video-card__desc">{{ video.description }}</p>
             <a
               class="ht-video-card__btn"
-              :href="video.link || '#'"
-              :aria-label="`Pogledaj video: ${video.title}`"
+              :href="`https://www.youtube.com/shorts/${video.youtubeId}`"
+              target="_blank"
+              rel="noopener"
+              :aria-label="`Pogledaj video na YouTubeu: ${video.title}`"
             >
               <span>Pogledaj</span>
               <svg
@@ -128,34 +143,60 @@ export default {
     return {
       videos: [
         {
-          title: 'Neki naslov o videu ide ovdje',
+          youtubeId: 't4at5ip3BQo',
+          title:
+            'Organizirate druženje s prijateljima? Uštedite vrijeme i planiranje prepustite AI alatima',
           description:
-            'Lorem ipsum dolor sit amet lorem psum dolor sit amet lorem psum dolor sit amet lorem',
-          image: '/ht-landing/video-1.jpg',
-          link: '#',
+            'Koliko vam vremena zapravo oduzme organizacija jednog druženja? Antonela Golobić usporedila je planiranje večere za deset gostiju bez i uz pomoć umjetne inteligencije te otkrila koliko AI može olakšati svakodnevne zadatke. Pogledajte koliko je vremena uspjela uštedjeti',
+          image: 'https://i.ytimg.com/vi/t4at5ip3BQo/hqdefault.jpg',
         },
         {
-          title: 'Neki naslov o videu ide ovdje',
+          youtubeId: 'HwJP1qGtvdU',
+          title:
+            'Karmela Vukov Colić odradila je tjedni meal prep uz alat koji olakšava sve. Rezultat je sjajan',
           description:
-            'Lorem ipsum dolor sit amet lorem psum dolor sit amet lorem psum dolor sit amet lorem',
-          image: '/ht-landing/video-2.jpg',
-          link: '#',
+            'Može li umjetna inteligencija pomoći da planiranje tjednog jelovnika traje znatno kraće? Karmela je testirala obje verzije – bez AI-ja i uz AI. Pogledajte rezultat.',
+          image: 'https://i.ytimg.com/vi/HwJP1qGtvdU/hqdefault.jpg',
         },
         {
-          title: 'Neki naslov o videu ide ovdje',
+          youtubeId: 'hZ3DhQu42yc',
+          title:
+            'Može li AI osmisliti prepoznatljiv brend? Karmela Vukov Colić testirala ga je na novom zadatku',
           description:
-            'Lorem ipsum dolor sit amet lorem psum dolor sit amet lorem psum dolor sit amet lorem',
-          image: '/ht-landing/video-3.jpg',
-          link: '#',
+            'Otvoriti restoran je jedno. Smisliti ime koje će svi pamtiti? To je već druga priča. Karmela Vukov Colić je testirala može li AI ubrzati jedan od najkreativnijih zadataka pri pokretanju biznisa.',
+          image: 'https://i.ytimg.com/vi/hZ3DhQu42yc/hqdefault.jpg',
         },
         {
-          title: 'Neki naslov o videu ide ovdje',
+          youtubeId: '45fUBtTy6-w',
+          title: 'Kako iskoristiti AI za kreativne zadatke?',
           description:
-            'Lorem ipsum dolor sit amet lorem psum dolor sit amet lorem psum dolor sit amet lorem',
-          image: '/ht-landing/video-4.jpg',
-          link: '#',
+            'Krešimir Sučević Međeral testirao je kako izgleda isti zadatak s i bez AI-ja. Umjetna inteligencija preuzela je dio posla koji inače oduzima vrijeme, dok je Krešo zadržao kontrolu nad kreativnim odlukama.',
+          image: 'https://i.ytimg.com/vi/45fUBtTy6-w/hqdefault.jpg',
+        },
+        {
+          youtubeId: '-NsjmiFzAm8',
+          title:
+            'Može li umjetna inteligencija olakšati organizaciju putovanja?',
+          description:
+            'Štedi vrijeme, ali i novac. Omiljeni lovac potvrdio je da AI može poslužiti kao odličan alat za izradu turističkog itinerara, posebice u segmentu organizacije vremena i logičnog povezivanja pojedinih lokacija.',
+          image: 'https://i.ytimg.com/vi/-NsjmiFzAm8/hqdefault.jpg',
+        },
+        {
+          youtubeId: 'gqbZBX7GdUI',
+          title: 'Koliko nam brzina AI alata pojednostavljuje svakodnevicu?',
+          description:
+            'Umjetna inteligencija može poslužiti i za rješavanje matematičkih zadataka. Na realnom životnom primjeru to je testirala i fitness trenerica Antonela Golobić.',
+          image: 'https://i.ytimg.com/vi/gqbZBX7GdUI/hqdefault.jpg',
+        },
+        {
+          youtubeId: 'xZmsDL5pFJ4',
+          title: 'Zašto koristiti AI za planiranje sljedećeg druženja?',
+          description:
+            'Alati umjetne inteligencije dokazano pomažu u organizaciji i rješavanju praktičnih izazova, a tehnologija tako postaje koristan saveznik u ubrzanom ritmu života.',
+          image: 'https://i.ytimg.com/vi/xZmsDL5pFJ4/hqdefault.jpg',
         },
       ],
+      playingIndex: null,
       canScrollPrev: false,
       canScrollNext: true,
     }
@@ -324,10 +365,26 @@ export default {
   overflow: hidden;
   background: #1a1714;
 }
-.ht-video-card__thumb img {
+.ht-video-card__thumb-btn {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.ht-video-card__thumb-btn img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+}
+.ht-video-card__frame {
+  width: 100%;
+  height: 100%;
+  border: none;
   display: block;
 }
 .ht-video-card__play {
@@ -392,6 +449,8 @@ export default {
   width: 100%;
   height: 48px;
   background: #ffffff;
+  border: none;
+  cursor: pointer;
   border-radius: 28px;
   color: var(--ht-magenta, #e2007a);
   font-family: 'Inter', sans-serif;

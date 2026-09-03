@@ -215,6 +215,7 @@
 
 <script>
 import { Portal } from '@linusborg/vue-simple-portal'
+import { customFontLinks } from '~/utils/customFonts'
 export default {
   name: 'Slug',
   components: { Portal },
@@ -443,6 +444,7 @@ export default {
         rel: 'canonical',
         href: this.post.social.path,
       },
+      ...customFontLinks(this.post),
     ]
     const fbPaywall = {
       none: 'metered',
