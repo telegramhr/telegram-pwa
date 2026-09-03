@@ -435,13 +435,20 @@
                 ></mini-pretplata-new>
               </client-only>
               <!-- Specijal post ad placeholder: add per-post ad containers here when isSpecijalPost is enabled -->
+              <!-- Article AI summary banner: scrolls to #ai-summary below the body -->
+              <ai-summary-banner
+                v-if="aiSummaryVisible"
+                :post-id="post.id"
+                :category="aiSummaryCategory"
+                :subscriber="aiSummarySubscriber"
+              />
               <!-- eslint-disable vue/no-v-html -->
               <div
                 id="article-content"
                 class="cXenseParse mrf-article-body"
                 itemprop="articleBody"
                 @click="handleClick"
-                v-html="post.content"
+                v-html="articleContentWithBanner"
               ></div>
               <client-only>
                 <ht-kalkulator v-if="showKalkulator" />
@@ -582,13 +589,19 @@
                   {{ liveToast }}
                 </div>
               </transition>
+              <!-- Article AI summary (3 grounded bullets) — see components/AiSummary -->
+              <ai-summary-box
+                v-if="aiSummaryVisible"
+                :bullets="post.ai_summary"
+                :post-id="post.id"
+                :category="aiSummaryCategory"
+                :subscriber="aiSummarySubscriber"
+              />
               <div class="remp-banner"></div>
               <client-only>
-                <!-- on break till 1.9.
                 <portal
                   v-if="
-                    useSparPortal &&
-                    !hasPremium &&
+                    useSparPortal & !hasPremium &&
                     !(
                       post.disable_ads &&
                       (post.disable_ads.includes('spar') ||
@@ -600,7 +613,7 @@
                   <div class="full">
                     <offers-premium></offers-premium>
                   </div>
-                </portal>-->
+                </portal>
                 <portal v-if="showQuiz" selector="#quiz-container">
                   <quiz
                     v-if="post.quiz"
@@ -1422,6 +1435,11 @@ export default {
     }
   },
   computed: {
+    // Body HTML as delivered by the API (the AI summary banner is a separate
+    // component rendered above #article-content, not injected into the HTML).
+    articleContentWithBanner() {
+      return this.post.content || ''
+    },
     liveSummaryIsLong() {
       if (!this.post.live_summary) return false
       return this.stripHtmlContent(this.post.live_summary).length > 300
@@ -1734,6 +1752,20 @@ export default {
         return 'never'
       }
       return this.post.paywall
+    },
+    aiSummarySubscriber() {
+      return !!this.$store.getters['user/hasContentAccess'](this.$route.path)
+    },
+    aiSummaryCategory() {
+      return (this.post.category_slug || '').split(' ')[0] || ''
+    },
+    // Shown to every reader, paywalled articles included (decision 2026-09-03).
+    aiSummaryVisible() {
+      return (
+        !this.post.live &&
+        Array.isArray(this.post.ai_summary) &&
+        this.post.ai_summary.length > 0
+      )
     },
   },
   watch: {
