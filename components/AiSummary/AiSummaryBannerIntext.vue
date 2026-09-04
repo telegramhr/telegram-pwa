@@ -1,5 +1,6 @@
 <template>
   <app-link
+    style="margin-bottom: 15px"
     :to="'https://ad.doubleclick.net/ddm/trackclk/N48406.1983717TELEGRAM.HR/B36357733.453292138;dc_trk_aid=647554540;dc_trk_cid=261170536;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;gdpr=${GDPR};gdpr_consent=${GDPR_CONSENT_755};ltd=;dc_tdv=1'"
   >
     <img
