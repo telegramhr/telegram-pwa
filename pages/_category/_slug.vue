@@ -596,6 +596,7 @@
                 :post-id="post.id"
                 :category="aiSummaryCategory"
                 :subscriber="aiSummarySubscriber"
+                :locked="aiSummaryLocked"
               />
               <div class="remp-banner"></div>
               <client-only>
@@ -1759,6 +1760,11 @@ export default {
     aiSummaryCategory() {
       return (this.post.category_slug || '').split(' ')[0] || ''
     },
+    // Blur the bullets exactly when the article body is behind the hard
+    // paywall for this reader (`locked` already honours valid gift tokens).
+    aiSummaryLocked() {
+      return this.locked === 'always' && !this.aiSummarySubscriber
+    },
     // Shown to every reader, paywalled articles included (decision 2026-09-03).
     aiSummaryVisible() {
       return (
@@ -2243,7 +2249,14 @@ export default {
 
       this._aiBanner = new this.$root.constructor({
         parent: this, // inherit current context (so global components are visible)
-        render: (h) => h('ai-summary-banner-intext'),
+        render: (h) =>
+          h('ai-summary-banner-intext', {
+            props: {
+              postId: this.post.id,
+              category: this.aiSummaryCategory,
+              subscriber: this.aiSummarySubscriber,
+            },
+          }),
       })
       this._aiBanner.$mount(mountAiBanner)
     },

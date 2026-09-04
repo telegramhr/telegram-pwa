@@ -2,6 +2,7 @@
   <!--
     "Unfoldaj sažetak ispod članka" banner shown directly above the article
     body. Clicking it smooth-scrolls to the AiSummaryBox (#ai-summary).
+    Tracking (view once in viewport, click) via utils/aiSummaryTracking.
     Figma: Samsung-Fold-8, nodes 49-581 (desktop 710x139) / 105-77 (mobile v3 360x180).
     Samsung branding is hard-coded by decision (2026-09-03); swap the logo,
     heading and phone images below when the campaign changes.
@@ -61,23 +62,28 @@ import samsungLogo from '~/assets/img/ai-summary/samsung.svg'
 import chevron from '~/assets/img/ai-summary/circle-chevron-down.svg'
 import phoneLeft from '~/assets/img/ai-summary/phone-left.png'
 import phoneRight from '~/assets/img/ai-summary/phone-right.png'
+import aiSummaryTracking from '~/utils/aiSummaryTracking'
 
 const SCROLL_OFFSET_VH = 0.1 // same 10vh offset the article page uses for live/summary jumps
 
 export default {
   name: 'AiSummaryBanner',
+  mixins: [aiSummaryTracking],
   props: {
     targetId: { type: String, default: 'ai-summary' },
-    postId: { type: Number, default: 0 },
-    category: { type: String, default: '' },
-    subscriber: { type: Boolean, default: false },
   },
   data() {
-    return { samsungLogo, chevron, phoneLeft, phoneRight }
+    return {
+      samsungLogo,
+      chevron,
+      phoneLeft,
+      phoneRight,
+      aiPlacement: 'top-banner',
+    }
   },
   methods: {
     go() {
-      this.track()
+      this.trackAiSummary('click')
       const el = document.getElementById(this.targetId)
       if (!el) return
       const top =
@@ -85,15 +91,6 @@ export default {
         window.scrollY -
         window.innerHeight * SCROLL_OFFSET_VH
       window.scrollTo({ top, behavior: 'smooth' })
-    },
-    track() {
-      if (!this.$gtm) return
-      this.$gtm.push({
-        event: 'ai-summary-click',
-        ai_summary_post_id: this.postId,
-        ai_summary_category: this.category,
-        ai_summary_subscriber: this.subscriber,
-      })
     },
   },
 }

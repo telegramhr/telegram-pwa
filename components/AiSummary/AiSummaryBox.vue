@@ -2,14 +2,15 @@
   <!--
     AI summary box at the end of the article: white "toast" header with the
     Samsung / Galaxy Z Fold8 logos, then exactly three bullets.
+    Tracking (view once in viewport) via utils/aiSummaryTracking.
     Figma: Samsung-Fold-8, nodes 49-681 (desktop 710 wide) / 52-541 (mobile 360 wide),
     112-88 for the mobile toast pill (one row, 310 wide).
     Colors are the design's own in every theme by decision (2026-09-03).
   -->
   <section
     :id="id"
-    ref="box"
     class="ai-box"
+    :class="{ 'ai-box--locked': locked }"
     aria-labelledby="ai-summary-heading"
   >
     <div class="ai-box__toast">
@@ -47,61 +48,19 @@
 <script>
 import samsungLogo from '~/assets/img/ai-summary/samsung.svg'
 import foldLogo from '~/assets/img/ai-summary/galaxy-z-fold8.svg'
+import aiSummaryTracking from '~/utils/aiSummaryTracking'
 
 export default {
   name: 'AiSummaryBox',
+  mixins: [aiSummaryTracking],
   props: {
     bullets: { type: Array, required: true },
     id: { type: String, default: 'ai-summary' },
-    postId: { type: Number, default: 0 },
-    category: { type: String, default: '' },
-    subscriber: { type: Boolean, default: false },
+    // True when the article is behind the hard paywall for this reader.
+    locked: { type: Boolean, default: false },
   },
   data() {
-    return { samsungLogo, foldLogo, observer: null, viewed: false }
-  },
-  watch: {
-    // The article page component is reused between articles: re-arm per post.
-    postId() {
-      this.viewed = false
-      this.observe()
-    },
-  },
-  mounted() {
-    this.observe()
-  },
-  beforeDestroy() {
-    this.disconnect()
-  },
-  methods: {
-    observe() {
-      this.disconnect()
-      if (typeof IntersectionObserver === 'undefined' || !this.$refs.box) {
-        return
-      }
-      this.observer = new IntersectionObserver(
-        (entries) => {
-          if (this.viewed || !entries.some((e) => e.isIntersecting)) return
-          this.viewed = true
-          this.disconnect()
-          if (!this.$gtm) return
-          this.$gtm.push({
-            event: 'ai-summary-view',
-            ai_summary_post_id: this.postId,
-            ai_summary_category: this.category,
-            ai_summary_subscriber: this.subscriber,
-          })
-        },
-        { threshold: 0.5 }
-      )
-      this.observer.observe(this.$refs.box)
-    },
-    disconnect() {
-      if (this.observer) {
-        this.observer.disconnect()
-        this.observer = null
-      }
-    },
+    return { samsungLogo, foldLogo, aiPlacement: 'summary-box' }
   },
 }
 </script>
@@ -197,6 +156,12 @@ export default {
 }
 .ai-box__item::marker {
   color: #000;
+}
+/* Paywalled article without access: bullets blurred, not selectable or clickable. */
+.ai-box--locked .ai-box__list {
+  filter: blur(3px);
+  user-select: none;
+  pointer-events: none;
 }
 
 @media screen and (max-width: 767px) {
