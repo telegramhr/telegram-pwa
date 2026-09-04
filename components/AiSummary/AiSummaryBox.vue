@@ -2,7 +2,8 @@
   <!--
     AI summary box at the end of the article: white "toast" header with the
     Samsung / Galaxy Z Fold8 logos, then exactly three bullets.
-    Figma: Samsung-Fold-8, nodes 49-681 (desktop 710 wide) / 52-541 (mobile 360 wide).
+    Figma: Samsung-Fold-8, nodes 49-681 (desktop 710 wide) / 52-541 (mobile 360 wide),
+    112-88 for the mobile toast pill (one row, 310 wide).
     Colors are the design's own in every theme by decision (2026-09-03).
   -->
   <section
@@ -199,34 +200,40 @@ export default {
 }
 
 @media screen and (max-width: 767px) {
-  .ai-box__text {
-    padding: 0px;
-  }
   .ai-box {
     padding: 24px 25px;
     margin: 24px auto 8px;
   }
+  /* Figma 112-88: the toast becomes a single-row pill, text left, logos
+     stacked on the right, everything vertically centred. */
   .ai-box__toast {
-    flex-direction: column-reverse;
-    align-items: flex-start;
-    gap: 18px;
-    padding: 16px 20px;
+    min-height: 56px;
+    gap: 12px;
+    padding: 12px 22px 12px 19px;
+  }
+  .ai-box__text {
+    padding: 0;
+  }
+  .ai-box__heading {
+    font-size: 12px;
+    line-height: 14px;
+  }
+  .ai-box__sub {
+    font-size: 10px;
+    line-height: 14px;
   }
   .ai-box__logos {
-    flex-direction: row;
-    align-items: center;
-    gap: 12px;
+    flex-shrink: 0;
+    justify-content: center;
+    gap: 14px;
     height: auto;
-    padding: 0px;
+    padding: 0;
   }
   .ai-box__samsung {
-    height: 11px;
-    width: auto;
-    margin-top: -3px;
+    width: 57px;
   }
   .ai-box__fold {
-    height: 15px;
-    width: auto;
+    width: 71px;
   }
 }
 </style>

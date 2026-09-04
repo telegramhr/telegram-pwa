@@ -2,7 +2,7 @@
   <!--
     "Unfoldaj sažetak ispod članka" banner shown directly above the article
     body. Clicking it smooth-scrolls to the AiSummaryBox (#ai-summary).
-    Figma: Samsung-Fold-8, nodes 49-581 (desktop 710x139) / 89-244 (mobile v2 360x180).
+    Figma: Samsung-Fold-8, nodes 49-581 (desktop 710x139) / 105-77 (mobile v3 360x180).
     Samsung branding is hard-coded by decision (2026-09-03); swap the logo,
     heading and phone images below when the campaign changes.
     The phone PNGs are transparent crops of the Figma "image 18" export (2x of the
@@ -177,43 +177,47 @@ export default {
   transform: translateY(2px);
 }
 
-/* Mobile: Figma 89-244 (Banner-v2, 360x180). Logo top-left, left phone next to
-   it, text block right of centre, right phone in the bottom-right corner. */
+/* Mobile: Figma 105-77 (Banner-v3, 360x180): the desktop composition at ~53%,
+   vertically centred in the 180px frame. */
 @media screen and (max-width: 767px) {
   .ai-banner {
     height: 180px;
     margin: 16px auto;
   }
   .ai-banner__phone--left {
-    /* 101px in the 360px frame; anchored to the text block so the two never overlap on narrower banners */
-    left: calc(50% - 79px);
-    top: -4px;
-    width: 59px;
-    height: 76px;
+    left: 86px;
+    top: 50px;
+    width: 56px;
+    height: 72px;
   }
   .ai-banner__phone--right {
-    right: 0;
-    top: 112px;
-    width: 65px;
-    height: 75px;
+    right: 6px;
+    top: 60px;
+    width: 61px;
+    height: 70px;
   }
   .ai-banner__logo {
-    /* Figma raster is 86px with ~3px of padding; the SVG has none, so 84px at top 23px lands on the same glyph box */
-    left: 20px;
-    top: 23px;
-    width: 84px;
+    /* Figma raster is 65px wide with ~1px padding and the glyphs start 2px in */
+    left: 14px;
+    top: 65px;
+    width: 64px;
   }
   .ai-banner__content {
-    left: calc(50% + 62px);
-    top: calc(50% + 7px);
-    gap: 10px;
-    width: 166px;
-    transform: translate(-50%, -50%);
+    /* text block centred at 50% + 34.6px in Figma (width 131px) */
+    left: calc(50% - 31px);
+    top: 64px;
+    gap: 5px;
+    width: 131px;
+    transform: none;
   }
   .ai-banner__heading {
-    font-size: 20px;
-    line-height: 24px;
+    font-size: 12.8px;
+    line-height: 15px;
     white-space: nowrap;
+  }
+  .ai-banner__chevron {
+    width: 12px;
+    height: 12px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
