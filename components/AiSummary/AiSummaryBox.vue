@@ -127,7 +127,7 @@ export default {
   gap: 16px;
   box-sizing: border-box;
   min-height: 84px;
-  padding: 18px 45px 18px 19px;
+  padding-right: 12px;
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.03);
   border-radius: 20px;
@@ -139,15 +139,15 @@ export default {
 .ai-box__text {
   display: flex;
   flex-direction: column;
-  gap: 8px;
   min-width: 0;
+  padding: 18px;
 }
 .ai-box__heading {
   margin: 0;
   font-family: inherit;
   font-weight: 500;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   color: #0a0c11;
 }
 .ai-box__sub {
@@ -160,8 +160,10 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 16px;
-  flex-shrink: 0;
+  justify-content: space-between;
+  padding: 12px 0px;
+  height: -webkit-fill-available;
+  height: stretch;
 }
 .ai-box__samsung {
   display: block;
@@ -179,7 +181,7 @@ export default {
 .ai-box__list {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
   margin: 30px 0 0 !important;
   padding: 0 0 0 24px !important;
   list-style: disc outside !important;
@@ -197,6 +199,9 @@ export default {
 }
 
 @media screen and (max-width: 767px) {
+  .ai-box__text {
+    padding: 0px;
+  }
   .ai-box {
     padding: 24px 25px;
     margin: 24px auto 8px;
@@ -204,21 +209,20 @@ export default {
   .ai-box__toast {
     flex-direction: column-reverse;
     align-items: flex-start;
-    gap: 22px;
+    gap: 18px;
     padding: 16px 20px;
-  }
-  .ai-box__text {
-    gap: 10px;
   }
   .ai-box__logos {
     flex-direction: row;
     align-items: center;
     gap: 12px;
+    height: auto;
+    padding: 0px;
   }
   .ai-box__samsung {
     height: 11px;
     width: auto;
-    margin-top: 1px;
+    margin-top: -3px;
   }
   .ai-box__fold {
     height: 15px;
