@@ -1765,9 +1765,11 @@ export default {
     aiSummaryLocked() {
       return this.locked === 'always' && !this.aiSummarySubscriber
     },
-    // Shown to every reader, paywalled articles included (decision 2026-09-03).
+    // Shown to every non-premium reader, paywalled articles included. Premium
+    // users see none of the three AI surfaces (top banner, intext banner, box).
     aiSummaryVisible() {
       return (
+        !this.hasPremium &&
         !this.post.live &&
         Array.isArray(this.post.ai_summary) &&
         this.post.ai_summary.length > 0
@@ -1775,6 +1777,11 @@ export default {
     },
   },
   watch: {
+    // The intext banner is mounted imperatively, so it does not react to
+    // v-if; tear it down when access loads late and turns the summary off.
+    aiSummaryVisible(visible) {
+      if (!visible) this.removeInArticleAiBanner()
+    },
     'post.live': {
       handler(val) {
         if (val && !this.post.live_end) {
@@ -2215,6 +2222,14 @@ export default {
           }),
       })
       this._topArticlesWidget.$mount(mountEl)
+    },
+    removeInArticleAiBanner() {
+      if (this._aiBanner) {
+        this._aiBanner.$destroy()
+        this._aiBanner = null
+      }
+      const wrapper = document.getElementById('ai-intext-banner')
+      if (wrapper) wrapper.remove()
     },
     loadInArticleAiBanner() {
       // Two-layer dedupe: instance flag catches same-instance double calls,
