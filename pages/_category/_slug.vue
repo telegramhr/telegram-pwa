@@ -662,6 +662,11 @@
                 :key="`midas-text-${post.id}`"
                 type="text-only"
               ></midas>
+              <!-- Telegram x lensEU promo: only under posts tagged lenseu / lens-eu / eulens -->
+              <lens-eu-banner
+                v-if="isLensEuPost"
+                :key="`lenseu-${post.id}`"
+              ></lens-eu-banner>
               <div
                 class="full relative single-article-footer flex column-top-pad"
               >
@@ -1278,6 +1283,9 @@ import HtKalkulator from '~/components/ht-kalkulator/HtKalkulator.vue'
 import MatchScoreboard from '~/components/liveblog/MatchScoreboard.vue'
 import { customFontLinks } from '~/utils/customFonts'
 
+// Tag slugs that show the Telegram x lensEU banner under the article
+const LENSEU_TAG_SLUGS = ['lenseu', 'lens-eu', 'eulens']
+
 const widgetMap = {
   a1: 'A1Widget',
   ht: 'HtWidget',
@@ -1476,6 +1484,11 @@ export default {
         return terms.includes(tag.slug)
       })
       return !!filtered.length
+    },
+    isLensEuPost() {
+      return (this.post.tags || []).some((tag) =>
+        LENSEU_TAG_SLUGS.includes(tag.slug)
+      )
     },
     isSpecijalPost() {
       // To enable special ad handling for a post, return true for that post id.
