@@ -139,12 +139,12 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: 'Odaberite jedan od paketa i podržite nas',
+          content: 'Podržite najvažniji i najneovisniji medij u Hrvatskoj',
         },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: 'Odaberite jedan od paketa i podržite nas',
+          content: 'Podržite najvažniji i najneovisniji medij u Hrvatskoj',
         },
         {
           hid: 'og:title',
