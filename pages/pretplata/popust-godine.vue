@@ -27,6 +27,7 @@
           @updateEmail="updateEmail"
         ></PretplataLogin>
         <PretplataPaymentConfirm
+          :hide-promo="true"
           :url-key="urlKey"
           :loading="loading"
           :can-log-in="canLogIn"
@@ -156,7 +157,7 @@ export default {
           name: 'og:image',
           property: 'og:image',
           content:
-            'https://www.telegram.hr/wp-content/uploads/2026/04/popust-naslovna.png',
+            'https://www.telegram.hr/wp-content/uploads/2026/09/popust-godine.webp',
         },
         {
           hid: 'og:url',

@@ -58,11 +58,9 @@ export default {
     </div>
 
     <div class="hr-layer hr-layer--txt">
-      <img
-        class="hr-logo"
-        src="@/assets/img/telegram_logo_white.svg"
-        alt="Telegram"
-      />
+      <nuxt-link to="/" class="hr-logo" aria-label="Telegram naslovnica">
+        <img src="@/assets/img/telegram_logo_white.svg" alt="Telegram" />
+      </nuxt-link>
 
       <div class="hr-txt">
         <span class="hr-badge">
@@ -164,6 +162,11 @@ export default {
 /* the logo only exists in the desktop frame */
 .hr-logo {
   display: none;
+}
+.hr-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .hr-txt {
