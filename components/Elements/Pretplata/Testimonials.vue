@@ -7,6 +7,14 @@ export default {
   name: 'Testimonials',
   components: { VueSlickCarousel },
   props: {
+    title: {
+      type: String,
+      default: 'Što naši pretplatnici kažu o nama?',
+    },
+    noTopPadding: {
+      type: Boolean,
+      default: false,
+    },
     testimonials: {
       type: Array,
       default: () => [
@@ -49,10 +57,10 @@ export default {
 </script>
 
 <template>
-  <div class="main">
+  <div class="main" :class="{ 'no-top-padding': noTopPadding }">
     <div class="wrapper">
       <div class="testimonials">
-        <span class="title">Što naši pretplatnici kažu o nama?</span>
+        <span class="title">{{ title }}</span>
 
         <div class="desktop-testimonials">
           <div
@@ -102,6 +110,9 @@ export default {
   padding: 52px 16px 0px 16px;
   overflow: hidden;
   position: relative;
+}
+.main.no-top-padding {
+  padding-top: 0;
 }
 
 .wrapper {

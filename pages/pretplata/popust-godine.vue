@@ -42,6 +42,8 @@
       </div>
     </div>
     <Testimonials
+      title="Izjave čitatelja"
+      no-top-padding
       :testimonials="[
         {
           text: 'Telegram nije samo nada da će se kriminal razotkriti, nego i mjesto kvalitetnog novinarstva. Jedan je od rijetkih medija koji pokazuje što se događa izvan Zagreba.',
