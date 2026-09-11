@@ -3,99 +3,7 @@
     <div v-if="loading" class="telegram-overlay">
       <span class="telegram-loader"></span>
     </div>
-    <div class="hero-wrapper">
-      <div class="hero-left-container">
-        <div class="hero-left-wrapper">
-          <a href="/">
-            <img
-              class="telegram-logo"
-              src="@/assets/img/telegram_logo_grey.svg"
-              alt="Telegram Logo"
-            />
-          </a>
-          <div class="hero-text-wrapper-desktop">
-            <h1 class="hero-title">
-              Čitajte Telegram cijelu godinu za
-              <span class="oldPrice"
-                >79€
-                <span class="line">/</span>
-              </span>
-              <span style="font-weight: 700">29€</span>
-            </h1>
-            <p class="hero-subtitle">
-              Do neovisnog novinarstva sada možete već od
-              <span style="font-weight: 700">0,56€</span>
-              tjedno.
-            </p>
-            <TgButton href="#pretplataPayment" class="hero-subscribe-btn">
-              Aktivirajte pretplatu
-            </TgButton>
-          </div>
-          <p class="hero-disclaimer">
-            Možete otkazati u bilo kojem trenutku. Nakon isteka prve godine po
-            cijeni od 29€, pretplata se automatski obnavlja po redovnoj cijeni.
-          </p>
-        </div>
-      </div>
-      <div class="hero-main">
-        <div class="hero-content-wrapper">
-          <div class="hero-text-wrapper">
-            <h1>
-              Čitajte Telegram cijelu godinu za
-              <span class="oldPrice"
-                >79€
-                <span class="line">/</span>
-              </span>
-              29€
-            </h1>
-            <p>
-              Do neovisnog novinarstva sada možete već od
-              <span style="font-weight: 700">0.56€</span> tjedno.
-            </p>
-            <TgButton href="#pretplataPayment" class="hero-subscribe-btn"
-              >Aktivirajte pretplatu</TgButton
-            >
-          </div>
-          <div class="hero-listen-wrapper">
-            <div class="hero-listen-section">
-              <button class="hero-listen-button">
-                <img src="@/assets/img/pretplata/standard/play.png" alt="" />
-                Poslušajte ovaj članak
-                <span class="hero-duration"> • 6:25 min</span>
-              </button>
-              <div class="hero-share-section">
-                <button class="hero-gift">
-                  <img src="@/assets/img/pretplata/standard/gift.png" alt="" />
-                  Poklonite članak
-                </button>
-                <button class="hero-comments">
-                  <img
-                    src="@/assets/img/pretplata/standard/comment.png"
-                    alt=""
-                  />
-                  24
-                </button>
-                <button class="hero-share">
-                  <img src="@/assets/img/pretplata/standard/share.png" alt="" />
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="hero-images">
-            <img
-              class="hero-iphone"
-              src="@/assets/img/pretplata/standard/iphone.png"
-              alt="Iphone"
-            />
-            <img
-              class="hero-macbook"
-              src="@/assets/img/pretplata/standard/macbook-desktop.png"
-              alt="Macbook"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
+    <HeroRefresh29 button-link="#pretplataPayment" />
     <div class="content">
       <div>
         <PretplataPayment
@@ -133,35 +41,6 @@
         ></PretplataPaymentConfirm>
       </div>
     </div>
-    <Features
-      :cards="[
-        {
-          title: 'Cjelogodišnji pristup vrhunskom novinarstvu',
-          text: 'Čitajte sve članke bez ograničenja - od istraživačkih priča do analiza koje oblikuju javni razgovor u Hrvatskoj.',
-          image: require('@/assets/img/pretplata/features/pristup.png'),
-        },
-        {
-          title: 'Neovisno i nagrađivano novinarstvo',
-          text: 'Pretplatom podržavate redakciju koja je višestruko nagrađivana za istraživačko i analitičko novinarstvo.',
-          image: require('@/assets/img/pretplata/features/neovisno.png'),
-        },
-        {
-          title: 'Relevantne analize i komentari',
-          text: 'Analize onoga što se zapravo događa - kroz tekstove koji idu dublje od naslova.',
-          image: require('@/assets/img/pretplata/features/relevantne.png'),
-        },
-        {
-          title: 'Neograničeno čitanje Telegram članaka čitavu godinu',
-          text: 'Uživajte u ekskluzivnom sadržaju neovisnog novinarstva. Samo informacije koje su provjerene.',
-          image: require('@/assets/img/pretplata/features/reklame.png'),
-        },
-        {
-          title: 'Pristup Telegram klubu i pogodnostima',
-          text: 'U Telegram Klubu vas očekuju dodatne pogodnosti, posebni popusti i pozivnice na ekskluzivne događaje.',
-          image: require('@/assets/img/pretplata/features/klub.png'),
-        },
-      ]"
-    ></Features>
     <Testimonials
       :testimonials="[
         {
