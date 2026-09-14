@@ -1284,7 +1284,7 @@ import MatchScoreboard from '~/components/liveblog/MatchScoreboard.vue'
 import { customFontLinks } from '~/utils/customFonts'
 
 // Tag slugs that show the Telegram x lensEU banner under the article
-const LENSEU_TAG_SLUGS = ['lenseu', 'lens-eu', 'eulens']
+const LENSEU_TAG_SLUGS = ['lenseu', 'lens-eu', 'eulens', 'eu-lens']
 
 const widgetMap = {
   a1: 'A1Widget',
