@@ -1779,11 +1779,13 @@ export default {
       return this.locked === 'always' && !this.aiSummarySubscriber
     },
     // Shown to every non-premium reader, paywalled articles included. Premium
-    // users see none of the three AI surfaces (top banner, intext banner, box).
+    // users see none of the three AI surfaces (top banner, intext banner, box),
+    // and neither do promo/sponsored articles (editors tick "NePromo" in Oglasi).
     aiSummaryVisible() {
       return (
         !this.hasPremium &&
         !this.post.live &&
+        !(this.post.disable_ads || []).includes('nepromo') &&
         Array.isArray(this.post.ai_summary) &&
         this.post.ai_summary.length > 0
       )
