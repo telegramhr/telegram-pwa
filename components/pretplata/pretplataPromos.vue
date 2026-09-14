@@ -9,6 +9,7 @@ export default {
     <client-only>
       <intext-regular-promo></intext-regular-promo>
       <intext-refresh></intext-refresh>
+      <intext-refresh-29></intext-refresh-29>
       <popup-regular-promo></popup-regular-promo>
       <intext-promo-free-month></intext-promo-free-month>
       <intext-promo-xmas></intext-promo-xmas>
