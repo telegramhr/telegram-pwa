@@ -358,21 +358,13 @@
                       :srcset="srcset"
                       type="image/webp"
                       width="888"
-                      :height="
-                        post.category_slug.includes('super1') ? 888 : 560
-                      "
+                      :height="heroHeight"
                     />
                     <img
-                      :src="
-                        post.category_slug.includes('super1')
-                          ? post.image.s1jpg
-                          : post.image.jpg
-                      "
+                      :src="heroFallbackSrc"
                       :alt="post.image.alt"
                       width="888"
-                      :height="
-                        post.category_slug.includes('super1') ? 888 : 560
-                      "
+                      :height="heroHeight"
                       fetchpriority="high"
                     />
                   </picture>
@@ -1740,9 +1732,30 @@ export default {
     categoryClass() {
       return this.post.category_slug
     },
+    s1Fit() {
+      const fit = this.post.image && this.post.image.s1fit
+      return fit && fit.url && fit.width && fit.height ? fit : null
+    },
+    heroHeight() {
+      if (this.post.category_slug.includes('super1')) {
+        return this.s1Fit
+          ? Math.round((888 * this.s1Fit.height) / this.s1Fit.width)
+          : 888
+      }
+      return 560
+    },
+    heroFallbackSrc() {
+      if (this.post.category_slug.includes('super1')) {
+        return this.s1Fit ? this.s1Fit.jpg : this.post.image.s1jpg
+      }
+      return this.post.image.jpg
+    },
     srcset() {
       let set
       if (this.categoryClass && this.categoryClass.includes('superone')) {
+        if (this.s1Fit) {
+          return `${this.s1Fit.url}`
+        }
         set = `${this.post.image.s1url}`
         if (this.post.image.s1url2) {
           set += `, ${this.post.image.s1url2} 2x`
@@ -1779,11 +1792,13 @@ export default {
       return this.locked === 'always' && !this.aiSummarySubscriber
     },
     // Shown to every non-premium reader, paywalled articles included. Premium
-    // users see none of the three AI surfaces (top banner, intext banner, box).
+    // users see none of the three AI surfaces (top banner, intext banner, box),
+    // and neither do promo/sponsored articles (editors tick "NePromo" in Oglasi).
     aiSummaryVisible() {
       return (
         !this.hasPremium &&
         !this.post.live &&
+        !(this.post.disable_ads || []).includes('nepromo') &&
         Array.isArray(this.post.ai_summary) &&
         this.post.ai_summary.length > 0
       )
