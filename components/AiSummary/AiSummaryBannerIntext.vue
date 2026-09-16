@@ -9,15 +9,6 @@
   -->
   <app-link :to="clickUrl" @click.native="trackAiSummary('click')">
     <img
-      v-if="impressionUrl"
-      :src="impressionUrl"
-      attributionsrc
-      alt=""
-      aria-hidden="true"
-      width="1"
-      height="1"
-    />
-    <img
       class="ai-banner desktop-only"
       src="@/assets/img/ai-summary/samsung-desktop.png"
       alt="Samsung Galaxy Z Fold8: Skrati dugu priču. AI Summary izdvaja najbitnije."
@@ -44,14 +35,9 @@ export default {
   data() {
     return {
       aiPlacement: 'intext-banner',
-      clickUrl: `https://ad.doubleclick.net/ddm/trackclk/${DCM_PLACEMENT};${DCM_TAIL}`,
+      clickUrl: `https://www.samsung.com/hr/smartphones/galaxy-z-fold8/buy/?cid=hr_pd_display_telegram_galaxy-z-fold8_launch_q8h8b8-launch_multi_multi_consideration`,
       // Set on mount so the pixel is requested exactly once per mount, client-side.
-      impressionUrl: '',
     }
-  },
-  mounted() {
-    const ord = `${Date.now()}${Math.floor(Math.random() * 1e6)}`
-    this.impressionUrl = `https://ad.doubleclick.net/ddm/trackimp/${DCM_PLACEMENT};ord=${ord};${DCM_TAIL}?`
   },
 }
 </script>
