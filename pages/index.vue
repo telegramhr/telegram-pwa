@@ -52,11 +52,11 @@
               !$store.state.user.access?.length
             "
             id="pretplata-promo"
-            to="/pretplata/podrska-telegramu/?utm_source=index_header&utm_medium=direct&utm_campaign=podrska-telegramu&utm_content=index_header"
+            to="/pretplata/popust-godine/?utm_source=index_header&utm_medium=direct&utm_campaign=ponuda-godine&utm_content=index_header"
             class="newbtn gift-btn"
           >
-            <span class="poklonMobile">0,75€ tjedno</span
-            ><span class="poklon">0,75€ tjedno</span></app-link
+            <span class="poklonMobile">Ponuda godine</span
+            ><span class="poklon">Ponuda godine</span></app-link
           >
           <a
             v-show="!canLogIn"
@@ -120,9 +120,9 @@
             <app-link
               v-show="!$store.state.user.access"
               id="pretplatite se - header"
-              to="/pretplata/podrska-telegramu/?utm_source=index_menu&utm_medium=direct&utm_campaign=podrska-telegramu&utm_content=index_menu"
+              to="/pretplata/popust-godine/?utm_source=index_menu&utm_medium=direct&utm_campaign=ponuda-godine&utm_content=index_menu"
               class="newbtn"
-              >0,75€ tjedno</app-link
+              >Ponuda godine</app-link
             >
             <a
               v-show="!canLogIn"

@@ -402,7 +402,7 @@
               :to="
                 $route.fullPath.includes('telesport')
                   ? '/pretplata/telesport/'
-                  : '/pretplata/podrska-telegramu/?utm_source=theader&utm_medium=direct&utm_campaign=podrska-telegramu&utm_content=theader'
+                  : '/pretplata/popust-godine/?utm_source=theader&utm_medium=direct&utm_campaign=ponuda-godine&utm_content=theader'
               "
               :class="[
                 'newbtn',
@@ -412,7 +412,7 @@
             >
               {{
                 !$route.fullPath.includes('telesport')
-                  ? '0,75€ tjedno'
+                  ? 'Ponuda godine'
                   : 'Pretplatite se'
               }}</app-link
             >
