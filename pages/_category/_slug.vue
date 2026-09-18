@@ -435,20 +435,13 @@
                 ></mini-pretplata-new>
               </client-only>
               <!-- Specijal post ad placeholder: add per-post ad containers here when isSpecijalPost is enabled -->
-              <!-- Article AI summary banner: scrolls to #ai-summary below the body -->
-              <ai-summary-banner
-                v-if="aiSummaryVisible"
-                :post-id="post.id"
-                :category="aiSummaryCategory"
-                :subscriber="aiSummarySubscriber"
-              />
               <!-- eslint-disable vue/no-v-html -->
               <div
                 id="article-content"
                 class="cXenseParse mrf-article-body"
                 itemprop="articleBody"
                 @click="handleClick"
-                v-html="articleContentWithBanner"
+                v-html="post.content"
               ></div>
               <client-only>
                 <ht-kalkulator v-if="showKalkulator" />
@@ -589,15 +582,6 @@
                   {{ liveToast }}
                 </div>
               </transition>
-              <!-- Article AI summary (3 grounded bullets) — see components/AiSummary -->
-              <ai-summary-box
-                v-if="aiSummaryVisible"
-                :bullets="post.ai_summary"
-                :post-id="post.id"
-                :category="aiSummaryCategory"
-                :subscriber="aiSummarySubscriber"
-                :locked="aiSummaryLocked"
-              />
               <div class="remp-banner"></div>
               <client-only>
                 <portal
@@ -1444,11 +1428,6 @@ export default {
     }
   },
   computed: {
-    // Body HTML as delivered by the API (the AI summary banner is a separate
-    // component rendered above #article-content, not injected into the HTML).
-    articleContentWithBanner() {
-      return this.post.content || ''
-    },
     liveSummaryIsLong() {
       if (!this.post.live_summary) return false
       return this.stripHtmlContent(this.post.live_summary).length > 300
@@ -1622,7 +1601,7 @@ export default {
         dateModified: new Date(
           Math.max(
             this.post.timem || 0,
-            // Live blogs are also "modified" when the AI summary is regenerated
+            // Live blogs are also "modified" when the live summary is regenerated
             // or the live coverage is closed — count those so the timestamp
             // never lags behind the most recent change.
             this.post.live_summary_time || 0,
@@ -1767,36 +1746,8 @@ export default {
       }
       return this.post.paywall
     },
-    aiSummarySubscriber() {
-      return !!this.$store.getters['user/hasContentAccess'](this.$route.path)
-    },
-    aiSummaryCategory() {
-      return (this.post.category_slug || '').split(' ')[0] || ''
-    },
-    // Blur the bullets exactly when the article body is behind the hard
-    // paywall for this reader (`locked` already honours valid gift tokens).
-    aiSummaryLocked() {
-      return this.locked === 'always' && !this.aiSummarySubscriber
-    },
-    // Shown to every non-premium reader, paywalled articles included. Premium
-    // users see none of the three AI surfaces (top banner, intext banner, box),
-    // and neither do promo/sponsored articles (editors tick "NePromo" in Oglasi).
-    aiSummaryVisible() {
-      return (
-        !this.hasPremium &&
-        !this.post.live &&
-        !(this.post.disable_ads || []).includes('nepromo') &&
-        Array.isArray(this.post.ai_summary) &&
-        this.post.ai_summary.length > 0
-      )
-    },
   },
   watch: {
-    // The intext banner is mounted imperatively, so it does not react to
-    // v-if; tear it down when access loads late and turns the summary off.
-    aiSummaryVisible(visible) {
-      if (!visible) this.removeInArticleAiBanner()
-    },
     'post.live': {
       handler(val) {
         if (val && !this.post.live_end) {
@@ -2118,7 +2069,6 @@ export default {
           this.$store.dispatch('gifts/getUserGifts')
         }
         this.loadInArticleWidget()
-        this.loadInArticleAiBanner()
         this.$store.commit('pretplata/setLastArticle', this.post.id)
         this.$nextTick(() => this.processEmbeds())
         if (!document.getElementsByClassName('coral-counters-script').length) {
@@ -2237,58 +2187,6 @@ export default {
           }),
       })
       this._topArticlesWidget.$mount(mountEl)
-    },
-    removeInArticleAiBanner() {
-      if (this._aiBanner) {
-        this._aiBanner.$destroy()
-        this._aiBanner = null
-      }
-      const wrapper = document.getElementById('ai-intext-banner')
-      if (wrapper) wrapper.remove()
-    },
-    loadInArticleAiBanner() {
-      // Two-layer dedupe: instance flag catches same-instance double calls,
-      // DOM check catches cross-instance cases (e.g. overlapping page mounts
-      // during route transition). The widget mounts inside #top-articles-widget
-      // rather than replacing it, so the id stays queryable.
-      if (this._aiBanner) return
-      if (document.getElementById('ai-intext-banner')) return
-
-      const container = document.getElementById('article-content')
-      if (!container) return
-
-      const paragraphs = container.querySelectorAll('p')
-      if (paragraphs.length < 3) return
-      if (this.post.id === 2774378) return
-
-      if (
-        this.post.category_slug.includes('super1') ||
-        this.post.category_slug.includes('pitanje-zdravlja') ||
-        this.post.category_slug.includes('openspace')
-      )
-        return
-
-      if (!this.aiSummaryVisible) return
-
-      const wrapperAiBanner = document.createElement('div')
-      wrapperAiBanner.id = 'ai-intext-banner'
-      paragraphs[2].insertAdjacentElement('afterend', wrapperAiBanner)
-
-      const mountAiBanner = document.createElement('div')
-      wrapperAiBanner.appendChild(mountAiBanner)
-
-      this._aiBanner = new this.$root.constructor({
-        parent: this, // inherit current context (so global components are visible)
-        render: (h) =>
-          h('ai-summary-banner-intext', {
-            props: {
-              postId: this.post.id,
-              category: this.aiSummaryCategory,
-              subscriber: this.aiSummarySubscriber,
-            },
-          }),
-      })
-      this._aiBanner.$mount(mountAiBanner)
     },
     fbShare() {
       /* global FB */
