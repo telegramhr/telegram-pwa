@@ -356,7 +356,7 @@
                     <source
                       v-if="isSuperone && s1Fit"
                       media="(min-width: 768px)"
-                      :srcset="s1Fit.url"
+                      :srcset="fitSrcset"
                       type="image/webp"
                       width="888"
                       :height="fitHeight"
@@ -1746,6 +1746,16 @@ export default {
     s1Fit() {
       const fit = this.post.image && this.post.image.s1fit
       return fit && fit.url && fit.width && fit.height ? fit : null
+    },
+    fitSrcset() {
+      if (!this.s1Fit) {
+        return ''
+      }
+      let set = `${this.s1Fit.url}`
+      if (this.s1Fit.url2) {
+        set += `, ${this.s1Fit.url2} 2x`
+      }
+      return set
     },
     fitHeight() {
       return this.s1Fit
