@@ -354,6 +354,14 @@
                 <template v-else>
                   <picture class="article-head-image" itemprop="image">
                     <source
+                      v-if="isSuperone && s1Fit"
+                      media="(min-width: 768px)"
+                      :srcset="s1Fit.url"
+                      type="image/webp"
+                      width="888"
+                      :height="fitHeight"
+                    />
+                    <source
                       :src="post.image.url"
                       :srcset="srcset"
                       type="image/webp"
@@ -1732,36 +1740,37 @@ export default {
     categoryClass() {
       return this.post.category_slug
     },
+    isSuperone() {
+      return !!(this.categoryClass && this.categoryClass.includes('superone'))
+    },
     s1Fit() {
       const fit = this.post.image && this.post.image.s1fit
       return fit && fit.url && fit.width && fit.height ? fit : null
     },
+    fitHeight() {
+      return this.s1Fit
+        ? Math.round((888 * this.s1Fit.height) / this.s1Fit.width)
+        : 888
+    },
     heroHeight() {
-      if (this.post.category_slug.includes('super1')) {
-        return this.s1Fit
-          ? Math.round((888 * this.s1Fit.height) / this.s1Fit.width)
-          : 888
-      }
-      return 560
+      return this.post.category_slug.includes('super1') ? 888 : 560
     },
     heroFallbackSrc() {
       if (this.post.category_slug.includes('super1')) {
-        return this.s1Fit ? this.s1Fit.jpg : this.post.image.s1jpg
+        return this.post.image.s1hqjpg || this.post.image.s1jpg
       }
       return this.post.image.jpg
     },
     srcset() {
       let set
       if (this.categoryClass && this.categoryClass.includes('superone')) {
-        if (this.s1Fit) {
-          return `${this.s1Fit.url}`
+        const img = this.post.image
+        set = `${img.s1hq || img.s1url}`
+        if (img.s1hq2 || img.s1url2) {
+          set += `, ${img.s1hq2 || img.s1url2} 2x`
         }
-        set = `${this.post.image.s1url}`
-        if (this.post.image.s1url2) {
-          set += `, ${this.post.image.s1url2} 2x`
-        }
-        if (this.post.image.s1url3) {
-          set += `, ${this.post.image.s1url3} 3x`
+        if (img.s1hq3 || img.s1url3) {
+          set += `, ${img.s1hq3 || img.s1url3} 3x`
         }
       } else {
         set = `${this.post.image.url}`
