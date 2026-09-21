@@ -1751,7 +1751,7 @@ export default {
       if (!this.s1Fit) {
         return ''
       }
-      let set = `${this.s1Fit.url}`
+      let set = `${this.s1Fit.url} 1.5x`
       if (this.s1Fit.url2) {
         set += `, ${this.s1Fit.url2} 2x`
       }
