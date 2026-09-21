@@ -358,7 +358,7 @@
                       media="(min-width: 768px)"
                       :srcset="fitSrcset"
                       type="image/webp"
-                      width="888"
+                      width="1000"
                       :height="fitHeight"
                     />
                     <source
@@ -1751,7 +1751,7 @@ export default {
       if (!this.s1Fit) {
         return ''
       }
-      let set = `${this.s1Fit.url}`
+      let set = `${this.s1Fit.url} 1.5x`
       if (this.s1Fit.url2) {
         set += `, ${this.s1Fit.url2} 2x`
       }
@@ -1759,7 +1759,7 @@ export default {
     },
     fitHeight() {
       return this.s1Fit
-        ? Math.round((888 * this.s1Fit.height) / this.s1Fit.width)
+        ? Math.round((1000 * this.s1Fit.height) / this.s1Fit.width)
         : 888
     },
     heroHeight() {
