@@ -43,6 +43,7 @@ const SKIPPED_SELECTOR = [
   'figcaption',
 ].join(',')
 const MIN_PREFIX_CHARS = 40
+const TRAILING_STOP = /\.$/ // the period wp_chunker.py appends to a subheading
 const QUOTES = /[„“”"«»]/g
 const APOSTROPHES = /[‘’‚‛`´]/g
 const DASHES = /[‐‑‒–—―]/g
@@ -141,6 +142,11 @@ function foldedBody(root) {
  */
 export function longestMatch(folded, phrase) {
   if (folded.includes(phrase)) return phrase
+  // The chunker ends a subheading with a period the page does not have, so a passage
+  // that opens with one cites e.g. "Smanjivanje inozemne potražnje." (too short for
+  // the prefix fallback): match it without that period.
+  const bare = phrase.replace(TRAILING_STOP, '')
+  if (bare && bare !== phrase && folded.includes(bare)) return bare
   let low = MIN_PREFIX_CHARS
   let high = phrase.length - 1
   if (high < low || !folded.includes(phrase.slice(0, low))) return null
