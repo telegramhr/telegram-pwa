@@ -354,25 +354,25 @@
                 <template v-else>
                   <picture class="article-head-image" itemprop="image">
                     <source
+                      v-if="isSuperone && s1Fit"
+                      media="(min-width: 768px)"
+                      :srcset="fitSrcset"
+                      type="image/webp"
+                      width="1000"
+                      :height="fitHeight"
+                    />
+                    <source
                       :src="post.image.url"
                       :srcset="srcset"
                       type="image/webp"
                       width="888"
-                      :height="
-                        post.category_slug.includes('super1') ? 888 : 560
-                      "
+                      :height="heroHeight"
                     />
                     <img
-                      :src="
-                        post.category_slug.includes('super1')
-                          ? post.image.s1jpg
-                          : post.image.jpg
-                      "
+                      :src="heroFallbackSrc"
                       :alt="post.image.alt"
                       width="888"
-                      :height="
-                        post.category_slug.includes('super1') ? 888 : 560
-                      "
+                      :height="heroHeight"
                       fetchpriority="high"
                     />
                   </picture>
@@ -1719,15 +1719,47 @@ export default {
     categoryClass() {
       return this.post.category_slug
     },
+    isSuperone() {
+      return !!(this.categoryClass && this.categoryClass.includes('superone'))
+    },
+    s1Fit() {
+      const fit = this.post.image && this.post.image.s1fit
+      return fit && fit.url && fit.width && fit.height ? fit : null
+    },
+    fitSrcset() {
+      if (!this.s1Fit) {
+        return ''
+      }
+      let set = `${this.s1Fit.url} 1.5x`
+      if (this.s1Fit.url2) {
+        set += `, ${this.s1Fit.url2} 2x`
+      }
+      return set
+    },
+    fitHeight() {
+      return this.s1Fit
+        ? Math.round((1000 * this.s1Fit.height) / this.s1Fit.width)
+        : 888
+    },
+    heroHeight() {
+      return this.post.category_slug.includes('super1') ? 888 : 560
+    },
+    heroFallbackSrc() {
+      if (this.post.category_slug.includes('super1')) {
+        return this.post.image.s1hqjpg || this.post.image.s1jpg
+      }
+      return this.post.image.jpg
+    },
     srcset() {
       let set
       if (this.categoryClass && this.categoryClass.includes('superone')) {
-        set = `${this.post.image.s1url}`
-        if (this.post.image.s1url2) {
-          set += `, ${this.post.image.s1url2} 2x`
+        const img = this.post.image
+        set = `${img.s1hq || img.s1url}`
+        if (img.s1hq2 || img.s1url2) {
+          set += `, ${img.s1hq2 || img.s1url2} 2x`
         }
-        if (this.post.image.s1url3) {
-          set += `, ${this.post.image.s1url3} 3x`
+        if (img.s1hq3 || img.s1url3) {
+          set += `, ${img.s1hq3 || img.s1url3} 3x`
         }
       } else {
         set = `${this.post.image.url}`
