@@ -4535,6 +4535,19 @@ html.large-fontsize,
         padding-left: 4vw;
         padding-right: 4vw;
     }
+    /* .wp-block-columns break out to 100vw (see the global rule), so text
+       inside a column loses the article's side padding; give it back the
+       same 4vw. Images in columns stay edge to edge. */
+    .single-article .single-article-body #article-content .wp-block-column>p,
+    .single-article .single-article-body #article-content .wp-block-column>h2,
+    .single-article .single-article-body #article-content .wp-block-column>h3,
+    .single-article .single-article-body #article-content .wp-block-column>h4,
+    .single-article .single-article-body #article-content .wp-block-column>ul,
+    .single-article .single-article-body #article-content .wp-block-column>ol,
+    .single-article .single-article-body #article-content .wp-block-column>blockquote {
+        padding-left: 4vw;
+        padding-right: 4vw;
+    }
     .mobile-mini-side-pad {
         padding-left: 2vw;
         padding-right: 2vw;
@@ -5235,6 +5248,29 @@ html.large-fontsize,
     .single-article .single-article-body>#article-content>.article-full-width,
     .single-article .single-article-body>#article-content>#piano-content>.article-full-width {
         max-width: 1200px;
+    }
+    /* Block editor "Široko" / "Puna širina". #article-content is already a
+       centred 1200px box, so wide just lifts the 710px child cap; full breaks
+       out to the viewport, capped at 1920px so huge screens don't stretch
+       photos. !important to beat the auto / -355px margins above; left/right
+       reset the global .wp-block-columns { left: 50% } breakout hack. */
+    .single-article .single-article-body>#article-content>.alignwide,
+    .single-article .single-article-body>#article-content>#piano-content>.alignwide {
+        width: 100%;
+        max-width: 1200px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        left: auto;
+        right: auto;
+    }
+    .single-article .single-article-body>#article-content>.alignfull,
+    .single-article .single-article-body>#article-content>#piano-content>.alignfull {
+        width: min(100vw, 1920px);
+        max-width: none !important;
+        margin-left: calc(50% - min(50vw, 960px)) !important;
+        margin-right: calc(50% - min(50vw, 960px)) !important;
+        left: auto;
+        right: auto;
     }
     .single-article .article-head>.article-head-image-parent {
         max-width: 888px;
