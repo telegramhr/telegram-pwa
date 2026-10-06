@@ -51,7 +51,9 @@
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+
 /* Geist Medium — only the AI summary banner/box (Samsung Galaxy Z Fold8 design). OFL 1.1, file in static/fonts. */
+
 @font-face {
     font-family: 'Geist';
     font-style: normal;
@@ -4533,6 +4535,19 @@ html.large-fontsize,
         padding-left: 4vw;
         padding-right: 4vw;
     }
+    /* .wp-block-columns break out to 100vw (see the global rule), so text
+       inside a column loses the article's side padding; give it back the
+       same 4vw. Images in columns stay edge to edge. */
+    .single-article .single-article-body #article-content .wp-block-column>p,
+    .single-article .single-article-body #article-content .wp-block-column>h2,
+    .single-article .single-article-body #article-content .wp-block-column>h3,
+    .single-article .single-article-body #article-content .wp-block-column>h4,
+    .single-article .single-article-body #article-content .wp-block-column>ul,
+    .single-article .single-article-body #article-content .wp-block-column>ol,
+    .single-article .single-article-body #article-content .wp-block-column>blockquote {
+        padding-left: 4vw;
+        padding-right: 4vw;
+    }
     .mobile-mini-side-pad {
         padding-left: 2vw;
         padding-right: 2vw;
@@ -5234,6 +5249,29 @@ html.large-fontsize,
     .single-article .single-article-body>#article-content>#piano-content>.article-full-width {
         max-width: 1200px;
     }
+    /* Block editor "Široko" / "Puna širina". #article-content is already a
+       centred 1200px box, so wide just lifts the 710px child cap; full breaks
+       out to the viewport, capped at 1920px so huge screens don't stretch
+       photos. !important to beat the auto / -355px margins above; left/right
+       reset the global .wp-block-columns { left: 50% } breakout hack. */
+    .single-article .single-article-body>#article-content>.alignwide,
+    .single-article .single-article-body>#article-content>#piano-content>.alignwide {
+        width: 100%;
+        max-width: 1200px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        left: auto;
+        right: auto;
+    }
+    .single-article .single-article-body>#article-content>.alignfull,
+    .single-article .single-article-body>#article-content>#piano-content>.alignfull {
+        width: min(100vw, 1920px);
+        max-width: none !important;
+        margin-left: calc(50% - min(50vw, 960px)) !important;
+        margin-right: calc(50% - min(50vw, 960px)) !important;
+        left: auto;
+        right: auto;
+    }
     .single-article .article-head>.article-head-image-parent {
         max-width: 888px;
         padding-top: 4px;
@@ -5241,6 +5279,7 @@ html.large-fontsize,
     .superone.single-article .article-head>.article-head-image-parent {
         max-width: 1000px;
         padding-top: 4px;
+        width: auto;
     }
     .single-article .single-article-body .big-quote p {
         font-size: 30px;
