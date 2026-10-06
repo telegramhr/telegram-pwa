@@ -84,8 +84,11 @@
 </template>
 
 <script>
+import giftGate from '~/utils/giftGate'
+
 export default {
   name: 'IntextRemp',
+  mixins: [giftGate],
   data() {
     return {
       show: false,
@@ -167,7 +170,7 @@ export default {
       if (this.show) {
         return
       }
-      if (this.$route.query.gift_token) {
+      if (this.giftHoldsPaywall(this.triggerShow)) {
         return
       }
       const el = document.getElementById('piano-content')

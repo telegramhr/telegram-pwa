@@ -82,8 +82,11 @@
 </template>
 
 <script>
+import giftGate from '~/utils/giftGate'
+
 export default {
   name: 'IntextRempNew',
+  mixins: [giftGate],
   props: {
     // QA/preview only: forces the "logged in, no subscription" variant
     // (alternate subtitle, no "Imam pretplatu" button) without touching
@@ -233,7 +236,7 @@ export default {
       if (this.show) {
         return
       }
-      if (this.$route.query.gift_token) {
+      if (this.giftHoldsPaywall(this.triggerShow)) {
         return
       }
       const el = document.getElementById('piano-content')
