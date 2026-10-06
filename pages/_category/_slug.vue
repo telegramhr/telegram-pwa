@@ -1199,6 +1199,15 @@
 }
 </style>
 <style>
+/* The passage an AI asistent deep link cites (utils/citat.js wraps it in a mark) */
+.citat-mark {
+  background: rgba(255, 214, 0, 0.45);
+  color: inherit;
+  padding: 0 0.1em;
+  border-radius: 2px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
 .telegram-post-embed {
   margin: 16px 0;
 }
@@ -1266,6 +1275,7 @@ import BusinessWidget from '~/components/Elements/BusinessWidget.vue'
 import HtKalkulator from '~/components/ht-kalkulator/HtKalkulator.vue'
 import MatchScoreboard from '~/components/liveblog/MatchScoreboard.vue'
 import { customFontLinks } from '~/utils/customFonts'
+import { revealCitat } from '~/utils/citat'
 
 // Tag slugs that show the Telegram x lensEU banner under the article
 const LENSEU_TAG_SLUGS = ['lenseu', 'lens-eu', 'eulens', 'eu-lens']
@@ -2103,6 +2113,10 @@ export default {
         this.loadInArticleWidget()
         this.$store.commit('pretplata/setLastArticle', this.post.id)
         this.$nextTick(() => this.processEmbeds())
+        // AI asistent deep links (#citat= phrase, #update-N entry): after the body is in the DOM.
+        this.$nextTick(() =>
+          revealCitat(document.getElementById('article-content'))
+        )
         if (!document.getElementsByClassName('coral-counters-script').length) {
           const head = document.getElementsByTagName('head')[0]
           const scriptTag = document.createElement('script')
