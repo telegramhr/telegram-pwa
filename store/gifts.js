@@ -6,7 +6,8 @@ export const state = () => ({
   updated: 0,
   // Result of /gift-article/verify for one article + token.
   // status: 'pending' | 'valid' | 'invalid'
-  verification: { path: '', token: '', status: 'none' },
+  // gifterName: first name of the gifter, null when unknown (older gifts).
+  verification: { path: '', token: '', status: 'none', gifterName: null },
 })
 
 export const getters = {
@@ -19,11 +20,17 @@ export const getters = {
     }
     return v.status
   },
+  gifterName: (state, getters) => (route) => {
+    if (getters.verificationStatus(route) !== 'valid') {
+      return null
+    }
+    return state.verification.gifterName
+  },
 }
 
 export const mutations = {
   setVerification(state, verification) {
-    state.verification = { ...verification }
+    state.verification = { gifterName: null, ...verification }
   },
   setGifts(state, gifts) {
     state.available = gifts.available

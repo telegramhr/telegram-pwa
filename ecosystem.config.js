@@ -10,6 +10,7 @@ module.exports = {
         API_BASE_URL: 'https://telegram.hr',
         WC_KEY: process.env.WC_KEY,
         WC_SECRET: process.env.WC_SECRET,
+        CRM_API_TOKEN: process.env.CRM_API_TOKEN,
       },
     },
   ],

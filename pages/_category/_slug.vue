@@ -684,6 +684,9 @@
                   class="mobile-only"
                 ></google-source>
               </div>
+              <client-only>
+                <gift-banner v-if="showGiftBanner"></gift-banner>
+              </client-only>
             </div>
           </div>
           <div
@@ -817,6 +820,7 @@
     </template>
     <tfooter v-if="post.id || $fetchState.error" :post="post"></tfooter>
     <client-only>
+      <gift-popup v-if="showGiftPopup"></gift-popup>
       <div
         v-if="
           post.live &&
@@ -1339,10 +1343,12 @@ export default {
         post.social.path.replace(this.$config.apiBaseUrl, '') !==
           this.$route.path
       ) {
+        // Keep the query (e.g. ?gift_token=) on the canonical URL.
+        const query = this.$route.fullPath.slice(this.$route.path.length)
         this.$telegram.context.res.statusCode = 301
         this.$telegram.context.res.setHeader(
           'Location',
-          post.social.path.replace(this.$config.apiBaseUrl, '')
+          post.social.path.replace(this.$config.apiBaseUrl, '') + query
         )
         return
       }
@@ -1792,6 +1798,25 @@ export default {
       }
       return this.post.paywall
     },
+    // A valid gift lets only logged-in readers through; logged-out
+    // recipients get the (non-dismissable) gift popup instead.
+    showGiftPopup() {
+      return (
+        this.post.paywall === 'always' &&
+        !this.$store.state.user.token &&
+        this.$store.getters['gifts/verificationStatus'](this.$route) === 'valid'
+      )
+    },
+    // Subscription pitch after a gifted article, for logged-in readers
+    // without access to it.
+    showGiftBanner() {
+      return (
+        this.post.paywall === 'always' &&
+        !!this.$store.state.user.token &&
+        !this.$store.getters['user/hasContentAccess'](this.$route.path) &&
+        this.$store.getters['gifts/verificationStatus'](this.$route) === 'valid'
+      )
+    },
   },
   watch: {
     'post.live': {
@@ -2071,6 +2096,7 @@ export default {
           this.$store.commit('gifts/setVerification', {
             ...verification,
             status: 'valid',
+            gifterName: (res.data && res.data.gifter_name) || null,
           })
         })
         .catch(() => {

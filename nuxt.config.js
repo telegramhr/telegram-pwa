@@ -367,6 +367,9 @@ export default {
 
     publicRuntimeConfig: {
         apiBaseUrl: process.env.API_BASE_URL || 'https://www.telegram.hr',
+        // CRM API token sent by the browser on users/create and users/update.
+        // Each CRM instance has its own api_tokens table, so this differs per environment.
+        crmApiToken: process.env.CRM_API_TOKEN,
     },
 
     // Axios module configuration (https://go.nuxtjs.dev/config-axios)
