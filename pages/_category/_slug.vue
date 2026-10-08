@@ -684,6 +684,9 @@
                   class="mobile-only"
                 ></google-source>
               </div>
+              <client-only>
+                <gift-banner v-if="showGiftBanner"></gift-banner>
+              </client-only>
             </div>
           </div>
           <div
@@ -1801,6 +1804,16 @@ export default {
       return (
         this.post.paywall === 'always' &&
         !this.$store.state.user.token &&
+        this.$store.getters['gifts/verificationStatus'](this.$route) === 'valid'
+      )
+    },
+    // Subscription pitch after a gifted article, for logged-in readers
+    // without access to it.
+    showGiftBanner() {
+      return (
+        this.post.paywall === 'always' &&
+        !!this.$store.state.user.token &&
+        !this.$store.getters['user/hasContentAccess'](this.$route.path) &&
         this.$store.getters['gifts/verificationStatus'](this.$route) === 'valid'
       )
     },
