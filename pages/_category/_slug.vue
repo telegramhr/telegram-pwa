@@ -1280,6 +1280,9 @@ import { revealCitat } from '~/utils/citat'
 // Tag slugs that show the Telegram x lensEU banner under the article
 const LENSEU_TAG_SLUGS = ['lenseu', 'lens-eu', 'eulens', 'eu-lens']
 
+// A gift link whose verification hangs falls back to the paywall after this.
+const GIFT_VERIFY_TIMEOUT_MS = 5000
+
 const widgetMap = {
   a1: 'A1Widget',
   ht: 'HtWidget',
@@ -1434,7 +1437,6 @@ export default {
       top_articles_version: 'v1',
       related_posts: [],
       hasLinker: false,
-      giftValid: false,
     }
   },
   computed: {
@@ -1783,7 +1785,9 @@ export default {
       return set
     },
     locked() {
-      if (this.giftValid) {
+      if (
+        this.$store.getters['gifts/verificationStatus'](this.$route) === 'valid'
+      ) {
         return 'never'
       }
       return this.post.paywall
@@ -2034,26 +2038,51 @@ export default {
       window.remplib.tracker.init(rempConfig)
       window.remplib.campaign.init(rempConfig)
     },
+    // Records the result in the gifts store, which the paywall components
+    // wait on. 'pending' is committed synchronously, before loadRemp() can
+    // fire a paywall; anything but a 200 (400, network error, timeout)
+    // leaves the paywall in place.
+    verifyGift() {
+      const verification = {
+        path: this.$route.path,
+        token: this.$route.query.gift_token,
+      }
+      this.$store.commit('gifts/setVerification', {
+        ...verification,
+        status: 'pending',
+      })
+      this.$axios
+        .post(
+          '/pretplate/api/gift-article/verify',
+          { token: verification.token, url: this.post.permalink },
+          { timeout: GIFT_VERIFY_TIMEOUT_MS }
+        )
+        .then((res) => {
+          if (res.status !== 200) {
+            throw new Error(`Gift verify returned ${res.status}`)
+          }
+          window.marfeel = window.marfeel || { cmd: [] }
+          window.marfeel.cmd.push([
+            'compass',
+            function (compass) {
+              compass.setPageVar('gifted', 'true')
+            },
+          ])
+          this.$store.commit('gifts/setVerification', {
+            ...verification,
+            status: 'valid',
+          })
+        })
+        .catch(() => {
+          this.$store.commit('gifts/setVerification', {
+            ...verification,
+            status: 'invalid',
+          })
+        })
+    },
     loadPiano() {
       if (this.post.paywall === 'always' && this.$route.query.gift_token) {
-        // verify token
-        this.$axios
-          .post('/pretplate/api/gift-article/verify', {
-            token: this.$route.query.gift_token,
-            url: this.post.permalink,
-          })
-          .then((res) => {
-            if (res.status === 200) {
-              window.marfeel = window.marfeel || { cmd: [] }
-              window.marfeel.cmd.push([
-                'compass',
-                function (compass) {
-                  compass.setPageVar('gifted', 'true')
-                },
-              ])
-              this.giftValid = true
-            }
-          })
+        this.verifyGift()
       }
       if (this.post.paywall === 'never') {
         return
