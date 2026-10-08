@@ -236,21 +236,21 @@ export default {
       if (this.show) {
         return
       }
-      if (this.giftHoldsPaywall(this.triggerShow)) {
+      // A verified gift never shows the paywall; a pending one shows it
+      // provisionally (see utils/giftGate.js).
+      if (this.giftStatus === 'valid') {
         return
       }
       const el = document.getElementById('piano-content')
       if (this.softwall) {
         this.show = true
         this.$emit('show')
+        this.softLock()
       }
       if (el) {
         this.show = true
         if (!this.softwall) {
-          el.parentNode.removeChild(el)
-          document
-            .querySelector('#article-content p:last-child')
-            .classList.add('premium-fade-out')
+          this.lockArticle(el)
         }
       }
     },
