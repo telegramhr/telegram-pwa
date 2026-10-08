@@ -45,7 +45,7 @@
                         {{ cta1_text }}
                       </button>
                     </a>
-                    <a :href="cta2_link" @click.prevent="login">
+                    <a v-if="canLogIn" :href="cta2_link" @click.prevent="login">
                       <button class="secondary">
                         {{ cta2_text }}
                       </button>
@@ -84,8 +84,11 @@
 </template>
 
 <script>
+import giftGate from '~/utils/giftGate'
+
 export default {
   name: 'IntextRemp',
+  mixins: [giftGate],
   data() {
     return {
       show: false,
@@ -167,7 +170,7 @@ export default {
       if (this.show) {
         return
       }
-      if (this.$route.query.gift_token) {
+      if (this.giftHoldsPaywall(this.triggerShow)) {
         return
       }
       const el = document.getElementById('piano-content')
@@ -191,6 +194,9 @@ export default {
       get() {
         return this.$store.state.theme.theme === 'dark' ? '#ffffff' : '#343434'
       },
+    },
+    canLogIn() {
+      return this.$store.getters['user/canLogIn']
     },
   },
 }

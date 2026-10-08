@@ -130,7 +130,7 @@
                   stroke-linejoin="round"
                 />
               </svg>
-              Podijeli na Facebook
+              Pokloni na Facebook
             </div>
             <div class="gift-item" @click="twitterShare">
               <svg
@@ -355,7 +355,7 @@
                 stroke-linejoin="round"
               />
             </svg>
-            Podijeli na Facebook
+            Pokloni na Facebook
           </div>
           <div class="share-item" @click="shareTwitter">
             <svg
@@ -527,7 +527,7 @@ export default {
     },
     hasGifted() {
       return this.userGifts.articles.filter(
-        (article) => article.url === this.$route.fullPath
+        (article) => article.url === this.$route.path
       )
     },
     currentUrl() {
@@ -592,7 +592,7 @@ export default {
         .$post(
           '/pretplate/api/gift-article/',
           {
-            url: this.$route.fullPath,
+            url: this.$route.path,
           },
           {
             headers: token ? { Authorization: `Bearer ${token}` } : {},

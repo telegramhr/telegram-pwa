@@ -52,7 +52,7 @@
       </div>
 
       <span class="idle-text">
-        Poslušajte ovaj članak · {{ formattedDuration }} min
+        Poslušajte članak · {{ formattedDuration }} min
       </span>
     </div>
 
@@ -489,7 +489,7 @@ export default {
 }
 .play-icon {
   position: relative;
-  left: 2px;
+  left: 1px;
 }
 .pause-icon {
   left: unset !important;

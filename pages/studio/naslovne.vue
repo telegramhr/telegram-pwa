@@ -810,6 +810,7 @@ export default {
         plese: { name: 'Pleše' },
         redzepovic: { name: 'Redžepović' },
         kusovac: { name: 'Kusovac' },
+        snajder: { name: 'Šnajder' },
       },
       specijali: {
         ekskluziv_telegram: {

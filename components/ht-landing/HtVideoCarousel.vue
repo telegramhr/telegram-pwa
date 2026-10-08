@@ -143,6 +143,30 @@ export default {
     return {
       videos: [
         {
+          youtubeId: 't4at5ip3BQo',
+          title:
+            'Organizirate druženje s prijateljima? Uštedite vrijeme i planiranje prepustite AI alatima',
+          description:
+            'Koliko vam vremena zapravo oduzme organizacija jednog druženja? Antonela Golobić usporedila je planiranje večere za deset gostiju bez i uz pomoć umjetne inteligencije te otkrila koliko AI može olakšati svakodnevne zadatke. Pogledajte koliko je vremena uspjela uštedjeti',
+          image: 'https://i.ytimg.com/vi/t4at5ip3BQo/hqdefault.jpg',
+        },
+        {
+          youtubeId: 'HwJP1qGtvdU',
+          title:
+            'Karmela Vukov Colić odradila je tjedni meal prep uz alat koji olakšava sve. Rezultat je sjajan',
+          description:
+            'Može li umjetna inteligencija pomoći da planiranje tjednog jelovnika traje znatno kraće? Karmela je testirala obje verzije – bez AI-ja i uz AI. Pogledajte rezultat.',
+          image: 'https://i.ytimg.com/vi/HwJP1qGtvdU/hqdefault.jpg',
+        },
+        {
+          youtubeId: 'hZ3DhQu42yc',
+          title:
+            'Može li AI osmisliti prepoznatljiv brend? Karmela Vukov Colić testirala ga je na novom zadatku',
+          description:
+            'Otvoriti restoran je jedno. Smisliti ime koje će svi pamtiti? To je već druga priča. Karmela Vukov Colić je testirala može li AI ubrzati jedan od najkreativnijih zadataka pri pokretanju biznisa.',
+          image: 'https://i.ytimg.com/vi/hZ3DhQu42yc/hqdefault.jpg',
+        },
+        {
           youtubeId: '45fUBtTy6-w',
           title: 'Kako iskoristiti AI za kreativne zadatke?',
           description:

@@ -52,11 +52,11 @@
               !$store.state.user.access?.length
             "
             id="pretplata-promo"
-            to="/pretplata/50-popust/"
+            to="/pretplata/popust-godine/?utm_source=index_header&utm_medium=direct&utm_campaign=ponuda-godine&utm_content=index_header"
             class="newbtn gift-btn"
           >
-            <span class="poklonMobile">POPUST 50%</span
-            ><span class="poklon">POPUST 50%</span></app-link
+            <span class="poklonMobile">Ponuda godine</span
+            ><span class="poklon">Ponuda godine</span></app-link
           >
           <a
             v-show="!canLogIn"
@@ -120,9 +120,9 @@
             <app-link
               v-show="!$store.state.user.access"
               id="pretplatite se - header"
-              to="/pretplata"
+              to="/pretplata/popust-godine/?utm_source=index_menu&utm_medium=direct&utm_campaign=ponuda-godine&utm_content=index_menu"
               class="newbtn"
-              >Pretplatite se</app-link
+              >Ponuda godine</app-link
             >
             <a
               v-show="!canLogIn"
@@ -308,45 +308,33 @@
     </div>
     <app-link
       v-show="!$store.state.user.access?.length"
-      to="/pretplata/popust-standard"
-      class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth"
+      to="/pretplata/popust-godine/?utm_source=homepage_banner_desktop&utm_medium=direct&utm_campaign=popust-godine&utm_content=homepage_banner_desktop"
+      class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth desktop-only"
     >
       <img
-        src="@/assets/img/pretplata/standard/banner_desktop.png"
+        src="@/assets/img/pretplata/popust-godine/desktop_banner.png"
         alt="Desktop banner za popust na godišnju pretplatu"
         class="desktop-only"
       />
+    </app-link>
+    <app-link
+      v-show="!$store.state.user.access?.length"
+      to="/pretplata/popust-godine/?utm_source=homepage_banner_mob&utm_medium=direct&utm_campaign=popust-godine&utm_content=homepage_banner_mob"
+      class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth mobile-only"
+    >
       <img
-        src="@/assets/img/pretplata/standard/banner_mobile.png"
+        src="@/assets/img/pretplata/popust-godine/mobile_banner.png"
         alt="Mobile banner za popust na godišnju pretplatu"
         class="mobile-only"
         style="width: 100%"
       />
     </app-link>
-    <app-link
-      v-show="$store.state.user.access?.length"
-      to="https://knjige.telegram.hr/kategorija-proizvoda/knjige-popust/"
-      class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth"
-    >
-      <img
-        src="@/assets/img/homepage/banner_desktop_knjige.jpg"
-        alt=""
-        class="desktop-only"
-      />
-      <img
-        src="@/assets/img/homepage/banner_mob_knjige.png"
-        alt=""
-        class="mobile-only"
-        style="width: 100%"
-      />
-    </app-link>
-    <!-- <Books v-show="$store.state.user.access?.length" /> -->
-    <!-- on break till 1.9.
+    <Books v-show="$store.state.user.access?.length" />
     <client-only>
       <div v-if="!hasPremium" class="full relative">
         <offers-premium></offers-premium>
       </div>
-    </client-only> -->
+    </client-only>
     <!-- TG preporuka -->
     <div
       class="full relative darkened-bg column-top-margin column-bottom-margin column-bottom-pad mobile-vertical-pad"
@@ -704,8 +692,7 @@ export default {
   background: #1c8746;
   padding: 6px;
   font-family: 'Barlow';
-  font-size: 11px;
-  border: none;
+  font-size: 10px;
   font-weight: 600;
   border-radius: 3px;
   letter-spacing: 0.3px;

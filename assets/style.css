@@ -52,6 +52,17 @@
 }
 
 
+/* Geist Medium — only the AI summary banner/box (Samsung Galaxy Z Fold8 design). OFL 1.1, file in static/fonts. */
+
+@font-face {
+    font-family: 'Geist';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('/fonts/Geist-Medium.woff2') format('woff2');
+}
+
+
 /* vars */
 
 * {
@@ -179,9 +190,11 @@ h2,
     position: relative;
 }
 
+
 /* Force the 800x505 crop ratio regardless of the source file's true
    intrinsic dimensions (animated GIFs are served uncropped since WP
    can't resize them without breaking the animation). */
+
 img[width="800"][height="505"] {
     aspect-ratio: 800 / 505;
 }
@@ -4522,6 +4535,19 @@ html.large-fontsize,
         padding-left: 4vw;
         padding-right: 4vw;
     }
+    /* .wp-block-columns break out to 100vw (see the global rule), so text
+       inside a column loses the article's side padding; give it back the
+       same 4vw. Images in columns stay edge to edge. */
+    .single-article .single-article-body #article-content .wp-block-column>p,
+    .single-article .single-article-body #article-content .wp-block-column>h2,
+    .single-article .single-article-body #article-content .wp-block-column>h3,
+    .single-article .single-article-body #article-content .wp-block-column>h4,
+    .single-article .single-article-body #article-content .wp-block-column>ul,
+    .single-article .single-article-body #article-content .wp-block-column>ol,
+    .single-article .single-article-body #article-content .wp-block-column>blockquote {
+        padding-left: 4vw;
+        padding-right: 4vw;
+    }
     .mobile-mini-side-pad {
         padding-left: 2vw;
         padding-right: 2vw;
@@ -5223,13 +5249,37 @@ html.large-fontsize,
     .single-article .single-article-body>#article-content>#piano-content>.article-full-width {
         max-width: 1200px;
     }
+    /* Block editor "Široko" / "Puna širina". #article-content is already a
+       centred 1200px box, so wide just lifts the 710px child cap; full breaks
+       out to the viewport, capped at 1920px so huge screens don't stretch
+       photos. !important to beat the auto / -355px margins above; left/right
+       reset the global .wp-block-columns { left: 50% } breakout hack. */
+    .single-article .single-article-body>#article-content>.alignwide,
+    .single-article .single-article-body>#article-content>#piano-content>.alignwide {
+        width: 100%;
+        max-width: 1200px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        left: auto;
+        right: auto;
+    }
+    .single-article .single-article-body>#article-content>.alignfull,
+    .single-article .single-article-body>#article-content>#piano-content>.alignfull {
+        width: min(100vw, 1920px);
+        max-width: none !important;
+        margin-left: calc(50% - min(50vw, 960px)) !important;
+        margin-right: calc(50% - min(50vw, 960px)) !important;
+        left: auto;
+        right: auto;
+    }
     .single-article .article-head>.article-head-image-parent {
         max-width: 888px;
         padding-top: 4px;
     }
     .superone.single-article .article-head>.article-head-image-parent {
-        max-width: 800px;
+        max-width: 1000px;
         padding-top: 4px;
+        width: auto;
     }
     .single-article .single-article-body .big-quote p {
         font-size: 30px;
@@ -18028,12 +18078,11 @@ header {
 .dark-mode.telesport .hnl-section,
 .contrast-mode .hnl-section,
 .domoljub-mode .hnl-section {
-    background: radial-gradient(circle, #FFEBA0 0%, #D4AF37 60%, #AA7C11 100%);
-    color: black;
+    background-color: #880c0e;
 }
 
 .hnl-section * {
-    --tg-primary-highlight-color: black;
+    --tg-primary-highlight-color: #ffffff;
 }
 
 .telesport .cantha-block-title .menu {
@@ -18086,60 +18135,6 @@ header {
 }
 
 .cantha-block-title .menu .cantha-submenu.wc-submenu>a:hover {
-    color: #5a4300;
-}
-
-.subsection-title.wc-subsection-title {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    align-items: center;
-}
-
-.subsection-title.wc-subsection-title img {
-    height: 60px;
-    width: auto;
-    display: block;
-    position: static;
-    bottom: auto;
-    margin: 0;
-}
-
-
-/* Force dark text on the gold gradient for AA contrast */
-
-.hnl-section .noththree.subsection-title,
-.hnl-section .article h2,
-.hnl-section .article h2 a,
-.hnl-section .article .overtitle,
-.hnl-section .article .overtitle a,
-.hnl-section .article .nothfour,
-.hnl-section .article .article-meta,
-.hnl-section .article .article-meta span,
-.hnl-section .article .meta-author {
-    color: #111111;
-}
-
-.hnl-section .article-standard,
-.hnl-section .article-featured:first-child .article-pad {
-    border-bottom-color: rgba(0, 0, 0, 0.18);
-}
-
-.hnl-section .column-right-border,
-.hnl-section .column-bottom-border {
-    border-color: rgba(0, 0, 0, 0.18);
-}
-
-
-/* Hover affordance on gold — readable against the gradient */
-
-.hnl-section .article h2,
-.hnl-section .article h2 a {
-    transition: color 0.15s ease;
-}
-
-.hnl-section .article:hover h2,
-.hnl-section .article:hover h2 a {
     color: #5a4300;
 }
 

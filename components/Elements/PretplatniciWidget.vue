@@ -54,17 +54,6 @@
           class="full flex relative column-horizontal-pad mobile-mini-side-pad"
         >
           <img
-            src="@/assets/img/extras/pretplatnici/vuk.jpg"
-            alt="Vuk Vuković - pretplatnik i ekonomist"
-            loading="lazy"
-            decoding="async"
-          />
-        </app-link>
-        <app-link
-          to="/pretplata/odabrati-stranu"
-          class="full flex relative column-horizontal-pad mobile-mini-side-pad"
-        >
-          <img
             src="@/assets/img/extras/pretplatnici/ratko.jpg"
             alt="Ratko Rudić - pretplatnik i trener"
             loading="lazy"

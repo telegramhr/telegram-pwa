@@ -354,25 +354,25 @@
                 <template v-else>
                   <picture class="article-head-image" itemprop="image">
                     <source
+                      v-if="isSuperone && s1Fit"
+                      media="(min-width: 768px)"
+                      :srcset="fitSrcset"
+                      type="image/webp"
+                      width="1000"
+                      :height="fitHeight"
+                    />
+                    <source
                       :src="post.image.url"
                       :srcset="srcset"
                       type="image/webp"
                       width="888"
-                      :height="
-                        post.category_slug.includes('super1') ? 888 : 560
-                      "
+                      :height="heroHeight"
                     />
                     <img
-                      :src="
-                        post.category_slug.includes('super1')
-                          ? post.image.s1jpg
-                          : post.image.jpg
-                      "
+                      :src="heroFallbackSrc"
                       :alt="post.image.alt"
                       width="888"
-                      :height="
-                        post.category_slug.includes('super1') ? 888 : 560
-                      "
+                      :height="heroHeight"
                       fetchpriority="high"
                     />
                   </picture>
@@ -403,6 +403,10 @@
                   @share="fbShare()"
                 ></action-bar>
               </client-only>
+              <google-source
+                v-if="!post.category_slug.includes('super1')"
+                class="google-source-desktop desktop-only"
+              ></google-source>
               <!-- eslint-disable-next-line vue/no-v-html -->
               <p
                 v-if="post.perex"
@@ -580,11 +584,9 @@
               </transition>
               <div class="remp-banner"></div>
               <client-only>
-                <!-- on break till 1.9.
                 <portal
                   v-if="
-                    useSparPortal &&
-                    !hasPremium &&
+                    useSparPortal & !hasPremium &&
                     !(
                       post.disable_ads &&
                       (post.disable_ads.includes('spar') ||
@@ -596,7 +598,7 @@
                   <div class="full">
                     <offers-premium></offers-premium>
                   </div>
-                </portal>-->
+                </portal>
                 <portal v-if="showQuiz" selector="#quiz-container">
                   <quiz
                     v-if="post.quiz"
@@ -633,6 +635,7 @@
             </div>
           </article>
           <intext-remp></intext-remp>
+          <intext-remp-new></intext-remp-new>
           <!-- Article footer -->
           <div
             class="container column-full-pad flex relative mobile-side-pad have-background"
@@ -643,6 +646,11 @@
                 :key="`midas-text-${post.id}`"
                 type="text-only"
               ></midas>
+              <!-- Telegram x lensEU promo: only under posts tagged lenseu / lens-eu / eulens -->
+              <lens-eu-banner
+                v-if="isLensEuPost"
+                :key="`lenseu-${post.id}`"
+              ></lens-eu-banner>
               <div
                 class="full relative single-article-footer flex column-top-pad"
               >
@@ -667,10 +675,14 @@
                           ? post.authors[0].display_name
                           : ''
                       "
-                      class="nonAudio nonComments bottom"
+                      class="nonAudio nonComments nonGoogle bottom"
                     ></action-bar>
                   </client-only>
                 </div>
+                <google-source
+                  v-if="!post.category_slug.includes('super1')"
+                  class="mobile-only"
+                ></google-source>
               </div>
             </div>
           </div>
@@ -885,6 +897,13 @@
 .article-head-newsletter {
   margin-bottom: 12px;
 }
+.google-source.desktop-only {
+  display: none;
+}
+.google-source.mobile-only {
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
 @media screen and (min-width: 600px) {
   .article-meta.desktop-only-meta {
     display: flex !important;
@@ -904,6 +923,12 @@
   }
   .article-head-newsletter {
     margin-bottom: 0px;
+  }
+  .google-source.mobile-only {
+    display: none;
+  }
+  .google-source.desktop-only {
+    display: flex;
   }
 }
 
@@ -1174,6 +1199,15 @@
 }
 </style>
 <style>
+/* The passage an AI asistent deep link cites (utils/citat.js wraps it in a mark) */
+.citat-mark {
+  background: rgba(255, 214, 0, 0.45);
+  color: inherit;
+  padding: 0 0.1em;
+  border-radius: 2px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
 .telegram-post-embed {
   margin: 16px 0;
 }
@@ -1226,6 +1260,10 @@
 .live-update--highlight .telegram-post-embed__button {
   background: var(--tg-primary-background-color);
 }
+.google-source-desktop {
+  order: 3 !important;
+  margin: 8px 0px;
+}
 </style>
 <script>
 import { Portal } from '@linusborg/vue-simple-portal'
@@ -1236,8 +1274,14 @@ import HtWidget from '~/components/Elements/HtWidget.vue'
 import BusinessWidget from '~/components/Elements/BusinessWidget.vue'
 import HtKalkulator from '~/components/ht-kalkulator/HtKalkulator.vue'
 import MatchScoreboard from '~/components/liveblog/MatchScoreboard.vue'
-import { HT_CAMPAIGN_ARTICLE_SLUGS } from '~/store/ht-kalkulator/articles'
 import { customFontLinks } from '~/utils/customFonts'
+import { revealCitat } from '~/utils/citat'
+
+// Tag slugs that show the Telegram x lensEU banner under the article
+const LENSEU_TAG_SLUGS = ['lenseu', 'lens-eu', 'eulens', 'eu-lens']
+
+// A gift link whose verification hangs falls back to the paywall after this.
+const GIFT_VERIFY_TIMEOUT_MS = 5000
 
 const widgetMap = {
   a1: 'A1Widget',
@@ -1393,7 +1437,6 @@ export default {
       top_articles_version: 'v1',
       related_posts: [],
       hasLinker: false,
-      giftValid: false,
     }
   },
   computed: {
@@ -1432,6 +1475,11 @@ export default {
         return terms.includes(tag.slug)
       })
       return !!filtered.length
+    },
+    isLensEuPost() {
+      return (this.post.tags || []).some((tag) =>
+        LENSEU_TAG_SLUGS.includes(tag.slug)
+      )
     },
     isSpecijalPost() {
       // To enable special ad handling for a post, return true for that post id.
@@ -1565,7 +1613,7 @@ export default {
         dateModified: new Date(
           Math.max(
             this.post.timem || 0,
-            // Live blogs are also "modified" when the AI summary is regenerated
+            // Live blogs are also "modified" when the live summary is regenerated
             // or the live coverage is closed — count those so the timestamp
             // never lags behind the most recent change.
             this.post.live_summary_time || 0,
@@ -1683,15 +1731,47 @@ export default {
     categoryClass() {
       return this.post.category_slug
     },
+    isSuperone() {
+      return !!(this.categoryClass && this.categoryClass.includes('superone'))
+    },
+    s1Fit() {
+      const fit = this.post.image && this.post.image.s1fit
+      return fit && fit.url && fit.width && fit.height ? fit : null
+    },
+    fitSrcset() {
+      if (!this.s1Fit) {
+        return ''
+      }
+      let set = `${this.s1Fit.url} 1.5x`
+      if (this.s1Fit.url2) {
+        set += `, ${this.s1Fit.url2} 2x`
+      }
+      return set
+    },
+    fitHeight() {
+      return this.s1Fit
+        ? Math.round((1000 * this.s1Fit.height) / this.s1Fit.width)
+        : 888
+    },
+    heroHeight() {
+      return this.post.category_slug.includes('super1') ? 888 : 560
+    },
+    heroFallbackSrc() {
+      if (this.post.category_slug.includes('super1')) {
+        return this.post.image.s1hqjpg || this.post.image.s1jpg
+      }
+      return this.post.image.jpg
+    },
     srcset() {
       let set
       if (this.categoryClass && this.categoryClass.includes('superone')) {
-        set = `${this.post.image.s1url}`
-        if (this.post.image.s1url2) {
-          set += `, ${this.post.image.s1url2} 2x`
+        const img = this.post.image
+        set = `${img.s1hq || img.s1url}`
+        if (img.s1hq2 || img.s1url2) {
+          set += `, ${img.s1hq2 || img.s1url2} 2x`
         }
-        if (this.post.image.s1url3) {
-          set += `, ${this.post.image.s1url3} 3x`
+        if (img.s1hq3 || img.s1url3) {
+          set += `, ${img.s1hq3 || img.s1url3} 3x`
         }
       } else {
         set = `${this.post.image.url}`
@@ -1705,7 +1785,9 @@ export default {
       return set
     },
     locked() {
-      if (this.giftValid) {
+      if (
+        this.$store.getters['gifts/verificationStatus'](this.$route) === 'valid'
+      ) {
         return 'never'
       }
       return this.post.paywall
@@ -1956,26 +2038,51 @@ export default {
       window.remplib.tracker.init(rempConfig)
       window.remplib.campaign.init(rempConfig)
     },
+    // Records the result in the gifts store, which the paywall components
+    // wait on. 'pending' is committed synchronously, before loadRemp() can
+    // fire a paywall; anything but a 200 (400, network error, timeout)
+    // leaves the paywall in place.
+    verifyGift() {
+      const verification = {
+        path: this.$route.path,
+        token: this.$route.query.gift_token,
+      }
+      this.$store.commit('gifts/setVerification', {
+        ...verification,
+        status: 'pending',
+      })
+      this.$axios
+        .post(
+          '/pretplate/api/gift-article/verify',
+          { token: verification.token, url: this.post.permalink },
+          { timeout: GIFT_VERIFY_TIMEOUT_MS }
+        )
+        .then((res) => {
+          if (res.status !== 200) {
+            throw new Error(`Gift verify returned ${res.status}`)
+          }
+          window.marfeel = window.marfeel || { cmd: [] }
+          window.marfeel.cmd.push([
+            'compass',
+            function (compass) {
+              compass.setPageVar('gifted', 'true')
+            },
+          ])
+          this.$store.commit('gifts/setVerification', {
+            ...verification,
+            status: 'valid',
+          })
+        })
+        .catch(() => {
+          this.$store.commit('gifts/setVerification', {
+            ...verification,
+            status: 'invalid',
+          })
+        })
+    },
     loadPiano() {
       if (this.post.paywall === 'always' && this.$route.query.gift_token) {
-        // verify token
-        this.$axios
-          .post('/pretplate/api/gift-article/verify', {
-            token: this.$route.query.gift_token,
-            url: this.post.permalink,
-          })
-          .then((res) => {
-            if (res.status === 200) {
-              window.marfeel = window.marfeel || { cmd: [] }
-              window.marfeel.cmd.push([
-                'compass',
-                function (compass) {
-                  compass.setPageVar('gifted', 'true')
-                },
-              ])
-              this.giftValid = true
-            }
-          })
+        this.verifyGift()
       }
       if (this.post.paywall === 'never') {
         return
@@ -1998,9 +2105,9 @@ export default {
     },
     triggerAnalytics() {
       if (this.post.category_slug.includes('telesport')) {
-        setTimeout(() => {
+        /* setTimeout(() => {
           this.$dotmetrics.postLoad(this.post.category_slug)
-        }, 10000)
+        }, 10000) */
       }
     },
     getPost() {
@@ -2035,6 +2142,10 @@ export default {
         this.loadInArticleWidget()
         this.$store.commit('pretplata/setLastArticle', this.post.id)
         this.$nextTick(() => this.processEmbeds())
+        // AI asistent deep links (#citat= phrase, #update-N entry): after the body is in the DOM.
+        this.$nextTick(() =>
+          revealCitat(document.getElementById('article-content'))
+        )
         if (!document.getElementsByClassName('coral-counters-script').length) {
           const head = document.getElementsByTagName('head')[0]
           const scriptTag = document.createElement('script')
