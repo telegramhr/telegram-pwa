@@ -165,6 +165,7 @@ export default {
   .gift-banner {
     max-width: 350px;
     height: 300px;
+    margin-bottom: 40px;
   }
   .gift-banner-collage--desktop {
     display: none;
