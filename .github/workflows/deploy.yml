@@ -110,6 +110,7 @@ jobs:
         env:
           WC_KEY: ${{ secrets.WC_KEY }}
           WC_SECRET: ${{ secrets.WC_SECRET }}
+          CRM_API_TOKEN: ${{ secrets.CRM_API_TOKEN }}
         run: |
           pm2 restart ecosystem.config.js --update-env || pm2 start ecosystem.config.js
           sleep 3
@@ -170,6 +171,7 @@ jobs:
         env:
           WC_KEY: ${{ secrets.WC_KEY }}
           WC_SECRET: ${{ secrets.WC_SECRET }}
+          CRM_API_TOKEN: ${{ secrets.CRM_API_TOKEN }}
         run: |
           pm2 restart ecosystem.config.js --update-env || pm2 start ecosystem.config.js
           sleep 3
