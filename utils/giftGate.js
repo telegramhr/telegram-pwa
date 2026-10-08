@@ -3,17 +3,19 @@
  * IntextRempNew, IntextRefresh, IntextRegularPromo, PopupRegularPromo).
  *
  * A `?gift_token=` in the URL proves nothing on its own: only a token the
- * backend verified for this article may hold the paywall back. The article
- * page records the verification in the `gifts` store; the paywall can fire
- * (REMP event) before that request returns, so a pending verification
- * defers the paywall until the result is known instead of skipping it.
+ * backend verified for this article (recorded in the `gifts` store by the
+ * article page) may keep the paywall away. The paywall shows by default;
+ * while a token is still being verified, the locked part of the article is
+ * detached rather than discarded, and a token that turns out valid puts it
+ * back and hides the paywall again. A slow or failing verify therefore
+ * never exposes the article.
  *
- * The component calls `if (this.giftHoldsPaywall(this.triggerShow)) return`
- * at the top of its triggerShow().
+ * In triggerShow(): return early when `giftStatus === 'valid'`, then use
+ * lockArticle(el) for the hard paywall and softLock() for the softwall.
  */
 export default {
   data() {
-    return { giftRetryUnwatch: null }
+    return { giftUnwatch: null }
   },
   computed: {
     giftStatus() {
@@ -21,33 +23,58 @@ export default {
     },
   },
   beforeDestroy() {
-    this.clearGiftRetry()
+    this.clearGiftWatch()
   },
   methods: {
-    // true: do not show the paywall now (valid gift, or still verifying;
-    // `retry` runs once the verification settles).
-    giftHoldsPaywall(retry) {
-      if (this.giftStatus === 'valid') {
-        return true
+    // Hard paywall: take the locked part of the article out of the page.
+    lockArticle(el) {
+      const parent = el.parentNode
+      const next = el.nextSibling
+      parent.removeChild(el)
+      const last = document.querySelector('#article-content p:last-child')
+      if (last) {
+        last.classList.add('premium-fade-out')
       }
       if (this.giftStatus !== 'pending') {
-        return false
+        return
       }
-      if (!this.giftRetryUnwatch) {
-        this.giftRetryUnwatch = this.$watch('giftStatus', (status) => {
-          if (status === 'pending') {
-            return
-          }
-          this.clearGiftRetry()
-          retry()
-        })
-      }
-      return true
+      this.onGiftSettled((status) => {
+        if (status !== 'valid') {
+          return
+        }
+        parent.insertBefore(el, next)
+        if (last) {
+          last.classList.remove('premium-fade-out')
+        }
+        this.show = false
+      })
     },
-    clearGiftRetry() {
-      if (this.giftRetryUnwatch) {
-        this.giftRetryUnwatch()
-        this.giftRetryUnwatch = null
+    // Softwall: nothing is removed, so a valid gift only hides it again.
+    softLock() {
+      if (this.giftStatus !== 'pending') {
+        return
+      }
+      this.onGiftSettled((status) => {
+        if (status === 'valid') {
+          this.show = false
+        }
+      })
+    },
+    // Runs `callback` once with the final status ('valid' / 'invalid').
+    onGiftSettled(callback) {
+      this.clearGiftWatch()
+      this.giftUnwatch = this.$watch('giftStatus', (status) => {
+        if (status === 'pending') {
+          return
+        }
+        this.clearGiftWatch()
+        callback(status)
+      })
+    },
+    clearGiftWatch() {
+      if (this.giftUnwatch) {
+        this.giftUnwatch()
+        this.giftUnwatch = null
       }
     },
   },
