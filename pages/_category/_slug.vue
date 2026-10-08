@@ -1446,6 +1446,13 @@ export default {
     }
   },
   computed: {
+    // Gift links get the "Poklon članak" share image: the imgproxy facebook2
+    // preset (1200x630) carries the badge as its watermark. Switches on token
+    // presence only — link-preview crawlers can't verify it anyway.
+    giftShareImage() {
+      if (!this.$route.query.gift_token) return ''
+      return this.post.image.facebook2 || ''
+    },
     liveSummaryIsLong() {
       if (!this.post.live_summary) return false
       return this.stripHtmlContent(this.post.live_summary).length > 300
@@ -2743,7 +2750,7 @@ export default {
         content:
           this.$route.params.category === 'preview'
             ? '/img/tg_preview_placeholder.jpg'
-            : this.post.social.image,
+            : this.giftShareImage || this.post.social.image,
       },
       {
         hid: 'og:image:width',
@@ -2753,9 +2760,9 @@ export default {
       {
         hid: 'og:image:height',
         property: 'og:image:height',
-        content: Math.round(
-          (1200 * this.post.image.height) / this.post.image.width
-        ),
+        content: this.giftShareImage
+          ? 630
+          : Math.round((1200 * this.post.image.height) / this.post.image.width),
       },
       {
         hid: 'og:url',
