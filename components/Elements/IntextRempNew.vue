@@ -82,11 +82,8 @@
 </template>
 
 <script>
-import giftGate from '~/utils/giftGate'
-
 export default {
   name: 'IntextRempNew',
-  mixins: [giftGate],
   props: {
     // QA/preview only: forces the "logged in, no subscription" variant
     // (alternate subtitle, no "Imam pretplatu" button) without touching
@@ -236,21 +233,19 @@ export default {
       if (this.show) {
         return
       }
-      // A verified gift never shows the paywall; a pending one shows it
-      // provisionally (see utils/giftGate.js).
-      if (this.giftStatus === 'valid') {
-        return
-      }
       const el = document.getElementById('piano-content')
       if (this.softwall) {
         this.show = true
         this.$emit('show')
-        this.softLock()
       }
       if (el) {
         this.show = true
         if (!this.softwall) {
-          this.lockArticle(el)
+          el.parentNode.removeChild(el)
+          const last = document.querySelector('#article-content p:last-child')
+          if (last) {
+            last.classList.add('premium-fade-out')
+          }
         }
       }
     },

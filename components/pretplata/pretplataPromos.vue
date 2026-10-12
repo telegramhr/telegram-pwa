@@ -7,28 +7,30 @@ export default {
 <template>
   <div>
     <client-only>
-      <intext-regular-promo></intext-regular-promo>
-      <intext-refresh></intext-refresh>
-      <intext-refresh-29></intext-refresh-29>
-      <popup-regular-promo></popup-regular-promo>
-      <intext-promo-free-month></intext-promo-free-month>
-      <intext-promo-xmas></intext-promo-xmas>
-      <intext-promo-new-customers></intext-promo-new-customers>
-      <intext-promo-f32></intext-promo-f32>
-      <intext-promo-family></intext-promo-family>
-      <intext-black-friday></intext-black-friday>
-      <intext-christmas></intext-christmas>
-      <intext-popust-godine></intext-popust-godine>
-      <intext-popust-standard></intext-popust-standard>
-      <intext-christmas-gift></intext-christmas-gift>
-      <intext-telesport-rukomet></intext-telesport-rukomet>
-      <intext-telesport-svjetsko></intext-telesport-svjetsko>
-      <intext-telesport-svjetsko-2></intext-telesport-svjetsko-2>
-      <intext-odaberi-cijenu></intext-odaberi-cijenu>
-      <intext-promo-50></intext-promo-50>
-      <intext-podrska-telegramu></intext-podrska-telegramu>
-      <intext-kerum></intext-kerum>
-      <intext-ekipa></intext-ekipa>
+      <hide-on-gift>
+        <intext-regular-promo></intext-regular-promo>
+        <intext-refresh></intext-refresh>
+        <intext-refresh-29></intext-refresh-29>
+        <popup-regular-promo></popup-regular-promo>
+        <intext-promo-free-month></intext-promo-free-month>
+        <intext-promo-xmas></intext-promo-xmas>
+        <intext-promo-new-customers></intext-promo-new-customers>
+        <intext-promo-f32></intext-promo-f32>
+        <intext-promo-family></intext-promo-family>
+        <intext-black-friday></intext-black-friday>
+        <intext-christmas></intext-christmas>
+        <intext-popust-godine></intext-popust-godine>
+        <intext-popust-standard></intext-popust-standard>
+        <intext-christmas-gift></intext-christmas-gift>
+        <intext-telesport-rukomet></intext-telesport-rukomet>
+        <intext-telesport-svjetsko></intext-telesport-svjetsko>
+        <intext-telesport-svjetsko-2></intext-telesport-svjetsko-2>
+        <intext-odaberi-cijenu></intext-odaberi-cijenu>
+        <intext-promo-50></intext-promo-50>
+        <intext-podrska-telegramu></intext-podrska-telegramu>
+        <intext-kerum></intext-kerum>
+        <intext-ekipa></intext-ekipa>
+      </hide-on-gift>
     </client-only>
   </div>
 </template>
