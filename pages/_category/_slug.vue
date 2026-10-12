@@ -634,8 +634,10 @@
               </client-only>
             </div>
           </article>
-          <intext-remp></intext-remp>
-          <intext-remp-new></intext-remp-new>
+          <hide-on-gift>
+            <intext-remp></intext-remp>
+            <intext-remp-new></intext-remp-new>
+          </hide-on-gift>
           <!-- Article footer -->
           <div
             class="container column-full-pad flex relative mobile-side-pad have-background"
@@ -1280,6 +1282,7 @@ import HtKalkulator from '~/components/ht-kalkulator/HtKalkulator.vue'
 import MatchScoreboard from '~/components/liveblog/MatchScoreboard.vue'
 import { customFontLinks } from '~/utils/customFonts'
 import { revealCitat } from '~/utils/citat'
+import { snapshotLockedContent } from '~/utils/lockedContent'
 
 // Tag slugs that show the Telegram x lensEU banner under the article
 const LENSEU_TAG_SLUGS = ['lenseu', 'lens-eu', 'eulens', 'eu-lens']
@@ -2081,11 +2084,13 @@ export default {
       window.remplib.tracker.init(rempConfig)
       window.remplib.campaign.init(rempConfig)
     },
-    // Records the result in the gifts store, which the paywall components
-    // wait on. 'pending' is committed synchronously, before loadRemp() can
-    // fire a paywall; anything but a 200 (400, network error, timeout)
-    // leaves the paywall in place.
+    // Records the result in the gifts store; <hide-on-gift> removes the
+    // paywall and promos once it is 'valid'. Runs before loadRemp(), so the
+    // locked part of the article is snapshotted before anything can remove
+    // it, and a valid gift puts it back. Anything but a 200 (400, network
+    // error, timeout) leaves the paywall in place.
     verifyGift() {
+      const restoreLockedContent = snapshotLockedContent()
       const verification = {
         path: this.$route.path,
         token: this.$route.query.gift_token,
@@ -2116,6 +2121,7 @@ export default {
             status: 'valid',
             gifterName: (res.data && res.data.gifter_name) || null,
           })
+          restoreLockedContent()
         })
         .catch(() => {
           this.$store.commit('gifts/setVerification', {
