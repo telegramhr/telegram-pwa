@@ -1453,6 +1453,17 @@ export default {
       if (!this.$route.query.gift_token) return ''
       return this.post.image.facebook2 || ''
     },
+    // Facebook re-scrapes og:url as the canonical object, so a gift link's
+    // og:url must keep its token or Facebook shows the plain share image.
+    // rel=canonical stays clean for search engines.
+    shareUrl() {
+      const token = this.$route.query.gift_token
+      if (!token) return this.post.social.path
+      const sep = this.post.social.path.includes('?') ? '&' : '?'
+      return `${this.post.social.path}${sep}gift_token=${encodeURIComponent(
+        token
+      )}`
+    },
     liveSummaryIsLong() {
       if (!this.post.live_summary) return false
       return this.stripHtmlContent(this.post.live_summary).length > 300
@@ -2767,7 +2778,7 @@ export default {
       {
         hid: 'og:url',
         property: 'og:url',
-        content: this.post.social.path,
+        content: this.shareUrl,
       },
       {
         hid: 'fb:app_id',
