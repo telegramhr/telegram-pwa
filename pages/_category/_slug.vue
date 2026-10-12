@@ -684,6 +684,9 @@
                   class="mobile-only"
                 ></google-source>
               </div>
+              <client-only>
+                <gift-banner v-if="showGiftBanner"></gift-banner>
+              </client-only>
             </div>
           </div>
           <div
@@ -817,6 +820,7 @@
     </template>
     <tfooter v-if="post.id || $fetchState.error" :post="post"></tfooter>
     <client-only>
+      <gift-popup v-if="showGiftPopup"></gift-popup>
       <div
         v-if="
           post.live &&
@@ -1280,6 +1284,9 @@ import { revealCitat } from '~/utils/citat'
 // Tag slugs that show the Telegram x lensEU banner under the article
 const LENSEU_TAG_SLUGS = ['lenseu', 'lens-eu', 'eulens', 'eu-lens']
 
+// A gift link whose verification hangs falls back to the paywall after this.
+const GIFT_VERIFY_TIMEOUT_MS = 5000
+
 const widgetMap = {
   a1: 'A1Widget',
   ht: 'HtWidget',
@@ -1336,10 +1343,12 @@ export default {
         post.social.path.replace(this.$config.apiBaseUrl, '') !==
           this.$route.path
       ) {
+        // Keep the query (e.g. ?gift_token=) on the canonical URL.
+        const query = this.$route.fullPath.slice(this.$route.path.length)
         this.$telegram.context.res.statusCode = 301
         this.$telegram.context.res.setHeader(
           'Location',
-          post.social.path.replace(this.$config.apiBaseUrl, '')
+          post.social.path.replace(this.$config.apiBaseUrl, '') + query
         )
         return
       }
@@ -1434,10 +1443,16 @@ export default {
       top_articles_version: 'v1',
       related_posts: [],
       hasLinker: false,
-      giftValid: false,
     }
   },
   computed: {
+    // Gift links get the "Poklon članak" share image: the imgproxy facebook2
+    // preset (1200x630) carries the badge as its watermark. Switches on token
+    // presence only — link-preview crawlers can't verify it anyway.
+    giftShareImage() {
+      if (!this.$route.query.gift_token) return ''
+      return this.post.image.facebook2 || ''
+    },
     liveSummaryIsLong() {
       if (!this.post.live_summary) return false
       return this.stripHtmlContent(this.post.live_summary).length > 300
@@ -1783,10 +1798,31 @@ export default {
       return set
     },
     locked() {
-      if (this.giftValid) {
+      if (
+        this.$store.getters['gifts/verificationStatus'](this.$route) === 'valid'
+      ) {
         return 'never'
       }
       return this.post.paywall
+    },
+    // A valid gift lets only logged-in readers through; logged-out
+    // recipients get the (non-dismissable) gift popup instead.
+    showGiftPopup() {
+      return (
+        this.post.paywall === 'always' &&
+        !this.$store.state.user.token &&
+        this.$store.getters['gifts/verificationStatus'](this.$route) === 'valid'
+      )
+    },
+    // Subscription pitch after a gifted article, for logged-in readers
+    // without access to it.
+    showGiftBanner() {
+      return (
+        this.post.paywall === 'always' &&
+        !!this.$store.state.user.token &&
+        !this.$store.getters['user/hasContentAccess'](this.$route.path) &&
+        this.$store.getters['gifts/verificationStatus'](this.$route) === 'valid'
+      )
     },
   },
   watch: {
@@ -2034,26 +2070,52 @@ export default {
       window.remplib.tracker.init(rempConfig)
       window.remplib.campaign.init(rempConfig)
     },
+    // Records the result in the gifts store, which the paywall components
+    // wait on. 'pending' is committed synchronously, before loadRemp() can
+    // fire a paywall; anything but a 200 (400, network error, timeout)
+    // leaves the paywall in place.
+    verifyGift() {
+      const verification = {
+        path: this.$route.path,
+        token: this.$route.query.gift_token,
+      }
+      this.$store.commit('gifts/setVerification', {
+        ...verification,
+        status: 'pending',
+      })
+      this.$axios
+        .post(
+          '/pretplate/api/gift-article/verify',
+          { token: verification.token, url: this.post.permalink },
+          { timeout: GIFT_VERIFY_TIMEOUT_MS }
+        )
+        .then((res) => {
+          if (res.status !== 200) {
+            throw new Error(`Gift verify returned ${res.status}`)
+          }
+          window.marfeel = window.marfeel || { cmd: [] }
+          window.marfeel.cmd.push([
+            'compass',
+            function (compass) {
+              compass.setPageVar('gifted', 'true')
+            },
+          ])
+          this.$store.commit('gifts/setVerification', {
+            ...verification,
+            status: 'valid',
+            gifterName: (res.data && res.data.gifter_name) || null,
+          })
+        })
+        .catch(() => {
+          this.$store.commit('gifts/setVerification', {
+            ...verification,
+            status: 'invalid',
+          })
+        })
+    },
     loadPiano() {
       if (this.post.paywall === 'always' && this.$route.query.gift_token) {
-        // verify token
-        this.$axios
-          .post('/pretplate/api/gift-article/verify', {
-            token: this.$route.query.gift_token,
-            url: this.post.permalink,
-          })
-          .then((res) => {
-            if (res.status === 200) {
-              window.marfeel = window.marfeel || { cmd: [] }
-              window.marfeel.cmd.push([
-                'compass',
-                function (compass) {
-                  compass.setPageVar('gifted', 'true')
-                },
-              ])
-              this.giftValid = true
-            }
-          })
+        this.verifyGift()
       }
       if (this.post.paywall === 'never') {
         return
@@ -2688,7 +2750,7 @@ export default {
         content:
           this.$route.params.category === 'preview'
             ? '/img/tg_preview_placeholder.jpg'
-            : this.post.social.image,
+            : this.giftShareImage || this.post.social.image,
       },
       {
         hid: 'og:image:width',
@@ -2698,9 +2760,9 @@ export default {
       {
         hid: 'og:image:height',
         property: 'og:image:height',
-        content: Math.round(
-          (1200 * this.post.image.height) / this.post.image.width
-        ),
+        content: this.giftShareImage
+          ? 630
+          : Math.round((1200 * this.post.image.height) / this.post.image.width),
       },
       {
         hid: 'og:url',

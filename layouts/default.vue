@@ -19,7 +19,7 @@
         id="g_id_onload"
         data-context="signin"
         data-client_id="345595854714-ikp5kmgn1thkccvlkerioqkeh5773ndr.apps.googleusercontent.com"
-        :data-login_uri="`https://pretplata.telegram.hr/users/google/sign?url=https://www.telegram.hr${$router.fullPath}`"
+        :data-login_uri="googleLoginUri"
         data-itp_support="true"
       ></div>
     </client-only>
@@ -27,7 +27,16 @@
 </template>
 
 <script>
+import { currentOrigin, encodedReturnUrl } from '~/utils/returnUrl'
+
 export default {
+  computed: {
+    // Google One Tap returns the reader to the page they signed in on.
+    googleLoginUri() {
+      const url = encodedReturnUrl(this.$route.fullPath, currentOrigin())
+      return `https://pretplata.telegram.hr/users/google/sign?url=${url}`
+    },
+  },
   mounted() {
     this.$nextTick(() => {
       this.$store.dispatch('user/checkAccess')
