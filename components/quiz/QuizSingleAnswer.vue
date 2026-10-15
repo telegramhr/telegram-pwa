@@ -7,6 +7,7 @@
         type="radio"
         :name="'answer-' + data.id + '-' + answer.id"
         :value="answer.id"
+        :disabled="revealed"
       />
       <span>
         {{ answer.text | parseCat }}
@@ -23,7 +24,7 @@
       ></span>
     </label>
     <div
-      v-if="data.explanation && answered"
+      v-if="revealed"
       class="quiz-explanation"
       v-html="data.explanation"
     ></div>
@@ -58,18 +59,19 @@ export default {
   data() {
     return {
       answered: 0,
+      revealed: false,
     }
-  },
-  watch: {
-    answered() {
-      if (this.data.explanation) {
-        this.$emit('resize')
-      }
-    },
   },
   methods: {
     next() {
       if (this.data.required && !this.answered) {
+        return
+      }
+      // with an explanation, the first click locks the answer and shows it;
+      // the second click moves on
+      if (this.data.explanation && !this.revealed) {
+        this.revealed = true
+        this.$emit('resize')
         return
       }
       this.$emit('answer', this.data.id, this.answered)
