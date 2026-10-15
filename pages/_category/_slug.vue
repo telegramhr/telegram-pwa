@@ -638,6 +638,19 @@
             <intext-remp></intext-remp>
             <intext-remp-new></intext-remp-new>
           </hide-on-gift>
+          <!-- Designer Outlet -->
+          <client-only>
+            <div
+              v-if="
+                useSparPortal &&
+                !hasPremium &&
+                !(post.disable_ads && post.disable_ads.includes('all'))
+              "
+              class="full"
+            >
+              <designer-outlet></designer-outlet>
+            </div>
+          </client-only>
           <!-- Article footer -->
           <div
             class="container column-full-pad flex relative mobile-side-pad have-background"
