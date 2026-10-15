@@ -7,6 +7,7 @@
         type="radio"
         :name="'answer-' + data.id + '-' + answer.id"
         :value="answer.id"
+        :disabled="revealed"
       />
       <span>
         {{ answer.text | parseCat }}
@@ -23,11 +24,14 @@
       ></span>
     </label>
     <div
-      v-if="data.explanation && answered"
+      v-if="revealed"
       class="quiz-explanation"
+      :class="{ correct: isCorrect }"
       v-html="data.explanation"
     ></div>
-    <button class="classic-btn" @click="next">Sljedeće</button>
+    <button class="classic-btn" @click="next">
+      {{ data.explanation && !revealed ? 'Potvrdi' : 'Sljedeće' }}
+    </button>
   </div>
 </template>
 
@@ -58,18 +62,27 @@ export default {
   data() {
     return {
       answered: 0,
+      revealed: false,
     }
   },
-  watch: {
-    answered() {
-      if (this.data.explanation) {
-        this.$emit('resize')
-      }
+  computed: {
+    isCorrect() {
+      const picked = this.data.answers.find(
+        (answer) => answer.id === this.answered
+      )
+      return Boolean(picked && picked.correct)
     },
   },
   methods: {
     next() {
       if (this.data.required && !this.answered) {
+        return
+      }
+      // with an explanation, the first click locks the answer and shows it;
+      // the second click moves on
+      if (this.data.explanation && !this.revealed) {
+        this.revealed = true
+        this.$emit('resize')
         return
       }
       this.$emit('answer', this.data.id, this.answered)
@@ -83,5 +96,8 @@ export default {
   margin: 16px 0;
   padding: 4px 0 4px 16px;
   border-left: 3px solid #ae3737;
+}
+.quiz-explanation.correct {
+  border-left-color: #2e8b57;
 }
 </style>
