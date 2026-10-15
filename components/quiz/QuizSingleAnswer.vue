@@ -26,9 +26,12 @@
     <div
       v-if="revealed"
       class="quiz-explanation"
+      :class="{ correct: isCorrect }"
       v-html="data.explanation"
     ></div>
-    <button class="classic-btn" @click="next">Sljedeće</button>
+    <button class="classic-btn" @click="next">
+      {{ data.explanation && !revealed ? 'Potvrdi' : 'Sljedeće' }}
+    </button>
   </div>
 </template>
 
@@ -62,6 +65,14 @@ export default {
       revealed: false,
     }
   },
+  computed: {
+    isCorrect() {
+      const picked = this.data.answers.find(
+        (answer) => answer.id === this.answered
+      )
+      return Boolean(picked && picked.correct)
+    },
+  },
   methods: {
     next() {
       if (this.data.required && !this.answered) {
@@ -85,5 +96,8 @@ export default {
   margin: 16px 0;
   padding: 4px 0 4px 16px;
   border-left: 3px solid #ae3737;
+}
+.quiz-explanation.correct {
+  border-left-color: #2e8b57;
 }
 </style>
