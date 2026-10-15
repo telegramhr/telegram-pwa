@@ -79,7 +79,7 @@ export default {
   name: 'DesignerOutlet',
   data() {
     return {
-      link: 'https://www.designeroutletcroatia.com/ponude/digitalni-kuponi?utm_source=telegram&utm_medium=various&utm_campaign=kuponi',
+      link: 'https://www.designeroutletcroatia.com/digitalni-kuponi?utm_source=telegram.hr&utm_medium=widget&utm_campaign=digitalni_kuponi',
       images: Array.from({ length: 12 }, (_, i) =>
         require(`@/assets/img/widgets/designer-outlet/${i + 1}.jpg`)
       ),
