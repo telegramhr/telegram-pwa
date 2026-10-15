@@ -19,13 +19,23 @@
           :stats="data.stats"
           @answer="getAnswer"
           @next="nextSlide"
+          @resize="adaptHeight"
         ></component>
       </div>
-      <div v-if="result">
-        <h2>{{ result.title }}</h2>
-        <!-- eslint-disable vue/no-v-html -->
-        <p v-html="parsedResultsDescription"></p>
-        <!-- eslint-enable vue/no-v-html -->
+      <div>
+        <template v-if="result">
+          <h2>{{ result.title }}</h2>
+          <!-- eslint-disable vue/no-v-html -->
+          <p v-html="parsedResultsDescription"></p>
+          <!-- eslint-enable vue/no-v-html -->
+        </template>
+        <template v-else-if="maxScore">
+          <h2>Tvoj rezultat</h2>
+          <p v-if="scoreMode === 'points'">
+            Broj bodova: {{ totalScore }} / {{ maxScore }}
+          </p>
+          <p v-else>Točnih odgovora: {{ totalScore }} / {{ maxScore }}</p>
+        </template>
       </div>
     </VueSlickCarousel>
   </div>
@@ -59,21 +69,52 @@ export default {
     }
   },
   computed: {
+    scoredQuestions() {
+      return this.data.questions.filter(
+        (question) => question.type === 'QuizSingleAnswer'
+      )
+    },
+    // Quizzes with points ("Bodovi") on any answer sum the points; quizzes
+    // without points count answers marked correct ("Točno").
+    scoreMode() {
+      const hasPoints = this.scoredQuestions.some((question) =>
+        question.answers.some((answer) => parseInt(answer.score))
+      )
+      return hasPoints ? 'points' : 'correct'
+    },
     totalScore() {
       return this.scores.reduce((score, answer, question) => {
-        return score + parseInt(this.data.scoring[question][answer])
+        // unanswered optional question
+        if (!answer) {
+          return score
+        }
+        if (this.scoreMode === 'points') {
+          return score + (parseInt(this.data.scoring[question][answer]) || 0)
+        }
+        const picked = this.data.questions[question - 1].answers[answer - 1]
+        return score + (picked && picked.correct ? 1 : 0)
       }, 0)
+    },
+    maxScore() {
+      if (this.scoreMode === 'points') {
+        return this.scoredQuestions.reduce(
+          (max, question) =>
+            max +
+            Math.max(0, ...question.answers.map((a) => parseInt(a.score) || 0)),
+          0
+        )
+      }
+      return this.scoredQuestions.filter((question) =>
+        question.answers.some((answer) => answer.correct)
+      ).length
     },
     result() {
       return (
-        this.data.results.filter((result) => {
-          if (
+        this.data.results.find(
+          (result) =>
             this.totalScore >= parseInt(result.score_from) &&
             this.totalScore <= parseInt(result.score_to)
-          ) {
-            return true
-          }
-        })[0] ?? { title: '', description: '' }
+        ) ?? null
       )
     },
     parsedResultsDescription() {
@@ -84,15 +125,23 @@ export default {
     },
   },
   methods: {
+    adaptHeight() {
+      // slick only re-measures on its own re-render, not when slide content grows
+      this.$nextTick(() => {
+        const slider =
+          this.$refs.carousel && this.$refs.carousel.$refs.innerSlider
+        if (slider) {
+          slider.adaptHeight()
+        }
+      })
+    },
     nextSlide() {
       this.$refs.carousel.next()
     },
     beforeChange(oldSlide, newSlide) {
-      let noSlides = this.data.questions.length - 1
-      if (this.result) {
-        noSlides++
-      }
-      if (newSlide === noSlides && !this.submitted) {
+      // the result slide always follows the last question
+      const resultSlide = this.data.questions.length
+      if (newSlide === resultSlide && !this.submitted) {
         this.submit()
       }
     },

@@ -84,11 +84,8 @@
 </template>
 
 <script>
-import giftGate from '~/utils/giftGate'
-
 export default {
   name: 'IntextRemp',
-  mixins: [giftGate],
   data() {
     return {
       show: false,
@@ -170,9 +167,6 @@ export default {
       if (this.show) {
         return
       }
-      if (this.giftHoldsPaywall(this.triggerShow)) {
-        return
-      }
       const el = document.getElementById('piano-content')
       if (this.softwall) {
         this.show = true
@@ -182,9 +176,10 @@ export default {
         this.show = true
         if (!this.softwall) {
           el.parentNode.removeChild(el)
-          document
-            .querySelector('#article-content p:last-child')
-            .classList.add('premium-fade-out')
+          const last = document.querySelector('#article-content p:last-child')
+          if (last) {
+            last.classList.add('premium-fade-out')
+          }
         }
       }
     },

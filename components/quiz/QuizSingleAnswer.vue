@@ -22,6 +22,11 @@
         ></font-awesome-icon
       ></span>
     </label>
+    <div
+      v-if="data.explanation && answered"
+      class="quiz-explanation"
+      v-html="data.explanation"
+    ></div>
     <button class="classic-btn" @click="next">Sljedeće</button>
   </div>
 </template>
@@ -55,6 +60,13 @@ export default {
       answered: 0,
     }
   },
+  watch: {
+    answered() {
+      if (this.data.explanation) {
+        this.$emit('resize')
+      }
+    },
+  },
   methods: {
     next() {
       if (this.data.required && !this.answered) {
@@ -65,3 +77,11 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.quiz-explanation {
+  margin: 16px 0;
+  padding: 4px 0 4px 16px;
+  border-left: 3px solid #ae3737;
+}
+</style>
