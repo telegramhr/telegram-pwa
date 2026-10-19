@@ -80,7 +80,7 @@ export default {
       if (this.mrfPosition) {
         output += `-${this.mrfPosition}`
       }
-      return output
+      return output || null
     },
   },
 }

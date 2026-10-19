@@ -8,7 +8,7 @@
     :aria-labelledby="'standard-' + post.id"
     :data-widget-position="widgetPosition"
     :data-widget-type="widgetType"
-    :data-mrf-recirculation="recirculation"
+    :data-mrf-recirculation="recirculation || null"
   >
     <img :src="post.image?.url" :alt="post.image?.alt" loading="lazy" />
     <h3 :id="'standard-' + post.id" class="full">
