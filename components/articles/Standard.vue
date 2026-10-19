@@ -110,7 +110,7 @@ export default {
       if (this.mrfPosition) {
         output += `-${this.mrfPosition}`
       }
-      return output
+      return output || null
     },
     permalink() {
       if (this.utm.source || this.utm.campaign) {

@@ -8,7 +8,7 @@
     :aria-labelledby="'standard-' + post.id"
     :data-widget-type="widgetType"
     :data-widget-position="widgetPosition"
-    :data-mrf-recirculation="recirculation"
+    :data-mrf-recirculation="recirculation || null"
   >
     <div class="singleArticleText">
       <h3 :id="'standard-' + post.id" class="full">
