@@ -3,13 +3,13 @@
     class="full flex article-featured article-featured-alt article"
     role="article"
     :data-id="post.id"
+    :data-mrf-recirculation="recirculation"
     @click="$emit('clicked')"
   >
     <app-link
       class="full flex"
       :to="post.permalink + (utm ? '?' + utm : '')"
       :aria-labelledby="'featured-' + post.id"
-      :data-mrf-recirculation="recirculation"
     >
       <img
         :srcset="srcset"
@@ -25,7 +25,6 @@
         class="full flex"
         :to="post.permalink + (utm ? '?' + utm : '')"
         :aria-labelledby="'featured-' + post.id"
-        :data-mrf-recirculation="recirculation"
       >
         <div class="full flex">
           <div
@@ -60,7 +59,10 @@
       </app-link>
     </div>
     <template v-if="post.related && post.related.length">
-      <div class="full flex related-articles relative">
+      <div
+        class="full flex related-articles relative"
+        :data-mrf-recirculation="recirculation && `${recirculation}-related`"
+      >
         <div class="nothfive full">Još o temi</div>
         <app-link
           v-for="article in post.related"
@@ -142,7 +144,7 @@ export default {
       if (this.mrfPosition) {
         output += `-${this.mrfPosition}`
       }
-      return output
+      return output || null
     },
     parsedOvertitle() {
       return this.$options.filters.parseCat(
