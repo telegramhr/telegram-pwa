@@ -99,7 +99,7 @@ export default {
       if (this.mrfPosition) {
         output += `-${this.mrfPosition}`
       }
-      return output || null
+      return output
     },
     parsedOvertitle() {
       return this.$options.filters.parseCat(

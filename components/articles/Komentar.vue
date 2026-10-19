@@ -105,7 +105,7 @@ export default {
       if (this.mrfPosition) {
         output += `-${this.mrfPosition}`
       }
-      return output || null
+      return output
     },
     srcset() {
       if (!this.post.image) {

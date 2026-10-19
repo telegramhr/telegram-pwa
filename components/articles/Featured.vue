@@ -3,12 +3,12 @@
     class="full flex article-featured article"
     role="article"
     :data-id="post.id"
-    :data-mrf-recirculation="recirculation"
   >
     <app-link
       class="full flex"
       :to="post.permalink"
       :aria-labelledby="'featured-' + post.id"
+      :data-mrf-recirculation="recirculation"
     >
       <img
         :srcset="srcset"
@@ -36,9 +36,7 @@
             <span
               v-if="post.overtitle_tag || post.live"
               class="dynamic-overtitle-element"
-              >{{
-                post.live && !post.live_end ? 'Uživo' : post.overtitle_tag
-              }}</span
+              >{{ post.live && !post.live_end ? 'Uživo' : post.overtitle_tag }}</span
             >
             <span>{{ parsedOvertitle }}</span>
           </div>
@@ -59,10 +57,7 @@
         </div>
       </app-link>
       <template v-if="post.related && post.related.length">
-        <div
-          class="full flex related-articles relative"
-          :data-mrf-recirculation="recirculation && `${recirculation}-related`"
-        >
+        <div class="full flex related-articles relative">
           <div class="nothfive full">Još o temi</div>
           <app-link
             v-for="article in post.related"
@@ -140,7 +135,7 @@ export default {
       if (this.mrfPosition) {
         output += `-${this.mrfPosition}`
       }
-      return output || null
+      return output
     },
     parsedOvertitle() {
       return this.$options.filters.parseCat(
