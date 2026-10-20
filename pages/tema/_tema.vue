@@ -299,8 +299,11 @@ export default {
           this.$telegram.context.res.statusCode = 404
         }
       })
-      .catch(() => {
-        // TODO: error logging
+      .catch((e) => {
+        // API down or busy (5xx/timeout): 503 lets nginx serve the stale page instead of caching an empty one
+        if (process.server && !(e.response && e.response.status < 500)) {
+          this.$telegram.context.res.statusCode = 503
+        }
       })
   },
   data() {

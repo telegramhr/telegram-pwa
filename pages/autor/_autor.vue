@@ -105,10 +105,12 @@ export default {
           this.hasMore = false
         }
       })
-      .catch(() => {
+      .catch((e) => {
         // set status code on server and
         if (process.server) {
-          this.$telegram.context.res.statusCode = 404
+          // API down or busy (5xx/timeout): 503 lets nginx serve the stale page instead of caching a 404
+          this.$telegram.context.res.statusCode =
+            e.response && e.response.status < 500 ? 404 : 503
         }
         // use throw new Error()
         throw new Error('User not found')
