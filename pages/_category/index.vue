@@ -228,7 +228,9 @@ export default {
       })
       .catch((e) => {
         if (process.server) {
-          this.$telegram.context.res.statusCode = 404
+          // API down or busy (5xx/timeout): 503 lets nginx serve the stale page instead of caching a 404
+          this.$telegram.context.res.statusCode =
+            e.response && e.response.status < 500 ? 404 : 503
         }
         throw new Error('Kategorija ne postoji')
       })
