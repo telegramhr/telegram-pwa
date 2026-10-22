@@ -39,7 +39,7 @@ export default {
             { rel: 'dns-prefetch', href: 'https://script.dotmetrics.net' },
             { rel: 'preconnect', href: 'https://script.dotmetrics.net' },
             // NOTE: static door.js preloads removed. The dotmetrics.client.js plugin
-            // dynamically injects exactly one path-based door.js per URL (id 1182 default,
+            // dynamically injects exactly one path-based door.js per URL (id 1182 default, 1173 homepage,
             // 15854 news, 15855 kultura/zivot, 4136 super1, 1175 sport). Two static preloads
             // (15854 + 1182) fired on every page produced a second, always-dead door.js
             // request, and on kultura/super1/sport paths BOTH preloads were dead. Removing
@@ -113,6 +113,7 @@ export default {
                 hid: 'dotmetrics-door',
                 innerHTML: '(function(){try{' +
                     "var p=location.pathname,id='1182';" +
+                    "if(p==='/')id='1173';" +
                     "if(/politika-kriminal|biznis-tech|komentari|vijesti/.test(p))id='15854';" +
                     "if(/kultura|zivot|pitanje-zdravlja|velike-price/.test(p))id='15855';" +
                     "if(/super1|superone/.test(p))id='4136';" +
