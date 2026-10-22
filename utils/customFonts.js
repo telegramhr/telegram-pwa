@@ -45,6 +45,14 @@ const CUSTOM_FONTS = [
  */
 const NON_CONTENT_KEYS = ['styles', 'additional_styles', 'additional_scripts']
 
+/*
+ * Posts saved by authors without `unfiltered_html` (on the multisite that is
+ * everyone but super admins) go through wp_kses, which stores the quotes of
+ * inline styles as entities: `font-family: &#039;Clash Display&#039;`.
+ * Decoded to a plain quote before matching so the font is still detected.
+ */
+const QUOTE_ENTITY = /&(?:#0*3[49]|#x0*2[27]|quot|apos);/gi
+
 /**
  * Head link objects for the custom fonts referenced in the post's content.
  * Scans every field of the post (content, perex, live updates, captions...)
@@ -60,7 +68,7 @@ export function customFontLinks(post) {
 
   const html = JSON.stringify(post, (key, value) =>
     NON_CONTENT_KEYS.includes(key) ? undefined : value
-  )
+  ).replace(QUOTE_ENTITY, "'")
 
   // Match the block editor's utility class or a classic-editor inline
   // declaration where the font is the first family listed. The character
