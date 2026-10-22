@@ -1439,6 +1439,25 @@ footer .conversion-notice {
     line-height: 1em;
 }
 
+/* Međunaslov (h2) set to Clash Display in the editor: 28px / 700 by default
+   (1.4rem at the 20px root, on every breakpoint). The classic editor wraps
+   the heading text in an inline font-family span, the block editor stamps
+   the class on the heading itself. No !important, so a font size picked in
+   the editor (preset class or inline px) still wins. The :has() rule stays
+   separate so browsers without :has() drop only that one. */
+
+.single-article-body h2.has-clash-display-font-family {
+    font-size: 28px;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.single-article-body h2:has(span[style*="Clash Display"]) {
+    font-size: 28px;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
 .single-article-body .noththree,
 .single-article-body .nothfour {
     font-size: 20px;
