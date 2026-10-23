@@ -681,8 +681,9 @@ export const actions = {
     window.pbjs.que = window.pbjs.que || []
     window.pbjs.requestManager = {
       adServerRequestSent: false,
-      aps: false,
       prebid: false,
+      failsafe: null,
+      dmGuard: null,
     }
     if (state.slots) {
       // clean old stuff from previous request
@@ -970,96 +971,165 @@ export const actions = {
     window.googletag = window.googletag || {}
     window.googletag.cmd = window.googletag.cmd || []
 
-    // 2s safety timeout: if CONSENT chain does not resolve
-    // (CONSENT_API_READY never fires, __tcfapi never callbacks, Safari ITP),
-    // serve non-personalized ads as GDPR-compliant fallback (CU-86c98hx43)
-    setTimeout(() => {
-      if (window.pbjs.requestManager.adServerRequestSent) return
-      window.googletag.cmd.push(function () {
-        window.googletag
-          .pubads()
-          .setPrivacySettings({ restrictDataProcessing: true })
-      })
-      dispatch('initAdserver')
-    }, 2000)
+    // One-shot per pageview: whichever signal arrives first (TCF event or the
+    // CMP guard) starts the header-bidding chain. No privacy settings are
+    // touched here — RDP is a US-privacy signal and must never be set for EEA
+    // users; GPT reads the TC string on its own.
+    let started = false
+    let cmpGuard = null
+    let tcfListenerId = null
+    const start = (consent) => {
+      if (started) return
+      started = true
+      clearTimeout(cmpGuard)
+      if (tcfListenerId !== null && typeof window.__tcfapi === 'function') {
+        window.__tcfapi('removeEventListener', 2.2, () => {}, tcfListenerId)
+      }
+      dispatch('initPBJS', { consent })
+    }
 
-    /* global __tcfapi */
+    // Guard for a CMP that never reports back (blocked, errored, in-app
+    // browser). Asks the CMP instead of blindly firing: no CMP → start without
+    // consent; dialog visible → wait for the user (GPT holds the request
+    // anyway); loaded but no TC string yet → one more short window, because
+    // Funding Choices can report displayStatus 'hidden' just before it shows
+    // the dialog.
+    const CMP_GUARD_MS = 3000
+    const CMP_RETRY_MS = 2000
+    const checkCmp = (retry) => {
+      if (started) return
+      if (typeof window.__tcfapi !== 'function') return start(false)
+      window.__tcfapi('ping', 2, (ping) => {
+        if (started) return
+        if (!ping || !ping.cmpLoaded) return start(false)
+        if (ping.displayStatus === 'visible') return
+        if (retry) {
+          cmpGuard = setTimeout(() => checkCmp(false), CMP_RETRY_MS)
+          return
+        }
+        start(false)
+      })
+    }
+    cmpGuard = setTimeout(() => checkCmp(true), CMP_GUARD_MS)
+
     window.googlefc.callbackQueue.push({
       CONSENT_API_READY: () =>
-        __tcfapi('addEventListener', 2.2, (data, success) => {
-          if (data.purpose.consents[1]) {
-            dispatch('initPBJS')
+        window.__tcfapi('addEventListener', 2.2, (tcData, success) => {
+          if (!success || !tcData) return
+          if (tcData.listenerId !== undefined) {
+            tcfListenerId = tcData.listenerId
           }
+          if (
+            tcData.eventStatus !== 'tcloaded' &&
+            tcData.eventStatus !== 'useractioncomplete'
+          ) {
+            return
+          }
+          const purpose1 = !!(
+            tcData.purpose &&
+            tcData.purpose.consents &&
+            tcData.purpose.consents[1]
+          )
+          start(purpose1)
         }),
     })
   },
-  initPBJS({ dispatch, state }) {
-    if (state.route.includes('telesport')) {
-      dispatch('initAdserver')
-      return
-    }
+  initPBJS({ dispatch, state }, { consent } = { consent: true }) {
+    window.googletag = window.googletag || {}
+    window.googletag.cmd = window.googletag.cmd || []
     window.pbjs = window.pbjs || {}
     window.pbjs.que = window.pbjs.que || []
+    const rm = {
+      adServerRequestSent: false,
+      prebid: false,
+      failsafe: null,
+      dmGuard: null,
+    }
+    window.pbjs.requestManager = rm
+
+    // Set explicitly every pageview: setPrivacySettings persists on pubads
+    // across SPA navigations, so a consent-less first pageview must not leave
+    // NPA stuck on for the rest of the session.
+    window.googletag.cmd.push(() => {
+      window.googletag
+        .pubads()
+        .setPrivacySettings({ nonPersonalizedAds: !consent })
+    })
+
+    if (state.route.includes('telesport')) {
+      dispatch('initAdserver', { reason: 'telesport' })
+      return
+    }
+
+    const FAILSAFE_MS = 3000 // >= DM bidderTimeout (2500 ms) + margin
+    const DM_LOAD_GUARD_MS = 5000 // max wait for the DM script itself
+
+    // DM script not here in time (cold cache, slow network, blocked): go
+    // AdX-only rather than hold the page. Set before que.push so a
+    // synchronous que callback (DM already loaded) can clear it.
+    rm.dmGuard = setTimeout(() => {
+      if (!window.pbjs.libLoaded) {
+        dispatch('initAdserver', { reason: 'dm-not-loaded' })
+      }
+    }, DM_LOAD_GUARD_MS)
+
+    // Runs only once DM is loaded, so the failsafe measures the auction, not
+    // the script download.
     window.pbjs.que.push(() => {
+      // Stale callback from a pageview the user already navigated away from.
+      if (window.pbjs.requestManager !== rm || rm.adServerRequestSent) return
+      clearTimeout(rm.dmGuard)
+      if (!window.pbjs.rp || typeof window.pbjs.rp.requestBids !== 'function') {
+        dispatch('initAdserver', { reason: 'no-dm' })
+        return
+      }
+      rm.failsafe = setTimeout(() => {
+        dispatch('initAdserver', { reason: 'failsafe' })
+      }, FAILSAFE_MS)
       window.pbjs.rp.requestBids({
         callback() {
-          window.googletag.cmd.push(function () {
+          window.googletag.cmd.push(() => {
+            if (window.pbjs.requestManager !== rm) return
             window.pbjs.setTargetingForGPTAsync()
-            window.pbjs.requestManager.prebid = true
+            rm.prebid = true
             dispatch('biddersBack')
           })
         },
       })
     })
-    const sizes = this.$mobile ? 'mobile' : 'desktop'
-    let unit
-    const APSslots = []
-    for (const i of Object.keys(state.units)) {
-      if (i in state.units) {
-        unit = state.units[i]
-        if (!unit[sizes]) {
-          continue
-        }
-        if (!document.getElementById(i)) {
-          continue
-        }
-        APSslots.push({
-          slotID: i,
-          slotName: state.prefix + i,
-          sizes: unit[sizes],
-        })
-      }
-    }
-    window.apstag.fetchBids(
-      {
-        slots: APSslots,
-      },
-      function (bids) {
-        window.googletag.cmd.push(function () {
-          window.apstag.setDisplayBids()
-          window.pbjs.requestManager.aps = true
-          dispatch('biddersBack')
-        })
-      }
-    )
-    setTimeout(() => {
-      dispatch('initAdserver')
-    }, 1500)
   },
   biddersBack({ dispatch }) {
-    if (window.pbjs.requestManager.aps && window.pbjs.requestManager.prebid) {
-      dispatch('initAdserver')
+    // Thin wrapper kept for compatibility; without APS the only condition is
+    // the Prebid callback.
+    if (window.pbjs.requestManager.prebid) {
+      dispatch('initAdserver', { reason: 'bidders' })
     }
   },
-  initAdserver({ state }) {
-    if (window.pbjs.requestManager.adServerRequestSent) return
-    window.pbjs.requestManager.adServerRequestSent = true
+  initAdserver({ state, dispatch }, { reason } = { reason: 'unknown' }) {
+    window.pbjs = window.pbjs || {}
+    const rm = window.pbjs.requestManager || (window.pbjs.requestManager = {})
+    if (rm.adServerRequestSent) return
+    rm.adServerRequestSent = true
+    clearTimeout(rm.failsafe)
+    clearTimeout(rm.dmGuard)
     if (state.route === 'nesto-slug') {
       return
     }
+    dispatch('registerSlotListeners')
+    window.googletag.cmd.push(function () {
+      // Temporary key-value so GAM reports show which path fired the request
+      // (bidders / failsafe / dm-not-loaded / no-dm / telesport).
+      window.googletag.pubads().setTargeting('atl_hb_path', reason)
+      window.googletag.pubads().refresh()
+    })
+  },
+  registerSlotListeners() {
+    // pubads listeners survive destroySlots(), so register them once per page
+    // load instead of once per SPA navigation (duplicate Marfeel ad events).
+    if (window.googletag.tmgSlotListeners) return
+    window.googletag.tmgSlotListeners = true
     const _that = this
     window.googletag.cmd.push(function () {
-      window.googletag.pubads().refresh()
       window.googletag
         .pubads()
         .addEventListener('slotRenderEnded', function (event) {
