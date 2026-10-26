@@ -1061,7 +1061,7 @@ export const actions = {
       return
     }
 
-    const FAILSAFE_MS = 3000 // >= DM bidderTimeout (2500 ms) + margin
+    const FAILSAFE_MS = 4000 // >= DM bidderTimeout (2500 ms) + margin, per adtech
     const DM_LOAD_GUARD_MS = 5000 // max wait for the DM script itself
 
     // DM script not here in time (cold cache, slow network, blocked): go
