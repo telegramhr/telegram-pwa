@@ -1074,27 +1074,42 @@ export const actions = {
     }, DM_LOAD_GUARD_MS)
 
     // Runs only once DM is loaded, so the failsafe measures the auction, not
-    // the script download.
+    // the script download. Nested in googletag.cmd because DM
+    // (waitForGamSlots) calls googletag.pubads() inside requestBids; with DM
+    // in the SSR head its que can run while googletag is still the {cmd: []}
+    // stub, which threw "pubads is not a function" and lost the auction. GPT
+    // runs cmd only once its API is up, and the slot definitions from
+    // initSlots are already queued ahead of this callback.
     window.pbjs.que.push(() => {
-      // Stale callback from a pageview the user already navigated away from.
-      if (window.pbjs.requestManager !== rm || rm.adServerRequestSent) return
-      clearTimeout(rm.dmGuard)
-      if (!window.pbjs.rp || typeof window.pbjs.rp.requestBids !== 'function') {
-        dispatch('initAdserver', { reason: 'no-dm' })
-        return
-      }
-      rm.failsafe = setTimeout(() => {
-        dispatch('initAdserver', { reason: 'failsafe' })
-      }, FAILSAFE_MS)
-      window.pbjs.rp.requestBids({
-        callback() {
-          window.googletag.cmd.push(() => {
-            if (window.pbjs.requestManager !== rm) return
-            window.pbjs.setTargetingForGPTAsync()
-            rm.prebid = true
-            dispatch('biddersBack')
+      window.googletag.cmd.push(() => {
+        // Stale callback from a pageview the user already navigated away from.
+        if (window.pbjs.requestManager !== rm || rm.adServerRequestSent) return
+        clearTimeout(rm.dmGuard)
+        if (
+          !window.pbjs.rp ||
+          typeof window.pbjs.rp.requestBids !== 'function'
+        ) {
+          dispatch('initAdserver', { reason: 'no-dm' })
+          return
+        }
+        rm.failsafe = setTimeout(() => {
+          dispatch('initAdserver', { reason: 'failsafe' })
+        }, FAILSAFE_MS)
+        try {
+          window.pbjs.rp.requestBids({
+            callback() {
+              window.googletag.cmd.push(() => {
+                if (window.pbjs.requestManager !== rm) return
+                window.pbjs.setTargetingForGPTAsync()
+                rm.prebid = true
+                dispatch('biddersBack')
+              })
+            },
           })
-        },
+        } catch (e) {
+          // DM threw synchronously: do not sit out the failsafe, go AdX-only.
+          dispatch('initAdserver', { reason: 'dm-error' })
+        }
       })
     })
   },
@@ -1118,7 +1133,7 @@ export const actions = {
     dispatch('registerSlotListeners')
     window.googletag.cmd.push(function () {
       // Temporary key-value so GAM reports show which path fired the request
-      // (bidders / failsafe / dm-not-loaded / no-dm / telesport).
+      // (bidders / failsafe / dm-not-loaded / no-dm / dm-error / telesport).
       window.googletag.pubads().setTargeting('atl_hb_path', reason)
       window.googletag.pubads().refresh()
     })
