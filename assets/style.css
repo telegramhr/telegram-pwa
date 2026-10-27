@@ -1443,17 +1443,20 @@ footer .conversion-notice {
    (1.4rem at the 20px root, see the min-width: 767px block), scaled by the
    same 1.1/1.2 ratio as the regular h2 on mobile: 26px / 1.3rem. The classic
    editor wraps the heading text in an inline font-family span, the block
-   editor stamps the class on the heading itself. No !important, so a font
-   size picked in the editor (preset class or inline px) still wins. The
-   :has() rule stays separate so browsers without :has() drop only that one. */
+   editor stamps the class on the heading itself. Anchored on #article-content
+   so it outranks the per-template h2 rules (.superone.single-article sets
+   Poppins 600, .alternative-single resets the desktop size...). No
+   !important, so a font size picked in the editor (preset class or inline
+   px) still wins. The :has() rule stays separate so browsers without :has()
+   drop only that one. */
 
-.single-article-body h2.has-clash-display-font-family {
+#article-content h2.has-clash-display-font-family {
     font-size: 26px;
     font-size: 1.3rem;
     font-weight: 700;
 }
 
-.single-article-body h2:has(span[style*="Clash Display"]) {
+#article-content h2:has(span[style*="Clash Display"]) {
     font-size: 26px;
     font-size: 1.3rem;
     font-weight: 700;
@@ -2230,6 +2233,9 @@ figure a {
 /* Desktop: border extends outside content, text stays full width */
 
 @media screen and (min-width: 768px) {
+    .row-gap {
+        row-gap: 16px;
+    }
     .specijal-highlight {
         padding-left: 0;
         border-left: none;
@@ -5343,11 +5349,11 @@ html.large-fontsize,
         margin-bottom: 24px;
         margin-top: 32px;
     }
-    .single-article-body h2.has-clash-display-font-family {
+    #article-content h2.has-clash-display-font-family {
         font-size: 28px;
         font-size: 1.4rem;
     }
-    .single-article-body h2:has(span[style*="Clash Display"]) {
+    #article-content h2:has(span[style*="Clash Display"]) {
         font-size: 28px;
         font-size: 1.4rem;
     }
