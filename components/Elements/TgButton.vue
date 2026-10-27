@@ -17,11 +17,12 @@
 export default {
   name: 'TgButton',
   props: {
-    // Visual style. 'primary' = green design button, 'neutral' = grey (e.g. unselected state)
+    // Visual style. 'primary' = green design button, 'neutral' = grey (e.g. unselected state),
+    // 'black' = the dark CTA used on black campaign pages
     variant: {
       type: String,
       default: 'primary',
-      validator: (value) => ['primary', 'neutral'].includes(value),
+      validator: (value) => ['primary', 'neutral', 'black'].includes(value),
     },
     // When set, renders an <a> instead of a <button>
     href: {
@@ -106,6 +107,17 @@ export default {
 }
 .tg-button--neutral:active {
   background-color: #217613;
+}
+
+/* Black — CTA on dark campaign pages (Figma "CTA / Kartica") */
+.tg-button--black {
+  background-color: #000;
+}
+.tg-button--black:hover {
+  background-color: #1f1f1f;
+}
+.tg-button--black:active {
+  background-color: #000;
 }
 
 .tg-button:disabled {
