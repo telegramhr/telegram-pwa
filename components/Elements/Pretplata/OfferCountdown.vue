@@ -94,7 +94,6 @@ export default {
     <div class="cd-wrap">
       <div class="cd-label">
         <p class="cd-title">{{ title }}</p>
-        <p class="cd-date">{{ dateLabel }}</p>
       </div>
       <div class="cd-metrics" role="timer" aria-live="off">
         <template v-for="(unit, index) in units">
