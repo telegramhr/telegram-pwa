@@ -1439,7 +1439,6 @@ footer .conversion-notice {
     line-height: 1em;
 }
 
-
 /* Međunaslov (h2) set to Clash Display in the editor: 28px / 700 on desktop
    (1.4rem at the 20px root, see the min-width: 767px block), scaled by the
    same 1.1/1.2 ratio as the regular h2 on mobile: 26px / 1.3rem. The classic

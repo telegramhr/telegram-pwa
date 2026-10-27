@@ -49,7 +49,7 @@ export default {
             { rel: 'dns-prefetch', href: '//securepubads.g.doubleclick.net' },
             { rel: 'dns-prefetch', href: '//pagead2.googlesyndication.com' },
             { rel: 'dns-prefetch', href: '//micro.rubiconproject.com' },
-            { rel: 'dns-prefetch', href: '//c.amazon-adsystem.com' },
+            { rel: 'preconnect', href: 'https://micro.rubiconproject.com' },
             { rel: 'dns-prefetch', href: '//www.googletagmanager.com' },
             { rel: 'dns-prefetch', href: '//adservice.google.com' },
             {
@@ -203,6 +203,26 @@ export default {
                     '    }\n' +
                     '  })',
             },
+            // Header bidding: Magnite Demand Manager (Prebid wrapper) and the
+            // fresh-atl refresh script, loaded from SSR head instead of a client
+            // plugin so they start downloading at parse time (~1.5s earlier than
+            // after hydration). The inline stub makes pbjs.que.push safe before
+            // DM arrives; store/ads.js reads window.prebid for GAM targeting.
+            // Amazon APS (apstag) is intentionally gone: no revenue, ~150-300ms cost.
+            {
+                hid: 'prebid-flag',
+                innerHTML: "window.prebid='rubicon';window.pbjs=window.pbjs||{};window.pbjs.que=window.pbjs.que||[];",
+            },
+            {
+                hid: 'prebid-dm',
+                src: 'https://micro.rubiconproject.com/prebid/dynamic/26072.js',
+                async: true,
+            },
+            {
+                hid: 'fresh-atl',
+                src: 'https://freshatl.azurewebsites.net/js/fresh-atl.js',
+                async: true,
+            },
             {
                 hid: 'gpt',
                 src: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js',
@@ -229,6 +249,7 @@ export default {
             remplib: ['innerHTML'],
             didomi: ['innerHTML'],
             'googlefc-present': ['innerHTML'],
+            'prebid-flag': ['innerHTML'],
             'referrer-restore': ['innerHTML'],
             'dotmetrics-door': ['innerHTML'],
         },
