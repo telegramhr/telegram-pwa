@@ -634,8 +634,23 @@
               </client-only>
             </div>
           </article>
-          <intext-remp></intext-remp>
-          <intext-remp-new></intext-remp-new>
+          <hide-on-gift>
+            <intext-remp></intext-remp>
+            <intext-remp-new></intext-remp-new>
+          </hide-on-gift>
+          <!-- Designer Outlet -->
+          <client-only>
+            <div
+              v-if="
+                useSparPortal &&
+                !hasPremium &&
+                !(post.disable_ads && post.disable_ads.includes('all'))
+              "
+              class="full"
+            >
+              <designer-outlet></designer-outlet>
+            </div>
+          </client-only>
           <!-- Article footer -->
           <div
             class="container column-full-pad flex relative mobile-side-pad have-background"
@@ -684,6 +699,9 @@
                   class="mobile-only"
                 ></google-source>
               </div>
+              <client-only>
+                <gift-banner v-if="showGiftBanner"></gift-banner>
+              </client-only>
             </div>
           </div>
           <div
@@ -817,6 +835,7 @@
     </template>
     <tfooter v-if="post.id || $fetchState.error" :post="post"></tfooter>
     <client-only>
+      <gift-popup v-if="showGiftPopup"></gift-popup>
       <div
         v-if="
           post.live &&
@@ -1276,9 +1295,13 @@ import HtKalkulator from '~/components/ht-kalkulator/HtKalkulator.vue'
 import MatchScoreboard from '~/components/liveblog/MatchScoreboard.vue'
 import { customFontLinks } from '~/utils/customFonts'
 import { revealCitat } from '~/utils/citat'
+import { snapshotLockedContent } from '~/utils/lockedContent'
 
 // Tag slugs that show the Telegram x lensEU banner under the article
 const LENSEU_TAG_SLUGS = ['lenseu', 'lens-eu', 'eulens', 'eu-lens']
+
+// A gift link whose verification hangs falls back to the paywall after this.
+const GIFT_VERIFY_TIMEOUT_MS = 5000
 
 const widgetMap = {
   a1: 'A1Widget',
@@ -1336,10 +1359,12 @@ export default {
         post.social.path.replace(this.$config.apiBaseUrl, '') !==
           this.$route.path
       ) {
+        // Keep the query (e.g. ?gift_token=) on the canonical URL.
+        const query = this.$route.fullPath.slice(this.$route.path.length)
         this.$telegram.context.res.statusCode = 301
         this.$telegram.context.res.setHeader(
           'Location',
-          post.social.path.replace(this.$config.apiBaseUrl, '')
+          post.social.path.replace(this.$config.apiBaseUrl, '') + query
         )
         return
       }
@@ -1434,10 +1459,27 @@ export default {
       top_articles_version: 'v1',
       related_posts: [],
       hasLinker: false,
-      giftValid: false,
     }
   },
   computed: {
+    // Gift links get the "Poklon članak" share image: the imgproxy facebook2
+    // preset (1200x630) carries the badge as its watermark. Switches on token
+    // presence only — link-preview crawlers can't verify it anyway.
+    giftShareImage() {
+      if (!this.$route.query.gift_token) return ''
+      return this.post.image.facebook2 || ''
+    },
+    // Facebook re-scrapes og:url as the canonical object, so a gift link's
+    // og:url must keep its token or Facebook shows the plain share image.
+    // rel=canonical stays clean for search engines.
+    shareUrl() {
+      const token = this.$route.query.gift_token
+      if (!token) return this.post.social.path
+      const sep = this.post.social.path.includes('?') ? '&' : '?'
+      return `${this.post.social.path}${sep}gift_token=${encodeURIComponent(
+        token
+      )}`
+    },
     liveSummaryIsLong() {
       if (!this.post.live_summary) return false
       return this.stripHtmlContent(this.post.live_summary).length > 300
@@ -1783,10 +1825,31 @@ export default {
       return set
     },
     locked() {
-      if (this.giftValid) {
+      if (
+        this.$store.getters['gifts/verificationStatus'](this.$route) === 'valid'
+      ) {
         return 'never'
       }
       return this.post.paywall
+    },
+    // A valid gift lets only logged-in readers through; logged-out
+    // recipients get the (non-dismissable) gift popup instead.
+    showGiftPopup() {
+      return (
+        this.post.paywall === 'always' &&
+        !this.$store.state.user.token &&
+        this.$store.getters['gifts/verificationStatus'](this.$route) === 'valid'
+      )
+    },
+    // Subscription pitch after a gifted article, for logged-in readers
+    // without access to it.
+    showGiftBanner() {
+      return (
+        this.post.paywall === 'always' &&
+        !!this.$store.state.user.token &&
+        !this.$store.getters['user/hasContentAccess'](this.$route.path) &&
+        this.$store.getters['gifts/verificationStatus'](this.$route) === 'valid'
+      )
     },
   },
   watch: {
@@ -2034,26 +2097,55 @@ export default {
       window.remplib.tracker.init(rempConfig)
       window.remplib.campaign.init(rempConfig)
     },
+    // Records the result in the gifts store; <hide-on-gift> removes the
+    // paywall and promos once it is 'valid'. Runs before loadRemp(), so the
+    // locked part of the article is snapshotted before anything can remove
+    // it, and a valid gift puts it back. Anything but a 200 (400, network
+    // error, timeout) leaves the paywall in place.
+    verifyGift() {
+      const restoreLockedContent = snapshotLockedContent()
+      const verification = {
+        path: this.$route.path,
+        token: this.$route.query.gift_token,
+      }
+      this.$store.commit('gifts/setVerification', {
+        ...verification,
+        status: 'pending',
+      })
+      this.$axios
+        .post(
+          '/pretplate/api/gift-article/verify',
+          { token: verification.token, url: this.post.permalink },
+          { timeout: GIFT_VERIFY_TIMEOUT_MS }
+        )
+        .then((res) => {
+          if (res.status !== 200) {
+            throw new Error(`Gift verify returned ${res.status}`)
+          }
+          window.marfeel = window.marfeel || { cmd: [] }
+          window.marfeel.cmd.push([
+            'compass',
+            function (compass) {
+              compass.setPageVar('gifted', 'true')
+            },
+          ])
+          this.$store.commit('gifts/setVerification', {
+            ...verification,
+            status: 'valid',
+            gifterName: (res.data && res.data.gifter_name) || null,
+          })
+          restoreLockedContent()
+        })
+        .catch(() => {
+          this.$store.commit('gifts/setVerification', {
+            ...verification,
+            status: 'invalid',
+          })
+        })
+    },
     loadPiano() {
       if (this.post.paywall === 'always' && this.$route.query.gift_token) {
-        // verify token
-        this.$axios
-          .post('/pretplate/api/gift-article/verify', {
-            token: this.$route.query.gift_token,
-            url: this.post.permalink,
-          })
-          .then((res) => {
-            if (res.status === 200) {
-              window.marfeel = window.marfeel || { cmd: [] }
-              window.marfeel.cmd.push([
-                'compass',
-                function (compass) {
-                  compass.setPageVar('gifted', 'true')
-                },
-              ])
-              this.giftValid = true
-            }
-          })
+        this.verifyGift()
       }
       if (this.post.paywall === 'never') {
         return
@@ -2688,7 +2780,7 @@ export default {
         content:
           this.$route.params.category === 'preview'
             ? '/img/tg_preview_placeholder.jpg'
-            : this.post.social.image,
+            : this.giftShareImage || this.post.social.image,
       },
       {
         hid: 'og:image:width',
@@ -2698,14 +2790,14 @@ export default {
       {
         hid: 'og:image:height',
         property: 'og:image:height',
-        content: Math.round(
-          (1200 * this.post.image.height) / this.post.image.width
-        ),
+        content: this.giftShareImage
+          ? 630
+          : Math.round((1200 * this.post.image.height) / this.post.image.width),
       },
       {
         hid: 'og:url',
         property: 'og:url',
-        content: this.post.social.path,
+        content: this.shareUrl,
       },
       {
         hid: 'fb:app_id',

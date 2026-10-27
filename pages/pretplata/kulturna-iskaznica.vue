@@ -77,7 +77,7 @@ export default {
       selectedTerm: 'annual',
       payment: 'eculture',
       price: '',
-      pack: 'kulturna-iskaznica-premium',
+      pack: 'kulturna_iskaznica_telegram_premium_pretplata_2_godine',
       term: 'pretplata-godisnje',
       annualPrice: '',
       monthlyPrice: '',
@@ -179,13 +179,13 @@ export default {
       this.urlKey = 'kulturna-iskaznica'
       switch (this.selectedPlan) {
         case 'standard':
-          this.pack = 'kulturna-iskaznica-standard'
+          this.pack = 'kulturna_iskaznica_telegram_standard_pretplata_2_godine'
           this.price = '16.99'
           this.monthlyPrice = '16.99'
           this.annualPrice = '16.99'
           break
         case 'premium':
-          this.pack = 'kulturna-iskaznica-premium'
+          this.pack = 'kulturna_iskaznica_telegram_premium_pretplata_2_godine'
           this.price = '19.99'
           this.monthlyPrice = '19.99'
           this.annualPrice = '19.99'

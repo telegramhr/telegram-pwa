@@ -13,6 +13,7 @@ module.exports = {
         MAILER_BASE_URL: 'https://mailer-dev.telegram.hr',
         WC_KEY: process.env.WC_KEY,
         WC_SECRET: process.env.WC_SECRET,
+        CRM_API_TOKEN: process.env.CRM_API_TOKEN,
       },
     },
   ],

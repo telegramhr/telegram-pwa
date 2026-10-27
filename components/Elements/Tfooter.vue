@@ -151,8 +151,7 @@
         <div class="full flex column-horizontal-pad mobile-side-pad">
           <div class="full flex column-top-pad column-top-border"></div>
           <div class="copyright full center-text">
-            Sva prava pridržana &copy; {{ new Date().getFullYear() }} Telegram
-            Media Grupa d.o.o.
+            Sva prava pridržana &copy; {{ new Date().getFullYear() }} Presshaus d.o.o.
           </div>
         </div>
       </div>

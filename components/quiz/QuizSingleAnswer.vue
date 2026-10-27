@@ -7,22 +7,36 @@
         type="radio"
         :name="'answer-' + data.id + '-' + answer.id"
         :value="answer.id"
+        :disabled="revealed"
       />
       <span>
         {{ answer.text | parseCat }}
         <font-awesome-icon
-          v-if="data.show_correct && answer.correct && answered"
+          v-if="data.show_correct && revealed && answer.correct"
           :icon="['fas', 'check']"
           style="color: lightgreen; margin-left: 20px"
         ></font-awesome-icon>
         <font-awesome-icon
-          v-if="data.show_correct && answer.id === answered && !answer.correct"
+          v-if="
+            data.show_correct &&
+            revealed &&
+            answer.id === answered &&
+            !answer.correct
+          "
           :icon="['fas', 'times']"
           style="color: lightcoral; margin-left: 20px"
         ></font-awesome-icon
       ></span>
     </label>
-    <button class="classic-btn" @click="next">Sljedeće</button>
+    <div
+      v-if="revealed"
+      class="quiz-explanation"
+      :class="{ correct: isCorrect }"
+      v-html="data.explanation"
+    ></div>
+    <button class="classic-btn" @click="next">
+      {{ needsConfirm && !revealed ? 'Potvrdi' : 'Sljedeće' }}
+    </button>
   </div>
 </template>
 
@@ -53,11 +67,31 @@ export default {
   data() {
     return {
       answered: 0,
+      revealed: false,
     }
+  },
+  computed: {
+    // correct answers and explanations are only revealed after Potvrdi
+    needsConfirm() {
+      return Boolean(this.data.explanation || this.data.show_correct)
+    },
+    isCorrect() {
+      const picked = this.data.answers.find(
+        (answer) => answer.id === this.answered
+      )
+      return Boolean(picked && picked.correct)
+    },
   },
   methods: {
     next() {
       if (this.data.required && !this.answered) {
+        return
+      }
+      // the first click locks the answer and reveals the result;
+      // the second click moves on
+      if (this.needsConfirm && !this.revealed) {
+        this.revealed = true
+        this.$emit('resize')
         return
       }
       this.$emit('answer', this.data.id, this.answered)
@@ -65,3 +99,14 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.quiz-explanation {
+  margin: 16px 0;
+  padding: 4px 0 4px 16px;
+  border-left: 3px solid #ae3737;
+}
+.quiz-explanation.correct {
+  border-left-color: #2e8b57;
+}
+</style>

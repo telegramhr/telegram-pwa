@@ -34,7 +34,7 @@
           </div>
           <div class="full flex column-mini-left-pad column-mini-top-pad">
             <a
-              :href="`http://pretplata.telegram.hr/users/google/sign?url=${path}`"
+              :href="`https://pretplata.telegram.hr/users/google/sign?url=${path}`"
               class="full center remp-social-logbtn animate"
               @click="close"
             >
@@ -108,7 +108,7 @@
           </div>
           <div class="full flex column-mini-left-pad column-mini-top-pad">
             <a
-              :href="`http://pretplata.telegram.hr/users/google/sign?url=${path}`"
+              :href="`https://pretplata.telegram.hr/users/google/sign?url=${path}`"
               class="full center remp-social-logbtn animate"
               @click="close"
             >
@@ -162,6 +162,8 @@
 </template>
 
 <script>
+import { currentOrigin, encodedReturnUrl } from '~/utils/returnUrl'
+
 export default {
   name: 'Login',
   data() {
@@ -170,6 +172,8 @@ export default {
       password: '',
       loading: false,
       screen: 'login', // 'login' or 'register'
+      // Production origin during SSR, the page's own origin in the browser.
+      origin: currentOrigin(),
     }
   },
   computed: {
@@ -177,10 +181,18 @@ export default {
       return this.$store.state.user.showModal
     },
     path() {
-      return encodeURI(`https://www.telegram.hr${this.$route.fullPath}`)
+      return encodedReturnUrl(this.$route.fullPath, this.origin)
     },
     error() {
       return this.$store.state.user.error
+    },
+  },
+  watch: {
+    // Callers can open the modal on a specific screen (login / register).
+    show(val) {
+      if (val) {
+        this.screen = this.$store.state.user.screen || 'login'
+      }
     },
   },
   mounted() {
@@ -241,7 +253,8 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 500;
+  /* Above the gift popup (GiftPopup.vue), which opens this modal. */
+  z-index: 10020;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 24px;
 }

@@ -26,46 +26,6 @@ export default ({ app, store, route }) => {
         maxAge: 60 * 60 * 24 * 90,
       })
     }
-    window.prebid = 'rubicon'
-    const prebid = document.createElement('script')
-    prebid.src = '//micro.rubiconproject.com/prebid/dynamic/26072.js'
-    prebid.async = true
-    prebid.defer = true
-    document.head.appendChild(prebid)
-
-    // amazon
-    const amazon = document.createElement('script')
-    amazon.src = 'https://c.amazon-adsystem.com/aax2/apstag.js'
-    amazon.async = true
-    amazon.defer = true
-    document.head.appendChild(amazon)
-    window.apstag = window.apstag || {
-      init() {
-        q('i', arguments)
-      },
-      fetchBids() {
-        q('f', arguments)
-      },
-      setDisplayBids() {},
-      targetingKeys() {
-        return []
-      },
-      _Q: [],
-    }
-    window.apstag.init({
-      pubID: '921fe99d-b739-4d25-b89d-df067f627a6a',
-      adServer: 'googletag',
-    })
-
-    // refresh
-    const refresh = document.createElement('script')
-    refresh.src = 'https://freshatl.azurewebsites.net/js/fresh-atl.js'
-    refresh.async = true
-    document.head.appendChild(refresh)
-  }
-
-  function q(c, r) {
-    window.apstag._Q.push([c, r])
   }
 
   window.addEventListener('message', (event) => {

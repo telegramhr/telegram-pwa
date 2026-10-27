@@ -1,6 +1,9 @@
 export default ({ route }, inject) => {
     function check(path) {
         let dotmetricsId = '1182'
+        if (path === '/') {
+            dotmetricsId = '1173'
+        }
         if (
             path.includes('politika-kriminal') ||
             path.includes('biznis-tech') ||
