@@ -74,10 +74,18 @@ export default {
         },
       ],
     },
-    // ms between automatic slice changes; 0 disables the auto animation
+    // auto animation timing, from the designer's spec: one step is a 3 s
+    // pause (measured from the end of the previous transition) plus a 1.5 s
+    // transition, so a full 4-slide loop takes 18 s. The first transition
+    // starts 3 s after load. `autoplay` is the pause; 0 disables it.
     autoplay: {
       type: Number,
-      default: 4000,
+      default: 3000,
+    },
+    // ms the width transition takes; must match --hb-slide-ms in the CSS
+    slideDuration: {
+      type: Number,
+      default: 1500,
     },
   },
   data() {
@@ -100,14 +108,19 @@ export default {
     },
     startAutoplay() {
       if (!this.autoplay || this.slides.length < 2) return
-      this.timer = setInterval(() => {
-        if (typeof document !== 'undefined' && document.hidden) return
-        this.active = (this.active + 1) % this.slides.length
-      }, this.autoplay)
+      const step = () => {
+        if (typeof document === 'undefined' || !document.hidden) {
+          this.active = (this.active + 1) % this.slides.length
+        }
+        // next change once this transition has finished and the pause elapsed
+        this.timer = setTimeout(step, this.slideDuration + this.autoplay)
+      }
+      // the first transition fires `autoplay` ms after load
+      this.timer = setTimeout(step, this.autoplay)
     },
     stopAutoplay() {
       if (this.timer) {
-        clearInterval(this.timer)
+        clearTimeout(this.timer)
         this.timer = null
       }
     },
@@ -327,7 +340,9 @@ export default {
   border: none;
   border-radius: calc(4 * var(--sw));
   cursor: pointer;
-  transition: width 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  /* designer's spec: 1.5 s, cubic-bezier(0.25, 0.1, 0.25, 1) = CSS `ease` */
+  --hb-slide-ms: 1500ms;
+  transition: width var(--hb-slide-ms) ease;
   -webkit-tap-highlight-color: transparent;
 }
 .hb-slice--active {
@@ -355,7 +370,7 @@ export default {
   max-width: none; /* the global img rule would squash the wide slide-2 photo */
   height: 100%;
   object-fit: cover;
-  transition: opacity 0.45s ease;
+  transition: opacity var(--hb-slide-ms) ease;
 }
 /* slide 2 is a wider photo offset inside its canvas in Figma (694x438) */
 .hb-slice__canvas--1 img {
@@ -377,7 +392,7 @@ export default {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.4s ease;
+  transition: opacity calc(var(--hb-slide-ms) / 2) ease;
 }
 .hb-slice__caption {
   position: absolute;
@@ -392,12 +407,14 @@ export default {
   color: #f5f5f7;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  transition: opacity calc(var(--hb-slide-ms) / 2) ease;
 }
+/* gradient and caption fade in over the second half of the slide, once the
+   slice is wide enough to hold the text; they fade out immediately */
 .hb-slice--active .hb-slice__gradient,
 .hb-slice--active .hb-slice__caption {
   opacity: 1;
-  transition-delay: 0.2s;
+  transition-delay: calc(var(--hb-slide-ms) / 2);
 }
 
 /* ============================================================ desktop frame */
