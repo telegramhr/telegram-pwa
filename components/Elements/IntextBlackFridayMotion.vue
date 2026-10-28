@@ -81,7 +81,7 @@ export default {
       newPrice: '99€',
       term: 'za dvije godine',
       cta: 'Iskoristite ponudu',
-      ctaLink: '/pretplata/black-friday',
+      ctaLink: '/pretplata/black-friday-popust',
       slides: [
         {
           image: require('@/assets/img/pretplata/bf-2026/hero-slide-1.webp'),

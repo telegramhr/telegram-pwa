@@ -56,7 +56,7 @@ export default {
       title: '2 godine.\nJedna cijena.',
       subtitle: '<s>198 €</s> 99€ za dvije godine',
       cta: 'Iskoristite ponudu',
-      ctaLink: '/pretplata/black-friday',
+      ctaLink: '/pretplata/black-friday-popust',
       footer: 'ponuda vrijedi do 30.11.2026.',
     }
   },
