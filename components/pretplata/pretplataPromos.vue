@@ -18,6 +18,7 @@ export default {
         <intext-promo-f32></intext-promo-f32>
         <intext-promo-family></intext-promo-family>
         <intext-black-friday></intext-black-friday>
+        <intext-black-friday-motion></intext-black-friday-motion>
         <intext-christmas></intext-christmas>
         <intext-popust-godine></intext-popust-godine>
         <intext-popust-standard></intext-popust-standard>
