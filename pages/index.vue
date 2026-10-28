@@ -308,23 +308,23 @@
     </div>
     <app-link
       v-show="!$store.state.user.access?.length"
-      to="/pretplata/popust-godine/?utm_source=homepage_banner_desktop&utm_medium=direct&utm_campaign=popust-godine&utm_content=homepage_banner_desktop"
+      to="/pretplata/black-friday-popust/?utm_source=homepage_banner_desktop&utm_medium=direct&utm_campaign=black-friday-popust&utm_content=homepage_banner_desktop"
       class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth desktop-only"
     >
       <img
-        src="@/assets/img/pretplata/popust-godine/desktop_banner.png"
-        alt="Desktop banner za popust na godišnju pretplatu"
+        src="@/assets/img/pretplata/bf-2026/bf-2026-banner.png"
+        alt="Desktop banner za popust na Black Friday pretplatu"
         class="desktop-only"
       />
     </app-link>
     <app-link
       v-show="!$store.state.user.access?.length"
-      to="/pretplata/popust-godine/?utm_source=homepage_banner_mob&utm_medium=direct&utm_campaign=popust-godine&utm_content=homepage_banner_mob"
+      to="/pretplata/black-friday-popust/?utm_source=homepage_banner_mob&utm_medium=direct&utm_campaign=black-friday-popust&utm_content=homepage_banner_mob"
       class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth mobile-only"
     >
       <img
-        src="@/assets/img/pretplata/popust-godine/mobile_banner.png"
-        alt="Mobile banner za popust na godišnju pretplatu"
+        src="@/assets/img/pretplata/bf-2026/bf-2026-banner-mob.png"
+        alt="Mobile banner za popust na Black Friday pretplatu"
         class="mobile-only"
         style="width: 100%"
       />
