@@ -122,6 +122,10 @@ export default {
       }
     },
     load(e) {
+      // subscribers never see the offer, whatever the campaign targeting says
+      if (this.$store.state.user.access?.length) {
+        return
+      }
       if (e.detail) {
         this.label = e.detail.label ?? this.label
         this.title = e.detail.title ?? this.title
