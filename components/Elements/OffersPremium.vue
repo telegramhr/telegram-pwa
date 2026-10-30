@@ -41,7 +41,7 @@
             rel="sponsored"
             class="full flex article relative"
             role="article"
-            @click.prevent="trackClick(post.link)"
+            @click.prevent="trackClick(post.link, index)"
           >
             <img
               :src="post.slika"
@@ -97,8 +97,11 @@
 </template>
 
 <script>
+import widgetTracking from '~/utils/widgetTracking'
+
 export default {
   name: 'OffersPremium',
+  mixins: [widgetTracking],
   props: {
     shop: {
       type: String,
@@ -108,6 +111,7 @@ export default {
   },
   data() {
     return {
+      widgetCategory: 'plodine',
       slider_settings: {
         infinite: true,
         slidesToShow: 4,
@@ -147,6 +151,12 @@ export default {
       return this.$store.state.promos.offers[this.shop][preview]
     },
   },
+  watch: {
+    // The root is v-if'd on the offers, which load after mount.
+    posts() {
+      this.$nextTick(this.observeWidgetSeen)
+    },
+  },
   mounted() {
     const preview = this.$route.query.webshop
       ? this.$route.query.webshop
@@ -155,25 +165,22 @@ export default {
       shop: this.shop,
       preview,
     })
-    this.$gtm.push({
-      event: 'webshop-widget',
-      'webshop-category': 'interspar-premium',
-      'webshop-action': 'view',
-      'webshop-label': 'impression',
-      'webshop-value': 1,
-    })
+    this.trackWidget('view', 'impression')
     this.$nextTick(() => {})
   },
   methods: {
-    trackClick(link) {
-      this.$gtm.push({
-        event: 'webshop-widget',
-        'webshop-category': 'interspar-premium',
-        'webshop-action': 'click',
-        'webshop-label': 'click',
-        'webshop-value': 1,
-      })
+    trackClick(link, index) {
+      this.trackWidget('click', this.clickLabel(link, index))
       window.open(link, '_blank')
+    },
+    // Offer links run past GA4's 100-character limit and most slides share one,
+    // so the label is the position plus the campaign that names the offer.
+    clickLabel(link, index) {
+      let campaign = ''
+      try {
+        campaign = new URL(link).searchParams.get('utm_campaign') || ''
+      } catch (e) {}
+      return campaign ? `slide-${index}:${campaign}` : `slide-${index}`
     },
   },
 }
