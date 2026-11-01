@@ -52,11 +52,11 @@
               !$store.state.user.access?.length
             "
             id="pretplata-promo"
-            to="/pretplata/popust-godine/?utm_source=index_header&utm_medium=direct&utm_campaign=ponuda-godine&utm_content=index_header"
+            to="/pretplata/?utm_source=index_header&utm_medium=direct&utm_campaign=pretplata&utm_content=index_header"
             class="newbtn gift-btn"
           >
-            <span class="poklonMobile">Ponuda godine</span
-            ><span class="poklon">Ponuda godine</span></app-link
+            <span class="poklonMobile">Pretplatite se</span
+            ><span class="poklon">Pretplatite se</span></app-link
           >
           <a
             v-show="!canLogIn"
@@ -120,9 +120,9 @@
             <app-link
               v-show="!$store.state.user.access"
               id="pretplatite se - header"
-              to="/pretplata/popust-godine/?utm_source=index_menu&utm_medium=direct&utm_campaign=ponuda-godine&utm_content=index_menu"
+              to="/pretplata/?utm_source=index_menu&utm_medium=direct&utm_campaign=pretplata&utm_content=index_menu"
               class="newbtn"
-              >Ponuda godine</app-link
+              >Pretplatite se</app-link
             >
             <a
               v-show="!canLogIn"

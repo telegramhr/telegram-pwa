@@ -27,7 +27,7 @@
               :to="
                 $route.fullPath.includes('telesport')
                   ? '/pretplata/telesport'
-                  : '/pretplata/podrska-telegramu/?utm_source=theader&utm_medium=direct&utm_campaign=podrska-telegramu&utm_content=theader'
+                  : '/pretplata/?utm_source=theader&utm_medium=direct&utm_campaign=pretplata&utm_content=theader'
               "
               class="signup-btn sub-btn"
               >Pretplatite se</app-link
@@ -402,7 +402,7 @@
               :to="
                 $route.fullPath.includes('telesport')
                   ? '/pretplata/telesport/'
-                  : '/pretplata/popust-godine/?utm_source=theader&utm_medium=direct&utm_campaign=ponuda-godine&utm_content=theader'
+                  : '/pretplata/?utm_source=theader&utm_medium=direct&utm_campaign=pretplata&utm_content=theader'
               "
               :class="[
                 'newbtn',
@@ -412,7 +412,7 @@
             >
               {{
                 !$route.fullPath.includes('telesport')
-                  ? 'Ponuda godine'
+                  ? 'Pretplatite se'
                   : 'Pretplatite se'
               }}</app-link
             >
