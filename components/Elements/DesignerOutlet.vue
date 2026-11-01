@@ -11,7 +11,7 @@
           rel="sponsored"
           class="full flex article relative"
           role="article"
-          @click.prevent="trackClick"
+          @click.prevent="trackClick('pinned')"
         >
           <img
             :src="images[0]"
@@ -40,7 +40,7 @@
             rel="sponsored"
             class="full flex article relative"
             role="article"
-            @click.prevent="trackClick"
+            @click.prevent="trackClick('slide-' + index)"
           >
             <img
               :src="image"
@@ -75,10 +75,14 @@
 </template>
 
 <script>
+import widgetTracking from '~/utils/widgetTracking'
+
 export default {
   name: 'DesignerOutlet',
+  mixins: [widgetTracking],
   data() {
     return {
+      widgetCategory: 'designer-outlet',
       link: 'https://www.designeroutletcroatia.com/digitalni-kuponi?utm_source=telegram.hr&utm_medium=widget&utm_campaign=digitalni_kuponi',
       images: Array.from({ length: 12 }, (_, i) =>
         require(`@/assets/img/widgets/designer-outlet/${i + 1}.jpg`)
@@ -112,23 +116,11 @@ export default {
     },
   },
   mounted() {
-    this.$gtm.push({
-      event: 'webshop-widget',
-      'webshop-category': 'designer-outlet',
-      'webshop-action': 'view',
-      'webshop-label': 'impression',
-      'webshop-value': 1,
-    })
+    this.trackWidget('view', 'impression')
   },
   methods: {
-    trackClick() {
-      this.$gtm.push({
-        event: 'webshop-widget',
-        'webshop-category': 'designer-outlet',
-        'webshop-action': 'click',
-        'webshop-label': 'click',
-        'webshop-value': 1,
-      })
+    trackClick(label) {
+      this.trackWidget('click', label)
       window.open(this.link, '_blank')
     },
   },
