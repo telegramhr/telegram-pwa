@@ -329,7 +329,30 @@
         style="width: 100%"
       />
     </app-link>
-    <Books v-show="$store.state.user.access?.length" />
+    <!-- <Books v-show="$store.state.user.access?.length" /> -->
+    <div v-show="$store.state.user.access?.length" class="full relative">
+      <app-link
+        to="https://knjige.telegram.hr/?utm_source=homepage_banner_desktop&utm_medium=direct&utm_campaign=interliber-popusti&utm_content=homepage_banner_desktop"
+        class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth desktop-only"
+      >
+        <img
+          src="@/assets/img/knjige/interliber-2026/interliber-banner.png"
+          alt="Interliber popusti: do 65% popusta na hit naslove u webshopu Telegram Knjiga"
+          class="desktop-only"
+        />
+      </app-link>
+      <app-link
+        to="https://knjige.telegram.hr/?utm_source=homepage_banner_mob&utm_medium=direct&utm_campaign=interliber-popusti&utm_content=homepage_banner_mob"
+        class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth mobile-only"
+      >
+        <img
+          src="@/assets/img/knjige/interliber-2026/interliber-banner-mob.png"
+          alt="Interliber popusti: do 65% popusta na hit naslove u webshopu Telegram Knjiga"
+          class="mobile-only"
+          style="width: 100%"
+        />
+      </app-link>
+    </div>
     <client-only>
       <div v-if="!hasPremium" class="full relative">
         <offers-premium></offers-premium>
