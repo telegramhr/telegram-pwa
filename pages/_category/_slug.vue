@@ -647,9 +647,7 @@
                 !(post.disable_ads && post.disable_ads.includes('all'))
               "
               class="full"
-            >
-              <designer-outlet></designer-outlet>
-            </div>
+            ></div>
           </client-only>
           <!-- Article footer -->
           <div

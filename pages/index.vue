@@ -422,7 +422,6 @@
         <div class="full container mobile-side-pad column-horizontal-pad">
           <div class="full cantha-separator"></div>
         </div>
-        <designer-outlet></designer-outlet>
       </div>
     </client-only>
     <!-- Velika rubrika: Zivot -->
