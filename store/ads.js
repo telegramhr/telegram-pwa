@@ -726,6 +726,9 @@ export const actions = {
         case 'category':
         case 'fotogalerije-category':
           targeting.wp_post_type = ['category']
+          if (route.params.category) {
+            targeting.post_category.push(route.params.category)
+          }
           break
         case 'telesport-category':
           targeting.wp_post_type = ['category']
