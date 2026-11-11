@@ -4562,17 +4562,22 @@ html.large-fontsize,
         padding-right: 4vw;
     }
     /* .wp-block-columns break out to 100vw (see the global rule), so text
-       inside a column loses the article's side padding; give it back the
-       same 4vw. Images in columns stay edge to edge. */
+       and captions inside a column lose the article's side padding; give
+       it back the same 4vw. Images in columns stay edge to edge. */
     .single-article .single-article-body #article-content .wp-block-column>p,
     .single-article .single-article-body #article-content .wp-block-column>h2,
     .single-article .single-article-body #article-content .wp-block-column>h3,
     .single-article .single-article-body #article-content .wp-block-column>h4,
     .single-article .single-article-body #article-content .wp-block-column>ul,
     .single-article .single-article-body #article-content .wp-block-column>ol,
-    .single-article .single-article-body #article-content .wp-block-column>blockquote {
+    .single-article .single-article-body #article-content .wp-block-column>blockquote,
+    .single-article .single-article-body #article-content .wp-block-column figcaption {
         padding-left: 4vw;
         padding-right: 4vw;
+    }
+    /* Stacked columns sit 16px apart. */
+    .single-article .single-article-body #article-content .wp-block-columns {
+        row-gap: 16px;
     }
     .mobile-mini-side-pad {
         padding-left: 2vw;
@@ -17253,6 +17258,26 @@ header {
     margin: 0 !important;
     left: 0 !important;
     right: 0 !important;
+}
+
+/* The figure owns the space below an image, so it is the same with or
+   without a caption (WP no longer emits an empty figcaption). */
+.single-article #article-content figure.wp-block-image {
+    margin-bottom: 15px;
+}
+.single-article #article-content figure.wp-block-image>figcaption {
+    margin-bottom: 0;
+}
+/* Inside columns the columns gap does the spacing. */
+.single-article #article-content .wp-block-column figure.wp-block-image {
+    margin-bottom: 0;
+}
+.single-article #article-content .wp-block-column figure.wp-block-image>figcaption {
+    margin-top: 0;
+}
+/* Already-cached article HTML still has <figcaption><span></span></figcaption>. */
+.single-article figcaption.wp-caption-text:has(> span:only-child:empty) {
+    display: none;
 }
 
 
