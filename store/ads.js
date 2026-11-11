@@ -726,6 +726,9 @@ export const actions = {
         case 'category':
         case 'fotogalerije-category':
           targeting.wp_post_type = ['category']
+          if (route.params.category) {
+            targeting.post_category.push(route.params.category)
+          }
           break
         case 'telesport-category':
           targeting.wp_post_type = ['category']
@@ -1135,6 +1138,11 @@ export const actions = {
       // Temporary key-value so GAM reports show which path fired the request
       // (bidders / failsafe / dm-not-loaded / no-dm / dm-error / telesport).
       window.googletag.pubads().setTargeting('atl_hb_path', reason)
+      // Which path loaded Demand Manager (nuxt.config.js prebid-dm-loader):
+      // immediate / cmp / timeout / error, or none if the loader never ran.
+      window.googletag
+        .pubads()
+        .setTargeting('atl_dm_path', window.__tmgDmPath || 'none')
       window.googletag.pubads().refresh()
     })
   },
