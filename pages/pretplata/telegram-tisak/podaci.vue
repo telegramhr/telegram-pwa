@@ -52,6 +52,12 @@
               method="post"
               @submit.prevent="submit"
             >
+              <TisakSocialLogin
+                v-if="!loggedIn && !emailTaken"
+                text="Imate Telegram račun? Prijavite se i podatke ćemo ispuniti za Vas."
+                @leave="persistNow"
+              />
+
               <TisakField
                 id="email"
                 v-model="f.email"
@@ -72,8 +78,8 @@
               </p>
               <div v-else-if="emailTaken" class="tt-signin">
                 <p>
-                  Ova adresa već ima Telegram račun. Prijavite se lozinkom i
-                  podatke ćemo ispuniti za Vas.
+                  Ova adresa već ima Telegram račun. Prijavite se lozinkom ili
+                  putem Googlea ili Facebooka i podatke ćemo ispuniti za Vas.
                 </p>
                 <TisakField
                   id="password"
@@ -94,6 +100,10 @@
                     >Zaboravili ste lozinku?</a
                   >
                 </div>
+                <TisakSocialLogin
+                  text="Registrirali ste se putem Googlea ili Facebooka?"
+                  @leave="persistNow"
+                />
               </div>
 
               <TisakField
