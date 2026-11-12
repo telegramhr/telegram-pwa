@@ -157,6 +157,48 @@
   color: #fff;
 }
 
+/* ---------- Social login (TisakSocialLogin) ---------- */
+.tisak .tt-social {
+  margin: 0 0 22px;
+}
+.tisak .tt-signin .tt-social {
+  margin: 16px 0 0;
+}
+.tisak .tt-social__text {
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--ink);
+  margin: 0 0 10px;
+}
+.tisak .tt-social__row {
+  display: flex;
+  gap: 12px;
+}
+/* Copied from .pf-social-btn in components/Elements/Pretplata/PaymentFlowAuth.vue. */
+.tisak .tt-social__btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 50px;
+  border: 1px solid #ebecf0;
+  border-radius: 8px;
+  background: #fff;
+  color: #000;
+  font-family: inherit;
+  font-size: 16px;
+  cursor: pointer;
+}
+.tisak .tt-social__btn img {
+  width: 18px;
+  height: 18px;
+}
+.tisak .tt-social__btn:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
 /* ---------- Hero ---------- */
 .tisak .tt-hero {
   overflow: hidden;
