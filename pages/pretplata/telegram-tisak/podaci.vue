@@ -54,7 +54,7 @@
             >
               <TisakSocialLogin
                 v-if="!loggedIn && !emailTaken"
-                text="Imate Telegram račun? Prijavite se i podatke ćemo ispuniti za Vas."
+                text="Imate Telegram račun?"
                 @leave="persistNow"
               />
 
