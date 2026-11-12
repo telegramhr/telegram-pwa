@@ -10,8 +10,10 @@
               v-for="n in [1, 2, 3]"
               :key="n"
               :class="`tt-hero__paper tt-hero__paper--${n}`"
-              :src="`${img}/hero/paper-${n}.webp`"
-              :srcset="`${img}/hero/paper-${n}-sm.webp 618w, ${img}/hero/paper-${n}.webp 1236w`"
+              :src="img(`hero/paper-${n}.webp`)"
+              :srcset="`${img(`hero/paper-${n}-sm.webp`)} 618w, ${img(
+                `hero/paper-${n}.webp`
+              )} 1236w`"
               sizes="(min-width: 900px) 440px, 94vw"
               alt=""
               width="1236"
@@ -102,7 +104,7 @@
                 class="tt-authors__item"
               >
                 <img
-                  :src="`${img}/authors/${author[0]}.webp`"
+                  :src="img(`authors/${author[0]}.webp`)"
                   alt=""
                   width="160"
                   height="160"
@@ -172,7 +174,6 @@ export default {
   name: 'TelegramTisak',
   data() {
     return {
-      img: '/img/pretplata/telegram-tisak',
       plans: [PLANS.mjesecna, PLANS.godisnja],
       authors: [
         ['hedl', 'Drago Hedl'],
@@ -195,6 +196,9 @@ export default {
   },
   methods: {
     eur,
+    img(path) {
+      return require(`~/assets/img/pretplata/telegram-tisak/${path}`)
+    },
     choose(plan) {
       this.$router.push({
         path: '/pretplata/telegram-tisak/podaci/',
@@ -207,8 +211,10 @@ export default {
     const description =
       'Samo istina. Svakog jutra na Vašim vratima. Dnevni Telegram, 39 € mjesečno ili 399 € godišnje, dostava uključena.'
     const url = 'https://www.telegram.hr/pretplata/telegram-tisak/'
+    // Share previews need a fixed absolute URL, so this one copy stays in
+    // static/; every image on the page itself comes from assets/.
     const image =
-      'https://www.telegram.hr/img/pretplata/telegram-tisak/hero/paper-3.webp'
+      'https://www.telegram.hr/img/pretplata/telegram-tisak-share.webp'
     return {
       title,
       meta: [

@@ -3,7 +3,7 @@
     <div class="tt-footer__inner">
       <div class="tt-footer__logo">
         <img
-          src="/img/pretplata/telegram-tisak/logo/telegram-wordmark-black.svg"
+          src="~/assets/img/pretplata/telegram-tisak/logo/telegram-wordmark-black.svg"
           alt="Telegram"
           width="200"
           height="24"

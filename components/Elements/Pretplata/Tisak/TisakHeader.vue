@@ -8,7 +8,7 @@
         :aria-label="flow ? 'Natrag na pretplatu' : 'Telegram.hr – naslovnica'"
       >
         <img
-          src="/img/pretplata/telegram-tisak/logo/telegram-T-square.svg"
+          src="~/assets/img/pretplata/telegram-tisak/logo/telegram-T-square.svg"
           alt="Telegram"
           width="50"
           height="50"
