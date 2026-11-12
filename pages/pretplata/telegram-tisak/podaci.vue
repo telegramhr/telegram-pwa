@@ -103,13 +103,23 @@
                 autocomplete="name"
                 :error="errors.ime"
               />
-              <TisakField
-                id="ulica"
-                v-model="f.ulica"
-                label="Ulica i kućni broj"
-                autocomplete="address-line1"
-                :error="errors.ulica"
-              />
+              <div class="tt-field-row tt-field-row--street">
+                <TisakField
+                  id="ulica"
+                  v-model="f.ulica"
+                  label="Ulica"
+                  autocomplete="address-line1"
+                  :error="errors.ulica"
+                />
+                <TisakField
+                  id="kucni_broj"
+                  v-model="f.kucni_broj"
+                  label="Kućni broj"
+                  autocomplete="off"
+                  maxlength="12"
+                  :error="errors.kucni_broj"
+                />
+              </div>
               <div class="tt-field-row">
                 <TisakField
                   id="postanski"
@@ -201,12 +211,21 @@
                     ></label
                   >
                   <div v-if="!f.r1_ista">
-                    <TisakField
-                      id="r1_ulica"
-                      v-model="f.r1_ulica"
-                      label="Ulica i kućni broj tvrtke"
-                      :error="errors.r1_ulica"
-                    />
+                    <div class="tt-field-row tt-field-row--street">
+                      <TisakField
+                        id="r1_ulica"
+                        v-model="f.r1_ulica"
+                        label="Ulica tvrtke"
+                        :error="errors.r1_ulica"
+                      />
+                      <TisakField
+                        id="r1_kucni_broj"
+                        v-model="f.r1_kucni_broj"
+                        label="Kućni broj"
+                        maxlength="12"
+                        :error="errors.r1_kucni_broj"
+                      />
+                    </div>
                     <div class="tt-field-row">
                       <TisakField
                         id="r1_postanski"
@@ -328,10 +347,12 @@ import {
   PLANS,
   POSTCODES,
   eur,
+  houseNumber,
   loadDraft,
   markCardPending,
   saveDraft,
   validEmail,
+  validHouseNumber,
   validOib,
   validPhone,
   validPostcode,
@@ -345,6 +366,7 @@ function emptyForm() {
     email: '',
     ime: '',
     ulica: '',
+    kucni_broj: '',
     postanski: '',
     mjesto: '',
     mobitel: '',
@@ -354,6 +376,7 @@ function emptyForm() {
     oib: '',
     r1_ista: true,
     r1_ulica: '',
+    r1_kucni_broj: '',
     r1_postanski: '',
     r1_mjesto: '',
     obavijesti: false,
@@ -579,10 +602,12 @@ export default {
         .then((res) => {
           const a = first(res)
           if (!a) return
-          const street = [a.street, a.number].filter(Boolean).join(' ')
           const fullName = [a.first_name, a.last_name].filter(Boolean).join(' ')
           if (!this.f.ime && fullName) this.f.ime = fullName
-          if (!this.f.ulica && street) this.f.ulica = street
+          if (!this.f.ulica && a.street) {
+            this.f.ulica = a.street
+            this.f.kucni_broj = a.number || ''
+          }
           if (!this.f.postanski && a.zip) this.f.postanski = String(a.zip)
           if (!this.f.mjesto && a.city) this.f.mjesto = a.city
           if (!this.f.mobitel && a.phone_number) this.f.mobitel = a.phone_number
@@ -598,9 +623,9 @@ export default {
           if (!a || !a.company_name || this.f.tvrtka) return
           this.f.tvrtka = a.company_name
           this.f.oib = a.company_id || this.f.oib
-          const street = [a.street, a.number].filter(Boolean).join(' ')
-          if (street) {
-            this.f.r1_ulica = street
+          if (a.street) {
+            this.f.r1_ulica = a.street
+            this.f.r1_kucni_broj = a.number || ''
             this.f.r1_postanski = a.zip ? String(a.zip) : ''
             this.f.r1_mjesto = a.city || ''
           }
@@ -632,7 +657,8 @@ export default {
         f.ime.trim().split(/\s+/).length >= 2,
         'Upišite ime i prezime osobe kojoj novine stižu.'
       )
-      need('ulica', f.ulica.trim().length >= 3, 'Upišite ulicu i kućni broj.')
+      need('ulica', f.ulica.trim().length >= 3, 'Upišite ulicu.')
+      need('kucni_broj', validHouseNumber(f.kucni_broj), 'Npr. 12, 12a ili bb.')
       need(
         'postanski',
         validPostcode(f.postanski),
@@ -659,7 +685,12 @@ export default {
           need(
             'r1_ulica',
             f.r1_ulica.trim().length >= 3,
-            'Upišite adresu tvrtke.'
+            'Upišite ulicu tvrtke.'
+          )
+          need(
+            'r1_kucni_broj',
+            validHouseNumber(f.r1_kucni_broj),
+            'Npr. 12, 12a ili bb.'
           )
           need(
             'r1_postanski',
@@ -684,6 +715,7 @@ export default {
       const meta = {
         print_ime: f.ime.trim(),
         print_ulica: f.ulica.trim(),
+        print_kucni_broj: houseNumber(f.kucni_broj),
         print_postanski: f.postanski,
         print_mjesto: f.mjesto.trim(),
         print_drzava: 'HR',
@@ -695,6 +727,9 @@ export default {
         meta.r1_tvrtka = f.tvrtka.trim()
         meta.r1_oib = f.oib
         meta.r1_ulica = f.r1_ista ? meta.print_ulica : f.r1_ulica.trim()
+        meta.r1_kucni_broj = f.r1_ista
+          ? meta.print_kucni_broj
+          : houseNumber(f.r1_kucni_broj)
         meta.r1_postanski = f.r1_ista ? meta.print_postanski : f.r1_postanski
         meta.r1_mjesto = f.r1_ista ? meta.print_mjesto : f.r1_mjesto.trim()
       }

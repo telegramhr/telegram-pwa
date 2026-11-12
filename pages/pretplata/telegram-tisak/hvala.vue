@@ -101,7 +101,11 @@ export default {
       const f = draft.fields
       this.order = {
         email: f.email,
-        address: [f.ime, f.ulica, `${f.postanski} ${f.mjesto}`]
+        address: [
+          f.ime,
+          [f.ulica, f.kucni_broj].filter(Boolean).join(' '),
+          `${f.postanski} ${f.mjesto}`,
+        ]
           .filter((x) => x && x.trim())
           .join(', '),
         plan: draft.plan,

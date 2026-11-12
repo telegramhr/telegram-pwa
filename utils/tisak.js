@@ -132,6 +132,18 @@ export function validPostcode(pc) {
   return /^\d{5}$/.test(pc) && HR_PREFIXES.includes(pc.slice(0, 2))
 }
 
+// House numbers as the CRM stores them: 12, 12a, 3/2, 1-3, or bb (bez broja).
+// pretplate checks the same pattern (CrmPrintAddress::HOUSE_NUMBER).
+export function houseNumber(value) {
+  return (value || '').replace(/\s+/g, '').toLowerCase()
+}
+
+export function validHouseNumber(value) {
+  return /^(\d{1,4}[a-zčćžšđ]?([/-]\d{1,4}[a-zčćžšđ]?)?|bb)$/.test(
+    houseNumber(value)
+  )
+}
+
 export function validPhone(value) {
   return /^\+?\d{8,15}$/.test((value || '').replace(/[\s/()-]/g, ''))
 }
