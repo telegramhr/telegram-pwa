@@ -773,28 +773,41 @@ export default {
             'Plaćanje se nije uspjelo pokrenuti. Pokušajte ponovno ili odaberite bankovnu uplatu.'
         })
     },
-    // The funnel submit has just created (or logged in) the CRM user; save
-    // the delivery address on it as a CRM "print" address. pretplate only
-    // creates missing addresses and never overwrites. The bank flow does
-    // the same inside pretplate. A failure must not block the payment.
+    // The funnel submit has just created or logged in the CRM user and set
+    // its n_token cookie (.telegram.hr). pretplate saves the delivery address
+    // as a CRM "print" address on that token's user only, and never
+    // overwrites. A failure must not block the payment.
     saveAddress() {
+      const token = this.$cookies.get('n_token') || this.$store.state.user.token
+      if (!token) return
       this.$axios
-        .$post('/pretplate/api/pretplata/print-address', {
-          email: this.f.email.trim(),
-          metadata: this.metadata(),
-        })
+        .$post(
+          '/pretplate/api/pretplata/print-address',
+          { metadata: this.metadata() },
+          { headers: { Authorization: `Bearer ${token}` } }
+        )
         .catch(() => {})
+    },
+    // pretplate saves the address of an existing account only with that
+    // reader's own token.
+    authHeaders() {
+      const token = this.loggedIn && this.$store.state.user.token
+      return token ? { headers: { Authorization: `Bearer ${token}` } } : {}
     },
     bankTransfer() {
       this.$axios
-        .$post('/pretplate/api/pretplata/bank', {
-          subscription_type: this.current.code,
-          price: this.current.price,
-          email: this.f.email.trim(),
-          referer: THANK_YOU_URL,
-          newsletters_subscribe: this.f.obavijesti,
-          metadata: this.metadata(),
-        })
+        .$post(
+          '/pretplate/api/pretplata/bank',
+          {
+            subscription_type: this.current.code,
+            price: this.current.price,
+            email: this.f.email.trim(),
+            referer: THANK_YOU_URL,
+            newsletters_subscribe: this.f.obavijesti,
+            metadata: this.metadata(),
+          },
+          this.authHeaders()
+        )
         .then((res) => {
           if (!res.id) throw new Error('bank')
           this.$router.push({
