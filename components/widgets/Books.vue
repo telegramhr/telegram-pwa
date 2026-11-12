@@ -101,6 +101,7 @@
 <script>
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
+import widgetTracking from '~/utils/widgetTracking'
 
 const formatter = new Intl.NumberFormat('hr-HR', {
   style: 'currency',
@@ -109,8 +110,11 @@ const formatter = new Intl.NumberFormat('hr-HR', {
 
 export default {
   name: 'Books',
+  mixins: [widgetTracking],
   data() {
     return {
+      widgetCategory: 'books-featured',
+      booksViewTracked: false,
       seeAllLink: 'https://knjige.telegram.hr/',
       slickOptions: {
         dots: false,
@@ -148,15 +152,15 @@ export default {
       return this.$store.state.books.featured
     },
   },
+  watch: {
+    // The root is v-if'd on the books, which can load after mount.
+    books() {
+      this.trackBooksView()
+      this.$nextTick(this.observeWidgetSeen)
+    },
+  },
   mounted() {
-    if (this.books.length && this.$gtm) {
-      this.$gtm.push({
-        event: 'webshop-widget',
-        'webshop-category': 'books-featured',
-        'webshop-action': 'view',
-        'webshop-label': 'impression',
-      })
-    }
+    this.trackBooksView()
   },
   methods: {
     format(value) {
@@ -170,16 +174,13 @@ export default {
     next() {
       if (this.$refs.carousel) this.$refs.carousel.next()
     },
+    trackBooksView() {
+      if (this.booksViewTracked || !this.books.length) return
+      this.booksViewTracked = true
+      this.trackWidget('view', 'impression')
+    },
     trackClick(book, target) {
-      if (this.$gtm) {
-        this.$gtm.push({
-          event: 'webshop-widget',
-          'webshop-category': 'books-featured',
-          'webshop-action': 'click',
-          'webshop-label': target,
-          'webshop-value': book.sku || book.id,
-        })
-      }
+      this.trackWidget('click', target, book.sku || book.id)
     },
   },
 }

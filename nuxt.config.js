@@ -39,7 +39,7 @@ export default {
             { rel: 'dns-prefetch', href: 'https://script.dotmetrics.net' },
             { rel: 'preconnect', href: 'https://script.dotmetrics.net' },
             // NOTE: static door.js preloads removed. The dotmetrics.client.js plugin
-            // dynamically injects exactly one path-based door.js per URL (id 1182 default,
+            // dynamically injects exactly one path-based door.js per URL (id 1182 default, 1173 homepage,
             // 15854 news, 15855 kultura/zivot, 4136 super1, 1175 sport). Two static preloads
             // (15854 + 1182) fired on every page produced a second, always-dead door.js
             // request, and on kultura/super1/sport paths BOTH preloads were dead. Removing
@@ -49,7 +49,11 @@ export default {
             { rel: 'dns-prefetch', href: '//securepubads.g.doubleclick.net' },
             { rel: 'dns-prefetch', href: '//pagead2.googlesyndication.com' },
             { rel: 'dns-prefetch', href: '//micro.rubiconproject.com' },
-            { rel: 'dns-prefetch', href: '//c.amazon-adsystem.com' },
+            { rel: 'preconnect', href: 'https://micro.rubiconproject.com' },
+            // Demand Manager is fetched at parse time but executed only once the CMP
+            // API exists (see the prebid-dm-loader script). No crossorigin here and
+            // none on the inserted <script>, or the browser fetches it twice.
+            { rel: 'preload', as: 'script', href: 'https://micro.rubiconproject.com/prebid/dynamic/26072.js' },
             { rel: 'dns-prefetch', href: '//www.googletagmanager.com' },
             { rel: 'dns-prefetch', href: '//adservice.google.com' },
             {
@@ -113,6 +117,7 @@ export default {
                 hid: 'dotmetrics-door',
                 innerHTML: '(function(){try{' +
                     "var p=location.pathname,id='1182';" +
+                    "if(p==='/')id='1173';" +
                     "if(/politika-kriminal|biznis-tech|komentari|vijesti/.test(p))id='15854';" +
                     "if(/kultura|zivot|pitanje-zdravlja|velike-price/.test(p))id='15855';" +
                     "if(/super1|superone/.test(p))id='4136';" +
@@ -202,6 +207,52 @@ export default {
                     '    }\n' +
                     '  })',
             },
+            // Header bidding: Magnite Demand Manager (Prebid wrapper) and the
+            // fresh-atl refresh script, loaded from SSR head instead of a client
+            // plugin so they start downloading at parse time (~1.5s earlier than
+            // after hydration). The inline stub makes pbjs.que.push safe before
+            // DM arrives; store/ads.js reads window.prebid for GAM targeting.
+            // Amazon APS (apstag) is intentionally gone: no revenue, ~150-300ms cost.
+            //
+            // DM is not a plain <script src> any more. When the wrapper file runs it
+            // checks typeof window.__tcfapi exactly once and only then configures
+            // consentManagement.gdpr; if Funding Choices has not installed __tcfapi
+            // yet, Prebid runs that pageview with USP-only consent and no bidder
+            // gets the TC string. So the file is preloaded (link above) and executed
+            // by the loader below on googlefc CONSENT_API_READY. The 2500 ms timer
+            // covers adblock / a CMP that never loads and must stay below the 3000 ms
+            // CMP guard in store/ads.js refreshSlots so DM is parsed before initPBJS
+            // queues requestBids. Known gap: a CMP that arrives after the timer still
+            // leaves that pageview without gdpr config; window.__tmgDmPath records
+            // which path won (immediate / cmp / timeout) and store/ads.js sends it to
+            // GAM as atl_dm_path so the share can be measured.
+            {
+                hid: 'prebid-flag',
+                innerHTML: "window.prebid='rubicon';window.pbjs=window.pbjs||{};window.pbjs.que=window.pbjs.que||[];",
+            },
+            {
+                hid: 'prebid-dm-loader',
+                innerHTML: '(function(){' +
+                    "var u='https://micro.rubiconproject.com/prebid/dynamic/26072.js';" +
+                    'function ins(){var s=document.createElement(\'script\');s.async=true;s.src=u;' +
+                    '(document.head||document.documentElement).appendChild(s)}' +
+                    'try{' +
+                    'window.googlefc=window.googlefc||{};' +
+                    'window.googlefc.callbackQueue=window.googlefc.callbackQueue||[];' +
+                    'var t=null;' +
+                    'var load=function(p){if(window.__tmgDmLoaded)return;window.__tmgDmLoaded=true;' +
+                    'window.__tmgDmPath=p;if(t)clearTimeout(t);ins()};' +
+                    "if(typeof window.__tcfapi==='function'){load('immediate');return}" +
+                    "window.googlefc.callbackQueue.push({CONSENT_API_READY:function(){load('cmp')}});" +
+                    "t=setTimeout(function(){load('timeout')},2500);" +
+                    "}catch(e){if(!window.__tmgDmLoaded){window.__tmgDmLoaded=true;window.__tmgDmPath='error';ins()}}" +
+                    '})();',
+            },
+            {
+                hid: 'fresh-atl',
+                src: 'https://freshatl.azurewebsites.net/js/fresh-atl.js',
+                async: true,
+            },
             {
                 hid: 'gpt',
                 src: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js',
@@ -228,6 +279,8 @@ export default {
             remplib: ['innerHTML'],
             didomi: ['innerHTML'],
             'googlefc-present': ['innerHTML'],
+            'prebid-flag': ['innerHTML'],
+            'prebid-dm-loader': ['innerHTML'],
             'referrer-restore': ['innerHTML'],
             'dotmetrics-door': ['innerHTML'],
         },

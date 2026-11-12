@@ -13,7 +13,7 @@
           {{ title }}
         </div>
       </div>
-      <div class="full flex mobile-side-pad" data-mar>
+      <div class="full flex mobile-side-pad row-gap" data-mar>
         <div
           v-for="post in posts.slice(0, 8)"
           :key="post.id"

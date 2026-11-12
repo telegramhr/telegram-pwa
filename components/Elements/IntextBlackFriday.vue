@@ -6,7 +6,7 @@
       :class="[softwall ? 'softwall' : '']"
       data-nosnippet
     >
-      <div class="main-wrapper">
+      <div class="bf-popup">
         <div
           v-if="softwall"
           class="getmeouttahere-btn center clickable"
@@ -14,41 +14,32 @@
         >
           <font-awesome-icon :icon="['fas', 'times']"></font-awesome-icon>
         </div>
-        <div class="header">
-          <img
-            src="@/assets/img/telegram_logo_white.svg"
-            alt="Telegram Loogo"
-          />
-          <span>{{ headerText }}</span>
-        </div>
-        <div class="content">
-          <p class="title">
-            <span>{{ titleMain }}</span> {{ titleSecondary }}
-            <span>{{ titleHighlight }}</span>
-          </p>
-          <div class="desktop-title">
-            <span>{{ desktopTitleFirst }}</span>
-            <p>{{ desktopTitleMiddle }}</p>
-            <span>{{ desktopTitleLast }}</span>
+        <div class="bf-box">
+          <span class="bf-bg" aria-hidden="true"></span>
+          <div class="bf-brand">
+            <img
+              class="bf-brand__logo"
+              src="@/assets/img/telegram_logo_white.svg"
+              alt="Telegram"
+            />
+            <span class="bf-brand__label">black friday</span>
           </div>
-          <div class="description">
-            <p v-html="descriptionText"></p>
-            <span class="overline">{{ oldPrice }}€</span>
-            <span>{{ newPrice }}€</span>
+          <div class="bf-content">
+            <div class="bf-text">
+              <p class="bf-title">{{ title }}</p>
+              <p class="bf-subtitle" v-html="subtitle"></p>
+            </div>
+            <TgButton
+              class="bf-cta"
+              variant="black"
+              :href="ctaLink"
+              @click.prevent="start"
+            >
+              {{ cta }}
+            </TgButton>
           </div>
-          <a :href="cta_link" @click.prevent="start">
-            <button>{{ cta }}</button>
-          </a>
+          <p v-if="footer" class="bf-footer">{{ footer }}</p>
         </div>
-        <div class="bg-image-wrapper">
-          <img
-            class="modal-bg"
-            src="@/assets/img/black-friday-bg.png"
-            alt="Background"
-          />
-        </div>
-
-        <div class="bottom-gradient"></div>
       </div>
     </div>
   </transition>
@@ -60,21 +51,13 @@ export default {
   data() {
     return {
       show: false,
-      termId: false,
-      headerText: 'BLACK FRIDAY',
-      titleMain: '2 godine',
-      titleSecondary: 'pretplate za',
-      titleHighlight: 'cijenu 1.',
-      desktopTitleFirst: '2',
-      desktopTitleMiddle: 'za',
-      desktopTitleLast: '1',
-      descriptionText:
-        'Platite <span>1</span> godinu Premium pretplate bez reklama i dobivate <span>2</span> godine po cijeni od',
       softwall: true,
+      // a newline in the title forces the line break on mobile only
+      title: '2 godine.\nJedna cijena.',
+      subtitle: '<s>198 €</s> 99€ za dvije godine',
       cta: 'Iskoristite ponudu',
-      oldPrice: 199,
-      newPrice: 99,
-      cta_link: '/pretplata/black-friday',
+      ctaLink: '/pretplata/black-friday-popust',
+      footer: 'ponuda vrijedi do 30.11.2026.',
     }
   },
   mounted() {
@@ -84,36 +67,26 @@ export default {
     window.removeEventListener('intext_black_friday', this.load)
   },
   methods: {
-    login() {
-      this.$store.dispatch('user/login')
-    },
     start() {
       this.$store.commit('pretplata/setLastArticle', this.$route.path)
-      if (this.termId) {
-        if (this.termId.includes('pretplata')) {
-          this.$router.push(this.termId)
-        }
-      } else if (this.cta_link) {
-        window.open(this.cta_link, '_blank')
-      } else if (this.$route.path.includes('telesport')) {
-        this.$router.push('/pretplata/telesport')
+      if (this.ctaLink) {
+        window.open(this.ctaLink, '_blank')
       } else {
         this.$router.push('/pretplata')
       }
     },
     load(e) {
+      // subscribers never see the offer, whatever the campaign targeting says
+      if (this.$store.state.user.access?.length) {
+        return
+      }
       if (e.detail) {
-        this.headerText = e.detail.headerText
-        this.titleMain = e.detail.titleMain
-        this.titleSecondary = e.detail.titleSecondary
-        this.titleHighlight = e.detail.titleHighlight
-        this.desktopTitleFirst = e.detail.desktopTitleFirst
-        this.desktopTitleMiddle = e.detail.desktopTitleMiddle
-        this.descriptionText = e.detail.descriptionText
-        this.oldPrice = e.detail.oldPrice ? e.detail.oldPrice : this.oldPrice
-        this.newPrice = e.detail.newPrice ? e.detail.newPrice : this.newPrice
+        this.title = e.detail.title ?? this.title
+        this.subtitle = e.detail.subtitle ?? this.subtitle
+        this.cta = e.detail.cta ?? this.cta
+        this.ctaLink = e.detail.cta_link ?? this.ctaLink
+        this.footer = e.detail.footer ?? this.footer
         this.softwall = e.detail.softwall ?? false
-        this.desktopTitleLast = e.detail.desktopTitleLast
       }
       this.triggerShow()
     },
@@ -141,15 +114,16 @@ export default {
 </script>
 
 <style scoped>
-@keyframes pulse {
-  0% {
-    transform: scale(0.9);
-  }
-  100% {
-    transform: scale(1.1);
-  }
-}
-
+/*
+ * Figma "Pretplata Landing — Active"
+ *   mobile  node 2446:908 — 320x480, artwork 800px wide at x=-101 / y=55, 62% opacity
+ *   desktop node 2446:670 — 900x600, artwork 1168px wide centred at y=22, 46% opacity
+ * The artwork is the same file as the landing's final CTA, blended hard-light
+ * over black so only its magenta curves survive as the red glow.
+ * Figma trims the title box to its cap height, so the gaps around it are
+ * measured from that smaller box; the negative margins on .bf-title
+ * reproduce that without breaking a title that wraps.
+ */
 .softwall {
   position: fixed;
   top: 0;
@@ -161,211 +135,196 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 10px;
+  padding: 0 16px;
   box-sizing: border-box;
   overflow: hidden;
   max-width: 100% !important;
 }
-.main-wrapper {
+.bf-popup {
   position: relative;
-  display: flex;
-  flex-direction: column;
   width: 100%;
   max-width: 320px;
-  height: 100%;
-  max-height: 480px;
-  gap: 36px;
-  background: linear-gradient(180deg, #840002 0%, #000000 100%);
 }
 .getmeouttahere-btn {
   width: 2rem;
   height: 2rem;
   background-color: #999;
-  color: white;
+  color: #fff;
   z-index: 6;
   border-radius: 1rem;
   position: absolute;
   top: -1rem;
   right: -1rem;
 }
-.header {
+.bf-box {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
-  padding-top: 48px;
-  margin: 0 auto;
-}
-.header img {
   width: 100%;
-  max-width: 126px;
+  height: 480px;
+  max-height: 85vh;
+  padding: 93px 5px 54.75px;
+  box-sizing: border-box;
+  overflow: hidden auto;
+  background-color: #000;
+  color: #fff;
 }
-.header span {
+.bf-bg {
+  position: absolute;
+  top: 54.97px;
+  left: -31.56%;
+  width: 250%;
+  aspect-ratio: 800 / 369.73;
+  background: url('@/assets/img/pretplata/bf-2026/cta-bg.webp') center / 100%
+    auto no-repeat;
+  opacity: 0.62;
+  mix-blend-mode: hard-light;
+  pointer-events: none;
+}
+.bf-brand {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 13.32px;
+  flex-shrink: 0;
+}
+.bf-brand__logo {
+  display: block;
+  width: 92.54px;
+  height: auto;
+}
+.bf-brand__label {
   font-family: 'Barlow', sans-serif;
-  font-weight: 700;
-  font-size: 10px;
-  line-height: 12px;
-  color: #ffffff;
+  font-weight: 600;
+  font-size: 11.22px;
+  line-height: 19.69px;
+  letter-spacing: 2.24px;
   text-transform: uppercase;
-  text-align: center;
+  white-space: nowrap;
 }
-.content {
+.bf-content {
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 28px;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  margin: auto 0;
 }
-.desktop-title {
-  display: none;
-}
-.title {
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: 28px;
-  line-height: 32px;
-  letter-spacing: -0.03em;
-  color: #ffffff;
+.bf-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13.43px;
+  width: 100%;
   text-align: center;
 }
-.title span {
-  font-weight: 700;
+.bf-title {
+  margin: -7px 0 -6px;
+  font-family: 'Lora', serif;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 35.89px;
+  white-space: pre-line;
+  color: #fff;
 }
-.content a {
-  margin: 0 auto;
-}
-.content button {
-  cursor: pointer;
-  padding: 14px 16px;
-  border-radius: 5px;
-  background: linear-gradient(85.01deg, #fffbe1 -4.25%, #946d29 67.72%);
-  color: #342f2f;
-  font-size: 15px;
+.bf-subtitle {
+  margin: 0;
+  font-family: 'Barlow', sans-serif;
   font-weight: 600;
-  line-height: 12px;
-  border: none;
-  animation: pulse 1s infinite alternate;
+  font-size: 18px;
+  line-height: 1.2;
+  color: #fff;
 }
-.bg-image-wrapper {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+.bf-subtitle ::v-deep s {
+  color: #86868b;
+  text-decoration: line-through;
 }
-.description {
+.bf-cta {
+  height: 36.5px;
+  padding: 0 10.43px;
+  border-radius: 7.82px;
+  font-size: 14px;
+  line-height: 15.65px;
+}
+.bf-cta ::v-deep .tg-button__label {
+  padding: 0 3.91px;
+}
+.bf-footer {
   display: none;
 }
-.modal-bg {
-  position: absolute;
-  bottom: -60px;
-  right: -10px;
-  width: auto;
-  width: 100%;
-  z-index: 0;
-  pointer-events: none;
-  scale: 1.5;
-}
-.bottom-gradient {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 168px;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.7) 100%
-  );
 
-  z-index: 40;
-}
-.content {
-  z-index: 99;
-}
-@media screen and (min-width: 1024px) {
-  .main-wrapper {
+@media screen and (min-width: 768px) {
+  .bf-popup {
+    /* 1px at >= 932 (900 + the softwall gutters); below that the whole
+       frame shrinks with the viewport so it still fits at 768 */
+    --u: min(1px, calc((100vw - 32px) / 900));
     max-width: 900px;
-    max-height: 600px;
   }
-  .header {
-    padding-top: 56px;
-    gap: 10px;
+  .bf-box {
+    height: calc(600 * var(--u));
+    padding: calc(88.92 * var(--u)) calc(24 * var(--u)) calc(50 * var(--u));
   }
-  .header img {
-    max-width: 208px;
+  .bf-bg {
+    top: calc(22 * var(--u));
+    left: 50%;
+    width: 129.78%;
+    aspect-ratio: 1168 / 540;
+    transform: translateX(-50%);
+    opacity: 0.46;
   }
-  .header span {
-    font-size: 16px;
-    line-height: 20px;
+  .bf-brand {
+    gap: calc(18.77 * var(--u));
   }
-  .content {
-    max-width: 420px;
-    justify-content: center;
-    padding-left: 64px;
-    gap: 36px;
+  .bf-brand__logo {
+    width: calc(130.39 * var(--u));
   }
-  .title {
-    display: none;
+  .bf-brand__label {
+    font-size: calc(15.8 * var(--u));
+    line-height: calc(27.74 * var(--u));
+    letter-spacing: calc(3.16 * var(--u));
   }
-  .desktop-title {
-    display: flex;
-    flex-direction: row;
-    gap: 12px;
-    align-items: center;
-    justify-content: center;
-    max-height: 111px;
-    font-family: 'Barlow';
+  .bf-content {
+    gap: calc(25.19 * var(--u));
+    margin: calc(125.26 * var(--u)) 0 0;
   }
-  .desktop-title p {
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: 35px;
-    letter-spacing: -0.02em;
-    color: #ffffff;
-    margin-top: 30px;
+  .bf-text {
+    gap: calc(23.6 * var(--u));
   }
-  .desktop-title span {
-    font-family: 'Barlow', sans-serif;
-    font-weight: 700;
-    font-size: 140px;
-    line-height: 182px;
-    background: linear-gradient(192.74deg, #fff3ac 15.79%, #946d29 98.3%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
+  .bf-title {
+    margin: calc(-13 * var(--u)) 0 calc(-11 * var(--u));
+    font-size: calc(56 * var(--u));
+    line-height: calc(63.05 * var(--u));
+    white-space: normal;
   }
-  .description {
+  .bf-subtitle {
+    font-size: calc(36.65 * var(--u));
+  }
+  .bf-cta {
+    height: calc(64.13 * var(--u));
+    padding: 0 calc(18.32 * var(--u));
+    border-radius: calc(13.74 * var(--u));
+    font-size: calc(20.61 * var(--u));
+    line-height: calc(27.48 * var(--u));
+  }
+  .bf-cta ::v-deep .tg-button__label {
+    padding: 0 calc(6.87 * var(--u));
+  }
+  .bf-footer {
+    position: relative;
     display: block;
-    font-family: 'Barlow', sans-serif;
-    font-weight: 400;
-    font-size: 26px;
-    line-height: 32px;
-    color: #ffffff;
+    flex-shrink: 0;
+    margin: auto 0 0;
+    padding-top: calc(24 * var(--u));
+    font-family: 'Geist', 'Barlow', sans-serif;
+    font-weight: 500;
+    font-size: calc(18 * var(--u));
+    line-height: calc(22 * var(--u));
+    letter-spacing: calc(2 * var(--u));
+    text-transform: uppercase;
     text-align: center;
-    margin-bottom: 0px !important;
-  }
-  .description ::v-deep(span) {
-    font-weight: 700;
-  }
-  .description ::v-deep(.overline) {
-    text-decoration: line-through;
-    font-weight: 400;
-    color: #b5b5b5;
-  }
-  .content button {
-    padding: 18px 24px;
-    font-size: 22px;
-    line-height: 18px;
-    border-radius: 8px;
-    border: none;
-  }
-  .bg-image-wrapper {
-    max-width: 940px;
-  }
-  .bg-image-wrapper .modal-bg {
-    right: -280px;
-    bottom: -195px;
-    scale: 1;
+    color: #f5f5f7;
   }
 }
 </style>
