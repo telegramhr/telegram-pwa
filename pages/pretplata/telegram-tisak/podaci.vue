@@ -593,7 +593,13 @@ export default {
       if (!this.f.ime && name) this.f.ime = name
       if (!user.token) return
       const headers = { Authorization: `Bearer ${user.token}` }
-      const first = (res) => Object.values((res && res.addresses) || {})[0]
+      // Keyed by address id. The CRM's current address is the newest one, but
+      // JS orders numeric keys ascending, so take the highest id.
+      const first = (res) => {
+        const all = (res && res.addresses) || {}
+        const ids = Object.keys(all).sort((a, b) => b - a)
+        return ids.length ? all[ids[0]] : undefined
+      }
       this.$axios
         .$get('/crm/api/v1/user/addresses', {
           params: { type: 'print' },
@@ -812,7 +818,7 @@ export default {
     // its n_token cookie (.telegram.hr). pretplate saves the delivery address
     // as a CRM "print" address on that token's user only, and never
     // overwrites. A failure must not block the payment.
-    saveAddress() {
+    saveAddress(attempt = 0) {
       const token = this.$cookies.get('n_token') || this.$store.state.user.token
       if (!token) return
       this.$axios
@@ -821,7 +827,14 @@ export default {
           { metadata: this.metadata() },
           { headers: { Authorization: `Bearer ${token}` } }
         )
-        .catch(() => {})
+        .catch((e) => {
+          // pretplate retries CRM failures itself; this covers not reaching
+          // pretplate at all. A 401/422 won't get better on a retry.
+          const status = e.response && e.response.status
+          if (attempt < 1 && (!status || status >= 500)) {
+            setTimeout(() => this.saveAddress(attempt + 1), 2000)
+          }
+        })
     },
     // pretplate saves the address of an existing account only with that
     // reader's own token.
