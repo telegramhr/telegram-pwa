@@ -205,44 +205,62 @@
                     autocomplete="off"
                     :error="errors.oib"
                   />
-                  <label class="tt-check" style="margin-bottom: 16px"
-                    ><input v-model="f.r1_ista" type="checkbox" /><span
-                      >Adresa tvrtke ista je kao adresa dostave</span
-                    ></label
-                  >
-                  <div v-if="!f.r1_ista">
-                    <div class="tt-field-row tt-field-row--street">
-                      <TisakField
-                        id="r1_ulica"
-                        v-model="f.r1_ulica"
-                        label="Ulica tvrtke"
-                        :error="errors.r1_ulica"
-                      />
-                      <TisakField
-                        id="r1_kucni_broj"
-                        v-model="f.r1_kucni_broj"
-                        label="Kućni broj"
-                        maxlength="12"
-                        :error="errors.r1_kucni_broj"
-                      />
-                    </div>
-                    <div class="tt-field-row">
-                      <TisakField
-                        id="r1_postanski"
-                        v-model="f.r1_postanski"
-                        label="Poštanski broj"
-                        inputmode="numeric"
-                        maxlength="5"
-                        digits
-                        :error="errors.r1_postanski"
-                      />
-                      <TisakField
-                        id="r1_mjesto"
-                        v-model="f.r1_mjesto"
-                        label="Mjesto"
-                        :error="errors.r1_mjesto"
-                      />
-                    </div>
+                </div>
+              </div>
+
+              <div class="tt-r1">
+                <label class="tt-check"
+                  ><input
+                    v-model="f.racun"
+                    type="checkbox"
+                    @change="onRacun"
+                  /><span
+                    >Adresa za račun razlikuje se od adrese dostave</span
+                  ></label
+                >
+                <div v-if="f.racun" class="tt-r1__fields">
+                  <TisakField
+                    v-if="!f.r1"
+                    id="racun_ime"
+                    v-model="f.racun_ime"
+                    label="Ime i prezime na računu"
+                    autocomplete="billing name"
+                    :error="errors.racun_ime"
+                  />
+                  <div class="tt-field-row tt-field-row--street">
+                    <TisakField
+                      id="racun_ulica"
+                      v-model="f.racun_ulica"
+                      label="Ulica"
+                      autocomplete="billing address-line1"
+                      :error="errors.racun_ulica"
+                    />
+                    <TisakField
+                      id="racun_kucni_broj"
+                      v-model="f.racun_kucni_broj"
+                      label="Kućni broj"
+                      maxlength="12"
+                      :error="errors.racun_kucni_broj"
+                    />
+                  </div>
+                  <div class="tt-field-row">
+                    <TisakField
+                      id="racun_postanski"
+                      v-model="f.racun_postanski"
+                      label="Poštanski broj"
+                      inputmode="numeric"
+                      autocomplete="billing postal-code"
+                      maxlength="5"
+                      digits
+                      :error="errors.racun_postanski"
+                    />
+                    <TisakField
+                      id="racun_mjesto"
+                      v-model="f.racun_mjesto"
+                      label="Mjesto"
+                      autocomplete="billing address-level2"
+                      :error="errors.racun_mjesto"
+                    />
                   </div>
                 </div>
               </div>
@@ -374,11 +392,12 @@ function emptyForm() {
     r1: false,
     tvrtka: '',
     oib: '',
-    r1_ista: true,
-    r1_ulica: '',
-    r1_kucni_broj: '',
-    r1_postanski: '',
-    r1_mjesto: '',
+    racun: false,
+    racun_ime: '',
+    racun_ulica: '',
+    racun_kucni_broj: '',
+    racun_postanski: '',
+    racun_mjesto: '',
     obavijesti: false,
   }
 }
@@ -443,9 +462,9 @@ export default {
         )
       }
     },
-    'f.r1_postanski'(pc) {
-      if (pc.length === 5 && POSTCODES[pc] && !this.f.r1_mjesto) {
-        this.f.r1_mjesto = POSTCODES[pc]
+    'f.racun_postanski'(pc) {
+      if (pc.length === 5 && POSTCODES[pc] && !this.f.racun_mjesto) {
+        this.f.racun_mjesto = POSTCODES[pc]
       }
     },
     loggedIn(value) {
@@ -512,6 +531,13 @@ export default {
     onR1() {
       if (this.f.r1) {
         this.$nextTick(() => this.focus('tvrtka'))
+      }
+    },
+    onRacun() {
+      if (this.f.racun) {
+        this.$nextTick(() =>
+          this.focus(this.f.r1 ? 'racun_ulica' : 'racun_ime')
+        )
       }
     },
     // TrustPay's popup.js needs jQuery when it runs, and vue-meta loads head
@@ -625,15 +651,21 @@ export default {
           headers,
         })
         .then((res) => {
+          // Prefilled but not ticked: the reader decides again per order.
           const a = first(res)
-          if (!a || !a.company_name || this.f.tvrtka) return
-          this.f.tvrtka = a.company_name
-          this.f.oib = a.company_id || this.f.oib
-          if (a.street) {
-            this.f.r1_ulica = a.street
-            this.f.r1_kucni_broj = a.number || ''
-            this.f.r1_postanski = a.zip ? String(a.zip) : ''
-            this.f.r1_mjesto = a.city || ''
+          if (!a) return
+          if (a.company_name && !this.f.tvrtka) {
+            this.f.tvrtka = a.company_name
+            this.f.oib = a.company_id || this.f.oib
+          }
+          if (a.street && !this.f.racun_ulica) {
+            this.f.racun_ime = [a.first_name, a.last_name]
+              .filter(Boolean)
+              .join(' ')
+            this.f.racun_ulica = a.street
+            this.f.racun_kucni_broj = a.number || ''
+            this.f.racun_postanski = a.zip ? String(a.zip) : ''
+            this.f.racun_mjesto = a.city || ''
           }
         })
         .catch(() => {})
@@ -687,28 +719,35 @@ export default {
           validOib(f.oib),
           'OIB nije ispravan. Provjerite 11 znamenki.'
         )
-        if (!f.r1_ista) {
+      }
+      if (f.racun) {
+        if (!f.r1) {
           need(
-            'r1_ulica',
-            f.r1_ulica.trim().length >= 3,
-            'Upišite ulicu tvrtke.'
-          )
-          need(
-            'r1_kucni_broj',
-            validHouseNumber(f.r1_kucni_broj),
-            'Npr. 12, 12a ili bb.'
-          )
-          need(
-            'r1_postanski',
-            /^\d{5}$/.test(f.r1_postanski),
-            'Upišite poštanski broj tvrtke.'
-          )
-          need(
-            'r1_mjesto',
-            f.r1_mjesto.trim().length >= 2,
-            'Upišite mjesto tvrtke.'
+            'racun_ime',
+            f.racun_ime.trim().split(/\s+/).length >= 2,
+            'Upišite ime i prezime na koje glasi račun.'
           )
         }
+        need(
+          'racun_ulica',
+          f.racun_ulica.trim().length >= 3,
+          'Upišite ulicu za račun.'
+        )
+        need(
+          'racun_kucni_broj',
+          validHouseNumber(f.racun_kucni_broj),
+          'Npr. 12, 12a ili bb.'
+        )
+        need(
+          'racun_postanski',
+          /^\d{5}$/.test(f.racun_postanski),
+          'Upišite poštanski broj za račun.'
+        )
+        need(
+          'racun_mjesto',
+          f.racun_mjesto.trim().length >= 2,
+          'Upišite mjesto za račun.'
+        )
       }
       this.errors = errors
       return list
@@ -732,12 +771,15 @@ export default {
         meta.r1 = '1'
         meta.r1_tvrtka = f.tvrtka.trim()
         meta.r1_oib = f.oib
-        meta.r1_ulica = f.r1_ista ? meta.print_ulica : f.r1_ulica.trim()
-        meta.r1_kucni_broj = f.r1_ista
-          ? meta.print_kucni_broj
-          : houseNumber(f.r1_kucni_broj)
-        meta.r1_postanski = f.r1_ista ? meta.print_postanski : f.r1_postanski
-        meta.r1_mjesto = f.r1_ista ? meta.print_mjesto : f.r1_mjesto.trim()
+      }
+      // Without this the invoice goes to the delivery address.
+      if (f.racun) {
+        meta.racun = '1'
+        if (!f.r1) meta.racun_ime = f.racun_ime.trim()
+        meta.racun_ulica = f.racun_ulica.trim()
+        meta.racun_kucni_broj = houseNumber(f.racun_kucni_broj)
+        meta.racun_postanski = f.racun_postanski
+        meta.racun_mjesto = f.racun_mjesto.trim()
       }
       return meta
     },
