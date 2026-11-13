@@ -1122,9 +1122,10 @@
 .tisak .tt-summary .tt-choices {
   margin-bottom: 0;
 }
-/* On a phone the plan is picked on the landing page; going back changes it. */
+/* On a phone the plan bar at the top shows the plan and price; the summary
+   is desktop only. Going back to the landing page changes the plan. */
 @media (max-width: 899px) {
-  .tisak .tt-summary .tt-choices {
+  .tisak .tt-summary {
     display: none;
   }
 }
