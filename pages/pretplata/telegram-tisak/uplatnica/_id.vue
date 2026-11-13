@@ -1,7 +1,5 @@
 <template>
   <div class="tisak">
-    <TisakHeader flow />
-
     <main id="main" class="tt-flow">
       <div class="tt-flow__inner">
         <ol class="tt-steps" aria-label="Koraci">

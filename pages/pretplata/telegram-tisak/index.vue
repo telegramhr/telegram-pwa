@@ -1,7 +1,5 @@
 <template>
   <div class="tisak">
-    <TisakHeader />
-
     <main>
       <section class="tt-hero">
         <div class="tt-container tt-hero__inner">

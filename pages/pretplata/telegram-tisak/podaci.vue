@@ -3,7 +3,6 @@
     <div v-if="loading" class="tt-overlay" aria-live="polite">
       <span class="tt-loader" aria-label="Učitavanje"></span>
     </div>
-    <TisakHeader flow />
 
     <main id="main" class="tt-flow">
       <div class="tt-flow__inner">
