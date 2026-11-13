@@ -26,11 +26,11 @@
               id="pretplatite se - burger menu"
               :to="
                 $route.fullPath.includes('telesport')
-                  ? '/pretplata/telesport'
-                  : '/pretplata/?utm_source=theader&utm_medium=direct&utm_campaign=pretplata&utm_content=theader'
+                  ? '/pretplata/black-friday-popust'
+                  : '/pretplata/black-friday-popust?utm_source=theader&utm_medium=direct&utm_campaign=pretplata&utm_content=theader'
               "
               class="signup-btn sub-btn"
-              >Pretplatite se</app-link
+              >Black Friday</app-link
             >
             <a v-show="canLogIn" class="signup-btn" @click.prevent="login"
               >Prijava</a
@@ -401,8 +401,8 @@
               id="pretplata-promo"
               :to="
                 $route.fullPath.includes('telesport')
-                  ? '/pretplata/telesport/'
-                  : '/pretplata/?utm_source=theader&utm_medium=direct&utm_campaign=pretplata&utm_content=theader'
+                  ? '/pretplata/black-friday-popust/'
+                  : '/pretplata/black-friday-popust?utm_source=theader&utm_medium=direct&utm_campaign=pretplata&utm_content=theader'
               "
               :class="[
                 'newbtn',
@@ -412,8 +412,8 @@
             >
               {{
                 !$route.fullPath.includes('telesport')
-                  ? 'Pretplatite se'
-                  : 'Pretplatite se'
+                  ? 'Black Friday'
+                  : 'Black Friday'
               }}</app-link
             >
             <app-link
@@ -561,7 +561,8 @@ export default {
   display: flex;
   align-items: center;
   gap: 4px;
-  background: #1c8746;
+  background: black;
+  color: white;
   padding: 6px;
   font-family: 'Barlow';
   font-size: 11px;
@@ -572,7 +573,8 @@ export default {
   margin-right: 10px;
 }
 .gift-btn-telesport {
-  background: #ff267e;
+  background: black;
+  color: white;
 }
 .gift-btn img {
   width: 15px;
