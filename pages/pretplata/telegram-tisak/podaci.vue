@@ -381,7 +381,6 @@ import {
 } from '~/utils/tisak'
 
 const PAYMENT_GATEWAY = 'trustpay_recurrent'
-const THANK_YOU_URL = 'https://www.telegram.hr/pretplata/telegram-tisak/hvala/'
 
 function emptyForm() {
   return {
@@ -566,6 +565,12 @@ export default {
         )
       )
       this.trustPayReady.catch(() => {})
+    },
+    // The CRM only records the referer ("Preporuka" on the payment, and the
+    // registration referer of a new account); it never redirects to it, so it
+    // carries the article the reader came from, like the other funnels.
+    referer() {
+      return this.$store.getters['pretplata/link']
     },
     persistNow() {
       saveDraft({ plan: this.plan, fields: this.f, hadAccount: this.loggedIn })
@@ -824,7 +829,7 @@ export default {
         .then(() =>
           fetch(
             `/crm/sales-funnel/sales-funnel-frontend/submit?referer=${encodeURIComponent(
-              THANK_YOU_URL
+              this.referer()
             )}`,
             { method: 'POST', body: data, credentials: 'include' }
           )
@@ -893,7 +898,7 @@ export default {
             subscription_type: this.current.code,
             price: this.current.price,
             email: this.f.email.trim(),
-            referer: THANK_YOU_URL,
+            referer: this.referer(),
             newsletters_subscribe: this.f.obavijesti,
             metadata: this.metadata(),
           },
