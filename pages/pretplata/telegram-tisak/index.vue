@@ -132,7 +132,7 @@
             <details>
               <summary>Kako se otkazuje pretplata?</summary>
               <p>
-                Mjesečnu pretplatu možete otkazati u bilo kojem trenutku;
+                Pretplatu možete otkazati u bilo kojem trenutku;
                 vrijedi do kraja razdoblja koje ste platili.
               </p>
             </details>
