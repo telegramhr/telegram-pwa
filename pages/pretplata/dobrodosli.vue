@@ -167,7 +167,7 @@
 </template>
 
 <script>
-import { PLANS, takeCardPending } from '~/utils/tisak'
+import { takeCardPending } from '~/utils/tisak'
 
 export default {
   name: 'PretplataUspjeh',
@@ -202,42 +202,12 @@ export default {
       // /pretplata/telegram-tisak/ left a note first; show its own page.
       const print = takeCardPending()
       if (print) {
-        this.isPrintOrder(print).then((yes) => {
-          if (!yes) return
-          this.$router.replace({
-            path: '/pretplata/telegram-tisak/hvala/',
-            query: { plan: print.plan },
-          })
+        this.$router.replace({
+          path: '/pretplata/telegram-tisak/hvala/',
+          query: { plan: print.plan },
         })
       }
     })
-  },
-  methods: {
-    // The note is left before TrustPay opens and lives an hour, so a reader who
-    // closed TrustPay and then paid for another subscription still carries it.
-    // Skip the print page only when the CRM shows a subscription started since
-    // the note and none of them is print. Any doubt (no token, payment not yet
-    // processed, request failed) keeps the print page.
-    isPrintOrder(note) {
-      const token = this.$cookies.get('n_token') || this.$store.state.user.token
-      if (!token) return Promise.resolve(true)
-      const printCodes = Object.values(PLANS).map((p) => p.code)
-      // Allow for the reader's clock being a few minutes off the CRM's.
-      const since = note.ts - 5 * 60 * 1000
-      return this.$axios
-        .$get('/crm/api/v1/users/subscriptions', {
-          headers: { Authorization: `Bearer ${token}` },
-        })
-        .then((res) => {
-          if (res.status !== 'ok') return true
-          const fresh = (res.subscriptions || []).filter(
-            (sub) => new Date(sub.start_at).getTime() >= since
-          )
-          if (!fresh.length) return true
-          return fresh.some((sub) => printCodes.includes(sub.code))
-        })
-        .catch(() => true)
-    },
   },
   head() {
     const link = [

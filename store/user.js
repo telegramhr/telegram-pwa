@@ -63,12 +63,6 @@ export const mutations = {
     state.access = [...access, ...data]
     state.updated = new Date().getTime()
   },
-  // Replaces the list with what the CRM says is active now, so expired access
-  // drops out and refreshes don't pile up duplicates.
-  setAccessList(state, list) {
-    state.access = list
-    state.updated = list.length ? new Date().getTime() : null
-  },
   setToken(state, token) {
     state.token = token
   },
@@ -130,6 +124,7 @@ export const actions = {
   setAccess({ commit, dispatch, state }, data) {
     return new Promise((resolve) => {
       if (data) {
+        commit('setTerm', data.data.access)
         if (window.fbq) {
           window.fbq('trackCustom', 'HasSubscription', { value: 1 })
         }
@@ -198,22 +193,13 @@ export const actions = {
         },
       })
       .then((res) => {
-        // Leave the current list alone on an error answer, so a CRM hiccup
-        // doesn't take a subscriber's access away.
-        if (res.status !== 'ok') return
-        const now = new Date()
-        const active = (res.subscriptions || []).filter(
-          (sub) => new Date(sub.end_at) > now
-        )
-        const access = active.reduce((list, sub) => {
-          ;(sub.access || []).forEach((a) => {
-            if (!list.includes(a)) list.push(a)
+        if (res.status === 'ok') {
+          res.subscriptions.forEach((sub) => {
+            const end = new Date(sub.end_at)
+            if (end > new Date()) {
+              dispatch('setAccess', { data: sub })
+            }
           })
-          return list
-        }, [])
-        commit('setAccessList', access)
-        if (active.length) {
-          dispatch('setAccess', { data: active[0] })
         }
       })
   },
