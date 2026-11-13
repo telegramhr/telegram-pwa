@@ -5,28 +5,24 @@
     <main>
       <section class="tt-hero">
         <div class="tt-container tt-hero__inner">
-          <div class="tt-hero__stack" aria-hidden="true">
-            <img
-              v-for="n in [1, 2, 3]"
-              :key="n"
-              :class="`tt-hero__paper tt-hero__paper--${n}`"
-              :src="img(`hero/paper-${n}.webp`)"
-              :srcset="`${img(`hero/paper-${n}-sm.webp`)} 618w, ${img(
-                `hero/paper-${n}.webp`
-              )} 1236w`"
-              sizes="(min-width: 900px) 440px, 94vw"
-              alt=""
-              width="1236"
-              height="1179"
-              :fetchpriority="n === 3 ? 'high' : null"
-            />
-          </div>
+          <img
+            class="tt-hero__img"
+            :src="img('hero/newsletter-plenkovic-white.webp')"
+            :srcset="`${img(
+              'hero/newsletter-plenkovic-white-sm.webp'
+            )} 600w, ${img('hero/newsletter-plenkovic-white.webp')} 1080w`"
+            sizes="(min-width: 900px) 560px, 94vw"
+            alt="Naslovnice dnevnog Telegrama"
+            width="1080"
+            height="728"
+            fetchpriority="high"
+          />
           <h1 class="tt-hero__title">
             Samo istina. Svakog jutra na&nbsp;Vašim vratima.
           </h1>
           <p class="tt-hero__lead">
-            Predstavljamo dnevni Telegram, ozbiljne, neovisne i kvalitetne
-            novine. Jer neke stvari važno je dokumentirati.
+            Stiže dnevni Telegram, ozbiljne, neovisne i kvalitetne novine. Ako
+            vi to želite.
           </p>
         </div>
       </section>
