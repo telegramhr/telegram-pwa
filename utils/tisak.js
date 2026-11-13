@@ -18,17 +18,6 @@ export const PLANS = {
     price: 399,
     per: 'godišnje',
   },
-  // TEMPORARY, for real card payment tests on staging: only reachable with
-  // ?plan=test and never listed. The CRM takes the amount from the
-  // subscription type, so telegram_print_test must be active there at 0.10 €.
-  // Remove this, and deactivate the type, before merging to master.
-  test: {
-    id: 'test',
-    code: 'telegram_print_test',
-    name: 'Test plaćanja',
-    price: 0.1,
-    per: 'jednokratno',
-  },
 }
 
 export const DEFAULT_PLAN = 'godisnja'
