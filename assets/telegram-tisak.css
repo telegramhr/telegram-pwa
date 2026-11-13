@@ -157,6 +157,48 @@
   color: #fff;
 }
 
+/* ---------- Social login (TisakSocialLogin) ---------- */
+.tisak .tt-social {
+  margin: 0 0 22px;
+}
+.tisak .tt-signin .tt-social {
+  margin: 16px 0 0;
+}
+.tisak .tt-social__text {
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--ink);
+  margin: 0 0 10px;
+}
+.tisak .tt-social__row {
+  display: flex;
+  gap: 12px;
+}
+/* Copied from .pf-social-btn in components/Elements/Pretplata/PaymentFlowAuth.vue. */
+.tisak .tt-social__btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 50px;
+  border: 1px solid #ebecf0;
+  border-radius: 8px;
+  background: #fff;
+  color: #000;
+  font-family: inherit;
+  font-size: 16px;
+  cursor: pointer;
+}
+.tisak .tt-social__btn img {
+  width: 18px;
+  height: 18px;
+}
+.tisak .tt-social__btn:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
 /* ---------- Hero ---------- */
 .tisak .tt-hero {
   overflow: hidden;
@@ -169,18 +211,13 @@
   padding-top: 12px;
   padding-bottom: 32px;
 }
-.tisak .tt-hero__stack {
-  position: relative;
-  width: min(94vw, 400px);
-  aspect-ratio: 1236 / 1179;
+.tisak .tt-hero__img {
+  display: block;
+  /* The photo has a white ground; multiply lets the cream page through. */
+  mix-blend-mode: multiply;
+  width: min(94vw, 420px);
+  height: auto;
   margin-bottom: 16px;
-}
-.tisak .tt-hero__paper {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  max-width: none;
 }
 .tisak .tt-hero__title {
   font: 500 34px/1.1 var(--f-serif);
@@ -201,8 +238,8 @@
     padding-top: 16px;
     padding-bottom: 40px;
   }
-  .tisak .tt-hero__stack {
-    width: 440px;
+  .tisak .tt-hero__img {
+    width: 560px;
     margin-bottom: 12px;
   }
   .tisak .tt-hero__title {
@@ -215,20 +252,12 @@
   }
 }
 @media (prefers-reduced-motion: no-preference) {
-  .tisak .tt-hero__paper,
+  .tisak .tt-hero__img,
   .tisak .tt-hero__title,
   .tisak .tt-hero__lead {
     animation: 1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
   }
-  .tisak .tt-hero__paper--1 {
-    animation-name: tt-fan-left;
-    animation-delay: 0.25s;
-  }
-  .tisak .tt-hero__paper--2 {
-    animation-name: tt-fan-right;
-    animation-delay: 0.25s;
-  }
-  .tisak .tt-hero__paper--3 {
+  .tisak .tt-hero__img {
     animation-name: tt-drop-in;
     animation-duration: 0.8s;
   }
@@ -241,26 +270,6 @@
     animation-name: tt-rise;
     animation-delay: 0.7s;
     animation-duration: 0.8s;
-  }
-}
-@keyframes tt-fan-left {
-  from {
-    opacity: 0;
-    transform: translate(14%, 6%) rotate(-9deg);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-@keyframes tt-fan-right {
-  from {
-    opacity: 0;
-    transform: translate(-14%, 10%) rotate(10deg);
-  }
-  to {
-    opacity: 1;
-    transform: none;
   }
 }
 @keyframes tt-drop-in {
@@ -1112,6 +1121,13 @@
 }
 .tisak .tt-summary .tt-choices {
   margin-bottom: 0;
+}
+/* On a phone the plan bar at the top shows the plan and price; the summary
+   is desktop only. Going back to the landing page changes the plan. */
+@media (max-width: 899px) {
+  .tisak .tt-summary {
+    display: none;
+  }
 }
 .tisak .tt-ticks {
   gap: 8px;
