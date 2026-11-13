@@ -167,6 +167,8 @@
 </template>
 
 <script>
+import { takeCardPending } from '~/utils/tisak'
+
 export default {
   name: 'PretplataUspjeh',
   data() {
@@ -196,6 +198,15 @@ export default {
       this.$gtm.push({
         event: 'pretplata-success',
       })
+      // The CRM sends every paid card order here. A print order from
+      // /pretplata/telegram-tisak/ left a note first; show its own page.
+      const print = takeCardPending()
+      if (print) {
+        this.$router.replace({
+          path: '/pretplata/telegram-tisak/hvala/',
+          query: { plan: print.plan },
+        })
+      }
     })
   },
   head() {

@@ -52,11 +52,11 @@
               !$store.state.user.access?.length
             "
             id="pretplata-promo"
-            to="/pretplata/?utm_source=index_header&utm_medium=direct&utm_campaign=pretplata&utm_content=index_header"
+            to="/pretplata/black-friday-popust?utm_source=index_header&utm_medium=direct&utm_campaign=pretplata&utm_content=index_header"
             class="newbtn gift-btn"
           >
-            <span class="poklonMobile">Pretplatite se</span
-            ><span class="poklon">Pretplatite se</span></app-link
+            <span class="poklonMobile">Black Friday</span
+            ><span class="poklon">Black Friday</span></app-link
           >
           <a
             v-show="!canLogIn"
@@ -120,9 +120,9 @@
             <app-link
               v-show="!$store.state.user.access"
               id="pretplatite se - header"
-              to="/pretplata/?utm_source=index_menu&utm_medium=direct&utm_campaign=pretplata&utm_content=index_menu"
+              to="/pretplata/black-friday-popust?utm_source=index_menu&utm_medium=direct&utm_campaign=pretplata&utm_content=index_menu"
               class="newbtn"
-              >Pretplatite se</app-link
+              >Black Friday</app-link
             >
             <a
               v-show="!canLogIn"
@@ -720,7 +720,8 @@ export default {
   display: flex;
   align-items: center;
   gap: 4px;
-  background: #1c8746;
+  background: black;
+  color: white;
   padding: 6px;
   font-family: 'Barlow';
   font-size: 10px;
