@@ -71,64 +71,6 @@
   }
 }
 
-/* ---------- Header (telegram.hr's own, as a div: a bare <header> is fixed globally) ---------- */
-.tisak .tt-header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  height: 50px;
-  background: var(--beige);
-  border-bottom: 1px solid #c8c8c8;
-}
-.tisak .tt-header__inner {
-  max-width: 1248px;
-  height: 100%;
-  margin: 0 auto;
-  display: flex;
-  align-items: stretch;
-  justify-content: space-between;
-}
-.tisak .tt-header__logo {
-  display: flex;
-}
-.tisak .tt-header__logo img {
-  width: 50px;
-  height: 50px;
-}
-.tisak .tt-header__nav {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding-right: 16px;
-}
-.tisak .tt-header__login {
-  padding: 6px 8px;
-  font: 600 14px/1 var(--f-sans);
-  color: var(--red);
-  text-decoration: none;
-  background: none;
-  border: 0;
-  cursor: pointer;
-}
-.tisak .tt-header__cta {
-  padding: 5px 10px 6px;
-  border-radius: 2px;
-  background: var(--red);
-  color: #fff;
-  font: 600 14px/1.2 var(--f-sans);
-  text-decoration: none;
-  transition: background-color 0.3s;
-}
-.tisak .tt-header__cta:hover {
-  background: #902e2e;
-}
-@media (max-width: 767px) {
-  .tisak .tt-header__cta {
-    font-size: 12px;
-    padding: 6px 8px;
-  }
-}
-
 /* ---------- Red CTA (TgButton overrides) ---------- */
 .tisak .tt-btn.tg-button {
   height: 50px;
@@ -208,7 +150,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding-top: 12px;
+  padding-top: 24px;
   padding-bottom: 32px;
 }
 .tisak .tt-hero__img {
@@ -235,7 +177,7 @@
 }
 @media (min-width: 900px) {
   .tisak .tt-hero__inner {
-    padding-top: 16px;
+    padding-top: 40px;
     padding-bottom: 40px;
   }
   .tisak .tt-hero__img {
@@ -1079,7 +1021,7 @@
 @media (min-width: 900px) {
   .tisak .tt-summary {
     position: sticky;
-    top: 74px;
+    top: 24px;
     padding: 28px;
   }
 }
