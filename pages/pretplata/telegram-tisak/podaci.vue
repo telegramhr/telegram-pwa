@@ -56,16 +56,16 @@
                 @leave="persistNow"
               />
 
-              <!-- Logged-in readers only fill in their details; the email
-                   comes from their account (prefill sets f.email). -->
+              <!-- Logged in: the email comes from the account (prefill sets
+                   f.email) and is shown read-only. -->
               <TisakField
-                v-if="!loggedIn"
                 id="email"
                 v-model="f.email"
                 label="E-pošta"
                 type="email"
                 inputmode="email"
                 autocomplete="email"
+                :readonly="loggedIn"
                 hint="Na nju šaljemo potvrdu i račun."
                 :error="errors.email"
               />
@@ -606,12 +606,6 @@ export default {
         reload: false,
       })
     },
-    logout() {
-      this.$store.dispatch('user/logout')
-      this.f.email = ''
-      this.prefilled = false
-      this.$nextTick(() => this.focus('email'))
-    },
     // Fill only what the reader hasn't typed: name from the account, the rest from
     // the account's saved print (delivery) and invoice addresses, if any.
     prefill() {
@@ -686,7 +680,7 @@ export default {
           list.push({ id, msg })
         }
       }
-      // Logged in: the email is the account's and the field is hidden.
+      // Logged in: the email is the account's and the field is read-only.
       if (!this.loggedIn) {
         need(
           'email',
