@@ -22,7 +22,6 @@
                   >{{ eur(current.price) }} {{ current.per }}</strong
                 ></span
               >
-              <a href="#sum-title">Promijeni</a>
             </p>
 
             <div
