@@ -136,6 +136,10 @@
         </div>
       </div>
     </div>
+    <!-- Print subscription countdown (Telegram Tisak) -->
+    <div class="full center mobile-side-pad">
+      <tisak-countdown></tisak-countdown>
+    </div>
     <!-- Sport (pinned to top via WP admin: Naslovnica > Telesport na vrh) -->
     <div v-if="telesportTop" class="full relative">
       <sport></sport>
