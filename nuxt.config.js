@@ -436,6 +436,7 @@ export default {
 
     serverMiddleware: [
         { path: '/wcapi/books/featured', handler: '~/server-middleware/books.js' },
+        { path: '/wcapi/tisak/progress', handler: '~/server-middleware/tisak-progress.js' },
     ],
 
     proxy: {

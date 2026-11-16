@@ -18,6 +18,10 @@
         <breaking></breaking>
         <hometop-ten></hometop-ten>
       </client-only>
+      <!-- Print subscription countdown (Telegram Tisak), Telegram articles only -->
+      <div v-if="showTisakCountdown" class="full center mobile-side-pad">
+        <tisak-countdown></tisak-countdown>
+      </div>
       <!-- Above header banner manual -->
       <client-only>
         <div
@@ -1768,6 +1772,15 @@ export default {
     },
     categoryClass() {
       return this.post.category_slug
+    },
+    showTisakCountdown() {
+      const slug = this.post.category_slug || ''
+      return (
+        !!this.post.id &&
+        !slug.includes('super1') &&
+        !slug.includes('superone') &&
+        !slug.includes('telesport')
+      )
     },
     isSuperone() {
       return !!(this.categoryClass && this.categoryClass.includes('superone'))
