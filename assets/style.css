@@ -4571,6 +4571,7 @@ html.large-fontsize,
     .single-article .single-article-body #article-content .wp-block-column>ul,
     .single-article .single-article-body #article-content .wp-block-column>ol,
     .single-article .single-article-body #article-content .wp-block-column>blockquote,
+    .single-article .single-article-body #article-content .wp-block-column>.super1-quote,
     .single-article .single-article-body #article-content .wp-block-column figcaption {
         padding-left: 4vw;
         padding-right: 4vw;
