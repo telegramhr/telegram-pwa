@@ -512,7 +512,7 @@ export default {
     },
 
     sentry: {
-        dsn: 'https://47b01937396e0d7d1139e7eb75ff9b97@sentry.smartcode.rocks/4',
+        dsn: 'https://5499783af5390fd4ed4f7eed0e63daa6@sentry.smartcode.rocks/4',
         config: {
             environment: process.env.NODE_ENV || 'development',
             tracesSampleRate: 0,
