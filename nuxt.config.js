@@ -516,6 +516,15 @@ export default {
         config: {
             environment: process.env.NODE_ENV || 'development',
             tracesSampleRate: 0,
+            // Sends 5% of errors. Before Sentry was switched off this
+            // project stored 120-175K events a day at 100%.
+            sampleRate: 0.05,
+            ignoreErrors: [
+                'library was not initialized within 5 seconds',
+                '_AutofillCallbackHandler',
+                'Java object is gone',
+                'ResizeObserver loop',
+            ],
             beforeSend(event, hint) {
                 const error = hint && hint.originalException
                 if (error && typeof error === 'object') {
@@ -533,10 +542,13 @@ export default {
                 return event
             },
         },
+        clientConfig: {
+            // Only errors from our own bundles, not ads, Midas or blob: scripts.
+            allowUrls: [/telegram\.hr\/_nuxt\//],
+        },
         clientIntegrations: {
             Dedupe: {},
             ExtraErrorData: {},
-            ReportingObserver: {},
             RewriteFrames: {},
             Vue: { attachProps: true },
         },
