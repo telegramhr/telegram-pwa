@@ -423,6 +423,9 @@ export default {
         // CRM API token sent by the browser on users/create and users/update.
         // Each CRM instance has its own api_tokens table, so this differs per environment.
         crmApiToken: process.env.CRM_API_TOKEN,
+        // The CRM's public address, for links the browser follows itself
+        // (Google/Facebook login on the print form). Dev: https://crm-dev.telegram.hr
+        crmPublicUrl: process.env.CRM_PUBLIC_URL || 'https://pretplata.telegram.hr',
     },
 
     // Axios module configuration (https://go.nuxtjs.dev/config-axios)

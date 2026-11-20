@@ -22,7 +22,6 @@
                   >{{ eur(current.price) }} {{ current.per }}</strong
                 ></span
               >
-              <a href="#sum-title">Promijeni</a>
             </p>
 
             <div
@@ -52,28 +51,30 @@
               method="post"
               @submit.prevent="submit"
             >
+              <TisakSocialLogin
+                v-if="!loggedIn && !emailTaken"
+                text="Imate Telegram račun?"
+                @leave="persistNow"
+              />
+
+              <!-- Logged-in readers only fill in their details; the email
+                   comes from their account (prefill sets f.email). -->
               <TisakField
+                v-if="!loggedIn"
                 id="email"
                 v-model="f.email"
                 label="E-pošta"
                 type="email"
                 inputmode="email"
                 autocomplete="email"
-                :readonly="loggedIn"
-                :hint="loggedIn ? '' : 'Na nju šaljemo potvrdu i račun.'"
+                hint="Na nju šaljemo potvrdu i račun."
                 :error="errors.email"
               />
 
-              <p v-if="loggedIn" class="tt-signed">
-                Prijavljeni ste.
-                <button type="button" class="tt-link" @click="logout">
-                  Niste Vi? Odjavite se
-                </button>
-              </p>
-              <div v-else-if="emailTaken" class="tt-signin">
+              <div v-if="!loggedIn && emailTaken" class="tt-signin">
                 <p>
-                  Ova adresa već ima Telegram račun. Prijavite se lozinkom i
-                  podatke ćemo ispuniti za Vas.
+                  Ova adresa već ima Telegram račun. Prijavite se lozinkom ili
+                  putem Googlea ili Facebooka i podatke ćemo ispuniti za Vas.
                 </p>
                 <TisakField
                   id="password"
@@ -94,6 +95,10 @@
                     >Zaboravili ste lozinku?</a
                   >
                 </div>
+                <TisakSocialLogin
+                  text="Registrirali ste se putem Googlea ili Facebooka?"
+                  @leave="persistNow"
+                />
               </div>
 
               <TisakField
@@ -682,11 +687,14 @@ export default {
           list.push({ id, msg })
         }
       }
-      need(
-        'email',
-        validEmail(f.email),
-        'Upišite ispravnu adresu e-pošte, npr. ime@primjer.hr.'
-      )
+      // Logged in: the email is the account's and the field is hidden.
+      if (!this.loggedIn) {
+        need(
+          'email',
+          validEmail(f.email),
+          'Upišite ispravnu adresu e-pošte, npr. ime@primjer.hr.'
+        )
+      }
       if (this.emailTaken && !this.loggedIn) {
         need('password', false, 'Prijavite se lozinkom svog Telegram računa.')
       }
