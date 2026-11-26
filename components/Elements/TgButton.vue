@@ -18,11 +18,13 @@ export default {
   name: 'TgButton',
   props: {
     // Visual style. 'primary' = green design button, 'neutral' = grey (e.g. unselected state),
-    // 'black' = the dark CTA used on black campaign pages
+    // 'black' = the dark CTA used on black campaign pages,
+    // 'white' = the light CTA used on navy campaign pages
     variant: {
       type: String,
       default: 'primary',
-      validator: (value) => ['primary', 'neutral', 'black'].includes(value),
+      validator: (value) =>
+        ['primary', 'neutral', 'black', 'white'].includes(value),
     },
     // When set, renders an <a> instead of a <button>
     href: {
@@ -118,6 +120,19 @@ export default {
 }
 .tg-button--black:active {
   background-color: #000;
+}
+
+/* White — CTA on navy campaign pages (Blagdanska akcija 2026) */
+.tg-button--white {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid rgba(0, 0, 0, 0.09);
+}
+.tg-button--white:hover {
+  background-color: #ececec;
+}
+.tg-button--white:active {
+  background-color: #fff;
 }
 
 .tg-button:disabled {
