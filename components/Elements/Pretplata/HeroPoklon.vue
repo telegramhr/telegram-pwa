@@ -87,10 +87,8 @@ export default {
 
 .hg-art-mobile {
   position: relative;
-  left: 50%;
-  width: 390px;
-  height: 329px;
-  margin-left: -195px;
+  width: 100%;
+  aspect-ratio: 390 / 329;
 }
 .hg-slice {
   position: absolute;
@@ -104,8 +102,8 @@ export default {
 .hg-slice--left {
   top: 0;
   left: 0;
-  width: 390px;
-  height: 329px;
+  width: 100%;
+  height: 100%;
 }
 .hg-slice--left img {
   left: -7.69%;
@@ -113,10 +111,10 @@ export default {
   height: 100%;
 }
 .hg-slice--gift {
-  top: 15px;
-  left: 68px;
-  width: 229px;
-  height: 288px;
+  top: 4.56%;
+  left: 17.44%;
+  width: 58.72%;
+  height: 87.54%;
 }
 .hg-slice--gift img {
   left: -258.59%;
@@ -126,9 +124,9 @@ export default {
 /* the artwork's left edge, mirrored, closes the right side */
 .hg-slice--right {
   top: 0;
-  left: 293px;
-  width: 102px;
-  height: 329px;
+  left: 75.13%;
+  width: 26.15%;
+  height: 100%;
   transform: scaleX(-1);
 }
 .hg-slice--right img {
