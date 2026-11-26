@@ -340,7 +340,7 @@
         class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth desktop-only"
       >
         <img
-          src="@/assets/img/knjige/black-friday/desktop.png"
+          src="@/assets/img/knjige/black_friday/desktop.png"
           alt="Black Friday popusti: do 65% popusta na hit naslove u webshopu Telegram Knjiga"
           class="desktop-only"
         />
@@ -350,7 +350,7 @@
         class="f32 full flex relative center mobile-side-pad f32-darkened-bg shoo-bottom center bannerMediumMaxWidth mobile-only"
       >
         <img
-          src="@/assets/img/knjige/black-friday/mobile.png"
+          src="@/assets/img/knjige/black_friday/mobile.png"
           alt="Black Friday popusti: do 65% popusta na hit naslove u webshopu Telegram Knjiga"
           class="mobile-only"
           style="width: 100%"
