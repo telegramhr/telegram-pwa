@@ -1,0 +1,173 @@
+/*
+ * Shared scoped styles for the dark 2026 holiday pretplata landings
+ * (/pretplata/popust-telegram-50, /pretplata/popust-poklon-50).
+ * Load with <style scoped src="~/assets/css/pretplata-campaign.css">
+ * and set on the page root:
+ *   --page-bg       page ground colour
+ *   --quote-accent  testimonial quote mark and accent bar colour
+ */
+.campaign-page {
+  background-color: var(--page-bg);
+  color: #f5f5f7;
+}
+
+.telegram-overlay {
+  position: fixed;
+  top: 0;
+  z-index: 101;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  align-content: center;
+  background: rgb(0, 0, 0, 0.5);
+}
+.telegram-loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  border: 10px solid;
+  box-sizing: border-box;
+  animation: animloader 1s linear infinite alternate;
+}
+@keyframes animloader {
+  0% {
+    border-color: #ae3737 rgba(255, 255, 255, 0) rgba(255, 255, 255, 0)
+      rgba(255, 255, 255, 0);
+  }
+  33% {
+    border-color: #ae3737 #ae3737 rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
+  }
+  66% {
+    border-color: #ae3737 #ae3737 #ae3737 rgba(255, 255, 255, 0);
+  }
+  100% {
+    border-color: #ae3737 #ae3737 #ae3737 #ae3737;
+  }
+}
+
+/* plan cards + payment column (Figma: 880px wide, cards 402px, 76px apart) */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 49px 16px 32px;
+}
+.boxes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+/* phones lead with the recommended plan */
+.box-premium {
+  order: -1;
+}
+@media screen and (min-width: 1024px) {
+  .content {
+    gap: 54px;
+    padding: 44px 0 42px;
+  }
+  .boxes {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 76px;
+  }
+  .box-premium {
+    order: 0;
+  }
+}
+
+/* Premium card: magenta → orange instead of the shared card's gold */
+.boxes ::v-deep .premium-title,
+.boxes ::v-deep .premium-recommended,
+.boxes ::v-deep .premium-recommended::before {
+  background: linear-gradient(90.58deg, #8f2284 15.27%, #e4633a 100.28%);
+}
+.boxes ::v-deep .premium-title,
+.boxes ::v-deep .premium-recommended {
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* the card sits on a dark page: keep its small print dark, not inherited */
+.boxes ::v-deep .footer > span {
+  color: #5f5f5f;
+}
+
+/* the reused sections were drawn for the black BF page; recolour them */
+.campaign-page .campaign-section,
+.campaign-page .campaign-section.dark {
+  background-color: var(--page-bg);
+}
+.campaign-section ::v-deep .qt-quote__accent {
+  background-color: var(--quote-accent);
+}
+.campaign-section ::v-deep .qt-quote__mark {
+  color: var(--quote-accent);
+}
+
+/*
+ * The payment, login and confirm blocks are the shared components, untouched;
+ * these overrides only recolour them for a dark page (same as BF 2026).
+ */
+.dark-payment ::v-deep .main {
+  border-top-color: #2b2b2b;
+}
+.dark-payment ::v-deep .column-wrapper > span,
+.dark-payment ::v-deep .radio-description,
+.dark-payment ::v-deep .promo-wrapper span,
+.dark-payment ::v-deep .submit-wrapper p,
+.dark-payment ::v-deep .email-wrapper p,
+.dark-payment ::v-deep .divider,
+.dark-payment ::v-deep .main > span,
+.dark-payment ::v-deep .email-wrapper > span,
+.dark-payment ::v-deep .date-wrapper > span {
+  color: #a3a3a3;
+}
+.dark-payment ::v-deep .radio-heading span,
+.dark-payment ::v-deep .radio-heading p,
+.dark-payment ::v-deep .checkbox-label,
+.dark-payment ::v-deep .promo-wrapper > span {
+  color: #fff;
+}
+.dark-payment ::v-deep .checkbox-label a {
+  color: inherit;
+}
+.dark-payment ::v-deep .custom-radio {
+  border-color: #fff;
+}
+.dark-payment ::v-deep .custom-radio:checked {
+  background-color: #fff;
+  border-color: #fff;
+}
+.dark-payment ::v-deep .custom-radio:checked::after {
+  background-color: var(--page-bg);
+}
+.dark-payment ::v-deep .checkmark {
+  border-color: #fff;
+}
+.dark-payment ::v-deep .checkbox-input:checked + .checkmark {
+  background-color: #fff;
+  border-color: #fff;
+}
+.dark-payment ::v-deep .checkbox-input:checked + .checkmark::after {
+  border-color: var(--page-bg);
+}
+.dark-payment ::v-deep .checkbox:hover .checkmark {
+  border-color: #d0d0d0;
+}
+.dark-payment ::v-deep .toggle {
+  background-color: #3a3a3a;
+}
+.dark-payment ::v-deep .toggle.is-on {
+  background-color: #35c220;
+}
+.dark-payment ::v-deep .login-input,
+.dark-payment ::v-deep .promo-input {
+  border: 1px solid #2b2b2b;
+}

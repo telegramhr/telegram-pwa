@@ -19,12 +19,13 @@ export default {
   props: {
     // Visual style. 'primary' = green design button, 'neutral' = grey (e.g. unselected state),
     // 'black' = the dark CTA used on black campaign pages,
-    // 'white' = the light CTA used on navy campaign pages
+    // 'white' = the light CTA used on navy campaign pages,
+    // 'red' = the gift CTA used on green campaign pages
     variant: {
       type: String,
       default: 'primary',
       validator: (value) =>
-        ['primary', 'neutral', 'black', 'white'].includes(value),
+        ['primary', 'neutral', 'black', 'white', 'red'].includes(value),
     },
     // When set, renders an <a> instead of a <button>
     href: {
@@ -133,6 +134,18 @@ export default {
 }
 .tg-button--white:active {
   background-color: #fff;
+}
+
+/* Red — gift CTA on green campaign pages (Poklon 50% 2026) */
+.tg-button--red {
+  background-color: #b03838;
+  border: 1px solid rgba(0, 0, 0, 0.09);
+}
+.tg-button--red:hover {
+  background-color: #962d2d;
+}
+.tg-button--red:active {
+  background-color: #b03838;
 }
 
 .tg-button:disabled {
